@@ -1,67 +1,67 @@
 ---
-title: Tutorial – usar modelos de início rápido
-description: Saiba como usar os modelos de início rápido do Azure para concluir o desenvolvimento do modelo.
+title: Tutorial - Use quickstart templates
+description: Learn how to use Azure Quickstart templates to complete your template development.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e38dfcd524a1b8fec8934a3a118147e358614a7b
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 1ddae445fb912b4bb60f257f667784b17b0d6ea5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143747"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405939"
 ---
-# <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: usar modelos de início rápido do Azure
+# <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Use Azure Quickstart templates
 
-Os [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) são um repositório de modelos contribuídos pela Comunidade. Você pode usar os modelos de exemplo em seu desenvolvimento de modelo. Neste tutorial, você encontrará uma definição de recurso de site e a adicionará ao seu próprio modelo. Leva cerca de **12 minutos** para ser concluída.
+[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) is a repository of community contributed templates. You can use the sample templates in your template development. In this tutorial, you find a website resource definition, and add it to your own template. It takes about **12 minutes** to complete.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre modelos exportados](template-tutorial-export-template.md), mas isso não é necessário.
+We recommend that you complete the [tutorial about exported templates](template-tutorial-export-template.md), but it's not required.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examine seu modelo
+## <a name="review-template"></a>Review template
 
-No final do tutorial anterior, seu modelo tinha o seguinte JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json)]
 
-Esse modelo funciona para implantar contas de armazenamento e planos do serviço de aplicativo, mas talvez você queira adicionar um site a ele. Você pode usar modelos predefinidos para descobrir rapidamente o JSON necessário para implantar um recurso.
+This template works for deploying storage accounts and app service plans, but you might want to add a website to it. You can use pre-built templates to quickly discover the JSON required for deploying a resource.
 
-## <a name="find-a-template"></a>Localizar um modelo
+## <a name="find-template"></a>Find template
 
-1. Abrir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/)
-1. Em **Pesquisar**, insira **implantar aplicativo Web do Linux**.
-1. Selecione aquele com o título **implantar um aplicativo Web Linux básico**. Se você tiver problemas para encontrá-lo, aqui está o [link direto](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
-1. Selecione **Procurar no GitHub**.
-1. Selecione **azuredeploy. JSON**.
-1. Examine o modelo. Em particular, procure o recurso `Microsoft.Web/sites`.
+1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
+1. In **Search**, enter **deploy linux web app**.
+1. Select the one with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Select **Browse on GitHub**.
+1. Select **azuredeploy.json**.
+1. Review the template. In particular, look for the `Microsoft.Web/sites` resource.
 
-    ![Site de início rápido do modelo do Resource Manager](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
+    ![Resource Manager template quickstart web site](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>Revisar o modelo existente
+## <a name="revise-existing-template"></a>Revise existing template
 
-Mescle o modelo de início rápido com o modelo existente:
+Merge the quickstart template with the existing template:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
 
-O nome do WebApp deve ser exclusivo no Azure. Para evitar a existência de nomes duplicados, a variável **webAppPortalName** foi atualizada de **"webAppPortalName": "[Concat (Parameters (' webappname '), '-webapp ')]"** para **"webAppPortalName": "[Concat (Parameters (' webapp '), uniquestring (resourcegroup (). ID))]"** .
+The web app name needs to be unique across Azure. To prevent having duplicate names, the **webAppPortalName** variable has been updated from **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** to **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** .
 
-Adicione uma vírgula ao final da definição de `Microsoft.Web/serverfarms` para separar a definição de recurso da definição de `Microsoft.Web/sites`.
+Add a comma at the end of the `Microsoft.Web/serverfarms` definition to separate the resource definition from the `Microsoft.Web/sites` definition.
 
-Há alguns recursos importantes a serem observados nesse novo recurso.
+There are a couple of important features to note in this new resource.
 
-Você notará que ele tem um elemento chamado **depends** que está definido como o plano do serviço de aplicativo. Essa configuração é necessária porque o plano do serviço de aplicativo deve existir antes que o aplicativo Web seja criado. O elemento **depends** informa ao Resource Manager como ordenar os recursos para implantação.
+You'll notice it has an element named **dependsOn** that is set to the app service plan. This setting is required because the app service plan must exist before the web app is created. The **dependsOn** element tells Resource Manager how to order the resources for deployment.
 
-A propriedade **serverFarmId** usa a função [ResourceId](resource-group-template-functions-resource.md#resourceid) . Essa função obtém o identificador exclusivo de um recurso. Nesse caso, ele obtém o identificador exclusivo para o plano do serviço de aplicativo. O aplicativo Web está associado a um plano específico do serviço de aplicativo.
+The **serverFarmId** property uses the [resourceId](resource-group-template-functions-resource.md#resourceid) function. This function gets the unique identifier for a resource. In this case, it gets the unique identifier for the app service plan. The web app is associated with one specific app service plan.
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-template"></a>Implementar o modelo
 
-Use CLI do Azure ou Azure PowerShell para implantar um modelo.
+Use either Azure CLI or Azure PowerShell to deploy a template.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -89,9 +89,9 @@ az group deployment create \
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -100,7 +100,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você aprendeu a usar um modelo de início rápido para o desenvolvimento de modelo. No próximo tutorial, você adicionará marcas aos recursos.
+You learned how to use a quickstart template for your template development. In the next tutorial, you add tags to the resources.
 
 > [!div class="nextstepaction"]
-> [Adicionar marcas](template-tutorial-add-tags.md)
+> [Add tags](template-tutorial-add-tags.md)

@@ -1,110 +1,109 @@
 ---
 title: Compreender o ciclo de vida de um esquema
-description: Saiba mais sobre o ciclo de vida que um plano gráfico passa e detalhes sobre cada estágio.
+description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960499"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404580"
 ---
-# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Understand the lifecycle of an Azure Blueprint
 
-Como muitos recursos no Azure, um plano gráfico nas plantas do Azure tem um ciclo de vida típico e natural. Eles são criados, implantados e, por fim, excluídos quando não forem mais necessários ou relevantes.
-Os planos gráficos oferecem suporte a operações de ciclo de vida padrão. Em seguida, ele se baseia neles para fornecer níveis adicionais de status que dão suporte a integração contínua comum e a pipelines de implantação contínua para organizações que gerenciam sua infraestrutura como código – um elemento-chave no DevOps.
+Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant.
+Blueprints supports standard lifecycle operations. It then builds upon them to provide additional levels of status that support common continuous integration and continuous deployment pipelines for organizations that manage their Infrastructure as Code – a key element in DevOps.
 
-Para entender totalmente um plano gráfico e os estágios, abordaremos um ciclo de vida padrão:
+To fully understand a blueprint and the stages, we'll cover a standard lifecycle:
 
 > [!div class="checklist"]
-> - Criando e editando um plano gráfico
-> - Publicando o Blueprint
-> - Criando e editando uma nova versão do Blueprint
-> - Publicando uma nova versão do Blueprint
-> - Excluindo uma versão específica do Blueprint
-> - Excluindo o plano gráfico
+> - Creating and editing a blueprint
+> - Publishing the blueprint
+> - Creating and editing a new version of the blueprint
+> - Publishing a new version of the blueprint
+> - Deleting a specific version of the blueprint
+> - Deleting the blueprint
 
-## <a name="creating-and-editing-a-blueprint"></a>Criando e editando um plano gráfico
+## <a name="creating-and-editing-a-blueprint"></a>Creating and editing a blueprint
 
-Ao criar um plano gráfico, adicione artefatos a ele, salve em um grupo de gerenciamento ou assinatura e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico agora está em um modo de **rascunho** e ainda não pode ser atribuído. No modo de **rascunho** , ele pode continuar a ser atualizado e alterado.
+When creating a blueprint, add artifacts to it, save to a management group or subscription, and provided a unique name and a unique version. The blueprint is now in a **Draft** mode and can't yet be assigned. While in the **Draft** mode, it can continue to be updated and changed.
 
-Um plano gráfico nunca publicado no modo de **rascunho** exibe um ícone diferente na página **definições do plano gráfico** do que os que foram **publicados**. A **versão mais recente** é exibida como **rascunho** para essas nunca publicadas.
+A never published blueprint in **Draft** mode displays a different icon on the **Blueprint Definitions** page than ones that have been **Published**. The **Latest Version** is displayed as **Draft** for these never published blueprints.
 
-Crie e edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
+Create and edit a blueprint with the [Azure portal](../create-blueprint-portal.md#create-a-blueprint) or [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
-## <a name="publishing-a-blueprint"></a>Publicando um plano gráfico
+## <a name="publishing-a-blueprint"></a>Publishing a blueprint
 
-Depois que todas as alterações planejadas forem feitas em um plano gráfico no modo de **rascunho** , elas poderão ser **publicadas** e disponibilizadas para atribuição. A versão **publicada** do Blueprint não pode ser alterada.
-Depois de **publicado**, o plano gráfico é exibido com um ícone diferente de planos gráficos de **rascunho** e exibe o número de versão fornecido na coluna **versão mais recente** .
+Once all planned changes have been made to a blueprint in **Draft** mode, it can be **Published** and made available for assignment. The **Published** version of the blueprint can't be altered. Once **Published**, the blueprint displays with a different icon than **Draft** blueprints and displays the provided version number in the **Latest Version** column.
 
-Publicar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#publish-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
+Publish a blueprint with the [Azure portal](../create-blueprint-portal.md#publish-a-blueprint) or [REST API](../create-blueprint-rest-api.md#publish-a-blueprint).
 
-## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criando e editando uma nova versão do Blueprint
+## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Creating and editing a new version of the blueprint
 
-Uma versão **publicada** de um plano gráfico não pode ser alterada. No entanto, uma nova versão do Blueprint pode ser adicionada ao plano gráfico existente e modificada conforme necessário. Faça alterações em um plano gráfico existente editando-o. Quando as novas alterações são salvas, o plano gráfico agora tem **alterações não publicadas**. Essas alterações são uma nova versão de **rascunho** do plano gráfico.
+A **Published** version of a blueprint can't be altered. However, a new version of the blueprint can be added to the existing blueprint and modified as needed. Make changes to an existing blueprint by editing it. When the new changes are saved, the blueprint now has **Unpublished Changes**. These changes are a new **Draft** version of the blueprint.
 
-Edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#edit-a-blueprint).
+Edit a blueprint with the [Azure portal](../create-blueprint-portal.md#edit-a-blueprint).
 
-## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicando uma nova versão do Blueprint
+## <a name="publishing-a-new-version-of-the-blueprint"></a>Publishing a new version of the blueprint
 
-Cada versão editada de um plano gráfico deve ser **publicada** antes que possa ser atribuída. Quando foram feitas **alterações não publicadas** em um plano gráfico, mas não **publicadas**, o botão **publicar Blueprint** está disponível na página Editar Blueprint. Se o botão não estiver visível, o plano gráfico já foi **publicado** e não tem **alterações não publicadas**.
-
-> [!NOTE]
-> Um único Blueprint pode ter várias versões **publicadas** que podem ser atribuídas a assinaturas.
-
-Para publicar um plano gráfico com **alterações não publicadas**, use as mesmas etapas para publicar um novo plano gráfico.
-
-## <a name="deleting-a-specific-version-of-the-blueprint"></a>Excluindo uma versão específica do Blueprint
-
-Cada versão de um plano gráfico é um objeto exclusivo e pode ser **publicada**individualmente. Assim, cada versão de um plano gráfico também pode ser excluída. A exclusão de uma versão de um plano gráfico não tem nenhum impacto sobre outras versões do plano gráfico.
+Each edited version of a blueprint must be **Published** before it can be assigned. When **Unpublished Changes** have been made to a blueprint but not **Published**, the **Publish Blueprint** button is available on the edit blueprint page. If the button isn't visible, the blueprint has already been **Published** and has no **Unpublished Changes**.
 
 > [!NOTE]
-> Não é possível excluir um plano gráfico com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
+> A single blueprint can have multiple **Published** versions that can each be assigned to subscriptions.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+To publish a blueprint with **Unpublished Changes**, use the same steps for publishing a new blueprint.
 
-1. Selecione **definições de plano gráfico** na página à esquerda e use as opções de filtro para localizar o plano gráfico para o qual você deseja excluir uma versão. Clique nela para abrir a página Editar.
+## <a name="deleting-a-specific-version-of-the-blueprint"></a>Deleting a specific version of the blueprint
 
-1. Clique na guia **versões publicadas** e localize a versão que você deseja excluir.
-
-1. Clique com o botão direito do mouse na versão a ser excluída e selecione **excluir esta versão**.
-
-## <a name="deleting-the-blueprint"></a>Excluindo o plano gráfico
-
-O plano gráfico principal também pode ser excluído. A exclusão do principal Blueprint também exclui todas as versões do Blueprint do plano gráfico, incluindo plantas de **rascunho** e **publicadas** . Assim como a exclusão de uma versão de um plano gráfico, a exclusão do plano gráfico principal não remove as atribuições existentes de nenhuma das versões do Blueprint.
+Each version of a blueprint is a unique object and can be individually **Published**. As such, each version of a blueprint can also be deleted. Deleting a version of a blueprint doesn't have any impact on other versions of that blueprint.
 
 > [!NOTE]
-> Não é possível excluir um plano gráfico com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
+> It's not possible to delete a blueprint that has active assignments. Delete the assignments first and then delete the version you wish to remove.
 
-Exclua um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#delete-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#delete-a-blueprint).
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
+
+1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
+
+1. Select the **Published versions** tab and locate the version you wish to delete.
+
+1. Right-click on the version to delete and select **Delete this version**.
+
+## <a name="deleting-the-blueprint"></a>Deleting the blueprint
+
+The core blueprint can also be deleted. Deleting the core blueprint also deletes any blueprint versions of that blueprint, including both **Draft** and **Published** blueprints. As with deleting a version of a blueprint, deleting the core blueprint doesn't remove the existing assignments of any of the blueprint versions.
+
+> [!NOTE]
+> It's not possible to delete a blueprint that has active assignments. Delete the assignments first and then delete the version you wish to remove.
+
+Delete a blueprint with the [Azure portal](../create-blueprint-portal.md#delete-a-blueprint) or [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
 
 ## <a name="assignments"></a>Atribuições
 
-Há vários pontos durante o ciclo de vida em que um plano gráfico pode ser atribuído a uma assinatura. Quando o modo de uma versão do plano gráfico é **publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um plano gráfico sejam usadas e atribuídas ativamente enquanto uma versão mais recente está sendo desenvolvida.
+There's several points during the lifecycle a blueprint can be assigned to a subscription. When the mode of a version of the blueprint is **Published**, then that version can be assigned to a subscription. This lifecycle enables versions of a blueprint to be used and actively assigned while a newer version is being developed.
 
-À medida que as versões de plantas são atribuídas, é importante entender onde elas são atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para saber mais, confira [parâmetros estáticos e dinâmicos](parameters.md).
+As versions of blueprints are assigned, it's important to understand where they're assigned and with what parameters they've been assigned with. The parameters can either be static or dynamic. To learn more, see [static and dynamic parameters](parameters.md).
 
-### <a name="updating-assignments"></a>Atualizando atribuições
+### <a name="updating-assignments"></a>Updating assignments
 
-Quando um plano gráfico é atribuído, a atribuição pode ser atualizada. Há várias razões para atualizar uma atribuição existente, incluindo:
+When a blueprint is assigned, the assignment can be updated. There are several reasons for updating an existing assignment, including:
 
-- Adicionar ou remover [bloqueio de recursos](resource-locking.md)
-- Alterar o valor de [parâmetros dinâmicos](parameters.md#dynamic-parameters)
-- Atualizar a atribuição para uma versão **publicada** mais recente do Blueprint
+- Add or remove [resource locking](resource-locking.md)
+- Change the value of [dynamic parameters](parameters.md#dynamic-parameters)
+- Upgrade the assignment to a newer **Published** version of the blueprint
 
-Para saber como, consulte [Atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+To learn how, see [update existing assignments](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Cancelando atribuição de atribuições
+### <a name="unassigning-assignments"></a>Unassigning assignments
 
-Se o plano gráfico não for mais necessário, ele poderá não ser atribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do plano gráfico, ocorre o seguinte:
+If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
 
-- Remoção do [bloqueio de recursos do Blueprint](resource-locking.md)
-- Exclusão do objeto de atribuição Blueprint
-- Condiciona Se uma **identidade gerenciada atribuída pelo sistema** foi usada, ela também será excluída
+- Removal of [blueprint resource locking](resource-locking.md)
+- Deletion of the blueprint assignment object
+- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
 
 > [!NOTE]
-> Todos os recursos implantados pela atribuição Blueprint permanecem em vigor, mas não são mais protegidos pelas plantas do Azure.
+> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
 
 ## <a name="next-steps"></a>Passos seguintes
 

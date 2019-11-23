@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 6b9e2020435ef1c8960cc95e481e46e7c1b6e8a6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220860"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383660"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Use Speech Service container with Kubernetes and Helm
 
@@ -77,7 +77,7 @@ secret "mcr" created
 To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 Executing the `kubectl get secrets` prints all the configured secrets.

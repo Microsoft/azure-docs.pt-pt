@@ -1,40 +1,40 @@
 ---
-title: Criar um recurso de Análise de Texto de serviços cognitivas
+title: Create a Cognitive Services Text Analytics resource
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso de Análise de Texto de serviços cognitivas.
+description: Learn how to create a Cognitive Services Text Analytics resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 6a9363472e1d5770232ca9a0b151fb309d9c4c75
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: d3b65174f3d161e0b8780a890f297d9d1c812b44
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377416"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383465"
 ---
-## <a name="create-a-cognitive-services-text-analytics-resource"></a>Criar um recurso de Análise de Texto de serviços cognitivas
+## <a name="create-a-cognitive-services-text-analytics-resource"></a>Create a Cognitive Services Text Analytics resource
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione **criar um recurso**e vá para **ia + Machine Learning** > **análise de texto**.
-   Ou vá para [criar análise de texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
-1. Insira todas as configurações necessárias:
+1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Text Analytics**.
+   Or, go to [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+1. Enter all the required settings:
 
     |Definição|Valor|
     |--|--|
-    |Nome|Insira um nome (2-64 caracteres).|
-    |Subscription|Selecione a assinatura apropriada.|
-    |Location|Selecione um local próximo.|
-    |Escalão de preço| Insira **S**, o tipo de preço Standard.|
-    |Resource group|Selecione um grupo de recursos disponível.|
+    |Nome|Enter a name (2-64 characters).|
+    |Subscrição|Select the appropriate subscription.|
+    |Localização|Select a nearby location.|
+    |Escalão de preço| Enter **S**, the standard pricing tier.|
+    |Grupo de recursos|Select an available resource group.|
 
-1. Selecione **criar**e aguarde até que o recurso seja criado. Seu navegador redireciona automaticamente para a página de recursos recém-criada.
-1. Coletar o configurado `endpoint` e uma chave de API:
+1. Select **Create**, and wait for the resource to be created. Your browser automatically redirects to the newly created resource page.
+1. Collect the configured `endpoint` and an API key:
 
-    |Guia de recursos no portal|Definição|Valor|
+    |Resource tab in portal|Definição|Valor|
     |--|--|--|
-    |**Descrição Geral**|Ponto Final|Copie o ponto de extremidade. Ele é semelhante a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
-    |**Novas**|Chave de API|Copie uma das duas chaves. É uma cadeia de caracteres alfanumérica de 32 caracteres sem espaços ou traços: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|
+    |**Descrição geral**|Ponto Final|Copy the endpoint. It appears similar to `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Keys**|API Key|Copy one of the two keys. It's a 32-character alphanumeric string with no spaces or dashes: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

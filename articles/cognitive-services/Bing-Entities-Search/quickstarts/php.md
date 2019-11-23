@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando PHP'
+title: 'Quickstart: Send a search request to the REST API using PHP - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Entidade do Bing usando PHP e receber uma resposta JSON.
+description: Use this quickstart to send a request to the Bing Entity Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5d57924a22ee097cfe7f492d18b8f84e7e658f41
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478959"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323586"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Send a search request to the Bing Entity Search REST API using PHP
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Esse aplicativo simples do PHP envia uma consulta de pesquisa de notícias para a API e exibe a resposta. 
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple PHP application sends a news search query to the API, and displays the response. 
 
-Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful com
 
 ## <a name="search-entities"></a>Pesquisar entidades
 
-Para executar esta aplicação, siga os passos abaixo.
+Para executar esta aplicação, siga os seguintes passos.
 
 1. Crie um novo projeto PHP no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -84,7 +84,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Resposta**
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -150,7 +150,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência de API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

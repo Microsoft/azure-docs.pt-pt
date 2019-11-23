@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: a810b3b8b799777df6374bdcca85c1048f21e2dc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 22ec16f66c463cde49adbc9c472e461169df5eeb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225542"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383789"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use Computer Vision container with Kubernetes and Helm
 
@@ -77,7 +77,7 @@ secret "containerpreview" created
 To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 Executing the `kubectl get secrets` prints all the configured secrets.

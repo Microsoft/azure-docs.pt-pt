@@ -4,19 +4,19 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: 4e04151b420b3c5249b29edaec6723447c084f31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: eb61bf5734d0aea1534735b23a2b95b52000f5ad
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224431"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322912"
 ---
 | Recurso | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Aumentar horizontalmente | Event driven | Event driven | [Manual/autoscale](../articles/app-service/manage-scale-up.md) | 
-| Máximo de instâncias | 200 | 20 | 10-20 |
+| Máximo de instâncias | 200 | 100 | 10-20 |
 |Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
-|Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded | unbounded<sup>3</sup> |
+|Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | unbounded<sup>3</sup> |
 | Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded |
 | Max request size (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Max query string length<sup>4</sup> | 4096 | 4096 | 4096 |

@@ -1,26 +1,26 @@
 ---
-title: Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior | Documentos da Microsoft
-description: Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior.
+title: Troubleshoot legacy hybrid Azure Active Directory joined devices
+description: Troubleshooting hybrid Azure Active Directory joined down-level devices.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7f02937555f7637a6d2f81be717aaad83bab74f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481464"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379107"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Troubleshooting hybrid Azure Active Directory joined down-level devices 
 
-Este artigo é aplicável apenas aos seguintes dispositivos: 
+This article is applicable only to the following devices: 
 
 - Windows 7 
 - Windows 8.1 
@@ -28,81 +28,81 @@ Este artigo é aplicável apenas aos seguintes dispositivos:
 - Windows Server 2012 
 - Windows Server 2012 R2 
 
-Para Windows 10 ou Windows Server 2016, veja [híbrido de resolução de problemas do Azure Active Directory associou-se os dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).
+For Windows 10 or Windows Server 2016, see [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
 
-Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrida do Azure Active Directory](hybrid-azuread-join-plan.md) para suportar os cenários seguintes:
+This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
-- Acesso condicional com base no dispositivo
+- Device-based Conditional Access
 
-Este artigo fornece orientações sobre como resolver problemas potenciais de resolução de problemas.  
+This article provides you with troubleshooting guidance on how to resolve potential issues.  
 
-**O que deve saber:** 
+**What you should know:** 
 
-- Associação do Azure AD híbrido de nível inferior funciona de dispositivos do Windows forma um pouco diferente do que faz no Windows 10. Muitos clientes não perceber que precisam do AD FS (para domínios federados) ou o SSO totalmente integrado configurado (para domínios geridos).
-- Para clientes com domínios federados, se o ponto de ligação de serviço (SCP) tiver sido configurado, de modo a que aponte para o nome de domínio geridos (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), em seguida, híbrido do Azure AD Join para dispositivos do Windows de nível inferior será não funcionam.
-- O número máximo de dispositivos por utilizador atualmente também se aplica a dispositivos de associados ao Azure AD híbrido de nível inferior. 
-- É apresentada no mesmo dispositivo físico várias vezes no Azure AD quando vários usuários de domínio início de sessão os dispositivos de associados ao Azure AD híbrido nível inferior.  Por exemplo, se *jdoe* e *jharnett* início de sessão a um dispositivo, um registo separados (DeviceID) é criada para cada uma no **utilizador** separador informações. 
-- Também pode obter várias entradas para um dispositivo no separador de informações de utilizador devido a uma reinstalação do sistema operativo ou um novo registo manual.
-- O registo inicial / associação de dispositivos é configurada para executar uma tentativa de início de sessão ou bloqueio / desbloqueio. Pode haver atraso de 5 minutos, acionado por uma tarefa do agendador de tarefas. 
-- Certifique-se [KB4284842](https://support.microsoft.com/help/4284842) estiver instalado, no caso do Windows 7 SP1 ou Windows Server 2008 R2 SP1. Esta atualização impede que as falhas de autenticação de futuras devido a perda de acesso do cliente para chaves protegidas depois de alterar a palavra-passe.
+- Hybrid Azure AD join for downlevel Windows devices works slightly differently than it does in Windows 10. Many customers do not realize that they need AD FS (for federated domains) or Seamless SSO configured (for managed domains).
+- For customers with federated domains, if the Service Connection Point (SCP) was configured such that it points to the managed domain name (for example, contoso.onmicrosoft.com, instead of contoso.com), then Hybrid Azure AD Join for downlevel Windows devices will not work.
+- The maximum number of devices per user currently also applies to downlevel hybrid Azure AD joined devices. 
+- The same physical device appears multiple times in Azure AD when multiple domain users sign-in the downlevel hybrid Azure AD joined devices.  For example, if *jdoe* and *jharnett* sign-in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab. 
+- You can also get multiple entries for a device on the user info tab because of a reinstallation of the operating system or a manual re-registration.
+- The initial registration / join of devices is configured to perform an attempt at either sign-in or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
+- Make sure [KB4284842](https://support.microsoft.com/help/4284842) is installed, in case of Windows 7 SP1 or Windows Server 2008 R2 SP1. This update prevents future authentication failures due to customer's access loss to protected keys after changing password.
 
-## <a name="step-1-retrieve-the-registration-status"></a>Passo 1: Obter o estado do registo 
+## <a name="step-1-retrieve-the-registration-status"></a>Step 1: Retrieve the registration status 
 
-**Para verificar o estado do registo:**  
+**To verify the registration status:**  
 
-1. Início de sessão com a conta de utilizador que efetuou a associação do Azure AD híbrido.
-1. Abra a linha de comandos 
-1. Tipo `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
+1. Sign on with the user account that has performed a hybrid Azure AD join.
+1. Open the command prompt 
+1. Escreva `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
-Este comando apresenta uma caixa de diálogo que lhe fornece detalhes sobre o estado de associação.
+This command displays a dialog box that provides you with details about the join status.
 
-![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Passo 2: Avaliar a Estado de associação ao Azure AD de híbrida 
+## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Step 2: Evaluate the hybrid Azure AD join status 
 
-Se o dispositivo não tiver sido associado ao Azure AD híbrido, pode tentar fazer a associação ao Azure AD híbrido ao clicar no botão "Associar". Se a tentativa de fazer a associação do híbrida do Azure AD falhar, os detalhes sobre a falha serão apresentados.
+If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure AD join by clicking on the "Join" button. If the attempt to do hybrid Azure AD join fails, the details about the failure will be shown.
 
-**Os problemas mais comuns são:**
+**The most common issues are:**
 
-- Um configurado incorretamente do AD FS ou o Azure AD ou problemas de rede
+- A misconfigured AD FS or Azure AD or Network issues
 
-    ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-   - Autoworkplace.exe não conseguiu autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se em falta ou configurado incorretamente o AD FS (para domínios federados) ou em falta ou incorrectamente configurado do Azure AD totalmente integrada início de sessão único (para domínios geridos) ou problemas de rede. 
-   - É possível que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMULTIAUTHN não está configurado no servidor do AD FS. 
-   - Outra possibilidade é essa página de deteção (HRD) de realm inicial está a aguardar interação do usuário, que impede **autoworkplace.exe** silenciosamente solicitem um token.
-   - É possível que o AD FS e URLs do Azure AD estão em falta na zona de intranet do IE no cliente.
-   - Problemas de conectividade de rede podem estar a impedir **autoworkplace.exe** chegue do AD FS ou os URLs de AD do Azure. 
-   - **Autoworkplace.exe** exige que o cliente ter direta linha de visão do cliente com local a organização do controlador de domínio do AD, que significa que essa associação do Azure AD híbrido é bem-sucedida apenas quando o cliente está ligado à intranet da organização.
-   - Sua organização utiliza o Azure AD totalmente integrada início de sessão único, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estão presentes nas definições de intranet de IE do dispositivo, e **permitir atualizações à barra de estado por meio de script** não está ativada para a zona da Intranet.
-- Não tem sessão iniciada como um utilizador de domínio
+   - Autoworkplace.exe is unable to silently authenticate with Azure AD or AD FS. This could be caused by missing or misconfigured AD FS (for federated domains) or missing or misconfigured Azure AD Seamless Single Sign-On (for managed domains) or network issues. 
+   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
+   - Another possibility is that home realm discovery (HRD) page is waiting for user interaction, which prevents **autoworkplace.exe** from silently requesting a token.
+   - It could be that AD FS and Azure AD URLs are missing in IE's intranet zone on the client.
+   - Network connectivity issues may be preventing **autoworkplace.exe** from reaching AD FS or the Azure AD URLs. 
+   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
+   - Your organization uses Azure AD Seamless Single Sign-On, `https://autologon.microsoftazuread-sso.com` or `https://aadg.windows.net.nsatc.net` are not present on the device's IE intranet settings, and **Allow updates to status bar via script** is not enabled for the Intranet zone.
+- You are not signed on as a domain user
 
-   ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
 
-   Há alguns motivos diferentes, por que isso pode ocorrer:
+   There are a few different reasons why this can occur:
 
-   - O utilizador com sessão iniciada não é um utilizador de domínio (por exemplo, um utilizador local). Associação do Azure AD híbrido em dispositivos de nível inferior é suportada apenas para utilizadores de domínio.
-   - O cliente não é possível estabelecer ligação com um controlador de domínio.    
-- Foi atingida uma quota
+   - The signed in user is not a domain user (for example, a local user). Hybrid Azure AD join on down-level devices is supported only for domain users.
+   - The client is not able to connect to a domain controller.    
+- A quota has been reached
 
-    ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
 
-- O serviço não está a responder 
+- The service is not responding 
 
-    ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Também pode encontrar as informações de estado no registo de eventos em: **Aplicações e serviços a associação à área de trabalho a Log\Microsoft**
+You can also find the status information in the event log under: **Applications and Services Log\Microsoft-Workplace Join**
   
-**As causas mais comuns para uma associação do Azure AD híbrido de falha são:** 
+**The most common causes for a failed hybrid Azure AD join are:** 
 
-- O computador não está ligado à rede interna da sua organização ou para uma VPN com uma ligação com o local do controlador de domínio do AD.
-- Tiver sessão iniciada seu computador com uma conta de computador local. 
-- Problemas de configuração do serviço: 
-   - Servidor do AD FS não foi configurado para suportar **WIAORMULTIAUTHN**. 
-   - Floresta do seu computador não tem qualquer objeto de ponto de ligação de serviço que aponta para o seu nome de domínio verificado no Azure AD 
-   - Ou se o seu domínio gerido, não foi configurado o SSO totalmente integrado ou está a funcionar.
-   - Um utilizador atingir o limite de dispositivos. 
+- Your computer is not connected to your organization’s internal network or to a VPN with a connection to your on-premises AD domain controller.
+- You are logged on to your computer with a local computer account. 
+- Service configuration issues: 
+   - The AD FS server has not been configured to support **WIAORMULTIAUTHN**. 
+   - Your computer's forest has no Service Connection Point object that points to your verified domain name in Azure AD 
+   - Or if your domain is managed, then Seamless SSO was not configured or working.
+   - A user has reached the limit of devices. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para perguntas, consulte o [perguntas frequentes de gestão de dispositivos](faq.md)  
+For questions, see the [device management FAQ](faq.md)  

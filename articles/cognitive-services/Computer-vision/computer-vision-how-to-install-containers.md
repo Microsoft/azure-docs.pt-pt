@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d63108159b0880fb4b7bc3e8d78ba89ac96b47a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c65ed214747fd6a3729c2e9acff5489f5fa1b9d7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222210"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323614"
 ---
-# <a name="install-and-run-read-containers"></a>Install and run Read containers
+# <a name="install-and-run-read-containers-preview"></a>Install and run Read containers (Preview)
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 

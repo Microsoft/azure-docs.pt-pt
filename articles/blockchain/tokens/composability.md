@@ -1,88 +1,84 @@
 ---
-title: Capacidade de composição dos tokens Blockchain do Azure
-description: A capacidade de composição dos tokens do Azure Blockchain fornece flexibilidade para criar tokens para cenários avançados.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Tokens composability
+description: Azure Blockchain Tokens composability provides flexibility to create tokens for advanced scenarios.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: a82d7ba606eac5dcafc26b1a8527810a5a21840d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a3fe1b290917de20b7c3af31fe386ed93580d850
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577122"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325124"
 ---
-# <a name="azure-blockchain-tokens-composability"></a>Capacidade de composição dos tokens Blockchain do Azure
+# <a name="azure-blockchain-tokens-composability"></a>Azure Blockchain Tokens composability
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-A capacidade de composição de token fornece flexibilidade para criar tokens para cenários avançados. Você pode ter um cenário complexo que não pode ser implementado usando os [quatro modelos de token pré-criados](templates.md#base-token-types). A composição de tokens permite que você projete seus próprios modelos de token adicionando ou removendo comportamentos definidos para criar seu próprio modelo de token. Ao criar um novo modelo de token, os tokens de Blockchain do Azure verificam todas as regras de gramática de token. Modelos compostos são salvos no serviço tokens Blockchain do Azure para emissão em redes Blockchain conectadas.
+Token composability provides flexibility to create tokens for advanced scenarios. You may have a complex scenario that cannot be implemented using the [four pre-built token templates](templates.md#base-token-types). Token composability allows you to design your own token templates by adding or removing defined behaviors to build your own token template. When creating a new token template, Azure Blockchain Tokens verifies all token grammar rules. Composed templates are saved in Azure Blockchain Tokens service for issuing on connected blockchain networks.
 
-Você pode usar os [comportamentos de token](templates.md#token-behaviors) nas seções a seguir para criar seu modelo de token.
+You can use the [token behaviors](templates.md#token-behaviors) in the following sections to design your token template.
 
-## <a name="burnable-b"></a>Gravável (b)
+## <a name="burnable-b"></a>Burnable (b)
 
-Capacidade de remover os tokens do fornecimento.
+Ability to remove the tokens from supply.
 
-Por exemplo, quando você resgatar pontos de cartão de crédito online para um cartão de presente, os pontos de cartão de crédito são gravados.
+For example, when you redeem online credit card points for a gift card, the credit card points are burned.
 
-## <a name="delegable-g"></a>Delegáveis (g)
+## <a name="delegable-g"></a>Delegable (g)
 
-Capacidade de delegar as ações executadas no token que você possui.
+Ability to delegate the actions taken on the token that you own.
 
-O delegado pode executar ações como o proprietário do token. Por exemplo, você pode usar um token delegáveis para implementar um voto. Um token delegáveis permite que o proprietário do token de votação faça com que outra pessoa vote em seu nome.
+The delegate can perform actions as the owner of the token. For example, you could use a delegable token to implement a vote. A delegable token allows the vote token owner to have someone else vote on their behalf.
 
 ## <a name="logable-l"></a>Logable (l)
 
-Capacidade de fazer logon.
+Ability to log.
 
-Por exemplo, você pode emitir um token logable para uma distribuição de filme para cada teatro mostrando um filme específico. Para que o filme seja reproduzido, a exibição deve registrar uma transação para cada mostrada porque os pagamentos de royalties são exibidos durante a execução do filme. A compilação dos atores pode usar os tokens de filme para validar pagamentos por filme mostrados por teatro na distribuição.
+For example, you can issue a logable token for a movie distribution to each theater showing a specific movie. For the movie to be played, the showing must log a transaction for each showing because royalty payouts are per showing during the movie's release run. The actors build can use the movie tokens to validate payouts per movie showing per theater in the distribution.
 
-## <a name="mint-able-m"></a>Com capacidade de menta (m)
+## <a name="mint-able-m"></a>Mint-able (m)
 
-Capacidade de mentar tokens adicionais para a classe de token. A função de mentais inclui o comportamento mentable.
+Ability to mint additional tokens for the token class. The minter role includes the mintable behavior.
 
-Por exemplo, uma empresa de varejo, que deseja implementar um programa de fidelidade, pode usar tokens mentais para seu programa de fidelidade. Eles podem mentar pontos de fidelidade adicionais para seus clientes à medida que sua base de clientes cresce.  
+For example, a retail company, which wants to implement a loyalty program can use mintable tokens for their loyalty program. They can mint additional loyalty points for their customers as their customer base grows.  
 
-## <a name="non-subdividable-or-whole-d"></a>Não subdividable ou total (~ d)
+## <a name="non-subdividable-or-whole-d"></a>Non-subdividable or whole (~d)
 
-Restrição para impedir que um token seja dividido em partes menores.
+Restriction to prevent a token from being divided into smaller parts.
 
-Por exemplo, uma única pintura de arte não pode ser subdividida em várias partes menores. 
+For example, a single art painting cannot be subdivided into multiple smaller parts. 
 
-## <a name="non-transferable-t"></a>Não transferível (~ t)
+## <a name="non-transferable-t"></a>Non-transferable (~t)
 
-Restrição para impedir uma alteração de Propriedade do proprietário do token inicial.
+Restriction to prevent a change of ownership from the initial token owner.
 
-Por exemplo, um diploma de Universidade é um token não transferível. Depois que um diploma é dado a uma forma de graduação, ele não pode ser transferido do graduação para outra pessoa.
+For example, a university diploma is a non-transferable token. Once a diploma is given to a graduate, it cannot be transferred from the graduate to another person.
 
-## <a name="roles-r"></a>Funções (r)
+## <a name="roles-r"></a>Roles (r)
 
-Capacidade de definir funções dentro da classe de modelo de token para comportamentos específicos.
+Ability to define roles within the token template class for specific behaviors.
 
-Você pode fornecer uma lista de nomes de função que um token dá suporte no momento da criação do token. Quando as funções são especificadas, o usuário pode atribuir funções a esses comportamentos. Atualmente, há suporte apenas para a função de mentador.
+You can provide a list of role names that a token supports at the token creation time. When roles are specified, the user can assign roles to these behaviors. Currently, only the minter role is supported.
 
 ## <a name="singleton-s"></a>Singleton (s)
 
-Restrição para permitir um fornecimento de um token.
+Restriction to allow a supply of one token.
 
-Por exemplo, um artefato de museu é um token singleton. Os artefatos do Museu são exclusivos. Um token que representa um artefato tem apenas um único item no fornecimento.
+For example, a museum artifact is a singleton token. Museum artifacts are unique. A token representing an artifact only has a single item in the supply.
 
 ## <a name="subdividable-d"></a>Subdividable (d)
 
-Capacidade de dividir um token em partes menores.
+Ability to divide a token into smaller parts.
 
-Por exemplo, um dólar pode ser subdividido em centavos.
+For example, a dollar can be subdivided into cents.
 
-## <a name="transferable-t"></a>Transferível (t)
+## <a name="transferable-t"></a>Transferable (t)
 
-Capacidade de transferir a propriedade do token.
+Ability to transfer ownership of the token.
 
-Por exemplo, um título de propriedade é um token transferível, que pode ser transferido de uma pessoa para outra quando a propriedade é vendida.
+For example, a property title is a transferable token, which can be transferred from one person to another when the property is sold.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [Gerenciamento de contas do Azure Blockchain tokens](account-management.md).
+Learn about [Azure Blockchain Tokens account management](account-management.md).

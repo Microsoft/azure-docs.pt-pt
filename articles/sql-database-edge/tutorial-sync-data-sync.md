@@ -1,7 +1,7 @@
 ---
-title: Sincronizar dados do Azure SQL Database Edge usando o Sincronização de Dados SQL | Microsoft Docs
-description: Saiba mais sobre a sincronização de dados entre o Azure SQL Database Edge com o Azure Sincronização de Dados SQL
-keywords: borda do banco de dados SQL, sincronização de dados da borda do banco de dados SQL, sincronização de dado do SQL Database Edge
+title: Sync data from Azure SQL Database Edge by using SQL Data Sync | Microsoft Docs
+description: Learn about syncing data from Azure SQL Database Edge by using Azure SQL Data Sync
+keywords: sql database edge,sync data from sql database edge, sql database edge data sync
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: tutorial
@@ -9,55 +9,55 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 857cee30ac4c1002fb7ca57d6be5fa461a14e9ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c38ba6dbabef4affd8672295a93d46fd4b0e494
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501317"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384173"
 ---
-# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-using-sql-data-sync"></a>Tutorial: sincronizar dados do SQL Database Edge para o Azure SQL usando Sincronização de Dados SQL
+# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sync data from SQL Database Edge to Azure SQL Database by using SQL Data Sync
 
-Neste tutorial, você aprenderá a usar Sincronização de Dados SQL grupo de *sincronização* para sincronizar de forma incremental dados do Azure SQL Database Edge para o banco de dado SQL do Azure. O Sincronização de Dados SQL é um serviço criado no banco de dados SQL do Azure que permite sincronizar o bi-Directional em vários bancos de dado SQL e SQL Server instâncias. Para obter mais informações sobre Sincronização de Dados SQL do Azure, consulte [sincronização de dados SQL do Azure](../sql-database/sql-database-sync-data.md).
+In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Database Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](../sql-database/sql-database-sync-data.md).
 
-Como o Azure SQL Database Edge é criado nas versões mais recentes do [mecanismo de banco de dados do Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation/), qualquer mecanismo de sincronização de dados aplicável a uma instância de SQL Server local também pode ser usado para sincronizar dados de ou para uma borda de banco de dado SQL instância em execução em um dispositivo de borda.
+Because SQL Database Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), any data synchronization mechanism that's applicable to an on-premises SQL Server instance can also be used to sync data to or from a SQL Database Edge instance running on an edge device.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial requer um computador Windows configurado com o [agente de sincronização de dados SQL do Azure](../sql-database/sql-database-data-sync-agent.md).
+This tutorial requires a Windows computer configured with the [Data Sync Agent for Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Crie um banco de dados SQL do Azure. Para obter informações sobre como criar um banco de dados SQL do Azure usando portal do Azure, consulte [criar um banco de dados individual no banco de dados SQL do Azure](../sql-database/sql-database-single-database-get-started.md?tabs=azure-portal).
+* Crie uma Base de Dados SQL do Azure. For information on how to create an Azure SQL database by using the Azure portal, see [Create a single database in Azure SQL Database](../sql-database/sql-database-single-database-get-started.md?tabs=azure-portal).
 
-* Crie as tabelas e outros objetos necessários na implantação do banco de dados SQL do Azure.
+* Create the tables and other necessary objects in your Azure SQL Database deployment.
 
-* Crie as tabelas e os objetos necessários na implantação de borda do banco de dados SQL do Azure. Para obter mais informações, consulte [usando pacotes de DAC do banco de dados SQL com borda do banco de dados SQL](stream-analytics.md).
+* Create the necessary tables and objects in your Azure SQL Database Edge deployment. For more information, see [Using SQL Database DAC packages with SQL Database Edge](stream-analytics.md).
 
-* Registre a instância de borda do banco de dados SQL do Azure com o agente de Sincronização de Dados SQL do Azure. Para obter mais informações, consulte [Adicionar um banco de dados SQL Server local](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem).
+* Register the Azure SQL Database Edge instance with the Data Sync Agent for Azure SQL Data Sync. For more information, see [Add an on-premises SQL Server database](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem).
 
-## <a name="sync-data-between-an-azure-sql-database-and-sql-database-edge"></a>Sincronizar dados entre um banco de dados SQL do Azure e a borda do banco de dados SQL
+## <a name="sync-data-between-an-azure-sql-database-and-sql-database-edge"></a>Sync data between an Azure SQL database and SQL Database Edge
 
-Configurar a sincronização entre um banco de dados SQL do Azure e uma instância de borda do banco de dados SQL usando Sincronização de Dados SQL envolve três etapas principais.  
+Setting up synchronization between an Azure SQL database and a SQL Database Edge instance by using SQL Data Sync involves three key steps:  
 
-1. Use portal do Azure para criar um grupo de sincronização. Para criar o grupo de sincronização, consulte [Criar grupo de sincronização usando portal do Azure](../sql-database/sql-database-get-started-sql-data-sync.md#create-sync-group). O mesmo banco de dados de *Hub* pode ser usado para criar vários grupos de sincronização diferentes para sincronizar dados de instâncias diferentes do banco de dados SQL para um ou mais bancos de dado SQL no Azure.
+1. Use the Azure portal to create a sync group. For more information, see [Create a sync group](../sql-database/sql-database-get-started-sql-data-sync.md#create-sync-group). You can use a single *hub* database to create multiple sync groups to synchronize data from various SQL Database Edge instances to one or more SQL databases in Azure.
 
-2. Adicione membros de sincronização ao grupo de sincronização. Para adicionar membros ao grupo de sincronização, consulte [adicionar membros ao grupo de sincronização de dados SQL](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members).
+2. Add sync members to the sync group. For more information, see [Add sync members](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members).
 
-3. Configure o grupo de sincronização para selecionar as tabelas que serão parte dessa sincronização. Para configurar o grupo de sincronização, consulte [Configurar grupo de sincronização](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members).
+3. Set up the sync group to select the tables that will be part of the synchronization. For more information, see [Configure a sync group](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members).
 
-Depois de concluir as etapas acima, você terá um grupo de sincronização que inclui um banco de dados SQL do Azure e uma instância de borda do banco de dados SQL.
+After you complete the preceding steps, you'll have a sync group that includes an Azure SQL database and a SQL Database Edge instance.
 
-Para obter mais informações sobre Sincronização de Dados SQL, veja os seguintes artigos:
+For more info about SQL Data Sync, see these articles:
 
-* [Agente de sincronização de dados para Sincronização de Dados SQL do Azure](../sql-database/sql-database-data-sync-agent.md)
+* [Data Sync Agent for Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md)
 
-* [Práticas recomendadas](../sql-database/sql-database-best-practices-data-sync.md) e [como solucionar problemas com o Azure sincronização de dados SQL](../sql-database/sql-database-troubleshoot-data-sync.md)
+* [Best practices](../sql-database/sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](../sql-database/sql-database-troubleshoot-data-sync.md)
 
-* [Monitorar Sincronização de Dados SQL com logs de Azure Monitor](../sql-database/sql-database-sync-monitor-oms.md)
+* [Monitor SQL Data Sync with Azure Monitor logs](../sql-database/sql-database-sync-monitor-oms.md)
 
-* [Atualizar o esquema de sincronização com o Transact-SQL](../sql-database/sql-database-update-sync-schema.md) ou o [PowerShell](../sql-database/scripts/sql-database-sync-update-schema.md)
+* [Update the sync schema with Transact-SQL](../sql-database/sql-database-update-sync-schema.md) or [PowerShell](../sql-database/scripts/sql-database-sync-update-schema.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use o PowerShell para sincronizar entre o banco de dados SQL do Azure e a borda do banco de dados SQL](../sql-database/scripts/sql-database-sync-data-between-azure-onprem.md). No tutorial, substitua os detalhes do banco de dados *OnPremiseServer* com os detalhes de borda do banco de dados SQL do Azure.
+* [Use PowerShell to sync between Azure SQL Database and Azure SQL Database Edge](../sql-database/scripts/sql-database-sync-data-between-azure-onprem.md). In this tutorial, replace the `OnPremiseServer` database details with the Azure SQL Database Edge details.

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9644e89591d7d8b7642b5f381434357191d1711
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ebb2fcf0f626a82bcb5e6439183ba98c39c58588
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226588"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322902"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions scale and hosting
 
@@ -27,9 +27,6 @@ Both Consumption and Premium plans automatically add compute power when your cod
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
 App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) is enabled.)
-
-> [!NOTE]
-> You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
 
 ## <a name="hosting-plan-support"></a>Hosting plan support
 

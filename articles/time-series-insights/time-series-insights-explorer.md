@@ -1,6 +1,6 @@
 ---
-title: Explorar dados usando o Gerenciador-Azure Time Series Insights | Microsoft Docs
-description: Saiba como usar o Azure Time Series Insights Explorer para exibir seus dados de IoT.
+title: Explore data using the explorer - Azure Time Series Insights  | Microsoft Docs
+description: Learn how to use the Azure Time Series Insights explorer to view your IoT data.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,121 +10,121 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df895f99b64d30506bc9457fb5bdc54a2182b5fe
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012639"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327793"
 ---
-# <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
+# <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 
-Este artigo descreve os recursos e as opções de disponibilidade geral para o [aplicativo web Azure Time Series insights Explorer](https://insights.timeseries.azure.com/). O Time Series Insights Explorer demonstra os poderosos recursos de visualização de dados fornecidos pelo serviço e podem ser acessados em seu próprio ambiente.
+This article describes the features and options in general availability for the Azure Time Series Insights [explorer web app](https://insights.timeseries.azure.com/). The Time Series Insights explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
 
-O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. Ele fornece uma exibição global dos seus dados, o que permite que você valide rapidamente sua solução de IoT e evite um tempo de inatividade dispendioso para dispositivos de missão crítica. Você pode descobrir tendências ocultas, detectar anomalias e realizar análises de causa raiz quase em tempo real. O Time Series Insights Explorer está atualmente em visualização pública.
+O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
 
 > [!TIP]
-> Para obter um tour guiado por meio do ambiente de demonstração, leia o guia de [início rápido do Azure Time Series insights](time-series-quickstart.md).
+> For a guided tour through the demonstration environment, read the [Azure Time Series Insights quickstart](time-series-quickstart.md).
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Saiba mais sobre como consultar dados usando o Time Series Insights Explorer. </br>
+### <a name="learn-about-querying-data-by-using-the-time-series-insights-explorer-br"></a>Learn about querying data by using the Time Series Insights explorer. </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Consulte o vídeo anterior <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"introdução ao time Series insights usando um acelerador de solução do Azure IOT".</a>
+>See the preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with Time Series Insights by using an Azure IoT Solution Accelerator."</a>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder usar o Time Series Insights Explorer, você deve:
+Before you can use Time Series Insights explorer, you must:
 
-- Crie um ambiente do Time Series Insights. Para obter mais informações, consulte como começar a [usar Time Series insights](./time-series-insights-get-started.md).
-- [Forneça acesso](time-series-insights-data-access.md) à sua conta no ambiente.
-- Adicione um [Hub IOT](time-series-insights-how-to-add-an-event-source-iothub.md) ou origem do evento do [Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) a ele.
+- Create a Time Series Insights environment. For more information, see [How to get started with Time Series Insights](./time-series-insights-get-started.md).
+- [Provide access](time-series-insights-data-access.md) to your account in the environment.
+- Add an [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) or [event hub](time-series-insights-how-to-add-an-event-source-eventhub.md) event source to it.
 
-## <a name="explore-and-query-data"></a>Explorar e consultar dados
+## <a name="explore-and-query-data"></a>Explore and query data
 
-Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insights, você pode explorar e consultar seus dados de série temporal.
+Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
 
-1. Para iniciar, abra o [Time Series insights Explorer](https://insights.timeseries.azure.com/) em seu navegador da Web. No lado esquerdo da janela, selecione um ambiente. Todos os ambientes aos quais você tem acesso estão listados em ordem alfabética.
+1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser. On the left side of the window, select an environment. All environments that you have access to are listed in alphabetical order.
 
-1. Depois de selecionar um ambiente, use as configurações **de** e **para** na parte superior, ou clique e arraste sobre o período desejado. Selecione a lupa no canto superior direito ou clique com o botão direito do mouse no período de tempo selecionado e selecione **Pesquisar**.
+1. After you select an environment, either use the **From** and **To** configurations at the top, or click and drag over the timespan you want. Select the magnifying glass in the upper-right corner, or right-click on the selected timespan and select **Search**.
 
-1. Você também pode atualizar a disponibilidade automaticamente a cada minuto selecionando o botão **automático** . O botão **auto on** só se aplica ao gráfico de disponibilidade, não ao conteúdo da visualização principal.
+1. You also can refresh availability automatically every minute by selecting the **Auto On** button. The **Auto On** button only applies to the availability chart, not the content of the main visualization.
 
-1. O ícone de nuvem do Azure leva você ao seu ambiente no portal do Azure.
+1. The Azure cloud icon takes you to your environment in the Azure portal.
 
-   [ambiente de Time Series Insights ![](media/time-series-insights-explorer/explorer1.png)](media/time-series-insights-explorer/explorer1.png#lightbox)
+   [![Time Series Insights environment selection](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. Em seguida, você verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado. Aqui você tem vários controles:
+1. Next, you see a chart that shows a count of all events during the selected timespan. Here you have a number of controls:
 
-    - **Painel de termos do editor**: o termo espaço é onde você consulta seu ambiente. Ele é encontrado no lado esquerdo da tela:
-      - **Medida**: essa lista suspensa mostra todas as colunas numéricas (**duplas**).
-      - **Dividir por**: essa lista suspensa mostra colunas categóricas (**cadeias de caracteres**).
-      - Você pode habilitar a interpolação de etapa, mostrar mínimo e máximo e ajustar o eixo y do painel de controle ao lado de **medida**. Você também pode ajustar se os dados mostrados são uma contagem, média ou soma dos dados.
-      - Você pode adicionar até cinco termos para exibir no mesmo eixo x. Use o botão de **cópia** para adicionar um termo adicional ou selecione **Adicionar** para adicionar um novo termo.
+    - **Terms Editor panel**: The term space is where you query your environment. It’s found on the left side of the screen:
+      - **MEASURE**: This drop-down list shows all numeric columns (**Doubles**).
+      - **SPLIT BY**: This drop-down list shows categorical columns (**Strings**).
+      - You can enable step interpolation, show minimum and maximum, and adjust the y-axis from the control panel next to **MEASURE**. You also can adjust whether data shown is a count, average, or sum of the data.
+      - You can add up to five terms to view on the same x-axis. Select **Add** to add a fresh term or use the **Clone this term** button to add a copy of an existing term.
 
-        [painel do editor de termos de ![](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
+        [![Terms selection, filtering, and query panel](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
 
-      - **Predicado**: Use o predicado para filtrar rapidamente seus eventos usando o conjunto de operandos listados na tabela a seguir. Se você realizar uma pesquisa selecionando ou clicando em, o predicado é atualizado automaticamente com base nessa pesquisa. Tipos de operando suportados incluem:
+      - **Predicate**: Use the predicate to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting or clicking, the predicate automatically updates based on that search. Supported operand types include:
 
-         |Operação  |Tipos suportados  |Notas  |
+         |Operação  |Supported types  |Notas  |
          |---------|---------|---------|
-         |`<`, `>`, `<=`, `>=`     |  Período de tempo de Double, DateTime,       |         |
-         |`=`, `!=`, `<>`     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |         |
-         |IN     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
-         |ATINGIU     | Cadeia        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos.       |
+         |**<** , **>** , **<=** , **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
+         |**=** , **!=** , **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
+         |**IN**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  All operands should be of the same type or be **NULL** constant.        |
+         |**HAS**     | **String**        |  Only constant string literals are allowed at the right side. Empty string and **NULL** aren't allowed.       |
 
-      - **Exemplos de consultas**
+      - **Example queries**
 
-         [![consultas de exemplo](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
+         [![Example GA queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. Você pode usar a ferramenta controle deslizante de **tamanho do intervalo** para ampliar e reduzir intervalos no mesmo período de tempo. O controle deslizante fornece um controle mais preciso da movimentação entre grandes fatias de tempo que mostram tendências suaves para fatias tão pequenas quanto o milissegundo, o que permite que você veja cortes granulares de alta resolução de seus dados. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção para balancear a resolução, a velocidade da consulta e a granularidade.
+1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
 
-1. A ferramenta de **pincel de tempo** facilita a navegação de um TimeSpan para outro.
+1. The **Time brush** tool makes it easy to navigate from one timespan to another.
 
-1. Use o comando **salvar** para salvar sua consulta atual e compartilhá-la com outros usuários do ambiente. Ao usar **abrir**, você pode ver todas as suas consultas salvas e todas as consultas compartilhadas de outros usuários em ambientes aos quais você tem acesso.
+1. Select the **Save** icon to save your current query and share it with other users of the environment. When you select the **Open** icon, you can see all of your saved queries and any shared queries of other users in environments you have access to.
 
-   [Consultas de ![](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
+   [![Queries](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
 ## <a name="visualize-data"></a>Visualizar os dados
 
-1. Use a ferramenta de **exibição de perspectiva** para uma exibição simultânea de até quatro consultas exclusivas. O botão **exibição de perspectiva** está no canto superior direito do gráfico.
+1. Use the **Perspective View** tool for a simultaneous view of up to four unique queries. The **Perspective View** button is in the upper-right corner of the chart.
 
-   [exibição de perspectiva ![](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
+   [![Select queries to add to the perspective pane](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png)](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png#lightbox)
 
-1. Exiba um gráfico para explorar visualmente seus dados e use as ferramentas de **gráfico** :
+1. View a chart to visually explore your data, and use the **Chart** tools:
 
-    - **Selecione** ou **clique em** um período específico ou em uma única série de dados.
-    - Em uma seleção de TimeSpan, você pode aplicar zoom ou explorar eventos.
-    - Em uma série de dados, você pode dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, executar ping dessa série ou explorar eventos da série selecionada.
-    - Na área de filtro à esquerda do gráfico, você pode ver todas as séries de dados exibidas e reordená-las por valor ou nome. Você também pode exibir todas as séries de dados ou qualquer série fixa ou desafixada. Você pode selecionar uma única série de dados e dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, fixar a série ou explorar eventos da série selecionada.
-    - Ao exibir vários termos simultaneamente, você pode empilhar, desempilhar, ver dados adicionais sobre uma série de dados e usar o mesmo eixo y em todos os termos. Use os botões no canto superior direito do gráfico.
+    - **Select** or **click** a specific timespan or a single data series.
+    - Within a timespan selection, you can zoom or explore events.
+    - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
+    - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name. You also can view all data series or any pinned or unpinned series. You can select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
+    - When you view multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same y-axis across all terms. Use the buttons in the upper-right corner of the chart.
 
-    [ferramenta de gráfico de ![](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
+    [![Chart tool upper right corner option settings](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
-1. Use o **calor** para identificar rapidamente séries de dados exclusivas ou anormais em uma determinada consulta. Somente um termo de pesquisa pode ser visualizado como um calor.
+1. Use the **heatmap** to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.
 
-    [![calor](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
+    [![GA explorer heatmap charting ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode ver todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Time Series Insights armazena todos os dados brutos.
+1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. Here, you can see all of your raw events and export your events as JSON or CSV files. Time Series Insights stores all raw data.
 
-    [Eventos de ![](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
+    [![Events](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
-1. Selecione a guia **estatísticas** depois de explorar eventos para expor padrões e estatísticas de coluna.
+1. Select the **STATS** tab after you explore events to expose patterns and column stats.
 
-    - **Padrões**: esse recurso mostra proativamente os padrões mais significativos estatisticamente em uma região de dados selecionada. Você não precisa examinar milhares de eventos para entender quais padrões exigem mais tempo e energia. Com Time Series Insights, você pode ir diretamente para esses padrões estatisticamente significativos para continuar realizando uma análise. Esse recurso também é útil para investigações post-mortem em dados históricos.
-    - **Estatísticas de coluna**: estatísticas de coluna fornecem gráficos e tabelas que dividem dados de cada coluna da série de dados selecionada durante o período selecionado.
+    - **Patterns**: This feature proactively surfaces the most statistically significant patterns in a selected data region. You don't have to look at thousands of events to understand what patterns require the most time and energy. With Time Series Insights, you can jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data.
+    - **Column Stats**: Column stats provide charts and tables that break down data from each column of the selected data series over the selected timespan.
 
-      [Estatísticas de ![](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
+      [![STATS column charting and options](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Agora você viu os vários recursos e opções disponíveis no aplicativo Web Time Series Insights Explorer.
+Now you've seen the various features and options that are available within the Time Series Insights explorer web app.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [diagnosticar e resolver problemas](time-series-insights-diagnose-and-solve-problems.md) em seu ambiente de time Series insights.
+- Learn how to [diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md) in your Time Series Insights environment.
 
-- Faça o Tour de [início rápido Azure Time Series insights](time-series-quickstart.md) guiado.
+- Take the guided [Azure Time Series Insights quickstart](time-series-quickstart.md) tour.

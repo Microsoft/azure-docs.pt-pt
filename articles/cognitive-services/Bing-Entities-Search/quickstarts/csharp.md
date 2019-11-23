@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usandoC#'
+title: 'Quickstart: Send a search request to the REST API using C# - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API C#REST do pesquisa de entidade do Bing usando e receber uma resposta JSON.
+description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,38 +10,38 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: e41d99b4ddee41778e97aac9b5b947c0aa0eac5a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: efb2c646d364a93910d2105edb6527ad1116ccb2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404952"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327178"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usandoC#
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Send a search request to the Bing Entity Search REST API using C#
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Esse aplicativo C# simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple C# application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
 Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
+- Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 
-- O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet. Para instalar o pacote NuGet no Visual Studio:
+- O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet. To install the NuGet package in Visual Studio:
 
-   1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções**.
-   2. Selecione **gerenciar pacotes NuGet**.
-   3. Procure *Newtonsoft. JSON* e instale o pacote.
+   1. Right click your project in **Solution Explorer**.
+   2. Select **Manage NuGet Packages**.
+   3. Search for *Newtonsoft.Json* and install the package.
 
-- Se você estiver usando o linux/MacOS, esse aplicativo poderá ser executado usando [mono](https://www.mono-project.com/).
+- If you're using Linux/MacOS, this application can be run by  using [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova C# solução de console no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. create a new C# console solution in Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
     
     ```csharp
     using Newtonsoft.Json;
@@ -50,7 +50,7 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
     using System.Text;
     ```
 
-2. Crie uma nova classe e adicione variáveis para o ponto de extremidade da API, sua chave de assinatura e a consulta que você deseja pesquisar.
+2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search.
 
     ```csharp
     namespace EntitySearchSample
@@ -71,13 +71,13 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
     }
     ```
 
-## <a name="send-a-request-and-get-the-api-response"></a>Enviar uma solicitação e obter a resposta da API
+## <a name="send-a-request-and-get-the-api-response"></a>Send a request and get the API response
 
-1. Dentro da classe, crie uma função chamada `Search()`. Crie um novo `HttpClient` objeto e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
+1. Within the class, create a function called `Search()`. Create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-   1. Construa o URI para sua solicitação combinando o host e o caminho. Em seguida, adicione seu mercado e codifique a URL da sua consulta.
-   2. Aguardar `client.GetAsync()` para obter uma resposta http e, em seguida, armazenar a resposta JSON `ReadAsStringAsync()`aguardando.
-   3. Formate a cadeia de `JsonConvert.DeserializeObject()` caracteres JSON com e imprima-a no console.
+   1. Construct the URI for your request by combining the host and path. Then add your market, and URL-encode your query.
+   2. Await `client.GetAsync()` to get a HTTP response, and then store the json response by awaiting `ReadAsStringAsync()`.
+   3. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
 
       ```csharp
       async static void Search()
@@ -96,7 +96,7 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
       }
       ```
 
-2. No método principal do seu aplicativo, chame a `Search()` função.
+2. In the main method of your application, call the `Search()` function.
     
     ```csharp
     static void Main(string[] args)
@@ -107,9 +107,9 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
     ```
 
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Example JSON response
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -175,7 +175,7 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência de API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

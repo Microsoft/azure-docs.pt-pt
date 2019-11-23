@@ -1,115 +1,115 @@
 ---
-title: Azure Data Lake Gen2 Spark desempenho do armazenamento diretrizes de ajuste | Documentos da Microsoft
-description: Azure Data Lake Gen2 Spark desempenho do armazenamento diretrizes de ajuste
+title: 'Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: feefcf4f9f4448ab2b36c415cb745fd98277eb28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939325"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327552"
 ---
-# <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Spark no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
+# <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2
 
-Quando o ajuste de desempenho no Spark, precisa considerar o número de aplicações que serão executados no seu cluster.  Por predefinição, pode executar 4 aplicações em simultâneo em seu cluster do HDI (Nota: a predefinição está sujeita a alterações).  Poderá optar por utilizar menos aplicações para que possa substituir as predefinições e utilizar mais do cluster para essas aplicações.  
+When tuning performance on Spark, you need to consider the number of apps that will be running on your cluster.  By default, you can run 4 apps concurrently on your HDI cluster (Note: the default setting is subject to change).  You may decide to use fewer apps so you can override the default settings and use more of the cluster for those apps.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md).
-* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Ver [Use Azure Data Lake armazenamento Gen2 com o Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-* **A executar o cluster do Spark no ger2 de armazenamento do Data Lake**.  Para obter mais informações, consulte [cluster utilizar o Spark do HDInsight para analisar dados de geração 2 de armazenamento do Data Lake](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md) 
+* **Uma subscrição do Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Make sure you enable Remote Desktop for the cluster.
+* **Running Spark cluster on Data Lake Storage Gen2**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parâmetros
 
-Quando executar tarefas de Spark, seguem-se as definições mais importantes que podem ser otimizadas para melhorar o desempenho na geração 2 de armazenamento do Data Lake:
+When running Spark jobs, here are the most important settings that can be tuned to increase performance on Data Lake Storage Gen2:
 
-* **Núm. executores** -o número de tarefas simultâneas que podem ser executadas.
+* **Num-executors** - The number of concurrent tasks that can be executed.
 
-* **Memória de executor** -a quantidade de memória alocada a cada executor.
+* **Executor-memory** - The amount of memory allocated to each executor.
 
-* **Núcleos de executor** -o número de núcleos alocados para cada executor.                     
+* **Executor-cores** - The number of cores allocated to each executor.                     
 
-**Núm. executores** Num executores irão definir o número máximo de tarefas que podem ser executadas em paralelo.  O número real de tarefas que podem ser executadas em paralelo é vinculado de acordo com a memória e recursos de CPU disponíveis no seu cluster.
+**Num-executors** Num-executors will set the maximum number of tasks that can run in parallel.  The actual number of tasks that can run in parallel is bounded by the memory and CPU resources available in your cluster.
 
-**Memória de executor** esta é a quantidade de memória que está a ser atribuído a cada executor.  A memória necessária para cada executor é dependente da tarefa.  Para operações complexas, a memória tem de ser superior.  Para obter operações simples, como a leitura e escrita, requisitos de memória será inferiores.  A quantidade de memória para cada executor pode ser visualizada no Ambari.  No Ambari, navegue para o Spark e ver a guia configurações.  
+**Executor-memory** This is the amount of memory that is being allocated to each executor.  The memory needed for each executor is dependent on the job.  For complex operations, the memory needs to be higher.  For simple operations like read and write, memory requirements will be lower.  The amount of memory for each executor can be viewed in Ambari.  In Ambari, navigate to Spark and view the Configs tab.  
 
-**Núcleos de executor** isso define o número de núcleos utilizado por executor, que determina o número de threads paralelos que podem ser executadas por executor.  Por exemplo, se núcleos de executor = 2, em seguida cada executor pode executar tarefas paralelas 2 no executor.  Os núcleos de executor necessitam será dependentes da tarefa.  Tarefas pesadas de e/s não necessitam de uma grande quantidade de memória por tarefas, para que cada executor pode processar mais tarefas paralelas.
+**Executor-cores** This sets the number of cores used per executor, which determines the number of parallel threads that can be run per executor.  For example, if executor-cores = 2, then each executor can run 2 parallel tasks in the executor.  The executor-cores needed will be dependent on the job.  I/O heavy jobs do not require a large amount of memory per task so each executor can handle more parallel tasks.
 
-Por predefinição, os dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Este número fornece um bom equilíbrio de simultaneidade e a quantidade de alternância de vários threads de contexto.  
+By default, two virtual YARN cores are defined for each physical core when running Spark on HDInsight.  This number provides a good balance of concurrency and amount of context switching from multiple threads.  
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Orientações
 
-Ao executar o Spark cargas de trabalho de análise para trabalhar com dados de geração 2 de armazenamento do Data Lake, recomendamos que utilize a versão mais recente do HDInsight para obter o melhor desempenho com geração 2 de armazenamento do Data Lake. Quando a tarefa é mais intensivas de e/s, determinados parâmetros podem ser configurados para melhorar o desempenho.  Geração 2 de armazenamento do Data Lake é uma plataforma de armazenamento altamente escalável que pode processar um débito elevado.  Se a tarefa consiste principalmente de leitura ou escrita, em seguida, aumenta a simultaneidade de e/s para e de geração 2 de armazenamento do Data Lake pode aumentar o desempenho.
+While running Spark analytic workloads to work with data in Data Lake Storage Gen2, we recommend that you use the most recent HDInsight version to get the best performance with Data Lake Storage Gen2. When your job is more I/O intensive, then certain parameters can be configured to improve performance.  Data Lake Storage Gen2 is a highly scalable storage platform that can handle high throughput.  If the job mainly consists of read or writes, then increasing concurrency for I/O to and from Data Lake Storage Gen2 could increase performance.
 
-Existem algumas formas gerais para aumentar a simultaneidade para tarefas intensivas de e/s.
+There are a few general ways to increase concurrency for I/O intensive jobs.
 
-**Passo 1: Determinar quantos aplicativos estão em execução no seu cluster** – deve saber quantos aplicativos estão em execução no cluster, incluindo atual.  Os valores predefinidos para cada Spark definição assume que existem 4 aplicações em execução em simultâneo.  Por conseguinte, apenas terá 25% do cluster estão disponíveis para cada aplicação.  Para obter um melhor desempenho, pode substituir as predefinições, alterar o número de executores.  
+**Step 1: Determine how many apps are running on your cluster** – You should know how many apps are running on the cluster including the current one.  The default values for each Spark setting assumes that there are 4 apps running concurrently.  Therefore, you will only have 25% of the cluster available for each app.  To get better performance, you can override the defaults by changing the number of executors.  
 
-**Passo 2: Definir a memória de executor** – a primeira coisa que definir é a memória de executor.  A memória será dependente da tarefa que pretende executar.  Pode aumentar a simultaneidade ao alocar menos memória por executor.  Se vir exceções de memória insuficiente quando executar o seu trabalho, em seguida, deve aumentar o valor para este parâmetro.  Uma alternativa é obter mais memória ao utilizar um cluster com a maior quantidade de memória ou aumentar o tamanho do cluster.  Mais memória irá permitir executores mais a ser usado, o que significa mais simultaneidade.
+**Step 2: Set executor-memory** – The first thing to set is the executor-memory.  The memory will be dependent on the job that you are going to run.  You can increase concurrency by allocating less memory per executor.  If you see out of memory exceptions when you run your job, then you should increase the value for this parameter.  One alternative is to get more memory by using a cluster that has higher amounts of memory or increasing the size of your cluster.  More memory will enable more executors to be used, which means more concurrency.
 
-**Passo 3: Definir o executor núcleos** – e/s para cargas de trabalho intensivas que não têm operações complexas, é bom começar com um elevado número de núcleos executor para aumentar o número de tarefas paralelas por executor.  Definição de 4 núcleos de executor é um bom começo.   
+**Step 3: Set executor-cores** – For I/O intensive workloads that do not have complex operations, it’s good to start with a high number of executor-cores to increase the number of parallel tasks per executor.  Setting executor-cores to 4 is a good start.   
 
     executor-cores = 4
-Aumentar o número de núcleos de executor lhe dará mais paralelismo para que pode experimentar com diferentes de núcleos de executor.  Para as tarefas que têm operações mais complexas, deve reduzir o número de núcleos por executor.  Se executor núcleos é definido como superior a 4, em seguida, coleta de lixo pode tornar-se ineficiente e degradar o desempenho.
+Increasing the number of executor-cores will give you more parallelism so you can experiment with different executor-cores.  For jobs that have more complex operations, you should reduce the number of cores per executor.  If executor-cores is set higher than 4, then garbage collection may become inefficient and degrade performance.
 
-**Passo 4: Determinar a quantidade de memória YARN em cluster** – essas informações estão disponíveis no Ambari.  Navegue para o YARN e ver a guia configurações.  A memória YARN é apresentada nesta janela.  
-Tenha em atenção enquanto estiver na janela, também pode ver o tamanho de contentor predefinido do YARN.  O tamanho de contentor do YARN é o mesmo que a memória por parâmetro de executor.
+**Step 4: Determine amount of YARN memory in cluster** – This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
+Note while you are in the window, you can also see the default YARN container size.  The YARN container size is the same as memory per executor parameter.
 
     Total YARN memory = nodes * YARN memory per node
-**Passo 5: Calcular executores NÚM.**
+**Step 5: Calculate num-executors**
 
-**Calcular a restrição de memória** -o parâmetro num executores é limitado pela memória ou por CPU.  A restrição de memória é determinada pela quantidade de memória YARN disponível para a sua aplicação.  Deve tirar total de memória YARN e dividi-lo com a memória de executor.  A restrição tem de ser anulado dimensionado para o número de aplicações para que o dividimos pelo número de aplicações.
+**Calculate memory constraint** - The num-executors parameter is constrained either by memory or by CPU.  The memory constraint is determined by the amount of available YARN memory for your application.  You should take total YARN memory and divide that by executor-memory.  The constraint needs to be de-scaled for the number of apps so we divide by the number of apps.
 
     Memory constraint = (total YARN memory / executor memory) / # of apps   
-**Calcular a restrição de CPU** -restrição a CPU é calculado como o total de núcleos virtuais dividido pelo número de núcleos por executor.  Existem 2 núcleos virtuais para cada núcleo físico.  Assim como a restrição de memória, temos a divisão pelo número de aplicações.
+**Calculate CPU constraint** - The CPU constraint is calculated as the total virtual cores divided by the number of cores per executor.  There are 2 virtual cores for each physical core.  Similar to the memory constraint, we have to divide by the number of apps.
 
     virtual cores = (nodes in cluster * # of physical cores in node * 2)
     CPU constraint = (total virtual cores / # of cores per executor) / # of apps
-**Definir num executores** – o parâmetro num executores é determinado ao tirar o mínimo da restrição de memória e a restrição de CPU. 
+**Set num-executors** – The num-executors parameter is determined by taking the minimum of the memory constraint and the CPU constraint. 
 
     num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)   
-Configurar um número maior de executores núm não necessariamente aumentar o desempenho.  Deve considerar que a adição de mais executores irá adicionar extra gerais para cada executor adicional, que potencialmente pode degradar o desempenho.  Núm. executores é vinculado de acordo com os recursos do cluster.    
+Setting a higher number of num-executors does not necessarily increase performance.  You should consider that adding more executors will add extra overhead for each additional executor, which can potentially degrade performance.  Num-executors is bounded by the cluster resources.    
 
-## <a name="example-calculation"></a>Cálculo de exemplo
+## <a name="example-calculation"></a>Example calculation
 
-Digamos que tenha atualmente um composto por 8 D4v2 nós de cluster que executa 2 aplicações, incluindo o que pretende executar.  
+Let’s say you currently have a cluster composed of 8 D4v2 nodes that is running 2 apps including the one you are going to run.  
 
-**Passo 1: Determinar quantos aplicativos estão em execução no seu cluster** – sabe que tem 2 aplicações no seu cluster, incluindo o que pretende executar.  
+**Step 1: Determine how many apps are running on your cluster** – you know that you have 2 apps on your cluster, including the one you are going to run.  
 
-**Passo 2: Definir a memória de executor** – neste exemplo, podemos determinar que 6 GB de memória de executor será suficiente para a tarefa de e/s intensiva.  
+**Step 2: Set executor-memory** – for this example, we determine that 6GB of executor-memory will be sufficient for I/O intensive job.  
 
     executor-memory = 6GB
-**Passo 3: Definir o executor núcleos** – uma vez que esse é um trabalho intensivo de e/s, podemos definir o número de núcleos para cada executor para 4.  Na definição de núcleos por executor maiores do que 4 pode causar problemas de coleta de lixo.  
+**Step 3: Set executor-cores** – Since this is an I/O intensive job, we can set the number of cores for each executor to 4.  Setting cores per executor to larger than 4 may cause garbage collection problems.  
 
     executor-cores = 4
-**Passo 4: Determinar a quantidade de memória YARN em cluster** –, navegar para Ambari para descobrir o que cada D4v2 tem 25 GB de memória YARN.  Uma vez que existem 8 nós, a memória YARN disponível é multiplicada por 8.
+**Step 4: Determine amount of YARN memory in cluster** – We navigate to Ambari to find out that each D4v2 has 25GB of YARN memory.  Since there are 8 nodes, the available YARN memory is multiplied by 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Passo 5: Calcular o núm executores** – o parâmetro num executores é determinado ao tirar o mínimo da restrição de memória e a restrição de CPU dividido pelo número de aplicações em execução no Spark.    
+**Step 5: Calculate num-executors** – The num-executors parameter is determined by taking the minimum of the memory constraint and the CPU constraint divided by the # of apps running on Spark.    
 
-**Calcular a restrição de memória** – a restrição de memória é calculada como a memória total do YARN, dividida pela memória por executor.
+**Calculate memory constraint** – The memory constraint is calculated as the total YARN memory divided by the memory per executor.
 
     Memory constraint = (total YARN memory / executor memory) / # of apps   
     Memory constraint = (200GB / 6GB) / 2   
     Memory constraint = 16 (rounded)
-**Calcular a restrição de CPU** -restrição a CPU é calculada como os núcleos de total yarn divididos pelo número de núcleos por executor.
+**Calculate CPU constraint** - The CPU constraint is calculated as the total yarn cores divided by the number of cores per executor.
     
     YARN cores = nodes in cluster * # of cores per node * 2   
     YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
     CPU constraint = (total YARN cores / # of cores per executor) / # of apps
     CPU constraint = (128 / 4) / 2
     CPU constraint = 16
-**Núm. de conjunto-executores**
+**Set num-executors**
 
     num-executors = Min (memory constraint, CPU constraint)
     num-executors = Min (16, 16)

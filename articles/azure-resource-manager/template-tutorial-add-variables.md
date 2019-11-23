@@ -1,60 +1,60 @@
 ---
-title: Tutorial-Adicionar variável ao modelo
-description: Adicione variáveis ao seu modelo de Azure Resource Manager para simplificar a sintaxe.
+title: Tutorial - add variable to template
+description: Add variables to your Azure Resource Manager template to simplify the syntax.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9af6b9028dbc5b01c3d0ec9dc41f145e37c31b0e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147975"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406042"
 ---
-# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: adicionar variáveis ao seu modelo do Resource Manager
+# <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Add variables to your Resource Manager template
 
-Neste tutorial, você aprenderá a adicionar uma variável ao seu modelo. As variáveis simplificam seus modelos permitindo que você grave uma expressão uma vez e reutilize-a em todo o modelo. Este tutorial leva **7 minutos** para ser concluído.
+In this tutorial, you learn how to add a variable to your template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre as funções](template-tutorial-add-functions.md), mas isso não é necessário.
+We recommend that you complete the [tutorial about functions](template-tutorial-add-functions.md), but it's not required.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examine seu modelo
+## <a name="review-template"></a>Review template
 
-No final do tutorial anterior, seu modelo tinha o seguinte JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
 
-O parâmetro para o nome da conta de armazenamento é difícil de usar porque você precisa fornecer um nome exclusivo. Se você tiver concluído os tutoriais anteriores nesta série, provavelmente estará cansado de adivinhar um nome exclusivo. Você resolve esse problema adicionando uma variável que constrói um nome exclusivo para a conta de armazenamento.
+The parameter for the storage account name is hard-to-use because you have to provide a unique name. If you've completed the earlier tutorials in this series, you're probably tired of guessing a unique name. You solve this problem by adding a variable that constructs a unique name for the storage account.
 
-## <a name="use-variable"></a>Usar variável
+## <a name="use-variable"></a>Use variable
 
-O exemplo a seguir realça as alterações para adicionar uma variável ao modelo que cria um nome de conta de armazenamento exclusivo. Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
+The following example highlights the changes to add a variable to your template that creates a unique storage account name. Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
 
-Observe que ele inclui uma variável chamada **uniqueStorageName**. Essa variável usa quatro funções para construir um valor de cadeia de caracteres.
+Notice that it includes a variable named **uniqueStorageName**. This variable uses four functions to construct a string value.
 
-Você já está familiarizado com a função [Parameters](resource-group-template-functions-deployment.md#parameters) , portanto, não a examinaremos.
+You're already familiar with the [parameters](resource-group-template-functions-deployment.md#parameters) function, so we won't examine it.
 
-Você também está familiarizado com a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Nesse caso, você obtém a propriedade **ID** em vez da propriedade **Location** , conforme mostrado no tutorial anterior. A propriedade **ID** retorna o identificador completo do grupo de recursos, incluindo a ID da assinatura e o nome do grupo de recursos.
+You're also familiar with the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. In this case, you get the **id** property instead of the **location** property, as shown in the previous tutorial. The **id** property returns the full identifier of the resource group, including the subscription ID and resource group name.
 
-A função [uniquestring](resource-group-template-functions-string.md#uniquestring) cria um valor de hash de 13 caracteres. O valor retornado é determinado pelos parâmetros que você passa. Para este tutorial, você usa a ID do grupo de recursos como a entrada para o valor de hash. Isso significa que você pode implantar esse modelo em grupos de recursos diferentes e obter um valor de cadeia de caracteres exclusivo diferente. No entanto, você obterá o mesmo valor se implantar no mesmo grupo de recursos.
+The [uniqueString](resource-group-template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-A função [concat](resource-group-template-functions-string.md#concat) usa valores e os combina. Para essa variável, ela usa a cadeia de caracteres do parâmetro e a cadeia de caracteres da função uniquestring e as combina em uma cadeia de caracteres.
+The [concat](resource-group-template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the uniqueString function, and combines them into one string.
 
-O parâmetro **storagePrefix** permite que você passe um prefixo que ajuda a identificar contas de armazenamento. Você pode criar sua própria convenção de nomenclatura que facilite a identificação das contas de armazenamento após a implantação de uma longa lista de recursos.
+The **storagePrefix** parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 
-Por fim, observe que o nome de armazenamento agora está definido como a variável em vez de um parâmetro.
+Finally, notice that the storage name is now set to the variable instead of a parameter.
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-template"></a>Implementar o modelo
 
-Vamos implantar o modelo. A implantação desse modelo é mais fácil do que os modelos anteriores, pois você fornece apenas o prefixo para o nome de armazenamento.
+Let's deploy the template. Deploying this template is easier than the previous templates because you provide just the prefix for the storage name.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -79,20 +79,20 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificar a implementação
+## <a name="verify-deployment"></a>Verificar a implementação
 
-Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
+You can verify the deployment by exploring the resource group from the Azure portal.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, selecione **grupos de recursos**.
-1. Selecione o grupo de recursos no qual você implantou.
-1. Você verá que um recurso de conta de armazenamento foi implantado. O nome da conta de armazenamento é **armazenamento** mais uma cadeia de caracteres aleatórios.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. From the left menu, select **Resource groups**.
+1. Select the resource group you deployed to.
+1. You see that a storage account resource has been deployed. The name of the storage account is **store** plus a string of random characters.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -101,7 +101,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você adicionou uma variável que cria um nome exclusivo para uma conta de armazenamento. No próximo tutorial, você retorna um valor da conta de armazenamento implantada.
+In this tutorial, you added a variable that creates a unique name for a storage account. In the next tutorial, you return a value from the deployed storage account.
 
 > [!div class="nextstepaction"]
-> [Adicionar saídas](template-tutorial-add-outputs.md)
+> [Add outputs](template-tutorial-add-outputs.md)

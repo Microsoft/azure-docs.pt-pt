@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 36db3d466b2d1de0b8673e218cbfc52fda974b89
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99589a4f11f91afa7d3c9f93d844654ccc69aab1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226775"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322952"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium das Funções do Azure
 
@@ -63,9 +63,9 @@ Fore more information, see [integrate your function app with a VNet](functions-c
 
 Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### <a name="unbounded-run-duration"></a>Unbounded run duration
+### <a name="longer-run-duration"></a>Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
 
 ## <a name="plan-and-sku-settings"></a>Plan and SKU settings
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Extrair os detalhes da imagem usando a API de pesquisa de imagens do Bing eC#'
+title: 'Tutorial: Extract image details with the REST API and C# - Bing Image Search'
 titleSuffix: Azure Cognitive Services
 description: Utilize este artigo para criar uma aplicação C# que extraia os detalhes das imagens através da API de Pesquisa de Imagens do Bing.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 995ccc8ffeb436526608803362cc361c74a75316
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790041"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327017"
 ---
-# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extrair os detalhes da imagem usando a API de pesquisa de imagens do Bing eC#
+# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: extrair os detalhes da imagem através da API de Pesquisa de Imagens do Bing e C#
 
 Existem múltiplos [pontos finais](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) disponíveis através da API de Pesquisa de Imagens do Bing. O ponto final `/details` aceita um pedido POST com uma imagem e pode devolver uma série de detalhes sobre a imagem. Esta aplicação C# envia uma imagem através desta API e apresenta os detalhes devolvidos pelo Bing, que são objetos JSON como os seguintes:
 
@@ -36,7 +36,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição dos [Visual studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
+* Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -106,11 +106,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid
 
 Se existirem pessoas ou locais identificáveis na imagem, este pedido devolverá informações sobre os mesmos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Apresentar opções de pesquisa e imagens numa aplicação Web de página única ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

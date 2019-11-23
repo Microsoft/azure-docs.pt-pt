@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Ruby'
+title: 'Quickstart: Check spelling with the REST API and Ruby - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: bf038b97335db20349577f754bfa41e1b98ee9b7
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996736"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383846"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
 
-Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing usando Ruby. Esse aplicativo simples envia uma solicitação para a API e retorna uma lista de palavras que ela não reconheceu, seguida de correções sugeridas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Use this quickstart to make your first call to the Bing Spell Check REST API using Ruby. This simple application sends a request to the API and returns a list of words it didn't recognize, followed by suggested corrections. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Ruby 2,4](https://www.ruby-lang.org/en/downloads/) ou posterior.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo arquivo Ruby em seu editor favorito ou IDE e adicione os requisitos a seguir. 
+1. Create a new Ruby file in your favorite editor or IDE, and add the following requirements. 
 
     ```javascript
     require 'net/http'
@@ -38,7 +38,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     require 'json'
     ```
 
-2. Crie variáveis para sua chave de assinatura, URI de ponto de extremidade e caminho. Crie seus parâmetros de solicitação acrescentando o `mkt=` parâmetro ao mercado e `&mode` ao modo de prova `proof` de prelo.
+2. Create variables for your subscription key, endpoint URI and path. Create your request parameters by appending the `mkt=` parameter to your market, and `&mode` to the `proof` proof mode.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -47,9 +47,9 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     params = 'mkt=en-us&mode=proof'
     ```
 
-## <a name="send-a-spell-check-request"></a>Enviar uma solicitação de verificação ortográfica
+## <a name="send-a-spell-check-request"></a>Send a spell check request
 
-1. Crie um URI do URI do host, do caminho e da cadeia de parâmetros. Defina sua consulta para conter o texto que você deseja verificar na verificação ortográfica.
+1. Create a URI from your host uri, path, and parameters string. Set its query to contain the text you want to spell check.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -59,7 +59,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
    })
    ```
 
-2. Crie uma solicitação usando o URI construído acima. Adicione sua chave ao `Ocp-Apim-Subscription-Key` cabeçalho.
+2. Create a request using the URI constructed above. Add your key to the `Ocp-Apim-Subscription-Key` header.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -75,16 +75,16 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     end
     ```
 
-4. Obtenha a resposta JSON e imprima-a no console do. 
+4. Get the JSON response, and print it to the console. 
 
     ```ruby
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Example JSON response
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -127,7 +127,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
+> [Create a single page web-app](../tutorials/spellcheck.md)
 
-- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
+- [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

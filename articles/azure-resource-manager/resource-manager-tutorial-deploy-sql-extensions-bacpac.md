@@ -1,20 +1,20 @@
 ---
-title: Importar arquivos BACPAC do SQL com modelos
-description: Saiba como usar a extensão do banco de dados SQL para importar arquivos BACPAC do SQL com modelos de Azure Resource Manager.
+title: Import SQL BACPAC files with templates
+description: Learn how to use SQL Database extension to import SQL BACPAC files with Azure Resource Manager templates.
 author: mumian
 ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a1454c1b551ee16303f8fda7297910ce8642b523
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6291daecb578ba20f854dd2e6023890b158b8ebe
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150406"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326457"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importar ficheiros SQL BACPAC com modelos do Azure Resource Manager
 
-Saiba como usar as extensões de banco de dados SQL do Azure para importar um arquivo BACPAC com modelos de Azure Resource Manager. Os artefatos de implantação são todos os arquivos, além do arquivo de modelo principal que são necessários para concluir uma implantação. Ficheiro BACPAC é um artefato. Neste tutorial, você cria um modelo para implantar um SQL Server do Azure, um banco de dados SQL e importar um arquivo BACPAC. Para obter informações sobre a implementação de extensões de máquina virtual do Azure com modelos do Azure Resource Manager, veja [Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
+Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager templates. Deployment artifacts are any files, in addition to the main template file that are needed to complete a deployment. The BACPAC file is an artifact. In this tutorial, you create a template to deploy an Azure SQL Server, a SQL Database, and import a BACPAC file. Para obter informações sobre a implementação de extensões de máquina virtual do Azure com modelos do Azure Resource Manager, veja [Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a extensão Ferramentas do Resource Manager. Veja [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador do SQL Server. Eis um exemplo para gerar uma palavra-passe:
 
     ```azurecli-interactive
@@ -41,11 +41,11 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um ficheiro BACPAC
 
-Um arquivo BACPAC é compartilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar o seu próprio, veja [Exportar uma base de dados SQL do Azure para um ficheiro BACPAC](../sql-database/sql-database-export.md). Se optar por publicar o ficheiro na sua própria localização, tem de atualizar o modelo mais tarde no tutorial.
+A BACPAC file is shared in [Github](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar o seu próprio, veja [Exportar uma base de dados SQL do Azure para um ficheiro BACPAC](../sql-database/sql-database-export.md). Se optar por publicar o ficheiro na sua própria localização, tem de atualizar o modelo mais tarde no tutorial.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+The template used in this tutorial is stored in [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
@@ -66,7 +66,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-Adicione dois recursos adicionais ao modelo.
+Add two additional resources to the template.
 
 * Para permitir que a extensão de base de dados SQL importe ficheiros BACPAC, tem de permitir o acesso aos serviços do Azure. Adicione o JSON seguinte à definição do servidor SQL:
 
@@ -123,7 +123,7 @@ Adicione dois recursos adicionais ao modelo.
     * **storageKeyType**: O tipo da chave de armazenamento a utilizar. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Uma vez que o ficheiro BACPAC fornecido é partilhado numa conta de Armazenamento do Azure com acesso público, é utilizado "SharedAccessKey".
     * **storageKey**: A chave de armazenamento a utilizar. Se o tipo de chave de armazenamento for SharedAccessKey, tem de ser precedido por "?".
     * **storageUri**: o URI de armazenamento a utilizar. Se optar por não utilizar o ficheiro BACPAC fornecido, tem de atualizar os valores.
-    * **administratorLoginPassword**: A palavra-passe do administrador do SQL. Utilize uma palavra-passe gerada. Veja [Pré-requisitos](#prerequisites).
+    * **administratorLoginPassword**: A palavra-passe do administrador do SQL. Use a generated password. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment `
     -TemplateFile "$HOME/azuredeploy.json"
 ```
 
-Utilize uma palavra-passe gerada. Veja [Pré-requisitos](#prerequisites).
+Use a generated password. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
@@ -164,7 +164,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, implementou um Servidor SQL, uma Base de Dados SQL e importou um ficheiro BACPAC. O arquivo BACPAC é armazenado em uma conta de armazenamento do Azure. Qualquer pessoa com a URL pode acessar o arquivo. Para saber como proteger o arquivo BACPAC (artefato), consulte
+Neste tutorial, implementou um Servidor SQL, uma Base de Dados SQL e importou um ficheiro BACPAC. The BACPAC file is stored in an Azure storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see
 
 > [!div class="nextstepaction"]
-> [Proteger os artefatos](./resource-manager-tutorial-secure-artifacts.md)
+> [Secure the artifacts](./resource-manager-tutorial-secure-artifacts.md)

@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Create a custom policy definition'
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 04/23/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 743e3dea3c6daa7b2e713f2b1d5c1691d60785ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d93f1acb383782de055983ec9ec33ce5576619d1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216694"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327414"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Create a custom policy definition
 
@@ -31,6 +31,8 @@ The approach to creating a custom policy follows these steps:
 > - Determine which effect to use
 > - Compose the policy definition
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="identify-requirements"></a>Identify requirements
@@ -50,12 +52,17 @@ Based on the business requirement, the Azure resource to audit with Azure Policy
 
 There are many ways to determine the properties for an Azure resource. We'll look at each for this tutorial:
 
+- Azure Policy extension for VS Code
 - Modelos do Gestor de Recursos
   - Export existing resource
   - Creation experience
   - Quickstart templates (GitHub)
   - Template reference docs
 - Explorador de Recursos do Azure
+
+### <a name="view-resources-in-vs-code-extension"></a>View resources in VS Code extension
+
+The [VS Code extension](../how-to/extension-for-vscode.md#search-for-and-view-resources) can be used to browse resources in your environment and see the Resource Manager properties on each resource.
 
 ### <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
 
@@ -156,9 +163,14 @@ We've identified the resource property, but we need to map that property to an [
 
 There are a few ways to determine the aliases for an Azure resource. We'll look at each for this tutorial:
 
+- Azure Policy extension for VS Code
 - CLI do Azure
 - Azure PowerShell
 - Azure Resource Graph
+
+### <a name="get-aliases-in-vs-code-extension"></a>Get aliases in VS Code extension
+
+The Azure Policy extension for VS Code extension makes it easy to browse your resources and [discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -188,7 +200,7 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) is a new service in Preview. It enables another method to find properties of Azure resources. Here is a sample query for looking at a single storage account with Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) is a new service. It enables another method to find properties of Azure resources. Here is a sample query for looking at a single storage account with Resource Graph:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Here is example output from a storage account for aliases:
 }
 ```
 
-Azure Resource Graph (Preview) can be used through [Cloud Shell](https://shell.azure.com), making it a fast and easy way to explore the properties of your resources.
+Azure Resource Graph can be used through [Cloud Shell](https://shell.azure.com), making it a fast and easy way to explore the properties of your resources.
 
 ## <a name="determine-the-effect-to-use"></a>Determine the effect to use
 
-Deciding what to do with your non-compliant resources is nearly as important as deciding what to evaluate in the first place. Each possible response to a non-compliant resource is called an [effect](../concepts/effects.md).
-The effect controls if the non-compliant resource is logged, blocked, has data appended, or has a deployment associated to it for putting the resource back into a compliant state.
+Deciding what to do with your non-compliant resources is nearly as important as deciding what to evaluate in the first place. Each possible response to a non-compliant resource is called an [effect](../concepts/effects.md). The effect controls if the non-compliant resource is logged, blocked, has data appended, or has a deployment associated to it for putting the resource back into a compliant state.
 
 For our example, Deny is the effect we want as we do not want non-compliant resources created in our Azure environment. Audit is a good first choice for a policy effect to determine what the impact of a policy is before setting it to Deny. One way to make changing the effect per assignment easier is to parameterize the effect. See [parameters](#parameters) below for the details on how.
 

@@ -6,33 +6,24 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 3370442b29bc04ac2ba68d7346ac1c0a881cc080
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/21/2019
+ms.openlocfilehash: 5c77fb30ef60c1ad82d0a87442bc8af186c54321
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215450"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383901"
 ---
-# <a name="understanding-the-ip-address-of-your-iot-hub"></a>Understanding the IP address of your IoT hub
+# <a name="iot-hub-ip-addresses"></a>IoT Hub IP addresses
 
-The IP address of your IoT hub is a load-balanced public endpoint for your hub and NOT a dedicated IP address. The address is determined by the network address range of the Azure region where it is deployed. This IP address is subject to change without notice. Datacenter network updates, datacenter disaster recovery, or regional failover of an IoT hub can change your IoT hub IP address. See [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md) for more detail on Azure IoT Hub regional failover and availability.
+The IP address prefixes of IoT hub are published periodically under the *AzureIoTHub* [service tag](../virtual-network/service-tags-overview.md). To ensure proper operation, your IoT devices must have outbound connectivity to address prefixes listed under *AzureIoTHub* service tag. Your IoT application services need to additionally have outbound connectivity to address prefixes listed under *EventHub* service tag.
 
-The IP address of your IoT hub changes after a failover to another region. You can test this functionality by following the tutorial [Perform a manual failover of an IoT hub](tutorial-manual-failover.md).
 
-## <a name="discover-your-iot-hub-ip-address"></a>Discover your IoT hub IP address
+## <a name="best-practices"></a>Melhores práticas
 
-Your IoT Hub IP address can be discovered by using a DNS lookup on the CNAME ([*iot-hub-name*].azure-devices.net). You can use **nslookup** to verify the IP address of an IoT hub instance:
+* The IP address prefixes of IoT hub are subject to change. These changes are published periodically via service tags before taking effect. It is therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-in-on-premises).
+* Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by IoT hub endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-hub-ha-dr.md) ensure connectivity to IP prefixes of your IoT Hub's geo-pair region is also enabled.
 
-```cmd/sh
-nslookup {YourIoTHubName}.azure-devices.net
-```
-
-This IP address can change without notice. In a failover or disaster recovery scenario, you'll have to poll your IoT hub IP address in the secondary region.
-
-## <a name="outbound-firewall-rules-for-iot-hub"></a>Outbound firewall rules for IoT hub
-
-Try to create firewall rules and filtering based on the IoT hub host name or domain. If you can only allow outbound traffic to specific addresses, poll your IoT hub IP address regularly and update your firewall rules.
 
 ## <a name="support-for-ipv6"></a>Support for IPv6 
 

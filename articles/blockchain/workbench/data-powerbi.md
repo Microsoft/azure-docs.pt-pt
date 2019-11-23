@@ -1,21 +1,15 @@
 ---
 title: Utilizar dados do Azure Blockchain Workbench no Microsoft Power BI
 description: Saiba como carregar e ver os dados da BD SQL do Azure Blockchain Workbench no Microsoft Power BI.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: dcb6729581d5282b32359874eaad22050d0d2048
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e1f160c3563a280548c74ebe84f30bf08945c3f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510698"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324801"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Utilizar dados do Azure Blockchain Workbench com o Microsoft Power BI
 
@@ -25,11 +19,11 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Baixe [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Download [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ligar o Power BI aos dados no Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Connecting Power BI to data in Azure Blockchain Workbench
 
-1.  Abra o Power BI Desktop.
+1.  Abra o Power BI Desktop.
 2.  Selecione **Obter Dados**.
 
     ![Obter dados](./media/data-powerbi/get-data.png)
@@ -49,13 +43,13 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
     ![Navegador](./media/data-powerbi/navigator.png)
 
-7.  Selecione as vistas que pretende incluir. Para fins de demonstração, incluímos **vwContractAction**, que fornece detalhes sobre as ações que foram feitas num contrato.
+7.  Selecione as vistas que pretende incluir. For demonstration purposes, we include **vwContractAction**, which provides details on the actions that have taken place on a contract.
 
     ![Selecionar vistas](./media/data-powerbi/select-views.png)
 
 Pode agora criar e publicar relatórios tal como faria normalmente com o Power BI.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)

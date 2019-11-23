@@ -1,148 +1,142 @@
 ---
-title: Rede de consórcio Hyperledger recursos de infraestrutura no Azure
-description: Modelo de solução para implementar e configurar uma rede de consórcio Hyperledger recursos de infraestrutura
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Deploy Hyperledger Fabric Consortium solution template on Azure
+description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
-ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510755"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325137"
 ---
-# <a name="hyperledger-fabric-consortium-network"></a>Rede de consórcio Hyperledger recursos de infraestrutura
+# <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric consortium network
 
-Pode utilizar o modelo de solução de consórcio Hyperledger recursos de infraestrutura para implementar e configurar uma rede de consórcio Hyperledger recursos de infraestrutura no Azure.
+You can use the Hyperledger Fabric consortium solution template to deploy and configure a Hyperledger Fabric consortium network on Azure.
 
 Depois de ler este artigo, irá:
 
-- Obter o conhecimento de trabalho de blockchain, Hyperledger recursos de infraestrutura e mais complicado consortium arquiteturas de rede
-- Saiba como implementar e configurar uma rede de consórcio Hyperledger recursos de infraestrutura no portal do Azure
+- Obtain working knowledge of blockchain, Hyperledger Fabric, and more complicated consortium network architectures
+- Learn how to deploy and configure a Hyperledger Fabric consortium network from within the Azure portal
 
-## <a name="about-blockchain"></a>Sobre blockchain
+## <a name="about-blockchain"></a>About blockchain
 
-Se estiver familiarizado com a Comunidade de blockchain, este modelo de solução é uma ótima oportunidade para saber mais sobre a tecnologia de maneira fácil e configurável no Azure. Blockchain é a tecnologia subjacente Bitcoins; No entanto, é muito mais do que apenas um ativador para uma moeda virtual. É uma composição de base de dados existente, o sistema distribuído e tecnologias de criptografia, que permite que o cálculo de múltiplos intervenientes seguro com garantias para imutabilidade, capacidade de verificação, auditability e resiliência a ataques. Protocolos diferentes empregam mecanismos diferentes para fornecer esses atributos. [Recursos de infraestrutura Hyperledger](https://github.com/hyperledger/fabric) é um protocolo desse tipo.
+If you are new to the blockchain community, this solution template is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
 
-## <a name="consortium-architecture-on-azure"></a>Arquitetura de Consortium no Azure
+## <a name="consortium-architecture-on-azure"></a>Consortium architecture on Azure
 
-Para ativar Hyperledger recursos de infraestrutura no Azure, existem dois tipos de implementação principais que são suportados. Estas implementações são projetadas para acomodar topologias diferentes, com base no destino pretendido.
+To enable Hyperledger Fabric in Azure, there are two primary deployment types that are supported. These deployments are designed to accommodate different topologies, based on desired target.
 
-- **Máquina virtual individual, o servidor de desenvolvedor** -este tipo de implementação foi concebido como um ambiente de desenvolvimento usado para criar e testar soluções criadas com base nos recursos de infraestrutura Hyperledger.
-- **Várias máquinas virtuais, aumentar horizontalmente a implementação** -este tipo de implementação é projetado para ambientes que modelam um consórcio de participantes diferentes tirar partido de um ambiente compartilhado.
+- **Single virtual machine, developer server** - This deployment type is designed as a development environment used to build and test solutions built on Hyperledger Fabric.
+- **Multiple virtual machines, scale out deployment** - This deployment type is designed for environments that model a consortium of different participants leveraging a shared environment.
 
-Em qualquer implantação, os blocos de construção que estão a tornar os núcleos de recursos de infraestrutura Hyperledger são os mesmos.  As diferenças nas Implantações são como esses componentes são aumentados horizontalmente.
+In either deployment, the building blocks that are make the core of Hyperledger Fabric are the same.  The differences in the deployments are how these components are scaled out.
 
-- **Nós de AC**: Um nó com a autoridade de certificação que é utilizado para gerar os certificados que são utilizados para as identidades na rede.
-- **Nós orderer**: Um nó a executar o serviço de comunicação implementando uma garantia de entrega, como o total do pedido de difusão ou transações atômicas.
-- **Configurar o peering entre nós**: Um nó em que consolida as transações e mantém o estado e uma cópia do livro razão distribuído.
-- **Nós CouchDB**: Um nó que pode executar o serviço de CouchDB, que pode conter a base de dados de estado e fornecer avançadas de consulta de dados de chaincode, expansão de chave/valor simples para o armazenamento de tipo JSON.
+- **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
+- **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
+- **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
+- **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
 
-### <a name="single-virtual-machine-architecture"></a>Arquitetura de máquina virtual única
+### <a name="single-virtual-machine-architecture"></a>Single virtual machine architecture
 
-Como mencionado anteriormente, a única virtual arquitetura do computador foi concebida para os desenvolvedores tenham um servidor de requisitos de espaço reduzido que é utilizado para desenvolver aplicativos. Todos os contentores mostrados em execução numa única máquina virtual. O serviço de ordenação está a utilizar [SOLO](https://github.com/hyperledger/fabric/tree/master/orderer) para esta configuração. Esta configuração é *não* uma ordenação do tolerância a falhas de falhas de serviço, mas foi concebido para ser leve para fins de desenvolvimento.
+As mentioned previously the single virtual machine architecture is built for developers to have a low footprint server that is used to develop applications. All containers shown are running in a single virtual machine. The ordering service is using [SOLO](https://github.com/hyperledger/fabric/tree/master/orderer) for this configuration. This configuration is *not* a fault tolerant ordering service, but is designed to be lightweight for development purposes.
 
-![Arquitetura de Máquina Virtual única](./media/hyperledger-fabric-consortium-blockchain/hlf-single-arch.png)
+![Single Virtual Machine architecture](./media/hyperledger-fabric-consortium-blockchain/hlf-single-arch.png)
 
-### <a name="multiple-virtual-machine-architecture"></a>Arquitetura de várias máquinas virtuais
+### <a name="multiple-virtual-machine-architecture"></a>Multiple virtual machine architecture
 
-A máquina virtual múltiplas, arquitetura de escalamento horizontal, é criada com elevada disponibilidade e dimensionamento de cada componente no núcleo. Esta arquitetura é muito mais adequada para implementações de nível de produção.
+The multiple virtual machine, scale-out architecture, is built with high availability and scaling of each component at the core. This architecture is much more suitable for production grade deployments.
 
-![Arquitetura de várias máquinas virtuais](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
+![Multiple virtual machine architecture](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
 
 ## <a name="getting-started"></a>Introdução
 
-Para começar, precisa de uma subscrição do Azure que suporta a implementação de várias máquinas virtuais e contas de armazenamento standard. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+To begin, you need an Azure subscription that can support deploying several virtual machines and standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/free/).
 
-Assim que tiver uma subscrição, vá para o [portal do Azure](https://portal.azure.com). Selecione **criar um recurso > Blockchain > Hyperledger Fabric Consortium**.
+Once you have a subscription, go to the [Azure portal](https://portal.azure.com). Select **Create a resource > Blockchain > Hyperledger Fabric Consortium**.
 
-![Modelo do mercado de Blockchain de membro único do Hyperledger recursos de infraestrutura](./media/hyperledger-fabric-consortium-blockchain/marketplace-template.png)
+![Hyperledger Fabric Single Member Blockchain Marketplace template](./media/hyperledger-fabric-consortium-blockchain/marketplace-template.png)
 
 ## <a name="deployment"></a>Implementação
 
-Na **Hyperledger Fabric Consortium** modelo, selecione **criar**.
+In the **Hyperledger Fabric Consortium** template, select **Create**.
 
-A implementação do modelo irá guiá-lo por meio de configuração do nó Multi [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) rede. O fluxo de implementação é dividido em quatro etapas: Noções básicas, as definições de rede de consórcio, configuração de recursos de infraestrutura e componentes opcionais.
+The template deployment will walk you through configuring the multi-node [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) network. The deployment flow is divided into four steps: Basics, Consortium Network Settings, Fabric configuration, and Optional components.
 
 ### <a name="basics"></a>Noções básicas
 
-Na **Noções básicas**, especifique os valores de parâmetros padrão para qualquer implementação. Como, por exemplo de subscrição, grupo de recursos e basic virtual machine propriedades.
+In **Basics**, specify values for standard parameters for any deployment. Such as, subscription, resource group, and basic virtual machine properties.
 
 ![Noções básicas](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
-**Prefixo de recursos** | Prefixo do nome para os recursos aprovisionados como parte da implementação |6 carateres ou menos |
-**Nome de Utilizador** | O nome de utilizador do administrador para cada uma das máquinas virtuais implementadas para este membro |1 - 64 carateres |
-**Tipo de autenticação** | O método para autenticar para a máquina virtual |Chave pública de palavra-passe ou SSH|
-**Palavra-passe (tipo de autenticação = a palavra-passe)** |A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial<br /><br />Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento|12 - 72 carateres|
-**Chave SSH (tipo de autenticação = a chave pública SSH)** |A chave secure shell utilizada para início de sessão remoto ||
-**Subscrição** |A subscrição para a implementação ||
-**Grupo de recursos** |O grupo de recursos ao qual pretende implementar a rede de consórcio ||
-**Location** |A região do Azure ao qual pretende implementar o primeiro membro no ||
+**Resource prefix** | Name prefix for resources provisioned as part of the deployment |6 characters or less |
+**Nome de Utilizador** | The user name of the administrator for each of the virtual machines deployed for this member |1 - 64 characters |
+**Authentication type** | The method to authenticate to the virtual machine |Password or SSH public key|
+**Password (Authentication type = Password)** |The password for the administrator account for each of the virtual machines deployed. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />While all VMs initially have the same password, you can change the password after provisioning|12 - 72 characters|
+**SSH key (Authentication type = SSH public key)** |The secure shell key used for remote login ||
+**Subscrição** |The subscription to which to deploy ||
+**Grupo de recursos** |The resource group to which to deploy the consortium network ||
+**Localização** |The Azure region to which to deploy the first member in ||
 
 Selecione **OK**.
 
-### <a name="consortium-network-settings"></a>Definições de rede de consórcio
+### <a name="consortium-network-settings"></a>Consortium Network Settings
 
-Na **as definições de rede**, especificar as entradas para criar ou associar um consórcio existente de rede e configurar as definições da organização.
+In **Network settings**, specify inputs for creating or joining an existing consortium network and configure your organization settings.
 
-![Definições de rede de consórcio](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
+![Consortium Network Settings](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
-**Configuração da rede** |Pode optar por criar uma nova rede ou ingresse num existente. Se escolher *associar existente*, tem de fornecer valores adicionais. |Nova rede <br/> Associar existente |
-**Palavra-passe de AC HLF** |Uma palavra-passe utilizada para os certificados gerados pelas autoridades de certificação que são criadas como parte da implementação. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial.<br /><br />Embora todas as máquinas virtuais tenha, inicialmente, a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|1 - 25 caracteres |
-**Configuração da organização** |Pode personalizar o nome da sua organização e do certificado ou têm valores padrão a ser utilizado.|Predefinição <br/> Avançado |
-**Definições de rede VPN** | Aprovisionar um gateway de túnel VPN para acessar as VMs | Sim <br/> Não |
+**Configuração da rede** |You can choose to create a new network or join an existing one. If you choose *Join existing*, you need to provide additional values. |New network <br/> Join existing |
+**HLF CA password** |A password used for the certificates generated by the certificate authorities that are created as part of the deployment. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character.<br /><br />While all virtual machines initially have the same password, you can change the password after provisioning.|1 - 25 characters |
+**Organization setup** |You can customize your Organization's name and certificate or have default values to be used.|Predefinição <br/> Segurança |
+**VPN network settings** | Provision a VPN tunnel gateway for accessing the VMs | Sim <br/> Não |
 
 Selecione **OK**.
 
-### <a name="fabric-specific-settings"></a>Definições específicas de recursos de infraestrutura
+### <a name="fabric-specific-settings"></a>Fabric-specific settings
 
-Na **configuração de recursos de infraestrutura**, configure o tamanho de rede e desempenho e especificar as entradas para a disponibilidade da rede. Número de como, por exemplo orderer e nós de ponto a ponto, o mecanismo de persistência usado por cada nó e o tamanho da VM.
+In **Fabric configuration**, you configure network size and performance, and specify inputs for the availability of the network. Such as, number orderer and peer nodes, persistence engine used by each node, and the VM size.
 
-![Definições de recursos de infraestrutura](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
-
-| Nome do Parâmetro | Descrição | Valores permitidos |
-|---|---|---|
-**Tipo de dimensionamento** |O tipo de implementação de uma única máquina virtual com vários contentores ou várias máquinas virtuais num modelo de escalamento horizontal.|VM única ou várias VM |
-**Tipo de disco da VM** |O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre os tipos de disco disponível, visite [selecionar um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
-
-### <a name="multiple-vm-deployment-additional-settings"></a>Implementação de várias VMS (configurações adicionais)
-
-![Definições de recursos de infraestrutura para várias implementações de vm](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
+![Fabric settings](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
-**Número de nós de orderer** |O número de nós que solicite (organizar) transações num bloco. <br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 a 4 |
-**Tamanho de máquina virtual do nó orderer** |O tamanho de máquina virtual utilizado para nós orderer na rede|Standard Bs,<br />Standard Ds,<br />Standard FS |
-**Número de nós de ponto a ponto** | Nós que pertencem os membros de consórcio que executar transações e mantêm o estado e uma cópia do razão.<br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1 a 4 |
-**Persistência de estado do nó** |O mecanismo de persistência usado por nós ponto a ponto. Pode configurar esse mecanismo por nó de mesmo nível. Ver detalhes abaixo para vários nós de ponto a ponto.|CouchDB <br />LevelDB |
-**Tamanho de máquina virtual do nó de mesmo nível** |O tamanho de máquina virtual utilizado para todos os nós na rede|Standard Bs,<br />Standard Ds,<br />Standard FS |
+**Scale type** |The deployment type of either a single virtual machine with multiple containers or multiple virtual machines in a scale-out model.|Single VM or Multi VM |
+**VM Disk type** |The type of storage backing each of the deployed nodes. <br/> To learn more about the available disk types, visit [select a disk type](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
-### <a name="multiple-peer-node-configuration"></a>Configuração do nó de mesmo nível vários
+### <a name="multiple-vm-deployment-additional-settings"></a>Multiple VM deployment (additional settings)
 
-Este modelo permite-lhe escolher seu mecanismo de persistência por nó de mesmo nível. Por exemplo, se tiver três nós de ponto a ponto pode utilizar o CouchDB em um e LevelDB sobre os outros dois.
+![Fabric settings for multiple vm deployments](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-![Configuração do nó de mesmo nível vários](./media/hyperledger-fabric-consortium-blockchain/multiple-peer-nodes.png)
+| Nome do Parâmetro | Descrição | Valores permitidos |
+|---|---|---|
+**Number of orderer nodes** |The number of nodes that order (organize) transactions into a block. <br />For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1-4 |
+**Orderer node virtual machine size** |The virtual machine size used for orderer nodes in the network|Standard Bs,<br />Standard Ds,<br />Standard FS |
+**Number of peer nodes** | Nodes that are owned by consortium members that execute transactions and maintain the state and a copy of the ledger.<br />For additional details on the ordering service, visit the Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1-4 |
+**Node state persistence** |The persistence engine used by the peer nodes. You can configure this engine per peer node. See details below for multiple peer nodes.|CouchDB <br />LevelDB |
+**Peer node virtual machine size** |The virtual machine size used for all nodes in the network|Standard Bs,<br />Standard Ds,<br />Standard FS |
+
+### <a name="multiple-peer-node-configuration"></a>Multiple peer node configuration
+
+This template allows you to pick your persistence engine per peer node. For example, if you have three peer nodes you can use CouchDB on one and LevelDB on the other two.
+
+![Multiple peer node configuration](./media/hyperledger-fabric-consortium-blockchain/multiple-peer-nodes.png)
 
 Selecione **OK**.
 
-### <a name="deploy"></a>Implementação
+### <a name="deploy"></a>Implementar
 
-Na **resumo**, reveja as entradas especificadas e para executar a validação de pré-implementação básica.
+In **Summary**, review the inputs specified and to run basic pre-deployment validation.
 
 ![Resumo](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
-Reveja os termos legais e privacidade e selecione **Compra** para implementar. Dependendo do número de VMs a ser aprovisionado, o tempo de implantação pode variar de alguns minutos para dezenas de minutos.
+Review legal and privacy terms and select **Purchase** to deploy. Depending on the number of VMs being provisioned, deployment time can vary from a few minutes to tens of minutes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora está pronto para se concentrar na aplicação e desenvolvimento de chaincode em relação a sua rede de blockchain Hyperledger consortium.
+You are now ready to focus on application and chaincode development against your Hyperledger consortium blockchain network.

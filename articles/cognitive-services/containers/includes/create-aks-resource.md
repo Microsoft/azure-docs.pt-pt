@@ -1,51 +1,51 @@
 ---
-title: Criar um recurso de cluster do serviço kubernetes do Azure
+title: Create an Azure Kubernetes Service cluster resource
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso de AKS (serviço de kubernetes do Azure).
+description: Learn how to create an Azure Kubernetes Service (AKS) resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/3/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 5e442f38a8e81170eeeac2f31f00a7d0eeb08d2b
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4e3102912e88ef904fed3e680f8cdd23242b1f17
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377430"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383449"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Create an Azure Kubernetes Service cluster resource
 
-1. Vá para o [serviço kubernetes do Azure](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **criar**.
+1. Go to [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks), and select **Create**.
 
-1. Na guia **noções básicas** , insira as seguintes informações:
-
-    |Definição|Valor|
-    |--|--|
-    |Subscription|Selecione uma subscrição adequada.|
-    |Resource group|Selecione um grupo de recursos disponível.|
-    |Nome do cluster Kubernetes|Insira um nome (em minúsculas).|
-    |Região|Selecione um local próximo.|
-    |Versão do Kubernetes|1.12.8 (padrão).|
-    |Prefixo de nome DNS|Criado automaticamente, mas você pode substituir.|
-    |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Contagem de nós|Deixe o controle deslizante no valor padrão.|
-
-1. Na guia **escala** , deixe **nós virtuais** e **conjuntos de dimensionamento de máquinas virtuais (versão prévia)** definidos com os valores padrão.
-1. Na guia **autenticação** , saia da **entidade de serviço** e habilite o **RBAC** definido com os valores padrão.
-1. Na guia **rede** , insira as seguintes seleções:
+1. On the **Basics** tab, enter the following information:
 
     |Definição|Valor|
     |--|--|
-    |Encaminhamento de pedido de HTTP|Não|
-    |Configuração de rede|Básica|
+    |Subscrição|Selecione uma subscrição adequada.|
+    |Grupo de recursos|Select an available resource group.|
+    |Kubernetes cluster name|Enter a name (lowercase).|
+    |Região|Select a nearby location.|
+    |Kubernetes version|Whatever value is marked as **(default)** .|
+    |DNS name prefix|Created automatically, but you can override.|
+    |Node size|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
+    |Node count|Leave the slider at the default value.|
 
-1. Na guia **monitoramento** , verifique se habilitar o **monitoramento de contêiner** está definido como **Sim**e deixe **log Analytics espaço de trabalho** como o valor padrão.
-1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
-1. Selecione **revisar e criar**.
-1. Depois que a validação for aprovada, selecione **criar**.
+1. On the **Scale** tab, leave **Virtual nodes** and **VM scale sets** set to their default values.
+1. On the **Authentication** tab, leave **Service principal** and **Enable RBAC** set to their default values.
+1. On the **Networking** tab, enter the following selections:
+
+    |Definição|Valor|
+    |--|--|
+    |Encaminhamento de aplicações de HTTP|Não|
+    |Networking configuration|Basic|
+
+1. On the **Monitoring** tab, make sure that **Enable container monitoring** is set to **Yes**, and leave **Log Analytics workspace** as the default value.
+1. On the **Tags** tab, leave the name/value pairs blank for now.
+1. Select **Review and Create**.
+1. After validation passes, select **Create**.
 
 > [!NOTE]
-> Se a validação falhar, isso pode ser devido a um erro de "entidade de serviço". Volte para a guia **autenticação** e, em seguida, volte para revisar **+ criar**, em que a validação deve ser executada e, em seguida, passada.
+> If validation fails, it might be because of a "Service principal" error. Go back to the **Authentication** tab and then go back to **Review + create**, where validation should run and then pass.

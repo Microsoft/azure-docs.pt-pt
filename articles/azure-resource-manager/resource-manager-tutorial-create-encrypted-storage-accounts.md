@@ -1,25 +1,25 @@
 ---
 title: Utilizar referência de modelo
-description: Utilize a referência de modelo do Azure Resource Manager para criar um modelo para a implementação de uma conta de armazenamento encriptado.
+description: Utilize the Azure Resource Manager template reference to create a template for deploying an encrypted storage account.
 author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 8957f661665811679c088de7ac4a4b026e9d28c7
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 99ec64529b90c7a80aea62090f80c55cf4e23510
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149369"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326487"
 ---
-# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Azure Resource Manager
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Utilize the Azure Resource Manager template reference
 
 Saiba como encontrar as informações de esquema do modelo e utilizar as informações para criar modelos do Azure Resource Manager.
 
 Neste tutorial, vai utilizar um modelo de base dos modelos de Início Rápido do Azure. Com a documentação de referência do modelo, personalize o modelo para criar uma conta de Armazenamento encriptada.
 
-![Referência de modelo do Resource Manager implantar conta de armazenamento criptografada](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
+![Resource Manager template reference deploy encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com [extensão Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -70,15 +70,15 @@ Os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/t
 
 ## <a name="find-the-template-reference"></a>Encontre a referência do modelo
 
-1. Navegue até [referência de modelo do Azure](https://docs.microsoft.com/azure/templates/).
-2. Na caixa **Filtrar por título** , insira **contas de armazenamento**.
-3. Selecione referência/modelo de referência/ **armazenamento/&lt;versão > contas/Storage** , conforme mostrado na seguinte captura de tela:
+1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
+2. In the **Filter by title** box, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/&lt;Version>/Storage Accounts** as shown in the following screenshot:
 
     ![Conta de armazenamento de referência do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    Se não sabe qual é a versão para escolher, utilize a versão mais recente.
+    If you don't know which version to choose, use the latest version.
 
-4. Encontre as informações de definição relacionadas com a encriptação.  
+4. Encontre as informações de definição relacionadas com a encriptação.
 
     ```json
     "encryption": {

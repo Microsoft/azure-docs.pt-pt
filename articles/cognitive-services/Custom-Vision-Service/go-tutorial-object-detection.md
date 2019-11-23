@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um projeto de detecção de objeto com o SDK do Visão Personalizada para go'
+title: 'Quickstart: Create an object detection project with the SDK for Go - Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e detecte objetos usando o SDK do go.
+description: Create a project, add tags, upload images, train your project, and detect objects using the Go SDK.
 services: cognitive-services
 author: areddish
 ms.author: areddish
@@ -10,31 +10,31 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73519077"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378748"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início rápido: criar um projeto de detecção de objeto com o SDK do Visão Personalizada go
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Quickstart: Create an object detection project with the Custom Vision Go SDK
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com o Go para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo go.
+This article provides information and sample code to help you get started using the Custom Vision SDK with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Ir para 1,8 +](https://golang.org/doc/install)
+- [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar o SDK do serviço de Visão Personalizada para o go, execute o seguinte comando no PowerShell:
+To install the Custom Vision service SDK for Go, run the following command in PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-ou, se você usar `dep`, em seu repositório, execute:
+or if you use `dep`, within your repo run:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -45,13 +45,13 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo arquivo chamado *Sample. vá* em seu diretório de projeto preferencial.
+Create a new file called *sample.go* in your preferred project directory.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
-Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha a URL do ponto de extremidade na página Configurações do site Visão Personalizada.
+Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
-Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia [criar um](get-started-build-detector.md) portal da Web do detector).
+See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).
 
 ```go
 import(
@@ -99,7 +99,7 @@ func main() {
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. go*:
+To create classification tags to your project, add the following code to the end of *sample.go*:
 
 ```Go
 # Make two tags in the new project
@@ -160,10 +160,10 @@ scissorsImageRegions := map[string][4]float64{
     "scissors_20.jpg": [4]float64{ 0.158088237, 0.04047389, 0.6691176, 0.843137264 },
 }
 ```
-Em seguida, use esse mapa de associações para carregar cada imagem de exemplo com suas coordenadas de região (você pode carregar até 64 imagens em um único lote). Adicione o seguinte código.
+Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Adicione o seguinte código.
 
 > [!NOTE]
-> Você precisará alterar o caminho para as imagens, de acordo com o local em que você baixou o projeto de exemplos do SDK de serviços cognitivas go anteriormente.
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Go SDK Samples project earlier.
 
 ```Go
 // Go through the data table above and create the images
@@ -223,9 +223,9 @@ if (!*scissor_batch.IsBatchSuccessful) {
 }     
 ```
 
-### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
+### <a name="train-the-project-and-publish"></a>Train the project and publish
 
-Esse código cria a primeira iteração no projeto e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
+This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -242,7 +242,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Get and use the published iteration on the prediction endpoint
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -270,7 +270,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o *exemplo. go*.
+Run *sample.go*.
 
 ```shell
 go run sample.go

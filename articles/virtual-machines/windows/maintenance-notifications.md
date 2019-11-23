@@ -1,6 +1,6 @@
 ---
-title: Tratamento de notificações de manutenção para VMs do Windows no Azure
-description: Exibir notificações de manutenção para máquinas virtuais do Windows em execução no Azure e iniciar a manutenção de autoatendimento.
+title: Handling maintenance notifications for Windows VMs in Azure
+description: View maintenance notifications for Windows virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-windows
 documentationcenter: ''
 author: shants123
@@ -13,72 +13,72 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 6e269e9b21fe16a1d77b4e1f714517f91fa531d4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eca32d537f42d68568ef2859a64b60133a17e893
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039198"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328311"
 ---
-# <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Lidando com notificações de manutenção planejada para máquinas virtuais do Windows
+# <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Handling planned maintenance notifications for Windows virtual machines
 
-O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o desempenho e a segurança da infraestrutura de anfitrião para máquinas virtuais. As atualizações são alterações como aplicar patch no ambiente de hospedagem ou atualizar e encerrar o hardware. A maioria dessas atualizações é executada sem nenhum impacto nas máquinas virtuais hospedadas. No entanto, há casos em que as atualizações têm um impacto:
+O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o desempenho e a segurança da infraestrutura de anfitrião para máquinas virtuais. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-- Se a manutenção não exigir uma reinicialização, o Azure usará a migração in-loco para pausar a VM enquanto o host for atualizado. Essas operações de manutenção não reinicializadas são aplicadas ao domínio de falha por domínio de falha e o progresso é interrompido se forem recebidos sinais de integridade de aviso. 
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated. These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 
-- Se a manutenção exigir uma reinicialização, você receberá um aviso quando a manutenção for planejada. Nesses casos, você recebe uma janela de tempo que normalmente é de 35 dias em que você pode iniciar a manutenção por conta própria, quando ela funciona para você.
-
-
-A manutenção planejada que exige uma reinicialização é agendada em ondas. Cada onda tem escopo diferente (regiões).
-
-- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os coproprietários da assinatura. Você pode adicionar mais destinatários e opções de mensagens, como email, SMS e WebHooks, às notificações usando [alertas do log de atividades](../../azure-monitor/platform/activity-logs-overview.md)do Azure.  
-- No momento da notificação, uma janela de *autoatendimento* é disponibilizada. Durante essa janela que normalmente é de 35 dias, você pode encontrar quais máquinas virtuais estão incluídas nessa onda e iniciar de forma proativa a manutenção de acordo com suas necessidades de agendamento.
-- Após a janela de autoatendimento, uma *janela de manutenção agendada* é iniciada. Em algum momento durante essa janela, o Azure agenda e aplica a manutenção necessária à sua máquina virtual. 
-
-O objetivo de ter duas janelas é fornecer tempo suficiente para iniciar a manutenção e reinicializar sua máquina virtual enquanto souber quando o Azure iniciará automaticamente a manutenção.
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window that is typically 35 days where you can start the maintenance yourself, when it works for you.
 
 
-Você pode usar o portal do Azure, o PowerShell, a API REST e a CLI para consultar as janelas de manutenção de suas VMs e iniciar a manutenção de autoatendimento.
+Planned maintenance that requires a reboot, is scheduled in waves. Each wave has different scope (regions).
+
+- A wave starts with a notification to customers. By default, notifications are sent to the subscription owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../../azure-monitor/platform/activity-logs-overview.md).  
+- At the time of the notification, a *self-service window* is made available. During this window that is typically 35 days, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
+- After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
+
+The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically start maintenance.
+
+
+You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
   
-## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Você deve iniciar a manutenção durante a janela de autoatendimento?  
+## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Should you start maintenance during the self-service window?  
 
-As diretrizes a seguir devem ajudá-lo a decidir se deve usar essa capacidade e iniciar a manutenção ao seu próprio momento.
+The following guidelines should help you decide whether to use this capability and start maintenance at your own time.
 
 > [!NOTE] 
-> A manutenção de autoatendimento pode não estar disponível para todas as suas VMs. Para determinar se a reimplantação proativa está disponível para sua VM, procure o **início agora** no status de manutenção. Atualmente, a manutenção de autoatendimento não está disponível para serviços de nuvem (função Web/de trabalho) e Service Fabric.
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role) and Service Fabric.
 
 
-A manutenção de autoatendimento não é recomendada para implantações usando **conjuntos de disponibilidade** , pois essas são configurações altamente disponíveis, em que apenas um domínio de atualização é afetado em um determinado momento. 
-- Deixe o Azure disparar a manutenção. Para manutenção que requer reinicialização, lembre-se de que a manutenção será feita ao atualizar o domínio pelo domínio de atualização, que os domínios de atualização não receberão necessariamente a manutenção sequencialmente e que haja uma pausa de 30 minutos entre os domínios de atualização. 
-- Se uma perda temporária de alguma capacidade (1/contagem de domínio de atualização) for uma preocupação, ela poderá ser facilmente compensada por meio da alocação de instâncias adicionais durante o período de manutenção.
-- Para manutenção que não requer reinicialização, as atualizações são aplicadas no nível do domínio de falha.
+Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
+- Let Azure trigger the maintenance. For maintenance that requires reboot, be aware that the maintenance will be done update domain by update domain, that the update domains do not necessarily receive the maintenance sequentially, and that there is a 30-minute pause between update domains. 
+- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating additional instances during the maintenance period.
+- For maintenance that does not require reboot, updates are applied at the fault domain level.
     
-**Não** use a manutenção de autoatendimento nos seguintes cenários: 
-- Se você desligar suas VMs com frequência, seja manualmente, usando o DevTest Labs, usando o desligamento automático ou seguindo uma agenda, ele poderá reverter o status de manutenção e, portanto, causar tempo de inatividade adicional.
-- Em VMs de curta duração, você sabe que será excluído antes do fim da onda de manutenção. 
-- Para cargas de trabalho com um estado grande armazenado no disco local (efêmero) que é desejado para ser mantido na atualização. 
-- Para casos em que você redimensiona a VM com frequência, pois ela pode reverter o status de manutenção.
-- Se você adotou eventos agendados que habilitam o failover proativo ou o desligamento normal de sua carga de trabalho, 15 minutos antes do início do desligamento da manutenção
+**Don't** use self-service maintenance in the following scenarios: 
+- If you shut down your VMs frequently, either manually, using DevTest Labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+- On short-lived VMs that you know will be deleted before the end of the maintenance wave. 
+- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
+- For cases where you resize your VM often, as it could revert the maintenance status.
+- If you have adopted scheduled events that enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
 
-**Use** a manutenção de autoatendimento, se você estiver planejando executar sua VM sem interrupção durante a fase de manutenção agendada e nenhuma das indicações de contador mencionadas acima for aplicável. 
+**Use** self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
 
-É melhor usar a manutenção de autoatendimento nos seguintes casos:
+It is best to use self-service maintenance in the following cases:
 
-- Você precisa comunicar uma janela de manutenção exata para seu gerenciamento ou cliente final. 
-- Você precisa concluir a manutenção por uma determinada data. 
-- Você precisa controlar a sequência de manutenção, por exemplo, aplicativo de várias camadas para garantir a recuperação segura.
-- Você precisa de mais de 30 minutos de tempo de recuperação de VM entre dois domínios de atualização (UDs). Para controlar o tempo entre os domínios de atualização, você deve disparar a manutenção em suas VMs um domínio de atualização (UD) de cada vez.
+- You need to communicate an exact maintenance window to your management or end-customer. 
+- You need to complete the maintenance by a given date. 
+- You need to control the sequence of maintenance, for example, multi-tier application to guarantee safe recovery.
+- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
 
  
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
-## <a name="check-maintenance-status-using-powershell"></a>Verificar o status de manutenção usando o PowerShell
+## <a name="check-maintenance-status-using-powershell"></a>Check maintenance status using PowerShell
 
-Você também pode usar o Azure PowerShell para ver quando as VMs estão agendadas para manutenção. As informações de manutenção planejada estão disponíveis no cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando você usa o parâmetro `-status`.
+You can also use Azure Powershell to see when VMs are scheduled for maintenance. Planned maintenance information is available from the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
  
-As informações de manutenção serão retornadas somente se houver manutenção planejada. Se nenhuma manutenção estiver agendada que afete a VM, o cmdlet não retornará nenhuma informação de manutenção. 
+Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
  
 
@@ -86,26 +86,26 @@ As informações de manutenção serão retornadas somente se houver manutençã
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
-As propriedades a seguir são retornadas em MaintenanceRedeployStatus: 
+The following properties are returned under MaintenanceRedeployStatus: 
 
 | Valor | Descrição   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na VM no momento |
-| PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção em sua VM |
-| PreMaintenanceWindowEndTime           | O final da janela de autoatendimento de manutenção quando você pode iniciar a manutenção em sua VM |
-| MaintenanceWindowStartTime            | O início da manutenção agendada na qual o Azure inicia a manutenção em sua VM |
-| MaintenanceWindowEndTime              | O fim da janela de manutenção agendada na qual o Azure inicia a manutenção em sua VM |
-| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM |
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time |
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM |
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM |
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM |
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM |
+| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM |
 
 
 
-Você também pode obter o status de manutenção de todas as VMs em um grupo de recursos usando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) e não ESPECIFICANDO uma VM.
+You can also get the maintenance status for all VMs in a resource group by using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) and not specifying a VM.
  
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Status
 ```
 
-A seguinte função do PowerShell usa sua ID de assinatura e imprime uma lista de VMs que estão agendadas para manutenção.
+The following PowerShell function takes your subscription ID and prints out a list of VMs that are scheduled for maintenance.
 
 ```powershell
 
@@ -133,9 +133,9 @@ function MaintenanceIterator
 
 ```
 
-### <a name="start-maintenance-on-your-vm-using-powershell"></a>Iniciar a manutenção em sua VM usando o PowerShell
+### <a name="start-maintenance-on-your-vm-using-powershell"></a>Start maintenance on your VM using PowerShell
 
-Usando as informações da função na seção anterior, o seguinte iniciará a manutenção em uma VM se **IsCustomerInitiatedMaintenanceAllowed** estiver definido como true.
+Using information from the function in the previous section, the following starts maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to true.
 
 ```powershell
 Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
@@ -143,15 +143,15 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 
 ## <a name="classic-deployments"></a>Implementações clássicas
 
-Se você ainda tiver VMs herdadas que foram implantadas usando o modelo de implantação clássico, poderá usar o PowerShell para consultar as VMs e iniciar a manutenção.
+If you still have legacy VMs that were deployed using the classic deployment model, you can use PowerShell to query for VMs and initiate maintenance.
 
-Para obter o status de manutenção de uma VM, digite:
+To get the maintenance status of a VM, type:
 
 ```
 Get-AzureVM -ServiceName <Service name> -Name <VM name>
 ```
 
-Para iniciar a manutenção na sua VM clássica, digite:
+To start maintenance on your classic VM, type:
 
 ```
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
@@ -161,56 +161,56 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ## <a name="faq"></a>FAQ
 
 
-**P: por que você precisa reinicializar minhas máquinas virtuais agora?**
+**Q: Why do you need to reboot my virtual machines now?**
 
-**R:** Embora a maioria das atualizações e atualizações na plataforma do Azure não afetem a disponibilidade da máquina virtual, há casos em que não podemos evitar a reinicialização de máquinas virtuais hospedadas no Azure. Acumulamos várias alterações que exigem a reinicialização dos nossos servidores que resultarão na reinicialização das máquinas virtuais.
+**A:** While the majority of updates and upgrades to the Azure platform do not impact virtual machine's availability, there are cases where we can't avoid rebooting virtual machines hosted in Azure. We have accumulated several changes that require us to restart our servers that will result in virtual machines reboot.
 
-**P: se eu seguir as recomendações para alta disponibilidade usando um conjunto de disponibilidade, estou seguro?**
+**Q: If I follow your recommendations for High Availability by using an Availability Set, am I safe?**
 
-**R:** As máquinas virtuais implantadas em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais têm a noção de domínios de atualização (UD). Ao executar a manutenção, o Azure honra a restrição UD e não reinicializará as máquinas virtuais de diferentes UD (dentro do mesmo conjunto de disponibilidade).  O Azure também aguarda pelo menos 30 minutos antes de passar para o próximo grupo de máquinas virtuais. 
+**A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-Para obter mais informações sobre alta disponibilidade, consulte [disponibilidade para máquinas virtuais no Azure](availability.MD).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.MD).
 
-**P: Como fazer ser notificado sobre a manutenção planejada?**
+**Q: How do I get notified about planned maintenance?**
 
-**R:** Uma onda de manutenção planejada começa definindo uma agenda para uma ou mais regiões do Azure. Logo após, uma notificação por email é enviada para os proprietários da assinatura (um email por assinatura). Canais e destinatários adicionais para essa notificação podem ser configurados usando alertas do log de atividades. Caso você implante uma máquina virtual em uma região em que a manutenção planejada já esteja agendada, você não receberá a notificação, mas precisará verificar o estado de manutenção da VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription owners (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
-**P: não vejo nenhuma indicação de manutenção planejada no portal, no PowerShell ou na CLI. Qual é o problema?**
+**Q: I don't see any indication of planned maintenance in the portal, Powershell, or CLI. What is wrong?**
 
-**R:** As informações relacionadas à manutenção planejada estão disponíveis durante uma onda de manutenção planejada somente para as VMs que serão afetadas por ela. Em outras palavras, se você não vir dados, pode ser que a onda de manutenção já tenha sido concluída (ou não iniciada) ou que sua máquina virtual já esteja hospedada em um servidor atualizado.
+**A:** Information related to planned maintenance is available during a planned maintenance wave only for the VMs that are going to be impacted by it. In other words, if you see not data, it could be that the maintenance wave has already completed (or not started) or that your virtual machine is already hosted in an updated server.
 
-**P: há uma maneira de saber exatamente quando minha máquina virtual será afetada?**
+**Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**R:** Ao definir a agenda, definimos uma janela de tempo de vários dias. No entanto, o sequenciamento exato de servidores (e VMs) nessa janela é desconhecido. Os clientes que gostariam de saber o tempo exato para suas VMs podem usar [eventos agendados](scheduled-events.md) e consultar de dentro da máquina virtual e receber uma notificação de 15 minutos antes da reinicialização da VM.
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
 
-**P: quanto tempo levará para reinicializar minha máquina virtual?**
+**Q: How long will it take you to reboot my virtual machine?**
 
-**R:**  Dependendo do tamanho da VM, a reinicialização pode levar até vários minutos durante a janela de manutenção de autoatendimento. Durante as reinicializações iniciadas pelo Azure na janela de manutenção agendada, a reinicialização normalmente levará cerca de 25 minutos. Observe que, caso você use serviços de nuvem (função Web/de trabalho), conjuntos de dimensionamento de máquinas virtuais ou conjuntos de disponibilidade, você receberá 30 minutos entre cada grupo de VMs (UD) durante a janela de manutenção agendada. 
+**A:**  Depending on the size of your VM, reboot may take up to several minutes during the self-service maintenance window. During the Azure initiated reboots in the scheduled maintenance window, the reboot will typically take about 25 minutes. Note that in case you use Cloud Services (Web/Worker Role), Virtual Machine Scale Sets, or availability sets, you will be given 30 minutes between each group of VMs (UD) during the scheduled maintenance window. 
 
-**P: Qual é a experiência no caso de conjuntos de dimensionamento de máquinas virtuais?**
+**Q: What is the experience in the case of Virtual Machine Scale Sets?**
 
-**R:** A manutenção planejada agora está disponível para conjuntos de dimensionamento de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção de autoatendimento, consulte [manutenção planejada para](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) o documento VMSS.
+**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
 
-**P: Qual é a experiência no caso de serviços de nuvem (função Web/de trabalho) e Service Fabric?**
+**Q: What is the experience in the case of Cloud Services (Web/Worker Role) and Service Fabric?**
 
-**R:** Embora essas plataformas sejam afetadas pela manutenção planejada, os clientes que usam essas plataformas são considerados seguros, Considerando que somente as VMs em um único domínio de atualização (UD) serão afetadas em um determinado momento. Atualmente, a manutenção de autoatendimento não está disponível para serviços de nuvem (função Web/de trabalho) e Service Fabric.
+**A:** While these platforms are impacted by planned maintenance, customers using these platforms are considered safe given that only VMs in a single Upgrade Domain (UD) will be impacted at any given time. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role) and Service Fabric.
 
-**P: não vejo nenhuma informação de manutenção em minhas VMs. O que deu errado?**
+**Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
-**R:** Há várias razões pelas quais você não está vendo nenhuma informação de manutenção em suas VMs:
-1.  Você está usando uma assinatura marcada como Microsoft Internal.
-2.  Suas VMs não estão agendadas para manutenção. Pode ser que a onda de manutenção tenha sido finalizada, cancelada ou modificada para que suas VMs não sejam mais afetadas por ela.
-3.  Você não tem a coluna de **manutenção** adicionada ao modo de exibição de lista de VM. Embora tenhamos adicionado essa coluna à exibição padrão, os clientes que configuraram para ver colunas não padrão devem adicionar manualmente a coluna de **manutenção** à sua exibição de lista de VMs.
+**A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
+1.  You are using a subscription marked as Microsoft internal.
+2.  Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled, or modified so that your VMs are no longer impacted by it.
+3.  You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
-**P: minha VM está agendada para manutenção pela segunda vez. Por?**
+**Q: My VM is scheduled for maintenance for the second time. Why?**
 
-**R:** Há vários casos de uso em que você verá sua VM agendada para manutenção depois que você já tiver concluído sua manutenção-reimplantação:
-1.  Cancelamos a onda de manutenção e a reiniciamos com uma carga diferente. Pode ser que detectamos uma carga com falha e simplesmente precisamos implantar uma carga adicional.
-2.  Sua *VM foi* reparada para outro nó devido a uma falha de hardware
-3.  Você optou por parar (desalocar) e reiniciar a VM
-4.  Você tem o **desligamento automático** ativado para a VM
+**A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
+1.  We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
+2.  Your VM was *service healed* to another node due to a hardware fault
+3.  You have selected to stop (deallocate) and restart the VM
+4.  You have **auto shutdown** turned on for the VM
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como você pode se registrar para eventos de manutenção de dentro da VM usando [eventos agendados](scheduled-events.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).

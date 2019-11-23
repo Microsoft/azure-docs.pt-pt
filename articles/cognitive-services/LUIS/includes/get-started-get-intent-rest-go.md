@@ -1,25 +1,25 @@
 ---
-title: Obter a intenção com a chamada REST em go
+title: Get intent with REST call in Go
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 6d2955a77c06f371975a7a14675eedceab7c98ae
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5054ee9a23458944257a8010aaab6268d25042a7
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125580"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414497"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Linguagem de programação [Go](https://golang.org/)  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* ID da aplicação pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125580"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use Go para consultar o ponto de extremidade de previsão obter [API](https://aka.ms/luis-apim-v3-prediction) para obter o resultado da previsão.
+Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Crie um novo ficheiro com o nome `predict.go`. Adicione o seguinte código:
     
@@ -83,12 +83,12 @@ Use Go para consultar o ponto de extremidade de previsão obter [API](https://ak
     }
     ```
 
-1. Substitua os seguintes valores:
+1. Replace the following values:
 
-    * `YOUR-KEY` com sua chave inicial
-    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, digite o seguinte comando para compilar o arquivo Go:
+1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 
     ```console
     go build predict.go
@@ -111,7 +111,7 @@ Use Go para consultar o ponto de extremidade de previsão obter [API](https://ak
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    JSON formatado para facilitar a leitura:
+    JSON formatted for readability:
 
     ```json
     {
@@ -161,9 +161,9 @@ Use Go para consultar o ponto de extremidade de previsão obter [API](https://ak
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)
+> [Add utterances and train](../get-started-get-model-rest-apis.md)

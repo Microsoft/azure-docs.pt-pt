@@ -1,22 +1,22 @@
 ---
-title: Troubleshooting devices using the dsregcmd command - Azure Active Directory
+title: Troubleshoot using the dsregcmd command - Azure Active Directory
 description: Using the output from dsregcmd to understand the state of devices in Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2769210b40b011a35973e48eebce60526f6fc10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207170"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379207"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Troubleshooting devices using the dsregcmd command
 

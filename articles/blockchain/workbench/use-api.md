@@ -1,21 +1,15 @@
 ---
-title: Utilizar a API REST do Azure Blockchain Workbench
+title: Using Azure Blockchain Workbench REST APIs
 description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: 457c09aa2b235f30bd1f995c90429bdf9acb85ba
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.reviewer: brendal
+ms.openlocfilehash: 188bbb9a9f6d289a7950ff74596352dff36e79f2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222304"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324192"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Using the Azure Blockchain Workbench Preview REST API
 

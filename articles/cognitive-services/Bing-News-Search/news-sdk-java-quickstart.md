@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Execute uma pesquisa de notícias, utilizando o SDK de pesquisa de notícias do Bing para Java'
+title: 'Quickstart: Perform a news search using the SDK for Java - Bing News Search'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para pesquisar notícias com o SDK de pesquisa de notícias do Bing para Java e processar a resposta.
+description: Use this quickstart to search for news using the Bing News Search SDK for Java, and process the response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: d84b47feb91a9165a4bc03b20b0b7d079aa8f6ae
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203374"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383920"
 ---
-# <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Início rápido: Pesquisa de notícias com o SDK de pesquisa de notícias do Bing para Java
+# <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Quickstart: Search for news with the Bing News Search SDK for Java
 
-Utilize este guia de introdução para começar a pesquisa de notícias com o SDK de pesquisa de notícias do Bing para Java. Embora a pesquisa do Bing notícias tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
+Use this quickstart to begin searching for news with the Bing News Search SDK for Java. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instale as dependências de SDK de pesquisa de notícias do Bing com o Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro POM do Maven necessita da seguinte declaração:
+Install the Bing News Search SDK dependencies using Maven, Gradle, or another dependency management system. O ficheiro POM do Maven necessita da seguinte declaração:
 
 ```xml
     <dependencies>
@@ -55,9 +55,9 @@ import okhttp3.Response;
 import java.io.IOException;
 ```
 
-## <a name="create-a-search-client-and-store-credentials"></a>Criar uma pesquisa de credenciais de cliente e de arquivo
+## <a name="create-a-search-client-and-store-credentials"></a>Create a search client and store credentials
 
-1. Criar um método chamado `getClient()` que retorna um novo `NewsSearchAPIImpl` cliente de pesquisa. Adicionar o ponto final que o primeiro parâmetro para o novo`NewsSearchAPIImpl` objeto e um novo `ServiceClientCredentials` objeto para armazenar as suas credenciais.
+1. Create a method called `getClient()` that returns a new `NewsSearchAPIImpl` search client. Add your endpoint as the first parameter for the new`NewsSearchAPIImpl` object, and a new `ServiceClientCredentials` object to store your credentials.
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
@@ -67,7 +67,7 @@ import java.io.IOException;
     }
     ```
 
-2. Para criar o `ServiceClientCredentials` objeto, substituir o `applyCredentialsFilter()` função. Passar um `OkHttpClient.Builder` para o método e do uso o construtor `addNetworkInterceptor()` método para criar as suas credenciais para a chamada SDK.
+2. To create the `ServiceClientCredentials` object, override the `applyCredentialsFilter()` function. Pass a `OkHttpClient.Builder` to the method, and use the builder's `addNetworkInterceptor()` method to create your credentials for the SDK call.
 
     ```java
     new ServiceClientCredentials() {
@@ -90,9 +90,9 @@ import java.io.IOException;
     });
     ```
 
-## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa
+## <a name="send-and-receive-a-search-request"></a>Send and receive a search request
 
-1. Criar um método que chama `getClient()` e envia um pedido de pesquisa para o serviço de pesquisa de notícias do Bing. Filtrar a pesquisa com o *mercado* e *contagem* parâmetros, imprimir, em seguida, obter informações sobre o primeiro resultado de notícias: nome, URL, data de publicação, descrição, nome do fornecedor e o número total de estimado correspondências para a sua pesquisa.
+1. Create a method that calls `getClient()` and sends a search request to the Bing News Search service. Filter the search with the *market* and *count* parameters, then print information about the first news result: name, URL, publication date, description, provider name, and total number of estimated matches for your search.
 
     ```java
     public static void newsSearch(String subscriptionKey)
@@ -126,7 +126,7 @@ import java.io.IOException;
     
     ```
 
-2. Adicione o método de pesquisa para um `main()` método para executar o código.
+2. Add your search method to a `main()` method to execute the code.
 
     ```java 
     public static void main(String[] args) {
@@ -135,7 +135,7 @@ import java.io.IOException;
     }
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)

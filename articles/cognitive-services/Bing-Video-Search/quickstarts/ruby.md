@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Ruby'
+title: 'Quickstart: Search for videos using the REST API and Ruby - Bing Video Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo para a API REST do Pesquisa de Vídeo do Bing usando o Ruby.
+description: Use this quickstart to send video search requests to the Bing Video Search REST API using Ruby.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1303abb204881833413bf0465909582e49535e1c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1f1cde38aa49488a73ce98cc1a9210ed22ebee73
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500651"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378628"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Ruby
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Quickstart: Search for videos using the Bing Video Search REST API and Ruby
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Esse aplicativo simples do Ruby envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com processamento de erros e anotações de código adicionais.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Ruby application sends an HTTP video search query to the API, and displays the response. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Ruby 2,4 ou posterior
+* Ruby 2.4 or later
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -37,7 +37,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
     require 'json'
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, o caminho de pesquisa da API de vídeo, sua chave de assinatura e o termo de pesquisa.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -46,22 +46,22 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
     accessKey = "your-subscription-key" 
     ```
 
-## <a name="create-and-send-an-api-request"></a>Criar e enviar uma solicitação de API
+## <a name="create-and-send-an-api-request"></a>Create and send an API request
 
-1. Use as variáveis da última etapa para formatar uma URL de pesquisa para a solicitação. Combine seu URI e o caminho e, em seguida, codifique a URL do termo de pesquisa antes `?q=` de acrescentá-lo ao parâmetro.
+1. Use the variables from the last step to format a search URL for the request. Combine your uri and path, then url-encode your search term before appending it to the `?q=` parameter.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
     ```
 
-2. Adicione a URL de pesquisa completa à solicitação e adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho.
+2. Add the complete search URL to the request, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
     
     ``` ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
     ```
 
-3. Envie a solicitação e salve a resposta.
+3. Send the request, and save the response.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -71,7 +71,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
 
 ## <a name="process-and-view-the-response"></a>Processar e ver a resposta
 
-1. Depois que a resposta for recebida, você poderá imprimir a resposta JSON.
+1. After the response is received, you can print the JSON response.
 
     ```ruby
     puts JSON::pretty_generate(JSON(response.body))
@@ -79,7 +79,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
 
 ## <a name="json-response"></a>Resposta JSON
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ```json
 {
@@ -188,12 +188,12 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
+> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
- [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)
+ [What is the Bing Video Search API?](../overview.md)
 

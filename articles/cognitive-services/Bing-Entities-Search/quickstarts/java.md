@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando Java'
+title: 'Quickstart: Send a search request to the REST API using Java - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Entidade do Bing usando Java e receba uma resposta JSON.
+description: Use this quickstart to send a request to the Bing Entity Search REST API using Java, and receive a JSON response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 1f7d9620198042adc7f96e7c4aaa269f73870df0
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 13e25ce0a237d34b98ec42140b86c4955f9058cb
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479000"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323794"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando Java
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Quickstart: Send a search request to the Bing Entity Search REST API using Java
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta.
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Java application sends a news search query to the API, and displays the response.
 
 Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
 
@@ -50,7 +50,7 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
    import com.google.gson.JsonParser;
    ```
 
-2. Em uma nova classe, crie variáveis para o ponto de extremidade da API, sua chave de assinatura e uma consulta de pesquisa.
+2. In a new class, create variables for the API endpoint, your subscription key, and a search query.
 
    ```java
    public class EntitySearch {
@@ -66,11 +66,11 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
     
    ```
 
-## <a name="construct-a-search-request-string"></a>Construir uma cadeia de caracteres de solicitação de pesquisa
+## <a name="construct-a-search-request-string"></a>Construct a search request string
 
-1. Crie uma função chamada `search()` que retorna um JSON `String`. Codifique a URL de sua consulta de pesquisa e adicione-a a uma cadeia `&q=`de caracteres de parâmetros com. Adicione seu mercado à cadeia de caracteres `?mkt=`com.
+1. Create a function called `search()` that returns a JSON `String`. url-encode your search query, and add it to a parameters string with `&q=`. Add your market to the string with `?mkt=`.
  
-2. Crie um objeto URL com suas cadeias de caracteres host, Path e Parameters.
+2. Create a URL object with your host, path, and parameters strings.
     
     ```java
     //...
@@ -81,9 +81,9 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
     //...
     ```
       
-## <a name="send-a-search-request-and-receive-a-response"></a>Enviar uma solicitação de pesquisa e receber uma resposta
+## <a name="send-a-search-request-and-receive-a-response"></a>Send a search request and receive a response
 
-1. Na função criada acima, crie um novo `HttpsURLConnection` objeto com `url.openCOnnection()`. `search()` Defina o método de solicitação `GET`como e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
+1. In the `search()` function created above, create a new `HttpsURLConnection` object with `url.openCOnnection()`. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```java
     //...
@@ -94,7 +94,7 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
     //...
     ```
 
-2. Crie um novo `StringBuilder`. Use um novo `InputStreamReader` como parâmetro ao `BufferedReader` criar uma instância para ler a resposta da API.  
+2. Create a new `StringBuilder`. Use a new `InputStreamReader` as a parameter when instantiating  `BufferedReader` to read the API response.  
     
     ```java
     //...
@@ -104,7 +104,7 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
     //...
     ```
 
-3. Crie um `String` objeto para armazenar a resposta `BufferedReader`do. Itere-o e acrescente cada linha à cadeia de caracteres. Em seguida, feche o leitor e retorne a resposta. 
+3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then close the reader, and return the response. 
     
     ```java
     String line;
@@ -117,11 +117,11 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
     return response.toString();
     ```
 
-## <a name="format-the-json-response"></a>Formatar a resposta JSON
+## <a name="format-the-json-response"></a>Format the JSON response
 
-1. Crie uma nova função chamada `prettify` para formatar a resposta JSON. Crie um novo `JsonParser`e chame `parse()` no texto JSON e armazene-o como um objeto JSON. 
+1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, and call `parse()` on the json text, and store it as a JSON object. 
 
-2. Use a biblioteca Gson para criar um novo `GsonBuilder()`e usar `setPrettyPrinting().create()` o para formatar o JSON. Em seguida, retorne-o.    
+2. Use the Gson library to create a new `GsonBuilder()`, and use `setPrettyPrinting().create()` to format the json. Then return it.    
   
    ```java
    //...
@@ -134,9 +134,9 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
    //...
    ```
 
-## <a name="call-the-search-function"></a>Chamar a função de pesquisa
+## <a name="call-the-search-function"></a>Call the search function
 
-1. Do método principal do seu projeto, chame `search()`e use `prettify()` para formatar o texto.
+1. From the main method of your project, call `search()`, and use `prettify()` to format the text.
     
     ```java
         public static void main(String[] args) {
@@ -150,9 +150,9 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
         }
     ```
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Example JSON response
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -215,10 +215,10 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência de API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

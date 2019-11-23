@@ -1,21 +1,15 @@
 ---
-title: Configurar a firewall da BD SQL do Azure Blockchain Workbench
-description: Saiba como configurar o firewall de banco de BD SQL do Azure Blockchain Workbench Preview.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Configure Azure Blockchain Workbench database firewall
+description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
 ms.date: 09/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e6739b7ead9299f020465d3c50ed01826334ca76
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845228"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326009"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar a firewall da base de dados do Azure Blockchain Workbench
 
@@ -25,7 +19,7 @@ Este artigo mostra como configurar uma regra de firewall com o portal do Azure. 
 
 Para ligar à base de dados onde quer configurar uma regra:
 
-1. Entre no portal do Azure com uma conta que tenha permissões de **proprietário** para os recursos do Azure Blockchain Workbench.
+1. Sign in to the Azure portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
 2. Na navegação à esquerda, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos para a sua implementação do Blockchain Workbench.
 4. Selecione **Tipo** para ordenar a lista de recursos e, em seguida, selecione **SQL Server**.
@@ -56,7 +50,7 @@ Para criar uma regra de firewall:
 1. Para guardar a configuração da firewall, selecione **Guardar**.
 2. Teste o intervalo de endereços IP que configurou para a base de dados ao ligar a uma aplicação ou ferramenta. Por exemplo, SQL Server Management Studio.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)

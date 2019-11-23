@@ -1,29 +1,29 @@
 ---
-title: Modelo com recursos dependentes
+title: Template with dependent resources
 description: Saiba como criar um modelo do Azure Resource Manager com vários recursos e como implementá-lo com o portal do Azure
 author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3e7d397b097691b79f4f74dfd5aa9079af3a84f9
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149351"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325396"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
-Saiba como criar um modelo de Azure Resource Manager para implantar vários recursos e configurar a ordem de implantação. Depois de criar o modelo, implemente o modelo com o Cloud Shell do portal do Azure.
+Learn how to create an Azure Resource Manager template to deploy multiple resources and configure the deployment order. Depois de criar o modelo, implemente o modelo com o Cloud Shell do portal do Azure.
 
 Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, veja [Definir a ordem para implementar recursos nos Modelos do Azure Resource Manager](./resource-group-define-dependencies.md).
 
-![diagrama de ordem de implantação de recursos dependentes do modelo do Resource Manager](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![resource manager template dependent resources deployment order diagram](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início Rápido
+> * Abrir um modelo de Início rápido
 > * Explorar o modelo
 > * Implementar o modelo
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com a extensão Ferramentas do Resource Manager.  Veja [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```azurecli-interactive
@@ -84,7 +84,7 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 3. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição do recurso à [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definição do endereço IP público de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:  
+4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:
 
     ![dependson de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -110,14 +110,14 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 
 Existem muitos métodos para implementar modelos.  Neste tutorial, vai utilizar o Cloud Shell do portal do Azure.
 
-1. Inicie sessão no [Cloud Shell](https://shell.azure.com). 
+1. Inicie sessão no [Cloud Shell](https://shell.azure.com).
 2. Selecione **PowerShell** no canto superior esquerdo do Cloud Shell e, em seguida, selecione **Confirmar**.  Vai utilizar o PowerShell neste tutorial.
 3. Selecione **Carregar ficheiro** do Cloud Shell:
 
     ![Carregar ficheiro Cloud Shell do Portal do Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Selecione o modelo que guardou anteriormente no tutorial. O nome predefinido é **azuredeploy.json**.  Se tiver um ficheiro com o mesmo nome de ficheiro, o ficheiro antigo é substituído sem qualquer notificação.
 
-    Opcionalmente, você pode usar o comando **$home LS** e o **Cat $Home comando/azuredeploy.JSON** para verificar se os arquivos areis foram carregados com êxito. 
+    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files areis uploaded successfully.
 
 5. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
 

@@ -1,68 +1,68 @@
 ---
-title: Definir permissões para Data Lake Storage Gen2 com Gerenciador de Armazenamento do Azure
-description: Neste "como", você aprende como definir permissões com Gerenciador de Armazenamento do Azure em arquivos e diretórios dentro de sua conta de armazenamento com capacidade de Azure Data Lake Storage Gen2.
+title: 'Azure Storage Explorer: Manage access in Azure Data Lake Storage Gen2'
+description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 capable storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/11/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: b34103e521def678acce17e3292e04fca95b5e6e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992284"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327974"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Definir permissões de nível de arquivo e diretório usando Gerenciador de Armazenamento do Azure com Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-access-in-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer to manage access in Azure Data Lake Storage Gen2
 
-Os arquivos armazenados no Azure Data Lake Storage Gen2 dão suporte a permissões refinadas e gerenciamento de ACL (lista de controle de acesso). Juntas, as permissões refinadas e o gerenciamento de ACL permitem que você gerencie o acesso aos seus dados em um nível muito granular.
+Files stored in Azure Data Lake Storage Gen2 support fine grained permissions and access control list (ACL) management. Together, fine grained permissions and ACL management allow you to manage access to your data at a very granular level.
 
-Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento do Azure para:
+In this article, you learn how to use Azure Storage Explorer to:
 
 > [!div class="checklist"]
-> * Definir permissões de nível de arquivo
-> * Definir permissões de nível de diretório
-> * Adicionar usuários ou grupos a uma lista de controle de acesso
+> * Set file level permissions
+> * Set directory level permissions
+> * Add users or groups to an access control list
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para descrever melhor o processo, exigimos que você conclua nosso [Gerenciador de armazenamento do Azure início rápido](data-lake-storage-Explorer.md). Isso garante que sua conta de armazenamento estará no estado mais apropriado (contêiner criado e dados carregados nele).
+In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (container created and data uploaded to it).
 
 ## <a name="managing-access"></a>Gerir o acesso
 
-Você pode definir permissões na raiz do seu contêiner. Para fazer isso, você deve estar conectado ao Gerenciador de Armazenamento do Azure com sua conta individual com direitos para fazer isso (em oposição a uma cadeia de conexão). Clique com o botão direito do mouse no contêiner e selecione **gerenciar permissões**, trazendo a caixa de diálogo **gerenciar permissão** .
+You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
-![Gerenciador de Armazenamento do Microsoft Azure-gerenciar o acesso ao diretório](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-A caixa de diálogo **gerenciar permissão** permite que você gerencie permissões para o proprietário e o grupo proprietários. Ele também permite que você adicione novos usuários e grupos à lista de controle de acesso para a qual você pode gerenciar permissões.
+The **Manage Permission** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
-Para adicionar um novo usuário ou grupo à lista controle de acesso, selecione o campo **Adicionar usuário ou grupo** .
+To add a new user or group to the access control list, select the **Add user or group** field.
 
-Insira a entrada Azure Active Directory (AAD) correspondente que você deseja adicionar à lista e, em seguida, selecione **Adicionar**.
+Enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.
 
-O usuário ou grupo será exibido agora no campo **usuários e grupos:** , permitindo que você comece a gerenciar suas permissões.
+The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
 > [!NOTE]
-> É uma prática recomendada e é recomendada para criar um grupo de segurança no AAD e manter permissões no grupo em vez de usuários individuais. Para obter detalhes sobre essa recomendação, bem como outras práticas recomendadas, consulte [práticas recomendadas para data Lake Storage Gen2](data-lake-storage-best-practices.md).
+> It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [best practices for Data Lake Storage Gen2](data-lake-storage-best-practices.md).
 
-Há duas categorias de permissões que você pode atribuir: ACLs de acesso e ACLs padrão.
+There are two categories of permissions you can assign: access ACLs and default ACLs.
 
-* **Acesso**: As ACLs de acesso controlam o acesso a um objeto. Os arquivos e diretórios têm ACLs de acesso.
+* **Access**: Access ACLs control access to an object. Files and directories both have access ACLs.
 
-* **Padrão**: Um modelo de ACLs associado a um diretório que determina as ACLs de acesso para todos os itens filho que são criados nesse diretório. Os arquivos não têm ACLs padrão.
+* **Default**: A template of ACLs associated with a directory that determines the access ACLs for any child items that are created under that directory. Files do not have default ACLs.
 
-Em ambas as categorias, há três permissões que você pode atribuir em arquivos ou diretórios: **Ler**, **gravar**e **executar**.
+Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
 
 >[!NOTE]
-> Fazer seleções aqui não definirá permissões em qualquer item existente no momento dentro do diretório. Você deve ir para cada item individual e definir as permissões manualmente, se o arquivo já existir.
+> Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if the file already exists.
 
-Você pode gerenciar permissões em diretórios individuais, bem como arquivos individuais, que são o que permite o controle de acesso refinado. O processo de gerenciamento de permissões para diretórios e arquivos é o mesmo descrito acima. Clique com o botão direito do mouse no arquivo ou diretório para o qual você deseja gerenciar permissões e siga o mesmo processo.
+You can manage permissions on individual directories, as well as individual files, which are what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste "como", você aprendeu como definir permissões em arquivos e diretórios usando **Gerenciador de armazenamento do Azure**. Para saber mais sobre ACLs, incluindo ACLs padrão, acessar ACLs, seu comportamento e suas permissões correspondentes, vá para nosso artigo conceitual sobre o assunto.
+In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn more about ACLs, including default ACLs, access ACLs, their behavior, and their corresponding permissions, continue to our conceptual article on the subject.
 
 > [!div class="nextstepaction"]
 > [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md) (Controlo de acesso no Azure Data Lake Storage Gen2)

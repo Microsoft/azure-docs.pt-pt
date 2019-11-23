@@ -1,56 +1,56 @@
 ---
-title: Tutorial – adicionar saídas ao modelo
-description: Adicione saídas ao seu modelo de Azure Resource Manager para simplificar a sintaxe.
+title: Tutorial - add outputs to template
+description: Add outputs to your Azure Resource Manager template to simplify the syntax.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d89c1651e6b897da7538432d183a8ac003a51ac
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74148265"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406003"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adicionar saídas ao seu modelo do Resource Manager
+# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Add outputs to your Resource Manager template
 
-Neste tutorial, você aprenderá a retornar um valor de seu modelo. Você usa saídas quando precisa de um valor de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
+In this tutorial, you learn how to return a value from your template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre variáveis](template-tutorial-add-variables.md), mas isso não é necessário.
+We recommend that you complete the [tutorial about variables](template-tutorial-add-variables.md), but it's not required.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examine seu modelo
+## <a name="review-template"></a>Review template
 
-No final do tutorial anterior, seu modelo tinha o seguinte JSON:
+At the end of the previous tutorial, your template had the following JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
 
-Ele implanta uma conta de armazenamento, mas não retorna nenhuma informação sobre a conta de armazenamento. Talvez seja necessário capturar as propriedades de um novo recurso para que elas estejam disponíveis posteriormente para referência.
+It deploys a storage account, but it doesn't return any information about the storage account. You might need to capture properties from a new resource so they're available later for reference.
 
-## <a name="add-outputs"></a>Adicionar saídas
+## <a name="add-outputs"></a>Add outputs
 
-Você pode usar saídas para retornar valores do modelo. Por exemplo, pode ser útil obter os pontos de extremidade para sua nova conta de armazenamento.
+You can use outputs to return values from the template. For example, it might be helpful to get the endpoints for your new storage account.
 
-O exemplo a seguir realça a alteração em seu modelo para adicionar um valor de saída. Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
+The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
 
-Há alguns itens importantes a serem observados sobre o valor de saída adicionado.
+There are some important items to note about the output value you added.
 
-O tipo de valor retornado é definido como **Object**, o que significa que ele retorna um objeto JSON.
+The type of returned value is set to **object**, which means it returns a JSON object.
 
-Ele usa a função de [referência](resource-group-template-functions-resource.md#reference) para obter o estado de tempo de execução da conta de armazenamento. Para obter o estado de tempo de execução de um recurso, você passa o nome ou a ID de um recurso. Nesse caso, você usa a mesma variável usada para criar o nome da conta de armazenamento.
+It uses the [reference](resource-group-template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
-Por fim, ele retorna a propriedade **primaryEndpoints** da conta de armazenamento
+Finally, it returns the **primaryEndpoints** property from the storage account
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-template"></a>Implementar o modelo
 
-Você está pronto para implantar o modelo e examinar o valor retornado.
+You're ready to deploy the template and look at the returned value.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -75,7 +75,7 @@ az group deployment create \
 
 ---
 
-Na saída do comando de implantação, você verá um objeto semelhante a:
+In the output for the deployment command, you'll see an object similar to:
 
 ```json
 {
@@ -88,41 +88,41 @@ Na saída do comando de implantação, você verá um objeto semelhante a:
 }
 ```
 
-## <a name="review-your-work"></a>Examine seu trabalho
+## <a name="review-your-work"></a>Review your work
 
-Você fez muito nos últimos seis tutoriais. Vamos reservar um momento para examinar o que você fez. Você criou um modelo com parâmetros que são fáceis de fornecer. O modelo é reutilizável em ambientes diferentes porque permite a personalização e cria dinamicamente os valores necessários. Ele também retorna informações sobre a conta de armazenamento que você pode usar em seu script.
+You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
 
-Agora, vamos examinar o grupo de recursos e o histórico de implantação.
+Now, let's look at the resource group and deployment history.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, selecione **grupos de recursos**.
-1. Selecione o grupo de recursos no qual você implantou.
-1. Dependendo das etapas que você fez, você deve ter pelo menos uma e, talvez, várias contas de armazenamento no grupo de recursos.
-1. Você também deve ter várias implantações bem-sucedidas listadas no histórico. Selecione esse link.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. From the left menu, select **Resource groups**.
+1. Select the resource group you deployed to.
+1. Depending on the steps you did, you should have at least one and perhaps several storage accounts in the resource group.
+1. You should also have several successful deployments listed in the history. Select that link.
 
-   ![Selecionar implantações](./media/template-tutorial-add-outputs/select-deployments.png)
+   ![Select deployments](./media/template-tutorial-add-outputs/select-deployments.png)
 
-1. Você vê todas as suas implantações no histórico. Selecione a implantação chamada **addoutputs**.
+1. You see all of your deployments in the history. Select the deployment called **addoutputs**.
 
-   ![Mostrar histórico de implantação](./media/template-tutorial-add-outputs/show-history.png)
+   ![Show deployment history](./media/template-tutorial-add-outputs/show-history.png)
 
-1. Você pode examinar as entradas.
+1. You can review the inputs.
 
-   ![Mostrar entradas](./media/template-tutorial-add-outputs/show-inputs.png)
+   ![Show inputs](./media/template-tutorial-add-outputs/show-inputs.png)
 
-1. Você pode examinar as saídas.
+1. You can review the outputs.
 
-   ![Mostrar saídas](./media/template-tutorial-add-outputs/show-outputs.png)
+   ![Show outputs](./media/template-tutorial-add-outputs/show-outputs.png)
 
-1. Você pode examinar o modelo.
+1. You can review the template.
 
-   ![Mostrar modelo](./media/template-tutorial-add-outputs/show-template.png)
+   ![Show template](./media/template-tutorial-add-outputs/show-template.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -131,7 +131,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você adicionou um valor de retorno ao modelo. No próximo tutorial, você aprenderá a exportar um modelo e a usar partes desse modelo exportado em seu modelo.
+In this tutorial, you added a return value to the template. In the next tutorial, you'll learn how to export a template and use parts of that exported template in your template.
 
 > [!div class="nextstepaction"]
-> [Usar modelo exportado](template-tutorial-export-template.md)
+> [Use exported template](template-tutorial-export-template.md)

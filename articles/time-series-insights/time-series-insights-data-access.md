@@ -1,6 +1,6 @@
 ---
-title: Configurar a segurança para conceder acesso a dados-visualização de Azure Time Series Insights | Microsoft Docs
-description: Saiba como configurar a segurança, as permissões e o gerenciamento de políticas de acesso a dados em seu ambiente de Azure Time Series Insights visualização.
+title: Configure security to grant data access - Azure Time Series Insights Preview | Microsoft Docs
+description: Learn how to configure security, permissions, and manage data access policies in your Azure Time Series Insights Preview environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,115 +9,125 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f49567b8060be2bf2a9ca2b8a1bdee23f58fdd6b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012690"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328114"
 ---
-# <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
+# <a name="grant-data-access-to-an-environment"></a>Grant data access to an environment
 
-Este artigo aborda os dois tipos de políticas de acesso de Azure Time Series Insights visualização.
+This article discusses the two types of Azure Time Series Insights Preview access policies.
 
-## <a name="sign-in-to-time-series-insights"></a>Entrar no Time Series Insights
+> [!TIP]
+> Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-1. Localize seu ambiente de Time Series Insights. Insira `Time Series` na caixa de **pesquisa** . Selecione o **ambiente de série temporal** nos resultados da pesquisa.
+## <a name="sign-in-to-time-series-insights"></a>Sign in to Time Series Insights
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
 1. Selecione o seu ambiente do Time Series Insights na lista.
 
 ## <a name="grant-data-access"></a>Conceder acesso a dados
 
-Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
+Follow these steps to grant data access for a user principal.
 
-1. Selecione **políticas de acesso a dados**e, em seguida, selecione **+ Adicionar**.
+1. Select **Data Access Policies**, and then select **+ Add**.
 
-    [![o acesso a dados-um](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
+    [![Select and add a Data Access Policy](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
 
-1. Escolha **Selecionar usuário**. Procure o nome de usuário ou endereço de email para localizar o usuário que você deseja adicionar. Selecione **selecionar** para confirmar a seleção.
+1. Choose **Select user**. Search for the user name or email address to locate the user you want to add. Select **Select** to confirm the selection.
 
-    [![de acesso a dados-dois](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
+    [![Select a user to add](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
 
-1. Escolha **selecionar função**. Escolha a função de acesso apropriada para o usuário:
+1. Choose **Select role**. Choose the appropriate access role for the user:
 
-    * Selecione **colaborador** se desejar permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    * Caso contrário, selecione **leitor** para permitir que o usuário consulte dados no ambiente e Salve consultas pessoais e não compartilhadas no ambiente.
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-   Selecione **OK** para confirmar a escolha da função.
+   Select **OK** to confirm the role choice.
 
-    [![de acesso a dados-três](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
+    [![Confirm the selected role](media/data-access/data-access-select-a-role.png)](media/data-access/data-access-select-a-role.png#lightbox)
 
-1. Selecione **OK** na página **selecionar função de usuário** .
+1. Select **OK** on the **Select User Role** page.
 
-    [![de acesso a dados-quatro](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
+    [![Select OK on the Select User Role page](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
 
-1. Confirme se a página **políticas de acesso a dados** lista os usuários e as funções para cada usuário.
+1. Confirm that the **Data Access Policies** page lists the users and the roles for each user.
 
-    [![de acesso a dados-cinco](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
+    [![Verify the correct users and roles](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
 
-## <a name="provide-guest-access-from-another-aad-tenant"></a>Fornecer acesso de convidado de outro locatário do AAD
+## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Provide guest access from another Azure AD tenant
 
-`Guest` não é uma função de gerenciamento. É um termo usado para uma conta que é convidada de um locatário para outro. Depois que a conta de convidado é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado a ela, como qualquer outra conta. Você pode conceder acesso de gerenciamento a um ambiente de Time Series Insights usando a folha de controle de acesso (IAM). Ou você pode conceder acesso aos dados no ambiente por meio da folha políticas de acesso a dados. Para obter mais informações sobre o acesso convidado do locatário do Azure Active Directory (Azure AD), leia [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+The `Guest` role isn’t a management role. It’s a term used for an account that’s invited from one tenant to another. After the guest account is invited into the tenant’s directory, it can have the same access control applied to it like any other account. You can grant management access to a Time Series Insights Environment by using the Access Control (IAM) blade. Or you can grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (Azure AD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-Siga estas etapas para conceder acesso de convidado a um ambiente de Time Series Insights para um usuário do Azure AD de outro locatário.
+Follow these steps to grant guest access to a Time Series Insights environment to an Azure AD user from another tenant.
 
-1. Selecione **políticas de acesso a dados**e, em seguida, selecione **+ convidar**.
+1. Select **Data Access Policies**, and then select **+ Invite**.
 
-    [![acesso a dados-seis](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
+    [![Select Data Access Polices, then + Invite](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
-1. Insira o endereço de email do usuário que você deseja convidar. Este endereço de email deve ser associado ao Azure AD. Opcionalmente, você pode incluir uma mensagem pessoal com o convite.
+1. Enter the email address for the user you want to invite. This email address must be associated with Azure AD. You can optionally include a personal message with the invitation.
 
-    [![de acesso a dados-sete](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
+    [![Enter the email address to find the selected user](media/data-access/data-access-invite-guest-by-email.png)](media/data-access/data-access-invite-guest-by-email.png#lightbox)
 
-1. Procure a bolha de confirmação que aparece na tela.
+1. Look for the confirmation bubble that appears on the screen.
 
-    [![de acesso a dados-oito](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
+    [![Look for the confirmation bubble to appear](media/data-access/data-access-confirmation-bubble.png)](media/data-access/data-access-confirmation-bubble.png#lightbox)
 
-1. Escolha **Selecionar usuário**. Procure o endereço de email do usuário convidado que você convidou para localizar o usuário que deseja adicionar. Em seguida, **selecione** para confirmar a seleção.
+1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Then, **Select** to confirm the selection.
 
-    [![de acesso a dados-nove](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
+    [![Select the user and confirm the selection](media/data-access/data-access-select-invited-person-confirmation.png)](media/data-access/data-access-select-invited-person-confirmation.png#lightbox)
 
-1. Escolha **selecionar função**. Escolha a função de acesso apropriada para o usuário convidado:
+1. Choose **Select role**. Choose the appropriate access role for the guest user:
 
-    * Selecione **colaborador** se desejar permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    * Caso contrário, selecione **leitor** para permitir que o usuário consulte dados no ambiente e Salve consultas pessoais e não compartilhadas no ambiente.
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-   Selecione **OK** para confirmar a escolha da função.
+   Select **OK** to confirm the role choice.
 
-    [![de acesso a dados-dez](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
+    [![Confirm the role choice](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
 
-1. Selecione **OK** na página **selecionar função de usuário** .
+1. Select **OK** on the **Select User Role** page.
 
-1. Confirme se a página **políticas de acesso a dados** lista o usuário convidado e as funções para cada usuário convidado.
+1. Confirm that the **Data Access Policies** page lists the guest user and the roles for each guest user.
 
-    [![de acesso a dados-onze](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
+    [![Verify that users and roles are correctly assigned](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
 
-1. Agora, o usuário convidado deve seguir as etapas para acessar o ambiente localizado no locatário do Azure para o qual você os convidou. Primeiro, eles aceitam o convite que você os enviou. Esse convite é enviado por email para o endereço de email que você usou na etapa 5. Eles **selecionam começar a** aceitar.
+1. Now, the guest user will receive an invitation email at the email address specified above. The guest user will select **Get Started** to confirm their acceptance and connect to Azure Cloud.
 
-    [![de acesso a dados-doze](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
+    [![Guest selects Get Started to accept](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. Em seguida, o usuário convidado aceita as permissões associadas à organização do administrador.
+1. After selecting **Get Started** the guest user will be presented with a permissions box associated with the administrator's organization. Upon granting permission by selecting **Accept**, they will be signed in.
 
-    [![Data-Access-treze](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
+    [![Guest reviews permissions and accepts](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
-1. Depois que o usuário convidado estiver conectado ao endereço de email que você usou para convidá-los e aceitar o convite, eles vão para insights.azure.com. Uma vez lá, eles selecionam o Avatar ao lado de seu endereço de email no canto superior direito da tela.
+1. The administrator [shares the environment URL](time-series-insights-parameterized-urls.md) with their guest.
 
-    [![de acesso a dados-quatorze](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure portal. 
 
-1. Em seguida, o usuário convidado seleciona seu locatário do Azure no menu suspenso diretório. Esse locatário é aquele para o qual você os convidou.
+1. The guest can now access the shared environment using the environment URL provided by the administrator. They can enter that URL into their web browser for immediate access.
 
-    [![de acesso a dados-quinze](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
+1. The guest user will see the administrator's tenant by selecting their profile icon in the upper-right corner of the Time Series explorer.
 
-Depois que o usuário convidado selecionar seu locatário, ele verá o Time Series Insights ambiente ao qual você forneceu acesso. Agora, eles têm todos os recursos associados à função com a qual você os forneceu na **etapa 5**.
+    [![Avatar selection on insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
+
+
+    After the guest user selects the administrator's tenant, they will have the ability to select the shared Time Series Insights environment. 
+    
+    They now have all the capabilities associated with the role that you provided them with in **step 5**.
+
+    [![Guest user selects your Azure tenant from drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba [como adicionar uma fonte de eventos de hubs de eventos do Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) ao seu ambiente de time Series insights.
+* Learn [how to add an Azure Event Hubs event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Time Series Insights environment.
 
-* Enviar [eventos para a origem do evento](./time-series-insights-send-events.md).
+* Send [events to the event source](./time-series-insights-send-events.md).
 
-* Exiba [seu ambiente no time Series insights Preview Explorer](./time-series-insights-update-explorer.md).
+* View [your environment in the Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).

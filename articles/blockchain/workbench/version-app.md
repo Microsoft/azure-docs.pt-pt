@@ -1,65 +1,59 @@
 ---
-title: Controle de versão do aplicativo Blockchain – Azure Blockchain Workbench
-description: Como usar versões de aplicativo na visualização do Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Blockchain app versioning - Azure Blockchain Workbench
+description: How to use application versions in Azure Blockchain Workbench Preview.
 ms.date: 11/20/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 35d9be219d1473ac56ca501f80fca96a265e814f
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284838"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323918"
 ---
-# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versão prévia do aplicativo do Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain Workbench Preview application versioning
 
-Você pode criar e usar várias versões de um aplicativo de visualização do Azure Blockchain Workbench. Se várias versões do mesmo aplicativo forem carregadas, um histórico de versão estará disponível e os usuários poderão escolher qual versão deseja usar.
+You can create and use multiple versions of an Azure Blockchain Workbench Preview app. If multiple versions of the same application are uploaded, a version history is available and users can choose which version they want to use.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma implantação do Blockchain Workbench. Para obter mais informações, consulte [implantação do Azure Blockchain Workbench](deploy.md) para obter detalhes sobre a implantação
-* Um aplicativo blockchain implantado no Blockchain Workbench. Consulte [criar um aplicativo blockchain no Azure Blockchain Workbench](create-app.md)
+* A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](deploy.md) for details on deployment
+* A deployed blockchain application in Blockchain Workbench. See [Create a blockchain application in Azure Blockchain Workbench](create-app.md)
 
-## <a name="add-an-app-version"></a>Adicionar uma versão do aplicativo
+## <a name="add-an-app-version"></a>Add an app version
 
-Para adicionar uma nova versão, carregue os novos arquivos de configuração e de contrato inteligente no Blockchain Workbench.
+To add a new version, upload the new configuration and smart contract files to Blockchain Workbench.
 
-1. Em um navegador da Web, navegue até o endereço Web do Blockchain Workbench. Por exemplo, `https://{workbench URL}.azurewebsites.net/` para obter informações sobre como encontrar seu endereço Web do Blockchain Workbench, consulte [URL da Web do Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
-2. Entre como administrador do [Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
-3. Selecione o aplicativo blockchain que você deseja atualizar com outra versão.
-4. Selecione **Adicionar versão**. O painel **Adicionar versão** é exibido.
-5. Escolha a nova configuração de contrato de versão e os arquivos de código de contrato para carregar. O arquivo de configuração é validado automaticamente. Corrija os erros de validação antes de implantar o aplicativo.
-6. Selecione **Adicionar versão** para adicionar a nova versão do aplicativo blockchain.
+1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
+2. Sign in as a [Blockchain Workbench administrator](manage-users.md#manage-blockchain-workbench-administrators).
+3. Select the blockchain application you want to update with another version.
+4. Select **Add version**. The **Add version** pane is displayed.
+5. Choose the new version contract configuration and contract code files to upload. The configuration file is automatically validated. Fix any validation errors before you deploy the application.
+6. Select **Add version** to add the new blockchain application version.
 
     ![Adicionar uma nova versão](media/version-app/add-version.png)
 
-A implantação do aplicativo blockchain pode levar alguns minutos. Quando a implantação for concluída, atualize a página do aplicativo. Escolher o aplicativo e selecionar o botão **histórico de versão** exibe o histórico de versão do aplicativo.
+Deployment of the blockchain application can take a few minutes. When deployment is finished, refresh the application page. Choosing the application and selecting the **Version history** button, displays the version history of the application.
 
 > [!IMPORTANT]
-> As versões anteriores do aplicativo estão desabilitadas. Você pode reabilitar individualmente versões anteriores.
+> Previous versions of the application are disabled. You can individually re-enable past versions.
 >
-> Talvez seja necessário adicionar novamente os membros às funções do aplicativo se forem feitas alterações nas funções do aplicativo na nova versão.
+> You may need to re-add members to application roles if changes were made to the application roles in the new version.
 
-## <a name="using-app-versions"></a>Usando versões de aplicativo
+## <a name="using-app-versions"></a>Using app versions
 
-Por padrão, a versão mais recente habilitada do aplicativo é usada no Blockchain Workbench. Se você quiser usar uma versão anterior de um aplicativo, primeiro será necessário escolher a versão na página do aplicativo.
+By default, the latest enabled version of the application is used in Blockchain Workbench. If you want to use a previous version of an application, you need to choose the version from the application page first.
 
-1. Na seção aplicativo do Blockchain Workbench, marque a caixa de seleção aplicativo que contém o contrato que você deseja usar. Se as versões anteriores estiverem habilitadas, o botão histórico de versão estará disponível.
-2. Selecione o botão **histórico de versão** .
-3. No painel Histórico de versão, escolha a versão do aplicativo selecionando o link na coluna *data de modificação* .
+1. In Blockchain Workbench application section, select the application checkbox that contains the contract you want to use. If previous versions are enabled, the version history button is available.
+2. Select the **Version history** button.
+3. In the version history pane, choose the version of the application by selecting the link in the *Date modified* column.
 
-    ![Escolher uma versão anterior](media/version-app/use-version.png)
+    ![Choose a previous version](media/version-app/use-version.png)
 
-    Você pode criar novos contratos ou executar ações em contratos de versão anteriores. A versão do aplicativo é exibida seguindo o nome do aplicativo e um aviso é exibido sobre a versão mais antiga.
+    You can create new contracts or take actions on previous version contracts. The version of the application is displayed following the application name and a warning is displayed about the older version.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Solução de problemas do Azure Blockchain Workbench](troubleshooting.md)
+* [Azure Blockchain Workbench troubleshooting](troubleshooting.md)

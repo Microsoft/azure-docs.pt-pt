@@ -1,116 +1,200 @@
 ---
-title: Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
-description: Saiba como migrar cargas de trabalho Apache Hive no HDInsight 3,6 para o HDInsight 4,0.
-ms.service: hdinsight
+title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
+description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 1b270663a83461ecd777599fead9d717e93482c0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/13/2019
+ms.openlocfilehash: 3d55e0e7ecbd52b6d96c657e333c5557388f2721
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930892"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406515"
 ---
-# <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
+# <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 
-Este documento mostra como migrar cargas de trabalho Apache Hive e LLAP no HDInsight 3,6 para o HDInsight 4,0. O HDInsight 4,0 fornece recursos mais recentes de Hive e LLAP, como exibições materializadas e cache de resultados de consultas. Ao migrar suas cargas de trabalho para o HDInsight 4,0, você pode usar muitos recursos mais recentes do hive 3 que não estão disponíveis no HDInsight 3,6.
+This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. When you migrate your workloads to HDInsight 4.0, you can use many newer features of Hive 3 that aren't available on HDInsight 3.6.
 
-Este artigo aborda os seguintes assuntos:
+This article covers the following subjects:
 
-* Migração de metadados do hive para o HDInsight 4,0
-* Migração segura de tabelas ACID e não ACID
-* Preservação de políticas de segurança do hive em versões do HDInsight
-* Execução de consulta e depuração do HDInsight 3,6 para o HDInsight 4,0
+* Migration of Hive metadata to HDInsight 4.0
+* Safe migration of ACID and non-ACID tables
+* Preservation of Hive security policies across HDInsight versions
+* Query execution and debugging from HDInsight 3.6 to HDInsight 4.0
 
-## <a name="migrate-apache-hive-metadata-to-hdinsight-40"></a>Migrar metadados de Apache Hive para o HDInsight 4,0
+One advantage of Hive is the ability to export metadata to an external database (referred to as the Hive Metastore). The **Hive Metastore** is responsible for storing table statistics, including the table storage location, column names, and table index information. The metastore database schema differs between Hive versions. The recommended way to upgrade the Hive metastore safely is to create a copy and upgrade the copy instead of the current production environment.
 
-Uma vantagem do hive é a capacidade de exportar metadados para um banco de dados externo (chamado de metastore do hive). O **metastore do hive** é responsável por armazenar estatísticas de tabela, incluindo o local de armazenamento de tabela, nomes de coluna e informações de índice de tabela. O esquema de banco de dados do metastore difere entre as versões do hive. Faça o seguinte para atualizar um metastore do hive do HDInsight 3,6 para que ele seja compatível com o HDInsight 4,0.
+## <a name="copy-metastore"></a>Copy metastore
 
-1. Crie uma nova cópia do seu metastore externo. O HDInsight 3,6 e o HDInsight 4,0 exigem esquemas de metastore diferentes e não podem compartilhar um único metastore. Consulte [usar repositórios de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para saber mais sobre como anexar um metastore externo a um cluster HDInsight. 
-2. Inicie uma ação de script em seu cluster do HDI 3,6, com "nós de cabeçalho" como o tipo de nó para execução. Cole o URI a seguir na caixa de texto marcada como "URI do script bash": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. Na caixa de texto marcada como "Arguments", insira o ServerName, o banco de dados, o nome de usuário e a senha para o metastore do Hive **copiado** , separados por espaços. Não inclua ". database.windows.net" ao especificar o servername.
+HDInsight 3.6 and HDInsight 4.0 require different metastore schemas and can't share a single metastore.
 
-> [!Warning]
-> A atualização que converte o esquema de metadados do HDInsight 3,6 para o esquema do HDInsight 4,0 não pode ser revertida.
+### <a name="external-metastore"></a>External metastore
 
-## <a name="migrate-hive-tables-to-hdinsight-40"></a>Migrar tabelas do hive para o HDInsight 4,0
+Create a new copy of your external metastore. If you're using an external metastore, one of the safe and easy ways to make a copy of the metastore is to [restore the Database](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) with a different name using the SQL Database restore function.  See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster.
 
-Depois de concluir o conjunto anterior de etapas para migrar o metastore do hive para o HDInsight 4,0, as tabelas e os bancos de dados registrados no metastore estarão visíveis no cluster HDInsight 4,0 executando `show tables` ou `show databases` de dentro do cluster. Confira a [execução da consulta em versões do hdinsight](#query-execution-across-hdinsight-versions) para obter informações sobre a execução da consulta em clusters do hdinsight 4,0.
+### <a name="internal-metastore"></a>Internal metastore
 
-No entanto, os dados reais das tabelas não ficam acessíveis até que o cluster tenha acesso às contas de armazenamento necessárias. Para garantir que seu cluster HDInsight 4,0 possa acessar os mesmos dados que o cluster HDInsight 3,6 antigo, conclua as seguintes etapas:
+If you're using the internal metastore, you can use queries to export object definitions in the Hive metastore, and import them into a new database.
 
-1. Determine a conta de armazenamento do Azure da tabela ou do banco de dados usando descrever formatado.
-2. Se o cluster HDInsight 4,0 já estiver em execução, anexe a conta de armazenamento do Azure ao cluster via Ambari. Se você ainda não criou o cluster HDInsight 4,0, verifique se a conta de armazenamento do Azure está especificada como a conta de armazenamento de cluster primária ou secundária. Para obter mais informações sobre como adicionar contas de armazenamento a clusters HDInsight, consulte [Adicionar contas de armazenamento adicionais ao HDInsight](../hdinsight-hadoop-add-storage.md).
+1. Connect to the HDInsight cluster by using a [Secure Shell (SSH) client](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-> [!Note]
-> As tabelas são tratadas de forma diferente no HDInsight 3,6 e no HDInsight 4,0. Por esse motivo, você não pode compartilhar as mesmas tabelas para clusters de versões diferentes. Se você quiser usar o HDInsight 3,6 ao mesmo tempo que o HDInsight 4,0, deverá ter cópias separadas dos dados para cada versão.
+1. Connect to HiveServer2 with your [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) from your open SSH session by entering the following command:
 
-A carga de trabalho do hive pode incluir uma mistura de tabelas ACID e não ACID. Uma das principais diferenças entre o hive no HDInsight 3,6 (Hive 2) e o hive no HDInsight 4,0 (Hive 3) é a conformidade com ACID para tabelas. No HDInsight 3,6, a habilitação do hive ACID-Compliance requer configuração adicional, mas nas tabelas do HDInsight 4,0 estão em conformidade com ACID por padrão. A única ação necessária antes da migração é executar uma compactação principal em relação à tabela ACID no cluster 3,6. Na exibição do hive ou em beeline, execute a seguinte consulta:
+    ```hiveql
+    for d in `beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show databases;"`; do echo "create database $d; use $d;" >> alltables.sql; for t in `beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show tables;"` ; do ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
+    ```
 
-```bash
+    This command generates a file named **alltables.sql**. Because default database can't be deleted/re-created, please remove `create database default;` statement in **alltables.sql**.
+
+1. Exit your SSH session. Then enter a scp command to download **alltables.sql** locally.
+
+    ```bash
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.sql c:/hdi
+    ```
+
+1. Upload **alltables.sql** to the *new* HDInsight cluster.
+
+    ```bash
+    scp c:/hdi/alltables.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
+    ```
+
+1. Then use SSH to connect to the *new* HDInsight cluster. Run the following code from the SSH session:
+
+    ```bash
+    beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" -i alltables.sql
+    ```
+
+## <a name="upgrade-metastore"></a>Upgrade metastore
+
+Once the metastore **copy** is complete, run a schema upgrade script in [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) on the existing HDInsight 3.6 cluster to upgrade the new metastore to Hive 3 schema. This allows the database to be attached as HDInsight 4.0 metastore.
+
+Use the values in the table further below. Replace `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` with the appropriate values for the **copied** Hive metastore, separated by spaces. Don't include ".database.windows.net" when specifying the SQL server name.
+
+|Propriedade | Valor |
+|---|---|
+|Script type|- Custom|
+|Nome|Hive upgrade|
+|Bash script URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
+|Node type(s)|Head|
+|Parâmetros|SQLSERVERNAME DATABASENAME USERNAME PASSWORD|
+
+> [!Warning]  
+> The upgrade which converts the HDInsight 3.6 metadata schema to the HDInsight 4.0 schema, cannot be reversed.
+
+You can verify the upgrade by running the following sql query against the database:
+
+```sql
+select * from dbo.version
+```
+
+## <a name="migrate-hive-tables-to-hdinsight-40"></a>Migrate Hive tables to HDInsight 4.0
+
+After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster. See [Query execution across HDInsight versions](#query-execution-across-hdinsight-versions) for information on query execution in HDInsight 4.0 clusters.
+
+The actual data from the tables, however, isn't accessible until the cluster has access to the necessary storage accounts. To make sure your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
+
+1. Determine the Azure storage account of your table or database.
+
+1. If your HDInsight 4.0 cluster is already running, attach the Azure storage account to the cluster via Ambari. If you haven't yet created the HDInsight 4.0 cluster, make sure the Azure storage account is specified as either the primary or a secondary cluster storage account. For more information about adding storage accounts to HDInsight clusters, see [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
+
+## <a name="deploy-new-hdinsight-40-and-connect-to-the-new-metastore"></a>Deploy new HDInsight 4.0 and connect to the new metastore
+
+After the schema upgrade is complete, deploy a new HDInsight 4.0 cluster and connect the upgraded metastore. If you've already deployed 4.0, set it so that you can connect to the metastore from Ambari.
+
+## <a name="run-schema-migration-script-from-hdinsight-40"></a>Run schema migration script from HDInsight 4.0
+
+Tables are treated differently in HDInsight 3.6 and HDInsight 4.0. For this reason, you can't share the same tables for clusters of different versions. If you want to use HDInsight 3.6 at the same time as HDInsight 4.0, you must have separate copies of the data for each version.
+
+Your Hive workload may include a mix of ACID and non-ACID tables. One key difference between Hive on HDInsight 3.6 (Hive 2) and Hive on HDInsight 4.0 (Hive 3) is ACID-compliance for tables. In HDInsight 3.6, enabling Hive ACID-compliance requires additional configuration, but in HDInsight 4.0 tables are ACID-compliant by default. The only action required before migration is to run a major compaction against the ACID table on the 3.6 cluster. From the Hive view or from Beeline, run the following query:
+
+```sql
 alter table myacidtable compact 'major';
 ```
 
-Essa compactação é necessária porque as tabelas ACID do HDInsight 3,6 e do HDInsight 4,0 compreendem os deltas ACID de forma diferente. A compactação impõe um Slate limpo que garante a consistência. A seção 4 da [documentação de migração do hive](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) contém diretrizes para compactação em massa de tabelas Acid 3,6 do HDInsight.
+This compaction is required because HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. Compaction enforces a clean slate that guarantees consistency. Section 4 of the [Hive migration documentation](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) contains guidance for bulk compaction of HDInsight 3.6 ACID tables.
 
-Depois de concluir as etapas de migração e compactação do metastore, você pode migrar o depósito real. Depois de concluir a migração do depósito do hive, o depósito 4,0 do HDInsight terá as seguintes propriedades:
+Once you've completed the metastore migration and compaction steps, you can migrate the actual warehouse. After you complete the Hive warehouse migration, the HDInsight 4.0 warehouse will have the following properties:
 
-* As tabelas externas no HDInsight 3,6 serão tabelas externas no HDInsight 4,0
-* Tabelas gerenciadas não transacionais no HDInsight 3,6 serão tabelas externas no HDInsight 4,0
-* As tabelas gerenciadas transacionais no HDInsight 3,6 serão tabelas gerenciadas no HDInsight 4,0
+|3.6 |4.0 |
+|---|---|
+|External tables|External tables|
+|Non-transactional managed tables|External tables|
+|Transactional managed tables|Managed tables|
 
-Talvez seja necessário ajustar as propriedades do seu depósito antes de executar a migração. Por exemplo, se você espera que alguma tabela seja acessada por terceiros (como um cluster HDInsight 3,6), essa tabela deverá ser externa quando a migração for concluída. No HDInsight 4,0, todas as tabelas gerenciadas são transacionais. Portanto, as tabelas gerenciadas no HDInsight 4,0 só devem ser acessadas por clusters HDInsight 4,0.
+You may need to adjust the properties of your warehouse before executing the migration. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the migration is complete. In HDInsight 4.0, all managed tables are transactional. Therefore, managed tables in HDInsight 4.0 should only be accessed by HDInsight 4.0 clusters.
 
-Depois que as propriedades da tabela forem definidas corretamente, execute a ferramenta de migração de depósito do hive de um dos cabeçalho de cluster usando o Shell SSH:
+Once your table properties are set correctly, execute the Hive warehouse migration tool from one of the cluster headnodes using the SSH shell:
 
-1. Conecte-se ao seu cabeçalho de cluster usando SSH. Para obter instruções, consulte [conectar-se ao HDInsight usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Abra um shell de logon como o usuário do hive executando `sudo su - hive`
-1. Determine a versão da pilha de plataformas de dados executando `ls /usr/hdp`. Isso exibirá uma cadeia de caracteres de versão que você deve usar no próximo comando.
-1. Execute o comando a seguir no Shell. Substitua `${{STACK_VERSION}}` pela cadeia de caracteres da versão da etapa anterior:
+1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Open a login shell as the Hive user by running `sudo su - hive`
+1. Determine the data platform stack version by executing `ls /usr/hdp`. This will display a version string that you should use in the next command.
+1. Execute the following command from the shell. Replace `STACK_VERSION` with the version string from the previous step:
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
+/usr/hdp/STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
-Após a conclusão da ferramenta de migração, o seu depósito do hive estará pronto para o HDInsight 4,0. 
+After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0.
 
-> [!Important]
-> Tabelas gerenciadas no HDInsight 4,0 (incluindo tabelas migradas de 3,6) não devem ser acessadas por outros serviços ou aplicativos, incluindo clusters HDInsight 3,6.
+> [!Important]  
+> Managed tables in HDInsight 4.0 (including tables migrated from 3.6) should not be accessed by other services or applications, including HDInsight 3.6 clusters.
 
-## <a name="secure-hive-across-hdinsight-versions"></a>Proteger o hive em versões do HDInsight
+## <a name="secure-hive-across-hdinsight-versions"></a>Secure Hive across HDInsight versions
 
-Desde o HDInsight 3,6, o HDInsight integra-se com Azure Active Directory usando o Enterprise Security Package do HDInsight (ESP). O ESP usa o Kerberos e o Apache Ranger para gerenciar as permissões de recursos específicos no cluster. As políticas de Ranger implantadas no hive no HDInsight 3,6 podem ser migradas para o HDInsight 4,0 com as seguintes etapas:
+Since HDInsight 3.6, HDInsight integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
-1. Navegue até o painel de Service Manager do Ranger no cluster do HDInsight 3,6.
-2. Navegue até a política chamada **Hive** e exporte a política para um arquivo JSON.
-3. Certifique-se de que todos os usuários referenciados no JSON da política exportada existam no novo cluster. Se um usuário for referenciado na política JSON, mas não existir no novo cluster, adicione o usuário ao novo cluster ou remova a referência da política.
-4. Navegue até o painel de **Service Manager do Ranger** no cluster do HDInsight 4,0.
-5. Navegue até a política chamada **Hive** e importe a política do Ranger JSON da etapa 2.
+1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster.
+2. Navigate to the policy named **HIVE** and export the policy to a json file.
+3. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but doesn't exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
+4. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
+5. Navigate to the policy named **HIVE** and import the ranger policy json from step 2.
 
-## <a name="query-execution-across-hdinsight-versions"></a>Execução de consulta em versões do HDInsight
+## <a name="check-compatibility-and-modify-codes-as-needed-in-test-app"></a>Check compatibility and modify codes as needed in test app
 
-Há duas maneiras de executar e depurar consultas Hive/LLAP em um cluster HDInsight 3,6. O HiveCLI fornece uma experiência de linha de comando e o modo de exibição tez/Hive fornece um fluxo de trabalho baseado em GUI.
+When migrating workloads such as existing programs and queries, please check the release notes and documentation for changes and apply changes as necessary. If your HDInsight 3.6 cluster is using a shared Spark and Hive metastore, [additional configuration using Hive Warehouse Connector](./apache-hive-warehouse-connector.md) is required.
 
-No HDInsight 4,0, o HiveCLI foi substituído por Beeline. HiveCLI é um cliente Thrift para Hiveserver 1 e beeline é um cliente JDBC que fornece acesso ao Hiveserver 2. Beeline também pode ser usado para se conectar a qualquer outro ponto de extremidade de banco de dados compatível com JDBC. O beeline está disponível de fora da caixa no HDInsight 4,0 sem nenhuma instalação necessária.
+## <a name="deploy-new-app-for-production"></a>Deploy new app for production
 
-No HDInsight 3,6, o cliente de GUI para interagir com o servidor do hive é a exibição do hive do Ambari. O HDInsight 4,0 substitui a exibição do hive pelo Hortonworks data Analytics Studio (DAS). O DAS não é fornecido com clusters HDInsight prontos para uso e não é um pacote oficialmente com suporte. No entanto, o DAS pode ser instalado no cluster da seguinte maneira:
+To switch to the new cluster, e.g. you can install a new client application and use it as a new production environment, or you can upgrade your existing client application and switch to HDInsight 4.0.
 
-Inicie uma ação de script no cluster, com "nós de cabeçalho" como o tipo de nó para execução. Cole o URI a seguir na caixa de texto marcada como "URI do script bash": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+## <a name="switch-hdinsight-40-to-the-production"></a>Switch HDInsight 4.0 to the production
 
-Aguarde de 5 a 10 minutos e, em seguida, inicie o data Analytics Studio usando esta URL: https://\<ClusterName >. azurehdinsight. net/das/
+If differences were created in the metastore while testing, you'll need to update the changes just before switching. In this case, you can export & import the metastore and then upgrade again.
 
-Quando o DAS estiver instalado, se você não vir as consultas que você executou no Visualizador de consultas, execute as seguintes etapas:
+## <a name="remove-the-old-production"></a>Remove the old production
 
-1. Defina as configurações de Hive, tez e DAS, conforme descrito neste [guia para solução de problemas de instalação do das](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Verifique se as seguintes configurações de diretório do armazenamento do Azure são blobs de página e se estão listadas em `fs.azure.page.blob.dirs`:
+Once you've confirmed that the release is complete and fully operational, you can remove version 3.6 and the previous metastore. Please make sure that everything is migrated before deleting the environment.
+
+## <a name="query-execution-across-hdinsight-versions"></a>Query execution across HDInsight versions
+
+There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.6 cluster. HiveCLI provides a command-line experience and the Tez view/Hive view provides a GUI-based workflow.
+
+In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline can also be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
+
+In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 replaces the Hive View with Hortonworks Data Analytics Studio (DAS). DAS doesn't ship with HDInsight clusters out-of-box and isn't an officially supported package. However, DAS can be installed on the cluster using a [script action](../hdinsight-hadoop-customize-cluster-linux.md) as follows:
+
+|Propriedade | Valor |
+|---|---|
+|Script type|- Custom|
+|Nome|DAS|
+|Bash script URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
+|Node type(s)|Head|
+
+Wait 5 to 10 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
+
+1. Set the configurations for Hive, Tez, and DAS as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
+2. Make sure that the following Azure storage directory configs are Page blobs, and that they're listed under `fs.azure.page.blob.dirs`:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
-3. Reinicie HDFS, Hive, tez e DAS em ambos os cabeçalho.
+3. Restart HDFS, Hive, Tez, and DAS on both headnodes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Comunicado do HDInsight 4,0](../hdinsight-version-release.md)
-* [Aprofundamento no HDInsight 4,0](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
-* [Hive 3-tabelas ACID](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/using-hiveql/content/hive_3_internals.html)
+* [HDInsight 4.0 Announcement](../hdinsight-version-release.md)
+* [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
+* [Hive 3 ACID Tables](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/using-hiveql/content/hive_3_internals.html)

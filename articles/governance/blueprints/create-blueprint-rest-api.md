@@ -1,28 +1,24 @@
 ---
 title: 'Quickstart: Create a blueprint with REST API'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 02/04/2019
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 40ae1eb3647f1eba6df920459fcc3673b31bfa01
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217050"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322162"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Define and Assign an Azure Blueprint with REST API
 
 Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
-> [!div class="checklist"]
-> - Criar um novo esquema e adicionar vários artefactos suportados
-> - Fazer alterações a um esquema existente ainda no modo de **Rascunho**
-> - Marcar um esquema como pronto a atribuir com o estado **Publicado**
-> - Atribuir um esquema a uma subscrição existente
-> - Verificar o estado e progresso de um esquema atribuído
-> - Remover um esquema que foi atribuído a uma subscrição
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
@@ -393,7 +389,8 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 
    - User-assigned managed identity
 
-     A blueprint assignment can also use a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). In this case, the **identity** portion of the request body changes as follows.  Replace `{yourRG}` and `{userIdentity}` with your resource group name and the name of your user-assigned managed identity, respectively.
+     A blueprint assignment can also use a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+     In this case, the **identity** portion of the request body changes as follows. Replace `{yourRG}` and `{userIdentity}` with your resource group name and the name of your user-assigned managed identity, respectively.
 
      ```json
      "identity": {
@@ -432,9 +429,7 @@ Para remover o próprio esquema, utilize a seguinte operação da API REST:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md).
-- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
-- Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
-- Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).
-- Saiba como [atualizar as atribuições existentes](./how-to/update-existing-assignments.md).
-- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](./troubleshoot/general.md).
+In this quickstart, you've created, assigned, and removed a blueprint with REST API. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)

@@ -1,101 +1,112 @@
 ---
-title: Crie contêineres e bancos de dados do Azure Cosmos no modo de piloto automático.
-description: Saiba mais sobre os benefícios, casos de uso e como provisionar bancos de dados e contêineres do Azure Cosmos no modo de piloto automático.
+title: Create Azure Cosmos containers and databases in autopilot mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autopilot mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953134"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383095"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contêineres e bancos de dados do Azure Cosmos no modo de piloto automático (versão prévia)
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Create Azure Cosmos containers and databases in autopilot mode (Preview)
 
-Azure Cosmos DB permite provisionar a taxa de transferência em seus contêineres no modo manual ou automático. Este artigo descreve os benefícios e casos de uso do modo AutoPilot.
+Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
 
 > [!NOTE]
-> O modo AutoPilot está disponível atualmente na visualização pública. Para habilitar o recurso de piloto automático para sua conta do Azure Cosmos, consulte a seção [habilitar AutoPilot](#enable-autopilot) deste artigo. Você pode habilitar o AutoPilot somente para novos bancos de dados e contêineres, ele não está disponível para contêineres e bancos de dados existentes.
+> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only,it's not available for existing containers and databases.
 
-Além do provisionamento manual da taxa de transferência, agora você pode configurar contêineres do cosmos do Azure no modo AutoPilot. Os contêineres de Cosmos do Azure e os bancos de dados configurados no modo de piloto automático irão **dimensionar automaticamente e de forma instantânea a taxa de transferência provisionada com base nas necessidades do seu aplicativo sem comprometer os SLAs.**
+In addition to manual provisioning of throughput, you can now configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will **automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs.**
 
-Você não precisa mais gerenciar manualmente a taxa de transferência provisionada ou manipular problemas de limitação de taxa. Os contêineres de Cosmos do Azure configurados no modo AutoPilot podem ser redimensionados instantaneamente em resposta à carga de trabalho sem afetar a disponibilidade, a latência, a taxa de transferência ou o desempenho da carga de trabalho globalmente. Sob alta utilização, os contêineres de Cosmos do Azure configurados no modo de piloto automático podem ser escalados ou reduzidos verticalmente sem afetar as operações em andamento.
+You no longer need to manually manage the provisioned throughput or handle rate-limiting issues. Azure Cosmos containers configured in autopilot mode can be scaled instantly in response to the workload without any impacting the availability, latency, throughput, or performance of the workload globally. Under high utilization, Azure Cosmos containers configured in autopilot mode can be scaled up or down without impacting the ongoing operations.
 
-Ao configurar contêineres e bancos de dados no modo de piloto automático, você precisa especificar que a taxa de transferência máxima não `Tmax` ser excedida. Os contêineres podem ser dimensionados instantaneamente com base nas necessidades de carga de trabalho dentro do intervalo de `0.1*Tmax < T < Tmax`. Em outras palavras, os contêineres e os bancos de dados são dimensionados instantaneamente com base nas necessidades de carga de trabalho, de até 10% do valor máximo de taxa de transferência que você configurou e até o valor máximo de taxa de transferência configurado. Você pode alterar a configuração de taxa de transferência máxima (tmax) no banco de dados ou contêiner do AutoPilot em qualquer momento. Com a opção AutoPilot, a taxa de transferência mínima de 400 RU/s por contêiner ou banco de dados não é mais aplicável.
+When configuring containers and databases in autopilot mode, you need to specify the maximum throughput `Tmax`  not to be exceeded. Containers can then scale instantly based on the workload needs within the `0.1*Tmax < T < Tmax` range. In other words, containers and databases scale instantly based on the workload needs, from as low as 10% of the maximum throughput value that you have configured, and up to the configured maximum throughput value. You can change the maximum throughput (Tmax) setting on autopilot database or container at any point in time. With autopilot option, the 400 RU/s minimum throughput per container or database is no longer applicable.
 
-Durante a versão prévia do piloto automático, para a taxa de transferência máxima especificada no contêiner ou no banco de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for excedido, a taxa de transferência máxima será ajustada automaticamente para um valor mais alto. Ao usar a taxa de transferência no nível do banco de dados com o modo AutoPilot, o número de contêineres permitidos em um banco de dados é calculado como: (0, 1 * taxa de transferência máxima). Por exemplo, se você provisionar 20.000 AutoPilot RU/s, o banco de dados poderá ter 20 contêineres.
+During the preview of autopilot, for the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autopilot mode, the number of containers allowed within a database is calculated as: (0.001 * Max throughput ). For example, if you provision 20,000 autopilot RU/s, then the database can have 20 containers.
 
-## <a name="benefits-of-autopilot-mode"></a>Benefícios do modo AutoPilot
+## <a name="benefits-of-autopilot-mode"></a>Benefits of autopilot mode
 
-Os contêineres do cosmos do Azure que são configurados no modo AutoPilot têm os seguintes benefícios:
+Azure Cosmos containers that are configured in autopilot mode have the following benefits:
 
-* **Simples:** Os contêineres no modo AutoPilot removem a complexidade para gerenciar a taxa de transferência provisionada (RUs) e a capacidade manualmente para vários contêineres.
+* **Simple:** Containers in autopilot mode remove the complexity to manage provisioned throughput (RUs) and capacity manually for various containers.
 
-* **Escalonável:** Os contêineres no modo AutoPilot dimensionam diretamente a capacidade de taxa de transferência provisionada conforme necessário. Não há interrupção nas conexões de cliente, aplicativos e elas não afetam nenhum SLA existente.
+* **Scalable:** Containers in autopilot mode seamlessly scale the provisioned throughput capacity as needed. There is no disruption to client connections, applications and they don’t impact any existing SLAs.
 
-* Econômico **:** Quando você usa contêineres de Cosmos do Azure configurados no modo de piloto automático, você paga apenas pelos recursos de que suas cargas de trabalho precisam por hora.
+* **Cost-effective:** When you use Azure Cosmos containers configured in autopilot mode, you only pay for the resources that your workloads need on a per-hour basis.
 
-* **Altamente disponível:** Os contêineres de Cosmos do Azure no modo de AutoPilot usam o mesmo back-end distribuído globalmente, tolerante a falhas e altamente disponível para garantir a durabilidade dos dados e a alta disponibilidade sempre.
+* **Highly available:** Azure Cosmos containers in autopilot mode use the same globally distributed, fault-tolerant, highly available backend to ensure data durability, and high availability always.
 
-## <a name="use-cases-of-autopilot-mode"></a>Casos de uso do modo AutoPilot
+## <a name="use-cases-of-autopilot-mode"></a>Use cases of autopilot mode
 
-Os casos de uso dos contêineres Cosmos do Azure configurados no modo AutoPilot incluem:
+The use cases for Azure Cosmos containers configured in autopilot mode include:
 
-* **Cargas de trabalho variáveis:** Quando você estiver executando um aplicativo levemente usado com pico de uso de 1 hora a várias horas por dia, ou várias vezes por ano. Os exemplos incluem aplicativos para recursos humanos, orçamento e relatórios operacionais. Para esses cenários, os contêineres configurados no modo de piloto automático podem ser usados, você não precisa mais provisionar manualmente para a capacidade de pico ou média.
+* **Variable workloads:** When you are running a lightly used application with peak usage of 1 hour to several hours few times each day, or several times per year. Examples include applications for human resources, budgeting, and operational reporting. For such scenarios, containers configured in autopilot mode can be used, you no longer need to manually provision for either peak or average capacity.
 
-* **Cargas de trabalho imprevisíveis:** Quando você estiver executando cargas de trabalho em que há uso de banco de dados ao longo do dia, mas também aos picos de atividade que são difíceis de prever. Um exemplo inclui um site de tráfego que vê um surto de atividade quando a previsão do tempo muda. Os contêineres configurados no modo de piloto automático ajustam a capacidade para atender às necessidades da carga de pico do aplicativo e de reduzir verticalmente quando o surto da atividade terminar.
+* **Unpredictable workloads:** When you are running workloads where there is database usage throughout the day, but also peaks of activity that are hard to predict. An example includes a traffic site that sees a surge of activity when weather forecast changes. Containers configured in autopilot mode adjust the capacity to meet the needs of the application's peak load and scale back down when the surge of activity is over.
 
-* **Novos aplicativos:** Se você estiver implantando um novo aplicativo e não tiver certeza quanto à quantidade de produtividade provisionada (ou seja, quantos RUs) você precisa. Com os contêineres configurados no modo AutoPilot, você pode dimensionar automaticamente para as necessidades de capacidade e os requisitos de seu aplicativo.
+* **New applications:** If you are deploying a new application and are unsure about how much provisioned throughput (i.e., how many RUs) you need. With containers configured in autopilot mode, you can automatically scale to the capacity needs and requirements of your application.
 
-* **Aplicativos usados com pouca frequência:** Se você tiver um aplicativo que só é usado por algumas horas várias vezes por dia ou semana ou mês, como um aplicativo de baixo volume/Web/site de blog.
+* **Infrequently used applications:** If you have an application that is only used for a few hours several times per day or week or month, such as a low-volume application/web/blog site.
 
-* **Bancos de dados de desenvolvimento e teste:** Os desenvolvedores usam as contas do Azure Cosmos durante as horas de trabalho, mas não precisam delas em noites ou em fins de semana. Com contêineres configurados no modo AutoPilot, eles são reduzidos para o mínimo quando não estão em uso.
+* **Development and test databases:** Developers use the Azure Cosmos accounts during work hours but don't need them on nights or weekends. With containers configured in autopilot mode, they scale down to minimum when not in use.
 
-* **Cargas de trabalho/consultas de produção agendadas:** Quando você tem uma série de solicitações/operações/consultas agendadas em um único contêiner e, se houver períodos ociosos em que você deseja executar com uma taxa de transferência baixa absoluta, agora você pode fazer isso facilmente. Quando uma consulta/solicitação agendada for enviada para um contêiner configurado no modo de piloto automático, ela aumentará automaticamente o máximo possível e executará a operação.
+* **Scheduled production workloads/queries:** When you have a series of scheduled requests/operations/queries on a single container, and if there are idle periods where you want to run at an absolute low throughput, you can now do that easily. When a scheduled query/request is submitted to a container configured in autopilot mode, it will automatically scale up as much as needed and run the operation.
 
-As soluções para os problemas anteriores não só exigem uma enorme quantidade de tempo na implementação, mas também introduzem complexidade na configuração ou no código, e muitas vezes exigem intervenção manual para solucioná-los. O modo Autopilot permite cenários acima prontos para uso, para que você não precise mais se preocupar com esses problemas.
+Solutions to the previous problems not only require an enormous amount of time in implementation, but they also introduce complexity in configuration or your code, and frequently require manual intervention to address them. The autopilot mode enables above scenarios out of the box, so that you do not need to worry about these problems anymore.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Comparação – contêineres configurados no modo manual vs. modo AutoPilot
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Comparison – Containers configured in manual mode vs. autopilot mode
 
-|  | Contêineres configurados no modo manual  | Contêineres configurados no modo AutoPilot |
+|  | Containers configured in manual mode  | Containers configured in autopilot mode |
 |---------|---------|---------|
-| **Taxa de transferência provisionada** | Provisionado manualmente | Escalado de imediato e instantâneo com base nos padrões de uso da carga de trabalho. |
-| **Taxa-limitação de solicitações/operações (429)**  | Pode acontecer se o consumo exceder a capacidade provisionada. | Não ocorrerá se a taxa de transferência consumida estiver dentro da taxa de transferência máxima escolhida com o modo AutoPilot.   |
-| **Planeamento de capacidade** |  Você precisa fazer um planejamento de capacidade inicial e provisionar a taxa de transferência de que precisa. |    Você não precisa se preocupar com o planejamento de capacidade. O sistema cuida automaticamente do planejamento de capacidade e do gerenciamento de capacidade. |
-| **Preços** | O provisionamento manual de RU/s por hora. | Para contas de região de gravação única, você paga pela taxa de transferência usada por hora, usando o AutoPilot RU/s por hora. <br/><br/>Para contas com várias regiões de gravação, não há nenhum custo adicional para o piloto automático. Você paga pela taxa de transferência usada por hora usando a mesma tarifa de RU/s de vários mestres por hora. |
-| **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
+| **Provisioned throughput** | Manually provisioned | Automatically and instantaneously scaled based on the workload usage patterns. |
+| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if the throughput consumed is within the max throughput that you choose with autopilot mode.   |
+| **Planeamento de capacidade** |  You have to do an initial capacity planning and provision of the throughput you need. |    You don’t have to worry about capacity planning. The system automatically takes care of capacity planning and capacity management. |
+| **Preços** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
+| **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
-## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> habilitar o AutoPilot de portal do Azure
+## <a id="enable-autopilot"></a> Enable autopilot from Azure portal
 
-Você pode experimentar o AutoPilot em suas contas do Azure Cosmos habilitando o no portal do Azure. Use as etapas a seguir para habilitar a opção AutoPilot:
+You can try out autopilot in your Azure Cosmos accounts by enabling in from Azure portal. Use the following steps to enable the autopilot option:
 
-1. Entre no [portal do Azure.](https://portal.azure.com)
+1. Sign in to the [Azure portal.](https://portal.azure.com)
 
-2. Navegue até sua conta do Azure Cosmos e abra a guia **novos recursos** . Selecione **piloto automático** e **registrar** conforme mostrado na seguinte captura de tela:
+2. Navigate to your Azure Cosmos account and open the **New Features** tab. Select **Auto Pilot** and **Register** as shown in the following screenshot:
 
-![Criar um contêiner no modo AutoPilot](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
+![Create a container in autopilot mode](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
-## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Criar um banco de dados ou um contêiner com o modo de piloto automático
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Create a database or a container with autopilot mode
 
-Você pode configurar o AutoPilot para bancos de dados ou contêineres ao criá-los. Use as etapas a seguir para um novo banco de dados ou contêiner, habilite o AutoPilot e especifique a taxa de transferência máxima.
+You can configure autopilot for databases or containers while creating them. Use the following steps to a new database or container, enable autopilot, and specify the maximum throughput.
 
-1. Entre no [portal do Azure](https://portal.azure.com) ou no [Azure Cosmos Explorer.](https://cosmos.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos explorer.](https://cosmos.azure.com/)
 
-1. Navegue até sua conta do Azure Cosmos e abra a guia **Data Explorer** .
+1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
 
-1. Selecione **novo contêiner**, insira um nome para o contêiner, uma chave de partição. Selecione a opção **AutoPilot** e escolha a taxa de transferência máxima que o contêiner não pode exceder ao usar a opção AutoPilot.
+1. Select **New Container**, enter a name for your container, a partition key. Select the **Autopilot** option, and choose the maximum throughput that the container cannot exceed when using the autopilot option.
 
-   ![Criar um contêiner no modo AutoPilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Create a container in autopilot mode](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Selecione **OK**
 
-Com etapas semelhantes, você também pode criar um banco de dados com taxa de transferência provisionada no modo AutoPilot.
+With similar steps, you can also create a database with provisioned throughput in autopilot mode.
+
+## <a id="autopilot-limits"></a> Throughput and storage limits for autopilot
+
+The following table shows the maximum throughout and storage limits for different options in autopilot mode:
+
+|Maximum throughput limit  |Maximum storage limit  |
+|---------|---------|
+|4000 RU/s  |   50 GB    |
+|20,000 RU/s  |  200 GB  |
+|100,000 RU/s    |  1 TB   |
+|500,000 RU/s    |  5 TB  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [partições lógicas](partition-data.md).
-* Saiba como [provisionar a taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
-* Saiba como [provisionar a taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
+* Learn more about [logical partitions](partition-data.md).
+* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).

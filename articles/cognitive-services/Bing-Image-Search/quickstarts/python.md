@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: procurar imagens-Pesquisa de Imagem do Bing API REST e Python'
+title: 'Quickstart: Search for images REST API and Python - Bing Image Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações de pesquisa de imagem para a API REST do Pesquisa de Imagem do Bing usando Python e receber respostas JSON.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8dc7bc36b3d4b172521b0fbbf9aa09cf4d1a9b29
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 17864ed471537f80b537af4b3a8679cb9deaab57
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390123"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323807"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Início rápido: Pesquisar imagens usando a API REST do Pesquisa de Imagem do Bing e o Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Quickstart: Search for images using the Bing Image Search REST API and Python
 
-Use este guia de início rápido para começar a enviar solicitações de pesquisa para o API de Pesquisa de Imagem do Bing. Esse aplicativo Python envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use this quickstart to start sending search requests to the Bing Image Search API. This Python application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in Python, the API is a RESTful web service compatible with most programming languages.
 
 Pode executar este exemplo como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org), ao clicar no destaque de lançamento do Binder:
 
@@ -32,15 +32,15 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2. x ou 3. x](https://www.python.org/)
-* A [pil (biblioteca de imagens do Python)](https://pillow.readthedocs.io/en/stable/index.html)
+* [Python 2.x or 3.x](https://www.python.org/)
+* The [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)
 * [matplotlib](https://matplotlib.org/) 
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo arquivo Python em seu IDE ou editor favorito e importe os módulos a seguir. Crie uma variável para sua chave de assinatura, ponto de extremidade de pesquisa e termo de pesquisa.
+1. Create a new Python file in your favorite IDE or editor, and import the following modules. Create a variable for your subscription key, search endpoint, and search term.
 
     ```python
     import requests
@@ -53,21 +53,21 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
     search_term = "puppies"
     ```
 
-2. Adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key` criando um dicionário e adicionando a chave como um valor. 
+2. Add your subscription key to the `Ocp-Apim-Subscription-Key` header by creating a dictionary, and adding the key as a value. 
 
     ```python
     headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
     ```
 
-## <a name="create-and-send-a-search-request"></a>Criar e enviar uma solicitação de pesquisa
+## <a name="create-and-send-a-search-request"></a>Create and send a search request
 
-1. Crie um dicionário para os parâmetros da solicitação de pesquisa. Adicione seu termo de pesquisa ao parâmetro `q`. Use "público" para o parâmetro `license` para procurar imagens no domínio público. Use "foto" para o `imageType` para pesquisar apenas fotos.
+1. Create a dictionary for the search request's parameters. Add your search term to the `q` parameter. Use "public" for the `license` parameter to search for images in the public domain. Use "photo" for the `imageType` to search only for photos.
 
     ```python
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Use a biblioteca `requests` para chamar o API de Pesquisa de Imagem do Bing. Adicione o cabeçalho e os parâmetros à solicitação e retorne a resposta como um objeto JSON. Obtenha as URLs para várias imagens em miniatura do campo `thumbnailUrl` da resposta.
+2. Use the `requests` library to call the Bing Image Search API. Add your header and parameters to the request, and return the response as a JSON object. Get The URLs to several thumbnail images from the response's `thumbnailUrl` field.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
@@ -76,13 +76,13 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
     thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
-## <a name="view-the-response"></a>Exibir a resposta
+## <a name="view-the-response"></a>View the response
 
-1. Crie uma nova figura com quatro colunas e quatro linhas usando a biblioteca matplotlib. 
+1. Create a new figure with four columns, and four rows using the matplotlib library. 
 
-2. Itere nas linhas e colunas de figuras e use o método `Image.open()` da biblioteca PIL para adicionar uma miniatura de imagem a cada espaço. 
+2. Iterate through the figure's rows and columns, and use the PIL library's `Image.open()` method to add an image thumbnail to each space. 
 
-3. Use `plt.show()` para desenhar a figura e exibir as imagens.
+3. Use `plt.show()` to draw the figure and display the images.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -97,7 +97,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
     ```
 
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Example JSON response
 
 As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
@@ -150,8 +150,8 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-* [O que é o API de Pesquisa de Imagem do Bing?](../overview.md)  
-* [Detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para o APIs de pesquisa do Bing. 
+* [What is the Bing Image Search API?](../overview.md)  
+* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
 * [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

@@ -1,65 +1,67 @@
 ---
-title: Atualizar uma atribuição existente do portal
-description: Saiba mais sobre o mecanismo de atualização de uma atribuição existente do portal em plantas do Azure.
-ms.date: 10/25/2018
+title: Update an existing assignment from the portal
+description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960366"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406385"
 ---
-# <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plano gráfico existente
+# <a name="how-to-update-an-existing-blueprint-assignment"></a>How to update an existing blueprint assignment
 
-Quando um plano gráfico é atribuído, a atribuição pode ser atualizada. Há várias razões para atualizar uma atribuição existente, incluindo:
+When a blueprint is assigned, the assignment can be updated. There are several reasons for updating an existing assignment, including:
 
-- Adicionar ou remover [bloqueio de recursos](../concepts/resource-locking.md)
-- Alterar o valor de [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters)
-- Atualizar a atribuição para uma versão **publicada** mais recente do Blueprint
+- Add or remove [resource locking](../concepts/resource-locking.md)
+- Change the value of [dynamic parameters](../concepts/parameters.md#dynamic-parameters)
+- Upgrade the assignment to a newer **Published** version of the blueprint
 
-## <a name="updating-assignments"></a>Atualizando atribuições
+## <a name="updating-assignments"></a>Updating assignments
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Selecione **plantas atribuídas** na página à esquerda.
+1. Select **Assigned blueprints** from the page on the left.
 
-1. Na lista de plantas, clique com o botão esquerdo do mouse na atribuição Blueprint. Em seguida, clique no botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição Blueprint e selecione **Atualizar atribuição**.
+1. In the list of blueprints, left-click the blueprint assignment. Then click the **Update assignment** button OR right-click the blueprint assignment and select **Update assignment**.
 
-   ![Atualizar uma atribuição de Blueprint existente](../media/update-existing-assignments/update-assignment.png)
+   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
 
-1. A página **atribuir Blueprint** será carregada previamente preenchida com todos os valores da atribuição original. Você pode alterar a **versão de definição do Blueprint**, o estado de **atribuição de bloqueio** e qualquer um dos parâmetros dinâmicos existentes na definição do Blueprint. Clique em **atribuir** quando terminar de fazer alterações.
+1. The **Assign blueprint** page will load pre-filled with all values from the original assignment.
+   You can change the **blueprint definition version**, the **Lock Assignment** state, and any of the dynamic parameters that exist on the blueprint definition. Click **Assign** when done making changes.
 
-1. Na página detalhes de atribuição atualizados, consulte o novo status. Neste exemplo, adicionamos o **bloqueio** à atribuição.
+1. On the updated assignment details page, see the new status. In this example, we added **Locking** to the assignment.
 
-   ![Atualizou uma atribuição de Blueprint existente – modo de bloqueio alterado](../media/update-existing-assignments/updated-assignment.png)
+   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
 
-1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
+1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
 
-   ![Operações de atribuição de uma atribuição de Blueprint](../media/update-existing-assignments/assignment-operations.png)
+   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
 
-## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
+## <a name="rules-for-updating-assignments"></a>Rules for updating assignments
 
-A implantação das atribuições atualizadas segue algumas regras importantes. Essas regras determinam o que acontece porque os recursos já foram implantados. A alteração solicitada e o tipo de recurso de artefato que está sendo implantado ou atualizado determinam quais ações são executadas.
+The deployment of the updated assignments follows a few important rules. These rules determine what happens to already deployed resources. The requested change and the type of artifact resource being deployed or updated determine which actions are taken.
 
 - Atribuições de Funções
-  - Se a função ou o destinatário da função (usuário, grupo ou aplicativo) for alterado, uma nova atribuição de função será criada. As atribuições de função implantadas anteriormente são deixadas em vigor.
+  - If the role or the role assignee (user, group, or app) changes, a new role assignment is created. Role assignments previously deployed are left in place.
 - Atribuições de Política
-  - Se os parâmetros da atribuição de política forem alterados, a atribuição existente será atualizada.
-  - Se a definição da atribuição de política for alterada, uma nova atribuição de política será criada. As atribuições de política implantadas anteriormente são deixadas em vigor.
-  - Se o artefato de atribuição de política for removido do plano gráfico, as atribuições de política implantadas serão deixadas em vigor.
+  - If the parameters of the policy assignment are changed, the existing assignment is updated.
+  - If the definition of the policy assignment is changed, a new policy assignment is created.
+    Policy assignments previously deployed are left in place.
+  - If the policy assignment artifact is removed from the blueprint, deployed policy assignments are left in place.
 - Modelos do Azure Resource Manager
-  - O modelo é processado por meio do Gerenciador de recursos como um **Put**. Como cada tipo de recurso manipula essa ação de forma diferente, examine a documentação de cada recurso incluído para determinar o impacto dessa ação quando executado por plantas.
+  - The template is processed through Resource Manager as a **PUT**. As each resource type handles this action differently, review the documentation for each included resource to determine the impact of this action when run by Blueprints.
 
-## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros na atualização de atribuições
+## <a name="possible-errors-on-updating-assignments"></a>Possible errors on updating assignments
 
-Ao atualizar atribuições, é possível fazer alterações que sejam interrompidas quando executadas. Um exemplo é alterar o local de um grupo de recursos depois que ele já tiver sido implantado. Qualquer alteração compatível com [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) pode ser feita, mas qualquer alteração que resulte em um erro por meio de Azure Resource Manager também resultará na falha da atribuição.
+When updating assignments, it's possible to make changes that break when executed. An example is changing the location of a resource group after it has already been deployed. Any change that are supported by [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) can be made, but any change that would result in an error through Azure Resource Manager will also result in the failure of the assignment.
 
-Não há limite de quantas vezes uma atribuição pode ser atualizada. Se ocorrer um erro, determine o erro e faça outra atualização para a atribuição.  Cenários de erro de exemplo:
+There's no limit on how many times an assignment can be updated. If an error occurs, determine the error and make another update to the assignment.  Example error scenarios:
 
-- Um parâmetro inadequado
-- Um objeto já existente
-- Uma alteração sem suporte pelo Azure Resource Manager
+- A bad parameter
+- An already existing object
+- A change not supported by Azure Resource Manager
 
 ## <a name="next-steps"></a>Passos seguintes
 

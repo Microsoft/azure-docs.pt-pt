@@ -1,119 +1,119 @@
 ---
-title: Migrar de uma política clássica que exija a autenticação multifator no portal do Azure
-description: Este artigo mostra como migrar uma política clássica que exija a autenticação multifator no portal do Azure.
+title: Migrate Conditional Access policies - Azure Active Directory
+description: This article shows how to migrate a classic policy that requires multi-factor authentication in the Azure portal.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ca00ae62ba114aecef48117fd8a54b7f2e962dfd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509448"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380315"
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrar de uma política clássica que exija a autenticação multifator no portal do Azure
+# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrate a classic policy that requires multi-factor authentication in the Azure portal
 
-Este tutorial mostra como migrar uma política clássica, que requer **multi-factor authentication** para uma aplicação na cloud. Embora não seja um pré-requisito, recomendamos que leia [migrar políticas clássicas no portal do Azure](policy-migration.md) antes de começar a migrar as suas políticas clássicas.
+This tutorial shows how to migrate a classic policy that requires **multi-factor authentication** for a cloud app. Although it is not a prerequisite, we recommend that you read [Migrate classic policies in the Azure portal](policy-migration.md) before you start migrating your classic policies.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-O cenário neste artigo mostra como migrar uma política clássica, que requer **multi-factor authentication** para uma aplicação na cloud.
+The scenario in this article shows how to migrate a classic policy that requires **multi-factor authentication** for a cloud app.
 
 ![Azure Active Directory](./media/policy-migration/33.png)
 
-O processo de migração inclui os seguintes passos:
+The migration process consists of the following steps:
 
-1. [Abra a política clássica](#open-a-classic-policy) para obter as definições de configuração.
-1. Crie uma nova política de acesso condicional do Azure AD para substituir a sua política clássica. 
-1. Desative a política clássica.
+1. [Open the classic policy](#open-a-classic-policy) to get the configuration settings.
+1. Create a new Azure AD Conditional Access policy to replace your classic policy. 
+1. Disable the classic policy.
 
-## <a name="open-a-classic-policy"></a>Abra uma política clássica
+## <a name="open-a-classic-policy"></a>Open a classic policy
 
-1. Na [portal do Azure](https://portal.azure.com), na barra de navegação esquerda, clique em **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/policy-migration-mfa/01.png)
 
-1. Na **do Azure Active Directory** página, além do **gerir** secção, clique em **acesso condicional**.
+1. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional Access**.
 
    ![Acesso Condicional](./media/policy-migration-mfa/02.png)
 
-1. Na **Manage** secção, clique em **políticas de clássico (pré-visualização)** .
+1. In the **Manage** section, click **Classic policies (preview)** .
 
-   ![Políticas clássicas](./media/policy-migration-mfa/12.png)
+   ![Classic policies](./media/policy-migration-mfa/12.png)
 
-1. Na lista de políticas clássicas, clique na política que requer **multi-factor authentication** para uma aplicação na cloud.
+1. In the list of classic policies, click the policy that requires **multi-factor authentication** for a cloud app.
 
-   ![Políticas clássicas](./media/policy-migration-mfa/13.png)
+   ![Classic policies](./media/policy-migration-mfa/13.png)
 
-## <a name="create-a-new-conditional-access-policy"></a>Criar uma nova política de acesso condicional
+## <a name="create-a-new-conditional-access-policy"></a>Create a new Conditional Access policy
 
-1. Na [portal do Azure](https://portal.azure.com), na barra de navegação esquerda, clique em **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/policy-migration/01.png)
 
-1. Na **do Azure Active Directory** página, além do **gerir** secção, clique em **acesso condicional**.
+1. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional Access**.
 
    ![Acesso Condicional](./media/policy-migration/02.png)
 
-1. Sobre o **acesso condicional** página, para abrir o **New** página, na barra de ferramentas na parte superior, clique em **adicionar**.
+1. On the **Conditional Access** page, to open the **New** page, in the toolbar on the top, click **Add**.
 
    ![Acesso Condicional](./media/policy-migration/03.png)
 
-1. No **New** página, além do **nome** caixa de texto, escreva um nome para a sua política.
+1. On the **New** page, in the **Name** textbox, type a name for your policy.
 
    ![Acesso Condicional](./media/policy-migration/29.png)
 
-1. Na **atribuições** secção, clique em **utilizadores e grupos**.
+1. In the **Assignments** section, click **Users and groups**.
 
    ![Acesso Condicional](./media/policy-migration/05.png)
 
-   1. Se tiver selecionado na sua política clássica todos os utilizadores, clique em **todos os utilizadores**. 
+   1. If you have all users selected in your classic policy, click **All users**. 
 
       ![Acesso Condicional](./media/policy-migration/35.png)
 
-   1. Se tiver grupos selecionados na sua política clássica, clique em **selecionar utilizadores e grupos**e, em seguida, selecione os utilizadores necessários e grupos.
+   1. If you have groups selected in your classic policy, click **Select users and groups**, and then select the required users and groups.
 
       ![Acesso Condicional](./media/policy-migration/36.png)
 
-   1. Se tiver os grupos excluídos, clique nas **excluir** separador e, em seguida, selecione os utilizadores necessários e grupos. 
+   1. If you have the excluded groups, click the **Exclude** tab, and then select the required users and groups. 
 
       ![Acesso Condicional](./media/policy-migration/37.png)
 
-1. Na **New** página, para abrir o **aplicações na Cloud** página o **atribuição** secção, clique em **aplicações na Cloud**.
-1. Sobre o **aplicações na Cloud** página, execute os seguintes passos:
-   1. Clique em **selecionar aplicações**.
+1. On the **New** page, to open the **Cloud apps** page, in the **Assignment** section, click **Cloud apps**.
+1. On the **Cloud apps** page, perform the following steps:
+   1. Click **Select apps**.
    1. Clique em **Selecionar**.
-   1. Sobre o **selecionar** página, selecione a sua aplicação na cloud e, em seguida, clique em **selecione**.
-   1. Sobre o **aplicações na Cloud** página, clique em **feito**.
-1. Se tiver **exigir autenticação multifator** selecionado:
+   1. On the **Select** page, select your cloud app, and then click **Select**.
+   1. On the **Cloud apps** page, click **Done**.
+1. If you have **Require multi-factor authentication** selected:
 
    ![Acesso Condicional](./media/policy-migration/26.png)
 
-   1. Na **controlos de acesso** secção, clique em **concessão**.
+   1. In the **Access controls** section, click **Grant**.
 
       ![Acesso Condicional](./media/policy-migration/27.png)
 
-   1. Sobre o **concessão** página, clique em **conceder acesso**e, em seguida, clique em **exigir autenticação multifator**.
+   1. On the **Grant** page, click **Grant access**, and then click **Require multi-factor authentication**.
    1. Clique em **Selecionar**.
-1. Clique em **no** para ativar a sua política.
+1. Click **On** to enable your policy.
 
    ![Acesso Condicional](./media/policy-migration/30.png)
 
-## <a name="disable-the-classic-policy"></a>Desativar a política clássica
+## <a name="disable-the-classic-policy"></a>Disable the classic policy
 
-Para desativar a sua política clássica, clique em **desativar** no **detalhes** vista.
+To disable your classic policy, click **Disable** in the **Details** view.
 
-![Políticas clássicas](./media/policy-migration-mfa/14.png)
+![Classic policies](./media/policy-migration-mfa/14.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre a migração de política clássica, consulte [migrar políticas clássicas no portal do Azure](policy-migration.md).
-- Se quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md).
-- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja a [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md).
+- For more information about the classic policy migration, see [Migrate classic policies in the Azure portal](policy-migration.md).
+- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md).

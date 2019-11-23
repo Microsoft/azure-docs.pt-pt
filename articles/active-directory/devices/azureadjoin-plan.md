@@ -1,302 +1,302 @@
 ---
-title: Como planejar sua implementação de junção de Azure Active Directory (Azure AD) | Microsoft Docs
-description: Explica as etapas necessárias para implementar dispositivos ingressados no Azure AD em seu ambiente.
+title: How to plan your Azure Active Directory join implementation
+description: Explains the steps that are required to implement Azure AD joined devices in your environment.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882911"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379602"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como planejar sua implementação de ingresso no Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>How to: Plan your Azure AD join implementation
 
-O ingresso no Azure AD permite que você ingresse dispositivos diretamente no Azure AD sem a necessidade de ingressar no local Active Directory enquanto mantém seus usuários produtivos e seguros. O ingresso no Azure AD está pronto para empresas para implantações em escala e com escopo.   
+Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments.   
 
-Este artigo fornece as informações necessárias para planejar sua implementação de ingresso no Azure AD.
+This article provides you with the information you need to plan your Azure AD join implementation.
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você esteja familiarizado com a [introdução ao gerenciamento de dispositivos no Azure Active Directory](../device-management-introduction.md).
+This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 ## <a name="plan-your-implementation"></a>Planeie a sua implementação
 
-Para planejar sua implementação de ingresso no Azure AD, você deve se familiarizar com:
+To plan your Azure AD join implementation, you should familiarize yourself with:
 
 |   |   |
 |---|---|
-|![Marcar][1]|Examine seus cenários|
-|![Marcar][1]|Examine sua infraestrutura de identidade|
-|![Marcar][1]|Avaliar o gerenciamento de dispositivos|
-|![Marcar][1]|Entenda as considerações para aplicativos e recursos|
-|![Marcar][1]|Entenda suas opções de provisionamento|
-|![Marcar][1]|Configurar roaming de estado da empresa|
-|![Marcar][1]|Configurar o acesso condicional|
+|![Marcar][1]|Review your scenarios|
+|![Marcar][1]|Review your identity infrastructure|
+|![Marcar][1]|Assess your device management|
+|![Marcar][1]|Understand considerations for applications and resources|
+|![Marcar][1]|Understand your provisioning options|
+|![Marcar][1]|Configure enterprise state roaming|
+|![Marcar][1]|Configure Conditional Access|
 
-## <a name="review-your-scenarios"></a>Examine seus cenários 
+## <a name="review-your-scenarios"></a>Review your scenarios 
 
-Embora a junção híbrida do Azure AD possa ser preferida para determinados cenários, o ingresso no Azure AD permite que você faça a transição para um modelo de nuvem em primeiro lugar com o Windows. Se você estiver planejando modernizar o gerenciamento de dispositivos e reduzir os custos de ti relacionados a dispositivos, o ingresso no Azure AD fornecerá uma ótima base voltada para atingir esses objetivos.  
+While Hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you are planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those objectives.  
  
-Você deve considerar o ingresso no Azure AD se suas metas se alinharem com os seguintes critérios:
+You should consider Azure AD join if your goals align with the following criteria:
 
-- Você está adotando Microsoft 365 como o conjunto de produtividade para seus usuários.
-- Você deseja gerenciar dispositivos com uma solução de gerenciamento de dispositivo de nuvem.
-- Você deseja simplificar o provisionamento de dispositivos para usuários distribuídos geograficamente.
-- Você planeja modernizar sua infraestrutura de aplicativo.
+- You are adopting Microsoft 365 as the productivity suite for your users.
+- You want to manage devices with a cloud device management solution.
+- You want to simplify device provisioning for geographically distributed users.
+- You plan to modernize your application infrastructure.
 
-## <a name="review-your-identity-infrastructure"></a>Examine sua infraestrutura de identidade  
+## <a name="review-your-identity-infrastructure"></a>Review your identity infrastructure  
 
-O ingresso no Azure AD funciona com ambientes gerenciados e federados.  
+Azure AD join works with both, managed and federated environments.  
 
-### <a name="managed-environment"></a>Ambiente gerenciado
+### <a name="managed-environment"></a>Managed environment
 
-Um ambiente gerenciado pode ser implantado por meio da [sincronização de hash de senha](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou da autenticação de [passagem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) com logon único contínuo.
+A managed environment can be deployed either through [Password Hash Sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [Pass Through Authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) with Seamless Single Sign On.
 
-Esses cenários não exigem que você configure um servidor de Federação para autenticação.
+These scenarios don't require you to configure a federation server for authentication.
 
-### <a name="federated-environment"></a>Ambiente federado
+### <a name="federated-environment"></a>Federated environment
 
-Um ambiente federado deve ter um provedor de identidade que ofereça suporte a protocolos WS-Trust e WS-Drive:
+A federated environment should have an identity provider that supports both WS-Trust and WS-Fed protocols:
 
-- **WS-alimentado:** Esse protocolo é necessário para ingressar um dispositivo no Azure AD.
-- **WS-Trust:** Esse protocolo é necessário para entrar em um dispositivo ingressado no Azure AD.
+- **WS-Fed:** This protocol is required to join a device to Azure AD.
+- **WS-Trust:** This protocol is required to sign in to an Azure AD joined device.
 
-Quando você estiver usando AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/usernamemixed`
+When you're using AD FS, you need to enable the following WS-Trust endpoints: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Se seu provedor de identidade não oferecer suporte a esses protocolos, o ingresso no Azure AD não funcionará nativamente. A partir do Windows 10 1809, os usuários podem entrar em um dispositivo ingressado no Azure AD com um provedor de identidade baseado em SAML por meio de [entrada na Web no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, a entrada na Web é um recurso de visualização e não é recomendada para implantações de produção.
+If your identity provider does not support these protocols, Azure AD join does not work natively. Beginning with  Windows 10 1809, your users can sign in to an Azure AD joined device with a SAML-based identity provider through [web sign-in on Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Currently, web sign-in is a preview feature and is not recommended for production deployments.
 
 >[!NOTE]
-> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
+> Currently, Azure AD join does not work with [AD FS 2019 configured with external authentication providers as the primary authentication method](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
 
 
-### <a name="smartcards-and-certificate-based-authentication"></a>Cartão inteligente e autenticação baseada em certificado
+### <a name="smartcards-and-certificate-based-authentication"></a>Smartcards and certificate-based authentication
 
-Não é possível usar cartões inteligentes ou autenticação baseada em certificado para unir dispositivos ao Azure AD. No entanto, os cartões inteligentes podem ser usados para entrar em dispositivos ingressados no Azure AD se você tiver AD FS configurados.
+You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
 
-**Recomendação:** Implemente o Windows Hello for Business para autenticação forte e sem senha em dispositivos Windows 10.
+**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 devices.
 
-### <a name="user-configuration"></a>Configuração do usuário
+### <a name="user-configuration"></a>User configuration
 
-Se você criar usuários no seu:
+If you create users in your:
 
-- **Active Directory locais**, você precisa sincronizá-los para o Azure AD usando [Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
-- **Azure ad**, nenhuma configuração adicional é necessária.
+- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Azure AD**, no additional setup is required.
 
-Os UPNs locais diferentes dos UPNs do Azure AD não têm suporte em dispositivos adicionados ao Azure AD. Se os usuários usarem um UPN local, você deverá planejar alternar para usar seu UPN primário no Azure AD.
+On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
 
-## <a name="assess-your-device-management"></a>Avaliar o gerenciamento de dispositivos
+## <a name="assess-your-device-management"></a>Assess your device management
 
 ### <a name="supported-devices"></a>Dispositivos suportados
 
-Ingresso no Azure AD:
+Azure AD join:
 
-- É aplicável somente a dispositivos Windows 10. 
-- Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se você tiver dispositivos Windows 7/8.1, deverá atualizar para o Windows 10 para implantar o ingresso no Azure AD.
-- Não tem suporte em dispositivos com TPM no modo FIPS.
+- Is only applicable to Windows 10 devices. 
+- Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
+- Is not supported on devices with TPM in FIPS mode.
  
-**Recomendação:** Sempre use a versão mais recente do Windows 10 para aproveitar os recursos atualizados.
+**Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 
-### <a name="management-platform"></a>Plataforma de gerenciamento
+### <a name="management-platform"></a>Management platform
 
-O gerenciamento de dispositivos para dispositivos ingressados no Azure AD é baseado em uma plataforma MDM, como o Intune, e CSPs de MDM. O Windows 10 tem um agente MDM interno que funciona com todas as soluções de MDM compatíveis.
+Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
 
 > [!NOTE]
-> Não há suporte para políticas de grupo em dispositivos ingressados no Azure AD, pois eles não estão conectados a Active Directory locais. O gerenciamento de dispositivos ingressados no Azure AD só é possível por meio do MDM
+> Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
 
-Há duas abordagens para gerenciar dispositivos ingressados no Azure AD:
+There are two approaches for managing Azure AD joined devices:
 
-- **Somente MDM –** um dispositivo é gerenciado exclusivamente por um provedor de MDM, como o Intune. Todas as políticas são entregues como parte do processo de registro do MDM. Para clientes Azure AD Premium ou EMS, o registro de MDM é uma etapa automatizada que faz parte de uma junção do Azure AD.
-- **Cogerenciamento** – um dispositivo é gerenciado por um provedor de MDM e SCCM. Nessa abordagem, o agente do SCCM é instalado em um dispositivo gerenciado por MDM para administrar determinados aspectos.
+- **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
+- **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
-Se você estiver usando políticas de grupo, avalie sua paridade de política de MDM usando a [ferramenta de análise de migração do MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+If you are using group policies, evaluate your MDM policy parity by using the [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
 
-Examine as políticas com e sem suporte para determinar se você pode usar uma solução de MDM em vez de políticas de grupo. Para políticas sem suporte, considere o seguinte:
+Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following:
 
-- As políticas sem suporte são necessárias para usuários ou dispositivos ingressados no Azure AD?
-- As políticas sem suporte são aplicáveis em uma implantação controlada por nuvem?
+- Are the unsupported policies necessary for Azure AD joined devices or users?
+- Are the unsupported policies applicable in a cloud driven deployment?
 
-Se sua solução de MDM não estiver disponível por meio da Galeria de aplicativos do Azure AD, você poderá adicioná-la seguindo o processo descrito em [Azure Active Directory integração com o MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
+If your MDM solution is not available through the Azure AD app gallery, you can add it following the process outlined in [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Por meio do cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos enquanto as políticas são entregues por meio da sua plataforma MDM. Microsoft Intune habilita o cogerenciamento com o SCCM. Para obter mais informações, consulte [cogerenciamento para dispositivos Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se você usar um produto MDM diferente do Intune, verifique com seu provedor de MDM em cenários de cogerenciamento aplicáveis.
+Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information, see [Co-management for Windows 10 devices](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, please check with your MDM provider on applicable co-management scenarios.
 
-**Recomendação:** Considere o gerenciamento somente MDM para dispositivos ingressados no Azure AD.
+**Recommendation:** Consider MDM only management for Azure AD joined devices.
 
-## <a name="understand-considerations-for-applications-and-resources"></a>Entenda as considerações para aplicativos e recursos
+## <a name="understand-considerations-for-applications-and-resources"></a>Understand considerations for applications and resources
 
-É recomendável migrar aplicativos do local para a nuvem para melhorar a experiência do usuário e o controle de acesso. No entanto, os dispositivos adicionados ao Azure AD podem fornecer acesso direto aos aplicativos locais e na nuvem. Para obter mais informações, consulte [como o SSO para recursos locais funciona em dispositivos ingressados no Azure ad](azuread-join-sso.md).
+We recommend migrating applications from on-premises to cloud for a better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
-As seções a seguir listam considerações para diferentes tipos de aplicativos e recursos.
+The following sections list considerations for different types of applications and resources.
 
-### <a name="cloud-based-applications"></a>Aplicativos baseados em nuvem
+### <a name="cloud-based-applications"></a>Cloud-based applications
 
-Se um aplicativo for adicionado à galeria de aplicativos do Azure AD, os usuários obterão SSO por meio de dispositivos ingressados no Azure AD. Nenhuma configuração adicional é necessária. Os usuários obtêm SSO em ambos os navegadores, Microsoft Edge e Chrome. Para o Chrome, você precisa implantar a [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+If an application is added to Azure AD app gallery, users get SSO through Azure AD joined devices. No additional configuration is required. Users get SSO on both, Microsoft Edge and Chrome browsers. For Chrome, you need to deploy the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
-Todos os aplicativos Win32 que:
+All Win32 applications that:
 
-- Confiar no Gerenciador de contas da Web (WAM) para solicitações de token também obtém SSO em dispositivos ingressados no Azure AD. 
-- Não confie no WAM pode solicitar aos usuários a autenticação. 
+- Rely on Web Account Manager (WAM) for token requests also get SSO on Azure AD joined devices. 
+- Don't rely on WAM may prompt users for authentication. 
 
-### <a name="on-premises-web-applications"></a>Aplicativos Web locais
+### <a name="on-premises-web-applications"></a>On-premises web applications
 
-Se seus aplicativos forem personalizados criados e/ou hospedados localmente, você precisará adicioná-los aos sites confiáveis do navegador para:
+If your apps are custom built and/or hosted on-premises, you need to add them to your browser’s trusted sites to:
 
-- Habilitar a autenticação integrada do Windows para funcionar 
-- Forneça uma experiência de SSO sem solicitação aos usuários. 
+- Enable Windows integrated authentication to work 
+- Provide a no-prompt SSO experience to users. 
 
-Se você usar AD FS, consulte [verificar e gerenciar o logon único com o AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+If you use AD FS, see [Verify and manage single sign-on with AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recomendação:** Considere a hospedagem na nuvem (por exemplo, o Azure) e a integração com o Azure AD para uma melhor experiência.
+**Recommendation:** Consider hosting in the cloud (for example, Azure) and integrating with Azure AD for a better experience.
 
-### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Aplicativos locais que dependem de protocolos herdados
+### <a name="on-premises-applications-relying-on-legacy-protocols"></a>On-premises applications relying on legacy protocols
 
-Os usuários obtêm SSO de dispositivos ingressados no Azure AD se o dispositivo tiver acesso a um controlador de domínio. 
+Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recomendação:** Implante [aplicativo Azure ad proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para habilitar o acesso seguro para esses aplicativos.
+**Recommendation:** Deploy [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) to enable secure access for these applications.
 
-### <a name="on-premises-network-shares"></a>Compartilhamentos de rede locais
+### <a name="on-premises-network-shares"></a>On-premises network shares
 
-Os usuários têm o SSO de dispositivos ingressados no Azure AD quando um dispositivo tem acesso a um controlador de domínio local.
+Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller.
 
-### <a name="printers"></a>Print
+### <a name="printers"></a>Printers
 
-Para impressoras, você precisa implantar a [impressão de nuvem híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para descobrir impressoras em dispositivos ingressados no Azure AD. 
+For printers, you need to deploy [hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
 
-Embora as impressoras não possam ser descobertas automaticamente em um ambiente somente na nuvem, os usuários também podem usar o caminho UNC das impressoras para adicioná-las diretamente. 
+While printers can't be automatically discovered in a cloud only environment, your users can also use the printers’ UNC path to directly add them. 
 
-### <a name="on-premises-applications-relying-on-machine-authentication"></a>Aplicativos locais que dependem da autenticação do computador
+### <a name="on-premises-applications-relying-on-machine-authentication"></a>On-premises applications relying on machine authentication
 
-Os dispositivos ingressados no Azure AD não dão suporte a aplicativos locais que dependem da autenticação do computador. 
+Azure AD joined devices don't support on-premises applications relying on machine authentication. 
 
-**Recomendação:** Considere a desativação desses aplicativos e a mudança para suas alternativas modernas.
+**Recommendation:** Consider retiring these applications and moving to their modern alternatives.
 
 ### <a name="remote-desktop-services"></a>Serviços de Ambiente de Trabalho Remoto
 
-A conexão de área de trabalho remota para um dispositivo ingressado no Azure AD exige que o computador host seja associado ao Azure ad ou ao Azure AD híbrido. Não há suporte para a área de trabalho remota de um dispositivo não-associado ou não Windows. Para obter mais informações, consulte [conectar-se ao PC ingressado no Azure ad remoto](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
-## <a name="understand-your-provisioning-options"></a>Entenda suas opções de provisionamento
+## <a name="understand-your-provisioning-options"></a>Understand your provisioning options
 
-Você pode provisionar o ingresso no Azure AD usando as seguintes abordagens:
+You can provision Azure AD join using the following approaches:
 
-- **Autoatendimento em OOBE/Settings** -no modo de autoatendimento, os usuários passam pelo processo de ingresso no Azure ad durante as configurações de Oobe (configuração inicial do usuário) ou do Windows. Para obter mais informações, consulte [unir seu dispositivo de trabalho à rede da sua organização](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- O **piloto automático do Windows** – o Windows Autopilot permite a pré-configuração de dispositivos para uma experiência mais suave no OOBE para executar uma junção do Azure AD. Para obter mais informações, consulte a [visão geral do Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Registro em massa** – o registro em massa permite que um administrador baseado no Azure ad ingresse usando uma ferramenta de provisionamento em massa para configurar dispositivos. Para obter mais informações, consulte [registro em massa para dispositivos Windows](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](https://docs.microsoft.com/intune/windows-bulk-enroll).
  
-Aqui está uma comparação dessas três abordagens 
+Here’s a comparison of these three approaches 
  
-|   | Configuração de autoatendimento | Piloto automático do Windows | Registro em massa |
+|   | Self-service setup | Windows Autopilot | Bulk enrollment |
 | --- | --- | --- | --- |
-| Exigir interação do usuário para configurar | Sim | Sim | Não |
-| Exigir esforço de ti | Não | Sim | Sim |
-| Fluxos aplicáveis | Configurações de & do OOBE | Somente OOBE | Somente OOBE |
-| Direitos de administrador local para o usuário primário | Sim, por padrão | Configurável | Não |
-| Exigir suporte para OEM do dispositivo | Não | Sim | Não |
-| Versões suportadas | 1511 + | 1709 + | 1703 + |
+| Require user interaction to set up | Sim | Sim | Não |
+| Require IT effort | Não | Sim | Sim |
+| Applicable flows | OOBE & Settings | OOBE only | OOBE only |
+| Local admin rights to primary user | Yes, by default | Configurable | Não |
+| Require device OEM support | Não | Sim | Não |
+| Versões suportadas | 1511+ | 1709+ | 1703+ |
  
-Escolha a abordagem ou abordagens de implantação examinando a tabela acima e revisando as seguintes considerações para adotar qualquer uma das abordagens:  
+Choose your deployment approach or approaches by reviewing the table above and reviewing the following considerations for adopting either approach:  
 
-- Seus usuários têm o conhecimento técnico para passar pela própria instalação? 
-   - O autoatendimento pode funcionar melhor para esses usuários. Considere o Windows AutoPilot para aprimorar a experiência do usuário.  
-- Os usuários são remotos ou dentro do local corporativo? 
-   - O autoatendimento ou o AutoPilot funcionam melhor para usuários remotos para uma configuração sem complicações. 
-- Você prefere uma configuração orientada por usuário ou gerenciada por administrador? 
-   - O registro em massa funciona melhor para a implantação controlada pelo administrador para configurar dispositivos antes de passar para os usuários.     
-- Você adquire dispositivos de 1-2 OEMS ou tem uma ampla distribuição de dispositivos OEM?  
-   - Se estiver comprando de OEMs limitados que também dão suporte ao AutoPilot, você poderá se beneficiar de uma integração mais rígida com o piloto automático. 
+- Are your users tech savvy to go through the setup themselves? 
+   - Self-service can work best for these users. Consider Windows Autopilot to enhance the user experience.  
+- Are your users remote or within corporate premises? 
+   - Self-service or Autopilot work best for remote users for a hassle-free setup. 
+- Do you prefer a user driven or an admin-managed configuration? 
+   - Bulk enrollment works better for admin driven deployment to set up devices before handing over to users.     
+- Do you purchase devices from 1-2 OEMS, or do you have a wide distribution of OEM devices?  
+   - If purchasing from limited OEMs who also support Autopilot, you can benefit from tighter integration with Autopilot. 
 
-## <a name="configure-your-device-settings"></a>Definir as configurações do dispositivo
+## <a name="configure-your-device-settings"></a>Configure your device settings
 
-O portal do Azure permite que você controle a implantação de dispositivos ingressados no Azure AD na sua organização. Para definir as configurações relacionadas, na **página Azure Active Directory**, selecione `Devices > Device settings`.
+The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`.
 
-### <a name="users-may-join-devices-to-azure-ad"></a>Os usuários podem ingressar dispositivos no Azure AD
+### <a name="users-may-join-devices-to-azure-ad"></a>Users may join devices to Azure AD
 
-Defina essa opção como **All** ou **Selected** com base no escopo da sua implantação e que você deseja permitir para configurar um dispositivo ingressado no Azure AD. 
+Set this option to **All** or **Selected** based on the scope of your deployment and who you want to allow to setup an Azure AD joined device. 
 
-![Os usuários podem ingressar dispositivos no Azure AD](./media/azureadjoin-plan/01.png)
+![Users may join devices to Azure AD](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais em dispositivos ingressados no Azure AD
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Additional local administrators on Azure AD joined devices
 
-Escolha **selecionado** e selecione os usuários que você deseja adicionar ao grupo Administradores locais em todos os dispositivos ingressados no Azure AD. 
+Choose **Selected** and selects the users you want to add to the local administrators’ group on all Azure AD joined devices. 
 
-![Administradores locais adicionais em dispositivos ingressados no Azure AD](./media/azureadjoin-plan/02.png)
+![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Exigir autenticação multifator para unir dispositivos
+### <a name="require-multi-factor-auth-to-join-devices"></a>Require multi-factor Auth to join devices
 
-Selecione **"Sim** se você precisar que os usuários executem o MFA ao unir dispositivos ao Azure AD. Para os usuários que ingressam dispositivos no Azure AD usando o MFA, o próprio dispositivo se torna um 2º fator.
+Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
 
-![Exigir autenticação multifator para unir dispositivos](./media/azureadjoin-plan/03.png)
+![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
 
-## <a name="configure-your-mobility-settings"></a>Definir suas configurações de mobilidade
+## <a name="configure-your-mobility-settings"></a>Configure your mobility settings
 
-Antes de definir as configurações de mobilidade, talvez seja necessário adicionar um provedor de MDM primeiro.
+Before you can configure your mobility settings, you may have to add an MDM provider, first.
 
-**Para adicionar um provedor de MDM**:
+**To add an MDM provider**:
 
-1. Na **página Azure Active Directory**, na seção **gerenciar** , clique em `Mobility (MDM and MAM)`. 
-1. Clique em **Adicionar aplicativo**.
-1. Selecione seu provedor de MDM na lista.
+1. On the **Azure Active Directory page**, in the **Manage** section, click `Mobility (MDM and MAM)`. 
+1. Click **Add application**.
+1. Select your MDM provider from the list.
 
    ![Adicionar uma aplicação](./media/azureadjoin-plan/04.png)
 
-Selecione seu provedor de MDM para definir as configurações relacionadas. 
+Select your MDM provider to configure the related settings. 
 
-### <a name="mdm-user-scope"></a>Escopo de usuário do MDM
+### <a name="mdm-user-scope"></a>MDM user scope
 
-Selecione **alguma** ou **todas as** opções com base no escopo da sua implantação. 
+Select **Some** or **All** based on the scope of your deployment. 
 
-![Escopo de usuário do MDM](./media/azureadjoin-plan/05.png)
+![MDM user scope](./media/azureadjoin-plan/05.png)
 
-Com base no seu escopo, uma das seguintes situações ocorrerá: 
+Based on your scope, one of the following happens: 
 
-- O **usuário está no escopo do MDM**: se você tiver uma assinatura Azure ad Premium, o registro do MDM será automatizado junto com o ingresso no Azure AD. Todos os usuários com escopo devem ter uma licença apropriada para o MDM. Se o registro do MDM falhar nesse cenário, o ingresso no Azure AD também será revertido.
-- O **usuário não está no escopo do MDM**: se os usuários não estiverem no escopo do MDM, a junção do Azure ad será concluída sem qualquer registro de MDM. Isso resulta em um dispositivo não gerenciado.
+- **User is in MDM scope**: If you have an Azure AD Premium subscription, MDM enrollment is automated along with Azure AD join. All scoped users must have an appropriate license for your MDM. If MDM enrollment fails in this scenario, Azure AD join will also be rolled back.
+- **User is not in MDM scope**: If users are not in MDM scope, Azure AD join completes without any MDM enrollment. This results in an unmanaged device.
 
-### <a name="mdm-urls"></a>URLs de MDM
+### <a name="mdm-urls"></a>MDM URLs
 
-Há três URLs relacionadas à sua configuração de MDM:
+There are three URLs that are related to your MDM configuration:
 
-- URL dos termos de uso do MDM
-- URL de descoberta de MDM 
-- URL de conformidade do MDM
+- MDM terms of use URL
+- MDM discovery URL 
+- MDM compliance URL
 
 ![Adicionar uma aplicação](./media/azureadjoin-plan/06.png)
 
-Cada URL tem um valor padrão predefinido. Se esses campos estiverem vazios, entre em contato com seu provedor de MDM para obter mais informações.
+Each URL has a predefined default value. If these fields are empty, please contact your MDM provider for more information.
 
-### <a name="mam-settings"></a>Configurações de MAM
+### <a name="mam-settings"></a>MAM settings
 
-O MAM não se aplica ao ingresso no Azure AD. 
+MAM does not apply to Azure AD join. 
 
-## <a name="configure-enterprise-state-roaming"></a>Configurar roaming de estado da empresa
+## <a name="configure-enterprise-state-roaming"></a>Configure enterprise state roaming
 
-Se você quiser habilitar o roaming de estado para o Azure AD para que os usuários possam sincronizar suas configurações entre dispositivos, consulte [habilitar Enterprise State roaming em Azure Active Directory](enterprise-state-roaming-enable.md). 
+If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recomendação**: habilite essa configuração mesmo para dispositivos ingressados no Azure ad híbrido.
+**Recommendation**: Enable this setting even for hybrid Azure AD joined devices.
 
-## <a name="configure-conditional-access"></a>Configurar o acesso condicional
+## <a name="configure-conditional-access"></a>Configure Conditional Access
 
-Se você tiver um provedor de MDM configurado para seus dispositivos ingressados no Azure AD, o provedor sinalizará o dispositivo como compatível assim que o dispositivo estiver sob gerenciamento. 
+If you have an MDM provider configured for your Azure AD joined devices, the provider flags the device as compliant as soon as the device is under management. 
 
 ![Dispositivo conforme](./media/azureadjoin-plan/46.png)
 
-Você pode usar essa implementação para [exigir dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
+You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Ingressar em um novo dispositivo Windows 10 com o Azure ad durante uma primeira execução](azuread-joined-devices-frx.md)
-> [ingressar seu dispositivo de trabalho na rede da sua organização](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
+> [Join your work device to your organization's network](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

@@ -1,168 +1,168 @@
 ---
-title: Exemplos do NHS & oficial do Reino Unido no Reino Unido – mapeamento de controle
-description: Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
+title: UK OFFICIAL & UK NHS blueprint samples - Control mapping
+description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: be4ac8fd5251929f2e6717aed18af7afd3262025
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037771"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406658"
 ---
-# <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
+# <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Control mapping of the UK OFFICIAL and UK NHS blueprint samples
 
-O artigo a seguir fornece detalhes sobre como os exemplos do plano gráfico do Reino Unido e do Reino Unido NHS são mapeados para os controles OFFICIAL e NHS do Reino Unido. Para obter mais informações sobre os controles, consulte [oficial do Reino Unido](https://www.gov.uk/government/publications/government-security-classifications).
+The following article details how the UK OFFICIAL and UK NHS blueprint samples map to the UK OFFICIAL and UK NHS controls. For more information about the controls, see [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 
-Os mapeamentos a seguir são para os controles **oficial do Reino Unido** e **NHS do Reino Unido** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione os **controles de\[visualização\] auditoria do Reino Unido e do Reino Unido NHS e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+The following mappings are to the **UK OFFICIAL** and **UK NHS** controls. Use the navigation on the right to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\] Audit UK OFFICIAL and UK NHS controls and deploy specific VM Extensions to support audit requirements** built-in policy initiative.
 
 > [!IMPORTANT]
-> Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md) definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however, there often is not a 1:1 or complete match between a control and one or more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're fully compliant with all requirements of a control. In addition, the compliance standard includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance status. The associations between controls and Azure Policy definitions for this compliance blueprint sample may change over time. To view the change history, see the [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
-## <a name="1-data-in-transit-protection"></a>1 proteção de dados em trânsito
+## <a name="1-data-in-transit-protection"></a>1 Data in transit protection
 
-O plano gráfico ajuda a garantir que a transferência de informações com os serviços do Azure seja segura atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam conexões inseguras a contas de armazenamento e cache Redis.
+The blueprint helps you ensure information transfer with Azure services is secure by assigning [Azure Policy](../../../policy/overview.md) definitions that audit insecure connections to storage accounts and Redis Cache.
 
-- Somente conexões seguras para o cache Redis devem ser habilitadas
-- A transferência segura para contas de armazenamento deve ser habilitada
+- Only secure connections to your Redis Cache should be enabled
+- Secure transfer to storage accounts should be enabled
 
-## <a name="23-data-at-rest-protection"></a>2,3 proteção de dados em repouso
+## <a name="23-data-at-rest-protection"></a>2.3 Data at rest protection
 
-Este projeto ajuda a reforçar a política sobre o uso de controles cryptograph atribuindo definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas.
-Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as políticas atribuídas por este projeto exigem criptografia para contas de armazenamento do data Lake; exigir Transparent Data Encryption em bancos de dados SQL; auditar criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis de conta de automação; auditar conexões inseguras para contas de armazenamento e cache Redis; auditar a criptografia de senha de máquina virtual fraca; e auditar a comunicação de Service Fabric não criptografada.
+This blueprint helps you enforce your policy on the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md) definitions that enforce specific cryptograph controls and audit use of weak cryptographic settings.
+Understanding where your Azure resources may have non-optimal cryptographic configurations can help you take corrective actions to ensure resources are configured in accordance with your information security policy. Specifically, the policies assigned by this blueprint require encryption for data lake storage accounts; require transparent data encryption on SQL databases; audit missing encryption on storage accounts, SQL databases, virtual machine disks, and automation account variables; audit insecure connections to storage accounts and Redis Cache; audit weak virtual machine password encryption; and audit unencrypted Service Fabric communication.
 
-- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
-- A criptografia de disco deve ser aplicada em máquinas virtuais
-- As variáveis da conta de automação devem ser criptografadas
-- A transferência segura para contas de armazenamento deve ser habilitada
-- Service Fabric clusters devem ter a propriedade ClusterProtectionLevel definida como EncryptAndSign
-- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
-- Implantar a Transparent Data Encryption do banco de dados SQL
-- Exigir criptografia em contas de Data Lake Store
-- Locais permitidos (foram embutidos em código para "sul do Reino Unido" e "oeste do Reino Unido")
-- Locais permitidos para grupos de recursos (foi embutido no código "sul do Reino Unido" e "oeste do Reino Unido")
+- Transparent Data Encryption on SQL databases should be enabled
+- Disk encryption should be applied on virtual machines
+- Automation account variables should be encrypted
+- Secure transfer to storage accounts should be enabled
+- Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
+- Transparent Data Encryption on SQL databases should be enabled
+- Deploy SQL DB transparent data encryption
+- Require encryption on Data Lake Store accounts
+- Allowed locations (has been hard coded to "UK SOUTH" and "UK WEST")
+- Allowed locations for resource groups (has been hard coded to "UK SOUTH" and "UK WEST")
 
-## <a name="52-vulnerability-management"></a>5,2 gerenciamento de vulnerabilidades
+## <a name="52-vulnerability-management"></a>5.2 Vulnerability Management
 
-Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram a proteção de ponto de extremidade ausente, atualizações do sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual. Esses insights fornecem informações em tempo real sobre o estado de segurança de seus recursos implantados e podem ajudá-lo a priorizar as ações de correção.
+This blueprint helps you manage information system vulnerabilities by assigning [Azure Policy](../../../policy/overview.md) definitions that monitor missing endpoint protection, missing system updates, operating system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities. These insights provide real-time information about the security state of your deployed resources and can help you prioritize remediation actions.
 
-- Monitorar Endpoint Protection ausentes na central de segurança do Azure
-- As atualizações do sistema devem ser instaladas em seus computadores
-- Vulnerabilidades na configuração de segurança em seus computadores devem ser corrigidas
-- Vulnerabilidades em seus bancos de dados SQL devem ser corrigidas
-- Vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade
+- Monitor missing Endpoint Protection in Azure Security Center
+- System updates should be installed on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
-## <a name="53-protective-monitoring"></a>Monitoramento de proteção 5,3
+## <a name="53-protective-monitoring"></a>5.3 Protective Monitoring
 
-Este projeto ajuda a proteger os ativos do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que fornecem monitoramento de proteção de acesso irrestrito, atividade de lista de permissões e ameaças.
+This blueprint helps you protect information system assets by assigning [Azure Policy](../../../policy/overview.md) definitions that provide protective monitoring on unrestricted access, whitelist activity, and threats.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
-- Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
-- Implantar a detecção de ameaças em servidores SQL
-- Implantar a extensão antimalware do Microsoft IaaS padrão para o Windows Server
+- Audit unrestricted network access to storage accounts
+- Adaptive Application Controls should be enabled on virtual machines
+- Deploy Threat Detection on SQL servers
+- Deploy default Microsoft IaaS Anti-malware extension for Windows Server
 
-## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 gerenciamento seguro de usuários/10 identidade e autenticação
+## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 Secure User Management / 10 Identity and Authentication
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar os direitos de acesso atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou permissões de leitura/gravação e contas com permissão de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
+Azure implements role-based access control (RBAC) to helps you manage who has access to resources in Azure. Using the Azure portal, you can review who has access to Azure resources and their permissions. This blueprint helps you restrict and control access rights by assigning [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner and/or read/write permissions and accounts with owner, read and/or write permissions that do not have multi-factor authentication enabled.
 
-- A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura
-- A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
-- A MFA deve ser habilitada em contas com permissões de leitura em sua assinatura
-- Contas externas com permissões de proprietário devem ser removidas da sua assinatura
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled accounts with write permissions on your subscription
+- MFA should be enabled on accounts with read permissions on your subscription
+- External accounts with owner permissions should be removed from your subscription
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
-- Contas externas com permissões de leitura devem ser removidas da sua assinatura
+- External accounts with read permissions should be removed from your subscription
 
-Este projeto atribui definições de Azure Policy para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft.
+This blueprint assigns Azure Policy definitions to audit use of Azure Active Directory authentication for SQL servers and Service Fabric. Using Azure Active Directory authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
 
-- Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
-- Clusters de Service Fabric só devem usar Azure Active Directory para autenticação de cliente
+- An Azure Active Directory administrator should be provisioned for SQL servers
+- Service Fabric clusters should only use Azure Active Directory for client authentication
 
-Esse projeto também atribui definições de Azure Policy para auditar contas que devem ser priorizadas para revisão, incluindo contas depreciadas e contas externas. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Este projeto atribui duas definições de Azure Policy para auditar a conta depreciada que deve ser considerada para remoção.
+This blueprint also assigns Azure Policy definitions to audit accounts that should be prioritized for review, including depreciated accounts and external accounts. When needed, accounts can be blocked from signing in (or removed), which immediately removes access rights to Azure resources. This blueprint assigns two Azure Policy definitions to audit depreciated account that should be considered for removal.
 
-- As contas preteridas devem ser removidas da sua assinatura
-- Contas preteridas com permissões de proprietário devem ser removidas da sua assinatura
-- Contas externas com permissões de proprietário devem ser removidas da sua assinatura
-- As contas externas com permissões de escrita devem ser removidas da sua subscrição
-
-Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
-
-- \[\]de visualização: as permissões de auditoria do arquivo/etc/passwd de VM do Linux são definidas como 0644
-
-Este projeto ajuda a impor senhas fortes atribuindo definições de Azure Policy que auditam as VMs do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização das VMs em violação da política de força da senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
-
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
-- \]de visualização do \[: implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-- \[\]de visualização: auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[\]de visualização: auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \]de visualização de \[: auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[\]de visualização: auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
-- \[\]de visualização: auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-
-Este projeto também ajuda a controlar o acesso aos recursos do Azure atribuindo definições de Azure Policy. Essas políticas usam a auditoria do uso de tipos de recursos e configurações que podem permitir acesso mais permissivo aos recursos. Compreender os recursos que estão em violação dessas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos do Azure de acesso sejam restritos a usuários autorizados.
-
-- \]de visualização do \[: implantar requisitos para auditar VMs do Linux que têm contas sem senhas
-- \]de visualização do \[: implantar requisitos para auditar VMs do Linux que permitem conexões remotas de contas sem senhas
-- \[\]de visualização: auditar VMs do Linux que têm contas sem senhas
-- \[\]de visualização: auditar VMs do Linux que permitem conexões remotas de contas sem senhas
-- As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
-- As máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
-- Auditar VMs que não usam discos gerenciados
-
-## <a name="11-external-interface-protection"></a>11 proteção de interface externa
-
-Além de usar mais de 25 políticas para o gerenciamento de usuários seguro apropriado, este projeto ajuda a proteger interfaces de serviço contra acesso não autorizado, atribuindo uma definição de [Azure Policy](../../../policy/overview.md) que monitora contas de armazenamento irrestritas. As contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações. Esse projeto também atribui uma política que habilita controles de aplicativo adaptáveis em máquinas virtuais.
-
-- Auditar o acesso irrestrito à rede para contas de armazenamento
-- Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
-
-## <a name="12-secure-service-administration"></a>12 administração segura de serviços
-
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com o proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada.
-
-Os sistemas usados para administração de um serviço de nuvem terão acesso altamente privilegiado a esse serviço. Seu comprometimento teria um impacto significativo, incluindo os meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados. Os métodos usados pelos administradores do provedor de serviços para gerenciar o serviço operacional devem ser projetados para atenuar qualquer risco de exploração que possa prejudicar a segurança do serviço. Se esse princípio não for implementado, um invasor poderá ter meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados.
-
-- A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura
-- A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
-- Contas externas com permissões de proprietário devem ser removidas da sua assinatura
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-Este projeto atribui definições de Azure Policy para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft.
+This blueprint also assigns an Azure Policy definition that audits Linux VM password file permissions to alert if they're set incorrectly. This design enables you to take corrective action to ensure authenticators aren't compromised.
 
-- Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
-- Clusters de Service Fabric só devem usar Azure Active Directory para autenticação de cliente
+- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
 
-Esse projeto também atribui definições de Azure Policy para auditar contas que devem ser priorizadas para análise, incluindo contas depreciadas e contas externas com permissões elevadas. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Este projeto atribui duas definições de Azure Policy para auditar a conta depreciada que deve ser considerada para remoção.
+This blueprint helps you enforce strong passwords by assigning Azure Policy definitions that audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of VMs in violation of the password strength policy helps you take corrective actions to ensure passwords for all VM user accounts are compliant with policy.
 
-- As contas preteridas devem ser removidas da sua assinatura
-- Contas preteridas com permissões de proprietário devem ser removidas da sua assinatura
-- Contas externas com permissões de proprietário devem ser removidas da sua assinatura
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+
+This blueprint also helps you control access to Azure resources by assigning Azure Policy definitions. These policies audit use of resource types and configurations that may allow more permissive access to resources. Understanding resources that are in violation of these policies can help you take corrective actions to ensure access Azure resources is restricted to authorized users.
+
+- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
+- \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Audit Linux VMs that have accounts without passwords
+- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
+- Storage accounts should be migrated to new Azure Resource Manager resources
+- Virtual machines should be migrated to new Azure Resource Manager resources
+- Audit VMs that do not use managed disks
+
+## <a name="11-external-interface-protection"></a>11 External Interface Protection
+
+Other than using more than 25 policies for appropriate secure user management, this blueprint helps you protect service interfaces from unauthorized access by assigning an [Azure Policy](../../../policy/overview.md) definition that monitors unrestricted storage accounts. Storage accounts with unrestricted access can allow unintended access to information contained within the information system. This blueprint also assigns a policy that enables adaptive application controls on virtual machines.
+
+- Audit unrestricted network access to storage accounts
+- Adaptive Application Controls should be enabled on virtual machines
+
+## <a name="12-secure-service-administration"></a>12 Secure Service Administration
+
+Azure implements role-based access control (RBAC) to helps you manage who has access to resources in Azure. Using the Azure portal, you can review who has access to Azure resources and their permissions. This blueprint helps you restrict and control privileged access rights by assigning five [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner and/or write permissions and accounts with owner, and/or write permissions that do not have multi-factor authentication enabled.
+
+Systems used for administration of a cloud service will have highly privileged access to that service. Their compromise would have significant impact, including the means to bypass security controls and steal or manipulate large volumes of data. The methods used by the service provider's administrators to manage the operational service should be designed to mitigate any risk of exploitation that could undermine the security of the service. If this principle isn't implemented, an attacker may have the means to bypass security controls and steal or manipulate large volumes of data.
+
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled accounts with write permissions on your subscription
+- External accounts with owner permissions should be removed from your subscription
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
+This blueprint assigns Azure Policy definitions to audit use of Azure Active Directory authentication for SQL servers and Service Fabric. Using Azure Active Directory authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
 
-- \[\]de visualização: as permissões de auditoria do arquivo/etc/passwd de VM do Linux são definidas como 0644
+- An Azure Active Directory administrator should be provisioned for SQL servers
+- Service Fabric clusters should only use Azure Active Directory for client authentication
 
-## <a name="13-audit-information-for-users"></a>13 informações de auditoria para usuários
+This blueprint also assigns Azure Policy definitions to audit accounts that should be prioritized for review, including depreciated accounts and external accounts with elevated permissions. When needed, accounts can be blocked from signing in (or removed), which immediately removes access rights to Azure resources. This blueprint assigns two Azure Policy definitions to audit depreciated account that should be considered for removal.
 
-Este projeto ajuda a garantir que os eventos do sistema sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam as configurações de log nos recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um espaço de trabalho do log Analytics especificado.
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
+- As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
+This blueprint also assigns an Azure Policy definition that audits Linux VM password file permissions to alert if they're set incorrectly. This design enables you to take corrective action to ensure authenticators aren't compromised.
+
+- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
+
+## <a name="13-audit-information-for-users"></a>13 Audit Information for Users
+
+This blueprint helps you ensure system events are logged by assigning [Azure Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources. An assigned policy also audits if virtual machines aren't sending logs to a specified log analytics workspace.
+
+- Auditing should be enabled on advanced data security settings on SQL Server
 - Definição de diagnóstico de auditoria
-- Auditar configurações de auditoria no nível do SQL Server
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
-- Implantar o observador de rede quando redes virtuais forem criadas
+- Audit SQL server level Auditing settings
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
+- Deploy network watcher when virtual networks are created
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
+Now that you've reviewed the control mapping of the UK OFFICIAL and UK NHS blueprints, visit the following articles to learn about the overview and how to deploy this sample:
 
 > [!div class="nextstepaction"]
-> [Plantas oficiais do Reino Unido e do Reino Unido do NHS-visão geral](./index.md)
-> plantas oficiais do Reino [Unido e do Reino Unido NHS-implantar etapas](./deploy.md)
+> [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
+> [UK OFFICIAL and UK NHS blueprints - Deploy steps](./deploy.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

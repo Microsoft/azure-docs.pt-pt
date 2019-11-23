@@ -1,27 +1,27 @@
 ---
-title: Como usar um feed do NuGet personalizado no Azure Dev Spaces
+title: Utilize um feed personalizado do NuGet
 services: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/17/2019
 ms.topic: conceptual
-description: Use um feed do NuGet personalizado para acessar e usar pacotes NuGet em um espaço de desenvolvimento do Azure.
-keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres
+description: Use a custom NuGet feed to access and use NuGet packages in an Azure Dev Space.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
 manager: gwallace
-ms.openlocfilehash: ee14d999872f6e739321c144831d60a4ae6f9388
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279959"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325731"
 ---
-#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Usar um feed do NuGet personalizado em um espaço de desenvolvimento do Azure
+# <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Use a custom NuGet feed with Azure Dev Spaces
 
-Um feed do NuGet fornece uma maneira conveniente de incluir fontes de pacote em um projeto do. Azure Dev Spaces precisa acessar esse feed para que as dependências sejam instaladas corretamente no contêiner do Docker.
+A NuGet feed provides a convenient way to include package sources in a project. Azure Dev Spaces needs to access this feed in order for dependencies to be properly installed in the Docker container.
 
-## <a name="set-up-a-nuget-feed"></a>Configurar um feed do NuGet
+## <a name="set-up-a-nuget-feed"></a>Set up a NuGet feed
 
-Adicione uma [referência de pacote](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) para sua dependência no arquivo de `*.csproj` sob o nó `PackageReference`. Por exemplo:
+Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) for your dependency in the `*.csproj` file under the `PackageReference` node. Por exemplo:
 
 ```xml
 <ItemGroup>
@@ -31,7 +31,7 @@ Adicione uma [referência de pacote](https://docs.microsoft.com/nuget/consume-pa
 </ItemGroup>
 ```
 
-Crie um arquivo [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) na pasta do projeto e defina as seções `packageSources` e `packageSourceCredentials` para o feed do NuGet. A seção `packageSources` contém a URL do feed, que deve ser acessível do seu cluster AKS. As `packageSourceCredentials` são as credenciais para acessar o feed. Por exemplo:
+Create a [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be accessible from your AKS cluster. The `packageSourceCredentials` are the credentials for accessing the feed. Por exemplo:
 
 ```xml
 <packageSources>
@@ -46,17 +46,17 @@ Crie um arquivo [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget
 </packageSourceCredentials>
 ```
 
-Atualize seu Dockerfiles para copiar o arquivo de `NuGet.Config` para a imagem. Por exemplo:
+Update your Dockerfiles to copy the `NuGet.Config` file to the image. Por exemplo:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> No Windows, `NuGet.Config`, `Nuget.Config`e `nuget.config` funciona como nomes de arquivo válidos. No Linux, somente `NuGet.Config` é um nome de arquivo válido para esse arquivo. Como o Azure Dev Spaces usa o Docker e o Linux, esse arquivo deve ser nomeado `NuGet.Config`. Você pode corrigir a nomenclatura manualmente ou executando `dotnet restore --configfile nuget.config`.
+> On Windows, `NuGet.Config`, `Nuget.Config`, and `nuget.config` all works as valid file names. On Linux, only `NuGet.Config` is a valid file name for this file. Since Azure Dev Spaces uses Docker and Linux, this file must be named `NuGet.Config`. You can fix the naming manually or by running `dotnet restore --configfile nuget.config`.
 
 
-Se você estiver usando o Git, não deverá ter as credenciais para o feed do NuGet no controle de versão. Adicione `NuGet.Config` ao `.gitignore` do seu projeto para que o arquivo de `NuGet.Config` não seja adicionado ao controle de versão. Azure Dev Spaces precisará desse arquivo durante o processo de criação da imagem de contêiner, mas, por padrão, ele respeita as regras definidas em `.gitignore` e `.dockerignore` durante a sincronização. Para alterar o padrão e permitir que Azure Dev Spaces Sincronize o arquivo de `NuGet.Config`, atualize o arquivo `azds.yaml`:
+If you are using Git, you should not have the credentials for your NuGet feed in version control. Add `NuGet.Config` to the `.gitignore` for your project so that the `NuGet.Config` file is not added to version control. Azure Dev Spaces will needs this file during the container image build process, but by default, it respects the rules defined in `.gitignore` and `.dockerignore` during synchronization. To change the default and allow Azure Dev Spaces to synchronize the `NuGet.Config` file, update the `azds.yaml` file:
 
 ```yaml
 build:
@@ -65,10 +65,10 @@ ignore:
 - "!NuGet.Config"
 ```
 
-Se você não estiver usando o Git, poderá ignorar esta etapa.
+If you are not using Git, you can skip this step.
 
-Na próxima vez que você executar `azds up` ou pressionar `F5` no Visual Studio Code ou no Visual Studio, Azure Dev Spaces sincronizará o arquivo de `NuGet.Config` usá-lo para instalar as dependências do pacote.
+The next time you run `azds up` or hit `F5` in Visual Studio Code or Visual Studio, Azure Dev Spaces will synchronize the `NuGet.Config` file use it to install package dependencies.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [o NuGet e como ele funciona](https://docs.microsoft.com/nuget/what-is-nuget).
+Learn more about [NuGet and how it works](https://docs.microsoft.com/nuget/what-is-nuget).

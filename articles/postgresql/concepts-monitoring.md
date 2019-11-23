@@ -1,59 +1,67 @@
 ---
-title: Monitorizar e otimizar na base de dados do Azure para PostgreSQL - servidor único
-description: Este artigo descreve as funcionalidades de monitorização e otimização na base de dados do Azure para PostgreSQL - único servidor.
+title: Monitor and Tune in Azure Database for PostgreSQL - Single Server
+description: This article describes monitoring and tuning features in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 799b2b6ee6074472a951e69dec7e9a87056373b4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274299"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384029"
 ---
-# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorizar e otimizar a base de dados do Azure para PostgreSQL - servidor único
-Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitor and tune Azure Database for PostgreSQL - Single Server
+Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## <a name="metrics"></a>Métricas
-Base de dados do Azure para PostgreSQL fornece várias métricas que lhe dar informações sobre o comportamento de recursos que suportam o servidor PostgreSQL. Cada métrica é emitida uma frequência de um minuto e tem até 30 dias do histórico. Pode configurar alertas sobre as métricas. Para obter orientações passo a passo, consulte [como posso configurar alertas](howto-alert-on-metric.md). Outras tarefas incluem definir ações automatizadas, a realização de análises avançadas e o arquivamento de histórico. Para obter mais informações, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="list-of-metrics"></a>Lista de métricas
-Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQL:
+### <a name="list-of-metrics"></a>List of metrics
+These metrics are available for Azure Database for PostgreSQL:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Metric Display Name|Unidade|Descrição|
 |---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percentagem|A percentagem de CPU em utilização.|
-|memory_percent|Percentagem de memória|Percentagem|A percentagem de memória em utilização.|
-|io_consumption_percent|Percentagem de e/s|Percentagem|A percentagem de e/s em utilização.|
-|storage_percent|Percentagem de armazenamento|Percentagem|A percentagem de armazenamento utilizado fora do servidor 's máxima.|
-|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em utilização. O armazenamento utilizado pelo serviço pode incluir os ficheiros de base de dados, registos de transações e os registos do servidor.|
-|storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
-|serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
-|serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
-|active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
-|connections_failed|Ligações com Falhas|Count|O número de ligações falhadas para o servidor.|
-|network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
-|network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
-|backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|
-|pg_replica_log_delay_in_bytes|Atraso máximo entre as réplicas|Bytes|O atraso em bytes entre o mestre e a réplica de lagging maioria. Esta métrica está disponível no servidor principal apenas.|
-|pg_replica_log_delay_in_seconds|Atraso de réplica|Segundos|O tempo, uma vez que o último reproduzidos transação. Esta métrica está disponível para apenas os servidores de réplica.|
+|cpu_percent|CPU percent|Percentagem|The percentage of CPU in use.|
+|memory_percent|Memory percent|Percentagem|The percentage of memory in use.|
+|io_consumption_percent|IO percent|Percentagem|The percentage of IO in use.|
+|storage_percent|Storage percentage|Percentagem|The percentage of storage used out of the server's maximum.|
+|storage_used|Armazenamento utilizado|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
+|storage_limit|Storage limit|Bytes|The maximum storage for this server.|
+|serverlog_storage_percent|Server Log storage percent|Percentagem|The percentage of server log storage used out of the server's maximum server log storage.|
+|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
+|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
+|active_connections|Active Connections|Contagem|The number of active connections to the server.|
+|connections_failed|Ligações com Falhas|Contagem|The number of failed connections to the server.|
+|network_bytes_egress|Saída da Rede|Bytes|Network Out across active connections.|
+|network_bytes_ingress|Entrada na Rede|Bytes|Network In across active connections.|
+|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Bytes|The lag in bytes between the master and the most-lagging replica. This metric is available on the master server only.|
+|pg_replica_log_delay_in_seconds|Replica Lag|Segundos|The time since the last replayed transaction. This metric is available for replica servers only.|
 
 ## <a name="server-logs"></a>Registos do servidor
-Pode ativar o registo no seu servidor. Estes registos também estão disponíveis através de registos de diagnóstico do Azure no [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos e a conta de armazenamento. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
+You can enable logging on your server. These logs are also available through Azure Diagnostic Logs in [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## <a name="query-store"></a>Arquivo de Consultas
-[Consulta Store](concepts-query-store.md) mantém o controle da consulta de desempenho ao longo do tempo incluindo estatísticas de tempo de execução de consulta e eventos de espera. A funcionalidade de informações de desempenho de tempo de execução de consulta numa base de dados do sistema com o nome de persistir **azure_sys** sob o esquema de query_store. Pode controlar a coleção e o armazenamento de dados por meio de vários botões de configuração.
+[Query Store](concepts-query-store.md) keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in a system database named **azure_sys** under the query_store schema. You can control the collection and storage of data via various configuration knobs.
 
-## <a name="query-performance-insight"></a>Query Performance Insight
-[Query Performance Insight](concepts-query-performance-insight.md) funciona em conjunto com Store de consulta para fornecer visualizações acessíveis a partir do portal do Azure. Estes gráficos permitem identificar consultas principais que um impacto no desempenho. Consultar o desempenho Insightis acessível a partir do **suporte + resolução de problemas** secção da base de dados do Azure para a página do portal do servidor PostgreSQL.
+## <a name="query-performance-insight"></a>Estatísticas de Desempenho de Consultas
+[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insightis accessible from the **Support + troubleshooting** section of your Azure Database for PostgreSQL server's portal page.
 
 ## <a name="performance-recommendations"></a>Recomendações de Desempenho
-O [recomendações de desempenho](concepts-performance-recommendations.md) funcionalidade identifica oportunidades para melhorar o desempenho da carga de trabalho. Recomendações de desempenho fornece recomendações para a criação de índices novo que têm o potencial de melhorar o desempenho das suas cargas de trabalho. Para produzir recomendações de índice, a funcionalidade leva em consideração várias características de base de dados, incluindo o respetivo esquema e a carga de trabalho, conforme comunicado pelo Store de consulta. Depois de implementar quaisquer recomendações de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações. 
+The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes. 
 
-## <a name="next-steps"></a>Passos Seguintes
-- Ver [como posso configurar alertas](howto-alert-on-metric.md) para obter orientações sobre como criar um alerta na métrica.
-- Para obter mais informações sobre como aceder e exportar métricas com o portal do Azure, a REST API ou a CLI, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-- Leia o nosso blogue [melhores práticas para monitorização do servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+## <a name="service-health"></a>Estado de funcionamento do serviço
+[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+
+You can view scheduled maintenance events for Azure Database for PostgreSQL - Single Server by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+
+> [!IMPORTANT]
+> The planned maintenance notifications is available in preview for EAST US and UK South only.
+
+## <a name="next-steps"></a>Passos seguintes
+- See [how to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).

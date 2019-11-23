@@ -1,53 +1,53 @@
 ---
-title: Instalar contêineres de fala-serviço de fala
+title: Install Speech containers - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Instale e execute contêineres de fala. A fala a texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Conversão de texto em fala converte o texto de entrada em fala sintetizada por meio do tipo humano.
+description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: b83ece803a72fe6132c1ba98414e95897a0fcc90
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
-ms.translationtype: HT
+ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304874"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325872"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala
+# <a name="install-and-run-speech-service-containers-preview"></a>Install and run Speech Service containers (Preview)
 
-Os contêineres permitem executar algumas das APIs do serviço de fala em seu próprio ambiente. Os contêineres são ótimos para requisitos específicos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner de fala.
+Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
-Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para recursos de nuvem robustos e localidade de borda. Há quatro contêineres diferentes disponíveis. Os dois contêineres padrão são Text **-to-Text** e **conversão de texto em fala**. Os dois contêineres personalizados são **fala personalizada para texto** e **texto em fala personalizado**.
+Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**.
 
 > [!IMPORTANT]
-> Atualmente, todos os contêineres de fala são oferecidos como parte de uma [Visualização pública "restrita"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Um comunicado será feito quando os contêineres de fala progredirem para disponibilidade geral (GA).
+> All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). An announcement will be made when speech containers progress to General Availability (GA).
 
-| Função | Funcionalidades | Mais recente |
+| Função | Funcionalidades | Latest |
 |--|--|--|
-| Conversão de voz em texto | Transcreve as gravações contínuas de fala em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.0.0 |
-| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.0.0 |
-| Conversão de texto em voz | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.3.0 |
-| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.3.0 |
+| Conversão de voz em texto | Transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.0.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.0.0 |
+| Conversão de texto em voz | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.3.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.3.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes pré-requisitos antes de usar os contêineres de fala:
+The following prerequisites before using Speech containers:
 
-| Necessário | Objetivo |
+| Obrigatório | Finalidade |
 |--|--|
-| Mecanismo do Docker | Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
-| Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos básicos de `docker`. |
-| Recurso de fala | Para usar esses contêineres, você deve ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral** |
+| Docker Engine | You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br> |
+| Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands. |
+| Speech resource | In order to use these containers, you must have:<br><br>An Azure _Speech_ resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages. They are both required to start the container.<br><br>**{API_KEY}** : One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}** : The endpoint as provided on the **Overview** page |
 
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registro de contêiner
+## <a name="request-access-to-the-container-registry"></a>Request access to the container registry
 
-Preencha e envie o [formulário de solicitação de contêineres de fala dos serviços cognitivas](https://aka.ms/speechcontainerspreview/) para solicitar acesso ao contêiner. 
+Fill out and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -55,194 +55,194 @@ Preencha e envie o [formulário de solicitação de contêineres de fala dos ser
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="the-host-computer"></a>O computador host
+## <a name="the-host-computer"></a>The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="advanced-vector-extension-support"></a>Suporte à extensão de vetor avançado
+### <a name="advanced-vector-extension-support"></a>Advanced Vector Extension support
 
-O **host** é o computador que executa o contêiner do Docker. O host *deve dar suporte* a [extensões de vetor avançadas](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Você pode verificar o suporte a AVX2 em hosts Linux com o seguinte comando:
+The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> O computador host é *necessário* para dar suporte a AVX2. O contêiner *não* funcionará corretamente sem o suporte do AVX2.
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
-### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
+### <a name="container-requirements-and-recommendations"></a>Container requirements and recommendations
 
-A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada contêiner de fala.
+The following table describes the minimum and recommended allocation of resources for each Speech container.
 
 # <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
-| Conversão de voz em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
+| Conversão de voz em texto | 2 core, 2-GB memory | 4 core, 4-GB memory |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
-| Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
+| Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 
 # <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
-| Conversão de texto em voz | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
+| Conversão de texto em voz | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
-| Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
+| Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
 ***
 
-* Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
 
-O núcleo e a memória correspondem às configurações de `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
-> O mínimo e recomendado são baseados nos limites do Docker, *não* nos recursos da máquina host. Por exemplo, os contêineres de conversão de texto na memória mapeiam partes de um modelo de linguagem grande e é *recomendável* que todo o arquivo caiba na memória, que é de 4-6 GB adicionais. Além disso, a primeira execução de qualquer um dos contêineres pode levar mais tempo, pois os modelos estão sendo paginados na memória.
+> The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is *recommended* that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of either container may take longer, since models are being paged into memory.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Get the container image with `docker pull`
 
-As imagens de contêiner para fala estão disponíveis no registro de contêiner a seguir.
+Container images for Speech are available in the following Container Registry.
 
 # <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
 
-| Contentor | Repositório |
+| Contentor | Repository |
 |-----------|------------|
 | Conversão de voz em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-| Contentor | Repositório |
+| Contentor | Repository |
 |-----------|------------|
-| Fala Personalizada para texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
+| Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
 
-| Contentor | Repositório |
+| Contentor | Repository |
 |-----------|------------|
 | Conversão de texto em voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-| Contentor | Repositório |
+| Contentor | Repository |
 |-----------|------------|
-| Conversão de texto em fala personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
+| Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
 ***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-speech-containers"></a>Pull do Docker para os contêineres de fala
+### <a name="docker-pull-for-the-speech-containers"></a>Docker pull for the Speech containers
 
 # <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
 
-#### <a name="docker-pull-for-the-speech-to-text-container"></a>Pull do Docker para o contêiner de conversão de fala em texto
+#### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker pull for the Speech-to-text container
 
-Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
 ```
 
 > [!IMPORTANT]
-> A marca de `latest` extrai a localidade `en-US`. Para localidades adicionais, consulte [localidades de fala para texto](#speech-to-text-locales).
+> The `latest` tag pulls the `en-US` locale. For additional locales see [Speech-to-text locales](#speech-to-text-locales).
 
-#### <a name="speech-to-text-locales"></a>Localidades de conversão de fala em texto
+#### <a name="speech-to-text-locales"></a>Speech-to-text locales
 
-Todas as marcas, com exceção de `latest` estão no seguinte formato e diferenciam maiúsculas de minúsculas:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
-A marca a seguir é um exemplo do formato:
+The following tag is an example of the format:
 
 ```
 2.0.0-amd64-en-us-preview
 ```
 
-Para todas as localidades com suporte do contêiner de **fala a texto** , consulte [marcas de imagem de fala para texto](../containers/container-image-tags.md#speech-to-text).
+For all of the supported locales of the **speech-to-text** container, please see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
 
-# <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-#### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Pull do Docker para o contêiner de Fala Personalizada para texto
+#### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker pull for the Custom Speech-to-text container
 
-Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest
 ```
 
 > [!NOTE]
-> O `locale` e `voice` para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
+> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 # <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
 
-#### <a name="docker-pull-for-the-text-to-speech-container"></a>Pull do Docker para o contêiner de conversão de texto em fala
+#### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker pull for the Text-to-speech container
 
-Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
 ```
 
 > [!IMPORTANT]
-> A marca de `latest` extrai a localidade `en-US` e `jessarus` voz. Para localidades adicionais, consulte [localidades de conversão de texto em fala](#text-to-speech-locales).
+> The `latest` tag pulls the `en-US` locale and `jessarus` voice. For additional locales see [Text-to-speech locales](#text-to-speech-locales).
 
-#### <a name="text-to-speech-locales"></a>Localidades de conversão de texto em fala
+#### <a name="text-to-speech-locales"></a>Text-to-speech locales
 
-Todas as marcas, com exceção de `latest` estão no seguinte formato e diferenciam maiúsculas de minúsculas:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
-A marca a seguir é um exemplo do formato:
+The following tag is an example of the format:
 
 ```
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-Para todas as localidades com suporte e as vozes correspondentes do contêiner de **conversão de texto em fala** , confira [marcas de imagem de texto em fala](../containers/container-image-tags.md#text-to-speech).
+For all of the supported locales and corresponding voices of the **text-to-speech** container, please see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Ao construir um HTTP POST *padrão de conversão de texto em fala* , a mensagem de [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md) requer um elemento `voice` com um atributo `name`. O valor é a localidade de contêiner correspondente e voz, também conhecido como ["nome curto"](language-support.md#standard-voices). Por exemplo, a marca de `latest` teria um nome de voz de `en-US-JessaRUS`.
+> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-#### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Pull do Docker para o contêiner personalizado de conversão de texto em fala
+#### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker pull for the Custom Text-to-speech container
 
-Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
 ```
 
 > [!NOTE]
-> O `locale` e `voice` para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
+> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 ***
 
-## <a name="how-to-use-the-container"></a>Como usar o contêiner
+## <a name="how-to-use-the-container"></a>How to use the container
 
-Depois que o contêiner estiver no [computador host](#the-host-computer), use o processo a seguir para trabalhar com o contêiner.
+Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Execute o contêiner](#run-the-container-with-docker-run)com as configurações de cobrança necessárias. Mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do comando `docker run` estão disponíveis.
-1. [Consulte o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint).
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Execute o contêiner com `docker run`
+## <a name="run-the-container-with-docker-run"></a>Run the container with `docker run`
 
-Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte [coletando parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os valores de `{Endpoint_URI}` e de `{API_Key}`. [Exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do comando `docker run` também estão disponíveis.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values. Additional [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
 # <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
 
-Para executar o contêiner de *conversão de fala em texto* , execute o comando `docker run` a seguir.
+To run the *Speech-to-text* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -252,35 +252,35 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Este comando:
+This command:
 
-* Executa um contêiner de *conversão de fala em texto* da imagem de contêiner.
-* Aloca 4 núcleos de CPU e 4 gigabytes (GB) de memória.
-* Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+* Runs a *Speech-to-text* container from the container image.
+* Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
+# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech-to-text](#tab/cstt)
 
-O contêiner de *fala personalizada para texto* depende de um modelo de fala personalizado. O modelo personalizado deve ter sido [treinado](how-to-custom-speech-train-model.md) usando o [portal de fala personalizado](https://speech.microsoft.com/customspeech). A ID do **modelo** de fala personalizado é necessária para executar o contêiner. Ele pode ser encontrado na página de **treinamento** do portal de fala personalizado. No portal de fala personalizado, navegue até a página de **treinamento** e selecione o modelo.
+The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech). The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
 <br>
 
-![Página de treinamento de fala personalizada](media/custom-speech/custom-speech-model-training.png)
+![Custom speech training page](media/custom-speech/custom-speech-model-training.png)
 
-Obtenha a **ID do modelo** para usar como o argumento para o parâmetro `ModelId` do comando `docker run`.
+Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the `docker run` command.
 <br>
 
-![Detalhes do modelo de fala personalizado](media/custom-speech/custom-speech-model-details.png)
+![Custom speech model details](media/custom-speech/custom-speech-model-details.png)
 
-A tabela a seguir representa os vários parâmetros `docker run` e suas descrições correspondentes:
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parâmetro | Descrição |
 |---------|---------|
-| `{VOLUME_MOUNT}` | A montagem de [volume](https://docs.docker.com/storage/volumes/)do computador host, que o Docker usa para manter o modelo personalizado. Por exemplo, *C:\CustomSpeech* onde a *unidade C* está localizada no computador host. |
-| `{MODEL_ID}` | A **ID do modelo** de fala personalizada da página de **treinamento** do portal de fala personalizado. |
-| `{ENDPOINT_URI}` | O ponto de extremidade é necessário para medição e cobrança. Para obter mais informações, consulte [coletando parâmetros necessários](#gathering-required-parameters). |
-| `{API_KEY}` | A chave de API é necessária. Para obter mais informações, consulte [coletando parâmetros necessários](#gathering-required-parameters). |
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
+| `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom speech portal. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
+| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
-Para executar o contêiner de *fala personalizada para texto* , execute o seguinte comando de `docker run`:
+To run the *Custom Speech-to-text* container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -292,19 +292,19 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Este comando:
+This command:
 
-* Executa um contêiner de *fala personalizada para texto* a partir da imagem de contêiner.
-* Aloca 4 núcleos de CPU e 4 gigabytes (GB) de memória.
-* Carrega o modelo de *fala personalizada para texto* da montagem de entrada de volume, por exemplo, *C:\CustomSpeech*.
-* Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
-* Baixa o modelo de acordo com o `ModelId` (se não for encontrado na montagem do volume).
-* Se o modelo personalizado tiver sido baixado anteriormente, o `ModelId` será ignorado.
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+* Runs a *Custom Speech-to-text* container from the container image.
+* Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
+* Loads the *Custom Speech-to-Text* model from the volume input mount, for example *C:\CustomSpeech*.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Downloads the model given the `ModelId` (if not found on the volume mount).
+* If the custom model was previously downloaded, the `ModelId` is ignored.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 # <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
 
-Para executar o contêiner de *conversão de texto em fala* , execute o comando `docker run` a seguir.
+To run the *Text-to-speech* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -314,35 +314,35 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Este comando:
+This command:
 
-* Executa um contêiner de *conversão de texto em fala* da imagem de contêiner.
-* Aloca 2 núcleos de CPU e um gigabyte (GB) de memória.
-* Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+* Runs a *Text-to-speech* container from the container image.
+* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
+# <a name="custom-text-to-speechtabctts"></a>[Custom Text-to-speech](#tab/ctts)
 
-O contêiner de *texto em fala personalizado* depende de um modelo de voz personalizado. O modelo personalizado deve ter sido [treinado](how-to-custom-voice-create-voice.md) usando o [portal de voz personalizado](https://aka.ms/custom-voice-portal). A ID do **modelo** de voz personalizado é necessária para executar o contêiner. Ele pode ser encontrado na página de **treinamento** do portal de voz personalizado. No portal de voz personalizado, navegue até a página de **treinamento** e selecione o modelo.
+The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** is required to run the container. It can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
 <br>
 
-![Página de treinamento de voz personalizada](media/custom-voice/custom-voice-model-training.png)
+![Custom voice training page](media/custom-voice/custom-voice-model-training.png)
 
-Obtenha a **ID do modelo** para usar como o argumento para o `ModelId` parâmetro do comando de execução do Docker.
+Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the docker run command.
 <br>
 
-![Detalhes do modelo de voz personalizado](media/custom-voice/custom-voice-model-details.png)
+![Custom voice model details](media/custom-voice/custom-voice-model-details.png)
 
-A tabela a seguir representa os vários parâmetros `docker run` e suas descrições correspondentes:
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parâmetro | Descrição |
 |---------|---------|
-| `{VOLUME_MOUNT}` | A montagem de [volume](https://docs.docker.com/storage/volumes/)do computador host, que o Docker usa para manter o modelo personalizado. Por exemplo, *C:\CustomSpeech* onde a *unidade C* está localizada no computador host. |
-| `{MODEL_ID}` | A **ID do modelo** de fala personalizada da página de **treinamento** do portal de voz personalizado. |
-| `{ENDPOINT_URI}` | O ponto de extremidade é necessário para medição e cobrança. Para obter mais informações, consulte [coletando parâmetros necessários](#gathering-required-parameters). |
-| `{API_KEY}` | A chave de API é necessária. Para obter mais informações, consulte [coletando parâmetros necessários](#gathering-required-parameters). |
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
+| `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom voice portal. |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
+| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
 
-Para executar o contêiner de *texto em fala personalizado* , execute o seguinte comando de `docker run`:
+To run the *Custom Text-to-speech* container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -354,63 +354,63 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Este comando:
+This command:
 
-* Executa um contêiner de *conversão de texto em fala personalizado* da imagem de contêiner.
-* Aloca 2 núcleos de CPU e um gigabyte (GB) de memória.
-* Carrega o modelo de *conversão de texto em fala personalizado* da montagem de entrada de volume, por exemplo, *C:\CustomVoice*.
-* Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
-* Baixa o modelo de acordo com o `ModelId` (se não for encontrado na montagem do volume).
-* Se o modelo personalizado tiver sido baixado anteriormente, o `ModelId` será ignorado.
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+* Runs a *Custom Text-to-speech* container from the container image.
+* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Downloads the model given the `ModelId` (if not found on the volume mount).
+* If the custom model was previously downloaded, the `ModelId` is ignored.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ***
 
 > [!IMPORTANT]
-> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
+## <a name="query-the-containers-prediction-endpoint"></a>Query the container's prediction endpoint
 
 | Contentor | Ponto Final | Protocolo |
 |--|--|--|
-| Conversão de voz em texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | Federation |
-| Fala Personalizada para texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | Federation |
+| Conversão de voz em texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
+| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
 | Conversão de texto em voz | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Conversão de texto em fala personalizada | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
 
-Para obter mais informações sobre como usar os protocolos do WSS e HTTPS, consulte [segurança do contêiner](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
-### <a name="text-to-speech-or-custom-text-to-speech"></a>Conversão de texto em fala ou personalizada para fala
+### <a name="text-to-speech-or-custom-text-to-speech"></a>Text-to-speech or Custom Text-to-speech
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
-### <a name="run-multiple-containers-on-the-same-host"></a>Executar vários contêineres no mesmo host
+### <a name="run-multiple-containers-on-the-same-host"></a>Run multiple containers on the same host
 
-Se você pretende executar vários contêineres com portas expostas, certifique-se de executar cada contêiner com uma porta exposta diferente. Por exemplo, execute o primeiro contêiner na porta 5000 e o segundo contêiner na porta 5001.
+If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
 
-Você pode ter esse contêiner e um contêiner diferente de serviços cognitivas do Azure em execução no HOST juntos. Você também pode ter vários contêineres do mesmo contêiner de serviços cognitivas em execução.
+You can have this container and a different Azure Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Parar o contêiner
+## <a name="stop-the-container"></a>Stop the container
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Ao iniciar ou executar o contêiner, você poderá ter problemas. Use uma [montagem](speech-container-configuration.md#mount-settings) de saída e habilite o registro em log. Isso permitirá que o contêiner gere arquivos de log que são úteis ao solucionar problemas.
+When starting or running the container, you may experience issues. Use an output [mount](speech-container-configuration.md#mount-settings) and enable logging. Doing so will allow the container to generate log files that are helpful when troubleshooting issues.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Faturação
 
-Os contêineres de fala enviam informações de cobrança para o Azure, usando um recurso de *fala* em sua conta do Azure.
+The Speech containers send billing information to Azure, using a *Speech* resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre estas opções, consulte [configurar contentores](speech-container-configuration.md).
+For more information about these options, see [Configure containers](speech-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -418,23 +418,23 @@ Para obter mais informações sobre estas opções, consulte [configurar content
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, instalar e executar contêineres de fala. Em resumo:
+In this article, you learned concepts and workflow for downloading, installing, and running Speech containers. Em resumo:
 
-* A fala fornece quatro contêineres do Linux para o Docker, encapsulando vários recursos:
+* Speech provides four Linux containers for Docker, encapsulating various capabilities:
   * *Conversão de voz em texto*
-  * *Fala Personalizada para texto*
+  * *Custom Speech-to-text*
   * *Conversão de texto em voz*
-  * *Conversão de texto em fala personalizada*
-* As imagens de contêiner são baixadas do registro de contêiner no Azure.
-* Executam imagens de contentor no Docker.
-* Você pode usar a API REST ou o SDK para chamar operações em contêineres de fala especificando o URI do host do contêiner.
-* Você precisa fornecer informações de cobrança ao criar uma instância de um contêiner.
+  * *Custom Text-to-speech*
+* Container images are downloaded from the container registry in Azure.
+* Container images run in Docker.
+* You can use either the REST API or SDK to call operations in Speech containers by specifying the host URI of the container.
+* You're required to provide billing information when instantiating a container.
 
 > [!IMPORTANT]
->  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
+>  Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Examinar [definir contêineres](speech-container-configuration.md) para definições de configuração
-* Saiba como [usar contêineres de serviço de fala com kubernetes e Helm](speech-container-howto-on-premises.md)
-* Usar mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md)
+* Review [configure containers](speech-container-configuration.md) for configuration settings
+* Learn how to [use Speech Service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
+* Use more [Cognitive Services containers](../cognitive-services-container-support.md)

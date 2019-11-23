@@ -1,48 +1,48 @@
 ---
-title: Tutorial – adicionar marcas a recursos no modelo
-description: Adicione marcas aos recursos que você implanta em seu modelo de Azure Resource Manager. As marcas permitem que você organize os recursos logicamente.
+title: Tutorial - add tags to resources in template
+description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 663de1e341815eac039c49cee63f8a492b0cb7a9
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 078d85b3120baf5b8bea9c305fb1f97763f8df59
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150181"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406070"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: adicionar marcas em seu modelo do Resource Manager
+# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Add tags in your Resource Manager template
 
-Neste tutorial, você aprenderá a adicionar marcas a recursos em seu modelo. As [marcas](resource-group-using-tags.md) ajudam a organizar seus recursos de forma lógica. Os valores de marcação aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
+In this tutorial, you learn how to add tags to resources in your template. [Tags](resource-group-using-tags.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre modelos de início rápido](template-tutorial-quickstart-template.md), mas isso não é necessário.
+We recommend that you complete the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md), but it's not required.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Examine seu modelo
+## <a name="review-template"></a>Review template
 
-O modelo anterior implantou uma conta de armazenamento, um plano do serviço de aplicativo e um aplicativo Web.
+Your previous template deployed a storage account, App Service plan, and web app.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
 
-Depois de implantar esses recursos, talvez seja necessário controlar os custos e localizar os recursos que pertencem a uma categoria. Você pode adicionar marcas para ajudar a resolver esses problemas.
+After deploying these resources, you might need to track costs and find resources that belong to a category. You can add tags to help solve these issues.
 
 ## <a name="add-tags"></a>Adicionar etiquetas
 
-Você marca os recursos para adicionar valores que ajudam a identificar seu uso. Por exemplo, você pode adicionar marcas que listam o ambiente e o projeto. Você pode adicionar marcas que identificam um centro de custo ou a equipe que possui o recurso. Adicione quaisquer valores que façam sentido para sua organização.
+You tag resources to add values that help you identify their use. For example, you can add tags that list the environment and the project. You could add tags that identify a cost center or the team that owns the resource. Add any values that make sense for your organization.
 
-O exemplo a seguir realça as alterações no modelo. Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
+The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-template"></a>Implementar o modelo
 
-É hora de implantar o modelo e examinar os resultados.
+It's time to deploy the template and look at the results.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -68,22 +68,22 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificar a implementação
+## <a name="verify-deployment"></a>Verificar a implementação
 
-Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
+You can verify the deployment by exploring the resource group from the Azure portal.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, selecione **grupos de recursos**.
-1. Selecione o grupo de recursos no qual você implantou.
-1. Selecione um dos recursos, como o recurso da conta de armazenamento. Você verá que agora ele tem marcas.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. From the left menu, select **Resource groups**.
+1. Select the resource group you deployed to.
+1. Select one of the resources, such as the storage account resource. You see that it now has tags.
 
-   ![Mostrar marcas](./media/template-tutorial-add-tags/show-tags.png)
+   ![Show tags](./media/template-tutorial-add-tags/show-tags.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -92,7 +92,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você adicionou marcas aos recursos. No próximo tutorial, você aprenderá a usar arquivos de parâmetro para simplificar a passagem de valores para o modelo.
+In this tutorial, you added tags to the resources. In the next tutorial, you'll learn how to use parameter files to simplify passing in values to the template.
 
 > [!div class="nextstepaction"]
-> [Usar arquivo de parâmetro](template-tutorial-use-parameter-file.md)
+> [Use parameter file](template-tutorial-use-parameter-file.md)

@@ -1,52 +1,52 @@
 ---
 title: Suporte de contentor
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso de instância de contêiner do Azure.
+description: Learn how to create an Azure container instance resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 8/21/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 07e2067571c7bc7403ee8a1d1a0600c451e1581f
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 1679862b1660d3c8b2505c6e0c54f203f5d4665d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051189"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383522"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso de instância de contêiner do Azure
+## <a name="create-an-azure-container-instance-resource"></a>Create an Azure Container Instance resource
 
-1. Vá para a página [criar](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) para instâncias de contêiner.
+1. Go to the [Create](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) page for Container Instances.
 
-2. Na guia **noções básicas** , insira os seguintes detalhes:
+2. On the **Basics** tab, enter the following details:
 
     |Definição|Valor|
     |--|--|
-    |Subscription|Selecione a sua subscrição.|
-    |Resource group|Selecione o grupo de recursos disponível ou crie um novo, `cognitive-services`como.|
-    |Nome do contentor|Insira um nome como `cognitive-container-instance`. O nome deve estar em minúsculas.|
-    |Location|Selecione uma região para implantação.|
-    |Tipo de imagem|Se a imagem de contêiner estiver armazenada em um registro de contêiner que não requer `Public`credenciais, escolha. Se o acesso à sua imagem de contêiner exigir `Private`credenciais, escolha. Consulte [repositórios e imagens de contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter detalhes sobre se a imagem de contêiner é `Public` ou não ou `Private` ("visualização pública"). |
-    |Nome de imagem|Insira o local do contêiner de serviços cognitivas. O local é o que é usado como um argumento para `docker pull` o comando. Consulte os [repositórios e as imagens do contêiner](../../cognitive-services-container-support.md#container-repositories-and-images) para obter os nomes de imagem disponíveis e seu repositório correspondente.<br><br>O nome da imagem deve ser totalmente qualificado, especificando três partes. Primeiro, o registro de contêiner, em seguida, o repositório, por fim `<container-registry>/<repository>/<image-name>`, o nome da imagem:.<br><br>Aqui está um exemplo, `mcr.microsoft.com/azure-cognitive-services/keyphrase` que representaria a imagem de extração de frases-chave no registro de contêiner da Microsoft no repositório de serviços cognitivas do Azure. Outro exemplo é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` que representaria a imagem de fala para texto no repositório da Microsoft do registro de contêiner de visualização do contêiner. |
-    |Tipo de SO|`Linux`|
-    |Size|Altere o tamanho para as recomendações sugeridas para seu contêiner de serviço cognitiva específico:<br>2 núcleos de CPU<br>4 GB
+    |Subscrição|Selecione a sua subscrição.|
+    |Grupo de recursos|Select the available resource group or create a new one such as `cognitive-services`.|
+    |Nome do contentor|Enter a name such as `cognitive-container-instance`. The name must be in lower caps.|
+    |Localização|Select a region for deployment.|
+    |Image type|If your container image is stored in a container registry that doesn’t require credentials, choose `Public`. If accessing your container image requires credentials, choose `Private`. Refer to [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) for details on whether or not the container image is `Public` or `Private` ("Public Preview"). |
+    |Nome da imagem|Enter the Cognitive Services container location. The location is what's used as an argument to the `docker pull` command. Refer to the [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) for the available image names and their corresponding repository.<br><br>The image name must be fully qualified specifying three parts. First, the container registry, then the repository, finally the image name: `<container-registry>/<repository>/<image-name>`.<br><br>Here is an example, `mcr.microsoft.com/azure-cognitive-services/keyphrase` would represent the Key Phrase Extraction image in the Microsoft Container Registry under the Azure Cognitive Services repository. Another example is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` which would represent the Speech to Text image in the Microsoft repository of the Container Preview container registry. |
+    |OS type|`Linux`|
+    |Tamanho|Change size to the suggested recommendations for your specific Cognitive Service container:<br>2 CPU cores<br>4GB
 
-3. Na guia **rede** , insira os seguintes detalhes:
+3. On the **Networking** tab, enter the following details:
 
-    |Definição|Value|
+    |Definição|Valor|
     |--|--|
-    |Portas|Defina a porta TCP como `5000`. Expõe o contêiner na porta 5000.|
+    |Portas|Set the TCP port to `5000`. Exposes the container on port 5000.|
 
-4. Na guia **avançado** , insira as variáveis de **ambiente** necessárias para as configurações de cobrança de contêiner do recurso de instância de contêiner do Azure:
+4. On the **Advanced** tab, enter the required **Environment Variables** for the container billing settings of the Azure Container Instance resource:
 
-    | Chave | Value |
+    | Chave | Valor |
     |--|--|
-    |`apikey`|Copiado da página de **chaves** do recurso. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiado da página de **visão geral** do recurso.|
+    |`apikey`|Copied from the **Keys** page of the resource. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Copied from the **Overview** page of the resource.|
     |`eula`|`accept`|
 
-1. Clique em revisar **e criar**
-1. Após a aprovação da validação, clique em **criar** para concluir o processo de criação
-1. Quando o recurso for implantado com êxito, ele estará pronto
+1. Click **Review and Create**
+1. After validation passes, click **Create** to finish the creation process
+1. When the resource is successfully deployed, it's ready

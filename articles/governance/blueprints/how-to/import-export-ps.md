@@ -1,47 +1,47 @@
 ---
-title: Importar e exportar definições de Blueprint com o PowerShell
-description: Saiba como trabalhar com suas definições de plano gráfico como código. Compartilhe, controle do código-fonte e gerencie-os usando os comandos exportar e importar.
+title: Import and export blueprints with PowerShell
+description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
 ms.date: 09/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca756ed093d5d423f6f83e5ca3953a8ecfce7d5a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960375"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406360"
 ---
-# <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importar e exportar definições de Blueprint com o PowerShell
+# <a name="import-and-export-blueprint-definitions-with-powershell"></a>Import and export blueprint definitions with PowerShell
 
-Os planos gráficos do Azure podem ser totalmente gerenciados por meio de portal do Azure. À medida que as organizações avançam em seu uso de plantas, elas devem começar a pensar em definições de plantas como código gerenciado. Esse conceito é geralmente chamado de infraestrutura como código (IaC). Tratar suas definições de plantas como código oferece vantagens adicionais além do que portal do Azure oferece. Esses benefícios incluem:
+Azure Blueprints can be fully managed through Azure portal. As organizations advance in their use of Blueprints, they should start thinking of blueprint definitions as managed code. This concept is often referred to as Infrastructure as Code (IaC). Treating your blueprint definitions as code offers additional advantages beyond what Azure portal offers. These benefits include:
 
-- Compartilhando definições de plantas
-- Fazendo backup de suas definições de Blueprint
-- Reutilizando definições de Blueprint em diferentes locatários ou assinaturas
-- Colocando as definições do plano gráfico no controle do código-fonte
-  - Teste automatizado de definições de plantas em ambientes de teste
-  - Suporte de pipelines de integração contínua e implantação contínua (CI/CD)
+- Sharing blueprint definitions
+- Backing up your blueprint definitions
+- Reusing blueprint definitions in different tenants or subscriptions
+- Placing the blueprint definitions in source control
+  - Automated testing of blueprint definitions in test environments
+  - Support of continuous integration and continuous deployment (CI/CD) pipelines
 
-Seja qual for o seu motivo, gerenciar suas definições de plantas como código tem benefícios. Este artigo mostra como usar os comandos `Import-AzBlueprintWithArtifact` e `Export-AzBlueprintWithArtifact` no módulo [AZ. Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) .
+Whatever your reasons, managing your blueprint definitions as code has benefits. This article shows how to use the `Import-AzBlueprintWithArtifact` and `Export-AzBlueprintWithArtifact` commands in the [Az.Blueprint](https://powershellgallery.com/packages/Az.Blueprint/) module.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe um conhecimento de trabalho moderado de plantas do Azure. Se você ainda não tiver feito isso, trabalhe nos seguintes artigos:
+This article assumes a moderate working knowledge of Azure Blueprints. If you haven't done so yet, work through the following articles:
 
-- [Criar um plano gráfico no portal](../create-blueprint-portal.md)
-- Leia sobre os [estágios de implantação](../concepts/deployment-stages.md) e [o ciclo de vida do Blueprint](../concepts/lifecycle.md)
-- [Criando](../create-blueprint-powershell.md) e [Gerenciando](./manage-assignments-ps.md) definições e atribuições de plantas com o PowerShell
+- [Create a blueprint in the portal](../create-blueprint-portal.md)
+- Read about [deployment stages](../concepts/deployment-stages.md) and [the blueprint lifecycle](../concepts/lifecycle.md)
+- [Creating](../create-blueprint-powershell.md) and [managing](./manage-assignments-ps.md) blueprint definitions and assignments with PowerShell
 
-Se ele ainda não estiver instalado, siga as instruções em [Adicionar o módulo AZ. Blueprint](./manage-assignments-ps.md#add-the-azblueprint-module) para instalar e validar o módulo **AZ. Blueprint** da galeria do PowerShell.
+If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./manage-assignments-ps.md#add-the-azblueprint-module) to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
 
-## <a name="folder-structure-of-a-blueprint-definition"></a>Estrutura de pastas de uma definição de Blueprint
+## <a name="folder-structure-of-a-blueprint-definition"></a>Folder structure of a blueprint definition
 
-Antes de examinar a exportação e a importação de plantas, vejamos como os arquivos que compõem a definição do Blueprint são estruturados. Uma definição de Blueprint deve ser armazenada em sua própria pasta.
+Before looking at exporting and importing blueprints, let's look at how the files that make up the blueprint definition are structured. A blueprint definition should be stored in its own folder.
 
 > [!IMPORTANT]
-> Se nenhum valor for passado para o parâmetro **Name** do cmdlet `Import-AzBlueprintWithArtifact`, o nome da pasta na qual a definição Blueprint é armazenada será usado.
+> If no value is passed to the **Name** parameter of the `Import-AzBlueprintWithArtifact` cmdlet, the name of the folder the blueprint definition is stored in is used.
 
-Junto com a definição do Blueprint, que deve ser nomeada `blueprint.json`, são os artefatos dos quais a definição do Blueprint é composta. Cada artefato deve estar na subpasta chamada `artifacts`.
-Juntas, a estrutura de sua definição de plantas como arquivos JSON em pastas deve ter a seguinte aparência:
+Along with the blueprint definition, which must be named `blueprint.json`, are the artifacts that the blueprint definition is composed of. Each artifact must be in the subfolder named `artifacts`.
+Put together, the structure of your blueprint definition as JSON files in folders should look as follows:
 
 ```text
 .
@@ -56,20 +56,20 @@ Juntas, a estrutura de sua definição de plantas como arquivos JSON em pastas d
 
 ```
 
-## <a name="export-your-blueprint-definition"></a>Exportar sua definição de Blueprint
+## <a name="export-your-blueprint-definition"></a>Export your blueprint definition
 
-As etapas para exportar sua definição de planta são simples. A exportação da definição do Blueprint pode ser útil para compartilhar, fazer backup ou colocar no controle do código-fonte.
+The steps to exporting your blueprint definition are straightforward. Exporting the blueprint definition can be useful for sharing, backup, or placing into source control.
 
-- **Blueprint** [obrigatório]
-  - Especifica a definição do Blueprint
-  - Use `Get-AzBlueprint` para obter o objeto de referência
-- **OutputPath** [obrigatório]
-  - Especifica o caminho para salvar os arquivos JSON de definição do Blueprint em
-  - Os arquivos de saída estão em uma subpasta com o nome da definição do Blueprint
-- **Versão** (opcional)
-  - Especifica a versão a ser impressa se o objeto de referência **Blueprint** contiver referências a mais de uma versão.
+- **Blueprint** [required]
+  - Specifies the blueprint definition
+  - Use `Get-AzBlueprint` to get the reference object
+- **OutputPath** [required]
+  - Specifies the path to save the blueprint definition JSON files to
+  - The output files are in a subfolder with the name of the blueprint definition
+- **Version** (optional)
+  - Specifies the version to output if the **Blueprint** reference object contains references to more than one version.
 
-1. Obtenha uma referência à definição do Blueprint para exportar da assinatura representada como `{subId}`:
+1. Get a reference to the blueprint definition to export from the subscription represented as `{subId}`:
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -78,31 +78,31 @@ As etapas para exportar sua definição de planta são simples. A exportação d
    $bpDefinition = Get-AzBlueprint -SubscriptionId '{subId}' -Name 'MyBlueprint' -Version '1.1'
    ```
 
-1. Use o cmdlet `Export-AzBlueprintWithArtifact` para exportar a definição de Blueprint especificada:
+1. Use the `Export-AzBlueprintWithArtifact` cmdlet to export the specified blueprint definition:
 
    ```azurepowershell-interactive
    Export-AzBlueprintWithArtifact -Blueprint $bpDefinition -OutputPath 'C:\Blueprints'
    ```
 
-## <a name="import-your-blueprint-definition"></a>Importar sua definição de Blueprint
+## <a name="import-your-blueprint-definition"></a>Import your blueprint definition
 
-Depois de ter uma [definição de Blueprint exportada](#export-your-blueprint-definition) ou ter uma definição de Blueprint criada manualmente na [estrutura de pastas necessária](#folder-structure-of-a-blueprint-definition), você poderá importar essa definição de Blueprint para um grupo de gerenciamento ou assinatura diferente.
+Once you have either an [exported blueprint definition](#export-your-blueprint-definition) or have a manually created blueprint definition in the [required folder structure](#folder-structure-of-a-blueprint-definition), you can import that blueprint definition to a different management group or subscription.
 
-Para obter exemplos de definições de plantas internas, consulte o [Azure Blueprint repositório GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+For examples of built-in blueprint definitions, see the [Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
 
-- **Nome** [obrigatório]
-  - Especifica o nome da nova definição de Blueprint
-- **InputPath** [obrigatório]
-  - Especifica o caminho do qual criar a definição do Blueprint
-  - Deve corresponder à [estrutura de pastas necessária](#folder-structure-of-a-blueprint-definition)
-- **ManagementGroupId** (opcional)
-  - A ID do grupo de gerenciamento para salvar a definição de plano gráfico se não for o padrão de contexto atual
-  - **ManagementGroupId** ou **SubscriptionId** devem ser especificados
-- **SubscriptionId** (opcional)
-  - A ID da assinatura para salvar a definição do plano gráfico se não for o padrão de contexto atual
-  - **ManagementGroupId** ou **SubscriptionId** devem ser especificados
+- **Name** [required]
+  - Specifies the name for the new blueprint definition
+- **InputPath** [required]
+  - Specifies the path to create the blueprint definition from
+  - Must match the [required folder structure](#folder-structure-of-a-blueprint-definition)
+- **ManagementGroupId** (optional)
+  - The management group ID to save the blueprint definition to if not the current context default
+  - Either **ManagementGroupId** or **SubscriptionId** must be specified
+- **SubscriptionId** (optional)
+  - The subscription ID to save the blueprint definition to if not the current context default
+  - Either **ManagementGroupId** or **SubscriptionId** must be specified
 
-1. Use o cmdlet `Import-AzBlueprintWithArtifact` para importar a definição de Blueprint especificada:
+1. Use the `Import-AzBlueprintWithArtifact` cmdlet to import the specified blueprint definition:
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -110,14 +110,14 @@ Para obter exemplos de definições de plantas internas, consulte o [Azure Bluep
    Import-AzBlueprintWithArtifact -Name 'MyBlueprint' -ManagementGroupId 'DevMG' -InputPath 'C:\Blueprints\MyBlueprint'
    ```
 
-Depois que a definição do Blueprint for importada, [atribua-a com o PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
+Once the blueprint definition is imported, [assign it with PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
 
-Para obter informações sobre como criar definições de plantas avançadas, consulte os seguintes artigos:
+For information about creating advanced blueprint definitions, see the following articles:
 
-- Use [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
-- Personalize a [ordem de sequenciamento do plano gráfico](../concepts/sequencing-order.md).
-- Proteger implantações com o [bloqueio de recursos do Blueprint](../concepts/resource-locking.md).
-- [Gerencie plantas como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+- Use [static and dynamic parameters](../concepts/parameters.md).
+- Customize the [blueprint sequencing order](../concepts/sequencing-order.md).
+- Protect deployments with [blueprint resource locking](../concepts/resource-locking.md).
+- [Manage Blueprints as Code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

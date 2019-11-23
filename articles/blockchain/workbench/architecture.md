@@ -1,123 +1,117 @@
 ---
-title: Arquitetura de visualização do Azure Blockchain Workbench
-description: Visão geral da arquitetura de visualização do Azure Blockchain Workbench e seus componentes.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Workbench architecture
+description: Overview of Azure Blockchain Workbench Preview architecture and its components.
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579728"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324902"
 ---
-# <a name="azure-blockchain-workbench-preview-architecture"></a>Arquitetura de visualização do Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench architecture
 
-A visualização do Azure Blockchain Workbench simplifica o desenvolvimento de aplicativos Blockchain fornecendo uma solução usando vários componentes do Azure. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo blockchain Stack, tipo de aplicativo cliente e suporte para a integração de IoT. Depois de implantado, o Blockchain Workbench fornece acesso a um aplicativo Web, aplicativo iOS e aplicativo Android.
+Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows you to pick modules and components to deploy including blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
 
-![Arquitetura do Blockchain Workbench](./media/architecture/architecture.png)
+![Blockchain Workbench architecture](./media/architecture/architecture.png)
 
-## <a name="identity-and-authentication"></a>Identidade e autenticação
+## <a name="identity-and-authentication"></a>Identity and authentication
 
-Usando o Blockchain Workbench, um consórcio pode federar suas identidades empresariais usando o Azure Active Directory (AD do Azure). O Workbench gera novas contas de usuário para identidades em cadeia com as identidades corporativas armazenadas no Azure AD. O mapeamento de identidade facilita o logon autenticado em aplicativos e APIs de cliente e usa as políticas de autenticação das organizações. O Workbench também fornece a capacidade de associar identidades corporativas a funções específicas em um determinado contrato inteligente. Além disso, o Workbench também fornece um mecanismo para identificar as ações que essas funções podem tomar e em que hora.
+Using Blockchain Workbench, a consortium can federate their enterprise identities using Azure Active Directory (Azure AD). Workbench generates new user accounts for on-chain identities with the enterprise identities stored in Azure AD. The identity mapping facilitates authenticated login to client APIs and applications and uses the authentication policies of organizations. Workbench also provides the ability to associate enterprise identities to specific roles within a given smart contract. In addition, Workbench also provides a mechanism to identify the actions those roles can take and at what time.
 
-Após a implantação do Blockchain Workbench, os usuários interagem com o Blockchain Workbench por meio dos aplicativos cliente, da API do cliente baseada em REST ou da API de mensagens. Em todos os casos, as interações devem ser autenticadas, seja via Azure Active Directory (Azure AD) ou credenciais específicas do dispositivo.
+After Blockchain Workbench is deployed, users interact with Blockchain Workbench either via the client applications, REST-based client API, or Messaging API. In all cases, interactions must be authenticated, either via Azure Active Directory (Azure AD) or device-specific credentials.
 
-Os usuários federam suas identidades a um consórcio do Azure AD enviando um convite por email aos participantes em seu endereço de email. Ao fazer logon, esses usuários são autenticados usando o nome, a senha e as políticas. Por exemplo, a autenticação de dois fatores de sua organização.
+Users federate their identities to a consortium Azure AD by sending an email invitation to participants at their email address. When logging in, these users are authenticated using the name, password, and policies. For example, two-factor authentication of their organization.
 
-O Azure AD é usado para gerenciar todos os usuários que têm acesso ao Blockchain Workbench. Cada dispositivo que se conecta a um contrato inteligente também está associado ao Azure AD.
+Azure AD is used to manage all users who have access to Blockchain Workbench. Each device connecting to a smart contract is also associated with Azure AD.
 
-O AD do Azure também é usado para atribuir usuários a um grupo de administradores especial. Os usuários associados ao grupo de administradores recebem acesso a direitos e ações no Blockchain Workbench, incluindo a implantação de contratos e a concessão de permissões a um usuário para acessar um contrato. Os usuários fora deste grupo não têm acesso às ações do administrador.
+Azure AD is also used to assign users to a special administrator group. Users associated with the administrator group are granted access to rights and actions within Blockchain Workbench including deploying contracts and giving permissions to a user to access a contract. Users outside this group do not have access to administrator actions.
 
 ## <a name="client-applications"></a>Aplicações de cliente
 
-O Workbench fornece aplicativos cliente gerados automaticamente para Web e móveis (iOS, Android), que podem ser usados para validar, testar e exibir aplicativos blockchain. A interface do aplicativo é gerada dinamicamente com base nos metadados do contrato inteligente e pode acomodar qualquer caso de uso. Os aplicativos cliente entregam um front-end voltado ao usuário para os aplicativos blockchain completos gerados pelo Blockchain Workbench. Os aplicativos cliente autenticam usuários via Azure Active Directory (Azure AD) e, em seguida, apresentam uma experiência do usuário adaptada ao contexto de negócios do contrato inteligente. A experiência do usuário permite a criação de novas instâncias de contrato inteligente por indivíduos autorizados e, em seguida, apresenta a capacidade de executar determinados tipos de transações em pontos apropriados no processo comercial que o contrato inteligente representa.
+Workbench provides automatically generated client applications for web and mobile (iOS, Android), which can be used to validate, test, and view blockchain applications. The application interface is dynamically generated based on smart contract metadata and can accommodate any use case. The client applications deliver a user-facing front end to the complete blockchain applications generated by Blockchain Workbench. Client applications authenticate users via Azure Active Directory (Azure AD) and then present a user experience tailored to the business context of the smart contract. The user experience enables the creation of new smart contract instances by authorized individuals and then presents the ability to execute certain types of transactions at appropriate points in the business process the smart contract represents.
 
-No aplicativo Web, os usuários autorizados podem acessar o Console do Administrador. O console está disponível para usuários no grupo administrador no Azure AD e fornece acesso à seguinte funcionalidade:
+In the web application, authorized users can access the Administrator Console. The console is available to users in the Administrator group in Azure AD and provides access to the following functionality:
 
-* Implante os contratos inteligentes fornecidos pela Microsoft para cenários populares. Por exemplo, um cenário de transferência de ativos.
-* Carregue e implante seus próprios contratos inteligentes.
-* Atribua um acesso de usuário ao contrato inteligente no contexto de uma função específica.
+* Deploy Microsoft provided smart contracts for popular scenarios. For example, an asset transfer scenario.
+* Upload and deploy their own smart contracts.
+* Assign a user access to the smart contract in the context of a specific role.
 
-Para obter mais informações, consulte os [aplicativos cliente de exemplo do Azure Blockchain Workbench no GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
+For more information, see the [Azure Blockchain Workbench sample client applications on GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
-## <a name="gateway-service-api"></a>API de serviço do gateway
+## <a name="gateway-service-api"></a>Gateway service API
 
-O Blockchain Workbench inclui uma API de serviço de gateway baseada em REST. Ao gravar em um blockchain, a API gera e entrega mensagens para um agente de eventos. Quando os dados são solicitados pela API, consultas são enviadas para o banco de dados SQL fora da cadeia. O banco de dados SQL contém uma réplica de metadados on-Chain e Metadata que fornece informações de contexto e configuração para contratos inteligentes com suporte. As consultas retornam os dados necessários da réplica fora da cadeia em um formato informado pelos metadados para o contrato.
+Blockchain Workbench includes a REST-based gateway service API. When writing to a blockchain, the API generates and delivers messages to an event broker. When data is requested by the API, queries are sent to the off-chain SQL database. The SQL database contains a replica of on-chain data and metadata that provides context and configuration information for supported smart contracts. Queries return the required data from the off-chain replica in a format informed by the metadata for the contract.
 
-Os desenvolvedores podem acessar a API de serviço do gateway para criar ou integrar soluções blockchain sem depender de aplicativos cliente do Blockchain Workbench.
+Developers can access the gateway service API to build or integrate blockchain solutions without relying on Blockchain Workbench client apps.
 
 > [!NOTE]
-> Para habilitar o acesso autenticado à API, dois aplicativos cliente são registrados em Azure Active Directory. Azure Active Directory requer registros de aplicativo distintos de cada tipo de aplicativo (nativo e Web). 
+> To enable authenticated access to the API, two client applications are registered in Azure Active Directory. Azure Active Directory requires distinct application registrations each application type (native and web). 
 
-## <a name="message-broker-for-incoming-messages"></a>Agente de mensagem para mensagens de entrada
+## <a name="message-broker-for-incoming-messages"></a>Message broker for incoming messages
 
-Os desenvolvedores que desejam enviar mensagens diretamente para o Blockchain Workbench podem enviar mensagens diretamente para o barramento de serviço. Por exemplo, a API de mensagens pode ser usada para integração de sistema para sistema ou dispositivos IoT.
+Developers who want to send messages directly to Blockchain Workbench can send messages directly to Service Bus. For example, messages API could be used for system-to-system integration or IoT devices.
 
-## <a name="message-broker-for-downstream-consumers"></a>Agente de mensagem para consumidores downstream
+## <a name="message-broker-for-downstream-consumers"></a>Message broker for downstream consumers
 
-Durante o ciclo de vida do aplicativo, ocorrem eventos. Os eventos podem ser disparados pela API do gateway ou no razão. As notificações de eventos podem iniciar o código downstream com base no evento.
+During the lifecycle of the application, events occur. Events can be triggered by the Gateway API or on the ledger. Event notifications can initiate downstream code based on the event.
 
-O Blockchain Workbench implanta automaticamente dois tipos de consumidores de eventos. Um consumidor é disparado por eventos blockchain para preencher a loja do SQL fora da cadeia. O outro consumidor é capturar metadados para eventos gerados pela API relacionada ao carregamento e armazenamento de documentos.
+Blockchain Workbench automatically deploys two types of event consumers. One consumer is triggered by blockchain events to populate the off-chain SQL store. The other consumer is to capture metadata for events generated by the API related to the upload and storage of documents.
 
-## <a name="message-consumers"></a>Consumidores de mensagens
+## <a name="message-consumers"></a>Message consumers
 
- Os consumidores de mensagens tomam mensagens do barramento de serviço. O modelo subjacente de eventos para consumidores de mensagens permite extensões de serviços e sistemas adicionais. Por exemplo, você pode adicionar suporte para popular CosmosDB ou avaliar mensagens usando o Azure streaming Analytics. As seções a seguir descrevem os consumidores de mensagens incluídos no Blockchain Workbench.
+ Message consumers take messages from Service Bus. The underlying eventing model for message consumers allows for extensions of additional services and systems. For example, you could add support to populate CosmosDB or evaluate messages using Azure Streaming Analytics. The following sections describe the message consumers included in Blockchain Workbench.
 
-### <a name="distributed-ledger-consumer"></a>Consumidor do razão distribuído
+### <a name="distributed-ledger-consumer"></a>Distributed ledger consumer
 
-As mensagens de DLT (Distributed Ledger Technology) contêm os metadados das transações a serem gravadas no blockchain. O consumidor recupera as mensagens e envia os dados por push para um construtor de transações, um signatário e um roteador.
+Distributed ledger technology (DLT) messages contain the metadata for transactions to be written to the blockchain. The consumer retrieves the messages and pushes the data to a transaction builder, signer, and router.
 
-### <a name="database-consumer"></a>Consumidor de banco de dados
+### <a name="database-consumer"></a>Database consumer
 
-O consumidor de banco de dados recebe as mensagens do barramento de serviço e envia-os por push para um banco de dado anexado, como o SQL Database.
+The database consumer takes messages from Service Bus and pushes the data to an attached database, such as SQL database.
 
-### <a name="storage-consumer"></a>Consumidor de armazenamento
+### <a name="storage-consumer"></a>Storage consumer
 
-O consumidor de armazenamento recebe mensagens do barramento de serviço e envia os dados por push para um armazenamento anexado. Por exemplo, armazenar documentos com hash no armazenamento do Azure.
+The storage consumer takes messages from Service Bus and pushes data to an attached storage. For example, storing hashed documents in Azure Storage.
 
-## <a name="transaction-builder-and-signer"></a>Construtor de transações e assinante
+## <a name="transaction-builder-and-signer"></a>Transaction builder and signer
 
-Se uma mensagem no agente de mensagem de entrada precisar ser gravada no blockchain, ela será processada pelo consumidor DLT. O consumidor DLT é um serviço, que recupera a mensagem que contém os metadados de uma transação desejada para execução e, em seguida, envia as informações para o *Construtor de transações e o assinante*. O *Construtor de transações e o assinante* monta uma transação blockchain com base nos dados e no destino de blockchain desejado. Uma vez montado, a transação é assinada. As chaves privadas são armazenadas em Azure Key Vault.
+If a message on the inbound message broker needs to be written to the blockchain, it will be processed by the DLT consumer. The DLT consumer is a service, which retrieves the message containing metadata for a desired transaction to execute and then sends the information to the *transaction builder and signer*. The *transaction builder and signer* assembles a blockchain transaction based on the data and the desired blockchain destination. Once assembled, the transaction is signed. Private keys are stored in Azure Key Vault.
 
- O Blockchain Workbench recupera a chave privada apropriada de Key Vault e assina a transação fora do Key Vault. Depois de assinado, a transação é enviada para roteadores de transação e razões.
+ Blockchain Workbench retrieves the appropriate private key from Key Vault and signs the transaction outside of Key Vault. Once signed, the transaction is sent to transaction routers and ledgers.
 
-## <a name="transaction-routers-and-ledgers"></a>Roteadores de transação e razões
+## <a name="transaction-routers-and-ledgers"></a>Transaction routers and ledgers
 
-Roteadores de transação e razões tomam transações assinadas e as encaminham para o blockchain apropriado. Atualmente, o Blockchain Workbench dá suporte a Ethereum como seu Blockchain de destino.
+Transaction routers and ledgers take signed transactions and route them to the appropriate blockchain. Currently, Blockchain Workbench supports Ethereum as its target blockchain.
 
-## <a name="dlt-watcher"></a>Inspetor de DLT
+## <a name="dlt-watcher"></a>DLT watcher
 
-Um inspetor de DLT (Distributed Ledger Technology) monitora os eventos que ocorrem em cadeias de bloco anexadas ao Blockchain Workbench.
-Eventos refletem informações relevantes para indivíduos e sistemas. Por exemplo, a criação de novas instâncias de contrato, execução de transações e alterações de estado. Os eventos são capturados e enviados para o agente de mensagens de saída, para que possam ser consumidos por consumidores de downstream.
+A distributed ledger technology (DLT) watcher monitors events occurring on block chains attached to Blockchain Workbench.
+Events reflect information relevant to individuals and systems. For example, the creation of new contract instances, execution of transactions, and changes of state. The events are captured and sent to the outbound message broker, so they can be consumed by downstream consumers.
 
-Por exemplo, o consumidor do SQL monitora eventos, os consome e popula o banco de dados SQL com os valores incluídos. A cópia permite a recriação de uma réplica de dados na cadeia em um repositório fora da cadeia.
+For example, the SQL consumer monitors events, consumes them, and populates the SQL database with the included values. The copy enables recreation of a replica of on-chain data in an off-chain store.
 
 ## <a name="azure-sql-database"></a>Base de dados SQL do Azure
 
-O banco de dados SQL do Azure anexado ao Blockchain Workbench armazena definições de contrato, metadados de configuração e uma réplica acessível por SQL de data armazenados no Blockchain. Esses dados podem ser consultados, visualizados ou analisados com facilidade acessando diretamente o Database. Os desenvolvedores e outros usuários podem usar o banco de dados para relatórios, análises ou outras integrações centradas no data. Por exemplo, os usuários podem visualizar dados de transação usando Power BI.
+The Azure SQL database attached to Blockchain Workbench stores contract definitions, configuration metadata, and a SQL-accessible replica of data stored in the blockchain. This data can easily be queried, visualized, or analyzed by directly accessing the database. Developers and other users can use the database for reporting, analytics, or other data-centric integrations. For example, users can visualize transaction data using Power BI.
 
-Esse armazenamento fora da cadeia fornece a capacidade para que as organizações empresariais consultem dados em SQL em vez de em uma contabilidade blockchain. Além disso, ao padronizar um esquema padrão que é independente das pilhas de tecnologia blockchain, o armazenamento fora da cadeia permite a reutilização de relatórios e outros artefatos entre projetos, cenários e organizações.
+This off-chain storage provides the ability for enterprise organizations to query data in SQL rather than in a blockchain ledger. Also, by standardizing on a standard schema that's agnostic of blockchain technology stacks, the off-chain storage enables the reuse of reports and other artifacts across projects, scenarios, and organizations.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
-O armazenamento do Azure é usado para armazenar contratos e metadados associados a contratos.
+Azure Storage is used to store contracts and metadata associated with contracts.
 
-Desde os pedidos de compra e as notas de embarque até as imagens usadas nas notícias e fotos médicas, no caso de vídeos provenientes de uma série de continuidade, incluindo câmeras de corpo de polícia e imagens de movimento importantes, os documentos desempenham uma função em muitos cenários centrados em blockchain. Os documentos não são apropriados para serem colocados diretamente no blockchain.
+From purchase orders and bills of lading, to images used in the news and medical imagery, to video originating from a continuum including police body cameras and major motion pictures, documents play a role in many blockchain-centric scenarios. Documents are not appropriate to place directly on the blockchain.
 
-O Blockchain Workbench dá suporte à capacidade de adicionar documentos ou outros conteúdos de mídia com a lógica de negócios do Blockchain. Um hash do documento ou conteúdo de mídia é armazenado no blockchain e o documento real ou conteúdo de mídia é armazenado no armazenamento do Azure. As informações de transação associadas são entregues ao agente de mensagem de entrada, empacotado, assinado e roteado para o blockchain. Esse processo dispara eventos, que são compartilhados por meio do agente de mensagens de saída. O banco de dados SQL consome essas informações e as envia para o BD para consulta posterior. Os sistemas downstream também podem consumir esses eventos para agir conforme apropriado.
+Blockchain Workbench supports the ability to add documents or other media content with blockchain business logic. A hash of the document or media content is stored in the blockchain and the actual document or media content is stored in Azure Storage. The associated transaction information is delivered to the inbound message broker, packaged up, signed, and routed to the blockchain. This process triggers events, which are shared via the outbound message broker. The SQL DB consumes this information and sends it to the DB for later querying. Downstream systems could also consume these events to act as appropriate.
 
 ## <a name="monitoring"></a>Monitorização
 
-O Workbench fornece o log de aplicativos usando Application Insights e Azure Monitor. Application Insights é usado para armazenar todas as informações registradas do Blockchain Workbench e inclui erros, avisos e operações bem-sucedidas. Application Insights pode ser usado por desenvolvedores para depurar problemas com o Blockchain Workbench. 
+Workbench provides application logging using Application Insights and Azure Monitor. Application Insights is used to store all logged information from Blockchain Workbench and includes errors, warnings, and successful operations. Application Insights can be used by developers to debug issues with Blockchain Workbench. 
 
-Azure Monitor fornece informações sobre a integridade da rede blockchain. 
+Azure Monitor provides information on the health of the blockchain network. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

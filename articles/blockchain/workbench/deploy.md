@@ -1,21 +1,15 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/19/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 61d47709df2d1bc41bfbf61a7f71f1d73fe27389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3b5d79fd5db9729e837b4fca89ca0eddd0f2cb20
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222874"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326023"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Deploy Azure Blockchain Workbench Preview
 

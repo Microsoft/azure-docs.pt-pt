@@ -5,23 +5,23 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 73d8abcbc6e902855592f4bf3ca0373b8582130d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: df41094d163b8e3ecb78827df1a52dafab0aec1f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150431"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326524"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: criar várias instâncias de recursos com modelos do Resource Manager
 
 Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
 
-![Azure Resource Manager cria o diagrama de várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Azure Resource Manager creates multiple instances diagram](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início Rápido
+> * Abrir um modelo de Início rápido
 > * Editar o modelo
 > * Implementar o modelo
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com [extensão Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -49,7 +49,7 @@ Os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/t
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-O exemplo existente cria uma conta de armazenamento. Personaliza o modelo para criar três contas de armazenamento.  
+O exemplo existente cria uma conta de armazenamento. Personaliza o modelo para criar três contas de armazenamento.
 
 No Visual Studio Code, efetue as seguintes quatro alterações:
 
