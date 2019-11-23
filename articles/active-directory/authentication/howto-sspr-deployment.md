@@ -1,22 +1,22 @@
 ---
-title: Self-service password reset deployment plan - Azure Active Directory
+title: Self-service password reset deployment - Azure Active Directory
 description: Strategy for successful implementation of Azure AD self-service password reset
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb79c6dd0358d0360c320cd67a46779b183ef21e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208504"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381292"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar a reposição personalizada de palavra-passe do Azure AD
 

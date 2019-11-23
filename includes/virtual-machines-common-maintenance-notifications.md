@@ -8,60 +8,60 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2dbe8a1bf8c4fd0ead20c50a320265a3acefa43c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184238"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328339"
 ---
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>View VMS scheduled para manutenção no portal de VMs
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>View VMs scheduled for maintenance in the portal
 
-Assim que estiver agendada uma onda de manutenção planeada, pode observar que a lista de máquinas virtuais que são afetadas pela onda de manutenção futura. 
+Once a planned maintenance wave is scheduled, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
 
-Pode utilizar o portal do Azure e procurar por VMs agendadas para manutenção.
+You can use the Azure portal and look for VMs scheduled for maintenance.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No painel de navegação esquerdo, clique em **máquinas virtuais**.
+2. In the left navigation, click **Virtual Machines**.
 
-3. No painel de máquinas virtuais, clique nas **colunas** botão para abrir a lista de colunas disponíveis.
+3. In the Virtual Machines pane, click the **Columns** button to open the list of available columns.
 
-4. Selecione e adicione as seguintes colunas:
+4. Select and add the following columns:
 
-   **Manutenção**: Mostra o estado de manutenção para a VM. Seguem-se os valores possíveis:
+   **Maintenance**: Shows the maintenance status for the VM. The following are the potential values:
       
-      | Value | Descrição |
+      | Valor | Descrição |
       |-------|-------------|
-      | Começar agora | A VM está na janela de manutenção self-service que lhe permite iniciar a manutenção por conta própria. Veja abaixo saber como iniciar a manutenção na sua VM. | 
-      | Agendado | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode aprender da janela de manutenção selecionando a manutenção - janela agendada nesta vista ou ao clicar na VM. | 
-      | Já está atualizado | A VM já está atualizada e é necessária nenhuma ação adicional neste momento. | 
-      | Tente novamente mais tarde | Iniciou a manutenção sem sucesso. Será capaz de usar a opção de manutenção self-service num momento posterior. | 
-      | Repita agora | Pode tentar novamente uma manutenção Self-iniciada anteriormente sem êxito. | 
-      | - | A VM não faz parte de uma onda de manutenção planeada. |
+      | Começar agora | The VM is in the self-service maintenance window that lets you initiate the maintenance yourself. See below on how to start maintenance on your VM. | 
+      | Agendado | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. You can learn of the maintenance window by selecting the Maintenance - Scheduled window in this view or by clicking on the VM. | 
+      | Already updated | Your VM is already updated and no further action is required at this time. | 
+      | Retry later | You have initiated maintenance with no success. You will be able to use the self-service maintenance option at a later time. | 
+      | Retry now | You can retry a previously unsuccessful self-initiated maintenance. | 
+      | - | Your VM is not part of a planned maintenance wave. |
       
 
-   **Manutenção - janela de self-service**: Mostra a janela de tempo quando Self-pode iniciar a manutenção nas suas VMs.
+   **Maintenance - Self-service window**: Shows the time window when you can self-start maintenance on your VMs.
    
-   **Manutenção - janela agendada**: Mostra a janela de tempo quando o Azure manterá sua VM para concluir a manutenção. 
+   **Maintenance - Scheduled window**: Shows the time window when Azure will maintain your VM in order to complete maintenance. 
 
 
 
-## <a name="notification-and-alerts-in-the-portal"></a>Notificações e alertas no portal
+## <a name="notification-and-alerts-in-the-portal"></a>Notification and alerts in the portal
 
-Azure comunica um agendamento para a manutenção planeada ao enviar um e-mail para o grupo proprietário e os coproprietários de subscrição. Pode adicionar os destinatários adicionais e canais para esta comunicação através da criação de alertas de registo de atividades do Azure. Para obter mais informações, consulte [criar alertas do registo de atividade nas notificações do serviço](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-Certifique-se de definir o **tipo de evento** como **manutenção planeada** e **serviços** como **conjuntos de dimensionamento de máquinas virtuais** e/ou **Máquinas virtuais**
+Make sure you set the **Event type** as **Planned maintenance** and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**
     
     
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar a manutenção em sua VM a partir do portal
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Start Maintenance on your VM from the portal
 
-Ao olhar para os detalhes da VM, poderá ver mais detalhes relacionados com a manutenção.  
-Na parte superior da vista de detalhes de VM, será adicionada uma nova faixa de opções de notificação se a sua VM está incluída numa onda de manutenção planeada. Além disso, é adicionada uma nova opção para iniciar a manutenção sempre que possível. 
+While looking at the VM details, you will be able to see more maintenance-related details.  
+At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
 
 
-Clique na notificação de manutenção para ver a página de manutenção com mais detalhes sobre a manutenção planeada. A partir daí, vai conseguir **iniciar manutenção** na sua VM.
+Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there, you will be able to **start maintenance** on your VM.
 
-Assim que iniciar a manutenção, sua máquina virtual será mantida, e o estado de manutenção será atualizado para refletir o resultado dentro de alguns minutos.
+Once you start maintenance, your virtual machine will be maintained and the maintenance status will be updated to reflect the result within few minutes.
 
-Se perdeu a janela de self-service, ainda será capaz de ver a janela quando a VM será mantida pelo Azure. 
+If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure. 

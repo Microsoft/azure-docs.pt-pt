@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Execute uma pesquisa de notícias, utilizando o SDK de pesquisa de notícias do Bing para Python'
+title: 'Quickstart: Perform a news search using the SDK for Python - Bing News Search'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para pesquisar notícias com o SDK de pesquisa de notícias do Bing para Python e processar a resposta.
+description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,28 +11,28 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2f6185ca6c2ddd44be2c12a81cedf1adcc2e30cd
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 2f3d8c88e7949265f12405760acbccebb89d1df5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339016"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379061"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Início rápido: Efetua uma pesquisa de notícias com o SDK de pesquisa de notícias do Bing para Python
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Quickstart: Perform a news search with the Bing News Search SDK for Python
 
-Utilize este guia de introdução para a pesquisa de notícias com o SDK de pesquisa de notícias do Bing para Python. Embora a pesquisa do Bing notícias tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
+Use this quickstart to begin searching for news with the Bing News Search SDK for Python. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python](https://www.python.org/) 2.x ou 3.x
+* [Python](https://www.python.org/) 2.x or 3.x
 
-É recomendado utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html) para o desenvolvimento de python. Pode instalar e inicializar o ambiente virtual com o [venv módulo](https://pypi.python.org/pypi/virtualenv). Tem de instalar um virtualenv para o Python 2.7. Pode criar um ambiente virtual com:
+It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual environment with:
 
 ```console
 python -m venv mytestenv
 ```
 
-Pode instalar as dependências de SDK de pesquisa de notícias do Bing com este comando:
+You can install the Bing News Search SDK dependencies with this command:
     
 ```console
 python -m pip install azure-cognitiveservices-search-newssearch
@@ -42,7 +42,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Criar um novo ficheiro de Python no seu IDE ou editor favorito e importar as seguintes bibliotecas. Crie uma variável para a chave de subscrição e o termo de pesquisa.
+1. Create a new Python file in your favorite IDE or editor, and import the following libraries. Create a variable for your subscription key, and your search term.
 
     ```python
     from azure.cognitiveservices.search.newssearch import NewsSearchAPI
@@ -51,7 +51,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
     search_term = "Quantum Computing"
     ```
 
-## <a name="initialize-the-client-and-send-a-request"></a>Inicializar o cliente e enviar um pedido
+## <a name="initialize-the-client-and-send-a-request"></a>Initialize the client and send a request
 
 1. Crie uma instância de `CognitiveServicesCredentials`. Instancie o cliente:
     
@@ -59,15 +59,15 @@ python -m pip install azure-cognitiveservices-search-newssearch
     client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
 
-2. Enviar uma consulta de pesquisa para a API de pesquisa de notícias, armazenar a resposta.
+2. Send a search query to the News Search API, store the response.
 
     ```python
     news_result = client.news.search(query=search_term, market="en-us", count=10)
     ```
 
-## <a name="parse-the-response"></a>Analisar a resposta
+## <a name="parse-the-response"></a>Parse the response
 
-Se forem encontrados quaisquer resultados de pesquisa, o primeiro resultado de página Web de impressão:
+If any search results are found, print the first webpage result:
 
 ```python
 if news_result.value:
@@ -84,7 +84,7 @@ else:
     print("Didn't see any news result data..")
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)

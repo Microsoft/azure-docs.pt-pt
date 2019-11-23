@@ -1,161 +1,161 @@
 ---
-title: Habilitar entrada de chave de segurança sem senha para o Azure AD (versão prévia)-Azure Active Directory
-description: Habilitar a entrada de chave de segurança sem senha no Azure AD usando as chaves de segurança do FIDO2 (versão prévia)
+title: Passwordless security key sign-in Windows - Azure Active Directory
+description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36c00af260ca73913eabf3a1589d8d468de50711
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081566"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381881"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 (versão prévia)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Enable passwordless security key sign in to Windows 10 devices (preview)
 
-Este documento se concentra em habilitar a autenticação sem senha baseada em chave de segurança FIDO2 com dispositivos Windows 10. No final deste artigo, você poderá entrar em aplicativos baseados na Web e no Azure AD que ingressaram em dispositivos Windows 10 com sua conta do Azure AD usando uma chave de segurança FIDO2.
+This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both web-based applications and your Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
 
 |     |
 | --- |
-| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisitos
 
-- [Autenticação Multifator do Azure](howto-mfa-getstarted.md)
-- [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
-- [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
-- Webauthn requer o Windows 10 versão 1809 ou superior
-- [Dispositivos ingressados no Azure ad](../devices/concept-azure-ad-join.md) requerem o Windows 10 versão 1809 ou superior
-- [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (opcional)
-- Pacote de provisionamento (opcional)
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN requires Windows 10 version 1809 or higher
+- [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher
+- [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional)
+- Provisioning package (Optional)
 
-### <a name="unsupported-scenarios"></a>Cenários sem suporte
+### <a name="unsupported-scenarios"></a>Unsupported scenarios
 
-- **Não há suporte para**a implantação do Windows Server Active Directory Domain Services (AD DS) ingressado no domínio (somente dispositivos locais).
-- Os cenários RDP, VDI e Citrix **não têm suporte** usando a chave de segurança.
-- **Não há suporte para** S/MIME usando a chave de segurança.
-- **Não há suporte para** "executar como" usando a chave de segurança.
-- **Não há suporte**para fazer logon em um servidor usando a chave de segurança.
-- Se você não tiver usado sua chave de segurança para entrar em seu dispositivo enquanto estiver online, você não poderá usá-lo para entrar ou desbloquear offline.
+- Windows Server Active Directory Domain Services (AD DS) domain-joined (on-premises only devices) deployment **not supported**.
+- RDP, VDI, and Citrix scenarios are **not supported** using security key.
+- S/MIME is **not supported** using security key.
+- “Run as“ is **not supported** using security key.
+- Log in to a server using security key is **not supported**.
+- If you have not used your security key to sign in to your device while online, you will not be able to use it to sign in or unlock offline.
 
-## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para visualização
+## <a name="prepare-devices-for-preview"></a>Prepare devices for preview
 
-Os dispositivos ingressados no Azure AD com os quais você fará o piloto devem estar executando o Windows 10 versão 1809 ou superior. A melhor experiência é no Windows 10 versão 1903 ou superior.
+Azure AD joined devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-## <a name="enable-security-keys-for-windows-sign-in"></a>Habilitar chaves de segurança para entrada no Windows
+## <a name="enable-security-keys-for-windows-sign-in"></a>Enable security keys for Windows sign-in
 
-As organizações podem optar por usar um ou mais dos métodos a seguir para habilitar o uso de chaves de segurança para entrada do Windows com base nos requisitos de sua organização.
+Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in based on their organization's requirements.
 
-- [Habilitar com o Intune](#enable-with-intune)
-   - [Implantação do Intune de destino](#targeted-intune-deployment)
-- [Habilitar com um pacote de provisionamento](#enable-with-a-provisioning-package)
+- [Enable with Intune](#enable-with-intune)
+   - [Targeted Intune deployment](#targeted-intune-deployment)
+- [Enable with a provisioning package](#enable-with-a-provisioning-package)
 
-### <a name="enable-with-intune"></a>Habilitar com o Intune
+### <a name="enable-with-intune"></a>Enable with Intune
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Microsoft Intune** > **registro de dispositivo** > **registro do Windows** > **Propriedades** **do Windows Hello para empresas** > .
-1. Em **configurações** , defina **usar chaves de segurança para entrar** como **habilitado**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
+1. Under **Settings** set **Use security keys for sign-in** to **Enabled**.
 
-A configuração de chaves de segurança para entrada não depende da configuração do Windows Hello para empresas.
+Configuration of security keys for sign-in, is not dependent on configuring Windows Hello for Business.
 
-#### <a name="targeted-intune-deployment"></a>Implantação do Intune de destino
+#### <a name="targeted-intune-deployment"></a>Targeted Intune deployment
 
-Para direcionar grupos de dispositivos específicos para habilitar o provedor de credenciais, use as seguintes configurações personalizadas por meio do Intune.
+To target specific device groups to enable the credential provider, use the following custom settings via Intune.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Microsoft Intune** > **configuração do dispositivo** > **perfis** > **Criar perfil**.
-1. Configurar o novo perfil com as seguintes configurações
-   1. Nome: chaves de segurança para entrar no Windows
-   1. Descrição: permite que as chaves de segurança FIDO sejam usadas durante a entrada do Windows
-   1. Plataforma: Windows 10 e posterior
-   1. Tipo de perfil: personalizado
-   1. Configurações personalizadas de OMA-URI:
-      1. Nome: ativar as chaves de segurança do FIDO para entrar no Windows
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Browse to **Microsoft Intune** > **Device configuration** > **Profiles** > **Create profile**.
+1. Configure the new profile with the following settings
+   1. Name: Security Keys for Windows Sign-In
+   1. Description: Enables FIDO Security Keys to be used during Windows Sign In
+   1. Platform: Windows 10 and later
+   1. Profile type: Custom
+   1. Custom OMA-URI Settings:
+      1. Name: Turn on FIDO Security Keys for Windows Sign-In
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-      1. Tipo de dados: inteiro
-      1. Valor: 1
-1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+      1. Data Type: Integer
+      1. Value: 1
+1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
-![Criação de política de configuração de dispositivo personalizada do Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
+![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
-### <a name="enable-with-a-provisioning-package"></a>Habilitar com um pacote de provisionamento
+### <a name="enable-with-a-provisioning-package"></a>Enable with a provisioning package
 
-Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pode ser instalado para habilitar a funcionalidade. O aplicativo do Windows Configuration designer pode ser instalado por meio do [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
+For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
 
-1. Inicie o designer de configuração do Windows.
-1. Selecione **arquivo** > **novo projeto**.
-1. Dê um nome ao projeto e anote o caminho em que o projeto é criado.
+1. Launch the Windows Configuration Designer.
+1. Select **File** > **New project**.
+1. Give your project a name and take note of the path where your project is created.
 1. Selecione **Seguinte**.
-1. Deixe o **pacote de provisionamento** selecionado como o **fluxo de trabalho do projeto selecionado** e selecione **Avançar**.
-1. Selecione **todas as edições da área de trabalho do Windows** em **escolher quais configurações exibir e configurar** e selecione **Avançar**.
+1. Leave **Provisioning package** selected as the **Selected project workflow** and select **Next**.
+1. Select **All Windows desktop editions** under **Choose which settings to view and configure** and select **Next**.
 1. Selecione **Concluir**.
-1. Em seu projeto recém-criado, navegue até **configurações de tempo de execução** > **WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
-1. Defina **UseSecurityKeyForSignIn** como **habilitado**.
-1. Selecione **exportar** > **pacote de provisionamento**
-1. Deixe os padrões na janela de **compilação** em **descrever o pacote de provisionamento** e selecione **Avançar**.
-1. Deixe os padrões na janela de **compilação** em **selecionar detalhes de segurança para o pacote de provisionamento** e selecione **Avançar**.
-1. Anote ou altere o caminho nas janelas de **Build** em **selecionar onde salvar o pacote de provisionamento** e selecione **Avançar**.
-1. Selecione **Compilar** na página **criar o pacote de provisionamento** .
-1. Salve os dois arquivos criados (ppkg e Cat) em um local em que você possa aplicá-los aos computadores mais tarde.
-1. Siga as orientações no artigo [aplicar um pacote de provisionamento](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package)para aplicar o pacote de provisionamento que você criou.
+1. In your newly created project, browse to **Runtime settings** > **WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
+1. Set **UseSecurityKeyForSignIn** to **Enabled**.
+1. Select **Export** > **Provisioning package**
+1. Leave the defaults in the **Build** window under **Describe the provisioning package** and select **Next**.
+1. Leave the defaults in the **Build** window under **Select security details for the provisioning package** and select **Next**.
+1. Take note of or change the path in the **Build** windows under **Select where to save the provisioning package** and select **Next**.
+1. Select **Build** on the **Build the provisioning package** page.
+1. Save the two files created (ppkg and cat) to a location where you can apply them to machines later.
+1. Follow the guidance in the article [Apply a provisioning package](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package), to apply the provisioning package you created.
 
 > [!NOTE]
-> Os dispositivos que executam o Windows 10 versão 1809 também devem habilitar o modo de computador compartilhado (EnableSharedPCMode). Informações sobre como habilitar esse funtionality podem ser encontradas no artigo [configurar um PC compartilhado ou convidado com o Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> Devices running Windows 10 Version 1809 must also enable shared PC mode (EnableSharedPCMode). Information about enabling this funtionality can be found in the article, [Set up a shared or guest PC with Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
 
-## <a name="sign-in-to-windows-with-a-fido2-security-key"></a>Entrar no Windows com uma chave de segurança FIDO2
+## <a name="sign-in-to-windows-with-a-fido2-security-key"></a>Sign in to Windows with a FIDO2 security key
 
-No exemplo abaixo, um usuário bala Sandhu já provisionou sua chave de segurança do FIDO2 usando as etapas do artigo anterior, [Habilitar entrada de chave de segurança sem senha](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). Bala pode escolher o provedor de credenciais de chave de segurança na tela de bloqueio do Windows 10 e inserir a chave de segurança para entrar no Windows.
+In the example below a user Bala Sandhu has already provisioned their FIDO2 security key using the steps in the previous article, [Enable passwordless security key sign in](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys). Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
 
-![Entrada de chave de segurança na tela de bloqueio do Windows 10](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
+![Security key sign in at the Windows 10 lock screen](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
 
-### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Gerenciar chave de segurança biométrica, PIN ou redefinição de chaves de segurança
+### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Manage security key biometric, PIN, or reset security key
 
-* Windows 10 versão 1903 ou superior
-   * Os usuários podem abrir **as configurações do Windows** no dispositivo > **contas** > **chave de segurança**
-   * Os usuários podem alterar seu PIN, atualizar a biometria ou redefinir sua chave de segurança
+* Windows 10 version 1903 or higher
+   * Users can open **Windows Settings** on their device > **Accounts** > **Security Key**
+   * Users can change their PIN, update biometrics, or reset their security key
 
-## <a name="troubleshooting-and-feedback"></a>Solução de problemas e comentários
+## <a name="troubleshooting-and-feedback"></a>Troubleshooting and feedback
 
-Se você quiser compartilhar comentários ou encontrar problemas ao visualizar esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows.
+If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
 
-1. Inicie o **Hub de comentários** e verifique se você está conectado.
-1. Envie comentários sob a seguinte categorização:
-   1. Categoria: segurança e privacidade
-   1. Subcategoria: FIDO
-1. Para capturar logs, use a opção: **recriar meu problema**
+1. Launch **Feedback Hub** and make sure you're signed in.
+1. Submit feedback under the following categorization:
+   1. Category: Security and Privacy
+   1. Subcategory: FIDO
+1. To capture logs, use the option: **Recreate my Problem**
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="does-this-work-in-my-on-premises-environment"></a>Isso funciona em meu ambiente local?
+### <a name="does-this-work-in-my-on-premises-environment"></a>Does this work in my on-premises environment?
 
-Esse recurso não funciona para um ambiente de Active Directory Domain Services (AD DS) local puro.
+This feature does not work for a pure on-premises Active Directory Domain Services (AD DS) environment.
 
-### <a name="my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement"></a>Minha organização requer autenticação de dois fatores para acessar recursos, o que posso fazer para dar suporte a esse requisito?
+### <a name="my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement"></a>My organization requires two factor authentication to access resources, what can I do to support this requirement?
 
-As chaves de segurança vêm em uma variedade de fatores forma. Entre em contato com o fabricante do dispositivo de interesse para discutir como seus dispositivos podem ser habilitados com um PIN ou biométrica como um segundo fator.
+Security keys come in a variety of form factors. Please contact the device manufacturer of interest to discuss how their devices can be enabled with a PIN or biometric as a second factor.
 
-### <a name="can-admins-set-up-security-keys"></a>Os administradores podem configurar as chaves de segurança?
+### <a name="can-admins-set-up-security-keys"></a>Can admins set up security keys?
 
-Estamos trabalhando nessa funcionalidade para GA (disponibilidade geral) desse recurso.
+We are working on this capability for general availability (GA) of this feature.
 
-### <a name="where-can-i-go-to-find-compliant-security-keys"></a>Onde posso encontrar as chaves de segurança em conformidade?
+### <a name="where-can-i-go-to-find-compliant-security-keys"></a>Where can I go to find compliant security keys?
 
-[Chaves de segurança do FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+[FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 
-### <a name="what-do-i-do-if-i-lose-my-security-key"></a>O que devo fazer se perder minha chave de segurança?
+### <a name="what-do-i-do-if-i-lose-my-security-key"></a>What do I do if I lose my security key?
 
-Você pode remover chaves do portal do Azure, navegando até a página informações de segurança e removendo a chave de segurança.
+You can remove keys from the Azure portal, by navigating to the security info page and removing the security key.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre o registro de dispositivo](../devices/overview.md)
+[Learn more about device registration](../devices/overview.md)
 
-[Saiba mais sobre a autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)
+[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

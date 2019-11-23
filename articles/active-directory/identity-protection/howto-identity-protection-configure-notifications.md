@@ -1,6 +1,6 @@
 ---
-title: Notificações de Azure Active Directory Identity Protection | Microsoft Docs
-description: Saiba como as notificações dão suporte às suas atividades de investigação.
+title: Azure Active Directory Identity Protection notifications
+description: Learn how notifications support your investigation activities.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,59 +11,59 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81452f4d1f77c07222bbff05093a7e8d5d0a1bee
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887549"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382161"
 ---
-# <a name="azure-active-directory-identity-protection-notifications"></a>Notificações de Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection notifications
 
-Azure AD Identity Protection envia dois tipos de emails de notificação automatizados para ajudá-lo a gerenciar as detecções de risco e risco do usuário:
+Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk detections:
 
-- Email de usuários em risco detectados
-- Email de resumo semanal
+- Users at risk detected email
+- Weekly digest email
 
-Este artigo fornece uma visão geral dos dois emails de notificação.
+This article provides you with an overview of both notification emails.
 
-## <a name="users-at-risk-detected-email"></a>Email de usuários em risco detectados
+## <a name="users-at-risk-detected-email"></a>Users at risk detected email
 
-Em resposta a uma conta detectada em risco, Azure AD Identity Protection gera um alerta de email com **usuários em risco detectado** como assunto. O email inclui um link para o relatório **[usuários sinalizados para risco](../reports-monitoring/concept-user-at-risk.md)** . Como prática recomendada, você deve investigar imediatamente os usuários em risco.
+In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](../reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
 
-A configuração para esse alerta permite especificar em qual nível de risco de usuário você deseja que o alerta seja gerado. O email será gerado quando o nível de risco do usuário atingir o que você especificou; no entanto, você não receberá novos usuários em risco os alertas de email detectados para esse usuário depois que eles forem movidos para esse nível de risco do usuário. Por exemplo, se você definir a política para alertar sobre o risco de usuário médio e seu usuário João passar para risco médio, você receberá os usuários em risco o email detectado para João. No entanto, você não receberá um segundo usuário em risco detectado alerta se João passar para alto risco ou tiver detecções de risco adicionais.
+The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second user at risk detected alert if John then moves to high risk or has additional risk detections.
 
-![Email de usuários em risco detectados](./media/howto-identity-protection-configure-notifications/01.png)
+![Users at risk detected email](./media/howto-identity-protection-configure-notifications/01.png)
 
-### <a name="configure-users-at-risk-detected-alerts"></a>Configurar usuários em risco os alertas detectados
+### <a name="configure-users-at-risk-detected-alerts"></a>Configure users at risk detected alerts
 
-Como administrador, você pode definir:
+As an administrator, you can set:
 
-- **O nível de risco do usuário que dispara a geração desse email** -por padrão, o nível de risco é definido como risco "alto".
-- **Os destinatários deste email** -por padrão, os destinatários incluem todos os administradores globais. Os administradores globais também podem adicionar outros administradores globais, administradores de segurança, leitores de segurança como destinatários.
-   - Opcionalmente, você pode **Adicionar emails adicionais para receber notificações de alerta** esse recurso é uma visualização e os usuários definidos devem ter as permissões apropriadas para exibir os relatórios vinculados no portal do Azure.
+- **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
+- **The recipients of this email** - By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
+   - Optionally you can **Add additional emails to receive alert notifications** this feature is a preview and users defined must have the appropriate permissions to view the linked reports in the Azure portal.
 
-Configure os usuários em risco email no **portal do Azure** em **Azure Active Directory** > **segurança** > **identidade proteção** > **usuários em risco os alertas detectados**.
+Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
 
-## <a name="weekly-digest-email"></a>Email de resumo semanal
+## <a name="weekly-digest-email"></a>Weekly digest email
 
-O email de resumo semanal contém um resumo das novas detecções de risco.  
-Ele inclui:
+The weekly digest email contains a summary of new risk detections.  
+It includes:
 
 - Utilizadores em risco
-- Atividades suspeitas
-- Vulnerabilidades detectadas
-- Links para os relatórios relacionados no Identity Protection
+- Suspicious activities
+- Detected vulnerabilities
+- Links to the related reports in Identity Protection
 
-![Email de resumo semanal](./media/howto-identity-protection-configure-notifications/400.png)
+![Weekly digest email](./media/howto-identity-protection-configure-notifications/400.png)
 
-Por padrão, os destinatários incluem todos os administradores globais. Os administradores globais também podem adicionar outros administradores globais, administradores de segurança, leitores de segurança como destinatários.
+By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
 
-### <a name="configure-weekly-digest-email"></a>Configurar email de resumo semanal
+### <a name="configure-weekly-digest-email"></a>Configure weekly digest email
 
-Como administrador, você pode alternar o envio de um email de resumo semanal ou desativá-lo e escolher os usuários atribuídos para receber o email.
+As an administrator, you can switch sending a weekly digest email on or off and choose the users assigned to receive the email.
 
-Configure o email de resumo semanal no **portal do Azure** em **Azure Active Directory** > **segurança** > **identidade Protection** > **resumo semanal**.
+Configure the weekly digest email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Weekly digest**.
 
 ## <a name="see-also"></a>Ver também
 
