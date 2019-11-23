@@ -242,5 +242,5 @@ Veja como você pode acompanhar as entradas do usuário que ainda estão ocorren
 
 -   R: Sim, encontre a documentação para usar o PowerShell para executar a distribuição em etapas [aqui](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 - [Versão prévia do AzureAD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

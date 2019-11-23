@@ -40,21 +40,21 @@ A API twilio é uma API RESTful que fornece a funcionalidade de voz e SMS para a
 Os principais aspectos da API twilio são twilio verbos e TwiML (twilio Markup Language).
 
 ### <a id="Verbs"></a>Verbos twilio
-A API utiliza verbos twilio; por exemplo, o verbo **&lt;Say @ no__t-2** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
+A API utiliza verbos twilio; por exemplo, o **&lt;dizer&gt;** Verb instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
 
 Veja a seguir uma lista de verbos do twilio. Saiba mais sobre os outros verbos e funcionalidades por meio da [documentação da linguagem de marcação twilio][twiml].
 
-* **&lt;Dial @ no__t-2**: conecta o chamador a outro telefone.
-* **&lt;Gather @ no__t-2**: coleta dígitos numéricos inseridos no teclado do telefone.
-* **&lt;Hangup @ no__t-2**: Finaliza uma chamada.
-* **&lt;Pause @ no__t-2**: aguarda silenciosamente por um número especificado de segundos.
-* **&lt;Play @ no__t-2**: reproduz um arquivo de áudio.
-* **&lt;Queue @ no__t-2**: Adicione o a uma fila de chamadores.
-* **&lt;Record @ no__t-2**: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
-* **&lt;Redirect @ no__t-2**: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
-* **&lt;Reject @ no__t-2**: rejeita uma chamada de entrada para seu número de twilio sem cobrar você.
-* **&lt;Say @ no__t-2**: converte o texto em fala que é feito em uma chamada.
-* **&lt;Sms @ no__t-2**: envia uma mensagem SMS.
+* **&lt;&gt;de discagem** : conecta o chamador a outro telefone.
+* **&lt;coletar&gt;** : coleta dígitos numéricos inseridos no teclado do telefone.
+* **&lt;desligar&gt;** : encerra uma chamada.
+* **&lt;pausar&gt;** : aguarda silenciosamente por um número especificado de segundos.
+* **&lt;Play&gt;** : reproduz um arquivo de áudio.
+* **&gt;de&lt;da fila** : Adicione o a uma fila de chamadores.
+* **registro de&lt;&gt;** : registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
+* **&lt;Redirecionar&gt;** : transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* **&lt;rejeitar&gt;** : rejeita uma chamada recebida para o número do twilio sem cobrar você.
+* **&lt;digamos&gt;** : converte o texto em fala que é feito em uma chamada.
+* **&lt;&gt;SMS** : envia uma mensagem SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções baseadas em XML com base nos verbos twilio que informam twilio de como processar uma chamada ou SMS.
@@ -107,14 +107,14 @@ Você pode configurar seu aplicativo para usar a biblioteca twilio para Python d
 
         $ python setup.py install
 
-Depois de instalar a biblioteca twilio para Python, você poderá `import` em seus arquivos Python:
+Depois de instalar a biblioteca twilio para Python, você poderá `import`-la em seus arquivos Python:
 
         import twilio
 
 Para obter mais informações, consulte [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 
 ## <a id="howto_make_call"></a>Como: fazer uma chamada de saída
-O seguinte mostra como fazer uma chamada de saída. Esse código também usa um site fornecido pelo twilio para retornar a resposta TwiML (twilio Markup Language). Substitua seus valores pelos números de telefone **from_number** e **TO_NUMBER** e verifique se você verificou o número de telefone **from_number** para sua conta twilio antes de executar o código.
+O seguinte mostra como fazer uma chamada de saída. Esse código também usa um site fornecido pelo twilio para retornar a resposta TwiML (twilio Markup Language). Substitua os valores para os números de telefone **from_number** e **TO_NUMBER** e verifique se você verificou o número de telefone **From_number** para sua conta do twilio antes de executar o código.
 
     from urllib.parse import urlencode
 
@@ -172,7 +172,7 @@ O seguinte mostra como enviar uma mensagem SMS usando a classe `TwilioRestClient
                                      body=message)
 
 ## <a id="howto_provide_twiml_responses"></a>Como: fornecer respostas de TwiML de seu próprio site
-Quando seu aplicativo iniciar uma chamada para a API twilio, o twilio enviará sua solicitação para uma URL que deve retornar uma resposta TwiML. O exemplo acima usa a URL fornecida pelo twilio [https://twimlets.com/message][twimlet_message_url]. (Embora o TwiML seja projetado para ser usado pelo twilio, você pode exibi-lo em seu navegador. Por exemplo, clique em [https://twimlets.com/message][twimlet_message_url] para ver um elemento `<Response>` vazio; como outro exemplo, clique em [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver um elemento `<Response>` que contém um elemento `<Say>`.)
+Quando seu aplicativo iniciar uma chamada para a API twilio, o twilio enviará sua solicitação para uma URL que deve retornar uma resposta TwiML. O exemplo acima usa a URL fornecida pelo twilio [https://twimlets.com/message][twimlet_message_url]. (Embora o TwiML seja projetado para ser usado pelo twilio, você pode exibi-lo em seu navegador. Por exemplo, clique em [https://twimlets.com/message][twimlet_message_url] para ver um elemento de `<Response>` vazio; como outro exemplo, clique em [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver um elemento `<Response>` que contém um elemento `<Say>`.)
 
 Em vez de depender da URL fornecida pelo twilio, você pode criar seu próprio site que retorna respostas HTTP. Você pode criar o site em qualquer idioma que retorne respostas XML; Este tópico pressupõe que você usará o Python para criar o TwiML.
 

@@ -31,7 +31,7 @@ A principal inovação do projeto é a de duas simulações acústicas com base 
 ![Animação mostrando uma fatia 2D horizontal da propagação de ondas por meio de uma cena](media/wave-simulation.gif)
 
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>Apresentação em vídeo do GDC 2019 (~ 30 min)
-[Vídeo de acústica de @no__t 1Project](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Clique para reproduzir vídeo")
+[Vídeo acústicos do ![Project](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Clique para reproduzir vídeo")
 
 ## <a name="setup"></a>Configurar
 A [integração do Unity do projeto acústica](unity-integration.md) é o recurso arrastar e soltar e inclui um plug-in do mecanismo de áudio do Unity. Aumente os controles de origem de áudio do Unity anexando um C# componente controles acústicos do projeto a cada objeto de áudio.
@@ -40,8 +40,8 @@ A [integração inreal do projeto acústica](unreal-integration.md) inclui plug-
 
 ## <a name="workflow"></a>Fluxo de trabalho
 * **Pré-ditorta:** Comece com a configuração do distorta selecionando qual geometria responde a acústicas, por exemplo, ignorando os eixos de luz. Em seguida, edite atribuições de material automáticas e selecione áreas de navegação para orientar a amostragem do ouvinte Não há marcação manual para zonas de reverberação/portal/sala.
-* **Festival** Uma etapa de análise é executada localmente, que faz voxelization e outras análises geométricas sobre a cena com base nas seleções acima. Os resultados são visualizados no editor para verificar a configuração da cena. No envio por distorta, os dados de VOXEL são enviados para o Azure e você obtém um ativo de jogo acústicos.
-* **Appmodel** Carregue o ativo em seu nível e você está pronto para escutar os acústicos em seu nível. Projete os acústicos ao vivo no editor usando controles granulares por fonte. Os controles também podem ser orientados a partir de scripts de nível.
+* **Distortar:** Uma etapa de análise é executada localmente, que faz voxelization e outras análises geométricas sobre a cena com base nas seleções acima. Os resultados são visualizados no editor para verificar a configuração da cena. No envio por distorta, os dados de VOXEL são enviados para o Azure e você obtém um ativo de jogo acústicos.
+* **Tempo de execução:** Carregue o ativo em seu nível e você está pronto para escutar os acústicos em seu nível. Projete os acústicos ao vivo no editor usando controles granulares por fonte. Os controles também podem ser orientados a partir de scripts de nível.
 
 ## <a name="runtime-platforms"></a>Plataformas de tempo de execução
 Os plug-ins de tempo de execução acústicos do projeto podem ser implantados atualmente nas seguintes plataformas:

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Logon único contínuo-perguntas frequentes | Microsoft Docs'
+title: 'Azure AD Connect: logon único contínuo-perguntas frequentes | Microsoft Docs'
 description: Respostas para perguntas frequentes sobre Azure Active Directory logon único contínuo.
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Active Directory, componentes necessários para o Azure AD, SSO, logon único
@@ -23,67 +23,67 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72025672"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory logon único contínuo: Perguntas mais frequentes
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory logon único contínuo: perguntas frequentes
 
 Neste artigo, abordamos perguntas frequentes sobre Azure Active Directory logon único contínuo (SSO contínuo). Continue verificando o novo conteúdo.
 
-**P: Quais métodos de entrada fazem com que o SSO contínuo funcione com @ no__t-0
+**P: a quais métodos de entrada o SSO contínuo funciona com**
 
 O SSO contínuo pode ser combinado com os métodos de entrada de [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) ou de autenticação de [passagem](how-to-connect-pta.md) . No entanto, esse recurso não pode ser usado com Serviços de Federação do Active Directory (AD FS) (ADFS).
 
-**P: O SSO contínuo é um recurso gratuito?**
+**P: o SSO contínuo é um recurso gratuito?**
 
 O SSO contínuo é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 
-**P: O SSO contínuo está disponível no [Microsoft Azure Alemanha Cloud](https://www.microsoft.de/cloud-deutschland) e na [nuvem de Microsoft Azure governamental](https://azure.microsoft.com/features/gov/)?**
+**P: o SSO contínuo está disponível na [nuvem Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem de Microsoft Azure governamental](https://azure.microsoft.com/features/gov/)?**
 
 Não. O SSO contínuo só está disponível na instância Mundial do Azure AD.
 
-**P: Quais aplicativos tiram proveito da capacidade de parâmetro `domain_hint` ou `login_hint` do SSO contínuo?**
+**P: quais aplicativos tiram proveito de `domain_hint` ou `login_hint` capacidade de parâmetro do SSO contínuo?**
 
 Veja abaixo uma lista não exaustiva de aplicativos que podem enviar esses parâmetros ao Azure AD e, portanto, fornece aos usuários uma experiência de logon silenciosa usando o SSO contínuo (ou seja, não há necessidade de que os usuários insiram seus nomes de usuário ou senhas):
 
 | Nome da aplicação | URL do aplicativo a ser usada |
 | -- | -- |
-| Painel de acesso | https: \//myapps. Microsoft. com/contoso. com |
-| Outlook na Web | https: \//Outlook. office365. com/contoso. com |
-| Portais do Office 365 | https: \//Portal. Office. com? domain_hint = contoso. com, https: \//www. Office. com? domain_hint = contoso. com |
+| Painel de acesso | https:\//myapps.microsoft.com/contoso.com |
+| Outlook na Web | https:\//outlook.office365.com/contoso.com |
+| Portais do Office 365 | https:\//Portal.Office.com? domain_hint = contoso. com, https:\//www.Office.com? domain_hint = contoso. com |
 
-Além disso, os usuários terão uma experiência de logon silenciosa se um aplicativo enviar solicitações de entrada para os pontos de extremidade do Azure AD configurados como locatários, ou seja, https: \//login. microsoftonline. com/contoso. com/<.. > ou https: \//login. microsoftonline. com/< tenant_ID >/<.. >-em vez do ponto de extremidade comum do AD do Azure, ou seja, https: \//login. microsoftonline. com/Common/<... >. Veja abaixo uma lista não exaustiva de aplicativos que fazem esses tipos de solicitações de entrada.
+Além disso, os usuários terão uma experiência de logon silenciosa se um aplicativo enviar solicitações de entrada para pontos de extremidade do Azure AD configurados como locatários, ou seja, https:\//login.microsoftonline.com/contoso.com/<.. > ou https:\//login.microsoftonline.com/<tenant_ID>/<.. >-em vez do ponto de extremidade comum do Azure AD, ou seja, https:\//login.microsoftonline.com/common/<... >. Veja abaixo uma lista não exaustiva de aplicativos que fazem esses tipos de solicitações de entrada.
 
 | Nome da aplicação | URL do aplicativo a ser usada |
 | -- | -- |
-| SharePoint Online | https: \//contoso. SharePoint. com |
-| Portal do Azure | https: \//Portal. Azure. com/contoso. com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Portal do Azure | https:\//portal.azure.com/contoso.com |
 
 Nas tabelas acima, substitua "contoso.com" pelo nome de domínio para obter as URLs de aplicativo corretas para seu locatário.
 
 Se você quiser outros aplicativos usando nossa experiência de logon silencioso, informe-nos na seção de comentários.
 
-**P: O SSO contínuo dá suporte a `Alternate ID` como o nome de usuário, em vez de `userPrincipalName`?**
+**P: o suporte ao SSO contínuo `Alternate ID` como o nome de usuário, em vez de `userPrincipalName`?**
 
 Sim. O SSO contínuo dá suporte a `Alternate ID` como o nome de usuário quando configurado em Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os aplicativos do Office 365 dão suporte a `Alternate ID`. Consulte a documentação do aplicativo específico para a instrução de suporte.
 
-**P: Qual é a diferença entre a experiência de logon único fornecida pelo [ingresso do Azure ad](../active-directory-azureadjoin-overview.md) e SSO contínuo?**
+**P: Qual é a diferença entre a experiência de logon único fornecida pelo [ingresso do Azure ad](../active-directory-azureadjoin-overview.md) e o SSO contínuo?**
 
 O [ingresso no Azure ad](../active-directory-azureadjoin-overview.md) fornece o SSO para os usuários se seus dispositivos estiverem registrados no Azure AD. Esses dispositivos não precisam necessariamente ser ingressados no domínio. O SSO é fornecido usando *tokens de atualização primários* ou *PRTs*, e não Kerberos. A experiência do usuário é ideal para dispositivos Windows 10. O SSO ocorre automaticamente no navegador Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
 
 Você pode usar a junção do Azure AD e o SSO contínuo em seu locatário. Esses dois recursos são complementares. Se ambos os recursos estiverem ativados, o SSO do ingresso no Azure AD terá precedência sobre o SSO contínuo.
 
-**P: Quero registrar dispositivos que não são do Windows 10 com o Azure AD, sem usar AD FS. Em vez disso, posso usar o SSO contínuo?**
+**P: desejo registrar dispositivos que não são do Windows 10 com o Azure AD, sem usar AD FS. Em vez disso, posso usar o SSO contínuo?**
 
 Sim, este cenário precisa da versão 2,1 ou posterior do [cliente de ingresso no local de trabalho](https://www.microsoft.com/download/details.aspx?id=53554).
 
-**P: Como posso sobrepor a chave de descriptografia Kerberos da conta de computador `AZUREADSSOACC`?**
+**P: como posso sobrepor a chave de descriptografia Kerberos da conta de computador `AZUREADSSOACC`?**
 
-É importante sobrepor frequentemente a chave de descriptografia Kerberos da conta de computador `AZUREADSSOACC` (que representa o Azure AD) criada em sua floresta do AD local.
+É importante sobrepor com frequência a chave de descriptografia Kerberos da conta de computador `AZUREADSSOACC` (que representa o Azure AD) criada em sua floresta do AD local.
 
 >[!IMPORTANT]
 >É altamente recomendável que você reverta a chave de descriptografia Kerberos pelo menos a cada 30 dias.
 
 Siga estas etapas no servidor local em que você está executando Azure AD Connect:
 
-   **Step 1. Obter lista de florestas do AD em que o SSO contínuo foi habilitado @ no__t-0
+   **Etapa 1. Obter lista de florestas do AD em que o SSO contínuo foi habilitado**
 
    1. Primeiro, baixe e instale o [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
@@ -91,7 +91,7 @@ Siga estas etapas no servidor local em que você está executando Azure AD Conne
    4. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir as credenciais de administrador global do seu locatário.
    5. Chame `Get-AzureADSSOStatus | ConvertFrom-Json`. Esse comando fornece a lista de florestas do AD (consulte a lista "domínios") na qual esse recurso foi habilitado.
 
-   **Step 2. Atualize a chave de descriptografia Kerberos em cada floresta do AD na qual ela foi configurada em @ no__t-0
+   **Etapa 2. Atualizar a chave de descriptografia Kerberos em cada floresta do AD na qual ela foi configurada**
 
    1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio para a floresta do AD pretendida.
 
@@ -107,11 +107,11 @@ Siga estas etapas no servidor local em que você está executando Azure AD Conne
    >[!IMPORTANT]
    >Certifique-se de _não_ executar o comando `Update-AzureADSSOForest` mais de uma vez. Caso contrário, o recurso para de funcionar até o momento em que os tíquetes Kerberos de seus usuários expiram e são reemitidos pelo seu Active Directory local.
 
-**P: Como posso desabilitar o SSO contínuo?**
+**P: como posso desabilitar o SSO contínuo?**
 
-   **Step 1. Desabilitar o recurso em seu locatário @ no__t-0
+   **Etapa 1. Desabilitar o recurso em seu locatário**
 
-   **Option A: Desabilitar usando Azure AD Connect @ no__t-0
+   **Opção A: desabilitar usando Azure AD Connect**
     
    1. Execute Azure AD Connect, escolha **alterar página de entrada do usuário** e clique em **Avançar**.
    2. Desmarque a opção **habilitar logon único** . Prossiga com o assistente.
@@ -122,7 +122,7 @@ Siga estas etapas no servidor local em que você está executando Azure AD Conne
 
    Para concluir o processo de limpeza, siga as etapas 2 e 3 no servidor local em que você está executando o Azure AD Connect.
 
-   **Option B: Desabilitar usando o PowerShell @ no__t-0
+   **Opção B: desabilitar usando o PowerShell**
 
    Execute as seguintes etapas no servidor local em que você está executando Azure AD Connect:
 
@@ -135,7 +135,7 @@ Siga estas etapas no servidor local em que você está executando Azure AD Conne
    >[!IMPORTANT]
    >Desabilitar o SSO contínuo usando o PowerShell não alterará o estado em Azure AD Connect. O SSO contínuo será exibido como habilitado na página **alterar entrada do usuário** .
 
-   **Step 2. Obter lista de florestas do AD em que o SSO contínuo foi habilitado @ no__t-0
+   **Etapa 2. Obter lista de florestas do AD em que o SSO contínuo foi habilitado**
 
    Siga as tarefas 1 a 4 abaixo se você tiver desabilitado o SSO contínuo usando o Azure AD Connect. Se você tiver desabilitado o SSO contínuo usando o PowerShell, vá adiante para a tarefa 5 abaixo.
 
@@ -145,7 +145,7 @@ Siga estas etapas no servidor local em que você está executando Azure AD Conne
    4. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir as credenciais de administrador global do seu locatário.
    5. Chame `Get-AzureADSSOStatus | ConvertFrom-Json`. Esse comando fornece a lista de florestas do AD (consulte a lista "domínios") na qual esse recurso foi habilitado.
 
-   **Step 3. Exclua manualmente a conta de computador `AZUREADSSOACCT` de cada floresta do AD que você vê listada.**
+   **Etapa 3. Exclua manualmente a conta de computador `AZUREADSSOACCT` de cada floresta do AD que você vê listada.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

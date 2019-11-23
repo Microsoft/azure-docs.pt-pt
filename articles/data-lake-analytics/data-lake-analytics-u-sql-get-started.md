@@ -27,7 +27,7 @@ O U-SQL é uma linguagem que combina SQL declarativo com imperativa C# para perm
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de percorrer os exemplos de U-SQL neste documento, leia e complete [Tutorial: Desenvolva scripts U-SQL usando as ferramentas de Data Lake para Visual Studio @ no__t-0. Esse tutorial explica a mecânica do uso do U-SQL com o Ferramentas do Azure Data Lake para Visual Studio.
+Antes de passar pelos exemplos de U-SQL neste documento, leia e conclua o [tutorial: desenvolver scripts U-SQL usando as ferramentas de data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com o Ferramentas do Azure Data Lake para Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>O seu primeiro script U-SQL
 
@@ -50,20 +50,20 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```
 
-Esse script não tem nenhuma etapa de transformação. Ele lê o arquivo de origem chamado `SearchLog.tsv`, esquematiza-o e grava o conjunto de linhas de volta em um arquivo chamado Searchlog-. csv.
+Esse script não tem nenhuma etapa de transformação. Ele lê a partir do arquivo de origem chamado `SearchLog.tsv`, esquematiza-o e grava o conjunto de linhas de volta em um arquivo chamado Searchlog-. csv.
 
-Observe o ponto de interrogação ao lado do tipo de dados no campo `Duration`. Isso significa que o campo `Duration` pode ser nulo.
+Observe o ponto de interrogação ao lado do tipo de dados no campo `Duration`. Isso significa que o campo `Duration` poderia ser nulo.
 
 ### <a name="key-concepts"></a>Conceitos-chave
-* **Variáveis de conjunto de linhas**: Cada expressão de consulta que produz um conjunto de linhas pode ser atribuída a uma variável. O U-SQL segue o padrão de nomenclatura da variável T-SQL (`@searchlog`, por exemplo) no script.
-* A palavra-chave **Extract** lê dados de um arquivo e define o esquema na leitura. `Extractors.Tsv` é um extrator U-SQL interno para arquivos de valores separados por tabulação. Você pode desenvolver extratores personalizados.
-* A **saída** grava dados de um conjunto de linhas em um arquivo. `Outputters.Csv()` é um outemitinte U-SQL interno para criar um arquivo de valor separado por vírgula. Você pode desenvolver outistores personalizados.
+* **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuída a uma variável. O U-SQL segue o padrão de nomenclatura da variável T-SQL (`@searchlog`, por exemplo) no script.
+* A palavra-chave **Extract** lê dados de um arquivo e define o esquema na leitura. `Extractors.Tsv` é um extrator U-SQL interno para arquivos de valor separado por tabulação. Você pode desenvolver extratores personalizados.
+* A **saída** grava dados de um conjunto de linhas em um arquivo. `Outputters.Csv()` é um outemitinte U-SQL interno para criar um arquivo de valor separado por vírgulas. Você pode desenvolver outistores personalizados.
 
 ### <a name="file-paths"></a>Caminhos de arquivo
 
 As instruções EXTRACT e OUTPUT usam caminhos de arquivo. Os caminhos de arquivo podem ser absolutos ou relativos:
 
-Este caminho de arquivo absoluto a seguir refere-se a um arquivo em um Data Lake Store chamado `mystore`:
+Este caminho de arquivo absoluto a seguir refere-se a um arquivo em um Data Lake Store nomeado `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 

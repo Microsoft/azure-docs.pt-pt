@@ -62,11 +62,11 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 3. Obtenha as credenciais SSH mostradas na folha **visão geral** da VM por meio do botão **conectar** . Selecione a guia **SSH** e copie o comando logon SSH para a área de transferência.
 
-4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **SSH @ no__t-1user ID @ no__t-2 @ no__t-3 @ no__t-4IP endereço @ no__t-5**. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
+4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **ssh\<ID de usuário\>\@\<endereço IP\>** . Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiar o arquivo de instalação para o servidor
 
-O arquivo de instalação do servidor Web é **ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**. Ele está incluído na mídia fornecida pela IBM. Você deve carregar esse arquivo para a VM do Ubuntu.
+O arquivo de instalação do servidor Web é **ZDT\_instalar\_o EE\_v 12.0.0.1. tgz**. Ele está incluído na mídia fornecida pela IBM. Você deve carregar esse arquivo para a VM do Ubuntu.
 
 1. Na linha de comando, digite o seguinte comando para verificar se tudo está atualizado na imagem recém-criada:
 
@@ -91,7 +91,7 @@ O arquivo de instalação do servidor Web é **ZDT @ no__t-1Install @ no__t-2EE\
 
 ## <a name="install-the-enterprise-edition"></a>Instalar o Enterprise Edition
 
-1. Vá para o diretório ZDT e descompacte o arquivo ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz usando os seguintes comandos:
+1. Vá para o diretório ZDT e descompacte o ZDT\_instale\_o arquivo EE\_V 12.0.0.1. tgz usando os seguintes comandos:
 
     ```
     cd ZDT

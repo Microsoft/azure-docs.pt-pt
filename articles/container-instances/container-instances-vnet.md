@@ -180,17 +180,17 @@ Connecting to 10.0.0.4 (10.0.0.4:80)
 index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
 
-A saída do log deve mostrar que `wget` foi capaz de se conectar e baixar o arquivo de índice do primeiro contêiner usando seu endereço IP privado na sub-rede local. O tráfego de rede entre os dois grupos de contêineres permaneceu na rede virtual.
+A saída de log deve mostrar que `wget` foi capaz de se conectar e baixar o arquivo de índice do primeiro contêiner usando seu endereço IP privado na sub-rede local. O tráfego de rede entre os dois grupos de contêineres permaneceu na rede virtual.
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>Implantar na rede virtual existente-YAML
 
 Você também pode implantar um grupo de contêineres em uma rede virtual existente usando um arquivo YAML. Para implantar em uma sub-rede em uma rede virtual, você especifica várias propriedades adicionais no YAML:
 
-* `ipAddress`: As configurações de endereço IP para o grupo de contêineres.
-  * `ports`: As portas a serem abertas, se houver.
-  * `protocol`: O protocolo (TCP ou UDP) para a porta aberta.
-* `networkProfile`: Especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
-  * `id`: A ID de recurso completa do Gerenciador de recursos do `networkProfile`.
+* `ipAddress`: as configurações de endereço IP para o grupo de contêineres.
+  * `ports`: as portas a serem abertas, se houver.
+  * `protocol`: o protocolo (TCP ou UDP) para a porta aberta.
+* `networkProfile`: especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
+  * `id`: a ID de recurso completa do Resource Manager do `networkProfile`.
 
 Para implantar um grupo de contêineres em uma rede virtual com um arquivo YAML, primeiro você precisa obter a ID do perfil de rede. Execute o comando [AZ Network Profile List][az-network-profile-list] , especificando o nome do grupo de recursos que contém sua rede virtual e a sub-rede delegada.
 
@@ -205,7 +205,7 @@ $ az network profile list --resource-group myResourceGroup --query [0].id --outp
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Depois de ter a ID do perfil de rede, copie o seguinte YAML em um novo arquivo chamado *vnet-Deploy-ACI. YAML*. Em `networkProfile`, substitua o valor de `id` pela ID que você acabou de recuperar e, em seguida, salve o arquivo. Este YAML cria um grupo de contêineres chamado *appcontaineryaml* em sua rede virtual.
+Depois de ter a ID do perfil de rede, copie o seguinte YAML em um novo arquivo chamado *vnet-Deploy-ACI. YAML*. Em `networkProfile`, substitua o valor de `id` com a ID que você acabou de recuperar e, em seguida, salve o arquivo. Este YAML cria um grupo de contêineres chamado *appcontaineryaml* em sua rede virtual.
 
 ```YAML
 apiVersion: '2018-09-01'
@@ -236,7 +236,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome de arquivo YAML para o parâmetro `--file`:
+Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo YAML para o parâmetro `--file`:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
@@ -292,7 +292,8 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para implantar uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres usando um modelo do Resource Manager, consulte [Create um grupo de contêineres do Azure com VNet @ no__t-1.
+Para implantar uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres usando um modelo do Resource Manager, confira [criar um grupo de contêineres do Azure com VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 Vários recursos de rede virtual e recursos foram discutidos neste artigo, embora Resumindo brevemente. A documentação da rede virtual do Azure aborda esses tópicos extensivamente:
 

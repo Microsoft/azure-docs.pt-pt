@@ -28,16 +28,16 @@ Depois que os recursos de composição forem importados para sua conta de automa
 
 Antes de atribuir uma configuração feita dos recursos de composição no portal do Azure, você deve redigi-la. Isso pode ser feito usando **a configuração de composição** na página de configuração de **estado (DSC)** enquanto estiver nas guias **configurações** ou **configurações compiladas** .
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **todos os recursos** e, em seguida, no nome da sua conta de automação.
 1. Na página **conta de automação** , selecione **configuração de estado (DSC)** em **Gerenciamento de configuração**.
 1. Na página **configuração de estado (DSC)** , clique na guia **configurações** ou **configurações compiladas** e, em seguida, clique em **compor configuração** no menu na parte superior da página.
 1. Na etapa **básico** , forneça o novo nome de configuração (obrigatório) e clique em qualquer lugar na linha de cada recurso composto que você deseja incluir em sua nova configuração e clique em **Avançar** ou clique na etapa **código-fonte** . Para as etapas a seguir, selecionamos os recursos de composição **PSExecutionPolicy** e **RenameAndDomainJoin** .
-   ![Screenshot da etapa básico da página de configuração do Compose @ no__t-1
+   ![captura de tela da etapa básico da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. A etapa de **código-fonte** mostra a aparência da configuração composta dos recursos compostos selecionados. Você pode ver a mesclagem de todos os parâmetros e como eles são passados para o recurso de composição. Quando você terminar de revisar o novo código-fonte, clique em **Avançar** ou clique na etapa **parâmetros** .
-   ![Screenshot da etapa do código-fonte da página de configuração do Compose @ no__t-1
+   ![captura de tela da etapa do código-fonte da página de configuração do Compose](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
 1. Na etapa **parâmetros** , o parâmetro que cada recurso de composição tem é exposto para que eles possam ser fornecidos. Se um parâmetro tiver uma descrição, ele será exibido ao lado do campo de parâmetro. Se um campo for um parâmetro de tipo **PSCredential** , a lista suspensa a configurar fornecerá uma lista de objetos de **credencial** na conta de automação atual. Uma opção **+ Adicionar uma credencial** também está disponível. Depois que todos os parâmetros necessários tiverem sido fornecidos, clique em **salvar e compilar**.
-   ![Screenshot da etapa de parâmetros da página de configuração de composição @ no__t-1
+   ![captura de tela da etapa parâmetros da página configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 Depois que a nova configuração for salva, ela será enviada para compilação. O status do trabalho de compilação pode ser exibido como qualquer configuração importada. Para obter mais informações, consulte [exibindo um trabalho de compilação](automation-dsc-getting-started.md#viewing-a-compilation-job).
 

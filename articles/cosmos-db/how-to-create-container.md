@@ -21,7 +21,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 ### <a id="portal-sql"></a>API DO SQL
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente.
 
@@ -37,7 +37,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 ### <a id="portal-mongodb"></a>API de Azure Cosmos DB para MongoDB
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -53,7 +53,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 ### <a id="portal-cassandra"></a>API para Cassandra
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -72,7 +72,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 ### <a id="portal-gremlin"></a>API do Gremlin
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-graph-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -89,7 +89,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 ### <a id="portal-table"></a>API de Tabela
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-table-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
@@ -116,7 +116,7 @@ Para obter uma lista de todos os exemplos de CLI do Azure em todas as APIs de Az
 * [Criar um grafo Gremlin com CLI do Azure](./scripts/cli/gremlin/create.md)
 * [Criar uma tabela de API de Tabela com CLI do Azure](./scripts/cli/table/create.md)
 
-## Criar um contêiner usando o<a id="ps-sql"></a>PowerShell @no__t-<a id="ps-cassandra"></a>1 <a id="ps-gremlin"><a id="ps-table"></a>
+## Criar um contêiner usando<a id="ps-mongodb"><a id="ps-sql"> </a> <a id="ps-cassandra"></a> do PowerShell<a id="ps-gremlin"><a id="ps-table"></a>
 
 Os links a seguir mostram como criar recursos de contêiner para Azure Cosmos DB usando o PowerShell.
 
@@ -167,6 +167,6 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
-* [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-* [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md)
+* [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com a conta do Azure Cosmos](account-overview.md)

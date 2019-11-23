@@ -26,7 +26,7 @@ Para criar um principal de serviço do Azure AD, tem de ter permissões para reg
 
 Se você estiver usando uma entidade de serviço de um locatário do Azure AD diferente, haverá considerações adicionais sobre as permissões disponíveis quando você implantar o cluster. Talvez você não tenha as permissões apropriadas para ler e gravar informações de diretório. Para obter mais informações, consulte [quais são as permissões de usuário padrão no Azure Active Directory?][azure-ad-permissions]
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute @ no__t-0 para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e utilizar um principal de serviço automaticamente
 
@@ -87,34 +87,34 @@ Para delegar permissões, crie uma atribuição de função usando o comando [AZ
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-O `--scope` para um recurso precisa ser uma ID de recurso completa, como */subscriptions/\<guid @ no__t-3/resourceGroups/MyResource* ou */subscriptions/\<guid @ no__t-6/resourceGroups/myResourceGroupVnet/Providers/Microsoft. Network/virtualNetworks/myVnet*
+O `--scope` de um recurso precisa ser uma ID de recurso completa, como */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou */subscriptions/\<GUID\>/resourceGroups/myResourceGroupVnet/Providers/Microsoft.Network/virtualNetworks/myVnet*
 
 As seções a seguir detalham as delegações comuns que talvez você precise fazer.
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+### <a name="azure-container-registry"></a>Registo de Contentores do Azure
 
 Se você usar o ACR (registro de contêiner do Azure) como seu repositório de imagens de contêiner, precisará conceder permissões à entidade de serviço para o cluster AKS ler e efetuar pull de imagens. Atualmente, a configuração recomendada é usar o comando [AZ AKs Create][az-aks-create] ou [AZ AKs Update] [AZ-AKs-Update] para integrar com um registro e atribuir a função apropriada para a entidade de serviço. Para obter etapas detalhadas, consulte [autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure][aks-to-acr].
 
-### <a name="networking"></a>Funcionamento em Rede
+### <a name="networking"></a>Redes
 
 Você pode usar a rede avançada em que a rede virtual e a sub-rede ou os endereços IP públicos estão em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
 
 - Crie uma [função personalizada][rbac-custom-role] e defina as seguintes permissões de função:
-  - *Microsoft. Network/virtualNetworks/sub-redes/junção/ação*
-  - *Microsoft. Network/virtualNetworks/sub-redes/leitura*
-  - *Microsoft. Network/virtualNetworks/sub-redes/gravação*
-  - *Microsoft. Network/publicIPAddresses/junção/ação*
-  - *Microsoft. Network/publicIPAddresses/Read*
-  - *Microsoft. Network/publicIPAddresses/Write*
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
 - Ou, atribua a função interna de [colaborador de rede][rbac-network-contributor] na sub-rede dentro da rede virtual
 
-### <a name="storage"></a>Armazenamento
+### <a name="storage"></a>Storage
 
 Talvez seja necessário acessar os recursos de disco existentes em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
 
 - Crie uma [função personalizada][rbac-custom-role] e defina as seguintes permissões de função:
-  - *Microsoft. Compute/disks/Read*
-  - *Microsoft. Compute/disks/Write*
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
 - Ou, atribua a função interna de [colaborador da conta de armazenamento][rbac-storage-contributor] no grupo de recursos
 
 ### <a name="azure-container-instances"></a>Azure Container Instances

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory security defaults
-description: Security default policies that help protect organizations from common attacks
+title: Azure Active Directory padrões de segurança
+description: Políticas padrão de segurança que ajudam a proteger as organizações contra ataques comuns
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,116 +18,116 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74208402"
 ---
-# <a name="what-are-security-defaults"></a>What are security defaults?
+# <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
-Managing security can be difficult when common identity-related attacks are becoming more and more popular. These attacks include password spray, replay, and phishing.
+O gerenciamento de segurança pode ser difícil quando ataques comuns relacionados à identidade estão se tornando cada vez mais populares. Esses ataques incluem pulverização, reprodução e phishing de senha.
 
-Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect your organization. Security defaults contain preconfigured security settings for common attacks. 
+Os padrões de segurança no Azure Active Directory (AD do Azure) facilitam a segurança e ajudam a proteger sua organização. Os padrões de segurança contêm configurações de segurança pré-configuradas para ataques comuns. 
 
-Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal.
+A Microsoft está disponibilizando os padrões de segurança para todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança habilitado sem nenhum custo adicional. Você ativa os padrões de segurança no portal do Azure.
 
-![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
+![Captura de tela da portal do Azure com a alternância para habilitar os padrões de segurança](./media/concept-conditional-access-security-defaults/security-defaults-azure-ad-portal.png)
  
-The following security configurations will be turned on in your tenant. 
+As seguintes configurações de segurança serão ativadas em seu locatário. 
 
-## <a name="unified-multi-factor-authentication-registration"></a>Unified Multi-Factor Authentication registration
+## <a name="unified-multi-factor-authentication-registration"></a>Registro de autenticação multifator unificado
 
-All users in your tenant must register for multi-factor authentication (MFA) in the form of the Azure Multi-Factor Authentication service. Users have 14 days to register for Multi-Factor Authentication by using the Microsoft Authenticator app. After the 14 days have passed, the user won't be able to sign in until Multi-Factor Authentication registration is finished.
+Todos os usuários em seu locatário devem se registrar para a autenticação multifator (MFA) na forma do serviço de autenticação multifator do Azure. Os usuários têm 14 dias para se registrarem na autenticação multifator usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não poderá entrar até que o registro da autenticação multifator seja concluído.
 
-We understand that some users might be out of office or won't sign in during the 14 days immediately after enabling security defaults. To ensure that every user has ample time to register for Multi-Factor Authentication, the 14-day period is unique for each user. A user's 14-day period begins after their first successful interactive sign-in after you enable security defaults.
+Entendemos que alguns usuários podem estar fora do escritório ou não entrarão durante os 14 dias imediatamente após habilitar os padrões de segurança. Para garantir que cada usuário tenha bastante tempo para se registrar na autenticação multifator, o período de 14 dias é exclusivo para cada usuário. O período de 14 dias de um usuário começa após sua primeira entrada interativa bem-sucedida depois de habilitar os padrões de segurança.
 
-## <a name="multi-factor-authentication-enforcement"></a>Multi-Factor Authentication enforcement
+## <a name="multi-factor-authentication-enforcement"></a>Imposição da autenticação multifator
 
-### <a name="protecting-administrators"></a>Protecting administrators
+### <a name="protecting-administrators"></a>Protegendo administradores
 
-Users with access to privileged accounts have increased access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring Multi-Factor Authentication.
+Os usuários com acesso a contas com privilégios aumentaram o acesso ao seu ambiente. Devido à potência que essas contas têm, você deve tratá-las com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta para entrada. No Azure AD, você pode obter uma verificação de conta mais forte exigindo a autenticação multifator.
 
-After registration with Multi-Factor Authentication is finished, the following nine Azure AD administrator roles will be required to perform additional authentication every time they sign in:
+Após a conclusão do registro com a autenticação multifator, serão necessárias as nove funções de administrador do Azure AD a seguir para executar autenticação adicional sempre que entrarem:
 
 - Administrador global
 - Administrador do SharePoint
-- Exchange administrator
-- Conditional Access administrator
+- Administrador do Exchange
+- Administrador de acesso condicional
 - Administrador de segurança
-- Helpdesk administrator or password administrator
+- Administrador de assistência técnica ou administrador de senha
 - Administrador de faturação
-- User administrator
-- Authentication administrator
+- Administrador do usuário
+- Administrador de autenticação
 
-### <a name="protecting-all-users"></a>Protecting all users
+### <a name="protecting-all-users"></a>Protegendo todos os usuários
 
-We tend to think that administrator accounts are the only accounts that need extra layers of authentication. Administrators have broad access to sensitive information and can make changes to subscription-wide settings. But attackers tend to target end users. 
+Tendemos a imaginar que as contas de administrador são as únicas contas que precisam de camadas extras de autenticação. Os administradores têm acesso amplo a informações confidenciais e podem fazer alterações nas configurações de toda a assinatura. Mas os invasores tendem a direcionar os usuários finais. 
 
-After these attackers gain access, they can request access to privileged information on behalf of the original account holder. They can even download the entire directory to perform a phishing attack on your whole organization. 
+Depois que esses invasores obtiverem acesso, eles poderão solicitar acesso a informações privilegiadas em nome do titular da conta original. Eles podem até mesmo baixar o diretório inteiro para executar um ataque de phishing em toda a sua organização. 
 
-One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users finish Multi-Factor Authentication registration, they'll be prompted for additional authentication whenever necessary.
+Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação de conta, como a autenticação multifator, para todos. Depois que os usuários terminarem o registro da autenticação multifator, eles serão solicitados a fornecer autenticação adicional sempre que necessário.
 
-### <a name="blocking-legacy-authentication"></a>Blocking legacy authentication
+### <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação herdada
 
-To give your users easy access to your cloud apps, Azure AD supports a variety of authentication protocols, including legacy authentication. *Legacy authentication* is a term that refers to an authentication request made by:
+Para dar aos usuários acesso fácil aos seus aplicativos de nuvem, o Azure AD dá suporte a uma variedade de protocolos de autenticação, incluindo a autenticação herdada. A *autenticação herdada* é um termo que se refere a uma solicitação de autenticação feita por:
 
-- Older Office clients that don't use modern authentication (for example, an Office 2010 client).
-- Any client that uses older mail protocols such as IMAP, SMTP, or POP3.
+- Clientes do Office mais antigos que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
+- Qualquer cliente que usa protocolos de email mais antigos, como IMAP, SMTP ou POP3.
 
-Today, the majority of compromising sign-in attempts come from legacy authentication. Legacy authentication does not support Multi-Factor Authentication. Even if you have a Multi-Factor Authentication policy enabled on your directory, an attacker can authenticate by using an older protocol and bypass Multi-Factor Authentication. 
+Hoje, a maior parte do comprometimento de tentativas de entrada é proveniente da autenticação herdada. A autenticação herdada não dá suporte à autenticação multifator. Mesmo que você tenha uma política de autenticação multifator habilitada em seu diretório, um invasor pode se autenticar usando um protocolo mais antigo e ignorar a autenticação multifator. 
 
-After security defaults are enabled in your tenant, all authentication requests made by an older protocol will be blocked. Security defaults don't block Exchange ActiveSync.
+Depois que os padrões de segurança são habilitados em seu locatário, todas as solicitações de autenticação feitas por um protocolo mais antigo serão bloqueadas. Os padrões de segurança não bloqueiam o Exchange ActiveSync.
 
-### <a name="protecting-privileged-actions"></a>Protecting privileged actions
+### <a name="protecting-privileged-actions"></a>Protegendo ações privilegiadas
 
-Organizations use a variety of Azure services managed through the Azure Resource Manager API, including:
+As organizações usam uma variedade de serviços do Azure gerenciados por meio da API Azure Resource Manager, incluindo:
 
 - Portal do Azure 
 - Azure PowerShell 
 - CLI do Azure
 
-Using Azure Resource Manager to manage your services is a highly privileged action. Azure Resource Manager can alter tenant-wide configurations, such as service settings and subscription billing. Single-factor authentication is vulnerable to a variety of attacks like phishing and password spray. 
+O uso de Azure Resource Manager para gerenciar seus serviços é uma ação altamente privilegiada. Azure Resource Manager pode alterar configurações de todo o locatário, como configurações de serviço e cobrança de assinatura. A autenticação de fator único é vulnerável a uma variedade de ataques, como phishing e spray de senha. 
 
-It's important to verify the identity of users who want to access Azure Resource Manager and update configurations. You verify their identity by requiring additional authentication before you allow access.
+É importante verificar a identidade dos usuários que desejam acessar Azure Resource Manager e atualizar as configurações. Você verifica sua identidade exigindo autenticação adicional antes de permitir o acesso.
 
-After you enable security defaults in your tenant, any user who's accessing the Azure portal, Azure PowerShell, or the Azure CLI will need to complete additional authentication. This policy applies to all users who are accessing Azure Resource Manager, whether they're an administrator or a user. 
+Depois de habilitar os padrões de segurança em seu locatário, qualquer usuário que estiver acessando o portal do Azure, Azure PowerShell ou o CLI do Azure precisará concluir a autenticação adicional. Essa política se aplica a todos os usuários que estão acessando Azure Resource Manager, seja um administrador ou um usuário. 
 
-If the user isn't registered for Multi-Factor Authentication, the user will be required to register by using the Microsoft Authenticator app in order to proceed. No 14-day Multi-Factor Authentication registration period will be provided.
+Se o usuário não estiver registrado para autenticação multifator, o usuário será solicitado a se registrar usando o aplicativo Microsoft Authenticator para continuar. Nenhum período de registro de autenticação multifator de 14 dias será fornecido.
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-The following additional considerations are related to deployment of security defaults for your tenant.
+As considerações adicionais a seguir estão relacionadas à implantação de padrões de segurança para seu locatário.
 
-### <a name="older-protocols"></a>Older protocols
+### <a name="older-protocols"></a>Protocolos mais antigos
 
-Mail clients use older authentication protocols (like IMAP, SMTP, and POP3) to make authentication requests. These protocols don't support Multi-Factor Authentication. Most of the account compromises that Microsoft sees are from attacks against older protocols that are trying to bypass Multi-Factor Authentication. 
+Os clientes de email usam protocolos de autenticação mais antigos (como IMAP, SMTP e POP3) para fazer solicitações de autenticação. Esses protocolos não dão suporte à autenticação multifator. A maioria dos comprometimentos de conta que a Microsoft vê é de ataques contra protocolos mais antigos que estão tentando ignorar a autenticação multifator. 
 
-To ensure that Multi-Factor Authentication is required for signing in to an administrative account and that attackers can't bypass it, security defaults block all authentication requests made to administrator accounts from older protocols.
+Para garantir que a autenticação multifator seja necessária para entrar em uma conta administrativa e que os invasores não possam ignorá-la, os padrões de segurança bloqueiam todas as solicitações de autenticação feitas para contas de administrador de protocolos mais antigos.
 
 > [!WARNING]
-> Before you enable this setting, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-conditional-access-block-legacy-authentication.md).
+> Antes de habilitar essa configuração, verifique se os administradores não estão usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [como sair da autenticação herdada](concept-conditional-access-block-legacy-authentication.md).
 
 ### <a name="conditional-access"></a>Acesso Condicional
 
-You can use Conditional Access to configure policies that provide the same behavior enabled by security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies.
+Você pode usar o acesso condicional para configurar políticas que fornecem o mesmo comportamento habilitado por padrões de segurança. Se você estiver usando o acesso condicional e tiver políticas de acesso condicional habilitadas em seu ambiente, os padrões de segurança não estarão disponíveis para você. Se você tiver uma licença que forneça acesso condicional, mas não tiver políticas de acesso condicional habilitadas em seu ambiente, você poderá usar os padrões de segurança até habilitar as políticas de acesso condicional.
 
-![Warning message that you can have security defaults or Conditional Access not both](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
+![Mensagem de aviso de que você pode ter padrões de segurança ou acesso condicional não ambos](./media/concept-conditional-access-security-defaults/security-defaults-conditional-access.png)
 
-Here are step-by-step guides on how you can use Conditional Access to configure equivalent policies:
+Aqui estão os guias passo a passo sobre como você pode usar o acesso condicional para configurar políticas equivalentes:
 
-- [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
-- [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
-- [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
-- [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
-- [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
+- [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)
+- [Exigir MFA para gerenciamento do Azure](howto-conditional-access-policy-azure-management.md)
+- [Bloquear autenticação herdada](howto-conditional-access-policy-block-legacy.md)
+- [Exigir MFA para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)
+- [Exigir registro do Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) -requer Azure ad Identity Protection
 
-## <a name="enabling-security-defaults"></a>Enabling security defaults
+## <a name="enabling-security-defaults"></a>Habilitando padrões de segurança
 
-To enable security defaults in your directory:
+Para habilitar os padrões de segurança em seu diretório:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
-1. Browse to **Azure Active Directory** > **Properties**.
-1. Select **Manage security defaults**.
-1. Set the **Enable security defaults** toggle to **Yes**.
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de segurança, administrador de acesso condicional ou administrador global.
+1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
+1. Selecione **gerenciar padrões de segurança**.
+1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
 1. Selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Common Conditional Access policies](concept-conditional-access-policy-common.md)
+[Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
 
-[What is Conditional Access?](overview.md)
+[O que é o acesso condicional?](overview.md)

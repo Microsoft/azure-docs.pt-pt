@@ -30,7 +30,7 @@ Use o portal do Azure para abrir um tíquete de suporte com atendimento ao clien
     1. Selecione a sua subscrição. 
     1. Em **serviço**, selecione **Azure FXT Edge arquivor**. Talvez seja necessário clicar no controle de filtro **todos os serviços** para localizá-lo. 
     1. Insira um **Resumo** e escolha o **tipo de problema**. 
-    ![Screenshot de formulário de solicitação de suporte em branco @ no__t-1 
+    ![captura de tela do formulário de solicitação de suporte em branco](media/fxt-support-populated.png) 
     1. Clique em **Avançar** para continuar. 
 1. Na guia **detalhes** , adicione mais informações sobre o problema e como contatá-lo. Você pode carregar um arquivo relacionado ao problema. 
 1. Em **revisão + criar**, verifique as informações e clique no botão **criar** para enviar sua solicitação.

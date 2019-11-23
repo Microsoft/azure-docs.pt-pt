@@ -91,8 +91,8 @@ Posteriormente, em uma etapa repatriação separada, você faz o failover dos ba
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 1. No navegador da Web, abra o Hub de eventos do Wingtip tickets (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net-substitua &lt;&gt; de usuário pelo valor de usuário da implantação).
     * Role até a parte inferior da página e observe o nome e o local do servidor de catálogo no rodapé. O local é a região na qual você implantou o aplicativo.
-    *Dica: passe o mouse sobre o local para ampliar a tela.* 
-    estado íntegro do hub de eventos ![na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Sugestão: Paire o rato sobre a localização para aumentar a exibição.* 
+    ![Estado bom estado de funcionamento do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no locatário contoso Concert Hall e abra sua página de evento.
     * No rodapé, observe o nome do servidor de locatário. O local será o mesmo que o local do servidor de catálogo.

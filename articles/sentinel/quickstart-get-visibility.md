@@ -22,7 +22,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72023803"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel"></a>Início rápido: Introdução ao Azure Sentinel
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Início rápido: introdução ao Azure Sentinel
 
 
 
@@ -43,16 +43,16 @@ Para visualizar e obter a análise do que está acontecendo em seu ambiente, pri
 
 O corpo principal da página de visão geral fornece uma visão geral do status de segurança do seu espaço de trabalho:
 
-- **Eventos e alertas ao longo do tempo**: Lista o número de eventos e quantos alertas foram criados a partir desses eventos. Se você vir um pico incomum, verá alertas para ele – se houver algo incomum em que há um pico nos eventos, mas você não vir os alertas, isso poderá causar uma preocupação.
+- **Eventos e alertas ao longo do tempo**: lista o número de eventos e quantos alertas foram criados a partir desses eventos. Se você vir um pico incomum, verá alertas para ele – se houver algo incomum em que há um pico nos eventos, mas você não vir os alertas, isso poderá causar uma preocupação.
 
-- **Eventos mal-intencionados potenciais**: Quando o tráfego é detectado de fontes que são conhecidas como mal-intencionados, o Azure Sentinel alerta você sobre o mapa. Se você vir laranja, é o tráfego de entrada: alguém está tentando acessar sua organização a partir de um endereço IP mal-intencionado conhecido. Se você vir atividade de saída (vermelho), significa que os dados de sua rede estão sendo transmitidos da sua organização para um endereço IP mal-intencionado conhecido.
+- **Eventos mal-intencionados potenciais**: quando o tráfego é detectado de fontes que são conhecidas como mal-intencionadas, o Azure Sentinel alerta você sobre o mapa. Se você vir laranja, é o tráfego de entrada: alguém está tentando acessar sua organização a partir de um endereço IP mal-intencionado conhecido. Se você vir atividade de saída (vermelho), significa que os dados de sua rede estão sendo transmitidos da sua organização para um endereço IP mal-intencionado conhecido.
 
    ![Mapa do Azure Sentinel](./media/qs-get-visibility/map.png)
 
 
-- **Incidentes recentes**: Para exibir seus incidentes recentes, sua gravidade e o número de alertas associados ao incidente. Se você vir como um pico repentino em um tipo específico de alerta, isso pode significar que há um ataque ativo em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos Pass-the-hash do Azure ATP, é possível que alguém esteja atualmente tentando atacar você.
+- **Incidentes recentes**: para exibir seus incidentes recentes, sua gravidade e o número de alertas associados ao incidente. Se você vir como um pico repentino em um tipo específico de alerta, isso pode significar que há um ataque ativo em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos Pass-the-hash do Azure ATP, é possível que alguém esteja atualmente tentando atacar você.
 
-- **Anomalias da fonte de dados**: Os analistas de dados da Microsoft criaram modelos que pesquisam constantemente os dados de suas fontes de dados em busca de anomalias. Se não houver anomalias, nada será exibido. Se forem detectadas anomalias, você deve aprofundar-se nelas para ver o que aconteceu. Por exemplo, clique no pico na atividade do Azure. Você pode clicar no **gráfico** para ver quando o pico aconteceu e, em seguida, filtrar as atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
+- **Anomalias de fonte de dados**: os analistas de dados da Microsoft criaram modelos que pesquisam constantemente os dados de suas fontes de dados em busca de anomalias. Se não houver anomalias, nada será exibido. Se forem detectadas anomalias, você deve aprofundar-se nelas para ver o que aconteceu. Por exemplo, clique no pico na atividade do Azure. Você pode clicar no **gráfico** para ver quando o pico aconteceu e, em seguida, filtrar as atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
 
    ![Mapa do Azure Sentinel](./media/qs-get-visibility/anomolies.png)
 
@@ -63,7 +63,7 @@ As pastas de trabalho internas fornecem dados integrados de suas fontes de dados
 1. Em **configurações**, selecione **pastas de trabalho**. Em **instalado**, você pode ver todas as pastas de trabalho instaladas. Em **todos**, você pode ver toda a Galeria de pastas de trabalho internas que estão disponíveis para instalação. 
 2. Procure uma pasta de trabalho específica para ver a lista e a descrição completas do que cada uma oferece. 
 3. Supondo que você use o Azure AD para colocar em funcionamento o Azure Sentinel, recomendamos que você instale pelo menos as seguintes pastas de trabalho:
-   - **Azure ad**: Use um ou ambos os itens a seguir:
+   - **Azure ad**: Use um dos seguintes ou ambos:
        - As **entradas do Azure ad** analisam as entradas ao longo do tempo para ver se há anomalias. Essas pastas de trabalho fornecem entradas com falha por aplicativos, dispositivos e locais para que você possa observar rapidamente se algo incomum acontece. Preste atenção em várias entradas com falha. 
        - **Os logs de auditoria do Azure ad** analisam atividades administrativas, como alterações em usuários (adicionar, remover, etc.), criação de grupo e modificações.  
 
@@ -72,14 +72,14 @@ As pastas de trabalho internas fornecem dados integrados de suas fontes de dados
       ![Painel PAL alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Você pode personalizar as pastas de trabalho editando a consulta principal ![button @ no__t-1. Você pode clicar no botão ![button @ no__t-1 para ir para [log Analytics editar a consulta lá](../azure-monitor/log-query/get-started-portal.md)e pode selecionar as reticências (...) e selecionar **personalizar dados de bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos de a pasta de trabalho.
+Você pode personalizar as pastas de trabalho editando a consulta principal ![botão](./media/qs-get-visibility/edit-query-button.png). Você pode clicar no botão ![botão](./media/qs-get-visibility/go-to-la-button.png) para acessar [log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md)e pode selecionar as reticências (...) e selecionar **personalizar dados de bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
 
-Para obter mais informações sobre como trabalhar com consultas, consulte [Tutorial: Dados visuais no Log Analytics @ no__t-0
+Para obter mais informações sobre como trabalhar com consultas, consulte [tutorial: dados visuais no log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Adicionar um novo bloco
 
 Se você quiser adicionar um novo bloco, poderá adicioná-lo a uma pasta de trabalho existente, ou seja, um que você criar ou uma pasta de trabalho interna do Azure Sentinel. 
-1. Em Log Analytics, crie um bloco usando as instruções encontradas em [Tutorial: Dados visuais em Log Analytics @ no__t-0. 
+1. Em Log Analytics, crie um bloco usando as instruções encontradas em [tutorial: dados visuais em log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
 2. Depois que o bloco for criado, em **PIN**, selecione a pasta de trabalho na qual você deseja que o bloco apareça.
 
 ## <a name="create-new-workbooks"></a>Criar novas pastas de trabalho
@@ -126,7 +126,7 @@ Para exibir todas as detecções prontas para uso, vá para **análise** e, em s
 
    ![Use detecções internas para encontrar ameaças com o Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
-Para obter mais informações sobre como obter as detecções prontas para uso, consulte [Tutorial: Obtenha a análise interna @ no__t-0.
+Para obter mais informações sobre como obter as detecções prontas para uso, consulte [tutorial: obter a análise interna](tutorial-detect-threats-built-in.md).
  
 ## <a name="next-steps"></a>Passos seguintes
 Neste guia de início rápido, você aprendeu a começar a usar o Azure Sentinel. Continue no tutorial sobre [como detectar ameaças](tutorial-detect-threats-built-in.md).

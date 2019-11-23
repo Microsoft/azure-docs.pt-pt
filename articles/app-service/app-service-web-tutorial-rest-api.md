@@ -41,7 +41,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/).
+* [Instale o Git](https://git-scm.com/).
 * [Instale o .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-aspnet-core-app"></a>Criar uma aplicação .NET Core local
@@ -90,7 +90,7 @@ Neste passo, vai implementar a aplicação .NET Core ligada à Base de Dados SQL
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
@@ -158,7 +158,7 @@ Na janela de terminal local, execute novamente a aplicação de exemplo.
 dotnet run
 ```
 
-Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela ferramentas de desenvolvedor em seu navegador (`Ctrl` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 no Chrome para Windows) e inspecione a guia **console** . Agora você deve ver a mensagem de erro, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela ferramentas de desenvolvedor em seu navegador (`Ctrl`+`Shift`+`i` no Chrome para Windows) e inspecione a guia **console** . Agora, você verá a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
 ![Erro CORS no cliente de browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -177,7 +177,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
 
 > [!NOTE]
-> Se seu aplicativo exigir que credenciais como cookies ou tokens de autenticação sejam enviadas, o navegador poderá exigir o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para habilitar isso no serviço de aplicativo, defina `properties.cors.supportCredentials` como `true` em sua configuração de CORS. Isso não pode ser habilitado quando o `allowedOrigins` inclui `'*'`.
+> Se seu aplicativo exigir que credenciais como cookies ou tokens de autenticação sejam enviadas, o navegador poderá exigir o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para habilitar isso no serviço de aplicativo, defina `properties.cors.supportCredentials` como `true` na configuração do CORS. Isso não pode ser habilitado quando `allowedOrigins` inclui `'*'`.
 
 ### <a name="test-cors-again"></a>Testar o CORS novamente
 

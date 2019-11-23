@@ -46,7 +46,7 @@ Para facilitar a manutenção e o gerenciamento de código, coloque apenas o scr
 
 ![Editar script U-SQL embutido na tarefa do SSIS](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
-Artigo relacionado: [Como passar o parâmetro para procedimentos armazenados](#scenario-6-pass-parameters-to-u-sql-script)
+Artigo relacionado: [como passar o parâmetro para procedimentos armazenados](#scenario-6-pass-parameters-to-u-sql-script)
 
 ## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Cenário 2 – usar arquivos U-SQL no Azure Data Lake Store
 
@@ -77,7 +77,7 @@ No modo de design de pacote SSIS, adicione uma **tarefa do sistema de arquivos A
 
 2. Defina a **pasta** em grupo de **configuração do enumerador** para a pasta temporária que inclui os scripts U-SQL baixados.
 
-3. Defina **arquivos** sob a **configuração do enumerador** como `*.usql` para que o contêiner de loop Capture apenas os arquivos que terminam com `.usql`.
+3. Defina **arquivos** na **configuração do enumerador** como `*.usql` para que o contêiner do loop Capture apenas os arquivos que terminam com `.usql`.
 
     ![Configurar contêiner de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
@@ -93,7 +93,7 @@ No modo de design de pacote SSIS, adicione uma **tarefa do sistema de arquivos A
     
     Para criar essa conexão de arquivo:
 
-   1. Escolha **a conexão \<New... >** na configuração de FileConnection.
+   1. Escolha **\<nova conexão... >** na configuração de FileConnection.
    2. Defina o **tipo de uso** como **arquivo existente**e defina o **arquivo** como qualquer caminho de arquivo do arquivo existente.
 
        ![Configurar contêiner de loop foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -119,7 +119,7 @@ No modo de design de pacote SSIS, adicione uma **tarefa do sistema de arquivos A
 
 Você pode usar arquivos U-SQL no armazenamento de BLOBs do Azure usando a **tarefa de download de blob do Azure** no Feature Pack do Azure. Essa abordagem permite que você use os scripts na nuvem.
 
-As etapas são semelhantes com [Scenario 2: Use arquivos U-SQL no Azure Data Lake Store @ no__t-0. Altere a tarefa do sistema de arquivos Azure Data Lake Store para a tarefa de download de blob do Azure. [Saiba mais sobre a tarefa de download de blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+As etapas são semelhantes ao [cenário 2: usar arquivos U-SQL no Azure data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a tarefa do sistema de arquivos Azure Data Lake Store para a tarefa de download de blob do Azure. [Saiba mais sobre a tarefa de download de blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 O fluxo de controle é como a seguir.
 

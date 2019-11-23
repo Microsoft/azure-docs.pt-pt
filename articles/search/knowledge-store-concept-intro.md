@@ -1,7 +1,7 @@
 ---
 title: Introdução à loja de conhecimento (visualização)
 titleSuffix: Azure Cognitive Search
-description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Pesquisa Cognitiva e em outros aplicativos. Este recurso está em visualização pública.
+description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Pesquisa Cognitiva e em outros aplicativos. Esta funcionalidade está em pré-visualização pública.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -132,7 +132,7 @@ Uma `knowledgeStore` consiste em uma conexão e projeções.
 
 Se uma loja de conhecimento for uma saída de um pipeline de enriquecimento de ia, quais são as entradas? Os dados originais que você deseja extrair, enriquecer e eventualmente salvar em uma loja de conhecimento podem se originar de qualquer fonte de dados do Azure com suporte dos indexadores de pesquisa: 
 
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 
@@ -146,7 +146,7 @@ Os indexadores e habilidades você cria extrair e enriquecer ou transformar esse
 
 Somente duas APIs têm as extensões necessárias para criar um repositório de conhecimento (criar o conconhecedor e criar indexador). Outras APIs são usadas no estado em que se encontram.
 
-| Object | API REST | Descrição |
+| Objeto | API REST | Descrição |
 |--------|----------|-------------|
 | Fonte de dados | [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa do Azure que fornece dados de origem usados para criar documentos aprimorados.  |
 | qualificações | [Criar Qualificable (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) usadas em um pipeline de enriquecimento durante a indexação. Um qualificable tem uma definição de `knowledgeStore` como um elemento filho. |

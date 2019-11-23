@@ -16,7 +16,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 09/18/2019
 ms.locfileid: "67184662"
 ---
-| Resource | Limite |
+| Recurso | Limite |
 | --- | --- |
 | Número máximo de unidades de escala | 10 por região<sup>1</sup> |
 | Tamanho da cache | 5 GB por unidade<sup>2</sup> |
@@ -38,7 +38,7 @@ ms.locfileid: "67184662"
 <sup>2</sup> O tamanho do cache por unidade depende do tipo de preço. Para ver os tipos de preço e seus limites de dimensionamento, consulte [preços de gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup> As conexões são agrupadas e reutilizadas, a menos que sejam fechadas explicitamente pelo back-end.<br/>
 <sup>4</sup> Esse limite é por unidade das camadas básica, Standard e Premium. A camada de desenvolvedor é limitada a 1.024. Esse limite não se aplica à camada de consumo.<br/> 
-<sup>5</sup> Esse limite se aplica às camadas Basic, Standard e Premium. No tipo de consumo, o tamanho do documento de política é limitado a 4 KB.<br/>
+<sup>5</sup>esse limite se aplica às camadas Basic, Standard e Premium. No tipo de consumo, o tamanho do documento de política é limitado a 4 KB.<br/>
 <sup>6</sup> Esse recurso está disponível somente na camada Premium.<br/>
 <sup>7</sup> Este recurso se aplica somente à camada de consumo.<br/>
 

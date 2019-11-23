@@ -48,9 +48,9 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-1. [Instalar o Git](https://git-scm.com/)
+1. [Instale o Git](https://git-scm.com/)
 2. [Instalar o Node.js v6.0 ou posterior e NPM](https://nodejs.org/)
-3. [Instalar o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+3. [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
 4. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
@@ -123,7 +123,7 @@ Para parar o Node.js em qualquer altura, prima `Ctrl+C` no terminal.
 
 Nesta etapa, você cria uma conta de banco de dados usando a API do Azure Cosmos DB para MongoDB. Quando a aplicação for implementada no Azure, utiliza esta base de dados na cloud.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
@@ -131,7 +131,7 @@ Nesta etapa, você cria uma conta de banco de dados usando a API do Azure Cosmos
 
 No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-No comando a seguir, substitua um nome de Cosmos DB exclusivo para o espaço reservado de *> \<cosmosdb-Name* . Este nome é utilizado como parte do ponto final do Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas Cosmos DB no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres.
+No comando a seguir, substitua um nome de Cosmos DB exclusivo para o espaço reservado de *> de\<cosmosdb* . Este nome é utilizado como parte do ponto final do Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas Cosmos DB no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -188,7 +188,7 @@ Copie o valor de `primaryMasterKey`. Estas informações são necessárias no pa
 
 No seu repositório do MEAN.js local, na pasta _config/env/_ , crie um ficheiro denominado _local-production.js_. O _.gitignore_ está configurado para manter este ficheiro fora do repositório.
 
-Copie o código seguinte para o mesmo. Certifique-se de substituir os dois espaços reservados de *> de @no__t 1cosmosdb* pelo nome do seu banco de dados Cosmos DB e substitua o espaço reservado *\<primary-master-key >* pela chave que você copiou na etapa anterior.
+Copie o código seguinte para o mesmo. Certifique-se de substituir os dois *\<cosmosdb >* espaços reservados com o nome do seu banco de dados Cosmos DB e substitua o espaço reservado *\<principal-master-key >* pela chave que você copiou na etapa anterior.
 
 ```javascript
 module.exports = {
@@ -253,13 +253,13 @@ Nesta etapa, você implanta seu aplicativo node. js para Azure App serviço.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Configurar uma variável de ambiente
+### <a name="configure-an-environment-variable"></a>Configure uma variável de ambiente
 
 Por predefinição, o projeto do MEAN.js mantém o _config/env/local-production.js_ fora do repositório do Git. Portanto, para seu aplicativo do Azure, você usa as configurações do aplicativo para definir sua cadeia de conexão do MongoDB.
 
 Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell.
 
-O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` em seu aplicativo do Azure. Substitua os espaços reservados *\<app-name >* , *\<cosmosdb-name >* e *\<primary-Master-Key >* .
+O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` em seu aplicativo do Azure. Substitua os *\<> de nome de aplicativo*, *\<> de nome de cosmosdb*e\<espaços reservados de *> principal-Master-Key* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
@@ -390,7 +390,7 @@ Exatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apr
 
 Abra _módulos/artigos/cliente/vistas/administrador/list-articles.client.view.html_.
 
-No interior do elemento `comment` e imediatamente acima da etiqueta de fecho `<div class="list-group">`, adicione a seguinte linha para apresentar `</a>` juntamente com o resto dos dados do artigo:
+No interior do elemento `<div class="list-group">` e imediatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apresentar `comment` juntamente com o resto dos dados do artigo:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
@@ -445,13 +445,13 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Quando o `git push` for concluído, navegue até seu aplicativo do Azure e experimente a nova funcionalidade.
+Quando o `git push` estiver concluído, navegue até seu aplicativo do Azure e experimente a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 Se tiver adicionado quaisquer artigos anteriormente, ainda pode vê-los. Os dados existentes no Cosmos DB não se perdem. Além disso, atualiza o esquema de dados e mantém os dados existentes intactos.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -486,7 +486,7 @@ O que aprendeu:
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Mapeie o nome DNS personalizado para seu aplicativo @ no__t-0
+> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
 
 Ou então, confira outros recursos:
 

@@ -40,7 +40,7 @@ Há suporte para a conexão com um servidor no Excel usando obter dados no Excel
     ![Conectar do Excel selecionar modelo](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Gerenciar seu servidor](analysis-services-manage.md)     

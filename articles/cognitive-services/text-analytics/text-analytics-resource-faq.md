@@ -51,7 +51,7 @@ Melhorias nos modelos e algoritmos serão anunciadas se a alteração for princi
 
 Sua pergunta sobre um recurso ou uma funcionalidade ausente? Considere solicitar ou votar nele em nosso [site UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
  [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: serviços cognitivas](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

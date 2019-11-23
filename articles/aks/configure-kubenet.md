@@ -28,7 +28,7 @@ Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede de 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute @ no__t-0 para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Visão geral da rede kubenet com sua própria sub-rede
 
@@ -139,7 +139,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster AKS na rede virtual
 
-Agora você criou uma rede virtual e uma sub-rede, e criou e atribuiu permissões para uma entidade de serviço usar esses recursos de rede. Agora, crie um cluster AKS em sua rede virtual e sub-rede usando o comando [AZ AKs Create][az-aks-create] . Defina sua própria entidade de serviço *\<appId >* e *\<password >* , conforme mostrado na saída do comando anterior para criar a entidade de serviço.
+Agora você criou uma rede virtual e uma sub-rede, e criou e atribuiu permissões para uma entidade de serviço usar esses recursos de rede. Agora, crie um cluster AKS em sua rede virtual e sub-rede usando o comando [AZ AKs Create][az-aks-create] . Defina sua própria entidade de serviço *\<appId >* e *\<senha >* , conforme mostrado na saída do comando anterior para criar a entidade de serviço.
 
 Os seguintes intervalos de endereços IP também são definidos como parte do processo de criação do cluster:
 

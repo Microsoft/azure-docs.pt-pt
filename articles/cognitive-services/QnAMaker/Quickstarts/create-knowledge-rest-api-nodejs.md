@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
 ms.locfileid: "71803523"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Início rápido: QnA Maker APIs REST para node. js
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Início rápido: APIs REST do QnA Maker para node. js
 
 Introdução às APIs REST do QnA Maker para node. js. Siga estas etapas para experimentar o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. 
 
@@ -30,7 +30,7 @@ Use as APIs REST do QnA Maker para o Node. js para:
 * Baixar uma base de dados de conhecimento
 * Obter o status de uma operação
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)@no__t exemplos de 1[node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [exemplos de Node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -46,7 +46,7 @@ Use as APIs REST do QnA Maker para o Node. js para:
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para QnA Maker usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. 
 
-Depois de obter uma chave do recurso, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, `QNAMAKER_RESOURCE_KEY` chamado `QNAMAKER_AUTHORING_ENDPOINT`e. Use os valores de chave e ponto de extremidade encontrados na página **início rápido** do recurso na portal do Azure.
+Depois de obter uma chave do recurso, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o recurso, chamado `QNAMAKER_RESOURCE_KEY` e `QNAMAKER_AUTHORING_ENDPOINT`. Use os valores de chave e ponto de extremidade encontrados na página **início rápido** do recurso na portal do Azure.
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
@@ -56,13 +56,13 @@ Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `npm init -y` para criar um arquivo de nó `package.json`. 
+Execute o comando `npm init -y` para criar um nó `package.json` arquivo. 
 
 ```console
 npm init -y
 ```
 
-Adicione os pacotes `reqeuestretry` e `request` NPM:
+Adicione o `reqeuestretry` e `request` pacotes NPM:
 
 ```console
 npm install requestretry request --save
@@ -148,7 +148,7 @@ Use a [API REST para monitorar operações em uma base de dados de conhecimento]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo com `node rest-apis.js` o comando do diretório do aplicativo.
+Execute o aplicativo com `node rest-apis.js` comando do diretório do aplicativo.
 
 ```console
 node rest-apis.js
@@ -164,7 +164,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Tutorial: Criar e responder a um KB](../tutorials/create-publish-query-in-portal.md)
+>[Tutorial: criar e responder a um KB](../tutorials/create-publish-query-in-portal.md)
 
 * [O que é o API de QnA Maker?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)

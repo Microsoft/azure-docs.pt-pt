@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar aplicativos ASP.NET para Azure Functions com Azure DevOps Projects'
+title: 'Tutorial: implantar aplicativos ASP.NET para Azure Functions com Azure DevOps Projects'
 description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com DevOps Projects, você pode implantar seu aplicativo ASP.NET para Azure Functions em algumas etapas rápidas.
 ms.author: mlearned
 ms.manager: gwallace
@@ -49,7 +49,7 @@ DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. Você pode criar u
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
-1. No painel esquerdo, selecione **criar um recurso**.
+1. No painel esquerdo, selecione **Criar um recurso**.
 
 1. Na caixa de pesquisa, digite **DevOps Projects**e clique em **Adicionar**.
 
@@ -142,13 +142,13 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. O repositório já contém um código chamado **SampleFunctionApp** com base no idioma do aplicativo que você escolheu no processo de criação. Abra o arquivo **Application/SampleFunctionApp/function1. cs** .
 
-1. Selecione **Editar**e, em seguida, faça uma alteração na **linha número 31** . Por exemplo, você pode atualizá-lo para **Hello lá! Bem-vindo ao Azure Functions usando DevOps Projects @ no__t-0
+1. Selecione **Editar**e, em seguida, faça uma alteração na **linha número 31** . Por exemplo, você pode atualizá-lo para **Olá! Bem-vindo ao Azure Functions usando DevOps Projects**
 
 1. No canto superior direito, selecione **confirmar**e, em seguida, selecione **confirmar** novamente para enviar por push sua alteração.
 
 1. Abra o arquivo **Application/SampleFunctionApp. Test/Function1TestRunner. cs** . 
 
-1. Selecione **Editar**e, em seguida, faça uma alteração no **número de linha 21**. Por exemplo, você pode atualizá-lo para **Hello lá! Bem-vindo ao Azure Functions usando Azure DevOps Projects @ no__t-0.
+1. Selecione **Editar**e, em seguida, faça uma alteração no **número de linha 21**. Por exemplo, você pode atualizá-lo para **Olá! Bem-vindo ao Azure Functions usando Azure DevOps Projects**.
 
      Depois de alguns instantes, uma compilação é iniciada no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status da compilação no painel DevOps Projects ou no navegador com sua organização DevOps do Azure.
 

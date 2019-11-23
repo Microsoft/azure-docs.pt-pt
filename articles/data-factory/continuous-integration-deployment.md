@@ -176,7 +176,7 @@ Há duas maneiras de lidar com os segredos:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões para o agente de Azure Pipelines
 
-A tarefa Azure Key Vault poderá falhar com um erro de acesso negado se as permissões adequadas não estiverem presentes. Baixe os logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões ao agente de Azure Pipelines. Você pode executar o comando diretamente ou pode copiar a ID da entidade de segurança do arquivo e adicionar a política de acesso manualmente no portal do Azure. **Obter** e **listar** são as permissões mínimas necessárias.
+A tarefa Azure Key Vault poderá falhar com um erro de acesso negado se as permissões adequadas não estiverem presentes. Baixe os logs da versão e localize o arquivo de `.ps1` com o comando para conceder permissões ao agente de Azure Pipelines. Você pode executar o comando diretamente ou pode copiar a ID da entidade de segurança do arquivo e adicionar a política de acesso manualmente no portal do Azure. **Obter** e **listar** são as permissões mínimas necessárias.
 
 ### <a name="update-active-triggers"></a>Atualizar gatilhos ativos
 
@@ -341,8 +341,8 @@ Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros perso
       * `=` significa manter o valor atual como o valor padrão para o parâmetro.
       * `-` significa não manter o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
-   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um caractere `-`, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString`.
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object` e `securestring`.
+   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um `-` caractere, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzida para `AzureStorage1_connectionString`.
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object`e `securestring`.
 * Ao especificar uma matriz no arquivo de definição, você indica que a propriedade correspondente no modelo é uma matriz. Data Factory itera através de todos os objetos na matriz usando a definição especificada no objeto Integration Runtime da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usado como o nome do parâmetro para cada iteração.
 * Não é possível ter uma definição específica para uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
 * Por padrão, todas as cadeias de caracteres seguras, como segredos de Key Vault e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
@@ -415,7 +415,7 @@ Abaixo está uma explicação de como o modelo acima é construído, dividido po
 #### <a name="pipelines"></a>Pipelines
     
 * Qualquer propriedade no caminho Activities/typeproperties/waitTimeInSeconds é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código chamada `waitTimeInSeconds` (por exemplo, a atividade `Wait`) é parametrizada como um número, com um nome padrão. Mas ele não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Gerenciador de recursos.
-* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma atividade `Web`) é parametrizada com o tipo `object` (JObject). Ele tem um valor padrão, que é o mesmo valor que na fábrica de origem.
+* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma atividade de `Web`) é parametrizada com o tipo `object` (JObject). Ele tem um valor padrão, que é o mesmo valor que na fábrica de origem.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
@@ -430,7 +430,7 @@ Abaixo está uma explicação de como o modelo acima é construído, dividido po
 
 * Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer personalização específica de tipo. Neste exemplo, todos os serviços vinculados do tipo `AzureDataLakeStore`, um modelo específico será aplicado e, para todos os outros (via \*), um modelo diferente será aplicado.
 * A propriedade `connectionString` será parametrizada como um valor de `securestring`, não terá um valor padrão e terá um nome de parâmetro abreviado com `connectionString`.
-* A propriedade `secretAccessKey` é um `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado `AmazonS3`). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
+* A propriedade `secretAccessKey` é uma `AzureKeyVaultSecret` (por exemplo, em um `AmazonS3` serviço vinculado). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
 
 #### <a name="datasets"></a>Conjuntos de dados
 
@@ -545,7 +545,7 @@ Veja abaixo o modelo de parametrização padrão atual. Se você só precisa adi
 }
 ```
 
-Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar uma ID de cluster interativo do databricks interativo para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que o arquivo abaixo é o mesmo que o arquivo acima, exceto para `existingClusterId` incluído no campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
+Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar uma ID de cluster interativo do databricks interativo para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que o arquivo abaixo é o mesmo que o arquivo acima, exceto pelo `existingClusterId` incluído no campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {
@@ -661,7 +661,7 @@ Se você tiver configurado o Git, os modelos vinculados serão gerados e salvos 
 
 ![Pasta de modelos do Resource Manager vinculado](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado de `ArmTemplate_master.json`, e os modelos filho são nomeados com o padrão `ArmTemplate_0.json`, `ArmTemplate_1.json` e assim por diante. Para usar modelos vinculados em vez do modelo completo do Resource Manager, atualize sua tarefa de CI/CD para apontar para `ArmTemplate_master.json` em vez de `ArmTemplateForFactory.json` (o modelo completo do Resource Manager). O Gerenciador de recursos também exige que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [implantando modelos ARM vinculados com o VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado de `ArmTemplate_master.json`, e os modelos filho são nomeados com o padrão `ArmTemplate_0.json`, `ArmTemplate_1.json`e assim por diante. Para usar modelos vinculados em vez do modelo completo do Resource Manager, atualize sua tarefa de CI/CD para apontar para `ArmTemplate_master.json` em vez de `ArmTemplateForFactory.json` (o modelo completo do Resource Manager). O Gerenciador de recursos também exige que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [implantando modelos ARM vinculados com o VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Lembre-se de adicionar os scripts de Data Factory em seu pipeline de CI/CD antes e depois da tarefa de implantação.
 

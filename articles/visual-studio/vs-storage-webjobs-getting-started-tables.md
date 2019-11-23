@@ -23,7 +23,7 @@ ms.locfileid: "72299965"
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução com o armazenamento do Azure (projetos do Azure WebJob)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este artigo fornece C# exemplos de código que mostram como usar o SDK do Azure WebJobs versão 1. x com o serviço de armazenamento de tabelas do Azure. Os exemplos de código usam o [SDK de trabalhos](https://github.com/Azure/azure-webjobs-sdk/wiki) Web versão 1. x.
 
 O serviço de armazenamento de tabelas do Azure permite que você armazene grandes quantidades de dados estruturados. O serviço é um repositório de armazenamento NoSQL que aceita chamadas autenticadas de dentro e fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte [introdução ao armazenamento de tabelas do Azure usando o .net](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) para obter mais informações.
@@ -31,7 +31,7 @@ O serviço de armazenamento de tabelas do Azure permite que você armazene grand
 Alguns dos trechos de código mostram o atributo **Table** usado em funções que são chamadas manualmente, ou seja, não usando um dos atributos Trigger.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
-Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector @ no__t-2T >** ou **IAsyncCollector @ no__t-4T suporta >** em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo usa um parâmetro de cadeia de caracteres que especifica o nome da tabela.
+Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector\<t >** ou **IAsyncCollector\<t >** , em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo usa um parâmetro de cadeia de caracteres que especifica o nome da tabela.
 
 O exemplo de código a seguir adiciona entidades **Person** a uma tabela chamada *ingress*.
 
@@ -80,7 +80,7 @@ Quando a função for concluída, a página de **detalhes de invocação** relat
 ![Função de entrada concluída](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Como ler várias entidades de uma tabela
-Para ler uma tabela, use o **atributo Table** com um parâmetro **IQueryable @ no__t-2T >** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
+Para ler uma tabela, use o atributo **Table** com um **parâmetro IQueryable\<t >** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
 
 O exemplo de código a seguir lê e registra em log todas as linhas da tabela de **entrada** :
 

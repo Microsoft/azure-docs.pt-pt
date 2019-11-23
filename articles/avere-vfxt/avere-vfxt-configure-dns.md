@@ -33,7 +33,7 @@ Lembre-se destas coisas ao decidir se deve ou não usar um servidor DNS:
 
 Para distribuir a carga geral, configure seu domínio DNS para usar a distribuição de carga Round Robin para endereços IP voltados para o cliente.
 
-## <a name="configuration-details"></a>Detalhes da configuração
+## <a name="configuration-details"></a>Detalhes de configuração
 
 Quando os clientes acessam o cluster, o RRDNS equilibra automaticamente suas solicitações entre todas as interfaces disponíveis.
 
@@ -41,13 +41,14 @@ Para obter um desempenho ideal, configure o servidor DNS para manipular endereç
 
 Um VServer de cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso para cliente com os registros A e os ponteiros conforme ilustrado.
 
-diagrama de DNS Round Robin do cluster ![Avere @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png) 
+<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada endereço IP voltado para o cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são nomeados VS1-Client-IP-* para fins de clareza, mas, em produção, você provavelmente deve usar algo mais conciso, como cliente *.)
 
 Os clientes montam o cluster usando o nome do vserver como o argumento do servidor. 
 
-Modifique o arquivo ``named.conf`` do seu servidor DNS para definir a ordem cíclica de consultas para seu vserver. Essa opção garante que todos os valores disponíveis sejam alternados pelo. Adicione uma instrução como a seguinte:
+Modifique o arquivo de ``named.conf`` do seu servidor DNS para definir a ordem cíclica de consultas para seu vserver. Essa opção garante que todos os valores disponíveis sejam alternados pelo. Adicione uma instrução como a seguinte:
 
 ```
 options {
@@ -73,7 +74,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>Configurações de DNS do cluster
 
-Especifique o servidor DNS que o cluster vFXT usa na página de configurações de**rede administrativa** do **cluster** > . As configurações nessa página incluem:
+Especifique o servidor DNS que o cluster vFXT usa no **cluster** > página de configurações de **rede administrativa** . As configurações nessa página incluem:
 
 * Endereço do servidor DNS
 * Nome de domínio DNS

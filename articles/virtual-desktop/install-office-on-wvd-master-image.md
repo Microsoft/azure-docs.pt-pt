@@ -53,7 +53,7 @@ Veja o que este XML de configuração de exemplo não fará:
 - Instale o OneDrive no modo por usuário. Para saber mais, confira [instalar o onedrive no modo por máquina](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **Computer Configuration @ no__t-1Policies @ no__t-2Administrative templates @ no__t-3Microsoft Office 2016 (Machine) \\Licensing Settings**
+>A ativação do computador compartilhado pode ser configurada por meio de objetos de Política de Grupo (GPOs) ou configurações do registro. O GPO está localizado em **configuração do computador\\políticas\\Modelos Administrativos\\Microsoft Office 2016 (máquina)\\configurações de licenciamento**
 
 A ferramenta de implantação do Office contém setup. exe. Para instalar o Office, execute o seguinte comando em uma linha de comando:
 
@@ -130,11 +130,11 @@ O OneDrive normalmente é instalado por usuário. Nesse ambiente, ele deve ser i
 
 Veja como instalar o OneDrive no modo por máquina:
 
-1. Primeiro, crie um local para preparar o instalador do OneDrive. Uma pasta de disco local ou [\\ @ no__t-1unc] (file://unc) local é bem.
+1. Primeiro, crie um local para preparar o instalador do OneDrive. Uma pasta de disco local ou um local de [\\\\UNC] (file://unc) está bem.
 
 2. Baixe o OneDriveSetup. exe em seu local de preparação com este link: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Se você instalou o Office com o OneDrive omitindo **\<EXCLUDEAPP ID = "onedrive"/\>** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
+3. Se você instalou o Office com o OneDrive omitindo **\<ID ExcludeApp = "onedrive"/\>** , desinstale todas as instalações existentes do onedrive por usuário em um prompt de comando elevado executando o seguinte comando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

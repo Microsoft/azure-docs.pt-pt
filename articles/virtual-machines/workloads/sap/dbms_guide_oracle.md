@@ -312,21 +312,21 @@ Este documento aborda várias áreas diferentes a serem consideradas quando voc�
 Você pode encontrar informações sobre as versões do Oracle e as versões do sistema operacional correspondentes que têm suporte para executar o SAP no Oracle no Azure no SAP Note [2039619].
 
 Informações gerais sobre como executar o SAP Business Suite no Oracle podem ser encontradas em [SAP no Oracle](https://www.sap.com/community/topic/oracle.html).
-O software Oracle tem suporte da Oracle para ser executado em Microsoft Azure. Para obter mais informações sobre o suporte geral para o Windows Hyper-V e o Azure, verifique as perguntas frequentes sobre o [Oracle e Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+O software Oracle tem suporte da Oracle para ser executado em Microsoft Azure. Para obter mais informações sobre o suporte geral para o Windows Hyper-V e o Azure, verifique as [perguntas frequentes sobre o Oracle e Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>Notas SAP relevantes para Oracle, SAP e Azure 
 
 As seguintes notas SAP estão relacionadas ao SAP no Azure.
 
-| Número da nota | Cargo |
+| Número da nota | Título |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: Produtos com suporte e tipos de VM do Azure |
-| [2015553] |SAP em Microsoft Azure: Pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
+| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Principais métricas de monitoramento para SAP em Microsoft Azure |
-| [2191498] |SAP no Linux com o Azure: Monitoramento avançado |
-| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: Produtos e versões com suporte |
-| [2243692] |VM do Linux em Microsoft Azure (IaaS): Problemas de licença do SAP |
+| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
+| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: produtos e versões com suporte |
+| [2243692] |VM do Linux em Microsoft Azure (IaaS): problemas de licença do SAP |
 | [2069760] |Instalação e atualização do SAP Oracle Linux 7. x |
 | [1597355] |Recomendação de espaço de permuta para Linux |
 | [2171857] |Oracle Database o suporte ao sistema de arquivos 12c no Linux |
@@ -348,16 +348,16 @@ De acordo com o manual de instalação do SAP, os arquivos relacionados à Oracl
 
 Se você tiver VMs menores, recomendamos instalar/localizar o Oracle Home, Stage, "saptrace", "saparch", "sapbackup", "Sapcheck" ou "sapreorg" no disco do sistema operacional. Essas partes dos componentes do Oracle DBMS não são intensa na taxa de transferência de e/s e e/s. Isso significa que o disco do sistema operacional pode lidar com os requisitos de e/s. O tamanho padrão do disco do sistema operacional é 127 GB. 
 
-Se não houver espaço livre suficiente disponível, o disco poderá ser [](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) redimensionado para 2048 GB. Os arquivos de log Oracle Database e redo precisam ser armazenados em discos de dados separados. Há uma exceção para o espaço de tabela temporário do Oracle. TempFiles pode ser criado em D:/ (unidade não persistente). O D:\ não persistente a unidade também oferece melhor latência de e/s e taxa de transferência (com exceção das VMs da série A). 
+Se não houver espaço livre suficiente disponível, o disco poderá ser [redimensionado](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) para 2048 GB. Os arquivos de log Oracle Database e redo precisam ser armazenados em discos de dados separados. Há uma exceção para o espaço de tabela temporário do Oracle. TempFiles pode ser criado em D:/ (unidade não persistente). O D:\ não persistente a unidade também oferece melhor latência de e/s e taxa de transferência (com exceção das VMs da série A). 
 
 Para determinar a quantidade certa de espaço para o TempFiles, você pode verificar os tamanhos do TempFiles nos sistemas existentes.
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento
-Há suporte apenas para Oracle de instância única usando discos formatados NTFS. Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS em Managed Disks (recomendado) ou em VHDs. Esses discos são montados na VM do Azure e são baseados no armazenamento de blobs de [páginas do Azure](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou no [Azure Managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Há suporte apenas para Oracle de instância única usando discos formatados NTFS. Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS em Managed Disks (recomendado) ou em VHDs. Esses discos são montados na VM do Azure e são baseados no [armazenamento de blobs de páginas do Azure](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou no [Azure Managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
 É altamente recomendável usar o [Managed disks do Azure](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Também é altamente recomendável usar o [SSDs Premium](../../windows/disks-types.md) para suas implantações de Oracle Database.
 
-Unidades de rede ou compartilhamentos remotos como os serviços de arquivos do Azure não têm suporte para arquivos Oracle Database. Para obter mais informações, consulte:
+Unidades de rede ou compartilhamentos remotos como os serviços de arquivos do Azure não têm suporte para arquivos Oracle Database. Para obter mais informações, veja:
 
 - [Introducing Microsoft Azure File Service (Introdução ao Serviço de Ficheiros do Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -374,10 +374,10 @@ A configuração mínima é a seguinte:
 
 | Componente | Disco | Colocação em Cache | Pool de armazenamento |
 | --- | ---| --- | --- |
-| \oracle\<Sid > \origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
-| \oracle\<Sid > \origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
-| \oracle\<Sid > \sapdata1... p | Premium | Só de leitura | Pode ser usado |
-| \oracle\<Sid > \oraarch | Standard | Nenhum | Não necessário |
+| \oracle\<SID > \origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
+| \oracle\<SID > \origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
+| \oracle\<SID > \sapdata1... p | Premium | Só de leitura | Pode ser usado |
+| \oracle\<SID > \oraarch | Standard | Nenhum | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não necessário |
 
 
@@ -387,13 +387,13 @@ A configuração de desempenho é a seguinte:
 
 | Componente | Disco | Colocação em Cache | Pool de armazenamento |
 | --- | ---| --- | --- |
-| \oracle\<Sid > \origlogaA | Premium | Nenhum | Pode ser usado  |
-| \oracle\<Sid > \origlogaB | Premium | Nenhum | Pode ser usado |
-| \oracle\<Sid > \mirrlogAB | Premium | Nenhum | Pode ser usado |
-| \oracle\<Sid > \mirrlogBA | Premium | Nenhum | Pode ser usado |
-| \oracle\<Sid > \sapdata1... p | Premium | Só de leitura | Recomendado  |
+| \oracle\<SID > \origlogaA | Premium | Nenhum | Pode ser usado  |
+| \oracle\<SID > \origlogaB | Premium | Nenhum | Pode ser usado |
+| \oracle\<SID > \mirrlogAB | Premium | Nenhum | Pode ser usado |
+| \oracle\<SID > \mirrlogBA | Premium | Nenhum | Pode ser usado |
+| \oracle\<SID > \sapdata1... p | Premium | Só de leitura | Recomendado  |
 | \oracle\SID\sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
-| \oracle\<Sid > \oraarch * | Premium | Nenhum | Não necessário |
+| \oracle\<SID > \oraarch * | Premium | Nenhum | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não necessário |
 
 \* (n + 1): hospedando o sistema, TEMP e desfazer espaços de tabela. O padrão de e/s dos espaços de tabela do sistema e de desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. Nenhum cache é a melhor opção para desempenho do sistema e desfazer espaços de tabela.
@@ -418,13 +418,13 @@ O Oracle Data Guard tem suporte para fins de alta disponibilidade e recuperaçã
 
 Para obter mais informações sobre a recuperação de desastre para bancos de dados Oracle no Azure, consulte [recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-### <a name="accelerated-networking"></a>Funcionamento em rede acelerado
+### <a name="accelerated-networking"></a>Redes aceleradas
 Para implantações Oracle no Windows, recomendamos enfaticamente a rede acelerada, conforme descrito em [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em [considerações para a implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md). 
 ### <a name="other"></a>Outros
 [Considerações sobre a implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados a implantações de VMs com Oracle Database, incluindo conjuntos de disponibilidade do Azure e monitoramento do SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificações para Oracle Database em Oracle Linux
-O software Oracle tem suporte da Oracle para ser executado em Microsoft Azure com Oracle Linux como o sistema operacional convidado. Para obter mais informações sobre o suporte geral para o Windows Hyper-V e o Azure, consulte as perguntas frequentes sobre o [Azure e o Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+O software Oracle tem suporte da Oracle para ser executado em Microsoft Azure com Oracle Linux como o sistema operacional convidado. Para obter mais informações sobre o suporte geral para o Windows Hyper-V e o Azure, consulte as [perguntas frequentes sobre o Azure e o Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 O cenário específico de aplicativos SAP que aproveitam bancos de dados Oracle também tem suporte. Os detalhes são discutidos na próxima parte do documento.
 
@@ -442,7 +442,7 @@ Nesse caso, é recomendável instalar/localizar o Oracle Home, Stage, saptrace, 
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento
 
-Os sistemas de arquivos do ext4, do XFS ou do Oracle ASM têm suporte para o Oracle Database Files no Azure. Todos os arquivos de banco de dados devem ser armazenados nesses sistemas de arquivos com base em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no armazenamento de blobs de [páginas do Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou no [Azure Managed disks](../../windows/managed-disks-overview.md).
+Os sistemas de arquivos do ext4, do XFS ou do Oracle ASM têm suporte para o Oracle Database Files no Azure. Todos os arquivos de banco de dados devem ser armazenados nesses sistemas de arquivos com base em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no [armazenamento de blobs de páginas do Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou no [Azure Managed disks](../../windows/managed-disks-overview.md).
 
 Para Oracle Linux Kernels UEK, um mínimo de UEK versão 4 é necessário para dar suporte ao [SSDs Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
 
@@ -464,13 +464,13 @@ Configuração mínima:
 
 | Componente | Disco | Colocação em Cache | Remoção |
 | --- | ---| --- | --- |
-| /Oracle/\<Sid >/origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
-| /Oracle/\<Sid >/origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
-| /Oracle/\<Sid >/sapdata1... p | Premium | Só de leitura | Pode ser usado |
-| /Oracle/\<Sid >/oraarch | Standard | Nenhum | Não necessário |
+| /Oracle/\<SID >/origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
+| /Oracle/\<SID >/origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
+| /Oracle/\<SID >/sapdata1... p | Premium | Só de leitura | Pode ser usado |
+| /Oracle/\<SID >/oraarch | Standard | Nenhum | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não necessário |
 
-Remoção Distribuição LVM ou MDADM usando RAID0
+\* Remoção: LVM ou MDADM usando RAID0
 
 A seleção de disco para hospedar os logs redo online da Oracle deve ser orientada por requisitos de IOPS. É possível armazenar todos os sapdata1... n (espaços de tabela) em um único disco montado, contanto que o volume, o IOPS e a taxa de transferência atendam aos requisitos. 
 
@@ -478,18 +478,18 @@ Configuração de desempenho:
 
 | Componente | Disco | Colocação em Cache | Remoção |
 | --- | ---| --- | --- |
-| /Oracle/\<Sid >/origlogaA | Premium | Nenhum | Pode ser usado  |
-| /Oracle/\<Sid >/origlogaB | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid >/mirrlogAB | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid >/mirrlogBA | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid >/sapdata1... p | Premium | Só de leitura | Recomendado  |
+| /Oracle/\<SID >/origlogaA | Premium | Nenhum | Pode ser usado  |
+| /Oracle/\<SID >/origlogaB | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<SID >/mirrlogAB | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<SID >/mirrlogBA | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<SID >/sapdata1... p | Premium | Só de leitura | Recomendado  |
 | /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<Sid >/oraarch * | Premium | Nenhum | Não necessário |
+| /Oracle/\<SID >/oraarch * | Premium | Nenhum | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não necessário |
 
-Remoção Distribuição LVM ou MDADM usando RAID0
+\* Remoção: LVM ou MDADM usando RAID0
 
-\* (n + 1): hospedando o sistema, TEMP e desfazer espaços de tabela: O padrão de e/s dos espaços de tabela do sistema e de desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. Nenhum cache é a melhor opção para desempenho do sistema e desfazer espaços de tabela.
+\* (n + 1): Hospedagem de espaços de tabela, TEMP e desfazer: o padrão de e/s de espaços de tabela de sistema e desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. Nenhum cache é a melhor opção para desempenho do sistema e desfazer espaços de tabela.
 
 \* oraarch: o pool de armazenamento não é necessário de um ponto de vista de desempenho.
 
@@ -512,7 +512,7 @@ O Oracle Data Guard tem suporte para fins de alta disponibilidade e recuperaçã
 
 Os aspectos de recuperação de desastres para bancos de dados Oracle no Azure são apresentados no artigo [recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-### <a name="accelerated-networking"></a>Funcionamento em rede acelerado
+### <a name="accelerated-networking"></a>Redes aceleradas
 O suporte para a rede acelerada do Azure no Oracle Linux é fornecido com Oracle Linux 7 atualização 5 (Oracle Linux 7,5). Se você não puder atualizar para a versão mais recente do Oracle Linux 7,5, poderá haver uma solução alternativa usando o kernel compatível com RedHat (RHCK) em vez do kernel UEK do Oracle. 
 
 O uso do kernel do RHEL no Oracle Linux tem suporte de acordo com o SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Para a rede acelerada do Azure, a versão mínima do kernel RHCKL precisa ser 3.10.0-862.13.1. EL7. Se você estiver usando o kernel UEK no Oracle Linux em conjunto com a [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), você precisará usar o Oracle UEK kernel versão 5.

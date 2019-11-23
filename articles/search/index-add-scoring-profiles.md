@@ -284,7 +284,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para obter mais exemplos, consulte [esquema XML: tipos de w3.org (site da Web)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
    [REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/)  
  [Criar índice &#40;pesquisa cognitiva API&#41; REST do Azure](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [SDK do .NET Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

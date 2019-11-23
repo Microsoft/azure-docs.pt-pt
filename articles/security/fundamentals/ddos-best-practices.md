@@ -97,7 +97,7 @@ A proteção contra DDoS Standard expõe telemetria avançada por meio de [Azure
 
 ##### <a name="ddos-mitigation-policies"></a>Políticas de mitigação de DDoS
 
-Na portal do Azure, selecione **monitorar** **métricas**de  > . No painel **métricas** , selecione o grupo de recursos, selecione um tipo de recurso de **endereço IP público**e selecione seu endereço IP público do Azure. As métricas de DDoS estão visíveis no painel de **métricas disponíveis** .
+Na portal do Azure, selecione **monitorar** **métricas**de > . No painel **métricas** , selecione o grupo de recursos, selecione um tipo de recurso de **endereço IP público**e selecione seu endereço IP público do Azure. As métricas de DDoS estão visíveis no painel de **métricas disponíveis** .
 
 A proteção contra DDoS Standard aplica três políticas de mitigação autoajustadas (TCP SYN, TCP e UDP) para cada IP público do recurso protegido, na rede virtual com DDoS habilitado. Você pode exibir os limites da política selecionando os pacotes de entrada da métrica **para disparar a mitigação de DDoS**.
 
@@ -235,7 +235,7 @@ Nessa arquitetura, a proteção contra DDoS Standard está habilitada na rede vi
 
 #### <a name="paas-web-application"></a>Aplicação web PaaS
 
-Essa arquitetura de referência mostra a execução de um aplicativo de serviço Azure App em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa [Azure app serviço](https://azure.microsoft.com/documentation/services/app-service/)  and [banco de dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
+Essa arquitetura de referência mostra a execução de um aplicativo de serviço Azure App em uma única região. Essa arquitetura mostra um conjunto de práticas comprovadas para um aplicativo Web que usa [Azure app de serviço](https://azure.microsoft.com/documentation/services/app-service/) e [banco de dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
 Uma região em espera é configurada para cenários de failover.
 
 ![Diagrama da arquitetura de referência para um aplicativo Web de PaaS](./media/ddos-best-practices/image11.png)

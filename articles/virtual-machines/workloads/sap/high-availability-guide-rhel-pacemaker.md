@@ -108,9 +108,9 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
    > [!IMPORTANT]
    > Recomendamos as seguintes versões do agente de isolamento do Azure (ou posterior) para que os clientes se beneficiem de um tempo de failover mais rápido, se uma interrupção de recurso falhar ou se os nós de cluster não conseguirem se comunicar mais um com o outro:  
-   > RHEL 7,6: Fence-Agents-4.2.1 -11. EL7 _ 6.8  
-   > RHEL 7,5: Fence-Agents-4.0.11 -86. EL7 _ 5.8  
-   > RHEL 7,4: Fence-Agents-4.0.11 -66. EL7 _ 4.12  
+   > RHEL 7,6: Fence-Agents-4.2.1-11. el7_6.8  
+   > RHEL 7,5: Fence-Agents-4.0.11-86. el7_5.8  
+   > RHEL 7,4: Fence-Agents-4.0.11-66. el7_4.12  
    > Para obter mais informações, consulte [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL leva muito tempo para ser decrescente ou o isolamento falha/expira antes de a VM ser desligada](https://access.redhat.com/solutions/3408711).
 
    Verifique a versão do agente de limite do Azure. Se necessário, atualize-o para uma versão igual ou posterior à especificada acima.
@@ -206,7 +206,7 @@ O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Micr
 1. Clique em registos de aplicações
 1. Clique em novo registro
 1. Insira um nome, selecione "contas somente neste diretório da organização" 
-2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo,\/http:/localhost) e clique em Adicionar  
+2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo, http:\//localhost) e clique em Adicionar  
    O URL de início de sessão não é utilizado e pode ser qualquer URL válido
 1. Selecione certificados e segredos e clique em novo segredo do cliente
 1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar

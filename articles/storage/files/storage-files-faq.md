@@ -128,12 +128,12 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 * <a id="afs-files-excluded"></a>
   **quais arquivos ou pastas são excluídos automaticamente pelo sincronização de arquivos do Azure?**  
     Por padrão, Sincronização de Arquivos do Azure exclui os seguintes arquivos:
-  * Desktop. ini
-  * thumbs. DB
-  * ehthumbs. DB
+  * desktop.ini
+  * thumbs.db
+  * ehthumbs.db
   * ~$\*.\*
-  * \*. laccdb
-  * \*. tmp
+  * \*.laccdb
+  * \*.tmp
   * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     As seguintes pastas também são excluídas por padrão:
@@ -384,7 +384,7 @@ posso **configurar compartilhamentos aninhados? Em outras palavras, um compartil
 **como fazer usar os arquivos do Azure com o IBM MQ?**  
     A IBM lançou um documento que ajuda os clientes do IBM MQ a configurar os arquivos do Azure com o serviço IBM. Para obter mais informações, consulte [como configurar um Gerenciador de filas de várias instâncias do IBM MQ com o serviço de Microsoft Azure arquivos](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas de arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

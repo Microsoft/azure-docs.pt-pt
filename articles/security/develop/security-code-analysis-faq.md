@@ -48,7 +48,7 @@ Para a maior parte, as tarefas de compilação do Azure DevOps são wrappers dir
 
 Diferenças perceptíveis:
 
-- Ferramentas executadas na pasta de origem do agente $ (Build. SourcesDirectory) ou de% BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent @ no__t-0work\1\s.
+- Ferramentas executadas na pasta de origem do agente $ (Build. SourcesDirectory) ou de% BUILD_SOURCESDIRECTORY%. Um exemplo é C:\agent\_work\1\s.
 - Os caminhos nos argumentos podem ser relativos à raiz do diretório de origem listado anteriormente. Os caminhos também podem ser absolutos. Você obtém caminhos absolutos usando variáveis de compilação DevOps do Azure ou executando um agente local com locais de implantação conhecidos de recursos locais.
 - As ferramentas fornecem automaticamente um caminho ou pasta de arquivo de saída. Se você fornecer um local de saída para uma tarefa de compilação, esse local será substituído por um caminho para nosso local conhecido de logs no agente de compilação
 - Alguns argumentos de linha de comando adicionais são alterados para algumas ferramentas. Um exemplo é a adição ou remoção de opções que garantem que nenhuma GUI seja iniciada.
@@ -63,7 +63,7 @@ As tarefas de compilação filtram alguma entrada do usuário. Para essa pergunt
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Onde os arquivos de saída são gerados pelas ferramentas salvas? 
 
-As tarefas de compilação adicionam automaticamente caminhos de saída a esse local conhecido no agente de compilação: $ (Agent. BuildDirectory) \_sdt \ logs. Como padronizamos esse local, todas as equipes que produzem ou consomem logs de análise de código têm acesso à saída.
+As tarefas de compilação adicionam automaticamente caminhos de saída a esse local conhecido no agente de compilação: $ (Agent. BuildDirectory)\_sdt\logs. Como padronizamos esse local, todas as equipes que produzem ou consomem logs de análise de código têm acesso à saída.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso colocar uma compilação em fila para executar essas tarefas em um agente de compilação hospedado? 
 
@@ -170,17 +170,17 @@ O verificador de credenciais depende de um conjunto de pesquisa de conteúdo que
 
 Um pesquisador de conteúdo é definido da seguinte maneira:
 
-- **Nome**: O nome do pesquisador descritivo a ser usado em arquivos de saída do verificador de credenciais. Recomendamos que você use a Convenção de nomenclatura do camel case para nomes de pesquisador.
-- **RuleId**: A ID opaca estável do pesquisador:
+- **Nome**: o nome descritivo do pesquisador a ser usado em arquivos de saída do verificador de credenciais. Recomendamos que você use a Convenção de nomenclatura do camel case para nomes de pesquisador.
+- **RuleId**: a ID opaca estável do pesquisador:
     - Um pesquisador de credenciais padrão recebe um valor **RuleId** como CSCAN0010, CSCAN0020 ou CSCAN0030. O último dígito é reservado para potencialmente mesclagem ou divisão de grupos de pesquisa por meio de expressões regulares (Regex).
-    - O valor de **RuleId** para um pesquisador personalizado deve ter seu próprio namespace. Os exemplos incluem CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 e CSCAN-\<Namespace @ no__t-50030.
+    - O valor de **RuleId** para um pesquisador personalizado deve ter seu próprio namespace. Os exemplos incluem o namespace CSCAN-\<\>0010, CSCAN-\<namespace\>0020 e CSCAN-\<namespace\>0030.
     - Um nome do pesquisador totalmente qualificado é a combinação de um valor de **RuleId** e um nome de pesquisador. Os exemplos incluem CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
 - **ResourceMatchPattern**: Regex de extensões de arquivo para verificar no Pesquisador.
-- **ContentSearchPatterns**: Uma matriz de cadeias de caracteres contendo instruções Regex para correspondência. Se nenhum padrão de pesquisa for definido, todos os arquivos correspondentes ao valor de **ResourceMatchPattern** serão retornados.
-- **ContentSearchFilters**: Uma matriz de cadeias de caracteres que contém instruções Regex para filtrar falsos positivos específicos do pesquisador.
-- **MatchDetails**: Uma mensagem descritiva, instruções de mitigação ou ambas para serem adicionadas para cada correspondência do pesquisador.
-- **Recomendação**: O conteúdo do campo de sugestões para uma correspondência usando o formato de relatório PREfast.
-- **Gravidade**: Um inteiro que reflete o nível de severidade de um problema. O nível de severidade mais alto tem o valor 1.
+- **ContentSearchPatterns**: uma matriz de cadeias de caracteres que contém instruções Regex para fazer a correspondência. Se nenhum padrão de pesquisa for definido, todos os arquivos correspondentes ao valor de **ResourceMatchPattern** serão retornados.
+- **ContentSearchFilters**: uma matriz de cadeias de caracteres que contém instruções Regex para filtrar falsos positivos específicos do pesquisador.
+- **MatchDetails**: uma mensagem descritiva, instruções de mitigação ou ambas a serem adicionadas para cada correspondência do pesquisador.
+- **Recomendação**: o conteúdo do campo de sugestões para uma correspondência usando o formato de relatório PREfast.
+- **Severidade**: um inteiro que reflete o nível de severidade de um problema. O nível de severidade mais alto tem o valor 1.
 
   ![XML mostrando a instalação do verificador de credenciais](./media/security-tools/6-credscan-customsearchers.png)
 
@@ -192,7 +192,7 @@ Um pesquisador de conteúdo é definido da seguinte maneira:
 
 A mensagem de erro completa:
 
-Ao O projeto foi restaurado usando Microsoft. NetCore. app versão *x. x. x*, mas com as configurações atuais, a versão *y* . y seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para operações subsequentes, como compilar ou publicar. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier for definida durante a compilação ou publicação, mas não durante a restauração. "
+"Erro: o projeto foi restaurado usando Microsoft. NetCore. app versão *x.* x, mas com as configurações atuais, a *versão y. y* seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para operações subsequentes, como compilar ou publicar. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier for definida durante a compilação ou publicação, mas não durante a restauração. "
 
 Como as tarefas de analisadores Roslyn são executadas como parte da compilação, a árvore de origem no computador de compilação precisa estar em um estado compilável.
 
@@ -202,13 +202,13 @@ Uma etapa entre as etapas da compilação principal e dos analisadores Roslyn po
 
 A mensagem de erro completa:
 
-"o CSC. exe ' saiu com o código de erro 1--uma instância do Analyzer *aaaa* não pode ser criada a partir de C: \\*bbbb*. dll: Não foi possível carregar o arquivo ou o assembly ' Microsoft. CodeAnalysis, Version =*X. X.x.x. x.* x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' ou uma de suas dependências. O sistema não é possível localizar o ficheiro especificado."
+"o CSC. exe ' saiu com o código de erro 1--uma instância do Analyzer *aaaa* não pode ser criada a partir de C:\\*bbbb*. dll: não foi possível carregar o arquivo ou assembly ' Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' ou uma de suas dependências. O sistema não é possível localizar o ficheiro especificado."
 
 Verifique se o compilador dá suporte a analisadores Roslyn. A execução do comando **CSC. exe/Version** deve relatar um valor de versão de 2,6 ou posterior.
 
 Às vezes, um arquivo. csproj pode substituir a instalação do Visual Studio da máquina de compilação referenciando um pacote de Microsoft.Net. compilers. Se você não pretende usar uma versão específica do compilador, remova as referências a Microsoft.Net. compilers. Caso contrário, verifique se a versão do pacote referenciado também é 2,6 ou posterior.
 
-Tente obter o caminho do log de erros, que é especificado na opção **CSC. exe/ErrorLog** . A opção e o caminho aparecem no log para a tarefa de compilação de analisadores de Roslyn. Eles podem ter uma aparência semelhante a **/ErrorLog: F:\ts-Services-123 @ no__t-1work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Tente obter o caminho do log de erros, que é especificado na opção **CSC. exe/ErrorLog** . A opção e o caminho aparecem no log para a tarefa de compilação de analisadores de Roslyn. Eles podem ter uma aparência semelhante a **/ErrorLog: f:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>A C# versão do compilador não é recente o suficiente
 
@@ -222,9 +222,9 @@ A tarefa de compilação de analisadores Roslyn precisa consultar o Azure DevOps
 
 Se você precisar de assistência adicional, o suporte à análise de código de segurança da Microsoft estará disponível de segunda a sexta-feira, de 9:00 às 5:00, hora oficial do Pacífico.
 
-  - Integração Entre em contato com seus gerentes de contas técnicas para começar.
+  - Integração: entre em contato com seus gerentes de contas técnicas para começar.
   
-  - Support Envie um email para nossa equipe no [suporte à análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
+  - Suporte: envie a equipe por email com [o suporte à análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
   >[!NOTE] 
   >Talvez você não tenha um relacionamento de suporte pago com a Microsoft. Ou talvez você tenha uma oferta de suporte que impeça a compra de serviços do catálogo de Phoenix. Se uma dessas condições for verdadeira, visite nossos serviços de [suporte Home Page](https://www.microsoft.com/enterprise/services/support) para obter mais informações.

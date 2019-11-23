@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deteção de anomalias dos dados de transmissão em fluxo com o Azure Databricks'
+title: 'Tutorial: detecção de anomalias em dados de streaming usando Azure Databricks'
 titleSuffix: Azure Cognitive Services
 description: Use a API do detector de anomalias e Azure Databricks para monitorar anomalias em seus dados.
 titlesuffix: Azure Cognitive Services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/03/2019
 ms.locfileid: "71837754"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias dos dados de transmissão em fluxo com o Azure Databricks
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: detecção de anomalias em dados de streaming usando Azure Databricks
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) é um serviço de análise baseado em Apache Spark rápido, fácil e colaborativo. A API do detector de anomalias, parte dos serviços cognitivas do Azure, fornece uma maneira de monitorar seus dados de série temporal. Use este tutorial para executar a detecção de anomalias em um fluxo de dados quase em tempo real usando Azure Databricks. Você ingerirá dados do Twitter usando os hubs de eventos do Azure e os importará para Azure Databricks usando o conector de hubs de eventos do Spark. Posteriormente, você usará a API para detectar anomalias nos dados transmitidos. 
 
@@ -75,7 +75,7 @@ Nesta seção, você cria um espaço de trabalho Azure Databricks usando o [port
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Selecione **leste dos EUA 2** ou uma das outras regiões disponíveis. Consulte [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade de região.        |
+    |**Localização**     | Selecione **leste dos EUA 2** ou uma das outras regiões disponíveis. Consulte [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade de região.        |
     |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Não escolha **avaliação**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Selecione **Criar**.
@@ -98,7 +98,7 @@ Nesta seção, você cria um espaço de trabalho Azure Databricks usando o [port
 
    * Introduza um nome para o cluster.
    * Para este artigo, crie um cluster com o tempo de execução **5,2** . Não selecione o tempo de execução **5,3** .
-   * Verifique se a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** está selecionada. Forneça uma duração (em minutos) para encerrar o cluster, se o cluster não estiver sendo usado.
+   * Verifique se a caixa de seleção **terminar depois de \_\_ minutos de inatividade** está selecionada. Forneça uma duração (em minutos) para encerrar o cluster, se o cluster não estiver sendo usado.
 
      Selecione **Criar cluster**. 
 4. A criação do cluster leva vários minutos. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
@@ -153,23 +153,23 @@ Na página biblioteca, selecione o cluster no qual você deseja usar a bibliotec
 
 Neste tutorial, você usa as [APIs do detector de anomalias dos serviços cognitivas do Azure](../overview.md) para executar a detecção de anomalias em um fluxo de tweets quase em tempo real. Antes de usar as APIs, você deve criar um recurso de detector de anomalias no Azure e recuperar uma chave de acesso para usar as APIs do detector de anomalias.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
 
-3. Em Azure Marketplace, selecione **ia + Machine Learning** > **Confira todos os** **Serviços cognitivas** > -**detector de anomalias**mais  > . Ou você pode usar [esse link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente para a caixa de diálogo **criar** .
+3. Em Azure Marketplace, selecione **ia + Machine Learning** > **ver todos os** > **Serviços cognitivas – Detector de** **anomalias**mais > . Ou você pode usar [esse link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente para a caixa de diálogo **criar** .
 
     Criar recurso do detector de ![anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "criar recurso de detector de anomalias")
 
 4. Na caixa de diálogo **Criar**, forneça os valores seguintes:
 
-    |Value |Descrição  |
+    |Valor |Descrição  |
     |---------|---------|
-    |Name     | Um nome para o recurso de detector de anomalias.        |
-    |Subscription     | A assinatura do Azure ao qual o recurso será associado.        |
-    |Location     | Um local do Azure.        |
+    |Nome     | Um nome para o recurso de detector de anomalias.        |
+    |Subscrição     | A assinatura do Azure ao qual o recurso será associado.        |
+    |Localização     | Um local do Azure.        |
     |Escalão de preço     | Um tipo de preço para o serviço. Para obter mais informações sobre os preços do detector de anomalias, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Resource group     | Especifique se pretende criar um novo grupo de recursos ou selecione um existente.        |
+    |Grupo de recursos     | Especifique se pretende criar um novo grupo de recursos ou selecione um existente.        |
 
 
      Selecione **Criar**.
@@ -682,9 +682,9 @@ Depois de executar o tutorial, pode terminar o cluster. Para fazer isso, no espa
 
 ![Parar um cluster do Databricks](../media/tutorials/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Avance para o próximo tutorial para saber como chamar a API do detector de anomalias e Visualizar anomalias usando Power BI área de trabalho. 
 

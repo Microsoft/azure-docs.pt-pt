@@ -51,7 +51,7 @@ Agora, você pode usar [Service Fabric Explorer para exibir o cluster e o aplica
 ## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de objetos visuais
 Você pode observar que, com a versão que foi implantada na etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais também giram.
 
-Selecione o projeto VisualObjects. ActorService na solução VisualObjects e abra o arquivo StatefulVisualObjectActor.cs. Dentro desse arquivo, navegue até o método `MoveObject`, comente `this.State.Move()` e remova a marca de comentário `this.State.Move(true)`. Essa alteração gira os objetos depois que o serviço é atualizado.
+Selecione o projeto VisualObjects. ActorService na solução VisualObjects e abra o arquivo StatefulVisualObjectActor.cs. Dentro desse arquivo, navegue até o método `MoveObject`, comente `this.State.Move()`e remova `this.State.Move(true)`de comentário. Essa alteração gira os objetos depois que o serviço é atualizado.
 
 Também precisamos atualizar o arquivo *manifest. xml* (em PackageRoot) do projeto **VisualObjects. ActorService**. Atualize o *CodePackage* e a versão do serviço para 2,0 e as linhas correspondentes no arquivo do Service *manifest. xml* .
 Você pode usar a opção *Editar arquivos de manifesto* do Visual Studio depois de clicar com o botão direito do mouse na solução para fazer as alterações no arquivo de manifesto.
@@ -94,7 +94,7 @@ Agora o aplicativo foi criado e está pronto para ser atualizado. Se você abrir
 
 O pacote de aplicativos é armazenado sob o caminho relativo a seguir no qual você descompactou o Service Fabric SDK- *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Você deve encontrar uma pasta "pacote" nesse diretório, onde o pacote de aplicativos está armazenado. Verifique os carimbos de data/hora para garantir que ele seja o Build mais recente (talvez você precise modificar os caminhos adequadamente também).
 
-Agora, vamos copiar o pacote de aplicativos atualizado para o Service Fabric ImageStore (em que os pacotes de aplicativos são armazenados por Service Fabric). O parâmetro *ApplicationPackagePathInImageStore* informa Service Fabric onde ele pode encontrar o pacote de aplicativos. Colocamos o aplicativo atualizado em "VisualObjects @ no__t-0V2" com o comando a seguir (talvez seja necessário modificar os caminhos novamente de forma adequada).
+Agora, vamos copiar o pacote de aplicativos atualizado para o Service Fabric ImageStore (em que os pacotes de aplicativos são armazenados por Service Fabric). O parâmetro *ApplicationPackagePathInImageStore* informa Service Fabric onde ele pode encontrar o pacote de aplicativos. Colocamos o aplicativo atualizado em "VisualObjects\_v2" com o comando a seguir (talvez seja necessário modificar os caminhos novamente de forma adequada).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
