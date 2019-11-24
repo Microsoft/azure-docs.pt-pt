@@ -12,12 +12,12 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: aeaa23138fb7d0a6d73625fdf7c6507c7fd8152a
-  ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+  ms.openlocfilehash: e2d7fc7a7ef4f823a55fb81de615abec81441e98
+  ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/24/2019
-  ms.locfileid: "72880684"
+  ms.lasthandoff: 11/24/2019
+  ms.locfileid: "74454235"
 landingContent:
 - title: Acerca do Identity Protection
   linkLists:
