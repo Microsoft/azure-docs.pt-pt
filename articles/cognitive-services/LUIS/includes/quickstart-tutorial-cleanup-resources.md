@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 07/26/2018
+ms.date: 07/26/2019
 ms.author: diberry
-ms.openlocfilehash: f2a62d27ebaa96a4171e90a3465072c9f9d1a283
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 10a4c0b90a94433301923d2b1bcc0893b09bf935
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648287"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451586"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos
 

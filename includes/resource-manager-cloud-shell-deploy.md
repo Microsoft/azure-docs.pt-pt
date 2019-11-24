@@ -4,22 +4,22 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184643"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451506"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementar o modelo a partir do Cloud Shell
 
-Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. Para implementar um modelo externo, forneça o URI do modelo exatamente como faria para qualquer implementação externa. Para implementar um modelo de local, primeiro tem de carregar o modelo para a conta de armazenamento para o Cloud Shell. Esta secção descreve como carregar o modelo para a sua conta do cloud shell e implementá-lo como um ficheiro local. Se ainda não utilizou o Cloud Shell, consulte [descrição geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre como configurá-lo.
+Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. To deploy an external template, provide the URI of the template exactly as you would for any external deployment. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. This section describes how to load the template to your cloud shell account, and deploy it as a local file. If you haven't used Cloud Shell, see [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for information about setting it up.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O padrão de nome é `cloud-shell-storage-<region>`.
 
-   ![Selecionar grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Selecionar grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. Selecione a conta de armazenamento para o Cloud Shell.
 
@@ -33,29 +33,29 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
    ![Adicionar contentor](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Dê o seu contentor um nome e um nível de acesso. O modelo de exemplo neste artigo contém não existem informações confidenciais, assim, permita o acesso de leitura anónimo. Selecione **OK**.
+1. Give your container a name and an access level. The sample template in this article contains no sensitive information, so allow anonymous read access. Selecione **OK**.
 
-   ![Forneça os valores de contentor](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
+   ![Provide container values](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Selecione o contentor que criou.
+1. Select the container you created.
 
-   ![Selecionar novo contentor](./media/resource-manager-cloud-shell-deploy/select-container.png)
+   ![Select new container](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Selecione **Upload**.
 
-   ![Carregar blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
+   ![Upload blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Localize e carregue o modelo.
 
    ![Carregar o ficheiro](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
-1. Depois de ter carregado, selecione o modelo.
+1. After it has uploaded, select the template.
 
-   ![Selecione o novo modelo](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+   ![Select new template](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
 
-1. Copie o URL.
+1. Copy the URL.
 
-   ![Copiar URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
+   ![Copy URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Abra o prompt.
 

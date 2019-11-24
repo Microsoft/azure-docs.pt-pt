@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d34f18b688be2afd7febf1f948b3093696ee9118
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183931"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451541"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
-1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Contas de Armazenamento**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas do Storage**.
+1. On the Azure portal menu, select **All services**. Na lista de recursos, escreva **Contas de Armazenamento**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas do Storage**.
 1. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
 1. Selecione a subscrição na qua pretende criar a conta de armazenamento.
 1. No campo **Grupo de recursos**, selecione **Criar novo**. Introduza um nome para o novo grupo de recursos, conforme exemplificado na imagem seguinte.
 
-    ![Captura de ecrã que mostra como criar um grupo de recursos no portal](./media/storage-create-account-portal-include/create-resource-group.png)
+    ![Captura de ecrã que mostra como criar um grupo de recursos no portal](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
 
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
 1. Deixe os outros campos definidos para os respetivos valores predefinidos:
 
-   |Campo  |Value  |
+   |Campo  |Valor  |
    |---------|---------|
    |Modelo de implementação     |Resource Manager         |
-   |Desempenho     |Standard         |
+   |Desempenho     |Padrão         |
    |Tipo de conta     |StorageV2 (general-purpose v2)         |
    |Replicação     |Armazenamento georredundante com acesso de leitura (RA-GRS)         |
    |Escalão de acesso     |Acesso Frequente         |

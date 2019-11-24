@@ -8,66 +8,66 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184645"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451632"
 ---
-1. Para ver as etiquetas de um recurso ou grupo de recursos, procura por etiquetas existentes na descrição geral. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia.
+1. To view the tags for a resource or a resource group, looks for existing tags in the overview. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia.
    
-     ![Etiquetas de exibição de recurso ou grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
-1. Para adicionar uma etiqueta, selecione **clique aqui para adicionar etiquetas**.
+     ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
+1. To add a tag, select **Click here to add tags**.
 
-1. Forneça um nome e valor. Selecione **+** para adicionar a marca.
+1. Provide a name and value. Select **+** to add the tag.
    
-     ![Adicionar etiqueta](./media/resource-manager-tag-resources/add-tag.png)
-1. Continue a adicionar etiquetas, conforme necessário. Quando terminar, selecione **Guardar**.
+     ![Add tag](./media/resource-manager-tag-resources/add-tag.png)
+1. Continue adding tags as needed. Quando terminar, selecione **Guardar**.
    
-     ![Guardar etiquetas](./media/resource-manager-tag-resources/save-tags.png)
-1. As etiquetas são agora apresentadas na descrição geral.
+     ![Save tags](./media/resource-manager-tag-resources/save-tags.png)
+1. The tags are now displayed in the overview.
    
-     ![Mostrar etiquetas](./media/resource-manager-tag-resources/view-new-tags.png)
-1. Para adicionar ou eliminar uma etiqueta, selecione **alterar**.
+     ![Show tags](./media/resource-manager-tag-resources/view-new-tags.png)
+1. To add or delete a tag, select **change**.
    
-1. Para eliminar uma etiqueta, selecione o ícone de caixote do lixo. Em seguida, selecione **Guardar**.
+1. To delete a tag, select the trash icon. Em seguida, selecione **Guardar**.
 
-     ![Eliminar etiqueta](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Delete tag](./media/resource-manager-tag-resources/delete-tag.png)
 
 
-Em massa atribuir etiquetas a vários recursos:
+To bulk assign tags to multiple resources:
 
-1. A partir de qualquer lista de recursos, selecione a caixa de verificação para os recursos que pretende atribuir a etiqueta.
+1. From any list of resources, select the checkbox for the resources you want to assign the tag.
 
-     ![Selecionar vários recursos](./media/resource-manager-tag-resources/select-multiple-resources.png)
+     ![Select multiple resources](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
-1. Selecione **atribuir etiquetas**
+1. Select **Assign tags**
 
-     ![Atribuir etiquetas](./media/resource-manager-tag-resources/assign-tags.png)
+     ![Assign tags](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. Depois de cada nome e valor, selecione **+** . Quando terminar, selecione **atribuir**.
+1. After each name and value, select **+** . When done, select **Assign**.
 
-     ![Selecione atribuir](./media/resource-manager-tag-resources/select-assign.png)
+     ![Select assign](./media/resource-manager-tag-resources/select-assign.png)
 
-Para ver todos os recursos com uma etiqueta:
+To view all resources with a tag:
 
-1. Selecione **todos os serviços** e **etiquetas**.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![Encontrar por etiqueta](./media/resource-manager-tag-resources/find-tags.png)
+     ![Find by tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
-1. Selecione a etiqueta para a visualização de recursos.
+1. Select the tag for viewing resources.
 
-     ![Selecione a etiqueta](./media/resource-manager-tag-resources/select-tag.png)
+     ![Select tag](./media/resource-manager-tag-resources/select-tag.png)
 
-1. São apresentados todos os recursos com a mesma.
+1. All resources with that tag are displayed.
 
-     ![Ver recursos por etiqueta](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+     ![View resources by tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
 
-1. Para um acesso rápido, Afixe a vista ao dashboard.
+1. For quick access, pin the view to the dashboard.
 
      ![Afixar ao dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
-1. A vista está disponível a partir do dashboard.
+1. The view is available from the dashboard.
 
-     ![Dashboard](./media/resource-manager-tag-resources/dashboard.png)
+     ![Dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)

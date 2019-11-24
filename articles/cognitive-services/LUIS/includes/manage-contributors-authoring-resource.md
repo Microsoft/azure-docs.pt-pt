@@ -8,22 +8,22 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 4dd638d825c73d901de0c9b909307bd6995511a2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: a255a68eab6936de18d238b40f596076261049c1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259719"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451435"
 ---
-Se seus aplicativos precisarem ser criados por outras pessoas, você precisará adicionar os endereços de email associados no recurso de criação do portal do Azure.
+If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
 
-Se você for o **proprietário ou administrador da sua assinatura do Azure**, poderá adicionar um colaborador ao recurso. 
+If you are the **owner or administrator of your Azure subscription**, you can add a contributor to the resource. 
 
-Se você **não for o proprietário ou administrador da sua assinatura do Azure**, sua conta do Azure precisará ter `Microsoft.Authorization/roleAssignments/write` permissões.
+If you are **not the owner or administrator of your Azure subscription**, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
 
-Se você tiver problemas com essa atribuição de função, examine: 
+If you have trouble with this role assignment, review: 
 
-* [Atribuições de função do Azure](../../../role-based-access-control/role-assignments-portal.md)
- * [Solução de problemas do controle de acesso do Azure](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Azure role assignments](../../../role-based-access-control/role-assignments-portal.md)
+ * [Azure access control troubleshooting](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
