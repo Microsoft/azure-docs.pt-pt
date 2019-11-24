@@ -1,139 +1,139 @@
 ---
-title: Histórico de lançamento da versão de agente de proteção de palavra-passe do Azure AD no local - Azure Active Directory
-description: Histórico de alterações de comportamento e de lançamento da versão de documentos
+title: Histórico de liberação do agente de proteção de senha-Azure Active Directory
+description: Histórico de alterações de versão e comportamento de documentos
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c024954053588537ac3363703876f716a38f41d9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6458f31b21d09e54afb080ffc73598903a9831e0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702935"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381738"
 ---
-# <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de proteção de palavra-passe do AD do Azure
+# <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de proteção de senha do Azure AD
 
 ## <a name="121250"></a>1.2.125.0
 
 Data de lançamento: 3/22/2019
 
-* Corrija os erros de digitação nas pequenas nas mensagens de registo de eventos
-* Atualizar o contrato EULA para a versão final da disponibilidade geral
+* Corrigir erros de digitação secundária nas mensagens do log de eventos
+* Atualizar o contrato de EULA para a versão de disponibilidade geral final
 
 > [!NOTE]
-> Compilação 1.2.125.0 é a compilação de disponibilidade geral. Obrigado novamente para todas as pessoas forneceu comentários sobre o produto!
+> Build 1.2.125.0 é a compilação de disponibilidade geral. Agradecemos novamente a todos os comentários sobre o produto!
 
 ## <a name="121160"></a>1.2.116.0
 
 Data de lançamento: 3/13/2019
 
-* Os Get-AzureADPasswordProtectionProxy Get AzureADPasswordProtectionDCAgent cmdlets e agora a versão do software de relatório e o atual do Azure do inquilino com as seguintes limitações:
-  * Versão do software e os dados de inquilino do Azure só estão disponíveis para os agentes do DC e proxies de executar a versão 1.2.116.0 ou posterior.
-  * Dados de inquilino do Azure não podem ser relatados até um novo registo (ou renovação) do proxy ou floresta tiver ocorrido.
-* O serviço de Proxy requer agora que o .NET 4.7 está instalado.
-  * .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * Em sistemas de núcleo de servidor poderá ser necessário passar o sinalizador /q para o instalador do .NET 4.7 para fazer com que ela tenha êxito.
-* O serviço de Proxy agora suporta a atualização automática. A atualização automática utiliza o serviço Atualizador de agente ligar do Microsoft Azure AD que é instalada lado a lado com o serviço de Proxy. A atualização automática está ativada por predefinição.
-* A atualização automática pode ser ativada ou desativado usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A definição atual pode ser consultada com o cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
-* O serviço de binário para o serviço do agente DC foi renomeado para AzureADPasswordProtectionDCAgent.exe.
-* O serviço de binário para o serviço de Proxy foi renomeado para AzureADPasswordProtectionProxy.exe. Regras de firewall poderão ter de ser modificados em conformidade, se uma firewall de terceiros está em utilização.
-  * Nota: se um ficheiro de configuração de proxy de http estava sendo usado num Proxy anterior instalar, esta terá de ser mudado (de *proxyservice.exe.config* ao *AzureADPasswordProtectionProxy.exe.config*) após este atualização.
-* Todas as verificações de funcionalidade de tempo limitado foram removidas do agente DC.
-* Correções de erros secundários e melhoramentos do registo.
+* Os cmdlets Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent agora relatam a versão do software e o locatário do Azure atual com as seguintes limitações:
+  * A versão do software e os dados de locatário do Azure estão disponíveis somente para agentes de DC e proxies que executam a versão 1.2.116.0 ou posterior.
+  * Os dados de locatário do Azure podem não ser relatados até que um novo registro (ou renovação) do proxy ou da floresta tenha ocorrido.
+* O serviço de proxy agora requer que o .NET 4,7 esteja instalado.
+  * O .NET 4,7 já deve estar instalado em um Windows Server totalmente atualizado. Se esse não for o caso, baixe e execute o instalador encontrado no [instalador offline do .NET Framework 4,7 para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Em sistemas Server Core, pode ser necessário passar o sinalizador/q para o instalador do .NET 4,7 para que ele tenha êxito.
+* O serviço de proxy agora dá suporte à atualização automática. A atualização automática usa o serviço de atualizador do agente Microsoft Azure AD Connect que é instalado lado a lado com o serviço de proxy. A atualização automática está ativada por padrão.
+* A atualização automática pode ser habilitada ou desabilitada usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A configuração atual pode ser consultada usando o cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* O binário de serviço para o serviço de agente de DC foi renomeado para AzureADPasswordProtectionDCAgent. exe.
+* O binário do serviço para o serviço de proxy foi renomeado para AzureADPasswordProtectionProxy. exe. As regras de firewall podem precisar ser modificadas de acordo se um firewall de terceiros estiver em uso.
+  * Observação: se um arquivo de configuração de proxy http estava sendo usado em uma instalação de proxy anterior, será necessário renomeá-lo (de *proxyservice. exe. config* para *AzureADPasswordProtectionProxy. exe. config*) após essa atualização.
+* Todas as verificações de funcionalidade limitadas por tempo foram removidas do agente de DC.
+* Correções de bugs secundários e melhorias de log.
 
 ## <a name="12650"></a>1.2.65.0
 
 Data de lançamento: 2/1/2019
 
-Alterações:
+For
 
-* Serviço de agente e o proxy de controlador de domínio são agora suportados no Server Core. Requisitos de sistema operacional de Mininimum permanecem inalterados em relação antes: Windows Server 2012 para agentes do DC e o Windows Server 2012 R2 para proxies.
-* Os cmdlets AzureADPasswordProtectionProxy Registre-se e registe-se-AzureADPasswordProtectionForest suportam agora os modos de autenticação do Azure com base no dispositivo-código.
-* O cmdlet Get-AzureADPasswordProtectionDCAgent ignorará os pontos de ligação de serviço mangled e/ou inválido. Isso resolve o bug em que os controladores de domínio, por vezes, apareceria várias vezes na saída.
-* O cmdlet Get-AzureADPasswordProtectionSummaryReport ignorará os pontos de ligação de serviço mangled e/ou inválido. Isso resolve o bug em que os controladores de domínio, por vezes, apareceria várias vezes na saída.
-* O módulo do powershell de Proxy está agora registado de % ProgramFiles%\WindowsPowerShell\Modules. Variável de ambiente de PSModulePath a máquina já não está a ser modificado.
-* Foi adicionado um novo cmdlet Get-AzureADPasswordProtectionProxy para auxiliar na descoberta de proxies registados numa floresta ou domínio.
-* O agente de controlador de domínio utiliza uma nova pasta na partilha de sysvol para replicar as políticas de palavra-passe e outros ficheiros.
+* O agente de DC e o serviço de proxy agora têm suporte no Server Core. Os requisitos do sistema operacional Mininimum são inalterados de antes: Windows Server 2012 para agentes de DC e Windows Server 2012 R2 para proxies.
+* Os cmdlets Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest agora oferecem suporte aos modos de autenticação do Azure baseados em código de dispositivo.
+* O cmdlet Get-AzureADPasswordProtectionDCAgent ignorará os pontos de conexão de serviço desconfigurados e/ou inválidos. Isso corrige o bug em que os controladores de domínio às vezes aparecem várias vezes na saída.
+* O cmdlet Get-AzureADPasswordProtectionSummaryReport ignorará os pontos de conexão de serviço desconfigurados e/ou inválidos. Isso corrige o bug em que os controladores de domínio às vezes aparecem várias vezes na saída.
+* O módulo proxy PowerShell agora está registrado em%ProgramFiles%\WindowsPowerShell\Modules. A variável de ambiente PSModulePath do computador não é mais modificada.
+* Um novo cmdlet Get-AzureADPasswordProtectionProxy foi adicionado para auxiliar na descoberta de proxies registrados em uma floresta ou domínio.
+* O agente de DC usa uma nova pasta no compartilhamento de SYSVOL para replicar políticas de senha e outros arquivos.
 
-   Localização da pasta antigo:
+   Local da pasta antiga:
 
    `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
 
-   Nova localização da pasta:
+   Novo local da pasta:
 
    `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
 
-   (Esta alteração foi feita para evitar avisos de Falso-positivos "GPO órfãos".)
+   (Essa alteração foi feita para evitar avisos falsos positivos de "GPO órfão".)
 
    > [!NOTE]
-   > Nenhuma migração ou a partilha de dados será efetuada entre antigo e a nova pasta. As versões mais antigas do agente de controlador de domínio irão continuar a utilizar a localização antiga até atualizados para esta versão ou posterior. Depois de todos os agentes de controlador de domínio estiverem a executar a versão 1.2.65.0 ou posterior, a pasta sysvol antigo pode ser eliminada manualmente.
+   > Nenhuma migração ou compartilhamento de dados será feito entre a pasta antiga e a nova pasta. Versões mais antigas do agente de controlador de domínio continuarão a usar o local antigo até serem atualizados para esta versão ou posterior. Depois que todos os agentes de DC estiverem executando a versão 1.2.65.0 ou posterior, a pasta SYSVOL antiga poderá ser excluída manualmente.
 
-* O serviço de agente e o proxy do controlador de domínio agora irá detetar e eliminar mangled cópias dos seus pontos de ligação do respetivo serviço.
-* Cada agente de DC periodicamente irá eliminar pontos de ligação de serviço mangled e obsoletos em seu domínio, para ambos os DC agente e o proxy de serviço pontos de conexão. Ambos os DC agente e o proxy de serviço pontos de conexão são considerados obsoletos, caso sua timestamp de heartbeat é com mais de sete dias.
-* O agente de controlador de domínio agora irá renovar o certificado de floresta, conforme necessário.
-* O serviço de Proxy agora irá renovar o certificado de proxy, conforme necessário.
-* Atualizações para o algoritmo de validação da palavra-passe: a lista de palavra-passe banidas global e a lista de palavra-passe de banidas do específicas do cliente (se configurada) são combinados antes de validações de palavra-passe. Agora pode ser rejeitada uma determinada palavra-passe (falhar ou só de auditoria) se este contiver tokens na lista global e específicas do cliente. A documentação do registo de eventos foi atualizada para refletir isso; Veja [proteção de palavras-passe do Monitor do Azure AD](howto-password-ban-bad-on-premises-monitor.md).
-* Desempenho e robustez correções
-* A melhoria do registo
+* O agente DC e o serviço proxy agora detectarão e excluirão cópias descontadas de seus respectivos pontos de conexão de serviço.
+* Cada agente de DC excluirá periodicamente os pontos de conexão de serviço desconfigurados e obsoletos em seu domínio, para os pontos de conexão do agente DC e do serviço proxy. Os pontos de conexão do agente DC e do serviço proxy serão considerados obsoletos se o carimbo de data/hora da pulsação for mais antigo que sete dias.
+* O agente de DC agora renovará o certificado de floresta conforme necessário.
+* O serviço de proxy agora renovará o certificado de proxy conforme necessário.
+* Atualizações para o algoritmo de validação de senha: a lista de senhas globais banidas e a lista de senhas banidas específica do cliente (se configuradas) são combinadas antes de validações de senha. Uma determinada senha pode agora ser rejeitada (falha ou somente auditoria) se ela contiver tokens da lista global e específica do cliente. A documentação do log de eventos foi atualizada para refletir isso; consulte [monitorar a proteção de senha do Azure ad](howto-password-ban-bad-on-premises-monitor.md).
+* Correções de desempenho e robustez
+* Log aprimorado
 
 > [!WARNING]
-> Funcionalidade de tempo limitado: o serviço do agente DC nesta versão (1.2.65.0) irá parar de processamento de pedidos de validação da palavra-passe a partir de 1º de Setembro de 2019.  Serviços do agente DC em edições anteriores (veja a lista abaixo) irão parar o processamento a partir de 1º de Julho de 2019. O serviço do agente DC em todas as versões registrará 10021 eventos no registo de eventos de administrador em dois meses que levou estes prazos. Todas as restrições de limite de tempo serão removidas na próxima versão de disponibilidade geral. O serviço de agente de Proxy não funciona por tempo limitado em qualquer versão, mas ainda deve ser atualizado para a versão mais recente para tirar o máximo proveito de todas as correções de erros subseqüentes e outras melhorias.
+> Funcionalidade limitada por tempo: o serviço de agente de controlador de domínio nesta versão (1.2.65.0) irá parar de processar solicitações de validação de senha a partir de 1º de setembro de 2019.  Os serviços de agente de DC em versões anteriores (consulte a lista abaixo) interromperão o processamento a partir de 1º de julho de 2019. O serviço de agente de controlador de domínio em todas as versões registrará 10021 eventos no log de eventos de administrador nos dois meses, levando esses prazos. Todas as restrições de limite de tempo serão removidas na próxima versão de GA. O serviço de agente de proxy não é limitado a tempo em nenhuma versão, mas ainda deve ser atualizado para a versão mais recente a fim de aproveitar todas as correções de bugs subsequentes e outras melhorias.
 
 ## <a name="12250"></a>1.2.25.0
 
 Data de lançamento: 11/01/2018
 
-Correções:
+Contida
 
-* Serviço de agente e o proxy de controlador de domínio já não deve falhar devido a falhas de confiança de certificado.
-* Serviço de agente e o proxy de controlador de domínio tem correções adicionais para máquinas compatíveis com FIPS.
-* Serviço de proxy agora funcionará corretamente num ambiente de rede TLS 1.2 só.
-* Desempenho de pequenas e robustez correções
-* A melhoria do registo
+* O agente DC e o serviço proxy não devem mais falhar devido a falhas de confiança do certificado.
+* O agente de DC e o serviço de proxy têm correções adicionais para computadores compatíveis com FIPS.
+* O serviço de proxy agora funcionará corretamente em um ambiente de rede somente TLS 1,2.
+* Correções de desempenho e robustez secundárias
+* Log aprimorado
 
-Alterações:
+For
 
-* O mínimo necessário ao nível do SO para o serviço de Proxy é, agora, Windows Server 2012 R2. O nível de SO mínimo necessário para o serviço do agente DC permanece no Windows Server 2012.
-* O serviço de Proxy requer agora que o .NET versão 4.6.2.
-* O algoritmo de validação da palavra-passe usa uma tabela de normalização de caráter expandido. Isso pode resultar em palavras-passe a ser rejeitadas foram aceites nas versões anteriores.
+* O nível mínimo necessário do sistema operacional para o serviço de proxy é agora Windows Server 2012 R2. O nível mínimo necessário de sistema operacional para o serviço de agente de controlador de domínio permanece no Windows Server 2012.
+* O serviço de proxy agora requer o .NET versão 4.6.2.
+* O algoritmo de validação de senha usa uma tabela de normalização de caracteres expandida. Isso pode resultar em senhas rejeitadas que foram aceitas em versões anteriores.
 
 ## <a name="12100"></a>1.2.10.0
 
 Data de lançamento: 8/17/2018
 
-Correções:
+Contida
 
-* Registre-se-AzureADPasswordProtectionProxy e registre-se-AzureADPasswordProtectionForest agora suportam a autenticação multifator
-* Registre-se-AzureADPasswordProtectionProxy requer um WS2012 ou o posterior controlador de domínio no domínio para evitar erros de encriptação.
-* Serviço de agente do controlador de domínio é mais fiável sobre o pedido de uma nova política de palavra-passe do Azure na inicialização.
-* Serviço do agente DC irá pedir uma nova política de palavra-passe do Azure a cada hora, se necessário, mas agora farão isso numa hora de início selecionado aleatoriamente.
-* Serviço de agente do controlador de domínio já não irá causar um atraso indefinido no novo anúncio do controlador de domínio quando instalado num servidor antes da respetiva promoção como uma réplica.
-* Serviço de agente do controlador de domínio agora respeitará a definição de configuração "Ativar a proteção de palavra-passe no Windows Server Active Directory"
-* Ambos os instaladores de agente e o proxy do controlador de domínio agora suportará a atualização no local ao atualizar para versões futuras.
+* Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest agora oferecem suporte à autenticação multifator
+* O Register-AzureADPasswordProtectionProxy requer um controlador de domínio WS2012 ou posterior no domínio para evitar erros de criptografia.
+* O serviço de agente de DC é mais confiável para solicitar uma nova política de senha do Azure na inicialização.
+* O serviço de agente DC solicitará uma nova política de senha do Azure a cada hora, se necessário, mas agora fará isso em uma hora de início aleatoriamente selecionada.
+* O serviço de agente de controlador de domínio não causará um atraso indefinido no novo anúncio de DC quando instalado em um servidor antes de sua promoção como uma réplica.
+* O serviço de agente de DC agora honrará a definição de configuração "Habilitar proteção por senha no Windows Server Active Directory"
+* O agente DC e instaladores de proxy agora oferecerão suporte à atualização in-loco ao atualizar para versões futuras.
 
 > [!WARNING]
-> Atualização no local da versão 1.1.10.3 não é suportada e irá resultar num erro de instalação. Como atualizar para versão 1.2.10 ou posterior, tem primeiro completamente desinstalar o software de serviço de proxy de agente e controlador de domínio, e instalar a nova versão a partir do zero. Re-registo da proteção de palavra-passe do Azure AD service de Proxy é necessário.  Não é necessário voltar a registar a floresta.
+> Não há suporte para a atualização in-loco da versão 1.1.10.3 e resultará em um erro de instalação. Para atualizar para a versão 1.2.10 ou posterior, primeiro você deve desinstalar completamente o agente de DC e o software de serviço de proxy e, em seguida, instalar a nova versão do zero. É necessário o novo registro do serviço de proxy de proteção de senha do Azure AD.  Não é necessário registrar novamente a floresta.
 
 > [!NOTE]
-> Atualizações in-loco do software do agente DC exigirá uma reinicialização.
+> As atualizações in-loco do software do agente de DC exigirão uma reinicialização.
 
-* Serviço de agente e o proxy de DC suportam agora em execução num servidor configurado para utilizar apenas os algoritmos em conformidade com FIPS.
-* Desempenho de pequenas e robustez correções
-* A melhoria do registo
+* O agente de DC e o serviço de proxy agora dão suporte à execução em um servidor configurado para usar apenas algoritmos compatíveis com FIPS.
+* Correções de desempenho e robustez secundárias
+* Log aprimorado
 
 ## <a name="11103"></a>1.1.10.3
 
 Data de lançamento: 6/15/2018
 
-Versão de pré-visualização pública inicial
+Versão de visualização pública inicial
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Implementar a proteção de palavras-passe do AD do Azure](howto-password-ban-bad-on-premises-deploy.md)
+[Implantar a proteção de senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md)
