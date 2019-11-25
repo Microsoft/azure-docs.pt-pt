@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 091d2007d115c5e08904af6081d0f67b2eb60071
-  ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+  ms.openlocfilehash: f88336107203a166b61df98c55b680f1f11f79f6
+  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/05/2019
-  ms.locfileid: "71971455"
+  ms.lasthandoff: 11/23/2019
+  ms.locfileid: "74422654"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -64,10 +64,8 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: 'Início Rápido: Utilizar o Postman'
-      url: quickstarts/get-answer-from-kb-using-postman.md
-    - text: 'Início Rápido: Utilizar o cURL'
-      url: quickstarts/get-answer-from-kb-using-curl.md
+    - text: 'Início Rápido: Com o Postman ou cURL'
+      url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - text: 'Início Rápido: Utilizar REST e C#'
       url: quickstarts/get-answer-from-knowledge-base-csharp.md
     - text: 'Início Rápido: Utilizar NuGet e C#'

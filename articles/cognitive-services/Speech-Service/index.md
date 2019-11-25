@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: Documentação do Serviço de Voz
 description: Comece a utilizar o serviço de Voz.
-ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580336"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406177"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -271,7 +271,7 @@ ms.locfileid: "73580336"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Reconhecer voz, intenções e entidades</h3>
-                                                    <p>Utilize o SDK de Voz e o LUIS para reconhecer a voz, intenções e entidades.</p>
+                                                    <p>Utilize o SDK de Voz e o Language Understanding (LUIS) para reconhecer a voz, intenções e entidades.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +289,7 @@ ms.locfileid: "73580336"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentação do LUIS</h3>
+                                                    <h3>Documentação do Language Understanding (LUIS)</h3>
                                                     <p>Saiba mais sobre o LUIS (Language Understanding Service) e o NLP (Natural Language Processing).</p>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@ ms.locfileid: "73580336"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Portal do LUIS</h3>
+                                                    <h3>Portal do Language Understanding (LUIS)</h3>
                                                     <p>Compile idiomas naturais em aplicações, bots e dispositivos IoT.</p>
                                                 </div>
                                             </div>

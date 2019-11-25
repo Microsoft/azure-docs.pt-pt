@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: b99b45427cf793eec4f6257190823c102b838cfa
-  ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+  ms.openlocfilehash: cbd3a4dbaa80119d72cd54efa7dd2dc751b91b40
+  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/10/2019
-  ms.locfileid: "73903354"
+  ms.lasthandoff: 11/23/2019
+  ms.locfileid: "74422811"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -40,7 +40,7 @@ conceptualContent:
   title: Começar a criar a sua solução de IoT
   summary: O Azure IoT oferece plataformas de IoT de cloud e de margem, bem como soluções de IoT totalmente geridas
   items:
-  - title: Utilize o Hub IoT do Azure para criar sua própria solução de IoT
+  - title: Criar a sua própria solução cloud de IoT
     links:
     - url: ../iot-hub/about-iot-hub.md
       itemType: overview
@@ -54,7 +54,7 @@ conceptualContent:
     footerLink:
       url: ../iot-hub/index.yml
       text: Ver mais
-  - title: Utilizar o IoT Central do Azure para implementar uma solução completamente gerida de IoT
+  - title: Implementar uma solução de IoT totalmente gerida
     links:
     - url: ../iot-central/core/overview-iot-central.md
       itemType: overview
@@ -68,7 +68,7 @@ conceptualContent:
     footerLink:
       url: ../iot-central/core/index.yml
       text: Ver mais
-  - title: Utilizar aceleradores de soluções de IoT do Azure para personalizar uma solução pré-criada de IoT
+  - title: Personalizar uma solução de IoT criada previamente
     links:
     - url: ../iot-accelerators/about-iot-accelerators.md
       itemType: overview
@@ -82,7 +82,7 @@ conceptualContent:
     footerLink:
       url: ../iot-accelerators/index.md
       text: Ver mais
-  - title: Utilize o Azure IoT Edge para executar a inteligência da cloud em dispositivos
+  - title: Executar a inteligência da cloud em dispositivos edge
     links:
     - url: ../iot-edge/about-iot-edge.md
       itemType: overview
@@ -96,7 +96,7 @@ conceptualContent:
     footerLink:
       url: ../iot-edge/index.yml
       text: Ver mais
-  - title: Utilize o Azure Digital Twins para criar infraestruturas inteligentes e ligadas
+  - title: Criar uma infraestrutura ligada e inteligente
     links:
     - url: ../digital-twins/about-digital-twins.md
       itemType: overview
@@ -110,7 +110,7 @@ conceptualContent:
     footerLink:
       url: ../digital-twins/index.yml
       text: Ver mais
-  - title: Utilizar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionar dispositivos de forma segura e à escala
+  - title: Aprovisionar dispositivos à escala com segurança
     links:
     - url: ../iot-dps/about-iot-dps.md
       itemType: overview
@@ -124,7 +124,7 @@ conceptualContent:
     footerLink:
       url: ../iot-dps/index.yml
       text: Ver mais
-  - title: Utilizar o Azure Time Series Insights para explorar e analisar dados de dispositivo
+  - title: Explorar e analisar dados do dispositivo
     links:
     - url: ../time-series-insights/time-series-insights-update-overview.md
       itemType: overview
@@ -138,7 +138,7 @@ conceptualContent:
     footerLink:
       url: ../time-series-insights/index.yml
       text: Ver mais
-  - title: Utilizar o Azure Maps para realizar a mobilidade na sua empresa
+  - title: Aplicar a mobilidade na sua empresa
     links:
     - url: ../azure-maps/about-azure-maps.md
       itemType: overview

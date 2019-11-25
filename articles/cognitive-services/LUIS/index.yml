@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Language Understanding (LUIS)
-summary: Saiba como utilizar o serviço Language Understanding para que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras.
+summary: Saiba como o Language Understanding permite que as suas aplicações compreendam o que uma pessoa quer nas suas próprias palavras.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/19/2019
+  ms.date: 11/22/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: O serviço Language Understanding (LUIS) permite que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras. O LUIS utiliza a aprendizagem automática para permitir aos programadores criar aplicações que possam receber as entradas de utilizador numa linguagem natural e extrair o significado das mesmas.
-  ms.openlocfilehash: 70249b540e53ab8182a25f81d7401697b2b888c1
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  ms.openlocfilehash: 14386a08b92814b16fb007e4dd01cb4bb5238c0a
+  ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155026"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74406143"
 landingContent:
 - title: Acerca do Language Understanding (LUIS)
   linkLists:
@@ -25,16 +25,18 @@ landingContent:
     links:
     - text: O que é o Language Understanding?
       url: what-is-luis.md
-    - text: Novidades
-      url: whats-new.md
     - text: Portal do LUIS
       url: https://www.luis.ai
   - linkListType: concept
     links:
     - text: Planear a sua aplicação
       url: luis-how-plan-your-app.md
-    - text: O ciclo de criação da sua aplicação
+    - text: Design de aplicação iterativo
       url: luis-concept-app-iteration.md
+  - linkListType: whats-new
+    links:
+    - text: Novidades
+      url: whats-new.md
   - linkListType: video
     links:
     - text: 'AI Roadshow: LUIS'
@@ -47,9 +49,9 @@ landingContent:
       url: luis-concept-intent.md
     - text: Entidades
       url: luis-concept-entity-types.md
-    - text: Uma boa expressão de exemplo
+    - text: Expressões
       url: luis-concept-utterance.md
-    - text: Funcionalidades de listas de expressões
+    - text: Funcionalidades de lista de expressões
       url: luis-concept-feature.md
   - linkListType: quickstart
     links:
@@ -89,15 +91,15 @@ landingContent:
       url: sdk-python-quickstart-authoring-app.md#train-the-app
   - linkListType: how-to-guide
     links:
-    - text: Controlo de versões da aplicação
+    - text: Atualizar a versão da sua aplicação
       url: luis-how-to-manage-versions.md
-    - text: Testes interativos
+    - text: Realizar testes interativos
       url: luis-interactive-test.md
-    - text: Testes em lote
+    - text: Realizar testes em lote
       url: luis-how-to-batch-test.md
     - text: Preparar a aplicação
       url: luis-how-to-train.md
-    - text: Publicar para utilizar o ponto final de predição
+    - text: Publicar ponto final de predição
       url: luis-how-to-publish-app.md
 - title: Obter uma predição a partir do ponto final
   linkLists:
@@ -123,7 +125,7 @@ landingContent:
     links:
     - text: Recursos para programadores
       url: developer-reference-resource.md
-    - text: Limites da aplicação
+    - text: Limitações da aplicação
       url: luis-boundaries.md
     - text: Entidades pré-criadas
       url: luis-reference-prebuilt-entities.md

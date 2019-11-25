@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: c800a1a9827844d9f451de245652b4eddec395ca
-  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+  ms.openlocfilehash: f84c6f56201b2fb6dbc9972472f6b6bf8046de12
+  ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/16/2019
-  ms.locfileid: "74132544"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74383545"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -170,10 +170,12 @@ additionalContent:
   - items:
     - title: Recursos adicionais
       links:
+      - text: Opções de suporte e ajuda
+        url: cognitive-services-support-options.md
       - text: CLI do Azure
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
     - title: APIs REST
       links:
       - text: Gestão de Serviços Cognitivos
@@ -183,7 +185,7 @@ additionalContent:
       - text: .NET
         url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Ir
-        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+        url: https://godoc.org/github.com/azure/azure-sdk-for-go/services/cognitiveservices
       - text: Java
         url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
       - text: Node.js

@@ -836,8 +836,10 @@
               href: insights/container-insights-update-metrics.md
             - name: Configuração da monitorização do estado de funcionamento
               href: insights/container-insights-health-monitors-config.md
-            - name: Desativar a monitorização
+            - name: Desativar a monitorização do AKS
               href: insights/container-insights-optout.md
+            - name: Desativar a monitorização do Red Hat OpenShift
+              href: insights/container-insights-optout-openshift.md
             - name: Resolução de problemas
               href: insights/container-insights-troubleshoot.md
         - name: Docker e monitorização do Contentor do Windows
