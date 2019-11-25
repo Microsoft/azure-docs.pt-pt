@@ -4,12 +4,12 @@ description: Create an Azure Blockchain Service member for a blockchain consorti
 ms.date: 11/18/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 9cdc38993aec79552dca0bb51ca2d75462c5306b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 90f859e4d2e2621afad9cab11d66e81018bd3147
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325274"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455778"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Quickstart: Create an Azure Blockchain Service blockchain member using the Azure portal
 
@@ -59,7 +59,7 @@ To delete the resource group:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
+In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
+> [Use Visual Studio Code to connect to Azure Blockchain Service](connect-vscode.md)

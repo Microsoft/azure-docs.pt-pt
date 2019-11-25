@@ -1,131 +1,133 @@
 ---
-title: Como usar a documentação do Swagger de referência-Azure digital gêmeos | Microsoft Docs
-description: Noções básicas sobre como usar a documentação de referência do Azure digital gêmeos Swagger.
+title: How to use reference Swagger documentation - Azure Digital Twins | Microsoft Docs
+description: Understanding how to use Azure Digital Twins Swagger reference documentation.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d4470a89455fd4b49fb7bb5ae26375f9cf9884c
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009890"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456967"
 ---
-# <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger do Azure digital gêmeos
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger reference documentation
 
-Cada instância do Azure digital gêmeos provisionada inclui sua própria documentação de referência do Swagger gerada automaticamente.
+Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
-O [Swagger](https://swagger.io/), ou [openapi](https://www.openapis.org/), une informações de API complexas em um recurso de referência interativo e independente de linguagem. O Swagger fornece material de referência crítica sobre quais cargas JSON, métodos HTTP e pontos de extremidade específicos usar para executar operações em uma API.
+[Swagger](https://swagger.io/), or [OpenAPI](https://www.openapis.org/), unites complex API information into an interactive and language-agnostic reference resource. Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
 
-## <a name="swagger-summary"></a>Resumo do Swagger
+## <a name="swagger-summary"></a>Swagger summary
 
-O Swagger fornece um resumo interativo de sua API, que inclui:
+Swagger provides an interactive summary of your API, which includes:
 
-* Informações de API e modelo de objeto.
-* Pontos de extremidade da API REST que especificam as cargas de solicitação, os cabeçalhos, os parâmetros, os caminhos de contexto e os métodos HTTP necessários.
-* Teste de funcionalidades de API.
-* Informações de resposta de exemplo usadas para validar e confirmar respostas HTTP.
-* Informações do código de erro.
+* API and object model information.
+* REST API endpoints that specify the required request payloads, headers, parameters, context paths, and HTTP methods.
+* Testing of API functionalities.
+* Example response information used to validate and confirm HTTP responses.
+* Error code information.
 
-O Swagger é uma ferramenta conveniente para auxiliar nas chamadas de desenvolvimento e teste feitas para as APIs de gerenciamento de gêmeos digital do Azure.
+Swagger is a convenient tool to assist with development and testing calls made to the Azure Digital Twins Management APIs.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Material de referência
 
-O material de referência do Swagger gerado automaticamente fornece uma visão geral rápida de conceitos importantes, pontos de extremidade da API de gerenciamento disponíveis e uma descrição de cada modelo de objeto para ajudar no desenvolvimento e no teste.
+The automatically generated Swagger reference material supplies a quick overview of important concepts, available Management API endpoints, and a description of each object model to assist development and testing.
 
-Um resumo conciso descreve a API.
+A concise summary describes the API.
 
-[![do Swagger superior](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Swagger summary and API overview information](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
-Os modelos de objeto de API de gerenciamento também são listados.
+Management API object models are also listed.
 
-[![modelos do Swagger](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
+[![Swagger models listed at bottom of Swagger UI](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
-Você pode selecionar cada modelo de objeto listado para obter um resumo mais detalhado dos principais atributos.
+You can select each listed object model for a more detailed summary of key attributes.
 
-[modelo do Swagger de ![](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![Swagger models expanded to see contents of models](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-Os modelos de objeto do Swagger gerados são convenientes para ver todos os [objetos e APIs](./concepts-objectmodel-spatialgraph.md)do Azure digital gêmeos disponíveis. Os desenvolvedores podem usar esse recurso quando criarem soluções no Azure digital gêmeos.
+The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
-## <a name="endpoint-summary"></a>Resumo do ponto de extremidade
+## <a name="endpoint-summary"></a>Endpoint summary
 
-O Swagger também fornece uma visão geral completa de todos os pontos de extremidade que compõem as APIs de gerenciamento.
+Swagger also provides a thorough overview of all endpoints that compose the Management APIs.
 
-Cada ponto de extremidade listado também inclui as informações de solicitação necessárias, como:
+Each listed endpoint also includes the required request information, such as the:
 
-* Parâmetros necessários.
-* Tipos de dados de parâmetro necessários.
-* Método HTTP para acessar o recurso.
+* Required parameters.
+* Required parameter data types.
+* HTTP method to access the resource.
 
-[![pontos de extremidade do Swagger](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
+[![Swagger endpoints displayed in Swagger UI](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-Para ver uma visão geral mais detalhada, selecione cada recurso.
+To see a more detailed overview, select each resource.
 
-## <a name="use-swagger-to-test-endpoints"></a>Usar o Swagger para testar pontos de extremidade
+## <a name="use-swagger-to-test-endpoints"></a>Use Swagger to test endpoints
 
-Uma das poderosas funcionalidades que o Swagger fornece é a capacidade de testar um ponto de extremidade de API diretamente por meio da interface do usuário da documentação.
+One of the powerful functionalities Swagger provides is the ability to test an API endpoint directly through the documentation UI.
 
-Depois de selecionar um ponto de extremidade específico, você verá **experimentar**.
+After you select a specific endpoint, you see **Try it out**.
 
-[Try do ![Swagger](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
+[![Swagger Try it out button](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
-Expanda essa seção para exibir os campos de entrada para cada parâmetro obrigatório e opcional. Insira os valores corretos e selecione **executar**.
+Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
-[![Swagger tentado](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
+[![Swagger Try it out result example](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
-Depois de executar o teste, você pode validar os dados de resposta.
+After you execute the test, you can validate the response data.
 
-## <a name="swagger-response-data"></a>Dados de resposta do Swagger
+## <a name="swagger-response-data"></a>Swagger response data
 
-Cada ponto de extremidade listado também inclui dados de corpo de resposta para validar o desenvolvimento e os testes. Esses exemplos incluem os códigos de status e JSON que você deseja ver para solicitações HTTP bem-sucedidas.
+Each listed endpoint also includes response body data to validate your development and tests. These examples include the status codes and JSON you want to see for successful HTTP requests.
 
-[![resposta do Swagger](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
+[![Swagger JSON response example](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
-Os exemplos também incluem códigos de erro para ajudar a depurar ou melhorar os testes com falha.
+The examples also include error codes to help debug or improve failing tests.
 
-## <a name="swagger-oauth-20-authorization"></a>Autorização de OAuth 2,0 do Swagger
+## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 authorization
 
 > [!NOTE]
-> * A entidade de usuário que criou o recurso de gêmeos digital do Azure terá uma atribuição de função de administrador de espaço e poderá criar atribuições de função adicionais para outros usuários. Tais usuários e suas funções podem ser autorizados a chamar as APIs.
+> * The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users. Such users and their roles can be authorized to call the APIs.
 
-1. Siga as etapas neste guia de [início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar e configurar um aplicativo do Azure AD. Como alternativa, você pode reutilizar um registro de aplicativo existente.
+1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create and configure an Azure AD application. Alternatively, you can reuse an existing app registration.
 
-1. Adicione a seguinte URL de resposta ao registro do aplicativo:
+1. Add the following **Redirect url** to your Azure AD app registration:
+
+    [![Register Swagger redirect url in AAD](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
     | Nome  | Substituir | Exemplo |
     |---------|---------|---------|
-    | YOUR_SWAGGER_URL | A URL da documentação da API REST de gerenciamento encontrada no portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+    | YOUR_SWAGGER_URL | Your Management REST API documentation URL found in the portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. Copie a ID do seu aplicativo do Azure AD.
+1. Copy the **Client ID** of your Azure AD app.
 
-Depois de concluir o registro de Azure Active Directory:
+After completing the Azure Active Directory registration:
 
-1. Selecione o botão **autorizar** na sua página do Swagger.
+1. Select the **Authorize** button on your swagger page.
 
-    [![selecionar o botão autorizar do Swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Select the Swagger authorize button](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-1. Cole a ID do aplicativo no campo **client_id** .
+1. Paste the application ID into the **client_id** field.
 
-    [![client_id campo do Swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
+    [![Swagger client_id field](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-1. Em seguida, você será redirecionado para o seguinte modal com êxito.
+1. You will then be redirected to the following success modal.
 
-    [![modal de redirecionamento do Swagger](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
+    [![Swagger redirect modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-Para saber mais sobre as solicitações de teste interativamente protegidas pelo OAuth 2,0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
+To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para ler mais sobre os modelos de objetos do Azure digital gêmeos e o grafo de inteligência espacial, leia [entender os modelos de objetos do Azure digital gêmeos](./concepts-objectmodel-spatialgraph.md).
+- To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
 
-- Para saber como autenticar com sua API de gerenciamento, leia [autenticar com APIs](./security-authenticating-apis.md).
+- To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).

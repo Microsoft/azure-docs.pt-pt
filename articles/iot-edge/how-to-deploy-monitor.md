@@ -1,6 +1,6 @@
 ---
-title: Criar implementações automáticas a partir do portal do Azure – Azure IoT Edge | Documentos da Microsoft
-description: Utilizar o portal do Azure para criar implementações automáticas para grupos do IoT Edge de dispositivos
+title: Create automatic deployments from Azure portal - Azure IoT Edge | Microsoft Docs
+description: Use the Azure portal to create automatic deployments for groups of IoT Edge devices
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,23 +9,22 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 83e2490821f59adeb37958c6c31403121a40274e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540891"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457362"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar e monitorizar os módulos do IoT Edge em escala no portal do Azure
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Deploy and monitor IoT Edge modules at scale using the Azure portal
 
-Criar uma **implementação automática do IoT Edge** no portal do Azure para gerir implementações em curso para o número de dispositivos ao mesmo tempo. As implementações automáticas para o IoT Edge são parte do [gestão de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) recurso do IoT Hub. As implementações são processos dinâmicos que permitem-lhe implementar vários módulos para vários dispositivos, controlar o estado de funcionamento dos módulos e fazer alterações quando for necessário. 
+Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary. 
 
-Para obter mais informações, consulte [implementações automáticas de compreender o IoT Edge para dispositivos individuais ou em escala](module-deployment-monitoring.md).
+For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-## <a name="identify-devices-using-tags"></a>Identificar os dispositivos utilizando etiquetas
+## <a name="identify-devices-using-tags"></a>Identify devices using tags
 
-Antes de poder criar uma implementação, terá de ser capazes de especificar quais os dispositivos que quer afetar. O Azure IoT Edge identifica dispositivos que utilizam **etiquetas** no dispositivo duplo. Cada dispositivo pode ter várias etiquetas que definem de qualquer forma que faz sentido para a sua solução. Por exemplo, se gerencia um campus de edifícios inteligentes, poderá adicionar as seguintes etiquetas a um dispositivo:
+Before you can create a deployment, you have to be able to specify which devices you want to affect. Azure IoT Edge identifies devices using **tags** in the device twin. Each device can have multiple tags that you define in any way that makes sense for your solution. For example, if you manage a campus of smart buildings, you might add the following tags to a device:
 
 ```json
 "tags":{
@@ -38,71 +37,71 @@ Antes de poder criar uma implementação, terá de ser capazes de especificar qu
 }
 ```
 
-Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [compreender e utilizar dispositivos duplos no IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
-## <a name="create-a-deployment"></a>Criar uma implementação
+## <a name="create-a-deployment"></a>Create a deployment
 
-1. Na [portal do Azure](https://portal.azure.com), aceda ao seu hub IoT. 
-1. Selecione **do IoT Edge**.
-1. Selecione **adicionar implementação do IoT Edge**.
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
+1. Select **IoT Edge**.
+1. Select **Add IoT Edge Deployment**.
 
-Existem cinco passos para criar uma implementação. As seções a seguir, percorra cada um deles. 
+There are five steps to create a deployment. The following sections walk through each one. 
 
-### <a name="step-1-name-and-label"></a>Passo 1: Nome e etiqueta
+### <a name="step-1-name-and-label"></a>Step 1: Name and Label
 
-1. Dê um nome exclusivo que é até 128 minúsculas de sua implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
-1. Pode adicionar etiquetas como pares chave-valor para ajudar a monitorizar as suas implementações. Por exemplo, **HostPlatform** e **Linux**, ou **versão** e **3.0.1**.
-1. Selecione **seguinte** para mover para o passo dois. 
+1. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+1. You can add labels as key-value pairs to help track your deployments. For example, **HostPlatform** and **Linux**, or **Version** and **3.0.1**.
+1. Select **Next** to move to step two. 
 
-### <a name="step-2-add-modules-optional"></a>Passo 2: Adicionar módulos (opcionais)
+### <a name="step-2-add-modules-optional"></a>Step 2: Add Modules (optional)
 
-Pode adicionar até 20 módulos para uma implementação. 
+You can add up to 20 modules to a deployment. 
 
-Se criar uma implementação sem módulos, ele remove quaisquer módulos atuais dos dispositivos de destino. 
+If you create a deployment with no modules, it removes any current modules from the target devices. 
 
-Para adicionar um módulo do Azure Stream Analytics, siga estes passos:
+To add a module from Azure Stream Analytics, follow these steps:
 
-1. Na **módulos de implementação** secção da página, clique em **Add**.
-1. Selecione **módulo do Azure Stream Analytics**.
-1. Escolha sua **subscrição** no menu pendente.
-1. Escolha o seu IoT **tarefa do Edge** no menu pendente.
-1. Selecione **guardar** para adicionar o seu módulo para a implementação. 
+1. In the **Deployment Modules** section of the page, click **Add**.
+1. Select **Azure Stream Analytics module**.
+1. Choose your **Subscription** from the drop-down menu.
+1. Choose your IoT **Edge job** from the drop-down menu.
+1. Select **Save** to add your module to the deployment. 
 
-Para adicionar código personalizado como um módulo, ou para adicionar manualmente um módulo de serviço do Azure, siga estes passos:
+To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
-1. Na **definições de registo de contentor** secção da página, fornecer os nomes e as credenciais para quaisquer registos de contentor privado que contêm as imagens de módulo para esta implementação. O agente do Edge IoT irão comunicar erro 500, se ele não é possível localizar a credencial de registo de contentor para uma imagem do Docker.
-1. Na **módulos de implementação** secção da página, clique em **Add**.
-1. Selecione **módulo do IoT Edge**.
-1. Dê o seu módulo uma **nome**.
-1. Para o **URI da imagem** , insira a imagem de contentor para o seu módulo. 
-1. Especificar qualquer **opções de criar contentor** que deve ser passado para o contentor. Para obter mais informações, consulte [docker criar](https://docs.docker.com/engine/reference/commandline/create/).
-1. Utilize o menu pendente para selecionar uma **política de reinício**. Escolha uma das seguintes opções: 
-   * **Sempre** -o módulo for reiniciado sempre se ele for encerrado por qualquer motivo.
-   * **Nunca** -o módulo nunca reinicia se ele for encerrado por qualquer motivo.
-   * **em caso de falha** -o módulo for reiniciado no caso de falha, mas não se ele encerre corretamente. 
-   * **No mau** -o módulo for reiniciado, se ele falha ou devolve um Estado de mau estado de funcionamento. Cabe-lhe para cada módulo para implementar a função de estado de funcionamento. 
-1. Utilize o menu pendente para selecionar o **estado pretendido** para o módulo. Escolha uma das seguintes opções:
-   * **executar** -em execução é a opção predefinida. O módulo começará a executar imediatamente depois da implementação.
-   * **Parado** -depois de ser implementado, o módulo permanecerá inativo até que a chamada para iniciar por si ou por outro módulo.
-1. Selecione **duplo do módulo de conjunto de propriedades pretendidas** se pretender adicionar etiquetas ou outras propriedades para o duplo do módulo.
-1. Introduza **variáveis de ambiente** para este módulo. Variáveis de ambiente fornecem informações de configuração para um módulo.
-1. Selecione **guardar** para adicionar o seu módulo para a implementação. 
+1. In the **Container Registry Settings** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
+1. In the **Deployment Modules** section of the page, click **Add**.
+1. Select **IoT Edge Module**.
+1. Give your module a **Name**.
+1. For the **Image URI** field, enter the container image for your module. 
+1. Specify any **Container Create Options** that should be passed to the container. For more information, see [docker create](https://docs.docker.com/engine/reference/commandline/create/).
+1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
+   * **Always** - The module always restarts if it shuts down for any reason.
+   * **never** - The module never restarts if it shuts down for any reason.
+   * **on-failure** - The module restarts if it crashes, but not if it shuts down cleanly. 
+   * **on-unhealthy** - The module restarts if it crashes or returns an unhealthy status. It's up to each module to implement the health status function. 
+1. Use the drop-down menu to select the **Desired Status** for the module. Choose from the following options:
+   * **running** - Running is the default option. The module will start running immediately after being deployed.
+   * **stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
+1. Select **Set module twin's desired properties** if you want to add tags or other properties to the module twin.
+1. Enter **Environment Variables** for this module. Environment variables provide configuration information to a module.
+1. Select **Save** to add your module to the deployment. 
 
-Quando tiver todos os módulos para uma implementação configurado, selecione **seguinte** para mover para o terceiro passo.
+Once you have all the modules for a deployment configured, select **Next** to move to step three.
 
-### <a name="step-3-specify-routes-optional"></a>Passo 3: Especificar rotas (opcionais)
+### <a name="step-3-specify-routes-optional"></a>Step 3: Specify Routes (optional)
 
-Rotas definem como módulos se comunicam entre si dentro de uma implantação. Por predefinição, o assistente apresenta uma rota chamada **rota** e definido como **FROM /\* em $ a montante**, que significa que todas as mensagens de saída por quaisquer módulos são enviadas ao seu hub IoT.  
+Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **route** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
-Adicionar ou atualizar as rotas com as informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próxima** para continuar para a secção de revisão.
+Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
 
-### <a name="step-4-specify-metrics-optional"></a>Passo 4: Especificar as métricas (opcionais)
+### <a name="step-4-specify-metrics-optional"></a>Step 4: Specify Metrics (optional)
 
-Métricas fornecem contagens de resumidas dos diversos Estados em que um dispositivo pode comunicar de volta como resultado de aplicar o conteúdo de configuração.
+Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content.
 
-1. Introduza um nome para **nome da métrica**.
+1. Enter a name for **Metric Name**.
 
-1. Introduza uma consulta para **critérios de métrica**. A consulta baseia-se no módulo duplo de hub do IoT Edge [propriedades comunicadas](module-edgeagent-edgehub.md#edgehub-reported-properties). A métrica representa o número de linhas retornadas pela consulta.
+1. Enter a query for **Metric Criteria**. The query is based on IoT Edge hub module twin [reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties). The metric represents the number of rows returned by the query.
 
    Por exemplo:
 
@@ -111,105 +110,105 @@ Métricas fornecem contagens de resumidas dos diversos Estados em que um disposi
      WHERE properties.reported.lastDesiredStatus.code = 200
    ```
 
-### <a name="step-5-target-devices"></a>Passo 5: Dispositivos de destino
+### <a name="step-5-target-devices"></a>Step 5: Target Devices
 
-Utilize a propriedade de etiquetas dos seus dispositivos para os dispositivos específicos que devem receber esta implementação de destino. 
+Use the tags property from your devices to target the specific devices that should receive this deployment. 
 
-Uma vez que várias implementações podem direcionar o mesmo dispositivo, deve dar a cada implementação um número de prioridade. Se já houver um conflito, a implementação com a prioridade mais alta (valores maiores indicam a prioridade mais alta) wins. Se duas implementações têm o mesmo número de prioridade, aquele que foi criado mais recentemente wins. 
+Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins. 
 
-1. Introduza um número inteiro positivo para a implementação **prioridade**.
-1. Introduza um **condição de destino** para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
-1. Selecione **seguinte** para avançar para a etapa final.
+1. Enter a positive integer for the deployment **Priority**.
+1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
+1. Select **Next** to move on to the final step.
 
-### <a name="step-6-review-deployment"></a>Passo 6: Implementação de revisão
+### <a name="step-6-review-deployment"></a>Step 6: Review Deployment
 
-Reveja as suas informações de implantação, em seguida, selecione **submeter**.
+Review your deployment information, then select **Submit**.
 
-## <a name="deploy-modules-from-azure-marketplace"></a>Implementar módulos do Azure Marketplace
+## <a name="deploy-modules-from-azure-marketplace"></a>Deploy modules from Azure Marketplace
 
-O Azure Marketplace é um mercado online de aplicações e serviços onde pode navegar por uma vasta gama de aplicações empresariais e soluções que estão certificadas e otimizadas para executar no Azure, incluindo [módulos do IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acedido através do portal do Azure em **criar um recurso**.
+Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace can also be accessed through the Azure portal under **Create a Resource**.
 
-Pode implantar o módulo do IoT Edge do Azure Marketplace ou do portal do Azure:
+You can deploy an IoT Edge module from either Azure Marketplace or the Azure portal:
 
-1. Encontre um módulo e iniciar o processo de implantação.
+1. Find a module and begin the deployment process.
 
-   * Portal do Azure: Encontre um módulo e selecione **criar**.
+   * Azure portal: Find a module and select **Create**.
 
    * Azure Marketplace:
 
-     1. Encontre um módulo e selecione **obter agora**.
-     1. Concorda em termos do fornecedor de política de privacidade e de utilização selecionando **continuar**.
+     1. Find a module and select **Get it now**.
+     1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**.
 
-1. Escolha a sua subscrição e o IoT Hub para que o dispositivo de destino está ligado.
+1. Choose your subscription and the IoT Hub to which the target device is attached.
 
-1. Escolher **implementar em escala**.
+1. Choose **Deploy at Scale**.
 
-1. Escolha se pretende adicionar o módulo para uma nova implementação ou um clone de uma implementação existente; Se a clonagem, selecione a implementação existente na lista.
+1. Choose whether to add the module to a new deployment or to a clone of an existing deployment; if cloning, select the existing deployment from the list.
 
-1. Selecione **criar** para continuar o processo de criação de uma implementação à escala. Poderá especificar os detalhes do mesmo, tal como faria para qualquer implementação.
+1. Select **Create** to continue the process of creating a deployment at scale. You'll be able to specify the same details as you would for any deployment.
 
-## <a name="monitor-a-deployment"></a>Monitorizar uma implementação
+## <a name="monitor-a-deployment"></a>Monitor a deployment
 
-Para ver os detalhes de uma implementação e monitorizar os dispositivos a executá-lo, utilize os seguintes passos:
+To view the details of a deployment and monitor the devices running it, use the following steps:
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue até ao seu hub IoT. 
-1. Selecione **do IoT Edge**.
-1. Selecione **implementações do IoT Edge**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
+1. Select **IoT Edge**.
+1. Select **IoT Edge deployments**. 
 
-   ![Ver as implementações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Inspecione a lista de implementação. Para cada implementação, pode ver os seguintes detalhes:
-   * **ID** -o nome da implementação.
-   * **Condição de destino** -a marca usada para definir os dispositivos visados.
-   * **Prioridade** -o número de prioridade atribuído para a implementação.
-   * **As métricas do sistema** - **direcionada** Especifica o número de dispositivos duplos no IoT Hub que correspondem à condição de destino, e **aplicados** Especifica o número de dispositivos que tenham o conteúdo de implementação aplicou para seus duplos de módulo do IoT Hub. 
-   * **Métricas de dispositivo** -o número de dispositivos do IoT Edge no relatório de êxito ou erros de tempo de execução do cliente do IoT Edge de implantação.
-   * **Métricas personalizadas** -o número de dispositivos do IoT Edge no relatório de dados para qualquer métricas que definiu para a implementação de implantação.
-   * **Hora de criação** -o carimbo de hora de quando a implementação foi criada. Este timestamp é utilizado para dividir os empates quando duas implementações têm a mesma prioridade. 
-1. Selecione a implementação que pretende monitorizar.  
-1. Inspecione os detalhes de implementação. Pode usar guias para rever os detalhes da implementação.
+1. Inspect the deployment list. For each deployment, you can view the following details:
+   * **ID** - the name of the deployment.
+   * **Target condition** - the tag used to define targeted devices.
+   * **Priority** - the priority number assigned to the deployment.
+   * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub. 
+   * **Device metrics** - the number of IoT Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
+   * **Custom metrics** - the number of IoT Edge devices in the deployment reporting data for any metrics that you defined for the deployment.
+   * **Creation time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. 
+1. Select the deployment that you want to monitor.  
+1. Inspect the deployment details. You can use tabs to review the details of the deployment.
 
-## <a name="modify-a-deployment"></a>Modificar uma implementação
+## <a name="modify-a-deployment"></a>Modify a deployment
 
-Quando modifica uma implementação, as alterações são replicadas imediatamente para todos os dispositivos direcionados. 
+When you modify a deployment, the changes immediately replicate to all targeted devices. 
 
-Se atualizar a condição de destino, ocorrem as seguintes atualizações:
+If you update the target condition, the following updates occur:
 
-* Se um dispositivo não cumpre a condição de destino antigo, mas atenda à nova condição de destino e esta implementação é a prioridade mais alta para esse dispositivo, em seguida, esta implementação é aplicada ao dispositivo. 
-* Se um dispositivo atualmente em execução nesta implementação já não cumpre a condição de destino, desinstala esta implementação e sobre a implementação de prioridade mais alta seguinte. 
-* Se um dispositivo atualmente em execução nesta implementação já não cumpre a condição de destino e não cumpre a condição de destino de todas as implementações, em seguida, nenhuma alteração ocorre no dispositivo. O dispositivo continua a ser executada os respectivos módulos atuais no respetivo estado atual, mas não é gerido como parte desta implementação mais. Assim que ele atenda à condição de destino de qualquer outra implementação, desinstala esta implementação e demora no novo. 
+* If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
+* If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
+* If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one. 
 
-Para modificar uma implementação, utilize os seguintes passos: 
+To modify a deployment, use the following steps: 
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue até ao seu hub IoT. 
-1. Selecione **do IoT Edge**.
-1. Selecione **implementações do IoT Edge**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
+1. Select **IoT Edge**.
+1. Select **IoT Edge deployments**. 
 
-   ![Ver as implementações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Selecione a implementação que pretende modificar. 
-1. Efetue as atualizações para os seguintes campos: 
-   * Condição de destino
-   * As métricas - pode modificar ou eliminar as métricas que definiu ou adicionar novos.
+1. Select the deployment that you want to modify. 
+1. Make updates to the following fields: 
+   * Target condition
+   * Metrics - you can modify or delete metrics you've defined, or add new ones.
    * Etiquetas
    * Prioridade
 1. Selecione **Guardar**.
-1. Siga os passos em [monitorizar uma implementação](#monitor-a-deployment) para ver as alterações a implementar. 
+1. Follow the steps in [Monitor a deployment](#monitor-a-deployment) to watch the changes roll out. 
 
-## <a name="delete-a-deployment"></a>Eliminar uma implementação
+## <a name="delete-a-deployment"></a>Delete a deployment
 
-Quando elimina uma implementação, demorar todos os dispositivos na sua implementação de prioridade mais alta seguinte. Se os dispositivos não cumprem a condição de destino de qualquer outra implementação, os módulos não são removidos quando a implementação é eliminada. 
+When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue até ao seu hub IoT. 
-1. Selecione **do IoT Edge**.
-1. Selecione **implementações do IoT Edge**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub. 
+1. Select **IoT Edge**.
+1. Select **IoT Edge deployments**. 
 
-   ![Ver as implementações do IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Utilize a caixa de verificação para selecionar a implementação que pretende eliminar. 
+1. Use the checkbox to select the deployment that you want to delete. 
 1. Selecione **Eliminar**.
-1. Uma linha de comandos irá informá-lo a que esta ação irá eliminar esta implementação e reverter para o estado anterior para todos os dispositivos.  Isso significa que uma implementação com uma prioridade mais baixa será aplicada.  Se se destinar sem implementações, não módulos serão removidos. Se pretender remover todos os módulos do seu dispositivo, crie uma implementação com zero módulos e implementá-la nos dispositivos do mesmo. Selecione **Sim** para continuar. 
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [implementar módulos para dispositivos do IoT Edge](module-deployment-monitoring.md).
+Learn more about [Deploying modules to IoT Edge devices](module-deployment-monitoring.md).

@@ -1,38 +1,33 @@
 ---
-title: Início rápido-enviar eventos do registro de contêiner do Azure para a grade de eventos
-description: Neste guia de início rápido, você habilita eventos de grade de eventos para o registro de contêiner e envia eventos de envio e exclusão de imagem de contêiner para um aplicativo de exemplo.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Quickstart - Send events to Event Grid
+description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: danlep
 ms.custom: seodec18
-ms.openlocfilehash: 49ee9a7f12601b0d93e320ab797be4a1ada41c04
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 1ff9572cf8614e3eb5d015a602ca3f878875a0a4
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309808"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455340"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: Enviar eventos do registro de contêiner privado para a grade de eventos
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Send events from private container registry to Event Grid
 
-A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que fornece consumo uniforme de eventos usando um modelo de publicação/assinatura. Neste guia de início rápido, você usa o CLI do Azure para criar um registro de contêiner, assinar eventos de registro e, em seguida, implantar um aplicativo Web de exemplo para receber os eventos. Por fim, você dispara a `push` imagem `delete` de contêiner e eventos e exibe a carga do evento no aplicativo de exemplo.
+Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model. In this quickstart, you use the Azure CLI to create a container registry, subscribe to registry events, then deploy a sample web application to receive the events. Finally, you trigger container image `push` and `delete` events and view the event payload in the sample application.
 
-Depois de concluir as etapas neste artigo, os eventos enviados do registro de contêiner para a grade de eventos aparecem no aplicativo Web de exemplo:
+After you complete the steps in this article, events sent from your container registry to Event Grid appear in the sample web app:
 
-![Navegador da Web renderizando o aplicativo Web de exemplo com três eventos recebidos][sample-app-01]
+![Web browser rendering the sample web application with three received events][sample-app-01]
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Os comandos CLI do Azure neste artigo são formatados para o Shell **bash** . Se você estiver usando um shell diferente, como o PowerShell ou o prompt de comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variável de acordo. Este artigo usa variáveis para minimizar a quantidade de edição de comandos necessária.
+The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia seus recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de  recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para seu grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
+An Azure resource group is a logical container in which you deploy and manage your Azure resources. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. If you want to use a different name for your resource group, set `RESOURCE_GROUP_NAME` to a different value.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -40,9 +35,9 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
 
-Em seguida, implante um registro de contêiner no grupo de recursos com os comandos a seguir. Antes de executar o comando [AZ ACR Create][az-acr-create] , defina `ACR_NAME` como um nome para o registro. O nome deve ser exclusivo no Azure e é restrito a 5-50 caracteres alfanuméricos.
+Next, deploy a container registry into the resource group with the following commands. Before you run the [az acr create][az-acr-create] command, set `ACR_NAME` to a name for your registry. The name must be unique within Azure, and is restricted to 5-50 alphanumeric characters.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -50,7 +45,7 @@ ACR_NAME=<acrName>
 az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic
 ```
 
-Depois que o registro tiver sido criado, o CLI do Azure retornará uma saída semelhante à seguinte:
+Once the registry has been created, the Azure CLI returns output similar to the following:
 
 ```json
 {
@@ -74,11 +69,11 @@ Depois que o registro tiver sido criado, o CLI do Azure retornará uma saída se
 
 ```
 
-## <a name="create-an-event-endpoint"></a>Criar um ponto de extremidade de evento
+## <a name="create-an-event-endpoint"></a>Create an event endpoint
 
-Nesta seção, você usa um modelo do Resource Manager localizado em um repositório GitHub para implantar um aplicativo Web de exemplo pré-compilado para Azure App serviço. Posteriormente, você assina os eventos da grade de eventos do registro e especifica esse aplicativo como o ponto de extremidade para o qual os eventos são enviados.
+In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
 
-Para implantar o aplicativo de exemplo, `SITE_NAME` defina como um nome exclusivo para seu aplicativo Web e execute os comandos a seguir. O nome do site deve ser exclusivo no Azure porque ele faz parte do FQDN (nome de domínio totalmente qualificado) do aplicativo Web. Em uma seção posterior, navegue até o FQDN do aplicativo em um navegador da Web para exibir os eventos do registro.
+To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -89,19 +84,19 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Depois que a implantação for bem-sucedida (pode levar alguns minutos), abra um navegador e navegue até seu aplicativo Web para verificar se ele está em execução:
+Once the deployment has succeeded (it might take a few minutes), open a browser and navigate to your web app to make sure it's running:
 
 `http://<your-site-name>.azurewebsites.net`
 
-Você deve ver o aplicativo de exemplo renderizado sem nenhuma mensagem de evento exibida:
+You should see the sample app rendered with no event messages displayed:
 
-![Navegador da Web mostrando aplicativo Web de exemplo sem eventos exibidos][sample-app-02]
+![Web browser showing sample web app with no events displayed][sample-app-02]
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-registry-events"></a>Assinar eventos do registro
+## <a name="subscribe-to-registry-events"></a>Subscribe to registry events
 
-Na grade de eventos, você assina um *tópico* para informar quais eventos você deseja controlar e para onde enviá-los. O comando [AZ eventgrid Event-Subscription Create][az-eventgrid-event-subscription-create] a seguir assina o registro de contêiner que você criou e especifica a URL do seu aplicativo Web como o ponto de extremidade para o qual ele deve enviar eventos. As variáveis de ambiente preenchidas nas seções anteriores são reutilizadas aqui, portanto, nenhuma edição é necessária.
+In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -113,7 +108,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-Quando a assinatura for concluída, você deverá ver uma saída semelhante à seguinte:
+When the subscription is completed, you should see output similar to the following:
 
 ```JSON
 {
@@ -140,19 +135,19 @@ Quando a assinatura for concluída, você deverá ver uma saída semelhante à s
 }
 ```
 
-## <a name="trigger-registry-events"></a>Disparar eventos de registro
+## <a name="trigger-registry-events"></a>Trigger registry events
 
-Agora que o aplicativo de exemplo está em execução e você se inscreveu no registro com a grade de eventos, você está pronto para gerar alguns eventos. Nesta seção, você usará tarefas ACR para criar e enviar por push uma imagem de contêiner para o registro. As tarefas ACR são um recurso do registro de contêiner do Azure que permite que você crie imagens de contêiner na nuvem, sem precisar do mecanismo do Docker instalado no computador local.
+Now that the sample app is up and running and you've subscribed to your registry with Event Grid, you're ready to generate some events. In this section, you use ACR Tasks to build and push a container image to your registry. ACR Tasks is a feature of Azure Container Registry that allows you to build container images in the cloud, without needing the Docker Engine installed on your local machine.
 
-### <a name="build-and-push-image"></a>Criar e enviar imagem por push
+### <a name="build-and-push-image"></a>Build and push image
 
-Execute o comando CLI do Azure a seguir para criar uma imagem de contêiner do conteúdo de um repositório GitHub. Por padrão, as tarefas ACR enviam automaticamente uma imagem criada com êxito para o registro, o que `ImagePushed` gera o evento.
+Execute the following Azure CLI command to build a container image from the contents of a GitHub repository. By default, ACR Tasks automatically pushes a successfully built image to your registry, which generates the `ImagePushed` event.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Você deverá ver uma saída semelhante à seguinte, enquanto as tarefas ACR são compiladas e, em seguida, enviam a imagem por push. A seguinte saída de exemplo foi truncada para fins de brevidade.
+You should see output similar to the following while ACR Tasks builds and then pushes your image. The following sample output has been truncated for brevity.
 
 ```console
 $ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
@@ -169,13 +164,13 @@ Step 1/5 : FROM node:9-alpine
 ...
 ```
 
-Para verificar se a imagem interna está no registro, execute o seguinte comando para exibir as marcas no repositório "MYIMAGE":
+To verify that the built image is in your registry, execute the following command to view the tags in the "myimage" repository:
 
 ```azurecli-interactive
 az acr repository show-tags --name $ACR_NAME --repository myimage
 ```
 
-A marca "v1" da imagem que você criou deve aparecer na saída, semelhante à seguinte:
+The "v1" tag of the image you built should appear in the output, similar to the following:
 
 ```console
 $ az acr repository show-tags --name $ACR_NAME --repository myimage
@@ -184,15 +179,15 @@ $ az acr repository show-tags --name $ACR_NAME --repository myimage
 ]
 ```
 
-### <a name="delete-the-image"></a>Excluir a imagem
+### <a name="delete-the-image"></a>Delete the image
 
-Agora, gere um `ImageDeleted` evento excluindo a imagem com o comando [AZ ACR Repository Delete][az-acr-repository-delete] :
+Now, generate an `ImageDeleted` event by deleting the image with the [az acr repository delete][az-acr-repository-delete] command:
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
 ```
 
-Você deverá ver uma saída semelhante à seguinte, solicitando a confirmação para excluir o manifesto e as imagens associadas:
+You should see output similar to the following, asking for confirmation to delete the manifest and associated images:
 
 ```console
 $ az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -200,38 +195,38 @@ This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a5
 Are you sure you want to continue? (y/n): y
 ```
 
-## <a name="view-registry-events"></a>Exibir eventos do registro
+## <a name="view-registry-events"></a>View registry events
 
-Agora você enviou por push uma imagem para o registro e a excluiu. Navegue até o aplicativo Web do Visualizador de grade de eventos e você deverá `ImageDeleted` ver `ImagePushed` os eventos e. Você também pode ver um evento de validação de assinatura gerado executando o comando na seção [assinar eventos de registro](#subscribe-to-registry-events) .
+You've now pushed an image to your registry and then deleted it. Navigate to your Event Grid Viewer web app, and you should see both `ImageDeleted` and `ImagePushed` events. You might also see a subscription validation event generated by executing the command in the [Subscribe to registry events](#subscribe-to-registry-events) section.
 
-A captura de tela a seguir mostra o aplicativo de exemplo com os três `ImageDeleted` eventos, e o evento é expandido para mostrar seus detalhes.
+The following screenshot shows the sample app with the three events, and the `ImageDeleted` event is expanded to show its details.
 
-![Navegador da Web mostrando o aplicativo de exemplo com eventos ImagePushed e ImageDeleted][sample-app-03]
+![Web browser showing the sample app with ImagePushed and ImageDeleted events][sample-app-03]
 
-Parabéns! Se você vir os `ImagePushed` eventos `ImageDeleted` e, o registro está enviando eventos para a grade de eventos e a grade de eventos está encaminhando esses eventos para o ponto de extremidade do aplicativo Web.
+Parabéns! If you see the `ImagePushed` and `ImageDeleted` events, your registry is sending events to Event Grid, and Event Grid is forwarding those events to your web app endpoint.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir os recursos criados neste guia de início rápido, você poderá excluí-los com o comando CLI do Azure a seguir. Quando você exclui um grupo de recursos, todos os recursos que ele contém são excluídos permanentemente.
+Once you're done with the resources you created in this quickstart, you can delete them all with the following Azure CLI command. When you delete a resource group, all of the resources it contains are permanently deleted.
 
-**AVISO**: Esta operação é irreversível. Certifique-se de que você não precisa mais de nenhum dos recursos do grupo antes de executar o comando.
+**WARNING**: This operation is irreversible. Be sure you no longer need any of the resources in the group before running the command.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME
 ```
 
-## <a name="event-grid-event-schema"></a>Esquema de evento da grade de eventos
+## <a name="event-grid-event-schema"></a>Event Grid event schema
 
-Você pode encontrar a referência de esquema de mensagem de evento do registro de contêiner do Azure na documentação da grade de eventos:
+You can find the Azure Container Registry event message schema reference in the Event Grid documentation:
 
-[Esquema de evento da grade de eventos do Azure para registro de contêiner](../event-grid/event-schema-container-registry.md)
+[Azure Event Grid event schema for Container Registry](../event-grid/event-schema-container-registry.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você implantou um registro de contêiner, criou uma imagem com tarefas ACR, excluiu-a e consumiu os eventos do registro da grade de eventos com um aplicativo de exemplo. Em seguida, vá para o tutorial de tarefas do ACR para saber mais sobre como criar imagens de contêiner na nuvem, incluindo compilações automatizadas na atualização da imagem base:
+In this quickstart, you deployed a container registry, built an image with ACR Tasks, deleted it, and have consumed your registry's events from Event Grid with a sample application. Next, move on to the ACR Tasks tutorial to learn more about building container images in the cloud, including automated builds on base image update:
 
 > [!div class="nextstepaction"]
-> [Criar imagens de contêiner na nuvem com tarefas ACR](container-registry-tutorial-quick-task.md)
+> [Build container images in the cloud with ACR Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

@@ -1,54 +1,49 @@
 ---
-title: Verificar a integridade do registro no registro de contêiner do Azure
-description: Saiba como executar um comando de diagnóstico rápido para identificar problemas comuns ao usar um registro de contêiner do Azure, incluindo a configuração local do Docker e a conectividade com o registro
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Check registry health
+description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: danlep
-ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309737"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456402"
 ---
-# <a name="check-the-health-of-an-azure-container-registry"></a>Verificar a integridade de um registro de contêiner do Azure
+# <a name="check-the-health-of-an-azure-container-registry"></a>Check the health of an Azure container registry
 
-Ao usar um registro de contêiner do Azure, ocasionalmente você pode encontrar problemas. Por exemplo, talvez você não consiga efetuar pull de uma imagem de contêiner devido a um problema com o Docker em seu ambiente local. Ou, um problema de rede pode impedi-lo de se conectar ao registro. 
+When using an Azure container registry, you might occasionally encounter problems. For example, you might not be able to pull a container image because of an issue with Docker in your local environment. Or, a network issue might prevent you from connecting to the registry. 
 
-Como uma primeira etapa de diagnóstico, execute o comando [AZ ACR check-Health][az-acr-check-health] para obter informações sobre a integridade do ambiente e, opcionalmente, o acesso a um registro de destino. Esse comando está disponível no CLI do Azure versão 2.0.67 ou posterior. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
+As a first diagnostic step, run the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
-## <a name="run-az-acr-check-health"></a>Executar AZ ACR check-Health
+## <a name="run-az-acr-check-health"></a>Run az acr check-health
 
-Os exemplos a seguir mostram diferentes maneiras de executar `az acr check-health` o comando.
+The follow examples show different ways to run the `az acr check-health` command.
 
 > [!NOTE]
-> Se você executar o comando em Azure Cloud Shell, o ambiente local não será verificado. No entanto, você pode verificar o acesso a um registro de destino.
+> If you run the command in Azure Cloud Shell, the local environment is not checked. However, you can check the access to a target registry.
 
-### <a name="check-the-environment-only"></a>Verificar apenas o ambiente
+### <a name="check-the-environment-only"></a>Check the environment only
 
-Para verificar o daemon do Docker local, a versão da CLI e a configuração do cliente Helm, execute o comando sem parâmetros adicionais:
+To check the local Docker daemon, CLI version, and Helm client configuration, run the command without additional parameters:
 
 ```azurecli
 az acr check-health
 ```
 
-### <a name="check-the-environment-and-a-target-registry"></a>Verificar o ambiente e um registro de destino
+### <a name="check-the-environment-and-a-target-registry"></a>Check the environment and a target registry
 
-Para verificar o acesso a um registro, bem como executar verificações de ambiente locais, passe o nome de um registro de destino. Por exemplo:
+To check access to a registry as well as perform local environment checks, pass the name of a target registry. Por exemplo:
 
 ```azurecli
 az acr check-health --name myregistry
 ```
 
-## <a name="error-reporting"></a>Relatório de erros
+## <a name="error-reporting"></a>Error reporting
 
-O comando registra as informações na saída padrão. Se um problema for detectado, ele fornecerá um código de erro e uma descrição. Para obter mais informações sobre os códigos e as possíveis soluções, consulte a [referência de erro](container-registry-health-error-reference.md).
+The command logs information to the standard output. If a problem is detected, it provides an error code and description. For more information about the codes and possible solutions, see the [error reference](container-registry-health-error-reference.md).
 
-Por padrão, o comando é interrompido sempre que encontrar um erro. Você também pode executar o comando para que ele forneça saída para todas as verificações de integridade, mesmo que sejam encontrados erros. Adicione o `--ignore-errors` parâmetro, conforme mostrado nos exemplos a seguir:
+By default, the command stops whenever it finds an error. You can also run the command so that it provides output for all health checks, even if errors are found. Add the `--ignore-errors` parameter, as shown in the following examples:
 
 ```azurecli
 # Check environment only
@@ -77,11 +72,11 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter detalhes sobre os códigos de erro retornados pelo comando [AZ ACR check-Health][az-acr-check-health] , consulte a [referência de erro de verificação de integridade](container-registry-health-error-reference.md).
+For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
 
-Consulte as [perguntas frequentes](container-registry-faq.md) para perguntas frequentes e outros problemas conhecidos sobre o registro de contêiner do Azure.
+See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 

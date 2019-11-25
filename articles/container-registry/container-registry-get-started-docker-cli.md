@@ -1,54 +1,49 @@
 ---
-title: Enviar imagem do Docker por push para o registro de contêiner do Azure privado
+title: Push & pull Docker image
 description: Enviar e extrair imagens do Docker para um registo privado de contentor do Azure com a CLI do Docker
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2019
-ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309451"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456366"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
-Os registos de contentores do Azure armazenam e gerem imagens de contentores do [Docker](https://hub.docker.com) privadas, de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens do Docker públicas. Você pode usar a [interface de linha de comando](https://docs.docker.com/engine/reference/commandline/cli/) do Docker (CLI do Docker) para operações de [logon](https://docs.docker.com/engine/reference/commandline/login/), [Push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/)e outras no registro de contêiner.
+Os registos de contentores do Azure armazenam e gerem imagens de contentores do [Docker](https://hub.docker.com) privadas, de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens do Docker públicas. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry.
 
-Nas etapas a seguir, você baixa uma [imagem do Nginx](https://store.docker.com/images/nginx) oficial do registro do Hub do Docker público, marca-a para seu registro de contêiner do Azure privado, envia-a por push para o registro e, em seguida, a extrai do registro.
+In the following steps, you download an official [Nginx image](https://store.docker.com/images/nginx) from the public Docker Hub registry, tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Registo de contentores do Azure** - crie um registos de contentores na sua subscrição do Azure. Por exemplo, use o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
-* **CLI** do Docker-você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [MacOS][docker-mac], [Windows][docker-windows]ou [Linux][docker-linux] .
+* **Registo de contentores do Azure** - crie um registos de contentores na sua subscrição do Azure. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Docker CLI** - You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## <a name="log-in-to-a-registry"></a>Iniciar sessão num registo
 
-Há [várias maneiras de](container-registry-authentication.md) se autenticar no registro de contêiner privado. O método recomendado ao trabalhar em uma linha de comando é com o comando CLI do Azure [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Por exemplo, para fazer logon em um registro chamado *myregistry*:
+There are [several ways to authenticate](container-registry-authentication.md) to your private container registry. The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). For example, to log in to a registry named *myregistry*:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-Você também pode fazer logon com o [logon](https://docs.docker.com/engine/reference/commandline/login/)do Docker. Por exemplo, você pode ter [atribuído uma entidade de serviço](container-registry-authentication.md#service-principal) ao registro para um cenário de automação. Quando você executar o comando a seguir, forneça de forma interativa a appID (nome de usuário) e a senha da entidade de serviço quando solicitado. Para obter as práticas recomendadas para gerenciar as credenciais de logon, consulte a referência do comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) :
+You can also log in with [docker login](https://docs.docker.com/engine/reference/commandline/login/). For example, you might have [assigned a service principal](container-registry-authentication.md#service-principal) to your registry for an automation scenario. When you run the following command, interactively provide the service principal appID (username) and password when prompted. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
 
 ```
 docker login myregistry.azurecr.io
 ```
 
-Os dois comandos `Login Succeeded` retornam uma vez concluídos.
+Both commands return `Login Succeeded` once completed.
 
 > [!TIP]
-> Sempre especifique o nome totalmente qualificado do registro (todas as letras minúsculas) `docker login` ao usar e ao marcar imagens para enviar por push ao registro. Nos exemplos deste artigo, o nome totalmente qualificado é *myregistry.azurecr.Io*.
+> Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag images for pushing to your registry. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.
 
-## <a name="pull-the-official-nginx-image"></a>Efetuar pull da imagem oficial do Nginx
+## <a name="pull-the-official-nginx-image"></a>Pull the official Nginx image
 
-Primeiro, receba a imagem Nginx pública em seu computador local.
+First, pull the public Nginx image to your local computer.
 
 ```
 docker pull nginx
@@ -56,81 +51,81 @@ docker pull nginx
 
 ## <a name="run-the-container-locally"></a>Executar o contentor localmente
 
-Execute o comando do [Docker execute](https://docs.docker.com/engine/reference/run/) a seguir para iniciar uma instância local do contêiner Nginx interativamente (`-it`) na porta 8080. O `--rm` argumento especifica que o contêiner deve ser removido quando você o interrompe.
+Execute following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
 
 ```
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Navegue até `http://localhost:8080` para exibir a página da Web padrão servida pelo Nginx no contêiner em execução. Você deverá ver uma página semelhante à seguinte:
+Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. You should see a page similar to the following:
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Como você iniciou o contêiner interativamente com `-it`o, você pode ver a saída do servidor Nginx na linha de comando depois de navegar para ele no navegador.
+Because you started the container interactively with `-it`, you can see the Nginx server's output on the command line after navigating to it in your browser.
 
-Para parar e remover o contêiner, pressione `Control`. + `C`
+To stop and remove the container, press `Control`+`C`.
 
-## <a name="create-an-alias-of-the-image"></a>Criar um alias da imagem
+## <a name="create-an-alias-of-the-image"></a>Create an alias of the image
 
-Use a [marca](https://docs.docker.com/engine/reference/commandline/tag/) do Docker para criar um alias da imagem com o caminho totalmente qualificado para o registro. Este exemplo especifica o espaço de nomes `samples` para evitar sobrepovoar a raiz do registo.
+Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to create an alias of the image with the fully qualified path to your registry. Este exemplo especifica o espaço de nomes `samples` para evitar sobrepovoar a raiz do registo.
 
 ```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
-Para obter mais informações sobre como marcar com namespaces, consulte a seção namespaces do [repositório](container-registry-best-practices.md#repository-namespaces) de [práticas recomendadas para o registro de contêiner do Azure](container-registry-best-practices.md).
+For more information about tagging with namespaces, see the [Repository namespaces](container-registry-best-practices.md#repository-namespaces) section of [Best practices for Azure Container Registry](container-registry-best-practices.md).
 
-## <a name="push-the-image-to-your-registry"></a>Enviar a imagem por push para o registro
+## <a name="push-the-image-to-your-registry"></a>Push the image to your registry
 
-Agora que você marcou a imagem com o caminho totalmente qualificado para o registro privado, poderá enviá-la por push ao registro com o [Push](https://docs.docker.com/engine/reference/commandline/push/)do Docker:
+Now that you've tagged the image with the fully qualified path to your private registry, you can push it to the registry with [docker push](https://docs.docker.com/engine/reference/commandline/push/):
 
 ```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
-## <a name="pull-the-image-from-your-registry"></a>Efetuar pull da imagem do registro
+## <a name="pull-the-image-from-your-registry"></a>Pull the image from your registry
 
-Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para efetuar pull da imagem do registro:
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to pull the image from your registry:
 
 ```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
-## <a name="start-the-nginx-container"></a>Iniciar o contêiner Nginx
+## <a name="start-the-nginx-container"></a>Start the Nginx container
 
-Use o comando [Docker execute](https://docs.docker.com/engine/reference/run/) para executar a imagem que você recebeu do registro:
+Use the [docker run](https://docs.docker.com/engine/reference/run/) command to run the image you've pulled from your registry:
 
 ```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Navegue até `http://localhost:8080` para exibir o contêiner em execução.
+Browse to `http://localhost:8080` to view the running container.
 
-Para parar e remover o contêiner, pressione `Control`. + `C`
+To stop and remove the container, press `Control`+`C`.
 
-## <a name="remove-the-image-optional"></a>Remover a imagem (opcional)
+## <a name="remove-the-image-optional"></a>Remove the image (optional)
 
-Se você não precisar mais da imagem Nginx, poderá excluí-la localmente com o comando [Docker RMI](https://docs.docker.com/engine/reference/commandline/rmi/) .
+If you no longer need the Nginx image, you can delete it locally with the [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) command.
 
 ```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Para remover imagens do registro de contêiner do Azure, você pode usar o comando CLI do Azure [AZ ACR Repository Delete](/cli/azure/acr/repository#az-acr-repository-delete). Por exemplo, o comando a seguir exclui o manifesto referenciado `samples/nginx:latest` pela marca, quaisquer dados de camada exclusivos e todas as outras marcas que fazem referência ao manifesto.
+To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que você conhece os conceitos básicos, está pronto para começar a usar o registro! Por exemplo, implante imagens de contêiner do registro para:
+Now that you know the basics, you're ready to start using your registry! For example, deploy container images from your registry to:
 
-* [Serviço Kubernetes do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-Opcionalmente, instale a [extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e a extensão de [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com seus registros de contêiner do Azure. Efetuar pull e enviar imagens por push para um registro de contêiner do Azure ou executar tarefas de ACR, tudo no Visual Studio Code.
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 
 <!-- LINKS - external -->

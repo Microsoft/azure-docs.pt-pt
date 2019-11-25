@@ -1,6 +1,6 @@
 ---
-title: Implantar módulos de Visual Studio Code Azure IoT Edge | Microsoft Docs
-description: Usar Visual Studio Code para implantar módulos em um dispositivo IoT Edge
+title: Deploy modules from Visual Studio Code - Azure IoT Edge | Microsoft Docs
+description: Use Visual Studio Code to deploy modules to an IoT Edge device
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,34 +9,33 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: c3d721427075736138ba73fda51a4fd515125f1c
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 415494fed0870a855a20314816bcebbe22680a98
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964864"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457409"
 ---
-# <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implantar módulos de Azure IoT Edge de Visual Studio Code
+# <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Deploy Azure IoT Edge modules from Visual Studio Code
 
-Depois de criar IoT Edge módulos com sua lógica de negócios, você deseja implantá-los em seus dispositivos para operar na borda. Se você tiver vários módulos que trabalham juntos para coletar e processar dados, poderá implantá-los todos de uma vez e declarar as regras de roteamento que os conectam.
+Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
-Este artigo mostra como criar um manifesto de implantação JSON e, em seguida, usar esse arquivo para enviar por push a implantação para um dispositivo IoT Edge. Para obter informações sobre como criar uma implantação que se destina a vários dispositivos com base em suas marcas compartilhadas, consulte [implantar e monitorar módulos de IOT Edge em escala](how-to-deploy-monitor.md)
+This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um [Hub IOT](../iot-hub/iot-hub-create-through-portal.md) em sua assinatura do Azure.
-* Um [dispositivo IOT Edge](how-to-register-device.md#register-with-visual-studio-code) com o IOT Edge Runtime instalado.
+* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+* An [IoT Edge device](how-to-register-device.md#register-with-visual-studio-code) with the IoT Edge runtime installed.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) for Visual Studio Code.
 
-## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
+## <a name="configure-a-deployment-manifest"></a>Configure a deployment manifest
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos serão implantados, como os dados fluem entre os módulos e as propriedades desejadas do módulo gêmeos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [entender como IOT Edge módulos podem ser usados, configurados e reutilizados](module-composition.md).
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-Para implantar módulos usando Visual Studio Code, salve o manifesto de implantação localmente como um. Arquivo JSON. Você usará o caminho do arquivo na próxima seção ao executar o comando para aplicar a configuração ao seu dispositivo.
+To deploy modules using Visual Studio Code, save the deployment manifest locally as a .JSON file. You will use the file path in the next section when you run the command to apply the configuration to your device.
 
-Aqui está um manifesto de implantação básica com um módulo como exemplo:
+Here's a basic deployment manifest with one module as an example:
 
    ```json
    {
@@ -102,53 +101,53 @@ Aqui está um manifesto de implantação básica com um módulo como exemplo:
    }
    ```
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar seu hub IoT
+## <a name="sign-in-to-access-your-iot-hub"></a>Sign in to access your IoT hub
 
-Você pode usar as extensões do Azure IoT para Visual Studio Code para executar operações com o Hub IoT. Para que essas operações funcionem, você precisa entrar em sua conta do Azure e selecionar o Hub IoT no qual você está trabalhando.
+You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
 
-1. No Visual Studio Code, abra a exibição do **Explorer** .
+1. In Visual Studio Code, open the **Explorer** view.
 
-1. Na parte inferior do Explorer, expanda a seção **dispositivos do Hub IOT do Azure** .
+1. At the bottom of the Explorer, expand the **Azure IoT Hub Devices** section.
 
-   ![Seção expandir dispositivos do Hub IoT do Azure](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices section](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. Clique em **...** no cabeçalho da seção **dispositivos do Hub IOT do Azure** . Se você não vir as reticências, passe o mouse sobre o cabeçalho.
+1. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header.
 
-1. Escolha **selecionar Hub IOT**.
+1. Choose **Select IoT Hub**.
 
-1. Se você não estiver conectado à sua conta do Azure, siga os prompts para fazer isso.
+1. If you are not signed in to your Azure account, follow the prompts to do so.
 
 1. Selecione a sua subscrição do Azure.
 
-1. Selecione o Hub IoT.
+1. Select your IoT hub.
 
 ## <a name="deploy-to-your-device"></a>Implementar no seu novo dispositivo
 
-Você implanta módulos em seu dispositivo aplicando o manifesto de implantação que você configurou com as informações do módulo.
+You deploy modules to your device by applying the deployment manifest that you configured with the module information.
 
-1. Na exibição do Visual Studio Code Explorer, expanda a seção **dispositivos do Hub IOT do Azure** .
+1. In the Visual Studio Code explorer view, expand the **Azure IoT Hub Devices** section.
 
-1. Clique com o botão direito do mouse no dispositivo IoT Edge que você deseja configurar com o manifesto de implantação.
+1. Right-click on the IoT Edge device that you want to configure with the deployment manifest.
 
     > [!TIP]
-    > Para confirmar que o dispositivo escolhido é um IoT Edge dispositivo, selecione-o para expandir a lista de módulos e verificar a presença de **$edgeHub** e **$edgeAgent**. Cada dispositivo de IoT Edge inclui esses dois módulos.
+    > To confirm that the device you've chosen is an IoT Edge device, select it to expand the list of modules and verify the presence of **$edgeHub** and **$edgeAgent**. Every IoT Edge device includes these two modules.
 
-1. Selecione **criar implantação para um único dispositivo**.
+1. Select **Create Deployment for Single Device**.
 
-1. Navegue até o arquivo JSON do manifesto de implantação que você deseja usar e clique em **selecionar o manifesto de implantação do Edge**.
+1. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**.
 
-   ![Selecionar o manifesto de implantação do Edge](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
+   ![Select Edge Deployment Manifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
-Os resultados de sua implantação são impressos na saída VS Code. Implantações bem-sucedidas serão aplicadas em alguns minutos se o dispositivo de destino estiver em execução e conectado à Internet.
+The results of your deployment are printed in the VS Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
 
-## <a name="view-modules-on-your-device"></a>Exibir módulos em seu dispositivo
+## <a name="view-modules-on-your-device"></a>View modules on your device
 
-Depois de implantar módulos no seu dispositivo, você pode exibir todos eles na seção dispositivos do **Hub IOT do Azure** . Selecione a seta ao lado do dispositivo IoT Edge para expandi-lo. Todos os módulos em execução no momento são exibidos.
+Once you've deployed modules to your device, you can view all of them in the **Azure IoT Hub Devices** section. Select the arrow next to your IoT Edge device to expand it. All the currently running modules are displayed.
 
-Se você implantou recentemente novos módulos em um dispositivo, passe o mouse sobre o cabeçalho da seção **dispositivos do Hub IOT do Azure** e selecione o ícone de atualização para atualizar a exibição.
+If you recently deployed new modules to a device, hover over the **Azure IoT Hub Devices** section header and select the refresh icon to update the view.
 
-Clique com o botão direito do mouse no nome de um módulo para exibir e editar o módulo.
+Right-click the name of a module to view and edit the module twin.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar e monitorar módulos IOT Edge em escala](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)

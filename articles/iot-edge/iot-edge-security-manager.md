@@ -1,129 +1,128 @@
 ---
-title: Saiba como o Gestor de segurança protege dispositivos, software - Azure IoT Edge | Documentos da Microsoft
-description: Gerencia a postura de segurança de dispositivo do IoT Edge e a integridade dos serviços de segurança.
+title: Learn how the security manager protects devices, software - Azure IoT Edge | Microsoft Docs
+description: Manages the IoT Edge device security stance and the integrity of security services.
 services: iot-edge
-keywords: segurança, o elemento seguro, o enclave, TEE, IoT Edge
+keywords: security, secure element, enclave, TEE, IoT Edge
 author: eustacea
 manager: philmea
 ms.author: eustacea
 ms.date: 08/30/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: f137070cb8a62f2c11f9e2688b5c7db47c1b866f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208214"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457527"
 ---
-# <a name="azure-iot-edge-security-manager"></a>Gestor de segurança de IoT Edge do Azure
+# <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge security manager
 
-O Gestor de segurança do Azure IoT Edge é um principal de segurança bem vinculado para proteger o dispositivo IoT Edge e todos os seus componentes ao abstrair o hardware de silicon seguro. É o ponto focal para proteção de segurança e fornece ponto de integração de tecnologia para OEMs (fabricantes originais de equipamento).
+The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. It is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).
 
-![Gestor de segurança de IoT Edge do Azure](media/edge-security-manager/iot-edge-security-manager.png)
+![Azure IoT Edge security manager](media/edge-security-manager/iot-edge-security-manager.png)
 
-Gestor de segurança de IoT Edge tem como objetivo para defender a integridade do dispositivo IoT Edge e todas as operações de software inerente. O Gerenciador de segurança faz a transição de confiança da raiz de hardware subjacente de hardware de confiança (se disponível) para inicializar o tempo de execução do IoT Edge e monitorar operações em andamento.  O IoT Edge Security Manager é um software que trabalha junto com o hardware de silício seguro (quando disponível) para ajudar a fornecer as garantias de segurança mais altas possíveis.  
+IoT Edge security manager aims to defend the integrity of the IoT Edge device and all inherent software operations. The security manager transitions trust from underlying hardware root of trust hardware (if available) to bootstrap the IoT Edge runtime and monitor ongoing operations.  The IoT Edge security manager is software working along with secure silicon hardware (where available) to help deliver the highest security assurances possible.  
 
-As responsabilidades do IoT Edge Security Manager incluem, mas não se limitam a:
+The responsibilities of the IoT Edge security manager include, but aren't limited to:
 
-* Protegidos e medidas de inicialização do dispositivo Azure IoT Edge.
-* Provisionamento de identidade de dispositivo e fazer a transição de confiança quando aplicável.
-* Alojar e proteger os componentes de dispositivo de serviços cloud como o serviço aprovisionamento de dispositivos.
-* Provisione com segurança módulos de IoT Edge com identidades exclusivas.
-* Controlador de chamadas para a raiz de hardware do dispositivo de confiança através dos serviços de notary.
-* Monitorize a integridade das operações de IoT Edge no tempo de execução.
+* Secured and measured bootstrapping of the Azure IoT Edge device.
+* Device identity provisioning and transition of trust where applicable.
+* Host and protect device components of cloud services like Device Provisioning Service.
+* Securely provision IoT Edge modules with unique identities.
+* Gatekeeper to device hardware root of trust through notary services.
+* Monitor the integrity of IoT Edge operations at runtime.
 
-Gestor de segurança de IoT Edge inclui três componentes:
+IoT Edge security manager includes three components:
 
-* Daemon de segurança de IoT Edge.
-* Segurança módulo plataforma abstração de hardware (HSM PAL) de camada.
-* Raiz de silicon opcional mas recomendado altamente hardware de HSM ou de confiança.
+* IoT Edge security daemon.
+* Hardware security module platform abstraction Layer (HSM PAL).
+* Optional but highly recommended hardware silicon root of trust or HSM.
 
-## <a name="the-iot-edge-security-daemon"></a>O daemon de segurança de IoT Edge
+## <a name="the-iot-edge-security-daemon"></a>The IoT Edge security daemon
 
-O daemon de segurança IoT Edge é responsável pelas operações lógicas do IoT Edge Security Manager. Representa uma parte significativa da base computacional confiável do dispositivo IoT Edge. 
+The IoT Edge security daemon is responsible for the logical operations of IoT Edge security manager. It represents a significant portion of the trusted computing base of the IoT Edge device. 
 
 ### <a name="design-principles"></a>Princípios de conceção
 
-O daemon de segurança IoT Edge segue dois princípios principais: maximizar a integridade operacional e minimizar o inchar e a rotatividade.
+The IoT Edge security daemon follows two core principles: maximize operational integrity, and minimize bloat and churn.
 
-#### <a name="maximize-operational-integrity"></a>Maximizar a integridade operacional
+#### <a name="maximize-operational-integrity"></a>Maximize operational integrity
 
-O daemon de segurança IoT Edge opera com a integridade mais alta possível dentro do recurso de defesa de qualquer raiz de hardware de confiança. Com a integração adequada, a raiz de hardware de confiança mede e monitoriza o daemon de segurança estaticamente e em tempo de execução para resistir a adulteração.
+The IoT Edge security daemon operates with the highest integrity possible within the defense capability of any given root of trust hardware. With proper integration, the root of trust hardware measures and monitors the security daemon statically and at runtime to resist tampering.
 
-O acesso físico é sempre uma ameaça aos dispositivos IoT. A raiz de hardware de confiança desempenha um papel importante na defesa da integridade do daemon de segurança do IoT Edge.  A raiz de hardware de confiança é proveniente de duas variedades:
+Physical access is always a threat to IoT devices. Hardware root of trust plays an important role in defending the integrity of the IoT Edge security daemon.  Hardware root of trust come in two varieties:
 
-* elementos seguros para a proteção de informações confidenciais, como chaves criptográficas e segredos.
-* enclaves seguras para a proteção de segredos, como chaves e cargas de trabalho confidenciais, como a medição e faturação.
+* secure elements for the protection of sensitive information like secrets and cryptographic keys.
+* secure enclaves for the protection of secrets like keys, and sensitive workloads like metering and billing.
 
-Existem dois tipos de ambientes de execução para usar a raiz de hardware de confiança:
+Two kinds of execution environments exist to use hardware root of trust:
 
-* O REE (ambiente de execução avançada) ou padrão que depende do uso de elementos seguros para proteger informações confidenciais.
-* O sistema de execução confiável (enclave) que depende do uso da tecnologia de segurança segura para proteger informações confidenciais e oferecer proteção à execução de software.
+* The standard or rich execution environment (REE) that relies on the use of secure elements to protect sensitive information.
+* The trusted execution environment (TEE) that relies on the use of secure enclave technology to protect sensitive information and offer protection to software execution.
 
-Para dispositivos que usam o Secure enclaves como raiz de hardware de confiança, a lógica confidencial dentro do IoT Edge daemon de segurança deve estar dentro do enclave.  Partes não confidenciais do daemon de segurança podem estar fora do alto-se.  De qualquer forma, os fabricantes de design original (ODM) e os fabricantes de equipamento original (OEM) devem estender a confiança do seu HSM para medir e defender a integridade do daemon de segurança do IoT Edge na inicialização e no tempo de execução.
+For devices using secure enclaves as hardware root of trust, sensitive logic within IoT Edge security daemon should be inside the enclave.  Non-sensitive portions of the security daemon can be outside of the TEE.  In any case, original design manufacturers (ODM) and original equipment manufacturers (OEM) should extend trust from their HSM to measure and defend the integrity of the IoT Edge security daemon at boot and runtime.
 
-#### <a name="minimize-bloat-and-churn"></a>Minimizar o inchaço e alterações a dados
+#### <a name="minimize-bloat-and-churn"></a>Minimize bloat and churn
 
-Outro princípio básico do IoT Edge Security daemon é minimizar a rotatividade.  Para o nível mais alto de confiança, o daemon de segurança IoT Edge pode firmemente acoplar com a raiz de hardware do dispositivo de confiança e operar como código nativo.  É comum que esses tipos de realização atualizem o software daemon por meio da raiz de hardware dos caminhos de atualização segura da confiança (em oposição aos mecanismos de atualização fornecidos pelo sistema operacional), o que pode ser desafiador em alguns cenários.  Embora a renovação de segurança seja recomendada para dispositivos IoT, requisitos de atualização excessivos ou grandes cargas de atualização podem expandir a superfície de ameaças de várias maneiras.  Os exemplos incluem a ignorar de atualizações para maximizar a disponibilidade operacional ou raiz de hardware de confiança restrita demasiado para processar cargas de atualizações de grandes dimensões.  Como tal, o design de IoT Edge daemon de segurança é conciso para manter a superfície e a base de computação confiável pequena e minimizar os requisitos de atualização.
+Another core principle for the IoT Edge security daemon is to minimize churn.  For the highest level of trust, the IoT Edge security daemon can tightly couple with the device hardware root of trust and operate as native code.  It's common for these types of realizations to update the daemon software through the hardware root of trust's secure update paths (as opposed to OS provided update mechanisms), which can be challenging in some scenarios.  While security renewal is recommended for IoT devices, excessive update requirements or large update payloads can expand the threat surface in many ways.  Examples include skipping of updates to maximize operational availability or root of trust hardware too constrained to process large update payloads.  As such, the design of IoT Edge security daemon is concise to keep the footprint and trusted computing base small and to minimize update requirements.
 
-### <a name="architecture-of-iot-edge-security-daemon"></a>Arquitetura do daemon de segurança de IoT Edge
+### <a name="architecture-of-iot-edge-security-daemon"></a>Architecture of IoT Edge security daemon
 
-![Daemon de segurança do Azure IoT Edge](media/edge-security-manager/iot-edge-security-daemon.png)
+![Azure IoT Edge security daemon](media/edge-security-manager/iot-edge-security-daemon.png)
 
-O daemon de segurança IoT Edge aproveita qualquer raiz de hardware disponível da tecnologia de confiança para proteger a segurança.  Ele também permite a operação de divisão do mundo entre um REE (ambiente de execução padrão/avançado) e um ambiente de execução confiável (configuração) quando as tecnologias de hardware oferecem ambientes de execução confiáveis. As interfaces específicas de função habilitam os principais componentes do IoT Edge para garantir a integridade do dispositivo IoT Edge e de suas operações.
+The IoT Edge security daemon takes advantage of any available hardware root of trust technology for security hardening.  It also allows for split-world operation between a standard/rich execution environment (REE) and a trusted execution environment (TEE) when hardware technologies offer trusted execution environments. Role-specific interfaces enable the major components of IoT Edge to assure the integrity of the IoT Edge device and its operations.
 
-#### <a name="cloud-interface"></a>Interface na cloud
+#### <a name="cloud-interface"></a>Cloud interface
 
-A interface de nuvem permite que o daemon de segurança do IoT Edge acesse serviços de nuvem, como Complementos de nuvem para segurança de dispositivo, como renovação de segurança.  Por exemplo, o daemon de segurança IoT Edge usa atualmente essa interface para acessar o serviço de [provisionamento de dispositivos](https://docs.microsoft.com/azure/iot-dps/) no Hub IOT do Azure para o gerenciamento do ciclo de vida de identidade do dispositivo.  
+The cloud interface allows the IoT Edge security daemon to access cloud services such as cloud compliments to device security like security renewal.  For example, the IoT Edge security daemon currently uses this interface to access the Azure IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) for device identity lifecycle management.  
 
 #### <a name="management-api"></a>API de Gestão
 
-IoT Edge daemon de segurança oferece uma API de gerenciamento, que é chamada pelo agente de IoT Edge ao criar/iniciar/interromper/remover um módulo IoT Edge. O daemon de segurança armazena "registros" para todos os módulos ativos. Estes registos de mapeiam a identidade de um módulo para algumas propriedades do módulo. Alguns exemplos para estas propriedades são o identificador de processo (pid) do processo em execução no contentor ou o hash do conteúdo do contentor de docker.
+IoT Edge security daemon offers a management API, which is called by the IoT Edge agent when creating/starting/stopping/removing an IoT Edge module. The security daemon stores “registrations” for all active modules. These registrations map a module’s identity to some properties of the module. A few examples for these properties are the process identifier (pid) of the process running in the container or the hash of the docker container’s contents.
 
-Essas propriedades são usadas pela API de carga de trabalho (descrita abaixo) para verificar se o chamador está autorizado a executar uma ação.
+These properties are used by the workload API (described below) to verify that the caller is authorized to perform an action.
 
-A API de gerenciamento é uma API privilegiada, que é possível chamá-la somente do agente de IoT Edge.  Uma vez que o daemon de segurança de IoT Edge inicializa e inicia o agente do IoT Edge, pode criar um registo implícito para o agente do IoT Edge, depois que ele tem atestado que o agente do IoT Edge não foi adulterado. O mesmo processo de atestado usado pela API de carga de trabalho também restringe o acesso à API de gerenciamento apenas para o agente de IoT Edge.
+The management API is a privileged API, callable only from the IoT Edge agent.  Since the IoT Edge security daemon bootstraps and starts the IoT Edge agent, it can create an implicit registration for the IoT Edge agent, after it has attested that the IoT Edge agent has not been tampered with. The same attestation process that the workload API uses also restricts access to the management API to only the IoT Edge agent.
 
-#### <a name="container-api"></a>Contentor de API
+#### <a name="container-api"></a>Container API
 
-A API do contêiner interage com o sistema de contêiner em uso para o gerenciamento de módulo, como Moby ou Docker.
+The container API interacts with the container system in use for module management, like Moby or Docker.
 
-#### <a name="workload-api"></a>API da carga de trabalho
+#### <a name="workload-api"></a>Workload API
 
-A API de carga de trabalho é acessível a todos os módulos. Ele fornece uma prova de identidade, seja como um token assinado por raiz do HSM ou um certificado X509, e o grupo de confiança correspondente a um módulo. O grupo de confiança contém certificados de autoridade de certificação para todos os outros servidores nos quais os módulos devem confiar.
+The workload API is accessible to all modules. It provides proof of identity, either as an HSM rooted signed token or an X509 certificate, and the corresponding trust bundle to a module. The trust bundle contains CA certificates for all the other servers that the modules should trust.
 
-O daemon de segurança IoT Edge usa um processo de atestado para proteger essa API. Quando um módulo chama essa API, o daemon de segurança tenta encontrar um registro para a identidade. Se tiver êxito, ele usa as propriedades de registo para medir o módulo. Se o resultado do processo de medição corresponder ao registro, uma nova prova de identidade será gerada. Os certificados de autoridade de certificação correspondentes (grupo de confiança) são retornados para o módulo.  O módulo utiliza este certificado para ligar ao IoT Hub, outros módulos ou iniciar um servidor. Quando o token assinado ou o certificado se aproximar da expiração, é responsabilidade do módulo solicitar um novo certificado. 
+The IoT Edge security daemon uses an attestation process to guard this API. When a module calls this API, the security daemon attempts to find a registration for the identity. If successful, it uses the properties of the registration to measure the module. If the result of the measurement process matches the registration, a new proof of identity is generated. The corresponding CA certificates (trust bundle) are returned to the module.  The module uses this certificate to connect to IoT Hub, other modules, or start a server. When the signed token or certificate nears expiration, it's the responsibility of the module to request a new certificate. 
 
-### <a name="integration-and-maintenance"></a>Integração e manutenção
+### <a name="integration-and-maintenance"></a>Integration and maintenance
 
-A Microsoft mantém o código principal base para o [daemon de segurança de IoT Edge no GitHub](https://github.com/Azure/iotedge/tree/master/edgelet).
+Microsoft maintains the main code base for the [IoT Edge security daemon on GitHub](https://github.com/Azure/iotedge/tree/master/edgelet).
 
-#### <a name="installation-and-updates"></a>Instalação e atualizações
+#### <a name="installation-and-updates"></a>Installation and updates
 
-A instalação e as atualizações do daemon de segurança do IoT Edge são gerenciadas por meio do sistema de gerenciamento de pacotes do sistema operacional. IoT Edge dispositivos com a raiz de hardware de confiança devem fornecer proteção adicional à integridade do daemon gerenciando seu ciclo de vida por meio dos sistemas de gerenciamento de atualizações e inicialização seguras. Os criadores de dispositivos devem explorar esses caminhos com base em seus respectivos recursos de dispositivo.
+Installation and updates of the IoT Edge security daemon are managed through the operating system's package management system. IoT Edge devices with hardware root of trust should provide additional hardening to the integrity of the daemon by managing its lifecycle through the secure boot and updates management systems. Device makers should explore these avenues based on their respective device capabilities.
 
 #### <a name="versioning"></a>Controlo de versões
 
-O runtime do IoT Edge controla e reporta a versão do daemon de segurança de IoT Edge. A versão é relatada como o atributo *Runtime. Platform. Version* da propriedade reportada do módulo do agente de IOT Edge.
+The IoT Edge runtime tracks and reports the version of the IoT Edge security daemon. The version is reported as the *runtime.platform.version* attribute of the IoT Edge agent module reported property.
 
-### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Camada de abstração de plataforma de módulo de segurança do hardware (HSM PAL)
+### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Hardware security module platform abstraction layer (HSM PAL)
 
-A PAL HSM abstrai todos os raiz de hardware de confiança para isolar o desenvolvedor ou do usuário do IoT Edge de suas complexidades.  Ele inclui uma combinação de procedimentos de comunicação da API (interface de programação de aplicativo) e de transporte de domínio, por exemplo, a comunicação entre um ambiente de execução padrão e um enclave seguro.  A implementação real da HSM PAL depende o hardware de segurança específico em utilização. Sua existência permite o uso de praticamente qualquer hardware de silício seguro.
+The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It includes a combination of application programming interface (API) and trans-domain communication procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use. Its existence enables the use of virtually any secure silicon hardware.
 
-## <a name="secure-silicon-root-of-trust-hardware"></a>Raiz de silicon segura de hardware de confiança
+## <a name="secure-silicon-root-of-trust-hardware"></a>Secure silicon root of trust hardware
 
-Silicon segura é necessário âncora de confiança dentro do hardware do dispositivo IoT Edge.  Silicon seguro são fornecidos em várias para incluir o Trusted Platform Module (TPM), elemento seguro incorporado (eSE), ARM TrustZone, Intel SGX e tecnologias de silicon seguro personalizado.  O uso da raiz segura do silício de confiança em dispositivos é recomendado devido às ameaças associadas à acessibilidade física de dispositivos IoT.
+Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), ARM TrustZone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.
 
-## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Integração de Gestor de segurança de IoT Edge e manutenção
+## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge security manager integration and maintenance
 
-O IoT Edge Security Manager tem como objetivo identificar e isolar os componentes que defendem a segurança e a integridade da plataforma Azure IoT Edge para a proteção personalizada. Terceiros, como os criadores de dispositivos, devem fazer uso de recursos de segurança personalizados disponíveis com o hardware do dispositivo.  Consulte a seção próximas etapas para obter links que demonstram como proteger o Gerenciador de segurança do IoT do Azure com o Trusted Platform Module (TPM) em plataformas Linux e Windows. Esses exemplos usam software ou TPMs virtual, mas aplicam-se diretamente ao uso de dispositivos TPM discretos.  
+The IoT Edge security manager aims to identify and isolate the components that defend the security and integrity of the Azure IoT Edge platform for custom hardening. Third parties, like device makers, should make use of custom security features available with their device hardware.  See next steps section for links that demonstrate how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) on Linux and Windows platforms. These examples use software or virtual TPMs but directly apply to using discrete TPM devices.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Leia o blog sobre [proteger um edge inteligente](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
+Read the blog on [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
-Crie e provisione um [dispositivo IOT Edge com um TPM virtual em uma máquina virtual Linux](how-to-auto-provision-simulated-device-linux.md).
+Create and provision an [IoT Edge device with a virtual TPM on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md).
 
-Criar e provisionar um [dispositivo IOT Edge com um TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md).
+Create and provision an [IoT Edge device with a simulated TPM on Windows](how-to-auto-provision-simulated-device-windows.md).

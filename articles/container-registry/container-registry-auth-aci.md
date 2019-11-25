@@ -1,39 +1,34 @@
 ---
-title: Acessar o registro de contêiner do Azure de instâncias de contêiner
-description: Saiba como fornecer acesso a imagens em seu registro de contêiner privado de instâncias de contêiner do Azure usando uma entidade de serviço Azure Active Directory.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Access from Container Instances
+description: Learn how to provide access to images in your private container registry from Azure Container Instances by using an Azure Active Directory service principal.
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: danlep
-ms.openlocfilehash: 53cdca72587dafd39abd3f13ad488dcb460bf622
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931660"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456514"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Authenticate with Azure Container Registry from Azure Container Instances
 
-Você pode usar uma entidade de serviço do Azure Active Directory (AD do Azure) para fornecer acesso aos seus registros de contêiner privado no registro de contêiner do Azure.
+You can use an Azure Active Directory (Azure AD) service principal to provide access to your private container registries in Azure Container Registry.
 
-Neste artigo, você aprende a criar e configurar uma entidade de serviço do Azure AD com permissões de *pull* para o registro. Em seguida, você inicia um contêiner em ACI (instâncias de contêiner do Azure) que efetua pull de sua imagem do registro particular, usando a entidade de serviço para autenticação.
+In this article, you learn to create and configure an Azure AD service principal with *pull* permissions to your registry. Then, you start a container in Azure Container Instances (ACI) that pulls its image from your private registry, using the service principal for authentication.
 
-## <a name="when-to-use-a-service-principal"></a>Quando usar uma entidade de serviço
+## <a name="when-to-use-a-service-principal"></a>When to use a service principal
 
-Você deve usar uma entidade de serviço para autenticação de ACI em **cenários sem periféricos**, como em aplicativos ou serviços que criam instâncias de contêiner de maneira automatizada ou autônoma.
+You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an automated or otherwise unattended manner.
 
-Por exemplo, se você tiver um script automatizado que é executado à noite e cria uma [instância de contêiner baseada em tarefa](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode usar uma entidade de serviço com permissões somente de pull para autenticar no registro. Em seguida, você pode girar as credenciais da entidade de serviço ou revogar seu acesso completamente sem afetar outros serviços e aplicativos.
+For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
 
-As entidades de serviço também devem ser usadas quando o [usuário administrador](container-registry-authentication.md#admin-account) do registro estiver desabilitado.
+Service principals should also be used when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>Autenticar usando a entidade de serviço
+## <a name="authenticate-using-the-service-principal"></a>Authenticate using the service principal
 
-Para iniciar um contêiner em instâncias de contêiner do Azure usando uma entidade de serviço, especifique sua ID para `--registry-username`e sua senha para `--registry-password`.
+To launch a container in Azure Container Instances using a service principal, specify its ID for `--registry-username`, and its password for `--registry-password`.
 
 ```azurecli-interactive
 az container create \
@@ -47,17 +42,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
+You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
-* [Azure PowerShell][acr-scripts-psh]
+* [O Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os artigos a seguir contêm detalhes adicionais sobre como trabalhar com entidades de serviço e ACR:
+The following articles contain additional details on working with service principals and ACR:
 
-* [Autenticação do registro de contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md)
-* [Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure (AKS)](../aks/cluster-container-registry-integration.md)
+* [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

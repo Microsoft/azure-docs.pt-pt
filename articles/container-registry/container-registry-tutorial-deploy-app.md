@@ -1,22 +1,17 @@
 ---
-title: Tutorial – implantar o aplicativo do registro de contêiner do Azure com replicação geográfica
-description: Implante um aplicativo Web baseado em Linux em duas regiões diferentes do Azure usando uma imagem de contêiner de um registro de contêiner do Azure com replicação geográfica. Parte dois de uma série com três partes.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Tutorial - Deploy from geo-replicated registry
+description: Deploy a Linux-based web app to two different Azure regions using a container image from a geo-replicated Azure container registry. Parte dois de uma série com três partes.
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931419"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456100"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: implantar um aplicativo Web de um registro de contêiner do Azure com replicação geográfica
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Deploy a web app from a geo-replicated Azure container registry
 
 Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância extrai a imagem de contentor do registo mais próximo.
 
@@ -59,7 +54,7 @@ Na **Aplicação Web para Contentores** apresentada depois de selecionar "Implem
 | **Sistema operativo** | Linux |
 
 > [!NOTE]
-> Quando você cria um novo plano do serviço de aplicativo para implantar seu aplicativo em contêiner, um plano padrão é selecionado automaticamente para hospedar seu aplicativo. O plano padrão depende da configuração do sistema operacional.
+> When you create a new app service plan to deploy your containerized app, a default plan is automatically selected to host your application. The default plan depends on the operating system setting.
 
 Selecione **Criar** para aprovisionar a aplicação Web na região *E.U.A. Oeste*.
 

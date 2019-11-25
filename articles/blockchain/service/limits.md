@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain Service limits
 description: Overview of the service and functional limits in Azure Blockchain Service
-ms.date: 05/02/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 0500d7c5e2d05d185b4d032a33c008726d996df1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326161"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455655"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limits in Azure Blockchain Service
 
@@ -58,4 +58,4 @@ Decreasing ledger and log storage size is not supported.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Patching, updates, and versions](ledger-versions.md)
+Learn more about policies regarding systems patching and upgrades - [Patching, updates, and versions](ledger-versions.md).

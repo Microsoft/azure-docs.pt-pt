@@ -1,6 +1,6 @@
 ---
-title: Implantar módulos de portal do Azure Azure IoT Edge | Microsoft Docs
-description: Usar o portal do Azure para implantar módulos em um dispositivo IoT Edge
+title: Deploy modules from Azure portal - Azure IoT Edge | Microsoft Docs
+description: Use the Azure portal to deploy modules to an IoT Edge device
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,104 +9,103 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d915145e64a5f1a097f38cf79b19426c3acbaf2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964909"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457438"
 ---
-# <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos de Azure IoT Edge do portal do Azure
+# <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Deploy Azure IoT Edge modules from the Azure portal
 
-Depois de criar IoT Edge módulos com sua lógica de negócios, você deseja implantá-los em seus dispositivos para operar na borda. Se você tiver vários módulos que trabalham juntos para coletar e processar dados, poderá implantá-los todos de uma vez e declarar as regras de roteamento que os conectam.
+Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
-Este artigo mostra como o portal do Azure orienta você durante a criação de um manifesto de implantação e o envio por push da implantação para um dispositivo IoT Edge. Para obter informações sobre como criar uma implantação que se destina a vários dispositivos com base em suas marcas compartilhadas, consulte [implantar e monitorar módulos de IOT Edge em escala](how-to-deploy-monitor.md)
+This article shows how the Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um [Hub IOT](../iot-hub/iot-hub-create-through-portal.md) em sua assinatura do Azure.
-* Um [dispositivo IOT Edge](how-to-register-device.md#register-in-the-azure-portal) com o IOT Edge Runtime instalado.
+* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+* An [IoT Edge device](how-to-register-device.md#register-in-the-azure-portal) with the IoT Edge runtime installed.
 
-## <a name="select-your-device"></a>Selecione seu dispositivo
+## <a name="select-your-device"></a>Select your device
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT.
-1. Selecione **IOT Edge** no menu.
-1. Clique na ID do dispositivo de destino na lista de dispositivos.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+1. Select **IoT Edge** from the menu.
+1. Click on the ID of the target device from the list of devices.
 1. Selecione **Definir Módulos**.
 
-## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
+## <a name="configure-a-deployment-manifest"></a>Configure a deployment manifest
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos serão implantados, como os dados fluem entre os módulos e as propriedades desejadas do módulo gêmeos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [entender como IOT Edge módulos podem ser usados, configurados e reutilizados](module-composition.md).
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-O portal do Azure tem um assistente que o orienta durante a criação do manifesto de implantação, em vez de criar o documento JSON manualmente. Ele tem três etapas: **Adicionar módulos**, **especificar rotas**e **examinar a implantação**.
+The Azure portal has a wizard that walks you through creating the deployment manifest, instead of building the JSON document manually. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
 
-### <a name="add-modules"></a>Adicionar módulos
+### <a name="add-modules"></a>Add modules
 
-1. Na seção **configurações de registro de contêiner** da página, forneça as credenciais para acessar qualquer registro de contêiner privado que contenha suas imagens de módulo.
+1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 
-1. Na seção **módulos de implantação** da página, selecione **Adicionar**.
+1. In the **Deployment Modules** section of the page, select **Add**.
 
-1. Examine os tipos de módulos na lista suspensa:
+1. Look at the types of modules from the drop-down list:
 
-   * **Módulo IOT Edge** -a opção padrão.
-   * **Azure Stream Analytics** módulos somente de módulo gerados de uma carga de trabalho de Azure Stream Analytics.
-   * **Azure Machine Learning** imagens de modelo somente de módulo geradas por meio de um espaço de trabalho Azure Machine Learning.
+   * **IoT Edge Module** - the default option.
+   * **Azure Stream Analytics Module** - only modules generated from an Azure Stream Analytics workload.
+   * **Azure Machine Learning Module** - only model images generated from an Azure Machine Learning workspace.
 
-1. Selecione o **módulo IOT Edge**.
+1. Select the **IoT Edge Module**.
 
-1. Forneça um nome para o módulo e especifique a imagem de contêiner. Por exemplo:
+1. Provide a name for the module, then specify the container image. Por exemplo:
 
-   * **Nome** -SimulatedTemperatureSensor
-   * **URI da imagem** -MCR.Microsoft.com/azureiotedge-Simulated-temperature-sensor:1.0
+   * **Name** - SimulatedTemperatureSensor
+   * **Image URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
-1. Preencha os campos opcionais, se necessário. Para obter mais informações sobre opções de criação de contêiner, política de reinicialização e status desejado, consulte [EdgeAgent Desired Properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para obter mais informações sobre o módulo número de atualizações, consulte [definir ou atualizar as propriedades desejadas](module-composition.md#define-or-update-desired-properties).
+1. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
 1. Selecione **Guardar**.
 
-1. Repita as etapas 2-6 para adicionar mais módulos à sua implantação.
+1. Repeat steps 2-6 to add additional modules to your deployment.
 
-1. Selecione **Avançar** para continuar na seção rotas.
+1. Select **Next** to continue to the routes section.
 
-### <a name="specify-routes"></a>Especificar rotas
+### <a name="specify-routes"></a>Specify routes
 
-Por padrão, o assistente fornece uma rota chamada **rota** e definido como **de/* para $upstream * *, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
+By default the wizard gives you a route called **route** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
-Adicione ou atualize as rotas com informações de [declarar rotas](module-composition.md#declare-routes)e, em seguida, selecione **Avançar** para continuar na seção revisão.
+Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
 
-### <a name="review-deployment"></a>Examinar a implantação
+### <a name="review-deployment"></a>Review deployment
 
-A seção revisão mostra o manifesto de implantação JSON que foi criado com base em suas seleções nas duas seções anteriores. Observe que há dois módulos declarados que você não adicionou: **$edgeAgent** e **$edgeHub**. Esses dois módulos compõem o [tempo de execução de IOT Edge](iot-edge-runtime.md) e são padrões necessários em cada implantação.
+The review section shows you the JSON deployment manifest that was created based on your selections in the previous two sections. Note that there are two modules declared that you didn't add: **$edgeAgent** and **$edgeHub**. These two modules make up the [IoT Edge runtime](iot-edge-runtime.md) and are required defaults in every deployment.
 
-Examine as informações de implantação e, em seguida, selecione **Enviar**.
+Review your deployment information, then select **Submit**.
 
-## <a name="view-modules-on-your-device"></a>Exibir módulos em seu dispositivo
+## <a name="view-modules-on-your-device"></a>View modules on your device
 
-Depois de implantar módulos no seu dispositivo, você pode exibir todos eles na página de **detalhes do dispositivo** do Portal. Esta página exibe o nome de cada módulo implantado, bem como informações úteis, como o status da implantação e o código de saída.
+Once you've deployed modules to your device, you can view all of them in the **Device details** page of the portal. This page displays the name of each deployed module, as well as useful information like the deployment status and exit code.
 
-## <a name="deploy-modules-from-azure-marketplace"></a>Implantar módulos do Azure Marketplace
+## <a name="deploy-modules-from-azure-marketplace"></a>Deploy modules from Azure Marketplace
 
-O Azure Marketplace é um Marketplace de aplicativos e serviços online, no qual você pode navegar por uma ampla variedade de aplicativos e soluções empresariais que são certificados e otimizados para serem executados no Azure, incluindo [módulos IOT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acessado por meio do portal do Azure em **criar um recurso**.
+Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace can also be accessed through the Azure portal under **Create a Resource**.
 
-Você pode instalar um módulo IoT Edge do Azure Marketplace ou do portal do Azure:
+You can install an IoT Edge module from either Azure Marketplace or the Azure portal:
 
-1. Localize um módulo e inicie o processo de implantação.
+1. Find a module and begin the deployment process.
 
-   * Portal do Azure: Localize um módulo e selecione **criar**.
+   * Azure portal: Find a module and select **Create**.
 
    * Azure Marketplace:
 
-     1. Localize um módulo e selecione **obtê-lo agora**.
-     1. Confirme os termos de uso e a política de privacidade do provedor selecionando **continuar**.
+     1. Find a module and select **Get it now**.
+     1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**.
 
-1. Escolha sua assinatura e o Hub IoT ao qual o dispositivo de destino está anexado.
+1. Choose your subscription and the IoT Hub to which the target device is attached.
 
-1. Escolha **implantar em um dispositivo**.
+1. Choose **Deploy to a device**.
 
-1. Insira o nome do dispositivo ou selecione **Localizar dispositivo** para procurar entre os dispositivos registrados com o Hub.
+1. Enter the name of the device or select **Find Device** to browse among the devices registered with the hub.
 
-1. Selecione **criar** para continuar o processo padrão de configuração de um manifesto de implantação, incluindo a adição de outros módulos, se desejado. Os detalhes do novo módulo, como o URI da imagem, as opções de criação e as propriedades desejadas, são predefinidos, mas podem ser alterados.
+1. Select **Create** to continue the standard process of configuring a deployment manifest, including adding other modules if desired. Details for the new module such as image URI, create options, and desired properties are predefined but can be changed.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar e monitorar módulos IOT Edge em escala](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)

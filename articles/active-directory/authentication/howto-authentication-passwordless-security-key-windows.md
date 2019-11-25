@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36c00af260ca73913eabf3a1589d8d468de50711
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381881"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452941"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Enable passwordless security key sign in to Windows 10 devices (preview)
 
@@ -45,6 +45,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 - “Run as“ is **not supported** using security key.
 - Log in to a server using security key is **not supported**.
 - If you have not used your security key to sign in to your device while online, you will not be able to use it to sign in or unlock offline.
+- Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario will utilize the last account added to the security key. WebAuthN will allow users to choose the account they wish to use.
 
 ## <a name="prepare-devices-for-preview"></a>Prepare devices for preview
 

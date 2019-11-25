@@ -1,6 +1,6 @@
 ---
-title: EdgeAgent e EdgeHub pretendido referência de propriedades - Azure IoT Edge | Documentos da Microsoft
-description: Reveja as propriedades específicas e os respetivos valores duplos de módulo edgeAgent e edgeHub
+title: EdgeAgent and EdgeHub desired properties reference - Azure IoT Edge | Microsoft Docs
+description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,120 +8,119 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: caee247dfb1f7068e935be9c293a28870cfb98ce
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1ab45a6bde9ead69a7ea23dd095de84b8ff01334
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069316"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456700"
 ---
-# <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente de IoT Edge e do módulo de Hub de IoT Edge gêmeos
+# <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Properties of the IoT Edge agent and IoT Edge hub module twins
 
-O agente de IoT Edge e o Hub de IoT Edge são dois módulos que compõem o tempo de execução do IoT Edge. Para obter mais informações sobre quais deveres executa cada módulo, consulte [compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura](iot-edge-runtime.md). 
+The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about what duties each module performs, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md). 
 
-Este artigo fornece as propriedades pretendidas e propriedades comunicadas de duplos de módulo de tempo de execução. Para obter mais informações sobre como implantar módulos em dispositivos IoT Edge, consulte [saiba como implantar módulos e estabelecer rotas no IOT Edge](module-composition.md).
+This article provides the desired properties and reported properties of the runtime module twins. For more information on how to deploy modules on IoT Edge devices, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
-Um módulo de r inclui: 
+A module twin includes: 
 
-* **Propriedades desejadas**. O back-end da solução pode definir as propriedades desejadas e o módulo pode lê-las. O módulo também pode receber notificações de alterações nas propriedades desejadas. As propriedades desejadas são usadas junto com as propriedades relatadas para sincronizar a configuração ou as condições do módulo.
+* **Desired properties**. The solution backend can set desired properties, and the module can read them. The module can also receive notifications of changes in the desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions.
 
-* **Propriedades relatadas**. O módulo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las. As propriedades relatadas são usadas junto com as propriedades desejadas para sincronizar a configuração ou as condições do módulo. 
+* **Reported properties**. The module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions. 
 
-## <a name="edgeagent-desired-properties"></a>Propriedades de EdgeAgent pretendido
+## <a name="edgeagent-desired-properties"></a>EdgeAgent desired properties
 
-O módulo para o agente de IoT Edge é chamado `$edgeAgent` e coordena as comunicações entre o agente de IoT Edge em execução em um dispositivo e Hub IoT. As propriedades pretendidas são definidas ao aplicar um manifesto de implantação num dispositivo específico, como parte de uma implementação de único dispositivo ou à escala. 
+The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates the communications between the IoT Edge agent running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment. 
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| schemaVersion | Tem de ser "1.0" | Sim |
-| Runtime.Type | Tem de ser "docker" | Sim |
-| runtime.settings.minDockerVersion | Definido como a versão mínima do Docker, necessária para esse manifesto de implantação | Sim |
-| runtime.settings.loggingOptions | Um JSON em cadeias que contém as opções de log para o contêiner do agente de IoT Edge. [Opções de registo do docker](https://docs.docker.com/engine/admin/logging/overview/) | Não |
-| runtime.settings.registryCredentials<br>. .username {registryId} | O nome de utilizador do registo de contentor. No Azure Container Registry, o nome de utilizador é normalmente o nome do registo.<br><br> As credenciais do registo são necessárias para imagens qualquer módulo que não são públicas. | Não |
-| runtime.settings.registryCredentials<br>. .password {registryId} | A palavra-passe para o registo de contentor. | Não |
-| runtime.settings.registryCredentials<br>. .address {registryId} | O endereço do registo de contentor. Para o registro de contêiner do Azure, o endereço geralmente é *{nome do registro}. azurecr. Io*. | Não |  
-| systemModules.edgeAgent.type | Tem de ser "docker" | Sim |
-| systemModules.edgeAgent.settings.image | O URI da imagem do agente de IoT Edge. Atualmente, o agente de IoT Edge não é capaz de se atualizar. | Sim |
-| systemModules.edgeAgent.settings<br>.createOptions | Um JSON em cadeias que contém as opções para a criação do contêiner do agente de IoT Edge. [Opções de criação de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
-| systemModules.edgeAgent.configuration.id | O ID da implementação que implementadas neste módulo. | O Hub IoT define essa propriedade quando o manifesto é aplicado usando uma implantação. Não faça parte de um manifesto de implantação. |
-| systemModules.edgeHub.type | Tem de ser "docker" | Sim |
-| systemModules.edgeHub.status | Tem de ser "em execução" | Sim |
-| systemModules.edgeHub.restartPolicy | Tem de ser "sempre" | Sim |
-| systemModules.edgeHub.settings.image | O URI da imagem do hub de IoT Edge. | Sim |
-| systemModules.edgeHub.settings<br>.createOptions | Um JSON em cadeias que contém as opções para a criação do contêiner de Hub de IoT Edge. [Opções de criação de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
-| systemModules.edgeHub.configuration.id | O ID da implementação que implementadas neste módulo. | O Hub IoT define essa propriedade quando o manifesto é aplicado usando uma implantação. Não faça parte de um manifesto de implantação. |
-| módulos. .version {moduleId} | Uma cadeia definido pelo utilizador, que representa a versão deste módulo. | Sim |
-| módulos. .type {moduleId} | Tem de ser "docker" | Sim |
-| módulos. .status {moduleId} | {"a executar" \| "parada"} | Sim |
-| modules.{moduleId}.restartPolicy | {"nunca" \| "em caso de falha" \| "não íntegro" \| "sempre"} | Sim |
-| módulos. {ModuleID}. imagePullPolicy | {"on-Create" \| "Never"} | Não |
-| modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
-| modules.{moduleId}.settings.createOptions | Um JSON em cadeias de contentor que contém as opções para a criação do contentor de módulo. [Opções de criação de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
-| modules.{moduleId}.configuration.id | O ID da implementação que implementadas neste módulo. | O Hub IoT define essa propriedade quando o manifesto é aplicado usando uma implantação. Não faça parte de um manifesto de implantação. |
+| schemaVersion | Has to be "1.0" | Sim |
+| runtime.type | Has to be "docker" | Sim |
+| runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest | Sim |
+| runtime.settings.loggingOptions | A stringified JSON containing the logging options for the IoT Edge agent container. [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/) | Não |
+| runtime.settings.registryCredentials<br>.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name.<br><br> Registry credentials are necessary for any module images that are not public. | Não |
+| runtime.settings.registryCredentials<br>.{registryId}.password | The password for the container registry. | Não |
+| runtime.settings.registryCredentials<br>.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | Não |  
+| systemModules.edgeAgent.type | Has to be "docker" | Sim |
+| systemModules.edgeAgent.settings.image | The URI of the image of the IoT Edge agent. Currently, the IoT Edge agent is not able to update itself. | Sim |
+| systemModules.edgeAgent.settings<br>.createOptions | A stringified JSON containing the options for the creation of the IoT Edge agent container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
+| systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
+| systemModules.edgeHub.type | Has to be "docker" | Sim |
+| systemModules.edgeHub.status | Has to be "running" | Sim |
+| systemModules.edgeHub.restartPolicy | Has to be "always" | Sim |
+| systemModules.edgeHub.settings.image | The URI of the image of the IoT Edge hub. | Sim |
+| systemModules.edgeHub.settings<br>.createOptions | A stringified JSON containing the options for the creation of the IoT Edge hub container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
+| systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
+| modules.{moduleId}.version | A user-defined string representing the version of this module. | Sim |
+| modules.{moduleId}.type | Has to be "docker" | Sim |
+| modules.{moduleId}.status | {"running" \| "stopped"} | Sim |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Sim |
+| modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | Não |
+| modules.{moduleId}.settings.image | The URI to the module image. | Sim |
+| modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
+| modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 
-## <a name="edgeagent-reported-properties"></a>Propriedades comunicadas de EdgeAgent
+## <a name="edgeagent-reported-properties"></a>EdgeAgent reported properties
 
-As propriedades relatadas do agente de IoT Edge incluem três partes principais de informações:
+The IoT Edge agent reported properties include three main pieces of information:
 
-1. O estado da aplicação de propriedades pretendidas visto o último;
-2. O status dos módulos em execução no momento no dispositivo, conforme relatado pelo agente de IoT Edge; e
-3. Uma cópia de propriedades pretendidas, atualmente em execução no dispositivo.
+1. The status of the application of the last-seen desired properties;
+2. The status of the modules currently running on the device, as reported by the IoT Edge agent; and
+3. A copy of the desired properties currently running on the device.
 
-Essa última informação, uma cópia das propriedades desejadas atuais, é útil para informar se o dispositivo aplicou as propriedades desejadas mais recentes ou ainda está executando um manifesto de implantação anterior.
+This last piece of information, a copy of the current desired properties, is useful to tell whether the device has applied the latest desired properties or is still running a previous deployment manifest.
 
 > [!NOTE]
-> As propriedades relatadas do agente de IoT Edge são úteis, pois podem ser consultadas com a [linguagem de consulta do Hub IOT](../iot-hub/iot-hub-devguide-query-language.md) para investigar o status das implantações em escala. Para obter mais informações sobre como usar as propriedades do agente de IoT Edge para status, consulte [entender IOT Edge implantações para dispositivos únicos ou em escala](module-deployment-monitoring.md).
+> The reported properties of the IoT Edge agent are useful as they can be queried with the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to investigate the status of deployments at scale. For more information on how to use the IoT Edge agent properties for status, see [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md).
 
-A tabela a seguir não inclui as informações que são copiadas das propriedades pretendidas.
+The following table does not include the information that is copied from the desired properties.
 
 | Propriedade | Descrição |
 | -------- | ----------- |
-| lastDesiredVersion | Este inteiro refere-se à última versão das propriedades desejadas processadas pelo agente de IoT Edge. |
-| lastDesiredStatus.code | Esse código de status refere-se às últimas propriedades desejadas vistas pelo agente de IoT Edge. Valores permitidos: `200` sucesso, `400` configuração inválida, `412` versão de esquema inválida `417` as propriedades pretendidas são vazias, `500` com falhas |
-| lastDesiredStatus.description | Descrição de texto do Estado |
-| deviceHealth | `healthy` Se o estado de tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário, |
-| configurationHealth.{deploymentId}.health | `healthy` Se o estado de tempo de execução de todos os módulos definido pela implantação {deploymentId} `running` ou `stopped`, `unhealthy` caso contrário, |
-| runtime.platform.OS | O sistema operacional em execução no dispositivo de geração de relatórios |
-| runtime.platform.architecture | A arquitetura da CPU de relatórios no dispositivo |
-| systemModules.edgeAgent.runtimeStatus | O status relatado do agente de IoT Edge: {"em execução" \| "não íntegro"} |
-| systemModules.edgeAgent.statusDescription | Descrição de texto do status relatado do agente de IoT Edge. |
-| systemModules.edgeHub.runtimeStatus | Status do hub de IoT Edge: {"em execução" \| "parado" \| "falha" \| "retirada" \| "não íntegro"} |
-| systemModules.edgeHub.statusDescription | Texto descrição do status do hub de IoT Edge se não estiver íntegro. |
-| systemModules.edgeHub.exitCode | O código de saída relatado pelo contêiner do Hub IoT Edge se o contêiner for encerrado |
-| systemModules.edgeHub.startTimeUtc | Hora em que IoT Edge Hub foi iniciado pela última vez |
-| systemModules.edgeHub.lastExitTimeUtc | Hora em que o Hub de IoT Edge saiu pela última vez |
-| systemModules.edgeHub.lastRestartTimeUtc | Hora em que IoT Edge Hub foi reiniciado pela última vez |
-| systemModules.edgeHub.restartCount | Número de vezes que este módulo foi reiniciado como parte da política de reinício. |
-| modules.{moduleId}.runtimeStatus | Status do módulo: {"em execução" \| "parado" \| "falha" \| "retirada" \| "não íntegro"} |
-| modules.{moduleId}.statusDescription | Texto descrição do status do módulo se não estiver íntegro. |
-| modules.{moduleId}.exitCode | O código de saída relatado pelo contêiner do módulo se o contêiner for encerrado |
-| modules.{moduleId}.startTimeUtc | Tempo quando o módulo foi iniciado pela última vez |
-| modules.{moduleId}.lastExitTimeUtc | Tempo quando o módulo saiu pela última vez |
-| modules.{moduleId}.lastRestartTimeUtc | Tempo quando o módulo foi reiniciados pela última vez |
-| modules.{moduleId}.restartCount | Número de vezes que este módulo foi reiniciado como parte da política de reinício. |
+| lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
+| lastDesiredStatus.code | This status code refers to the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
+| lastDesiredStatus.description | Text description of the status |
+| deviceHealth | `healthy` if the runtime status of all modules is either `running` or `stopped`, `unhealthy` otherwise |
+| configurationHealth.{deploymentId}.health | `healthy` if the runtime status of all modules set by the deployment {deploymentId} is either `running` or `stopped`, `unhealthy` otherwise |
+| runtime.platform.OS | Reporting the OS running on the device |
+| runtime.platform.architecture | Reporting the architecture of the CPU on the device |
+| systemModules.edgeAgent.runtimeStatus | The reported status of IoT Edge agent: {"running" \| "unhealthy"} |
+| systemModules.edgeAgent.statusDescription | Text description of the reported status of the IoT Edge agent. |
+| systemModules.edgeHub.runtimeStatus | Status of IoT Edge hub: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| systemModules.edgeHub.statusDescription | Text description of the status of IoT Edge hub if unhealthy. |
+| systemModules.edgeHub.exitCode | The exit code reported by the IoT Edge hub container if the container exits |
+| systemModules.edgeHub.startTimeUtc | Time when IoT Edge hub was last started |
+| systemModules.edgeHub.lastExitTimeUtc | Time when IoT Edge hub last exited |
+| systemModules.edgeHub.lastRestartTimeUtc | Time when IoT Edge hub was last restarted |
+| systemModules.edgeHub.restartCount | Number of times this module was restarted as part of the restart policy. |
+| modules.{moduleId}.runtimeStatus | Status of the module: { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
+| modules.{moduleId}.statusDescription | Text description of the status of the module if unhealthy. |
+| modules.{moduleId}.exitCode | The exit code reported by the module container if the container exits |
+| modules.{moduleId}.startTimeUtc | Time when the module was last started |
+| modules.{moduleId}.lastExitTimeUtc | Time when the module last exited |
+| modules.{moduleId}.lastRestartTimeUtc | Time when the module was last restarted |
+| modules.{moduleId}.restartCount | Number of times this module was restarted as part of the restart policy. |
 
-## <a name="edgehub-desired-properties"></a>Propriedades de EdgeHub pretendido
+## <a name="edgehub-desired-properties"></a>EdgeHub desired properties
 
-O módulo para o Hub de IoT Edge é chamado `$edgeHub` e coordena as comunicações entre o Hub de IoT Edge em execução em um dispositivo e Hub IoT. As propriedades pretendidas são definidas ao aplicar um manifesto de implantação num dispositivo específico, como parte de uma implementação de único dispositivo ou à escala. 
+The module twin for the IoT Edge hub is called `$edgeHub` and coordinates the communications between the IoT Edge hub running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment. 
 
-| Propriedade | Descrição | Necessário no manifesto de implantação |
+| Propriedade | Descrição | Required in the deployment manifest |
 | -------- | ----------- | -------- |
-| schemaVersion | Tem de ser "1.0" | Sim |
-| routes.{routeName} | Uma cadeia de caracteres que representa uma rota de Hub de IoT Edge. Para obter mais informações, consulte [declarar rotas](module-composition.md#declare-routes). | O `routes` elemento pode estar presente, mas está vazio. |
-| storeAndForwardConfiguration.timeToLiveSecs | O tempo em segundos que IoT Edge Hub mantém mensagens se desconectado dos pontos de extremidade de roteamento, seja o Hub IoT ou um módulo local. O valor pode ser qualquer inteiro positivo. | Sim |
+| schemaVersion | Has to be "1.0" | Sim |
+| routes.{routeName} | A string representing an IoT Edge hub route. For more information, see [Declare routes](module-composition.md#declare-routes). | The `routes` element can be present but empty. |
+| storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. The value can be any positive integer. | Sim |
 
-## <a name="edgehub-reported-properties"></a>Propriedades comunicadas de EdgeHub
+## <a name="edgehub-reported-properties"></a>EdgeHub reported properties
 
 | Propriedade | Descrição |
 | -------- | ----------- |
-| lastDesiredVersion | Este inteiro refere-se à última versão das propriedades desejadas processadas pelo hub de IoT Edge. |
-| lastDesiredStatus.code | O código de status referente às últimas propriedades desejadas vistas pelo hub de IoT Edge. Valores permitidos: `200` sucesso, `400` configuração inválida, `500` com falhas |
-| lastDesiredStatus.description | Texto descrição do status. |
-| clientes. .status {moduleId ou dispositivo} | O estado de conectividade desse dispositivo ou o módulo. Possíveis valores {"conectado" \| "desconectado"}. Apenas as identidades do módulo podem estar no estado desligado. Os dispositivos downstream que se conectam ao Hub IoT Edge aparecem somente quando conectado. |
-| clientes. .lastConnectTime {moduleId ou dispositivo} | Última vez em que o dispositivo ou módulo está conectado. |
-| clientes. .lastDisconnectTime {moduleId ou dispositivo} | Última vez em que o dispositivo ou módulo foi desconectado. |
+| lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge hub. |
+| lastDesiredStatus.code | The status code referring to last desired properties seen by the IoT Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed |
+| lastDesiredStatus.description | Text description of the status. |
+| clients.{device or moduleId}.status | The connectivity status of this device or module. Possible values {"connected" \| "disconnected"}. Only module identities can be in disconnected state. Downstream devices connecting to IoT Edge hub appear only when connected. |
+| clients.{device or moduleId}.lastConnectTime | Last time the device or module connected. |
+| clients.{device or moduleId}.lastDisconnectTime | Last time the device or module disconnected. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como utilizar estas propriedades para criar manifestos de implantação, consulte [compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
+To learn how to use these properties to build out deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).

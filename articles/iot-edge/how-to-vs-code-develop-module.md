@@ -1,277 +1,277 @@
 ---
-title: Desenvolver e depurar módulos para Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code para desenvolver, compilar e depurar um módulo para Azure IoT Edge usando C#o, Python, Node. js, Java ou C
+title: Develop and debug modules for Azure IoT Edge | Microsoft Docs
+description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
 services: iot-edge
 keywords: ''
 author: shizn
 ms.author: xshi
 ms.date: 08/07/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 788d5eb049a27500a6518b7be9bb6caedd543637
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5b37ea92869468001581c9299b1633869671886a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276162"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457073"
 ---
-# <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code para desenvolver e depurar módulos para Azure IoT Edge
+# <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code to develop and debug modules for Azure IoT Edge
 
-Pode transformar sua lógica de negócio em módulos do Azure IoT Edge. Este artigo mostra como usar Visual Studio Code como a ferramenta principal para desenvolver e depurar módulos.
+You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code as the main tool to develop and debug modules.
 
-Há duas maneiras de depurar módulos gravados em C#, Node. js ou Java no Visual Studio Code: você pode anexar um processo em um contêiner de módulo ou iniciar o código do módulo no modo de depuração. Para depurar módulos escritos em Python ou C, você só pode anexar a um processo em contêineres do Linux AMD64.
+There are two ways to debug modules written in C#, Node.js, or Java in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. To debug modules written in Python or C, you can only attach to a process in Linux amd64 containers.
 
-Se você não estiver familiarizado com os recursos de depuração do Visual Studio Code, leia sobre [depuração](https://code.visualstudio.com/Docs/editor/debugging).
+If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
-Este artigo fornece instruções para o desenvolvimento e a depuração de módulos em vários idiomas para várias arquiteturas. Atualmente, Visual Studio Code fornece suporte para módulos escritos em C#, C, Python, Node. js e Java. As arquiteturas de dispositivo com suporte são x64 e ARM32. Para obter mais informações sobre sistemas operacionais, linguagens e arquiteturas com suporte, consulte [suporte a linguagens e arquitetura](module-development.md#language-and-architecture-support).
+This article provides instructions for developing and debugging modules in multiple languages for multiple architectures. Currently, Visual Studio Code provides support for modules written in C#, C, Python, Node.js, and Java. The supported device architectures are X64 and ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
 >[!NOTE]
->O desenvolvimento e a depuração de suporte para dispositivos Linux ARM64 estão em [Visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, consulte [desenvolver e depurar módulos de IOT Edge do ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você pode usar um computador ou uma máquina virtual que executa o Windows, o macOS ou o Linux como seu computador de desenvolvimento. Em computadores com Windows, você pode desenvolver módulos do Windows ou Linux. Para desenvolver módulos do Windows, use um computador Windows executando a versão 1809/Build 17763 ou mais recente. Para desenvolver módulos do Linux, use um computador Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
-Instale [Visual Studio Code](https://code.visualstudio.com/) primeiro e, em seguida, adicione as seguintes extensões:
+Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
-- [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-- [Extensão do Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
-- Extensões do Visual Studio específicas para o idioma em que você está desenvolvendo:
-  - C#, incluindo Azure Functions: [ C# extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-  - Python: [extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  - Java: [pacote de extensão Java para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-  - C: [c/C++ extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+- [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+- Visual Studio extension(s) specific to the language you're developing in:
+  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - Python: [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  - Java: [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+  - C: [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-Você também precisará instalar algumas ferramentas adicionais específicas do idioma para desenvolver seu módulo:
+You'll also need to install some additional, language-specific tools to develop your module:
 
-- C#, incluindo Azure Functions: [SDK do .NET Core 2,1](https://www.microsoft.com/net/download)
+- C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
-- Python: [Python](https://www.python.org/downloads/) e [Pip](https://pip.pypa.io/en/stable/installing/#installation) para instalar pacotes do Python (normalmente incluídos na sua instalação do Python).
+- Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
-- Node. js: [node. js](https://nodejs.org). Você também desejará instalar o [Yeoman](https://www.npmjs.com/package/yo) e o [gerador de módulo Azure IOT Edge node. js](https://www.npmjs.com/package/generator-azure-iot-edge-module).
+- Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). Você precisará [definir a variável de ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a instalação do JDK.
+- Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 
-Para criar e implantar a imagem do módulo, você precisa do Docker para criar a imagem do módulo e um registro de contêiner para manter a imagem do módulo:
+To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
-- A [Community Edition do Docker](https://docs.docker.com/install/) em seu computador de desenvolvimento.
+- [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
-    > Pode utilizar um registo do Docker local para o protótipo e fins de testes em vez de um registo de cloud.
+    > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-A menos que você esteja desenvolvendo seu módulo em C, também precisará da [ferramenta de desenvolvimento do Azure IOT EdgeHub](https://pypi.org/project/iotedgehubdev/) baseada em Python para configurar seu ambiente de desenvolvimento local para depurar, executar e testar sua solução de IOT Edge. Se você ainda não tiver feito isso, instale o [Python (2.7/3.6/3.7) e o Pip](https://www.python.org/) e, em seguida, instale o **iotedgehubdev** executando esse comando em seu terminal.
+Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 > [!NOTE]
-> Atualmente, o iotedgehubdev usa uma biblioteca Docker-py que não é compatível com o Python 3,8.
+> Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
 >
-> Se você tiver vários Python, incluindo o Python 2,7 pré-instalado (por exemplo, no Ubuntu ou no macOS), verifique se está usando o `pip` correto ou `pip3` para instalar o **iotedgehubdev**
+> If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
-Para testar seu módulo em um dispositivo, você precisará de um hub IoT ativo com pelo menos um dispositivo IoT Edge. Para usar o computador como um dispositivo IoT Edge, siga as etapas no guia de início rápido para [Linux](quickstart-linux.md) ou [Windows](quickstart.md). Se você estiver executando IoT Edge daemon em seu computador de desenvolvimento, talvez seja necessário parar EdgeHub e EdgeAgent antes de passar para a próxima etapa.
+To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
 
-## <a name="create-a-new-solution-template"></a>Criar um novo modelo de solução
+## <a name="create-a-new-solution-template"></a>Create a new solution template
 
-As etapas a seguir mostram como criar um módulo IoT Edge em sua linguagem de desenvolvimento preferida (incluindo Azure Functions, escrito em C#) usando Visual Studio Code e as ferramentas de IOT do Azure. Você começa criando uma solução e, em seguida, gerando o primeiro módulo nessa solução. Cada solução pode conter vários módulos.
+The following steps show you how to create an IoT Edge module in your preferred development language (including Azure Functions, written in C#) using Visual Studio Code and the Azure IoT Tools. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
 
-1. Selecione **View** > **paleta de comandos**.
+1. Select **View** > **Command Palette**.
 
-1. Na paleta de comandos, introduza e execute o comando **do Azure IoT Edge: nova solução do IoT Edge**.
+1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
-   ![Executar nova solução de IoT Edge](./media/how-to-develop-csharp-module/new-solution.png)
+   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
 
-1. Navegue até a pasta em que você deseja criar a nova solução e selecione **Selecionar pasta**.
+1. Browse to the folder where you want to create the new solution and then select **Select folder**.
 
-1. Insira um nome para sua solução.
+1. Enter a name for your solution.
 
-1. Selecione um modelo de módulo para sua linguagem de desenvolvimento preferida para ser o primeiro módulo na solução.
+1. Select a module template for your preferred development language to be the first module in the solution.
 
-1. Insira um nome para o módulo. Escolha um nome que seja exclusivo no registro de contêiner.
+1. Enter a name for your module. Choose a name that's unique within your container registry.
 
-1. Forneça o nome do repositório de imagens do módulo. Visual Studio Code preenche automaticamente o nome do módulo com **localhost: 5000/< o nome do módulo\>** . Substitua-o com as suas próprias informações de registo. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se utilizar o Azure Container Registry, em seguida, utilize o servidor de início de sessão a partir das definições do seu registo. O servidor de logon é semelhante a  **_\<nome do registro\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a **\<*nome do registro*\>. azurecr.Io/ _\<o nome do módulo\>_** .
+1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>** . Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_ .azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/ _\<your module name\>_** .
 
    ![Fornecer repositório de imagens do Docker](./media/how-to-develop-csharp-module/repository.png)
 
-Visual Studio Code Obtém as informações fornecidas, cria uma solução de IoT Edge e a carrega em uma nova janela.
+Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
-Há quatro itens na solução:
+There are four items within the solution:
 
-- Uma pasta **. vscode** contém configurações de depuração.
+- A **.vscode** folder contains debug configurations.
 
-- Uma pasta de **módulos** tem subpastas para cada módulo.  Dentro da pasta para cada módulo há um arquivo, **Module. JSON**, que controla como os módulos são criados e implantados.  Esse arquivo precisaria ser modificado para alterar o registro do contêiner de implantação do módulo do localhost para um registro remoto. Neste ponto, você tem apenas um módulo.  Mas você pode adicionar mais na paleta de comandos com o comando **Azure IOT Edge: adicionar IOT Edge módulo**.
+- A **modules** folder has subfolders for each module.  Within the folder for each module there is a file, **module.json**, that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container registry from localhost to a remote registry. At this point, you only have one module.  But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
 
-- Um arquivo **. env** lista suas variáveis de ambiente. Se o registro de contêiner do Azure for seu registro, você terá um nome de usuário e senha do registro de contêiner do Azure nele.
+- An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it.
 
   > [!NOTE]
-  > O arquivo de ambiente só será criado se você fornecer um repositório de imagens para o módulo. Se você aceitou os padrões de localhost para testar e depurar localmente, você não precisará declarar variáveis de ambiente.
+  > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
 
-- Um arquivo. **Template. JSON de implantação** lista o novo módulo junto com um módulo **SimulatedTemperatureSensor** de exemplo que simula os dados que você pode usar para teste. Para obter mais informações sobre como os manifestos de implantação funcionam, consulte [saiba como usar manifestos de implantação para implantar módulos e estabelecer rotas](module-composition.md).
+- A **deployment.template.json** file lists your new module along with a sample **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
 
-## <a name="add-additional-modules"></a>Adicionar módulos adicionais
+## <a name="add-additional-modules"></a>Add additional modules
 
-Para adicionar mais módulos à sua solução, execute o comando **Azure IOT Edge: adicionar IOT Edge módulo** na paleta de comandos. Você também pode clicar com o botão direito do mouse na pasta **modules** ou no arquivo `deployment.template.json` na exibição do Visual Studio Code Explorer e, em seguida, selecionar **Adicionar IOT Edge módulo**.
+To add additional modules to your solution, run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette. You can also right-click the **modules** folder or the `deployment.template.json` file in the Visual Studio Code Explorer view and then select **Add IoT Edge Module**.
 
-## <a name="develop-your-module"></a>Desenvolver o seu módulo
+## <a name="develop-your-module"></a>Develop your module
 
-O código de módulo padrão que vem com a solução está localizado no seguinte local:
+The default module code that comes with the solution is located at the following location:
 
-- Azure FunctionsC#(): **módulos  *&lt;> seu módulo&gt;nomear* >  *&lt;seu&gt;módulo nome*. cs**
-- C#: **módulos >  *&lt;nome&gt; do módulo* > Program.cs**
-- Python: **os módulos > *&lt;nome do módulo&gt;* > Main.py**
-- Node. js: **os módulos > *&lt;nome do módulo&gt;* > app. js**
-- Java: **modules > *&lt;o nome do módulo&gt;* > src > main > java > com > edgemodulemodules > app. java**
-- C: **os módulos > *&lt;nome do módulo&gt;* > Main. c**
+- Azure Function (C#): **modules > *&lt;your module name&gt;*  >  *&lt;your module name&gt;* .cs**
+- C#: **modules > *&lt;your module name&gt;* > Program.cs**
+- Python: **modules > *&lt;your module name&gt;* > main.py**
+- Node.js: **modules > *&lt;your module name&gt;* > app.js**
+- Java: **modules > *&lt;your module name&gt;* > src > main > java > com > edgemodulemodules > App.java**
+- C: **modules > *&lt;your module name&gt;* > main.c**
 
-O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo é criado para simplesmente pegar a entrada de uma fonte (nesse caso, o módulo SimulatedTemperatureSensor que simula dados) e redirecioná-lo ao Hub IoT.
+The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the SimulatedTemperatureSensor module that simulates data) and pipe it to IoT Hub.
 
-Quando você estiver pronto para personalizar o modelo com seu próprio código, use os [SDKs do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos que atendam às principais necessidades de soluções de IOT, como segurança, gerenciamento de dispositivos e confiabilidade.
+When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
-## <a name="debug-a-module-without-a-container-c-nodejs-java"></a>Depurar um módulo sem um contêiner (C#, Node. js, Java)
+## <a name="debug-a-module-without-a-container-c-nodejs-java"></a>Debug a module without a container (C#, Node.js, Java)
 
-Se você estiver desenvolvendo no C#, Node. js ou Java, seu módulo exigirá o uso de um objeto **ModuleClient** no código do módulo padrão para que ele possa iniciar, executar e rotear mensagens. Você também usará o canal de entrada padrão **entrada1** para executar uma ação quando o módulo receber mensagens.
+If you're developing in C#, Node.js, or Java, your module requires use of a **ModuleClient** object in the default module code so that it can start, run, and route messages. You'll also use the default input channel **input1** to take action when the module receives messages.
 
-### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Configurar o simulador de IoT Edge para a solução IoT Edge
+### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Set up IoT Edge simulator for IoT Edge solution
 
-Em seu computador de desenvolvimento, você pode iniciar um simulador de IoT Edge em vez de instalar o IoT Edge daemon de segurança para poder executar sua solução de IoT Edge.
+On your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
 
-1. No Gerenciador de dispositivos no lado esquerdo, clique com o botão direito do mouse em seu IoT Edge ID do dispositivo e, em seguida, selecione **configurar IOT Edge Simulator** para iniciar o simulador com a cadeia de conexão do dispositivo.
-1. Você pode ver que o simulador de IoT Edge foi configurado com êxito lendo os detalhes de progresso no terminal integrado.
+1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 
-### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>Configurar o simulador de IoT Edge para um aplicativo de módulo único
+### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>Set up IoT Edge simulator for single module app
 
-Para configurar e iniciar o simulador, execute o comando **Azure IOT Edge: iniciar IOT Edge simulador de Hub para um único módulo** na paleta de comandos Visual Studio Code. Quando solicitado, use o valor **entrada1** do código do módulo padrão (ou o valor equivalente do seu código) como o nome de entrada para seu aplicativo. O comando dispara a CLI do **iotedgehubdev** e, em seguida, inicia o simulador de IOT Edge e um contêiner de módulo do utilitário de teste. Você poderá ver as saídas abaixo no terminal integrado se o simulador tiver sido iniciado no modo de módulo único com êxito. Você também pode ver um comando `curl` para ajudar a enviar mensagens por meio do. Irá utilizá-lo mais tarde.
+To set up and start the simulator, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module** from the Visual Studio Code command palette. When prompted, use the value **input1** from the default module code (or the equivalent value from your code) as the input name for your application. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. Irá utilizá-lo mais tarde.
 
-   ![Configurar o simulador de IoT Edge para um aplicativo de módulo único](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
+   ![Set up IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
-   Você pode usar a exibição do Gerenciador do Docker no Visual Studio Code para ver o status de execução do módulo.
+   You can use the Docker Explorer view in Visual Studio Code to see the module's running status.
 
-   ![Status do módulo de simulador](media/how-to-develop-csharp-module/simulator-status.png)
+   ![Simulator module status](media/how-to-develop-csharp-module/simulator-status.png)
 
-   O contêiner **edgeHubDev** é o núcleo do simulador de IOT Edge local. Ele pode ser executado em seu computador de desenvolvimento sem o daemon de segurança IoT Edge e fornece configurações de ambiente para seu aplicativo de módulo nativo ou contêineres de módulo. O contêiner de **entrada** expõe as APIs REST para ajudar a ponte de mensagens para o canal de entrada de destino em seu módulo.
+   The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without the IoT Edge security daemon and provides environment settings for your native module app or module containers. The **input** container exposes REST APIs to help bridge messages to the target input channel on your module.
 
-### <a name="debug-module-in-launch-mode"></a>Depurar o módulo no modo de inicialização
+### <a name="debug-module-in-launch-mode"></a>Debug module in launch mode
 
-1. Prepare seu ambiente para depuração de acordo com os requisitos de sua linguagem de desenvolvimento, defina um ponto de interrupção em seu módulo e selecione a configuração de depuração a ser usada:
+1. Prepare your environment for debugging according to the requirements of your development language, set a breakpoint in your module, and select the debug configuration to use:
    - **C#**
-     - No terminal integrado Visual Studio Code, altere o diretório para a ***&lt;nome do módulo&gt;*** pasta e, em seguida, execute o comando a seguir para compilar o aplicativo .NET Core.
+     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .NET Core application.
 
        ```cmd
        dotnet build
        ```
 
-     - Abra o arquivo `Program.cs` e adicione um ponto de interrupção.
+     - Open the file `Program.cs` and add a breakpoint.
 
-     - Navegue até a exibição de depuração Visual Studio Code selecionando **exibir > depurar**. Selecione a configuração de depuração  ***&lt;o nome do módulo&gt;* depuração local (.NET Core)** na lista suspensa.
+     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
         > [!NOTE]
-        > Se o `TargetFramework` do .NET Core não estiver consistente com o caminho do programa no `launch.json`, você precisará atualizar manualmente o caminho do programa no `launch.json` para corresponder ao `TargetFramework` no arquivo. csproj para que o Visual Studio Code possa iniciar este programa com êxito.
+        > If your .NET Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
 
    - **Node.js**
-     - No terminal integrado Visual Studio Code, altere o diretório para a ***&lt;nome do módulo&gt;*** pasta e, em seguida, execute o seguinte comando para instalar pacotes de nó
+     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to install Node packages
 
        ```cmd
        npm install
        ```
 
-     - Abra o arquivo `app.js` e adicione um ponto de interrupção.
+     - Open the file `app.js` and add a breakpoint.
 
-     - Navegue até a exibição de depuração Visual Studio Code selecionando **exibir > depurar**. Selecione a configuração de depuração  ***&lt;o nome do módulo&gt;* depuração local (Node. js)** na lista suspensa.
+     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
    - **Java**
-     - Abra o arquivo `App.java` e adicione um ponto de interrupção.
+     - Open the file `App.java` and add a breakpoint.
 
-     - Navegue até a exibição de depuração Visual Studio Code selecionando **exibir > depurar**. Selecione a configuração de depuração  ***&lt;o nome do módulo&gt;* depuração local (Java)** no menu suspenso.
+     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
 
-1. Clique em **Iniciar Depuração** ou pressione **F5** para iniciar a sessão de depuração.
+1. Click **Start Debugging** or press **F5** to start the debug session.
 
-1. No terminal integrado Visual Studio Code, execute o comando a seguir para enviar uma mensagem de **Olá, mundo** para o módulo. Esse é o comando mostrado nas etapas anteriores quando você configura o simulador de IoT Edge.
+1. In the Visual Studio Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command shown in previous steps when you set up IoT Edge simulator.
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 
    > [!NOTE]
-   > Se você estiver usando o Windows, certificando-se de que o Shell de seu terminal de Visual Studio Code integrado é **git bash** ou **WSL bash**. Não é possível executar o comando `curl` de um PowerShell ou prompt de comando.
+   > If you are using Windows, making sure the shell of your Visual Studio Code integrated terminal is **Git Bash** or **WSL Bash**. You cannot run the `curl` command from a PowerShell or command prompt.
    > [!TIP]
-   > Também pode utilizar [PostMan](https://www.getpostman.com/) ou outras ferramentas de API para enviar mensagens através de, em vez de `curl`.
+   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages through instead of `curl`.
 
-1. Na exibição de depuração Visual Studio Code, você verá as variáveis no painel esquerdo.
+1. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
 
-1. Para interromper a sessão de depuração, selecione o botão parar ou pressione **Shift + F5**e execute **Azure IoT Edge: parar IOT Edge simulador** na paleta de comandos para interromper o simulador e limpá-lo.
+1. To stop your debugging session, select the Stop button or press **Shift + F5**, and then run **Azure IoT Edge: Stop IoT Edge Simulator** in the command palette to stop the simulator and clean up.
 
-## <a name="debug-in-attach-mode-with-iot-edge-simulator-c-nodejs-java-azure-functions"></a>Depurar no modo de anexo com o IoT EdgeC#Simulator (, Node. js, Java Azure Functions)
+## <a name="debug-in-attach-mode-with-iot-edge-simulator-c-nodejs-java-azure-functions"></a>Debug in attach mode with IoT Edge Simulator (C#, Node.js, Java, Azure Functions)
 
-Sua solução padrão contém dois módulos, um é um módulo de sensor de temperatura simulado e o outro é o módulo de pipe. O sensor de temperatura simulada envia mensagens para o módulo de pipe e, em seguida, as mensagens são canalizadas para o Hub IoT. Na pasta do módulo que você criou, há vários arquivos do Docker para diferentes tipos de contêineres. Use qualquer um dos arquivos que terminam com a extensão **. Debug** para compilar seu módulo para teste.
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages are piped to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
-Atualmente, a depuração no modo de anexo tem suporte apenas da seguinte maneira:
+Currently, debugging in attach mode is supported only as follows:
 
-- C#módulos, incluindo aqueles para Azure Functions, dão suporte à depuração em contêineres do Linux AMD64
-- Os módulos do node. js dão suporte à depuração em contêineres do Linux AMD64 e arm32v7 e contêineres do Windows AMD64
-- Os módulos Java dão suporte à depuração em contêineres do Linux AMD64 e arm32v7
+- C# modules, including those for Azure Functions, support debugging in Linux amd64 containers
+- Node.js modules support debugging in Linux amd64 and arm32v7 containers, and Windows amd64 containers
+- Java modules support debugging in Linux amd64 and arm32v7 containers
 
 > [!TIP]
-> Você pode alternar entre as opções da plataforma padrão para sua solução de IoT Edge clicando no item na barra de status do Visual Studio Code.
+> You can switch among options for the default platform for your IoT Edge solution by clicking the item in the Visual Studio Code status bar.
 
-### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Configurar o simulador de IoT Edge para a solução IoT Edge
+### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>Set up IoT Edge simulator for IoT Edge solution
 
-Em seu computador de desenvolvimento, você pode iniciar um simulador de IoT Edge em vez de instalar o IoT Edge daemon de segurança para poder executar sua solução de IoT Edge.
+In your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
 
-1. No Gerenciador de dispositivos no lado esquerdo, clique com o botão direito do mouse em seu IoT Edge ID do dispositivo e, em seguida, selecione **configurar IOT Edge Simulator** para iniciar o simulador com a cadeia de conexão do dispositivo.
+1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
-1. Você pode ver que o simulador de IoT Edge foi configurado com êxito lendo os detalhes de progresso no terminal integrado.
+1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 
-### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Compilar e executar o contêiner para depuração e depuração no modo de anexo
+### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Build and run container for debugging and debug in attach mode
 
-1. Abra o arquivo de módulo (`Program.cs`, `app.js`, `App.java`ou `<your module name>.cs`) e adicione um ponto de interrupção.
+1. Open your module file (`Program.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
 
-1. Na exibição do Visual Studio Code Explorer, clique com o botão direito do mouse no arquivo `deployment.debug.template.json` da solução e, em seguida, selecione **Compilar e executar IOT Edge solução no simulador**. Você pode assistir a todos os logs de contêiner de módulo na mesma janela. Você também pode navegar até a exibição do Docker para observar o status do contêiner.
+1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
-   ![Variáveis de inspeção](media/how-to-vs-code-develop-module/view-log.png)
+   ![Watch Variables](media/how-to-vs-code-develop-module/view-log.png)
 
-1. Navegue até o Visual Studio Code exibição de depuração e selecione o arquivo de configuração de depuração para seu módulo. O nome da opção de depuração deve ser semelhante a  ***&lt;nome do módulo&gt;* depuração remota**
+1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
-1. Selecione **Iniciar Depuração** ou pressione **F5**. Selecione o processo ao qual anexar.
+1. Select **Start Debugging** or press **F5**. Select the process to attach to.
 
-1. Na exibição Visual Studio Code depuração, você verá as variáveis no painel esquerdo.
+1. In Visual Studio Code Debug view, you'll see the variables in the left panel.
 
-1. Para interromper a sessão de depuração, primeiro selecione o botão parar ou pressione **Shift + F5**e, em seguida, selecione **Azure IoT Edge: parar IOT Edge simulador** na paleta de comandos.
+1. To stop the debugging session, first select the Stop button or press **Shift + F5**, and then select **Azure IoT Edge: Stop IoT Edge Simulator** from the command palette.
 
 > [!NOTE]
-> O exemplo anterior mostra como depurar IoT Edge módulos em contêineres. Ele adicionou portas expostas ao contêiner do seu módulo `createOptions` configurações. Depois de concluir a depuração dos módulos, recomendamos que você remova essas portas expostas para módulos de IoT Edge prontos para produção.
+> The preceding example shows how to debug IoT Edge modules on containers. It added exposed ports to your module's container `createOptions` settings. After you finish debugging your modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 >
-> Para módulos escritos no C#, incluindo Azure functions, este exemplo se baseia na versão de depuração do `Dockerfile.amd64.debug`, que inclui o depurador de linha de comando do .NET Core (VSDBG) na sua imagem de contêiner ao criá-lo. Depois de depurar seus C# módulos, recomendamos que você use diretamente o DOCKERFILE sem VSDBG para módulos de IOT Edge prontos para produção.
+> For modules written in C#, including Azure Functions, this example is based on the debug version of `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
 
-## <a name="debug-a-module-with-the-iot-edge-runtime"></a>Depurar um módulo com o tempo de execução IoT Edge
+## <a name="debug-a-module-with-the-iot-edge-runtime"></a>Debug a module with the IoT Edge runtime
 
-Em cada pasta de módulo, há vários arquivos do Docker para diferentes tipos de contêineres. Use qualquer um dos arquivos que terminam com a extensão **. Debug** para compilar seu módulo para teste.
+In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
-Ao depurar módulos usando esse método, seus módulos estão em execução na parte superior do tempo de execução de IoT Edge. O dispositivo IoT Edge e seu Visual Studio Code podem estar no mesmo computador, ou mais geralmente, Visual Studio Code está no computador de desenvolvimento e o tempo de execução de IoT Edge e os módulos estão em execução em outro computador físico. Para depurar de Visual Studio Code, você deve:
+When debugging modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
 
-- Configure seu dispositivo IoT Edge, crie seus módulos de IoT Edge com o **. Debug** Dockerfile e, em seguida, implante no dispositivo IOT Edge.
-- Expor o IP e a porta do módulo para que o depurador possa ser anexado.
-- Atualize o `launch.json` para que Visual Studio Code possa se conectar ao processo no contêiner no computador remoto. Esse arquivo está localizado na pasta `.vscode` no seu espaço de trabalho e é atualizado sempre que você adiciona um novo módulo que dá suporte à depuração.
+- Set up your IoT Edge device, build your IoT Edge module(s) with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
+- Expose the IP and port of the module so that the debugger can be attached.
+- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
 
-### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>Criar e implantar seu módulo no dispositivo IoT Edge
+### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>Build and deploy your module to the IoT Edge device
 
-1. No Visual Studio Code, abra o arquivo `deployment.debug.template.json`, que contém a versão de depuração das imagens do módulo com os valores de `createOptions` apropriados definidos.
+1. In Visual Studio Code, open the `deployment.debug.template.json` file, which contains the debug version of your module images with the proper `createOptions` values set.
 
-1. Se você estiver desenvolvendo seu módulo no Python, siga estas etapas antes de continuar:
-   - Abra o arquivo `main.py` e adicione este código após a seção de importação:
+1. If you're developing your module in Python, follow these steps before proceeding:
+   - Open the file `main.py` and add this code after the import section:
 
       ```python
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
 
-   - Adicione a seguinte linha de código ao retorno de chamada que você deseja depurar:
+   - Add the following single line of code to the callback you want to debug:
 
       ```python
       ptvsd.break_into_debugger()
       ```
 
-     Por exemplo, se você quiser depurar a função `receive_message_listener`, você deve inserir essa linha de código, conforme mostrado abaixo:
+     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
 
       ```python
       def receive_message_listener(client):
@@ -289,79 +289,79 @@ Ao depurar módulos usando esse método, seus módulos estão em execução na p
               print("Message successfully forwarded")
       ```
 
-1. Na paleta de comandos do Visual Studio Code:
-   1. Execute o comando **Azure IOT Edge: criar e enviar por Push IOT Edge solução**.
+1. In the Visual Studio Code command palette:
+   1. Run the command **Azure IoT Edge: Build and Push IoT Edge solution**.
 
-   1. Selecione o arquivo de `deployment.debug.template.json` para sua solução.
+   1. Select the `deployment.debug.template.json` file for your solution.
 
-1. Na seção **dispositivos do Hub IOT do Azure** da exibição do Visual Studio Code Explorer:
-   1. Clique com o botão direito do mouse em uma IoT Edge ID do dispositivo e selecione **criar implantação para um único dispositivo**.
+1. In the **Azure IoT Hub Devices** section of the Visual Studio Code Explorer view:
+   1. Right-click an IoT Edge device ID and then select **Create Deployment for Single Device**.
 
       > [!TIP]
-      > Para confirmar que o dispositivo escolhido é um IoT Edge dispositivo, selecione-o para expandir a lista de módulos e verificar a presença de **$edgeHub** e **$edgeAgent**. Cada dispositivo de IoT Edge inclui esses dois módulos.
+      > To confirm that the device you've chosen is an IoT Edge device, select it to expand the list of modules and verify the presence of **$edgeHub** and **$edgeAgent**. Every IoT Edge device includes these two modules.
 
-   1. Navegue até a pasta de **configuração** da solução, selecione o arquivo `deployment.debug.amd64.json` e selecione o **manifesto de implantação do Edge**.
+   1. Navigate to your solution's **config** folder, select the `deployment.debug.amd64.json` file, and then select **Select Edge Deployment Manifest**.
 
-Você verá a implantação criada com êxito com uma ID de implantação no terminal integrado.
+You'll see the deployment successfully created with a deployment ID in the integrated terminal.
 
-Você pode verificar o status do contêiner executando o comando `docker ps` no terminal. Se seu Visual Studio Code e IoT Edge tempo de execução estiverem em execução no mesmo computador, você também poderá verificar o status na exibição do Docker Visual Studio Code.
+You can check your container status by running the `docker ps` command in the terminal. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
 
-### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>Expor o IP e a porta do módulo para o depurador
+### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>Expose the IP and port of the module for the debugger
 
-Você pode ignorar esta seção se seus módulos estiverem em execução no mesmo computador que Visual Studio Code, pois você está usando localhost para anexar ao contêiner e já tem as configurações de porta corretas no arquivo **. Debug** Dockerfile, no contêiner do módulo `createOptions` configurações e `launch.json`. Se os módulos e Visual Studio Code estiverem em execução em computadores separados, siga as etapas para sua linguagem de desenvolvimento.
+You can skip this section if your modules are running on the same machine as Visual Studio Code, as you are using localhost to attach to the container and already have the correct port settings in the **.debug** Dockerfile, module's container `createOptions` settings, and `launch.json` file. If your modules and Visual Studio Code are running on separate machines, follow the steps for your development language.
 
-- **C#, incluindo Azure Functions**
+- **C#, including Azure Functions**
 
-  [Configure o canal ssh no computador de desenvolvimento e IOT Edge dispositivo](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) e, em seguida, edite `launch.json` arquivo a ser anexado.
+  [Configure the SSH channel on your development machine and IoT Edge device](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) and then edit `launch.json` file to attach.
 
 - **Node.js**
 
-  - Verifique se o módulo no computador a ser depurado está em execução e pronto para anexar os depuradores e se a porta 9229 está acessível externamente. Você pode verificar isso abrindo `http://<target-machine-IP>:9229/json` no computador do depurador. Essa URL deve mostrar informações sobre o módulo node. js a ser depurado.
+  - Make sure the module on the machine to be debugged is running and ready for debuggers to attach, and that port 9229 is accessible externally. You can verify this by opening `http://<target-machine-IP>:9229/json` on the debugger machine. This URL should show information about the Node.js module to be debugged.
   
-  - Em seu computador de desenvolvimento, abra Visual Studio Code e, em seguida, edite `launch.json` para que o valor de endereço do  ***&lt;o nome do módulo&gt;* perfil de depuração remota (Node. js)** (ou  ***&lt;o nome do módulo&gt;* a depuração remota (Node. js no contêiner do Windows)** se o módulo estiver sendo executado como um contêiner do Windows
+  - On your development machine, open Visual Studio Code and then edit `launch.json` so that the address value of the ***&lt;your module name&gt;* Remote Debug (Node.js)** profile (or ***&lt;your module name&gt;* Remote Debug (Node.js in Windows Container)** profile if the module is running as a Windows container) is the IP of the machine being debugged.
 
 - **Java**
 
-  - Crie um túnel SSH para o computador a ser depurado executando `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
+  - Build an SSH tunnel to the machine to be debugged by running `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - No computador de desenvolvimento, abra Visual Studio Code e edite o  ***&lt;nome do módulo&gt;* perfil de depuração remota (Java)** no `launch.json` para que você possa anexá-lo ao computador de destino. Para saber mais sobre como editar `launch.json` e depurar Java com Visual Studio Code, consulte a seção sobre como [Configurar o depurador](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - On your development machine, open Visual Studio Code and edit the ***&lt;your module name&gt;* Remote Debug (Java)** profile in `launch.json` so that you can attach to the target machine. To learn more about editing `launch.json` and debugging Java with Visual Studio Code, see the section on [configuring the debugger](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
-  - Verifique se a porta 5678 no computador a ser depurado está aberta e acessível.
+  - Make sure that port 5678 on the machine to be debugged is open and accessible.
 
-  - No `ptvsd.enable_attach(('0.0.0.0', 5678))` de código que você inseriu anteriormente em `main.py`, altere **0.0.0.0** para o endereço IP do computador a ser depurado. Compile, envie por push e implante seu módulo IoT Edge novamente.
+  - In the code `ptvsd.enable_attach(('0.0.0.0', 5678))` that you earlier inserted into `main.py`, change **0.0.0.0** to the IP address of the machine to be debugged. Build, push, and deploy your IoT Edge module again.
 
-  - No computador de desenvolvimento, abra Visual Studio Code e, em seguida, edite `launch.json` para que o valor `host` do  ***&lt;seu nome de módulo&gt;* perfil de depuração remota (Python)** use o endereço IP do computador de destino em vez de `localhost`.
+  - On your development machine, open Visual Studio Code and then edit `launch.json` so that the `host` value of the ***&lt;your module name&gt;* Remote Debug (Python)** profile uses the IP address of the target machine instead of `localhost`.
 
-### <a name="debug-your-module"></a>Depurar seu módulo
+### <a name="debug-your-module"></a>Debug your module
 
-1. Na exibição de depuração Visual Studio Code, selecione o arquivo de configuração de depuração para seu módulo. O nome da opção de depuração deve ser semelhante a  ***&lt;nome do módulo&gt;* depuração remota**
+1. In the Visual Studio Code Debug view, select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
-1. Abra o arquivo de módulo para sua linguagem de desenvolvimento e adicione um ponto de interrupção:
+1. Open the module file for your development language and add a breakpoint:
 
-   - **Azure function (C#)** : Adicione seu ponto de interrupção ao arquivo `<your module name>.cs`.
-   - **C#** : Adicione seu ponto de interrupção ao arquivo `Program.cs`.
-   - **Node. js**: Adicione seu ponto de interrupção ao arquivo `app.js`.
-   - **Java**: Adicione seu ponto de interrupção ao arquivo `App.java`.
-   - **Python**: Adicione seu ponto de interrupção ao arquivo `main.py`no método de retorno de chamada em que você adicionou a linha de `ptvsd.break_into_debugger()`.
-   - **C**: Adicione seu ponto de interrupção ao arquivo `main.c`.
+   - **Azure Function (C#)** : Add your breakpoint to the file `<your module name>.cs`.
+   - **C#** : Add your breakpoint to the file `Program.cs`.
+   - **Node.js**: Add your breakpoint to the file `app.js`.
+   - **Java**: Add your breakpoint to the file `App.java`.
+   - **Python**: Add your breakpoint to the file `main.py`in the callback method where you added the `ptvsd.break_into_debugger()` line.
+   - **C**: Add your breakpoint to the file `main.c`.
 
-1. Selecione **Iniciar Depuração** ou selecione **F5**. Selecione o processo ao qual anexar.
+1. Select **Start Debugging** or select **F5**. Select the process to attach to.
 
-1. Na exibição de depuração Visual Studio Code, você verá as variáveis no painel esquerdo.
+1. In the Visual Studio Code Debug view, you'll see the variables in the left panel.
 
 > [!NOTE]
-> O exemplo anterior mostra como depurar IoT Edge módulos em contêineres. Ele adicionou portas expostas ao contêiner do seu módulo `createOptions` configurações. Depois de concluir a depuração dos módulos, recomendamos que você remova essas portas expostas para módulos de IoT Edge prontos para produção.
+> The preceding example shows how to debug IoT Edge modules on containers. It added exposed ports to your module's container `createOptions` settings. After you finish debugging your modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
-## <a name="build-and-debug-a-module-remotely"></a>Criar e depurar um módulo remotamente
+## <a name="build-and-debug-a-module-remotely"></a>Build and debug a module remotely
 
-Com as alterações recentes nos mecanismos Docker e Moby para dar suporte a conexões SSH e uma nova configuração nas ferramentas de IoT do Azure que habilita a injeção de configurações de ambiente na paleta de comandos Visual Studio Code e Azure IoT Edge terminais, agora você pode criar e depurar módulos em dispositivos remotos.
+With recent changes in both the Docker and Moby engines to support SSH connections, and a new setting in Azure IoT Tools that enables injection of environment settings into the Visual Studio Code command palette and Azure IoT Edge terminals, you can now build and debug modules on remote devices.
 
-Consulte esta [entrada no blog do desenvolvedor IOT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obter mais informações e instruções passo a passo.
+See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) for more information and step-by-step instructions.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar seu módulo, saiba como [implantar Azure IOT Edge módulos do Visual Studio Code](how-to-deploy-modules-vscode.md).
+After you've built your module, learn how to [deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
 
-Para desenvolver módulos para os seus dispositivos de IoT Edge [compreender e utilizar os SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).
+To develop modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).

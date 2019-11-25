@@ -1,6 +1,6 @@
 ---
-title: Implantar módulos da linha de comando-Azure IoT Edge | Microsoft Docs
-description: Usar a extensão de IoT para CLI do Azure implantar módulos em um dispositivo IoT Edge
+title: Deploy modules from command line - Azure IoT Edge | Microsoft Docs
+description: Use the IoT extension for Azure CLI to deploy modules to an IoT Edge device
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,36 +9,35 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 72535b69c81aee880eb16bf5d10e11dedb36f3a7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964927"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457472"
 ---
-# <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implantar módulos de Azure IoT Edge com CLI do Azure
+# <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Deploy Azure IoT Edge modules with Azure CLI
 
-Depois de criar IoT Edge módulos com sua lógica de negócios, você deseja implantá-los em seus dispositivos para operar na borda. Se você tiver vários módulos que trabalham juntos para coletar e processar dados, poderá implantá-los todos de uma vez e declarar as regras de roteamento que os conectam.
+Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
-[CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de software livre para gerenciar recursos do Azure, como IOT Edge. Ele permite que você gerencie recursos do Hub IoT do Azure, instâncias do serviço de provisionamento de dispositivos e hubs vinculados prontos para uso. A nova extensão de IoT enriquece CLI do Azure com recursos como o gerenciamento de dispositivos e o recurso de IoT Edge completo.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
-Este artigo mostra como criar um manifesto de implantação JSON e, em seguida, usar esse arquivo para enviar por push a implantação para um dispositivo IoT Edge. Para obter informações sobre como criar uma implantação que se destina a vários dispositivos com base em suas marcas compartilhadas, consulte [implantar e monitorar módulos de IOT Edge em escala](how-to-deploy-monitor-cli.md)
+This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor-cli.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um [Hub IOT](../iot-hub/iot-hub-create-using-cli.md) em sua assinatura do Azure.
-* Um [dispositivo IOT Edge](how-to-register-device.md#register-with-the-azure-cli) com o IOT Edge Runtime instalado.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, sua versão de CLI do Azure deve ser 2.0.24 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
-* A [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
+* An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
+* An [IoT Edge device](how-to-register-device.md#register-with-the-azure-cli) with the IoT Edge runtime installed.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
+## <a name="configure-a-deployment-manifest"></a>Configure a deployment manifest
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos serão implantados, como os dados fluem entre os módulos e as propriedades desejadas do módulo gêmeos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [entender como IOT Edge módulos podem ser usados, configurados e reutilizados](module-composition.md).
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-Para implantar módulos usando o CLI do Azure, salve o manifesto de implantação localmente como um arquivo. JSON. Você usará o caminho do arquivo na próxima seção ao executar o comando para aplicar a configuração ao seu dispositivo.
+To deploy modules using the Azure CLI, save the deployment manifest locally as a .json file. You will use the file path in the next section when you run the command to apply the configuration to your device.
 
-Aqui está um manifesto de implantação básica com um módulo como exemplo:
+Here's a basic deployment manifest with one module as an example:
 
    ```json
    {
@@ -106,23 +105,23 @@ Aqui está um manifesto de implantação básica com um módulo como exemplo:
 
 ## <a name="deploy-to-your-device"></a>Implementar no seu novo dispositivo
 
-Você implanta módulos em seu dispositivo aplicando o manifesto de implantação que você configurou com as informações do módulo.
+You deploy modules to your device by applying the deployment manifest that you configured with the module information.
 
-Altere os diretórios para a pasta em que o manifesto de implantação foi salvo. Se você usou um dos modelos de IoT Edge VS Code, use o arquivo `deployment.json` na pasta **config** do diretório da solução e não no arquivo `deployment.template.json`.
+Change directories into the folder where your deployment manifest is saved. If you used one of the VS Code IoT Edge templates, use the `deployment.json` file in the **config** folder of your solution directory and not the `deployment.template.json` file.
 
-Use o seguinte comando para aplicar a configuração a um dispositivo IoT Edge:
+Use the following command to apply the configuration to an IoT Edge device:
 
    ```cli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas. O parâmetro de conteúdo aponta para o arquivo de manifesto de implantação que você salvou.
+The device ID parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved.
 
-   ![saída de módulos AZ IOT Edge Set-modules](./media/how-to-deploy-cli/set-modules.png)
+   ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
-## <a name="view-modules-on-your-device"></a>Exibir módulos em seu dispositivo
+## <a name="view-modules-on-your-device"></a>View modules on your device
 
-Depois de implantar módulos no seu dispositivo, você pode exibir todos eles com o seguinte comando:
+Once you've deployed modules to your device, you can view all of them with the following command:
 
 Veja os módulos no seu dispositivo do IoT Edge:
 
@@ -130,10 +129,10 @@ Veja os módulos no seu dispositivo do IoT Edge:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas.
+The device ID parameter is case-sensitive.
 
-   ![módulo AZ IOT Hub-saída da lista de identidades](./media/how-to-deploy-cli/list-modules.png)
+   ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar e monitorar módulos IOT Edge em escala](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)

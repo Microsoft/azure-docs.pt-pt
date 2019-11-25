@@ -1,86 +1,81 @@
 ---
-title: Autenticar com um registro de contêiner do Azure
-description: Opções de autenticação para um registro de contêiner do Azure, incluindo a entrada com uma identidade de Azure Active Directory, o uso de entidades de serviço e o uso de credenciais de administrador opcionais.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Registry authentication options
+description: Authentication options for an Azure container registry, including signing in with an Azure Active Directory identity, using service principals, and using optional admin credentials.
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a55cba27c676b283a4da490f05dd6fc672e10d49
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 29e23f6a983ccc2197e609511aee2ce13726ed0f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032393"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455382"
 ---
-# <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registro de contêiner privado do Docker
+# <a name="authenticate-with-a-private-docker-container-registry"></a>Authenticate with a private Docker container registry
 
-Há várias maneiras de se autenticar com um registro de contêiner do Azure, sendo que cada um é aplicável a um ou mais cenários de uso do registro.
+There are several ways to authenticate with an Azure container registry, each of which is applicable to one or more registry usage scenarios.
 
-As maneiras recomendadas incluem a autenticação em um registro diretamente por meio de [logon individual](#individual-login-with-azure-ad)ou seus aplicativos e orquestradores de contêiner podem executar a autenticação autônoma ou "sem periféricos" usando um serviço Azure Active Directory (AD do Azure) [ entidade de segurança](#service-principal).
+Recommended ways include authenticating to a registry directly via [individual login](#individual-login-with-azure-ad), or your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
 
-## <a name="individual-login-with-azure-ad"></a>Logon individual com o Azure AD
+## <a name="individual-login-with-azure-ad"></a>Individual login with Azure AD
 
-Ao trabalhar diretamente com o registro, como extrair imagens e enviar por push imagens de uma estação de trabalho de desenvolvimento, autentique usando o comando [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) no [CLI do Azure](/cli/azure/install-azure-cli):
+When working with your registry directly, such as pulling images to and pushing images from a development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) command in the [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Quando você faz logon com `az acr login`o, a CLI usa o token criado quando você executou [AZ login](/cli/azure/reference-index#az-login) para autenticar a sessão diretamente com o registro. Depois de fazer logon dessa forma, suas credenciais são armazenadas em cache e os comandos `docker` subsequentes em sua sessão não exigem um nome de usuário ou senha. 
+When you log in with `az acr login`, the CLI uses the token created when you executed [az login](/cli/azure/reference-index#az-login) to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands in your session do not require a username or password. 
 
-Para acesso ao registro, o token usado `az acr login` pelo é válido por 1 hora, portanto, é recomendável que você sempre faça logon no registro antes `docker` de executar um comando. Se o token expirar, você poderá atualizá-lo usando `az acr login` o comando novamente para autenticar novamente. 
+For registry access, the token used by `az acr login` is valid for 1 hour, so we recommend that you always log in to the registry before running a `docker` command. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate. 
 
-Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../role-based-access-control/role-assignments-portal.md). Para alguns cenários, talvez você queira fazer logon em um registro com sua própria identidade individual no Azure AD. Para cenários de serviço cruzado ou para lidar com as necessidades de um grupo de trabalho em que você não deseja gerenciar o acesso individual, você também pode fazer logon com uma [identidade gerenciada para recursos do Azure](container-registry-authentication-managed-identity.md).
+Using `az acr login` with Azure identities provides [role-based access](../role-based-access-control/role-assignments-portal.md). For some scenarios you may want to log in to a registry with your own individual identity in Azure AD. For cross-service scenarios or to handle the needs of a workgroup where you don't want to manage individual access, you can also log in with a [managed identity for Azure resources](container-registry-authentication-managed-identity.md).
 
-## <a name="service-principal"></a>Principal de serviço
+## <a name="service-principal"></a>Service principal
 
-Se você atribuir uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao registro, seu aplicativo ou serviço poderá usá-la para autenticação sem periféricos. As entidades de serviço permitem o [acesso baseado em função](../role-based-access-control/role-assignments-portal.md) a um registro e você pode atribuir várias entidades de serviço a um registro. Várias entidades de serviço permitem que você defina o acesso diferente para diferentes aplicativos.
+If you assign a [service principal](../active-directory/develop/app-objects-and-service-principals.md) to your registry, your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
-As funções disponíveis para um registro de contêiner incluem:
+The available roles for a container registry include:
 
 * **AcrPull**: pull
 
-* **AcrPush**: efetuar pull e enviar por push
+* **AcrPush**: pull and push
 
-* **Proprietário**: efetuar pull, enviar por push e atribuir funções a outros usuários
+* **Owner**: pull, push, and assign roles to other users
 
-Para obter uma lista completa de funções, consulte [funções e permissões do registro de contêiner do Azure](container-registry-roles.md).
+For a complete list of roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
-Para que os scripts da CLI criem uma entidade de serviço para autenticação com um registro de contêiner do Azure e orientações sobre como usar uma entidade de serviço, consulte [autenticação do registro de contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md).
+For CLI scripts to create a service principal for authenticating with an Azure container registry, and guidance on using a service principal, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
-## <a name="admin-account"></a>Conta de admin
+## <a name="admin-account"></a>Admin account
 
-Cada registro de contêiner inclui uma conta de usuário administrador, que é desabilitada por padrão. Você pode habilitar o usuário administrador e gerenciar suas credenciais no portal do Azure ou usando o CLI do Azure ou outras ferramentas do Azure.
+Each container registry includes an admin user account, which is disabled by default. You can enable the admin user and manage its credentials in the Azure portal, or by using the Azure CLI or other Azure tools.
 
 > [!IMPORTANT]
-> A conta de administrador é projetada para que um único usuário acesse o registro, principalmente para fins de teste. Não recomendamos o compartilhamento das credenciais da conta de administrador entre vários usuários. Todos os usuários que se autenticam com a conta de administrador aparecem como um único usuário com acesso de push e pull ao registro. Alterar ou desabilitar essa conta desabilita o acesso ao registro para todos os usuários que usam suas credenciais. A identidade individual é recomendada para usuários e entidades de serviço para cenários sem periféricos.
+> The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials. Individual identity is recommended for users and service principals for headless scenarios.
 >
 
-A conta de administrador é fornecida com duas senhas, que podem ser regeneradas. Duas senhas permitem manter a conexão com o registro usando uma senha enquanto você gera novamente a outra. Se a conta do administrador estiver habilitada, você poderá passar o nome de usuário e `docker login` a senha para o comando quando a autenticação básica for solicitada ao registro. Por exemplo:
+The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command when prompted for basic authentication to the registry. Por exemplo:
 
 ```
 docker login myregistry.azurecr.io 
 ```
 
-Para obter as práticas recomendadas para gerenciar as credenciais de logon, consulte a referência do comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
-Para habilitar o usuário administrador para um registro existente, você pode usar o `--admin-enabled` parâmetro do comando [AZ ACR Update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) no CLI do Azure:
+To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) command in the Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true
 ```
 
-Você pode habilitar o usuário administrador no portal do Azure navegando no registro, selecionando **chaves de acesso** em **configurações**e, em seguida, **habilitar** em **usuário administrador**.
+You can enable the admin user in the Azure portal by navigating your registry, selecting **Access keys** under **SETTINGS**, then **Enable** under **Admin user**.
 
-![Habilitar a IU do usuário administrador no portal do Azure][auth-portal-01]
+![Enable admin user UI in the Azure portal][auth-portal-01]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Envie por push sua primeira imagem usando o CLI do Azure](container-registry-get-started-azure-cli.md)
+* [Push your first image using the Azure CLI](container-registry-get-started-azure-cli.md)
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
