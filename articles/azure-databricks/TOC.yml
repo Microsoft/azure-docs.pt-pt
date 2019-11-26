@@ -226,7 +226,7 @@
       maintainContext: true
     - name: Dados
       items:
-        - name: Sistema de Ficheiros do Databricks
+        - name: Sistema de Ficheiros do Databricks (DBFS)
           href: /azure/databricks/data/databricks-file-system
           maintainContext: true
         - name: Bases de dados e tabelas
@@ -242,7 +242,7 @@
             - name: Bases de dados SQL com o JDBC
               href: /azure/databricks/data/data-sources/sql-databases
               maintainContext: true
-            - name: Base de Dados SQL do Azure com o conector do Apache Spark
+            - name: Bases de dados SQL com o conector do Apache Spark
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
             - name: Armazenamento de Blobs do Azure
@@ -254,7 +254,7 @@
             - name: Armazenamento do Azure Data Lake
               href: /azure/databricks/data/data-sources/azure/azure-datalake
               maintainContext: true
-            - name: Pass-through do Azure Data Lake Storage
+            - name: Pass-through de credenciais do Azure Data Lake Storage
               href: /azure/databricks/data/data-sources/azure/adls-passthrough
               maintainContext: true
             - name: BD do Cosmos
@@ -263,7 +263,7 @@
             - name: Azure SQL Data Warehouse
               href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
               maintainContext: true
-            - name: Ficheiros binários
+            - name: Ficheiro binário
               href: /azure/databricks/data/data-sources/binary-file
               maintainContext: true
             - name: Cassandra
@@ -275,7 +275,7 @@
             - name: Elasticsearch
               href: /azure/databricks/data/data-sources/elasticsearch
               maintainContext: true
-            - name: Imagens
+            - name: Imagem
               href: /azure/databricks/data/data-sources/image
               maintainContext: true
             - name: Tabelas do Hive
@@ -629,22 +629,22 @@
               maintainContext: true
         - name: Exemplos de linguagem SQL do Apache Spark
           items:
-            - name: Otimizador Baseados nos Custos
+            - name: Otimizador Baseado nos Custos
               href: /azure/databricks/spark/latest/spark-sql/cbo
               maintainContext: true
-            - name: Índice para Ignorar Dados
+            - name: Índice para ignorar dados
               href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
               maintainContext: true
-            - name: Escritas Transacionais para o Armazenamento na Cloud com o DBIO
+            - name: Escritas transacionais para o armazenamento na cloud com o DBIO
               href: /azure/databricks/spark/latest/spark-sql/dbio-commit
               maintainContext: true
             - name: Processar ficheiros e registos incorretos
               href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
               maintainContext: true
-            - name: Preempção de Tarefas para Simultaneidade Elevada
+            - name: Preempção de tarefas para simultaneidade elevada
               href: /azure/databricks/spark/latest/spark-sql/preemption
               maintainContext: true
-            - name: Processar Consultas Grandes em fluxos de trabalho interativos
+            - name: Processar consultas de grandes dimensões em fluxos de trabalho interativos
               href: /azure/databricks/spark/latest/spark-sql/query-watchdog
               maintainContext: true
             - name: Otimizar a conversão entre DataFrames do Apache Spark e do Pandas
@@ -764,16 +764,16 @@
               href: /azure/databricks/applications/deep-learning/data-prep/ddl-data
               maintainContext: true
             - name: Carregar os dados com o Petastorm
-              href: /azure/databricks//applications/deep-learning/data-prep/petastorm
+              href: /azure/databricks/applications/deep-learning/data-prep/petastorm
               maintainContext: true
             - name: Guardar os DataFrames e os Conjuntos de Dados em ficheiros TFRecord
-              href: /azure/databricks//applications/deep-learning/data-prep/dataset-to-tfrecords
+              href: /azure/databricks/applications/deep-learning/data-prep/dataset-to-tfrecords
               maintainContext: true
             - name: Carregar os dados de ficheiros TFRecord com o TensorFlow
-              href: /azure/databricks//applications/deep-learning/data-prep/tfrecords-to-tensorflow
+              href: /azure/databricks/applications/deep-learning/data-prep/tfrecords-to-tensorflow
               maintainContext: true
             - name: Guardar os dados em ficheiros TFRecord com o TensorFlow
-              href: /azure/databricks//applications/deep-learning/data-prep/tensorflow-to-tfrecords
+              href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
               maintainContext: true
         - name: Preparação dos nós únicos
           items:
@@ -995,13 +995,13 @@
             - name: Descrição geral da gestão de contas
               href: /azure/databricks/administration-guide/account-settings/index
               maintainContext: true
-            - name: Gerir a Subscrição
+            - name: Gerir a subscrição
               href: /azure/databricks/administration-guide/account-settings/account
               maintainContext: true
             - name: Registo de diagnósticos no Azure Databricks
               href: /azure/databricks/administration-guide/account-settings/azure-diagnostic-logs
               maintainContext: true
-        - name: Gerir os Utilizadores e os Grupos
+        - name: Gerir utilizadores e grupos
           items:
             - name: Descrição geral dos utilizadores e dos grupos
               href: /azure/databricks/administration-guide/users-groups/index
@@ -1061,6 +1061,17 @@
         - name: Gerir o armazenamento das áreas de trabalho
           href: /azure/databricks/administration-guide/workspace-storage/storage
           maintainContext: true
+        - name: Ativar as configurações de cluster
+          items:
+            - name: Descrição geral da configuração de cluster
+              href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: Ativar os Serviços de Contentores
+              href: /azure/databricks/administration-guide/clusters/container-services
+              maintainContext: true
+            - name: Ativar o Databricks Runtime para o Genomics
+              href: /azure/databricks/administration-guide/clusters/genomics-runtime
+              maintainContext: true
         - name: Gerir redes virtuais
           items:
             - name: Descrição geral das redes virtuais
@@ -1084,7 +1095,7 @@
     - name: Resolução de problemas
       items:
         - name: Perguntas comuns
-          href: /azure/databricks//azure/azure-databricks/frequently-asked-questions-databricks
+          href: /azure/azure-databricks/frequently-asked-questions-databricks
           maintainContext: true
         - name: Administração
           items:
