@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: Faça a gestão dos seus dispositivos
           href: howto-manage-devices.md
+        - name: Configurar regras
+          href: howto-configure-rules.md
         - name: Analisar os dados do seu dispositivo
           href: howto-create-analytics.md
         - name: Adicionar mosaicos ao dashboard

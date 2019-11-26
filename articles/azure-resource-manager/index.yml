@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 09/25/2019
-  ms.openlocfilehash: 33e3fb270b1b907af9288794d35028fb410652b6
-  ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+  ms.openlocfilehash: 1d50556eb09a35857ed9db4ccbbba99397606f8b
+  ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/04/2019
-  ms.locfileid: "71959627"
+  ms.lasthandoff: 11/25/2019
+  ms.locfileid: "74483431"
 landingContent:
 - title: Acerca do Resource Manager
   linkLists:
@@ -39,6 +39,10 @@ landingContent:
       url: deploy-to-subscription.md
     - text: Gestor de Implementação
       url: deployment-manager-overview.md
+  - linkListType: video
+    links:
+    - text: Novidades
+      url: https://youtu.be/3D-JIKShrws
 - title: Introdução
   linkLists:
   - linkListType: quickstart

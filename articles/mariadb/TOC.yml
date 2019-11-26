@@ -49,16 +49,18 @@
           href: concepts-limits.md
     - name: Acesso a dados e segurança
       items:
-        - name: Regras da firewall
-          href: concepts-firewall-rules.md
+        - name: Descrição geral da segurança
+          href: concepts-security.md
         - name: Configurar o SSL
           href: concepts-ssl-connection-security.md
-        - name: Proteção Avançada Contra Ameaças
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: Rede Virtual
-          href: concepts-data-access-security-vnet.md
         - name: Arquitetura de conectividade
           href: concepts-connectivity-architecture.md
+        - name: Regras da firewall
+          href: concepts-firewall-rules.md
+        - name: Rede Virtual
+          href: concepts-data-access-security-vnet.md
+        - name: Proteção Avançada Contra Ameaças
+          href: concepts-data-access-and-security-threat-protection.md
     - name: Continuidade do negócio
       items:
         - name: Introdução à continuidade de negócio
