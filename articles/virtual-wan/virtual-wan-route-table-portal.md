@@ -1,6 +1,6 @@
 ---
-title: 'WAN virtual: criar tabela de rotas de Hub virtual para NVA: portal do Azure'
-description: Tabela de rotas do Hub virtual WAN virtual para direcionar o tráfego para uma solução de virtualização de rede usando o Portal.
+title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
+description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,88 +8,88 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 8f24b94226daffb769993c9f6659909fdff039b6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3aa5660e5b777364ef9d684debe7e06f42acee6e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014986"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482028"
 ---
-# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Criar uma tabela de rotas do Hub WAN virtual para NVAs: portal do Azure
+# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Create a Virtual WAN hub route table for NVAs: Azure portal
 
-Este artigo mostra como direcionar o tráfego de um hub para uma NVA (solução de virtualização de rede).
+This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke Vnet via a Network Virtual Appliance (NVA).
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-route-table/vwanroute.png)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se você atendeu aos seguintes critérios:
+Verify that you have met the following criteria:
 
-*  Você tem uma solução de virtualização de rede (NVA). Uma solução de virtualização de rede é um software de terceiros de sua escolha que normalmente é provisionado do Azure Marketplace em uma rede virtual.
+*  You have a Network Virtual Appliance (NVA). A Network Virtual Appliance is a third-party software of your choice that is typically provisioned from Azure Marketplace in a virtual network.
 
-    * Um endereço IP privado deve ser atribuído à interface de rede NVA.
+    * A private IP address must be assigned to the NVA network interface.
 
-    * O NVA não está implantado no Hub virtual. Ele deve ser implantado em uma VNet separada.
+    * The NVA is not deployed in the virtual hub. It must be deployed in a separate VNet.
 
-    *  A VNet NVA pode ter uma ou várias redes virtuais conectadas a ela. Neste artigo, nos referimos à VNet NVA como uma "VNet spoke indireta". Esses VNets podem ser conectados à VNet do NVA usando o emparelhamento VNet.
-*  Você criou 2 VNets. Eles serão usados como spoke VNets.
+    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering. The Vnet Peering links are depicted by black arrows in the above figure.
+*  You have created 2 VNets. They will be used as spoke VNets.
 
-    * Para este exercício, os espaços de endereço do spoke da VNet são: VNet1:10.0.2.0/24 e VNet2:10.0.3.0/24. Se você precisar de informações sobre como criar uma VNet, consulte [criar uma rede virtual](../virtual-network/quick-create-portal.md).
+    * For this exercise, the VNet spoke address spaces are: VNet1: 10.0.2.0/24 and VNet2: 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network](../virtual-network/quick-create-portal.md).
 
-    * Verifique se não há nenhum gateway de rede virtual em nenhum dos VNets.
-    * Para essa configuração, esses VNets não exigem uma sub-rede de gateway.
+    * Ensure there are no virtual network gateways in any of the VNets.
+    * For this configuration, these VNets do not require a gateway subnet.
 
-## <a name="signin"></a>1. entrar
+## <a name="signin"></a>1. Sign in
 
 Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
-## <a name="vwan"></a>2. criar uma WAN virtual
+## <a name="vwan"></a>2. Create a virtual WAN
 
-Crie uma WAN virtual. Para os fins deste exercício, você pode usar os seguintes valores:
+Create a virtual WAN. For the purposes of this exercise, you can use the following values:
 
-* **Nome da WAN virtual:** myVirtualWAN
-* **Grupo de recursos:** testRG
-* **Local:** Oeste dos EUA
+* **Virtual WAN name:** myVirtualWAN
+* **Resource group:** testRG
+* **Location:** West US
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="hub"></a>3. criar um hub
+## <a name="hub"></a>3. Create a hub
 
-Crie o Hub. Para os fins deste exercício, você pode usar os seguintes valores:
+Create the hub. For the purposes of this exercise, you can use the following values:
 
-* **Local:** Oeste dos EUA
-* **Nome:** westushub
-* **Espaço de endereço privado do Hub:** 10.0.1.0/24
+* **Location:** West US
+* **Name:** westushub
+* **Hub private address space:** 10.0.1.0/24
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="route"></a>4. criar e aplicar uma tabela de rotas de Hub
+## <a name="route"></a>4. Create and apply a hub route table
 
-Atualize o Hub com uma tabela de rotas de Hub. Para os fins deste exercício, você pode usar os seguintes valores:
+Update the hub with a hub route table. For the purposes of this exercise, you can use the following values:
 
-* **Espaços de endereço de VNet de spoke indireto:** (VNet1 e VNet2) 10.0.2.0/24 e 10.0.3.0/24
-* **Endereço IP privado da interface de rede DMZ NVA:** 10.0.4.5
+* **Indirect spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
+* **DMZ NVA network interface private IP address:** 10.0.4.5
 
-1. Navegue até sua WAN virtual.
-2. Clique no Hub para o qual você deseja criar uma tabela de rotas.
-3. Clique em **...** e em **Editar Hub virtual**.
-4. Na página **Editar Hub virtual** , role para baixo e marque a caixa de seleção **usar tabela para roteamento**.
-5. Na coluna **se o prefixo de destino for** , adicione os espaços de endereço. Na coluna **Enviar para o próximo salto** , adicione o endereço IP privado da interface de rede do DMZ NVA.
-6. Clique em **confirmar** para atualizar o recurso de Hub com as configurações da tabela de rotas.
+1. Navigate to your virtual WAN.
+2. Click the hub for which you want to create a route table.
+3. Click the **...** , and then click **Edit virtual hub**.
+4. On the **Edit virtual hub** page, scroll down and select the checkbox **Use table for routing**.
+5. In the **If destination prefix is** column, add the address spaces. In the **Send to next hop** column, add the DMZ NVA network interface private IP address.
+6. Click **Confirm** to update the hub resource with the route table settings.
 
-## <a name="connections"></a>5. criar as conexões de VNet
+## <a name="connections"></a>5. Create the VNet connections
 
-Crie uma conexão de cada VNet de spoke indireto (VNet1 e VNet2) para o Hub. Em seguida, crie uma conexão da VNet NVA para o Hub.
+Create a connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. Then, create a connection from the NVA VNet to the hub. These Vnet Connections are dipicted by blue arrows in the figure above. 
 
- Para esta etapa, você pode usar os seguintes valores:
+ For this step, you can use the following values:
 
-| Nome da VNet| Nome da ligação|
+| VNet name| Nome da ligação|
 | --- | --- |
 | VNet1 | testconnection1 |
 | VNet2 | testconnection2 |
 | NVAVNet | testconnection3 |
 
-Repita o procedimento a seguir para cada VNet que você deseja conectar.
+Repeat the following procedure for each VNet that you want to connect.
 
 1. Na página da WAN virtual, clique em **Ligações de rede virtual**.
 2. Na página de ligação da rede virtual, clique em **+Add connection** (+Adicionar ligação).
@@ -99,7 +99,7 @@ Repita o procedimento a seguir para cada VNet que você deseja conectar.
     * **Hubs** - selecione o hub que pretende associar a esta ligação.
     * **Subscription** (Subscrição) - verifique a subscrição.
     * **Virtual network** (Rede virtual) - selecione a rede virtual que pretende ligar a este hub. A rede virtual não pode ter um gateway de rede virtual já existente.
-4. Clique em **OK** para criar a conexão.
+4. Click **OK** to create the connection.
 
 ## <a name="next-steps"></a>Passos seguintes
 

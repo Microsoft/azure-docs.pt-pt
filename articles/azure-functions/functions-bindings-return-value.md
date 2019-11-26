@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 30c9caf267482d7c3731d4848cfb26cc8120b1ac
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231077"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480581"
 ---
 # <a name="using-the-azure-function-return-value"></a>Using the Azure Function return value
 
@@ -19,6 +19,7 @@ This article explains how return values work inside a function.
 In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
 
 * In a C# class library, apply the output binding attribute to the method return value.
+* In Java, apply the output binding annotation to the function method.
 * In other languages, set the `name` property in *function.json* to `$return`.
 
 If there are multiple output bindings, use the return value for only one of them.
@@ -150,6 +151,24 @@ def main(input: azure.functions.InputStream) -> str:
         'length': input.length,
         'content': input.read().decode('utf-8')
     })
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Here's Java code that uses the return value for an output binding:
+
+```java
+@FunctionName("QueueTrigger")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "output", path = "output-container/{id}")
+public static String run(
+  @QueueTrigger(name = "input", queueName = "inputqueue") WorkItem input,
+  final ExecutionContext context
+) {
+  String json = String.format("{ \"id\": \"%s\" }", input.id);
+  context.getLogger().info("Java processed queue message. Item=" + json);
+  return json;
+}
 ```
 
 ---

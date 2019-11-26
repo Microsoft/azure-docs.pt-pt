@@ -1,27 +1,29 @@
 ---
 title: 'Quickstart: New policy assignment with portal'
 description: In this quickstart, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 12/06/2018
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 737faafa65afb87640f7f69b02093c058bd77424
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ac876b546ea3bda7541db61e0ab68842a3845541
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216820"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482319"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Quickstart: Create a policy assignment to identify non-compliant resources
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
 Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
 
-No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em *não conformidade* com a atribuição de política.
+No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em _não conformidade_ com a atribuição de política.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-In this quickstart, you create a policy assignment and assign the *Audit VMs that do not use managed disks* policy definition.
+In this quickstart, you create a policy assignment and assign the _Audit VMs that do not use managed disks_ policy definition.
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
@@ -49,11 +51,11 @@ In this quickstart, you create a policy assignment and assign the *Audit VMs tha
 
    For a partial list of available built-in policies, see [Azure Policy samples](./samples/index.md).
 
-1. Pesquise nas definições de política para encontrar a definição *Auditar VMs que não utilizam discos geridos*. Clique nessa política e clique em **Selecionar**.
+1. Pesquise nas definições de política para encontrar a definição _Auditar VMs que não utilizam discos geridos_. Clique nessa política e clique em **Selecionar**.
 
    ![Encontrar a definição de política correta](./media/assign-policy-portal/select-available-definition.png)
 
-1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Neste exemplo, vamos deixar *Auditar VMs que não utilizam discos geridos*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
+1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Neste exemplo, vamos deixar _Auditar VMs que não utilizam discos geridos_. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
    **Atribuído por** será preenchido automaticamente com base em quem tem sessão iniciada. Este campo é opcional,por isso pode introduzir valores personalizados.
 
 1. Não marque o campo **Criar uma Identidade Gerida**. This box _must_ be checked when the policy or initiative includes a policy with the [deployIfNotExists](./concepts/effects.md#deployifnotexists) effect. As the policy used for this quickstart doesn't, leave it blank. Para obter mais informações, consulte [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](./how-to/remediate-resources.md#how-remediation-security-works).
@@ -88,7 +90,7 @@ To remove the assignment created, follow these steps:
 
 1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página Azure Policy e localize a atribuição de política **Auditar VMs que não utilizam discos geridos** que criou.
 
-1. Clique com o botão direito do rato na atribuição de política **Auditar VMs que não utilizam discos geridos** e selecione **Eliminar atribuição**
+1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**.
 
    ![Delete an assignment from the Compliance page](./media/assign-policy-portal/delete-assignment.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5253ab1d9599c2758127156e46e1dbf2e8e1eddc
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9e1529517a812ac11f5a3023b699bd8f1332fc98
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327964"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484398"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Known issues with Azure Data Lake Storage Gen2
 
@@ -46,13 +46,18 @@ These Blob REST APIs aren't supported:
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
+<a id="api-scope-data-lake-client-library" />
+
+## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>API Scope for Data Lake Storage Client Library for SDK, Powershell and CLI
+
+The following capabilities are currently not supported in data lake client library for PowerShell, Azure CLI, Java, Python and the .NET SDK: `RecursiveACL`, `setExpiry`, `Concat` and `ConcurrentAppend`.
+
 ## <a name="support-for-other-blob-storage-features"></a>Support for other Blob Storage features
 
 The following table lists all other features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
 
 | Feature / Tool    | Mais informações    |
 |--------|-----------|
-| **Data Lake Storage Gen2 APIs** | Partially supported <br><br>In the current release, you can use Data Lake Storage Gen2 **REST** APIs to interact with directories and set access control lists (ACLs), but there are no other SDKs (For example: .NET, Java, or Python) to perform those tasks. To perform other tasks such as uploading and downloading files, you can use the Blob SDKs.  |
 | **AZCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
 | **Azure Blob Storage lifecycle management policies** | All access tiers are supported. The archive access tier is currently in preview. The deletion of blob snapshots is not yet supported. |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|

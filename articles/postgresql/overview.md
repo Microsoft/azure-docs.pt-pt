@@ -6,56 +6,52 @@ ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 05/06/2019
-ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/25/2019
+ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466745"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481660"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
-O banco de dados do Azure para PostgreSQL é um serviço de banco de dados relacional no Microsoft Cloud criado para desenvolvedores. Ele se baseia na versão da Comunidade do mecanismo de banco de dados [PostgreSQL](https://www.postgresql.org/) de software livre e está disponível em duas opções de implantação: servidor único e hiperescala (Citus).
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers. It is based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine, and is available in two deployment options: Single Server and Hyperscale (Citus).
 
-## <a name="azure-database-for-postgresql---single-server"></a>Banco de dados do Azure para PostgreSQL-servidor único
-A opção de implantação de servidor único fornece:
+## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - Single Server
+The Single Server deployment option delivers:
 
-- Alta disponibilidade interna sem custo adicional (99,99% de SLA)
+- Built-in [high availability](concepts-high-availability.md) with no additional cost (99.99% SLA)
 - Desempenho previsível com preços pay as you go inclusivos
-- Escala vertical conforme necessário em segundos
-- Monitoramento e alertas para avaliar rapidamente o impacto do dimensionamento
-- Segurança para proteger os dados confidenciais inativos e em movimento
-- Cópias de segurança automáticas e restauro para um ponto anterior no tempo até 35 dias
+- [Vertical scale as needed](concepts-pricing-tiers.md) within seconds
+- [Monitoring and alerting](concepts-monitoring.md) to assess your server
 - Segurança e conformidade de nível empresarial
+- [Secured to protect](concepts-security.md) sensitive data at-rest and in-motion
+- [Automatic backups and point-in-time-restore](concepts-business-continuity.md) for up to 35 days
 
-Todas estas funcionalidades não exigem praticamente qualquer ação de administração e são fornecidas sem custos adicionais. Eles permitem que você se concentre no desenvolvimento rápido de aplicativos e na aceleração do tempo de colocação no mercado, em vez de gastar tempo e recursos preciosos para gerenciar máquinas virtuais e infraestrutura. Você pode continuar a desenvolver seu aplicativo com as ferramentas de software livre e a plataforma de sua escolha, sem precisar aprender novas habilidades.
 
-A opção de implantação de servidor único oferece três tipos de preço: básico, Uso Geral e otimizado para memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
+Todas estas funcionalidades não exigem praticamente qualquer ação de administração e são fornecidas sem custos adicionais. They allow you to focus on rapid application development and accelerating your time to market, rather than spending precious time and resources to manage virtual machines and infrastructure. You can continue to develop your application with the open-source tools and platform of your choice, without having to learn new skills.
 
-## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Banco de dados do Azure para PostgreSQL-Citus (hiperescala)
-A opção de hiperescala (Citus) dimensiona horizontalmente as consultas em vários computadores usando a fragmentação. Seu mecanismo de consulta paralelize consultas SQL de entrada entre esses servidores para obter respostas mais rápidas em grandes conjuntos de altos. Ele serve para aplicativos que exigem maior escala e desempenho, geralmente as cargas de trabalho que estão se aproximando-ou já excedem--100 GB de dados.
+The Single Server deployment option offers three pricing tiers: Basic, General Purpose, and Memory Optimized. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. See [Pricing tiers](concepts-pricing-tiers.md) for details.
 
-A opção de implantação de hiperescala (Citus) fornece:
+## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL - Hyperscale (Citus)
+The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets. It serves applications that require greater scale and performance, generally workloads that are approaching -- or already exceed -- 100 GB of data.
 
-- Dimensionamento horizontal em vários computadores usando a fragmentação
-- A paralelização de consulta entre esses servidores para respostas mais rápidas em conjuntos de grandes volumes
-- Excelente suporte para aplicativos multilocatários, análise operacional em tempo real e cargas de trabalho transacionais de alta taxa de transferência
+The Hyperscale (Citus) deployment option delivers:
 
-Os aplicativos criados para PostgreSQL podem executar consultas distribuídas em Citus (hiperescala) com [bibliotecas de conexões](./concepts-connection-libraries.md) padrão e alterações mínimas.
+- Horizontal scaling across multiple machines using sharding
+- Query parallelization across these servers for faster responses on large datasets
+- Excellent support for multi-tenant applications, real time operational analytics, and high throughput transactional workloads
 
-## <a name="data-security"></a>Segurança de dados
-O banco de dados do Azure para PostgreSQL mantém a tradição da segurança dos serviços do Azure Database Services. Ele tem recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam a monitorar a atividade. Visite o [Centro de Fidedignidade do Azure](https://azure.microsoft.com/overview/trusted-cloud/) para obter informações sobre a segurança da plataforma do Azure.
-
-O serviço banco de dados do Azure para PostgreSQL usa o módulo de criptografia FIPS 140-2 validado para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco com a exceção de arquivos temporários criados durante a execução de consultas. O serviço usa a codificação AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada. Por padrão, o serviço banco de dados do Azure para PostgreSQL requer conexões seguras para dados em movimento em toda a rede e entre o banco de dados e o aplicativo cliente.
+Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
 
 ## <a name="contacts"></a>Contactos
-Para dúvidas ou sugestões sobre como trabalhar com o banco de dados do Azure para PostgreSQL, envie um email para a equipe do banco de dados do Azure para PostgreSQL ([@Ask BD do Azure para PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Esse endereço é para perguntas gerais em vez de tíquetes de suporte.
+For any questions or suggestions about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). This address is for general questions rather than support tickets.
 
-Além disso, considere estes pontos de contato conforme apropriado:
-- Para entrar em contato com o suporte do Azure ou corrigir um problema com sua conta, [arquivo de um tíquete do portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+In addition, consider these points of contact as appropriate:
+- To contact Azure Support or fix an issue with your account, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Passos seguintes
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver as comparações de preços e as calculadoras.
-- Comece criando seu primeiro banco de dados do Azure para PostgreSQL [Single Server](./quickstart-create-server-database-portal.md) ou [Citus (hiperescala)](./quickstart-create-hyperscale-portal.md)
+- Get started by creating your first Azure Database for PostgreSQL [Single Server](./quickstart-create-server-database-portal.md) or [Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md)
 - Criar a sua primeira aplicação em Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de ligação](./concepts-connection-libraries.md)

@@ -1,42 +1,42 @@
 ---
 title: Ofertas de serviços geridos no Azure Marketplace
-description: Os serviços gerenciados oferecem aos provedores de serviços para vender ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
+description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
 ms.date: 09/19/2019
-ms.topic: overview
-ms.openlocfilehash: 0f1ba749a5477f0c006e6666b841e82f4eeb193f
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: f7dcaa34b1fb471823acd74a7d9b05e42dd44161
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131867"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463994"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Ofertas de serviços geridos no Azure Marketplace
 
-Este artigo descreve o novo tipo de oferta de **Serviços gerenciados** no [Azure Marketplace](https://azuremarketplace.microsoft.com). As ofertas de serviços gerenciados permitem que você ofereça serviços de gerenciamento de recursos aos clientes com o gerenciamento de recursos delegado do Azure. Você pode tornar essas ofertas disponíveis para todos os clientes potenciais ou apenas para um ou mais clientes específicos. Como você cobra os clientes diretamente por custos relacionados a esses serviços gerenciados, não há tarifas cobradas pela Microsoft.
+This article describes the new **Managed Services** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com). Managed services offers allow you to offer resource management services to customers with Azure delegated resource management. You can make these offers available to all potential customers or only to one or more specific customers. Since you bill customers directly for costs related to these managed services, there are no fees charged by Microsoft.
 
-## <a name="understand-managed-services-offers"></a>Entenda as ofertas de serviços gerenciados
+## <a name="understand-managed-services-offers"></a>Understand managed services offers
 
-As ofertas de serviços gerenciados simplificam o processo de integração de clientes para o gerenciamento de recursos delegado do Azure. Quando um cliente adquire uma oferta no Azure Marketplace, ele poderá especificar quais assinaturas e/ou grupos de recursos devem ser integrados. Observe que a assinatura deve primeiro ser autorizada para integração Registrando manualmente o provedor de recursos **Microsoft. managedservices** .
+Managed services offers streamline the process of onboarding customers for Azure delegated resource management. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded. Note that the subscription must first be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider.
 
-Depois disso, os usuários em sua organização poderão executar tarefas de administração para esses recursos de dentro do locatário da sua organização, de acordo com o acesso que você definiu ao criar a oferta no [portal do Cloud Partner](https://cloudpartner.azure.com/). Isso é feito por meio de um manifesto que especifica os usuários, grupos e entidades de serviço do Azure AD que terão acesso aos recursos do cliente usando o gerenciamento de recursos delegado do Azure, juntamente com funções que definem seu nível de acesso. Ao atribuir permissões a um grupo do Azure AD em vez de uma série de contas individuais de usuário ou aplicativo, você pode adicionar ou remover usuários individuais quando seus requisitos de acesso mudam.
+After that, users in your organization will be able to perform administration tasks for those resources from within your organization's tenant, according to the access you defined when creating the offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/). This is done through a manifest that specifies the Azure AD users, groups, and service principals that will have access to customer resources using Azure delegated resource management, along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
 
-## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
+## <a name="public-and-private-offers"></a>Public and private offers
 
-Cada oferta de serviços gerenciados inclui um ou mais planos. Esses planos podem ser privados ou públicos.
+Each managed services offer includes one or more plans. These plans can be either private or public.
 
-Se você quiser limitar sua oferta a clientes específicos, poderá publicar um plano privado. Quando você fizer isso, o plano só poderá ser adquirido para as IDs de assinatura específicas que você fornecer. Para obter mais informações, consulte [ofertas privadas](https://docs.microsoft.com/azure/marketplace/private-offers).
+If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](https://docs.microsoft.com/azure/marketplace/private-offers).
 
-Os planos públicos permitem promover seus serviços a novos clientes. Normalmente, eles são mais apropriados quando você só precisa de acesso limitado ao locatário do cliente. Depois de estabelecer uma relação com um cliente, se decidir conceder acesso adicional à sua organização, você poderá fazer isso publicando um novo plano privado somente para esse cliente ou inserindo [-os para obter acesso adicional usando modelos de Azure Resource Manager](../how-to/onboard-customer.md).
+Public plans let you promote your services to new customers. These are usually more appropriate when you only require limited access to the customer's tenant. Once you've established a relationship with a customer, if they decide to grant your organization additional access, you can do so either by publishing a new private plan for that customer only, or by [onboarding them for further access using Azure Resource Manager templates](../how-to/onboard-customer.md).
 
-Tenha em mente que depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Além disso, não é possível restringir a disponibilidade de um plano público a determinados clientes ou até mesmo a um determinado número de clientes, embora você possa parar de vender o plano completamente se optar por fazê-lo.
+Keep in mind that once a plan has been published as public, you can't change it to private. Additionally, you can't restrict a public plan's availability to certain customers or even to a certain number of customers, although you can stop selling the plan completely if you choose to do so.
 
-Se apropriado, você pode incluir planos públicos e privados na mesma oferta.
+If appropriate, you can include both public and private plans in the same offer.
 
-## <a name="publish-managed-service-offers"></a>Publicar ofertas de serviço gerenciado
+## <a name="publish-managed-service-offers"></a>Publish managed service offers
 
-Para saber como publicar uma oferta de serviços gerenciados, consulte [publicar uma oferta de serviços gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para obter informações gerais sobre como publicar no Azure Marketplace usando o Portal do Cloud Partner, consulte [Guia de publicação do Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e [gerenciar ofertas do Azure e do AppSource Marketplace](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+To learn how to publish a managed services offer, see [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). For general info about publishing to Azure Marketplace using the Cloud Partner Portal, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md) e [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
-- [Publicar ofertas de serviços gerenciados](../how-to/publish-managed-services-offers.md) no Azure Marketplace.
+- Learn about [Azure delegated resource management](azure-delegated-resource-management.md) and [cross-tenant management experiences](cross-tenant-management-experience.md).
+- [Publish managed services offers](../how-to/publish-managed-services-offers.md) to Azure Marketplace.

@@ -1,16 +1,16 @@
 ---
-title: Exemplo – aplicar marca e seu valor
-description: Esta definição de política de exemplo requer um nome e valor de marca, cada conjunto como um parâmetro.
+title: Sample - Enforce tag and its value
+description: This sample policy definition requires a tag name and value defined in a parameter on each Azure resource.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: b48bd1e38264bc98a2ec7b4c5b1a6a929babffaf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d405b5cbe2bdb7b96c74d665171714d1890ef624
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076256"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463331"
 ---
-# <a name="sample---enforce-tag-and-its-value"></a>Exemplo – aplicar marca e seu valor
+# <a name="sample---enforce-tag-and-its-value"></a>Sample - Enforce tag and its value
 
 Esta política requer um nome de etiqueta e um valor especificado. Especifica o nome de etiqueta e o valor a impor.
 
@@ -24,9 +24,9 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fenforce-tag-value%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fenforce-tag-value%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -45,7 +45,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -65,4 +65,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)
+- Reveja mais exemplos nas [amostras do Azure Policy](index.md)

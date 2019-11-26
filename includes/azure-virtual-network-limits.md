@@ -8,86 +8,87 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70242739"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485514"
 ---
-<a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
+<a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis. Se você tivesse esses limites aumentados pelo suporte no passado e não vir os limites atualizados nas tabelas a seguir, [abra uma solicitação de atendimento ao cliente online sem encargos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resource | Limite máximo/padrão | 
+| Recurso | Default/maximum limit | 
 | --- | --- |
 | Redes virtuais |1,000 |
-| Sub-redes por rede virtual |3\.000 |
-| Emparelhamentos de rede virtual por rede virtual |500 |
-| Servidores DNS por rede virtual |20 |
-| Endereços IP privados por rede virtual |65.536 |
-| Endereços IP privados por interface de rede |256 |
-| Endereços IP privados por máquina virtual |256 |
-| Endereços IP públicos por interface de rede |256 |
-| Endereços IP públicos por máquina virtual |256 |
-| Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500,000 |
-| Placas de interface de rede |65.536 |
-| Grupos de Segurança de Rede |5,000 |
+| Sub-redes por rede virtual |3000 |
+| Virtual network peerings per virtual network |500 |
+| [Virtual network gateways (VPN Gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| DNS servers per virtual network |20 |
+| Private IP addresses per virtual network |65,536 |
+| Private IP addresses per network interface |256 |
+| Private IP addresses per virtual machine |256 |
+| Public IP addresses per network interface |256 |
+| Public IP addresses per virtual machine |256 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000 |
+| Network interface cards |65,536 |
+| Grupos de Segurança de Rede |5000 |
 | Regras do NSG por NSG |1,000 |
-| Endereços IP e intervalos especificados para origem ou destino em um grupo de segurança |4,000 |
-| Grupos de segurança da aplicação |3\.000 |
-| Grupos de segurança de aplicativo por configuração de IP, por NIC |20 |
-| Configurações de IP por grupo de segurança de aplicativo |4,000 |
-| Grupos de segurança de aplicativo que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |100 |
-| Tabelas de rotas definidas pelo usuário |200 |
-| Rotas definidas pelo usuário por tabela de rotas |400 |
-| Certificados raiz ponto a site por gateway de VPN do Azure |20 |
-| Toques de rede virtual |100 |
-| Configurações de toque de interface de rede por toque de rede virtual |100 |
+| IP addresses and ranges specified for source or destination in a security group |4,000 |
+| Grupos de segurança de aplicações |3000 |
+| Application security groups per IP configuration, per NIC |20 |
+| IP configurations per application security group |4,000 |
+| Application security groups that can be specified within all security rules of a network security group |100 |
+| User-defined route tables |200 |
+| User-defined routes per route table |400 |
+| Point-to-site root certificates per Azure VPN Gateway |20 |
+| Virtual network TAPs |100 |
+| Network interface TAP configurations per virtual network TAP |100 |
 
-#### <a name="publicip-address"></a>Limites de endereço IP público
-| Resource | Limite predefinido | Limite máximo |
+#### <a name="publicip-address"></a>Public IP address limits
+| Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| Endereços IP públicos-dinâmicos | 1\.000 para Basic. |Contacte o suporte. |
-| Endereços IP públicos-estáticos | 1\.000 para Basic. |Contacte o suporte. |
-| Endereços IP públicos-estáticos | 1\.000 para Standard.|Contacte o suporte. |
-| Comprimento do prefixo IP público | /28 | Contacte o suporte. |
+| Public IP addresses - dynamic | 1,000 for Basic. |Contacte o suporte. |
+| Public IP addresses - static | 1,000 for Basic. |Contacte o suporte. |
+| Public IP addresses - static | 1,000 for Standard.|Contacte o suporte. |
+| Public IP prefix length | /28 | Contacte o suporte. |
 
-#### <a name="load-balancer"></a>Limites de balanceador de carga
-Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
+#### <a name="load-balancer"></a>Load balancer limits
+Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
-| Resource | Limite máximo/padrão |
+| Recurso | Default/maximum limit |
 | --- | --- |
 | Balanceadores de carga | 1,000 | 
-| Regras por recurso, básico | 250 |
-| Regras por recurso, Standard | 1,500 | 
-| Regras por configuração de IP | 299 |
-| Regras por NIC | 300 |
-| Configurações de IP de front-end, básicas | 200 |
-| Configurações de IP de front-end, Standard | 600 |
-| Pool de back-ends, básico | 100, conjunto de disponibilidade único |
-| Pool de back-ends, Standard | 1\.000, rede virtual única |
-| Recursos de back-end por balanceador de carga, Standard<sup>1</sup> | 150 |
-| Portas de alta disponibilidade, Standard | 1 por front-end interno |
+| Rules per resource, Basic | 250 |
+| Rules per resource, Standard | 1,500 | 
+| Rules per IP configuration | 299 |
+| Rules per NIC | 300 |
+| Front-end IP configurations, Basic | 200 |
+| Front-end IP configurations, Standard | 600 |
+| Back-end pool, Basic | 100, single availability set |
+| Back-end pool, Standard | 1,000, single virtual network |
+| Back-end resources per load balancer, Standard<sup>1</sup> | 150 |
+| High-availability ports, Standard | 1 per internal front-end |
 
-<sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos de conjunto de disponibilidade e recursos de conjunto de escala de máquina virtual.
+<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 
-#### <a name="virtual-networking-limits-classic"></a>Os limites a seguir se aplicam somente a recursos de rede gerenciados por meio do modelo de implantação **clássico** por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
+#### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
-| Resource | Limite predefinido | Limite máximo |
+| Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Redes virtuais |100 |100 |
 | Sites de rede local |20 |50 |
-| Servidores DNS por rede virtual |20 |20 |
-| Endereços IP privados por rede virtual |4\.096 |4\.096 |
-| Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500.000, até 1 milhão para duas ou mais NICs. |500.000, até 1 milhão para duas ou mais NICs. |
-| NSGs (grupos de segurança de rede) |200 |200 |
+| DNS servers per virtual network |20 |20 |
+| Private IP addresses per virtual network |4,096 |4,096 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
+| Network Security Groups (NSGs) |200 |200 |
 | Regras do NSG por NSG |1,000 |1,000 |
-| Tabelas de rotas definidas pelo usuário |200 |200 |
-| Rotas definidas pelo usuário por tabela de rotas |400 |400 |
+| User-defined route tables |200 |200 |
+| User-defined routes per route table |400 |400 |
 | Endereços IP públicos (dinâmico) |500 |500 |
 | Endereços IP públicos reservados |500 |500 |
-| VIP público por implementação |5 |Contacte o suporte |
-| VIP privado (balanceamento de carga interno) por implantação |1 |1 |
-| Listas de controle de acesso de ponto de extremidade (ACLs) |50 |50 |
+| VIP público por implementação |5 |Contactar o suporte |
+| Private VIP (internal load balancing) per deployment |1 |1 |
+| Endpoint access control lists (ACLs) |50 |50 |

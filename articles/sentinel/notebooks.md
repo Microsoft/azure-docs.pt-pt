@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2019
+ms.date: 11/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: b94744e3879d31e88865f7b01ac12d816f67da15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1b78f6f0773e114a4dda536213e2684d8fbd706d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424120"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483261"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use Jupyter notebooks to hunt for security threats
 
@@ -71,7 +71,7 @@ You can run a notebook direct from Azure Sentinel, or clone all the Azure Sentin
 2. Select individual notebooks to read their descriptions, required data types, and data sources. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
+    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks for you to run.
 

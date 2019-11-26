@@ -1,45 +1,45 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
-description: Para parceiros CSP, o gerenciamento de recursos delegado do Azure ajuda a melhorar a segurança e o controle habilitando permissões granulares.
+description: For CSP partners, Azure delegated resource management helps improve security and control by enabling granular permissions.
 ms.date: 10/23/2019
-ms.topic: overview
-ms.openlocfilehash: 3ea32418cdf6808ad311d343d28ba2778740dbe4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132524"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463974"
 ---
-# <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>O Azure Lighthouse e o programa de provedor de soluções na nuvem
+# <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse and the Cloud Solution Provider program
 
-Se você for um parceiro [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/partner-center/csp-overview) , você já poderá acessar as assinaturas do Azure criadas para seus clientes por meio do programa CSP usando a funcionalidade [administrar em nome de (Aobo)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) . Esse acesso permite que você dê suporte, configure e gerencie diretamente as assinaturas de seus clientes.
+If you're a [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) partner, you can already access the Azure subscriptions created for your customers through the CSP program by using the [Administer On Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) functionality. This access allows you to directly support, configure, and manage your customers' subscriptions.
 
-Com o [Azure Lighthouse](../overview.md), você pode usar o gerenciamento de recursos delegado do Azure junto com o AOBO. Isso ajuda a melhorar a segurança e reduz o acesso desnecessário habilitando permissões mais granulares para seus usuários. Ele também permite maior eficiência e escalabilidade, pois os usuários podem trabalhar em várias assinaturas de clientes usando um único logon em seu locatário.
+With [Azure Lighthouse](../overview.md), you can use Azure delegated resource management along with AOBO. This helps improve security and reduces unnecessary access by enabling more granular permissions for your users. It also allows for greater efficiency and scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 
 > [!TIP]
-> Para ajudar a proteger os recursos do cliente, leia e siga nossas [práticas recomendadas de segurança](recommended-security-practices.md) junto com os [requisitos de segurança do parceiro](https://docs.microsoft.com/partner-center/partner-security-requirements).
+> To help safeguard customer resources, be sure to review and follow our [recommended security practices](recommended-security-practices.md) along with the [partner security requirements](https://docs.microsoft.com/partner-center/partner-security-requirements).
 
-## <a name="administer-on-behalf-of-aobo"></a>Administrar em nome de (AOBO)
+## <a name="administer-on-behalf-of-aobo"></a>Administer on Behalf of (AOBO)
 
-Com o AOBO, qualquer usuário com a função [agente de administração](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) em seu locatário terá acesso Aobo às assinaturas do Azure que você criar por meio do programa CSP. Todos os usuários que precisam acessar as assinaturas de qualquer cliente devem ser membros desse grupo. O AOBO não permite a flexibilidade de criar grupos distintos que funcionam com clientes diferentes ou para habilitar funções diferentes para grupos ou usuários.
+With AOBO, any user with the [Admin Agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your tenant will have AOBO access to Azure subscriptions that you create through the CSP program. Any users who need access to any customers' subscriptions must be a member of this group. AOBO doesn’t allow the flexibility to create distinct groups that work with different customers, or to enable different roles for groups or users.
 
-![Gerenciamento de locatários usando AOBO](../media/csp-1.jpg)
+![Tenant management using AOBO](../media/csp-1.jpg)
 
 ## <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
-Usando o gerenciamento de recursos delegado do Azure, você pode atribuir diferentes grupos a clientes ou funções diferentes, conforme mostrado no diagrama a seguir. Como os usuários terão o nível apropriado de acesso por meio do gerenciamento de recursos delegado do Azure, você pode reduzir o número de usuários que têm a função de agente de administrador (e, portanto, ter acesso total a AOBO). Isso ajuda a melhorar a segurança limitando o acesso desnecessário aos recursos de seus clientes. Ele também proporciona mais flexibilidade para gerenciar vários clientes em escala.
+Using Azure delegated resource management, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through Azure delegated resource management, you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This helps improve security by limiting unnecessary access to your customers’ resources. It also gives you more flexibility to manage multiple customers at scale.
 
-A integração de uma assinatura que você criou por meio do programa CSP segue as etapas descritas em [integração de uma assinatura ao gerenciamento de recursos delegado do Azure](../how-to/onboard-customer.md). Qualquer usuário que tenha a função de agente de administração em seu locatário pode realizar essa integração.
+Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
 
-![Gerenciamento de locatários usando o AOBO e o gerenciamento de recursos delegado do Azure](../media/csp-2.jpg)
+![Tenant management using AOBO and Azure delegated resource management](../media/csp-2.jpg)
 
 > [!NOTE]
-> A [página **meus clientes** no portal do Azure](../how-to/view-manage-customers.md) agora inclui uma seção **provedor de soluções na nuvem (versão prévia)** , que exibe informações de cobrança e recursos para clientes do CSP que [assinaram o MCA (contrato de cliente da Microsoft)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão no plano do Azure. Para obter mais informações, consulte Introdução [à sua conta de cobrança do Microsoft Partner Agreement](https://docs.microsoft.com/azure/billing/mpa-overview).
+> The [**My customers** page in the Azure portal](../how-to/view-manage-customers.md) now includes a **Cloud Solution Provider (Preview)** section, which displays billing info and resources for CSP customers who have [signed the Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) and are under the Azure plan. For more info, see [Get started with your Microsoft Partner Agreement billing account](https://docs.microsoft.com/azure/billing/mpa-overview).
 >
-> Os clientes do CSP podem aparecer nesta seção se eles tiverem sido integrados ao gerenciamento de recursos delegado do Azure. Se eles tiverem, eles também aparecerão na seção **clientes** , conforme descrito em [Exibir e gerenciar clientes e recursos delegados](../how-to/view-manage-customers.md).
+> CSP customers may appear in this section whether or not they have been onboarded for Azure delegated resource management. If they have, then they'll also appear in the **Customers** section, as described in [View and manage customers and delegated resources](../how-to/view-manage-customers.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
-- Saiba como integrar [uma assinatura ao gerenciamento de recursos delegado do Azure](../how-to/onboard-customer.md).
-- Saiba mais sobre o [programa provedor de soluções na nuvem](https://docs.microsoft.com/partner-center/csp-overview).
+- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- Learn how to [onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md).
+- Learn about the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview).

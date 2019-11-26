@@ -5,12 +5,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Learn how to connect your development machine to an AKS cluster with Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: a4cc88252ec92ad696366661d80ca8f69adc6e66
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424096"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482234"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Ligar o seu computador de desenvolvimento a um cluster do AKS (pré-visualização)
 
@@ -254,7 +254,6 @@ Learn how to use Azure Dev Spaces and GitHub Actions to test changes from a pull
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

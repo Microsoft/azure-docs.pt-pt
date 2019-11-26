@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial de regressão: ML automatizado'
+title: 'Regression tutorial: Automated ML'
 titleSuffix: Azure Machine Learning
-description: Saiba como gerar um modelo de aprendizado de máquina usando o aprendizado de máquina automatizado. Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparâmetro de forma automatizada para você. Em seguida, o modelo final é implantado com Azure Machine Learning.
+description: In this tutorial, you learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,39 +10,39 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: 5e7d897b3a845580d7830e2cf816417f2282dd27
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 2a47b6851d9c3250913783c8a63b666e8a8474d9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271869"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483558"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: usar o Machine Learning automatizado para prever as tarifas de táxi
+# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Use automated machine learning to predict taxi fares
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial, você usa o aprendizado de máquina automatizado no Azure Machine Learning para criar um modelo de regressão para prever preços de Tarifa de táxi de NYC. Esse processo aceita dados de treinamento e definições de configuração e itera automaticamente por meio de combinações de métodos diferentes de normalização/padronização de recursos, modelos e configurações de hiperparâmetro para chegar ao melhor modelo.
+In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
-![Diagrama de fluxo](./media/tutorial-auto-train-models/flow2.png)
+![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-Neste tutorial, você aprende as seguintes tarefas:
+In this tutorial you learn the following tasks:
 
 > [!div class="checklist"]
-> * Baixar, transformar e limpar dados usando o Azure Open Data Sets
-> * Treinar um modelo de regressão de Machine Learning automatizado
-> * Calcular a precisão do modelo
+> * Download, transform, and clean data using Azure Open Datasets
+> * Train an automated machine learning regression model
+> * Calculate model accuracy
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga](https://aka.ms/AMLFree) do Azure Machine Learning hoje.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning today.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua o [tutorial de instalação](tutorial-1st-experiment-sdk-setup.md) se você ainda não tiver um espaço de trabalho Azure Machine Learning ou uma máquina virtual do notebook.
-* Depois de concluir o tutorial de instalação, abra o bloco de anotações **tutoriais/regression-Automated-ml. ipynb** usando o mesmo servidor de bloco de anotações.
+* Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine.
+* After you complete the setup tutorial, open the **tutorials/regression-automated-ml.ipynb** notebook using the same notebook server.
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser executá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
+This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` to get the required packages.
 
-## <a name="download-and-prepare-data"></a>Baixar e preparar dados
+## <a name="download-and-prepare-data"></a>Download and prepare data
 
-Importe os pacotes necessários. O pacote Open DataSets contém uma classe que representa cada fonte de dados (`NycTlcGreen`, por exemplo) para filtrar facilmente os parâmetros de data antes do download.
+Import the necessary packages. The Open Datasets package contains a class representing each data source (`NycTlcGreen` for example) to easily filter date parameters before downloading.
 
 ```python
 from azureml.opendatasets import NycTlcGreen
@@ -51,9 +51,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ```
 
-Comece criando um dataframe para manter os dados de táxi. Ao trabalhar em um ambiente não Spark, os conjuntos de dados abertos só permitem o download de um mês de dado por vez, com determinadas classes para evitar `MemoryError` com grandes conjuntos.
+Begin by creating a dataframe to hold the taxi data. When working in a non-Spark environment, Open Datasets only allows downloading one month of data at a time with certain classes to avoid `MemoryError` with large datasets.
 
-Para baixar dados de táxi, busque iterativamente um mês por vez e antes de acrescentá-lo a `green_taxi_df` os registros 2.000 de amostra aleatória de cada mês para evitar o inflamento do dataframe. Em seguida, visualize os dados.
+To download taxi data, iteratively fetch one month at a time, and before appending it to `green_taxi_df` randomly sample 2,000 records from each month to avoid bloating the dataframe. Then preview the data.
 
 
 ```python
@@ -70,7 +70,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -95,7 +95,7 @@ green_taxi_df.head(10)
       <th>pickupLatitude</th>
       <th>dropoffLongitude</th>
       <th>...</th>
-      <th>pagamentotype</th>
+      <th>paymentType</th>
       <th>fareAmount</th>
       <th>extra</th>
       <th>mtaTax</th>
@@ -104,7 +104,7 @@ green_taxi_df.head(10)
       <th>tollsAmount</th>
       <th>ehailFee</th>
       <th>totalAmount</th>
-      <th>TRIPTYPE</th>
+      <th>tripType</th>
     </tr>
   </thead>
   <tbody>
@@ -114,23 +114,23 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:34:44</td>
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
-      <td>4,84</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,88</td>
-      <td>40,84</td>
-      <td>-73,94</td>
+      <td>4.84</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.88</td>
+      <td>40.84</td>
+      <td>-73.94</td>
       <td>...</td>
       <td>2</td>
-      <td>15, 0</td>
-      <td>0,50</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>16,30</td>
-      <td>1,00</td>
+      <td>15.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>16.30</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>1129817</th>
@@ -138,23 +138,23 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:26:29</td>
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
-      <td>0,69</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,96</td>
-      <td>40,81</td>
-      <td>-73,96</td>
+      <td>0.69</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.96</td>
+      <td>40.81</td>
+      <td>-73.96</td>
       <td>...</td>
       <td>2</td>
       <td>4.50</td>
-      <td>1,00</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>6,30</td>
-      <td>1,00</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>1278620</th>
@@ -162,23 +162,23 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:58:10</td>
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
-      <td>0,45</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,92</td>
-      <td>40,76</td>
-      <td>-73,91</td>
+      <td>0.45</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.91</td>
       <td>...</td>
       <td>2</td>
-      <td>4, 0</td>
-      <td>0, 0</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>4,80</td>
-      <td>1,00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>4.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>348430</th>
@@ -186,23 +186,23 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:20:50</td>
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
-      <td>0, 0</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,81</td>
-      <td>40,70</td>
-      <td>-73,82</td>
+      <td>0.00</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.81</td>
+      <td>40.70</td>
+      <td>-73.82</td>
       <td>...</td>
       <td>2</td>
-      <td>12,50</td>
-      <td>0,50</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>13,80</td>
-      <td>1,00</td>
+      <td>12.50</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>1269627</th>
@@ -210,23 +210,23 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:04:10</td>
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
-      <td>0,50</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,92</td>
-      <td>40,76</td>
-      <td>-73,92</td>
+      <td>0.50</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.92</td>
       <td>...</td>
       <td>2</td>
-      <td>4, 0</td>
-      <td>0,50</td>
-      <td>0,50</td>
+      <td>4.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
       <td>0</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>5,00</td>
-      <td>1,00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>5.00</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>811755</th>
@@ -234,23 +234,23 @@ green_taxi_df.head(10)
       <td>2015-01-04 19:57:51</td>
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
-      <td>1,10</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,96</td>
-      <td>40,72</td>
-      <td>-73,95</td>
+      <td>1.10</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.95</td>
       <td>...</td>
       <td>2</td>
-      <td>6,50</td>
-      <td>0,50</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>7,80</td>
-      <td>1,00</td>
+      <td>6.50</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>7.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>737281</th>
@@ -258,23 +258,23 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:27:31</td>
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
-      <td>0,90</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,88</td>
-      <td>40,76</td>
-      <td>-73,87</td>
+      <td>0.90</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.88</td>
+      <td>40.76</td>
+      <td>-73.87</td>
       <td>...</td>
       <td>2</td>
       <td>6,00</td>
-      <td>0, 0</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>6,80</td>
-      <td>1,00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>113951</th>
@@ -282,23 +282,23 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:25:51</td>
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
-      <td>3,30</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,96</td>
-      <td>40,72</td>
-      <td>-73,91</td>
+      <td>3.30</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.91</td>
       <td>...</td>
       <td>2</td>
-      <td>12,50</td>
-      <td>0,50</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>13,80</td>
-      <td>1,00</td>
+      <td>12.50</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>150436</th>
@@ -306,23 +306,23 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:15:14</td>
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
-      <td>1,19</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,94</td>
-      <td>40,71</td>
-      <td>-73,95</td>
+      <td>1.19</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.95</td>
       <td>...</td>
       <td>1</td>
-      <td>7, 0</td>
-      <td>0, 0</td>
-      <td>0,50</td>
-      <td>0,3</td>
+      <td>7.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
       <td>1.75</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>9,55</td>
-      <td>1,00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>9.55</td>
+      <td>1.00</td>
     </tr>
     <tr>
       <th>432136</th>
@@ -330,31 +330,31 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:16:33</td>
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
-      <td>0,65</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,94</td>
-      <td>40,71</td>
-      <td>-73,94</td>
+      <td>0.65</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.94</td>
       <td>...</td>
       <td>2</td>
-      <td>5,00</td>
-      <td>0,50</td>
-      <td>0,50</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>6,30</td>
-      <td>1,00</td>
+      <td>5.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
     </tr>
   </tbody>
 </table>
-<p>10 linhas × 23 colunas</p>
+<p>10 rows × 23 columns</p>
 </div>
 
 
-Agora que os dados iniciais estão carregados, defina uma função para criar vários recursos baseados em tempo do campo de retirada DateTime. Isso criará novos campos para o número do mês, o dia do mês, o dia da semana e a hora do dia e permitirá que o modelo seja fatorado em sazonalidade com base no tempo. Use a função `apply()` no dataframe para aplicar iterativamente a função `build_time_features()` a cada linha nos dados de táxi.
+Now that the initial data is loaded, define a function to create various time-based features from the pickup datetime field. This will create new fields for the month number, day of month, day of week, and hour of day, and will allow the model to factor in time-based seasonality. Use the `apply()` function on the dataframe to iteratively apply the `build_time_features()` function to each row in the taxi data.
 
 ```python
 def build_time_features(vector):
@@ -371,7 +371,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -401,7 +401,7 @@ green_taxi_df.head(10)
       <th>tollsAmount</th>
       <th>ehailFee</th>
       <th>totalAmount</th>
-      <th>TRIPTYPE</th>
+      <th>tripType</th>
       <th>month_num</th>
       <th>day_of_month</th>
       <th>day_of_week</th>
@@ -415,19 +415,19 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:34:44</td>
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
-      <td>4,84</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,88</td>
-      <td>40,84</td>
-      <td>-73,94</td>
+      <td>4.84</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.88</td>
+      <td>40.84</td>
+      <td>-73.94</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>16,30</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>16.30</td>
+      <td>1.00</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -439,19 +439,19 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:26:29</td>
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
-      <td>0,69</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,96</td>
-      <td>40,81</td>
-      <td>-73,96</td>
+      <td>0.69</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.96</td>
+      <td>40.81</td>
+      <td>-73.96</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>6,30</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
       <td>1</td>
       <td>20</td>
       <td>1</td>
@@ -463,19 +463,19 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:58:10</td>
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
-      <td>0,45</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,92</td>
-      <td>40,76</td>
-      <td>-73,91</td>
+      <td>0.45</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.91</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>4,80</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>4.80</td>
+      <td>1.00</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -487,19 +487,19 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:20:50</td>
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
-      <td>0, 0</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,81</td>
-      <td>40,70</td>
-      <td>-73,82</td>
+      <td>0.00</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.81</td>
+      <td>40.70</td>
+      <td>-73.82</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>13,80</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
       <td>1</td>
       <td>17</td>
       <td>5</td>
@@ -511,19 +511,19 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:04:10</td>
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
-      <td>0,50</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,92</td>
-      <td>40,76</td>
-      <td>-73,92</td>
+      <td>0.50</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.92</td>
       <td>...</td>
       <td>0</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>5,00</td>
-      <td>1,00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>5.00</td>
+      <td>1.00</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -535,19 +535,19 @@ green_taxi_df.head(10)
       <td>2015-01-04 19:57:51</td>
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
-      <td>1,10</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,96</td>
-      <td>40,72</td>
-      <td>-73,95</td>
+      <td>1.10</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.95</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>7,80</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>7.80</td>
+      <td>1.00</td>
       <td>1</td>
       <td>4</td>
       <td>6</td>
@@ -559,19 +559,19 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:27:31</td>
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
-      <td>0,90</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,88</td>
-      <td>40,76</td>
-      <td>-73,87</td>
+      <td>0.90</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.88</td>
+      <td>40.76</td>
+      <td>-73.87</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>6,80</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.80</td>
+      <td>1.00</td>
       <td>1</td>
       <td>3</td>
       <td>5</td>
@@ -583,19 +583,19 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:25:51</td>
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
-      <td>3,30</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,96</td>
-      <td>40,72</td>
-      <td>-73,91</td>
+      <td>3.30</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.91</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>13,80</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
       <td>1</td>
       <td>9</td>
       <td>4</td>
@@ -607,19 +607,19 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:15:14</td>
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
-      <td>1,19</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,94</td>
-      <td>40,71</td>
-      <td>-73,95</td>
+      <td>1.19</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.95</td>
       <td>...</td>
-      <td>0,3</td>
+      <td>0.3</td>
       <td>1.75</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>9,55</td>
-      <td>1,00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>9.55</td>
+      <td>1.00</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -631,19 +631,19 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:16:33</td>
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
-      <td>0,65</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
-      <td>-73,94</td>
-      <td>40,71</td>
-      <td>-73,94</td>
+      <td>0.65</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.94</td>
       <td>...</td>
-      <td>0,3</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>Nan</td>
-      <td>6,30</td>
-      <td>1,00</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
       <td>1</td>
       <td>22</td>
       <td>3</td>
@@ -651,10 +651,10 @@ green_taxi_df.head(10)
     </tr>
   </tbody>
 </table>
-<p>10 linhas × 27 colunas</p>
+<p>10 rows × 27 columns</p>
 </div>
 
-Remova algumas das colunas que você não precisará para treinamento ou criação de recursos adicionais.
+Remove some of the columns that you won't need for training or additional feature building.
 
 ```python
 columns_to_remove = ["lpepPickupDatetime", "lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
@@ -667,16 +667,16 @@ for col in columns_to_remove:
 green_taxi_df.head(5)
 ```
 
-### <a name="cleanse-data"></a>Limpar dados
+### <a name="cleanse-data"></a>Cleanse data
 
-Execute a função `describe()` no novo dataframe para ver as estatísticas de Resumo de cada campo.
+Run the `describe()` function on the new dataframe to see summary statistics for each field.
 
 ```python
 green_taxi_df.describe()
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -707,136 +707,136 @@ green_taxi_df.describe()
   <tbody>
     <tr>
       <th>count</th>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
-      <td>48000, 0</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
     </tr>
     <tr>
-      <th>média</th>
-      <td>1,78</td>
-      <td>1,37</td>
-      <td>2,87</td>
-      <td>-73,83</td>
-      <td>40,69</td>
-      <td>-73,84</td>
-      <td>40,70</td>
-      <td>14,75</td>
-      <td>6,50</td>
-      <td>15,13</td>
-      <td>3,27</td>
-      <td>13,52</td>
+      <th>mean</th>
+      <td>1.78</td>
+      <td>1.37</td>
+      <td>2.87</td>
+      <td>-73.83</td>
+      <td>40.69</td>
+      <td>-73.84</td>
+      <td>40.70</td>
+      <td>14.75</td>
+      <td>6.50</td>
+      <td>15.13</td>
+      <td>3.27</td>
+      <td>13.52</td>
     </tr>
     <tr>
-      <th>padrão</th>
+      <th>std</th>
       <td>0.41</td>
-      <td>1, 4</td>
-      <td>2,93</td>
-      <td>2,76</td>
-      <td>1,52</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>2.76</td>
+      <td>1.52</td>
       <td>2.61</td>
-      <td>1,44</td>
-      <td>12, 8</td>
+      <td>1.44</td>
+      <td>12.08</td>
       <td>3.45</td>
-      <td>8,45</td>
-      <td>1,95</td>
-      <td>6,83</td>
+      <td>8.45</td>
+      <td>1.95</td>
+      <td>6.83</td>
     </tr>
     <tr>
       <th>min.</th>
-      <td>1,00</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
-      <td>-74,66</td>
-      <td>0, 0</td>
-      <td>-74,66</td>
-      <td>0, 0</td>
-      <td>-300, 0</td>
-      <td>1,00</td>
-      <td>1,00</td>
-      <td>0, 0</td>
-      <td>0, 0</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-74.66</td>
+      <td>0.00</td>
+      <td>-74.66</td>
+      <td>0.00</td>
+      <td>-300.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>2, 0</td>
-      <td>1,00</td>
-      <td>1, 6</td>
-      <td>-73,96</td>
-      <td>40,70</td>
-      <td>-73,97</td>
-      <td>40,70</td>
-      <td>7,80</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>1.06</td>
+      <td>-73.96</td>
+      <td>40.70</td>
+      <td>-73.97</td>
+      <td>40.70</td>
+      <td>7.80</td>
       <td>3.75</td>
       <td>8,00</td>
-      <td>2, 0</td>
-      <td>9, 0</td>
+      <td>2.00</td>
+      <td>9.00</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2, 0</td>
-      <td>1,00</td>
-      <td>1,90</td>
-      <td>-73,94</td>
-      <td>40,75</td>
-      <td>-73,94</td>
-      <td>40,75</td>
-      <td>11,30</td>
-      <td>6,50</td>
-      <td>15, 0</td>
-      <td>Digite 3,00</td>
-      <td>15, 0</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>1.90</td>
+      <td>-73.94</td>
+      <td>40.75</td>
+      <td>-73.94</td>
+      <td>40.75</td>
+      <td>11.30</td>
+      <td>6.50</td>
+      <td>15.00</td>
+      <td>3.00</td>
+      <td>15.00</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>2, 0</td>
-      <td>1,00</td>
-      <td>3,60</td>
-      <td>-73,92</td>
-      <td>40,80</td>
-      <td>-73,91</td>
-      <td>40,79</td>
-      <td>17,80</td>
-      <td>9,25</td>
-      <td>22, 0</td>
-      <td>5,00</td>
-      <td>19, 0</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>3.60</td>
+      <td>-73.92</td>
+      <td>40.80</td>
+      <td>-73.91</td>
+      <td>40.79</td>
+      <td>17.80</td>
+      <td>9.25</td>
+      <td>22.00</td>
+      <td>5.00</td>
+      <td>19.00</td>
     </tr>
     <tr>
-      <th>maximizar</th>
-      <td>2, 0</td>
-      <td>9, 0</td>
-      <td>97,57</td>
-      <td>0, 0</td>
-      <td>41,93</td>
-      <td>0, 0</td>
-      <td>41,94</td>
-      <td>450, 0</td>
-      <td>12, 0</td>
-      <td>30, 0</td>
+      <th>max</th>
+      <td>2.00</td>
+      <td>9.00</td>
+      <td>97.57</td>
+      <td>0.00</td>
+      <td>41.93</td>
+      <td>0.00</td>
+      <td>41.94</td>
+      <td>450.00</td>
+      <td>12.00</td>
+      <td>30.00</td>
       <td>6,00</td>
-      <td>23, 0</td>
+      <td>23.00</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 
-Nas estatísticas de resumo, você verá que há vários campos que têm exceções ou valores que reduzirão a precisão do modelo. Primeiro filtre os campos lat/long para dentro dos limites da área Manhattan. Isso filtrará viagens ou viagens de táxi mais longos que são exceções em relação à sua relação com outros recursos.
+From the summary statistics, you see that there are several fields that have outliers or values that will reduce model accuracy. First filter the lat/long fields to be within the bounds of the Manhattan area. This will filter out longer taxi trips or trips that are outliers in respect to their relationship with other features.
 
-Além disso, filtre o campo `tripDistance` para que seja maior que zero, mas menos de 31 milhas (a distância Haversine entre os dois pares lat/long). Isso elimina grandes viagens de exceção que têm custo inconsistente de viagens.
+Additionally filter the `tripDistance` field to be greater than zero but less than 31 miles (the haversine distance between the two lat/long pairs). This eliminates long outlier trips that have inconsistent trip cost.
 
-Por fim, o campo `totalAmount` tem valores negativos para as tarifas de táxi, que não fazem sentido no contexto de nosso modelo, e o campo `passengerCount` tem dados inválidos com os valores mínimos zero.
+Lastly, the `totalAmount` field has negative values for the taxi fares, which don't make sense in the context of our model, and the `passengerCount` field has bad data with the minimum values being zero.
 
-Filtre essas anomalias usando funções de consulta e, em seguida, remova as últimas colunas desnecessárias para treinamento.
+Filter out these anomalies using query functions, and then remove the last few columns unnecessary for training.
 
 
 ```python
@@ -850,7 +850,7 @@ for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
 
-Chame `describe()` novamente nos dados para garantir que a limpeza funcione conforme o esperado. Agora você tem um conjunto preparado e limpo de táxi, feriado e dados meteorológicos a serem usados para o treinamento do modelo de aprendizado de máquina.
+Call `describe()` again on the data to ensure cleansing worked as expected. You now have a prepared and cleansed set of taxi, holiday, and weather data to use for machine learning model training.
 
 ```python
 final_df.describe()
@@ -858,18 +858,18 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. Um [espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita suas informações de assinatura e recursos do Azure. Ele também cria um recurso de nuvem para monitorar e rastrear suas execuções de modelo. `Workspace.from_config()` lê o arquivo **config. JSON** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é utilizado em todo o restante código neste tutorial.
+Crie um objeto de área de trabalho a partir da área de trabalho existente. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` é utilizado em todo o restante código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
 ws = Workspace.from_config()
 ```
 
-## <a name="split-the-data-into-train-and-test-sets"></a>Dividir os dados em conjuntos de treinamento e teste
+## <a name="split-the-data-into-train-and-test-sets"></a>Split the data into train and test sets
 
-Divida os dados em conjuntos de treinamento e teste usando a função `train_test_split` na biblioteca `scikit-learn`. Essa função separa os dados no conjunto de dados x (**recursos**) para treinamento de modelo e o conjunto de dados y (**valores a prever**) para teste.
+Split the data into training and test sets by using the `train_test_split` function in the `scikit-learn` library. This function segregates the data into the x (**features**) data set for model training and the y (**values to predict**) data set for testing.
 
-O `test_size` parâmetro determina a percentagem de dados para alocar ao teste. O parâmetro `random_state` define uma semente para o gerador aleatório, de forma que suas divisões de treinamento de treino sejam determinísticas.
+The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are deterministic.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -880,29 +880,29 @@ x_df = final_df
 x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
 ```
 
-A finalidade desta etapa é ter pontos de dados para testar o modelo concluído que não foi usado para treinar o modelo, a fim de medir a precisão real.
+The purpose of this step is to have data points to test the finished model that haven't been used to train the model, in order to measure true accuracy.
 
-Em outras palavras, um modelo bem treinado deve ser capaz de fazer previsões com precisão dos dados que ele ainda não viu. Agora você tem dados preparados para treinar automaticamente um modelo de aprendizado de máquina.
+In other words, a well-trained model should be able to accurately make predictions from data it hasn't already seen. You now have data prepared for auto-training a machine learning model.
 
-## <a name="automatically-train-a-model"></a>Preparar automaticamente um modelo
+## <a name="automatically-train-a-model"></a>Automatically train a model
 
-Para treinar um modelo automaticamente, execute as seguintes etapas:
-1. Defina as configurações para a execução do experimento. Anexe seus dados de treinamento à configuração e modifique as configurações que controlam o processo de treinamento.
-1. Envie o experimento para o ajuste do modelo. Depois de enviar o experimento, o processo é iterado por meio de diferentes algoritmos de aprendizado de máquina e configurações de hiperparâmetro, respeitando suas restrições definidas. Ele escolhe o modelo de melhor ajuste, otimizando uma métrica de precisão.
+To automatically train a model, take the following steps:
+1. Define settings for the experiment run. Attach your training data to the configuration, and modify settings that control the training process.
+1. Submit the experiment for model tuning. After submitting the experiment, the process iterates through different machine learning algorithms and hyperparameter settings, adhering to your defined constraints. It chooses the best-fit model by optimizing an accuracy metric.
 
-### <a name="define-training-settings"></a>Definir configurações de treinamento
+### <a name="define-training-settings"></a>Define training settings
 
-Defina o parâmetro experimento e as configurações de modelo para treinamento. Ver a lista completa dos [definições](how-to-configure-auto-train.md). O envio do experimento com essas configurações padrão levará aproximadamente 5-20 min, mas se você quiser um tempo de execução menor, reduza o parâmetro `experiment_timeout_minutes`.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
-|**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza esse valor para diminuir o tempo de execução total.|
-|**experiment_timeout_minutes**|20|Quantidade máxima de tempo em minutos que todas as iterações combinadas podem levar antes que o experimento seja encerrado.|
-|**enable_early_stopping**|Verdadeiro|Sinalizador para enble encerramento antecipado se a pontuação não estiver melhorando em curto prazo.|
-|**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo de melhor ajuste será escolhido com base nessa métrica.|
-|**personalização**| Automático | Usando **auto**, o experimento pode pré-processar os dados de entrada (manipulando dados ausentes, convertendo texto em numérico, etc.)|
-|**Verbosidade**| logging.INFO | Controla o nível de registo.|
-|**n_cross_validations**|5|Número de divisões de validação cruzada a serem executadas quando os dados de validação não forem especificados.|
+|**iteration_timeout_minutes**|2|Time limit in minutes for each iteration. Reduce this value to decrease total runtime.|
+|**experiment_timeout_minutes**|20|Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.|
+|**enable_early_stopping**|Verdadeiro|Flag to enble early termination if the score is not improving in the short term.|
+|**primary_metric**| spearman_correlation | Métrica que pretende otimizar. The best-fit model will be chosen based on this metric.|
+|**featurization**| auto | By using **auto**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
+|**verbosity**| logging.INFO | Controls the level of logging.|
+|**n_cross_validations**|5|Number of cross-validation splits to perform when validation data is not specified.|
 
 ```python
 import logging
@@ -918,7 +918,7 @@ automl_settings = {
 }
 ```
 
-Use as configurações de treinamento definidas como um parâmetro `**kwargs` para um objeto `AutoMLConfig`. Além disso, especifique os dados de treinamento e o tipo de modelo, que é `regression` nesse caso.
+Use your defined training settings as a `**kwargs` parameter to an `AutoMLConfig` object. Additionally, specify your training data and the type of model, which is `regression` in this case.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -931,13 +931,13 @@ automl_config = AutoMLConfig(task='regression',
 ```
 
 > [!NOTE]
-> As etapas de pré-processamento automatizado do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
+> Automated machine learning pre-processing steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same pre-processing steps applied during training are applied to your input data automatically.
 
-### <a name="train-the-automatic-regression-model"></a>Preparar o modelo de regressão automática
+### <a name="train-the-automatic-regression-model"></a>Train the automatic regression model
 
-Crie um objeto de experimento em seu espaço de trabalho. Um experimento atua como um contêiner para suas execuções individuais. Passe o objeto `automl_config` definido para o experimento e defina a saída como `True` para exibir o andamento durante a execução.
+Create an experiment object in your workspace. An experiment acts as a container for your individual runs. Pass the defined `automl_config` object to the experiment, and set the output to `True` to view progress during the run.
 
-Depois de iniciar o experimento, a saída mostrava as atualizações ativas conforme o experimento é executado. Para cada iteração, você vê o tipo de modelo, a duração da execução e a precisão do treinamento. O campo `BEST` controla a melhor pontuação de treinamento em execução com base em seu tipo de métrica.
+After starting the experiment, the output shown updates live as the experiment runs. For each iteration, you see the model type, the run duration, and the training accuracy. The field `BEST` tracks the best running training score based on your metric type.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -986,19 +986,19 @@ local_run = experiment.submit(automl_config, show_output=True)
 
 ## <a name="explore-the-results"></a>Explorar os resultados
 
-Explore os resultados do treinamento automático com um [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, juntamente com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
+Explore the results of automatic training with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![detalhes de execução do widget do Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
-![diagrama de Jupyter do widget](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Jupyter widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
 
-### <a name="retrieve-the-best-model"></a>Obter o melhor modelo
+### <a name="retrieve-the-best-model"></a>Retrieve the best model
 
-Selecione o melhor modelo de suas iterações. A função `get_output` retorna a melhor execução e o modelo ajustado para a última invocação de ajuste. Usando as sobrecargas em `get_output`, você pode recuperar o melhor modelo de execução e ajustada para qualquer métrica registrada ou uma iteração específica.
+Select the best model from your iterations. The `get_output` function returns the best run and the fitted model for the last fit invocation. By using the overloads on `get_output`, you can retrieve the best run and fitted model for any logged metric or a particular iteration.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1006,16 +1006,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-### <a name="test-the-best-model-accuracy"></a>A maior precisão do modelo de teste
+### <a name="test-the-best-model-accuracy"></a>Test the best model accuracy
 
-Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` usa o melhor modelo e prevê os valores de y, **custo de viagem**, do conjunto de dados de `x_test`. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`.
+Use the best model to run predictions on the test data set to predict taxi fares. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Calcule a `root mean squared error` dos resultados. Converta o `y_test` dataframe em uma lista para comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o erro de quadrado médio entre elas. Pegar a raiz quadrada do resultado resulta em um erro nas mesmas unidades que a variável y, **custo**. Indica aproximadamente até onde as previsões de Tarifa de táxi são provenientes das tarifas reais.
+Calculate the `root mean squared error` of the results. Convert the `y_test` dataframe to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable, **cost**. It indicates roughly how far the taxi fare predictions are from the actual fares.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1026,7 +1026,7 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Execute o código a seguir para calcular o erro de porcentagem absoluta média (MAPE) usando os conjuntos de dados Full `y_actual` e `y_predict`. Essa métrica calcula uma diferença absoluta entre cada valor previsto e real e soma todas as diferenças. Em seguida, ele expressa essa soma como uma porcentagem do total dos valores reais.
+Run the following code to calculate mean absolute percent error (MAPE) by using the full `y_actual` and `y_predict` data sets. This metric calculates an absolute difference between each predicted and actual value and sums all the differences. Then it expresses that sum as a percent of the total of the actual values.
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1054,36 +1054,36 @@ print(1 - mean_abs_percent_error)
     0.8564613239394718
 
 
-Das duas métricas de precisão da previsão, você vê que o modelo é muito bom na previsão de passagens de táxi dos recursos do conjunto de dados, normalmente dentro de +-$4 e aproximadamente 15% de erro.
+From the two prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the data set's features, typically within +- $4.00, and approximately 15% error.
 
-A processo de desenvolvimento do modelo de aprendizagem tradicional é altamente com muitos recursos e requer investimento de dados de conhecimento e a hora de domínio significativo para executar e comparar os resultados de dezenas de modelos. Usar o Machine Learning automatizado é uma ótima maneira de testar rapidamente vários modelos diferentes para seu cenário.
+The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Using automated machine learning is a great way to rapidly test many different models for your scenario.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não conclua esta seção se você planeja executar outros tutoriais de Azure Machine Learning.
+Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### <a name="stop-the-notebook-vm"></a>Parar a VM do notebook
+### <a name="stop-the-notebook-vm"></a>Stop the Notebook VM
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
-### <a name="delete-everything"></a>Excluir tudo
+### <a name="delete-everything"></a>Delete everything
 
-Se você não planeja usar os recursos que criou, exclua-os, para não incorrer em nenhum encargo.
+If you don't plan to use the resources you created, delete them, so you don't incur any charges.
 
 1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda.
 1. Na lista, selecione o grupo de recursos que criou.
 1. Selecione **Eliminar grupo de recursos**.
-1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
+1. Enter the resource group name. Em seguida, selecione **Eliminar**.
 
-Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial de aprendizado de máquina automatizado, você fez as seguintes tarefas:
+In this automated machine learning tutorial, you did the following tasks:
 
 > [!div class="checklist"]
-> * Configurou um espaço de trabalho e dados preparados para um experimento.
-> * Treinado com o uso de um modelo de regressão automatizado localmente com parâmetros personalizados.
-> * Resultados de treinamento explorados e revisados.
+> * Configured a workspace and prepared data for an experiment.
+> * Trained by using an automated regression model locally with custom parameters.
+> * Explored and reviewed training results.
 
-[Implementar o seu modelo](tutorial-deploy-models-with-aml.md) com o Azure Machine Learning.
+[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.

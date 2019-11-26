@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 258250b10dc85754b253e59e6b0e764f5e56cc25
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ce8bfb593b1973e76b90223de9261134ec71dd4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220513"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483243"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Certificate-based authentication for an Azure AD identity to access keys from an Azure Cosmos DB account
 
@@ -30,7 +30,7 @@ In this step, you will register a sample web application in your Azure AD accoun
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-1. Open the Azure **Active Directory** pane, go to App registrations pane, and select **New registration**. 
+1. Open the Azure **Active Directory** pane, go to **App registrations** pane, and select **New registration**. 
 
    ![New application registration in Active Directory](./media/certificate-based-authentication/new-app-registration.png)
 
@@ -114,6 +114,19 @@ The above command results in the output similar to the screenshot below:
 
 1. Select **Save** after you fill out the form
 
+## <a name="register-your-certificate-with-azure-ad"></a>Register your certificate with Azure AD
+
+You can associate the certificate-based credential with the client application in Azure AD from the Azure portal. To associate the credential, you must upload the certificate file with the following steps:
+
+In the Azure app registration for the client application:
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+
+1. Open the Azure **Active Directory** pane, go to the **App registrations** pane, and open the sample app you created in the previous step. 
+
+1. Select **Certificates & secrets** and then **Upload certificate**. Browse the certificate file you created in the previous step to upload.
+
+1. Selecione **Adicionar**. After the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.
 
 ## <a name="access-the-keys-from-powershell"></a>Access the keys from PowerShell
 

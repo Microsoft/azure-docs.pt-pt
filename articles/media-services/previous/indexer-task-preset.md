@@ -1,6 +1,6 @@
 ---
-title: Predefinição de tarefa para Azure Media Indexer
-description: Este tópico fornece uma visão geral da predefinição de tarefa para Azure Media Indexer.
+title: Task preset for Azure Media Indexer
+description: This topic gives an overview of task preset for Azure Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -13,30 +13,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: a9a47f970f0f934e0953bd5e2d6e5575758a9c1c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 38baa4f69d96efd68839e7ee15ae5ee6088d2063
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67873505"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464092"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Predefinição de tarefa para Azure Media Indexer 
+# <a name="task-preset-for-azure-media-indexer"></a>Task preset for Azure Media Indexer 
 
-Azure Media Indexer é um processador de mídia que você usa para executar as seguintes tarefas: tornar os arquivos de mídia e o conteúdo pesquisáveis, gerar faixas e palavras-chave com legendas codificadas, indexar arquivos de ativo que fazem parte do seu ativo.
+Azure Media Indexer is a Media Processor that you use to perform the following tasks: make media files and content searchable, generate closed captioning tracks and keywords, index asset files that are part of your asset.
 
-Este tópico descreve a predefinição de tarefa que você precisa passar para o trabalho de indexação. Para obter um exemplo completo, consulte [indexando arquivos de mídia com Azure Media indexer](media-services-index-content.md).
+This topic describes the task preset that you need to pass to your indexing job. For complete example, see [Indexing media files with Azure Media Indexer](media-services-index-content.md).
 
-## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer XML de configuração
+## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer Configuration XML
 
-A tabela a seguir explica os elementos e atributos do XML de configuração.
+The following table explains elements and attributes of the configuration XML.
 
 |Nome|Requerer|Descrição|
 |---|---|---|
-|Input|true|Arquivo (s) de ativo que você deseja indexar.<br/>O Azure Media Indexer dá suporte aos seguintes formatos de arquivo de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Você pode especificar os nomes de arquivo no atributo **Name** ou **list** do elemento **Input** (como mostrado abaixo). Se você não especificar qual arquivo de ativo indexar, o arquivo primário será escolhido. Se nenhum arquivo de ativo principal for definido, o primeiro arquivo no ativo de entrada será indexado.<br/><br/>Para especificar explicitamente o nome do arquivo de ativo, faça:<br/>```<input name="TestFile.wmv" />```<br/><br/>Você também pode indexar vários arquivos de ativo de uma vez (até 10 arquivos). Para efetuar este procedimento:<br/>-Crie um arquivo de texto (arquivo de manifesto) e dê a ele uma extensão. lst.<br/>-Adicione uma lista de todos os nomes de arquivo de ativo em seu ativo de entrada para esse arquivo de manifesto.<br/>-Adicionar (carregar) o arquivo de manifesto ao ativo.<br/>-Especifique o nome do arquivo de manifesto no atributo de lista da entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se você adicionar mais de 10 arquivos ao arquivo de manifesto, o trabalho de indexação falhará com o código de erro 2006.|
-|do IdP|false|Metadados para os arquivos de ativo especificados.<br/>```<metadata key="..." value="..." />```<br/><br/>Você pode fornecer valores para chaves predefinidas. <br/><br/>No momento, há suporte para as seguintes chaves:<br/><br/>**título** e **Descrição** – usado para atualizar o modelo de idioma para melhorar a precisão do reconhecimento de fala.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**nome de usuário** e **senha** – usados para autenticação ao baixar arquivos da Internet via http ou HTTPS.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Os valores de nome de usuário e senha se aplicam a todas as URLs de mídia no manifesto de entrada.|
-|elástica<br/><br/>Adicionado na versão 1,2. Atualmente, o único recurso com suporte é o reconhecimento de fala ("ASR").|false|O recurso de reconhecimento de fala tem as seguintes chaves de configuração:<br/><br/>Idioma:<br/>-O idioma natural a ser reconhecido no arquivo multimídia.<br/>-Inglês, espanhol<br/><br/>CaptionFormats:<br/>-uma lista separada por ponto-e-vírgula dos formatos de legenda de saída desejados (se houver)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-Um sinalizador booliano que especifica se um arquivo AIB é necessário (para uso com SQL Server e o IFilter do indexador do cliente). Para obter mais informações, consulte usando arquivos AIB com Azure Media Indexer e SQL Server.<br/>True For<br/><br/>GenerateKeywords:<br/>-Um sinalizador booliano que especifica se um arquivo XML de palavra-chave é necessário ou não.<br/>True For.|
+|Input|true|Asset file(s) that you want to index.<br/>Azure Media Indexer supports the following media file formats: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>You can specify the file name (s) in the **name** or **list** attribute of the **input** element (as shown below). If you do not specify which asset file to index, the primary file is picked. If no primary asset file is set, the first file in the input asset is indexed.<br/><br/>To explicitly specify the asset file name, do:<br/>```<input name="TestFile.wmv" />```<br/><br/>You can also index multiple asset files at once (up to 10 files). Para efetuar este procedimento:<br/>- Create a text file (manifest file) and give it an .lst extension.<br/>- Add a list of all the asset file names in your input asset to this manifest file.<br/>- Add (upload) the manifest file to the asset.<br/>- Specify the name of the manifest file in the input’s list attribute.<br/>```<input list="input.lst">```<br/><br/>**Note:** If you add more than 10 files to the manifest file, the indexing job will fail with the 2006 error code.|
+|do IdP|false|Metadata for the specified asset file(s).<br/>```<metadata key="..." value="..." />```<br/><br/>You can supply values for predefined keys. <br/><br/>Currently, the following keys are supported:<br/><br/>**title** and **description** - used to update the language model to improve speech recognition accuracy.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** and **password** - used for authentication when downloading internet files via http or https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>The username and password values apply to all media URLs in the input manifest.|
+|elástica<br/><br/>Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR").|false|The Speech Recognition feature has the following settings keys:<br/><br/>Idioma:<br/>- The natural language to be recognized in the multimedia file.<br/>- English, Spanish<br/><br/>CaptionFormats:<br/>- a semicolon-separated list of the desired output caption formats (if any)<br/>- ttml;webvtt<br/><br/><br/>GenerateKeywords:<br/>- A boolean flag specifying whether or not a keyword XML file is required.<br/>- True; False.|
 
-## <a name="azure-media-indexer-configuration-xml-example"></a>Exemplo de XML de configuração Azure Media Indexer
+## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer configuration XML example
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -52,8 +52,6 @@ A tabela a seguir explica os elementos e atributos do XML de configuração.
     <feature name="ASR">    
       <settings>  
         <add key="Language" value="English"/>  
-        <add key="CaptionFormats" value="ttml;sami;webvtt"/>  
-        <add key="GenerateAIB" value ="true" />  
         <add key="GenerateKeywords" value ="true" />  
       </settings>  
     </feature>  
@@ -62,7 +60,7 @@ A tabela a seguir explica os elementos e atributos do XML de configuração.
 </configuration>  
 ```
   
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte [indexando arquivos de mídia com Azure Media indexer](media-services-index-content.md).
+See [Indexing media files with Azure Media Indexer](media-services-index-content.md).
 

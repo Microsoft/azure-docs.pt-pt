@@ -1,132 +1,127 @@
 ---
-title: Usar instâncias de contêiner do Azure como um agente de compilação Jenkins
-description: Saiba como configurar um servidor Jenkins para executar trabalhos de compilação sob demanda em instâncias de contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Jenkins build on container instance
+description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: danlep
-ms.openlocfilehash: 7e93457a182598a2e8d739f4d626b49ff57b30fb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150212"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484074"
 ---
-# <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar instâncias de contêiner do Azure como um agente de compilação Jenkins
+# <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Use Azure Container Instances as a Jenkins build agent
 
-As ACI (instâncias de contêiner do Azure) fornecem um ambiente sob demanda, intermitente e isolado para executar cargas de trabalho em contêineres. Devido a esses atributos, o ACI faz uma ótima plataforma para executar trabalhos de Build do Jenkins em grande escala. Este artigo apresenta a implantação e o uso de um servidor Jenkins pré-configurado com o ACI como um destino de compilação.
+Azure Container Instances (ACI) provides an on-demand, burstable, and isolated environment for running containerized workloads. Because of these attributes, ACI makes a great platform for running Jenkins build jobs at a large scale. This article walks through deploying and using a Jenkins server that's pre-configured with ACI as a build target.
 
-Para obter mais informações sobre as instâncias de contêiner do Azure, consulte [sobre as instâncias de contêiner do Azure][about-aci].
+For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
 
-## <a name="deploy-a-jenkins-server"></a>Implantar um servidor Jenkins
+## <a name="deploy-a-jenkins-server"></a>Deploy a Jenkins server
 
-1. Na portal do Azure, selecione **criar um recurso** e procure **Jenkins**. Selecione a oferta Jenkins com um Publicador da **Microsoft**e, em seguida, selecione **criar**.
+1. In the Azure portal, select **Create a resource** and search for **Jenkins**. Select the Jenkins offering with a publisher of **Microsoft**, and then select **Create**.
 
-2. Insira as seguintes informações no formulário **básico** e, em seguida, selecione **OK**.
+2. Enter the following information on the **Basics** form, and then select **OK**.
 
-   - **Nome**: Insira um nome para a implantação do Jenkins.
-   - **Nome de usuário**: Insira um nome para o usuário administrador da máquina virtual Jenkins.
-   - **Tipo de autenticação**: Recomendamos uma chave pública SSH para autenticação. Se você selecionar essa opção, Cole uma chave pública SSH a ser usada para fazer logon na máquina virtual Jenkins.
+   - **Name**: Enter a name for the Jenkins deployment.
+   - **User name**: Enter a name for the admin user of the Jenkins virtual machine.
+   - **Authentication type**: We recommend an SSH public key for authentication. If you select this option, paste in an SSH public key to be used for logging in to the Jenkins virtual machine.
    - **Subscrição**: selecione uma subscrição do Azure.
    - **Grupo de recursos**: crie um grupo de recursos ou selecione um grupo existente.
-   - **Local**: selecione um local para o servidor Jenkins.
+   - **Location**: Select a location for the Jenkins server.
 
-   ![Configurações básicas para a implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
+   ![Basic settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-01.png)
 
-3. No formulário **configurações adicionais** , conclua os seguintes itens:
+3. On the **Additional Settings** form, complete the following items:
 
-   - **Tamanho**: selecione a opção de dimensionamento apropriada para sua máquina virtual Jenkins.
-   - **Tipo de disco da VM**: especifique o **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
-   - **Rede virtual**: selecione a seta se desejar modificar as configurações padrão.
-   - **Sub-redes**: selecione a seta, verifique as informações e selecione **OK**.
-   - **Endereço IP público**: selecione a seta para atribuir um nome personalizado ao endereço IP público, configure a SKU e defina o método de atribuição.
-   - **Rótulo de nome de domínio**: especifique um valor para criar uma URL totalmente qualificada para a máquina virtual Jenkins.
-   - **Tipo de versão do Jenkins**: selecione o tipo de liberação desejado nas opções: **LTS**, **compilação semanal**ou **Azure verificado**.
+   - **Size**: Select the appropriate sizing option for your Jenkins virtual machine.
+   - **VM disk type**: Specify either **HDD** (hard-disk drive) or **SSD** (solid-state drive) for the Jenkins server.
+   - **Virtual network**: Select the arrow if you want to modify the default settings.
+   - **Subnets**: Select the arrow, verify the information, and select **OK**.
+   - **Public IP address**: Select the arrow to give the public IP address a custom name, configure the SKU, and set the assignment method.
+   - **Domain name label**: Specify a value to create a fully qualified URL to the Jenkins virtual machine.
+   - **Jenkins release type**: Select the desired release type from the options: **LTS**, **Weekly build**, or **Azure Verified**.
 
-   ![Configurações adicionais para a implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
+   ![Additional settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Para a integração da entidade de serviço, selecione **automático (MSI)** para que as [identidades gerenciadas dos recursos do Azure][managed-identities-azure-resources] criem automaticamente uma identidade de autenticação para a instância Jenkins. Selecione **manual** para fornecer suas próprias credenciais de entidade de serviço.
+4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
-5. Os agentes de nuvem configuram uma plataforma baseada em nuvem para trabalhos de Build do Jenkins. Para o propósito deste artigo, selecione **ACI**. Com o agente de nuvem ACI, cada trabalho de compilação Jenkins é executado em uma instância de contêiner.
+5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
-   ![Configurações de integração de nuvem para a implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-03.png)
+   ![Cloud integration settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-03.png)
 
-6. Quando tiver concluído as configurações de integração, selecione **OK**e, em seguida, selecione **OK** novamente no Resumo de validação. Selecione **criar** no resumo de **termos de uso** . O servidor Jenkins leva alguns minutos para ser implantado.
+6. When you're done with the integration settings, select **OK**, and then select **OK** again on the validation summary. Select **Create** on the **Terms of use** summary. The Jenkins server takes a few minutes to deploy.
 
 ## <a name="configure-jenkins"></a>Configurar o Jenkins
 
-1. Na portal do Azure, navegue até o grupo de recursos Jenkins, selecione a máquina virtual Jenkins e anote o nome DNS.
+1. In the Azure portal, browse to the Jenkins resource group, select the Jenkins virtual machine, and take note of the DNS name.
 
-   ![Nome DNS em detalhes sobre a máquina virtual Jenkins](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
+   ![DNS name in details about the Jenkins virtual machine](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
 
-2. Navegue até o nome DNS da VM Jenkins e copie a cadeia de caracteres SSH retornada.
+2. Browse to the DNS name of the Jenkins VM and copy the returned SSH string.
 
-   ![Instruções de logon do Jenkins com a cadeia de caracteres SSH](./media/container-instances-jenkins/jenkins-portal-04.png)
+   ![Jenkins login instructions with SSH string](./media/container-instances-jenkins/jenkins-portal-04.png)
 
-3. Abra uma sessão de terminal em seu sistema de desenvolvimento e cole a cadeia de caracteres SSH da última etapa. Atualize `username` para o nome de usuário que você especificou quando implantou o servidor Jenkins.
+3. Open a terminal session on your development system, and paste in the SSH string from the last step. Update `username` to the username that you specified when you deployed the Jenkins server.
 
-4. Depois que a sessão estiver conectada, execute o seguinte comando para recuperar a senha de administrador inicial:
+4. After the session is connected, run the following command to retrieve the initial admin password:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Deixe a sessão SSH e o túnel em execução e vá para `http://localhost:8080` em um navegador. Cole a senha inicial do administrador na caixa e selecione **continuar**.
+5. Leave the SSH session and tunnel running, and go to `http://localhost:8080` in a browser. Paste the initial admin password into the box, and then select **Continue**.
 
-   ![Tela "desbloquear Jenkins" com a caixa da senha do administrador](./media/container-instances-jenkins/jenkins-portal-05.png)
+   !["Unlock Jenkins" screen with the box for the administrator password](./media/container-instances-jenkins/jenkins-portal-05.png)
 
-6. Selecione **instalar plug-ins sugeridos** para instalar todos os plug-ins recomendados do Jenkins.
+6. Select **Install suggested plugins** to install all recommended Jenkins plugins.
 
-   ![Tela "Personalizar Jenkins" com "instalar plug-ins sugeridos" selecionado](./media/container-instances-jenkins/jenkins-portal-06.png)
+   !["Customize Jenkins" screen with "Install suggested plugins" selected](./media/container-instances-jenkins/jenkins-portal-06.png)
 
-7. Crie uma conta de usuário administrador. Essa conta é usada para fazer logon no e trabalhar com sua instância do Jenkins.
+7. Create an admin user account. This account is used for logging in to and working with your Jenkins instance.
 
-   ![Tela "criar primeiro usuário administrador", com credenciais preenchidas](./media/container-instances-jenkins/jenkins-portal-07.png)
+   !["Create First Admin User" screen, with credentials filled in](./media/container-instances-jenkins/jenkins-portal-07.png)
 
-8. Selecione **salvar e concluir**e, em seguida, selecione **começar a usar Jenkins** para concluir a configuração.
+8. Select **Save and Finish**, and then select **Start using Jenkins** to complete the configuration.
 
-O Jenkins agora está configurado e pronto para compilar e implantar código. Para este exemplo, um aplicativo Java simples é usado para demonstrar uma compilação Jenkins em instâncias de contêiner do Azure.
+Jenkins is now configured and ready to build and deploy code. For this example, a simple Java application is used to demonstrate a Jenkins build on Azure Container Instances.
 
-## <a name="create-a-build-job"></a>Criar um trabalho de compilação
+## <a name="create-a-build-job"></a>Create a build job
 
-Agora, um trabalho de compilação Jenkins é criado para demonstrar o Jenkins Builds em uma instância de contêiner do Azure.
+Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure container instance.
 
-1. Selecione **novo item**, dê um nome ao projeto de compilação, como **ACI-demo**, selecione **projeto Freestyle**e selecione **OK**.
+1. Select **New Item**, give the build project a name such as **aci-demo**, select **Freestyle project**, and select **OK**.
 
-   ![Box para o nome do trabalho de compilação e lista de tipos de projeto](./media/container-instances-jenkins/jenkins-new-job.png)
+   ![Box for the name of the build job, and list of project types](./media/container-instances-jenkins/jenkins-new-job.png)
 
-2. Em **geral**, verifique se a seção **restringir onde este projeto pode ser executado** está selecionada. Digite **Linux** para a expressão de rótulo. Essa configuração garante que esse trabalho de compilação seja executado na nuvem ACI.
+2. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
 
-   ![Guia "geral" com detalhes de configuração](./media/container-instances-jenkins/jenkins-job-01.png)
+   !["General" tab with configuration details](./media/container-instances-jenkins/jenkins-job-01.png)
 
-3. Em **Compilar**, selecione **Adicionar etapa de compilação** e selecione **executar Shell**. Insira `echo "aci-demo"` como o comando.
+3. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
 
-   ![Guia "Compilar" com seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
+   !["Build" tab with selections for the build step](./media/container-instances-jenkins/jenkins-job-02.png)
 
 5. Selecione **Guardar**.
 
-## <a name="run-the-build-job"></a>Executar o trabalho de compilação
+## <a name="run-the-build-job"></a>Run the build job
 
-Para testar o trabalho de compilação e observar as instâncias de contêiner do Azure como a plataforma de compilação, inicie manualmente uma compilação.
+To test the build job and observe Azure Container Instances as the build platform, manually start a build.
 
-1. Selecione **Compilar agora** para iniciar um trabalho de compilação. Leva alguns minutos para que o trabalho seja iniciado. Você deverá ver um status semelhante à imagem a seguir:
+1. Select **Build Now** to start a build job. It takes a few minutes for the job to start. You should see a status that's similar to the following image:
 
-   ![Informações de "histórico de compilação" com status do trabalho](./media/container-instances-jenkins/jenkins-job-status.png)
+   !["Build History" information with job status](./media/container-instances-jenkins/jenkins-job-status.png)
 
-2. Enquanto o trabalho estiver em execução, abra o portal do Azure e examine o grupo de recursos Jenkins. Você deve ver que uma instância de contêiner foi criada. O trabalho Jenkins está sendo executado dentro desta instância.
+2. While the job is running, open the Azure portal and look at the Jenkins resource group. You should see that a container instance has been created. The Jenkins job is running inside this instance.
 
-   ![Instância de contêiner no grupo de recursos](./media/container-instances-jenkins/jenkins-aci.png)
+   ![Container instance in the resource group](./media/container-instances-jenkins/jenkins-aci.png)
 
-3. Como Jenkins executa mais trabalhos do que o número configurado de executores de Jenkins (padrão 2), várias instâncias de contêiner são criadas.
+3. As Jenkins runs more jobs than the configured number of Jenkins executors (default 2), multiple container instances are created.
 
-   ![Instâncias de contêiner recém-criadas](./media/container-instances-jenkins/jenkins-aci-multi.png)
+   ![Newly created container instances](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
-4. Depois que todos os trabalhos de compilação forem concluídos, as instâncias de contêiner serão removidas.
+4. After all build jobs have finished, the container instances are removed.
 
-   ![Grupo de recursos com instâncias de contêiner removidas](./media/container-instances-jenkins/jenkins-aci-none.png)
+   ![Resource group with container instances removed](./media/container-instances-jenkins/jenkins-aci-none.png)
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Resolver problemas nos plug-ins do Jenkins
 
@@ -134,7 +129,7 @@ Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o Jenkins no Azure, consulte [Azure e Jenkins][jenkins-azure].
+To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

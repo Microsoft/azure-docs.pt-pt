@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um perfil para HA de aplicativos-portal do Azure-Gerenciador de tráfego do Azure'
+title: Quickstart:Create a profile for HA of applications - Azure portal - Azure Traffic Manager
 description: Este artigo de início rápido descreve como criar um perfil do Gestor de Tráfego para compilar aplicações Web de elevada disponibilidade.
 services: traffic-manager
 author: asudbring
@@ -12,138 +12,138 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b2163b76dc3a301359cf3474789c5b473f9e4552
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032703"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483666"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início rápido: criar um perfil do Gerenciador de tráfego usando o portal do Azure
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Create a Traffic Manager profile using the Azure portal
 
-Este guia de início rápido descreve como criar um perfil do Gerenciador de tráfego que fornece alta disponibilidade para seu aplicativo Web.
+This quickstart describes how to create a Traffic Manager profile that delivers high availability for your web application.
 
-Neste guia de início rápido, você lerá sobre duas instâncias de um aplicativo Web. Cada um deles está sendo executado em uma região diferente do Azure. Você criará um perfil do Gerenciador de tráfego com base na [prioridade do ponto de extremidade](traffic-manager-routing-methods.md#priority). O perfil direciona o tráfego do usuário para o site primário que está executando o aplicativo Web. O Gerenciador de tráfego monitora continuamente o aplicativo Web. Se o site primário não estiver disponível, ele fornecerá o failover automático para o site de backup.
+In this quickstart, you'll read about two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este guia de início rápido, você precisará de duas instâncias de um aplicativo Web implantado em duas regiões diferentes do Azure (*leste dos EUA* e *Europa Ocidental*). Cada um servirá como pontos de extremidade primários e de failover para o Gerenciador de tráfego.
+For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **Web** > **aplicativo Web**.
+1. On the upper-left side of the screen, select **Create a resource** > **Web** > **Web App**.
 
-1. Em **criar um aplicativo Web**, digite ou selecione os seguintes valores na guia **noções básicas** :
+1. In **Create a Web App**, type or select the following values in the **Basics** tab:
 
-   -  > **grupo de recursos**de **assinatura** : selecione **criar novo** e digite **myResourceGroupTM1**.
-   - **Detalhes da instância** > **nome**: digite *myWebAppEastUS*.
-   - **Detalhes da instância** > **publicar**: selecione o **código**.
-   - **Detalhes da instância** > **pilha de tempo de execução**: selecione **ASP.NET v 4.7**
-   - **Detalhes da instância** > **sistema operacional**: selecione **Windows**.
-   - **Detalhes da instância** > **região**: selecione **leste dos EUA**.
-   - **Plano do serviço de aplicativo** > **plano do Windows (leste dos EUA)** : selecione **criar novo** e digite **myAppServicePlanEastUS**
-   - **Plano do serviço de aplicativo** > **SKU e tamanho**: selecione **Standard S1**.
+   - **Subscription** > **Resource Group**: Select **Create new** and then type **myResourceGroupTM1**.
+   - **Instance Details** > **Name**: Type *myWebAppEastUS*.
+   - **Instance Details** > **Publish**: Select **Code**.
+   - **Instance Details** > **Runtime stack**: Select **ASP.NET V4.7**
+   - **Instance Details** > **Operating System**: Select **Windows**.
+   - **Instance Details** > **Region**:  Select **East US**.
+   - **App Service Plan** > **Windows Plan (East US)** : Select **Create new** and then type **myAppServicePlanEastUS**
+   - **App Service Plan** > **Sku and size**: Select **Standard S1**.
    
-3. Selecione a guia **monitoramento** ou selecione **Avançar: monitoramento**.  Em **monitoramento**, defina **Application Insights** > **habilitar Application insights** como **não**.
+3. Select the **Monitoring** tab, or select **Next:Monitoring**.  Under **Monitoring**, set **Application Insights** > **Enable Application Insights** to **No**.
 
-4. Selecione **revisar e criar**
+4. Select **Review and create**
 
-5. Examine as configurações e clique em **criar**.  Quando o aplicativo Web é implantado com êxito, ele cria um site padrão.
+5. Review the settings, and then click **Create**.  When the Web App successfully deploys, it creates a default web site.
 
-6. Siga as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com um nome de **grupo de recursos** de *myResourceGroupTM2*, uma **região** de *Europa Ocidental*, um nome de plano do **serviço de aplicativo** de **myAppServicePlanWestEurope**e todas as outras configurações como *myWebAppEastUS*.
+6. Follow the steps to create a second Web App named *myWebAppWestEurope*, with a **Resource Group** name of *myResourceGroupTM2*, a **Region** of *West Europe*, a **App Service Plan** name of **myAppServicePlanWestEurope**, and all the other settings the same as *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 
-Crie um perfil do Gerenciador de tráfego que direcione o tráfego do usuário com base na prioridade do ponto de extremidade.
+Create a Traffic Manager profile that directs user traffic based on endpoint priority.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **rede** > **perfil do Gerenciador de tráfego**.
-2. Em **Criar perfil do Gerenciador de tráfego**, insira ou selecione estas configurações:
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile**.
+2. In the **Create Traffic Manager profile**, enter, or select these settings:
 
     | Definição | Valor |
     | --------| ----- |
-    | Nome | Insira um nome exclusivo para o seu perfil do Gerenciador de tráfego.|
-    | Método de encaminhamento | Selecione **prioridade**.|
-    | Subscrição | Selecione a assinatura à qual você deseja que o perfil do Gerenciador de tráfego seja aplicado. |
-    | Grupo de recursos | Selecione *myResourceGroupTM1*.|
-    | Localização |Essa configuração refere-se ao local do grupo de recursos. Ele não tem nenhum efeito no perfil do Gerenciador de tráfego que será implantado globalmente.|
+    | Nome | Enter a unique name for your Traffic Manager profile.|
+    | Método de encaminhamento | Select **Priority**.|
+    | Subscrição | Select the subscription you want the traffic manager profile applied to. |
+    | Grupo de recursos | Select *myResourceGroupTM1*.|
+    | Localização |This setting refers to the location of the resource group. It has no effect on the Traffic Manager profile that will be deployed globally.|
 
 3. Selecione **Criar**.
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
-Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminhar todo o tráfego do utilizador. Adicione o site no *Europa Ocidental* como um ponto de extremidade de failover. Quando o ponto de extremidade primário não está disponível, o tráfego roteia automaticamente para o ponto de extremidade de failover.
+Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminhar todo o tráfego do utilizador. Add the website in *West Europe* as a failover endpoint. When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
-1. Na barra de pesquisa do portal, insira o nome do perfil do Gerenciador de tráfego que você criou na seção anterior.
-2. Selecione o perfil nos resultados da pesquisa.
-3. No **perfil do Gerenciador de tráfego**, na seção **configurações** , selecione **pontos de extremidade**e, em seguida, selecione **Adicionar**.
-4. Insira ou selecione essas configurações:
+1. In the portal's search bar, enter the Traffic Manager profile name that you created in the preceding section.
+2. Select the profile from the search results.
+3. In **Traffic Manager profile**, in the **Settings** section, select **Endpoints**, and then select **Add**.
+4. Enter, or select, these settings:
 
     | Definição | Valor |
     | ------- | ------|
-    | Tipo | Selecione **ponto de extremidade do Azure**. |
-    | Nome | Insira *myPrimaryEndpoint*. |
-    | Tipo de recurso de destino | Selecione **serviço de aplicativo**. |
-    | Recurso de destino | Selecione **escolher um serviço de aplicativo** > **leste dos EUA**. |
-    | Prioridade | Selecione **1**. Todo o tráfego vai para esse ponto de extremidade quando ele está íntegro. |
+    | Tipo | Select **Azure endpoint**. |
+    | Nome | Enter *myPrimaryEndpoint*. |
+    | Tipo de recurso de destino | Select **App Service**. |
+    | Recurso de destino | Select **Choose an app service** > **East US**. |
+    | Prioridade | Selecione **1**. All traffic goes to this endpoint when it's healthy. |
 
-    ![Captura de tela de onde você adiciona um ponto de extremidade ao seu perfil do Gerenciador de tráfego.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
+    ![Screenshot of where you add an endpoint to your Traffic Manager profile.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
 
 5. Selecione **OK**.
-6. Para criar um ponto de extremidade de failover para sua segunda região do Azure, repita as etapas 3 e 4 com estas configurações:
+6. To create a failover endpoint for your second Azure region, repeat steps 3 and 4 with these settings:
 
     | Definição | Valor |
     | ------- | ------|
-    | Tipo | Selecione **ponto de extremidade do Azure**. |
-    | Nome | Insira *myFailoverEndpoint*. |
-    | Tipo de recurso de destino | Selecione **serviço de aplicativo**. |
-    | Recurso de destino | Selecione **escolher um serviço de aplicativo** > **Europa Ocidental**. |
-    | Prioridade | Selecione **2**. Todo o tráfego vai para esse ponto de extremidade de failover se o ponto de extremidade primário não estiver íntegro. |
+    | Tipo | Select **Azure endpoint**. |
+    | Nome | Enter *myFailoverEndpoint*. |
+    | Tipo de recurso de destino | Select **App Service**. |
+    | Recurso de destino | Select **Choose an app service** > **West Europe**. |
+    | Prioridade | Select **2**. All traffic goes to this failover endpoint if the primary endpoint is unhealthy. |
 
 7. Selecione **OK**.
 
-Quando você terminar de adicionar os dois pontos de extremidade, eles serão exibidos no **perfil do Gerenciador de tráfego**. Observe que seu status de monitoramento está **online** agora.
+When you're done adding the two endpoints, they're displayed in **Traffic Manager profile**. Notice that their monitoring status is **Online** now.
 
 ## <a name="test-traffic-manager-profile"></a>Testar o perfil do Gestor de Tráfego
 
-Nesta seção, você verificará o nome de domínio do seu perfil do Gerenciador de tráfego. Você também configurará o ponto de extremidade primário como indisponível. Por fim, você verá que o aplicativo Web ainda está disponível. É porque o Traffic Manager envia o tráfego para o ponto de extremidade de failover.
+In this section, you'll check the domain name of your Traffic Manager profile. You'll also configure the primary endpoint to be unavailable. Finally, you get to see that the web app is still available. It's because Traffic Manager sends the traffic to the failover endpoint.
 
-### <a name="check-the-dns-name"></a>Verifique o nome DNS
+### <a name="check-the-dns-name"></a>Check the DNS name
 
 1. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior.
-2. Selecione o perfil do Gerenciador de tráfego. A **visão geral** é exibida.
+2. Select the traffic manager profile. The **Overview** appears.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar.
   
-   ![Captura de tela do local do seu nome DNS do Traffic Manager](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
+   ![Screenshot of the location of your Traffic Manager DNS name](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
 
-1. Em um navegador da Web, insira o nome DNS do seu perfil do Gerenciador de tráfego para exibir o site padrão do seu aplicativo Web.
+1. In a web browser, enter the DNS name of your Traffic Manager profile to view your Web App's default website.
 
     > [!NOTE]
-    > Neste cenário de início rápido, todas as solicitações são roteadas para o ponto de extremidade primário. Ele é definido como **prioridade 1**.
+    > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
 
-    ![Captura de tela da página da Web para confirmar a disponibilidade do perfil do Gerenciador de tráfego](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+    ![Screenshot of the webpage to confirm availability of Traffic Manager profile](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
 
-2. Para exibir o failover do Gerenciador de tráfego em ação, desabilite o site primário:
-    1. Na página perfil do Gerenciador de tráfego, na seção **visão geral** , selecione **myPrimaryEndpoint**.
-    2. Em *myPrimaryEndpoint*, selecione **desabilitado** > **salvar**.
-    3. Feche o **myPrimaryEndpoint**. Observe que o status está **desabilitado** agora.
-3. Copie o nome DNS do seu perfil do Gerenciador de tráfego da etapa anterior para exibir o site em uma nova sessão do navegador da Web.
-4. Verifique se o aplicativo Web ainda está disponível.
+2. To view Traffic Manager failover in action, disable your primary site:
+    1. In the Traffic Manager Profile page, from the **Overview** section, select **myPrimaryEndpoint**.
+    2. In *myPrimaryEndpoint*, select **Disabled** > **Save**.
+    3. Close **myPrimaryEndpoint**. Notice that the status is **Disabled** now.
+3. Copy the DNS name of your Traffic Manager Profile from the preceding step to view the website in a new web browser session.
+4. Verify that the web app is still available.
 
-O ponto de extremidade primário não está disponível, portanto, você foi encaminhado para o ponto de extremidade de failover.
+The primary endpoint isn't available, so you were routed to the failover endpoint.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar, exclua os grupos de recursos, aplicativos Web e todos os recursos relacionados. Para fazer isso, selecione cada item individual no painel e selecione **excluir** na parte superior de cada página.
+When you're done, delete the resource groups, web applications, and all related resources. To do so, select each individual item from your dashboard and select **Delete** at the top of each page.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um perfil do Gerenciador de tráfego. Ele permite que você direcione o tráfego do usuário para aplicativos Web de alta disponibilidade. Para saber mais sobre o tráfego de roteamento, continue para os tutoriais do Gerenciador de tráfego.
+In this quickstart, you created a Traffic Manager profile. It allows you to direct user traffic for high-availability web applications. To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md) (Tutoriais do Gestor de Tráfego)

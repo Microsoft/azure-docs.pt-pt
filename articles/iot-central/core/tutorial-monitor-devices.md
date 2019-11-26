@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: monitorar seus dispositivos no Azure IoT Central'
-description: 'Tutorial: como um operador, use seu aplicativo de IoT Central do Azure para monitorar seus dispositivos.'
+title: 'Tutorial: Monitor your devices in Azure IoT Central'
+description: 'Tutorial: As an operator, use your Azure IoT Central application to monitor your devices.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/13/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db3a9a6ba51394a0473f64a2ccede97e5283bba1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a07a822e863c5ff5d695a20c02bd8d295721efda
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106569"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480246"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
 
@@ -41,9 +41,9 @@ Antes de começar, o construtor deve concluir os três tutoriais do construtor p
 
 O Azure IoT Central envia notificações sobre os dispositivos como mensagens de e-mail. O construtor adicionou uma regra para enviar uma notificação se a temperatura num dispositivo de ar condicionado ligado exceder um limiar. Verifique os e-mails enviados para a conta que o construtor escolheu para receber notificações.
 
-Abra a mensagem de e-mail que recebeu no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). No email, selecione o link para o dispositivo ao lado de **nome do dispositivo** na seção **detalhes** :
+Abra a mensagem de e-mail que recebeu no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). In the email, select the link to the device next to **Device Name** in the **Details** section:
 
-![Email de notificação de alerta](media/tutorial-monitor-devices/email.png)
+![Alert notification email](media/tutorial-monitor-devices/email.png)
 
 A página **Dispositivo** do **Dispositivo de Ar Condicionado Ligado 1** simulou o dispositivo que criou nos tutorais anteriores é aberta no browser:
 
@@ -57,13 +57,13 @@ Escolha a vista **Dashboard** para ver as informações sobre o dispositivo.
 
 ![Dashboard do dispositivo](media/tutorial-monitor-devices/initial_screen.png)
 
-O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Você também pode ver a temperatura de destino atual para o dispositivo no bloco de **Propriedades do dispositivo** . Decide que a temperatura ideal é demasiado elevada.
+O gráfico no dashboard mostra um desenho da temperatura do dispositivo. You can also see the current target temperature for the device in the **Device properties** tile. Decide que a temperatura ideal é demasiado elevada.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 
 Para alterar a temperatura ideal do dispositivo, utilize a página **Definições**:
 
-1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo confirma a alteração das configurações, o status da configuração é alterado para **sincronizado**:
+1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. When the device confirms the settings change, the status of the setting changes to **synced**:
 
     ![Atualizar definições](media/tutorial-monitor-devices/change_settings.png)
 

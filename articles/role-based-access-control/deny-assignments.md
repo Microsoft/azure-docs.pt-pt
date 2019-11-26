@@ -1,6 +1,6 @@
 ---
-title: Compreender negar atribuições para recursos do Azure | Documentos da Microsoft
-description: Saiba mais sobre negar atribuições no controlo de acesso baseado em funções (RBAC) para recursos do Azure.
+title: Understand deny assignments for Azure resources | Microsoft Docs
+description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,65 +11,68 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2c663b587d2e9ee278fc774c2841899b060ccbcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165987"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479358"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Compreender negar atribuições para recursos do Azure
+# <a name="understand-deny-assignments-for-azure-resources"></a>Understand deny assignments for Azure resources
 
-Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de negar o acesso. Negar atribuições impedir que os utilizadores de executarem ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso.
+Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access.
 
-Este artigo descreve como negar atribuições são definidas.
+This article describes how deny assignments are defined.
 
-## <a name="how-deny-assignments-are-created"></a>Como negar atribuições são criadas
+## <a name="how-deny-assignments-are-created"></a>How deny assignments are created
 
-Negar atribuições são criadas e geridas pelo Azure para proteger os recursos. Por exemplo, planos de gráficos do Azure e Azure aplicações geridas por utilização negar atribuições para proteger os recursos gerenciados pelo sistema. Para obter mais informações, consulte [proteger os recursos novos com bloqueios de recursos do Azure esquemas](../governance/blueprints/tutorials/protect-new-resources.md).
+Deny assignments are created and managed by Azure to protect resources. Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. Azure Blueprints and Azure managed apps are the only way that deny assignments can be created. You can't directly create your own deny assignments.  For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
 
-## <a name="compare-role-assignments-and-deny-assignments"></a>Comparar as atribuições de funções e as atribuições de negação
+> [!NOTE]
+> You can't directly create your own deny assignments.
 
-Negar atribuições seguem um padrão semelhante como atribuições de funções, mas também tem algumas diferenças.
+## <a name="compare-role-assignments-and-deny-assignments"></a>Compare role assignments and deny assignments
 
-| Funcionalidade | Atribuição de função | Atribuição de negação |
+Deny assignments follow a similar pattern as role assignments, but also have some differences.
+
+| Capacidade | Atribuição de função | Deny assignment |
 | --- | --- | --- |
 | Conceder acesso | :heavy_check_mark: |  |
 | Negar o acesso |  | :heavy_check_mark: |
-| Podem ser criados diretamente | :heavy_check_mark: |  |
-| Aplicam-se a um âmbito | :heavy_check_mark: | :heavy_check_mark: |
-| Excluir entidades de segurança |  | :heavy_check_mark: |
-| Impedir a herança para âmbitos subordinados |  | :heavy_check_mark: |
-| Aplicar a [administrador de subscrição clássica](rbac-and-directory-admin-roles.md) atribuições |  | :heavy_check_mark: |
+| Can be directly created | :heavy_check_mark: |  |
+| Apply at a scope | :heavy_check_mark: | :heavy_check_mark: |
+| Exclude principals |  | :heavy_check_mark: |
+| Prevent inheritance to child scopes |  | :heavy_check_mark: |
+| Apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments |  | :heavy_check_mark: |
 
-## <a name="deny-assignment-properties"></a>Propriedades de atribuição de negação
+## <a name="deny-assignment-properties"></a>Deny assignment properties
 
- Uma atribuição de negações tem as seguintes propriedades:
+ A deny assignment has the following properties:
 
 > [!div class="mx-tableFixed"]
-> | Propriedade | Necessário | Tipo | Descrição |
+> | Propriedade | Obrigatório | Tipo | Descrição |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Sim | String | O nome a apresentar da atribuição de negação. Os nomes têm de ser exclusivos para um determinado âmbito. |
-> | `Description` | Não | String | A descrição da atribuição de negação. |
-> | `Permissions.Actions` | Ações, pelo menos, um ou um DataActions | String[] | Uma matriz de cadeias de caracteres que especificam as operações de gestão aos quais a atribuição de negar bloqueia o acesso. |
-> | `Permissions.NotActions` | Não | String[] | Uma matriz de cadeias de caracteres que especificam as operações de gestão para excluir da atribuição de negação. |
-> | `Permissions.DataActions` | Ações, pelo menos, um ou um DataActions | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados aos quais a atribuição de negar bloqueia o acesso. |
-> | `Permissions.NotDataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados para impedir que a atribuição de negação. |
-> | `Scope` | Não | String | Uma cadeia de caracteres que especifica o âmbito que se aplica a atribuição de negação. |
-> | `DoNotApplyToChildScopes` | Não | Boolean | Especifica se a atribuição de negar aplica-se a âmbitos subordinados. Valor predefinido é false. |
-> | `Principals[i].Id` | Sim | String[] | Uma matriz de IDs (utilizador, grupo, principal de serviço ou identidade gerida) aos quais se aplica a atribuição de negação de objeto de entidade do Azure AD. Definido como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
-> | `Principals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representado pelo Direi principais [i]. Definido como `SystemDefined` para representar todos os principais. |
-> | `ExcludePrincipals[i].Id` | Não | String[] | Uma matriz de IDs (utilizador, grupo, principal de serviço ou identidade gerida) para o qual não se aplica a atribuição de negação de objeto de entidade do Azure AD. |
-> | `ExcludePrincipals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representado pelo Direi ExcludePrincipals [i]. |
-> | `IsSystemProtected` | Não | Boolean | Especifica se negar atribuição foi criada pelo Azure e não pode ser editada ou eliminada. Atualmente, todos negar atribuições são protegido do sistema. |
+> | `DenyAssignmentName` | Sim | String | The display name of the deny assignment. Names must be unique for a given scope. |
+> | `Description` | Não | String | The description of the deny assignment. |
+> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the management operations to which the deny assignment blocks access. |
+> | `Permissions.NotActions` | Não | String[] | An array of strings that specify the management operations to exclude from the deny assignment. |
+> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data operations to which the deny assignment blocks access. |
+> | `Permissions.NotDataActions` | Não | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
+> | `Scope` | Não | String | A string that specifies the scope that the deny assignment applies to. |
+> | `DoNotApplyToChildScopes` | Não | Booleano | Specifies whether the deny assignment applies to child scopes. Default value is false. |
+> | `Principals[i].Id` | Sim | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
+> | `Principals[i].Type` | Não | String[] | An array of object types represented by Principals[i].Id. Set to `SystemDefined` to represent all principals. |
+> | `ExcludePrincipals[i].Id` | Não | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment does not apply. |
+> | `ExcludePrincipals[i].Type` | Não | String[] | An array of object types represented by ExcludePrincipals[i].Id. |
+> | `IsSystemProtected` | Não | Booleano | Specifies whether this deny assignment was created by Azure and cannot be edited or deleted. Currently, all deny assignments are system protected. |
 
-## <a name="the-all-principals-principal"></a>O principal de todos os principais
+## <a name="the-all-principals-principal"></a>The All Principals principal
 
-Para suporte negar atribuições, um principal de definidos pelo sistema de mensagens em fila com o nome *todos os principais* foi introduzido. Este principal de representa todos os utilizadores, grupos, os principais de serviço e identidades geridas num diretório do Azure AD. Se o ID de principal é um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo de principal é `SystemDefined`, o principal representa todas as entidades. Na saída do Azure PowerShell, todos os principais é semelhante ao seguinte:
+To support deny assignments, a system-defined principal named *All Principals* has been introduced. This principal represents all users, groups, service principals, and managed identities in an Azure AD directory. If the principal ID is a zero GUID `00000000-0000-0000-0000-000000000000` and the principal type is `SystemDefined`, the principal represents all principals. In Azure PowerShell output, All Principals looks like the following:
 
 ```azurepowershell
 Principals              : {
@@ -79,12 +82,12 @@ Principals              : {
                           }
 ```
 
-Todas as entidades podem ser combinadas com `ExcludePrincipals` para negar a todos os principais, exceto alguns usuários. Todos os principais tem as seguintes restrições:
+All Principals can be combined with `ExcludePrincipals` to deny all principals except some users. All Principals has the following constraints:
 
-- Pode ser utilizada apenas num `Principals` e não é possível utilizar `ExcludePrincipals`.
-- `Principals[i].Type` tem de ser definido como `SystemDefined`.
+- Can be used only in `Principals` and cannot be used in `ExcludePrincipals`.
+- `Principals[i].Type` must be set to `SystemDefined`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Lista negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md)
-* [Compreender as definições de funções para recursos do Azure](role-definitions.md)
+* [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
+* [Understand role definitions for Azure resources](role-definitions.md)

@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que conecta usuários (configuração de código)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo Web que faz logon de usuários (configuração de código)
+title: Web app that signs in users (code configuration) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,88 +15,88 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f52fc70b54c27362575bef00c39a93d13e77cc2e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 16b7032f8568cc944fb95d2e56a84a3d475c3994
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175344"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482748"
 ---
-# <a name="web-app-that-signs-in-users---code-configuration"></a>Aplicativo Web que faz logon de usuários – configuração de código
+# <a name="web-app-that-signs-in-users-code-configuration"></a>Web app that signs in users: Code configuration
 
-Saiba como configurar o código para seu aplicativo Web que faz logon de usuários.
+Learn how to configure the code for your web app that signs in users.
 
-## <a name="libraries-used-to-protect-web-apps"></a>Bibliotecas usadas para proteger aplicativos Web
+## <a name="libraries-for-protecting-web-apps"></a>Libraries for protecting web apps
 
 <!-- This section can be in an include for Web App and Web APIs -->
-As bibliotecas usadas para proteger um aplicativo Web (e uma API da Web) são:
+The libraries that are used to protect a web app (and a web API) are:
 
 | Plataforma | Biblioteca | Descrição |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [Extensões do modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usado diretamente por ASP.NET e ASP.NET Core, o Microsoft Identity Extensions for .NET propõe um conjunto de DLLs em execução no .NET Framework e no .NET Core. De um aplicativo Web ASP.NET/ASP.NET Core, você pode controlar a validação de token usando a classe **TokenValidationParameters** (em particular em alguns cenários de ISV) |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL para Java – atualmente em visualização pública |
-| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL para Python – atualmente em visualização pública |
+| ![.NET](media/sample-v2-code/logo_net.png) | [Identity Model Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Model Extensions for .NET proposes a set of DLLs running on both .NET Framework and .NET Core. From an ASP.NET or ASP.NET Core web app, you can control token validation by using the **TokenValidationParameters** class (in particular, in some partner scenarios). |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Microsoft Authentication Library (MSAL) for Java. Currently in public preview. |
+| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL for Python. Currently in public preview. |
 
-Selecione a guia correspondente à plataforma em que você está interessado:
+Select the tab that corresponds to the platform you're interested in:
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Os trechos de código neste artigo e os seguintes são extraídos do [tutorial de ASP.NET Core incremental do aplicativo Web, capítulo 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
+Code snippets in this article and the following are extracted from the [ASP.NET Core web app incremental tutorial, chapter 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
 
-Talvez você queira consultar este tutorial para obter detalhes completos de implementação.
+You might want to refer to this tutorial for full implementation details.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-Trechos de código neste artigo e os seguintes são extraídos do [exemplo de aplicativo Web ASP.net](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
+Code snippets in this article and the following are extracted from the [ASP.NET web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect).
 
-Talvez você queira consultar este exemplo para obter detalhes completos de implementação.
+You might want to refer to this sample for full implementation details.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Trechos de código neste artigo e os seguintes são extraídos do exemplo de [aplicativo Web Java chamando Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp) MSAL Java Web App
+Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) sample in MSAL Java.
 
-Talvez você queira consultar este exemplo para obter detalhes completos de implementação.
+You might want to refer to this sample for full implementation details.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Os trechos de código neste artigo e os seguintes são extraídos do [aplicativo Web Python chamando o Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-webapp) MSAL. Exemplo de aplicativo Web Python
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample in MSAL Python.
 
-Talvez você queira consultar este exemplo para obter detalhes completos de implementação.
+You might want to refer to this sample for full implementation details.
 
 ---
 
-## <a name="configuration-files"></a>Arquivos de configuração
+## <a name="configuration-files"></a>Configuration files
 
-Os aplicativos Web que conectam usuários com a plataforma de identidade da Microsoft geralmente são configurados por meio de arquivos de configuração. As configurações que você precisa preencher são:
+Web applications that sign in users by using the Microsoft identity platform are usually configured through configuration files. The settings that you need to fill in are:
 
-- a nuvem `Instance` se você quiser que seu aplicativo seja executado (por exemplo, em nuvens nacionais)
-- o público em `tenantId`
-- o `clientId` para seu aplicativo, conforme copiado do portal do Azure.
+- The cloud instance (`Instance`) if you want your app to run in national clouds, for example
+- The audience in the tenant ID (`TenantId`)
+- The client ID (`ClientId`) for your application, as copied from the Azure portal
 
-Às vezes, os aplicativos podem ser parametrizadasdos pelo `authority`, que é a concatenação do `instance` e o `tenantId`
+Sometimes, applications can be parametrized by `Authority`, which is a concatenation of `Instance` and `TenantId`.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-No ASP.NET Core, essas configurações estão localizadas no arquivo [appSettings. JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) , na seção "AzureAD".
+In ASP.NET Core, these settings are located in the [appsettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) file, in the "AzureAd" section.
 
 ```Json
 {
   "AzureAd": {
-    // Azure Cloud instance among:
-    // "https://login.microsoftonline.com/" for Azure Public cloud.
-    // "https://login.microsoftonline.us/" for Azure US government.
-    // "https://login.microsoftonline.de/" for Azure AD Germany
-    // "https://login.chinacloudapi.cn/" for Azure AD China operated by 21Vianet
+    // Azure cloud instance among:
+    // - "https://login.microsoftonline.com/" for Azure public cloud
+    // - "https://login.microsoftonline.us/" for Azure US government
+    // - "https://login.microsoftonline.de/" for Azure AD Germany
+    // - "https://login.chinacloudapi.cn/" for Azure AD China operated by 21Vianet
     "Instance": "https://login.microsoftonline.com/",
 
-    // Azure AD Audience among:
-    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
-    // - "organizations" to sign-in users in any work or school accounts
-    // - "common" to sign-in users with any work and school account or Microsoft personal account
-    // - "consumers" to sign-in users with Microsoft personal account only
+    // Azure AD audience among:
+    // - "TenantId" as a GUID obtained from the Azure portal to sign in users in your organization
+    // - "organizations" to sign in users in any work or school account
+    // - "common" to sign in users with any work or school account or Microsoft personal account
+    // - "consumers" to sign in users with a Microsoft personal account only
     "TenantId": "[Enter the tenantId here]]",
 
-    // Client Id (Application ID) obtained from the Azure portal
+    // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",
     "CallbackPath": "/signin-oidc",
     "SignedOutCallbackPath ": "/signout-callback-oidc"
@@ -104,7 +104,7 @@ No ASP.NET Core, essas configurações estão localizadas no arquivo [appSetting
 }
 ```
 
-Em ASP.NET Core, há outro arquivo [properties\launchSettings.JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7) que contém a URL (`applicationUrl`) e a porta SSL (`sslPort`) para seu aplicativo e vários perfis.
+In ASP.NET Core, another file ([properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)) contains the URL (`applicationUrl`) and the SSL port (`sslPort`) for your application and various profiles.
 
 ```Json
 {
@@ -136,18 +136,18 @@ Em ASP.NET Core, há outro arquivo [properties\launchSettings.JSON](https://gith
 }
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs; ou seja, para os dois arquivos de configuração acima, eles seriam `https://localhost:44321/signin-oidc` como applicationUrl é `http://localhost:3110`, mas o `sslPort` é especificado (44321) e o `CallbackPath` é `/signin-oidc` conforme definido no `appsettings.json`.
+In the Azure portal, the reply URIs that you need to register on the **Authentication** page for your application need to match these URLs. For the two preceding configuration files, they would be `https://localhost:44321/signin-oidc`. The reason is that `applicationUrl` is `http://localhost:3110`, but `sslPort` is specified (44321). `CallbackPath` is `/signin-oidc`, as defined in `appsettings.json`.
 
-Da mesma forma, o URI de saída seria definido como `https://localhost:44321/signout-callback-oidc`.
+In the same way, the sign-out URI would be set to `https://localhost:44321/signout-callback-oidc`.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-No ASP.NET, o aplicativo é configurado por meio das linhas de arquivo [Web. Config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) 12-15
+In ASP.NET, the application is configured through the [Web.config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) file, lines 12 to 15.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  For more information on how to configure your ASP.NET application, please visit
+  For more information on how to configure your ASP.NET application, visit
   https://go.microsoft.com/fwlink/?LinkId=301880
   -->
 <configuration>
@@ -164,11 +164,11 @@ No ASP.NET, o aplicativo é configurado por meio das linhas de arquivo [Web. Con
   </appSettings>
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs; Isso é `https://localhost:44326/`.
+In the Azure portal, the reply URIs that you need to register on the **Authentication** page for your application need to match these URLs. That is, they should be `https://localhost:44326/`.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Em Java, a configuração está localizada no arquivo [Application. Properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties) localizado em `src/main/resources`
+In Java, the configuration is located in the [application.properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties) file located under `src/main/resources`.
 
 ```Java
 aad.clientId=Enter_the_Application_Id_here
@@ -178,11 +178,11 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder ao redirectUris definido pelo aplicativo, que é `http://localhost:8080/msal4jsample/secure/aad` e `http://localhost:8080/msal4jsample/graph/me`
+In the Azure portal, the reply URIs that you need to register on the **Authentication** page for your application need to match the `redirectUri` instances that the application defines. That is, they should be `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/me`.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Aqui está o arquivo de configuração do Python em [app_config. py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py)
+Here's the Python configuration file in [app_config.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py):
 
 ```Python
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
@@ -190,12 +190,11 @@ AUTHORITY = "https://login.microsoftonline.com/common""
 CLIENT_ID = "Enter_the_Application_Id_here"
 ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
 SCOPE = ["User.ReadBasic.All"]
-SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side session
+SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-side session
 ```
 
 > [!NOTE]
-> Este guia de início rápido propõe armazenar o segredo do cliente no arquivo de configuração para simplificar.
-> Em seu aplicativo de produção, você desejaria usar outras maneiras de armazenar seu segredo, como keyvault ou uma variável de ambiente, conforme descrito na documentação do Flask: https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+> This quickstart proposes to store the client secret in the configuration file for simplicity. In your production app, you'd want to use other ways to store your secret, such as a key vault or an environment variable as described in [Flask's documentation](https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables).
 >
 > ```python
 > CLIENT_SECRET = os.getenv("CLIENT_SECRET")
@@ -205,30 +204,33 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 
 ---
 
-## <a name="initialization-code"></a>Código de inicialização
+## <a name="initialization-code"></a>Initialization code
 
-O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, os usuários de entrada são delegados para o middleware OpenIDConnect. Hoje, o modelo ASP.NET/ASP.NET Core gera aplicativos Web para o ponto de extremidade v 1.0 do Azure AD. Portanto, um pouco de configuração é necessário para adaptá-los ao ponto de extremidade da plataforma Microsoft Identity (v 2.0). No caso do Java, ele é tratado pelo Spring com a cooperação do aplicativo.
+The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenID Connect middleware. The ASP.NET or ASP.NET Core template generates web applications for the Azure Active Directory (Azure AD) v1.0 endpoint. Some configuration is required to adapt them to the Microsoft identity platform (v2.0) endpoint. In the case of Java, it's handled by Spring with the cooperation of the application.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Em ASP.NET Core aplicativos Web (e APIs Web), o aplicativo é protegido porque você tem um atributo `[Authorize]` nos controladores ou nas ações do controlador. Esse atributo verifica se o usuário está autenticado. O código que faz a inicialização do aplicativo está localizado no arquivo de `Startup.cs` e, para adicionar autenticação com a plataforma de identidade da Microsoft (anteriormente Azure AD v 2.0), você precisará adicionar o código a seguir. Os comentários no código devem ser auto-explicativos.
+In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. The code that's initializing the application is in the Startup.cs file. 
 
-  > [!NOTE]
-  > Se você iniciar seu projeto com o projeto Web do ASP.NET Core padrão no Visual Studio ou usando `dotnet new mvc` o método `AddAzureAD` estará disponível por padrão porque os pacotes relacionados são carregados automaticamente.
-  > No entanto, se você criar um projeto do zero e estiver tentando usar o código abaixo, sugerimos que você adicione o pacote NuGet **"Microsoft. AspNetCore. Authentication. AzureAD. UI"** ao seu projeto para tornar o método `AddAzureAD` disponível.
+To add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
-O código a seguir está disponível em [Startup. cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
+> [!NOTE]
+> If you start your project with the default ASP.NET Core web project within Visual studio or by using `dotnet new mvc`, the method `AddAzureAD` is available by default. That's because the related packages are automatically loaded.
+>
+> If you build a project from scratch and are trying to use the following code, we suggest that you add the NuGet package **Microsoft.AspNetCore.Authentication.AzureAD.UI** to your project to make the `AddAzureAD` method available.
+
+The following code is available from [Startup.cs#L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34).
 
 ```CSharp
 public class Startup
 {
  ...
 
-  // This method gets called by the runtime. Use this method to add services to the container.
+  // This method is called by the runtime. Use this method to add services to the container.
   public void ConfigureServices(IServiceCollection services)
   {
     ...
-      // Sign-in users with the Microsoft identity platform
+      // Sign in users with the Microsoft identity platform
       services.AddMicrosoftIdentityPlatformAuthentication(Configuration);
 
       services.AddMvc(options =>
@@ -242,28 +244,27 @@ public class Startup
     }
 ```
 
-O `AddMicrosoftIdentityPlatformAuthentication` é um método de extensão definido em [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23). Fosse
+The `AddMicrosoftIdentityPlatformAuthentication` extension method is defined in [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23). It:
 
-- Adiciona o serviço de autenticação
-- configurar opções para ler o arquivo de configuração
-- configura as opções do OpenID Connect para que a autoridade usada seja o ponto de extremidade da plataforma Microsoft Identity (anteriormente conhecido como Azure AD v 2.0)
-- o emissor do token é validado
-- as declarações correspondentes ao nome são mapeadas da declaração "preferred_username" no token de ID
+- Adds the authentication service.
+- Configures options to read the configuration file.
+- Configures the OpenID Connect options so that the used authority is the Microsoft identity platform (formerly Azure AD v2.0) endpoint.
+- Validates the issuer of the token.
+- Ensures that the claims corresponding to name are mapped from the `preferred_username` claim in the ID token.
 
-Além da configuração, você pode especificar, ao chamar `AddMicrosoftIdentityPlatformAuthentication`:
+In addition to the configuration, you can specify the name of the configuration section when calling `AddMicrosoftIdentityPlatformAuthentication`. By default, it's `AzureAd`.
 
-- o nome da seção de configuração (por padrão AzureAD)
-- Se você quiser rastrear os eventos de middleware OpenIdConnect, que podem ajudá-lo a solucionar problemas de seu aplicativo Web se a autenticação não funcionar: definir `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` como `true` mostrará como as informações são elaboradas pelo conjunto de middlewares de ASP.NET Core como ele progride da resposta HTTP para a identidade do usuário no `HttpContext.User`.
+Tracing OpenId Connect middleware events can help you troubleshoot your web application if authentication doesn't work. Setting `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` to `true` will show you how information gets elaborated by the set of ASP.NET Core middleware as it progresses from the HTTP response to the identity of the user in `HttpContext.User`.
 
 ```CSharp
 /// <summary>
-/// Add authentication with Microsoft identity platform.
-/// This method expects the configuration file will have a section named "AzureAd" with the necessary settings to initialize authentication options.
+/// Add authentication with the Microsoft identity platform.
+/// This method expects the configuration file to have a section named "AzureAd" with the necessary settings to initialize authentication options.
 /// </summary>
 /// <param name="services">Service collection to which to add this authentication scheme</param>
 /// <param name="configuration">The Configuration object</param>
 /// <param name="subscribeToOpenIdConnectMiddlewareDiagnosticsEvents">
-/// Set to true if you want to debug, or just understand the OpenIdConnect events.
+/// Set to true if you want to debug, or just understand the OpenID Connect events.
 /// </param>
 /// <returns></returns>
 public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
@@ -278,28 +279,28 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-      // Per the code below, this application signs in users in any Work and School
-      // accounts and any Microsoft Personal Accounts.
-      // If you want to direct Azure AD to restrict the users that can sign-in, change
+      // Per the following code, this application signs in users in any work or school
+      // accounts and any Microsoft personal accounts.
+      // If you want to direct Azure AD to restrict the users who can sign in, change
       // the tenant value of the appsettings.json file in the following way:
-      // - only Work and School accounts => 'organizations'
-      // - only Microsoft Personal accounts => 'consumers'
-      // - Work and School and Personal accounts => 'common'
-      // If you want to restrict the users that can sign-in to only one tenant
+      // - Only work or school accounts => 'organizations'
+      // - Only Microsoft personal accounts => 'consumers'
+      // - Work or school and personal accounts => 'common'
+      // If you want to restrict the users who can sign in to only one tenant,
       // set the tenant value in the appsettings.json file to the tenant ID
-      // or domain of this organization
+      // or domain of this organization.
       options.Authority = options.Authority + "/v2.0/";
 
-      // If you want to restrict the users that can sign-in to several organizations
-      // Set the tenant value in the appsettings.json file to 'organizations', and add the
-      // issuers you want to accept to options.TokenValidationParameters.ValidIssuers collection
+      // If you want to restrict the users who can sign in to several organizations,
+      // set the tenant value in the appsettings.json file to 'organizations', and add the
+      // issuers you want to accept to the options.TokenValidationParameters.ValidIssuers collection.
       options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.GetIssuerValidator(options.Authority).Validate;
 
-      // Set the nameClaimType to be preferred_username.
-      // This change is needed because certain token claims from Azure AD V1 endpoint
-      // (on which the original .NET core template is based) are different than Microsoft identity platform endpoint.
-      // For more details see [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
-      // and [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
+      // Set nameClaimType to be preferred_username.
+      // This change is needed because certain token claims from the Azure AD v1 endpoint
+      // (on which the original .NET Core template is based) are different from the Microsoft identity platform endpoint.
+      // For more details, see [ID tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
+      // and [Access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
       options.TokenValidationParameters.NameClaimType = "preferred_username";
 
       // ...
@@ -314,11 +315,11 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-A classe `AadIssuerValidator` permite que o emissor do token seja validado em muitos casos (token de v 1.0 ou v 2.0, aplicativo de locatário único ou aplicativo de vários locatários que conecta usuários com suas contas pessoais da Microsoft, na nuvem pública do Azure ou no National nuvens). Ele está disponível em [Microsoft. Identity. Web/Resource/AadIssuerValidator. cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+The `AadIssuerValidator` class enables the issuer of the token to be validated in many cases. This class works with a v1.0 or v2.0 token, a single-tenant or multitenant application, or an application that signs in users with their personal Microsoft accounts in the Azure public cloud or national clouds. It's available from [Microsoft.Identity.Web/Resource/AadIssuerValidator.cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-O código relacionado à autenticação no aplicativo Web/APIs Web do ASP.NET está localizado no arquivo [App_Start/Startup. auth. cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) .
+The code related to authentication in an ASP.NET web app and web APIs is located in the [App_Start/Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) file.
 
 ```CSharp
  public void ConfigureAuth(IAppBuilder app)
@@ -330,9 +331,9 @@ O código relacionado à autenticação no aplicativo Web/APIs Web do ASP.NET es
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // The `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0
-     // The `Scope` describes the initial permissions that your app will need.
-     //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
+     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // `Scope` describes the initial permissions that your app will need.
+     //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
      Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
      RedirectUri = redirectUri,
@@ -344,23 +345,22 @@ O código relacionado à autenticação no aplicativo Web/APIs Web do ASP.NET es
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-O exemplo de Java usa o Spring Framework. O aplicativo é protegido porque você implementa um `Filter`, que intercepta cada resposta HTTP. No início rápido do aplicativo Web Java, esse filtro é `AuthFilter` em `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. O filtro processa o fluxo de código de autorização do OAuth 2,0 e, portanto,:
+The Java sample uses the Spring framework. The application is protected because you implement a filter, which intercepts each HTTP response. In the quickstart for Java web apps, this filter is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. 
 
-- verifica se o usuário está autenticado (`isAuthenticated()` método)
-- Se o usuário não for autenticado, ele computa a URL do Azure AD autoriza pontos de extremidade e redireciona o navegador para esse URI
-- Quando a resposta chega, que contém o código de autenticação, ele adquire o token usando MSAL Java.
-- Quando ele finalmente recebe o token do ponto de extremidade do token (no URI de redirecionamento), o usuário é conectado.
+The filter processes the OAuth 2.0 authorization code flow and checks if the user is authenticated (`isAuthenticated()` method). If the user isn't authenticated, it computes the URL of the Azure AD authorization endpoints, and redirects the browser to this URI.
 
-Para obter detalhes, consulte o método `doFilter()` no [AuthFilter. java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
+When the response arrives, containing the authorization code, it acquires the token by using MSAL Java. When it finally receives the token from the token endpoint (on the redirect URI), the user is signed in.
+
+For details, see the `doFilter()` method in [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java).
 
 > [!NOTE]
-> O código da `doFilter()` é gravado em uma ordem ligeiramente diferente, mas o fluxo é o descrito.
+> The code of the `doFilter()` is written in a slightly different order, but the flow is the one described.
 
-Consulte a [plataforma de identidade da Microsoft e o fluxo do código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md) para obter detalhes sobre o fluxo do código de autorização, disparado por esse método
+For details about the authorization code flow that this method triggers, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-O exemplo de Python usa Flask. A inicialização de Flask e MSAL. O Python é feito no [aplicativo. py # L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28)
+The Python sample uses Flask. The initialization of Flask and MSAL Python is done in [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
 
 ```Python
 import uuid
@@ -380,26 +380,26 @@ Session(app)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-No próximo artigo, você aprenderá a disparar o logon e a saída.
+In the next article, you'll learn how to trigger sign-in and sign-out.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
 
 ---

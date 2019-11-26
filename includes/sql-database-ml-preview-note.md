@@ -3,18 +3,17 @@ author: garyericson
 ms.service: sql-database
 ms.subservice: machine-learning
 ms.topic: include
-ms.date: 04/10/2019
+ms.date: 11/20/2019
 ms.author: garye
-ms.openlocfilehash: 841157d92b4b9564a74dfbfee8de6edf83e75d3c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: eb5755d8e90c8134fe7bcef340820844eeb7e9cc
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608313"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462117"
 ---
 > [!IMPORTANT]
-> Serviços do Aprendizado de máquina de base de dados do Azure SQL está atualmente em pré-visualização pública.
+> Azure SQL Database Machine Learning Services is currently in preview. Sign up for the preview is currently closed.
+> 
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> [Inscreva-se a pré-visualização](../articles/sql-database/sql-database-machine-learning-services-overview.md#signup)

@@ -1,16 +1,16 @@
 ---
-title: Exemplo-auditoria SQL Server configurações de auditoria
-description: Esta definição de política de exemplo audita as configurações de auditoria do SQL Server com auditIfNotExists.
+title: Sample - Audit SQL Server audit settings
+description: This sample policy definition audits the SQL server audit settings defined in a parameter with auditIfNotExists.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 5a0d758bd96937ca443d434b76d22aaefc618687
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7eba24c0916297dba0649024874aed7ba0fac2f6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069800"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463106"
 ---
-# <a name="sample---audit-sql-server-audit-settings"></a>Exemplo – auditar configurações de auditoria do SQL Server
+# <a name="sample---audit-sql-server-audit-settings"></a>Sample - Audit SQL server audit settings
 
 Esta política incorporada fará uma auditoria ao SQL Server para verificar se as definições de auditoria estão ativadas.
 
@@ -46,7 +46,7 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 ## <a name="parameters"></a>Parâmetros
 
-Para passar o valor do parâmetro, utilize o seguinte formato:
+Para transmitir o valor do parâmetro, utilize o seguinte formato:
 
 ```json
 {"setting": {"value":"enabled"}}
@@ -56,7 +56,7 @@ Para passar o valor do parâmetro, utilize o seguinte formato:
 
 Ao atribuir uma política, selecione **Auditar as Definições de Auditoria ao Nível do SQL Server** nas definições incorporadas disponíveis.
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -74,7 +74,7 @@ Execute o seguinte comando para remover a atribuição de política.
 Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -92,4 +92,4 @@ az policy assignment delete --name "SQL Audit audit" --resource-group myResource
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)
+- Reveja mais exemplos nas [amostras do Azure Policy](index.md)

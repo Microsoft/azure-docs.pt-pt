@@ -1,15 +1,15 @@
 ---
 title: Descrição geral do Jenkins e do Azure
-description: Hospede o Jenkins Build e implante o servidor de automação no Azure e use os recursos de computação e armazenamento do Azure para estender os pipelines de CI/CD (integração e implantação contínuas).
+description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continuous integration and deployment (CI/CD) pipelines.
 keywords: jenkins, azure, devops, overview
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: a7ac07af4d9f3c065ce033fac3982091a0b9c679
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158753"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479349"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
 
@@ -25,15 +25,15 @@ Aloje o Jenkins no Azure para centralizar a automatização de compilações e d
 - [Máquinas virtuais do Azure](/azure/virtual-machines/linux/overview). Veja o nosso [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) sobre como criar uma instância do Jenkins numa VM.
 - Num cluster do Kubernetes em execução no [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough); veja as [instruções](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Monitore e gerencie sua implantação do Azure Jenkins usando [logs de Azure monitor](/azure/log-analytics/log-analytics-overview) e o [CLI do Azure](/cli/azure).
+Monitor and manage your Azure Jenkins deployment using [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Dimensionar a automatização da compilação a pedido
 
-Adicione agentes de compilação à sua implementação do Jenkins existente para dimensionar a capacidade de compilação do Jenkins à medida que o número de compilações e a complexidade dos seus trabalhos e pipelines aumentam. Você pode executar esses agentes de compilação em máquinas virtuais do Azure usando o [plug-in de agentes de VM do Azure](jenkins-azure-vm-agents.md). Veja mais detalhes no nosso [tutorial](/azure/jenkins/jenkins-azure-vm-agents).
+Adicione agentes de compilação à sua implementação do Jenkins existente para dimensionar a capacidade de compilação do Jenkins à medida que o número de compilações e a complexidade dos seus trabalhos e pipelines aumentam. You can run these build agents on Azure virtual machines by using the [Azure VM Agents plug-in](https://plugins.jenkins.io/azure-vm-agents). Veja mais detalhes no nosso [tutorial](/azure/jenkins/jenkins-azure-vm-agents).
 
 Quando configurados com um [principal de serviço do Azure](/azure/azure-resource-manager/resource-group-overview), os trabalhos e os pipelines do Jenkins podem utilizar esta credencial para:
 
-- Armazene e arquive artefatos de compilação com segurança no [armazenamento do Azure](/azure/storage/common/storage-introduction) usando o [plug-in de armazenamento do Azure](https://plugins.jenkins.io/windows-azure-storage). Reveja [Jenkins storage how-to](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) (Instruções de armazenamento do Jenkins) para saber mais.
+- Securely store and archive build artifacts in [Azure Storage](/azure/storage/common/storage-introduction) using the [Azure Storage plug-in](https://plugins.jenkins.io/windows-azure-storage). Reveja [Jenkins storage how-to](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) (Instruções de armazenamento do Jenkins) para saber mais.
 - Gerir e configurar os recursos do Azure com a [CLI do Azure](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## <a name="deploy-your-code-into-azure-services"></a>Implementar o seu código nos serviços do Azure
@@ -42,5 +42,5 @@ Utilize os plug-ins do Jenkins para implementar as suas aplicações no Azure co
 
  Estão disponíveis plug-ins para implementar nos seguintes serviços e ambientes:
 
-- [Serviço de Azure app no Linux](/azure/app-service/containers/app-service-linux-intro). Veja o [tutorial](java-deploy-webapp-tutorial.md) para começar.
-- [Serviço de Azure app](/azure/app-service/overview). Veja as [instruções](deploy-Jenkins-app-service-plugin.md) para começar.
+- [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). Veja o [tutorial](java-deploy-webapp-tutorial.md) para começar.
+- [Azure App Service](/azure/app-service/overview). Veja as [instruções](deploy-Jenkins-app-service-plugin.md) para começar.

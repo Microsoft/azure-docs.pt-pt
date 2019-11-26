@@ -1,32 +1,32 @@
 ---
-title: Políticas de autor para propriedades de matriz em recursos
-description: Aprenda a criar parâmetros de matriz, criar regras para expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos a uma matriz existente com regras de definição de Azure Policy.
+title: Author policies for array properties on resources
+description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959720"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463513"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Author policies for array properties on Azure resources
 
-Azure Resource Manager propriedades são normalmente definidas como cadeias de caracteres e boolianos. Quando existe uma relação um-para-muitos, as propriedades complexas são definidas como matrizes. Em Azure Policy, as matrizes são usadas de várias maneiras diferentes:
+Azure Resource Manager properties are commonly defined as strings and booleans. When a one-to-many relationship exists, complex properties are instead defined as arrays. In Azure Policy, arrays are used in several different ways:
 
-- O tipo de um [parâmetro de definição](../concepts/definition-structure.md#parameters), para fornecer várias opções
-- Parte de uma [regra de política](../concepts/definition-structure.md#policy-rule) usando as condições **em** ou **notIn**
-- Parte de uma regra de política que avalia o [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) para avaliar cenários específicos, como **nenhum**, **qualquer**ou **todos**
-- No [efeito de acréscimo](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
+- The type of a [definition parameter](../concepts/definition-structure.md#parameters), to provide multiple options
+- Part of a [policy rule](../concepts/definition-structure.md#policy-rule) using the conditions **in** or **notIn**
+- Part of a policy rule that evaluates the [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) to evaluate specific scenarios such as **None**, **Any**, or **All**
+- In the [append effect](../concepts/effects.md#append) to replace or add to an existing array
 
-Este artigo aborda cada uso por Azure Policy e fornece várias definições de exemplo.
+This article covers each use by Azure Policy and provides several example definitions.
 
-## <a name="parameter-arrays"></a>Matrizes de parâmetros
+## <a name="parameter-arrays"></a>Parameter arrays
 
-### <a name="define-a-parameter-array"></a>Definir uma matriz de parâmetros
+### <a name="define-a-parameter-array"></a>Define a parameter array
 
-A definição de um parâmetro como uma matriz permite a flexibilidade da política quando mais de um valor é necessário.
-Essa definição de política permite qualquer local único para o parâmetro **allowedLocations** e o padrão _eastus2_:
+Defining a parameter as an array allows the policy flexibility when more than one value is needed.
+This policy definition allows any single location for the parameter **allowedLocations** and defaults to _eastus2_:
 
 ```json
 "parameters": {
@@ -42,9 +42,9 @@ Essa definição de política permite qualquer local único para o parâmetro **
 }
 ```
 
-Como o **tipo** era _String_, apenas um valor pode ser definido ao atribuir a política. Se essa política for atribuída, os recursos no escopo só serão permitidos em uma única região do Azure. A maioria das definições de políticas precisa permitir uma lista de opções aprovadas, como permitir _eastus2_, _eastus_e _westus2_.
+As **type** was _string_, only one value can be set when assigning the policy. If this policy is assigned, resources in scope are only allowed within a single Azure region. Most policies definitions need to allow for a list of approved options, such as allowing _eastus2_, _eastus_, and _westus2_.
 
-Para criar a definição de política para permitir várias opções, use o **tipo**de _matriz_ . A mesma política pode ser reescrita da seguinte maneira:
+To create the policy definition to allow multiple options, use the _array_ **type**. The same policy can be rewritten as follows:
 
 ```json
 "parameters": {
@@ -67,17 +67,17 @@ Para criar a definição de política para permitir várias opções, use o **ti
 ```
 
 > [!NOTE]
-> Quando uma definição de política é salva, a propriedade **Type** em um parâmetro não pode ser alterada.
+> Once a policy definition is saved, the **type** property on a parameter can't be changed.
 
-Essa nova definição de parâmetro usa mais de um valor durante a atribuição de política. Com a propriedade de matriz **allowedValues** definida, os valores disponíveis durante a atribuição são limitados ainda mais à lista predefinida de opções. O uso de **allowedValues** é opcional.
+This new parameter definition takes more than one value during policy assignment. With the array property **allowedValues** defined, the values available during assignment are further limited to the predefined list of choices. Use of **allowedValues** is optional.
 
-### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passar valores para uma matriz de parâmetros durante a atribuição
+### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Pass values to a parameter array during assignment
 
-Ao atribuir a política por meio do portal do Azure, um parâmetro do **tipo** _matriz_ é exibido como uma única caixa de texto. A dica diz "usar; para separar valores. (por exemplo, Londres; Nova York) ". Para passar os valores de local permitidos de _eastus2_, _eastus_e _westus2_ para o parâmetro, use a seguinte cadeia de caracteres:
+When assigning the policy through the Azure portal, a parameter of **type** _array_ is displayed as a single textbox. The hint says "Use ; to separate values. (e.g. London;New York)". To pass the allowed location values of _eastus2_, _eastus_, and _westus2_ to the parameter, use the following string:
 
 `eastus2;eastus;westus2`
 
-O formato do valor do parâmetro é diferente ao usar CLI do Azure, Azure PowerShell ou a API REST. Os valores são passados por meio de uma cadeia de caracteres JSON que também inclui o nome do parâmetro.
+The format for the parameter value is different when using Azure CLI, Azure PowerShell, or the REST API. The values are passed through a JSON string that also includes the name of the parameter.
 
 ```json
 {
@@ -91,18 +91,18 @@ O formato do valor do parâmetro é diferente ao usar CLI do Azure, Azure PowerS
 }
 ```
 
-Para usar essa cadeia de caracteres com cada SDK, use os seguintes comandos:
+To use this string with each SDK, use the following commands:
 
-- CLI do Azure: comando [AZ Policy atribuition Create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) com **parâmetros de parâmetro**
-- Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com o parâmetro **PolicyParameter**
-- API REST: na operação _Put_ [criar](/rest/api/resources/policyassignments/create) como parte do corpo da solicitação como o valor da propriedade **Properties. Parameters**
+- Azure CLI: Command [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
+- Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) with parameter **PolicyParameter**
+- REST API: In the _PUT_ [create](/rest/api/resources/policyassignments/create) operation as part of the Request Body as the value of the **properties.parameters** property
 
-## <a name="policy-rules-and-arrays"></a>Regras de política e matrizes
+## <a name="policy-rules-and-arrays"></a>Policy rules and arrays
 
-### <a name="array-conditions"></a>Condições de matriz
+### <a name="array-conditions"></a>Array conditions
 
-As [condições](../concepts/definition-structure.md#conditions) de regra de política que uma _matriz_
-**tipo** de parâmetro pode ser usada com o são limitadas a `in` e `notIn`. Use a seguinte definição de política com a condição `equals` como um exemplo:
+The policy rule [conditions](../concepts/definition-structure.md#conditions) that an _array_
+**type** of parameter may be used with is limited to `in` and `notIn`. Take the following policy definition with condition `equals` as an example:
 
 ```json
 {
@@ -130,20 +130,20 @@ As [condições](../concepts/definition-structure.md#conditions) de regra de pol
 }
 ```
 
-A tentativa de criar essa definição de política por meio do portal do Azure leva a um erro como esta mensagem de erro:
+Attempting to create this policy definition through the Azure portal leads to an error such as this error message:
 
-- "A política ' {GUID} ' não pôde ser parametrizada devido a erros de validação. Verifique se os parâmetros da política estão definidos corretamente. O resultado da avaliação da exceção interna da expressão de linguagem ' [Parameters (' allowedLocations ')] ' é do tipo ' array ', o tipo esperado é ' String '. '. "
+- "The policy '{GUID}' could not be parameterized because of validation errors. Please check if policy parameters are properly defined. The inner exception 'Evaluation result of language expression '[parameters('allowedLocations')]' is type 'Array', expected type is 'String'.'."
 
-O **tipo** de condição esperado `equals` é _String_. Como **allowedLocations** é definido como _matriz_de tipo, o mecanismo de política avalia a expressão de idioma e gera o erro. Com a condição de `in` e `notIn`, o mecanismo de política espera a _matriz_ de **tipo** na expressão de idioma. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
+The expected **type** of condition `equals` is _string_. Since **allowedLocations** is defined as **type** _array_, the policy engine evaluates the language expression and throws the error. With the `in` and `notIn` condition, the policy engine expects the **type** _array_ in the language expression. To resolve this error message, change `equals` to either `in` or `notIn`.
 
-### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
+### <a name="evaluating-the--alias"></a>Evaluating the [*] alias
 
-Aliases com **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: nenhum, qualquer e tudo.
+Aliases that have **[\*]** attached to their name indicate the **type** is an _array_. Instead of evaluating the value of the entire array, **[\*]** makes it possible to evaluate each element of the array. There are three scenarios this per item evaluation is useful in: None, Any, and All.
 
-O mecanismo de política aciona o **efeito** em **seguida** somente quando a regra **If** é avaliada como true.
-Esse fato é importante entender no contexto da maneira que **[\*]** avalia cada elemento individual da matriz.
+The policy engine triggers the **effect** in **then** only when the **if** rule evaluates as true.
+This fact is important to understand in context of the way **[\*]** evaluates each individual element of the array.
 
-A regra de política de exemplo para a tabela de cenário abaixo:
+The example policy rule for the scenario table below:
 
 ```json
 "policyRule": {
@@ -162,7 +162,7 @@ A regra de política de exemplo para a tabela de cenário abaixo:
 }
 ```
 
-A matriz **ipRules** é a seguinte para a tabela de cenário abaixo:
+The **ipRules** array is as follows for the scenario table below:
 
 ```json
 "ipRules": [
@@ -177,35 +177,35 @@ A matriz **ipRules** é a seguinte para a tabela de cenário abaixo:
 ]
 ```
 
-Para cada exemplo de condição abaixo, substitua `<field>` por `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+For each condition example below, replace `<field>` with `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
 
-Os resultados a seguir são o resultado da combinação da condição e a regra de política de exemplo e a matriz de valores existentes acima:
+The following outcomes are the result of the combination of the condition and the example policy rule and array of existing values above:
 
 |Condição |Resultado |Explicação |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_ e o efeito não é disparado. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Efeito de política |Ambos os elementos da matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição não é **igual** a _true_ e o efeito é disparado. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito de política |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito de política |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito de política |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Ambos os elementos de matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição de não é **igual** a _true_. O operador lógico é avaliado como falso (**não** _verdadeiro_), portanto, o efeito não é disparado. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nada |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_ and the effect is triggered. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Policy effect |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Policy effect |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_. The logical operator evaluates as false (**not** _true_), so the effect isn't triggered. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nothing |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
 
-## <a name="the-append-effect-and-arrays"></a>As matrizes e o efeito de acréscimo
+## <a name="the-append-effect-and-arrays"></a>The append effect and arrays
 
-O [efeito de acréscimo](../concepts/effects.md#append) comporta-se de maneira diferente dependendo de se o **Details. Field** é um alias **[\*]** ou não.
+The [append effect](../concepts/effects.md#append) behaves differently depending on if the **details.field** is a **[\*]** alias or not.
 
-- Quando não é um alias **[\*]** , Append substitui toda a matriz pela propriedade **Value**
-- Quando um alias **[\*]** , Append adiciona a propriedade **Value** à matriz existente ou cria a nova matriz
+- When not a **[\*]** alias, append replaces the entire array with the **value** property
+- When a **[\*]** alias, append adds the **value** property to the existing array or creates the new array
 
-Para obter mais informações, consulte os [exemplos de acréscimo](../concepts/effects.md#append-examples).
+For more information, see the [append examples](../concepts/effects.md#append-examples).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
+- Review examples at [Azure Policy samples](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
-- Entenda como [criar políticas programaticamente](programmatically-create.md).
-- Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
-- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Understand how to [programmatically create policies](programmatically-create.md).
+- Learn how to [remediate non-compliant resources](remediate-resources.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

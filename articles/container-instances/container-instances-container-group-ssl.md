@@ -1,68 +1,62 @@
 ---
-title: Habilitar SSL em instâncias de contêiner do Azure
-description: Criar um ponto de extremidade SSL ou TLS para um grupo de contêineres em execução em instâncias de contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Enable SSL in a container group
+description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: f11fb209f8d2ace51081fd81f453faf9505af27c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7578ad6f8c451694a90dde00b74bf2e8c6c61109
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326074"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483474"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Habilitar um ponto de extremidade SSL em um grupo de contêineres
+# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Enable an SSL endpoint in a container group
 
-Este artigo mostra como criar um [grupo](container-instances-container-groups.md) de contêineres com um contêiner de aplicativo e um contêiner sidecar executando um provedor SSL. Ao configurar um grupo de contêineres com um ponto de extremidade SSL separado, você habilita conexões SSL para seu aplicativo sem alterar o código do aplicativo.
+This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running an SSL provider. By setting up a container group with a separate SSL endpoint, you enable SSL connections for your application without changing your application code.
 
-Você configura um grupo de contêineres que consiste em dois contêineres:
-* Um contêiner de aplicativo que executa um aplicativo Web simples usando a imagem pública do Microsoft [ACI-HelloWorld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) . 
-* Um contêiner sidecar executando a imagem [Nginx](https://hub.docker.com/_/nginx) pública, configurado para usar SSL. 
+You set up a container group consisting of two containers:
+* An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
+* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use SSL. 
 
-Neste exemplo, o grupo de contêineres expõe apenas a porta 443 para nginx com seu endereço IP público. O Nginx roteia solicitações HTTPS para o aplicativo Web complementar, que escuta internamente na porta 80. Você pode adaptar o exemplo para aplicativos de contêiner que escutam em outras portas.
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para concluir este artigo. Se você quiser usá-lo localmente, a versão 2.0.55 ou posterior é recomendada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this article. If you'd like to use it locally, version 2.0.55 or later is recommended. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para configurar o Nginx como um provedor SSL, você precisa de um certificado SSL. Este artigo mostra como criar e configurar um certificado SSL autoassinado. Para cenários de produção, você deve obter um certificado de uma autoridade de certificação.
+To set up Nginx as an SSL provider, you need an SSL certificate. This article shows how to create and set up a self-signed SSL certificate. For production scenarios, you should obtain a certificate from a certificate authority.
 
-Para criar um certificado SSL autoassinado, use a ferramenta [OpenSSL](https://www.openssl.org/) disponível em Azure cloud Shell e muitas distribuições do Linux ou use uma ferramenta de cliente comparável em seu sistema operacional.
+To create a self-signed SSL certificate, use the [OpenSSL](https://www.openssl.org/) tool available in Azure Cloud Shell and many Linux distributions, or use a comparable client tool in your operating system.
 
-Primeiro, crie uma solicitação de certificado (arquivo. CSR) em um diretório de trabalho local:
+First create a certificate request (.csr file) in a local working directory:
 
 ```console
 openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 ```
 
-Siga os prompts para adicionar as informações de identificação. Para nome comum, insira o nome do host associado ao certificado. Quando uma senha for solicitada, pressione Enter sem digitar para ignorar a adição de uma senha.
+Follow the prompts to add the identification information. For Common Name, enter the hostname associated with the certificate. When prompted for a password, press Enter without typing, to skip adding a password.
 
-Execute o comando a seguir para criar o certificado autoassinado (arquivo. CRT) da solicitação de certificado. Por exemplo:
+Run the following command to create the self-signed certificate (.crt file) from the certificate request. Por exemplo:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-Agora você deve ver três arquivos no diretório: a solicitação de certificado (`ssl.csr`), a chave privada (`ssl.key`) e o certificado autoassinado (`ssl.crt`). Você usa `ssl.key` o `ssl.crt` e o em etapas posteriores.
+You should now see three files in the directory: the certificate request (`ssl.csr`), the private key (`ssl.key`), and the self-signed certificate (`ssl.crt`). You use `ssl.key` and `ssl.crt` in later steps.
 
-## <a name="configure-nginx-to-use-ssl"></a>Configurar o Nginx para usar SSL
+## <a name="configure-nginx-to-use-ssl"></a>Configure Nginx to use SSL
 
-### <a name="create-nginx-configuration-file"></a>Criar arquivo de configuração Nginx
+### <a name="create-nginx-configuration-file"></a>Create Nginx configuration file
 
-Nesta seção, você cria um arquivo de configuração para o Nginx usar SSL. Comece copiando o texto a seguir em um novo arquivo`nginx.conf`chamado. No Azure Cloud Shell, você pode usar Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+In this section, you create a configuration file for Nginx to use SSL. Start by copying the following text into a new file named`nginx.conf`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```console
 code nginx.conf
 ```
 
-No `location`, certifique-se de `proxy_pass` definir com a porta correta para o aplicativo. Neste exemplo, definimos a porta 80 para o `aci-helloworld` contêiner.
+In `location`, be sure to set `proxy_pass` with the correct port for app. In this example, we set port 80 for the `aci-helloworld` container.
 
 ```console
 # nginx Configuration File
@@ -126,9 +120,9 @@ http {
 }
 ```
 
-### <a name="base64-encode-secrets-and-configuration-file"></a>Arquivos de configuração e segredos de codificação Base64
+### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-encode secrets and configuration file
 
-Base64-codificar o arquivo de configuração Nginx, o certificado SSL e a chave SSL. Na próxima seção, insira o conteúdo codificado em um arquivo YAML usado para implantar o grupo de contêineres.
+Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. In the next section, you enter the encoded contents in a YAML file used to deploy the container group.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -136,19 +130,19 @@ cat ssl.crt | base64 -w 0 > base64-ssl.crt
 cat ssl.key | base64 -w 0 > base64-ssl.key
 ```
 
-## <a name="deploy-container-group"></a>Implantar grupo de contêineres
+## <a name="deploy-container-group"></a>Deploy container group
 
-Agora, implante o grupo de contêineres especificando as configurações de contêiner em um [arquivo YAML](container-instances-multi-container-yaml.md).
+Now deploy the container group by specifying the container configurations in a [YAML file](container-instances-multi-container-yaml.md).
 
-### <a name="create-yaml-file"></a>Criar arquivo YAML
+### <a name="create-yaml-file"></a>Create YAML file
 
-Copie o YAML a seguir em um novo arquivo `deploy-aci.yaml`chamado. No Azure Cloud Shell, você pode usar Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Copy the following YAML into a new file named `deploy-aci.yaml`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
 ```console
 code deploy-aci.yaml
 ```
 
-Insira o conteúdo dos arquivos codificados em base64, onde indicado `secret`em. Por exemplo, `cat` cada um dos arquivos codificados em base64 para ver seu conteúdo. Durante a implantação, esses arquivos são adicionados a um [volume secreto](container-instances-volume-secret.md) no grupo de contêineres. Neste exemplo, o volume secreto é montado no contêiner nginx.
+Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
 ```YAML
 api-version: 2018-10-01
@@ -195,29 +189,29 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-### <a name="deploy-the-container-group"></a>Implantar o grupo de contêineres
+### <a name="deploy-the-container-group"></a>Deploy the container group
 
-Crie um grupo de recursos com o comando [AZ Group Create](/cli/azure/group#az-group-create) :
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create](/cli/azure/container#az-container-create) , passando o arquivo YAML como um argumento.
+Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 ```
 
-### <a name="view-deployment-state"></a>Exibir estado da implantação
+### <a name="view-deployment-state"></a>View deployment state
 
-Para exibir o estado da implantação, use o seguinte comando [AZ container show](/cli/azure/container#az-container-show) :
+To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
 ```
 
-Para uma implantação bem-sucedida, a saída é semelhante à seguinte:
+For a successful deployment, output is similar to the following:
 
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
@@ -225,20 +219,20 @@ Name          ResourceGroup    Status    Image                                  
 app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="verify-ssl-connection"></a>Verificar conexão SSL
+## <a name="verify-ssl-connection"></a>Verify SSL connection
 
-Para exibir o aplicativo em execução, navegue até seu endereço IP no navegador. Por exemplo, o endereço IP mostrado neste exemplo é `52.157.22.76`. Você deve usar `https://<IP-ADDRESS>` para ver o aplicativo em execução, devido à configuração do servidor Nginx. Tentativas de conexão com `http://<IP-ADDRESS>` falha.
+To view the running application, navigate to its IP address in your browser. For example, the IP address shown in this example is `52.157.22.76`. You must use `https://<IP-ADDRESS>` to see the running application, because of the Nginx server configuration. Attempts to connect with `http://<IP-ADDRESS>` fail.
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Como este exemplo usa um certificado autoassinado e não um de uma autoridade de certificação, o navegador exibe um aviso de segurança ao se conectar ao site por HTTPS. Este comportamento é esperado.
+> Because this example uses a self-signed certificate and not one from a certificate authority, the browser displays a security warning when connecting to the site over HTTPS. Este comportamento é esperado.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo mostrou como configurar um contêiner Nginx para habilitar conexões SSL para um aplicativo Web em execução no grupo de contêineres. Você pode adaptar este exemplo para aplicativos que escutam em portas diferentes da porta 80. Você também pode atualizar o arquivo de configuração Nginx para redirecionar automaticamente as conexões do servidor na porta 80 (HTTP) para usar HTTPS.
+This article showed you how to set up an Nginx container to enable SSL connections to a web app running in the container group. You can adapt this example for apps that listen on ports other than port 80. You can also update the Nginx configuration file to automatically redirect server connections on port 80 (HTTP) to use HTTPS.
 
-Embora este artigo use Nginx no sidecar, você pode usar outro provedor SSL, como [Caddy](https://caddyserver.com/).
+While this article uses Nginx in the sidecar, you can use another SSL provider such as [Caddy](https://caddyserver.com/).
 
-Outra abordagem para habilitar o SSL em um grupo de contêineres é implantar o grupo em uma [rede virtual do Azure](container-instances-vnet.md) com um [Gateway de aplicativo do Azure](../application-gateway/overview.md). O gateway pode ser configurado como um ponto de extremidade SSL. Consulte um exemplo de [modelo de implantação](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) que você pode adaptar para habilitar a terminação SSL no gateway.
+Another approach to enabling SSL in a container group is to deploy the group in an [Azure virtual network](container-instances-vnet.md) with an [Azure application gateway](../application-gateway/overview.md). The gateway can be set up as an SSL endpoint. See a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) you can adapt to enable SSL termination on the gateway.

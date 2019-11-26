@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Build policies to enforce compliance'
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 02/04/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 38c41c94600da1f028c7857febc7de1eef2436ae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216903"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482325"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Create and manage policies to enforce compliance
 
@@ -20,7 +20,11 @@ Compreender como criar e gerir políticas no Azure é importante para manter a c
 > - Resolver um recurso negado ou em não conformidade
 > - Implementar uma nova política numa organização
 
-Se gostaria de atribuir uma política para identificar o estado atual de conformidade dos seus recursos existentes, os artigos de início rápido mostram como fazê-lo. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se gostaria de atribuir uma política para identificar o estado atual de conformidade dos seus recursos existentes, os artigos de início rápido mostram como fazê-lo.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="assign-a-policy"></a>Atribuir uma política
 
@@ -443,7 +447,7 @@ If you're done working with resources from this tutorial, use the following step
 
 1. Clique com o botão direito do rato na linha ou selecione as reticências no fim da definição (ou atribuição) e selecione **Eliminar definição** (ou **Eliminar atribuição**).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="review"></a>Rever
 
 Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 
@@ -452,6 +456,8 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Criar e atribuir uma definição de iniciativa para controlar a conformidade de vários recursos
 > - Resolver um recurso negado ou em não conformidade
 > - Implementar uma nova política numa organização
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as estruturas de definições de política, veja este artigo:
 

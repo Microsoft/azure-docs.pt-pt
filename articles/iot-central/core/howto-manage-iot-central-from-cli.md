@@ -1,6 +1,6 @@
 ---
-title: Gerenciar IoT Central de CLI do Azure | Microsoft Docs
-description: Este artigo descreve como criar e gerenciar seu aplicativo IoT Central usando a CLI. Você pode exibir, modificar e remover o aplicativo usando a CLI.
+title: Manage IoT Central from Azure CLI | Microsoft Docs
+description: This article describes how to create and manage your IoT Central application using CLI. You can view, modify and remove the application using CLI.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 80f91849a35bcb94b934941a204d4503ddda376b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c5622f32dbf849b9a21a1fd2e458f35b8aa1d098
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278861"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480393"
 ---
-# <a name="manage-iot-central-from-azure-cli"></a>Gerenciar IoT Central de CLI do Azure
+# <a name="manage-iot-central-from-azure-cli"></a>Manage IoT Central from Azure CLI
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-Em vez de criar e gerenciar IoT Central aplicativos no site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) , você pode usar [CLI do Azure](/cli/azure/) para gerenciar seus aplicativos.
+Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure CLI](/cli/azure/) to manage your applications.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,11 +27,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se preferir executar CLI do Azure em seu computador local, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli). Ao executar CLI do Azure localmente, use o comando **AZ login** para entrar no Azure antes de tentar os comandos neste artigo.
+If you prefer to run Azure CLI on your local machine, see [Install the Azure CLI](/cli/azure/install-azure-cli). When you run Azure CLI locally, use the **az login** command to sign in to Azure before you try the commands in this article.
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
-Use o comando [AZ iotcentral app Create](/cli/azure/iotcentral/app#az-iotcentral-app-create) para criar um aplicativo IOT central em sua assinatura do Azure. Por exemplo:
+Use the [az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) command to create an IoT Central application in your Azure subscription. Por exemplo:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -48,36 +48,54 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-Esses comandos primeiro criam um grupo de recursos no local leste dos EUA para o aplicativo. A tabela a seguir descreve os parâmetros usados com o comando **AZ iotcentral app Create** :
+These commands first create a resource group in the east US location for the application. The following table describes the parameters used with the **az iotcentral app create** command:
 
 | Parâmetro         | Descrição |
 | ----------------- | ----------- |
-| resource-group    | O grupo de recursos que contém o aplicativo. Este grupo de recursos já deve existir em sua assinatura. |
-| localização          | Por padrão, esse comando usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central no **Estados Unidos**, na **austrália**, no **Pacífico Asiático**ou nos locais da **Europa** . |
-| nome              | O nome do aplicativo no portal do Azure. |
-| subdomínio         | O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
-| SKU               | Atualmente, o único valor é **S1** (camada Standard). Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
-| modelo          | O modelo de aplicativo a ser usado. Para obter mais informações, consulte a tabela a seguir: |
-| nome de exibição      | O nome do aplicativo, conforme exibido na interface do usuário. |
+| resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
+| localização          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations. |
+| nome              | The name of the application in the Azure portal. |
+| subdomain         | The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
+| sku               | Currently, the only value is **S1** (standard tier). See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
+| modelo          | The application template to use. For more information, see the following table: |
+| display-name      | The name of the application as displayed in the UI. |
 
-**Modelos de aplicativos**
+**Application templates with generally available features**
 
 | Nome do modelo            | Descrição |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
 | iotc-demo@1.0.0          | Cria uma aplicação que inclui um modelo de dispositivo já criado para uma máquina dispensadora de bebidas. Utilize este modelo para começar a explorar o Azure IoT Central. |
-| iotc-devkit-sample@1.0.0 | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Use este modelo se você for um desenvolvedor de dispositivo experimentando qualquer um desses dispositivos. |
+| iotc-devkit-sample@1.0.0 | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Use this template if you're a device developer experimenting with any of these devices. |
+
+
+**Application templates with public preview features**
+
+| Nome do modelo            | Descrição |
+| ------------------------ | ----------- |
+| iotc-pnp-preview@1.0.0   | Creates an empty plug and play preview application for you to populate with your own device templates and devices. |
+| iotc-condition@1.0.0     | Creates an application with a in-store analytics – condition monitoring template. Use this template to connect and monitor store environment. |
+| iotc-consumption@1.0.0   | Creates an application with water consumption monitoring template. Use this template to monitor and control water flow. |
+| iotc-distribution@1.0.0  | Creates an application with a Digital distribution template. Use this template to improve warehouse output efficiency by digitalizing key assets and actions. |
+| iotc-inventory@1.0.0     | Creates an application with a smart inventory management template. Use this template to automate receiving, product movement, cycle counting, and tracking of sensors. |
+| iotc-logistics@1.0.0     | Creates an application with a Connected logistics template. Use this template to track your shipment in real-time across air, water and land with location and condition monitoring. |
+| iotc-meter@1.0.0         | Creates an application with smart meter monitoring template. Use this template to monitor energy consumption, network status, and identify trends to improve customer support and smart meter management.  |
+| iotc-patient@1.0.0       | Creates an application with continuous patient monitoring template. Use this template to extend patient care, re-admissions, and manage diseases. |
+| iotc-power@1.0.0         | Creates an application with solar panel monitoring template. Use this template to monitor solar panel status, energy generation trends. |
+| iotc-quality@1.0.0       | Creates an application with water quality monitoring template. Use this template to digitally monitor water quality.|
+| iotc-store@1.0.0         | Creates an application with a in-store analytics – checkout template. Use this template to monitor and manage the checkout flow inside your store. |
+| iotc-waste@1.0.0         | Creates an application with a Connected waste management template. Use this template to monitor waste bins and dispatch field operators. |
 
 > [!NOTE]
-> Atualmente, o modelo de **aplicativo de visualização** só está disponível nos locais da **Europa** e **dos EUA** .
+> The preview application templates are currently only available in the **Europe** and **United States** locations.
 
 ## <a name="view-your-applications"></a>Ver as suas aplicações
 
-Use o comando [AZ iotcentral app List](/cli/azure/iotcentral/app#az-iotcentral-app-list) para listar seus aplicativos IOT central e exibir metadados.
+Use the [az iotcentral app list](/cli/azure/iotcentral/app#az-iotcentral-app-list) command to list your IoT Central applications and view metadata.
 
-## <a name="modify-an-application"></a>Modificar um aplicativo
+## <a name="modify-an-application"></a>Modify an application
 
-Use o comando [AZ iotcentral app Update](/cli/azure/iotcentral/app#az-iotcentral-app-update) para atualizar os metadados de um aplicativo IOT central. Por exemplo, para alterar o nome de exibição do seu aplicativo:
+Use the [az iotcentral app update](/cli/azure/iotcentral/app#az-iotcentral-app-update) command to update the metadata of an IoT Central application. For example, to change the display name of your application:
 
 ```azurecli-interactive
 az iotcentral app update --name myiotcentralapp \
@@ -87,7 +105,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>Remover uma aplicação
 
-Use o comando [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) para excluir um aplicativo IOT central. Por exemplo:
+Use the [az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) command to delete an IoT Central application. Por exemplo:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \
@@ -96,7 +114,7 @@ az iotcentral app delete --name myiotcentralapp \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a gerenciar os aplicativos do Azure IoT Central do CLI do Azure, aqui está a próxima etapa sugerida:
+Now that you've learned how to manage Azure IoT Central applications from Azure CLI, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Administre seu aplicativo](howto-administer.md)
+> [Administer your application](howto-administer.md)

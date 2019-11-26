@@ -1,141 +1,180 @@
 ---
-title: Restringir o tráfego de saída no serviço kubernetes do Azure (AKS)
-description: Saiba quais portas e endereços são necessários para controlar o tráfego de saída no serviço de kubernetes do Azure (AKS)
+title: Restrict egress traffic in Azure Kubernetes Service (AKS)
+description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: mlearned
-ms.openlocfilehash: 3010973c7d0af784938e9295bb80fc22b7f718f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 208ffaa4c78e00031e41b6e2b8c01edb667b54a6
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018649"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481146"
 ---
-# <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída para nós de cluster no serviço de kubernetes do Azure (AKS)
+# <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)
 
-Por padrão, os clusters AKS têm acesso irrestrito à Internet (saída). Esse nível de acesso à rede permite que os nós e serviços que você executa acessem recursos externos, conforme necessário. Se você quiser restringir o tráfego de saída, um número limitado de portas e endereços deve ser acessível para manter tarefas de manutenção de cluster íntegras. O cluster é configurado por padrão para usar apenas as imagens de contêiner do sistema base do MCR (registro de contêiner da Microsoft) ou do ACR (registro de contêiner do Azure). Configure o firewall e as regras de segurança preferenciais para permitir essas portas e endereços necessários.
+By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is configured by default to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR). Configure your preferred firewall and security rules to allow these required ports and addresses.
 
-Este artigo detalha quais portas de rede e FQDNs (nomes de domínio totalmente qualificados) são necessários e opcionais se você restringir o tráfego de saída em um cluster AKS.
+This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
 
 > [!IMPORTANT]
-> Este documento aborda apenas como bloquear o tráfego deixando a sub-rede AKS. AKS não tem nenhum requisito de ingresso.  Não há suporte para o bloqueio de tráfego de sub-rede interna usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [as políticas de rede][network-policy].
+> This document covers only how to lock down the traffic leaving the AKS subnet. AKS has no ingress requirements.  Blocking internal subnet traffic using network security groups (NSGs) and firewalls is not supported. To control and block the traffic within the cluster, use [Network Policies][network-policy].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.66 ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
+You need the Azure CLI version 2.0.66 or later installed and configured. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
 
-## <a name="egress-traffic-overview"></a>Visão geral do tráfego de saída
+## <a name="egress-traffic-overview"></a>Egress traffic overview
 
-Para fins operacionais e de gerenciamento, os nós em um cluster AKS precisam acessar determinadas portas e FQDNs (nomes de domínio totalmente qualificados). Essas ações podem ser comunicadas com o servidor de API ou para baixar e instalar os componentes principais do cluster kubernetes e as atualizações de segurança do nó. Por padrão, o tráfego de saída da Internet (saída) não é restrito para nós em um cluster AKS. O cluster pode extrair imagens de contêiner do sistema base de repositórios externos.
+For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. By default, egress (outbound) internet traffic is not restricted for nodes in an AKS cluster. The cluster may pull base system container images from external repositories.
 
-Para aumentar a segurança do cluster AKS, talvez você queira restringir o tráfego de saída. O cluster está configurado para extrair imagens de contêiner do sistema base de MCR ou ACR. Se você bloquear o tráfego de saída dessa maneira, defina portas específicas e FQDNs para permitir que os nós AKS se comuniquem corretamente com os serviços externos necessários. Sem essas portas autorizadas e FQDNs, seus nós AKS não podem se comunicar com o servidor de API nem instalar componentes principais.
+To increase the security of your AKS cluster, you may wish to restrict egress traffic. The cluster is configured to pull base system container images from MCR or ACR. If you lock down the egress traffic in this manner, define specific ports and FQDNs to allow the AKS nodes to correctly communicate with required external services. Without these authorized ports and FQDNs, your AKS nodes can't communicate with the API server or install core components.
 
-Você pode usar o [Firewall do Azure][azure-firewall] ou um dispositivo de firewall de terceiros para proteger o tráfego de saída e definir as portas e os endereços necessários. O AKS não cria essas regras automaticamente para você. As portas e os endereços a seguir são para referência à medida que você cria as regras apropriadas no firewall de rede.
+You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and define these required ports and addresses. AKS does not automatically create these rules for you. The following ports and addresses are for reference as you create the appropriate rules in your network firewall.
 
 > [!IMPORTANT]
-> Quando você usa o Firewall do Azure para restringir o tráfego de saída e criar uma UDR (rota definida pelo usuário) para forçar todo o tráfego de saída, certifique-se de criar uma regra DNAT apropriada no firewall para permitir corretamente o tráfego de entrada. Usar o Firewall do Azure com um UDR interrompe a configuração de entrada devido ao roteamento assimétrico. (O problema ocorre se a sub-rede AKS tem uma rota padrão que vai para o endereço IP privado do firewall, mas você está usando um serviço de entrada de balanceador de carga público ou kubernetes do tipo: Balanceador de carga). Nesse caso, o tráfego do balanceador de carga de entrada é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente de uma sessão estabelecida. Para saber como integrar o Firewall do Azure com o balanceador de carga de entrada ou serviço, consulte [integrar o Firewall do Azure com o Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
-> Você pode bloquear o tráfego para a porta TCP 9000 e a porta TCP 22 usando uma regra de rede entre os IP do nó de trabalho de saída e o IP para o servidor de API.
+> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> You can lock down the traffic for TCP port 9000 and TCP port 22 using a network rule between the egress worker node IP(s) and the IP for the API server.
 
-No AKS, há dois conjuntos de portas e endereços:
+In AKS, there are two sets of ports and addresses:
 
-* As [portas e o endereço necessários para clusters AKs](#required-ports-and-addresses-for-aks-clusters) detalham os requisitos mínimos para o tráfego de saída autorizado.
-* Os [endereços e portas recomendados opcionais para clusters AKs](#optional-recommended-addresses-and-ports-for-aks-clusters) não são necessários para todos os cenários, mas a integração com outros serviços, como o Azure monitor, não funcionará corretamente. Examine esta lista de portas opcionais e FQDNs e autorize qualquer um dos serviços e componentes usados em seu cluster AKS.
+* The [required ports and address for AKS clusters](#required-ports-and-addresses-for-aks-clusters) details the minimum requirements for authorized egress traffic.
+* The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and authorize any of the services and components used in your AKS cluster.
 
 > [!NOTE]
-> Limitar o tráfego de saída funciona apenas em novos clusters AKS. Para clusters existentes, [Execute uma operação de atualização][aks-upgrade] de cluster `az aks upgrade` usando o comando antes de limitar o tráfego de saída.
+> Limiting egress traffic only works on new AKS clusters. For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command before you limit the egress traffic.
 
-## <a name="required-ports-and-addresses-for-aks-clusters"></a>Portas e endereços necessários para clusters AKS
+## <a name="required-ports-and-addresses-for-aks-clusters"></a>Required ports and addresses for AKS clusters
 
-As seguintes regras de rede/portas de saída são necessárias para um cluster AKS:
+The following outbound ports / network rules are required for an AKS cluster:
 
-* Porta TCP *443*
-* TCP [IPAddrOfYourAPIServer]: 443 será necessário se você tiver um aplicativo que precisa se comunicar com o servidor de API.  Essa alteração pode ser definida depois que o cluster é criado.
-* A porta TCP *9000* e a porta TCP *22* para o Pod frontal do túnel se comunicam com a extremidade do túnel no servidor de API.
-    * Para obter mais especificações, consulte o * *. HCP.\< Location\>. azmk8s.Io* e * *. Execute.\< endereços\>Location. azmk8s.Io* na tabela a seguir.
-* A porta UDP *53* para DNS também será necessária se você tiver o pods acessando diretamente o servidor de API.
+* TCP port *443*
+* TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created.
+* TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
+    * To get more specific, see the * *.hcp.\<location\>.azmk8s.io* and * *.tun.\<location\>.azmk8s.io* addresses in the following table.
+* UDP port *53* for DNS is also required if you have pods directly accessing the API server.
 
-As seguintes regras de FQDN/aplicativo são necessárias:
+The following FQDN / application rules are required:
+- Azure Global
 
-| FQDN                       | Port      | Utilizar      |
+| FQDN                       | Porta      | Usar      |
 |----------------------------|-----------|----------|
-| *. HCP. \<local\>. azmk8s.Io | HTTPS:443, TCP:22, TCP:9000 | Esse endereço é o ponto de extremidade do servidor de API. *Substitua\<olocal\>* pela região onde o cluster AKs está implantado. |
-| *. Execute. \<local\>. azmk8s.Io | HTTPS:443, TCP:22, TCP:9000 | Esse endereço é o ponto de extremidade do servidor de API. *Substitua\<olocal\>* pela região onde o cluster AKs está implantado. |
-| aksrepos.azurecr.io        | HTTPS:443 | Esse endereço é necessário para acessar imagens no ACR (registro de contêiner do Azure). Esse registro contém gráficos/imagens de terceiros (por exemplo, servidor de métricas, DNS principal, etc.) necessários para o funcionamento do cluster durante a atualização e a escala do cluster|
-| *.blob.core.windows.net    | HTTPS:443 | Esse endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
-| mcr.microsoft.com          | HTTPS:443 | Esse endereço é necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, Moby, etc.) necessários para o funcionamento do cluster durante a atualização e a escala do cluster |
-| *.cdn.mscr.io              | HTTPS:443 | Esse endereço é necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
-| management.azure.com       | HTTPS:443 | Esse endereço é necessário para operações GET/PUT do kubernetes. |
-| login.microsoftonline.com  | HTTPS:443 | Esse endereço é necessário para Azure Active Directory autenticação. |
-| ntp.ubuntu.com             | UDP:123   | Esse endereço é necessário para a sincronização de horário do NTP em nós do Linux. |
-| packages.microsoft.com     | HTTPS:443 | Esse endereço é o repositório de pacotes da Microsoft usado para operações *apt-get* em cache.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
-| acs-mirror.azureedge.net   | HTTPS:443 | Esse endereço é para o repositório necessário para instalar os binários necessários, como kubenet e CNI do Azure. |
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
+| *.blob.core.windows.net    | HTTPS:443 | This address is the backend store for images stored in ACR. |
+| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
+| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
+| acs-mirror.azureedge.net   | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
+- Azure China
 
-## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Portas e endereços recomendados opcionais para clusters AKS
+| FQDN                       | Porta      | Usar      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.azk8s.cn        | HTTPS:443 | This address is required to download required binaries and images|
+| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
+| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| management.chinacloudapi.cn       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.chinacloudapi.cn  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
+- Azure Government
 
-As seguintes regras de rede/portas de saída são opcionais para um cluster AKS:
+| FQDN                       | Porta      | Usar      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
+| *.blob.core.windows.net    | HTTPS:443 | This address is the backend store for images stored in ACR. |
+| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
+| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| management.usgovcloudapi.net       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.microsoftonline.us  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
+| acs-mirror.azureedge.net   | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
+## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Optional recommended addresses and ports for AKS clusters
 
-As seguintes regras de FQDN/aplicativo são recomendadas para que os clusters AKS funcionem corretamente:
+The following outbound ports / network rules are optional for an AKS cluster:
 
-| FQDN                                    | Port      | Utilizar      |
+The following FQDN / application rules are recommended for AKS clusters to function correctly:
+
+| FQDN                                    | Porta      | Usar      |
 |-----------------------------------------|-----------|----------|
-| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | Esse endereço permite que os nós de cluster do Linux baixem as atualizações e os patches de segurança necessários. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
 
-## <a name="required-addresses-and-ports-for-gpu-enabled-aks-clusters"></a>Endereços e portas necessários para clusters AKS habilitados para GPU
+## <a name="required-addresses-and-ports-for-gpu-enabled-aks-clusters"></a>Required addresses and ports for GPU enabled AKS clusters
 
-As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm a GPU habilitada:
+The following FQDN / application rules are required for AKS clusters that have GPU enabled:
 
-| FQDN                                    | Port      | Utilizar      |
+| FQDN                                    | Porta      | Usar      |
 |-----------------------------------------|-----------|----------|
-| nvidia.github.io | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
-| us.download.nvidia.com | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
-| apt.dockerproject.org | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
+| nvidia.github.io | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| us.download.nvidia.com | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| apt.dockerproject.org | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 
-## <a name="required-addresses-and-ports-with-azure-monitor-for-containers-enabled"></a>Endereços e portas necessários com Azure Monitor para contêineres habilitados
+## <a name="required-addresses-and-ports-with-azure-monitor-for-containers-enabled"></a>Required addresses and ports with Azure Monitor for containers enabled
 
-As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm o Azure Monitor para contêineres habilitados:
+The following FQDN / application rules are required for AKS clusters that have the Azure Monitor for containers enabled:
 
-| FQDN                                    | Port      | Utilizar      |
+| FQDN                                    | Porta      | Usar      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | HTTPS:443  | Isso é para métricas corretas e monitoramento de telemetria usando Azure Monitor. |
-| *.ods.opinsights.azure.com    | HTTPS:443 | Isso é usado pelo Azure Monitor para ingerir dados do log Analytics. |
-| *.oms.opinsights.azure.com | HTTPS:443 | Esse endereço é usado pelo omsagent, que é usado para autenticar o serviço do log Analytics. |
-|*.microsoftonline.com | HTTPS:443 | Isso é usado para autenticar e enviar métricas para Azure Monitor. |
-|*.monitoring.azure.com | HTTPS:443 | Isso é usado para enviar dados de métricas para Azure Monitor. |
+| dc.services.visualstudio.com | HTTPS:443  | This is for correct metrics and monitoring telemetry using Azure Monitor. |
+| *.ods.opinsights.azure.com    | HTTPS:443 | This is used by Azure Monitor for ingesting log analytics data. |
+| *.oms.opinsights.azure.com | HTTPS:443 | This address is used by omsagent, which is used to authenticate the log analytics service. |
+|*.microsoftonline.com | HTTPS:443 | This is used for authenticating and sending metrics to Azure Monitor. |
+|*.monitoring.azure.com | HTTPS:443 | This is used to send metrics data to Azure Monitor. |
 
-## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Endereços e portas necessários para clusters AKS com Azure Policy (em visualização pública) habilitados
+## <a name="required-addresses-and-ports-with-azure-dev-spaces-enabled"></a>Required addresses and ports with Azure Dev Spaces enabled
+
+The following FQDN / application rules are required for AKS clusters that have the Azure Dev Spaces enabled:
+
+| FQDN                                    | Porta      | Usar      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | This address is used to pull linux alpine and other Azure Dev Spaces images |
+| gcr.io | HTTP:443 | This address is used to pull helm/tiller images |
+| storage.googleapis.com | HTTP:443 | This address is used to pull helm/tiller images |
+| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
+
+## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Required addresses and ports for AKS clusters with Azure Policy (in public preview) enabled
 
 > [!CAUTION]
-> Alguns dos recursos a seguir estão em versão prévia.  As sugestões neste artigo estão sujeitas a alterações à medida que o recurso é movido para a visualização pública e para os próximos estágios da versão.
+> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
 
-As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm o Azure Policy habilitado.
+The following FQDN / application rules are required for AKS clusters that have the Azure Policy enabled.
 
-| FQDN                                    | Port      | Utilizar      |
+| FQDN                                    | Porta      | Usar      |
 |-----------------------------------------|-----------|----------|
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esse endereço é usado para a operação correta de Azure Policy. (atualmente em visualização em AKS) |
-| raw.githubusercontent.com | HTTPS:443 | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir a operação correta de Azure Policy. (atualmente em visualização em AKS) |
-| *. GK. <location>. azmk8s.Io | HTTPS:443 | O complemento do Azure Policy se comunica com o ponto de extremidade de auditoria do gatekeeper em execução no servidor mestre para obter os resultados da auditoria. |
-| dc.services.visualstudio.com | HTTPS:443 | O complemento do Azure Policy envia dados de telemetria para o ponto de extremidade do Application insights. |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
+| raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
+| *.gk.<location>.azmk8s.io | HTTPS:443 | Azure policy add-on talks to Gatekeeper audit endpoint running in master server to get the audit results. |
+| dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on sends telemetry data to applications insights endpoint. |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Exigido por nós baseados no Windows Server (em visualização pública) habilitado
+## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Required by Windows Server based nodes (in public preview) enabled
 
 > [!CAUTION]
-> Alguns dos recursos a seguir estão em versão prévia.  As sugestões neste artigo estão sujeitas a alterações à medida que o recurso é movido para a visualização pública e para os próximos estágios da versão.
+> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
 
-As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS baseados no Windows Server:
+The following FQDN / application rules are required for Windows server based AKS clusters:
 
-| FQDN                                    | Port      | Utilizar      |
+| FQDN                                    | Porta      | Usar      |
 |-----------------------------------------|-----------|----------|
-| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Para instalar binários relacionados ao Windows |
-| mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Para instalar binários relacionados ao Windows |
-| kms.core.windows.net | TCP: 1688 | Para instalar binários relacionados ao Windows |
+| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | To install windows-related binaries |
+| mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows-related binaries |
+| kms.core.windows.net | TCP:1688 | To install windows-related binaries |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu quais portas e endereços permitir se você restringir o tráfego de saída para o cluster. Você também pode definir como o próprio pods pode se comunicar e quais restrições eles têm dentro do cluster. Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
+In this article, you learned what ports and addresses to allow if you restrict egress traffic for the cluster. You can also define how the pods themselves can communicate and what restrictions they have within the cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

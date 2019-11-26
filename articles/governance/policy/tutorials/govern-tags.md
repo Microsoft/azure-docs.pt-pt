@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Manage tag governance'
 description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 11/04/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 59de9d6ff03e160f83e2f2ad8b8b697109f31cd7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216689"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482260"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Manage tag governance with Azure Policy
 
@@ -21,7 +21,16 @@ Azure Policy's [Modify](../concepts/effects.md#modify) effect is designed to aid
 - Already have thousands of resources with no tag governance
 - Already have an existing taxonomy that you need changed
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+In this tutorial, you'll complete the following tasks:
+
+> [!div class="checklist"]
+> - Identify your business requirements
+> - Map each requirement to a policy definition
+> - Group the tag policies into an initiative
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="identify-requirements"></a>Identify requirements
 
@@ -184,6 +193,16 @@ This policy rule looks for any resource that doesn't have its parent resource gr
 Once the tag policies above are created, join them into a single initiative for tag governance and assign them to a management group or subscription. The initiative and included policies then evaluate compliance of existing resources and alters requests for new or updated resources that match the **if** property in the policy rule. However, the policy doesn't automatically update existing non-compliant resources with the defined tag changes.
 
 Like [deployIfNotExists](../concepts/effects.md#deployifnotexists) policies, the **Modify** policy uses remediation tasks to alter existing non-compliant resources. Follow the directions on [How-to remediate resources](../how-to/remediate-resources.md) to identify your non-compliant **Modify** resources and correct the tags to your defined taxonomy.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+If you're done working with resources from this tutorial, use the following steps to delete any of the assignments or definitions created above:
+
+1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under **Authoring** in the left side of the Azure Policy page.
+
+1. Procure a nova definição de iniciativa ou de política (ou atribuição) que acabou de remover.
+
+1. Clique com o botão direito do rato na linha ou selecione as reticências no fim da definição (ou atribuição) e selecione **Eliminar definição** (ou **Eliminar atribuição**).
 
 ## <a name="review"></a>Rever
 

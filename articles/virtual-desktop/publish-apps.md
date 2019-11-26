@@ -1,20 +1,20 @@
 ---
-title: Publish apps in Windows Virtual Desktop - Azure
+title: Publish built-in apps in Windows Virtual Desktop - Azure
 description: How to publish modern apps in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 11/25/2019
 ms.author: helohr
-ms.openlocfilehash: 9c64d2ef5065d91c6a60fdf1c41f597e598d49db
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 26ebcc7f2196267719a5f49aeeb8de00d48b9c3e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424366"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483745"
 ---
-# <a name="publish-apps-in-windows-virtual-desktop"></a>Publish apps in Windows Virtual Desktop
+# <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publish built-in apps in Windows Virtual Desktop
 
 This article will tell you how to publish apps in your Windows Virtual Desktop environment.
 
@@ -27,7 +27,7 @@ To publish a built-in app:
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
    
    ```powershell
-   New-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -FilePath "shell:appsFolder\<PackageFamilyName>!App"
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:appsFolder\<PackageFamilyName>!App"
    ```
 
 >[!NOTE]
@@ -42,7 +42,7 @@ After you publish an app, it will have the default Windows app icon instead of i
 The process you use to publish Microsoft Edge is a little different from the publishing process for other apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
-New-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
+New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
 ```
 
 

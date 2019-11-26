@@ -1,16 +1,16 @@
 ---
-title: Exemplo – exigir criptografia para Data Lake Store
-description: Esta definição de política de exemplo requer que Data Lake Store criptografia seja habilitada.
+title: Sample - Require encryption for Data Lake Store
+description: This sample policy definition requires the encryption state on Data Lake Store accounts to be enabled.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: a8ed66e9b07e1fc15c8a1a3c8c33f0e218eb62b3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5b29caa7fa8b9169b8c2164975f9cdb2663c5cef
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070660"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463638"
 ---
-# <a name="sample---require-data-lake-store-encryption"></a>Exemplo – exigir criptografia de Data Lake Store
+# <a name="sample---require-data-lake-store-encryption"></a>Sample - Require Data Lake Store encryption
 
 Esta política incorporada recusa todas as contas do Data Lake Store que não tenham a encriptação ativada.
 
@@ -44,7 +44,7 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 Ao atribuir uma política, selecione **Impor encriptação em contas DataLakeStore** nas definições incorporadas disponíveis.
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -62,7 +62,7 @@ Execute o seguinte comando para remover a atribuição de política.
 Remove-AzPolicyAssignment -Name "Data Lake Store encryption" -Scope <scope>
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -80,4 +80,4 @@ az policy assignment delete --name "Data Lake Store encryption" --resource-group
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)
+- Reveja mais exemplos nas [amostras do Azure Policy](index.md)

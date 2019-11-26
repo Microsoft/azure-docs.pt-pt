@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: d2555ed61697e102e9f481f1e4521afd1480da3d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326662"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482876"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Create a Cognitive Services resource using the Azure portal
 
@@ -87,6 +87,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     Clique em **Criar**.
 
     ***
+
 
 ## <a name="get-the-keys-for-your-resource"></a>Get the keys for your resource
 

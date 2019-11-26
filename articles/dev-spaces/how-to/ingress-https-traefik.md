@@ -1,33 +1,33 @@
 ---
-title: Usar um controlador de entrada do traefik personalizado e configurar o HTTPS
+title: Use a custom traefik ingress controller and configure HTTPS
 services: azure-dev-spaces
 ms.date: 08/13/2019
 ms.topic: conceptual
-description: Saiba como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado e configurar o HTTPS usando esse controlador de entrada
-keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: a7f8684c8236e69c16bedf0186ed7ed17bbc8462
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+description: Learn how to configure Azure Dev Spaces to use a custom traefik ingress controller and configure HTTPS using that ingress controller
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+ms.openlocfilehash: 8ddaa7b3e982cb85428a7faef20b59525a175778
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280079"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482530"
 ---
-# <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do traefik personalizado e configurar o HTTPS
+# <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Use a custom traefik ingress controller and configure HTTPS
 
-Este artigo mostra como configurar Azure Dev Spaces para usar um controlador de entrada do traefik personalizado. Este artigo também mostra como configurar esse controlador de entrada personalizado para usar HTTPS.
+This article shows you how to configure Azure Dev Spaces to use a custom traefik ingress controller. This article also shows you how to configure that custom ingress controller to use HTTPS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma, poderá [criar uma conta gratuita][azure-account-create].
 * A [CLI do Azure instalada][az-cli].
-* [Cluster do serviço de kubernetes do Azure (AKs) com Azure dev Spaces habilitado][qs-cli].
-* [kubectl][kubectl] instalado.
-* [Helm 2,13 ou superior instalado][helm-installed].
-* [Um domínio personalizado][custom-domain] com uma [zona DNS][dns-zone] no mesmo grupo de recursos que o cluster AKs.
+* [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled][qs-cli].
+* [kubectl][kubectl] installed.
+* [Helm 2.13 - 2.16 installed][helm-installed].
+* [A custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
-## <a name="configure-a-custom-traefik-ingress-controller"></a>Configurar um controlador de entrada do traefik personalizado
+## <a name="configure-a-custom-traefik-ingress-controller"></a>Configure a custom traefik ingress controller
 
-Conecte-se ao cluster usando o [kubectl][kubectl], o cliente de linha de comando do kubernetes. Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
+Connect to your cluster using [kubectl][kubectl], the Kubernetes command-line client. To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKS
@@ -41,7 +41,7 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
-Crie um namespace kubernetes para o controlador de entrada do traefik e instale-o usando `helm`.
+Create a Kubernetes namespace for the traefik ingress controller and install it using `helm`.
 
 ```console
 kubectl create ns traefik
@@ -49,13 +49,13 @@ helm init --wait
 helm install stable/traefik --name traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true
 ```
 
-Obtenha o endereço IP do serviço do controlador de entrada traefik usando o [kubectl Get][kubectl-get].
+Get the IP address of the traefik ingress controller service using [kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n traefik --watch
 ```
 
-A saída de exemplo mostra os endereços IP para todos os serviços no espaço de nome *traefik* .
+The sample output shows the IP addresses for all the services in the *traefik* name space.
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
@@ -64,7 +64,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>     80:32484/TCP,443:30620/TCP 
 traefik   LoadBalancer   10.0.205.78   MY_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-Adicione um *registro a* à zona DNS com o endereço IP externo do serviço traefik usando [AZ Network DNS Record-set a Add-Record][az-network-dns-record-set-a-add-record].
+Add an *A* record to your DNS zone with the external IP address of the traefik service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
 
 ```console
 az network dns record-set a add-record \
@@ -74,16 +74,16 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-O exemplo acima adiciona um *registro a* à zona DNS *MY_CUSTOM_DOMAIN* .
+The above example adds an *A* record to the *MY_CUSTOM_DOMAIN* DNS zone.
 
-Neste artigo, você usa o [aplicativo de exemplo de compartilhamento de bicicletas Azure dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) para demonstrar o uso de Azure dev Spaces. Clone o aplicativo do GitHub e navegue até seu diretório:
+In this article, you use the [Azure Dev Spaces Bike Sharing sample application](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) to demonstrate using Azure Dev Spaces. Clone the application from GitHub and navigate into its directory:
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Abra [Values. YAML][values-yaml] e substitua todas as instâncias de *< REPLACE_ME_WITH_HOST_SUFFIX >* com *traefik. MY_CUSTOM_DOMAIN* usando seu domínio para *MY_CUSTOM_DOMAIN*. Substitua também *kubernetes.Io/ingress.class: traefik-azds # dev Spaces – specific* com *kubernetes.Io/ingress.class: Traefik # entrada personalizada*. Abaixo está um exemplo de um arquivo de `values.yaml` atualizado:
+Open [values.yaml][values-yaml] and replace all instances of *<REPLACE_ME_WITH_HOST_SUFFIX>* with *traefik.MY_CUSTOM_DOMAIN* using your domain for *MY_CUSTOM_DOMAIN*. Also replace *kubernetes.io/ingress.class: traefik-azds  # Dev Spaces-specific* with *kubernetes.io/ingress.class: traefik  # Custom Ingress*. Below is an example of an updated `values.yaml` file:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -104,24 +104,24 @@ gateway:
       - dev.gateway.traefik.MY_CUSTOM_DOMAIN  # Assumes deployment to the 'dev' space
 ```
 
-Salve as alterações e feche o arquivo.
+Save your changes and close the file.
 
-Implante o aplicativo de exemplo usando `helm install`.
+Deploy the sample application using `helm install`.
 
 ```console
 helm install -n bikesharing . --dep-up --namespace dev --atomic
 ```
 
-O exemplo acima implanta o aplicativo de exemplo no namespace do *dev* .
+The above example deploys the sample application to the *dev* namespace.
 
-Selecione o espaço de *desenvolvimento* com seu aplicativo de exemplo usando `azds space select` e exiba as URLs para acessar o aplicativo de exemplo usando `azds list-uris`.
+Select the *dev* space with your sample application using `azds space select` and display the URLs to access the sample application using `azds list-uris`.
 
 ```console
 azds space select -n dev
 azds list-uris
 ```
 
-A saída abaixo mostra as URLs de exemplo de `azds list-uris`.
+The below output shows the example URLs from `azds list-uris`.
 
 ```console
 Uri                                                  Status
@@ -130,16 +130,16 @@ http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Navegue até o serviço *bikesharingweb* abrindo a URL pública do comando `azds list-uris`. No exemplo acima, a URL pública para o serviço *bikesharingweb* é `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
+Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
 
-Use o comando `azds space select` para criar um espaço filho em *dev* e listar as URLs para acessar o espaço de desenvolvimento filho.
+Use the `azds space select` command to create a child space under *dev* and list the URLs to access the child dev space.
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-A saída abaixo mostra as URLs de exemplo de `azds list-uris` para acessar o aplicativo de exemplo no espaço de desenvolvimento de *azureuser1* filho.
+The below output shows the example URLs from `azds list-uris` to access the sample application in the *azureuser1* child dev space.
 
 ```console
 Uri                                                  Status
@@ -148,11 +148,11 @@ http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Navegue até o serviço *bikesharingweb* no espaço de desenvolvimento filho do *AZUREUSER1* abrindo a URL pública do comando `azds list-uris`. No exemplo acima, a URL pública para o serviço *bikesharingweb* no espaço de desenvolvimento filho *azureuser1* é `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
+Navigate to the *bikesharingweb* service in the *azureuser1* child dev space by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service in the *azureuser1* child dev space is `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
 
-## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Configurar o controlador de entrada traefik para usar HTTPS
+## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Configure the traefik ingress controller to use HTTPS
 
-Crie um arquivo de `dev-spaces/samples/BikeSharingApp/traefik-values.yaml` semelhante ao exemplo abaixo. Atualize o valor de *email* com seu próprio email, que é usado para gerar o certificado com o que está criptografado.
+Create a `dev-spaces/samples/BikeSharingApp/traefik-values.yaml` file similar to the below example. Update the *email* value with your own email, which is used to generate the certificate with Let's Encrypt.
 
 ```yaml
 fullnameOverride: traefik
@@ -197,25 +197,25 @@ ssl:
     - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 ```
 
-Atualize seu serviço *traefik* usando `helm repo update` e incluindo o arquivo *traefik-Values. YAML* que você criou.
+Update your *traefik* service using `helm repo update` and including the *traefik-values.yaml* file you created.
 
 ```console
 cd ..
 helm upgrade traefik stable/traefik --namespace traefik --values traefik-values.yaml
 ```
 
-O comando acima executa uma nova versão do serviço traefik usando os valores de *traefik-Values. YAML* e remove o serviço anterior. O serviço traefik também cria um certificado TLS usando vamos criptografar e começa a redirecionar o tráfego da Web para usar HTTPS.
+The above command runs a new version of the traefik service using the values from *traefik-values.yaml* and removes the previous service. The traefik service also creates a TLS certificate using Let's Encrypt and starts redirecting web traffic to use HTTPS.
 
 > [!NOTE]
-> Pode levar alguns minutos para que a nova versão do serviço traefik seja iniciada. Você pode verificar o progresso usando `kubectl get pods --namespace traefik --watch`.
+> It may take a few minutes for the new version of the traefik service to start. You can check the progress using `kubectl get pods --namespace traefik --watch`.
 
-Navegue até o aplicativo de exemplo no espaço filho *dev/azureuser1* e observe que você é redirecionado para usar HTTPS. Observe também que a página é carregada, mas o navegador mostra alguns erros. Abrir o console do navegador mostra o erro relacionado a uma página HTTPS tentando carregar recursos HTTP. Por exemplo:
+Navigate to the sample application in the *dev/azureuser1* child space and notice you are redirected to use HTTPS. Also notice that the page loads, but the browser shows some errors. Opening the browser console shows the error relates to an HTTPS page trying to load HTTP resources. Por exemplo:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Para corrigir esse erro, atualize [BikeSharingWeb/azds. YAML][azds-yaml] para usar *traefik* para *kubernetes.Io/ingress.Class* e seu domínio personalizado para *$ (hostSuffix)* . Por exemplo:
+To fix this error, update [BikeSharingWeb/azds.yaml][azds-yaml] to use *traefik* for *kubernetes.io/ingress.class* and your custom domain for *$(hostSuffix)* . Por exemplo:
 
 ```yaml
 ...
@@ -228,7 +228,7 @@ Para corrigir esse erro, atualize [BikeSharingWeb/azds. YAML][azds-yaml] para us
 ...
 ```
 
-Atualize [BikeSharingWeb/Package. JSON][package-json] com uma dependência para o pacote de *URL* .
+Update [BikeSharingWeb/package.json][package-json] with a dependency for the *url* package.
 
 ```json
 {
@@ -240,7 +240,7 @@ Atualize [BikeSharingWeb/Package. JSON][package-json] com uma dependência para 
 ...
 ```
 
-Atualize o método *getApiHostAsync* em [BikeSharingWeb/Pages/Helpers. js][helpers-js] para usar https:
+Update the *getApiHostAsync* method in [BikeSharingWeb/pages/helpers.js][helpers-js] to use HTTPS:
 
 ```javascript
 ...
@@ -257,21 +257,21 @@ Atualize o método *getApiHostAsync* em [BikeSharingWeb/Pages/Helpers. js][helpe
 ...
 ```
 
-Navegue até o diretório `BikeSharingWeb` e use `azds up` para executar o serviço BikeSharingWeb atualizado.
+Navigate to the `BikeSharingWeb` directory and use `azds up` to run your updated BikeSharingWeb service.
 
 ```console
 cd BikeSharingWeb/
 azds up
 ```
 
-Navegue até o aplicativo de exemplo no espaço filho *dev/azureuser1* e observe que você é redirecionado para usar HTTPS sem erros.
+Navigate to the sample application in the *dev/azureuser1* child space and notice you are redirected to use HTTPS without any errors.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
+Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
 
 > [!div class="nextstepaction"]
-> [Desenvolvimento em equipe no Azure Dev Spaces][team-development-qs]
+> [Team development in Azure Dev Spaces][team-development-qs]
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
@@ -284,7 +284,7 @@ Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em v�
 
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

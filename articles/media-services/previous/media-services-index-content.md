@@ -1,6 +1,6 @@
 ---
-title: Indexando arquivos de mídia com o Azure Media Indexer
-description: Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar o indexador de mídia.
+title: Indexing Media Files with Azure Media Indexer
+description: Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -15,47 +15,42 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 0987e15b1619fcd4c1c79f9a61420c092a7da886
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: b72d1483201c9c25a420d3ede0558f10229cf47c
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529186"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464079"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Azure Media Indexer
+# <a name="indexing-media-files-with-azure-media-indexer"></a>Indexing Media Files with Azure Media Indexer
 
 > [!NOTE]
-> O processador de mídia [Azure Media indexer](media-services-index-content.md) será desativado em 1º de outubro de 2020. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substituem esse processador de mídia herdado. Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
+> The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
-Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Pode processar um ficheiro de multimédia ou vários num lote.  
+Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. Pode processar um ficheiro de multimédia ou vários num lote.  
 
-Ao indexar conteúdo, certifique-se de usar arquivos de mídia com fala clara (sem música em segundo plano, ruído, efeitos ou assovio de microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras ou apresentações gravadas. O conteúdo a seguir pode não ser adequado para indexação: filmes, programas de TV, qualquer coisa com efeitos de áudio e som mistos, conteúdo mal gravado com ruídos de fundo (assovio).
+When indexing content, make sure to use media files that have clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 
-Um trabalho de indexação pode gerar as seguintes saídas:
+An indexing job can generate the following outputs:
 
-* Arquivos de legenda codificada nos seguintes formatos: **Sami**, **TTML**e **WebVTT**.
+* Closed caption files in the following formats: **TTML**, and **WebVTT**.
   
-    Arquivos de legenda codificada incluem uma marca chamada reconhecível, que pontua um trabalho de indexação com base em como o reconhecimento da fala no vídeo de origem é.  Você pode usar o valor de capacidade de reconhecimento para arquivos de saída de tela para usabilidade. Uma pontuação baixa significaria resultados de indexação insatisfatórios devido à qualidade de áudio.
-* Arquivo de palavra-chave (XML).
-* Arquivo de blob de indexação de áudio (AIB) para uso com o SQL Server.
-  
-    Para obter mais informações, consulte [usando arquivos AIB com Azure Media indexer e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+    Closed caption files include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+* Keyword file (XML).
 
-Este artigo mostra como criar trabalhos de indexação para **indexar um ativo** e **indexar vários arquivos**.
+This article shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
 
-Para obter as atualizações de Azure Media Indexer mais recentes, consulte [Blogs dos serviços de mídia](#preset).
+## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Using configuration and manifest files for indexing tasks
+You can specify more details for your indexing tasks by using a task configuration. For example, you can specify which metadata to use for your media file. This metadata is used by the language engine to expand its vocabulary, and greatly improves the speech recognition accuracy.  You are also able to specify your desired output files.
 
-## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Usando arquivos de configuração e de manifesto para tarefas de indexação
-Você pode especificar mais detalhes para suas tarefas de indexação usando uma configuração de tarefa. Por exemplo, você pode especificar quais metadados usar para o arquivo de mídia. Esses metadados são usados pelo mecanismo de linguagem para expandir seu vocabulário e melhora muito a precisão do reconhecimento de fala.  Você também pode especificar os arquivos de saída desejados.
+You can also process multiple media files at once by using a manifest file.
 
-Você também pode processar vários arquivos de mídia ao mesmo tempo usando um arquivo de manifesto.
+For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
-Para obter mais informações, consulte [predefinição de tarefa para Azure Media indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+## <a name="index-an-asset"></a>Index an asset
+The following method uploads a media file as an asset and creates a job to index the asset.
 
-## <a name="index-an-asset"></a>Indexar um ativo
-O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho para indexar o ativo.
-
-Se nenhum arquivo de configuração for especificado, o arquivo de mídia será indexado com todas as configurações padrão.
+If no configuration file is specified, the media file is indexed with all default settings.
 
 ```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
@@ -147,24 +142,23 @@ Se nenhum arquivo de configuração for especificado, o arquivo de mídia será 
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>Arquivos de saída
-Por padrão, um trabalho de indexação gera os seguintes arquivos de saída. Os arquivos são armazenados no primeiro ativo de saída.
+### <a id="output_files"></a>Output files
+By default, an indexing job generates the following output files. The files are stored in the first output asset.
 
-Quando há mais de um arquivo de mídia de entrada, o indexador gera um arquivo de manifesto para as saídas do trabalho, chamado ' JobResult. txt '. Para cada arquivo de mídia de entrada, os arquivos AIB, SAMI, TTML, WebVTT e keyword resultantes são numerados sequencialmente e nomeados usando o "alias".
+When there is more than one input media file, Indexer generates a manifest file for the job outputs, named ‘JobResult.txt’. For each input media file, the resulting TTML, WebVTT, and keyword files are sequentially numbered and named using the "Alias."
 
 | Nome de ficheiro | Descrição |
 | --- | --- |
-| **InputFileName. AIB** |Arquivo de blob de indexação de áudio. <br/><br/> O arquivo AIB (blob de indexação de áudio) é um arquivo binário que pode ser pesquisado no Microsoft SQL Server usando a pesquisa de texto completo.  O arquivo AIB é mais potente do que os arquivos de legenda simples, pois contém alternativas para cada palavra, permitindo uma experiência de pesquisa muito mais rica. <br/> <br/>Ele requer a instalação do complemento do indexador SQL em um computador que executa o Microsoft SQL Server 2008 ou posterior. Pesquisar o AIB usando a pesquisa de texto completo do Microsoft SQL Server fornece resultados de pesquisa mais precisos do que Pesquisar os arquivos de legenda codificados gerados pelo WAMI. Isso ocorre porque o AIB contém alternativas de palavras que parecem semelhantes, enquanto os arquivos de legenda oculta contêm a palavra de confiança mais alta para cada segmento do áudio. Se a pesquisa de palavras faladas for mais importante, é recomendável usar o AIB em conjunto com Microsoft SQL Server. <br/><br/>Também é possível utilizar outros mecanismos de pesquisa como o Apache Lucene/Solr para simplesmente indexar o vídeo com base na legenda oculta e nos arquivos XML de palavra-chave, mas isso resultará em resultados de pesquisa menos precisos. |
-| **InputFileName. SMI**<br/>**InputFileName. ttml**<br/>**InputFileName. VTT** |Arquivos de legenda oculta (CC) nos formatos SAMI, TTML e WebVTT.<br/><br/>Eles podem ser usados para tornar os arquivos de áudio e vídeo acessíveis a pessoas com deficiência auditiva.<br/><br/>Os arquivos de legenda codificada incluem uma marca chamada <b>reconhecível</b> , que pontua um trabalho de indexação com base em como o reconhecimento da fala no vídeo de origem é.  Você pode usar o valor de capacidade de <b>reconhecimento</b> para arquivos de saída de tela para usabilidade. Uma pontuação baixa significaria resultados de indexação insatisfatórios devido à qualidade de áudio. |
-| **InputFileName. kW. xml <br/>InputFileName. info** |Arquivos de palavra-chave e de informações. <br/><br/>O arquivo de palavra-chave é um arquivo XML que contém palavras-chaves extraídas do conteúdo de fala, com informações de frequência e de deslocamento. <br/><br/>O arquivo de informações é um arquivo de texto sem formatação que contém informações granulares sobre cada termo reconhecido. A primeira linha é especial e contém a pontuação de reconhecimento. Cada linha subsequente é uma lista separada por tabulação dos seguintes dados: hora de início, hora de término, palavra/frase, confiança. Os tempos são fornecidos em segundos e a confiança é dada como um número de 0-1. <br/><br/>Linha de exemplo: "1,20 1,45 palavra 0,67" <br/><br/>Esses arquivos podem ser usados para várias finalidades, como, para executar análises de fala ou expostos aos mecanismos de pesquisa, como Bing, Google ou Microsoft SharePoint, para tornar os arquivos de mídia mais detectáveis ou até mesmo usados para fornecer anúncios mais relevantes. |
-| **JobResult. txt** |Manifesto de saída, presente somente ao indexar vários arquivos, contendo as seguintes informações:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Erro</th></tr><tr><td>a. MP4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b. MP4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c. MP4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **InputFileName.ttml**<br/>**InputFileName.vtt** |Closed Caption (CC) files in TTML and WebVTT formats.<br/><br/>They can be used to make audio and video files accessible to people with hearing disability.<br/><br/>Closed Caption files include a tag called <b>Recognizability</b> which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of <b>Recognizability</b> to screen output files for usability. A low score would mean poor indexing results due to audio quality. |
+| **InputFileName.kw.xml<br/>InputFileName.info** |Keyword and info files. <br/><br/>Keyword file is an XML file that contains keywords extracted from the speech content, with frequency and offset information. <br/><br/>Info file is a plain-text file that contains granular information about each term recognized. The first line is special and contains the Recognizability score. Each subsequent line is a tab-separated list of the following data: start time, end time, word/phrase, confidence. The times are given in seconds and the confidence is given as a number from 0-1. <br/><br/>Example line: "1.20    1.45    word    0.67" <br/><br/>These files can be used for a number of purposes, such as, to perform speech analytics, or exposed to search engines such as Bing, Google or Microsoft SharePoint to make the media files more discoverable, or even used to deliver more relevant ads. |
+| **JobResult.txt** |Output manifest, present only when indexing multiple files, containing the following information:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Erro</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-Se nem todos os arquivos de mídia de entrada forem indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
+If not all input media files are indexed successfully, the indexing job fails with error code 4000. For more information, see [Error codes](#error_codes).
 
-## <a name="index-multiple-files"></a>Indexar vários arquivos
-O método a seguir carrega vários arquivos de mídia como um ativo e cria um trabalho para indexar todos esses arquivos em um lote.
+## <a name="index-multiple-files"></a>Index multiple files
+The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-Um arquivo de manifesto com a extensão ". lst" é criado e carregado no ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para obter mais informações, consulte [predefinição de tarefa para Azure Media indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+A manifest file with the ".lst" extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -241,38 +235,38 @@ Um arquivo de manifesto com a extensão ". lst" é criado e carregado no ativo. 
     }
 ```
 
-### <a name="partially-succeeded-job"></a>Trabalho parcialmente bem-sucedido
-Se nem todos os arquivos de mídia de entrada forem indexados com êxito, o trabalho de indexação falhará com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
+### <a name="partially-succeeded-job"></a>Partially Succeeded Job
+If not all input media files are indexed successfully, the indexing job will fail with error code 4000. For more information, see [Error codes](#error_codes).
 
-As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada falharam, de acordo com os valores de coluna de erro. Para arquivos de entrada que falharam, os arquivos AIB, SAMI, TTML, WebVTT e keyword resultantes não serão gerados.
+The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that failed, the resulting TTML, WebVTT, and keyword files will NOT be generated.
 
-### <a id="preset"></a>Predefinição de tarefa para Azure Media Indexer
-O processamento de Azure Media Indexer pode ser personalizado fornecendo uma predefinição de tarefa opcional juntamente com a tarefa.  O seguinte descreve o formato desse XML de configuração.
+### <a id="preset"></a> Task Preset for Azure Media Indexer
+The processing from Azure Media Indexer can be customized by providing an optional task preset alongside the task.  The following describes the format of this configuration xml.
 
 | Nome | Requerer | Descrição |
 | --- | --- | --- |
-| **entrada** |false |Arquivo (s) de ativo que você deseja indexar.</p><p>O Azure Media Indexer dá suporte aos seguintes formatos de arquivo de mídia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Você pode especificar os nomes de arquivo no atributo **Name** ou **list** do elemento **Input** (como mostrado abaixo). Se você não especificar qual arquivo de ativo indexar, o arquivo primário será escolhido. Se nenhum arquivo de ativo principal for definido, o primeiro arquivo no ativo de entrada será indexado.</p><p>Para especificar explicitamente o nome do arquivo de ativo, faça:<br/>`<input name="TestFile.wmv">`<br/><br/>Você também pode indexar vários arquivos de ativo de uma vez (até 10 arquivos). Para efetuar este procedimento:<br/><br/><ol class="ordered"><li><p>Crie um arquivo de texto (arquivo de manifesto) e dê a ele uma extensão. lst. </p></li><li><p>Adicione uma lista de todos os nomes de arquivo de ativo em seu ativo de entrada para esse arquivo de manifesto. </p></li><li><p>Adicione (carregue) o arquivo de manifesto ao ativo.  </p></li><li><p>Especifique o nome do arquivo de manifesto no atributo de lista da entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Observação: se você adicionar mais de 10 arquivos ao arquivo de manifesto, o trabalho de indexação falhará com o código de erro 2006. |
-| **los** |false |Metadados para os arquivos de ativo especificados usados para adaptação de vocabulário.  Útil para preparar o indexador para reconhecer palavras de vocabulário não padrão, como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Você pode fornecer **valores** para **chaves**predefinidas. Atualmente, há suporte para as seguintes chaves:<br/><br/>"título" e "Descrição" – usado para adaptação de vocabulário para ajustar o modelo de linguagem para seu trabalho e melhorar a precisão do reconhecimento de fala.  Os valores semente da Internet pesquisa para localizar documentos de texto relevantes contextuais, usando o conteúdo para aumentar o dicionário interno durante a tarefa de indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Features** <br/><br/> Adicionado na versão 1,2. Atualmente, o único recurso com suporte é o reconhecimento de fala ("ASR"). |false |O recurso de reconhecimento de fala tem as seguintes chaves de configuração:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>O idioma natural a ser reconhecido no arquivo multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por ponto-e-vírgula dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml; Sami; webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Um sinalizador booliano que especifica se um arquivo AIB é necessário (para uso com SQL Server e o IFilter do indexador do cliente).  Para obter mais informações, consulte <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">usando arquivos AIB com Azure Media indexer e SQL Server</a>.</p></td><td><p>True For</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavra-chave é necessário ou não.</p></td><td><p>True For. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false; nesse caso, as palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas de legenda final e substituídas por reticências ("...").  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True For. </p></td></tr></table> |
+| **input** |false |Asset file(s) that you want to index.</p><p>Azure Media Indexer supports the following media file formats: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>You can specify the file name (s) in the **name** or **list** attribute of the **input** element (as shown below).If you do not specify which asset file to index, the primary file is picked. If no primary asset file is set, the first file in the input asset is indexed.</p><p>To explicitly specify the asset file name, do:<br/>`<input name="TestFile.wmv">`<br/><br/>You can also index multiple asset files at once (up to 10 files). Para efetuar este procedimento:<br/><br/><ol class="ordered"><li><p>Create a text file (manifest file) and give it an .lst extension. </p></li><li><p>Add a list of all the asset file names in your input asset to this manifest file. </p></li><li><p>Add (upload) the manifest file to the asset.  </p></li><li><p>Specify the name of the manifest file in the input’s list attribute.<br/>`<input list="input.lst">`</li></ol><br/><br/>Note: If you add more than 10 files to the manifest file, the indexing job will fail with the 2006 error code. |
+| **metadata** |false |Metadata for the specified asset file(s) used for Vocabulary Adaptation.  Useful to prepare Indexer to recognize non-standard vocabulary words such as proper nouns.<br/>`<metadata key="..." value="..."/>` <br/><br/>You can supply **values** for predefined **keys**. Currently the following keys are supported:<br/><br/>“title” and “description” - used for vocabulary adaptation to tweak the language model for your job and improve speech recognition accuracy.  The values seed Internet searches to find contextually relevant text documents, using the contents to augment the internal dictionary for the duration of your Indexing task.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **features** <br/><br/> Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR"). |false |The Speech Recognition feature has the following settings keys:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>The natural language to be recognized in the multimedia file.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>a semicolon-separated list of the desired output caption formats (if any)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>A boolean flag specifying whether or not a keyword XML file is required.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>A boolean flag specifying whether or not to force full captions (regardless of confidence level).  </p><p>Default is false, in which case words and phrases which have a less than 50% confidence level are omitted from the final caption outputs and replaced by ellipses ("...").  The ellipses are useful for caption quality control and auditing.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a id="error_codes"></a>Códigos de erro
-No caso de um erro, Azure Media Indexer deve reportar um dos seguintes códigos de erro:
+### <a id="error_codes"></a>Error codes
+In the case of an error, Azure Media Indexer should report back one of the following error codes:
 
-| Código | Nome | Motivos possíveis |
+| Código | Nome | Possible Reasons |
 | --- | --- | --- |
-| 2000 |Configuração inválida |Configuração inválida |
-| 2001 |Ativos de entrada inválidos |Ativos de entrada ou ativo vazio ausentes. |
-| 2002 |Manifesto inválido |O manifesto está vazio ou o manifesto contém itens inválidos. |
-| 2003 |Falha ao baixar arquivo de mídia |URL inválida no arquivo de manifesto. |
-| 2004 |Protocolo sem suporte |Não há suporte para o protocolo da URL de mídia. |
-| 2005 |Tipo de arquivo sem suporte |Não há suporte para o tipo de arquivo de mídia de entrada. |
-| 2006 |Muitos arquivos de entrada |Há mais de 10 arquivos no manifesto de entrada. |
-| 3000 |Falha ao decodificar arquivo de mídia |Codec de mídia sem suporte <br/>ou<br/> Arquivo de mídia corrompido <br/>ou<br/> Nenhum fluxo de áudio na mídia de entrada. |
-| 4000 |A indexação do lote foi parcialmente bem-sucedida |Falha ao indexar alguns dos arquivos de mídia de entrada. Para obter mais informações, consulte <a href="#output_files">arquivos de saída</a>. |
-| other |Erros internos |Entre em contato com a equipe de suporte. indexer@microsoft.com |
+| 2000 |Invalid configuration |Invalid configuration |
+| 2001 |Invalid input assets |Missing input assets or empty asset. |
+| 2002 |Invalid manifest |Manifest is empty or manifest contains invalid items. |
+| 2003 |Failed to download media file |Invalid URL in manifest file. |
+| 2004 |Unsupported protocol |Protocol of media URL is not supported. |
+| 2005 |Unsupported file type |Input media file type is not supported. |
+| 2006 |Too many input files |There are more than 10 files in the input manifest. |
+| 3000 |Failed to decode media file |Unsupported media codec <br/>ou<br/> Corrupted media file <br/>ou<br/> No audio stream in input media. |
+| 4000 |Batch indexing partially succeeded |Some of the input media files are failed to be indexed. For more information, see <a href="#output_files">Output files</a>. |
+| other |Internal errors |Please contact support team. indexer@microsoft.com |
 
-## <a id="supported_languages"></a>Idiomas com suporte
-Atualmente, há suporte para os idiomas inglês e espanhol. Para obter mais informações, consulte [a postagem no blog da versão v 1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+## <a id="supported_languages"></a>Supported Languages
+Currently, the English and Spanish languages are supported.  
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -281,9 +275,7 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para obter mais info
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Hiperligações relacionadas
-[Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Usando arquivos AIB com Azure Media Indexer e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
-
-[Indexando arquivos de mídia com a versão prévia do Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
+[Indexing Media Files with Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 

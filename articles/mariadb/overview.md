@@ -1,22 +1,22 @@
 ---
 title: Descrição geral do serviço de base de dados relacional da Azure Database for MariaDB
-description: Saiba mais sobre o banco de dados do Azure para o serviço MariaDB, um serviço de banco de dados relacional no Microsoft Cloud baseado no MySQL Community Edition.
+description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MySQL community edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/13/2019
-ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/25/2019
+ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177982"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484145"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é a Azure Database for MariaDB?
 
-O Azure Database for MariaDB é um serviço de base de dados relacional na cloud da Microsoft. O banco de dados do Azure para MariaDB é baseado na [MariaDB Community Edition](https://mariadb.org/download/) (disponível no mecanismo de banco de dados licença GPLv2), versão 10,2 e 10,3.
+O Azure Database for MariaDB é um serviço de base de dados relacional na cloud da Microsoft. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) (available under the GPLv2 license) database engine, version 10.2 and 10.3.
 
 A Azure Database for MariaDB fornece:
 
@@ -41,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
 
-O banco de dados do Azure para o serviço MariaDB oferece várias camadas de serviço: básico, Uso Geral e otimizado para memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
+The Azure Database for MariaDB service offers several service tiers: Basic, General Purpose, and Memory Optimized. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. See [Pricing tiers](concepts-pricing-tiers.md) for details.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
@@ -49,15 +49,11 @@ Como decidir quando aumentar ou reduzir verticalmente? Pode utilizar a monitoriz
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha a sua aplicação e o seu negócio operacionais
 
-O SLA de disponibilidade de 99,99% da líder do setor do Azure é alimentado por uma rede global de data centers gerenciados pela Microsoft. A rede ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Beneficia da segurança incorporada, tolerância a falhas e proteção de dados no Azure Database for MariaDB. Com Azure Database for MariaDB, pode utilizar o restauro para um ponto anterior no tempo para restaurar um estado anterior de um servidor, até 35 dias.
+Azure's industry-leading 99.99% availability SLA is powered by a global network of Microsoft-managed datacenters. A rede ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Beneficia da segurança incorporada, tolerância a falhas e proteção de dados no Azure Database for MariaDB. Com Azure Database for MariaDB, pode utilizar o restauro para um ponto anterior no tempo para restaurar um estado anterior de um servidor, até 35 dias.
 
 ## <a name="secure-your-data"></a>Proteja os seus dados
 
-Os serviços de base de dados do Azure têm uma tradição de segurança de dados mantida pelo Azure Database for MariaDB. O Azure Database for MariaDB oferece funcionalidades que limitam o acesso, protegem os dados inativos e ativos, e ajudam a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
-
-O banco de dados do Azure para serviço MariaDB usa o módulo de criptografia FIPS 140-2 validado para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco com a exceção de arquivos temporários criados durante a execução de consultas. O serviço utiliza a cifra AES de 256 bits, que está incluída na encriptação de Armazenamento do Azure. As chaves são geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
-
-Por predefinição, o serviço Azure Database for MariaDB está configurado para exigir [segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
+Os serviços de base de dados do Azure têm uma tradição de segurança de dados mantida pelo Azure Database for MariaDB. O Azure Database for MariaDB oferece funcionalidades que limitam o acesso, protegem os dados inativos e ativos, e ajudam a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure. For more information about Azure Database for MySQL security features, see the [security overview](concepts-security.md).
 
 ## <a name="contacts"></a>Contactos
 
