@@ -266,18 +266,6 @@
           href: media-services-dotnet-long-operations.md
         - name: Especificação de ingestão em tempo real de MP4 fragmentado
           href: ../media-services-fmp4-live-ingest-overview.md
-        - name: Introdução
-          href: media-services-azure-media-clipper-getting-started.md
-        - name: Carregar vídeos
-          href: media-services-azure-media-clipper-load-assets.md
-        - name: Configurar atalhos de teclado
-          href: media-services-azure-media-clipper-keyboard-shortcuts.md
-        - name: Configurar localização
-          href: media-services-azure-media-clipper-localization.md
-        - name: Submeter tarefas de recorte
-          href: media-services-azure-media-clipper-submit-job.md
-        - name: Portal do Azure
-          href: media-services-azure-media-clipper-portal.md
     - name: Proteger conteúdo
       href: media-services-content-protection-overview.md
       items:
