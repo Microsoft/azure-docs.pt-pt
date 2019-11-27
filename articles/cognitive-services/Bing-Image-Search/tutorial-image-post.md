@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Extract image details with the REST API and C# - Bing Image Search'
+title: 'Tutorial: extrair detalhes da imagem com a API REST C# e-pesquisa de imagem do Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilize este artigo para criar uma aplicação C# que extraia os detalhes das imagens através da API de Pesquisa de Imagens do Bing.
 services: cognitive-services
@@ -36,7 +36,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
+* Qualquer edição do [visual studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -77,7 +77,7 @@ client.Headers["ContentType"] = "multipart/form-data";
 
 ## <a name="upload-the-image-and-display-the-results"></a>Carregar a imagem e apresentar os resultados
 
-O método `UpLoadFile()` da classe `WebClient` que formata os dados para o pedido `POST`, incluindo formatar o `RequestStream` e chamar o `HttpWebRequest`.
+O método `WebClient` da classe `UpLoadFile()` que formata os dados para o pedido `POST`, incluindo formatar o `RequestStream` e chamar o `HttpWebRequest`.
 
 Chame o `WebClient.UpLoadFile()` com o ponto final `/details` e o ficheiro de imagem a carregar. Utilize a resposta JSON para inicializar uma instância da estrutura `SearchResult` e armazene a resposta.
 
@@ -111,6 +111,6 @@ Se existirem pessoas ou locais identificáveis na imagem, este pedido devolverá
 > [!div class="nextstepaction"]
 > [Apresentar opções de pesquisa e imagens numa aplicação Web de página única ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

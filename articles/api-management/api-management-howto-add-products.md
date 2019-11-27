@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073615"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538251"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -35,8 +35,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Criar e publicar um produto
 
@@ -47,17 +47,17 @@ Neste tutorial, ficará a saber como:
 
     Ao adicionar um produto, tem de fornecer as seguintes informações: 
 
-    | Name                     | Descrição                                                                                                                                                                                                                                                                                                             |
+    | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Display name             | O nome, como pretende que seja apresentado no **Portal do programador**.                                                                                                                                                                                                                                                        |
-    | Name                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
+    | Nome a apresentar             | O nome, como pretende que seja apresentado no **Portal do programador**.                                                                                                                                                                                                                                                        |
+    | Nome                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
     | Descrição              | O campo **Descrição** permite-lhe fornecer informações detalhadas sobre o produto, como a respetiva finalidade, as APIs às quais fornece acesso e outras informações úteis.                                                                                                                                               |
-    | State                    | Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.                                                                                      |
-    | Requer subscrição    | Selecione **Exigir subscrição** se um utilizador precisar de subscrever para utilizar o produto.                                                                                                                                                                                                                                   |
+    | Estado                    | Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.                                                                                      |
+    | Exige subscrição    | Selecione **Exigir subscrição** se um utilizador precisar de subscrever para utilizar o produto.                                                                                                                                                                                                                                   |
     | Requer aprovação        | Selecione **Exigir aprovação**, se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição deste produto. Se a caixa estiver desmarcada, as tentativas de subscrição são aprovadas automaticamente.                                                                                                                         |
     | Limite da contagem de subscrições | Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrições.                                                                                                                                                                                                                                |
     | Termos legais              | Pode incluir os termos de utilização do produto, que os subscritores têm de aceitar para poderem utilizar o produto.                                                                                                                                                                                                             |
-    | APIs                     | Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produtos. Pode adicionar uma API ao produto mais tarde, a partir da página **Definições** de Produtos ou ao criar uma API. |
+    | APIs                     | Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produtos. Você pode adicionar uma API ao produto posteriormente, na página de **configurações** do produto ou durante a criação de uma API. |
 
 3. Clique em **Criar** para criar o novo produto.
 
@@ -67,7 +67,7 @@ Pode continuar a configurar o produto após guardá-lo, ao escolher o separador 
 
 Veja/adicione subscritores ao produto, a partir do separador **Subscrições**.
 
-Defina a visibilidade de um produto para os programadores ou convidados, a partir do separador **Controlo de acesso**.
+Defina a visibilidade de um produto para desenvolvedores ou convidados na guia **controle de acesso** .
 
 ## <a name="add-apis"> </a>Adicionar APIs a um produto
 

@@ -37,7 +37,7 @@ Veja um cenário que explica por que sua empresa definiria um home page personal
 - Você deseja definir `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como a URL de home page em vez disso, para que um usuário externo Veja a página de entrada primeiro.
 
 > [!NOTE]
-> Quando concede aos utilizadores acesso a aplicações publicadas, as aplicações são apresentadas na [painel de acesso do Azure AD](../user-help/my-apps-portal-end-user-access.md) e o [iniciador de aplicações do Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> Quando você concede aos usuários acesso a aplicativos publicados, os aplicativos são exibidos no [painel de acesso do Azure ad](../user-help/my-apps-portal-end-user-access.md) e no [iniciador de aplicativos do Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -85,7 +85,7 @@ Para instalar o pacote, siga estes passos:
    Install-Module -Name AzureAD
    ```
 
-    Se estiver a executar o comando como um não-administrador, utilize o `-scope currentuser` opção.
+    Se você estiver executando o comando como um não administrador, use a opção `-scope currentuser`.
 
 1. Durante a instalação, selecione **Y** para instalar dois pacotes do NuGet.org. Ambos os pacotes são necessários.
 
@@ -147,7 +147,7 @@ Crie a URL de home page e atualize seu aplicativo com esse valor. Continue usand
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-1. Defina o URL da home page para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da home page da `https://sharepoint-iddemo.msappproxy.net/` para `https://sharepoint-iddemo.msappproxy.net/hybrid/`, os utilizadores da aplicação vão diretamente para a home page personalizada.
+1. Defina o URL da home page para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se você alterar a URL do home page de `https://sharepoint-iddemo.msappproxy.net/` para `https://sharepoint-iddemo.msappproxy.net/hybrid/`, os usuários do aplicativo irão diretamente para o home page personalizado.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
@@ -180,5 +180,5 @@ Crie a URL de home page e atualize seu aplicativo com esse valor. Continue usand
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
+- [Habilitar o acesso remoto ao SharePoint com o Azure Proxy de Aplicativo do AD](application-proxy-integrate-with-sharepoint-server.md)
 - [Tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)

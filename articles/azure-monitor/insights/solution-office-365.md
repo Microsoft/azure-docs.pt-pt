@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793857"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539051"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Azure (versão prévia)
 
@@ -198,8 +198,6 @@ Para habilitar a conta administrativa pela primeira vez, você deve fornecer con
 > Você pode ser redirecionado para uma página que não existe. Considere-o como sucesso.
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Assinar Log Analytics espaço de trabalho
-
-A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Analytics. Você também faz isso com um script do PowerShell.
 
 A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Analytics. Você também faz isso com um script do PowerShell.
 
@@ -461,15 +459,17 @@ Você pode remover a solução de gerenciamento do Office 365 usando o processo 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $authHeader
     }
     
     Function Office-UnSubscribe-Call{
     
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   = $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_'  + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
@@ -507,6 +507,8 @@ Você pode remover a solução de gerenciamento do Office 365 usando o processo 
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
+Suas credenciais serão solicitadas. Forneça as credenciais para seu espaço de trabalho do Log Analytics.
+
 ## <a name="data-collection"></a>Recolha de dados
 
 ### <a name="supported-agents"></a>Agentes suportados
@@ -530,10 +532,10 @@ Clique no bloco do **office 365** para abrir o painel do **Office 365** .
 
 O dashboard inclui as colunas da tabela seguinte. Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e o intervalo de tempo especificados. Você pode executar uma pesquisa de logs que fornece a lista inteira clicando em ver todos na parte inferior da coluna ou clicando no cabeçalho da coluna.
 
-| Column | Descrição |
+| Coluna | Descrição |
 |:--|:--|
-| Operations | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
-| Trocar | Mostra a divisão das atividades do Exchange Server, como a permissão Add-Mailbox, ou Set-Mailbox. |
+| Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
+| Troca | Mostra a divisão das atividades do Exchange Server, como a permissão Add-Mailbox, ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz Drill-down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento acessado por arquivo, você poderá ver o documento que está sendo acessado, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do usuário, como redefinir tentativas de logon e senha de usuário. Ao fazer drill down, você poderá ver os detalhes dessas atividades, como o status do resultado. Isso será útil principalmente se você quiser monitorar atividades suspeitas em seu Azure Active Directory. |
 
@@ -551,15 +553,15 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 | Propriedade | Descrição |
 |:--- |:--- |
 | Tipo | *OfficeActivity* |
-| clientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
-| OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Trocar<br>SharePoint|
+| ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
+| OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Troca<br>SharePoint|
 | Operação | O nome da atividade de usuário ou administrador.  |
 | OrganizationId | O GUID do locatário do Office 365 da sua organização. Esse valor será sempre o mesmo para sua organização, independentemente do serviço do Office 365 no qual ele ocorre. |
 | RecordType | Tipo de operação executada. |
 | ResultStatus | Indica se a ação (especificada na Propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é true ou false. |
-| ID | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
+| UserId | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é populada com a PUID (ID exclusiva) do Passport para eventos executados por usuários no SharePoint, OneDrive for Business e Exchange. Essa propriedade também pode especificar o mesmo valor que a Propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| userType | O tipo de usuário que realizou a operação.<br><br>ADM<br>Candidatura<br>DcAdmin<br>Regularmente<br>Reservado<br>ServicePrincipal<br>Sistema |
+| userType | O tipo de usuário que realizou a operação.<br><br>administrador<br>Aplicação<br>DcAdmin<br>Regularmente<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Azure Active Directory
@@ -600,7 +602,7 @@ Esses registros são criados quando alterações ou adições são feitas em obj
 | Ator | O usuário ou a entidade de serviço que realizou a ação. |
 | ActorContextId | O GUID da organização ao qual o ator pertence. |
 | ActorIpAddress | O endereço IP do ator no formato de endereço IPV4 ou IPV6. |
-| Intersystemid | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
+| InterSystemsId | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
 | IntraSystemId |   O GUID gerado por Azure Active Directory para rastrear a ação. |
 | SupportTicketId | A ID do tíquete de suporte ao cliente para a ação em situações "agir em nome de". |
 | TargetContextId | O GUID da organização ao qual o usuário de destino pertence. |
@@ -628,7 +630,7 @@ Esses registros são criados quando são feitas alterações na configuração d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Trocar |
+| OfficeWorkload | Troca |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Especifica se o cmdlet foi executado por um usuário em sua organização, pela equipe do datacenter da Microsoft ou por uma conta de serviço do Datacenter ou por um administrador delegado. O valor false indica que o cmdlet foi executado por alguém em sua organização. O valor true indica que o cmdlet foi executado pela equipe do datacenter, por uma conta de serviço do Datacenter ou por um administrador delegado. |
 | ModifiedObjectResolvedName |  Esse é o nome de usuário amigável do objeto que foi modificado pelo cmdlet. Isso será registrado somente se o cmdlet modificar o objeto. |
@@ -643,7 +645,7 @@ Esses registros são criados quando alterações ou adições são feitas nas ca
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Trocar |
+| OfficeWorkload | Troca |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informações sobre o cliente de email que foi usado para executar a operação, como uma versão do navegador, versão do Outlook e informações de dispositivo móvel. |
 | Client_IPAddress | O endereço IP do dispositivo que foi usado quando a operação foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
@@ -666,7 +668,7 @@ Esses registros são criados quando uma entrada de auditoria de caixa de correio
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Trocar |
+| OfficeWorkload | Troca |
 | RecordType     | ExchangeItem |
 | Item | Representa o item no qual a operação foi executada | 
 | SendAsUserMailboxGuid | O GUID do Exchange da caixa de correio que foi acessada para enviar email como. |
@@ -681,7 +683,7 @@ Esses registros são criados quando alterações ou adições são feitas em gru
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Trocar |
+| OfficeWorkload | Troca |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Informações sobre cada item no grupo. |
 | CrossMailboxOperations | Indica se a operação envolvia mais de uma caixa de correio. |
@@ -702,11 +704,11 @@ Essas propriedades são comuns a todos os registros do SharePoint.
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
-| eventSource | Identifica que ocorreu um evento no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
-| ItemType | O tipo de objeto que foi acessado ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
+| EventSource | Identifica que ocorreu um evento no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
+| itemType | O tipo de objeto que foi acessado ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
 | MachineDomainInfo | Informações sobre operações de sincronização de dispositivo. Essas informações serão informadas apenas se estiverem presentes na solicitação. |
 | MachineId |   Informações sobre operações de sincronização de dispositivo. Essas informações serão informadas apenas se estiverem presentes na solicitação. |
-| Locais | O GUID do site em que o arquivo ou pasta acessado pelo usuário está localizado. |
+| Site_ | O GUID do site em que o arquivo ou pasta acessado pelo usuário está localizado. |
 | Source_Name | A entidade que disparou a operação auditada. Os valores possíveis são SharePoint ou ObjectModel. |
 | UserAgent | Informações sobre o cliente ou o navegador do usuário. Essas informações são fornecidas pelo cliente ou pelo navegador. |
 

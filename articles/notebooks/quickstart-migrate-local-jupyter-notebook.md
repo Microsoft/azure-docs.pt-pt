@@ -14,47 +14,47 @@ ms.locfileid: "74277471"
 
 Blocos de notas do Jupyter que criar localmente no seu próprio computador estão acessíveis apenas para si. Pode compartilhar seus arquivos por meio de diversas maneiras, mas, em seguida, os destinatários têm sua própria cópia local do bloco de notas e é difícil para incorporar todas as alterações que podem fazer. Pode também armazenar blocos de notas num repositório partilhado online, como o GitHub, mas ainda fazer isso requer que cada funcionário tem sua própria instalação local do Jupyter com a mesma configuração como sua.
 
-Ao migrar seus blocos de notas do locais ou baseada no repositório para blocos de notas do Azure, armazená-las na cloud a partir do qual pode instantaneamente partilhá-los com seus colaboradores. Os funcionários precisam apenas um browser para ver e executar o bloco de notas e se eles [iniciar sessão](quickstart-sign-in-azure-notebooks.md) para blocos de notas do Azure também fazer alterações.
+Ao migrar seus blocos de notas do locais ou baseada no repositório para blocos de notas do Azure, armazená-las na cloud a partir do qual pode instantaneamente partilhá-los com seus colaboradores. Esses colaboradores precisam apenas de um navegador para exibir e executar o bloco de anotações e, se [entrarem no](quickstart-sign-in-azure-notebooks.md) Azure notebooks eles também podem fazer alterações.
 
-Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de notas a partir de um repositório do GitHub, consulte [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md).
+Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de anotações de um repositório GitHub, consulte [início rápido: clonar um bloco de anotações](quickstart-clone-jupyter-notebook.md).
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Criar um projeto em blocos de notas do Azure
 
-1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. (Para obter detalhes, consulte [início rápido - início de sessão para blocos de notas do Azure](quickstart-sign-in-azure-notebooks.md)).
+1. Vá para [Azure notebooks](https://notebooks.azure.com) e entre. (Para obter detalhes, consulte [início rápido-entrar no Azure notebooks](quickstart-sign-in-azure-notebooks.md)).
 
-1. Na sua página de perfil público, selecione **meus projetos** na parte superior da página:
+1. Na página de seu perfil público, selecione **meus projetos** na parte superior da página:
 
     ![Meu link de projetos na parte superior da janela do browser](media/quickstarts/my-projects-link.png)
 
-1. Sobre o **meus projetos** página, selecione **+ novo projeto** (atalho de teclado: n); o botão poderá aparecer apenas como **+** se a janela do browser estreita:
+1. Na página **meus projetos** , selecione **+ novo projeto** (atalho de teclado: n); o botão pode aparecer somente como **+** se a janela do navegador for estreita:
 
     ![Comando de novo projeto na página meus projetos](media/quickstarts/new-project-command.png)
 
-1. Na **criar novo projeto** pop-up apresentado, introduza os valores adequados para o bloco de notas no qual está a migrar o **nome do projeto** e **ID de projeto** campos, desmarque a Opções de **projeto público** e **criar um README.md**, em seguida, selecione **criar**.
+1. No pop-up **criar novo projeto** que aparece, insira os valores apropriados para o bloco de anotações que você está migrando nos campos **nome do projeto** e **ID do projeto** , desmarque as opções para **projeto público** e **crie um README.MD**e, em seguida, selecione **criar**.
 
 ## <a name="upload-the-local-notebook"></a>Carregar o bloco de notas local
 
-1. Na página do projeto, selecione **carregar** (que podem aparecer como um se seta apenas se a janela do navegador é pequeno), em seguida, selecione 1. Na caixa que aparece, selecione **do computador** se o bloco de notas estiver localizado no sistema de arquivos local, ou **de URL** se seu bloco de notas se encontra online:
+1. Na página projeto, selecione **carregar** (que pode aparecer como uma seta para cima somente se a janela do navegador for pequena) e, em seguida, selecione 1. No pop-up que aparece, selecione **do computador** se o seu notebook estiver localizado no sistema de arquivos local ou **na URL** se o seu bloco de anotações estiver localizado online:
 
     ![Comando para carregar um bloco de notas de um URL ou o computador local](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Novamente, se seu bloco de notas estiver num repositório do GitHub, siga os passos [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md) em vez disso.)
+   (Novamente, se o seu notebook estiver em um repositório GitHub, siga as etapas em [início rápido: clonar um bloco de anotações](quickstart-clone-jupyter-notebook.md) em vez disso.)
 
-   - Se utilizar **de computador**, arraste e largue sua *.ipynb* ficheiros para o pop-up ou selecione o **escolher ficheiros**, em seguida, procure e selecione os ficheiros que pretende importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Não precisa de carregar o conteúdo de qualquer *.ipynb_checkpoints* pastas.)
+   - Se estiver usando o **do computador**, arraste e solte os arquivos *. ipynb* para o pop-up, ou selecione **escolher arquivos**, navegue até e selecione os arquivos que deseja importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Você não precisa carregar o conteúdo de nenhuma pasta *. ipynb_checkpoints* .)
 
      ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
 
-   - Se utilizar **de URL**, introduza o endereço de origem na **URL de ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome de ficheiro** campo. Em seguida, selecione **carregar**. Se tiver vários ficheiros com URLs separados, utilize o **+ adicionar ficheiro** comando para verificar o primeiro URL que introduziu, após o qual o pop-up fornece novos campos para outro ficheiro.
+   - Se estiver usando **da URL**, insira o endereço de origem no campo **URL do arquivo** e o nome do arquivo para atribuir ao bloco de anotações em seu projeto no campo nome do **arquivo** . Em seguida, selecione **carregar**. Se você tiver vários arquivos com URLs separadas, use o comando **+ Adicionar arquivo** para verificar a primeira URL inserida, após a qual o pop-up fornece novos campos para outro arquivo.
 
      ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
 
-1. Abra e execute seu bloco de notas recém-carregada para verificar o seu conteúdo e a operação. Quando tiver terminado, selecione **arquivo** > **interrompido e fechar** para fechar o bloco de notas.
+1. Abra e execute seu bloco de notas recém-carregada para verificar o seu conteúdo e a operação. Quando terminar, selecione **arquivo** > **parar e fechar** para fechar o bloco de anotações.
 
-1. Para partilhar uma ligação para o bloco de notas carregado, clique com botão direito no projeto e selecione o ficheiro de **copiar ligação** (atalho de teclado: y), em seguida, cole o link para a mensagem apropriada. Em alternativa, pode partilhar o projeto como um todo utilizando o **partilhar** controle na página do projeto.
+1. Para compartilhar um link para o bloco de anotações carregado, clique com o botão direito do mouse no arquivo no projeto e selecione **Copiar link** (atalho de teclado: y) e cole esse link na mensagem apropriada. Como alternativa, você pode compartilhar o projeto como um todo usando o controle de **compartilhamento** na página do projeto.
 
-1. Para editar ficheiros diferentes dos blocos de notas, clique com botão direito no projeto e selecione o ficheiro de **Editar ficheiro** (atalho de teclado: eu). A ação de predefinição **executar** (atalho de teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
+1. Para editar arquivos que não sejam blocos de anotações, clique com o botão direito do mouse no arquivo no projeto e selecione **Editar arquivo** (atalho de teclado: i). A ação padrão, **executar** (atalho de teclado: r), mostra apenas o conteúdo do arquivo e não permite edição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar uma execução de um bloco de anotações Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)

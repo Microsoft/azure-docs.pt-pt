@@ -1,23 +1,18 @@
 ---
-title: Parar ou iniciar os contêineres manualmente nas instâncias de contêiner do Azure
+title: Parar ou iniciar manualmente o grupo de contêineres
 description: Saiba como parar manualmente ou iniciar um grupo de contêineres em instâncias de contêiner do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: c7d46ad8d935e28b5a24e48c85ac2464b55b2669
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325645"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533426"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Parar ou iniciar os contêineres manualmente nas instâncias de contêiner do Azure
 
-A configuração de [diretiva](container-instances-restart-policy.md) de reinicialização de um grupo de contêineres determina como as instâncias de contêiner iniciam ou param por padrão. Você pode substituir a configuração padrão interrompendo ou iniciando manualmente um grupo de contêineres.
+A configuração de [diretiva de reinicialização](container-instances-restart-policy.md) de um grupo de contêineres determina como as instâncias de contêiner iniciam ou param por padrão. Você pode substituir a configuração padrão interrompendo ou iniciando manualmente um grupo de contêineres.
 
 ## <a name="stop"></a>Parar
 
@@ -29,7 +24,7 @@ Quando os contêineres são reciclados, os [recursos](container-instances-contai
 
 A ação de parada não terá efeito se o grupo de contêineres já tiver sido encerrado (está em um estado de êxito ou falha). Por exemplo, um grupo de contêineres com tarefas de contêiner de execução única que foram executadas com êxito termina no estado com êxito. As tentativas de parar o grupo nesse estado não alteram o estado. 
 
-## <a name="start"></a>Start
+## <a name="start"></a>Iniciar
 
 Quando um grupo de contêineres é interrompido – porque os contêineres terminam sozinhos ou você interrompeu manualmente o grupo – você pode iniciar os contêineres. Por exemplo, use o comando [AZ container Start][az-container-start] ou portal do Azure para iniciar manualmente os contêineres no grupo. Se a imagem de contêiner de qualquer contêiner for atualizada, uma nova imagem será retirada. 
 
@@ -41,7 +36,7 @@ Depois de iniciar ou reiniciar um grupo de contêineres manualmente, o grupo de 
   
 ## <a name="restart"></a>Reiniciar
 
-Você pode reiniciar um grupo de contêineres enquanto ele está em execução-por exemplo, usando o comando [AZ container][az-container-restart] restart. Esta ação reinicia todos os contêineres no grupo de contêineres. Se a imagem de contêiner de qualquer contêiner for atualizada, uma nova imagem será retirada. 
+Você pode reiniciar um grupo de contêineres enquanto ele está em execução-por exemplo, usando o comando [AZ container Restart][az-container-restart] . Esta ação reinicia todos os contêineres no grupo de contêineres. Se a imagem de contêiner de qualquer contêiner for atualizada, uma nova imagem será retirada. 
 
 A reinicialização de um grupo de contêineres é útil quando você deseja solucionar um problema de implantação. Por exemplo, se uma limitação de recursos temporários impedir que os contêineres sejam executados com êxito, reiniciar o grupo poderá resolver o problema.
 
@@ -49,9 +44,9 @@ Todos os contêineres em um grupo de contêineres são reiniciados por essa aç�
 
 Depois de reiniciar manualmente um grupo de contêineres, o grupo de contêineres é executado de acordo com a política de reinicialização configurada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [as configurações de política](container-instances-restart-policy.md) de reinicialização nas instâncias de contêiner do Azure.
+Saiba mais sobre [as configurações de política de reinicialização](container-instances-restart-policy.md) nas instâncias de contêiner do Azure.
 
 Além de parar e iniciar manualmente um grupo de contêineres com a configuração existente, você pode [atualizar as configurações](container-instances-update.md) de um grupo de contêineres em execução.
 

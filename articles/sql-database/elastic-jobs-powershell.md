@@ -22,7 +22,7 @@ ms.locfileid: "74420365"
 
 As [tarefas elásticas](sql-database-job-automation-overview.md#elastic-database-jobs-preview) permitem a execução de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
 
-In this tutorial, you learn the steps required to run a query across multiple databases:
+Neste tutorial, você aprende as etapas necessárias para executar uma consulta em vários bancos de dados:
 
 > [!div class="checklist"]
 > * Criar um agente de Tarefa Elástica
@@ -36,13 +36,13 @@ In this tutorial, you learn the steps required to run a query across multiple da
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlets for use during migration. These new cmdlets transfer all of your existing job credentials, targets (including databases, servers, custom collections), job triggers, job schedules, job contents, and jobs over to a new Elastic Job agent.
+A versão atualizada do trabalhos de Banco de Dados Elástico tem um novo conjunto de cmdlets do PowerShell para uso durante a migração. Esses novos cmdlets transferem todas as suas credenciais de trabalho existentes, destinos (incluindo bancos de dados, servidores, coleções personalizadas), gatilhos de trabalho, agendas de trabalho, conteúdos de trabalho e trabalhos para um novo agente de trabalho elástico.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Install the latest Elastic Jobs cmdlets
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalar os cmdlets de trabalhos elásticos mais recentes
 
 Se ainda não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Install the **Az.Sql** module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with administrative access.
+Instale o módulo **AZ. SQL** para obter os cmdlets de trabalho elástico mais recentes. Execute os comandos a seguir no PowerShell com acesso administrativo.
 
 ```powershell
 # installs the latest PackageManagement and PowerShellGet packages
@@ -58,13 +58,13 @@ Import-Module Az.Sql
 Get-Module Az.Sql
 ```
 
-In addition to the **Az.Sql** module, this tutorial also requires the *SqlServer* PowerShell module. For details, see [Install SQL Server PowerShell module](/sql/powershell/download-sql-server-ps-module).
+Além do módulo **AZ. SQL** , este tutorial também requer o módulo PowerShell do *SqlServer* . Para obter detalhes, consulte [instalar SQL Server PowerShell Module](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Criar os recursos necessários
 
 A criação de um agente de Tarefa Elástica requer uma base de dados (S0 ou superior) para utilização como [base de dados de Tarefa](sql-database-job-automation-overview.md#job-database).
 
-The script below creates a new resource group, server, and database for use as the Job database. The second script creates a second server with two blank databases to execute jobs against.
+O script a seguir cria um novo grupo de recursos, servidor e banco de dados para uso como o banco de dados de trabalho. O segundo script cria um segundo servidor com dois bancos de dados em branco para executar trabalhos.
 
 As tarefas elásticas não têm requisitos de nomenclatura específicos, pelo que pode utilizar quaisquer convenções de nomenclatura que queira, desde que estejam em conformidade com os [requisitos do Azure](/azure/architecture/best-practices/resource-naming).
 
@@ -122,9 +122,9 @@ $db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targ
 $db2
 ```
 
-## <a name="use-elastic-jobs"></a>Use Elastic Jobs
+## <a name="use-elastic-jobs"></a>Usar trabalhos elásticos
 
-To use Elastic Jobs, register the feature in your Azure subscription by running the following command. Run this command once for the subscription in which you intend to provision the Elastic Job agent. Subscriptions that only contain databases that are job targets don't need to be registered.
+Para usar trabalhos elásticos, registre o recurso em sua assinatura do Azure executando o comando a seguir. Execute esse comando uma vez para a assinatura na qual você pretende provisionar o agente de trabalho elástico. As assinaturas que contêm apenas bancos de dados que são destinos de trabalho não precisam ser registradas.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -134,7 +134,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 Um agente de Tarefa Elástica é um recurso do Azure para criar, executar e gerir tarefas. O agente executa tarefas com base num agendamento ou como uma tarefa única.
 
-The **New-AzSqlElasticJobAgent** cmdlet requires an Azure SQL database to already exist, so the *resourceGroupName*, *serverName*, and *databaseName* parameters must all point to existing resources.
+O cmdlet **New-AzSqlElasticJobAgent** requer que um banco de dados SQL do Azure já exista, portanto, os parâmetros *resourceGroupName*, *ServerName*e *DatabaseName* devem apontar para os recursos existentes.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -143,15 +143,15 @@ $jobAgent = $jobDatabase | New-AzSqlElasticJobAgent -Name $agentName
 $jobAgent
 ```
 
-### <a name="create-the-job-credentials"></a>Create the job credentials
+### <a name="create-the-job-credentials"></a>Criar as credenciais do trabalho
 
-Jobs use database scoped credentials to connect to the target databases specified by the target group upon execution and execute scripts. Estas credenciais com âmbito de base de dados também são utilizadas para ligar à base de dados mestra para enumerar todas as bases de dados num servidor ou conjunto elástico, quando qualquer um destes for utilizado como tipo de membro do grupo de destino.
+Os trabalhos usam as credenciais no escopo do banco de dados para se conectar aos banco de dados de destino especificados pelo grupo de destino na execução e executar scripts. Estas credenciais com âmbito de base de dados também são utilizadas para ligar à base de dados mestra para enumerar todas as bases de dados num servidor ou conjunto elástico, quando qualquer um destes for utilizado como tipo de membro do grupo de destino.
 
 As credenciais com âmbito de base de dados têm de ser criadas na base de dados de tarefa. Todas as bases de dados de destino precisam de um início de sessão com permissões suficientes para a tarefa ser concluída com êxito.
 
 ![Credenciais de Tarefas Elásticas](media/elastic-jobs-overview/job-credentials.png)
 
-Além das credenciais na imagem, tenha em atenção a adição dos comandos **GRANT** no script seguinte. Estas permissões são necessárias para o script que escolhemos para esta tarefa de exemplo. Because the example creates a new table in the targeted databases, each target db needs the proper permissions to successfully run.
+Além das credenciais na imagem, tenha em atenção a adição dos comandos **GRANT** no script seguinte. Estas permissões são necessárias para o script que escolhemos para esta tarefa de exemplo. Como o exemplo cria uma nova tabela nos bancos de dados direcionados, cada BD de destino precisa das permissões apropriadas para ser executada com êxito.
 
 Para criar as credenciais de tarefa necessárias (na base de dados de tarefa), execute o seguinte script:
 
@@ -200,11 +200,11 @@ $jobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -Arg
 $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $jobCred
 ```
 
-### <a name="define-the-target-databases-to-run-the-job-against"></a>Define the target databases to run the job against
+### <a name="define-the-target-databases-to-run-the-job-against"></a>Definir os bancos de dados de destino para executar o trabalho
 
 Um [grupo de destino](sql-database-job-automation-overview.md#target-group) define o conjunto de um ou mais bases de dados onde será executado um passo de tarefa.
 
-The following snippet creates two target groups: *serverGroup*, and *serverGroupExcludingDb2*. *serverGroup* targets all databases that exist on the server at the time of execution, and *serverGroupExcludingDb2* targets all databases on the server, except *targetDb2*:
+O trecho a seguir cria dois grupos de destino: *ServerGroup*e *serverGroupExcludingDb2*. o *ServerGroup* tem como destino todos os bancos de dados existentes no servidor no momento da execução e o *serverGroupExcludingDb2* se destina a todos os bancos de dados no servidor, exceto *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -218,9 +218,9 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerName -Database $db2.DatabaseName -Exclude
 ```
 
-### <a name="create-a-job-and-steps"></a>Create a job and steps
+### <a name="create-a-job-and-steps"></a>Criar um trabalho e etapas
 
-This example defines a job and two job steps for the job to run. O primeiro passo de tarefa (*step1*) cria uma nova tabela (*Step1Table*) em cada base de dados no grupo de destino *ServerGroup*. The second job step (*step2*) creates a new table (*Step2Table*) in every database except for *TargetDb2*, because the target group defined previously specified to exclude it.
+Este exemplo define um trabalho e duas etapas de trabalho para que o trabalho seja executado. O primeiro passo de tarefa (*step1*) cria uma nova tabela (*Step1Table*) em cada base de dados no grupo de destino *ServerGroup*. A segunda etapa de trabalho (*etapa 2*) cria uma nova tabela (*Step2Table*) em cada banco de dados, exceto *TargetDb2*, porque o grupo de destino definido anteriormente foi especificado para excluí-lo.
 
 ```powershell
 Write-Output "Creating a new job..."
@@ -250,7 +250,7 @@ Após a conclusão com êxito, deve ver duas novas tabelas em TargetDb1 e apenas
 
    ![verificação de novas tabelas no SSMS](media/elastic-jobs-overview/job-execution-verification.png)
 
-You can also schedule the job to run later. Para agendar uma tarefa para ser executada num momento específico, execute o seguinte comando:
+Você também pode agendar o trabalho para ser executado posteriormente. Para agendar uma tarefa para ser executada num momento específico, execute o seguinte comando:
 
 ```powershell
 # run every hour starting from now
@@ -272,27 +272,27 @@ $jobExecution | Get-AzSqlElasticJobStepExecution
 $jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-The following table lists the possible job execution states:
+A tabela a seguir lista os Estados de execução de trabalho possíveis:
 
 |Estado|Descrição|
 |:---|:---|
-|**Created** | The job execution was just created and is not yet in progress.|
-|**InProgress** | The job execution is currently in progress.|
-|**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
-|**Succeeded** | The job execution has completed successfully.|
-|**SucceededWithSkipped** | The job execution has completed successfully, but some of its children were skipped.|
-|**Failed** | The job execution has failed and exhausted its retries.|
-|**TimedOut** | The job execution has timed out.|
-|**Canceled** | The job execution was canceled.|
-|**Ignorado** | The job execution was skipped because another execution of the same job step was already running on the same target.|
-|**WaitingForChildJobExecutions** | The job execution is waiting for its child executions to complete.|
+|**Criação** | A execução do trabalho acabou de ser criada e ainda não está em andamento.|
+|**InProgress** | A execução do trabalho está atualmente em andamento.|
+|**WaitingForRetry** | A execução do trabalho não pôde concluir sua ação e está aguardando para tentar novamente.|
+|**Foi** | A execução do trabalho foi concluída com êxito.|
+|**SucceededWithSkipped** | A execução do trabalho foi concluída com êxito, mas alguns de seus filhos foram ignorados.|
+|**Falha ao** | A execução do trabalho falhou e esgotou suas tentativas.|
+|**TimedOut** | A execução do trabalho atingiu o tempo limite.|
+|**Cancel** | A execução do trabalho foi cancelada.|
+|**Ignorado** | A execução do trabalho foi ignorada porque outra execução da mesma etapa de trabalho já estava em execução no mesmo destino.|
+|**WaitingForChildJobExecutions** | A execução do trabalho está aguardando a conclusão de suas execuções filhas.|
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Elimine os recursos do Azure criados neste tutorial ao eliminar o grupo de recursos.
 
 > [!TIP]
-> If you plan to continue to work with these jobs, you do not clean up the resources created in this article.
+> Se você planeja continuar a trabalhar com esses trabalhos, não limpe os recursos criados neste artigo.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

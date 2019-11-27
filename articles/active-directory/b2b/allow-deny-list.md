@@ -41,7 +41,7 @@ Esse é o cenário mais típico, em que sua organização deseja trabalhar com q
 
 Para adicionar uma lista de negações:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **usuários** > **configurações do usuário**.
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **restrições de colaboração**, selecione **negar convites para os domínios especificados**.
@@ -49,7 +49,7 @@ Para adicionar uma lista de negações:
 
    ![Mostra a opção Deny com domínios adicionados](./media/allow-deny-list/DenyListSettings.png)
  
-6. Quando tiver terminado, clique em **guardar**.
+6. Quando terminar, clique em **salvar**.
 
 Depois de definir a política, se você tentar convidar um usuário de um domínio bloqueado, receberá uma mensagem informando que o domínio do usuário está bloqueado no momento pela sua política de convite.
  
@@ -62,7 +62,7 @@ Se você quiser usar uma lista de permissões, certifique-se de que você gaste 
 
 Para adicionar uma lista de permissões:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **usuários** > **configurações do usuário**.
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **restrições de colaboração**, selecione **permitir convites somente para os domínios especificados (mais restritivo)** .
@@ -70,7 +70,7 @@ Para adicionar uma lista de permissões:
 
    ![Mostra a opção Allow com domínios adicionados](./media/allow-deny-list/AllowListSettings.png)
  
-6. Quando tiver terminado, clique em **guardar**.
+6. Quando terminar, clique em **salvar**.
 
 Depois de definir a política, se você tentar convidar um usuário de um domínio que não está na lista de permissões, você receberá uma mensagem informando que o domínio do usuário está bloqueado no momento pela sua política de convite.
 

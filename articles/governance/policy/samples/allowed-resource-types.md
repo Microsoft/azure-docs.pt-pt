@@ -1,6 +1,6 @@
 ---
-title: Sample - Allowed resource types
-description: This sample policy definition ensures only approved resource types defined in a parameter are deployed.
+title: Exemplo-tipos de recursos permitidos
+description: Essa definição de política de exemplo garante que apenas os tipos de recursos aprovados definidos em um parâmetro sejam implantados.
 ms.date: 01/23/2019
 ms.topic: sample
 ms.openlocfilehash: 5fdf17ff037aaf6f8094bb811e2e6e5a61093250
@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463415"
 ---
-# <a name="sample---allowed-resource-types"></a>Sample - Allowed resource types
+# <a name="sample---allowed-resource-types"></a>Exemplo-tipos de recursos permitidos
 
 Esta política assegura que apenas os tipos de recursos aprovados são implementados. Especifica uma matriz dos tipos de recursos que são permitidos.
 
@@ -24,9 +24,9 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-resourcetypes%2Fazurepolicy.json)
+[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-resourcetypes%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>Implementar com o Powershell
+## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -45,7 +45,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -65,4 +65,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

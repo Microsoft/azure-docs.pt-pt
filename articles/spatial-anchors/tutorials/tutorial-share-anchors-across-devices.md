@@ -58,7 +58,7 @@ Você precisará criar um grupo de recursos e um plano do serviço de aplicativo
 
 Navegue até o <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> e entre em sua assinatura do Azure.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 

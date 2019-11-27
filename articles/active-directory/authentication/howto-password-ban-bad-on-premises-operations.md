@@ -1,6 +1,6 @@
 ---
-title: Password protection operations and reports - Azure Active Directory
-description: Azure AD Password Protection post-deployment operations and reporting
+title: Operações e relatórios de proteção por senha-Azure Active Directory
+description: Operações de pós-implantação e relatórios de proteção de senha do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,50 +18,50 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381671"
 ---
-# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD Password Protection operational procedures
+# <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção por senha do Azure AD
 
-After you have completed the [installation of Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md) on-premises, there are a couple items that must be configured in the Azure portal.
+Depois de concluir a [instalação da proteção de senha do Azure ad](howto-password-ban-bad-on-premises-deploy.md) local, há alguns itens que devem ser configurados no portal do Azure.
 
-## <a name="configure-the-custom-banned-password-list"></a>Configure the custom banned password list
+## <a name="configure-the-custom-banned-password-list"></a>Configurar a lista personalizada de senhas banidas
 
-Follow the guidance in the article [Configuring the custom banned password list](howto-password-ban-bad-configure.md) for steps to customize the banned password list for your organization.
+Siga as orientações no artigo [Configurando a lista de senhas excluídas personalizadas](howto-password-ban-bad-configure.md) para obter as etapas para personalizar a lista de senhas banidas para sua organização.
 
-## <a name="enable-password-protection"></a>Enable Password Protection
+## <a name="enable-password-protection"></a>Habilitar proteção por senha
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password Protection**.
-1. Set **Enable Password Protection on Windows Server Active Directory** to **Yes**
-1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
-   * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, métodos de **autenticação**e proteção por **senha**.
+1. Defina **habilitar proteção por senha no Windows Server Active Directory** como **Sim**
+1. Conforme mencionado no [Guia de implantação](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), é recomendável definir inicialmente o **modo** como **auditoria**
+   * Depois de se sentir confortável com o recurso, você pode alternar o **modo** para **imposto**
 1. Clicar em **Guardar**
 
-![Enabling Azure AD Password Protection components in the Azure portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+![Habilitando componentes de proteção de senha do Azure AD no portal do Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
-## <a name="audit-mode"></a>Audit Mode
+## <a name="audit-mode"></a>Modo de auditoria
 
-Audit mode is intended as a way to run the software in a “what if” mode. Each DC agent service evaluates an incoming password according to the currently active policy. If the current policy is configured to be in Audit mode, “bad” passwords result in event log messages but are accepted. This is the only difference between Audit and Enforce mode; all other operations run the same.
+O modo de auditoria é projetado como uma maneira de executar o software em um modo "e se". Cada serviço de agente de DC avalia uma senha de entrada de acordo com a política ativa no momento. Se a política atual estiver configurada para estar no modo de auditoria, as senhas "incorretas" resultarão em mensagens do log de eventos, mas serão aceitas. Essa é a única diferença entre o modo de auditoria e de aplicação; todas as outras operações são executadas da mesma.
 
 > [!NOTE]
-> Microsoft recommends that initial deployment and testing always start out in Audit mode. Events in the event log should then be monitored to try to anticipate whether any existing operational processes would be disturbed once Enforce mode is enabled.
+> A Microsoft recomenda que a implantação inicial e o teste sempre sejam iniciados no modo de auditoria. Os eventos no log de eventos devem ser monitorados para tentar antecipar se os processos operacionais existentes seriam incomodados quando o modo imposição for habilitado.
 
-## <a name="enforce-mode"></a>Enforce Mode
+## <a name="enforce-mode"></a>Impor modo
 
-Enforce mode is intended as the final configuration. As in Audit mode above, each DC agent service evaluates incoming passwords according to the currently active policy. If Enforce mode is enabled though, a password that is considered unsecure according to the policy is rejected.
+O modo impor é destinado à configuração final. Como no modo de auditoria acima, cada serviço de agente de DC avalia as senhas de entrada de acordo com a política ativa no momento. No entanto, se o modo impor for habilitado, uma senha considerada não segura de acordo com a política será rejeitada.
 
-When a password is rejected in Enforce mode by the Azure AD Password Protection DC Agent, the visible impact seen by an end user is identical to what they would see if their password was rejected by traditional on-premises password complexity enforcement. For example, a user might see the following traditional error message at the Windows logon\change password screen:
+Quando uma senha é rejeitada no modo impor pelo agente DC da proteção de senha do Azure AD, o impacto visível visto por um usuário final é idêntico ao que eles veriam se sua senha fosse rejeitada pela imposição de complexidade de senha local tradicional. Por exemplo, um usuário pode ver a seguinte mensagem de erro tradicional na tela de senha do Windows logon\change:
 
 `Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
 
-This message is only one example of several possible outcomes. The specific error message can vary depending on the actual software or scenario that is attempting to set an unsecure password.
+Essa mensagem é apenas um exemplo de vários resultados possíveis. A mensagem de erro específica pode variar dependendo do software real ou do cenário que está tentando definir uma senha não segura.
 
-Affected end users may need to work with their IT staff to understand the new requirements and be more able to choose secure passwords.
+Os usuários finais afetados podem precisar trabalhar com a equipe de ti para entender os novos requisitos e ser mais capazes de escolher senhas seguras.
 
 > [!NOTE]
-> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
+> A proteção por senha do Azure AD não tem controle sobre a mensagem de erro específica exibida pelo computador cliente quando uma senha fraca é rejeitada.
 
-## <a name="enable-mode"></a>Enable Mode
+## <a name="enable-mode"></a>Modo de habilitação
 
-This setting should be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD Password Protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
+Essa configuração deve ser deixada em seu estado padrão habilitado (Sim). Definir essa configuração como desabilitada (não) fará com que todos os agentes de DC da proteção de senha do Azure AD implantados entrem em um modo inativo em que todas as senhas sejam aceitas como estão, e nenhuma atividade de validação será executada de qualquer forma (por exemplo, nem mesmo eventos de auditoria será emitido).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Monitoring for Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md)
+[Monitoramento da proteção de senha do Azure AD](howto-password-ban-bad-on-premises-monitor.md)

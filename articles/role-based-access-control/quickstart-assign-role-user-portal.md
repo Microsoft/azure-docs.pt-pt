@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Grant a user access to Azure resources using RBAC and the Azure portal
-description: In this tutorial, learn how to grant a user access to Azure resources using role-based access control (RBAC) in the Azure portal.
+title: Tutorial – conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure
+description: Neste tutorial, saiba como conceder a um usuário acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função) no portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -20,14 +20,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74419660"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you grant a user access to create and manage virtual machines in a resource group.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Neste tutorial, você concede a um usuário acesso para criar e gerenciar máquinas virtuais em um grupo de recursos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Grant access for a user at a resource group scope
+> * Conceder acesso para um usuário em um escopo de grupo de recursos
 > * Remover o acesso
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -36,21 +36,21 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
-1. In the navigation list, click **Resource groups**.
+1. Na lista de navegação, clique em **grupos de recursos**.
 
-1. Click **Add** to open the **Resource group** blade.
+1. Clique em **Adicionar** para abrir a folha **grupo de recursos** .
 
    ![Adicionar um novo grupo de recursos](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. For **Resource group name**, enter **rbac-resource-group**.
+1. Para **nome do grupo de recursos**, digite **RBAC-Resource-Group**.
 
 1. Selecione uma subscrição e uma localização.
 
-1. Click **Create** to create the resource group.
+1. Clique em **criar** para criar o grupo de recursos.
 
-1. Click **Refresh** to refresh the list of resource groups.
+1. Clique em **Atualizar** para atualizar a lista de grupos de recursos.
 
    O novo grupo de recursos é apresentado na lista de grupos de recursos.
 
@@ -60,29 +60,29 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 No RBAC, para conceder acesso, crie uma atribuição de função.
 
-1. In the list of **Resource groups**, click the new **rbac-resource-group** resource group.
+1. Na lista de **grupos de recursos**, clique no grupo de recursos novo **RBAC-Resource-Group** .
 
 1. Clique em **Controlo de acesso (IAM)** .
 
-1. Click the **Role assignments** tab to see the current list of role assignments.
+1. Clique na guia **atribuições de função** para ver a lista atual de atribuições de função.
 
    ![Painel Controlo de acesso (IAM) para grupo de recursos](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
+1. Clique em **adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
-   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+   Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desabilitada.
 
-   ![Add menu](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
 
-   ![Add role assignment pane](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
+   ![Adicionar painel de atribuição de função](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
 1. Na lista pendente **Função**, selecione **Contribuidor de Máquina Virtual**.
 
 1. Na lista **Selecionar**, selecione-se a si mesmo ou outro utilizador.
 
-1. Click **Save** to create the role assignment.
+1. Clique em **salvar** para criar a atribuição de função.
 
-   After a few moments, the user is assigned the Virtual Machine Contributor role at the rbac-resource-group resource group scope.
+   Após alguns instantes, o usuário recebe a função de colaborador da máquina virtual no escopo do grupo de recursos RBAC-Resource-Group.
 
    ![Atribuição da função Contribuidor de Máquina Virtual](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
@@ -90,29 +90,29 @@ No RBAC, para conceder acesso, crie uma atribuição de função.
 
 No RBAC, para remover o acesso, remova uma atribuição de função.
 
-1. In the list of role assignments, add a checkmark next to the user with the Virtual Machine Contributor role.
+1. Na lista de atribuições de função, adicione uma marca de seleção ao lado do usuário com a função colaborador da máquina virtual.
 
-1. Click **Remove**.
+1. Clique em **remover**.
 
    ![Mensagem Remover atribuição de função](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. In the remove role assignment message that appears, click **Yes**.
+1. Na mensagem remover atribuição de função exibida, clique em **Sim**.
 
 ## <a name="clean-up"></a>Limpeza
 
-1. In the navigation list, click **Resource groups**.
+1. Na lista de navegação, clique em **grupos de recursos**.
 
-1. Click **rbac-resource-group** to open the resource group.
+1. Clique em **RBAC – grupo de recursos** para abrir o grupo de recursos.
 
-1. Click **Delete resource group** to delete the resource group.
+1. Clique em **excluir grupo de recursos** para excluir o grupo de recursos.
 
    ![Eliminar grupo de recursos](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
-1. On the **Are you sure you want to delete** blade, type the resource group name: **rbac-resource-group**.
+1. Na folha **tem certeza de que deseja excluir** , digite o nome do grupo de recursos: **RBAC-Resource-Group**.
 
-1. Click **Delete** to delete the resource group.
+1. Clique em **excluir** para excluir o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: conceder a um usuário acesso aos recursos do Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-user-powershell.md)

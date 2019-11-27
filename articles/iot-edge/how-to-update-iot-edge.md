@@ -1,6 +1,6 @@
 ---
-title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs
-description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
+title: Versão da atualização do IoT Edge em dispositivos - Azure IoT Edge | Documentos da Microsoft
+description: Como atualizar os dispositivos de IoT Edge para executar as versões mais recentes do daemon de segurança e o runtime do IoT Edge
 keywords: ''
 author: kgremban
 manager: philmea
@@ -16,82 +16,82 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456540"
 ---
-# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Update the IoT Edge security daemon and runtime
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>O daemon de segurança de IoT Edge e o tempo de execução de atualização
 
-As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available. 
+Como o serviço de IoT Edge libera novas versões, convém atualizar seus dispositivos de IoT Edge para os recursos e aprimoramentos de segurança mais recentes. Este artigo fornece informações sobre como atualizar os seus dispositivos IoT Edge quando uma nova versão estiver disponível. 
 
-Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security daemon, which runs on the device and starts the runtime modules when the device starts. Currently, the security daemon can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely. 
+Dois componentes de um dispositivo IoT Edge precisam ser atualizados, se pretender mover para uma versão mais recente. O primeiro é o daemon de segurança, que é executado no dispositivo e inicia os módulos de tempo de execução quando o dispositivo é iniciado. Atualmente, o daemon de segurança só pode ser atualizado partir do próprio dispositivo. O segundo componente é o tempo de execução, composto dos módulos IoT Edge Hub e IoT Edge Agent. Dependendo da forma como estrutura sua implementação, o tempo de execução pode ser atualizado do dispositivo ou remotamente. 
 
-To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+Para encontrar a versão mais recente do Azure IoT Edge, consulte [Azure IOT Edge versões](https://github.com/Azure/azure-iotedge/releases).
 
-## <a name="update-the-security-daemon"></a>Update the security daemon
+## <a name="update-the-security-daemon"></a>Atualizar o daemon de segurança
 
-The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device. 
+O daemon de segurança de IoT Edge é um componente nativo que tem de ser atualizado utilizando o Gestor de pacotes do dispositivo IoT Edge. 
 
-Check the version of the security daemon running on your device by using the command `iotedge version`. 
+Verifique a versão do daemon de segurança em execução no seu dispositivo usando o comando `iotedge version`. 
 
-### <a name="linux-devices"></a>Linux devices
+### <a name="linux-devices"></a>Dispositivos do Linux
 
-On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon. 
+Em dispositivos Linux x64, use apt-get ou o Gerenciador de pacotes apropriado para atualizar o daemon de segurança. 
 
 ```bash
 apt-get update
 apt-get install libiothsm iotedge
 ```
 
-On Linux ARM32 devices, use the steps in [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) to install the latest version of the security daemon. 
+Em dispositivos Linux ARM32, use as etapas em [instalar Azure IOT Edge Runtime no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) para instalar a versão mais recente do daemon de segurança. 
 
-### <a name="windows-devices"></a>Windows devices
+### <a name="windows-devices"></a>Dispositivos Windows
 
-On Windows devices, use the PowerShell script to update the security daemon. The script automatically pulls the latest version of the security daemon. 
+Em dispositivos Windows, use o script do PowerShell para atualizar o daemon de segurança. O script obtém automaticamente a versão mais recente do daemon de segurança. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Running the Update-IoTEdge command removes the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine (if you're using Windows containers). Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process. 
+A execução do comando Update-IoTEdge remove o daemon de segurança do seu dispositivo, juntamente com as duas imagens de contêiner de tempo de execução. O arquivo config. YAML é mantido no dispositivo, bem como os dados do mecanismo de contêiner do Moby (se você estiver usando contêineres do Windows). Manter as informações de configuração significa que você não precisa fornecer à cadeia de conexão ou às informações do serviço de provisionamento de dispositivos para seu dispositivo novamente durante o processo de atualização. 
 
-If you want to install a specific version of the security daemon, download the appropriate Microsoft-Azure-IoTEdge.cab file from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). Then, use the `-OfflineInstallationPath` parameter to point to the file location. For more information, see [Offline installation](how-to-install-iot-edge-windows.md#offline-installation).
+Se você quiser instalar uma versão específica do daemon de segurança, baixe o arquivo Microsoft-Azure-IoTEdge. cab apropriado em [versões IOT Edge](https://github.com/Azure/azure-iotedge/releases). Em seguida, use o parâmetro `-OfflineInstallationPath` para apontar para o local do arquivo. Para obter mais informações, consulte [instalação offline](how-to-install-iot-edge-windows.md#offline-installation).
 
-## <a name="update-the-runtime-containers"></a>Update the runtime containers
+## <a name="update-the-runtime-containers"></a>Atualizar os contentores de tempo de execução
 
-The way that you update the IoT Edge agent and IoT Edge hub containers depends on whether you use rolling tags (like 1.0) or specific tags (like 1.0.7) in your deployment. 
+A maneira como você atualiza o agente de IoT Edge e os contêineres de IoT Edge Hub depende se você usa marcas sem interrupção (como 1,0) ou marcas específicas (como 1.0.7) em sua implantação. 
 
-Check the version of the IoT Edge agent and IoT Edge hub modules currently on your device using the commands `iotedge logs edgeAgent` or `iotedge logs edgeHub`. 
+Verifique a versão do agente de IoT Edge e IoT Edge módulos de Hub no momento em seu dispositivo usando os comandos `iotedge logs edgeAgent` ou `iotedge logs edgeHub`. 
 
-  ![Find container version in logs](./media/how-to-update-iot-edge/container-version.png)
+  ![Encontrar a versão do contentor nos registos](./media/how-to-update-iot-edge/container-version.png)
 
-### <a name="understand-iot-edge-tags"></a>Understand IoT Edge tags
+### <a name="understand-iot-edge-tags"></a>Compreenda as marcas de IoT Edge
 
-The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images: 
+As imagens do IoT Edge Agent e do IoT Edge Hub são marcadas com a versão do IoT Edge à qual estão associadas. Existem duas formas diferentes de utilizar etiquetas com as imagens de tempo de execução: 
 
-* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.0 is updated whenever there's a new release to point to the latest 1.0.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. This approach is suggested for development purposes. Deployments from the Azure portal default to rolling tags. 
-* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.0.7 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. This approach is suggested for production purposes.
+* **Marcas sem interrupção** – Use apenas os dois primeiros valores do número de versão para obter a imagem mais recente que corresponde a esses dígitos. Por exemplo, 1.0 é atualizada sempre que houver uma nova versão para apontar para a versão mais recente do 1.0.x. Se o tempo de execução do contentor no seu dispositivo IoT Edge extraí a imagem, os módulos de tempo de execução são atualizados para a versão mais recente. Essa abordagem é sugerida para fins de desenvolvimento. Implementações a partir da predefinição do portal do Azure para implementar as etiquetas. 
+* **Marcas específicas** – use todos os três valores do número de versão para definir explicitamente a versão da imagem. Por exemplo, 1.0.7 não será alterado após sua versão inicial. É possível declarar um novo número de versão no manifesto de implantação, quando estiver pronto para atualizar. Essa abordagem é sugerida para fins de produção.
 
-### <a name="update-a-rolling-tag-image"></a>Update a rolling tag image
+### <a name="update-a-rolling-tag-image"></a>Atualizar uma imagem de marca sem interrupção
 
-If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0**) then you need to force the container runtime on your device to pull the latest version of the image. 
+Se você usar marcas sem interrupção em sua implantação (por exemplo, mcr.microsoft.com/azureiotedge-hub:**1,0**), precisará forçar o tempo de execução do contêiner em seu dispositivo para efetuar pull da versão mais recente da imagem. 
 
-Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security daemon also removes the runtime images, so you don't need to take this step again. 
+Elimine a versão local da imagem do seu dispositivo IoT Edge. Em computadores Windows, a desinstalação do daemon de segurança também remove as imagens de tempo de execução, portanto, você não precisa executar esta etapa novamente. 
 
 ```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
 docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
 ```
 
-You may need to use the force `-f` flag to remove the images. 
+Talvez seja necessário usar o sinalizador Force `-f` para remover as imagens. 
 
-The IoT Edge service will pull the latest versions of the runtime images and automatically start them on your device again. 
+O serviço de IoT Edge irá extrair as versões mais recentes das imagens de tempo de execução e automaticamente iniciá-los no seu dispositivo novamente. 
 
-### <a name="update-a-specific-tag-image"></a>Update a specific tag image
+### <a name="update-a-specific-tag-image"></a>Atualizar uma imagem da etiqueta específica
 
-If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.7**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device. 
+Se você usar marcas específicas em sua implantação (por exemplo, mcr.microsoft.com/azureiotedge-hub:**1.0.7**), tudo o que você precisa fazer é atualizar a marca em seu manifesto de implantação e aplicar as alterações ao seu dispositivo. 
 
-In the Azure portal, the runtime deployment images are declared in the **Configure advanced Edge Runtime settings** section. 
+No portal do Azure, as imagens de implantação de tempo de execução são declaradas na seção **Configurar configurações de tempo de execução avançadas do Edge** . 
 
-![Configure advanced edge runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
+![Definir configurações avançadas de tempo de execução do Edge](./media/how-to-update-iot-edge/configure-runtime.png)
 
-In a JSON deployment manifest, update the module images in the **systemModules** section. 
+Em um manifesto de implantação JSON, atualize as imagens de módulo na seção **systemModules** . 
 
 ```json
 "systemModules": {
@@ -114,19 +114,19 @@ In a JSON deployment manifest, update the module images in the **systemModules**
 },
 ```
 
-## <a name="update-to-a-release-candidate-version"></a>Update to a release candidate version
+## <a name="update-to-a-release-candidate-version"></a>Atualizar para uma versão Release Candidate
 
-Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through the testing and validation processes required for a stable release. If you want to test a new feature early, you can install the RC version and provide feedback through GitHub. 
+Azure IoT Edge lança regularmente novas versões do serviço de IoT Edge. Antes de cada versão estável, há uma ou mais versões RC (Release Candidate). As versões RC incluem todos os recursos planejados para a versão, mas ainda passam pelos processos de teste e validação necessários para uma versão estável. Se você quiser testar um novo recurso antecipadamente, poderá instalar a versão RC e fornecer comentários por meio do GitHub. 
 
-Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.0.7-rc1** and **1.0.7-rc2**, the two release candidates that came before **1.0.7**. You can also see that RC versions are marked with **pre-release** labels. 
+As versões Release Candidate seguem a mesma convenção de numeração de versões, mas têm **-RC** mais um número incremental acrescentado ao final. Você pode ver os candidatos à versão na mesma lista de [versões de Azure IOT Edge](https://github.com/Azure/azure-iotedge/releases) como as versões estáveis. Por exemplo, encontre **1.0.7-RC1** e **1.0.7-RC2**, os dois candidatos de lançamento que vieram antes de **1.0.7**. Você também pode ver que as versões RC são marcadas com rótulos de **pré-lançamento** . 
 
-As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. Depending on your IoT Edge device operating system, use the following sections to update IoT Edge to a specific version:
+Como as visualizações, as versões Release Candidate não são incluídas como a versão mais recente que os instaladores normais visam. Em vez disso, você precisa direcionar manualmente os ativos para a versão RC que deseja testar. Dependendo do sistema operacional do dispositivo IoT Edge, use as seções a seguir para atualizar IoT Edge para uma versão específica:
 
 * [Linux](how-to-install-iot-edge-linux.md#install-a-specific-runtime-version)
 * [Windows](how-to-install-iot-edge-windows.md#offline-installation)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+Exiba as versões mais recentes do [Azure IOT Edge](https://github.com/Azure/azure-iotedge/releases).
 
-Stay up-to-date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/) 
+Mantenha-se atualizado com as atualizações recentes e o comunicado no [blog Internet das coisas](https://azure.microsoft.com/blog/topics/internet-of-things/) 

@@ -76,7 +76,7 @@ No seu diretório, o valor de **convite aceito** do convidado muda para **Sim**.
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure](add-users-administrator.md)
+- [Adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](add-users-administrator.md)
 - [Como os operadores de informações adicionam usuários de colaboração B2B a Azure Active Directory?](add-users-information-worker.md)
 - [Adicionar Azure Active Directory usuários de colaboração B2B usando o PowerShell](customize-invitation-api.md#powershell)
 - [Deixar uma organização como um usuário convidado](leave-the-organization.md)

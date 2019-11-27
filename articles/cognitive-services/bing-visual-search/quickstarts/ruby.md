@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the REST API and Ruby - Bing Visual Search'
+title: 'Início rápido: obter informações de imagem usando a API REST e o Pesquisa Visual do Bing Ruby'
 titleSuffix: Azure Cognitive Services
-description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
+description: Saiba como carregar uma imagem no API da Pesquisa Visual do Bing e obter informações sobre ela.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,22 +17,22 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383125"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Início rápido: obter informações de imagem usando a API REST do Pesquisa Visual do Bing e o Ruby
 
-This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
+Este guia de início rápido usa a linguagem de programação Ruby para chamar Pesquisa Visual do Bing e exibir resultados. Uma solicitação POST carrega uma imagem no ponto de extremidade da API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To run this quickstart:
+Para executar este guia de início rápido:
 
-* Install [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/)
-* Get a subscription key:
+* Instalar o [Ruby 2,4 ou posterior](https://www.ruby-lang.org/en/downloads/)
+* Obter uma chave de assinatura:
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="project-and-required-modules"></a>Project and required modules
+## <a name="project-and-required-modules"></a>Projeto e módulos necessários
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string: 
+Crie um novo projeto Ruby em seu IDE ou editor. Importe `net/http`, `uri` e `json` para manipular o texto JSON dos resultados. A biblioteca de `base64` é usada para codificar a cadeia de caracteres de nome de arquivo: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Definir variáveis
 
-The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data.  The `fileName` variable identifies the image file for the POST.  The `if` block tests for a valid subscription key.
+O código a seguir atribui as variáveis necessárias. Confirme se o ponto de extremidade está correto e substitua o valor `accessKey` por uma chave de assinatura de sua conta do Azure.  O `batchNumber` é um GUID necessário para limites à esquerda e à direita dos dados da POSTAgem.  A variável `fileName` identifica o arquivo de imagem para a POSTAgem.  O `if` bloquear testes para uma chave de assinatura válida.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Form data for POST request
+## <a name="form-data-for-post-request"></a>Dados de formulário para solicitação POST
 
-The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
+Os dados da imagem a serem POSTos são delimitados por limites à esquerda e à direita. As funções a seguir definem os limites:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -76,7 +76,7 @@ def BuildFormDataEnd(batNum)
 end
 ```
 
-Next, construct the endpoint URI and an array to contain the POST body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array:
+Em seguida, construa o URI do ponto de extremidade e uma matriz para conter o corpo da POSTAgem.  Use a função anterior para carregar o limite inicial na matriz. Leia o arquivo de imagem na matriz. Em seguida, leia o limite final na matriz:
 
 ```
 uri = URI(uri + path)
@@ -92,9 +92,9 @@ post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 post_body << BuildFormDataEnd(batchNumber)
 ```
 
-## <a name="create-the-http-request"></a>Create the HTTP request
+## <a name="create-the-http-request"></a>Criar a solicitação HTTP
 
-Set the `Ocp-Apim-Subscription-Key` header.  Crie o pedido. Then, assign the header and content type. Join the POST body created previously to the request:
+Defina o cabeçalho `Ocp-Apim-Subscription-Key`.  Crie o pedido. Em seguida, atribua o cabeçalho e o tipo de conteúdo. Ingresse no corpo da POSTAgem criado anteriormente para a solicitação:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -106,9 +106,9 @@ request.body = post_body.join
 
 ```
 
-## <a name="request-and-response"></a>Request and response
+## <a name="request-and-response"></a>Solicitação e resposta
 
-Ruby sends the request and gets the response with the following line of code:
+O Ruby envia a solicitação e obtém a resposta com a seguinte linha de código:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -117,9 +117,9 @@ end
 
 ```
 
-## <a name="print-the-results"></a>Print the results
+## <a name="print-the-results"></a>Imprimir os resultados
 
-Print the headers of the response, and use the JSON library to format output:
+Imprima os cabeçalhos da resposta e use a biblioteca JSON para formatar a saída:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -136,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Resultados
 
-The following JSON is a segment of the output:
+O JSON a seguir é um segmento da saída:
 
 ```
 Relevant Headers:
@@ -284,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Bing Visual Search overview](../overview.md)
-> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Pesquisa visual do Bing visão geral](../overview.md)
+> [criar um pesquisa Visual aplicativo Web de página única](../tutorial-bing-visual-search-single-page-app.md)

@@ -115,7 +115,7 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | enabled       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
-| interval      | Sim | Com que frequência a consulta é executada em minutos. |
+| intervalo      | Sim | Com que frequência a consulta é executada em minutos. |
 | queryTimeSpan | Sim | Período de tempo em minutos em que os resultados são avaliados. |
 
 O recurso de agendamento deve depender da pesquisa salva para que ele seja criado antes da agenda.
@@ -169,7 +169,7 @@ As propriedades dos recursos de ação de alerta são descritas nas tabelas a se
 | `type` | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
 | `name` | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | `description` | Não | Descrição opcional do alerta. |
-| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
+| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informativa**
 
 #### <a name="threshold"></a>Limiar
 Esta seção é necessária. Ele define as propriedades para o limite de alerta.

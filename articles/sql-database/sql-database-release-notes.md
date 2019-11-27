@@ -57,7 +57,7 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 
 ---
 
-## <a name="new-features"></a>Novos recursos
+## <a name="new-features"></a>Novas funcionalidades
 
 ### <a name="managed-instance-h2-2019-updates"></a>Atualizações 2019 de instância gerenciada H2
 

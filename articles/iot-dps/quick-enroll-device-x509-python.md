@@ -1,5 +1,5 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Python
+title: Registrar dispositivos X. 509 no serviço de provisionamento de dispositivos do Azure usando o Python
 description: Este início rápido utiliza inscrições em grupo. Neste guia de início rápido, irá inscrever dispositivos X.509 no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com o Python.
 author: wesmc7777
 ms.author: wesmc
@@ -136,15 +136,15 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-If you plan to explore the Java service sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
+Se você planeja explorar o exemplo de serviço Java, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, use as etapas a seguir para excluir todos os recursos criados por este guia de início rápido.
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do _X509 Cert Generator_ no seu computador.
-1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the check box next to the *GROUP NAME* for the X.509 devices you enrolled using this quickstart, and press the **Delete** button at the top of the pane.    
+1. Navegue até o serviço de provisionamento de dispositivos no portal do Azure, selecione **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** . Marque a caixa de seleção ao lado do *nome do grupo* para os dispositivos X. 509 registrados usando este guia de início rápido e pressione o botão **excluir** na parte superior do painel.    
 
 
 ## <a name="next-steps"></a>Passos seguintes
-In this quickstart, you enrolled a simulated group of X.509 devices to your Device Provisioning service. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
+Neste guia de início rápido, você registrou um grupo simulado de dispositivos X. 509 no serviço de provisionamento de dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md) (Tutoriais do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure)

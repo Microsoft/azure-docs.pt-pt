@@ -16,7 +16,7 @@ Azure Notebooks vem pré-configurado com o ambiente necessário para trabalhar c
 
 ## <a name="clone-the-sample-into-your-account"></a>Clonar o exemplo na sua conta
 
-1. Inicie sessão no [blocos de notas do Azure](https://notebooks.azure.com/).
+1. Entre [Azure notebooks](https://notebooks.azure.com/).
 1. Selecione **meus projetos** para ir para o painel projetos.
 1. Selecione o botão Carregar repositório do **GitHub** (seta para cima) para abrir o pop-up de **upload do depósito** do github.
 1. No pop-up, insira `Azure/MachineLearningNotebooks` no **repositório GitHub**, forneça um nome para o projeto **no nome do projeto** , como "Azure Machine Learning", forneça um identificador na ID do **projeto**, desmarque **público** se desejar e, em seguida, selecione **importar**.
@@ -27,7 +27,7 @@ Azure Notebooks vem pré-configurado com o ambiente necessário para trabalhar c
 
 ## <a name="run-a-sample-notebook"></a>Executar um bloco de notas de exemplo
 
-1. Selecione **configuration.ipynb 00 -** para iniciar a seção de configuração do bloco de notas e siga as instruções para criar uma área de trabalho do Azure Machine Learning.
+1. Selecione **00-Configuration. ipynb** para iniciar a seção de configuração do bloco de anotações e siga as instruções para criar um Workspace do Azure Machine Learning.
 
     - Como blocos de notas do Azure já contém os pacotes Python necessários, basta executar o fragmento de código no passo 2 dos pré-requisitos para verificar a versão do SDK do Azure ML.
 
@@ -37,9 +37,9 @@ Azure Notebooks vem pré-configurado com o ambiente necessário para trabalhar c
 
 A documentação Azure Machine Learning contém uma variedade de outros recursos que orientam você durante o trabalho com Machine Learning em blocos de anotações:
 
-- [Início rápido: Utilizar o Python para começar a utilizar com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Início rápido: Use o Python para começar a usar o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Tutorial #1: treinar um modelo de classificação de imagem com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Tutorial #2: Implementar um modelo de classificação de imagem na instância de contentor do Azure (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Tutorial #2: implantar um modelo de classificação de imagem na instância de contêiner do Azure (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Tutorial: treinar um modelo de classificação com o aprendizado de máquina automatizado no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Também consulte a documentação para o [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+Consulte também a documentação do [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

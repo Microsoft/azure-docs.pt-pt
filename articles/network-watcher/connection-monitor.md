@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Monitor network communication using the Azure portal
-description: In this tutorial, learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
+title: Tutorial – monitorar a comunicação de rede usando o portal do Azure
+description: Neste tutorial, saiba como monitorar a comunicação de rede entre duas máquinas virtuais com o recurso de monitor de conexão do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-vms"></a>Criar VMs
 
@@ -45,7 +45,7 @@ Crie duas VMs.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione um sistema operativo. Neste tutorial, é utilizado o **Windows Server 2016 Datacenter**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
@@ -73,11 +73,11 @@ Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com 
 
 |Passo|Definição|Valor|
 |---|---|---|
-| 1 | Select a version of **Ubuntu Server** |                                                                         |
+| 1 | Selecione uma versão do **servidor Ubuntu** |                                                                         |
 | 3 | Nome                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
 | 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
-| 6 | Extensões                            | **Network Watcher Agent for Linux**                                             |
+| 6 | Extensões                            | **Agente do observador de rede para Linux**                                             |
 
 A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implementação antes de continuar com os restantes passos.
 
@@ -86,7 +86,7 @@ A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implem
 Crie um monitor de ligação para monitorizar a comunicação através da porta TCP 22 de *myVm1* para *myVm2*.
 
 1. No lado esquerdo do portal, selecione **Todos os serviços**.
-2. Comece a escrever *observador de rede* na caixa **Filtro**. Quando o **Observador de Rede** aparecer nos resultados da pesquisa, selecione-o.
+2. Comece a escrever *observador de rede* na caixa **Filtro**. Quando a opção **Observador de Rede** aparecer nos resultados de pesquisa, selecione-a.
 3. Em **MONITORIZAÇÃO**, selecione **Monitor de ligação**.
 4. Selecione **+ Adicionar**.
 5. Introduza ou selecione as informações da ligação que pretende monitorizar e, em seguida, selecione **Adicionar**. No exemplo apresentado na imagem seguinte, a ligação monitorizada é da VM *myVm1* para a VM *myVm2* através da porta 22:

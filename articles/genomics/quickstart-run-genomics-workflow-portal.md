@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 772fd74446b43869721afe38fb107cfff8404e99
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838716"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539077"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho através do serviço Microsoft Genomics
 
@@ -47,7 +47,8 @@ Configure a conta do Genomics com as informações seguintes, conforme mostrado 
 
 
 Pode clicar em Notificações na barra de menus superior para monitorizar o processo de implementação.
-![Notificações de Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MNotificações do icrosoft genoma ")
+
+![Notificações de Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Notificações de Microsoft Genomics")
 
 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123840"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530961"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -24,7 +24,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Implementação** |  **Suporte**
 --- | ---
 **Portal do Azure** | Suportado.
-**PowerShell** | Suportado. [Saber mais](azure-to-azure-powershell.md)
+**PowerShell** | Suportado. [Saiba mais](azure-to-azure-powershell.md)
 **API REST** | Suportado.
 **CLI** | Sem suporte no momento
 
@@ -210,7 +210,7 @@ Espaços de armazenamento | Suportado |
 Criptografia em repouso (SSE) | Suportado | SSE é a configuração padrão em contas de armazenamento.   
 Criptografia em repouso (CMK) | Não Suportado |   
 Azure Disk Encryption (ADE) para o sistema operacional Windows | Com suporte para VMs com discos gerenciados. Não há suporte para VMs que usam discos não gerenciados |
-Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
+Azure Disk Encryption (ADE) para o SO Linux | Suportado |
 Adição a quente | Suportado | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados.
 Disco de remoção quente | Não suportado | Se você remover o disco de dados na VM, será necessário desabilitar a replicação e habilitar a replicação novamente para a VM.
 Excluir o disco | Support. Você deve usar o [PowerShell](azure-to-azure-exclude-disks.md) para configurar o. |  Os discos temporários são excluídos por padrão.
@@ -260,10 +260,10 @@ Vários endereços IP | Não suportado | Quando você faz failover de uma VM que
 Gestor de Tráfego     | Suportado | Você pode pré-configurar o Gerenciador de tráfego para que o tráfego seja roteado para o ponto de extremidade na região de origem regularmente e para o ponto de extremidade na região de destino em caso de failover.
 DNS do Azure | Suportado |
 DNS Personalizado  | Suportado |
-Proxy não autenticado | Suportado | [Saber mais](site-recovery-azure-to-azure-networking-guidance.md)    
+Proxy não autenticado | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Proxy autenticado | Não suportado | Se a VM estiver usando um proxy autenticado para a conectividade de saída, ela não poderá ser replicada usando Azure Site Recovery.    
-Conexão VPN site a site para local<br/><br/>(com ou sem o ExpressRoute)| Suportado | Verifique se o UDRs e o NSGs estão configurados de forma que o tráfego de Site Recovery não seja roteado para o local. [Saber mais](site-recovery-azure-to-azure-networking-guidance.md)    
-Conexão VNET com VNET | Suportado | [Saber mais](site-recovery-azure-to-azure-networking-guidance.md)  
+Conexão VPN site a site para local<br/><br/>(com ou sem o ExpressRoute)| Suportado | Verifique se o UDRs e o NSGs estão configurados de forma que o tráfego de Site Recovery não seja roteado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
+Conexão VNET com VNET | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportado | Se você estiver restringindo o acesso à rede virtual a contas de armazenamento, verifique se os serviços confiáveis da Microsoft têm permissão de acesso à conta de armazenamento.
 Redes aceleradas | Suportado | A rede acelerada deve estar habilitada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 

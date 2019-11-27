@@ -17,7 +17,7 @@ ms.locfileid: "74451541"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
-1. On the Azure portal menu, select **All services**. Na lista de recursos, escreva **Contas de Armazenamento**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas do Storage**.
+1. No menu portal do Azure, selecione **todos os serviços**. Na lista de recursos, escreva **Contas de Armazenamento**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas do Storage**.
 1. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
 1. Selecione a subscrição na qua pretende criar a conta de armazenamento.
 1. No campo **Grupo de recursos**, selecione **Criar novo**. Introduza um nome para o novo grupo de recursos, conforme exemplificado na imagem seguinte.
@@ -31,7 +31,7 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
    |Campo  |Valor  |
    |---------|---------|
    |Modelo de implementação     |Resource Manager         |
-   |Desempenho     |Padrão         |
+   |Desempenho     |Standard         |
    |Tipo de conta     |StorageV2 (general-purpose v2)         |
    |Replicação     |Armazenamento georredundante com acesso de leitura (RA-GRS)         |
    |Escalão de acesso     |Acesso Frequente         |

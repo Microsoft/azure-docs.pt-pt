@@ -242,7 +242,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 ### <a name="parameter-server"></a>Servidor de parâmetros
 
-Também pode executar [nativo distribuído TensorFlow](https://www.tensorflow.org/deploy/distributed), que utiliza o modelo de parâmetro de servidor. Nesse método, Treine num cluster de servidores de parâmetro e funções de trabalho. Os operadores de calculam os gradientes durante o treinamento, enquanto os servidores de parâmetro agregam os gradientes.
+Você também pode executar o [TensorFlow distribuído nativo](https://www.tensorflow.org/deploy/distributed), que usa o modelo de servidor de parâmetros. Nesse método, Treine num cluster de servidores de parâmetro e funções de trabalho. Os operadores de calculam os gradientes durante o treinamento, enquanto os servidores de parâmetro agregam os gradientes.
 
 Para usar o método de servidor de parâmetros, especifique um objeto [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) para o parâmetro `distributed_training` no Construtor TensorFlow.
 
@@ -270,7 +270,7 @@ run = exp.submit(tf_est)
 
 Você também precisa dos endereços de rede e das portas do cluster para o [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), de modo que Azure Machine Learning define a variável de ambiente `TF_CONFIG` para você.
 
-O `TF_CONFIG` variável de ambiente é uma cadeia de caracteres do JSON. Eis um exemplo da variável para um servidor de parâmetro:
+A variável de ambiente `TF_CONFIG` é uma cadeia de caracteres JSON. Eis um exemplo da variável para um servidor de parâmetro:
 
 ```JSON
 TF_CONFIG='{
@@ -317,6 +317,6 @@ A implantação [completa abrange](how-to-deploy-and-where.md) em Azure Machine 
 
 Neste artigo, você treinou e registrou um modelo TensorFlow e aprendeu sobre as opções de implantação. Consulte estes outros artigos para saber mais sobre Azure Machine Learning.
 
-* [Executar a métrica durante o treinamento do Roteiro](how-to-track-experiments.md)
-* [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
+* [Rastrear métricas de execução durante o treinamento](how-to-track-experiments.md)
+* [Ajustar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Arquitetura de referência para treinamento de aprendizado profundo distribuído no Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

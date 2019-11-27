@@ -1,22 +1,17 @@
 ---
-title: O que são instâncias de contêiner do Azure?
+title: Contêineres sem servidor no Azure
 description: O serviço de instâncias de contêiner do Azure oferece a maneira mais rápida e simples de executar contêineres isolados no Azure, sem precisar gerenciar máquinas virtuais e sem precisar adotar um orquestrador de nível superior.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c8f243bc2bda83a467688ac5828219cd015c8326
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325751"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533535"
 ---
-# <a name="what-is-azure-container-instances"></a>O que são instâncias de contêiner do Azure?
+# <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
 Os contentores estão a tornar-se na forma preferida de empacotar, implementar e gerir aplicações na cloud. O Azure Container Instances é a forma mais rápida e simples de executar um contentor no Azure, sem que tenha de gerir máquinas virtuais e sem que tenha de adotar um serviço de nível superior.
 
@@ -53,8 +48,8 @@ Alguns recursos estão atualmente restritos a contêineres do Linux:
 * Vários contentores por grupo de contentores
 * Montagem de volume ([arquivos do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
 * [Métricas de uso de recursos](container-instances-monitor.md) com Azure monitor
-* [Implantação de rede virtual](container-instances-vnet.md) apresentação
-* [Recursos de GPU](container-instances-gpu.md) apresentação
+* [Implantação de rede virtual](container-instances-vnet.md) (versão prévia)
+* [Recursos de GPU](container-instances-gpu.md) (visualização)
 
 Para implantações de contêiner do Windows, use imagens baseadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows.
 
@@ -72,7 +67,7 @@ Atualmente em pré-visualização, esta funcionalidade do Azure Container Instan
 > [!IMPORTANT]
 > Determinados recursos das instâncias de contêiner do Azure estão em versão prévia e algumas [limitações se aplicam](container-instances-vnet.md#preview-limitations). As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspectos desses recursos podem ser alterados antes da disponibilidade geral (GA).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente implementar um contentor no Azure com um único comando através do nosso guia de início rápido:
 

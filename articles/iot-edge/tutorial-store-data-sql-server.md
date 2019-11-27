@@ -1,5 +1,5 @@
 ---
-title: Tutorial store data with SQL module - Azure IoT Edge | Microsoft Docs
+title: Tutorial de armazenamento dados com o módulo SQL - Azure IoT Edge | Documentos da Microsoft
 description: Saiba como armazenar dados localmente no seu dispositivo IoT Edge com um módulo do SQL Server
 services: iot-edge
 author: kgremban
@@ -18,9 +18,9 @@ ms.locfileid: "74457063"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
-Deploy a SQL Server module to store data on a Linux device running Azure IoT Edge.
+Implante um módulo SQL Server para armazenar dados em um dispositivo Linux que executa o Azure IoT Edge.
 
-Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. Azure IoT Edge has basic storage capabilities to cache messages if a device goes offline, and then forward them when the connection is reestablished. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Your IoT Edge devices can use local databases to perform more complex computing without having to maintain a connection to IoT Hub. 
+Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. O Azure IoT Edge tem capacidades de armazenamento básico em cache as mensagens se um dispositivo ficar offline e, em seguida, reencaminhe-os quando a ligação for restabelecida. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Seus dispositivos IoT Edge podem usar bancos de dados locais para executar uma computação mais complexa sem precisar manter uma conexão com o Hub IoT. 
 
 Este artigo fornece instruções para implementar uma base de dados do SQL Server num dispositivo IoT Edge. As Funções do Azure, em execução no dispositivo IoT Edge, estruturam os dados recebidos e, em seguida, envia-os para a base de dados. Os passos neste artigo também podem ser aplicados a outras bases de dados que funcionam em contentores, como o MySQL ou o PostgreSQL.
 
@@ -36,17 +36,17 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
+Antes de começar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para desenvolvimento de contêiner do Linux: [desenvolver módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* A [Linux device running Azure IoT Edge](quickstart-linux.md)
-* A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* Um [dispositivo Linux executando o Azure IOT Edge](quickstart-linux.md)
+* Um registro de contêiner, como o [registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configurado com as [ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.
 
-This tutorial uses an Azure Functions module to send data to the SQL Server. To develop an IoT Edge module with Azure Functions, install the following additional prerequisites on your development machine: 
+Este tutorial usa um módulo Azure Functions para enviar dados para o SQL Server. Para desenvolver um módulo IoT Edge com Azure Functions, instale os seguintes pré-requisitos adicionais em seu computador de desenvolvimento: 
 
-* [C# for Visual Studio Code (powered by OmniSharp) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [para a extensão Visual Studio Code (da plataforma OmniSharp) para Visual Studio Code. C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download). 
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função
@@ -55,7 +55,7 @@ Para enviar dados numa base de dados, precisa de um módulo que possa estruturar
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto
 
-The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Tools.
+As etapas a seguir mostram como criar uma função de IoT Edge usando Visual Studio Code e as ferramentas de IoT do Azure.
 
 1. Abra o Visual Studio Code.
 
@@ -66,10 +66,10 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    | Campo | Valor |
    | ----- | ----- |
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
-   | Indicar um nome para a solução | Enter a descriptive name for your solution, like **SqlSolution**, or accept the default. |
-   | Selecionar modelo de módulo | Choose **Azure Functions - C#** . |
+   | Indicar um nome para a solução | Insira um nome descritivo para sua solução, como **sqlsolution**, ou aceite o padrão. |
+   | Selecionar modelo de módulo | Escolha **Azure Functions- C#** . |
    | Indicar um nome para o módulo | Atribua o nome **sqlFunction** ao módulo. |
-   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br>A cadeia de caracteres final é semelhante a \<nome do registro\>. azurecr.io/sqlfunction. |
 
    A janela do VS Code carrega a área de trabalho da solução do IoT Edge. 
    
@@ -81,19 +81,19 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry.
 3. Guarde este ficheiro.
 
-### <a name="select-your-target-architecture"></a>Select your target architecture
+### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
+Atualmente, Visual Studio Code pode desenvolver módulos C para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
 
-1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
+1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
 
-2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**. 
+2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão. 
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-1. In the VS Code explorer, open **modules** > **sqlFunction** > **sqlFunction.cs**.
+1. No VS Code Explorer, abra **módulos** > **sqlfunction** > **sqlFunction.cs**.
 
-2. Replace the entire contents of the file with the following code:
+2. Substitua todo o conteúdo do arquivo pelo código a seguir:
 
    ```csharp
    using System;
@@ -182,71 +182,71 @@ Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux AR
    }
    ```
 
-3. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet but you will create it with the name **SQL** in the next section. 
+3. Na linha 35, substitua a cadeia de caracteres **\<cadeia de conexão sql\>** pela cadeia de caracteres a seguir. A propriedade da **fonte de dados** faz referência ao contêiner SQL Server, que ainda não existe, mas você o criará com o nome **SQL** na próxima seção. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-4. Save the **sqlFunction.cs** file. 
+4. Salve o arquivo **sqlFunction.cs** . 
 
-5. Open the **sqlFunction.csproj** file.
+5. Abra o arquivo **SqlFunction. csproj** .
 
-6. Find the group of package references, and add a new one to include SqlClient. 
+6. Localize o grupo de referências de pacote e adicione um novo para incluir o SqlClient. 
 
    ```csproj
    <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
    ```
 
-7. Save the **sqlFunction.csproj** file.
+7. Salve o arquivo **SqlFunction. csproj** .
 
-## <a name="add-the-sql-server-container"></a>Add the SQL Server container
+## <a name="add-the-sql-server-container"></a>Adicionar o contêiner de SQL Server
 
-Um [Manifesto de implementação](module-composition.md) declara os módulos que o runtime do IoT Edge irá instalar no seu dispositivo IoT Edge. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Azure Marketplace. Apenas tem de indicar ao runtime do IoT Edge para o incluir e configurar no seu dispositivo. 
+Um [Manifesto de implementação](module-composition.md) declara os módulos que o runtime do IoT Edge irá instalar no seu dispositivo IoT Edge. Você forneceu o código para criar um módulo de função personalizado na seção anterior, mas o módulo SQL Server já está compilado e disponível no Azure Marketplace. Apenas tem de indicar ao runtime do IoT Edge para o incluir e configurar no seu dispositivo. 
 
-1. In Visual Studio Code, open the command palette by selecting **View** > **Command palette**.
+1. Em Visual Studio Code, abra a paleta de comandos selecionando **exibir** > **paleta de comandos**.
 
-2. In the command palette, type and run the command **Azure IoT Edge: Add IoT Edge module**. In the command palette, provide the following information to add a new module: 
+2. Na paleta de comandos, digite e execute o comando **Azure IOT Edge: adicionar IOT Edge módulo**. Na paleta de comandos, forneça as seguintes informações para adicionar um novo módulo: 
 
    | Campo | Valor | 
    | ----- | ----- |
-   | Selecione o ficheiro de modelo da implementação | The command palette highlights the deployment.template.json file in your current solution folder. Select that file.  |
-   | Selecionar modelo de módulo | Select **Module from Azure Marketplace**. |
+   | Selecione o ficheiro de modelo da implementação | A paleta de comandos realça o arquivo Deployment. Template. JSON em sua pasta de solução atual. Selecione esse arquivo.  |
+   | Selecionar modelo de módulo | Selecione o **módulo do Azure Marketplace**. |
 
-3. In the Azure IoT Edge module marketplace, search for and select **SQL Server Module**. 
+3. No módulo Azure IoT Edge Marketplace, procure e selecione **SQL Server módulo**. 
 
-4. Change the module name to **sql**, all lowercase. This name matches the container name declared in the connection string in the sqlFunction.cs file. 
+4. Altere o nome do módulo para **SQL**, tudo em minúsculas. Esse nome corresponde ao nome do contêiner declarado na cadeia de conexão no arquivo sqlFunction.cs. 
 
-5. Select **Import** to add the module to your solution. 
+5. Selecione **importar** para adicionar o módulo à sua solução. 
 
-6. In your solution folder, open the **deployment.template.json** file. 
+6. Na pasta da solução, abra o arquivo **Deployment. Template. JSON** . 
 
-7. Find the **modules** section. You should see three modules. The module *SimulatedTemperatureSensor* is included by default in new solutions, and provides test data to use with your other modules. The module *sqlFunction* is the module that you initially created and updated with new code. Finally, the module *sql* was imported from the Azure Marketplace. 
+7. Localize a seção **módulos** . Você deve ver três módulos. O módulo *SimulatedTemperatureSensor* é incluído por padrão em novas soluções e fornece dados de teste para uso com seus outros módulos. O módulo *SqlFunction* é o módulo criado inicialmente e atualizado com o novo código. Por fim, o módulo *SQL* foi importado do Azure Marketplace. 
 
    >[!Tip]
-   >The SQL Server module comes with a default password set in the environment variables of the deployment manifest. Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >O módulo SQL Server vem com uma senha padrão definida nas variáveis de ambiente do manifesto de implantação. Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-8. Close the **deployment.template.json** file.
+8. Feche o arquivo **Deployment. Template. JSON** .
 
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
-Nas secções anteriores, criou uma solução com um módulo e, em seguida, adicionou outra ao modelo de manifesto de implementação. The SQL Server module is hosted publicly by Microsoft, but you need to containerize the code in the Functions module. In this section, you build the solution, create container images for the sqlFunction module, and push the image to your container registry. 
+Nas secções anteriores, criou uma solução com um módulo e, em seguida, adicionou outra ao modelo de manifesto de implementação. O módulo SQL Server é hospedado publicamente pela Microsoft, mas você precisa colocar o código em contêiner no módulo funções. Nesta seção, você criará a solução, criará imagens de contêiner para o módulo SqlFunction e enviará por push a imagem para o registro de contêiner. 
 
 1. No Visual Studio Code, selecione **View** (Ver)  > **Terminal** para abrir o terminal integrado do VS Code.  
 
-1. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Use the same Azure Container Registry (ACR) credentials that you added to the .env file. Introduza o seguinte comando no terminal integrado:
+1. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Use as mesmas credenciais de ACR (registro de contêiner do Azure) que você adicionou ao arquivo. env. Introduza o seguinte comando no terminal integrado:
 
     ```csh/sh
     docker login -u <ACR username> -p <ACR password> <ACR login server>
     ```
     
-    You might see a security warning recommending the use of the --password-stdin parameter. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos que siga esta melhor prática. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) command reference. 
+    Você poderá ver um aviso de segurança recomendando o uso do parâmetro--password-stdin. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos que siga esta melhor prática. Para obter mais informações, consulte a referência do comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) . 
 
 2. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then, it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the module, and then push the code to the container registry that you specified when you initialized the solution. 
+Quando você informa Visual Studio Code para criar sua solução, ela primeiro pega as informações no modelo de implantação e gera um arquivo Deployment. JSON em uma nova pasta chamada **config**. Em seguida, ele executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos Compile seu código, o módulo de colocar num contentor e, em seguida, enviar o código para o registo de contentor que especificou quando a solução é inicializado. 
 
-You can verify that the sqlFunction module was successfully pushed to your container registry. In the Azure portal, navigate to your container registry. Select **repositories** and search for **sqlFunction**. The other two modules, SimulatedTemperatureSensor and sql, won't be pushed to your container registry because you're already pointing to their repositories in the Microsoft registries.
+Você pode verificar se o módulo SqlFunction foi enviado com êxito para o registro de contêiner. Na portal do Azure, navegue até o registro de contêiner. Selecione **repositórios** e pesquise **SqlFunction**. Os outros dois módulos, SimulatedTemperatureSensor e SQL, não serão enviados para o registro de contêiner porque você já está apontando para seus repositórios nos registros da Microsoft.
 
 ## <a name="deploy-the-solution-to-a-device"></a>Implementar a solução num dispositivo
 
@@ -256,13 +256,13 @@ Pode definir módulos num dispositivo através do Hub IoT, mas também pode aced
 
 2. Clique com o botão direito do rato no dispositivo destinado à implementação e selecione **Criar Implementação para o único dispositivo**. 
 
-3. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.amd64**. Clique em **Selecionar manifesto de implementação do Edge**. 
+3. No explorador de arquivos, navegue até a pasta **config** dentro de sua solução e escolha **Deployment. AMD64**. Clique em **Selecionar manifesto de implementação do Edge**. 
 
-   Do not use the deployment.template.json file as a deployment manifest.
+   Não use o arquivo Deployment. Template. JSON como um manifesto de implantação.
 
 Se a implementação for bem-sucedida, é apresentada uma mensagem de confirmação no resultado do VS Code. 
 
-Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed and will start to report as running over the next few minutes as the containers are installed and started. Também pode verificar se todos os módulos estão em execução no seu dispositivo. No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. 
+Atualize o estado do seu dispositivo na secção de dispositivos de Hub IoT do Azure do VS Code. Os novos módulos são listados e começarão a ser relatados como sendo executados nos próximos minutos, já que os contêineres são instalados e iniciados. Também pode verificar se todos os módulos estão em execução no seu dispositivo. No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. 
 
    ```cmd/sh
    iotedge list
@@ -270,11 +270,11 @@ Refresh the status of your device in the Azure IoT Hub Devices section of VS Cod
 
 ## <a name="create-the-sql-database"></a>Criar uma base de dados SQL
 
-Ao aplicar o manifesto de implementação ao seu dispositivo, obtém três módulos em execução. The SimulatedTemperatureSensor module generates simulated environment data. O módulo sqlFunction utiliza os dados e formata-os para uma base de dados. Esta secção orienta-o na configuração da base de dados do SQL Server para armazenar os dados de temperatura. 
+Ao aplicar o manifesto de implementação ao seu dispositivo, obtém três módulos em execução. O módulo SimulatedTemperatureSensor gera dados de ambiente simulados. O módulo sqlFunction utiliza os dados e formata-os para uma base de dados. Esta secção orienta-o na configuração da base de dados do SQL Server para armazenar os dados de temperatura. 
 
-Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it. 
+Execute os seguintes comandos no seu dispositivo IoT Edge. Esses comandos se conectam ao módulo do **SQL** em execução no seu dispositivo e criam um banco de dados e uma tabela para manter a data de temperatura que está sendo enviada a ele. 
 
-1. In a command-line tool on your IoT Edge device, connect to your database. 
+1. Uma ferramenta da linha de comandos no seu dispositivo IoT Edge, ligar à base de dados. 
       ```bash
       sudo docker exec -it sql bash
       ```
@@ -312,7 +312,7 @@ A partir da ferramenta de comandos SQL, execute o seguinte comando para ver os d
    GO
    ```
 
-   ![View contents of local database](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Ver conteúdos da base de dados local](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 
@@ -329,7 +329,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 
 Neste tutorial, criou um módulo das Funções do Azure que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar os seus próprios módulos, pode saber mais sobre como [Desenvolver Funções do Azure com o Azure IoT Edge para Visual Studio Code](how-to-develop-csharp-function.md). 
 
-If you want to try another storage method at the edge, read about how to use Azure Blob Storage on IoT Edge. 
+Se você quiser tentar outro método de armazenamento na borda, leia sobre como usar o armazenamento de BLOBs do Azure em IoT Edge. 
 
 > [!div class="nextstepaction"]
 > [Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge](how-to-store-data-blob.md)

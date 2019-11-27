@@ -1,20 +1,15 @@
 ---
-title: Solucionando problemas de instâncias de contêiner do Azure
+title: Resolver problemas comuns
 description: Saiba como solucionar problemas comuns ao implantar, executar ou gerenciar instâncias de contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/25/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8b102f31fe25b9c45d85a2dae269fce64be10a5d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147832"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533383"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns em instâncias de contêiner do Azure
 

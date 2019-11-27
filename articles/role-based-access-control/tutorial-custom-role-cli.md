@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure CLI
-description: Get started creating a custom role for Azure resources using Azure CLI in this tutorial.
+title: Tutorial-criar uma função personalizada para recursos do Azure usando CLI do Azure
+description: Introdução à criação de uma função personalizada para recursos do Azure usando CLI do Azure neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -20,9 +20,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74419592"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Create a custom role for Azure resources using Azure CLI
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: criar uma função personalizada para recursos do Azure usando CLI do Azure
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com a CLI do Azure. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com a CLI do Azure. A função personalizada permite que o usuário exiba tudo no plano de gerenciamento de uma assinatura e também abra tíquetes de suporte.
 
 Neste tutorial, ficará a saber como:
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para concluir este tutorial, irá precisar de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
-- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure/install-azure-cli)
 
 ## <a name="sign-in-to-azure-cli"></a>Iniciar sessão na CLI do Azure
 
@@ -61,7 +61,7 @@ A forma mais fácil de criar uma função personalizada é começar com um model
 
 1. Abra ReaderSupportRole.json num editor e adicione o seguinte JSON.
 
-    For information about the different properties, see [Custom roles for Azure resources](custom-roles.md).
+    Para obter informações sobre as diferentes propriedades, consulte [funções personalizadas para recursos do Azure](custom-roles.md).
 
     ```json
     {

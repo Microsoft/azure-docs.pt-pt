@@ -1,19 +1,14 @@
 ---
-title: Monitorizar contentores no Azure Container Instances
+title: Monitorar instâncias de contêiner
 description: Como monitorar o consumo de recursos de computação, como CPU e memória, por seus contêineres nas instâncias de contêiner do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.author: danlep
-ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: bd86161bc7840be599eb5ee9a20f6dbf143f5f22
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172262"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533652"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
 
@@ -81,7 +76,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Altere o valor do `--metric` parâmetro no comando para obter outras métricas [com suporte][supported-metrics]. Por exemplo, use o comando a seguir para obter as métricas de uso de **memória** . 
+Altere o valor do parâmetro `--metric` no comando para obter outras [métricas com suporte][supported-metrics]. Por exemplo, use o comando a seguir para obter as métricas de uso de **memória** . 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -102,7 +97,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Para um grupo de vários contêineres, `containerName` a dimensão pode ser adicionada para retornar métricas por contêiner.
+Para um grupo de vários contêineres, a dimensão `containerName` pode ser adicionada para retornar métricas por contêiner.
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table

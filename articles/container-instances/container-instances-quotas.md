@@ -1,19 +1,14 @@
 ---
-title: Quotas e disponibilidade das regiões do Azure Container Instances
+title: Cotas de serviço e disponibilidade de região
 description: Cotas, limites e disponibilidade de região do serviço de instâncias de contêiner do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: danlep
-ms.openlocfilehash: c266a67685197ba40d2868fefca08098cb41598c
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 91681130e32cf8a76829b8bfc3e2a1e97a59ff6b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172367"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533517"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Cotas e limites para instâncias de contêiner do Azure
 
@@ -25,7 +20,7 @@ Para obter a disponibilidade dos recursos e recursos das instâncias de contêin
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Podem ser aumentados determinados limites e quotas predefinidos. Para solicitar um aumento de um ou mais recursos que dão suporte a esse aumento, envie uma [solicitação de suporte do Azure][azure-support] (selecione "cota" para o **tipo de problema**).
 
