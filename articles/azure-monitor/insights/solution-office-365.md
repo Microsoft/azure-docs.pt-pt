@@ -532,10 +532,10 @@ Clique no bloco do **office 365** para abrir o painel do **Office 365** .
 
 O dashboard inclui as colunas da tabela seguinte. Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e o intervalo de tempo especificados. Você pode executar uma pesquisa de logs que fornece a lista inteira clicando em ver todos na parte inferior da coluna ou clicando no cabeçalho da coluna.
 
-| Coluna | Descrição |
+| Column | Descrição |
 |:--|:--|
-| Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
-| Troca | Mostra a divisão das atividades do Exchange Server, como a permissão Add-Mailbox, ou Set-Mailbox. |
+| Operations | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
+| Trocar | Mostra a divisão das atividades do Exchange Server, como a permissão Add-Mailbox, ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz Drill-down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento acessado por arquivo, você poderá ver o documento que está sendo acessado, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do usuário, como redefinir tentativas de logon e senha de usuário. Ao fazer drill down, você poderá ver os detalhes dessas atividades, como o status do resultado. Isso será útil principalmente se você quiser monitorar atividades suspeitas em seu Azure Active Directory. |
 
@@ -554,14 +554,14 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 |:--- |:--- |
 | Tipo | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
-| OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Troca<br>SharePoint|
+| OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Trocar<br>SharePoint|
 | Operação | O nome da atividade de usuário ou administrador.  |
 | OrganizationId | O GUID do locatário do Office 365 da sua organização. Esse valor será sempre o mesmo para sua organização, independentemente do serviço do Office 365 no qual ele ocorre. |
 | RecordType | Tipo de operação executada. |
 | ResultStatus | Indica se a ação (especificada na Propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é true ou false. |
-| UserId | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
+| ID | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é populada com a PUID (ID exclusiva) do Passport para eventos executados por usuários no SharePoint, OneDrive for Business e Exchange. Essa propriedade também pode especificar o mesmo valor que a Propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| userType | O tipo de usuário que realizou a operação.<br><br>administrador<br>Aplicação<br>DcAdmin<br>Regularmente<br>Reservado<br>ServicePrincipal<br>Sistema |
+| userType | O tipo de usuário que realizou a operação.<br><br>ADM<br>Candidatura<br>DcAdmin<br>Regularmente<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Azure Active Directory
@@ -602,7 +602,7 @@ Esses registros são criados quando alterações ou adições são feitas em obj
 | Ator | O usuário ou a entidade de serviço que realizou a ação. |
 | ActorContextId | O GUID da organização ao qual o ator pertence. |
 | ActorIpAddress | O endereço IP do ator no formato de endereço IPV4 ou IPV6. |
-| InterSystemsId | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
+| Intersystemid | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
 | IntraSystemId |   O GUID gerado por Azure Active Directory para rastrear a ação. |
 | SupportTicketId | A ID do tíquete de suporte ao cliente para a ação em situações "agir em nome de". |
 | TargetContextId | O GUID da organização ao qual o usuário de destino pertence. |
@@ -630,7 +630,7 @@ Esses registros são criados quando são feitas alterações na configuração d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Trocar |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Especifica se o cmdlet foi executado por um usuário em sua organização, pela equipe do datacenter da Microsoft ou por uma conta de serviço do Datacenter ou por um administrador delegado. O valor false indica que o cmdlet foi executado por alguém em sua organização. O valor true indica que o cmdlet foi executado pela equipe do datacenter, por uma conta de serviço do Datacenter ou por um administrador delegado. |
 | ModifiedObjectResolvedName |  Esse é o nome de usuário amigável do objeto que foi modificado pelo cmdlet. Isso será registrado somente se o cmdlet modificar o objeto. |
@@ -645,7 +645,7 @@ Esses registros são criados quando alterações ou adições são feitas nas ca
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Trocar |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informações sobre o cliente de email que foi usado para executar a operação, como uma versão do navegador, versão do Outlook e informações de dispositivo móvel. |
 | Client_IPAddress | O endereço IP do dispositivo que foi usado quando a operação foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
@@ -668,7 +668,7 @@ Esses registros são criados quando uma entrada de auditoria de caixa de correio
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Trocar |
 | RecordType     | ExchangeItem |
 | Item | Representa o item no qual a operação foi executada | 
 | SendAsUserMailboxGuid | O GUID do Exchange da caixa de correio que foi acessada para enviar email como. |
@@ -683,7 +683,7 @@ Esses registros são criados quando alterações ou adições são feitas em gru
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Trocar |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Informações sobre cada item no grupo. |
 | CrossMailboxOperations | Indica se a operação envolvia mais de uma caixa de correio. |

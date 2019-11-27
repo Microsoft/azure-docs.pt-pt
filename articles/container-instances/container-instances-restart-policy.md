@@ -22,7 +22,7 @@ Os exemplos apresentados neste artigo usam o CLI do Azure. Você deve ter CLI do
 
 Ao criar um [grupo de contêineres](container-instances-container-groups.md) em instâncias de contêiner do Azure, você pode especificar uma das três configurações de política de reinicialização.
 
-| Política de reinício   | Descrição |
+| Reinicializar política   | Descrição |
 | ---------------- | :---------- |
 | `Always` | Os contêineres no grupo de contêineres são sempre reiniciados. Essa é a configuração **padrão** aplicada quando nenhuma política de reinicialização é especificada na criação do contêiner. |
 | `Never` | Os contêineres no grupo de contêineres nunca são reiniciados. Os contêineres são executados no máximo uma vez. |

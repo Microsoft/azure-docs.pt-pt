@@ -32,7 +32,7 @@ A funcionalidade a seguir está disponível no fluxo de controle:
 - Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação.
 - Você pode disparar um pipeline quando uma condição é satisfeita por meio do until loop.
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funções
 
 A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é 1 MB.
 
@@ -43,11 +43,11 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 **Armazenamento de arquivos**
 
-| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | size<br>Grupo | criação<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>pasta |contentMD5<br>Grupo | structure<br/>Grupo | columnCount<br>Grupo | existe<br>(arquivo/pasta) |
+| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | tamanho<br>Grupo | criação<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>pasta |contentMD5<br>Grupo | estruturá<br/>Grupo | columnCount<br>Grupo | existe<br>(arquivo/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento em nuvem do Google](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
+| [Armazenamento em nuvem do Google](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | √ | √ | √ | √/√ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -62,7 +62,7 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 **Banco de dados relacional**
 
-| Conector/metadados | structure | columnCount | existe |
+| Conector/metadados | estruturá | columnCount | existe |
 |:--- |:--- |:--- |:--- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Instância Gerida da Base de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -77,12 +77,12 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 |:--- |:--- |
 | itemName | Nome do arquivo ou da pasta. |
 | itemType | Tipo de arquivo ou pasta. O valor retornado é `File` ou `Folder`. |
-| size | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
+| tamanho | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
 | criação | Data e hora de criação do arquivo ou da pasta. |
 | lastModified | Data e hora da última modificação do arquivo ou da pasta. |
 | childItems | Lista de subpastas e arquivos na pasta especificada. Aplicável somente a pastas. Valor retornado é uma lista do nome e do tipo de cada item filho. |
 | contentMD5 | MD5 do arquivo. Aplicável somente a arquivos. |
-| structure | Estrutura de dados do arquivo ou tabela de banco de dado relacional. Valor retornado é uma lista de nomes de coluna e tipos de coluna. |
+| estruturá | Estrutura de dados do arquivo ou tabela de banco de dado relacional. Valor retornado é uma lista de nomes de coluna e tipos de coluna. |
 | columnCount | Número de colunas no arquivo ou na tabela relacional. |
 | existe| Se existe um arquivo, uma pasta ou uma tabela. Observe que, se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
 
@@ -136,7 +136,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 Atualmente, a atividade obter metadados pode retornar os seguintes tipos de informações de metadados:
 
-Propriedade | Descrição | Necessário
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | Sim 
 DataSet | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
@@ -194,7 +194,7 @@ Os resultados de obter metadados são mostrados na saída da atividade. A seguir
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

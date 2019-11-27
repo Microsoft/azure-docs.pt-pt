@@ -48,8 +48,8 @@ Os indexadores rastreiam armazenamentos de dados no Azure.
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Azure data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em versão prévia)
-* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
-* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
+* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [Instâncias gerenciadas do SQL no Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
@@ -125,12 +125,12 @@ A resposta contém o status geral do indexador, a última invocação (ou em and
 
 O histórico de execução contém até as 50 execuções concluídas mais recentes, que são classificadas em ordem cronológica inversa (para que a execução mais recente venha primeiro na resposta).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as tarefas específicas de cada tipo de origem de dados.
 
 * [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
+* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [Indexando BLOBs CSV usando o indexador de blob Pesquisa Cognitiva do Azure](search-howto-index-csv-blobs.md)
 * [Indexando BLOBs JSON com o indexador de blob Pesquisa Cognitiva do Azure](search-howto-index-json-blobs.md)

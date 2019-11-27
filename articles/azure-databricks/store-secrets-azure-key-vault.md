@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 > [!Note]
 > Este tutorial não pode ser executado usando a **assinatura de avaliação gratuita do Azure**.
@@ -52,7 +52,7 @@ Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 4. Navegue até sua conta de armazenamento recém-criada e selecione **BLOBs** em **Serviços** na página **visão geral** . Em seguida, selecione **+ contêiner** e insira um nome de contêiner. Selecione **OK**.
 
-   ![Criar novo contentor](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
+   ![Criar novo contêiner](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
 
 5. Localize um arquivo que você deseja carregar em seu contêiner de armazenamento de BLOBs. Se você não tiver um arquivo, use um editor de texto para criar um novo arquivo de texto com algumas informações. Neste exemplo, um arquivo chamado **HW. txt** contém o texto "Olá, mundo". Salve o arquivo de texto localmente e carregue-o no contêiner de armazenamento de BLOBs.
 
@@ -207,7 +207,7 @@ Se você não pretende usar este aplicativo, exclua todo o grupo de recursos com
 
 2. Selecione **excluir grupo de recursos** e digite o nome do grupo de recursos. Em seguida, selecione **Eliminar**. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para saber como implementar um ambiente de databricks injetado VNet com um ponto de extremidade de serviço habilitado para Cosmos DB.
 > [!div class="nextstepaction"]

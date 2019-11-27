@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas comuns
+title: Resolução de problemas comuns
 description: Saiba como solucionar problemas comuns ao implantar, executar ou gerenciar instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 09/25/2019

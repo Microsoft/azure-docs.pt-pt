@@ -29,7 +29,7 @@ A diferença entre esse conector REST, o [conector http](connector-http.md) e o 
 - O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes que esse conector REST fique disponível, você pode usar o conector HTTP para copiar dados da API RESTful, que tem suporte, mas menos funcional comparando o conector REST.
 - O **conector de tabela da Web** extrai o conteúdo da tabela de uma página HTML.
 
-## <a name="supported-capabilities"></a>Capacidades suportadas
+## <a name="supported-capabilities"></a>Recursos com suporte
 
 Você pode copiar dados de uma fonte REST para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia como fontes e coletores, consulte [armazenamentos e formatos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -53,11 +53,11 @@ Especificamente, esse conector REST genérico dá suporte a:
 
 As seções a seguir fornecem detalhes sobre as propriedades que podem ser usadas para definir Data Factory entidades específicas para o conector REST.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
 As propriedades a seguir têm suporte para o serviço vinculado REST:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** deve ser definida como **RestService**. | Sim |
 | url | A URL base do serviço REST. | Sim |
@@ -69,9 +69,9 @@ As propriedades a seguir têm suporte para o serviço vinculado REST:
 
 Defina a propriedade **authenticationType** como **básica**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | Sim |
+| Usu | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | Sim |
 | palavra-passe | A senha do usuário (o valor de **nome de usuário** ). Marque este campo como um tipo **SecureString** para armazená-lo com segurança em data Factory. Você também pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
@@ -102,11 +102,11 @@ Defina a propriedade **authenticationType** como **básica**. Além das propried
 
 Defina a propriedade **authenticationType** como **AadServicePrincipal**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo Azure Active Directory. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo Azure Active Directory. Marque este campo como uma **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
+| vários | Especifique as informações do locatário (nome de domínio ou ID do locatário) em que seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim |
 | aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net`.| Sim |
 
 **Exemplo**
@@ -139,7 +139,7 @@ Defina a propriedade **authenticationType** como **AadServicePrincipal**. Além 
 
 Defina a propriedade **authenticationType** como **ManagedServiceIdentity**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net`.| Sim |
 
@@ -163,7 +163,7 @@ Defina a propriedade **authenticationType** como **ManagedServiceIdentity**. Al�
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Propriedades de DataSet
 
 Esta seção fornece uma lista das propriedades que o conjunto de DataSet do REST dá suporte. 
 
@@ -171,7 +171,7 @@ Para obter uma lista completa das seções e propriedades que estão disponívei
 
 Para copiar dados do REST, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** do conjunto de conjuntos deve ser definida como **RestResource**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. O conector HTTP copia dados da URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`. | Não |
@@ -197,7 +197,7 @@ Se você estivesse Configurando `requestMethod`, `additionalHeaders`, `requestBo
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade copy
+## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
 Esta seção fornece uma lista das propriedades às quais a fonte REST dá suporte.
 
@@ -207,7 +207,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **REST**. | Sim |
 | requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |

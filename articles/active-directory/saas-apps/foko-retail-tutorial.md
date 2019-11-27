@@ -91,13 +91,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de download do certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar varejo do foko** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
@@ -109,7 +109,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao foko Retail.
 
@@ -117,7 +117,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **foko Retail**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -129,15 +129,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-foko-retail-sso"></a>Configurar SSO de varejo do foko
 
-Para configurar o logon único no lado do **foko Retail** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do foko Retail](mailto:support@fokoretail.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do **foko Retail** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do foko Retail](mailto:support@fokoretail.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="create-foko-retail-test-user"></a>Criar usuário de teste do foko Retail
 
-Nesta seção, você criará um usuário chamado B. Simon no foko Retail. Trabalhe com a [equipe de suporte do foko Retail](mailto:support@fokoretail.com) para adicionar os usuários na plataforma de varejo do foko. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon no foko Retail. Trabalhe com a [equipe de suporte do foko Retail](mailto:support@fokoretail.com) para adicionar os usuários na plataforma de varejo do foko. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do foko Retail no painel de acesso, você deverá entrar automaticamente no varejo do foko para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

@@ -146,8 +146,8 @@ Essas configurações são para o pipeline monitor do conjunto de DataSet agenda
 | ------- | ----------- | ---- | ------- |
 | Ativar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
 | Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
-| Endereços de e-mail | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
-| Limiar | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim | 
+| Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
+| Os | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim | 
 
 ### <a name="backfill-settings"></a>Configurações de aterramento
 
@@ -318,12 +318,12 @@ Limitações e problemas conhecidos:
 
 Colunas ou recursos, no conjunto de linhas, são classificados como categóricos ou numéricos com base nas condições na tabela a seguir. Se o recurso não atender a essas condições-por exemplo, uma coluna do tipo cadeia de caracteres com > 100 valores exclusivos-o recurso será descartado de nosso algoritmo de descompasso de dados, mas ainda terá o perfil criado. 
 
-| Tipo de recurso | Tipo de dados | condição | Limitações | 
+| Tipo de recurso | Data type | Condição | Limitações | 
 | ------------ | --------- | --------- | ----------- |
 | Categórico | Cadeia de caracteres, bool, int, float | O número de valores exclusivos no recurso é menor que 100 e menor que 5% do número de linhas. | NULL é tratado como sua própria categoria. | 
-| Numérica | int, float | Os valores no recurso são de um tipo de dados numérico e não atendem à condição de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
+| Numéricos | int, float | Os valores no recurso são de um tipo de dados numérico e não atendem à condição de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Vá para o [Azure Machine Learning Studio](https://ml.azure.com) ou o [Notebook Python](https://aka.ms/datadrift-notebook) para configurar um monitor de conjunto de um DataSet.
 * Veja como configurar a descompasso de dados em [modelos implantados no serviço kubernetes do Azure](how-to-monitor-data-drift.md).

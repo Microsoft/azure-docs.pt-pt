@@ -39,7 +39,7 @@ Se você planeja usar os exemplos de Azure PowerShell ou CLI do Azure neste arti
 > - Todo o script de exemplo neste artigo pressupõe que o cliente de linha de comando está sendo executado em uma VM com identidades gerenciadas para recursos do Azure habilitados. Use o recurso "conectar" da VM no portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (usando o PowerShell, a CLI, um modelo ou um SDK do Azure). 
 > - Para evitar erros durante o acesso a recursos, a identidade gerenciada da VM deve receber pelo menos o acesso "leitor" no escopo apropriado (a VM ou superior) para permitir operações de Azure Resource Manager na VM. Consulte [atribuir identidades gerenciadas para o acesso de recursos do Azure a um recurso usando o portal do Azure](howto-assign-access-portal.md) para obter detalhes.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Identidades gerenciadas para recursos do Azure fornece um [objeto de entidade de serviço](../develop/developer-glossary.md#service-principal-object) , que é [criado na habilitação de identidades gerenciadas para recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e usada como uma identidade por clientes de linha de comando/script para entrada e acesso a recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisaria:  
 

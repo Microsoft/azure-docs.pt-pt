@@ -33,9 +33,9 @@ Neste artigo, você aprenderá a criar, listar e excluir uma identidade gerencia
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para executar os exemplos de script da CLI, tem três opções:
+- Para executar os exemplos de script da CLI, você tem três opções:
     - Use [Azure cloud Shell](../../cloud-shell/overview.md) da portal do Azure (consulte a próxima seção).
-    - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
+    - Use o Azure Cloud Shell inserido por meio do botão "experimentar", localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou posterior) se preferir usar um console local da CLI. Entre no Azure usando `az login`, usando uma conta associada à assinatura do Azure sob a qual você deseja implantar a identidade gerenciada atribuída pelo usuário.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

@@ -1,6 +1,6 @@
 ---
-title: Problemas conhecidos com geração 2 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Saiba mais sobre as limitações e problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
+title: Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Saiba mais sobre as limitações e problemas conhecidos com o Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74548323"
 ---
-# <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
+# <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2
 
 Este artigo lista os recursos e as ferramentas que ainda não têm suporte ou que só têm suporte parcial com contas de armazenamento que têm um namespace hierárquico (Azure Data Lake Storage Gen2).
 

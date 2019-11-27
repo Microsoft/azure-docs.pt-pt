@@ -251,7 +251,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScoped
 
 Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos e a ressincronização pode levar muito tempo para ser concluída.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o processo de sincronização, consulte [entender a sincronização no Azure AD Domain Services](synchronization.md).
 

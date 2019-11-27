@@ -133,7 +133,7 @@ Quando o contêiner estiver pronto, você também poderá acessar o aplicativo W
 > A investigação de preparação continua a ser executada durante o tempo de vida do grupo de contêineres. Se o comando de preparação falhar em um momento posterior, o contêiner novamente se tornará inacessível. 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Uma investigação de prontidão pode ser útil em cenários que envolvem grupos de vários contêineres que consistem em contêineres dependentes. Para obter mais informações sobre cenários de vários contêineres, consulte [grupos de contêineres em instâncias de contêiner do Azure](container-instances-container-groups.md).
 

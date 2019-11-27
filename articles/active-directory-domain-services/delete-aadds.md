@@ -40,7 +40,7 @@ Para excluir um domínio gerenciado AD DS do Azure, conclua as seguintes etapas:
 
 Pode levar de 15-20 minutos ou mais para excluir o domínio gerenciado AD DS do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Considere [compartilhar comentários][feedback] para os recursos que você gostaria de ver no Azure AD DS.
 

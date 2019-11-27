@@ -36,7 +36,7 @@ A implantação do Azure FarmBeats cria os recursos listados abaixo em sua assin
 |S.No  |Nome do Recurso  |Componente FarmBeats do Azure  |
 |---------|---------|---------|
 |1  |       Azure Cosmos DB   |  Hub de dados       |
-|2  |    Application Insights      |     Hub de dados/acelerador     |
+|2  |    Estatísticas das Aplicações      |     Hub de dados/acelerador     |
 |3  |Cache do Azure para Redis   |Hub de dados   |
 |4  |       Cofre de chaves do Azure    |  Hub de dados/acelerador        |
 |5  |    Time Series Insights       |     Hub de dados      |
@@ -46,7 +46,7 @@ A implantação do Azure FarmBeats cria os recursos listados abaixo em sua assin
 |9  |       Conta de armazenamento     |  Hub de dados/acelerador        |
 |10  |    Aplicação lógica        |     Hub de dados      |
 |11  |    Conexão de API        |     Hub de dados      |
-|12|      Serviço de aplicações      |  Hub de dados/acelerador       |
+|12|      Serviço de aplicativo      |  Hub de dados/acelerador       |
 |13 |    plano do serviço de aplicativo        |     Hub de dados/acelerador      |
 |14 |Conta do Azure Maps     |Accelerator    |
 |15 |       Time Series Insights      |  Hub de dados     |
@@ -159,7 +159,7 @@ Examine os parâmetros antes de preparar o arquivo.
 |SKU  | Fornece uma opção para baixar um ou ambos os componentes do Azure FarmBeats. Especifica quais componentes baixar. Para instalar apenas o Hub de dados, use "onlydatabhub". Para instalar o Hub de dados e o acelerador, use "ambos"|
 |subscriptionId | Especifica a assinatura para instalar o Azure FarmBeats|
 |datahubResourceGroup| Nome do grupo de recursos para recursos do hub de dados|
-|location |Local onde você gostaria de criar os recursos|
+|localização |Local onde você gostaria de criar os recursos|
 |acceleratorWebsiteName |Prefixo de URL exclusivo para nomear o Hub de dados|
 |acceleratorResourceGroup  | Prefixo de URL exclusivo para nomear o site do acelerador.|
 |datahubWebsiteName  | UUnique prefixo de URL para nomear o site do hub de dados. |
@@ -362,6 +362,6 @@ Por exemplo, se você implantou o Hub de dados e acelerador em dois grupos de re
 5. Como alternativa, você pode excluir cada recurso manualmente, o que não é recomendado.
 7. Para excluir/desinstalar o Hub de dados, vá para o grupo de recursos diretamente no Azure e exclua o grupo de recursos desse local.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você implantou o Azure FarmBeats. Agora, saiba como [criar farms](manage-farms.md#create-farms).

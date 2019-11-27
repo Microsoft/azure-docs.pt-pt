@@ -70,7 +70,7 @@ Nossa latência de ponta a ponta é consideravelmente baixa para as várias tecn
 
 Nossas novas vozes também são indistinguíveis de vozes humanas. Você pode usar nossas vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Procurar
 
 Outro grampo da análise é identificar as interações em que ocorreu um evento ou experiência específica. Isso normalmente é feito com uma das duas abordagens; uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e, em seguida, cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... ". Muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de tendência dos comportamentos encontrados por algoritmos de consulta/pesquisa, e esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/directory/search/) , sua solução de ponta a ponta pode ser significativamente aprimorada com recursos de indexação e pesquisa.
 
@@ -125,7 +125,7 @@ Outro cenário é a integração direta com o SIP (Session Initiation Protocol).
 | -------------- | ----- | ----------- |
 | Conversão de voz em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos que são usados em ambientes específicos, como em um carro ou em um piso de fábrica, cada um com condições de gravação específicas. Os exemplos incluem fala acentuada, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
 |                | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos do setor, como terminologia médica ou jargão de ti. |
-|                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um arquivo simples de `.txt`. |
+|                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um arquivo simples de `.txt`. |
 | Conversão de texto em voz | [Tipo de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz de um tipo reconhecível para sua marca. Ele só leva uma pequena quantidade de dados para começar. Quanto mais dados você fornecer, mais natural e humana, como a fonte de voz soará. |
 
 ## <a name="sample-code"></a>Código de exemplo
@@ -144,7 +144,7 @@ O código de exemplo está disponível no GitHub para cada um dos recursos do se
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
 - [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)

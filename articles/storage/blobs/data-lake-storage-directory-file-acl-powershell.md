@@ -380,7 +380,7 @@ A tabela a seguir mostra como os cmdlets usados para Data Lake Storage Gen1 são
 |Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item|
 |Set-AzDataLakeStoreItemOwner <br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Usando Azure PowerShell com o armazenamento do Azure](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

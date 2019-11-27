@@ -50,7 +50,7 @@ Uma das etapas de configuração críticas é configurar os parâmetros de comun
 | --- | --- | --- |
 | Versão do IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
-| Método de autenticação |Chave Pré-partilhada |Chave Pré-partilhada |
+| Método de Autenticação |Chave Pré-partilhada |Chave Pré-partilhada |
 | Algoritmos de Encriptação |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo Hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Duração (Tempo) da Associação de Segurança (SA) da Fase 1 |28 800 segundos |28 800 segundos |
@@ -82,7 +82,7 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de falha | Razão | Registar|
+| Tipo de falha | Razão | Registo|
 |---|---|---|
 | Nofault | Quando nenhum erro é detectado. |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado. |Não|
@@ -97,7 +97,7 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de falha | Razão | Registar|
+| Tipo de falha | Razão | Registo|
 |---|---|---|
 | Nofault | Quando nenhum erro é detectado. |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado. |Não|
@@ -111,9 +111,9 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 | Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
 | PeerReachability | O gateway de mesmo nível não está acessível. | Sim|
 | IkePolicyMismatch | O gateway par tem políticas IKE que não são suportadas pelo Azure. | Sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
+| Erro de WfpParse | Ocorreu um erro ao analisar o log WFP. |Sim|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como verificar a conectividade do gateway de VPN com o PowerShell e a automação do Azure visitando [monitorar gateways de VPN com a solução de problemas do observador de rede do Azure](network-watcher-monitor-with-azure-automation.md)
 

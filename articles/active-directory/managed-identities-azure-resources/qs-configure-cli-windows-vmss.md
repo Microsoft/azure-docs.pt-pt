@@ -45,9 +45,9 @@ Neste artigo, você aprende a executar as seguintes identidades gerenciadas para
     - [Colaborador da máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e habilitar e remover o sistema e/ou a identidade gerenciada atribuída pelo usuário de um conjunto de dimensionamento de máquinas virtuais.
     - Função [colaborador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
     - Função de [operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerenciada atribuída pelo usuário de e para um conjunto de dimensionamento de máquinas virtuais.
-- Para executar os exemplos de script da CLI, tem três opções:
+- Para executar os exemplos de script da CLI, você tem três opções:
     - Use [Azure cloud Shell](../../cloud-shell/overview.md) da portal do Azure (consulte a próxima seção).
-    - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
+    - Use o Azure Cloud Shell inserido por meio do botão "experimentar", localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou posterior) se preferir usar um console local da CLI. 
       
       > [!NOTE]

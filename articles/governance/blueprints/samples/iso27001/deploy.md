@@ -111,7 +111,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |SKUs de máquina virtual permitidas|Atribuição de política|Lista de SKUs de máquina virtual permitidas|A lista de SKUs que podem ser especificados para máquinas virtuais.|
 |Iniciativa Blueprint para ISO 27001|Atribuição de política|Lista de tipos de recursos que devem ter logs de diagnóstico habilitados|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar o exemplo de plano gráfico ISO 27001, visite os seguintes artigos para saber mais sobre o mapeamento de arquitetura e controle:
 

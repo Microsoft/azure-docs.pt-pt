@@ -246,5 +246,5 @@ Preencha os campos a **escolha disco** é o disco de instantâneo que acabou de 
 Se a VM estiver em execução, a permuta de disco será desligada, reinicializará a VM depois que a operação de permuta de disco for concluída.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o [console serial do Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)

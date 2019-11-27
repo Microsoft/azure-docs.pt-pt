@@ -39,7 +39,7 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione sua conta e, em seguida, **Alterne o diretório**.
 1. Depois que o painel **diretório + assinatura** for aberto, escolha o Active Directory locatário no qual você deseja registrar seu aplicativo, na lista **favoritos** ou **todos os diretórios** .
 1. Selecione **todos os serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.

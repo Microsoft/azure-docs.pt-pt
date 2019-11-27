@@ -96,7 +96,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |\[visualização\]: auditar as recomendações do CIS Microsoft Azure Foundations do benchmark 1.1.0 e implantar extensões de VM de suporte específicas|Atribuição de política|Lista de regiões em que o observador de rede deve ser habilitado|Uma lista de regiões separada por ponto-e-vírgula. Para ver uma lista completa de regiões, use Get-AzLocation. Por exemplo: lesteus; eastus2|
 |\[visualização\]: auditar as recomendações do CIS Microsoft Azure Foundations do benchmark 1.1.0 e implantar extensões de VM de suporte específicas|Atribuição de política|Lista de extensões de máquina virtual que são aprovadas para uso|Uma lista de extensões separadas por ponto e vírgula. Para ver uma lista completa de extensões de máquina virtual, use Get-AzVMExtensionImage. Por exemplo: AzureDiskEncryption; Iaasantimalware da|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar o exemplo de plano de referência do CIS Microsoft Azure Foundations, visite os seguintes artigos para saber mais sobre o planejamento de plano gráfico e controle:
 

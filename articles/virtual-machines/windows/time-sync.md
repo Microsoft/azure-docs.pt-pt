@@ -32,7 +32,7 @@ O Azure agora tem o suporte da infraestrutura que executa o Windows Server 2016.
 >
 > Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A precisão de um relógio de computador é avaliada em quão próximo o relógio do computador é o padrão de tempo UTC (tempo Universal Coordenado). O UTC é definido por um exemplo multinacional de relógios de Atomic precisos que só podem ser desativados por um segundo em 300 anos. Mas, ler o UTC diretamente requer hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e são acessados de outros computadores para fornecer escalabilidade e robustez. Cada computador tem o serviço de sincronização de tempo em execução que sabe quais servidores de tempo usar e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo se necessário. 
 

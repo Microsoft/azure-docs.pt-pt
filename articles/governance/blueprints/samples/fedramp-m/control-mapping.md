@@ -63,14 +63,14 @@ Ter apenas um proprietário de assinatura do Azure não permite redundância adm
 
 ## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) acesso remoto | Monitoramento/controle automatizado
 
-Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo definições de [Azure Policy](../../../policy/overview.md) para monitores que a depuração remota para o aplicativo de serviço Azure app está desativada e definições de política que auditam máquinas virtuais Linux que permitem Remote conexões de contas sem senhas. Esse projeto também atribui uma definição de Azure Policy que ajuda a monitorar o acesso irrestrito a contas de armazenamento. O monitoramento desses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
+Este projeto ajuda a monitorar e controlar o acesso remoto atribuindo definições de [Azure Policy](../../../policy/overview.md) para monitores que a depuração remota para Azure app aplicativo de serviço está desativada e definições de política que auditam máquinas virtuais Linux que permitem conexões remotas de contas sem senhas. Esse projeto também atribui uma definição de Azure Policy que ajuda a monitorar o acesso irrestrito a contas de armazenamento. O monitoramento desses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
 
 - \[\]de visualização: auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - \]de visualização do \[: implantar requisitos para auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - A depuração remota deve ser desativada para o aplicativo de API
 - A depuração remota deve ser desativada para Aplicativo de funções
-- Depuração remota deve ser desativada para a aplicação Web
+- A depuração remota deve ser desativada para o aplicativo Web
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Resposta AU-5 para falhas de processamento de auditoria
 
@@ -212,10 +212,10 @@ Este projeto ajuda a proteger a confidencialidade e a integridade das informaç�
 - O aplicativo de API só deve ser acessível via HTTPS
 - Auditar servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Implantar requisitos para auditar servidores Web do Windows que não usam protocolos de comunicação segura
-- Função de aplicação só deve estar acessível através de HTTPS
+- Aplicativo de funções só deve ser acessível via HTTPS
 - Somente conexões seguras para o cache Redis devem ser habilitadas
 - A transferência segura para contas de armazenamento deve ser habilitada
-- Aplicação Web só deve estar acessível através de HTTPS
+- O aplicativo Web só deve ser acessível via HTTPS
 
 ## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) proteção de informações em repouso | Proteção criptográfica
 
@@ -231,7 +231,7 @@ Este projeto ajuda a reforçar a política sobre o uso de controles cryptograph 
 
 ## <a name="si-2-flaw-remediation"></a>Correção de falha de SI-2
 
-Este projeto ajuda a gerenciar falhas do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitoram atualizações de sistema ausentes, vulnerabilidades de sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual na segurança do Azure Centraliza. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados. Este projeto também atribui uma definição de política que garante a aplicação de patches do sistema operacional para conjuntos de dimensionamento de máquinas virtuais.
+Este projeto ajuda a gerenciar falhas do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitoram atualizações de sistema ausentes, vulnerabilidades de sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual na central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados. Este projeto também atribui uma definição de política que garante a aplicação de patches do sistema operacional para conjuntos de dimensionamento de máquinas virtuais.
 
 - Exigir aplicação automática de patch de imagem de sistema operacional em conjuntos de dimensionamento de máquinas virtuais
 - As atualizações do sistema em conjuntos de dimensionamento de máquinas virtuais devem ser instaladas
@@ -243,7 +243,7 @@ Este projeto ajuda a gerenciar falhas do sistema de informações atribuindo def
 
 ## <a name="si-3-malicious-code-protection"></a>Proteção de código mal-intencionado SI-3
 
-Este projeto ajuda a gerenciar o Endpoint Protection, incluindo a proteção de código mal-intencionado, atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitorem a proteção de ponto de extremidade ausente em máquinas virtuais na central de segurança do Azure e impõem a Microsoft solução antimalware em máquinas virtuais do Windows.
+Este projeto ajuda você a gerenciar o Endpoint Protection, incluindo a proteção de código mal-intencionado, atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitorem a proteção de ponto de extremidade ausente em máquinas virtuais na central de segurança do Azure e impõem a solução antimalware da Microsoft em máquinas virtuais do Windows.
 
 - Implantar a extensão padrão do Microsoft Iaasantimalware da para Windows Server
 - A solução Endpoint Protection deve ser instalada em conjuntos de dimensionamento de máquinas virtuais
@@ -278,7 +278,7 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico moderado do FedRAMP, visite os artigos a seguir para saber mais sobre o plano gráfico e como implantar esse exemplo:
 

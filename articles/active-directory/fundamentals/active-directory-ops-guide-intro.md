@@ -44,6 +44,6 @@ Cada seção neste guia de referência recomenda atribuir participantes para pla
 | Equipe de arquitetura do batalha | Essa equipe planeja e projeta as práticas de segurança de informações de uma organização. |
 | Equipe de operações do batalha | Essa equipe executa e monitora as práticas de segurança de informações implementadas da equipe de arquitetura do batalha. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução às [verificações e ações de gerenciamento de identidade e acesso](active-directory-ops-guide-iam.md).

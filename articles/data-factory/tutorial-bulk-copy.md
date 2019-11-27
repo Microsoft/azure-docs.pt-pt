@@ -36,7 +36,7 @@ Este tutorial utiliza o Azure PowerShell. Para saber mais sobre como utilizar ou
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
 Neste cenário, temos várias tabelas na Base de Dados SQL do Azure que queremos copiar para o SQL Data Warehouse. Segue-se a sequência lógica de passos no fluxo de trabalho que ocorre nos pipelines:
 
-![Fluxo de trabalho](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
+![Fluxo de Trabalho](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
 
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
 * O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela na lista, copie a tabela específica na Base de Dados SQL do Azure para a tabela correspondente no SQL Data Warehouse, utilizando [cópia faseada através do Armazenamento de blobs e do PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para um melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
@@ -594,4 +594,4 @@ Neste tutorial, executou os passos seguintes:
 
 Avance para o tutorial seguinte para saber como copiar dados de forma incremental de uma origem para um destino:
 > [!div class="nextstepaction"]
->[Copiar dados incrementalmente](tutorial-incremental-copy-powershell.md)
+>[Copiar dados de forma incremental](tutorial-incremental-copy-powershell.md)

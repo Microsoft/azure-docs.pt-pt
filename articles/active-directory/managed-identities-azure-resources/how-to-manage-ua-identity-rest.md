@@ -69,7 +69,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |Nome  |Descrição  |
 |---------|---------|
-|localização     | Necessário. Localização do recurso.        |
+|localização     | Necessário. Local do recurso.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Listar identidades gerenciadas atribuídas pelo usuário
 

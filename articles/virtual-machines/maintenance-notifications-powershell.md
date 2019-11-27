@@ -102,6 +102,6 @@ Para iniciar a manutenção na sua VM clássica, digite:
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você também pode manipular a manutenção planejada usando o [CLI do Azure](maintenance-notifications-cli.md) ou o [portal](maintenance-notifications-portal.md).

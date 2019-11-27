@@ -89,7 +89,7 @@ Neste cenário, vamos supor que você tenha um aplicativo Web que seja executado
     Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como a delegação funciona em Active Directory Domain Services, consulte [visão geral da delegação restrita de Kerberos][kcd-technet].
 

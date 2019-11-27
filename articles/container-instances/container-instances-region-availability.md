@@ -31,7 +31,7 @@ As seguintes regiões e recursos estão disponíveis para grupos de contêineres
 | Europa Ocidental, oeste dos EUA 2 | Linux | 4 | 14 |
 | Leste da Austrália, leste do Japão | Linux | 2 | 8 |
 | Norte EUA Central, sul da Índia | Linux | 2 | 3.5 |
-| Europa ocidental | Windows | 4 | 16 |
+| Europa Ocidental | Windows | 4 | 16 |
 | Leste dos EUA, oeste dos EUA | Windows | 4 | 14 |
 | Leste da Austrália, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA 2, leste do Japão, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, oeste dos EUA 2 | Windows | 2 | 3.5 |
 
@@ -42,7 +42,7 @@ As seguintes regiões e recursos estão disponíveis para grupos de contêineres
 | Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Sudeste Asiático, Europa Setentrional, Europa Ocidental, EUA Central, leste dos EUA, oeste dos EUA, oeste dos EUA 2 | Windows | 4 | 16 |
-| EUA Leste 2 | Windows | 2 | 3.5 |
+| Este dos E.U.A. 2 | Windows | 2 | 3.5 |
 
 
 ## <a name="availability---virtual-network-deployment-preview"></a>Disponibilidade-implantação de rede virtual (versão prévia)

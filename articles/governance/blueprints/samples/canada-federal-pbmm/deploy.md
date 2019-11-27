@@ -107,7 +107,7 @@ Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |Implantar configurações de diagnóstico para grupos de segurança de rede |Atribuição de política |Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede |Esse prefixo é combinado com o local do grupo de segurança de rede para formar o nome da conta de armazenamento criada. |
 |Implantar configurações de diagnóstico para grupos de segurança de rede |Atribuição de política |Nome do grupo de recursos para a conta de armazenamento para diagnóstico do grupo de segurança de rede (deve existir) |O grupo de recursos no qual a conta de armazenamento é criada. Este grupo de recursos já deve existir. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar o exemplo de PBMM Federal do Canadá, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
 

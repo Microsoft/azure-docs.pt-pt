@@ -300,7 +300,7 @@ Abaixo estão as permissões que você pode querer analisar para os serviços de
 - Aplicativos com permissões delegadas podem ler, enviar ou gerenciar email em nome do usuário
 - Aplicativos que recebem o usando as seguintes permissões:
 
-| Resource | Permissão |
+| Recurso | Permissão |
 | -------------------------- | -------------------- |
 | Office 365 Exchange Online | Estendi. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
@@ -382,6 +382,6 @@ Há 12 aspectos para uma infraestrutura de identidade segura. Esta lista ajudar�
 - Bloquear configurações de usuário e de grupo.
 - Habilite o armazenamento de longo prazo de logs do Azure AD para solução de problemas, análise de uso e investigações forenses.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução às [verificações e ações operacionais de governança de identidade](active-directory-ops-guide-govern.md).

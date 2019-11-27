@@ -95,12 +95,12 @@ Para obter mais informações sobre como configurar suas VMs para alta disponibi
 
 #### <a name="availability-zones"></a>Zonas de disponibilidade
 
-As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
+As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
 
 Uma zona de disponibilidade é uma combinação de um domínio de falha e um domínio de atualização. Se você criar três ou mais VMs em três zonas em uma região do Azure, suas VMs serão efetivamente distribuídas entre três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
 Cada atualização de infraestrutura distribui a zona por zona, dentro de uma única região. No entanto, você pode fazer com que a implantação seja ativada em Zona 1, e a implantação diferente entrará em Zona 2, ao mesmo tempo. Implantações não são todas serializadas. Mas, uma única implantação apenas distribui uma zona por vez para reduzir o risco.
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 Você pode usar o [CLI do Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerenciar a manutenção planejada. 

@@ -47,7 +47,7 @@ Os gatilhos de FTP funcionam sondando o sistema de arquivos FTP e procurando qua
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Acesse **opções** > **preferências** > **transferir** > **Editar** > **preservar carimbo de data/hora** > **desabilitar** |
+| WinSCP | Acesse **opções** > **preferências** > **transferir** > **Editar** > **preservar carimbo de data/hora** > **desabilitar** |
 | FileZilla | Vá para **transferir** > **preservar carimbos de data/hora dos arquivos transferidos** > **desabilitar** |
 |||
 

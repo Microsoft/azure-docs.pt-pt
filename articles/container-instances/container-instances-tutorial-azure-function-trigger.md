@@ -191,7 +191,7 @@ Se você não precisar mais de nenhum dos recursos criados neste tutorial, poder
 az group delete --name myfunctionapp
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você criou uma função do Azure que usa uma solicitação HTTP e dispara a implantação de um grupo de contêineres. Aprendeu a:
 

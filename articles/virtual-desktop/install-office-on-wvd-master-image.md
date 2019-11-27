@@ -159,6 +159,6 @@ Veja como instalar o OneDrive no modo por máquina:
 
 A área de trabalho virtual do Windows não dá suporte ao Skype for Business e às equipes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você adicionou o Office à imagem, você pode continuar a personalizar a imagem do VHD mestre. Consulte [preparar e personalizar uma imagem VHD mestre](set-up-customize-master-image.md).

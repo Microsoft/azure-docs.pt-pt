@@ -80,7 +80,7 @@ Se não for possível acessar a página de configurações de notificação no p
 
 Verifique sua pasta de spam ou lixo eletrônico em seu email para a notificação e certifique-se de permitir o remetente da `azure-noreply@microsoft.com`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como solucionar alguns dos problemas que podem ser relatados, consulte [resolver alertas em um domínio gerenciado do Azure AD DS][troubleshoot-alerts].
 

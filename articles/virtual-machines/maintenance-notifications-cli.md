@@ -59,6 +59,6 @@ Para iniciar a manutenção em sua VM clássica denominada *myVM* no serviço *M
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você também pode manipular a manutenção planejada usando o [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md).

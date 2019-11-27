@@ -110,7 +110,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar a amostra do CAF Foundation Blueprint, visite o seguinte artigo para saber mais sobre a arquitetura:
 

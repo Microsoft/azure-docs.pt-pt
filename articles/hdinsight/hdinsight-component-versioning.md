@@ -42,11 +42,11 @@ As versões de componente associadas às versões do cluster HDInsight estão li
 | Apache Oozie           | 4.3.1         | 4.2.0                       |
 | Apache Zookeeper       | 3.4.6         | 3.4.6                       |
 | Apache Storm           | -             | 1.1.0                       |
-| Apache Mahout          | -             | 0.9.0+                      |
+| Apache Mahout          | -             | 0.9.0 +                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2.3.1, 2,4    | 2.3.0, 2.2.0, 2.1.0         |
 | Apache Livy            | 0,5           | 0,4, 0,4, 0,3               |
-| Apache Kafka           | 1.1.1, 2.1    | 1,1, 1,0 * (veja a observação abaixo) |
+| Apache Kafka           | 1.1.1, 2,1    | 1,1, 1,0 * (veja a observação abaixo) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.0                       |
 | Mixagem                   | 4.2.1         | 4.2.1                       |
@@ -86,15 +86,15 @@ A tabela a seguir lista as versões do HDInsight que **não** estão disponívei
 
 | Versão do HDInsight | Versão do HDP | SISTEMA OPERACIONAL DA VM | Data da versão | Data de validade do suporte | Data de aposentadoria | Elevada disponibilidade |  Disponibilidade no portal do Azure |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Sim |Não |
-| HDInsight 3,4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Sim |Não |
-| HDInsight 3,3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Sim |Não |
-| HDInsight 3,3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Sim |Não |
-| HDInsight 3,2 |HDP 2.2 |Ubuntu 12, 4 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1º de março de 2016 |1º de abril de 2017 |Sim |Não |
-| HDInsight 3,1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de Junho de 2016 |Sim |Não |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Sim |Não |
-| HDInsight 2,1 |HDP 1.3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Sim |Não |
-| HDInsight 1,6 |HDP 1.1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |Não |Não |
+| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Sim |Não |
+| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Sim |Não |
+| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Sim |Não |
+| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Sim |Não |
+| HDInsight 3,2 |HDP 2,2 |Ubuntu 12, 4 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1º de março de 2016 |1º de abril de 2017 |Sim |Não |
+| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de junho de 2016 |Sim |Não |
+| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Sim |Não |
+| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Sim |Não |
+| HDInsight 1,6 |HDP 1,1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |Não |Não |
 
 > [!NOTE]  
 > Clusters altamente disponíveis com dois nós de cabeçalho são implantados por padrão para o HDInsight versão 2,1 e posterior. Eles não estão disponíveis para clusters do HDInsight versão 1,6.
@@ -107,7 +107,7 @@ O Enterprise Security é um pacote opcional que você pode adicionar ao seu clus
 
     No passado, você só pode criar clusters HDInsight com um usuário administrador local e um usuário SSH local. O usuário administrador local pode acessar todos os arquivos, pastas, tabelas e colunas.  Com o Enterprise Security Package, você pode habilitar o controle de acesso baseado em função integrando clusters HDInsight com seus próprios Active Directory, que incluem Active Directory local, Azure Active Directory Domain Services ou Active Directory no IaaS máquina virtual. O administrador de domínio no cluster pode permitir que os usuários usem seu próprio nome de usuário corporativo (domínio) e senha para acessar o cluster.
 
-    Para obter mais informações, consulte:
+    Para obter mais informações, veja:
 
     - [Uma introdução à segurança de Apache Hadoop com clusters HDInsight ingressados no domínio](./domain-joined/hdinsight-security-overview.md)
     - [Planejar clusters de Apache Hadoop ingressados no domínio do Azure no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -119,7 +119,7 @@ O Enterprise Security é um pacote opcional que você pode adicionar ao seu clus
   - Integração com o Apache Ranger para autorização para as filas Hive, Spark SQL e yarn.
   - Você pode definir o controle de acesso em arquivos e pastas.
 
-    Para obter mais informações, consulte:
+    Para obter mais informações, veja:
 
   - [Configurar políticas de Apache Hive no HDInsight ingressado no domínio](./domain-joined/apache-domain-joined-run-hive.md)
 

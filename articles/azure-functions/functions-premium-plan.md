@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória consumida por segundo.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.  
 
-|SKU|Núcleos|Memória|Storage|
+|SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
@@ -106,25 +106,25 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sudeste da Austrália | ✔ | ✔ |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
-|EUA Central| ✔ |  |
-|Ásia Oriental| ✔ |  |
-|EUA Leste | ✔ | ✔ |
-|EUA Leste 2| ✔ |  |
+|Centro dos E.U.A.| ✔ |  |
+|Este Asiático| ✔ |  |
+|Este dos E.U.A. | ✔ | ✔ |
+|Este dos E.U.A. 2| ✔ |  |
 |França Central| ✔ |  |
-|Leste do Japão| ✔ | ✔ |
+|Este do Japão| ✔ | ✔ |
 |Oeste do Japão| ✔ | |
 |Coreia do Sul Central| ✔ |  |
-|EUA Centro-Norte| ✔ |  |
+|E.U.A. Centro-Norte| ✔ |  |
 |Europa do Norte| ✔ | ✔ |
-|EUA Centro-Sul| ✔ |  |
+|E.U.A. Centro-Sul| ✔ |  |
 |Sul da Índia | ✔ | |
-|Sudeste asiático| ✔ | ✔ |
-|Reino Unido Sul| ✔ | |
-|Reino Unido Oeste| ✔ |  |
-|Europa ocidental| ✔ | ✔ |
+|Sudeste Asiático| ✔ | ✔ |
+|Sul do Reino Unido| ✔ | |
+|Oeste do Reino Unido| ✔ |  |
+|Europa Ocidental| ✔ | ✔ |
 |Oeste da Índia| ✔ |  |
-|EUA Oeste| ✔ | ✔ |
-|EUA Oeste 2| ✔ |  |
+|Oeste dos E.U.A.| ✔ | ✔ |
+|E.U.A. Oeste 2| ✔ |  |
 
 <sup>1</sup> Redução máxima limitada a 20 instâncias.  
 <sup>2</sup> Expansão máxima limitada a 60 instâncias.

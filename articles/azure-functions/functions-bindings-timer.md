@@ -20,13 +20,13 @@ Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functio
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
+## <a name="packages---functions-1x"></a>Pacotes – funções 1. x
 
 O gatilho de temporizador é fornecido no pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão 2. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) .
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
+## <a name="packages---functions-2x"></a>Pacotes – funções 2. x
 
 O gatilho de temporizador é fornecido no pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão 3. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) .
 
@@ -65,7 +65,7 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 }
 ```
 
-Aqui está o código de script do c#:
+Este é o C# código de script:
 
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
@@ -93,7 +93,7 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 }
 ```
 
-Eis o código JavaScript:
+Este é o código JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -213,10 +213,10 @@ public void keepAlive(
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `TimerTrigger`.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
+|Propriedade function. JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como "timerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**tipo** | n/d | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direção** | n/d | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
 |**nomes** | n/d | O nome da variável que representa o objeto de timer no código de função. | 
 |**schedule**|**Scheduler**|Uma [expressão cron](#ncrontab-expressions) ou um valor [TimeSpan](#timespan) . Um `TimeSpan` pode ser usado somente para um aplicativo de funções que é executado em um plano do serviço de aplicativo. Você pode colocar a expressão de agendamento em uma configuração de aplicativo e definir essa propriedade como o nome da configuração do aplicativo encapsulado em **%** sinais, como neste exemplo: "% ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, a função será invocada quando o tempo de execução for iniciado. Por exemplo, o tempo de execução é iniciado quando o aplicativo de funções é ativado depois de ficar ocioso devido à inatividade. Quando o aplicativo de funções é reiniciado devido a alterações de função e quando o aplicativo de funções é dimensionado horizontalmente. Portanto, o **runOnStartup** deve ser raramente, se já estiver definido como `true`, especialmente em produção. |
@@ -302,7 +302,7 @@ Ou crie uma configuração de aplicativo para seu aplicativo de funções chamad
 
 Quando você usa `WEBSITE_TIME_ZONE`, a hora é ajustada para alterações de hora no fuso horário específico, como o horário de verão. 
 
-## <a name="timespan"></a>TimeSpan
+## <a name="timespan"></a>Período
 
  Um `TimeSpan` pode ser usado somente para um aplicativo de funções que é executado em um plano do serviço de aplicativo.
 
@@ -342,7 +342,7 @@ Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente
 
 Para obter informações sobre o que fazer quando o gatilho do temporizador não funciona conforme o esperado, consulte [investigando e relatando problemas com funções disparadas por temporizador não acionando](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um início rápido que usa um gatilho de temporizador](functions-create-scheduled-function.md)

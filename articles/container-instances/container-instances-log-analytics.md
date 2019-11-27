@@ -48,7 +48,7 @@ Agora que você tem a ID do espaço de trabalho do log Analytics e a chave prim�
 
 Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
 
-### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 Para implantar com o CLI do Azure, especifique os parâmetros `--log-analytics-workspace` e `--log-analytics-workspace-key` no comando [AZ container Create][az-container-create] . Substitua os dois valores de área de trabalho pelos valores que obteve no passo anterior (e atualize o nome de grupo de recursos) antes de executar o seguinte comando.
 

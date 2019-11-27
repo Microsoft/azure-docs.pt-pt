@@ -200,7 +200,7 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 - Auditoria de habilitação de somente conexões seguras para o cache Redis
 - Auditar a transferência segura para contas de armazenamento
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico ISO 27001, visite os artigos a seguir para saber mais sobre a arquitetura e como implantar esse exemplo:
 

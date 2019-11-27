@@ -30,8 +30,8 @@ Este projeto ajuda você a gerenciar e controlar redes atribuindo [Azure Policy]
 
 Este projeto ajuda a reforçar a política com o uso de controles de cryptograph atribuindo definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas. Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as políticas atribuídas por este projeto exigem Transparent Data Encryption em bancos de dados SQL; auditar criptografia ausente em contas de armazenamento e variáveis de conta de automação. Também há políticas que abordam conexões inseguras de auditoria para contas de armazenamento, aplicativos de funções, WebApp, aplicativos de API e cache Redis e auditoria de comunicação não criptografada Service Fabric.
 
-- Função de aplicação só deve estar acessível através de HTTPS
-- Aplicação Web só deve estar acessível através de HTTPS
+- Aplicativo de funções só deve ser acessível via HTTPS
+- O aplicativo Web só deve ser acessível via HTTPS
 - O aplicativo de API só deve ser acessível via HTTPS
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 - A criptografia de disco deve ser aplicada em máquinas virtuais
@@ -122,7 +122,7 @@ Este projeto ajuda você a gerenciar e controlar sua rede atribuindo definiçõe
 - Localizações permitidas
 - Locais permitidos para grupos de recursos
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico PCI-DSS v 3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e como implantar este exemplo:
 

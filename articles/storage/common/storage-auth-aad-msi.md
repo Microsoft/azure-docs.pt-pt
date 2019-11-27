@@ -27,7 +27,7 @@ Este artigo mostra como autorizar o acesso a dados de BLOB ou de fila de uma VM 
 Antes de poder usar identidades gerenciadas para recursos do Azure para autorizar o acesso a BLOBs e filas de sua VM, você deve primeiro habilitar identidades gerenciadas para recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para recursos do Azure, consulte um destes artigos:
 
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [O Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de cliente Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
@@ -117,7 +117,7 @@ Os exemplos neste artigo também usam a versão mais recente da [biblioteca de c
 Install-Package Azure.Identity
 ```
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
+## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código .NET: criar um blob de blocos
 
 Adicione as seguintes diretivas `using` ao seu código para usar as bibliotecas de cliente de armazenamento do Azure e identidade do Azure.
 

@@ -134,7 +134,7 @@ Há dois endereços "de" usados pelo Azure AD: <o365mc@email2.microsoft.com>, qu
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
 - [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Notificações de certificado de expiração do aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
-- Notificações serviço de aprovisionamento da aplicação do Enterprise
+- Notificações do serviço de provisionamento de aplicativo empresarial
 
 Consulte a tabela a seguir para saber o tipo de notificações que são enviadas e onde verificá-las:
 
@@ -184,6 +184,6 @@ Há sete aspectos para uma infraestrutura de identidade segura. Essa lista o aju
 - Bloquear AD FS.
 - Bloquear o acesso a computadores com componentes de identidade local.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os [planos de implantação do Azure ad](active-directory-deployment-plans.md) para obter detalhes de implementação sobre qualquer recurso que você não tenha implantado.

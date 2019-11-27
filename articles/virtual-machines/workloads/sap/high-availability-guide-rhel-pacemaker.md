@@ -124,13 +124,13 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
 
 1. **[A]** configurar resolução de nome de host
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independente de DNS, que também poderia ser um ponto único de falhas.
+   Você pode usar um servidor DNS ou modificar o/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
+   Substitua o endereço IP e o nome do host nos comandos a seguir. O benefício de usar o/etc/hosts é que o cluster se torna independente do DNS, o que também pode ser um ponto único de falhas.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as linhas a seguir para/etc/hosts. Alterar o endereço IP e o nome do host para corresponder ao seu ambiente
 
    <pre><code># IP address of the first cluster node
    <b>10.0.0.6 prod-cl1-0</b>
@@ -198,26 +198,26 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
 
 ## <a name="create-stonith-device"></a>Criar dispositivo STONITH
 
-O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Microsoft Azure. Siga estes passos para criar um Principal de serviço.
+O dispositivo STONITH usa uma entidade de serviço para autorizar contra Microsoft Azure. Siga estas etapas para criar uma entidade de serviço.
 
 1. Ir para <https://portal.azure.com>
-1. Abra o painel Azure Active Directory  
-   Vá para propriedades e anote o ID de diretório. Esta é a **ID do locatário**.
-1. Clique em registos de aplicações
+1. Abrir a folha Azure Active Directory  
+   Vá para propriedades e anote a ID do diretório. Esta é a **ID do locatário**.
+1. Clique em Registros de aplicativo
 1. Clique em novo registro
 1. Insira um nome, selecione "contas somente neste diretório da organização" 
 2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo, http:\//localhost) e clique em Adicionar  
-   O URL de início de sessão não é utilizado e pode ser qualquer URL válido
+   A URL de logon não é usada e pode ser qualquer URL válida
 1. Selecione certificados e segredos e clique em novo segredo do cliente
 1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar
 1. Anote o valor. Ele é usado como a **senha** para a entidade de serviço
-1. Selecione visão geral. Anote o ID da aplicação. Ele é usado como o nome de usuário (**ID de logon** nas etapas abaixo) da entidade de serviço
+1. Selecione visão geral. Anote a ID do aplicativo. Ele é usado como o nome de usuário (**ID de logon** nas etapas abaixo) da entidade de serviço
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** criar uma função personalizada para o agente de isolamento
 
-O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. Você precisa conceder permissões de entidade de serviço para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se você ainda não criou a função personalizada, poderá criá-la usando o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+A entidade de serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder permissões de entidade de serviço para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se você ainda não criou a função personalizada, poderá criá-la usando o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
-Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conteúdo para as suas subscrições, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada assignablescopes.
+Use o conteúdo a seguir para o arquivo de entrada. Você precisa adaptar o conteúdo às suas assinaturas, substituir c276fc76-9cd4-44C9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 pelas IDs de sua assinatura. Se você tiver apenas uma assinatura, remova a segunda entrada em AssignableScopes.
 
 ```json
 {
@@ -241,22 +241,22 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conte
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** atribuir a função personalizada à entidade de serviço
 
-Atribua a função personalizada "Linux cerca agente de função" que foi criado no último capítulo para o Principal de serviço. Não utilize a função de proprietário mais!
+Atribua a função personalizada "função do agente de isolamento do Linux" que foi criada no último capítulo à entidade de serviço. Não use mais a função de proprietário!
 
 1. Ir para https://portal.azure.com
-1. Abra o painel de todos os recursos
+1. Abrir a folha todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
 1. Clique em controle de acesso (IAM)
 1. Clique em Adicionar atribuição de função
-1. Selecione a função de "Função de agente de cerca de Linux"
-1. Introduza o nome da aplicação que criou acima
+1. Selecione a função "função do agente de isolamento do Linux"
+1. Insira o nome do aplicativo que você criou acima
 1. Clicar em Guardar
 
-Repita os passos acima para o segundo nó de cluster.
+Repita as etapas acima para o segundo nó de cluster.
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** criar os dispositivos STONITH
 
-Depois de editar as permissões para as máquinas virtuais, pode configurar os dispositivos STONITH no cluster.
+Depois de editar as permissões para as máquinas virtuais, você pode configurar os dispositivos STONITH no cluster.
 
 <pre><code>
 sudo pcs property set stonith-timeout=900

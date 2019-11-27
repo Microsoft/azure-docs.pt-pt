@@ -32,7 +32,7 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 - Sudeste Asiático
 - Norte da Europa
 - Europa Ocidental
-- Reino Unido Sul
+- Sul do Reino Unido
 - Este dos EUA
 - Este dos EUA 2
 - Centro dos EUA
@@ -155,7 +155,7 @@ Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.portal
 
 Um representante de suporte entrará em contato com você para fornecer assistência.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

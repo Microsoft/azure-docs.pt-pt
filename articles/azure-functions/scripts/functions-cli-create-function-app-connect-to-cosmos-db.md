@@ -36,7 +36,7 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com localização |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento |
+| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Create a storage account |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crie uma base de dados do Azure Cosmos DB. |
 | [AZ cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a conexão da conta do banco de dados. |

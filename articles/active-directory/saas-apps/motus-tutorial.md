@@ -94,13 +94,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
 1. Na seção **Configurar Motus** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
@@ -112,7 +112,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Motus.
 
@@ -120,7 +120,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **Motus**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -132,15 +132,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-motus-sso"></a>Configurar o SSO do Motus
 
-Para configurar o logon único no lado do **Motus** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [Motus](mailto:customercare@motus.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do **Motus** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [Motus](mailto:customercare@motus.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="create-motus-test-user"></a>Criar usuário de teste do Motus
 
-Nesta seção, você criará um usuário chamado B. Simon em Motus. Trabalhe com a [equipe de suporte do Motus](mailto:customercare@motus.com) para adicionar os usuários na plataforma do Motus. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon em Motus. Trabalhe com a [equipe de suporte do Motus](mailto:customercare@motus.com) para adicionar os usuários na plataforma do Motus. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do Motus no painel de acesso, você deverá ser conectado automaticamente ao Motus para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

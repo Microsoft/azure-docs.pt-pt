@@ -40,7 +40,7 @@ Você tem várias opções para implantar recursos com modelos do Resource Manag
 
 [CLI do Azure][deploy-cli]
 
-[Azure PowerShell][deploy-powershell]
+[O Azure PowerShell][deploy-powershell]
 
 [Portal do Azure][deploy-portal]
 

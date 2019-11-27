@@ -1,5 +1,5 @@
 ---
-title: Histórico de implementações
+title: Histórico de implantação
 description: Descreve como exibir Azure Resource Manager operações de implantação com o portal, o PowerShell, o CLI do Azure e a API REST.
 tags: top-support-issue
 ms.topic: conceptual

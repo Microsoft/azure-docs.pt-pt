@@ -66,7 +66,7 @@ Essas propriedades exigem a exclusão do grupo de contêineres antes da reimplan
 * Tipo de so
 * CPU
 * Memória
-* Política de reinício
+* Reinicializar política
 * Portas
 
 Quando você exclui um grupo de contêineres e o recria, ele não é "reimplantado", mas é criado novo. Todas as camadas de imagem são retiradas do registro, não das que foram armazenadas em cache por uma implantação anterior. O endereço IP do contêiner também pode ser alterado porque está sendo implantado em um host subjacente diferente.

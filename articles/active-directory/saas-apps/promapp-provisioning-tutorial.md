@@ -78,15 +78,15 @@ Antes de configurar o Promapp para o provisionamento automático de usuário com
 
 1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
 2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
 3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, insira **Promapp**, selecione **Promapp** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -101,7 +101,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Promapp no Azure AD:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
@@ -158,7 +158,7 @@ Para obter mais informações sobre como ler os logs de provisionamento do Azure
 * [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 

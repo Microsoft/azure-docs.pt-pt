@@ -349,9 +349,9 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os aplicativos Web sejam acessíveis somente em conexões seguras.
 
-- Aplicação Web só deve estar acessível através de HTTPS
+- O aplicativo Web só deve ser acessível via HTTPS
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano de referência do CIS Microsoft Azure Foundations, visite os artigos a seguir para saber mais sobre o plano gráfico ou visite Azure Policy no portal do Azure para atribuir a iniciativa:
 
