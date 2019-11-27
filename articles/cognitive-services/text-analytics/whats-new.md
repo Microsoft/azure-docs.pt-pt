@@ -49,7 +49,7 @@ Ele dá suporte a Inglês (`en`), japonês (`ja`), chinês simplificado (`zh-Han
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o Análise de Sentimento v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * [O que é o API de Análise de Texto?](overview.md)  
 * [Cenários de usuário de exemplo](text-analytics-user-scenarios.md)

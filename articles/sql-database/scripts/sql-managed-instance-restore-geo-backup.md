@@ -78,7 +78,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Cria um banco de dados em um Instância Gerenciada do backup geográfico. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o PowerShell, consulte a [documentação do Azure PowerShell](/powershell/azure/overview).
 

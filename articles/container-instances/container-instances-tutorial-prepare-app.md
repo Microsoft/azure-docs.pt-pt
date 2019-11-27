@@ -1,22 +1,17 @@
 ---
-title: Tutorial – preparar a imagem de contêiner para instâncias de contêiner do Azure
+title: Tutorial-preparar imagem de contêiner para implantação
 description: Tutorial de instâncias de contêiner do Azure, parte 1 de 3-preparar um aplicativo em uma imagem de contêiner para implantação em instâncias de contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 487dca97dc47bf214bedf38f44b2d29a71567cbb
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325574"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533333"
 ---
-# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de contêiner para implantação em instâncias de contêiner do Azure
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: criar uma imagem de contêiner para implantação em instâncias de contêiner do Azure
 
 O Azure Container Instances permite a implementação de contentores do Docker na infraestrutura do Azure sem que seja necessário aprovisionar máquinas virtuais ou adotar serviços de nível superior. Neste tutorial, vai compactar uma aplicação Web pequena em Node.js e numa imagem de contentor que pode ser executada com o Azure Container Instances.
 
@@ -66,7 +61,7 @@ Use o comando [Docker Build][docker-build] para criar a imagem de contêiner e m
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-A saída do comando de [Build][docker-build] do Docker é semelhante ao seguinte (truncado para facilitar a leitura):
+A saída do comando de [Build do Docker][docker-build] é semelhante ao seguinte (truncado para facilitar a leitura):
 
 ```console
 $ docker build ./aci-helloworld -t aci-tutorial-app
@@ -88,7 +83,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Use o [][docker-images] comando Docker images para ver a imagem interna:
+Use o comando [Docker images][docker-images] para ver a imagem interna:
 
 ```bash
 docker images
@@ -121,7 +116,7 @@ Agora, navegue até `http://localhost:8080` no browser para confirmar que o cont
 
 ![Executar a aplicação localmente no browser][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de contentor que pode ser implementada no Azure Container Instances e verificou que é executada localmente. Até agora, fez o seguinte:
 

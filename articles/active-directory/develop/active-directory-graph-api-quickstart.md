@@ -19,19 +19,19 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 662d8ecf3d20716a717a5f04f30e04114c9dce04
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 92a88b1e17812b9dc99fd1d5b391d95ba541f48a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374153"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533070"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como: usar o API do Graph do Azure AD
 
 > [!IMPORTANT]
-> Recomendamos vivamente que utilize o [Microsoft Graph](https://developer.microsoft.com/graph) em vez da Graph API do Azure AD para aceder aos recursos do Azure Active Directory. Os nossos esforços de desenvolvimento concentram-se agora no Microsoft Graph e não estão previstos mais melhoramentos para a Graph API do Azure AD. Há um número muito limitado de cenários para os quais o Azure AD API do Graph ainda pode ser apropriado; para obter mais informações, consulte a postagem do blog [Microsoft Graph ou do Azure ad Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) e [migrar aplicativos do Azure ad Graph para Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> É altamente recomendável que você use [Microsoft Graph](https://developer.microsoft.com/graph) em vez de API do Graph do Azure ad para acessar recursos do Azure Active Directory (AD do Azure). Os nossos esforços de desenvolvimento concentram-se agora no Microsoft Graph e não estão previstos mais melhoramentos para a Graph API do Azure AD. Há um número muito limitado de cenários para os quais o Azure AD API do Graph ainda pode ser apropriado; para obter mais informações, consulte a postagem do blog [Microsoft Graph ou do Azure ad Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) e [migrar aplicativos do Azure ad Graph para Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
 
-O Azure Active Directory (Azure AD) API do Graph fornece acesso programático ao Azure AD por meio de pontos de extremidade da API REST do OData. Os aplicativos podem usar o Azure AD API do Graph para executar operações CRUD (criar, ler, atualizar e excluir) em dados e objetos de diretório. Por exemplo, você pode usar o Azure AD API do Graph para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para saber mais sobre os recursos do Azure AD API do Graph e cenários de aplicativos, confira [API do Graph do Azure ad](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [pré-requisitos de API do Graph do Azure ad](https://msdn.microsoft.com/library/hh974476.aspx). O Azure AD API do Graph funciona apenas com contas corporativas ou de estudante/da organização.
+O API do Graph do Azure AD fornece acesso programático ao Azure AD por meio de pontos de extremidade da API REST do OData. Os aplicativos podem usar o Azure AD API do Graph para executar operações CRUD (criar, ler, atualizar e excluir) em dados e objetos de diretório. Por exemplo, você pode usar o Azure AD API do Graph para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para saber mais sobre os recursos do Azure AD API do Graph e cenários de aplicativos, confira [API do Graph do Azure ad](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [pré-requisitos de API do Graph do Azure ad](https://msdn.microsoft.com/library/hh974476.aspx). O Azure AD API do Graph funciona apenas com contas corporativas ou de estudante/da organização.
 
 Este artigo se aplica ao Azure AD API do Graph. Para obter informações semelhantes relacionadas à API de Microsoft Graph, consulte [usar a API de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
 

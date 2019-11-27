@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2025eb611a394cf4b67c05a4019ccf03bcadf9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075870"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538177"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -95,7 +95,6 @@ Uma solução típica usa esses serviços:
 - O serviço de fala é usado para transcrever a conversão de fala em texto. Uma assinatura padrão (S0) para o serviço de fala é necessária para usar a API de transcrição do lote. As assinaturas gratuitas (F0) não funcionarão.
 - O [armazenamento do Azure](https://azure.microsoft.com/services/storage/) é usado para armazenar dados de telefonia e as transcrições retornadas pela API de transcrição do lote. Essa conta de armazenamento deve usar notificações, especificamente para quando novos arquivos forem adicionados. Essas notificações são usadas para disparar o processo de transcrição.
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) é usado para criar o URI de SAS (assinaturas de acesso compartilhado) para cada gravação e disparar a solicitação HTTP post para iniciar uma transcrição. Além disso, Azure Functions é usado para criar solicitações para recuperar e excluir transcrições usando a API de transcrição do lote.
-- [WebHooks](webhooks.md) são usados para obter notificações quando as transcrições são concluídas.
 
 Internamente, estamos usando as tecnologias acima para dar suporte a chamadas de clientes da Microsoft no modo de lote.
 Arquitetura do lote de ![](media/scenarios/call-center-batch-pipeline.png)
@@ -145,7 +144,7 @@ O código de exemplo está disponível no GitHub para cada um dos recursos do se
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
 - [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)

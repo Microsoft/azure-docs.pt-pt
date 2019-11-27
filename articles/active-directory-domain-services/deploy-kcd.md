@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842652"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546276"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurar a KCD (delegação restrita de Kerberos) no Azure Active Directory Domain Services
 
 À medida que você executa aplicativos, pode haver a necessidade desses aplicativos acessarem recursos no contexto de um usuário diferente. Active Directory Domain Services (AD DS) dá suporte a um mecanismo chamado *delegação de Kerberos* que habilita esse caso de uso. A delegação *restrita* de Kerberos (KCD) é criada nesse mecanismo para definir recursos específicos que podem ser acessados no contexto do usuário. Os domínios gerenciados do Azure Active Directory Domain Services (AD DS do Azure) são bloqueados com mais segurança em ambientes de AD DS locais tradicionais, portanto, use um KCD *baseado em recursos* mais seguro.
 
-Este artigo mostra como configurar a delegação restrita de Kerberos de basd de recursos em um domínio gerenciado AD DS do Azure.
+Este artigo mostra como configurar a delegação restrita de Kerberos baseada em recursos em um domínio gerenciado AD DS do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,9 @@ Para concluir este artigo, você precisa dos seguintes recursos:
 
 A delegação de Kerberos permite que uma conta represente outra conta para acessar recursos. Por exemplo, um aplicativo Web que acessa um componente da Web de back-end pode se representar como uma conta de usuário diferente quando faz a conexão de back-end. A delegação de Kerberos não é segura, pois não limita quais recursos a conta representando pode acessar.
 
-A delegação restrita de Kerberos (KCD) restringe os serviços ou os recursos que um servidor ou aplicativo especificado pode conectar ao representar outra identidade. O KCD tradicional exige privilégios de administrador de domínio para configurar uma conta de domínio para um serviço e restringe a conta a ser executada em um único domínio. O KCD tradicional também tem alguns problemas. Por exemplo, em sistemas operacionais anteriores, o administrador de serviços não tinha uma maneira útil de saber quais serviços de front-end eram delegados aos serviços de recursos que eles possuíam. Qualquer serviço de front-end que pode delegar a um serviço de recurso era um possível ponto de ataque. Se um servidor que hospedasse um serviço de front-end configurado para delegar aos serviços de recursos tiver sido comprometido, os serviços de recursos também poderão ser comprometidos.
+A delegação restrita de Kerberos (KCD) restringe os serviços ou os recursos que um servidor ou aplicativo especificado pode conectar ao representar outra identidade. O KCD tradicional exige privilégios de administrador de domínio para configurar uma conta de domínio para um serviço e restringe a conta a ser executada em um único domínio.
+
+O KCD tradicional também tem alguns problemas. Por exemplo, em sistemas operacionais anteriores, o administrador de serviços não tinha uma maneira útil de saber quais serviços de front-end eram delegados aos serviços de recursos que eles possuíam. Qualquer serviço de front-end que pode delegar a um serviço de recurso era um possível ponto de ataque. Se um servidor que hospedasse um serviço de front-end configurado para delegar aos serviços de recursos tiver sido comprometido, os serviços de recursos também poderão ser comprometidos.
 
 Em um domínio gerenciado do Azure AD DS, você não tem privilégios de administrador de domínio. Como resultado, as KCD tradicionais baseadas em contas não podem ser configuradas em um AD DS do Azure em um domínio gerenciado. Em vez disso, o KCD baseado em recursos pode ser usado, o que também é mais seguro.
 

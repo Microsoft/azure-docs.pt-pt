@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 490f2e7bb394d6593e51438c1e484a4677c963a3
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277985"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539352"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo para grupos de segurança de rede
 
@@ -87,6 +87,12 @@ Para os Estados de continuação *C* e End *e* Flow, as contagens de bytes e pac
 O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vários registros que seguem a lista de propriedades descrita na seção anterior.
 
 ## <a name="nsg-flow-logging-considerations"></a>Considerações de log de fluxo NSG
+
+**Considerações sobre a conta de armazenamento**: 
+
+1. Local: a conta de armazenamento usada deve estar na mesma região que o NSG.
+2. Sem firewall: os logs de fluxo de NSG não são integrados como um [serviço confiável da Microsoft para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Consulte [como fazer desabilitar o firewall na minha conta de armazenamento?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) para desabilitar o firewall. 
+3. Nenhum ponto de extremidade de serviço: devido a uma limitação atual, os logs só podem ser emitidos diretamente para contas de armazenamento e não por meio de pontos de extremidade de serviço. Consulte [como fazer usar logs de fluxo NSG com pontos de extremidade de serviço?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) para obter ajuda com a remoção de pontos de extremidade de serviço existentes.
 
 **Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, é recomendável que o log de fluxo do NSG esteja habilitado em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Veja [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obter mais informações sobre grupos de segurança de rede. 
 
@@ -286,7 +292,7 @@ O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vár
         ...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber como habilitar os logs de fluxo, consulte [habilitando o log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para saber como ler os logs de fluxo, consulte [ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).

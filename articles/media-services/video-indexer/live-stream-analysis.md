@@ -41,6 +41,6 @@ O player de exemplo reproduz a transmissão ao vivo e obtém as informações de
 
 O código completo e um guia passo a passo para implantar os resultados podem ser encontrados no [projeto do GitHub para análise de mídia ao vivo com Video indexer](https://aka.ms/livestreamanalysis). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

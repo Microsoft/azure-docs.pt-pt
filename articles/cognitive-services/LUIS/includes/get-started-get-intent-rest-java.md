@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Java
+title: Obter a intenção com a chamada REST em Java
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -18,8 +18,8 @@ ms.locfileid: "74414555"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Kit de Desenvolvimento do Java, Edição Standard)
-* [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* [Visual Studio Code](https://code.visualstudio.com/) ou seu IDE favorito
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,13 +27,13 @@ ms.locfileid: "74414555"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Use Java para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) e obter um resultado de previsão.
 
-1. Make a subdirectory named `lib` and copy in the following java libs:
+1. Crie um subdiretório chamado `lib` e copie o seguinte Java bibliotecas:
 
-    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
-    * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
-    * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
+    * [Commons-Logging-1.2. jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [HttpClient-4.5.3. jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
+    * [httpcore-4.4.6. jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
 1. Copie o seguinte código para criar uma classe num ficheiro denominado `Predict.java`:
 
@@ -104,31 +104,31 @@ Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
     }    
     ```
 
-1. Replace the following values:
+1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint. Por exemplo, `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` com sua chave inicial
+    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
 
-1. Compile the java program from the command line: 
+1. Compile o programa Java na linha de comando: 
 
     ```console
     javac -cp ":lib/*" Predict.java
     ```
 
-1. Run the java program from the command line:
+1. Execute o programa Java na linha de comando:
 
     ```console
     java -cp ":lib/*" Predict
     ```
 
-1. Review the prediction response, which is returned as JSON:
+1. Examine a resposta de previsão, que é retornada como JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    A resposta JSON formatada para facilitar a leitura: 
 
     ```JSON
     {
@@ -177,9 +177,9 @@ Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you are finished with this quickstart, delete the file from the file system. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Java](../get-started-get-model-rest-apis.md)
+> [Adicionar declarações e treinar com Java](../get-started-get-model-rest-apis.md)

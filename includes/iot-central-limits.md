@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463322"
 ---
-IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+IoT Central limita o número de aplicativos que você pode implantar em uma assinatura para 10. Se você precisar aumentar esse limite, entre em contato com o [suporte da Microsoft](https://azure.microsoft.com/support/options/).

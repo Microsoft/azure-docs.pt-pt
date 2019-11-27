@@ -1,6 +1,6 @@
 ---
-title: Migrate from Windows Azure Media Encoder to Media Encoder Standard | Microsoft Docs
-description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
+title: Migrar do codificador de mídia do Windows Azure para Media Encoder Standard | Microsoft Docs
+description: Este tópico discute como migrar do codificador de mídia do Azure para o processador de mídia Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -20,15 +20,15 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424036"
 ---
-# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrate from Windows Azure Media Encoder to Media Encoder Standard
+# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrar do codificador de mídia do Windows Azure para Media Encoder Standard
 
-This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor, which is being retired on March 1, 2020, to the Media Encoder Standard media processor.
+Este artigo discute as etapas para migrar do processador de mídia herdado do Windows Azure Media Encoder (WAME), que está sendo desativado em 1º de março de 2020, para o processador de mídia Media Encoder Standard.
 
-When encoding files with WAME, customers typically used a named preset string such as `H264 Adaptive Bitrate MP4 Set 1080p`. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of WAME, and one of the equivalent [system presets](media-services-mes-presets-overview.md) like `H264 Multiple Bitrate 1080p`. 
+Ao codificar arquivos com WAME, os clientes normalmente usaram uma cadeia de caracteres predefinida nomeada, como `H264 Adaptive Bitrate MP4 Set 1080p`. Para migrar, seu código precisa ser atualizado para usar o processador de mídia **Media Encoder Standard** em vez de WAME, e uma das [predefinições](media-services-mes-presets-overview.md) equivalentes do sistema, como `H264 Multiple Bitrate 1080p`. 
 
-## <a name="migrating-to-media-encoder-standard"></a>Migrating to Media Encoder Standard
+## <a name="migrating-to-media-encoder-standard"></a>Migrando para o Media Encoder Standard
 
-Here is a typical C# code sample that uses the legacy component. 
+Aqui está um exemplo C# de código típico que usa o componente herdado. 
 
 ```csharp
 // Declare a new job. 
@@ -45,7 +45,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
     TaskOptions.None); 
 ```
 
-Here is the updated version that uses Media Encoder Standard.
+Aqui está a versão atualizada que usa Media Encoder Standard.
 
 ```csharp
 // Declare a new job. 
@@ -64,21 +64,21 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Cenários avançados 
 
-If you had created your own encoding preset for WAME using its schema, there is an [equivalent schema for Media Encoder Standard](media-services-mes-schema.md).
+Se você tiver criado sua própria predefinição de codificação para WAME usando seu esquema, haverá um [esquema equivalente para Media Encoder Standard](media-services-mes-schema.md).
 
-## <a name="known-differences"></a>Known differences 
+## <a name="known-differences"></a>Diferenças conhecidas 
 
-Media Encoder Standard is more robust, reliable, has better performance, and produces better quality output than the legacy WAME encoder. In addition,: 
+O Media Encoder Standard é mais robusto, confiável, tem um desempenho melhor e produz uma saída de qualidade melhor do que o codificador WAME herdado. Além disso: 
 
-* Media Encoder Standard produces output files with a different naming convention than WAME.
-* Media Encoder Standard produces artifacts such as files containing the [input file metadata](media-services-input-metadata-schema.md) and the [output file(s) metadata](media-services-output-metadata-schema.md).
-* As documented on the [pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding) (especially in the FAQ section), when you encode videos using Media Encoder Standard, you get billed based on the duration of the files produced as output. With WAME, you would be billed based on the sizes of the input video file(s) and output video file(s).
+* Media Encoder Standard produz arquivos de saída com uma Convenção de nomenclatura diferente de WAME.
+* Media Encoder Standard produz artefatos como arquivos que contêm os [metadados do arquivo de entrada](media-services-input-metadata-schema.md) e os metadados dos arquivos de [saída](media-services-output-metadata-schema.md).
+* Conforme documentado na [página de preços](https://azure.microsoft.com/pricing/details/media-services/#encoding) (especialmente na seção de perguntas frequentes), ao codificar vídeos usando Media Encoder Standard, você será cobrado com base na duração dos arquivos produzidos como saída. Com o WAME, você será cobrado com base nos tamanhos dos arquivos de vídeo de entrada e nos arquivos de vídeo de saída.
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Legacy components](legacy-components.md)
-* [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+* [Componentes herdados](legacy-components.md)
+* [Página de preços](https://azure.microsoft.com/pricing/details/media-services/#encoding)

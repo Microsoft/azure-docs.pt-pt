@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Use Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
-description: Describes how you can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
+title: Solução do Azure VMware por CloudSimple-use o site de nuvem privada para hospedar uma infraestrutura de área de trabalho virtual usando o VMware horizonte
+description: Descreve como você pode usar seu site de nuvem privada do CloudSimple para hospedar uma infraestrutura de área de trabalho virtual usando o VMware horizonte
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -15,129 +15,129 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206544"
 ---
-# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Use CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
+# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Usar o site de nuvem privada do CloudSimple para hospedar uma infraestrutura de área de trabalho virtual usando o VMware horizonte
 
-You can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure (VDI) using VMware Horizon 7.x. The following figure shows the logical solution architecture for the VDI.
+Você pode usar seu site de nuvem privada do CloudSimple para hospedar uma VDI (Virtual Desktop Infrastructure) usando o VMware horizonte 7. x. A figura a seguir mostra a arquitetura da solução lógica para o VDI.
 
-![Horizon deployment](media/horizon-deployment.png)
+![Implantação de horizonte](media/horizon-deployment.png)
 
-With this solution, you have full control over Horizon View Manager and App Volume. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
+Com essa solução, você tem controle total sobre o Gerenciador de exibição de horizonte e o volume do aplicativo. A interface do usuário familiar, API e interfaces CLI permitem o uso de seus scripts e ferramentas existentes.
 
-The CloudSimple solution requires you to do the following:
+A solução CloudSimple exige que você faça o seguinte:
 
-* Install, configure, and manage VMware Horizon 7.x in your Private Cloud.
-* Provide your own Horizon licenses.
+* Instale, configure e gerencie o VMware horizonte 7. x em sua nuvem privada.
+* Forneça suas próprias licenças de horizonte.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
-The following sections describe how to deploy a VDI solution using Horizon in your Private Cloud.
+As seções a seguir descrevem como implantar uma solução de VDI usando o horizonte em sua nuvem privada.
 
-1. [Verify that VMware product versions are compatible](#verify-that-vmware-product-versions-are-compatible)
-2. [Estimate the size of your desktop environment](#estimate-the-size-of-your-desktop-environment)
-3. [Create a Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
-4. [Install VMware Horizon in your Private Cloud](#install-vmware-horizon-in-your-private-cloud)
+1. [Verificar se as versões do produto VMware são compatíveis](#verify-that-vmware-product-versions-are-compatible)
+2. [Estimar o tamanho do seu ambiente de desktop](#estimate-the-size-of-your-desktop-environment)
+3. [Criar uma nuvem privada para seu ambiente](#create-a-private-cloud-for-your-environment)
+4. [Instale o VMware horizonte em sua nuvem privada](#install-vmware-horizon-in-your-private-cloud)
 
-### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verify that VMware product versions are compatible
+### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verificar se as versões do produto VMware são compatíveis
 
-* Verify that your current and planned versions of Horizon, App Volumes, Unified Access Gateway, and User Environment Manager are compatible with each other and with vCenter and PSC in the Private Cloud. For compatibility information, see [VMware Compatibility Matrix for Horizon 7.5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
-* To find out the current versions of vCenter and PSC in your Private Cloud, go to **Resources** in the [CloudSimple portal](access-cloudsimple-portal.md), select your Private Cloud, and click the **vSphere Management Network** tab.
+* Verifique se suas versões atuais e planejadas do horizonte, dos volumes de aplicativos, do Unified Access Gateway e do Gerenciador de ambiente de usuário são compatíveis entre si e com o vCenter e o PSC na nuvem privada. Para obter informações de compatibilidade, consulte [matriz de compatibilidade do VMware para o horizonte 7,5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
+* Para descobrir as versões atuais do vCenter e do PSC em sua nuvem privada, acesse **recursos** no [portal do CloudSimple](access-cloudsimple-portal.md), selecione sua nuvem privada e clique na guia **rede de gerenciamento do vSphere** .
 
-![vCenter and PSC versions](media/private-cloud-vsphere-versions.png)
+![versões do vCenter e do PSC](media/private-cloud-vsphere-versions.png)
 
-### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimate the size of your desktop environment
+### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimar o tamanho do seu ambiente de desktop
 
-* Verify that your identified configuration is within VMware operational limits.
-* Estimate the resources that are needed in your DR site to protect your on-premises environment.
+* Verifique se sua configuração identificada está dentro dos limites operacionais do VMware.
+* Estime os recursos necessários em seu site de recuperação de desastre para proteger seu ambiente local.
 
-### <a name="create-a-private-cloud-for-your-environment"></a>Create a Private Cloud for your environment
+### <a name="create-a-private-cloud-for-your-environment"></a>Criar uma nuvem privada para seu ambiente
 
-1. Create a Private Cloud from the CloudSimple portal by following the instructions in [Configure a Private Cloud environment](quickstart-create-private-cloud.md).  CloudSimple creates a default vCenter user named 'cloudowner' in every newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permissions model](learn-private-cloud-permissions.md).
-2. Create a VLAN in your Private Cloud for the Horizon management plane and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the solution components (Unified Access Gateway, Connection Server, App Volume Server, and User Environment Manager servers) will be installed.
-3. Decide if you want to use an external identity provider with your Private Cloud vCenter. If yes, choose one of these options:
-    * Use your on-premises Active Directory as the external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
-    * Set up an Active Directory server in the Private Cloud in Horizon management plane VLAN to use as your external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
-    * Set up a DHCP and DNS server in Horizon management plane VLAN in the Private Cloud. For instructions, see [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
-4. Configure DNS forwarding on the DNS server installed in the Private Cloud. For instructions, see [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
+1. Crie uma nuvem privada no portal do CloudSimple seguindo as instruções em [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md).  CloudSimple cria um usuário vCenter padrão chamado ' cloudowner ' em cada nuvem privada recém-criada. Para obter detalhes sobre o usuário de nuvem privada padrão e o modelo de permissão, consulte [saiba mais sobre o modelo de permissões de nuvem privada](learn-private-cloud-permissions.md).
+2. Crie uma VLAN em sua nuvem privada para o plano de gerenciamento de horizonte e atribua a ela um CIDR de sub-rede. Para obter instruções, consulte [criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md). Essa é a rede onde todos os componentes da solução (gateway de acesso unificado, servidor de conexão, servidor de volume de aplicativo e servidores do Gerenciador de ambiente de usuário) serão instalados.
+3. Decida se deseja usar um provedor de identidade externo com seu vCenter de nuvem privada. Em caso afirmativo, escolha uma destas opções:
+    * Use seu Active Directory local como o provedor de identidade externa. Para obter instruções, consulte [fontes de identidade do vCenter](set-vcenter-identity.md).
+    * Configure um servidor de Active Directory na nuvem privada na VLAN do plano de gerenciamento de horizonte para usar como seu provedor de identidade externo. Para obter instruções, consulte [fontes de identidade do vCenter](set-vcenter-identity.md).
+    * Configure um servidor DHCP e DNS na VLAN de plano de gerenciamento de horizonte na nuvem privada. Para obter instruções, confira [Configurar o DNS e os aplicativos DHCP e as cargas de trabalho em sua nuvem privada do CloudSimple](dns-dhcp-setup.md).
+4. Configure o encaminhamento de DNS no servidor DNS instalado na nuvem privada. Para obter instruções, consulte [criar um encaminhador condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
-### <a name="install-vmware-horizon-in-your-private-cloud"></a>Install VMware Horizon in your Private Cloud
+### <a name="install-vmware-horizon-in-your-private-cloud"></a>Instale o VMware horizonte em sua nuvem privada
 
-The following deployment diagram depicts a Horizon solution deployed in a Private Cloud. Unified Access Gateway, AD/DC, View, and App Volume Server are installed in user-created VLAN 234. Unified Access Gateway has an assigned public IP address that is reachable from the Internet. Horizon desktop pool VMs are deployed in VLAN 235 to provide additional isolation and security.
+O diagrama de implantação a seguir ilustra uma solução de horizonte implantada em uma nuvem privada. O Unified Access Gateway, o AD/DC, o modo de exibição e o servidor de volume de aplicativo são instalados em uma VLAN 234 criada pelo usuário. O Unified Access Gateway tem um endereço IP público que pode ser acessado pela Internet. As VMs do pool de área de trabalho do horizonte são implantadas no VLAN 235 para fornecer isolamento e segurança adicionais.
 
-![Horizon deployment in the Private Cloud](media/horizon-private-cloud.png)
+![Implantação de horizonte na nuvem privada](media/horizon-private-cloud.png)
 
-The following sections outline the instructions to set up a deployment similar to the one that is depicted in the figure. Before you begin, verify that you have the following:
+As seções a seguir descrevem as instruções para configurar uma implantação semelhante à descrita na figura. Antes de começar, verifique se você tem o seguinte:
 
-* A Private Cloud created using the CloudSimple portal with sufficient capacity to run your desktop pools.
-* Sufficient bandwidth between your on-premises environment and the Private Cloud environment to support the network traffic for your desktops.
-* A Site-to-Site VPN tunnel set up between your on-premises datacenter and the Private Cloud.
-* IP reachability from end-user subnets in your on-premises environment to the CloudSimple Private Cloud subnets.
-* AD/DHCP/DNS installed for your Private Cloud.
+* Uma nuvem privada criada usando o portal do CloudSimple com capacidade suficiente para executar seus pools de área de trabalho.
+* Largura de banda suficiente entre o ambiente local e o ambiente de nuvem privada para dar suporte ao tráfego de rede para suas áreas de trabalho.
+* Um túnel VPN site a site configurado entre seu datacenter local e a nuvem privada.
+* Acessibilidade de IP de sub-redes de usuário final em seu ambiente local para as sub-redes de nuvem privada do CloudSimple.
+* AD/DHCP/DNS instalados para sua nuvem privada.
 
-#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple portal: Create a dedicated VLAN/subnet for desktop pools
+#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portal do CloudSimple: criar uma VLAN/sub-rede dedicada para pools de área de trabalho
 
-Create a VLAN for the Horizon desktop pools and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the desktop virtual machines will run.
+Crie uma VLAN para os pools da área de trabalho do horizonte e atribua a ele um CIDR de sub-rede. Para obter instruções, consulte [criar e gerenciar VLANs/sub-redes](create-vlan-subnet.md). Essa é a rede onde todas as máquinas virtuais de desktop serão executadas.
 
-Follow standard security best practices to secure your Horizon deployment:
+Siga as práticas recomendadas de segurança padrão para proteger sua implantação de horizonte:
 
-* Allow only desktop RDP traffic / SSH traffic to your desktop VMs.
-* Allow only management traffic between Horizon management plane VLAN and desktop pool VLAN.
-* Allow only management traffic from on-premises network.
+* Permita somente tráfego de SSH/tráfego de RDP para suas VMs de área de trabalho.
+* Permitir somente o tráfego de gerenciamento entre a VLAN do plano de gerenciamento de horizonte e a VLAN do pool de desktops
+* Permitir somente o tráfego de gerenciamento da rede local.
 
-You can enforce these best practices by configuring [firewall rules](firewall.md) from the CloudSimple portal.
+Você pode impor essas práticas recomendadas Configurando [regras de firewall](firewall.md) no portal do CloudSimple.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple portal: Configure firewall rules to secure Horizon management plane
+#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>Portal do CloudSimple: configurar regras de firewall para proteger o plano de gerenciamento de horizonte
 
-Set up the following rules in the CloudSimple portal. For instructions, see [Set up firewall tables and rules](firewall.md).
+Configure as regras a seguir no portal do CloudSimple. Para obter instruções, consulte [configurar regras e tabelas de firewall](firewall.md).
 
-1. Configure firewall rules in the CloudSimple N-S firewall to allow communication between on-premises subnets and Horizon management VLAN so that only the network ports listed in the VMware document [Horizon port list](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) are allowed.
+1. Configure as regras de firewall no firewall CloudSimple N-S para permitir a comunicação entre sub-redes locais e a VLAN de gerenciamento de horizonte para que somente as portas de rede listadas na [lista de porta do horizonte](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) de documento do VMware sejam permitidas.
 
-2. Create E-W firewall rules between the Horizon management VLAN and desktop pool VLAN in the Private Cloud.
+2. Crie regras de firewall e-W entre a VLAN de gerenciamento de horizonte e a VLAN de pool de área de trabalho na nuvem privada.
 
-#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple portal: Create a public IP address for Unified Access Gateway
+#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>Portal do CloudSimple: criar um endereço IP público para o gateway de acesso unificado
 
-Create a public IP address for the Unified Access Gateway appliance to enable desktop client connections from the internet. For instructions, see [Allocate public IP addresses](public-ips.md).
+Crie um endereço IP público para o dispositivo de gateway de acesso unificado para habilitar conexões de cliente de desktop da Internet. Para obter instruções, consulte [alocar endereços IP públicos](public-ips.md).
 
-When the setup is complete, the public IP address is assigned and listed on the Public IPs page.
+Quando a instalação for concluída, o endereço IP público será atribuído e listado na página IPs públicos.
 
-#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple portal: Escalate privileges
+#### <a name="cloudsimple-portal-escalate-privileges"></a>Portal do CloudSimple: escalonar privilégios
 
-The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install Horizon, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
+O usuário ' cloudowner ' padrão não tem privilégios suficientes no vCenter da nuvem privada para instalar o horizonte, portanto, os privilégios de vCenter do usuário devem ser escalados. Para obter mais informações, consulte [escalonar privilégios](escalate-private-cloud-privileges.md).
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter UI: Create a user in Private Cloud for Horizon installation
+#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>interface do usuário do vCenter: criar um usuário na nuvem privada para instalação do horizonte
 
-1. Sign in to vCenter using the 'cloudowner' user credentials.
-2. Create a new user, 'horizon-soln-admin', in vCenter and add the user to the administrators group in vCenter.
-3. Sign out of vCenter as the 'cloudowner' user and sign in as the 'horizon-soln-admin' user.
+1. Entre no vCenter usando as credenciais de usuário ' cloudowner '.
+2. Crie um novo usuário, ' horizonte-soln-admin ', no vCenter e adicione o usuário ao grupo de administradores no vCenter.
+3. Saia do vCenter como o usuário ' cloudowner ' e entre como o usuário ' horizonte-soln-admin '.
 
-#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter UI: Install VMware Horizon
+#### <a name="vcenter-ui-install-vmware-horizon"></a>interface do usuário do vCenter: instalar o VMware horizonte
 
-As mentioned in the earlier logical architecture section, Horizon solution has the following components:
+Conforme mencionado na seção arquitetura lógica anterior, a solução de horizonte tem os seguintes componentes:
 
-* VMware Horizon View
-* VMware Unified Access Gateway
-* VMware App Volume Manager
-* VMware User Environment Manager
+* Exibição de horizonte do VMware
+* Gateway de acesso unificado VMware
+* Gerenciador de volumes de aplicativos VMware
+* Gerenciador de ambiente de usuário do VMware
 
-Install the components as follows:
+Instale os componentes da seguinte maneira:
 
-1. Install and configure Unified Access Gateway by following the instructions provided in the VMware document [Deploying and Configuring VMware Unified Access Gateway](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html).
+1. Instale e configure o gateway de acesso unificado seguindo as instruções fornecidas no documento VMware [Implantando e Configurando o VMware Unified Access Gateway](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html).
 
-2. Install Horizon View in the Private Cloud by following the instructions in [View Installation Guide](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
+2. Instale o modo de exibição de horizonte na nuvem privada seguindo as instruções em [Exibir guia de instalação](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
 
-3. Install App Volume Manager by following the instructions in [Install and Configure VMware App Volumes](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
+3. Instale o Gerenciador de volume de aplicativo seguindo as instruções em [instalar e configurar volumes de aplicativos VMware](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
 
-4. Install and configure User Environment Manager by following the instructions in [About Installing and Configuring VMware User Environment Manager](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
+4. Instale e configure o Gerenciador de ambiente de usuário seguindo as instruções em [sobre como instalar e configurar o Gerenciador de ambiente de usuário do VMware](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
 
-#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>File a support request to upload VMware Horizon pre-packaged app volumes
+#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>Arquivar uma solicitação de suporte para carregar volumes de aplicativos predefinidos do VMware horizonte
 
-As a part of the installation process, App Volume Manager uses pre-packaged volumes to provision app stacks and writable volumes. These volumes serve as templates for app stacks and writable volumes.
+Como parte do processo de instalação, o Gerenciador de volume de aplicativo usa volumes predefinidos para provisionar pilhas de aplicativos e volumes graváveis. Esses volumes servem como modelos para pilhas de aplicativos e volumes graváveis.
 
-Uploading the volumes to the Private Cloud datastore requires the ESXi root password. For assistance, submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Attach the AppVolumes installer bundle so that CloudSimple support personnel can upload the templates to your Private Cloud environment.
+Carregar os volumes no repositório de armazenamento de nuvem privada requer a senha raiz ESXi. Para obter assistência, envie uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Anexe o pacote do instalador do AppVolumes para que a equipe de suporte do CloudSimple possa carregar os modelos em seu ambiente de nuvem privada.
 
-#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple portal: De-escalate privileges
+#### <a name="cloudsimple-portal-de-escalate-privileges"></a>Portal do CloudSimple: desescalonamento de privilégios
 
-You can now [de-escalate the privileges](escalate-private-cloud-privileges.md#de-escalate-privileges) of the 'cloudowner' user.
+Agora você pode [redimensionar os privilégios](escalate-private-cloud-privileges.md#de-escalate-privileges) do usuário ' cloudowner '.
 
-## <a name="ongoing-management-of-your-horizon-solution"></a>Ongoing management of your Horizon solution
+## <a name="ongoing-management-of-your-horizon-solution"></a>Gerenciamento contínuo da sua solução de horizonte
 
-You have full control over Horizon and App Volume Manager software in your Private Cloud environment and are expected to perform the necessary software lifecycle management. Ensure that any new versions of software are compatible with the Private Cloud vCenter and PSC before updating or upgrading Horizon or App Volume.
+Você tem controle total sobre o horizonte e o software do Gerenciador de volume de aplicativos em seu ambiente de nuvem privada e deve executar o gerenciamento de ciclo de vida de software necessário. Verifique se todas as novas versões do software são compatíveis com o vCenter e o PSC da nuvem privada antes de atualizar ou atualizar o horizonte ou o volume do aplicativo.

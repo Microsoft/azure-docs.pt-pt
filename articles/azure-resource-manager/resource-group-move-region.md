@@ -43,6 +43,6 @@ O processo de movimentação real depende dos recursos que você está movendo. 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista dos recursos que dão suporte à movimentação entre regiões, consulte [mover suporte de operação para recursos](region-move-support.md).

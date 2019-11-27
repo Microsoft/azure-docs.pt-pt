@@ -1,6 +1,6 @@
 ---
-title: Introdução à vista de grupo de segurança no observador de rede do Azure | Documentos da Microsoft
-description: Esta página fornece uma descrição geral da capacidade de vista de segurança de observador de rede
+title: Introdução à exibição de grupo de segurança no observador de rede do Azure | Microsoft Docs
+description: Esta página fornece uma visão geral do recurso de exibição de segurança do observador de rede
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: kumud
-ms.openlocfilehash: ed0ad244a758b92f5ccba5785184190b030c306c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 856135c6cf903b1530f0ae922edddd09e5a1b0d3
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722586"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539222"
 ---
-# <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Introdução à vista de grupo de segurança de rede no observador de rede do Azure
+# <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Introdução à exibição de regras de segurança em vigor no observador de rede do Azure
 
-Grupos de segurança de rede são associados a um nível de sub-rede ou num nível NIC. Quando associados a um nível de sub-rede, aplica-se a todas as instâncias VM na sub-rede. Vista de grupo de segurança de rede devolve todas as configurado NSGs e regras que estão associadas a um nível NIC e sub-rede de uma máquina virtual, fornece ideias sobre a configuração. Além disso, as regras de segurança efetivas são devolvidas para cada uma das NICs numa VM. Vista de grupo de segurança de rede a utilizar, pode avaliar uma VM para vulnerabilidades de rede, tais como abrir portas. Também pode validar se o seu grupo de segurança de rede está a funcionar conforme esperado com base numa [comparação entre configurada e as regras de segurança aprovadas](network-watcher-nsg-auditing-powershell.md).
+Os grupos de segurança de rede são associados no nível de sub-rede ou em um nível de NIC. Quando associado a um nível de sub-rede, ele se aplica a todas as instâncias de VM na sub-rede. A exibição de regras de segurança em vigor retorna todos os NSGs e regras configurados que estão associados em um nível de NIC e de sub-rede para uma máquina virtual que fornece informações sobre a configuração. Além disso, as regras de segurança em vigor são retornadas para cada uma das NICs em uma VM. Usando a exibição de regras de segurança efetivas, você pode avaliar uma VM para vulnerabilidades de rede, como portas abertas. Você também pode validar se o grupo de segurança de rede está funcionando conforme o esperado com base em uma [comparação entre as regras de segurança configuradas e aprovadas](network-watcher-nsg-auditing-powershell.md).
 
-Um caso de utilização mais expandido está em conformidade de segurança e auditoria. Pode definir um conjunto prescritivo de regras de segurança como um modelo de governação de segurança na sua organização. Uma auditoria de conformidade periódica pode ser implementada de forma programática ao comparar as regras prescritivas com as regras em vigor para cada uma das VMs na sua rede.
+Um caso de uso mais estendido está em conformidade com segurança e auditoria. Você pode definir um conjunto de regras de segurança prescritiva como um modelo para governança de segurança em sua organização. Uma auditoria de conformidade periódica pode ser implementada de forma programática, comparando as regras prescritivas com as regras efetivas para cada uma das VMs em sua rede.
 
-No portal do que as regras são divididas em vigor, sub-rede, Interface de rede e padrão. Isso fornece uma exibição simples para as regras aplicadas a uma máquina virtual. Um botão de download é fornecido para transferir facilmente todas as regras de segurança, não importa o separador para um ficheiro CSV.
+Nas regras do portal são exibidas para cada interface de rede e agrupadas por entrada vs de saída. Isso fornece uma exibição simples das regras aplicadas a uma máquina virtual. Um botão de download é fornecido para baixar facilmente todas as regras de segurança, independentemente da guia em um arquivo CSV.
 
-![Vista de grupo de segurança][1]
+![exibição do grupo de segurança][1]
 
-As regras podem ser selecionadas e é aberto um painel novo para mostrar o grupo de segurança de rede e os prefixos de origem e de destino. A partir deste painel, pode navegar diretamente para o recurso do grupo de segurança de rede.
+As regras podem ser selecionadas e uma nova folha é aberta para mostrar o grupo de segurança de rede e os prefixos de origem e de destino. Nessa folha, você pode navegar diretamente para o recurso de grupo de segurança de rede.
 
-![desagregar][2]
+![análise][2]
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
-Saiba como as definições de grupo de segurança de rede de auditoria visitando [configurações de grupo de segurança de rede de auditoria com o PowerShell](network-watcher-nsg-auditing-powershell.md)
+Saiba como auditar as configurações do grupo de segurança de rede visitando [auditar configurações de grupo de segurança de rede com o PowerShell](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png

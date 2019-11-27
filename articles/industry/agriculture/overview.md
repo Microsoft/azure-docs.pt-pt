@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12882860b8a9beadd4e56cbb151d670fac4da43b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ff28ae7dbff40910ac0431fb47f7f0be3e1569c0
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798698"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538131"
 ---
 # <a name="overview-of-azure-farmbeats"></a>Visão geral do Azure FarmBeats
 
@@ -36,11 +36,11 @@ O Azure FarmBeats fornece uma maneira robusta e fácil de fazer o seguinte:
 - Obter informações acionáveis criando modelos de ia/ML com base em conjuntos de valores agregados.
 - Crie ou aumente sua solução de agricultura digital fornecendo conselhos de integridade do farm.
 
-Os componentes do Azure FarmBeat são discutidos nas seções a seguir deste artigo.
+Os componentes do Azure FarmBeats são discutidos nas seções a seguir deste artigo.
 
 ## <a name="data-hub"></a>Hub de dados
 
-Uma camada de API, que habilita a agregação, a normalização e a condefinição de vários conjuntos de valores de agricultura entre provedores. A partir desta versão prévia, você pode aproveitar dois provedores de sensores [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), um provedor [de imagens de satélite Sentinel-2](https://sentinel.esa.int/web/sentinel/home)e dois provedores de imagens de drone [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/). O Hub de dados foi projetado como uma plataforma de API e estamos trabalhando com muitos outros provedores para integrar com o Azure FarmBeats, para que você tenha mais opções ao criar sua solução.
+O Hub de dados FarmBeats do Azure é uma camada de API, que habilita a agregação, a normalização e a condefinição de vários conjuntos de dados de agricultura entre provedores. A partir desta versão prévia, você pode aproveitar dois provedores de sensores [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), um provedor [de imagens de satélite Sentinel-2](https://sentinel.esa.int/web/sentinel/home)e três provedores de imagens de drone [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [dji](https://dji.com/). O Hub de dados foi projetado como uma plataforma de API e estamos trabalhando com muitos outros provedores para integrar com o Azure FarmBeats, para que você tenha mais opções ao criar sua solução.
 
 ## <a name="accelerator"></a>Accelerator
 
@@ -48,8 +48,8 @@ Uma solução de exemplo, criada com base no Hub de dados, que impulsiona a inte
 
 ## <a name="resources"></a>Recursos
 
-Visite o [blog](https://aka.ms/AzureFarmBeats) e os [fóruns](https://aka.ms/FarmBeatsMSDN)do FarmBeats.
+Visite o [blog](https://aka.ms/AzureFarmBeats) e os [fóruns](https://aka.ms/FarmBeatsMSDN) do Azure FarmBeats para saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para começar a usar o Azure FarmBeats, visite o [Azure Marketplace](https://aka.ms/FarmBeatsMarketplace) para implantar.
+Para começar a usar o Azure FarmBeats, visite o [Azure Marketplace](https://aka.ms/FarmBeatsMarketplace) para iniciar o processo de implantação.

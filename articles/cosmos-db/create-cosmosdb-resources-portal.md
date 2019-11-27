@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Cosmos database from the Azure portal.
-description: Create an Azure Cosmos database, container, and items by using the Azure portal.
+title: Crie um banco de dados Cosmos do Azure no portal do Azure.
+description: Crie um banco de dados, contêiner e itens do Azure Cosmos usando o portal do Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74220735"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início rápido: criar uma conta do Azure Cosmos, um banco de dados, um contêiner e itens do portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](create-cosmosdb-resources-portal.md)
@@ -26,13 +26,13 @@ ms.locfileid: "74220735"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode usar Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, bancos de dados de documentos e bancos de dados de grafo, todos beneficiando-se dos recursos de escala horizontal e distribuição global no núcleo de Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and container, and add data to the container. 
+Este guia de início rápido demonstra como usar o portal do Azure para criar uma conta de [API do SQL](sql-api-introduction.md) do Azure Cosmos DB, criar um banco de dados de documentos e um contêiner e adicionar um dado ao contêiner. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-An Azure subscription or free Azure Cosmos DB trial account
+Uma assinatura do Azure ou uma conta de avaliação gratuita Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -43,39 +43,39 @@ An Azure subscription or free Azure Cosmos DB trial account
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-container-database"></a>
-## <a name="add-a-database-and-a-container"></a>Add a database and a container 
+## <a name="add-a-database-and-a-container"></a>Adicionar um banco de dados e um contêiner 
 
-You can use the Data Explorer in the Azure portal to create a database and container. 
+Você pode usar o Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
 
-1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**. 
+1.  Selecione **Data Explorer** na barra de navegação à esquerda na página da sua conta do Azure Cosmos DB e, em seguida, selecione **novo contêiner**. 
     
-    You may need to scroll right to see the **Add Container** window.
+    Talvez seja necessário rolar para a direita para ver a janela **Adicionar contêiner** .
     
-    ![The Azure portal Data Explorer, Add Container pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    ![O Data Explorer de portal do Azure, o painel Adicionar contêiner](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  In the **Add container** pane, enter the settings for the new container.
+1.  No painel **Adicionar contêiner** , insira as configurações para o novo contêiner.
     
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
-    |**Débito**|400|Leave the throughput at 400 request units per second (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
-    |**Container ID**|Itens|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
-    |**Partition key**| /categoria| The sample described in this article uses */category* as the partition key.|
+    |**ID da Base de Dados**|ToDoList|Insira *ToDoList* como o nome do novo banco de dados. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?`ou um espaço à direita. Marque a opção **provisionar taxa de transferência do banco de dados** , que permite que você compartilhe a taxa de transferência provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custos. |
+    |**Débito**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
+    |**ID do contêiner**|Itens|Insira os *itens* como o nome do novo contêiner. As IDs de contêiner têm os mesmos requisitos de caractere que os nomes de banco de dados.|
+    |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */Category* como a chave de partição.|
 
     
-    Don't add **Unique keys** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
+    Não adicione **chaves exclusivas** para este exemplo. Chaves exclusivas permitem que você adicione uma camada de integridade de dados ao banco de dado garantindo a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte [chaves exclusivas em Azure Cosmos DB](unique-keys.md).
     
-1.  Selecione **OK**. The Data Explorer displays the new database and the container that you created.
+1.  Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner que você criou.
 
-## <a name="add-data-to-your-database"></a>Add data to your database
+## <a name="add-data-to-your-database"></a>Adicionar dados ao banco de dado
 
-Add data to your new database using Data Explorer.
+Adicione dados ao novo banco de dado usando Data Explorer.
 
-1. In **Data Explorer**, expand the **ToDoList** database, and expand the **Items** container. Next, select **Items**, and then select **New Item**. 
+1. Em **Data Explorer**, expanda o banco de dados **ToDoList** e expanda o contêiner **itens** . Em seguida, selecione **itens**e, em seguida, selecione **novo item**. 
    
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
-1. Add the following structure to the document on the right side of the **Documents** pane:
+1. Adicione a seguinte estrutura ao documento no lado direito do painel **documentos** :
 
      ```json
      {
@@ -89,9 +89,9 @@ Add data to your new database using Data Explorer.
 
 1. Selecione **Guardar**.
    
-   ![Copy in json data and select Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   ![Copie em dados JSON e selecione salvar em Data Explorer no portal do Azure](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
    
-1. Select **New Document** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
+1. Selecione **novo documento** novamente e crie e salve outro documento com um `id`exclusivo e quaisquer outras propriedades e valores desejados. Seus documentos podem ter qualquer estrutura, porque Azure Cosmos DB não impõe nenhum esquema em seus dados.
 
 ## <a name="query-your-data"></a>Consultar os seus dados
 
@@ -101,9 +101,9 @@ Add data to your new database using Data Explorer.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and container using the Data Explorer. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
+Neste guia de início rápido, você aprendeu a criar uma conta de Azure Cosmos DB, criar um banco de dados e um contêiner usando o Data Explorer. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

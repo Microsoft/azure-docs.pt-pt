@@ -1,20 +1,15 @@
 ---
-title: Montar um volume de arquivos do Azure em instâncias de contêiner do Azure
+title: Montar o volume de arquivos do Azure para o grupo de contêineres
 description: Saiba como montar um volume de arquivos do Azure para persistir o estado com instâncias de contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 686c20aeb22c16298967aa6f73ee829472f4ea0c
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a258a96f5fbc0d54b6a85a780288fb9317cb1a1b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72175942"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533247"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em instâncias de contêiner do Azure
 
@@ -138,7 +133,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para implantar com o modelo YAML, salve o YAML anterior em um arquivo chamado `deploy-aci.yaml` e execute o comando [AZ container Create][az-container-create] com o parâmetro `--file`:
+Para implantar com o modelo YAML, salve o YAML anterior em um arquivo chamado `deploy-aci.yaml`e execute o comando [AZ container Create][az-container-create] com o parâmetro `--file`:
 
 ```azurecli
 # Deploy with YAML template
@@ -148,11 +143,11 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Além da implantação da CLI e do YAML, você pode implantar um grupo de contêineres e montar um volume em um contêiner usando um modelo do Azure [Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
 
-Primeiro, preencha a matriz `volumes` na seção do grupo de contêineres `properties` do modelo. 
+Primeiro, preencha a matriz de `volumes` na seção `properties` do grupo de contêineres do modelo. 
 
-Em seguida, para cada contêiner no qual você deseja montar o volume, preencha a matriz `volumeMounts` na seção `properties` da definição do contêiner.
+Em seguida, para cada contêiner no qual você deseja montar o volume, preencha a matriz de `volumeMounts` na seção `properties` da definição do contêiner.
 
-O modelo do Resource Manager a seguir define um grupo de contêineres com um contêiner criado com a imagem `aci-hellofiles`. O contêiner monta o compartilhamento de arquivos do Azure *acishare* criado anteriormente como um volume. Quando indicado, insira o nome e a chave de armazenamento para a conta de armazenamento que hospeda o compartilhamento de arquivos. 
+O modelo do Resource Manager a seguir define um grupo de contêineres com um contêiner criado com a imagem de `aci-hellofiles`. O contêiner monta o compartilhamento de arquivos do Azure *acishare* criado anteriormente como um volume. Quando indicado, insira o nome e a chave de armazenamento para a conta de armazenamento que hospeda o compartilhamento de arquivos. 
 
 Como nos exemplos anteriores, o valor de `dnsNameLabel` deve ser exclusivo na região do Azure em que você cria a instância de contêiner. Atualize o valor no modelo, se necessário.
 
@@ -223,7 +218,7 @@ Como nos exemplos anteriores, o valor de `dnsNameLabel` deve ser exclusivo na re
 }
 ```
 
-Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo chamado `deploy-aci.json` e execute o comando [AZ Group Deployment Create][az-group-deployment-create] com o parâmetro `--template-file`:
+Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo chamado `deploy-aci.json`e execute o comando [AZ Group Deployment Create][az-group-deployment-create] com o parâmetro `--template-file`:
 
 ```azurecli
 # Deploy with Resource Manager template
@@ -235,7 +230,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 Para montar vários volumes em uma instância de contêiner, você deve implantar usando um [modelo de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) ou um arquivo YAML. Para usar um modelo ou arquivo YAML, forneça os detalhes do compartilhamento e defina os volumes preenchendo a matriz `volumes` na seção `properties` do modelo. 
 
-Por exemplo, se você criou dois compartilhamentos de arquivos do Azure chamados *share1* e *share2* na conta de armazenamento *myStorageAccount*, a matriz `volumes` em um modelo do Resource Manager será semelhante ao seguinte:
+Por exemplo, se você criou dois compartilhamentos de arquivos do Azure chamados *share1* e *share2* na conta de armazenamento *myStorageAccount*, a matriz de `volumes` em um modelo do Resource Manager será semelhante ao seguinte:
 
 ```JSON
 "volumes": [{
@@ -256,7 +251,7 @@ Por exemplo, se você criou dois compartilhamentos de arquivos do Azure chamados
 }]
 ```
 
-Em seguida, para cada contêiner no grupo de contêineres no qual você deseja montar os volumes, preencha a matriz `volumeMounts` na seção `properties` da definição do contêiner. Por exemplo, isso monta os dois volumes, *myvolume1* e *myvolume2*, definidos anteriormente:
+Em seguida, para cada contêiner no grupo de contêineres no qual você gostaria de montar os volumes, preencha a matriz de `volumeMounts` na seção `properties` da definição do contêiner. Por exemplo, isso monta os dois volumes, *myvolume1* e *myvolume2*, definidos anteriormente:
 
 ```JSON
 "volumeMounts": [{

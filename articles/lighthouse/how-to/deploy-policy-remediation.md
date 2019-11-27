@@ -1,6 +1,6 @@
 ---
 title: Implementar uma política que pode ser corrigida
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
+description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
@@ -10,19 +10,19 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463873"
 ---
-# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Deploy a policy that can be remediated within a delegated subscription
+# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implantar uma política que pode ser corrigida em uma assinatura delegada
 
-[Azure Lighthouse](../overview.md) allows service providers to create and edit policy definitions within a delegated subscription. However, to deploy policies that use a [remediation task](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (that is, policies with the [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) or [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) effect), you’ll need to create a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) in the customer tenant. This managed identity can be used by Azure Policy to deploy the template within the policy. There are steps required to enable this scenario, both when you onboard the customer for Azure delegated resource management, and when you deploy the policy itself.
+O [Azure Lighthouse](../overview.md) permite que os provedores de serviços criem e editem definições de política em uma assinatura delegada. No entanto, para implantar políticas que usam uma [tarefa de correção](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (ou seja, políticas com o efeito [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) ou [Modificar](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) ), você precisará criar uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) no locatário do cliente. Essa identidade gerenciada pode ser usada pelo Azure Policy para implantar o modelo na política. Há etapas necessárias para habilitar esse cenário, quando você carrega o cliente para o gerenciamento de recursos delegado do Azure e quando implanta a política em si.
 
-## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Create a user who can assign roles to a managed identity in the customer tenant
+## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um usuário que pode atribuir funções a uma identidade gerenciada no locatário do cliente
 
-When you onboard a customer for Azure delegated resource management, you use an [Azure Resource Manager template](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) along with a parameters file that defines the users, user groups, and service principals in your managing tenant that will be able to access the delegated resources in the customer tenant. In your parameters file, each of these users (**principalId**) is assigned a [built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) that defines the level of access.
+Ao integrar um cliente para o gerenciamento de recursos delegado do Azure, você usa um [modelo de Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) junto com um arquivo de parâmetros que define os usuários, grupos de usuários e entidades de serviço no seu locatário de gerenciamento que poderá acessar os recursos delegados no locatário do cliente. No arquivo de parâmetros, cada um desses usuários (**PrincipalId**) é atribuído a uma [função interna](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) que define o nível de acesso.
 
-To allow a **principalId** to create a managed identity in the customer tenant, you must set its **roleDefinitionId** to **User Access Administrator**. While this role is not generally supported, it can be used in this specific scenario, allowing the users with this permission to assign one or more specific built-in roles to managed identities. These roles are defined in the **delegatedRoleDefinitionIds** property. You can include any built-in role here except for User Access Administrator or Owner.
+Para permitir que uma **entidade de segurança** crie uma identidade gerenciada no locatário do cliente, você deve definir seu **roleDefinitionId** como administrador de **acesso do usuário**. Embora essa função não tenha suporte em geral, ela pode ser usada nesse cenário específico, permitindo que os usuários com essa permissão atribuam uma ou mais funções internas específicas a identidades gerenciadas. Essas funções são definidas na propriedade **delegatedRoleDefinitionIds** . Você pode incluir qualquer função interna aqui, exceto o administrador de acesso do usuário ou o proprietário.
 
-After the customer is onboarded, the **principalId** created in this authorization will be able to assign these built-in roles to managed identities in the customer tenant. However, they will not have any other permissions normally associated with the User Access Administrator role.
+Depois que o cliente estiver integrado, o **PrincipalId** criado nessa autorização poderá atribuir essas funções internas a identidades gerenciadas no locatário do cliente. No entanto, eles não terão nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário.
 
-The example below shows a **principalId** who will have the User Access Administrator role. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
+O exemplo a seguir mostra um **PrincipalId** que terá a função de administrador de acesso do usuário. Esse usuário poderá atribuir duas funções internas a identidades gerenciadas no locatário do cliente: colaborador e colaborador de Log Analytics.
 
 ```json
 {
@@ -36,15 +36,15 @@ The example below shows a **principalId** who will have the User Access Administ
 }
 ```
 
-## <a name="deploy-policies-that-can-be-remediated"></a>Deploy policies that can be remediated
+## <a name="deploy-policies-that-can-be-remediated"></a>Implantar políticas que podem ser corrigidas
 
-Once you have created the user with the necessary permissions as described above, that user can deploy policies in the customer tenant that use remediation tasks.
+Depois de criar o usuário com as permissões necessárias, conforme descrito acima, esse usuário pode implantar políticas no locatário do cliente que usam tarefas de correção.
 
-For example, let’s say you wanted to enable diagnostics on Azure Key Vault resources in the customer tenant, as illustrated in this [sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). A user in the managing tenant with the appropriate permissions (as described above) would deploy an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) to enable this scenario.
+Por exemplo, digamos que você queria habilitar o diagnóstico em Azure Key Vault recursos no locatário do cliente, conforme ilustrado neste [exemplo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). Um usuário no locatário de gerenciamento com as permissões apropriadas (conforme descrito acima) implantaria um [modelo de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar esse cenário.
 
-Note that creating the policy assignment to use with a delegated subscription must currently be done through APIs, not in the Azure portal. When doing so, the **apiVersion** must be set to **2019-04-01-preview**, which includes the new **delegatedManagedIdentityResourceId** property. This property allows you to include a managed identity that resides in the customer tenant (in a subscription or resource group which has been onboarded to Azure delegated resource management).
+Observe que a criação da atribuição de política a ser usada com uma assinatura delegada deve ser feita atualmente por meio de APIs, não na portal do Azure. Ao fazer isso, o **apiVersion** deve ser definido como **2019-04-01-Preview**, que inclui a nova propriedade **delegatedManagedIdentityResourceId** . Essa propriedade permite incluir uma identidade gerenciada que reside no locatário do cliente (em uma assinatura ou grupo de recursos que foi integrado ao gerenciamento de recursos delegado do Azure).
 
-The following example shows a role assignment with a **delegatedManagedIdentityResourceId**.
+O exemplo a seguir mostra uma atribuição de função com um **delegatedManagedIdentityResourceId**.
 
 ```json
 "type": "Microsoft.Authorization/roleAssignments",
@@ -62,9 +62,9 @@ The following example shows a role assignment with a **delegatedManagedIdentityR
 ```
 
 > [!TIP]
-> A [similar sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) is available to demonstrate how to deploy a policy that adds or removes a tag (using the modify effect) to a delegated subscription.
+> Um [exemplo semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) está disponível para demonstrar como implantar uma política que adiciona ou remove uma marca (usando o efeito modificar) para uma assinatura delegada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Learn about [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
-- Learn about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Saiba mais sobre [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- Saiba mais sobre [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).

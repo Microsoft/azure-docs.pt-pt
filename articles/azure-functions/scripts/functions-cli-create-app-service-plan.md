@@ -1,23 +1,16 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar uma Aplicação de Funções num plano do Serviço de Aplicações | Microsoft Docs
+title: Criar um Aplicativo de funções em um plano do serviço de aplicativo-CLI do Azure
 description: Exemplo do Script da CLI do Azure - Criar uma Aplicação de Funções num plano do Serviço de Aplicações
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 85fe8e567cd00decbefe79c77c11f777820080ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77e026e12d14745c308e1d02fade13f318d9e532
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325685"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532844"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Criar uma Aplicação de Funções num plano do Serviço de Aplicações
 
@@ -43,13 +36,13 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Cria uma Conta de armazenamento do Azure. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de funções no plano do Serviço de Aplicações. |
+| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma Conta de armazenamento do Azure. |
+| [criar plano de functionapp de AZ](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Cria um plano Premium. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de funções no plano do Serviço de Aplicações. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI das Funções do Azure adicionais na [Documentação das Funções do Azure](../functions-cli-samples.md).

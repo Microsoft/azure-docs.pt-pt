@@ -1,14 +1,14 @@
 ---
-title: Exemplo-CSP SWIFT-CSCF v2020 Blueprint – mapeamento de controle
+title: CSCF do SWIFT CSP – controles de exemplo do v2020 Blueprint
 description: Mapeamento de controle da amostra do CSCF v2020 Blueprint do SWIFT CSP. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037829"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546516"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controle da amostra do CSP do SWIFT-CSCF v2020 Blueprint
 
@@ -85,9 +85,9 @@ Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de t
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 
 ## <a name="22-27-and-64-response-to-audit-processing-failures"></a>Resposta 2,2, 2,7 e 6,4 para falhas de processamento de auditoria
 
@@ -103,9 +103,9 @@ Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de t
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1,3, 2,2, 2,7, 6,4 e 6.5 uma geração de auditoria
 
@@ -113,9 +113,9 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
@@ -272,9 +272,9 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - As configurações avançadas de segurança de dados para o SQL Server devem conter um endereço de email para receber alertas de segurança
 - Os logs de diagnóstico no Azure Stream Analytics devem ser habilitados
@@ -292,7 +292,7 @@ A proteção avançada contra ameaças para o armazenamento do Azure detecta ten
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do CSCF v2020 Blueprint do SWIFT CSP, visite os seguintes artigos para saber mais sobre o plano gráfico e como implantar esse exemplo:
 

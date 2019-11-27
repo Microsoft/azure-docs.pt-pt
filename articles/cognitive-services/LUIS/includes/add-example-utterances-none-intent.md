@@ -17,20 +17,20 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325919"
 ---
-The client application needs to know if an utterance is not meaningful or appropriate for the application. The **None** intent is added to each application as part of the creation process to determine if an utterance shouldn't be answered by the client application.
+O aplicativo cliente precisa saber se um expressão não é significativo ou apropriado para o aplicativo. A intenção **None** é adicionada a cada aplicativo como parte do processo de criação para determinar se um expressão não deve ser respondido pelo aplicativo cliente.
 
-If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation or give more directions for continuing the conversation. 
+Se LUIS retornar a intenção **None** para um expressão, seu aplicativo cliente poderá perguntar se o usuário deseja encerrar a conversa ou fornecer mais instruções para continuar a conversa. 
 
-If you leave the **None** intent empty, an utterance that should be predicted outside the subject domain will be predicted in one of the existing subject domain intents. The result is that the client application, such as a chat bot, will perform incorrect operations based on an incorrect prediction. 
+Se você deixar a intenção **nenhum** vazia, um expressão que deve ser previsto fora do domínio do assunto será previsto em uma das tentativas de domínio do assunto existente. O resultado é que o aplicativo cliente, como um bot de chat, executará operações incorretas com base em uma previsão incorreta. 
 
 1. Selecione **Intents** (Intenções) no painel esquerdo.
 
-1. Selecione a intenção **None** (Nenhuma). Add three utterances that your user might enter but are not relevant to your Pizza ordering app:
+1. Selecione a intenção **None** (Nenhuma). Adicione três declarações que seu usuário pode inserir, mas que não são relevantes para seu aplicativo de ordem de pizza:
 
-    |`None` example utterances|
+    |`None` exemplo declarações|
     |--|
     |`Barking dogs are annoying`|
     |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
-    These examples shouldn't use words you expect in your subject domain such as `pizza`, `cheese`, `crust`, `pickup` `deliver`.
+    Esses exemplos não devem usar palavras que você espera em seu domínio de assunto, como `pizza`, `cheese`, `crust``pickup` `deliver`.

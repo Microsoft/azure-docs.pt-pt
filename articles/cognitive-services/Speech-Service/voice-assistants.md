@@ -85,7 +85,7 @@ Os assistentes de voz criados com o uso dos serviços de fala do Azure podem usa
 * [SDK de Voz](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)

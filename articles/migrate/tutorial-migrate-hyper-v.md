@@ -155,7 +155,7 @@ Com a descoberta concluída, você pode começar a replicação de VMs do Hyper-
 9. Em **Benefício Híbrido do Azure**:
 
     - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Clique depois em **Seguinte**.
-    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
+    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Clique depois em **Seguinte**.
 
     ![Configurações de destino](./media/tutorial-migrate-hyper-v/target-settings.png)
 
@@ -167,7 +167,7 @@ Com a descoberta concluída, você pode começar a replicação de VMs do Hyper-
 
     ![Configurações de computação da VM](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-11. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Em seguida, clique em **Seguinte**.
+11. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Clique depois em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
@@ -270,6 +270,6 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 -  Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) na estrutura de adoção de nuvem do Azure.

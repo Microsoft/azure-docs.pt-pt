@@ -14,7 +14,7 @@ ms.locfileid: "74287843"
 
 Este artigo responde a perguntas comuns sobre como fazer backup de bancos de dados do SAP HANA usando o serviço de backup do Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos backups completos têm suporte por dia?
 
@@ -67,6 +67,6 @@ Verifique se a opção **forçar substituição** está selecionada durante a re
 
 Consulte a SAP HANA nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais tipos de restauração têm suporte no momento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [fazer backup de bancos de dados SAP Hana](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) em execução em VMs do Azure.

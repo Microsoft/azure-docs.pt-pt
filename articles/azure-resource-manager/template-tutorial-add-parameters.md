@@ -1,6 +1,6 @@
 ---
-title: Tutorial - add parameters to template
-description: Add parameters to your Azure Resource Manager template to make it reusable.
+title: Tutorial – adicionar parâmetros ao modelo
+description: Adicione parâmetros ao seu modelo de Azure Resource Manager para torná-lo reutilizável.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,37 +12,37 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406076"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Add parameters to your Resource Manager template
+# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: adicionar parâmetros ao modelo do Resource Manager
 
-In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the template by adding parameters. This tutorial takes about **14 minutes** to complete.
+No [tutorial anterior](template-tutorial-add-resource.md), você aprendeu como adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, você aprenderá a melhorar o modelo adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-We recommend that you complete the [tutorial about resources](template-tutorial-add-resource.md), but it's not required.
+Recomendamos que você conclua o [tutorial sobre os recursos](template-tutorial-add-resource.md), mas isso não é necessário.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Review template
+## <a name="review-template"></a>Modelo de revisão
 
-At the end of the previous tutorial, your template had the following JSON:
+No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
 
-You may have noticed that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you would have to create a new template, which obviously isn't a practical way to automate your deployments.
+Talvez você tenha notado que há um problema com esse modelo. O nome da conta de armazenamento é embutido em código. Você só pode usar esse modelo para implantar a mesma conta de armazenamento a cada vez. Para implantar uma conta de armazenamento com um nome diferente, você precisaria criar um novo modelo, que obviamente não é uma maneira prática de automatizar suas implantações.
 
-## <a name="make-template-reusable"></a>Make template reusable
+## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
 
-To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON in the following example shows what changed in your template. The **storageName** parameter is identified as a string. The max length is set to 24 characters to prevent any names that are too long.
+Para tornar seu modelo reutilizável, vamos adicionar um parâmetro que você pode usar para passar um nome de conta de armazenamento. O JSON realçado no exemplo a seguir mostra o que mudou em seu modelo. O parâmetro **storagename** é identificado como uma cadeia de caracteres. O comprimento máximo é definido como 24 caracteres para evitar qualquer nome muito longo.
 
-Copy the whole file and replace your template with its contents.
+Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Let's deploy the template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
+Vamos implantar o modelo. O exemplo a seguir implanta o modelo com CLI do Azure ou PowerShell. Observe que você fornece o nome da conta de armazenamento como um dos valores no comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome usado no tutorial anterior.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -66,27 +66,27 @@ az group deployment create \
 
 ---
 
-## <a name="understand-resource-updates"></a>Understand resource updates
+## <a name="understand-resource-updates"></a>Entender as atualizações de recursos
 
-In the previous section, you deployed a storage account with the same name that you had created earlier. You may be wondering how the resource is affected by the redeployment.
+Na seção anterior, você implantou uma conta de armazenamento com o mesmo nome que você criou anteriormente. Você pode estar se perguntando como o recurso é afetado pela reimplantação.
 
-If the resource already exists and no change is detected in the properties, no action is taken. If the resource already exists and a property has changed, the resource is updated. If the resource doesn't exist, it's created.
+Se o recurso já existir e nenhuma alteração for detectada nas propriedades, nenhuma ação será executada. Se o recurso já existir e uma propriedade tiver sido alterada, o recurso será atualizado. Se o recurso não existir, ele será criado.
 
-This way of handling updates means your template can include all of the resources you need for an Azure solution. You can safely redeploy the template and know that resources are changed or created only when needed. For example, if you have added files to your storage account, you can redeploy the storage account without losing those files.
+Essa maneira de lidar com atualizações significa que seu modelo pode incluir todos os recursos necessários para uma solução do Azure. Você pode reimplantar com segurança o modelo e saber se os recursos são alterados ou criados somente quando necessário. Por exemplo, se você tiver adicionado arquivos à sua conta de armazenamento, poderá reimplantar a conta de armazenamento sem perder esses arquivos.
 
-## <a name="customize-by-environment"></a>Customize by environment
+## <a name="customize-by-environment"></a>Personalizar por ambiente
 
-Os parâmetros permitem-lhe personalizar a implementação, ao fornecer valores que são adaptados para um determinado ambiente. For example, you can pass different values based on whether you're deploying to an environment for development, test, and production.
+Os parâmetros permitem-lhe personalizar a implementação, ao fornecer valores que são adaptados para um determinado ambiente. Por exemplo, você pode passar valores diferentes com base em se está implantando em um ambiente para desenvolvimento, teste e produção.
 
-The previous template always deployed a Standard_LRS storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your template.
+O modelo anterior sempre implantou uma conta de armazenamento Standard_LRS. Talvez você queira a flexibilidade para implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir mostra as alterações para adicionar um parâmetro para a SKU. Copie todo o arquivo e cole-o em seu modelo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
 
-The **storageSKU** parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
+O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
 
 ## <a name="redeploy-template"></a>Reimplementar o modelo
 
-You're ready to deploy again. Because the default SKU is set to **Standard_LRS**, you don't need to provide a value for that parameter.
+Você está pronto para implantar novamente. Como o SKU padrão é definido como **Standard_LRS**, você não precisa fornecer um valor para esse parâmetro.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -110,7 +110,7 @@ az group deployment create \
 
 ---
 
-To see the flexibility of your template, let's deploy again. This time set the SKU parameter to **Standard_GRS**. You can either pass in a new name to create a different storage account, or use the same name to update your existing storage account. Both options work.
+Para ver a flexibilidade do modelo, vamos implantá-lo novamente. Dessa vez, defina o parâmetro SKU como **Standard_GRS**. Você pode passar um novo nome para criar uma conta de armazenamento diferente ou usar o mesmo nome para atualizar sua conta de armazenamento existente. Ambas as opções funcionam.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -135,7 +135,7 @@ az group deployment create \
 
 ---
 
-Finally, let's run one more test and see what happens when you pass in a SKU that isn't one of the allowed values. In this case, we test the scenario where a user of your template thinks **basic** is one of the SKUs.
+Por fim, vamos executar mais um teste e ver o que acontece quando você passa uma SKU que não é um dos valores permitidos. Nesse caso, testamos o cenário em que um usuário do modelo pensa que o **básico** é uma das SKUs.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -160,22 +160,22 @@ az group deployment create \
 
 ---
 
-The command fails immediately with an error message that states which values are allowed. Resource Manager identifies the error before the deployment starts.
+O comando falha imediatamente com uma mensagem de erro que indica quais valores são permitidos. O Gerenciador de recursos identifica o erro antes de iniciar a implantação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-You improved the template created in the [first tutorial](template-tutorial-create-first-template.md) by adding parameters. In the next tutorial, you'll learn about template functions.
+Você melhorou o modelo criado no [primeiro tutorial](template-tutorial-create-first-template.md) adicionando parâmetros. No próximo tutorial, você aprenderá sobre as funções de modelo.
 
 > [!div class="nextstepaction"]
-> [Add template functions](template-tutorial-add-functions.md)
+> [Adicionar funções de modelo](template-tutorial-add-functions.md)

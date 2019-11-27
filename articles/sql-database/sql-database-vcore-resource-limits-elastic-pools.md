@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: f356b9d248ac9c5f0bcfaaeeb37b43d958eaa528
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/25/2019
+ms.openlocfilehash: 74cc13386befa5cd97900b6b36d07d3144d9b727
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822365"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534210"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra vCore
 
@@ -25,13 +25,12 @@ Este artigo fornece os limites de recursos detalhados para os pools elásticos d
 Para limites de modelo de compra de DTU, consulte [limites de recursos de DTU do banco de dados SQL – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 Você pode definir a camada de serviço, o tamanho da computação e o valor de armazenamento usando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), o [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases)ou a [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!IMPORTANT]
 > Para obter diretrizes e considerações sobre o dimensionamento, consulte [dimensionar um pool elástico](sql-database-elastic-pool-scale.md)
-
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Computação provisionada de uso geral-Gen4
 
@@ -48,8 +47,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Número de DBs máximo por conjunto|100|200|500|500|500|500|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamanho máximo de dados (GB)|512|756|756|1536|1536|1536|
-|Tamanho máximo do log|154|227|227|461|461|461|
+|Tamanho máximo de dados (GB)|512|756|1536|1536|1536|2048|
+|Tamanho máximo do log|154|227|461|461|461|614|
 |Tamanho do TempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
@@ -61,11 +60,10 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
-
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Camada de serviço de uso geral: plataforma de computação de geração 4 (parte 2)
 
@@ -77,8 +75,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Número de DBs máximo por conjunto|500|500|500|500|500|500|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamanho máximo de dados (GB)|1536|2048|2048|2048|3584|4096|
-|Tamanho máximo do log (GB)|461|614|614|614|1075|1229|
+|Tamanho máximo de dados (GB)|2048|2048|2048|2048|3584|4096|
+|Tamanho máximo do log (GB)|614|614|614|614|1075|1229|
 |Tamanho do TempDB (GB)|224|256|288|320|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
@@ -90,11 +88,10 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
-
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Computação provisionada de uso geral-Gen5
 
@@ -108,8 +105,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Número de DBs máximo por conjunto|100|200|500|500|500|500|500|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamanho máximo de dados (GB)|512|756|756|1536|1536|1536|
-|Tamanho máximo do log (GB)|154|227|227|461|461|461|461|
+|Tamanho máximo de dados (GB)|512|756|1536|1536|1536|2048|2048|
+|Tamanho máximo do log (GB)|154|227|461|461|461|614|614|
 |Tamanho do TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
@@ -121,7 +118,7 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Número de réplicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
@@ -136,8 +133,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Número de DBs máximo por conjunto|500|500|500|500|500|500|500|
 |Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamanho máximo de dados (GB)|2048|2048|3072|3072|4096|4096|4096|
-|Tamanho máximo do log (GB)|614|614|922|922|1229|1229|1229|
+|Tamanho máximo de dados (GB)|2048|3072|3072|3072|4096|4096|4096|
+|Tamanho máximo do log (GB)|614|922|922|922|1229|1229|1229|
 |Tamanho do TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
@@ -148,7 +145,7 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24, 32, 40|0, 0,25, 0,5, 1... 16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Expansão de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalamento Horizontal de Leituras|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Computação provisionada de uso geral-série Fsv2
@@ -175,14 +172,10 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0-72|
 |Número de réplicas|1|
 |Multi-AZ|N/D|
-|Expansão de leitura|N/D|
+|Escalamento Horizontal de Leituras|N/D|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|
 
-
-
-
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
-
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Comercialmente crítico-computação provisionada-Gen4
 
@@ -191,29 +184,29 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Camada de serviço comercialmente crítica: plataforma de computação de geração 4 (parte 1)
 
-|Tamanho da computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Tamanho da computação|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Geração de computação|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCores|1|2|3|4|5|6|
-|Memória (GB)|7|14|21|28|35|42|
-|Número de DBs máximo por conjunto|Somente os bancos de computadores individuais têm suporte para esse tamanho de computação|50|100|100|100|100|
-|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|1|2|3|4|5|6|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamanho máximo de dados (GB)|650|650|650|650|650|650|
-|Tamanho máximo do log (GB)|195|195|195|195|195|195|
-|Tamanho do TempDB (GB)|32|64|96|128|160|192|
-|Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|5000|10000|15 000|20000|25000|30000|
-|Limites de taxa de log (MBps)|10|20|30|40|50|60|
-|Máximo de trabalhos simultâneos por pool (solicitações) *|210|420|630|840|1050|1260|
-|Máximo de logons simultâneos por pool (solicitações) *|210|420|630|840|1050|1260|
-|Máximo de sessões permitidas|30000|30000|30000|30000|30000|30000|
-|Opções vCore de pool elástico mínimo/máximo por banco de dados|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
-|Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
-|Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
+|Geração de computação|Gen4|Gen4|Gen4|Gen4|Gen4|
+|vCores|2|3|4|5|6|
+|Memória (GB)|14|21|28|35|42|
+|Número de DBs máximo por conjunto|100|100|100|100|100|
+|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|2|3|4|5|6|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|
+|Tamanho máximo do log (GB)|307|307|307|307|307|
+|Tamanho do TempDB (GB)|64|96|128|160|192|
+|Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de destino (64 KB)|10000|15 000|20000|25000|30000|
+|Limites de taxa de log (MBps)|20|30|40|50|60|
+|Máximo de trabalhos simultâneos por pool (solicitações) *|420|630|840|1050|1260|
+|Máximo de logons simultâneos por pool (solicitações) *|420|630|840|1050|1260|
+|Máximo de sessões permitidas|30000|30000|30000|30000|30000|
+|Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
+|Número de réplicas|4|4|4|4|4|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
@@ -228,8 +221,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Suporte a Columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
-|Tamanho máximo do log (GB)|195|195|195|195|307|307|
+|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
+|Tamanho máximo do log (GB)|307|307|307|307|307|307|
 |Tamanho do TempDB (GB)|224|256|288|320|384|384|
 |Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|35000|40000|45000|50000|80000|120000|
@@ -240,7 +233,7 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
-|Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
@@ -249,29 +242,29 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de serviço comercialmente crítica: plataforma de computação de geração 5 (parte 1)
 
-|Tamanho da computação|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Tamanho da computação|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|6|8|10|12|14|
-|Memória (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
-|Número de DBs máximo por conjunto|Somente os bancos de computadores individuais têm suporte para esse tamanho de computação|50|100|100|100|100|100|
-|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento OLTP na memória (GB)|1,571|3,142|4,713|6,284|8,655|11, 26|13,397|
-|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Tamanho máximo do log (GB)|307|307|307|461|461|922|922|
-|Tamanho do TempDB (GB)|64|128|192|256|320|384|384|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
-|Limites de taxa de log (MBps)|15|30|45|60|75|90|105|
-|Máximo de trabalhos simultâneos por pool (solicitações) *|210|420|630|840|1050|1260|1470|
-|Máximo de logons simultâneos por pool (solicitações) *|210|420|630|840|1050|1260|1470|
-|Máximo de sessões permitidas|30000|30000|30000|30000|30000|30000|30000|
-|Opções vCore de pool elástico mínimo/máximo por banco de dados|N/D|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
-|Número de réplicas|4|4|4|4|4|4|4|
+|Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|vCores|4|6|8|10|12|14|
+|Memória (GB)|20,4|30,6|40,8|51|61,2|71,4|
+|Número de DBs máximo por conjunto|100|100|100|100|100|100|
+|Suporte a Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|3,142|4,713|6,284|8,655|11, 26|13,397|
+|Tamanho máximo de dados (GB)|1024|1536|1536|1536|3072|3072|
+|Tamanho máximo do log (GB)|307|307|461|461|922|922|
+|Tamanho do TempDB (GB)|128|192|256|320|384|384|
+|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de destino (64 KB)|10000|15 000|20000|25000|30000|35000|
+|Limites de taxa de log (MBps)|30|45|60|75|90|105|
+|Máximo de trabalhos simultâneos por pool (solicitações) *|420|630|840|1050|1260|1470|
+|Máximo de logons simultâneos por pool (solicitações) *|420|630|840|1050|1260|1470|
+|Máximo de sessões permitidas|30000|30000|30000|30000|30000|30000|
+|Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
+|Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
-|Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 \* para o máximo de trabalhos simultâneos (solicitações) para qualquer banco de dados individual, consulte [limites de recurso de banco de dados único](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu vCore máximo por banco de dados for 2, o máximo de trabalhos simultâneos será de 200.  Se o vCore máximo por banco de dados for 0,5, o máximo de trabalhos simultâneos será 50, pois, em Gen5, há um máximo de 100 trabalhos simultâneos por vCore.  Para outras configurações de vCore máxima por banco de dados que são menos de 1 vCore ou menos, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
@@ -298,7 +291,7 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 20, 24, 32, 40|0, 0,25, 0,5, 1... 20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Escalamento Horizontal de Leituras|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|tamanho do banco de BD 1X|
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Computação comercialmente crítica-série M
@@ -326,7 +319,7 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0-128|
 |Número de réplicas|4|
 |Multi-AZ|Sim|
-|Expansão de leitura|Sim|
+|Escalamento Horizontal de Leituras|Sim|
 |Armazenamento de backup incluído|tamanho do banco de BD 1X|
 
 

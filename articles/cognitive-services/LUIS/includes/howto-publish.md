@@ -27,8 +27,8 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
 
     ![Publicação no ponto final do LUIS](../media/howto-publish/publish-app-popup.png)
 
-3. Publishing is complete when you see the status bar at the top of the page confirming success.
+3. A publicação será concluída quando você vir a barra de status na parte superior da página confirmando êxito.
 
     ![Publicação no ponto final do LUIS](../media/howto-publish/publish-endpoint-success.png)
 
-4. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.
+4. Selecione o link **acessar suas URLs de ponto de extremidade** na notificação para ir para a página **recursos do Azure** . As URLs de ponto de extremidade são listadas como a **consulta de exemplo**.

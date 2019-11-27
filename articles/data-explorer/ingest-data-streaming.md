@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090622"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548344"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
 
@@ -73,8 +73,7 @@ Há dois tipos de ingestão de streaming com suporte:
 
 ## <a name="limitations"></a>Limitações
 
-* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Para um único nó D14, a carga recomendada é de até 150 solicitações por segundo.
-* Atualmente, o suporte é apenas para SKUs de 8 e 16 núcleos (D13, D14, L8 e L16).
+* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Ingestãos simultâneas são limitadas a 6 ingestãos por núcleo. Por exemplo, para SKUs de 16 núcleos, como D14 e L16, a carga com suporte máxima é de 96 ingestãos simultâneas. Para SKUs de 2 núcleos, como D11, a carga com suporte máxima é de 12 ingestãos simultâneas.
 * A limitação de tamanho de dados por solicitação de ingestão é 4 MB.
 * As atualizações de esquema, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até 5 minutos para o serviço de ingestão de streaming.
 * Habilitar a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, o usa parte do disco SSD local das máquinas de cluster para dados de ingestão de streaming e reduz o armazenamento disponível para cache ativo.

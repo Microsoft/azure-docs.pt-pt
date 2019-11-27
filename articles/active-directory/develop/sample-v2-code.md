@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c94675ac5c69055cd2811df206f81af55d3c1e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8f4d081d9a52188ee4c4b6b2a854cb9e48c02f16
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927196"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533009"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código da plataforma Microsoft Identity (ponto de extremidade v 2.0)
 
@@ -61,7 +61,7 @@ Os exemplos a seguir ilustram aplicativos Web que conectam usuários. Alguns exe
 | -------- | ------------------- | --------------------------------- |
 | ![Esta imagem mostra o logotipo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | [Tutorial de usuários de entrada do ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | O mesmo exemplo no [aplicativo Web ASP.NET Core chama Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) fase |
 | ![Esta imagem mostra o logotipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Início rápido do ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-delimitados-escopos-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-Training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp): um aplicativo Web MSAL4J que chama o Microsoft Graph |
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp): um aplicativo Web MSAL4J chamando Microsoft Graph |
 | ![Esta imagem mostra o logotipo do node. js](media/sample-v2-code/logo_nodejs.png)  |                   | [Início rápido do node. js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
 | ![Esta imagem mostra o logotipo do Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-Training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
@@ -69,7 +69,7 @@ Os exemplos a seguir ilustram aplicativos Web que conectam usuários. Alguns exe
 
 Os exemplos a seguir mostram aplicativos cliente públicos (aplicativos móveis ou de desktop) que acessam a API de Microsoft Graph ou sua própria API Web no nome de um usuário. Todos esses aplicativos cliente usam a MSAL (biblioteca de autenticação da Microsoft).
 
-| Aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API Web do ASP.NET Core 2,0 |
+| aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API Web do ASP.NET Core 2,0 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Área de trabalho (WPF)      | ![Esta imagem mostra o .NET/C# logotipo](media/sample-v2-code/logo_NET.png) | [interativo](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Área de trabalho (console)   | ![Esta imagem mostra o logotipo .NETC# /(Desktop)](media/sample-v2-code/logo_NET.png) | [Autenticação integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-IWA-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -84,16 +84,16 @@ Os exemplos a seguir mostram aplicativos cliente públicos (aplicativos móveis 
 
 Os exemplos a seguir mostram um aplicativo que acessa a API Microsoft Graph com sua própria identidade (sem usuário).
 
-| Aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
+| aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Consola | ![Esta imagem mostra o logotipo do .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Credenciais do cliente](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Console | ![Esta imagem mostra o logotipo do .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Credenciais do cliente](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Aplicação Web | ![Esta imagem mostra o logotipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Credenciais do cliente](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Aplicativos sem periféricos
 
 O exemplo a seguir mostra um aplicativo cliente público em execução em um dispositivo sem um navegador da Web. O aplicativo pode ser uma ferramenta de linha de comando, um aplicativo em execução no Linux ou Mac, ou um aplicativo de IoT. O exemplo apresenta um aplicativo que acessa a API Microsoft Graph, no nome de um usuário que entra de forma interativa em outro dispositivo (como um telefone celular). Este aplicativo cliente usa a biblioteca de autenticação da Microsoft (MSAL).
 
-| Aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
+| aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
 | Área de trabalho (console)   | ![Esta imagem mostra o logotipo .NETC# /(Desktop)](media/sample-v2-code/logo_NETcore.png) | [Fluxo de código do dispositivo](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 
@@ -116,7 +116,6 @@ Os exemplos a seguir mostram como proteger uma função do Azure usando HttpTrig
 | ![Esta imagem mostra o logotipo do node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API Web (serviço) de [NodeJS e Passport-Azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)</p>Python | API da Web (serviço) do [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Esta imagem mostra o logotipo do node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API da Web (serviço) de [NodeJS e Passport-Azure-ad usando em nome de](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
-
 
 ## <a name="other-microsoft-graph-samples"></a>Outros exemplos de Microsoft Graph
 

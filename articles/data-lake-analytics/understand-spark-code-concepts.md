@@ -1,6 +1,6 @@
 ---
-title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
-description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
+title: Compreenda os conceitos de código Apache Spark para Azure Data Lake Analytics desenvolvedores U-SQL.
+description: Este artigo descreve Apache Spark conceitos para ajudar os desenvolvedores de U-SQL a entender os conceitos de código do Spark.
 author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
@@ -15,96 +15,96 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424013"
 ---
-# <a name="understand-apache-spark-code-for-u-sql-developers"></a>Understand Apache Spark code for U-SQL developers
+# <a name="understand-apache-spark-code-for-u-sql-developers"></a>Entender o código Apache Spark para desenvolvedores do U-SQL
 
-This section provides high-level guidance on transforming U-SQL Scripts to Apache Spark.
+Esta seção fornece diretrizes de alto nível sobre como transformar scripts U-SQL para Apache Spark.
 
-- It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
-- Provides tips on how to:
-   - [Transform scripts](#transform-u-sql-scripts) including U-SQL's [rowset expressions](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
-   - [.NET code](#transform-net-code)
+- Ele começa com uma [comparação dos paradigmas de processamento de dois idiomas](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
+- Fornece dicas sobre como:
+   - [Transformar scripts](#transform-u-sql-scripts) , incluindo [expressões de conjunto de linhas](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions) do U-SQL
+   - [Código .NET](#transform-net-code)
    - [Tipos de dados](#transform-typed-values)
-   - [Catalog objects](#transform-u-sql-catalog-objects).
+   - [Objetos de catálogo](#transform-u-sql-catalog-objects).
 
-## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>Understand the U-SQL and Spark language and processing paradigms
+## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>Entenda a linguagem e os paradigmas de processamento do U-SQL e do Spark
 
-Before you start migrating Azure Data Lake Analytics' U-SQL scripts to Spark, it is useful to understand the general language and processing philosophies of the two systems.
+Antes de começar a migrar os scripts de U-SQL do Azure Data Lake Analytics para o Spark, é útil entender a linguagem geral e as filosofias de processamento dos dois sistemas.
 
-U-SQL is a SQL-like declarative query language that uses a data-flow paradigm and allows you to easily embed and scale out user-code written in .NET (for example C#), Python, and R. The user-extensions can implement simple expressions or user-defined functions, but can also provide the user the ability to implement so called user-defined operators that implement custom operators to perform rowset level transformations, extractions and writing output.
+O U-SQL é uma linguagem de consulta declarativa semelhante a SQL que usa um paradigma de fluxo de dados e permite que você incorpore e escale horizontalmente o código do usuário escrito C#em .net (por exemplo), Python e R. As extensões de usuário podem implementar expressões simples ou funções definidas pelo usuário, mas também podem fornecer ao usuário a capacidade de implementar, portanto, chamados de operadores definidos pelo usuário que implementam operadores personalizados para executar transformações de nível de conjunto de linhas, extrações e gravação de saída.
 
-Spark is a scale-out framework offering several language bindings in Scala, Java, Python, .NET etc. where you primarily write your code in one of these languages, create data abstractions called resilient distributed datasets (RDD), dataframes, and datasets and then use a LINQ-like domain-specific language (DSL) to transform them. It also provides SparkSQL as a declarative sublanguage on the dataframe and dataset abstractions. The DSL provides two categories of operations, transformations and actions. Applying transformations to the data abstractions will not execute the transformation but instead build-up the execution plan that will be submitted for evaluation with an action (for example, writing the result into a temporary table or file, or printing the result).
+O Spark é uma estrutura de expansão que oferece várias associações de linguagem em escala, Java, Python, .NET etc., onde você escreve o código principalmente em uma dessas linguagens, cria abstrações de dados chamadas RDD (conjuntos de dados distribuídos resilientes), dataframes e DataSets e em seguida, use uma DSL (linguagem específica de domínio) semelhante a LINQ para transformá-las. Ele também fornece SparkSQL como um subidioma declarativo nas abstrações de dataframe e DataSet. A DSL fornece duas categorias de operações, transformações e ações. Aplicar transformações às abstrações de dados não executará a transformação, mas, em vez disso, criará o plano de execução que será enviado para avaliação com uma ação (por exemplo, gravando o resultado em uma tabela ou arquivo temporário, ou imprimindo o resultado).
 
-Thus when translating a U-SQL script to a Spark program, you will have to decide which language you want to use to at least generate the data frame abstraction (which is currently the most frequently used data abstraction) and whether you want to write the declarative dataflow transformations using the DSL or SparkSQL. In some more complex cases, you may need to split your U-SQL script into a sequence of Spark and other steps implemented with Azure Batch or Azure Functions.
+Assim, ao converter um script U-SQL em um programa Spark, você precisará decidir qual idioma você deseja usar para, pelo menos, gerar a abstração de quadro de dados (que é a abstração de dados usada com mais frequência) e se deseja gravar a declaração declarativa transformações de Dataflow usando DSL ou SparkSQL. Em alguns casos mais complexos, talvez seja necessário dividir o script U-SQL em uma sequência do Spark e outras etapas implementadas com o lote do Azure ou Azure Functions.
 
-Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment, while both Azure Databricks and Azure HDInsight offer Spark in form of a cluster service. When transforming your application, you will have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters.
+Além disso, o Azure Data Lake Analytics oferece U-SQL em um ambiente de serviço de trabalho sem servidor, enquanto o Azure Databricks e o Azure HDInsight oferecem o Spark na forma de um serviço de cluster. Ao transformar seu aplicativo, você terá que levar em conta as implicações do agora criando, dimensionando, dimensionando e descomissionando os clusters.
 
-## <a name="transform-u-sql-scripts"></a>Transform U-SQL scripts
+## <a name="transform-u-sql-scripts"></a>Transformar scripts U-SQL
 
-U-SQL scripts follow the following processing pattern:
+Os scripts U-SQL seguem o seguinte padrão de processamento:
 
-1. Data gets read from either unstructured files, using the `EXTRACT` statement, a location or file set specification, and the built-in or user-defined extractor and desired schema, or from U-SQL tables (managed or external tables). It is represented as a rowset.
-2. The rowsets get transformed in multiple U-SQL statements that apply U-SQL expressions to the rowsets and produce new rowsets.
-3. Finally, the resulting rowsets are output into either files using the `OUTPUT` statement that specifies the location(s) and a built-in or user-defined outputter, or into a U-SQL table.
+1. Os dados são lidos de arquivos não estruturados, usando a instrução `EXTRACT`, um local ou uma especificação de conjunto de arquivos, e o extrator definido pelo usuário e o esquema desejado ou de tabelas U-SQL (tabelas gerenciadas ou externas). Ele é representado como um conjunto de linhas.
+2. Os conjuntos de linhas são transformados em várias instruções U-SQL que aplicam expressões U-SQL aos conjuntos de linhas e produzem novos conjuntos de linhas.
+3. Por fim, os conjuntos de linhas resultantes são enviados para os arquivos usando a instrução `OUTPUT` que especifica os locais e um outgerador interno ou definido pelo usuário, ou em uma tabela U-SQL.
 
-The script is evaluated lazily, meaning that each extraction and transformation step is composed into an expression tree and globally evaluated (the dataflow).
+O script é avaliado lentamente, o que significa que cada etapa de extração e transformação é composta em uma árvore de expressão e avaliada globalmente (o fluxo de os).
 
-Spark programs are similar in that you would use Spark connectors to read the data and create the dataframes, then apply the transformations on the dataframes using either the LINQ-like DSL or SparkSQL, and then write the result into files, temporary Spark tables, some programming language types, or the console.
+Os programas do Spark são semelhantes, pois você usaria conectores do Spark para ler os dados e criar os dataframes e, em seguida, aplicar as transformações nos dataframes usando o LINQ-like DSL ou SparkSQL e, em seguida, gravar o resultado em arquivos, tabelas do Spark temporárias, alguns tipos de linguagem de programação ou o console do.
 
-## <a name="transform-net-code"></a>Transform .NET code
+## <a name="transform-net-code"></a>Transformar código .NET
 
-U-SQL's expression language is C# and it offers a variety of ways to scale out custom .NET code.
+A linguagem de expressão do U- C# SQL é e oferece várias maneiras de escalar horizontalmente o código .net personalizado.
 
-Since Spark currently does not natively support executing .NET code, you will have to either rewrite your expressions into an equivalent Spark, Scala, Java, or Python expression or find a way to call into your .NET code. If your script uses .NET libraries, you have the following options:
+Como o Spark atualmente não dá suporte nativo à execução de código .NET, você precisará reescrever suas expressões em uma expressão de Spark, escala, Java ou Python equivalente ou encontrar uma maneira de chamar seu código .NET. Se o seu script usar bibliotecas .NET, você terá as seguintes opções:
 
-- Translate your .NET code into Scala or Python.
-- Split your U-SQL script into several steps, where you use Azure Batch processes to apply the .NET transformations (if you can get acceptable scale)
-- Use a .NET language binding available in Open Source called Moebius. This project is not in a supported state.
+- Traduza seu código .NET em escala ou Python.
+- Divida seu script U-SQL em várias etapas, em que você usa processos de lote do Azure para aplicar as transformações do .NET (se você puder obter uma escala aceitável)
+- Use uma associação de linguagem .NET disponível em código aberto chamado Moebius. Este projeto não está em um estado com suporte.
 
-In any case, if you have a large amount of .NET logic in your U-SQL scripts, please contact us through your Microsoft Account representative for further guidance.
+Em qualquer caso, se você tiver uma grande quantidade de lógica do .NET em seus scripts U-SQL, entre em contato conosco por meio de seu representante de conta da Microsoft para obter mais diretrizes.
 
-The following details are for the different cases of .NET and C# usages in U-SQL scripts.
+Os detalhes a seguir são para os diferentes casos do .NET C# e usos em scripts U-SQL.
 
-### <a name="transform-scalar-inline-u-sql-c-expressions"></a>Transform scalar inline U-SQL C# expressions
+### <a name="transform-scalar-inline-u-sql-c-expressions"></a>Transformar expressões do U-SQL C# em linha escalar
 
-U-SQL's expression language is C#. Many of the scalar inline U-SQL expressions are implemented natively for improved performance, while more complex expressions may be executed through calling into the .NET framework.
+A linguagem de expressão do U- C#SQL é. Muitas das expressões do U-SQL em linha escalar são implementadas nativamente para melhorar o desempenho, enquanto expressões mais complexas podem ser executadas por meio da chamada ao .NET Framework.
 
-Spark has its own scalar expression language (either as part of the DSL or in SparkSQL) and allows calling into user-defined functions written in its hosting language.
+O Spark tem sua própria linguagem de expressão escalar (como parte da DSL ou em SparkSQL) e permite chamar funções definidas pelo usuário escritas em seu idioma de hospedagem.
 
-If you have scalar expressions in U-SQL, you should first find the most appropriate natively understood Spark scalar expression to get the most performance, and then map the other expressions into a user-defined function of the Spark hosting language of your choice.
+Se você tiver expressões escalares no U-SQL, primeiro você deve encontrar a expressão escalar do Spark mais apropriada compreendida nativamente para obter o máximo de desempenho e, em seguida, mapear as outras expressões para uma função definida pelo usuário do idioma de hospedagem do Spark de sua escolha.
 
-Be aware that .NET and C# have different type semantics than the Spark hosting languages and Spark's DSL. See [below](#transform-typed-values) for more details on the type system differences.
+Lembre-se de que C# o .net tem uma semântica de tipo diferente das linguagens de hospedagem do Spark e a DSL do Spark. Consulte [abaixo](#transform-typed-values) para obter mais detalhes sobre as diferenças do sistema de tipos.
 
-### <a name="transform-user-defined-scalar-net-functions-and-user-defined-aggregators"></a>Transform user-defined scalar .NET functions and user-defined aggregators
+### <a name="transform-user-defined-scalar-net-functions-and-user-defined-aggregators"></a>Transformar funções .NET escalares definidas pelo usuário e agregadores definidos pelo usuário
 
-U-SQL provides ways to call arbitrary scalar .NET functions and to call user-defined aggregators written in .NET.
+O U-SQL fornece maneiras de chamar funções .NET escalares arbitrárias e chamar agregadores definidos pelo usuário escritos em .NET.
 
-Spark also offers support for user-defined functions and user-defined aggregators written in most of its hosting languages that can be called from Spark's DSL and SparkSQL.
+O Spark também oferece suporte para funções definidas pelo usuário e agregadores definidos pelo usuário escritos na maioria de suas linguagens de hospedagem que podem ser chamadas a partir de DSL e SparkSQL do Spark.
 
-### <a name="transform-user-defined-operators-udos"></a>Transform user-defined operators (UDOs)
+### <a name="transform-user-defined-operators-udos"></a>Transformar operadores definidos pelo usuário (UDOs)
 
-U-SQL provides several categories of user-defined operators (UDOs) such as extractors, outputters, reducers, processors, appliers, and combiners that can be written in .NET (and - to some extent - in Python and R).
+O U-SQL fornece várias categorias de operadores definidos pelo usuário (UDOs), como extratores, outmakers, redutores, processadores, aplicadores e combinadores que podem ser escritos em .NET (e-em algumas extensões Python e R).
 
-Spark does not offer the same extensibility model for operators, but has equivalent capabilities for some.
+O Spark não oferece o mesmo modelo de extensibilidade para operadores, mas tem recursos equivalentes para alguns.
 
-The Spark equivalent to extractors and outputters is Spark connectors. For many U-SQL extractors, you may find an equivalent connector in the Spark community. For others, you will have to write a custom connector. If the U-SQL extractor is complex and makes use of several .NET libraries, it may be preferable to build a connector in Scala that uses interop to call into the .NET library that does the actual processing of the data. In that case, you will have to deploy the .NET Core runtime to the Spark cluster and make sure that the referenced .NET libraries are .NET Standard 2.0 compliant.
+O Spark equivalente a extratores e outistores são conectores do Spark. Para muitos extratores U-SQL, você pode encontrar um conector equivalente na Comunidade do Spark. Para outros, você precisará escrever um conector personalizado. Se o extrator U-SQL for complexo e fizer uso de várias bibliotecas .NET, poderá ser preferível criar um conector em escalabilidade que usa a interoperabilidade para chamar a biblioteca .NET que faz o processamento real dos dados. Nesse caso, você precisará implantar o tempo de execução do .NET Core no cluster do Spark e verificar se as bibliotecas .NET referenciadas estão .NET Standard compatíveis com 2,0.
 
-The other types of U-SQL UDOs will need to be rewritten using user-defined functions and aggregators and the semantically appropriate Spark DLS or SparkSQL expression. For example, a processor can be mapped to a SELECT of a variety of UDF invocations, packaged as a function that takes a dataframe as an argument and returns a dataframe.
+Os outros tipos de UDOs do U-SQL precisarão ser reescritos usando funções e agregadores definidos pelo usuário e a expressão DLS ou SparkSQL do Spark semanticamente adequada. Por exemplo, um processador pode ser mapeado para uma seleção de uma variedade de invocações UDF, empacotada como uma função que usa um dataframe como um argumento e retorna um dataframe.
 
-### <a name="transform-u-sqls-optional-libraries"></a>Transform U-SQL's optional libraries
+### <a name="transform-u-sqls-optional-libraries"></a>Transformar bibliotecas opcionais do U-SQL
 
-U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [cognitive services capabilities](data-lake-analytics-u-sql-cognitive.md).
+O U-SQL fornece um conjunto de bibliotecas opcionais e de demonstração que oferecem suporte a [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, Avro](https://github.com/Azure/usql/tree/master/Examples/DataFormats)e a alguns [recursos de serviços cognitivas](data-lake-analytics-u-sql-cognitive.md).
 
-Spark offers its own Python and R integration, pySpark and SparkR respectively, and provides connectors to read and write JSON, XML, and AVRO.
+O Spark oferece sua própria integração Python e R, pySpark e Sparkr, respectivamente, e fornece conectores para ler e gravar JSON, XML e AVRO.
 
-If you need to transform a script referencing the cognitive services libraries, we recommend contacting us via your Microsoft Account representative.
+Se você precisar transformar um script referenciando as bibliotecas de serviços cognitivas, recomendamos entrar em contato conosco por meio de seu representante de conta da Microsoft.
 
-## <a name="transform-typed-values"></a>Transform typed values
+## <a name="transform-typed-values"></a>Transformar valores digitados
 
-Because U-SQL's type system is based on the .NET type system and Spark has its own type system, that is impacted by the host language binding, you will have to make sure that the types you are operating on are close and for certain types, the type ranges, precision and/or scale may be slightly different. Furthermore, U-SQL and Spark treat `null` values differently.
+Como o sistema de tipos do U-SQL é baseado no sistema de tipos .NET e o Spark tem seu próprio sistema de tipos, que é afetado pela Associação de idioma do host, você precisará certificar-se de que os tipos nos quais está operando estão próximos e para certos tipos, os intervalos de tipo, precisão e/ou escala podem ser um pouco diferentes. Além disso, o U-SQL e o Spark tratam `null` valores de forma diferente.
 
 ### <a name="data-types"></a>Tipos de dados
 
-The following table gives the equivalent types in Spark, Scala, and PySpark for the given U-SQL types.
+A tabela a seguir fornece os tipos equivalentes em Spark, escala e PySpark para os tipos de U-SQL fornecidos.
 
 | U-SQL | Spark |  Scala | PySpark |
 | ------ | ------ | ------ | ------ |
@@ -128,96 +128,96 @@ The following table gives the equivalent types in Spark, Scala, and PySpark for 
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
-- [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
-- [Scala value types](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [org. Apache. Spark. Sql. Types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
+- [Tipos de SQL e de quadros de datapara Spark](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Tipos de valor escalares](https://www.scala-lang.org/api/current/scala/AnyVal.html)
+- [pyspark. Sql. Types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 
-### <a name="treatment-of-null"></a>Treatment of NULL
+### <a name="treatment-of-null"></a>Tratamento de NULL
 
-In Spark, types per default allow NULL values while in U-SQL, you explicitly mark scalar, non-object as nullable. While Spark allows you to define a column as not nullable, it will not enforce the constraint and [may lead to wrong result](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836).
+No Spark, tipos por padrão permitem valores nulos no U-SQL, você marca explicitamente escalar, não objeto como anulável. Embora o Spark permita que você defina uma coluna como não anulável, ela não impedirá a restrição e [poderá levar a um resultado incorreto](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836).
 
-In Spark, NULL indicates that the value is unknown. A Spark NULL value is different from any value, including itself. Comparisons between two Spark NULL values, or between a NULL value and any other value, return unknown because the value of each NULL is unknown.  
+No Spark, NULL indica que o valor é desconhecido. Um valor nulo do Spark é diferente de qualquer valor, incluindo o próprio. As comparações entre dois valores nulos do Spark ou entre um valor nulo e qualquer outro valor retornam Unknown, pois o valor de cada NULL é desconhecido.  
 
-This behavior is different from U-SQL, which follows C# semantics where `null` is different from any value but equal to itself.  
+Esse comportamento é diferente do U-SQL, que segue C# a semântica em que `null` é diferente de qualquer valor, mas é igual a si mesmo.  
 
-Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
+Assim, uma instrução SparkSQL `SELECT` que usa `WHERE column_name = NULL` retorna zero linhas mesmo se houver valores nulos no `column_name`, enquanto no U-SQL, ele retornará as linhas em que `column_name` está definido como `null`. Da mesma forma, uma instrução Spark `SELECT` que usa `WHERE column_name != NULL` retorna zero linhas mesmo se houver valores não nulos no `column_name`, enquanto no U-SQL, ele retornará as linhas que não são nulas. Portanto, se você quiser a semântica de verificação nula do U-SQL, deverá usar [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) , respectivamente (ou seus equivalentes de DSL).
 
-## <a name="transform-u-sql-catalog-objects"></a>Transform U-SQL catalog objects
+## <a name="transform-u-sql-catalog-objects"></a>Transformar objetos do catálogo U-SQL
 
-One major difference is that U-SQL Scripts can make use of its catalog objects, many of which have no direct Spark equivalent.
+Uma grande diferença é que os scripts U-SQL podem fazer uso de seus objetos de catálogo, muitos dos quais não têm nenhum equivalente direto do Spark.
 
-Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
+O Spark fornece suporte para os conceitos de meta Store do hive, principalmente bancos de dados e tabelas, para que você possa mapear bancos de dados e esquemas do U-SQL para bancos de dados do hive e tabelas U-SQL para tabelas do Spark (consulte [movendo dados armazenados em tabelas u-SQL](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), mas não tem suporte para exibições, TVFs (funções com valor de tabela), procedimentos armazenados, assemblies U-SQL, fontes de dados externas etc.
 
-The U-SQL code objects such as views, TVFs, stored procedures, and assemblies can be modeled through code functions and libraries in Spark and referenced using the host language's function and procedural abstraction mechanisms (for example, through importing Python modules or referencing Scala functions).
+Os objetos de código do U-SQL, como modos de exibição, TVFs, procedimentos armazenados e assemblies, podem ser modelados por meio de funções de código e bibliotecas no Spark e referenciados usando os mecanismos de abstração de procedimento e função do idioma do host (por exemplo, por meio de importação Módulos Python ou funções escalares de referência).
 
-If the U-SQL catalog has been used to share data and code objects across projects and teams, then equivalent mechanisms for sharing have to be used (for example, Maven for sharing code objects).
+Se o catálogo do U-SQL tiver sido usado para compartilhar dados e objetos de código entre projetos e equipes, os mecanismos equivalentes para compartilhamento precisarão ser usados (por exemplo, Maven para compartilhar objetos de código).
 
-## <a name="transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions"></a>Transform U-SQL rowset expressions and SQL-based scalar expressions
+## <a name="transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions"></a>Transformar expressões de conjunto de linhas U-SQL e expressões escalares baseadas em SQL
 
-U-SQL's core language is transforming rowsets and is based on SQL. The following is a non-exhaustive list of the most common rowset expressions offered in U-SQL:
+A linguagem principal do U-SQL está transformando conjuntos de linhas e baseia-se no SQL. Veja a seguir uma lista não exaustiva das expressões de conjunto de linhas mais comuns oferecidas no U-SQL:
 
-- `SELECT`/`FROM`/`WHERE`/`GROUP BY`+Aggregates+`HAVING`/`ORDER BY`+`FETCH`
-- `INNER`/`OUTER`/`CROSS`/`SEMI` `JOIN` expressions
-- `CROSS`/`OUTER` `APPLY` expressions
-- `PIVOT`/`UNPIVOT` expressions
-- `VALUES` rowset constructor
+- `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ agregações +`HAVING`/`ORDER BY`+`FETCH`
+- `INNER`/`OUTER`/`CROSS`/`SEMI` `JOIN` Expressions
+- `CROSS`/`OUTER` expressões `APPLY`
+- `PIVOT`/expressões de `UNPIVOT`
+- Construtor de conjunto de linhas `VALUES`
 
-- Set expressions `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- Definir expressões `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
-In addition, U-SQL provides a variety of SQL-based scalar expressions such as
+Além disso, o U-SQL fornece uma variedade de expressões escalares baseadas em SQL, como
 
-- `OVER` windowing expressions
-- a variety of built-in aggregators and ranking functions (`SUM`, `FIRST` etc.)
-- Some of the most familiar SQL scalar expressions: `CASE`, `LIKE`, (`NOT`) `IN`, `AND`, `OR` etc.
+- `OVER` expressões de janela
+- uma variedade de agregadores internos e funções de classificação (`SUM`, `FIRST` etc.)
+- Algumas das expressões escalares do SQL mais conhecidas: `CASE`, `LIKE`, (`NOT`) `IN`, `AND`, `OR` etc.
 
-Spark offers equivalent expressions in both its DSL and SparkSQL form for most of these expressions. Some of the expressions not supported natively in Spark will have to be rewritten using a combination of the native Spark expressions and semantically equivalent patterns. For example, `OUTER UNION` will have to be translated into the equivalent combination of projections and unions.
+O Spark oferece expressões equivalentes em seu formato DSL e SparkSQL para a maioria dessas expressões. Algumas das expressões sem suporte nativo no Spark precisarão ser reescritas usando uma combinação das expressões nativas do Spark e padrões semanticamente equivalentes. Por exemplo, `OUTER UNION` precisará ser traduzido para a combinação equivalente de projeções e uniões.
 
-Due to the different handling of NULL values, a U-SQL join will always match a row if both of the columns being compared contain a NULL value, while a join in Spark will not match such columns unless explicit null checks are added.
+Devido à manipulação diferente de valores nulos, uma junção U-SQL sempre corresponderá a uma linha se ambas as colunas comparadas contiverem um valor nulo, enquanto uma junção no Spark não corresponderá a essas colunas, a menos que sejam adicionadas verificações nulas explícitas.
 
-## <a name="transform-other-u-sql-concepts"></a>Transform other U-SQL concepts
+## <a name="transform-other-u-sql-concepts"></a>Transformar outros conceitos do U-SQL
 
-U-SQL also offers a variety of other features and concepts, such as federated queries against SQL Server databases, parameters, scalar, and lambda expression variables, system variables, `OPTION` hints.
+O U-SQL também oferece uma variedade de outros recursos e conceitos, como consultas federadas em SQL Server bancos de dados, parâmetros, escalares e variáveis de expressão lambda, variáveis de sistema, dicas de `OPTION`.
 
-### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Federated Queries against SQL Server databases/external tables
+### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Consultas federadas em bancos de dados SQL Server/tabelas externas
 
-U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../sql-database/sql-database-spark-connector.md) that can be used to query SQL databases.
+O U-SQL fornece a fonte de dados e as tabelas externas, bem como consultas diretas no Azure SQL Database. Embora o Spark não ofereça as mesmas abstrações de objeto, ele fornece o [conector do Spark para o banco de dados SQL do Azure](../sql-database/sql-database-spark-connector.md) que pode ser usado para consultar bancos de dados SQL.
 
-### <a name="u-sql-parameters-and-variables"></a>U-SQL parameters and variables
+### <a name="u-sql-parameters-and-variables"></a>Parâmetros e variáveis do U-SQL
 
-Parameters and user variables have equivalent concepts in Spark and their hosting languages.
+Parâmetros e variáveis de usuário têm conceitos equivalentes no Spark e em seus idiomas de hospedagem.
 
-For example in Scala, you can define a variable with the `var` keyword:
+Por exemplo, em escala, você pode definir uma variável com a palavra-chave `var`:
 
 ```
 var x = 2 * 3;
 println(x)
 ```
 
-U-SQL's system variables (variables starting with `@@`) can be split into two categories:
+As variáveis de sistema do U-SQL (variáveis que começam com `@@`) podem ser divididas em duas categorias:
 
-- Settable system variables that can be set to specific values to impact the scripts behavior
-- Informational system variables that inquire system and job level information
+- Variáveis de sistema configuráveis que podem ser definidas para valores específicos para afetar o comportamento dos scripts
+- Variáveis de sistema informativas que consultam informações de nível de trabalho e de sistema
 
-Most of the settable system variables have no direct equivalent in Spark. Some of the informational system variables can be modeled by passing the information as arguments during job execution, others may have an equivalent function in Spark's hosting language.
+A maioria das variáveis de sistema configurável não tem equivalente direto no Spark. Algumas das variáveis do sistema informativo podem ser modeladas passando as informações como argumentos durante a execução do trabalho, outras podem ter uma função equivalente no idioma de hospedagem do Spark.
 
-### <a name="u-sql-hints"></a>U-SQL hints
+### <a name="u-sql-hints"></a>Dicas de U-SQL
 
-U-SQL offers several syntactic ways to provide hints to the query optimizer and execution engine:  
+O U-SQL oferece várias maneiras sintáticas de fornecer dicas para o otimizador de consulta e o mecanismo de execução:  
 
-- Setting a U-SQL system variable
-- an `OPTION` clause associated with the rowset expression to provide a data or plan hint
-- a join hint in the syntax of the join expression (for example, `BROADCASTLEFT`)
+- Definindo uma variável de sistema U-SQL
+- uma cláusula `OPTION` associada à expressão de conjunto de linhas para fornecer uma dica de dados ou de plano
+- uma dica de junção na sintaxe da expressão de junção (por exemplo, `BROADCASTLEFT`)
 
-Spark's cost-based query optimizer has its own capabilities to provide hints and tune the query performance. Please refer to the corresponding documentation.
+O otimizador de consulta baseado em custo do Spark tem seus próprios recursos para fornecer dicas e ajustar o desempenho da consulta. Consulte a documentação correspondente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Understand Spark data formats for U-SQL developers](understand-spark-data-formats.md)
-- [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
-- [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)
+- [Entender os formatos de dados do Spark para desenvolvedores do U-SQL](understand-spark-data-formats.md)
+- [.NET para Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Atualize suas soluções de análise de Big Data de Azure Data Lake Storage Gen1 para Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+- [Transformar dados usando a atividade do Spark no Azure Data Factory](../data-factory/transform-data-using-spark.md)
+- [Transformar dados usando a atividade hive do Hadoop no Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
+- [O que é Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

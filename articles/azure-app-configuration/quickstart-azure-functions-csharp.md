@@ -118,7 +118,7 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Azure Functions por meio do [provedor de configuração de aplicativo](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber como configurar seu aplicativo Azure Functions para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
 

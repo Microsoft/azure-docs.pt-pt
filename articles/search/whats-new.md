@@ -1,7 +1,7 @@
 ---
-title: New feature announcements
+title: Novos comunicados de recursos
 titleSuffix: Azure Cognitive Search
-description: Announcements of new and enhanced features, including a service rename of Azure Search to Azure Cognitive Search.
+description: Anúncios de recursos novos e aprimorados, incluindo uma renomeação de serviço de Azure Search para o Azure Pesquisa Cognitiva.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -15,39 +15,39 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422388"
 ---
-# <a name="whats-new-in-azure-cognitive-search"></a>What's new in Azure Cognitive Search
+# <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
-Learn what's new in the service. Bookmark this page to keep up to date with the service.
+Saiba o que há de novo no serviço. Marque esta página para manter-se atualizado com o serviço.
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>New service name for Azure Search
+## <a name="new-service-name-for-azure-search"></a>Novo nome do serviço para Azure Search
 
-Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded use of cognitive skills and AI processing in core operations. While cognitive skills add new capabilities, using AI is strictly optional. You can continue to use Azure Cognitive Search without AI to build rich, full text search solutions over private, heterogenous, text-based content in an index that you create and manage in the cloud. 
+Azure Search agora é renomeado para o **pesquisa cognitiva do Azure** para refletir o uso expandido de habilidades cognitivas e processamento de ia em operações principais. Embora as habilidades cognitivas adicionem novos recursos, usar o ia é estritamente opcional. Você pode continuar a usar o Azure Pesquisa Cognitiva sem ia para criar soluções avançadas de pesquisa de texto completo por meio de conteúdo privado, heterogêneo e baseado em texto em um índice que você cria e gerencia na nuvem. 
 
-API versions, Nuget packages, namespaces, and endpoints are unchanged. Your existing search solutions are unaffected by the service name change.
+As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são alterados. As soluções de pesquisa existentes não são afetadas pela alteração do nome do serviço.
 
-## <a name="feature-announcements"></a>Feature announcements
+## <a name="feature-announcements"></a>Anúncios de recursos
 
-November 4, 2019 - Ignite Conference
+4 de novembro de 2019-conferência Ignite
 
-+ [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md) allows you to pick and choose which steps to reprocess when making modifications to an enrichment pipeline. Incremental indexing is useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
++ A [indexação incremental (versão prévia)](cognitive-search-incremental-indexing-conceptual.md) permite que você escolha e escolha quais etapas reprocessar ao fazer modificações em um pipeline de enriquecimento. A indexação incremental será útil se você tiver conteúdo de imagem analisado anteriormente. A saída da análise dispendiosa é armazenada e, em seguida, usada como base para indexação ou enriquecimento adicional.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
++ A [extração de documentos (visualização)](cognitive-search-skill-document-extraction.md) é uma habilidade cognitiva usada durante a indexação que permite extrair o conteúdo de um arquivo de dentro de um conferente. Anteriormente, a quebra de documento ocorreu apenas antes da execução do concodificador. Com a adição dessa habilidade, você também pode executar essa operação dentro da execução do conconjunto de habilidades.
 
-+ [Text Translation (preview)](cognitive-search-skill-text-translation.md) is a cognitive skill used during indexing that evaluates text and, for each record, returns the text translated to the specified target language.
++ A [conversão de texto (visualização)](cognitive-search-skill-text-translation.md) é uma habilidade cognitiva usada durante a indexação que avalia o texto e, para cada registro, retorna o texto traduzido para o idioma de destino especificado.
 
-+ [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop. This template is designed for Azure table projections created through the [Import data wizard](knowledge-store-create-portal.md).
++ Os [modelos de Power bi](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) podem iniciar suas visualizações e a análise de conteúdo aprimorado em uma loja de conhecimento em Power bi área de trabalho. Este modelo foi projetado para projeções de tabela do Azure criadas por meio do [Assistente de importação de dados](knowledge-store-create-portal.md).
 
-+ [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) are now supported in indexers. You can sign up using [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview program.
++ [Azure data Lake Storage Gen2 (visualização](search-howto-index-azure-data-lake-storage.md)), [Cosmos DB API Gremlin (visualização)](search-howto-index-cosmosdb.md)e [Cosmos DB API do Cassandra (versão prévia)](search-howto-index-cosmosdb.md) agora têm suporte em indexadores. Você pode se inscrever usando [este formulário](https://aka.ms/azure-cognitive-search/indexer-preview). Você receberá um email de confirmação quando tiver sido aceito no programa de visualização.
 
-July 24 2019
+Julho de 24 2019
 
-+ Generally available in [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
++ Geralmente disponível na [nuvem do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 
 ## <a name="service-updates"></a>Atualizações de serviço
 
-[Service update announcements](https://azure.microsoft.com/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.
+Os [comunicados de atualização de serviço](https://azure.microsoft.com/updates/?product=search&status=all) do Azure pesquisa cognitiva podem ser encontrados no site do Azure.

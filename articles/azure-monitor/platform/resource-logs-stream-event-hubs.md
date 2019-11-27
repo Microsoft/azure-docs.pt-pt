@@ -60,7 +60,7 @@ Quando você consumir logs de recursos dos hubs de eventos, será o formato JSON
 | Nome do elemento | Descrição |
 | --- | --- |
 | grava |Uma matriz de todos os eventos de log nesta carga. |
-| hora |Hora em que o evento ocorreu. |
+| time |Hora em que o evento ocorreu. |
 | categoria |Categoria de log para este evento. |
 | resourceId |ID de recurso do recurso que gerou este evento. |
 | operationName |Nome da operação. |
@@ -133,7 +133,7 @@ Veja a seguir exemplos de dados de saída dos hubs de eventos:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Transmita logs de Azure Active Directory com Azure monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * [Leia mais sobre os logs de recursos do Azure](resource-logs-overview.md).

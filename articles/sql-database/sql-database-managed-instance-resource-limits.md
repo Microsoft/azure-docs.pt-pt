@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 10/02/2019
-ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823341"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548377"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -31,7 +31,7 @@ A instância gerenciada tem características e limites de recursos que dependem 
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Hardware | Processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, vCore de SSD anexado = 1 PP (núcleo físico) | Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz, SSD Fast NVMe, vCore = 1 LP (Hyper-thread) |
+| Hardware | Processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, vCore de SSD anexado = 1 PP (núcleo físico) | Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake), SSD Fast NVMe, vCore = 1 LP (Hyper-thread) |
 | Número de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memória máxima (taxa de memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5,1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
 | Memória máxima OLTP na memória | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8 a 1,65 GB por vCore |
@@ -78,7 +78,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máximo de 48 MB/s |
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[aumentar o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
-| OLTP na memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP dentro da memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | [Réplicas somente leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
 

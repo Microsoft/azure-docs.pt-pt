@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict flight delay example'
+title: 'Designer: exemplo de previsão de atraso de voo'
 titleSuffix: Azure Machine Learning
-description: Build a classifier and use custom R code to predict flight delays with Azure Machine Learning designer.
+description: Crie um classificador e use código R personalizado para prever atrasos de voo com o designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,112 +17,112 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214036"
 ---
-# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Build a classifier & use R to predict flight delays with Azure Machine Learning designer
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Criar um classificador & usar R para prever atrasos de voo com Azure Machine Learning designer
 
-**Designer (preview) sample 6**
+**Designer (visualização) exemplo 6**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-This pipeline uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes. This problem can be approached as a classification problem, predicting two classes: delayed, or on time.
+Esse pipeline usa dados históricos de vôo e clima para prever se um vôo de passageiro agendado será atrasado em mais de 15 minutos. Esse problema pode ser abordado como um problema de classificação, prevendo duas classes: atrasadas ou no prazo.
 
-Here's the final pipeline graph for this sample:
+Este é o grafo de pipeline final para este exemplo:
 
-[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![grafo do pipeline](media/how-to-designer-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click sample 6 to open it.
+4. Clique em exemplo 6 para abri-lo.
 
 ## <a name="get-the-data"></a>Obter os dados
 
-This sample uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October 2013. The dataset has been pre-processed as follows:
+Este exemplo usa o conjunto de **dados de atrasos de voo** . Faz parte da coleta de dados TranStats do departamento de transporte dos EUA. O conjunto de dados contém informações de atraso de voo de abril a 2013 de outubro. O conjunto de um foi processado previamente da seguinte maneira:
 
-* Filtered to include the 70 busiest airports in the continental United States.
-* Relabeled canceled flights as delayed by more than 15 mins.
-* Filtered out diverted flights.
-* Selected 14 columns.
+* Filtrado para incluir os aeroportos 70 mais ocupados no Estados Unidos continental.
+* Rerotulado vôos cancelados como atrasados em mais de 15 minutos.
+* Filtro de vôos de diversões filtrados.
+* 14 colunas selecionadas.
 
-To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly, land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period as the flights dataset. It has been pre-processed as follows:
+Para complementar os dados de vôo, o conjunto de dado **meteorológico** é usado. Os dados meteorológicos contêm observações de clima com base em hora, de NOAA e representam observações das estações de clima do aeroporto, cobrindo o mesmo período de tempo que o conjunto de dados de vôos. Ele foi processado previamente da seguinte maneira:
 
-* Weather station IDs were mapped to corresponding airport IDs.
-* Weather stations not associated with the 70 busiest airports were removed.
-* The Date column was split into separate columns: Year, Month, and Day.
-* Selected 26 columns.
+* As IDs da estação do tempo foram mapeadas para as IDs correspondentes do aeroporto.
+* As estações de clima não associadas a 70 aeroportos mais ocupados foram removidas.
+* A coluna de data foi dividida em colunas separadas: ano, mês e dia.
+* As 26 colunas selecionadas.
 
-## <a name="pre-process-the-data"></a>Pre-process the data
+## <a name="pre-process-the-data"></a>Pré-processar os dados
 
-A dataset usually requires some pre-processing before it can be analyzed.
+Um conjunto de um DataSet geralmente requer algum pré-processamento antes que possa ser analisado.
 
-![data-process](media/how-to-designer-sample-classification-predict-flight-delay/data-process.png)
+![processo de dados](media/how-to-designer-sample-classification-predict-flight-delay/data-process.png)
 
-### <a name="flight-data"></a>Flight data
+### <a name="flight-data"></a>Dados de vôo
 
-The columns **Carrier**, **OriginAirportID**, and **DestAirportID** are saved as integers. However, they're  categorical attributes, use the **Edit Metadata** module to convert them to categorical.
+As colunas **Carrier**, **OriginAirportID**e **DestAirportID** são salvas como inteiros. No entanto, eles são atributos categóricos, use o módulo **Editar metadados** para convertê-los em categóricos.
 
-![edit-metadata](media/how-to-designer-sample-classification-predict-flight-delay/edit-metadata.png)
+![editar metadados](media/how-to-designer-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Then use the **Select Columns** in Dataset module to exclude from the dataset columns that are possible target leakers: **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
+Em seguida, use o módulo **selecionar colunas** no conjunto de DataSet para excluir das colunas do conjunto de linhas que são possíveis vazamentores de destino: **DepDelay**, **DepDel15**, **ArrDelay**, **cancelado**, **year**. 
 
-To join the flight records with the hourly weather records, use the scheduled departure time as one of the join keys. To do the join, the CSRDepTime column must be rounded down to the nearest hour, which is done by in the **Execute R Script** module. 
+Para unir os registros de vôo com os registros meteorológicos por hora, use a hora de partida agendada como uma das chaves de junção. Para fazer a junção, a coluna CSRDepTime deve ser arredondada para a hora mais próxima, que é feita pelo no módulo **Executar script R** . 
 
-### <a name="weather-data"></a>Weather data
+### <a name="weather-data"></a>Dados meteorológicos
 
-Columns that have a large proportion of missing values are excluded using the **Project Columns** module. These columns include all string-valued columns: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**, and **StationPressure**.
+Colunas que têm uma grande proporção de valores ausentes são excluídas usando o módulo **colunas do projeto** . Essas colunas incluem todas as colunas com valor de cadeia de caracteres: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**e **StationPressure** .
 
-The **Clean Missing Data** module is then applied to the remaining columns to remove rows with missing data.
+O módulo **limpar dados ausentes** é aplicado às colunas restantes para remover linhas com dados ausentes.
 
-Weather observation times are rounded up to the nearest full hour. Scheduled flight times and the weather observation times are rounded in opposite directions to ensure the model uses only weather before the flight time. 
+Os tempos de observação do clima são arredondados para a hora completa mais próxima. Os tempos de vôo agendados e os tempos de observação do clima são arredondados em direções opostas para garantir que o modelo Use apenas o clima antes do tempo de vôo. 
 
-Since weather data is reported in local time, time zone differences are accounted for by subtracting the time zone columns from the scheduled departure time and the weather observation time. These operations are done using the **Execute R Script** module.
+Como os dados meteorológicos são relatados na hora local, as diferenças de fuso horário são contabilizadas subtraindo-se as colunas de fuso horário do horário de partida agendado e o tempo de observação do clima. Essas operações são feitas usando o módulo **Executar script R** .
 
-### <a name="joining-datasets"></a>Joining Datasets
+### <a name="joining-datasets"></a>Unindo conjuntos de os
 
-Flight records are joined with weather data at origin of the flight (**OriginAirportID**) using the **Join Data** module.
+Os registros de voo são Unidos com dados meteorológicos na origem do vôo (**OriginAirportID**) usando o módulo **unir dados** .
 
- ![join flight and weather by origin](media/how-to-designer-sample-classification-predict-flight-delay/join-origin.png)
+ ![Junte-se a voo e clima por origem](media/how-to-designer-sample-classification-predict-flight-delay/join-origin.png)
 
 
-Flight records are joined with weather data using the destination of the flight (**DestAirportID**).
+Os registros de voo são Unidos com dados meteorológicos usando o destino do vôo (**DestAirportID**).
 
- ![Join flight and weather by destination](media/how-to-designer-sample-classification-predict-flight-delay/join-destination.png)
+ ![Unir voo e clima por destino](media/how-to-designer-sample-classification-predict-flight-delay/join-destination.png)
 
-### <a name="preparing-training-and-test-samples"></a>Preparing Training and Test Samples
+### <a name="preparing-training-and-test-samples"></a>Preparando exemplos de treinamento e teste
 
-The **Split Data** module splits the data into April through September records for training, and October records for test.
+O módulo **dividir dados** divide os dados em abril até registros de setembro para treinamento e registros de outubro para teste.
 
- ![Split training and test data](media/how-to-designer-sample-classification-predict-flight-delay/split.png)
+ ![Dividir dados de treinamento e teste](media/how-to-designer-sample-classification-predict-flight-delay/split.png)
 
-Year, month, and timezone columns are removed from the training dataset using the Select Columns module.
+As colunas year, month e TimeZone são removidas do conjunto de módulos de treinamento usando o módulo selecionar colunas.
 
-## <a name="define-features"></a>Define features
+## <a name="define-features"></a>Definir recursos
 
-In machine learning, features are individual measurable properties of something you’re interested in. Finding a strong set of features requires experimentation and domain knowledge. Algumas funcionalidades são melhores para prever num destino do que outras. Also, some features may have a strong correlation with other features, and won't add new information to the model. These features can be removed.
+No aprendizado de máquina, os recursos são propriedades mensuráveis individuais de algo no qual você está interessado. Encontrar um conjunto forte de recursos requer experimentação e conhecimento do domínio. Algumas funcionalidades são melhores para prever num destino do que outras. Além disso, alguns recursos podem ter uma correlação forte com outros recursos e não adicionarão novas informações ao modelo. Esses recursos podem ser removidos.
 
-To build a model, you can use all the features available, or select a subset of the features.
+Para criar um modelo, você pode usar todos os recursos disponíveis ou selecionar um subconjunto dos recursos.
 
-## <a name="choose-and-apply-a-learning-algorithm"></a>Choose and apply a learning algorithm
+## <a name="choose-and-apply-a-learning-algorithm"></a>Escolher e aplicar um algoritmo de aprendizado
 
-Create a model using the **Two-Class Logistic Regression** module and train it on the training dataset. 
+Crie um modelo usando o módulo **regressão logística de duas classes** e treine-o no conjunto de módulos de treinamento. 
 
-The result of the **Train Model** module is a trained classification model that can be used to score new samples to make predictions. Use the test set to generate scores from the trained models. Then use the **Evaluate Model** module to analyze and compare the quality of the models.
-pipeline After you run the pipeline, you can view the output from the **Score Model** module by clicking the output port and selecting **Visualize**. The output includes the scored labels and the probabilities for the labels.
+O resultado do módulo **modelo de treinamento** é um modelo de classificação treinado que pode ser usado para pontuar novas amostras para fazer previsões. Use o conjunto de teste para gerar pontuações dos modelos treinados. Em seguida, use o módulo **avaliar modelo** para analisar e comparar a qualidade dos modelos.
+pipeline depois de executar o pipeline, você pode exibir a saída do módulo **modelo de Pontuação** clicando na porta de saída e selecionando **Visualizar**. A saída inclui os rótulos pontuados e as probabilidades para os rótulos.
 
-Finally, to test the quality of the results, add the **Evaluate Model** module to the pipeline canvas, and connect the left input port to the output of the Score Model module. Run the pipeline and view the output of the **Evaluate Model** module, by clicking the output port and selecting **Visualize**.
+Por fim, para testar a qualidade dos resultados, adicione o módulo **avaliar modelo** à tela do pipeline e conecte a porta de entrada à esquerda à saída do módulo modelo de pontuação. Execute o pipeline e exiba a saída do módulo **modelo de avaliação** , clicando na porta de saída e selecionando **Visualizar**.
 
 ## <a name="evaluate"></a>Avaliar
-The logistic regression model has AUC of 0.631 on the test set.
+O modelo de regressão logística tem AUC de 0,631 no conjunto de teste.
 
  ![avaliar](media/how-to-designer-sample-classification-predict-flight-delay/evaluate.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Explore the other samples available for the designer:
+Explore os outros exemplos disponíveis para o designer:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
+- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
+- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)

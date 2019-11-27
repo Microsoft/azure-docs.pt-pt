@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: extract structured data with machine-learned entity - LUIS'
+title: 'Tutorial: extrair dados estruturados com entidades aprendidas por máquina-LUIS'
 titleSuffix: Azure Cognitive Services
-description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints.
+description: Extrair dados estruturados de um expressão usando a entidade aprendida por máquina. Para aumentar a precisão de extração, adicione subcomponentes com descritores e restrições.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,223 +18,223 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383290"
 ---
-# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extract structured data from user utterance with machine-learned entities in Language Understanding (LUIS)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: extrair dados estruturados do expressão do usuário com entidades aprendidas pelo computador no Reconhecimento vocal (LUIS)
 
-In this tutorial, extract structured data from an utterance using the machine-learned entity. 
+Neste tutorial, extraia dados estruturados de um expressão usando a entidade aprendida por computador. 
 
-The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subcomponent entities with their descriptors and constraints. 
+A entidade aprendida por máquina dá suporte ao [conceito de decomposição de modelo](luis-concept-model.md#v3-authoring-model-decomposition) fornecendo entidades de subcomponente com seus descritores e restrições. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 > [!div class="checklist"]
-> * Import example app
-> * Add machine-learned entity 
-> * Add subcomponent
-> * Add subcomponent's descriptor
-> * Add subcomponent's constraint
+> * Importar aplicativo de exemplo
+> * Adicionar entidade aprendida pela máquina 
+> * Adicionar subcomponente
+> * Adicionar descritor do subcomponente
+> * Adicionar restrição do subcomponente
 > * Preparar a aplicação
-> * Test app
+> * Aplicativo de teste
 > * Publicar aplicação
-> * Get entity prediction from endpoint
+> * Obter previsão de entidade do ponto de extremidade
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
 
-## <a name="why-use-a-machine-learned-entity"></a>Why use a machine-learned entity?
+## <a name="why-use-a-machine-learned-entity"></a>Por que usar uma entidade aprendida por máquina?
 
-This tutorial adds a machine-learned entity to extract data from an utterance. 
+Este tutorial adiciona uma entidade aprendida por computador para extrair dados de um expressão. 
 
-The purpose of an entity is to define the data to extract. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data. 
+A finalidade de uma entidade é definir os dados a serem extraídos. Isso inclui fornecer aos dados um nome, um tipo (se possível), qualquer resolução dos dados se houver ambiguidade e o texto exato que compõe os dados. 
 
-In order to define the entity, you need to create the entity then label the text representing the entity in the example utterance. These labeled examples teach LUIS what the entity is and where it can be found in an utterance. 
+Para definir a entidade, você precisa criar a entidade e, em seguida, rotular o texto que representa a entidade no exemplo expressão. Esses exemplos rotulados ensinam a LUIS o que é a entidade e onde ela pode ser encontrada em um expressão. 
 
-## <a name="entity-decomposability-is-important"></a>Entity decomposability is important
+## <a name="entity-decomposability-is-important"></a>A desdação da entidade é importante
 
-Entity decomposability is important for both intent prediction and for data extraction. 
+A desdação da entidade é importante para a previsão de intenção e para extração de dados. 
 
-Start with a machine-learned entity, which is the beginning and top-level entity for data extraction. Then decompose the entity into the parts needed by the client application. 
+Comece com uma entidade aprendida por computador, que é a entidade de início e de nível superior para extração de dados. Em seguida, decompor a entidade nas partes necessárias pelo aplicativo cliente. 
 
-While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then decompose with subcomponents as your app matures.
+Embora você talvez não saiba como você deseja que sua entidade ao iniciar seu aplicativo, uma prática recomendada é começar com uma entidade aprendida por computador e, em seguida, decompor com subcomponentes à medida que seu aplicativo amadurece.
 
-In practical terms, you will create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will extract order-related text, pulling out size, and quantity. 
+Em termos práticos, você criará uma entidade aprendida por computador para representar um pedido para um aplicativo de pizza. A ordem deve ter todas as partes necessárias para fullfil o pedido. Para começar, a entidade extrairá o texto relacionado à ordem, o tamanho de extração e a quantidade. 
 
-An utterance for `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` and `large`. 
+Um expressão para `Please deliver one large cheese pizza to me` deve extrair `one large cheese pizza` como a ordem, e também extrair `1` e `large`. 
 
-There is further decomposition you can add such as creating subcomponents for toppings or crust. After this tutorial, you should feel confident adding these subcomponents to your existing `Order` entity.
+Há uma decomposição adicional que você pode adicionar, como a criação de subcomponentes para ingredientes ou crust. Após este tutorial, você deve sentir confiante para adicionar esses subcomponentes à sua entidade de `Order` existente.
 
-## <a name="import-example-json-to-begin-app"></a>Import example .json to begin app
+## <a name="import-example-json-to-begin-app"></a>Importar example. JSON para iniciar o aplicativo
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
 
-1. In the [preview LUIS portal](https://preview.luis.ai), on the **My apps** page, select **Import**, then **Import as JSON**. Find the saved JSON file from the previous step. You don't need to change the name of the app. Select **Done**
+1. No [portal do Luis de visualização](https://preview.luis.ai), na página **meus aplicativos** , selecione **importar**e **importar como JSON**. Localize o arquivo JSON salvo da etapa anterior. Você não precisa alterar o nome do aplicativo. Selecionar **concluído**
 
-1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`, then select **Done** to finish the clone process. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+1. Na seção **gerenciar** , na guia **versões** , selecione a versão, selecione **clonar** para clonar a versão e nomeie-a `mach-learn`e, em seguida, selecione **concluído** para concluir o processo de clonagem. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
     > [!TIP] 
-    > Cloning a version into a new version is a best practice before you modify your app. When you finish a version, export the version (as a .json or .lu file), and check the file into your source control system.
+    > A clonagem de uma versão em uma nova versão é uma prática recomendada antes de modificar seu aplicativo. Quando você concluir uma versão, exporte a versão (como um arquivo. JSON ou. Lu) e verifique o arquivo em seu sistema de controle do código-fonte.
 
-1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
+1. Selecione **Compilar** e, em seguida, para ver **as intenções,** os principais blocos de construção de um aplicativo Luis.
 
-    ![Change from the Versions page to the Intents page.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
+    ![Altere da página versões para a página de tentativas.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
-## <a name="label-text-as-entities-in-example-utterances"></a>Label text as entities in example utterances
+## <a name="label-text-as-entities-in-example-utterances"></a>Rotular texto como entidades no exemplo declarações
 
-To extract details about a pizza order, create a top level, machine-learned `Order` entity.
+Para extrair detalhes sobre uma ordem de pizza, crie uma entidade de `Order` de nível superior aprendida por computador.
 
-1. On the **Intents** page, select the **OrderPizza** intent. 
+1. Na página **tentativas** , selecione a intenção **OrderPizza** . 
 
-1. In the example utterances list, select the following utterance. 
+1. Na lista declarações de exemplo, selecione o seguinte expressão. 
 
-    |Order example utterance|
+    |Expressão de exemplo de pedido|
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the labeling process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select `Order - Create new entity` from the list (#4).
+    Comece a selecionar pouco antes do texto mais à esquerda de `pickup` (#1) e, em seguida, vá além do texto mais à direita, `anchovies` (#2-isso encerra o processo de rotulagem). Um menu pop-up é exibido. Na caixa pop-up, digite o nome da entidade como `Order` (#3). Em seguida, selecione `Order - Create new entity` na lista (#4).
 
-    ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
+    ![Rótulo início e fim do texto para a ordem concluída](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
-    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received. From a conceptual perspective, `pickup` should be part of the labeled entity for the order. 
+    > Uma entidade nem sempre será a expressão inteira. Nesse caso específico, `pickup` indica como o pedido deve ser recebido. Do ponto de vista conceitual, `pickup` deve fazer parte da entidade rotulada para o pedido. 
 
-1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is necessary to add subcomponents such as size and quantity.
+1. Na caixa **escolher um tipo de entidade** , selecione **Adicionar estrutura** e selecione **Avançar**. A estrutura é necessária para adicionar subcomponentes, como tamanho e quantidade.
 
-    ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Adicionar estrutura à entidade](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. In the **Create a machine learned entity** box, in the **Structure** box, add `Size` then select Enter. 
-1. To add a **descriptor**, select the `+` in the **Descriptors for Size** area, then select **Create new phrase list**.
+1. Na caixa **criar uma entidade aprendida pela máquina** , na caixa **estrutura** , adicione `Size`, em seguida, selecione Enter. 
+1. Para adicionar um **descritor**, selecione a `+` na área **descritores para tamanho** e, em seguida, selecione **criar nova lista de frases**.
 
-1. In the **Create new phrase list descriptor** box, enter the name `SizeDescriptor` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list. 
+1. Na caixa **criar novo descritor de lista de frases** , digite o nome `SizeDescriptor` Insira os valores de: `small`, `medium`e `large`. Quando a caixa **sugestões** estiver preenchida, selecione `extra large`e `xl`. Selecione **concluído** para criar a nova lista de frases. 
 
-    This phrase list descriptor helps the `Size` subcomponent find words related to size by providing it with example words. This list doesn't need to include every size word but should include words that are expected to indicate size. 
+    Esse descritor de lista de frases ajuda o subcomponente `Size` a localizar palavras relacionadas ao tamanho, fornecendo-a com palavras de exemplo. Essa lista não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que são esperadas para indicar o tamanho. 
 
-    ![Create a descriptor for the size subcomponent](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+    ![Criar um descritor para o subcomponente de tamanho](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
-1. On the **Create a machine learned entity** window, select **Create** to finish creating the `Size` subcomponent.  
+1. Na janela **criar uma entidade aprendida pela máquina** , selecione **criar** para concluir a criação do subcomponente `Size`.  
 
-    The `Order` entity with a `Size` component is created but only the `Order` entity has been applied to the utterance. You need to label the `Size` entity text in the example utterance. 
+    A entidade `Order` com um componente `Size` é criada, mas apenas a entidade `Order` foi aplicada ao expressão. Você precisa rotular o texto da entidade `Size` no exemplo expressão. 
 
-1. In the same example utterance, label the **Size** subcomponent of `large` by selecting the word then selecting the **Size** entity from the drop-down list. 
+1. No mesmo exemplo expressão, Rotule o subcomponente de **tamanho** de `large` selecionando a palavra e, em seguida, selecionando a entidade **tamanho** na lista suspensa. 
 
-    ![Label the size entity for text in the utterance.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
+    ![Rotule a entidade de tamanho para texto no expressão.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
-    The line is solid under the text because both the labeling and prediction match because you explicitly labeled the text.
+    A linha está sólida sob o texto porque a rotulagem e a previsão correspondem, pois você rotulava explicitamente o texto.
 
-1. Label the `Order` entity in the remaining utterances along with the size entity. The square brackets in the text indicate the labeled `Order` entity and the `Size` entity within.
+1. Rotule a entidade de `Order` no declarações restante junto com a entidade de tamanho. Os colchetes no texto indicam a entidade de `Order` rotulada e a entidade de `Size` no.
 
-    |Order example utterances|
+    |Declarações de exemplo de pedido|
     |--|
     |`can i get [a pepperoni pizza and a can of coke] please`|
     |`can i get [a [small] pizza with onions peppers and olives]`|
     |`[delivery for a [small] pepperoni pizza]`|
     |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
 
-    ![Make entity and subcomponents in all remaining example utterances.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+    ![Torne a entidade e os subcomponentes em todos os exemplos restantes de declarações.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
-    > How do you treat implied data such as the letter `a` implying a single pizza? Or the lack of `pickup` and `delivery` to indicate where the pizza is expected? Or the lack of a size to indicate your default size of small or large? Consider treating implied data handling as part of your business rules in the client application instead of or in addition to LUIS. 
+    > Como tratar dados implícitos, como a letra `a` implicando em uma pizza única? Ou a falta de `pickup` e `delivery` para indicar onde a pizza é esperada? Ou a falta de um tamanho para indicar o tamanho padrão de pequeno ou grande? Considere tratar a manipulação de dados implícita como parte de suas regras de negócios no aplicativo cliente em vez de ou além de LUIS. 
 
-1. To train the app, select **Train**. Training applies the changes, such as the new entities and the labeled utterances, to the active model.
+1. Para treinar o aplicativo, selecione **treinar**. O treinamento aplica as alterações, como as novas entidades e rotuladas declarações, ao modelo ativo.
 
-1. After training, add a new example utterance to the intent to see how well LUIS understands the machine-learned entity. 
+1. Após o treinamento, adicione um novo exemplo expressão à intenção de ver como a LUIS entende a entidade aprendida pela máquina. 
 
-    |Order example utterance|
+    |Expressão de exemplo de pedido|
     |--|
     |`pickup XL meat lovers pizza`|
 
-    The overall top entity, `Order` is labeled and the `Size` subcomponent is also labeled with dotted lines. This is a successful prediction. 
+    A entidade de cima geral, `Order` é rotulada e o subcomponente de `Size` também é rotulado com linhas pontilhadas. Esta é uma previsão bem-sucedida. 
 
-    ![New example utterance predicted with entity](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
+    ![Novo exemplo expressão previsto com a entidade](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    The dotted line indicates the prediction. 
+    A linha pontilhada indica a previsão. 
 
-1. To change the prediction into a labeled entity, select the row, then select **Confirm entity predictions**.
+1. Para alterar a previsão para uma entidade rotulada, selecione a linha e, em seguida, selecione **confirmar previsões de entidade**.
 
-    ![Accept prediction by selecting Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
+    ![Aceite a previsão selecionando confirmar previsão de entidade.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subcomponents. If the entity is predicted correctly, make sure to confirm the predictions. 
+    Neste ponto, a entidade aprendida por máquina está funcionando porque pode encontrar a entidade em um novo exemplo expressão. Ao adicionar o exemplo declarações, se a entidade não for prevista corretamente, rotule a entidade e os subcomponentes. Se a entidade for prevista corretamente, certifique-se de confirmar as previsões. 
 
-## <a name="add-prebuilt-number-to-help-extract-data"></a>Add prebuilt number to help extract data
+## <a name="add-prebuilt-number-to-help-extract-data"></a>Adicionar número predefinido para ajudar a extrair dados
 
-The order information should also include how many of an item is in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
+As informações do pedido também devem incluir quantos de um item está na ordem, como quantas pizzas. Para extrair esses dados, um novo subcomponente aprendido por máquina precisa ser adicionado ao `Order` e esse componente precisa de uma restrição de um número predefinido. Ao restringir a entidade a um número predefinido, a entidade encontrará e extrairá números se o texto for um dígito, `2`ou texto `two`.
 
-Begin by adding the prebuilt number entity to the app. 
+Comece adicionando a entidade de número predefinida ao aplicativo. 
 
-1. Select **Entities** from the left menu, then select **+ Add prebuilt entity**. 
+1. Selecione **entidades** no menu à esquerda e, em seguida, selecione **+ Adicionar entidade predefinida**. 
 
-1. In the **Add prebuilt entities** box, search for and select **number** then select **Done**. 
+1. Na caixa **adicionar entidades predefinidas** , procure e selecione **número** e, em seguida, selecione **concluído**. 
 
-    ![Add prebuilt entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
+    ![Adicionar entidade pré-criados](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
 
-    The prebuilt entity is added to the app but isn't a constraint yet. 
+    A entidade predefinida é adicionada ao aplicativo, mas ainda não é uma restrição. 
 
-## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Create subcomponent entity with constraint to help extract data
+## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Criar entidade de subcomponente com restrição para ajudar a extrair dados
 
-The `Order` entity should have a `Quantity` subcomponent to determine how many of an item are in the order. The quantity should be constrained to a number so that the extracted data is immediately usable by the client application. 
+A entidade `Order` deve ter um subcomponente `Quantity` para determinar quantos de um item está na ordem. A quantidade deve ser restrita a um número para que os dados extraídos sejam utilizáveis imediatamente pelo aplicativo cliente. 
 
-A constraint is applied as a text match, either with exact matching (such as a list entity) or through regular expressions (such as a regular expression entity or a prebuilt entity). 
+Uma restrição é aplicada como uma correspondência de texto, seja com correspondência exata (como uma entidade de lista) ou por meio de expressões regulares (como uma entidade de expressão regular ou uma entidade predefinida). 
 
-By using a constraint, only text that matches that constraint is extracted. 
+Usando uma restrição, somente o texto que corresponde a essa restrição é extraído. 
 
-1. Select **Entities** then select the `Order` entity. 
-1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new entity to the app.
-1. After the success notification, select the `Quantity` subcomponent then select the Constraint pencil.
-1. In the drop-down list, select the prebuilt number. 
+1. Selecione **entidades** e, em seguida, selecione a entidade `Order`. 
+1. Selecione **+ Adicionar componente** e, em seguida, digite o nome `Quantity`, em seguida, selecione Enter para adicionar a nova entidade ao aplicativo.
+1. Após a notificação de êxito, selecione o subcomponente `Quantity` e, em seguida, selecione o lápis de restrição.
+1. Na lista suspensa, selecione o número predefinido. 
 
-    ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
+    ![Criar uma entidade de quantidade com um número predefinido como restrição.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    The `Quantity` entity is applied if and only if text matching the prebuilt number entity is found.
+    A entidade `Quantity` será aplicada se e somente se o texto correspondente à entidade de número predefinido for encontrado.
 
-    The entity with the constraint is created but not yet applied to the example utterances.
+    A entidade com a restrição é criada, mas ainda não foi aplicada ao exemplo declarações.
 
     > [!NOTE]
-    > A subcomponent can be nested within a subcomponent up to 5 levels. While this isn't shown in this article, it is available from the portal and the API.  
+    > Um subcomponente pode ser aninhado em um subcomponente até 5 níveis. Embora isso não seja mostrado neste artigo, ele está disponível no portal e na API.  
 
-## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Label example utterance to teach LUIS about the entity
+## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Exemplo de rótulo expressão para ensinar LUIS sobre a entidade
 
-1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labeled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
+1. Selecione **tentativas** na navegação à esquerda e, em seguida, selecione a intenção **OrderPizza** . Os três números nos declarações a seguir são rotulados, mas estão visualmente abaixo da linha de entidade `Order`. Esse nível inferior significa que as entidades são encontradas, mas não são consideradas separadas da entidade `Order`.
 
-    ![Prebuilt number is found but not considered apart of the Order entity yet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
+    ![O número predefinido foi encontrado, mas não é considerado ainda além da entidade Order.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
-1. Label the numbers with the `Quantity` entity by selecting the `2` in the example utterance then selecting `Quantity` from the list. Label the `6` and the `1` in the same example utterance.
+1. Rotule os números com a entidade `Quantity` selecionando os `2` no exemplo expressão, em seguida, selecionando `Quantity` na lista. Rotule o `6` e o `1` no mesmo exemplo expressão.
 
-    ![Label text with quantity entity.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)  
+    ![Texto do rótulo com entidade de quantidade.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)  
 
-## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Train the app to apply the entity changes to the app
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treinar o aplicativo para aplicar as alterações de entidade ao aplicativo
 
-Select **Train** to train the app with these new utterances.
+Selecione **treinar** para treinar o aplicativo com esses novos declarações.
 
-![Train the app then review the example utterances.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
+![Treine o aplicativo e examine o exemplo declarações.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
-At this point, the order has some details that can be extracted (size, quantity, and total order text). There is further refining of the `Order` entity such as pizza toppings, type of crust, and side orders. Each of those should be created as subcomponents of the `Order` entity. 
+Neste ponto, a ordem tem alguns detalhes que podem ser extraídos (tamanho, quantidade e texto do pedido total). Há ainda mais o refinamento da entidade `Order`, como ingredientes de pizza, tipo de crust e pedidos colaterais. Cada um deles deve ser criado como subcomponentes da entidade `Order`. 
 
-## <a name="test-the-app-to-validate-the-changes"></a>Test the app to validate the changes
+## <a name="test-the-app-to-validate-the-changes"></a>Testar o aplicativo para validar as alterações
 
-Test the app using the interactive **Test** panel. This process lets you enter a new utterance then view the prediction results to see how well the active and trained app is working. The intent prediction should be fairly confident (above 70%) and the entity extraction should pick up at least the `Order` entity. The details of the order entity may be missing because 5 utterances aren't enough to handle every case.
+Teste o aplicativo usando o painel de **teste** interativo. Esse processo permite que você insira um novo expressão e exiba os resultados da previsão para ver como o aplicativo ativo e treinado está funcionando. A previsão da intenção deve ser razoavelmente confiante (acima de 70%) e a extração de entidade deve pegar pelo menos a entidade `Order`. Os detalhes da entidade do pedido podem estar ausentes porque 5 declarações não são suficientes para lidar com todos os casos.
 
 1. Selecione **Test** (Testar) no painel de navegação superior.
-1. Enter the utterance `deliver a medium veggie pizza` and select Enter. The active model predicted the correct intent with over 70% confidence. 
+1. Insira o `deliver a medium veggie pizza` expressão e selecione Enter. O modelo ativo prevê a intenção correta com mais de 70% de confiança. 
 
-    ![Enter a new utterance to test the intent.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
+    ![Insira um novo expressão para testar a intenção.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
 
-1. Select **Inspect** to see the entity predictions.
+1. Selecione **inspecionar** para ver as previsões de entidade.
 
-    ![View the entity predictions in the interactive test panel.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
+    ![Exiba as previsões de entidade no painel de teste interativo.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    The size was correctly identified. Remember that the example utterances in the `OrderPizza` intent don't have an example of `medium` as a size but do use a descriptor of a `SizeDescriptor` phrase list that includes medium.
+    O tamanho foi identificado corretamente. Lembre-se de que o exemplo declarações na `OrderPizza` intenção não tem um exemplo de `medium` como um tamanho, mas usa um descritor de uma `SizeDescriptor` lista de frases que inclui médio.
 
-    The quantity is not correctly predicted. To fix this, you can add more example utterances using that word to indicate quantity and label that word as a `Quantity` entity. 
+    A quantidade não foi prevista corretamente. Para corrigir isso, você pode adicionar mais declarações de exemplo usando essa palavra para indicar a quantidade e rotular a palavra como uma entidade `Quantity`. 
 
-## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publish the app to access it from the HTTP endpoint
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicar o aplicativo para acessá-lo do ponto de extremidade HTTP
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="get-intent-and-entity-prediction--from-http-endpoint"></a>Get intent and entity prediction  from HTTP endpoint
+## <a name="get-intent-and-entity-prediction--from-http-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade HTTP
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter the same query as you entered in the interactive test panel. 
+1. Vá para o final da URL no endereço e insira a mesma consulta que você inseriu no painel de teste interativo. 
 
     `deliver a medium veggie pizza`
 
@@ -309,16 +309,16 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Tutorial - intents](luis-quickstart-intents-only.md)
-* [Concept - entities](luis-concept-entity-types.md) conceptual information
-* [Concept - features](luis-concept-feature.md) conceptual information
-* [How to train](luis-how-to-train.md)
+* [Tutorial – tentativas](luis-quickstart-intents-only.md)
+* [Conceito –](luis-concept-entity-types.md) informações conceituais de entidades
+* [Conceito-](luis-concept-feature.md) informações conceituais de recursos
+* [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
-* [How to test in LUIS portal](luis-interactive-test.md)
+* [Como testar no portal do LUIS](luis-interactive-test.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this tutorial, the app uses a machine-learned entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learned entity allows you to decompose the details of the entity.  
+Neste tutorial, o aplicativo usa uma entidade aprendida por máquina para descobrir a intenção do expressão de um usuário e extrair detalhes desse expressão. O uso da entidade aprendida por máquina permite decompor os detalhes da entidade.  
 
 > [!div class="nextstepaction"]
 > [Adicionar uma entidade keyphrase criada previamente](luis-quickstart-intent-and-key-phrase.md)

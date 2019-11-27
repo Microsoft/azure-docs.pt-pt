@@ -47,7 +47,7 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consul
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)

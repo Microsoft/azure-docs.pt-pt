@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 922a2eb910a99a899bdb9f2b3e2392559ec9b0f3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889840"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548408"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 
@@ -128,8 +128,9 @@ Um aspecto importante do paradigma da proteção de informações é a capacidad
 
 ![Log de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Gerenciar a classificação de dados usando o T-SQL
+### <a name="manage-classifications"></a>Gerenciar classificações
 
+# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem como recuperar todas as classificações para todo o banco de dados.
 
 > [!NOTE]
@@ -139,8 +140,7 @@ Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem c
 - Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Exibir todas as classificações no banco de dados: [Sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="manage-classifications-using-rest-apis"></a>Gerenciar classificações usando APIs REST
-
+# <a name="rest-apistabazure-rest-api"></a>[APIs REST](#tab/azure-rest-api)
 Você também pode usar as APIs REST para gerenciar programaticamente as classificações. As APIs REST publicadas dão suporte às seguintes operações:
 
 - [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza o rótulo de sensibilidade de uma determinada coluna
@@ -152,12 +152,8 @@ Você também pode usar as APIs REST para gerenciar programaticamente as classif
 
 - [Lista recomendada pelo banco de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtém os rótulos de sensibilidade recomendados de um determinado banco de dados
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Gerenciar a descoberta e a classificação de dados usando o Azure PowerShell
-
-Você pode usar o PowerShell para obter todas as colunas recomendadas em um banco de dados SQL do Azure e uma instância gerenciada.
-
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets do PowerShell para o banco de dados SQL do Azure
-
+# <a name="powershell-cmdlet-for-azure-sqltabazure-portal-sqldb"></a>[Cmdlet do PowerShell para SQL do Azure](#tab/azure-portal-sqldb)
+Você pode usar o PowerShell para obter todas as colunas recomendadas em um banco de dados SQL do Azure.
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -165,8 +161,8 @@ Você pode usar o PowerShell para obter todas as colunas recomendadas em um banc
 - [Habilitar-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Desabilitar-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlets do PowerShell para instância gerenciada
-
+# <a name="powershell-cmdlets-for-managed-instancetabazure-powershell-mi"></a>[Cmdlets do PowerShell para Instância Gerenciada](#tab/azure-powershell-mi)
+Você pode usar o PowerShell para obter todas as colunas recomendadas em uma instância gerenciada.
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)

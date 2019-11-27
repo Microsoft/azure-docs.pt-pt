@@ -1,14 +1,14 @@
 ---
-title: Exemplo de planta da zona de aterrissagem de migração do CAF – implantar etapas
+title: Exemplo de implantação da zona de aterrissagem de migração do CAF
 description: Implantar etapas para o exemplo de plantas da zona de aterrissagem de migração do CAF, incluindo detalhes do parâmetro de artefato do Blueprint.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 67dabde6afe2dbc17a5ca2bd32534108b8008a8a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: da17083e8e1b27739288a9d9ac087d071ff4861c
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038451"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545454"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
 
@@ -109,7 +109,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 |Implantar migrações para Azure|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de aterrissagem, visite os seguintes artigos para saber mais sobre a arquitetura:
 

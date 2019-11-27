@@ -1,19 +1,14 @@
 ---
-title: Atualizar contêineres em instâncias de contêiner do Azure
+title: Atualizar grupo de contêineres
 description: Saiba como atualizar contêineres em execução em seus grupos de contêiner de instâncias de contêiner do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: danlep
-ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307719"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533308"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres em instâncias de contêiner do Azure
 
@@ -68,7 +63,7 @@ Como mencionado anteriormente, nem todas as propriedades do grupo de contêinere
 
 Essas propriedades exigem a exclusão do grupo de contêineres antes da reimplantação:
 
-* Tipo de SO
+* Tipo de so
 * CPU
 * Memória
 * Política de reinício
@@ -76,7 +71,7 @@ Essas propriedades exigem a exclusão do grupo de contêineres antes da reimplan
 
 Quando você exclui um grupo de contêineres e o recria, ele não é "reimplantado", mas é criado novo. Todas as camadas de imagem são retiradas do registro, não das que foram armazenadas em cache por uma implantação anterior. O endereço IP do contêiner também pode ser alterado porque está sendo implantado em um host subjacente diferente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Mencionado várias vezes neste artigo está o **grupo de contêineres**. Cada contêiner nas instâncias de contêiner do Azure é implantado em um grupo de contêineres e os grupos de contêineres podem conter mais de um contêiner.
 

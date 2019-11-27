@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112721"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533960"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -33,7 +33,7 @@ Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único docu
 
 O método mais fácil para indexar documentos JSON é usar um assistente no [portal do Azure](https://portal.azure.com/). Ao analisar os metadados no contêiner de blob do Azure, o assistente de [**importação de dados**](search-import-data-portal.md) pode criar um índice padrão, mapear campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e da complexidade dos dados de origem, você pode ter um índice operacional de pesquisa de texto completo em minutos.
 
-É recomendável usar a mesma assinatura do Azure para o Azure Pesquisa Cognitiva e o armazenamento do Azure, preferencialmente na mesma região.
+É recomendável usar a mesma região ou local para o Azure Pesquisa Cognitiva e o armazenamento do Azure para latência mais baixa e para evitar encargos de largura de banda.
 
 ### <a name="1---prepare-source-data"></a>1-preparar dados de origem
 
@@ -112,7 +112,7 @@ Para a indexação JSON baseada em código, use o [postmaster](search-get-starte
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 A ordem das operações requer que você crie e chame objetos nesta ordem. Em contraste com o fluxo de trabalho do portal, uma abordagem de código requer um índice disponível para aceitar os documentos JSON enviados por meio da solicitação **criar indexador** .
 
@@ -271,10 +271,10 @@ A criação do indexador no Azure Pesquisa Cognitiva dispara a importação de d
 
 O SDK do .NET tem paridade total com a API REST. Recomendamos que você examine a seção anterior da API REST para saber os conceitos, o fluxo de trabalho e os requisitos. Em seguida, você pode consultar a seguinte documentação de referência da API .NET para implementar um indexador JSON em código gerenciado.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. Search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [Microsoft. Azure. Search. Models. DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [Microsoft. Azure. Search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [Microsoft. Azure. Search. Models. indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="parsing-modes"></a>
 
@@ -424,7 +424,7 @@ Você também pode se referir a elementos individuais da matriz usando um índic
 >
 >
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Indexadores no Azure Pesquisa Cognitiva](search-indexer-overview.md)
 + [Indexando o armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva](search-howto-index-json-blobs.md)

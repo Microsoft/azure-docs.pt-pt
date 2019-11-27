@@ -1,5 +1,5 @@
 ---
-title: Get prediction with REST call in C#
+title: Obter previsão com chamada REST emC#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -17,9 +17,9 @@ ms.locfileid: "74414637"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,22 +27,22 @@ ms.locfileid: "74414637"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Use C# (.NET Core) para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) e obter um resultado de previsão.
 
-1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
+1. Crie um novo aplicativo de console destinado C# ao idioma, com um nome de projeto e pasta de `predict-with-rest`. 
 
     ```console
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:  
+1. Altere para o diretório `predict-with-rest` que você acabou de criar e instale as dependências necessárias com estes comandos:  
 
     ```console
     cd predict-with-rest
     dotnet add package System.Net.Http
     ```
 
-1. Open `Program.cs` in your favorite IDE or editor. Then overwrite `Program.cs` with the following code:
+1. Abra `Program.cs` em seu IDE ou editor favorito. Em seguida, substitua `Program.cs` pelo código a seguir:
     
    ```csharp
     using System;
@@ -102,31 +102,31 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
 
    ```
 
-1. Replace the following values:
+1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` with your starter key.
-    * `YOUR-ENDPOINT` with your endpoint. Por exemplo, `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` com a sua chave inicial.
+    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. Build the console application with this command: 
+1. Crie o aplicativo de console com este comando: 
 
     ```console
     dotnet build
     ```
 
-1. Execute a aplicação de consola. The console output displays the same JSON that you saw earlier in the browser window.
+1. Execute a aplicação de consola. A saída do console exibe o mesmo JSON que você viu anteriormente na janela do navegador.
 
     ```console
     dotnet run
     ```
 
-1. Review the prediction response, which is returned as JSON:
+1. Examine a resposta de previsão, que é retornada como JSON:
 
     ```console
     Hit ENTER to exit...
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    A resposta JSON formatada para facilitar a leitura: 
 
     ```JSON
     {
@@ -175,9 +175,9 @@ Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you are finished with this quickstart, delete the file from the file system. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)

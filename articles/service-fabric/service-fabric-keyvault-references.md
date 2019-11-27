@@ -149,6 +149,6 @@ KeyVaultReference é um tipo com suporte para o contêiner RepositoryCredentials
 
 - O keyvault precisa estar na mesma assinatura que o cluster do Service Fabric. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Documentação do Azure keyvault](https://docs.microsoft.com/azure/key-vault/)

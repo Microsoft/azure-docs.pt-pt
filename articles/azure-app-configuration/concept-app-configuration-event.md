@@ -39,14 +39,14 @@ Azure App eventos de configuração contêm todas as informações de que você 
 
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |tópico|string|ID de Azure Resource Manager completo da configuração do aplicativo que emite o evento.|
+> |topic|string|ID de Azure Resource Manager completo da configuração do aplicativo que emite o evento.|
 > |subject|string|O URI do valor de chave que é o assunto do evento.|
 > |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
 > |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" ou "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |Id|string|Um identificador exclusivo deste evento.|
+> |ID|string|Um identificador exclusivo deste evento.|
 > |dataVersion|string|A versão do esquema do objeto de dados.|
 > |metadataVersion|string|A versão do esquema das propriedades de nível superior.|
-> |data|objeto|Coleção de dados de eventos específicos de configuração de Azure App|
+> |data|object|Coleção de dados de eventos específicos de configuração de Azure App|
 > |Data. Key|string|A chave do valor de chave que foi modificado ou excluído.|
 > |data.label|string|O rótulo, se houver, do valor de chave que foi modificado ou excluído.|
 > |data.etag|string|Por `KeyValueModified` a eTag do novo valor de chave. Por `KeyValueDeleted` a eTag do valor-chave que foi excluído.|
@@ -81,7 +81,7 @@ Os aplicativos que lidam com eventos de configuração de aplicativo devem segui
 > * Use o campo assunto para acessar a chave-valor que foi modificado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a grade de eventos e dê uma tentativa de Azure App eventos de configuração:
 

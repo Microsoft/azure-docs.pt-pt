@@ -1,14 +1,14 @@
 ---
-title: Exemplo de plano de controle de esquema ISO 27001
+title: Controles de exemplo do plano gráfico ISO 27001
 description: Mapeamento de controle do exemplo de plano gráfico ISO 27001. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 ms.date: 07/22/2019
 ms.topic: sample
-ms.openlocfilehash: 6d77573a37c27aba96bace1f6d228ac892b0ecd9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: effc68f3b7daa576b855fb61b39c1e47929a614e
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038342"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546681"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controle da amostra do plano gráfico ISO 27001
 
@@ -200,7 +200,7 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 - Auditoria de habilitação de somente conexões seguras para o cache Redis
 - Auditar a transferência segura para contas de armazenamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico ISO 27001, visite os artigos a seguir para saber mais sobre a arquitetura e como implantar esse exemplo:
 

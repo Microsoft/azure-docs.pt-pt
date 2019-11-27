@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b2705f209b2acf1198ea555a5de2f79987a4d0e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494248"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533896"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Tutorial: usar Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para o cluster HDInsight
 
@@ -198,7 +198,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
         |Propriedade |Valor |
         |----|----|
         |Tipo de recurso de link|Selecione **serviço Livy** na lista suspensa.|
-        |Ponto de extremidade Livy| Inserir ponto de extremidade Livy|
+        |Livy Endpoint| Enter Livy Endpoint|
         |Nome do Cluster| Insira o nome do cluster.|
         |Ponto de extremidade yarn|Opcional.|
         |Tipo de autenticação| Deixar como **autenticação básica**|
@@ -239,7 +239,7 @@ Depois de criar um aplicativo escala, você pode enviá-lo para o cluster.
     |Tipo de armazenamento|Selecione **usar blob do Azure para carregar** na lista suspensa.|
     |Conta de Armazenamento|Insira sua conta de armazenamento.|
     |Chave de armazenamento|Insira sua chave de armazenamento.|
-    |Contêiner de armazenamento|Selecione o contêiner de armazenamento na lista suspensa uma vez que a **conta de armazenamento** e a chave de **armazenamento** foram inseridas.|
+    |Contentor de armazenamento|Selecione o contêiner de armazenamento na lista suspensa uma vez que a **conta de armazenamento** e a chave de **armazenamento** foram inseridas.|
 
     ![A caixa de diálogo envio do Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
@@ -336,8 +336,6 @@ Certifique-se de que você tenha satisfeito com o WINUTILS. Pré-requisito de EX
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Console de sessão interativa do Spark Livy (escala)
 
-Ele só tem suporte no IntelliJ 2018,2 e 2018,3.
-
 1. Na barra de menus, navegue até **executar** > **Editar configurações...** .
 
 2. Na janela **executar/depurar configurações** , no painel esquerdo, navegue até **Apache Spark no HDInsight** >  **[Spark no HDInsight] MyApp**.
@@ -366,6 +364,25 @@ Ele só tem suporte no IntelliJ 2018,2 e 2018,3.
 É conveniente prever o resultado do script enviando um código para o console local ou o Livy Interactive Session console (escala). Você pode realçar um código no arquivo escalar e clicar com o botão direito do mouse em **Enviar seleção para o console do Spark**. O código selecionado será enviado para o console e ser executado. O resultado será exibido após o código no console. O console verificará os erros, se houver.  
 
    ![Enviar seleção para o console do Spark](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integrar com o agente de identidade do HDInsight (HIB) 
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Conectar-se ao cluster do HDInsight ESP com o agente de ID (HIB)
+Você pode seguir as etapas normais para entrar na assinatura do Azure para se conectar ao cluster do HDInsight ESP com o agente de ID (HIB). Depois de entrar, você verá a lista de clusters no Azure Explorer. Para obter mais instruções, consulte [conectar-se ao cluster HDInsight](#connect-to-your-hdinsight-cluster).
+
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Executar um aplicativo do Spark escalar em um cluster do HDInsight com o agente de ID (HIB)
+Você pode seguir as etapas normais para enviar o trabalho ao cluster do HDInsight ESP com o agente de ID (HIB). Consulte [executar um aplicativo do Spark escalar em um cluster HDInsight Spark](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) para obter mais instruções.
+
+Carregamos os arquivos necessários em uma pasta chamada com sua conta de entrada e você pode ver o caminho de upload no arquivo de configuração.
+
+   ![carregar caminho na configuração](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Console do Spark em um cluster do HDInsight com o agente de ID (HIB)
+Você pode executar o console local do Spark (escala) ou executar o console de sessão interativa do Spark Livy (escala) em um cluster de ESP do HDInsight com o agente de ID (HIB). Consulte o [console do Spark](#spark-console) para obter mais instruções.
+
+   > [!NOTE]  
+   > No momento, para o cluster do HDInsight ESP com o agente de ID (HIB), [vincule um cluster](#link-a-cluster) e [debug Apache Spark aplicativos remotamente](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) .
+
 
 ## <a name="reader-only-role"></a>Função somente de leitor
 
@@ -438,7 +455,7 @@ Você pode converter os aplicativos existentes do Spark Scale que você criou no
 
 Se você não pretende usar este aplicativo, exclua o cluster que você criou com as seguintes etapas:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Na caixa de **pesquisa** na parte superior, digite **HDInsight**.
 

@@ -1,6 +1,6 @@
 ---
 title: Configurar regras e ações no Azure IoT Central | Microsoft Docs
-description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
+description: Este artigo de instruções mostra, como um construtor, como configurar regras e ações baseadas em telemetria no aplicativo IoT Central do Azure.
 author: vavilla
 ms.author: vavilla
 ms.date: 11/11/2019
@@ -15,41 +15,41 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484915"
 ---
-# <a name="configure-rules-preview-features"></a>Configure rules (preview features)
+# <a name="configure-rules-preview-features"></a>Configurar regras (recursos de visualização)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
+As regras no IoT Central servem como uma ferramenta de resposta personalizável que dispara eventos ativamente monitorados de dispositivos conectados. As seções a seguir descrevem como as regras são avaliadas.
 
-## <a name="select-target-devices"></a>Select target devices
+## <a name="select-target-devices"></a>Selecionar dispositivos de destino
 
-Use the target devices section to select on what kind of devices this rule will be applied. Filters allow you to further refine what devices should be included. The filters use properties on the device template to filter down the set of devices. Filters themselves don't trigger an action. In the following screenshot, the devices that are being targeted are of device template type **Refrigerator**. The filter states that the rule should only include **Refrigerators** where the **Manufactured State** property equals **Washington**.
+Use a seção dispositivos de destino para selecionar em que tipo de dispositivos essa regra será aplicada. Os filtros permitem refinar ainda mais quais dispositivos devem ser incluídos. Os filtros usam propriedades no modelo de dispositivo para filtrar o conjunto de dispositivos. Os próprios filtros não disparam uma ação. Na captura de tela a seguir, os dispositivos que estão sendo direcionados são do tipo de modelo de dispositivo **refrigerator**. O filtro indica que a regra deve incluir apenas **refrigeradores** em que a propriedade de **estado fabricada** seja igual a **Washington**.
 
 ![Condições](media/howto-configure-rules/filters.png)
 
-## <a name="use-multiple-conditions"></a>Use multiple conditions
+## <a name="use-multiple-conditions"></a>Usar várias condições
 
-Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they're logically AND'd together. In other words, all conditions must be met for the rule to evaluate as true.  
+As condições são as regras disparadas. Atualmente, quando você adiciona várias condições a uma regra, elas são logicamente e juntas. Em outras palavras, todas as condições devem ser atendidas para que a regra seja avaliada como verdadeira.  
 
-In the following screenshot, the conditions check when the temperature is greater than 90 and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
+Na captura de tela a seguir, as condições verificam quando a temperatura é maior que 90 e a umidade é menor que 10. Quando ambas as instruções são true, a regra é avaliada como true e dispara uma ação.
 
 ![Condições](media/howto-configure-rules/conditions.png)
 
-## <a name="use-aggregate-windowing"></a>Use aggregate windowing
+## <a name="use-aggregate-windowing"></a>Usar janelas agregadas
 
-Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
+As regras avaliam as janelas de tempo agregado como janelas em cascata. Na captura de tela abaixo, a janela de tempo é de cinco minutos. A cada cinco minutos, a regra é avaliada nos últimos cinco minutos de dados. Os dados são avaliados apenas uma vez na janela à qual ele corresponde.
 
-![Tumbling Windows](media/howto-configure-rules/tumbling-window.png)
+![Janelas em cascata](media/howto-configure-rules/tumbling-window.png)
 
-## <a name="use-rules-with-iot-edge-modules"></a>Use rules with IoT Edge modules
+## <a name="use-rules-with-iot-edge-modules"></a>Usar regras com módulos IoT Edge
 
-A restriction applies to rules that are applied to IoT Edge modules. Rules on telemetry from different modules aren't evaluated as valid rules. Take the following as an example. The first condition of the rule is on a temperature telemetry from Module A. The second condition of the rule is on a humidity telemetry on Module B. Since the two conditions are from different modules, this is an invalid set of conditions. The rule isn't valid and will throw an error on trying to save the rule.
+Uma restrição se aplica às regras que são aplicadas aos módulos IoT Edge. As regras na telemetria de diferentes módulos não são avaliadas como regras válidas. Veja o seguinte como exemplo. A primeira condição da regra está em uma telemetria de temperatura do módulo A. A segunda condição da regra está em uma telemetria de umidade no módulo B. Como as duas condições são de módulos diferentes, esse é um conjunto inválido de condições. A regra não é válida e gerará um erro ao tentar salvar a regra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
+Agora que você aprendeu como configurar uma regra em seu aplicativo de IoT Central do Azure, você pode:
 
 > [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+> [Analise seus dados em tempo real](howto-create-analytics.md)

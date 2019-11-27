@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Kubernetes Service cluster resource
+title: Criar um recurso de cluster do serviço kubernetes do Azure
 titleSuffix: Azure Cognitive Services
-description: Learn how to create an Azure Kubernetes Service (AKS) resource.
+description: Saiba como criar um recurso de AKS (serviço de kubernetes do Azure).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -16,36 +16,36 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383449"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Create an Azure Kubernetes Service cluster resource
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
 
-1. Go to [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks), and select **Create**.
+1. Vá para o [serviço kubernetes do Azure](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **criar**.
 
-1. On the **Basics** tab, enter the following information:
+1. Na guia **noções básicas** , insira as seguintes informações:
 
     |Definição|Valor|
     |--|--|
     |Subscrição|Selecione uma subscrição adequada.|
-    |Grupo de recursos|Select an available resource group.|
-    |Kubernetes cluster name|Enter a name (lowercase).|
-    |Região|Select a nearby location.|
-    |Kubernetes version|Whatever value is marked as **(default)** .|
-    |DNS name prefix|Created automatically, but you can override.|
-    |Node size|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Node count|Leave the slider at the default value.|
+    |Grupo de recursos|Selecione um grupo de recursos disponível.|
+    |Nome do cluster kubernetes|Insira um nome (em minúsculas).|
+    |Região|Selecione um local próximo.|
+    |Versão do kubernetes|Qualquer que seja o valor marcado como **(padrão)** .|
+    |Prefixo do nome DNS|Criado automaticamente, mas você pode substituir.|
+    |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
+    |Contagem de nós|Deixe o controle deslizante no valor padrão.|
 
-1. On the **Scale** tab, leave **Virtual nodes** and **VM scale sets** set to their default values.
-1. On the **Authentication** tab, leave **Service principal** and **Enable RBAC** set to their default values.
-1. On the **Networking** tab, enter the following selections:
+1. Na guia **escala** , deixe **nós virtuais** e **conjuntos de dimensionamento de VM** definidos com seus valores padrão.
+1. Na guia **autenticação** , deixe a **entidade de serviço** e **habilite o RBAC** definido com seus valores padrão.
+1. Na guia **rede** , insira as seguintes seleções:
 
     |Definição|Valor|
     |--|--|
     |Encaminhamento de aplicações de HTTP|Não|
-    |Networking configuration|Basic|
+    |Configuração de rede|Básica|
 
-1. On the **Monitoring** tab, make sure that **Enable container monitoring** is set to **Yes**, and leave **Log Analytics workspace** as the default value.
-1. On the **Tags** tab, leave the name/value pairs blank for now.
-1. Select **Review and Create**.
-1. After validation passes, select **Create**.
+1. Na guia **monitoramento** , verifique se habilitar o **monitoramento de contêiner** está definido como **Sim**e deixe **log Analytics espaço de trabalho** como o valor padrão.
+1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
+1. Selecione **revisar e criar**.
+1. Depois que a validação for aprovada, selecione **criar**.
 
 > [!NOTE]
-> If validation fails, it might be because of a "Service principal" error. Go back to the **Authentication** tab and then go back to **Review + create**, where validation should run and then pass.
+> Se a validação falhar, isso pode ser devido a um erro de "entidade de serviço". Volte para a guia **autenticação** e, em seguida, volte para **revisar + criar**, em que a validação deve ser executada e, em seguida, passada.

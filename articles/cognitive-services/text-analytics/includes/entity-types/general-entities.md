@@ -24,7 +24,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição             |
 |--------------|-------------------------|
-| N/D          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
+| N/A          | Nomes reconhecidos, por exemplo `Bill Gates`, `Marie Curie` |
 
 ### <a name="location"></a>Localização
 
@@ -37,7 +37,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| N/D          | locais, por exemplo `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty` |
+| N/A          | locais, por exemplo `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty` |
 
 ### <a name="organization"></a>Organização  
 
@@ -47,7 +47,7 @@ Organizações reconhecidas, corporações, agências e outros grupos de pessoas
 
 | Nome do subtipo | Descrição                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| N/D          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+| N/A          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Número de telefone
 
@@ -60,7 +60,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                  |
 |----------|----------------------------------------------|
-| N/D         | Números de telefone dos EUA, por exemplo `(312) 555-0176`. |
+| N/A         | Números de telefone dos EUA, por exemplo `(312) 555-0176`. |
 
 ### <a name="email"></a>Email
 
@@ -73,7 +73,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                  |
 |----------|----------------------------------------------|
-| N/D         | Endereço de email, por exemplo `support@contoso.com` |
+| N/A         | Endereço de email, por exemplo `support@contoso.com` |
 
 ### <a name="url"></a>do IdP
 
@@ -86,7 +86,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                           |
 |----------|-------------------------------------------------------|
-| N/D         | URLs para sites, por exemplo `https://www.bing.com`. |
+| N/A         | URLs para sites, por exemplo `https://www.bing.com`. |
 
 ###  <a name="number"></a>Número
 
@@ -99,9 +99,9 @@ Idiomas:
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
-| N/D         | `6`, `six`                   |
+| N/A         | `6`, `six`                   |
 | Percentagem  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
-| Moeda    | `$10.99`, `€30.00`           |
+| Currency    | `$10.99`, `€30.00`           |
 | Dimensão   | `10 miles`, `40 cm`          |
 | Temperatura | `32 degrees`, `10°C`         |

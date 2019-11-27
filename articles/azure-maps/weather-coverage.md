@@ -84,7 +84,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Santo Maarten                             | ✓ |   |  ✓| 
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ |   |  ✓| 
 | Suriname                                 | ✓ |   |  ✓| 
-| Trindade e Tobago                      | ✓ |   |  ✓| 
+| Trinidad e Tobago                      | ✓ |   |  ✓| 
 | Ilhas Turcas e Caicos                 | ✓ |   |  ✓| 
 | Territórios insulares dos EUA                    | ✓ |   |  ✓| 
 | Ilhas Virgens dos EUA                      | ✓ |   |  ✓| 
@@ -99,7 +99,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Argélia                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
-| Barém                     | ✓               |                              |        ✓| 
+| Bahrain                     | ✓               |                              |        ✓| 
 | Benim                       | ✓               |                              |        ✓| 
 | Botsuana                    | ✓               |                              |        ✓| 
 | Ilha Bouvet               | ✓               |                              |        ✓| 
@@ -200,7 +200,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Cazaquistão                        | ✓ |   |  ✓| 
 | Kiribati                          | ✓ |   |  ✓| 
 | Coreia                             | ✓ | ✓ |  ✓| 
-| Quirguistão                        | ✓ |   |  ✓| 
+| Quirguizistão                        | ✓ |   |  ✓| 
 | Laos                              | ✓ |   |  ✓| 
 | RAE de Macau                         | ✓ |   |  ✓| 
 | Malásia                          | ✓ |   |  ✓| 
@@ -234,7 +234,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Tonga                             | ✓ |   |  ✓| 
 | Turquemenistão                      | ✓ |   |  ✓| 
 | Tuvalu                            | ✓ |   |  ✓| 
-| Uzbequistão                        | ✓ |   |  ✓| 
+| Usbequistão                        | ✓ |   |  ✓| 
 | Vanuatu                           | ✓ |   |  ✓| 
 | Vietname                           | ✓ |   |  ✓| 
 | Wallis e Futuna                 | ✓ |   |  ✓| 
@@ -273,7 +273,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Camisas                 | ✓ |   |  ✓| 
 | Kosovo                 | ✓ |   |  ✓| 
 | Letónia                 | ✓ |   |  ✓| 
-| Liechtenstein          | ✓ | ✓ |  ✓| 
+| Listenstaine          | ✓ | ✓ |  ✓| 
 | Lituânia              | ✓ |   |  ✓| 
 | Luxemburgo             | ✓ | ✓ |  ✓| 
 | Macedónia do Norte        | ✓ |   |  ✓| 

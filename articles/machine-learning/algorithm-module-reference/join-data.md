@@ -1,7 +1,7 @@
 ---
-title: 'Join Data: Module Reference'
+title: 'Dados de junção: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Learn how to use the join Join Data module in Azure Machine Learning to merge datasets.
+description: Saiba como usar o módulo unir dados de junção em Azure Machine Learning para mesclar conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,54 +18,54 @@ ms.locfileid: "74232613"
 ---
 # <a name="join-data"></a>Associar dados
 
-This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
+Este artigo descreve como usar o módulo **unir dados** no designer de Azure Machine Learning (versão prévia) para mesclar dois DataSets usando uma operação de junção de estilo de banco de dados.  
 
-## <a name="how-to-configure-join-data"></a>How to configure Join Data
+## <a name="how-to-configure-join-data"></a>Como configurar dados de junção
 
-To perform a join on two datasets, they should be related by a key column. Composite keys using multiple columns are also supported. 
+Para executar uma junção em dois conjuntos de valores, eles devem estar relacionados por uma coluna de chave. Também há suporte para chaves compostas usando várias colunas. 
 
-1. Add the datasets you want to combine, and then drag the **Join Data** module into your pipeline. 
+1. Adicione os conjuntos de dados que você deseja combinar e, em seguida, arraste o módulo de **dado de junção** para seu pipeline. 
 
-    You can find the module in the **Data Transformation** category, under **Manipulation**.
+    Você pode encontrar o módulo na categoria **transformação de dados** , em **manipulação**.
 
-1. Connect the datasets to the **Join Data** module. 
+1. Conecte os conjuntos de dados ao módulo **unir data** . 
  
-1. Select **Launch column selector** to choose key column(s). Remember to choose columns for both the left and right inputs.
+1. Selecione **Iniciar seletor de coluna** para escolher coluna (s) de chave. Lembre-se de escolher colunas para as entradas à esquerda e à direita.
 
-    For a single key:
+    Para uma única chave:
 
-    Select a single key column for both inputs.
+    Selecione uma única coluna de chave para ambas as entradas.
     
-    For a composite key:
+    Para uma chave composta:
 
-    Select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
+    Selecione todas as colunas de chave da entrada esquerda e a entrada direita na mesma ordem. O módulo de **dados de junção** unirá as tabelas quando todas as colunas de chave forem correspondentes. Marque a opção **permitir duplicatas e preservar a ordem das colunas na seleção** se a ordem da coluna não for igual à tabela original. 
 
-    ![column-selector](media/module/join-data-column-selector.png)
+    ![seletor de coluna](media/module/join-data-column-selector.png)
 
 
-1. Select the **Match case** option if you want to preserve case sensitivity on a text column join. 
+1. Selecione a opção **corresponder caso** para preservar a diferenciação de maiúsculas e minúsculas em uma junção de coluna de texto. 
    
-1. Use the **Join type** dropdown list to specify how the datasets should be combined.  
+1. Use a lista suspensa **tipo de junção** para especificar como os conjuntos de valores devem ser combinados.  
   
-    * **Inner Join**: An *inner join* is the most common join operation. It returns the combined rows only when the values of the key columns match.  
+    * **Junção interna**: uma *junção interna* é a operação de junção mais comum. Ele retorna as linhas combinadas somente quando os valores das colunas de chave correspondem.  
   
-    * **Left Outer Join**: A *left outer join* returns joined rows for all rows from the left table. When a row in the left table has no matching rows in the right table, the returned row contains missing values for all columns that come from the right table. You can also specify a replacement value for missing values.  
+    * **Junção externa esquerda**: uma *junção externa esquerda* retorna linhas Unidas para todas as linhas da tabela esquerda. Quando uma linha na tabela esquerda não tem linhas correspondentes na tabela direita, a linha retornada contém valores ausentes para todas as colunas que vêm da tabela direita. Você também pode especificar um valor de substituição para valores ausentes.  
   
-    * **Full Outer Join**: A *full outer join* returns all rows from the left table (**table1**) and from the right table (**table2**).  
+    * **Junção externa completa**: uma *junção externa completa* retorna todas as linhas da tabela esquerda (**Table1**) e da tabela direita (**Table2**).  
   
-         For each of the rows in either table that have no matching rows in the other, the result includes a row containing missing values.  
+         Para cada uma das linhas em uma das tabelas que não têm linhas correspondentes no outro, o resultado inclui uma linha que contém valores ausentes.  
   
-    * **Left Semi-Join**: A *left semi-join* returns only the values from the left table when the values of the key columns match.  
+    * **Semijunção à esquerda**: uma *semijunção à esquerda* retorna somente os valores da tabela esquerda quando os valores das colunas de chave correspondem.  
 
-1. For the option **Keep right key columns in joined table**:
+1. Para a opção, **Mantenha as colunas de chave direita na tabela unida**:
 
-    * Select this option to view the keys from both input tables.
-    * Deselect to only return the key columns from the left input.
+    * Selecione esta opção para exibir as chaves de ambas as tabelas de entrada.
+    * Anular seleção para retornar apenas as colunas de chave da entrada à esquerda.
 
-1. Run the pipeline, or select the Join Data module and selected **Run Selected** to perform the join.
+1. Execute o pipeline ou selecione o módulo ingressar dados e selecionou a **execução selecionada** para executar a junção.
 
-1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
+1. Para exibir os resultados, clique com o botão direito do mouse no conjunto de dados > **resultados da** **junção** > **Visualizar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

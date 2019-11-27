@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: b520575202165a3f879b17969d9ceea71eb71006
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c3d879e808e7903f6257926d06c5eb2ddbe93c43
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674797"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548248"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 
@@ -22,16 +22,16 @@ Siga este artigo quando desejar **analisar os arquivos JSON ou gravar os dados n
 
 O formato JSON tem suporte para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Armazenamento em nuvem](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo DataSet JSON.
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade Type do conjunto de conjuntos deve ser definida como **JSON**. | Sim      |
-| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **JSON**. | Sim      |
+| location         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
 | encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252 "," WINDOWS-1253 "," WINDOWS-1254 "," WINDOWS-1255 "," WINDOWS-1256 "," WINDOWS-1257 "," WINDOWS-1258 ".| Não       |
-| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snapshot**ou **lz4**. para usar ao salvar o arquivo. <br>Observação a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4". | Não       |
+| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snapshot**ou **lz4**. para usar ao salvar o arquivo. <br>Observação a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4".<br>Observação ao usar a atividade de cópia para descompactar arquivo (s) ZipDeflate e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`. | Não       |
 | compressionLevel | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **mais rápido:** a operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para obter mais informações, consulte o tópico [nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Veja abaixo um exemplo de conjunto de um DataSet no armazenamento de BLOBs do Azure:
@@ -69,7 +69,7 @@ As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade 
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **jsonname**. | Sim      |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **jsonname**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ### <a name="json-as-sink"></a>JSON como coletor
@@ -78,7 +78,7 @@ As propriedades a seguir têm suporte na seção de ***\*do coletor*** de ativid
 
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **JSONSink**. | Sim      |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **JSONSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação JSON** abaixo. | Não       |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
@@ -86,7 +86,7 @@ As propriedades a seguir têm suporte na seção de ***\*do coletor*** de ativid
 
 | Propriedade      | Descrição                                                  | Necessário                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatSettings deve ser definido como **JsonWriteSetting**. | Sim                                                   |
+| type          | O tipo de formatSettings deve ser definido como **JsonWriteSetting**. | Sim                                                   |
 | filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são **setOfObjects** e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
@@ -185,7 +185,7 @@ A atividade de cópia pode detectar e analisar automaticamente os padrões de ar
 
 Aprenda detalhes da [transformação de origem](data-flow-source.md) e da [transformação de coletor](data-flow-sink.md) no fluxo de dados de mapeamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Mapeando fluxo de dados](concepts-data-flow-overview.md)

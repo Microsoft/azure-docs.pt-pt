@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 11/26/2019
 ms.locfileid: "74171638"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no mecanismo de regras padrão para a CDN do Azure
@@ -105,10 +105,10 @@ Use essa ação para reescrever o caminho de uma solicitação que é roteada pa
 Campo | Descrição 
 ------|------------
 Padrão de origem | Defina o padrão de origem no caminho da URL a ser substituído. Atualmente, o padrão de origem usa uma correspondência baseada em prefixo. Para corresponder a todos os caminhos de URL, use uma barra ( **/** ) como o valor de padrão de origem.
-Destino | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
+Destination | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
 Preservar caminho sem correspondência | Se definido como **Sim**, o caminho restante após o padrão de origem será acrescentado ao novo caminho de destino. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Visão geral da CDN do Azure](cdn-overview.md)
 - [Referência do mecanismo de regras padrão](cdn-standard-rules-engine-reference.md)

@@ -70,6 +70,6 @@ As atualizações para o sistema operacional ou SAP HANA que não causam uma alt
 - Executar novamente o [script de pré-registro](https://aka.ms/scriptforpermsonhana)
 - [Retomar a proteção](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) para o banco de dados novamente
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Examine as [perguntas](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) frequentes sobre como fazer backup de bancos de dados SAP Hana em VMs do Azure]

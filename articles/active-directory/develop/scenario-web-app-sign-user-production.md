@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (move to production) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (move to production)
+title: Aplicativo Web que conecta os usuários (mover para produção)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que faz logon de usuários (mover para produção)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -22,39 +22,39 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481889"
 ---
-# <a name="web-app-that-signs-in-users-move-to-production"></a>Web app that signs in users: Move to production
+# <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicativo Web que conecta usuários: mover para produção
 
-Now that you know how to get a token to call web APIs, learn how to move it to production.
+Agora que você sabe como obter um token para chamar APIs da Web, saiba como movê-la para produção.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="scenario-for-calling-web-apis"></a>Scenario for calling web APIs
+### <a name="scenario-for-calling-web-apis"></a>Cenário para chamar APIs Web
 
-After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:
+Depois que seu aplicativo Web entra em usuários, ele pode chamar APIs da Web em nome dos usuários conectados. Chamar APIs da Web do aplicativo Web é o objeto do seguinte cenário:
 
 > [!div class="nextstepaction"]
 > [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Deep dive: ASP.NET Core web app tutorial
+### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Aprofunde-se: tutorial do aplicativo Web ASP.NET Core
 
-Learn about other ways to sign in users with this ASP.NET Core tutorial: 
+Saiba mais sobre outras maneiras de conectar usuários com este ASP.NET Core tutorial: 
 
 > [!div class="nextstepaction"]
-> [Enable your web apps to sign in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+> [Habilite seus aplicativos Web para conectar usuários e chamar APIs com a plataforma de identidade da Microsoft para desenvolvedores](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
 
-This progressive tutorial has production-ready code for a web app, including how to add sign-in with accounts in:
+Este tutorial progressivo tem código pronto para produção para um aplicativo Web, incluindo como adicionar entrada com contas no:
 
-- Your organization
-- Multiple organizations
-- Work or school accounts, or personal Microsoft accounts
+- Sua organização
+- Várias organizações
+- Contas corporativas ou de estudante ou contas pessoais da Microsoft
 - [Azure AD B2C](https://aka.ms/aadb2c)
-- National clouds
+- Nuvens nacionais
 
-### <a name="sample-code-java-web-app"></a>Sample code: Java web app
+### <a name="sample-code-java-web-app"></a>Código de exemplo: aplicativo Web Java
 
-Learn more about the Java web app from this sample on GitHub: 
+Saiba mais sobre o aplicativo Web Java deste exemplo no GitHub: 
 
 > [!div class="nextstepaction"]
-> [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+> [Um aplicativo Web Java que conecta usuários com a plataforma de identidade da Microsoft e chama Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

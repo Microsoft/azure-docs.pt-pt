@@ -174,6 +174,6 @@ Não, o suporte ao PowerShell ou à CLI não está disponível no momento.
 
 Não. Atualmente, há suporte para a exclusão reversível em máquinas virtuais do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia sobre os [controles de segurança para o backup do Azure](backup-security-controls.md).

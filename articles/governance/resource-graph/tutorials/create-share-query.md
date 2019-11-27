@@ -151,7 +151,7 @@ Você pode excluir uma consulta compartilhada por meio das seguintes interfaces:
 
 Quando terminar este tutorial, exclua as consultas particulares e compartilhadas que você criou se não quiser mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você criou consultas particulares e compartilhadas. Para saber mais sobre a linguagem de gráfico de recursos, continue na página de detalhes da linguagem de consulta.
 

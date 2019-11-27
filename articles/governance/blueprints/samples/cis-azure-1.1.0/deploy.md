@@ -1,14 +1,14 @@
 ---
-title: Exemplo de plano gráfico de benchmark do CIS Microsoft Azure Foundation-etapas de implantação
+title: Exemplo de implantação de plano de referência do CIS Microsoft Azure Foundations
 description: Implante as etapas para o CIS Microsoft Azure Foundations plano de referência Blueprint, incluindo detalhes do parâmetro artefato do Blueprint.
 ms.date: 10/14/2019
 ms.topic: sample
-ms.openlocfilehash: e33a7788d9d7a13cb7f8df3f6663bf009b685169
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038379"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544525"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Implantar a amostra de plano de referência do CIS Microsoft Azure Foundations
 
@@ -96,7 +96,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |\[visualização\]: auditar as recomendações do CIS Microsoft Azure Foundations do benchmark 1.1.0 e implantar extensões de VM de suporte específicas|Atribuição de política|Lista de regiões em que o observador de rede deve ser habilitado|Uma lista de regiões separada por ponto-e-vírgula. Para ver uma lista completa de regiões, use Get-AzLocation. Por exemplo: lesteus; eastus2|
 |\[visualização\]: auditar as recomendações do CIS Microsoft Azure Foundations do benchmark 1.1.0 e implantar extensões de VM de suporte específicas|Atribuição de política|Lista de extensões de máquina virtual que são aprovadas para uso|Uma lista de extensões separadas por ponto e vírgula. Para ver uma lista completa de extensões de máquina virtual, use Get-AzVMExtensionImage. Por exemplo: AzureDiskEncryption; Iaasantimalware da|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou as etapas para implantar o exemplo de plano de referência do CIS Microsoft Azure Foundations, visite os seguintes artigos para saber mais sobre o planejamento de plano gráfico e controle:
 

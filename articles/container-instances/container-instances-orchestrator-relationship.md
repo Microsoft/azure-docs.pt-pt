@@ -1,24 +1,19 @@
 ---
-title: Instâncias de contêiner do Azure e orquestração de contêiner
+title: Instâncias de contêiner e orquestração de contêiner
 description: Entenda como as instâncias de contêiner do Azure interagem com orquestradores de contêiner.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972240"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533667"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contêiner do Azure e orquestradores de contêiner
 
-Devido à sua pequena orientação de tamanho e aplicativo, os contêineres são adequados para ambientes de entrega ágil e arquiteturas baseadas em microserviço. A tarefa de automatizar e gerenciar um grande número de contêineres e como eles interagem éconhecida como orquestração. Orquestradores de contêiner populares incluem kubernetes, DC/so e Docker Swarm.
+Devido à sua pequena orientação de tamanho e aplicativo, os contêineres são adequados para ambientes de entrega ágil e arquiteturas baseadas em microserviço. A tarefa de automatizar e gerenciar um grande número de contêineres e como eles interagem é conhecida como *orquestração*. Orquestradores de contêiner populares incluem kubernetes, DC/so e Docker Swarm.
 
 As instâncias de contêiner do Azure fornecem alguns dos recursos básicos de agendamento das plataformas de orquestração. E, embora não aborde os serviços de valor mais alto que essas plataformas fornecem, as instâncias de contêiner do Azure podem ser complementares a elas. Este artigo descreve o escopo do que as instâncias de contêiner do Azure trata e como os orquestradores de contêiner completos podem interagir com ela.
 
@@ -26,16 +21,16 @@ As instâncias de contêiner do Azure fornecem alguns dos recursos básicos de a
 
 A definição padrão da orquestração inclui as seguintes tarefas:
 
-- **Agendamento**: Dada uma imagem de contêiner e uma solicitação de recurso, encontre um computador adequado no qual executar o contêiner.
+- **Agendamento**: dada uma imagem de contêiner e uma solicitação de recurso, encontre um computador adequado no qual executar o contêiner.
 - **Afinidade/antiafinidade**: Especifique que um conjunto de contêineres deve ser executado próximos um do outro (para desempenho) ou suficientemente distante (para disponibilidade).
-- **Monitoramento de integridade**: Verifique se há falhas de contêiner e agende-as automaticamente.
-- **Failover**: Acompanhe o que está em execução em cada computador e reagende contêineres de computadores com falha para nós íntegros.
+- **Monitoramento de integridade**: Observe as falhas de contêiner e agende-os automaticamente.
+- **Failover**: Mantenha o controle do que está sendo executado em cada computador e reagende contêineres de computadores com falha para nós íntegros.
 - **Dimensionamento**: Adicionar ou remover instâncias de contêiner para corresponder à demanda, seja manualmente ou automaticamente.
-- **Rede**: Forneça uma rede de sobreposição para coordenar contêineres para se comunicarem entre vários computadores host.
-- **Descoberta de serviço**: Habilitar contêineres para localizarem um ao outro automaticamente, mesmo quando eles se movem entre computadores host e alteram endereços IP.
-- **Atualizações de aplicativo coordenadas**: Gerencie atualizações de contêiner para evitar o tempo de inatividade do aplicativo e habilite a reversão se algo der errado.
+- **Rede**: forneça uma rede de sobreposição para coordenar contêineres para se comunicarem entre vários computadores host.
+- **Descoberta de serviço**: habilitar contêineres para localizarem um ao outro automaticamente, mesmo quando eles se movem entre computadores host e alteram endereços IP.
+- **Atualizações de aplicativo coordenadas**: gerenciar atualizações de contêiner para evitar o tempo de inatividade do aplicativo e habilitar a reversão se algo der errado.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com instâncias de contêiner do Azure: Uma abordagem em camadas
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com instâncias de contêiner do Azure: uma abordagem em camadas
 
 As instâncias de contêiner do Azure permitem uma abordagem em camadas para orquestração, fornecendo todos os recursos de agendamento e gerenciamento necessários para executar um único contêiner, permitindo ao mesmo tempo que as plataformas do Orchestrator gerenciem tarefas de vários contêineres sobre ele.
 
@@ -65,7 +60,7 @@ Os nós virtuais usam o [Kubelet virtual][aci-connector-k8s] de software livre p
 
 Consulte o projeto [Kubelet virtual](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de como estender a API kubernetes em plataformas de contêiner sem servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Crie seu primeiro contêiner com as instâncias de contêiner do Azure usando o [Guia de início rápido](container-instances-quickstart.md).
 

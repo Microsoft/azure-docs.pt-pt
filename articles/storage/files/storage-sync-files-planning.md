@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846735"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546351"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -144,8 +144,8 @@ Para exibir os resultados em CSV:
 | Desktop.ini | Arquivo específico para o sistema |
 | ethumbs.db$ | Arquivo temporário para miniaturas |
 | ~$\*.\* | Arquivo temporário do Office |
-| \*.tmp | Arquivo temporário |
-| \*.laccdb | Acessar arquivo de bloqueio do BD|
+| \*. tmp | Arquivo temporário |
+| \*. laccdb | Acessar arquivo de bloqueio do BD|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
 | \\informações de volume do sistema | Pasta específica ao volume |
 | $RECYCLE.BIN| Pasta |
@@ -227,7 +227,7 @@ Se você estiver usando uma solução de backup local, os backups devem ser exec
 > A restauração de bare-metal (BMR) pode causar resultados inesperados e não tem suporte no momento.
 
 > [!Note]  
-> Os instantâneos do VSS (incluindo a guia versões anteriores) não têm suporte atualmente em volumes que têm a camada de nuvem habilitada. Se a disposição em camadas da nuvem estiver habilitada, use os instantâneos de compartilhamento de arquivos do Azure para restaurar um arquivo do backup.
+> Com a versão 9 do agente de sincronização de arquivo do Azure, os instantâneos do VSS (incluindo a guia versões anteriores) agora têm suporte em volumes que têm a camada de nuvem habilitada. No entanto, você deve habilitar a compatibilidade de versão anterior por meio do PowerShell. [Saiba como](storage-files-deployment-guide.md).
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. Sincronização de Arquivos do Azure é conhecido por trabalhar com:

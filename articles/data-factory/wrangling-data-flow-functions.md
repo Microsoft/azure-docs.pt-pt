@@ -96,6 +96,6 @@ Manter e remover Top, manter o intervalo (funções de M correspondentes, soment
 | Tabela. transpor | Não suportado |
 | Tabela. pivot | Não suportado |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [criar um fluxo de dados do Wrangling](wrangling-data-flow-tutorial.md).

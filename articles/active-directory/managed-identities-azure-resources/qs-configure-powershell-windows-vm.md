@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e17b4a3f71e67b99bfbd4c52edc00f98d549ef2
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f24c89477d71df3f497590b49841403576343bd4
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183700"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547221"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell
 
@@ -34,9 +34,9 @@ Neste artigo, usando o PowerShell, você aprende a executar as seguintes identid
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez.
+- Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não tiver feito isso.
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
 
@@ -210,7 +210,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Identidades geridas de descrição geral de recursos do Azure](overview.md)
+- [Visão geral de identidades gerenciadas para recursos do Azure](overview.md)
 - Para obter os guias de início rápido de criação de VM do Azure completos, consulte:
   
   - [Criar uma máquina virtual do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 

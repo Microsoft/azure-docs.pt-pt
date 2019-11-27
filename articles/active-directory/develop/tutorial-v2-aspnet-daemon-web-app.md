@@ -1,6 +1,6 @@
 ---
-title: Call an ASP.NET Web API protected by Azure AD- Microsoft identity platform
-description: In this quickstart, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows Desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
+title: Chamar um ASP.NET Web API protegido pelo Azure AD – plataforma de identidade da Microsoft
+description: Neste guia de início rápido, saiba como chamar uma API Web ASP.NET protegida por Azure Active Directory de um aplicativo de área de trabalho do Windows (WPF). O cliente do WPF autentica um usuário, solicita um token de acesso e chama a API da Web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -24,219 +24,219 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74328417"
 ---
-# <a name="build-a-multi-tenant-daemon-with-the-microsoft-identity-platform-endpoint"></a>Build a multi-tenant daemon with the Microsoft identity platform endpoint
+# <a name="build-a-multi-tenant-daemon-with-the-microsoft-identity-platform-endpoint"></a>Criar um daemon multilocatário com o ponto de extremidade da plataforma Microsoft Identity
 
-In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token, which it then uses to call the [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
+Neste tutorial, você aprenderá a usar a plataforma de identidade da Microsoft para acessar os dados de clientes de negócios da Microsoft em um processo de execução longa e não interativa. O daemon de exemplo usa a [concessão de credenciais de cliente OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir um token de acesso, que ele usa para chamar o [Microsoft Graph](https://graph.microsoft.io) e acessar dados organizacionais.
 
-The app is built as an ASP.NET MVC application, and uses the OWIN OpenID Connect middleware to sign in users.  Its "daemon" component in this sample is an API controller, which, when called, pulls in a list of users in the customer's Azure AD tenant from Microsoft Graph.  This `SyncController.cs` is triggered by an AJAX call in the web application, and uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
+O aplicativo é criado como um aplicativo MVC ASP.NET e usa o middleware OWIN OpenID Connect para conectar usuários.  Seu componente "daemon" neste exemplo é um controlador de API, que, quando chamado, efetua pull em uma lista de usuários no locatário do Azure AD do cliente de Microsoft Graph.  Esse `SyncController.cs` é disparado por uma chamada AJAX no aplicativo Web e usa a [biblioteca de autenticação da Microsoft (MSAL) para .net](msal-overview.md) para adquirir um token de acesso para Microsoft Graph.
 
-For a simpler console daemon application, check out the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
+Para um aplicativo de daemon de console mais simples, confira o [início rápido do daemon do .NET Core](quickstart-v2-netcore-daemon.md).
 
 ## <a name="scenario"></a>Cenário
 
-Because the app is a multi-tenant app intended for use by any Microsoft business customer, it must provide a way for customers to "sign up" or "connect" the application to their company data.  During the connect flow, a company administrator first grants **application permissions** directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user.  The majority of the logic in this sample shows how to achieve this connect flow using the identity platform [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
+Como o aplicativo é um aplicativo multilocatário destinado para uso por qualquer cliente comercial da Microsoft, ele deve fornecer uma maneira para que os clientes "se inscrevam" ou "conectem" o aplicativo aos dados da empresa.  Durante o fluxo de conexão, um administrador da empresa primeiro concede **permissões de aplicativo** diretamente ao aplicativo para que ele possa acessar dados da empresa de maneira não interativa, sem a presença de um usuário conectado.  A maior parte da lógica neste exemplo mostra como alcançar esse fluxo de conexão usando o ponto de extremidade de [consentimento do administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) da plataforma de identidade.
 
 ![Topologia](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-For more information on the concepts used in this sample, be sure to read the [identity platform endpoint client credentials protocol documentation](v2-oauth2-client-creds-grant-flow.md).
+Para obter mais informações sobre os conceitos usados neste exemplo, certifique-se de ler a [documentação de protocolo de credenciais de cliente de ponto de extremidade da plataforma de identidade](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To run the sample in this quickstart, you'll need:
+Para executar o exemplo neste guia de início rápido, você precisará de:
 
-- [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](quickstart-create-new-tenant.md)
-- One or more user accounts in your Azure AD tenant. This sample will not work with a Microsoft account (formerly Windows Live account). Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory before, you need to do that now.
+- [Visual Studio 2017 ou 2019](https://visualstudio.microsoft.com/downloads/)
+- Um locatário do Azure Active Directory (Azure AD). Para obter mais informações sobre como obter um locatário do Azure AD, consulte [como obter um locatário do Azure ad](quickstart-create-new-tenant.md)
+- Uma ou mais contas de usuário em seu locatário do Azure AD. Este exemplo não funcionará com um conta Microsoft (anteriormente, conta do Windows Live). Portanto, se você tiver entrado no [portal do Azure](https://portal.azure.com) com um conta Microsoft e nunca tiver criado uma conta de usuário em seu diretório antes, precisará fazer isso agora.
 
-## <a name="clone-or-download-this-repository"></a>Clone or download this repository
+## <a name="clone-or-download-this-repository"></a>Clonar ou baixar este repositório
 
-From your shell or command line:
+No Shell ou na linha de comando:
 
 ```Shell
 git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 ```
 
-Or [download the sample in a ZIP file](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
+Ou [Baixe o exemplo em um arquivo zip](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Register the sample application with your Azure AD tenant
+## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Registrar o aplicativo de exemplo com seu locatário do Azure AD
 
-There is one project in this sample. To register it, you can:
+Há um projeto neste exemplo. Para registrá-lo, você pode:
 
-- Either follow the steps [Register the sample with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-ad-tenant) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant-for-the-applications)
-- Or use PowerShell scripts that:
-  - **Automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you
-  - Modify the Visual Studio projects' configuration files.
+- Siga as etapas [registrar o exemplo com seu locatário Azure Active Directory](#register-the-sample-application-with-your-azure-ad-tenant) e [Configurar o exemplo para usar seu locatário do Azure ad](#choose-the-azure-ad-tenant-for-the-applications)
+- Ou use scripts do PowerShell que:
+  - Cria **automaticamente** os aplicativos do Azure AD e os objetos relacionados (senhas, permissões, dependências) para você
+  - Modifique os arquivos de configuração dos projetos do Visual Studio.
 
-If you want to use this automation:
+Se você quiser usar essa automação:
 
-1. On Windows, run PowerShell and navigate to the root of the cloned directory
-1. In PowerShell run:
+1. No Windows, execute o PowerShell e navegue até a raiz do diretório clonado
+1. Na execução do PowerShell:
 
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
-1. Run the script to create your Azure AD application and configure the code of the sample application accordingly.
-1. In PowerShell run:
+1. Execute o script para criar seu aplicativo do Azure AD e configure o código do aplicativo de exemplo de acordo.
+1. Na execução do PowerShell:
 
    ```PowerShell
    .\AppCreationScripts\Configure.ps1
    ```
 
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/blob/master/AppCreationScripts/AppCreationScripts.md)
+   > Outras maneiras de executar os scripts são descritas em [scripts de criação de aplicativo](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/blob/master/AppCreationScripts/AppCreationScripts.md)
 
-1. Open the Visual Studio solution and click start to run the code.
+1. Abra a solução do Visual Studio e clique em Iniciar para executar o código.
 
-If you don't want to use this automation, follow the steps below.
+Se você não quiser usar essa automação, siga as etapas abaixo.
 
-### <a name="choose-the-azure-ad-tenant-for-the-applications"></a>Choose the Azure AD tenant for the applications
+### <a name="choose-the-azure-ad-tenant-for-the-applications"></a>Escolha o locatário do Azure AD para os aplicativos
 
-As a first step you'll need to:
+Como primeira etapa, você precisará:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. If your account is present in more than one Azure AD tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory**.
-   Change your portal session to the desired Azure AD tenant.
+1. Se sua conta estiver presente em mais de um locatário do Azure AD, selecione seu perfil no canto superior direito no menu na parte superior da página e, em seguida, **Alterne o diretório**.
+   Altere a sessão do portal para o locatário do Azure AD desejado.
 
-### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Register the client app (dotnet-web-daemon-v2)
+### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Registrar o aplicativo cliente (dotNet-Web-daemon-v2)
 
-1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Select **New registration**.
+1. Navegue até a página da plataforma Microsoft Identity para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
+1. Selecione **novo registro**.
 1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `dotnet-web-daemon-v2`.
-   - In the **Supported account types** section, select **Accounts in any organizational directory**.
-   - In the Redirect URI (optional) section, select **Web** in the combo-box and enter the following redirect URIs:
+   - Na seção **tipos de conta com suporte** , selecione **contas em qualquer diretório organizacional**.
+   - Na seção URI de redirecionamento (opcional), selecione **Web** na caixa de combinação e insira os seguintes URIs de redirecionamento:
        - `https://localhost:44316/`
-       - `https://localhost:44316/Account/GrantPermissions` If there are more than one redirect URIs, you'd need to add them from the **Authentication** tab later after the app has been created successfully.
+       - `https://localhost:44316/Account/GrantPermissions` se houver mais de um URI de redirecionamento, você precisará adicioná-los da guia **autenticação** posteriormente depois que o aplicativo tiver sido criado com êxito.
 1. Selecione **Registar** para criar a aplicação.
-1. On the app **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
+1. Na página **visão geral** do aplicativo, localize o valor da **ID do aplicativo (cliente)** e registre-o para mais tarde. Você precisará dela para configurar o arquivo de configuração do Visual Studio para este projeto.
 1. Na lista de páginas da aplicação, selecione **Autenticação**.
-   - In the **Advanced settings** section set **Logout URL** to `https://localhost:44316/Account/EndSession`
-   - In the **Advanced settings** | **Implicit grant** section, check **Access tokens** and **ID tokens** as this sample requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user, and call an API.
+   - Na seção **Configurações avançadas** , defina a **URL de logout** para `https://localhost:44316/Account/EndSession`
+   - Na seção **Configurações avançadas** | **concessão implícita** , verifique **tokens de acesso** e **tokens de ID** , pois este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário e chamar uma API.
 1. Selecione **Guardar**.
-1. From the **Certificates & secrets** page, in the **Client secrets** section, choose **New client secret**:
+1. Na página **certificados & segredos** , na seção **segredos do cliente** , escolha **novo segredo do cliente**:
 
-   - Type a key description (of instance `app secret`),
-   - Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
-   - When you press the **Add** button, the key value will be displayed, copy, and save the value in a safe location.
-   - You'll need this key later to configure the project in Visual Studio. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
-1. In the list of pages for the app, select **API permissions**
-   - Click the **Add a permission** button and then,
-   - Ensure that the **Microsoft APIs** tab is selected
-   - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
-   - In the **Application permissions** section, ensure that the right permissions are checked: **User.Read.All**
-   - Select the **Add permissions** button
+   - Digite uma descrição de chave (de instância `app secret`),
+   - Selecione uma duração de chave de **em 1 ano**, **em 2 anos**ou **nunca expirar**.
+   - Quando você pressionar o botão **Adicionar** , o valor da chave será exibido, copiará e salvará o valor em um local seguro.
+   - Você precisará dessa chave posteriormente para configurar o projeto no Visual Studio. Esse valor de chave não será exibido novamente, nem poderá ser recuperado por outros meios, portanto, registre-o assim que estiver visível na portal do Azure.
+1. Na lista de páginas do aplicativo, selecione permissões de **API**
+   - Clique no botão **Adicionar uma permissão** e, em seguida,
+   - Verifique se a guia **APIs da Microsoft** está selecionada
+   - Na seção *APIs da Microsoft comumente usadas* , clique em **Microsoft Graph**
+   - Na seção **permissões de aplicativo** , verifique se as permissões corretas estão marcadas: **User. Read. All**
+   - Selecione o botão **adicionar permissões**
 
-## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Configure the sample to use your Azure AD tenant
+## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Configurar o exemplo para usar seu locatário do Azure AD
 
-In the steps below, "ClientID" is the same as "Application ID" or "AppId".
+Nas etapas a seguir, "ClientID" é o mesmo que "ID do aplicativo" ou "AppId".
 
-Open the solution in Visual Studio to configure the projects
+Abrir a solução no Visual Studio para configurar os projetos
 
-### <a name="configure-the-client-project"></a>Configure the client project
+### <a name="configure-the-client-project"></a>Configurar o projeto do cliente
 
-If you used the setup scripts, the following changes will have been applied for you.
+Se você tiver usado os scripts de instalação, as seguintes alterações serão aplicadas para você.
 
-1. Open the `UserSync\Web.Config` file
-1. Find the app key `ida:ClientId` and replace the existing value with the application ID (clientId) of the `dotnet-web-daemon-v2` application copied from the Azure portal.
-1. Find the app key `ida:ClientSecret` and replace the existing value with the key you saved during the creation of the `dotnet-web-daemon-v2` app, in the Azure portal.
+1. Abrir o arquivo de `UserSync\Web.Config`
+1. Localize a chave do aplicativo `ida:ClientId` e substitua o valor existente pela ID do aplicativo (clientId) do aplicativo `dotnet-web-daemon-v2` copiado do portal do Azure.
+1. Localize a chave do aplicativo `ida:ClientSecret` e substitua o valor existente pela chave que você salvou durante a criação do aplicativo `dotnet-web-daemon-v2`, na portal do Azure.
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-Clean the solution, rebuild the solution, and run  UserSync application, and begin by signing in as an administrator in your Azure AD tenant.  If you don't have an Azure AD tenant for testing, you can [follow these instructions](quickstart-create-new-tenant.md) to get one.
+Limpe a solução, recompile a solução e execute o aplicativo usersync e comece entrando como um administrador em seu locatário do Azure AD.  Se você não tiver um locatário do Azure AD para teste, você pode [seguir estas instruções](quickstart-create-new-tenant.md) para obter um.
 
-When you sign in, the app will first ask you for permission to sign you in & read your user profile.  This consent allows the application to ensure that you are a business user.
+Quando você entrar, o aplicativo primeiro solicitará permissão para conectá-lo & ler seu perfil de usuário.  Esse consentimento permite que o aplicativo garanta que você é um usuário comercial.
 
-![User Consent](./media/tutorial-v2-aspnet-daemon-webapp/firstconsent.png)
+![Consentimento do usuário](./media/tutorial-v2-aspnet-daemon-webapp/firstconsent.png)
 
-The application will then try to sync a list of users from your Azure AD tenant, via the Microsoft Graph.  If it is unable to do so, it will ask you (the tenant administrator) to connect your tenant to the application.
+Em seguida, o aplicativo tentará sincronizar uma lista de usuários do seu locatário do Azure AD por meio do Microsoft Graph.  Se não for possível fazer isso, ele solicitará que você (o administrador de locatários) Conecte seu locatário ao aplicativo.
 
-The application will then ask for permission to read the list of users in your tenant.
+O aplicativo pedirá permissão para ler a lista de usuários em seu locatário.
 
-![Admin Consent](./media/tutorial-v2-aspnet-daemon-webapp/adminconsent.PNG)
+![Consentimento do administrador](./media/tutorial-v2-aspnet-daemon-webapp/adminconsent.PNG)
 
-**You will be signed out from the app after granting permission**. This is done to ensure that any existing access tokens for Graph is removed from the token cache. Once you sign in again, the  fresh token obtained will have the necessary permissions to make calls to MS Graph.
-When you grant the permission, the application will then be able to query for users at any point.  You can verify this by clicking the **Sync Users** button on the users page, refreshing the list of users.  Try adding or removing a user and resyncing the list (but note that it only syncs the first page of users!).
+**Você será desconectado do aplicativo após a concessão da permissão**. Isso é feito para garantir que os tokens de acesso existentes para o Graph sejam removidos do cache de token. Depois de entrar novamente, o novo token obtido terá as permissões necessárias para fazer chamadas para o MS Graph.
+Quando você conceder a permissão, o aplicativo será capaz de consultar os usuários em qualquer ponto.  Você pode verificar isso clicando no botão **sincronizar usuários** na página usuários, atualizando a lista de usuários.  Tente adicionar ou remover um usuário e ressincronizar a lista (mas observe que ela apenas sincroniza a primeira página de usuários!).
 
-## <a name="about-the-code"></a>About the code
+## <a name="about-the-code"></a>Sobre o código
 
-The relevant code for this sample is in the following files:
+O código relevante para este exemplo está nos seguintes arquivos:
 
-- Initial sign-in: `App_Start\Startup.Auth.cs`, `Controllers\AccountController.cs`.  In particular, the actions on the controller have an Authorize attribute, which forces the user to sign in. The application uses the [authorization code flow](v2-oauth2-auth-code-flow.md) to sign in the user.
-- Syncing the list of users to the local in-memory store: `Controllers\SyncController.cs`
-- Displaying the list of users from the local in-memory store: `Controllers\UserController.cs`
-- Acquiring permissions from the tenant admin using the admin consent endpoint: `Controllers\AccountController.cs`
+- Entrada inicial: `App_Start\Startup.Auth.cs`, `Controllers\AccountController.cs`.  Em particular, as ações no controlador têm um atributo autorizar, que força o usuário a entrar. O aplicativo usa o [fluxo de código de autorização](v2-oauth2-auth-code-flow.md) para conectar o usuário.
+- Sincronizando a lista de usuários para o repositório local na memória: `Controllers\SyncController.cs`
+- Exibindo a lista de usuários do repositório local na memória: `Controllers\UserController.cs`
+- Aquisição de permissões do administrador de locatários usando o ponto de extremidade de consentimento do administrador: `Controllers\AccountController.cs`
 
-## <a name="recreate-this-sample-app"></a>Recreate this sample app
+## <a name="recreate-this-sample-app"></a>Recriar este aplicativo de exemplo
 
-1. In Visual Studio, create a new `Visual C#` `ASP.NET Web Application (.NET Framework)` project. In the next screen, choose the `MVC` project template. Also add folder and core references for `Web API` as you would be adding a Web API controller later.  Leave the project's chosen authentication mode as the default, that is, `No Authentication`".
-2. Select the project in the **Solution Explorer** window and press the **F4** key to bring project properties. In the project properties, set **SSL Enabled** to be `True`. Note the **SSL URL**. You will need it when configuring this application's registration in the Azure portal.
-3. Add the following ASP.Net OWIN middleware NuGets: `Microsoft.Owin.Security.ActiveDirectory`, `Microsoft.Owin.Security.Cookies` and `Microsoft.Owin.Host.SystemWeb`, `Microsoft.IdentityModel.Protocol.Extensions`, `Microsoft.Owin.Security.OpenIdConnect` and `Microsoft.Identity.Client`. 
-4. In the `App_Start` folder, create a class `Startup.Auth.cs`. Remove `.App_Start` from the namespace name.  Replace the code for the `Startup` class with the code from the same file of the sample app.  Be sure to take the whole class definition!  The definition changes from `public class Startup` to `public partial class Startup`
-5. In `Startup.Auth.cs` resolve missing references by adding `using` statements as suggested by Visual Studio intellisense.
-6. Right-click on the project, select Add, select "Class", and in the search box enter "OWIN".  "OWIN Startup class" will appear as a selection; select it, and name the class `Startup.cs`.
-7. In `Startup.cs`, replace the code for the `Startup` class with the code from the same file of the sample app.  Again, note the definition changes from `public class Startup` to `public partial class Startup`.
-8. In the  folder, add a new class called `MsGraphUser.cs`.  Replace the implementation with the contents of the file of the same name from the sample.
-9. Add a new **MVC 5 Controller - Empty** called `AccountController`. Replace the implementation with the contents of the file of the same name from the sample.
-10. Add a new **MVC 5 Controller - Empty** called `UserController`. Replace the implementation with the contents of the file of the same name from the sample.
-11. Add a new **Web API 2 Controller - Empty** called `SyncController`. Replace the implementation with the contents of the file of the same name from the sample.
-12. For the user interface, in the `Views\Account` folder, add three **Empty (without model) Views** named `GrantPermissions`, `Index` and `UserMismatch` and one named `Index` in the `Views\User` folder. Replace the implementation with the contents of the file of the same name from the sample.
-13. Update the `Shared\_Layout.cshtml` and `Home\Index.cshtml` to correctly link the various views together.
+1. No Visual Studio, crie um novo projeto de `ASP.NET Web Application (.NET Framework)` de `Visual C#`. Na próxima tela, escolha o modelo de projeto `MVC`. Além disso, adicione referências de pasta e núcleo para `Web API` como você adicionaria um controlador de API da Web mais tarde.  Deixe o modo de autenticação escolhido do projeto como o padrão, ou seja, `No Authentication`".
+2. Selecione o projeto na janela **Gerenciador de soluções** e pressione a tecla **F4** para trazer as propriedades do projeto. Nas propriedades do projeto, defina **SSL habilitado** para ser `True`. Observe a **URL do SSL**. Você precisará dela ao configurar o registro desse aplicativo no portal do Azure.
+3. Adicione o seguinte NuGets de middleware ASP.Net OWIN: `Microsoft.Owin.Security.ActiveDirectory`, `Microsoft.Owin.Security.Cookies` e `Microsoft.Owin.Host.SystemWeb`, `Microsoft.IdentityModel.Protocol.Extensions`, `Microsoft.Owin.Security.OpenIdConnect` e `Microsoft.Identity.Client`. 
+4. Na pasta `App_Start`, crie uma classe `Startup.Auth.cs`. Remova `.App_Start` do nome do namespace.  Substitua o código da classe `Startup` pelo código do mesmo arquivo do aplicativo de exemplo.  Certifique-se de obter toda a definição de classe!  A definição muda de `public class Startup` para `public partial class Startup`
+5. Em `Startup.Auth.cs` resolver referências ausentes adicionando instruções `using` conforme sugerido pelo Visual Studio IntelliSense.
+6. Clique com o botão direito do mouse no projeto, selecione Adicionar, selecione "classe" e, na caixa de pesquisa, digite "OWIN".  "Classe de inicialização OWIN" será exibida como uma seleção; Selecione-o e nomeie a classe `Startup.cs`.
+7. Em `Startup.cs`, substitua o código da classe `Startup` pelo código do mesmo arquivo do aplicativo de exemplo.  Novamente, observe que as alterações de definição de `public class Startup` para `public partial class Startup`.
+8. Na pasta, adicione uma nova classe chamada `MsGraphUser.cs`.  Substitua a implementação pelo conteúdo do arquivo do mesmo nome do exemplo.
+9. Adicione um novo **controlador MVC 5-vazio** chamado `AccountController`. Substitua a implementação pelo conteúdo do arquivo do mesmo nome do exemplo.
+10. Adicione um novo **controlador MVC 5-vazio** chamado `UserController`. Substitua a implementação pelo conteúdo do arquivo do mesmo nome do exemplo.
+11. Adicione um novo **controlador da API Web 2-vazio** chamado `SyncController`. Substitua a implementação pelo conteúdo do arquivo do mesmo nome do exemplo.
+12. Para a interface do usuário, na pasta `Views\Account`, adicione três **exibições vazias (sem modelo)** chamadas `GrantPermissions`, `Index` e `UserMismatch` e uma denominada `Index` na pasta `Views\User`. Substitua a implementação pelo conteúdo do arquivo do mesmo nome do exemplo.
+13. Atualize o `Shared\_Layout.cshtml` e o `Home\Index.cshtml` para vincular corretamente as várias exibições juntas.
 
-## <a name="deploy-this-sample-to-azure"></a>Deploy this sample to Azure
+## <a name="deploy-this-sample-to-azure"></a>Implantar este exemplo no Azure
 
-This project has WebApp / Web API projects. To deploy them to Azure Web Sites, you'll need, for each one, to:
+Este projeto tem projetos de API Web/WebApp. Para implantá-los nos sites do Azure, você precisará, para cada um, para:
 
-- create an Azure Web Site
-- publish the Web App / Web APIs to the web site, and
-- update its client(s) to call the web site instead of IIS Express.
+- criar um site do Azure
+- publicar o aplicativo Web/APIs Web no site da Web e
+- atualize seus clientes para chamar o site em vez de IIS Express.
 
-### <a name="create-and-publish-the-dotnet-web-daemon-v2-to-an-azure-web-site"></a>Create and publish the `dotnet-web-daemon-v2` to an Azure Web Site
+### <a name="create-and-publish-the-dotnet-web-daemon-v2-to-an-azure-web-site"></a>Criar e publicar o `dotnet-web-daemon-v2` em um site do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Click `Create a resource` in the top left-hand corner, select **Web** --> **Web App**, and give your web site a name, for example, `dotnet-web-daemon-v2-contoso.azurewebsites.net`.
-1. Thereafter select the `Subscription`, `Resource Group`, `App service plan and Location`. `OS` will be **Windows** and `Publish` will be **Code**.
-1. Click `Create` and wait for the App Service to be created.
-1. Once you get the `Deployment succeeded` notification, then click on `Go to resource` to navigate to the newly created App service.
-1. Once the web site is created, locate it in the **Dashboard** and click it to open **App Services** **Overview** screen.
-1. From the **Overview** tab of the App Service, download the publish profile by clicking the **Get publish profile** link and save it.  Other deployment mechanisms, such as from source control, can also be used.
-1. Switch to Visual Studio and go to the dotnet-web-daemon-v2 project.  Right click on the project in the Solution Explorer and select **Publish**.  Click **Import Profile** on the bottom bar, and import the publish profile that you downloaded earlier.
-1. Click on **Configure** and in the `Connection tab`, update the Destination URL so that it is a `https` in the home page url, for example [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Clique em **Seguinte**.
-1. On the Settings tab, make sure `Enable Organizational Authentication` is NOT selected.  Clique em **Guardar**. Click on **Publish** on the main screen.
-1. Visual Studio will publish the project and automatically open a browser to the URL of the project.  If you see the default web page of the project, the publication was successful.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Clique em `Create a resource` no canto superior esquerdo, selecione **web** --> **aplicativo Web**e dê um nome ao seu site, por exemplo, `dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Depois disso, selecione o `Subscription`, `Resource Group``App service plan and Location`. `OS` será o **Windows** e `Publish` será o **código**.
+1. Clique em `Create` e aguarde até que o serviço de aplicativo seja criado.
+1. Depois de obter a notificação de `Deployment succeeded`, clique em `Go to resource` para navegar até o serviço de aplicativo recém-criado.
+1. Depois que o site for criado, localize-o no **painel** e clique nele para abrir a tela de **visão geral** **dos serviços de aplicativos** .
+1. Na guia **visão geral** do serviço de aplicativo, baixe o perfil de publicação clicando no link **obter perfil de publicação** e salve-o.  Outros mecanismos de implantação, como do controle do código-fonte, também podem ser usados.
+1. Alterne para o Visual Studio e vá para o projeto dotnet-Web-daemon-v2.  Clique com o botão direito do mouse no projeto na Gerenciador de Soluções e selecione **publicar**.  Clique em **importar perfil** na barra inferior e importe o perfil de publicação que você baixou anteriormente.
+1. Clique em **Configurar** e, na `Connection tab`, atualize a URL de destino para que ela seja uma `https` na URL do Home Page, por exemplo [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Clique em **Seguinte**.
+1. Na guia Configurações, verifique se `Enable Organizational Authentication` não está selecionado.  Clique em **Guardar**. Clique em **publicar** na tela principal.
+1. O Visual Studio publicará o projeto e abrirá automaticamente um navegador para a URL do projeto.  Se você vir a página da Web padrão do projeto, a publicação foi bem-sucedida.
 
-### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Update the Azure AD tenant application registration for `dotnet-web-daemon-v2`
+### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Atualizar o registro do aplicativo de locatário do Azure AD para `dotnet-web-daemon-v2`
 
-1. Navigate back to the [Azure portal](https://portal.azure.com).
-In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
-1. In the resultant screen, select the `dotnet-web-daemon-v2` application.
-1. In the **Authentication** | page for your application, update the Logout URL fields with the address of your service, for example [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)
-1. From the *Branding* menu, update the **Home page URL**, to the address of your service, for example [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Guarde a configuração.
-1. Add the same URL in the list of values of the *Authentication -> Redirect URIs* menu. If you have multiple redirect urls, make sure that there a new entry using the App service's Uri for each redirect url.
+1. Navegue de volta para a [portal do Azure](https://portal.azure.com).
+No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
+1. Na tela resultante, selecione o aplicativo `dotnet-web-daemon-v2`.
+1. Na **autenticação** | para seu aplicativo, atualize os campos de URL de logout com o endereço do seu serviço, por exemplo [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)
+1. No menu *identidade visual* , atualize a **URL da Home Page**, para o endereço do seu serviço, por exemplo [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Guarde a configuração.
+1. Adicione a mesma URL na lista de valores do menu *autenticação-> redirecionamento de URIs* . Se você tiver várias URLs de redirecionamento, verifique se há uma nova entrada usando o URI do serviço de aplicativo para cada URL de redirecionamento.
 
-## <a name="community-help-and-support"></a>Community help and support
+## <a name="community-help-and-support"></a>Ajuda e suporte da Comunidade
 
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with [`adal` `msal` `dotnet`].
+Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obter suporte da Comunidade.
+Faça suas perguntas em Stack Overflow primeiro e procure problemas existentes para ver se alguém fez sua pergunta antes.
+Verifique se suas perguntas ou comentários estão marcados com [`adal` `msal` `dotnet`].
 
-If you find and bug in the sample, please raise the issue on [GitHub Issues](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
+Se você encontrar e detectar um bug no exemplo, gere o problema em [problemas do GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 
-If you find a bug in MSAL.NET, please raise the issue on [MSAL.NET GitHub Issues](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues).
+Se você encontrar um bug no MSAL.NET, gere o problema em [problemas do GitHub MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues).
 
-To provide a recommendation, visit the following [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
+Para fornecer uma recomendação, visite a [página de voz do usuário](https://feedback.azure.com/forums/169401-azure-active-directory)a seguir.
 
-## <a name="next-steps"></a>Passos seguintes
-Learn more about the different [Authentication flows and application scenarios](authentication-flows-app-scenarios.md) that the Microsoft identity platform supports.
+## <a name="next-steps"></a>Passos Seguintes
+Saiba mais sobre os diferentes [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md) aos quais a plataforma de identidades da Microsoft dá suporte.
 
-For more information, see the following conceptual documentation:
+Para obter mais informações, consulte a seguinte documentação conceitual:
 
-- [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md)
+- [Aluguel em Azure Active Directory](single-and-multi-tenant-apps.md)
 - [Compreender as experiências de consentimento da aplicação do Azure AD](application-consent-experience.md)
-- [How to: Sign in any Azure Active Directory user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md)
-- [Understand user and admin consent](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-- [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-- [Acquiring a token for an application with client credential flows](msal-client-applications.md)
+- [Como entrar em qualquer Azure Active Directory usuário usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md)
+- [Entender o consentimento do usuário e do administrador](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
+- [Objetos de aplicativo e entidade de serviço no Azure Active Directory](app-objects-and-service-principals.md)
+- [Início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md)
+- [Início rápido: configurar um aplicativo cliente para acessar APIs Web](quickstart-configure-app-access-web-apis.md)
+- [Adquirindo um token para um aplicativo com fluxos de credencial do cliente](msal-client-applications.md)
 
-For a simpler multi-tenant console daemon application, check out the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
+Para um aplicativo de daemon de console de vários locatários mais simples, confira o [início rápido do daemon do .NET Core](quickstart-v2-netcore-daemon.md).

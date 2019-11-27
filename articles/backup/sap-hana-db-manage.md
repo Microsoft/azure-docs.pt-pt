@@ -172,7 +172,7 @@ Cancele o registro de uma instância de SAP HANA depois de desabilitar a proteç
 
    ![Selecione cancelar registro](./media/sap-hana-db-manage/unregister.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [solucionar problemas comuns ao fazer backup de bancos de dados do SAP Hana.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
 

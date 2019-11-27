@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 954ff23997e56249859dd8d35f124324432f2b22
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ee67c811835d99bf2f4c00dc59b43e29f63c81d6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673003"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533820"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -36,7 +36,7 @@ ms.locfileid: "71673003"
 [2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1999351]: https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 
 Leia as seguintes notas e documentos SAP primeiro:
@@ -76,7 +76,7 @@ Leia as seguintes notas e documentos SAP primeiro:
 > A Red Hat não dá suporte ao Watchdog emulado por software. A Red Hat não dá suporte a SBD em plataformas de nuvem. Para obter detalhes [, consulte políticas de suporte para clusters de alta disponibilidade RHEL-SBD e fence_sbd](https://access.redhat.com/articles/2800691).
 > O único mecanismo de isolamento com suporte para clusters de Red Hat Enterprise Linux de pacemaker no Azure, é o agente de limite do Azure.  
 
-Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
+Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]** -aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
 
 1. **[A]** registrar
 
@@ -122,7 +122,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    > [!IMPORTANT]
    > Se você precisar atualizar o agente de limite do Azure e, se estiver usando a função personalizada, certifique-se de atualizar a função personalizada para incluir a ação **estado desligado**. Para obter detalhes, consulte [criar uma função personalizada para o agente de isolamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião
+1. **[A]** configurar resolução de nome de host
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
    Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independente de DNS, que também poderia ser um ponto único de falhas.
@@ -138,7 +138,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[A]**  Alterar hacluster palavra-passe para a mesma palavra-passe
+1. **[A]** alterar a senha do hacluster para a mesma senha
 
    <pre><code>sudo passwd hacluster
    </code></pre>
@@ -202,7 +202,7 @@ O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Micr
 
 1. Ir para <https://portal.azure.com>
 1. Abra o painel Azure Active Directory  
-   Vá para propriedades e anote o ID de diretório. Este é o **ID de inquilino**.
+   Vá para propriedades e anote o ID de diretório. Esta é a **ID do locatário**.
 1. Clique em registos de aplicações
 1. Clique em novo registro
 1. Insira um nome, selecione "contas somente neste diretório da organização" 
@@ -210,12 +210,12 @@ O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Micr
    O URL de início de sessão não é utilizado e pode ser qualquer URL válido
 1. Selecione certificados e segredos e clique em novo segredo do cliente
 1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar
-1. Anote o valor. Ele é usado como o **palavra-passe** para o Principal de serviço
-1. Selecione visão geral. Anote o ID da aplicação. Ele é usado como o nome de utilizador (**ID de início de sessão** nos passos abaixo) de Principal de serviço
+1. Anote o valor. Ele é usado como a **senha** para a entidade de serviço
+1. Selecione visão geral. Anote o ID da aplicação. Ele é usado como o nome de usuário (**ID de logon** nas etapas abaixo) da entidade de serviço
 
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Criar uma função personalizada para o agente de cerca
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** criar uma função personalizada para o agente de isolamento
 
-O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. Você precisa conceder permissões de entidade de serviço para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se já não tiver criado a função personalizada, pode criá-la utilizando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [da CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. Você precisa conceder permissões de entidade de serviço para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se você ainda não criou a função personalizada, poderá criá-la usando o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conteúdo para as suas subscrições, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada assignablescopes.
 
@@ -254,7 +254,7 @@ Atribua a função personalizada "Linux cerca agente de função" que foi criado
 
 Repita os passos acima para o segundo nó de cluster.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]**  Criar os dispositivos STONITH
+### <a name="1-create-the-stonith-devices"></a>**[1]** criar os dispositivos STONITH
 
 Depois de editar as permissões para as máquinas virtuais, pode configurar os dispositivos STONITH no cluster.
 

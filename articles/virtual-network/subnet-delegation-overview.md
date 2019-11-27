@@ -62,6 +62,6 @@ Os serviços do Azure que estão sendo injetados em uma sub-rede delegada ainda 
 -  Os serviços do Azure podem injetar instâncias em sub-redes de clientes, mas não podem afetar as cargas de trabalho existentes.
 -  As políticas ou rotas que esses serviços aplicam são flexíveis e podem ser substituídas pelo cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Delegar uma sub-rede](manage-subnet-delegation.md)

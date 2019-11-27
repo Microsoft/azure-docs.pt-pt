@@ -26,7 +26,7 @@ Vários novos recursos foram adicionados à migração do Azure:
 
 - **Avaliação do servidor físico**. Agora há suporte para a avaliação de servidores físicos locais, além da migração de servidor físico que já tem suporte.
 - **Avaliação baseada em importação**. Agora há suporte para a avaliação de computadores que usam metadados e dados de desempenho fornecidos em um arquivo CSV.
-- **Descoberta de aplicativos**: o migrações para Azure agora dá suporte à descoberta em nível de aplicativo de aplicativos, funções e recursos usando o dispositivo de migrações para Azure. Atualmente, isso tem suporte apenas para VMs VMware e é limitado apenas à descoberta (atualmente, não há suporte para avaliação). [Saber mais](how-to-discover-applications.md)
+- **Descoberta de aplicativos**: o migrações para Azure agora dá suporte à descoberta em nível de aplicativo de aplicativos, funções e recursos usando o dispositivo de migrações para Azure. Atualmente, isso tem suporte apenas para VMs VMware e é limitado apenas à descoberta (atualmente, não há suporte para avaliação). [Obter mais informações](how-to-discover-applications.md)
 - **Visualização de dependência sem agente**: você não precisa mais instalar agentes explicitamente para visualização de dependência. Agora há suporte para ambos baseados em agente e em agente.
 - **Área de trabalho virtual**: Use ferramentas de ISV para avaliar e migrar a infraestrutura de área de trabalho virtual (VDI) local para a área de trabalho virtual do Windows no Azure.
 - **Aplicativo Web**: o serviço de Azure app assistente de migração, usado para avaliar e migrar aplicativos Web, agora está integrado às migrações para Azure.
@@ -58,13 +58,13 @@ A versão atual do migrações para Azure fornece vários recursos novos:
 - **Dispositivo de migrações para Azure**: as migrações para Azure implantam um dispositivo leve para descoberta e avaliação de VMs VMware locais e VMs do Hyper-V.
     - Esse dispositivo é usado pela avaliação de servidor de migrações para Azure e migração de servidor de migrações para Azure para migração sem agente.
     - O dispositivo descobre continuamente os metadados do servidor e os dados de desempenho para fins de avaliação e migração.  
-- **Migração de VM do VMware**: migração de servidor de migrações para Azure fornece alguns métodos para migrar VMs VMware locais para o Azure.  Uma migração sem agente usando o dispositivo de migrações para Azure e uma migração baseada em agente que usa um dispositivo de replicação e implanta um agente em cada VM que você deseja migrar. [Saber mais](server-migrate-overview.md)
+- **Migração de VM do VMware**: migração de servidor de migrações para Azure fornece alguns métodos para migrar VMs VMware locais para o Azure.  Uma migração sem agente usando o dispositivo de migrações para Azure e uma migração baseada em agente que usa um dispositivo de replicação e implanta um agente em cada VM que você deseja migrar. [Obter mais informações](server-migrate-overview.md)
  - **Avaliação e migração de banco de dados**: de migrações para Azure, você pode avaliar bancos de dados locais para migração para o Azure usando o assistente de migração de banco de dados do Azure. Você pode migrar bancos de dados usando o serviço de migração de banco de dados do Azure.
 - **Migração de aplicativo Web**: você pode avaliar aplicativos Web usando uma URL de ponto de extremidade pública com o serviço Azure app. Para a migração de aplicativos .NET internos, você pode baixar e executar o serviço de aplicativo Assistente de Migração.
 - **Data Box**: importe dados offline de grandes quantidades no azure usando Azure data Box em migrações para Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

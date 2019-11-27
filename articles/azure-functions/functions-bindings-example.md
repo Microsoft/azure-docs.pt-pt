@@ -1,6 +1,6 @@
 ---
-title: Azure Functions trigger and binding example
-description: Learn to configure Azure Function bindings
+title: Exemplo de gatilho e Associação de Azure Functions
+description: Saiba como configurar associações de função do Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -12,13 +12,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227247"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions trigger and binding example
+# <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e Associação de Azure Functions
 
-This article demonstrates how to configure a [trigger and bindings](./functions-triggers-bindings.md) in an Azure Function.
+Este artigo demonstra como configurar um [gatilho e associações](./functions-triggers-bindings.md) em uma função do Azure.
 
-Suppose you want to write a new row to Azure Table storage whenever a new message appears in Azure Queue storage. This scenario can be implemented using an Azure Queue storage trigger and an Azure Table storage output binding. 
+Suponha que você deseja gravar uma nova linha no armazenamento de tabelas do Azure sempre que uma nova mensagem aparecer no armazenamento de filas do Azure. Esse cenário pode ser implementado usando um gatilho de armazenamento de filas do Azure e uma associação de saída do armazenamento de tabelas do Azure. 
 
-Here's a *function.json* file for this scenario. 
+Aqui está um arquivo *Function. JSON* para esse cenário. 
 
 ```json
 {
@@ -41,18 +41,18 @@ Here's a *function.json* file for this scenario.
 }
 ```
 
-The first element in the `bindings` array is the Queue storage trigger. The `type` and `direction` properties identify the trigger. The `name` property identifies the function parameter that receives the queue message content. The name of the queue to monitor is in `queueName`, and the connection string is in the app setting identified by `connection`.
+O primeiro elemento na matriz de `bindings` é o gatilho de armazenamento de fila. As propriedades `type` e `direction` identificam o gatilho. A propriedade `name` identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila a ser monitorada está em `queueName`e a cadeia de conexão está na configuração do aplicativo identificada por `connection`.
 
-The second element in the `bindings` array is the Azure Table Storage output binding. The `type` and `direction` properties identify the binding. The `name` property specifies how the function provides the new table row, in this case by using the function return value. The name of the table is in `tableName`, and the connection string is in the app setting identified by `connection`.
+O segundo elemento na matriz de `bindings` é a associação de saída do armazenamento de tabelas do Azure. As propriedades `type` e `direction` identificam a associação. A propriedade `name` especifica como a função fornece a nova linha da tabela, nesse caso, usando o valor de retorno da função. O nome da tabela está em `tableName`e a cadeia de conexão está na configuração do aplicativo identificada por `connection`.
 
-To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
+Para exibir e editar o conteúdo de *Function. JSON* no portal do Azure, clique na opção **Editor avançado** na guia **integrar** da sua função.
 
 > [!NOTE]
-> The value of `connection` is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that *function.json* does not contain service secrets.
+> O valor de `connection` é o nome de uma configuração de aplicativo que contém a cadeia de conexão, não a própria cadeia de conexão. As associações usam cadeias de conexão armazenadas nas configurações do aplicativo para impor a prática recomendada que o *Function. JSON* não contém segredos de serviço.
 
-## <a name="c-script-example"></a>C# script example
+## <a name="c-script-example"></a>C#exemplo de script
 
-Here's C# script code that works with this trigger and binding. Notice that the name of the parameter that provides the queue message content is `order`; this name is required because the `name` property value in *function.json* is `order` 
+Aqui está C# o código de script que funciona com esse gatilho e associação. Observe que o nome do parâmetro que fornece o conteúdo da mensagem da fila é `order`; Esse nome é necessário porque o valor da propriedade `name` em *Function. JSON* é `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -80,9 +80,9 @@ public class Person
 }
 ```
 
-## <a name="javascript-example"></a>JavaScript example
+## <a name="javascript-example"></a>Exemplo de JavaScript
 
-The same *function.json* file can be used with a JavaScript function:
+O mesmo arquivo *Function. JSON* pode ser usado com uma função JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -100,9 +100,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Class library example
+## <a name="class-library-example"></a>Exemplo de biblioteca de classes
 
-In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Segue-se um exemplo:
+Em uma biblioteca de classes, as mesmas informações de gatilho e de associação &mdash; nomes de fila e tabela, contas de armazenamento, parâmetros de função para &mdash; de entrada e saída são fornecidas por atributos em vez de um arquivo function. JSON. Segue-se um exemplo:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -130,9 +130,9 @@ public class Person
 }
 ```
 
-You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
+Agora você tem uma função funcional que é disparada por uma fila do Azure e gera dados para o armazenamento de tabelas do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Azure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)
+> [Padrões de expressão de associação de Azure Functions](./functions-bindings-expressions-patterns.md)

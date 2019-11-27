@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df662353f7c9c788158ce2dfe05385f022289466
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075665"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539103"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o emulador Cosmos do Azure para desenvolvimento e teste local
 
@@ -27,7 +27,7 @@ Apesar de a emulação do serviço do Azure Cosmos DB ser fiel, a implementaçã
 
 Você pode migrar dados entre o emulador Cosmos do Azure e o serviço de Azure Cosmos DB usando a [ferramenta de migração de dados Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-Você pode executar o emulador Cosmos do Azure no contêiner do Docker do Windows, consulte o [Hub do Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) para o comando Docker pull e o [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) para o código-fonte do emulador.
+Você pode executar o emulador Cosmos do Azure no contêiner do Docker do Windows, consulte o [Hub do Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) para o comando Docker pull e o [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) para o `Dockerfile` e mais informações.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Diferenças entre o emulador e o serviço
 
@@ -244,16 +244,16 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 | Encerrar| Desliga o emulador Cosmos do Azure.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Especifica o caminho onde pretende armazenar os ficheiros de dados. O valor padrão é%LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: um caminho acessível |
 |Porta | Especifica o número de porta a utilizar para o emulador. O valor padrão é 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<porta\>: número de porta individual |
-| ComputePort | Especificado o número da porta a ser usado para o serviço de gateway de interoperabilidade de computação. A porta de investigação do ponto de extremidade HTTP do gateway é calculada como ComputePort + 79. Portanto, ComputePort e ComputePort + 79 devem estar abertos e disponíveis. Os valores padrão são 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: número da porta única |
+| ComputePort | Especificado o número da porta a ser usado para o serviço de gateway de interoperabilidade de computação. A porta de investigação do ponto de extremidade HTTP do gateway é calculada como ComputePort + 79. Portanto, ComputePort e ComputePort + 79 devem estar abertos e disponíveis. Os valores padrão são 8900, 8979. | CosmosDB. Emulator. exe/ComputePort = \<ComputePort\> | \<computeport\>: número da porta única |
 | EnableMongoDbEndpoint | Habilita a API do MongoDB | CosmosDB. Emulator. exe/EnableMongoDbEndpoint | |
 | MongoPort | Especifica o número de porta a utilizar para a API de compatibilidade do MongoDB. O valor padrão é 10255. |CosmosDB. Emulator. exe/MongoPort = \<MongoPort\>|\<mongoport\>: número de porta individual|
 | EnableCassandraEndpoint | Habilita API do Cassandra | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
-| CassandraPort | Especifica o número da porta a ser usada para o ponto de extremidade Cassandra. O valor padrão é 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: número da porta única |
+| CassandraPort | Especifica o número da porta a ser usada para o ponto de extremidade Cassandra. O valor padrão é 10350. | CosmosDB. Emulator. exe/CassandraPort = \<CassandraPort\> | \<cassandraport\>: número da porta única |
 | EnableGremlinEndpoint | Habilita a API do Gremlin | CosmosDB. Emulator. exe/EnableGremlinEndpoint | |
-| GremlinPort | Número da porta a ser usada para o ponto de extremidade Gremlin. O valor padrão é 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<porta\>: número de porta individual |
+| GremlinPort | Número da porta a ser usada para o ponto de extremidade Gremlin. O valor padrão é 8901. | CosmosDB. Emulator. exe/GremlinPort =\<porta\> | \<porta\>: número de porta individual |
 |EnableTableEndpoint | Habilita o Azure API de Tabela | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Número da porta a ser usada para o ponto de extremidade de tabela do Azure. O valor padrão é 8902. | CosmosDB. Emulator. exe/TablePort =\<porta\> | \<porta\>: número de porta individual|
-| KeyFile | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: caminho para o arquivo |
+| KeyFile | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | CosmosDB. Emulator. exe/KeyFile =\<file_name\> | \<file_name\>: caminho para o arquivo |
 | ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será%LOCALAPPDATA%\CosmosDbEmulator | CosmosDB. Emulator. exe/ResetDataPath =\<caminho > | caminho do \<\>: caminho do arquivo  |
 | StartTraces  |  Comece coletando logs de rastreamento de depuração. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Parar coleta de logs de rastreamento de depuração. | CosmosDB.Emulator.exe /StopTraces  | |

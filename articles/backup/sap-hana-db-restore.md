@@ -153,6 +153,6 @@ Se você tiver selecionado **& diferencial completo** como o tipo de restauraç�
 > [!NOTE]
 > Em uma nova restauração de contêiner de banco de dados (MDC) depois que o BD do sistema é restaurado para uma instância de destino, é necessário executar o script de pré-registro novamente. Somente as restaurações subsequentes do banco de bancos de locatário serão realizadas com sucesso. Para saber mais, consulte [solução de problemas – a restauração MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como gerenciar o](sap-hana-db-manage.md) backup de bancos de dados SAP Hana usando o backup do Azure

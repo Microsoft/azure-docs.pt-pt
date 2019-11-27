@@ -1,21 +1,16 @@
 ---
-title: Configurar investigações de preparação em instâncias de contêiner do Azure
+title: Configurar investigação de preparação na instância de contêiner
 description: Saiba como configurar uma investigação para garantir que os contêineres nas instâncias de contêiner do Azure recebam solicitações somente quando estiverem prontos
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 10/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cdc8362c377be28a3ed1300b599dc8ebef9e903
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905579"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533568"
 ---
-# <a name="configure-readiness-probes"></a>Configurar investigações de preparação
+# <a name="configure-readiness-probes"></a>Configurar pesquisas readiness
 
 Para aplicativos em contêineres que atendem ao tráfego, talvez você queira verificar se o contêiner está pronto para lidar com solicitações de entrada. As instâncias de contêiner do Azure dão suporte a investigações de preparação para incluir configurações para que seu contêiner não possa ser acessado sob determinadas condições. A investigação de preparação se comporta como uma [investigação de preparação de kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). Por exemplo, um aplicativo de contêiner pode precisar carregar um conjunto de dados grande durante a inicialização e você não deseja que ele receba solicitações durante esse tempo.
 
@@ -138,7 +133,7 @@ Quando o contêiner estiver pronto, você também poderá acessar o aplicativo W
 > A investigação de preparação continua a ser executada durante o tempo de vida do grupo de contêineres. Se o comando de preparação falhar em um momento posterior, o contêiner novamente se tornará inacessível. 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Uma investigação de prontidão pode ser útil em cenários que envolvem grupos de vários contêineres que consistem em contêineres dependentes. Para obter mais informações sobre cenários de vários contêineres, consulte [grupos de contêineres em instâncias de contêiner do Azure](container-instances-container-groups.md).
 

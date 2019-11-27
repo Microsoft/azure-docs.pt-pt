@@ -20,21 +20,21 @@ Este artigo fornece ajuda para solucionar erros que podem ocorrer com o Log Anal
 
 Se nenhum destes passos resolver, também estão disponíveis os seguintes canais de suporte:
 
-* Clientes com suporte Premier benefícios pode abrir um pedido de suporte com [Premier](https://premier.microsoft.com/).
-* Os clientes com contratos de suporte do Azure, podem abrir um pedido de suporte [no portal do Azure](https://manage.windowsazure.com/?getsupport=true).
-* Visite a página de comentários do Log Analytics para rever as ideias submetidas e bugs [ https://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) ou um novo de ficheiros. 
+* Os clientes com benefícios de suporte Premier podem abrir uma solicitação de suporte com o [Premier](https://premier.microsoft.com/).
+* Os clientes com contratos de suporte do Azure podem abrir uma solicitação de suporte [no portal do Azure](https://manage.windowsazure.com/?getsupport=true).
+* Visite a página de comentários Log Analytics para revisar ideias e bugs enviados [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou um novo arquivo. 
 
 ## <a name="important-troubleshooting-sources"></a>Fontes de solução de problemas importantes
 
  Para auxiliar na solução de problemas relacionados ao agente do Log Analytics para Windows, o agente registra eventos no log de eventos do Windows, especificamente em *Application and Services\Operations Manager*.  
 
-## <a name="connectivity-issues"></a>Problemas de conectividade
+## <a name="connectivity-issues"></a>Problemas de ligação
 
 Se o agente estiver se comunicando por meio de um servidor proxy ou firewall, pode haver restrições no local, impedindo a comunicação do computador de origem e do serviço de Azure Monitor. Caso a comunicação seja bloqueada, devido à configuração incorreta, o registro com um espaço de trabalho pode falhar ao tentar instalar o agente ou configurar o agente post-setup para relatar para um espaço de trabalho adicional. A comunicação do agente pode falhar após o registro bem-sucedido. Esta seção descreve os métodos para solucionar esse tipo de problema com o agente do Windows.
 
 Verifique se o firewall ou o proxy está configurado para permitir as seguintes portas e URLs descritas na tabela a seguir. Também confirme se a inspeção HTTP não está habilitada para o tráfego da Web, pois ela pode impedir um canal TLS seguro entre o agente e o Azure Monitor.  
 
-|Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
+|Recursos do Agente|Portas |Direction |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
@@ -62,7 +62,7 @@ Há várias maneiras de verificar se o agente está se comunicando com êxito co
 
 - Filtre o log de eventos *Operations Manager* por **fontes de evento** - *módulos de serviço de integridade*, *HealthService*e *conector de serviço* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se ele gravou eventos da tabela a seguir. Se estiverem, examine as etapas de resolução incluídas para cada evento possível.
 
-    |ID do Evento |Origem |Descrição |Resolução |
+    |ID do Evento |Source |Descrição |Resolução |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Serviço de Integridade |Falha na conexão com o serviço do agente |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
     |2138 |Módulos de Serviço de Integridade |O proxy requer autenticação |Defina as configurações de proxy do agente e especifique o nome de usuário/senha necessários para autenticar com o servidor proxy. |
@@ -100,7 +100,7 @@ Se a consulta retornar resultados, você precisará determinar se um determinado
 
 3. Se, após vários minutos, você não vir os dados esperados nos resultados da consulta ou na visualização, dependendo de se você estiver exibindo os dados de uma solução ou insight, no log de eventos *Operations Manager* , procure por **fontes de eventos** *HealthService* e *serviço de integridade módulos* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se há eventos gravados da tabela a seguir.
 
-    |ID do Evento |Origem |Descrição |Resolução |
+    |ID do Evento |Source |Descrição |Resolução |
     |---------|-------|------------|
     |8000 |HealthService |Esse evento especificará se um fluxo de trabalho relacionado a desempenho, evento ou outro tipo de dados coletado não puder encaminhar para o serviço para ingestão no espaço de trabalho. | A ID de evento 2136 da fonte HealthService é escrita junto com esse evento e pode indicar que o agente não pode se comunicar com o serviço, possivelmente devido a uma configuração incorreta do proxy e das configurações de autenticação, interrupção de rede ou o firewall/proxy de rede não permite o tráfego TCP do computador para o serviço.| 
     |10102 e 10103 |Módulos de Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o contador de desempenho ou a instância especificada não existir no computador ou se estiver definido incorretamente nas configurações de dados do espaço de trabalho. Se esse for um [contador de desempenho](data-sources-performance-counters.md#configuring-performance-counters)especificado pelo usuário, verifique se as informações especificadas estão seguindo o formato correto e se existem nos computadores de destino. |

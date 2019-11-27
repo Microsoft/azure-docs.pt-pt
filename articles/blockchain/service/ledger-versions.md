@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Service ledger versions, patching, & upgrade
-description: Overview of the supported ledgers versions in Azure Blockchain Service, including policies regarding systems patching and system-managed and user-managed upgrades.
+title: Versões do razão do serviço Blockchain do Azure, aplicação de patches, atualização &
+description: Visão geral das versões de razões com suporte no serviço Blockchain do Azure, incluindo políticas relacionadas à aplicação de patches de sistemas e atualizações gerenciadas pelo usuário e pelo sistema.
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: janders
@@ -11,26 +11,26 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325177"
 ---
-# <a name="supported-azure-blockchain-service-ledger-versions"></a>Supported Azure Blockchain Service ledger versions
+# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões do razão do serviço Blockchain do Azure com suporte
 
-Azure Blockchain Service uses the Ethereum-based [Quorum](https://www.goquorum.com/developers) ledger designed for the processing of private transactions within a group of known participants, identified as a consortium in Azure Blockchain Service.
+O serviço Blockchain do Azure usa o razão de [Quorum](https://www.goquorum.com/developers) baseado em Ethereum projetado para o processamento de transações privadas dentro de um grupo de participantes conhecidos, identificado como um consórcio no serviço Blockchain do Azure.
 
-Currently, Azure Blockchain Service supports [Quorum version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
+Atualmente, o serviço Blockchain do Azure dá suporte à [versão de quorum 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) e [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
 
-## <a name="managing-updates-and-upgrades"></a>Managing updates and upgrades
+## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e upgrades
 
-Versioning in Quorum is done through a major, minor, and patch releases. For example, if the Quorum version is 2.0.1, release type would be categorized as follows:
+O controle de versão em quorum é feito por meio de versões principais, secundárias e de patches. Por exemplo, se a versão de quorum for 2.0.1, o tipo de versão será Categorizado da seguinte maneira:
 
-|Principal | Minor  | Patch  |
+|Principais | Pequenas  | Distribuído  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
-Azure Blockchain Service automatically updates patch releases of Quorum to existing running members within 30 days of being made available from Quorum.
+O serviço Blockchain do Azure atualiza automaticamente as versões de patch do quorum para os membros em execução existentes dentro de 30 dias após serem disponibilizados do quorum.
 
-## <a name="availability-of-new-ledger-versions"></a>Availability of new ledger versions
+## <a name="availability-of-new-ledger-versions"></a>Disponibilidade de novas versões do razão
 
-Azure Blockchain Service provides the latest major and minor versions of the Quorum ledger within 60 days of being available from the Quorum manufacturer. A maximum of four minor releases are provided for consortia to choose from when provisioning a new member and consortium. Upgrading from to a major or minor release is currently not supported. For example, if you are running version 2.x, an upgrade to version 3.x is currently not supported. Similarly, if you are running version 2.2, an upgrade to version 2.3 is currently not supported.
+O serviço Blockchain do Azure fornece as últimas versões principais e secundárias do razão de quorum dentro de 60 dias de disponibilidade do fabricante do quorum. No máximo quatro versões secundárias são fornecidas para que consortia escolha ao provisionar um novo membro e consórcio. No momento, não há suporte para a atualização do para uma versão principal ou secundária. Por exemplo, se você estiver executando a versão 2. x, não há suporte atualmente para a atualização para a versão 3. x. Da mesma forma, se você estiver executando a versão 2,2, não há suporte para uma atualização para a versão 2,3 no momento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Limits in Azure Blockchain Service](limits.md)
+[Limites no serviço Blockchain do Azure](limits.md)

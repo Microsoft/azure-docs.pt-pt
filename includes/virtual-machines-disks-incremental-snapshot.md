@@ -154,7 +154,7 @@ Você também pode usar modelos de Azure Resource Manager para criar um instant�
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 1. Se você ainda não se inscreveu para a versão prévia e gostaria de começar a usar instantâneos incrementais, envie-nos um email para AzureDisks@microsoft.com para obter acesso à visualização pública. 
 

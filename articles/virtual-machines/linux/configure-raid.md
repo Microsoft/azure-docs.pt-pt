@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036669"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534188"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurar o RAID de Software no Linux
 É um cenário comum usar o RAID de software em máquinas virtuais Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isso pode ser usado para melhorar o desempenho e permitir uma melhor taxa de transferência em comparação com o uso de apenas um único disco.
 
 ## <a name="attaching-data-disks"></a>Anexando discos de dados
 Dois ou mais discos de dados vazios são necessários para configurar um dispositivo RAID.  O principal motivo para criar um dispositivo RAID é melhorar o desempenho da e/s do disco.  Com base nas suas necessidades de e/s, você pode optar por anexar discos que são armazenados em nosso armazenamento Standard, com até 500 IO/PS por disco ou nosso armazenamento Premium com até 5000 IO/PS por disco. Este artigo não se aprofunda em detalhes sobre como provisionar e anexar discos de dados a uma máquina virtual do Linux.  Consulte o artigo Microsoft Azure [anexar um disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
+
+> [!IMPORTANT]
+>Não misture discos de tamanhos diferentes, fazendo isso resultaria em desempenho do raidset limitado ao do disco mais lento. 
 
 ## <a name="install-the-mdadm-utility"></a>Instalar o utilitário mdadm
 * **Ubuntu**

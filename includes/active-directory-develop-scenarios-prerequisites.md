@@ -21,11 +21,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482491"
 ---
-Before reading this article, you should be familiar with the following concepts:
+Antes de ler este artigo, você deve estar familiarizado com os seguintes conceitos:
 
-- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
+- [Visão geral da plataforma Microsoft Identity](../articles/active-directory/develop/v2-overview.md)
 - [Noções básicas de autenticação](../articles/active-directory/develop/authentication-scenarios.md)
-- [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Application and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [ID tokens](../articles/active-directory/develop/id-tokens.md) and [access tokens](../articles/active-directory/develop/access-tokens.md)
+- [Compostos](../articles/active-directory/develop/v2-supported-account-types.md)
+- [Entidades de serviço e aplicativo](../articles/active-directory/develop/app-objects-and-service-principals.md)
+- [Permissões e consentimento](../articles/active-directory/develop/v2-permissions-and-consent.md)
+- [Tokens de ID](../articles/active-directory/develop/id-tokens.md) e [tokens de acesso](../articles/active-directory/develop/access-tokens.md)

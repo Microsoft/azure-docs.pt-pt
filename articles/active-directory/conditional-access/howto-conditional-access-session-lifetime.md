@@ -1,6 +1,6 @@
 ---
-title: Configure authentication session management - Azure Active Directory
-description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
+title: Configurar o gerenciamento de sessão de autenticação-Azure Active Directory
+description: Personalize a configuração da sessão de autenticação do Azure AD, incluindo a frequência de entrada do usuário e a persistência da sessão do navegador.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,100 +18,100 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483463"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configure authentication session management with Conditional Access
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
 
-In complex deployments, organizations might have a need to restrict authentication sessions. Some scenarios might include:
+Em implantações complexas, as organizações podem ter a necessidade de restringir as sessões de autenticação. Alguns cenários podem incluir:
 
-* Resource access from an unmanaged or shared device
-* Access to sensitive information from an external network
-* High impact users
-* Critical business applications
+* Acesso a recursos de um dispositivo não gerenciado ou compartilhado
+* Acesso a informações confidenciais de uma rede externa
+* Usuários com alto impacto
+* Aplicativos de negócios críticos
 
-Conditional Access controls allow you to create policies that target specific use cases within your organization without affecting all users.
+Os controles de acesso condicional permitem que você crie políticas que se destinam a casos de uso específicos em sua organização sem afetar todos os usuários.
 
-Before diving into details on how to configure the policy, let’s examine the default configuration.
+Antes de mergulhar em detalhes sobre como configurar a política, vamos examinar a configuração padrão.
 
-## <a name="user-sign-in-frequency"></a>User sign-in frequency
+## <a name="user-sign-in-frequency"></a>Frequência de entrada do usuário
 
-Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
+A frequência de entrada define o período de tempo antes que um usuário seja solicitado a entrar novamente ao tentar acessar um recurso.
 
-The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
+A configuração padrão do Azure Active Directory (Azure AD) para a frequência de entrada do usuário é uma janela sem interrupção de 90 dias. Solicitar aos usuários que as credenciais geralmente pareça uma coisa sensata a ser feita, mas pode ser revelado: os usuários treinados para inserir suas credenciais sem pensar podem fornecê-las involuntariamente a um prompt de credencial mal-intencionado.
 
-It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
+Pode parecer que o alarme não pede que um usuário entre novamente, na realidade, qualquer violação das políticas de ti revogará a sessão. Alguns exemplos incluem (mas não estão limitados a) uma alteração de senha, um dispositivo incompatível ou uma conta desabilitada. Você também pode [revogar explicitamente as sessões de usuários usando o PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A configuração padrão do Azure AD é "não pedir que os usuários forneçam suas credenciais se a postura de segurança de suas sessões não tiver mudado".
 
-Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
+A configuração frequência de entrada funciona com aplicativos que implementaram protocolos OAUTH2 ou OIDC de acordo com os padrões. A maioria dos aplicativos nativos da Microsoft para Windows, Mac e Mobile, incluindo os seguintes aplicativos Web, estão em conformidade com a configuração.
 
-- Word, Excel, PowerPoint Online
-- OneNote Online
+- Word, Excel, PowerPoint online
+- OneNote online
 - Office.com
-- O365 Admin portal
+- Portal de administração do O365
 - Exchange Online
-- SharePoint and OneDrive
-- Teams web client
+- SharePoint e OneDrive
+- Cliente Web de equipes
 - Dynamics CRM Online
 - Portal do Azure
 
-## <a name="persistence-of-browsing-sessions"></a>Persistence of browsing sessions
+## <a name="persistence-of-browsing-sessions"></a>Persistência de sessões de navegação
 
-A persistent browser session allows users to remain signed in after closing and reopening their browser window.
+Uma sessão persistente do navegador permite que os usuários permaneçam conectados após fechar e reabrir a janela do navegador.
 
-The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS Single Sign-On Settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-), we will comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the company branding pane in Azure portal using the guidance in the article [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md).
+O padrão do Azure AD para persistência de sessão de navegador permite que os usuários em dispositivos pessoais escolham se deseja manter a sessão mostrando uma "permanecer conectado?" avisar após a autenticação bem-sucedida. Se a persistência do navegador estiver configurada no AD FS usando as diretrizes no artigo [AD FS configurações de logon único](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+), vamos obedecer a essa política e persistir a sessão do Azure ad também. Você também pode configurar se os usuários em seu locatário veem o "permanecer conectado?" Solicite a alteração da configuração apropriada no painel de identidade visual da empresa em portal do Azure usando as diretrizes no artigo [personalizar sua página de entrada do Azure ad](../fundamentals/customize-branding.md).
 
-## <a name="configuring-authentication-session-controls"></a>Configuring authentication session controls
+## <a name="configuring-authentication-session-controls"></a>Configurando controles de sessão de autenticação
 
-Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)
+O acesso condicional é um recurso Azure AD Premium e requer uma licença Premium. Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on May 1, 2020 and replace it with the Conditional Access authentication session management feature.  
+> Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável em 1º de maio de 2020 e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Policy 1: Sign-in frequency control
+### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 
-1. Create new policy
-1. Choose all required conditions for customer’s environment, including the target cloud apps.
-
-   > [!NOTE]
-   > It is recommended to set equal authentication prompt frequency for key Microsoft Office apps such as Exchange Online and SharePoint Online for best user experience.
-
-1. Go to **Access Controls** > **Session** and click **Sign-in frequency**
-1. Enter the required value of days and hours in the first text box
-1. Select a value of **Hours** or **Days** from dropdown
-1. Save your policy
-
-![Conditional Access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
-
-On Azure AD registered Windows devices sign in to the device is considered a prompt. For example, if you have configured the Sign in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the Sign in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
-
-If you have configured different Sign-in frequency for different web apps that are running in the same browser session, the strictest policy will be applied to both apps because all apps running in the same browser session share a single session token.
-
-### <a name="policy-2-persistent-browser-session"></a>Policy 2: Persistent browser session
-
-1. Create new policy
-1. Choose all required conditions.
+1. Criar nova política
+1. Escolha todas as condições necessárias para o ambiente do cliente, incluindo os aplicativos de nuvem de destino.
 
    > [!NOTE]
-   > Please note that this control requires to choose “All Cloud Apps” as a condition. Browser session persistence is controlled by authentication session token. All tabs in a browser session share a single session token and therefore they all must share persistence state.
+   > É recomendável definir a frequência de prompt de autenticação igual para aplicativos de Microsoft Office de chave, como o Exchange Online e o SharePoint Online para melhor experiência do usuário.
 
-1. Go to **Access Controls** > **Session** and click **Persistent browser session**
-1. Select a value from dropdown
-1. Save you policy
+1. Acesse **controles de acesso** > **sessão** e clique em **frequência de entrada**
+1. Insira o valor necessário de dias e horas na primeira caixa de texto
+1. Selecione um valor de **horas** ou **dias** no menu suspenso
+1. Salvar sua política
 
-![Conditional Access policy configured for persistent browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Política de acesso condicional configurada para a frequência de entrada](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+
+No Azure AD, os dispositivos registrados do Windows entram no dispositivo é considerado um prompt. Por exemplo, se você tiver configurado a frequência de entrada para 24 horas para aplicativos do Office, os usuários em dispositivos Windows registrados no Azure AD atenderão à política de frequência de entrada entrando no dispositivo e não serão solicitados novamente ao abrir aplicativos do Office.
+
+Se você tiver configurado uma frequência de entrada diferente para diferentes aplicativos Web em execução na mesma sessão do navegador, a política mais estrita será aplicada aos dois aplicativos, pois todos os aplicativos em execução na mesma sessão do navegador compartilham um único token de sessão.
+
+### <a name="policy-2-persistent-browser-session"></a>Política 2: sessão persistente do navegador
+
+1. Criar nova política
+1. Escolha todas as condições necessárias.
+
+   > [!NOTE]
+   > Observe que esse controle exige que você escolha "todos os aplicativos de nuvem" como uma condição. A persistência da sessão do navegador é controlada pelo token da sessão de autenticação. Todas as guias em uma sessão de navegador compartilham um único token de sessão e, portanto, todos precisam compartilhar o estado de persistência.
+
+1. Acesse **controles de acesso** > **sessão** e clique em **sessão de navegador persistente**
+1. Selecione um valor na lista suspensa
+1. Salvar política
+
+![Política de acesso condicional configurada para navegador persistente](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
-> Persistent Browser Session configuration in Azure AD Conditional Access will overwrite the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
+> A configuração de sessão persistente do navegador no acesso condicional do Azure AD substituirá a "continuar conectado?" configuração no painel de identidade visual da empresa no portal do Azure para o mesmo usuário se você tiver configurado ambas as políticas.
 
 ## <a name="validation"></a>Validação
 
-Use the What-If tool to simulate a login from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
+Use a ferramenta What-If para simular um logon do usuário para o aplicativo de destino e outras condições com base em como você configurou sua política. Os controles de gerenciamento de sessão de autenticação aparecem no resultado da ferramenta.
 
-![Conditional Access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultados da ferramenta de What If de acesso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
-## <a name="policy-deployment"></a>Policy deployment
+## <a name="policy-deployment"></a>Implantação de política
 
-To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).
+Para garantir que sua política funcione conforme o esperado, a melhor prática recomendada é testá-la antes de distribuí-la para produção. O ideal é usar um locatário de teste para verificar se a nova política funciona como esperado. Para obter mais informações, consulte o artigo [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* If you want to know how to configure a Conditional Access policy, see the article [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-* If you are ready to configure Conditional Access policies for your environment, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).
+* Se você quiser saber como configurar uma política de acesso condicional, consulte o artigo [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
+* Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte o artigo [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).

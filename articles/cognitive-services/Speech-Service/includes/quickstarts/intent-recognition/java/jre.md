@@ -85,6 +85,6 @@ Neste ponto, seu código deve ter a seguinte aparência:
 Prima F11 ou selecione **Executar** > **Depurar**.
 Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e registados na janela da consola.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

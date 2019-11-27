@@ -1,14 +1,14 @@
 ---
-title: Exemplo de mapeamento de controle do FedRAMP moderado Blueprint
+title: Controles de exemplo do FedRAMP moderative Blueprint
 description: Mapeamento de controle da amostra do plano gráfico FedRAMP moderado. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1bf87ef1b5116b086797b8521268bd4575970925
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032350"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544557"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico moderado do FedRAMP
 
@@ -87,11 +87,11 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
+- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - Definição de diagnóstico de auditoria
 - A auditoria no SQL Server deve ser habilitada
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
@@ -262,11 +262,11 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
+- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - Implantar a segurança de dados avançada em servidores SQL
@@ -278,7 +278,7 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico moderado do FedRAMP, visite os artigos a seguir para saber mais sobre o plano gráfico e como implantar esse exemplo:
 

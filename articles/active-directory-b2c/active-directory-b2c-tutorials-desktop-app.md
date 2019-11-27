@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cd0fc90988048f98be46370d2c7836d9506cc44a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475300"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538928"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutorial: autenticar usuários em um cliente de desktop nativo usando Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Neste tutorial, você configura um exemplo que pode ser baixado do GitHub. O aplicativo de área de trabalho WPF de exemplo demonstra a inscrição, a entrada e pode chamar uma API Web protegida no Azure AD B2C. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [navegar no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo a partir do GitHub.
+Neste tutorial, você configura um exemplo que pode ser baixado do GitHub. O aplicativo de área de trabalho WPF de exemplo demonstra a inscrição, a entrada e pode chamar uma API Web protegida no Azure AD B2C. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip), [navegar no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo a partir do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
@@ -74,7 +74,7 @@ Pressione **F5** para compilar e executar o exemplo.
 
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
-1. Selecione **entrar** para se inscrever como um usuário. Isso usa o fluxo de usuário **B2C_1_signupsignin1** .
+1. Selecione **entrar** para se inscrever como um usuário. Isso usa o fluxo de usuário do **B2C_1_signupsignin1** .
 2. Azure AD B2C apresenta uma página de entrada com um link **inscrever-se agora** . Como você ainda não tem uma conta, selecione o link **inscrever-se agora** .
 3. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo do usuário.
 

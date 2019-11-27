@@ -17,56 +17,56 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424420"
 ---
-This Postman-based quickstart walks you through getting an answer from your knowledge base.
+Este guia de início rápido baseado no postmaster orienta você pela obtenção de uma resposta da sua base de dados de conhecimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Latest [**Postman**](https://www.getpostman.com/).
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) and have a [knowledge base with questions and answers](../Tutorials/create-publish-query-in-portal.md). 
+* Último [**postmaster**](https://www.getpostman.com/).
+* Você deve ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md) e ter uma [base de dados de conhecimento com perguntas e respostas](../Tutorials/create-publish-query-in-portal.md). 
 
-## <a name="publish-to-get-endpoint"></a>Publish to get endpoint
+## <a name="publish-to-get-endpoint"></a>Publicar para obter ponto de extremidade
 
-When you are ready to generate an answer to a question from your knowledge base, [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base.
+Quando você estiver pronto para gerar uma resposta para uma pergunta de sua base de dados de conhecimento, [publique](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) sua base de dados de conhecimento.
 
-## <a name="use-production-endpoint-with-postman"></a>Use production endpoint with Postman
+## <a name="use-production-endpoint-with-postman"></a>Usar ponto de extremidade de produção com o postmaster
 
-When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The default view shows the settings required to generate an answer from [Postman](https://www.getpostman.com).
+Quando sua base de dados de conhecimento é publicada, a página **publicar** exibe as configurações de solicitação HTTP para gerar uma resposta. A exibição padrão mostra as configurações necessárias para gerar uma resposta do [postmaster](https://www.getpostman.com).
 
-The yellow numbers in the following image indicate which name/value pairs to use in the following steps.
+Os números amarelos na imagem a seguir indicam quais pares de nome/valor usar nas etapas a seguir.
 
-[![Publish results](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
+[![publicar resultados](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
-To generate an answer with Postman, complete the following steps:
+Para gerar uma resposta com o postmaster, conclua as seguintes etapas:
 
-1. Open Postman. If you're asked to choose a building block, select the **Basic Request** building block. Set the **Request name** as `Generate QnA Maker answer`and the **collection** as `Generate QnA Maker answers`. If you don't want to save to a collection, select the **Cancel** button.
-1. In the workspace, select the HTTP method of **POST**.
+1. Abrir o postmaster. Se você for solicitado a escolher um bloco de construção, selecione o bloco de construção de **solicitação básico** . Defina o **nome da solicitação** como `Generate QnA Maker answer`e a **coleção** como `Generate QnA Maker answers`. Se você não quiser salvar em uma coleção, selecione o botão **Cancelar** .
+1. No espaço de trabalho, selecione o método HTTP **post**.
 
-    [![In Postman, set POST Method](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+    [![no postmaster, defina o método POST](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
 
-1. For the URL, concatenate the HOST value (#2 from image) and the Post value (#1 from image) to create the complete URL. A complete example URL looks like: 
+1. Para a URL, concatene o valor de HOST (#2 da imagem) e o valor de post (#1 da imagem) para criar a URL completa. Uma URL de exemplo completa é semelhante A: 
 
     `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
 
-    [![In Postman, set the complete URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![no postmaster, defina a URL completa](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
-1. Select the **Headers** tab under the URL, then select **Bulk Edit**. 
+1. Selecione a guia **cabeçalhos** na URL e, em seguida, selecione **Editar em massa**. 
 
-1. Copy the headers (#3 and #4 from image) into the text area.
+1. Copie os cabeçalhos (#3 e #4 da imagem) para a área de texto.
 
-    [![In Postman, set the headers](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
+    [![no postmaster, defina os cabeçalhos](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
-1. Select the **Body** tab.
-1. Select the **raw** format and enter the JSON (#5 from image) that represents the question.
+1. Selecione a guia **corpo** .
+1. Selecione o formato **bruto** e insira o JSON (#5 da imagem) que representa a pergunta.
 
     `{"question":"How do I programmatically update my Knowledge Base?"}`
 
-    [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
+    [![no postmaster, defina o valor JSON do corpo](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
-1. Select the **Send** button.
-1. The response contains the answer along with other information that may be important to the client application. 
+1. Selecione o botão **Enviar** .
+1. A resposta contém a resposta junto com outras informações que podem ser importantes para o aplicativo cliente. 
 
-    [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
+    [![no postmaster, defina o valor JSON do corpo](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
-## <a name="use-staging-endpoint"></a>Use staging endpoint
+## <a name="use-staging-endpoint"></a>Usar ponto de extremidade de preparo
 
-If you want to get an answer from the staging endpoint, append the URL with the `isTest` body property.
+Se você quiser obter uma resposta do ponto de extremidade de preparo, acrescente a URL com a propriedade de corpo `isTest`.

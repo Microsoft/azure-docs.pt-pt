@@ -1,6 +1,6 @@
 ---
-title: Conditional Access - Combined security information - Azure Active Directory
-description: Create a custom Conditional Access policy to require a trusted location for security info registration
+title: Acesso condicional-informações de segurança combinadas-Azure Active Directory
+description: Criar uma política de acesso condicional personalizada para exigir um local confiável para o registro de informações de segurança
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,37 +18,37 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74322739"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Conditional Access: Require trusted location for MFA registration
+# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Acesso condicional: exigir local confiável para o registro de MFA
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+A proteção de quando e como os usuários se registram para a autenticação multifator do Azure e a redefinição de senha de autoatendimento agora são possíveis com as ações do usuário na política de acesso condicional. Esse recurso de visualização está disponível para organizações que habilitaram a [visualização de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações em que eles desejam que os usuários se registrem para a autenticação multifator do Azure e SSPR de um local central, como um local de rede confiável durante a integração de RH. Para obter mais informações sobre como criar locais confiáveis no acesso condicional, consulte o artigo [qual é a condição de local em Azure Active Directory acesso condicional?](../conditional-access/location-condition.md#named-locations)
 
-## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Create a policy to require registration from a trusted location
+## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registro de um local confiável
 
-The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
+A política a seguir se aplica a todos os usuários selecionados, que tentam se registrar usando a experiência de registro combinada e bloqueia o acesso, a menos que eles estejam se conectando de um local marcado como rede confiável.
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**.
-1. Select **New policy**.
-1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**.
-1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to.
+1. Na **portal do Azure**, navegue até **Azure Active Directory** > **acesso condicional**.
+1. Selecione **nova política**.
+1. Em nome, insira um nome para essa política. Por exemplo, o **registro de informações de segurança combinadas em redes confiáveis**.
+1. Em **atribuições**, clique em **usuários e grupos**e selecione os usuários e grupos aos quais você deseja que essa política se aplique.
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Os usuários devem estar habilitados para a [visualização de registro combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)** .
-1. Under **Conditions** > **Locations**.
-   1. Configure **Yes**.
-   1. Include **Any location**.
-   1. Exclude **All trusted locations**.
-   1. Click **Done** on the Locations blade.
-   1. Click **Done** on the Conditions blade.
-1. Under **Access controls** > **Grant**.
-   1. Click **Block access**.
+1. Em **aplicativos de nuvem ou ações**, selecione **ações do usuário**, marque **registrar informações de segurança (versão prévia)** .
+1. Em **condições** > **locais**.
+   1. Configurar **Sim**.
+   1. Inclua **qualquer local**.
+   1. Exclua **todos os locais confiáveis**.
+   1. Clique em **concluído** na folha locais.
+   1. Clique em **concluído** na folha condições.
+1. Em **controles de acesso** > **concessão**.
+   1. Clique em **bloquear acesso**.
    1. Em seguida, clique em **Selecionar**.
-1. Set **Enable policy** to **On**.
+1. Defina **habilitar política** como **ativado**.
 1. Em seguida, clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)

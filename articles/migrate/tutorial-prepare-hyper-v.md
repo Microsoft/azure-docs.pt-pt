@@ -223,7 +223,7 @@ Nas VMs que você deseja descobrir e avaliar, habilite o [Hyper-V Integration Se
 2. [Examine](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) os requisitos para VMs do Hyper-V que você deseja migrar para o Azure.
 3. [Observe](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) as URLs do Azure às quais os hosts e clusters do Hyper-V precisam de acesso para a migração da VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial:
 

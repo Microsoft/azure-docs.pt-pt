@@ -1,7 +1,7 @@
 ---
-title: Connect to a knowledge store (preview) with Power BI
+title: Conectar-se a uma loja de conhecimento (versão prévia) com Power BI
 titleSuffix: Azure Cognitive Search
-description: Connect an Azure Cognitive Search knowledge store (preview) with Power BI for analysis and exploration.
+description: Conecte uma loja de conhecimento do Azure Pesquisa Cognitiva (versão prévia) com Power BI para análise e exploração.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
@@ -15,73 +15,73 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406593"
 ---
-# <a name="connect-a-knowledge-store-with-power-bi"></a>Connect a knowledge store with Power BI
+# <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar uma loja de conhecimento com Power BI
 
 > [!IMPORTANT] 
-> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
-In this article, learn how to connect to and explore a knowledge store using Power Query in the Power BI Desktop app. You can get started faster with templates, or build a custom dashboard from scratch.
+Neste artigo, saiba como se conectar e explorar uma loja de conhecimento usando Power Query no aplicativo Power BI Desktop. Você pode começar mais rápido com modelos ou criar um painel personalizado do zero.
 
-+ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
++ Siga as etapas em [criar uma loja de conhecimento no portal do Azure](knowledge-store-create-portal.md) ou [criar uma loja de conhecimento do Azure pesquisa cognitiva usando o REST](knowledge-store-create-rest.md) para criar o repositório de conhecimento de exemplo usado neste passo a passos. Você também precisará do nome da conta de armazenamento do Azure que usou para criar a loja de conhecimento, junto com sua chave de acesso do portal do Azure.
 
-+ [Install Power BI Desktop](https://powerbi.microsoft.com/downloads/)
++ [Instalar Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-## <a name="sample-power-bi-template---azure-portal-only"></a>Sample Power BI template - Azure portal only
+## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo de Power BI de exemplo – somente portal do Azure
 
-If you [created your knowledge store using the Azure portal](knowledge-store-create-portal.md), you can use the [Azure Cognitive Search Power BI template sample](https://github.com/Azure-Samples/cognitive-search-templates) to view and experiment with Power BI visualizations. This template is also available for download when you step through the **Import data** wizard.
+Se você [criou sua loja de conhecimento usando o portal do Azure](knowledge-store-create-portal.md), você pode usar o [exemplo de modelo de Power bi de pesquisa cognitiva do Azure](https://github.com/Azure-Samples/cognitive-search-templates) para exibir e experimentar Power bi visualizações. Esse modelo também está disponível para download quando você percorre o assistente de **importação de dados** .
 
-The sample template will automatically perform the setup steps outlined in the remainder of this article. However, if you used the REST API to create your knowledge store, skip the template and use the remaining sections in this article to connect your knowledge store to Power BI. Start with [Connect with Power BI](#connect-with-power-bi).
+O modelo de exemplo executará automaticamente as etapas de configuração descritas no restante deste artigo. No entanto, se você usou a API REST para criar sua loja de conhecimento, ignore o modelo e use as seções restantes neste artigo para conectar sua loja de conhecimento a Power BI. Comece com [conectar com Power bi](#connect-with-power-bi).
 
-The sample template includes several visualizations, such as WordCloud and Network Navigator. Some visualizations in the template, such as the Locations map and the Entity-Graph Viewer, will not show data for the sample knowledge store created in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md). This is because only a subset of the AI enrichments available in the **Import data** wizard were used.
+O modelo de exemplo inclui várias visualizações, como WordCloud e navegador de rede. Algumas visualizações no modelo, como o mapa de locais e o Visualizador de grafo de entidade, não mostrarão dados para o exemplo de armazenamento de conhecimento criado em [criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md). Isso ocorre porque apenas um subconjunto dos aprimoramentos de ia disponíveis no assistente de **importação de dados** foi usado.
 
-![Sample Azure Cognitive Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
+![Modelo de Power BI de Pesquisa Cognitiva do Azure de exemplo](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Modelo de Power BI de exemplo")
 
 ## <a name="connect-with-power-bi"></a>Ligar com o Power BI
 
-1. Start Power BI Desktop and click **Get data**.
+1. Inicie o Power BI Desktop e clique em **obter dados**.
 
-1. In the **Get Data** window, select **Azure**, and then select **Azure Table Storage**.
+1. Na janela **obter dados** , selecione **Azure**e, em seguida, selecione **armazenamento de tabelas do Azure**.
 
 1. Clique em **Ligar**.
 
-1. For **Account Name or URL**, enter in your Azure Storage account name (the full URL will be created for you).
+1. Para **nome da conta ou URL**, insira no nome da conta de armazenamento do Azure (a URL completa será criada para você).
 
-1. If prompted, enter the storage account key.
+1. Se solicitado, insira a chave da conta de armazenamento.
 
-1. Select the *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases*, and *hotelReviewsSsPages* tables. These tables are Azure table projections of the hotel reviews sample data and include the AI enrichments that were selected when the knowledge store was created.
+1. Selecione as tabelas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases*e *hotelReviewsSsPages* . Essas tabelas são projeções de tabela do Azure dos dados de exemplo de revisões de Hotel e incluem os aprimoramentos de ia que foram selecionados quando a loja de conhecimento foi criada.
 
-1. Click **Load**.
+1. Clique em **carregar**.
 
-1. On the top ribbon, click **Edit Queries** to open the **Power Query Editor**.
+1. Na faixa de lista superior, clique em **editar consultas** para abrir o **Editor de Power Query**.
 
-   ![Open Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Open Power Query")
+   ![Abrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Abrir Power Query")
 
-1. Select *hotelReviewsSsDocument*, and then remove the *PartitionKey*, *RowKey*, and *Timestamp* columns. 
+1. Selecione *hotelReviewsSsDocument*e, em seguida, remova as colunas *PartitionKey*, *RowKey*e *timestamp* . 
 
-   ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
+   ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tabelas")
 
-1. Click the icon with opposing arrows at the upper right side of the table to expand the *Content*. When the list of columns appears, select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
+1. Clique no ícone com setas opostas no lado superior direito da tabela para expandir o *conteúdo*. Quando a lista de colunas for exibida, selecione todas as colunas e, em seguida, desmarque as colunas que começam com ' metadados '. Clique em **OK** para mostrar as colunas selecionadas.
 
-   ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
+   ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir conteúdo")
 
-1. Change the data type for the following columns by clicking the  ABC-123 icon at the top left of the column.
+1. Altere o tipo de dados para as colunas a seguir clicando no ícone ABC-123 na parte superior esquerda da coluna.
 
-   + For *content.latitude* and *Content.longitude*, select **Decimal Number**.
-   + For *Content.reviews_date* and *Content.reviews_dateAdded*,  select **Date/Time**.
+   + Para *Content. latitude* e *Content. longitude*, selecione **número decimal**.
+   + Para *Content. reviews_date* e *Content. Reviews_dateAdded*, selecione **data/hora**.
 
-   ![Change data types](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Change data types")
+   ![Alterar tipos de dados](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Alterar tipos de dados")
 
-1. Select *hotelReviewsSsPages*, and then repeat steps 9 and 10 to delete the columns and expand the *Content*.
-1. Change the data type for *Content.SentimentScore* to **Decimal Number**.
-1. Select *hotelReviewsSsKeyPhrases* and repeat steps 9 and 10 to delete the columns and expand the *Content*. There are no data type modifications for this table.
+1. Selecione *hotelReviewsSsPages*e repita as etapas 9 e 10 para excluir as colunas e expandir o *conteúdo*.
+1. Altere o tipo de dados para *Content. SentimentScore* para **número decimal**.
+1. Selecione *hotelReviewsSsKeyPhrases* e repita as etapas 9 e 10 para excluir as colunas e expandir o *conteúdo*. Não há nenhuma modificação de tipo de dados para esta tabela.
 
-1. On the command bar, click **Close and Apply**.
+1. Na barra de comandos, clique em **fechar e aplicar**.
 
-1. Click on the Model tile on the left navigation pane and validate that Power BI shows relationships between all three tables.
+1. Clique no bloco modelo no painel de navegação à esquerda e valide se Power BI mostra as relações entre todas as três tabelas.
 
-   ![Validate relationships](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validate relationships")
+   ![Validar relações](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validar relações")
 
-1. Double-click each relationship and make sure that the **Cross-filter direction** is set to **Both**.  This enables your visuals to refresh when a filter is applied.
+1. Clique duas vezes em cada relação e verifique se a **direção do filtro cruzado** está definida como **ambas**.  Isso permite que os visuais sejam atualizados quando um filtro é aplicado.
 
 <!-- ## Try with larger data sets
 
@@ -102,20 +102,20 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](htt
 
 ## <a name="clean-up"></a>Limpeza
 
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+Quando você está trabalhando em sua própria assinatura, é uma boa ideia no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir o conjunto inteiro de recursos.
 
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-To learn how to explore this knowledge store using Storage Explorer, see the following article.
-
-> [!div class="nextstepaction"]
-> [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
-
-To learn how to create a knowledge store using the REST APIs and Postman, see the following article.  
+Para saber como explorar essa loja de conhecimento usando Gerenciador de Armazenamento, consulte o artigo a seguir.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge store in REST](knowledge-store-howto.md)
+> [Exibir com Gerenciador de Armazenamento](knowledge-store-view-storage-explorer.md)
+
+Para saber como criar uma loja de conhecimento usando as APIs REST e o postmaster, consulte o artigo a seguir.  
+
+> [!div class="nextstepaction"]
+> [Criar um repositório de conhecimento em repouso](knowledge-store-howto.md)

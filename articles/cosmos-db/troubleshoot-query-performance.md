@@ -171,7 +171,7 @@ Garanta que a produtividade provisionada possa lidar com a carga de trabalho. Au
 ## <a name="try-upgrading-to-the-latest-sdk-version"></a>Tente atualizar para a versão mais recente do SDK
 Para determinar o SDK mais recente, consulte o artigo [download do SDK e notas de versão](sql-api-sdk-dotnet.md) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os documentos abaixo sobre como medir o RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
 * [Get SQL query execution metrics using .NET SDK](profile-sql-api-query.md) (Obter métricas de execução de consultas SQL através do SDK do .NET)

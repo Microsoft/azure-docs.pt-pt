@@ -57,11 +57,11 @@ Há suporte para as seguintes configurações:
 
    * **Azurite: host de blob** -o ponto de extremidade de escuta do serviço BLOB. A configuração padrão é 127.0.0.1.
    * **Azurite: porta de blob** -a porta de escuta do serviço BLOB. A porta padrão é 10000.
-   * **Azurite: Depurar** -saída do log de depuração para o canal azurite. O valor predefinido é **false**.
+   * **Azurite: Depurar** -saída do log de depuração para o canal azurite. O valor padrão é **false**.
    * **Azurite: Location** -o caminho do local do espaço de trabalho. O padrão é a pasta de trabalho Visual Studio Code.
    * **Azurite: host de fila** -o ponto de extremidade de escuta serviço fila. A configuração padrão é 127.0.0.1.
    * **Azurite: porta da fila** -a porta de escuta do serviço fila. A porta padrão é 10001.
-   * **Azurite:** o modo silencioso-silencioso desabilita o log de acesso. O valor predefinido é **false**.
+   * **Azurite:** o modo silencioso-silencioso desabilita o log de acesso. O valor padrão é **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalar e executar o azurite usando o NPM
 
@@ -354,7 +354,7 @@ O azurite dá suporte à replicação com redundância geográfica com acesso de
 
 As contribuições e sugestões para azurite são boas-vindas. Vá para a página do [projeto azurite GitHub](https://github.com/Azure/Azurite/projects) ou problemas do [GitHub](https://github.com/Azure/Azurite/issues) para Marcos e itens de trabalho que estamos acompanhando para futuros recursos e correções de bugs. Os itens de trabalho detalhados também são acompanhados no GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Use o emulador de armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento do Azure herdado, que está sendo substituído pelo azurite.
 * [Configurar cadeias de conexão do armazenamento do Azure](storage-configure-connection-string.md) explica como montar uma cadeia de conexão válida do armazenamento do Azure.

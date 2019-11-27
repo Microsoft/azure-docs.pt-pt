@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515125"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546853"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use transmissão ao vivo de caça no Azure Sentinel para detectar ameaças
 
 > [!IMPORTANT]
-> A caça transmissão ao vivo no Azure Sentinel está atualmente em visualização pública.
+> Buscar transmissão ao vivo no Azure Sentinel está atualmente em visualização pública e distribuíndo gradualmente para locatários.
 > Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -63,7 +63,7 @@ Você pode criar uma sessão transmissão ao vivo de uma consulta de busca exist
     1. Selecione a guia **transmissão ao vivo**
     2. Selecione **ir para transmissão ao vivo**.
     
-4. Na folha **transmissão ao vivo** :
+4. No painel **transmissão ao vivo** :
     
     - Se você iniciou o transmissão ao vivo de uma consulta, examine a consulta e faça as alterações que deseja fazer.
     - Se você iniciou o transmissão ao vivo do zero, crie sua consulta. 
@@ -96,7 +96,7 @@ Como as notificações do transmissão ao vivo para novos eventos usam notifica�
 
 ![Notificação de portal do Azure para transmissão ao vivo](./media/livestream/notification.png)
 
-Selecione a notificação para abrir a folha **transmissão ao vivo** .
+Selecione a notificação para abrir o painel **transmissão ao vivo** .
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>Elevar uma sessão transmissão ao vivo a um alerta
 
@@ -107,7 +107,7 @@ Você pode promover uma sessão transmissão ao vivo para um novo alerta selecio
 
 Essa ação abre o assistente de criação de regras, que é preenchido previamente com a consulta associada à sessão transmissão ao vivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu a usar o transmissão ao vivo de busca no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

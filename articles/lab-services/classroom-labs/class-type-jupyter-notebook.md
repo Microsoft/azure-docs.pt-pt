@@ -1,6 +1,6 @@
 ---
-title: Set up a lab to teach data science with Python and Jupyter Notebooks | Microsoft Docs
-description: Learn how to set up a lab to teach data science using Python and Jupyter Notebooks.
+title: Configurar um laboratório para ensinar ciência de dados com notebooks Python e Jupyter | Microsoft Docs
+description: Saiba como configurar um laboratório para ensinar ciência de dados usando notebooks Python e Jupyter.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -20,60 +20,60 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383982"
 ---
-# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Set up a lab to teach data science with Python and Jupyter Notebooks
+# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar um laboratório para ensinar ciência de dados com notebooks Python e Jupyter
 
-This article outlines how to set up a template machine in Lab Services with the tools needed to teach students how to use [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io).  Jupyter Notebooks is an open-source project that lets you easily combine rich text and executable [Python](https://www.python.org/) source code on a single canvas called a notebook.  Running a notebook results in a linear record of inputs and outputs.  Those outputs can include text, tables of information, scatter plots, and more.
+Este artigo descreve como configurar um computador de modelo no Lab Services com as ferramentas necessárias para ensinar aos alunos como usar [notebooks Jupyter](http://jupyter-notebook.readthedocs.io).  O Jupyter notebooks é um projeto de código-fonte aberto que permite combinar facilmente o código-fonte de Rich Text [e executável em](https://www.python.org/) uma única tela chamada notebook.  A execução de um bloco de anotações resulta em um registro linear de entradas e saídas.  Essas saídas podem incluir texto, tabelas de informações, gráficos de dispersão e muito mais.
 
-## <a name="lab-configuration"></a>Lab configuration
+## <a name="lab-configuration"></a>Configuração do laboratório
 
-To set up this lab, you need an Azure subscription and lab account to get started. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [tutorial to setup a lab account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).  Você também pode usar uma conta de laboratório existente.
 
-### <a name="lab-account-settings"></a>Lab Account Settings
+### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Habilite as configurações descritas na tabela a seguir para a conta do laboratório. Para obter mais informações sobre como habilitar imagens do Marketplace, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
 
-| Lab account setting | Instruções |
+| Configuração de conta do laboratório | Instruções |
 | ------------------- | ------------ |
-| Marketplace image | Enable the [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image for use within your lab account. |
+| Imagem do Marketplace | Habilite a imagem [máquina virtual de ciência de dados-Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) para uso em sua conta de laboratório. |
 
 >[!TIP]
->This article will focus on configuring a template machine that uses the Windows Server operating system.  It's also possible to set up a data science class with Python and Jupyter Notebooks using [Data Science Virtual Machine for Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) or [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) images from the Azure Marketplace.
+>Este artigo se concentrará na configuração de um computador de modelo que usa o sistema operacional Windows Server.  Também é possível configurar uma classe de ciência de dados com notebooks Python e Jupyter usando as imagens [máquina virtual de ciência de dados para Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) ou [máquina virtual de ciência de dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) do Azure Marketplace.
 
-### <a name="lab-settings"></a>Lab settings
+### <a name="lab-settings"></a>Configurações do laboratório
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+Use as configurações na tabela abaixo ao configurar um laboratório de sala de aula.  Para obter mais informações sobre como criar um laboratório de sala de aula, consulte [configurar um tutorial de laboratório de sala de aula](tutorial-setup-classroom-lab.md).
 
-| Lab settings | Value/instructions |
+| Configurações do laboratório | Valor/instruções |
 | ------------ | ------------------ |
-|Virtual Machine Size| Small GPU (Compute). This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|Tamanho da máquina virtual| GPU pequena (computação). Esse tamanho é mais adequado para aplicativos com uso intensivo de computação e rede, como inteligência artificial e aprendizado profundo. |
+|Imagem da máquina virtual| SQL Server 2019 Standard no Windows Server 2019|
 
-## <a name="template-machine"></a>Template machine
+## <a name="template-machine"></a>Computador de modelo
 
-The [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) image provides the necessary deep learning frameworks and tools required for this type of class.  The image includes Jupyter Notebooks and Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) is a web application that allows data scientists to take raw data, run computations, and see the results all in the same environment.  For our template machine, the web application will be running locally.  [Visual Studio Code](https://code.visualstudio.com/) is an IDE that provides a rich interactive experience when writing and testing a notebook.  For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
+A imagem [máquina virtual de ciência de dados-Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) fornece as estruturas e ferramentas de aprendizado profundo necessárias para esse tipo de classe.  A imagem inclui Jupyter notebooks e Visual Studio Code.  O [Jupyter notebooks](http://jupyter-notebook.readthedocs.io) é um aplicativo Web que permite que os cientistas de dados tomem dados brutos, executem cálculos e vejam todos os resultados no mesmo ambiente.  Para o nosso computador de modelo, o aplicativo Web será executado localmente.  [Visual Studio Code](https://code.visualstudio.com/) é um IDE que fornece uma experiência interativa sofisticada ao escrever e testar um notebook.  Para obter mais informações, consulte [trabalhando com notebooks Jupyter no Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-The remaining task to set up the class is to provide local notebooks.  For instructions how to use the Azure Machine Learning samples, see [how to configure an environment with Jupyter Notebooks](../../machine-learning/service/how-to-configure-environment.md#jupyter).  You can also provide your own notebooks on the template machine.  The notebooks will be copied to all student machines when the template is published.
+A tarefa restante para configurar a classe é fornecer blocos de anotações locais.  Para obter instruções sobre como usar os exemplos de Azure Machine Learning, consulte [como configurar um ambiente com notebooks Jupyter](../../machine-learning/service/how-to-configure-environment.md#jupyter).  Você também pode fornecer seus próprios blocos de anotações no computador do modelo.  Os blocos de anotações serão copiados para todos os computadores dos alunos quando o modelo for publicado.
 
 ## <a name="cost-estimate"></a>Estimativa dos custos
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was small gpu (compute), which is 139 lab units.
+Vamos abordar uma possível estimativa de custo para essa classe.  Usaremos uma classe de 25 alunos.  Há 20 horas de tempo de classe agendada.  Além disso, cada aluno recebe uma cota de 10 horas de casa ou atribuições fora do tempo de classe agendado.  O tamanho da máquina virtual que escolhemos era uma GPU pequena (computação), que é 139 unidades de laboratório.
 
-Here is an example of a possible cost estimate for this class:
+Aqui está um exemplo de uma possível estimativa de custo para esta classe:
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 139 lab units \*  0.01 USD per hour  = 1042.5 USD
+25 alunos \* (20 horas agendadas + 10 horas de cota) \* 139 unidades de laboratório \* 0, 1 USD por hora = 1042,5 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+Mais detalhes sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusão
 
-In this article, we walked through the steps to create a lab for a Jupyter Notebooks class. You can use a similar setup for other machine learning classes.
+Neste artigo, percorremos as etapas para criar um laboratório para uma classe Jupyter notebooks. Você pode usar uma configuração semelhante para outras classes de aprendizado de máquina.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Next steps are common to setting up any lab.
+As próximas etapas são comuns à configuração de qualquer laboratório.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Criar e gerenciar um modelo](how-to-create-manage-template.md)
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Definir cota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Definir um agendamento](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Links de registro de email para alunos](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -63,7 +63,7 @@ Azure Monitor para contêineres inclui vários cenários de monitoramento princi
 
 ### <a name="unit-monitors"></a>Monitores de unidade
 
-|**Nome do monitor** | Tipo de monitor | **Descrição** | **Parâmetro** | **Valor** |
+|**Nome do monitor** | Tipo de monitor | **Descrição** | **Meter** | **Valor** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |Utilização de memória do nó |Monitor de unidade |Esse monitor avalia a utilização de memória de um nó a cada minuto, usando os dados relatados do cadvisor. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |Utilização de CPU do nó |Monitor de unidade |Esse monitor verifica a utilização da CPU do nó a cada minuto, usando os dados relatados do cadvisor. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
@@ -85,6 +85,6 @@ Azure Monitor para contêineres inclui vários cenários de monitoramento princi
 |Carga de trabalho do sistema |Esse monitor relata o status de integridade de uma carga de trabalho do Kube. Esse monitor corresponde ao estado do monitor filho com o pior estado de integridade, que é o **pods no monitor de estado pronto** e os contêineres na carga de trabalho). |Pior dos |
 |Contentor |Este monitor relata o status de integridade geral de um contêiner em uma determinada carga de trabalho. Esse monitor corresponde ao estado do monitor filho com o pior estado de integridade, que é o **uso da CPU** e os monitores de **utilização de memória** . |Pior dos |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Exiba [monitorar a integridade do cluster](container-insights-health.md) para saber mais sobre como exibir o status de integridade do cluster kubernetes.

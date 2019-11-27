@@ -1,14 +1,14 @@
 ---
-title: Exemplo de Blueprint do IRS 1075 – implantar etapas
+title: Exemplo de implantação do IRS 1075 Blueprint
 description: Implante as etapas do modelo Blueprint 1075 (Rev. 11-2016) do IRS, incluindo detalhes do parâmetro de artefato do Blueprint.
 ms.date: 11/20/2019
 ms.topic: sample
-ms.openlocfilehash: 033d4b38b7ccaf4d187615ec1df48c200fe5e683
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279494"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546807"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implantar a amostra do IRS 1075 Blueprint
 
@@ -111,7 +111,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Implantar configurações de diagnóstico para grupos de segurança de rede|Atribuição de política|Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede|Esse prefixo será combinado com o local do grupo de segurança de rede para formar o nome da conta de armazenamento criada.|
 |Implantar configurações de diagnóstico para grupos de segurança de rede|Atribuição de política|Nome do grupo de recursos para a conta de armazenamento para diagnóstico do grupo de segurança de rede (deve existir)|O grupo de recursos no qual a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou as etapas para implantar o exemplo de plano gráfico IRS 1075 (Rev. 11-2016), visite os seguintes artigos para saber mais sobre o planejamento de plano gráfico e controle:
 

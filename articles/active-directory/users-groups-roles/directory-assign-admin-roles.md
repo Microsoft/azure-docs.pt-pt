@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266902"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547531"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -326,6 +326,10 @@ Os usuários com essa função têm permissões globais no Microsoft Power BI, q
 
 > [!NOTE]
 > Na API Microsoft Graph, no Azure AD API do Graph e no Azure AD PowerShell, essa função é identificada como "administrador de serviços do Power BI". É "administrador de Power BI" na [portal do Azure](https://portal.azure.com).
+
+### <a name="power-platform-administratorpower-platform-administrator-permissions"></a>[Administrador da plataforma de energia](#power-platform-administrator-permissions)
+
+Os usuários nessa função podem criar e gerenciar todos os aspectos de ambientes, PowerApps, fluxos, políticas de prevenção de perda de dados. Além disso, os usuários com essa função têm a capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço.
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[Administrador de autenticação privilegiada](#privileged-authentication-administrator-permissions)
 
@@ -1345,12 +1349,31 @@ Pode gerenciar todos os aspectos do produto Power BI.
 > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
 >
 >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço do Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Azure. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gerencie todos os aspectos de Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leia as propriedades básicas em todos os recursos no Microsoft. office365. webportal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço do Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Office 365. |
+
+
+### <a name="power-platform-administrator-permissions"></a>Permissões de administrador da plataforma de energia
+
+Pode criar e gerenciar todos os aspectos do Microsoft Dynamics 365, PowerApps e Microsoft Flow. 
+
+> [!NOTE]
+> Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+>
+>
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço do Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Azure. |
+| Microsoft. dynamics365/myentities/tarefas | Gerencie todos os aspectos do Dynamics 365. |
+| Microsoft. Flow/myentities/tarefas | Gerencie todos os aspectos de Microsoft Flow. |
+| Microsoft. powerApps/myentities/tarefas | Gerencie todos os aspectos do PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia as propriedades básicas em todos os recursos no Microsoft. office365. webportal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Office 365. |
@@ -1708,6 +1731,7 @@ Parceiro de Suporte de Escalão 1 | Suporte do nível 1 para parceiros | 4ba39ca
 Parceiro de Suporte de Escalão 2 | Suporte do tier2 para parceiros | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrador de senha | Administrador de senha | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrador do serviço Power BI | Administrador de Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrador da plataforma de energia | Administrador de plataforma Power | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Administrador de autenticação privilegiada | Administrador de autenticação privilegiada | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrador de função com privilégios | Administrador de função com privilégios | e8611ab8-c189-46e8-94e1-60213ab1f814
 Leitor de relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf

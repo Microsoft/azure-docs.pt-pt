@@ -1,6 +1,6 @@
 ---
-title: Disable network policies for private endpoints in Azure
-description: Learn how to disable network policies for private endpoints.
+title: Desabilitar políticas de rede para pontos de extremidade privados no Azure
+description: Saiba como desabilitar as políticas de rede para pontos de extremidade privados.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,16 +14,16 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224813"
 ---
-# <a name="disable-network-policies-for-private-endpoints"></a>Disable network policies for private endpoints
+# <a name="disable-network-policies-for-private-endpoints"></a>Desabilitar políticas de rede para pontos de extremidade privados
 
-Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy a Private Endpoint on a given subnet, an explicit disable setting is required on that subnet. This setting is only applicable for the Private Endpoint. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
+Não há suporte para as políticas de rede, como NSG (grupos de segurança de rede) para pontos de extremidade privados. Para implantar um ponto de extremidade privado em uma determinada sub-rede, uma configuração de desabilitação explícita é necessária nessa sub-rede. Essa configuração é aplicável somente para o ponto de extremidade privado. Para outros recursos na sub-rede, o acesso é controlado com base na definição de regras de segurança de NSG (grupos de segurança de rede). 
  
-When using the portal to create a private endpoint, this setting is automatically disabled as part of the create process. Deployment using other clients requires an additional step to change this setting. You can disable the setting using cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
+Ao usar o portal para criar um ponto de extremidade privado, essa configuração é automaticamente desabilitada como parte do processo de criação. A implantação usando outros clientes requer uma etapa adicional para alterar essa configuração. Você pode desabilitar a configuração usando o Cloud shell do portal do Azure, ou instalações locais do Azure PowerShell, CLI do Azure ou usar modelos de Azure Resource Manager.  
  
-The following examples describe how to disable `PrivateEndpointNetworkPolicies` for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
+Os exemplos a seguir descrevem como desabilitar `PrivateEndpointNetworkPolicies` para uma rede virtual chamada *myVirtualNetwork* com uma sub-rede *padrão* hospedada em um grupo de recursos chamado *MyResource*Group.
 
-## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
-This section describes how to disable subnet private endpoint policies using Azure PowerShell.
+## <a name="using-azure-powershell"></a>Com o Azure PowerShell
+Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Utilizar a CLI do Azure
-This section describes how to disable subnet private endpoint policies using Azure CLI.
+Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando CLI do Azure.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -43,8 +43,8 @@ az network vnet subnet update \
   --vnet-name myVirtualNetwork \ 
   --disable-private-endpoint-network-policies true
 ```
-## <a name="using-a-template"></a>Using a template
-This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+## <a name="using-a-template"></a>Usando um modelo
+Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando Azure Resource Manager modelo.
 ```json
 { 
           "name": "myVirtualNetwork", 
@@ -69,6 +69,6 @@ This section describes how to disable subnet private endpoint policies using Azu
           } 
 } 
 ```
-## <a name="next-steps"></a>Passos seguintes
-- Learn more about [Azure private endpoint](private-endpoint-overview.md)
+## <a name="next-steps"></a>Passos Seguintes
+- Saiba mais sobre o [ponto de extremidade privado do Azure](private-endpoint-overview.md)
  

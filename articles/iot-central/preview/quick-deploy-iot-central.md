@@ -56,7 +56,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Examine os termos e condições e selecione **criar** na parte inferior da página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou uma aplicação do IoT Central. O passo seguinte sugerido é:
 

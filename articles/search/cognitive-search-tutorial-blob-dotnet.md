@@ -691,7 +691,7 @@ Por fim, aprendeu como testar os resultados e repor o sistema para iterações f
 
 A maneira mais rápida de limpar após um tutorial é excluindo o grupo de recursos que contém o serviço de Pesquisa Cognitiva do Azure e o serviço blob do Azure. Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
 

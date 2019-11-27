@@ -76,9 +76,9 @@ Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Exibir a integridade de um cluster AKS ou não AKS
 
-O acesso ao recurso de integridade do Azure Monitor para contêineres (versão prévia) está disponível diretamente de um cluster AKS selecionando **insights** no painel esquerdo na portal do Azure. Sob o **Insights** secção, selecione **contentores**. 
+O acesso ao recurso de integridade do Azure Monitor para contêineres (versão prévia) está disponível diretamente de um cluster AKS selecionando **insights** no painel esquerdo na portal do Azure. Na seção **insights** , selecione **contêineres**. 
 
-Para exibir a integridade de um cluster não AKS, que é um cluster do AKS Engine hospedado localmente ou em Azure Stack, selecione **Azure monitor** no painel esquerdo na portal do Azure. Sob o **Insights** secção, selecione **contentores**.  Na página de vários clusters, selecione o cluster não AKS na lista.
+Para exibir a integridade de um cluster não AKS, que é um cluster do AKS Engine hospedado localmente ou em Azure Stack, selecione **Azure monitor** no painel esquerdo na portal do Azure. Na seção **insights** , selecione **contêineres**.  Na página de vários clusters, selecione o cluster não AKS na lista.
 
 Em Azure Monitor para contêineres, na página **cluster** , selecione **integridade**.
 
@@ -109,6 +109,6 @@ No painel de propriedades, você aprende o seguinte:
 
 Os dados de monitoramento nesta página não são atualizados automaticamente e você precisa selecionar **Atualizar** na parte superior da página para ver o estado de integridade mais recente recebido do cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.

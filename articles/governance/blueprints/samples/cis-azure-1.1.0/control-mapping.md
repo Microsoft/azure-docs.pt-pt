@@ -1,14 +1,14 @@
 ---
-title: Exemplo de plano gráfico de benchmark do CIS Microsoft Azure Foundation-mapeamento de recomendação
+title: Controles de exemplo de plano de referência do CIS Microsoft Azure Foundations
 description: Mapeamento de recomendação do exemplo de plano de referência do CIS Microsoft Azure Foundations para Azure Policy.
 ms.date: 10/01/2019
 ms.topic: sample
-ms.openlocfilehash: 7974a5f9e5ccca41cdaa838cf05e3861dbae1b8d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038430"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544533"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
 
@@ -351,7 +351,7 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 - Aplicação Web só deve estar acessível através de HTTPS
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do plano de referência do CIS Microsoft Azure Foundations, visite os artigos a seguir para saber mais sobre o plano gráfico ou visite Azure Policy no portal do Azure para atribuir a iniciativa:
 

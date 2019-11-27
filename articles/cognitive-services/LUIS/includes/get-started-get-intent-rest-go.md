@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Go
+title: Obter a intenção com a chamada REST em go
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -19,7 +19,7 @@ ms.locfileid: "74414497"
 
 * Linguagem de programação [Go](https://golang.org/)  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74414497"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Use Go para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) e obter um resultado de previsão.
 
 1. Crie um novo ficheiro com o nome `predict.go`. Adicione o seguinte código:
     
@@ -83,18 +83,18 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
     }
     ```
 
-1. Replace the following values:
+1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` with your starter key.
-    * `YOUR-ENDPOINT` with your endpoint. Por exemplo, `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` com a sua chave inicial.
+    * `YOUR-ENDPOINT` com seu ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
+1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, digite o seguinte comando para compilar o arquivo Go:
 
     ```console
     go build predict.go
     ```  
 
-1. Execute a aplicação do Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
+1. Execute a aplicação Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
 
     ```console
     go run predict.go
@@ -111,7 +111,7 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    JSON formatted for readability:
+    JSON formatado para facilitar a leitura:
 
     ```json
     {
@@ -161,9 +161,9 @@ Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you are finished with this quickstart, delete the file from the file system. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)

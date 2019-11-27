@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Manage Private Endpoints in Azure
-description: Learn how to create a Private Endpoint using the Azure portal in this Quickstart
+title: Início rápido-gerenciar pontos de extremidade privados no Azure
+description: Saiba como criar um ponto de extremidade privado usando o portal do Azure neste guia de início rápido
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,199 +14,199 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74419762"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Quickstart: Create a Private Endpoint using Azure portal
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início rápido: criar um ponto de extremidade privado usando portal do Azure
 
-A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using the Azure Portal. Then, you can securely access the SQL Database Server from the VM.
+Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual do Azure, um servidor de banco de dados SQL com um ponto de extremidade privado do Azure usando o portal do Azure. Em seguida, você pode acessar com segurança o servidor do banco de dados SQL da VM.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 > [!NOTE]
-> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
+> Não são permitidos pontos de extremidade particulares em conjunto com pontos de extremidades de serviço na mesma sub-rede!
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vm"></a>Criar uma VM
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource (a SQL server in Azure in this example).
+Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM que é usada para acessar seu recurso de link privado (um SQL Server no Azure neste exemplo).
 
-### <a name="create-the-virtual-network"></a>Create the virtual network
+### <a name="create-the-virtual-network"></a>Criar a rede virtual
 
 
-In this section, you will create a Virtual Network and the subnet to host the VM that is used to access your Private Link resource.
+Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM que é usada para acessar o recurso de link privado.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
-1. In **Create virtual network**, enter or select this information:
+1. No lado superior esquerdo da tela, selecione **criar um recurso** > **rede** > **rede virtual**.
+1. Em **criar rede virtual**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Enter *MyVirtualNetwork*. |
-    | Espaço de endereços | Enter *10.1.0.0/16*. |
+    | Nome | Insira *MyVirtualNetwork*. |
+    | Espaço de endereços | Insira *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
-    | Localização | Select **WestCentralUS**.|
-    | Subnet - Name | Enter *mySubnet*. |
-    | Sub-rede - Intervalo de endereços | Enter *10.1.0.0/24*. |
+    | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK**. |
+    | Localização | Selecione **WestCentralUS**.|
+    | Nome da sub-rede | Insira *mysubnet*. |
+    | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
-1. Leave the rest as default and select **Create**.
+1. Deixe o restante como padrão e selecione **criar**.
 
 
 ### <a name="create-virtual-machine"></a>Criar Máquina Virtual
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual Machine**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **computação** > **máquina virtual**.
 
-1. In **Create a virtual machine - Basics**, enter or select this information:
+1. Em **criar uma máquina virtual-noções básicas**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | **PROJECT DETAILS** | |
+    | **DETALHES DO PROJETO** | |
     | Subscrição | Selecione a sua subscrição. |
-    | Grupo de recursos | Select **myResourceGroup**. You created this in the previous section.  |
-    | **INSTANCE DETAILS** |  |
-    | Nome da máquina virtual | Enter *myVm*. |
-    | Região | Select **WestCentralUS**. |
-    | Availability options | Leave the default **No infrastructure redundancy required**. |
-    | Imagem | Select **Windows Server 2019 Datacenter**. |
-    | Tamanho | Leave the default **Standard DS1 v2**. |
-    | **ADMINISTRATOR ACCOUNT** |  |
-    | Nome de utilizador | Enter a username of your choosing. |
+    | Grupo de recursos | Selecione **Myresourceattribute**. Você criou isso na seção anterior.  |
+    | **DETALHES DA INSTÂNCIA** |  |
+    | Nome da máquina virtual | Insira *myVm*. |
+    | Região | Selecione **WestCentralUS**. |
+    | Opções de disponibilidade | Deixe o padrão **nenhuma redundância de infraestrutura necessária**. |
+    | Imagem | Selecione **Windows Server 2019 datacenter**. |
+    | Tamanho | Deixe o **DS1 v2**padrão. |
+    | **CONTA DE ADMINISTRADOR** |  |
+    | Nome de Utilizador | Insira um nome de usuário de sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Reenter password. |
-    | **INBOUND PORT RULES** |  |
-    | Public inbound ports | Leave the default **None**. |
-    | **SAVE MONEY** |  |
-    | Already have a Windows license? | Leave the default **No**. |
+    | Confirmar senha | Digite a senha novamente. |
+    | **REGRAS DE PORTA DE ENTRADA** |  |
+    | Portas de entrada públicas | Deixe o padrão **nenhum**. |
+    | **ECONOMIZE DINHEIRO** |  |
+    | Já tem uma licença do Windows? | Deixe o padrão **não**. |
     |||
 
-1. Select **Next: Disks**.
+1. Selecione **Avançar: discos**.
 
-1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
+1. Em **criar uma máquina virtual-discos**, deixe os padrões e selecione **Avançar: rede**.
 
-1. In **Create a virtual machine - Networking**, select this information:
+1. Em **criar uma máquina virtual-rede**, selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Rede virtual | Leave the default **MyVirtualNetwork**.  |
-    | Espaço de endereços | Leave the default **10.1.0.0/24**.|
-    | Subrede | Leave the default **mySubnet (10.1.0.0/24)** .|
-    | IP público | Leave the default **(new) myVm-ip**. |
-    | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **HTTP** and **RDP**.|
+    | Rede virtual | Deixe o **MyVirtualNetwork**padrão.  |
+    | Espaço de endereços | Deixe o **10.1.0.0/24**padrão.|
+    | Subnet | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
+    | IP público | Deixe o padrão **(novo) myVm-IP**. |
+    | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
+    | Selecionar portas de entrada | Selecione **http** e **RDP**.|
     |||
 
 
-1. Selecione **Rever + criar**. You're taken to the **Review + create** page where Azure validates your configuration.
+1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração.
 
-1. When you see the **Validation passed** message, select **Create**.
+1. Quando você vir a mensagem **validação aprovada** , selecione **criar**.
 
-## <a name="create-a-sql-database-server"></a>Create a SQL database server
-In this section, you will create a SQL database server in Azure. 
+## <a name="create-a-sql-database-server"></a>Criar um servidor de banco de dados SQL
+Nesta seção, você criará um servidor de banco de dados SQL no Azure. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL database**.
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **bancos** de **dados > banco de dados SQL**.
 
-1. In **Create SQL database - Basics**, enter or select this information:
+1. Em **criar banco de dados SQL-noções básicas**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Database details** | |
+    | **Detalhes do banco de dados** | |
     | Subscrição | Selecione a sua subscrição. |
-    | Grupo de recursos | Select **myResourceGroup**. You created this in the previous section.|
-    | **INSTANCE DETAILS** |  |
-    | Nome da base de dados  | Enter *mydatabase*. If this name is taken, create a unique name. |
+    | Grupo de recursos | Selecione **Myresourceattribute**. Você criou isso na seção anterior.|
+    | **DETALHES DA INSTÂNCIA** |  |
+    | Nome da base de dados  | Digite *MyDatabase*. Se esse nome for obtido, crie um nome exclusivo. |
     |||
-5. In **Server**, select **Create new**. 
-6. In **New server**, enter or select this information:
+5. Em **servidor**, selecione **criar novo**. 
+6. Em **novo servidor**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    |Nome do servidor  | Enter *myserver*. If this name is taken, create a unique name.|
-    | Início de sessão de administrador do servidor| Enter an administrator name of your choosing. |
-    | Palavra-passe | Introduza uma palavra-passe à sua escolha. The password must be at least 8 characters long and meet the defined requirements. |
-    | Localização | Select an Azure region where you want to want your SQL Server to reside. |
+    |Nome do servidor  | Digite *meuservidor*. Se esse nome for obtido, crie um nome exclusivo.|
+    | Início de sessão de administrador do servidor| Insira um nome de administrador de sua escolha. |
+    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A senha deve ter pelo menos 8 caracteres e atender aos requisitos definidos. |
+    | Localização | Selecione uma região do Azure na qual deseja que o SQL Server resida. |
     
 7. Selecione **OK**. 
-8. Selecione **Rever + criar**. You're taken to the **Review + create** page where Azure validates your configuration. 
-9. When you see the Validation passed message, select **Create**. 
-10. When you see the Validation passed message, select Create. 
+8. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração. 
+9. Quando você vir a mensagem validação aprovada, selecione **criar**. 
+10. Quando você vir a mensagem validação aprovada, selecione criar. 
 
-## <a name="create-a-private-endpoint"></a>Create a private endpoint
+## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 
-In this section, you will create a SQL server and add a private endpoint to it. 
+Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade privado a ele. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)** .
-2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
-1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **rede** > **central de links privado (versão prévia)** .
+2. No **central de links privado-visão geral**, na opção de **criar uma conexão privada com um serviço**, selecione **Iniciar**.
+1. Em **criar um ponto de extremidade privado (visualização)-noções básicas**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Project details** | |
+    | **Detalhes do projeto** | |
     | Subscrição | Selecione a sua subscrição. |
-    | Grupo de recursos | Select **myResourceGroup**. You created this in the previous section.|
-    | **INSTANCE DETAILS** |  |
-    | Nome | Enter * myPrivateEndpoint*. If this name is taken, create a unique name. |
-    |Região|Select **WestCentralUS**.|
+    | Grupo de recursos | Selecione **Myresourceattribute**. Você criou isso na seção anterior.|
+    | **DETALHES DA INSTÂNCIA** |  |
+    | Nome | Insira * myPrivateEndpoint*. Se esse nome for obtido, crie um nome exclusivo. |
+    |Região|Selecione **WestCentralUS**.|
     |||
-5. Select **Next: Resource**.
-6. In **Create a private endpoint - Resource**, enter or select this information:
+5. Selecione **Avançar: recurso**.
+6. Em **criar um ponto de extremidade privado-recurso**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    |Método de ligação  | Select connect to an Azure resource in my directory.|
+    |Método de ligação  | Selecione conectar a um recurso do Azure em meu diretório.|
     | Subscrição| Selecione a sua subscrição. |
-    | Tipo de recurso | Select **Microsoft.Sql/servers**. |
-    | Recurso |Select *myServer*|
-    |Target sub-resource |Select *sqlServer*|
+    | Tipo de recurso | Selecione **Microsoft. SQL/Servers**. |
+    | Resource |Selecionar *meuservidor*|
+    |Sub-recurso de destino |Selecionar *sqlServer*|
     |||
-7. Select **Next: Configuration**.
-8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
+7. Selecione **Avançar: configuração**.
+8. Em **criar um ponto de extremidade privado (visualização)-configuração**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    |**NETWORKING**| |
-    | Rede virtual| Select *MyVirtualNetwork*. |
-    | Subrede | Select *mySubnet*. |
-    |**PRIVATE DNS INTEGRATION**||
-    |Integrate with private DNS zone |Selecione **Sim**. |
-    |Private DNS Zone |Select *(New)privatelink.database.windows.net* |
+    |**REDE**| |
+    | Rede virtual| Selecione *MyVirtualNetwork*. |
+    | Subnet | Selecione *mysubnet*. |
+    |**INTEGRAÇÃO DE DNS PRIVADO**||
+    |Integrar com a zona DNS privada |Selecione **Sim**. |
+    |Zona de DNS privado |Selecione *(novo) privatelink. Database. Windows. net* |
     |||
 
-1. Selecione **Rever + criar**. You're taken to the **Review + create** page where Azure validates your configuration. 
-2. When you see the **Validation passed** message, select **Create**. 
+1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração. 
+2. Quando você vir a mensagem **validação aprovada** , selecione **criar**. 
  
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Connect to a VM using Remote Desktop (RDP)
+## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conectar-se a uma VM usando Área de Trabalho Remota (RDP)
 
 
-After you've created **myVm*, connect to it from the internet as follows: 
+Depois de criar **myVm*, conecte-se a ele da Internet da seguinte maneira: 
 
-1. In the portal's search bar, enter *myVm*.
+1. Na barra de pesquisa do portal, insira *myVm*.
 
-1. Selecione o botão **Ligar**. After selecting the **Connect** button, **Connect to virtual machine** opens.
+1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
 
-1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol ( *.rdp*) file and downloads it to your computer.
+1. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
 
-1. Open the downloaded.rdp* file.
+1. Abra o arquivo. rdp * baixado.
 
     1. Se lhe for pedido, selecione **Ligar**.
 
-    1. Enter the username and password you specified when creating the VM.
+    1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
+        > Talvez seja necessário selecionar **mais escolhas** > **usar uma conta diferente**, para especificar as credenciais inseridas quando você criou a VM.
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. If you receive a certificate warning, select **Yes** or **Continue**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se você receber um aviso de certificado, selecione **Sim** ou **continuar**.
 
-1. Once the VM desktop appears, minimize it to go back to your local desktop.  
+1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para a área de trabalho local.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Access the SQL database server privately from the VM
+## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL de forma privada da VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
-2. Enter `nslookup myserver.database.windows.net`. 
+2. Insira `nslookup myserver.database.windows.net`. 
 
-    You'll receive a message similar to this:
+    Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -215,29 +215,29 @@ After you've created **myVm*, connect to it from the internet as follows:
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+3. Instale o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. In **Connect to server**, enter or select this information:
+4. Em **conectar ao servidor**, insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **Motor de Base de Dados**.|
-    | Nome do servidor| Select *myserver.database.windows.net* |
-    | Nome de utilizador | Enter username as username@servername which is provided during the SQL server creation. |
-    |Palavra-passe |Enter a password provided during the SQL server creation. |
-    |Remember password|Selecione **Sim**.|
+    | Nome do servidor| Selecionar *MyServer.Database.Windows.net* |
+    | Nome de utilizador | Insira o nome de usuário como username@servername que é fornecido durante a criação do SQL Server. |
+    |Palavra-passe |Insira uma senha fornecida durante a criação do SQL Server. |
+    |Lembrar senha|Selecione **Sim**.|
     |||
 1. Selecione **Ligar**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+2. Procurar bancos de dados no menu à esquerda.
+3. Opcionalmente Criar ou consultar informações de MyDatabase.
+4. Feche a conexão de área de trabalho remota para *myVm*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
+Quando você terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
+1. Insira o *MyResource* na caixa de **pesquisa** na parte superior do portal e selecione o *MyResource* nos resultados da pesquisa. 
 2. Selecione **Eliminar grupo de recursos**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+Neste guia de início rápido, você criou uma VM em uma rede virtual, um servidor de banco de dados SQL e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM da Internet e se comunica com segurança ao servidor do banco de dados SQL usando o link privado. Para saber mais sobre pontos de extremidade privados, consulte [o que é o ponto de extremidades privado do Azure?](private-endpoint-overview.md).

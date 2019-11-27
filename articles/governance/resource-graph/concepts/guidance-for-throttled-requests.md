@@ -233,7 +233,7 @@ Forneça estes detalhes:
 - Em que tipos de recursos você está interessado?
 - Qual é seu padrão de consulta? X consultas por Y segundos etc.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

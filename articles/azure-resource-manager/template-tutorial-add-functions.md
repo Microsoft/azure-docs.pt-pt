@@ -1,6 +1,6 @@
 ---
-title: Tutorial - add template functions
-description: Add template functions to your Azure Resource Manager template to construct values.
+title: Tutorial – adicionar funções de modelo
+description: Adicione funções de modelo ao seu modelo de Azure Resource Manager para construir valores.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,41 +12,41 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74405965"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: Add template functions to your Resource Manager template
+# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: adicionar funções de modelo ao seu modelo do Resource Manager
 
-In this tutorial, you learn how to add [template functions](resource-group-template-functions.md) to your template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+Neste tutorial, você aprenderá a adicionar [funções de modelo](resource-group-template-functions.md) ao seu modelo. Você usa funções para construir valores dinamicamente. Além dessas funções de modelo fornecidas pelo sistema, você também pode criar [funções definidas pelo usuário](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-We recommend that you complete the [tutorial about parameters](template-tutorial-add-parameters.md), but it's not required.
+Recomendamos que você conclua o [tutorial sobre os parâmetros](template-tutorial-add-parameters.md), mas isso não é necessário.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Review template
+## <a name="review-template"></a>Modelo de revisão
 
-At the end of the previous tutorial, your template had the following JSON:
+No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
 
-The location of the storage account is hard-coded to **East US**. However, you may need to deploy the storage account to other regions. You're again facing an issue of your template lacking flexibility. You could add a parameter for location, but it would be great if its default value made more sense than just a hard-coded value.
+O local da conta de armazenamento é embutido no código para **leste dos EUA**. No entanto, talvez seja necessário implantar a conta de armazenamento em outras regiões. Você está voltado para um problema de seu modelo sem flexibilidade. Você pode adicionar um parâmetro para local, mas seria ótimo se seu valor padrão fazia mais sentido do que apenas um valor embutido em código.
 
-## <a name="use-function"></a>Use function
+## <a name="use-function"></a>Usar função
 
-If you've completed the previous tutorial in this series, you've already used a function. When you added **"[parameters('storageName')]"** , you used the [parameters](resource-group-template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
+Se você tiver concluído o tutorial anterior nesta série, já usou uma função. Quando você adicionou **"[Parameters (' storagename ')]"** , usou a função [Parameters](resource-group-template-functions-deployment.md#parameters) . Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Gerenciador de recursos resolve a sintaxe em vez de tratá-la como um valor literal.
 
-Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
+As funções adicionam flexibilidade ao modelo ao obter valores dinamicamente durante a implantação. Neste tutorial, você usa uma função para obter o local do grupo de recursos que você está usando para implantação.
 
-The following example highlights the changes to add a parameter called **location**.  The parameter default value calls the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
+O exemplo a seguir realça as alterações para adicionar um parâmetro chamado **Location**.  O valor padrão do parâmetro chama a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Essa função retorna um objeto com informações sobre o grupo de recursos que está sendo usado para implantação. Uma das propriedades no objeto é uma propriedade Location. Quando você usa o valor padrão, o local da conta de armazenamento tem o mesmo local que o grupo de recursos. Os recursos dentro de um grupo de recursos não precisam compartilhar o mesmo local. Você também pode fornecer um local diferente quando necessário.
 
-Copy the whole file and replace your template with its contents.
+Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-In the previous tutorials, you created a storage account in East US, but your resource group was created in Central US. For this tutorial, your storage account is created in the same region as the resource group. Use the default value for location, so you don't need to provide that parameter value. You must provide a new name for the storage account because you're creating a storage account in a different location. For example, use **store2** as the prefix instead of **store1**.
+Nos tutoriais anteriores, você criou uma conta de armazenamento no leste dos EUA, mas seu grupo de recursos foi criado no EUA Central. Para este tutorial, sua conta de armazenamento é criada na mesma região que o grupo de recursos. Use o valor padrão para local, para que você não precise fornecer esse valor de parâmetro. Você deve fornecer um novo nome para a conta de armazenamento porque está criando uma conta de armazenamento em um local diferente. Por exemplo, use **Store2** como o prefixo em vez de **Store1**.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -72,27 +72,27 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. From the left menu, select **Resource groups**.
-1. Select the resource group you deployed to.
-1. You see that a storage account resource has been deployed and has the same location as the resource group.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. No menu à esquerda, selecione **grupos de recursos**.
+1. Selecione o grupo de recursos no qual você implantou.
+1. Você verá que um recurso de conta de armazenamento foi implantado e tem o mesmo local que o grupo de recursos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this tutorial, you used a function when defining the default value for a parameter. In this tutorial series, you'll continue using functions. By the end of the series, you'll add functions to every section of the template.
+Neste tutorial, você usou uma função ao definir o valor padrão para um parâmetro. Nesta série de tutoriais, você continuará usando o functions. Ao final da série, você adicionará funções a cada seção do modelo.
 
 > [!div class="nextstepaction"]
-> [Add variables](template-tutorial-add-variables.md)
+> [Adicionar variáveis](template-tutorial-add-variables.md)

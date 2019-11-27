@@ -1,6 +1,6 @@
 ---
-title: Create an IoT Plug and Play Preview device (Windows) | Microsoft Docs
-description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
+title: Criar um dispositivo de visualização de Plug and Play IoT (Windows) | Microsoft Docs
+description: Use um modelo de funcionalidade de dispositivo para gerar o código do dispositivo. Em seguida, execute o código do dispositivo e veja o dispositivo conectar-se ao Hub IoT.
 author: miagdp
 ms.author: miag
 ms.date: 08/02/2019
@@ -15,34 +15,34 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74405819"
 ---
-# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Quickstart: Use a device capability model to create an IoT Plug and Play Preview device (Windows)
+# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo de visualização de Plug and Play IoT (Windows)
 
-A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code on Windows to create an IoT Plug and Play device using a DCM.
+Um DCM ( _modelo de funcionalidade de dispositivo_ ) descreve os recursos de um dispositivo de plug and Play IOT. Um DCM geralmente é associado a um SKU de produto. Os recursos definidos no DCM são organizados em interfaces reutilizáveis. Você pode gerar um esqueleto de código de dispositivo de um DCM. Este guia de início rápido mostra como usar VS Code no Windows para criar um dispositivo de Plug and Play de IoT usando um DCM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To complete this quickstart, you need to install the following software on your local machine:
+Para concluir este guia de início rápido, você precisa instalar o seguinte software em seu computador local:
 
-* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) with **C++ build tools** and **NuGet package manager component** workloads. Or if you already have [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 or 2015 with same workloads installed.
+* [Ferramentas de Build para Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com  **C++ ferramentas de compilação** e cargas de trabalho de **componente do Gerenciador de pacotes NuGet** . Ou, se você já tiver o [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-### <a name="install-azure-iot-tools"></a>Install Azure IoT Tools
+### <a name="install-azure-iot-tools"></a>Instalar as ferramentas do Azure IoT
 
-Use the following steps to install the [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack:
+Use as etapas a seguir para instalar as [Ferramentas do Azure IOT para](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o pacote de extensão vs Code:
 
-1. In VS Code, select the **Extensions** tab.
-1. Search for **Azure IoT Tools**.
+1. Em VS Code, selecione a guia **extensões** .
+1. Pesquise pelas **Ferramentas do Azure IOT**.
 1. Selecione **Instalar**.
 
-### <a name="install-the-azure-iot-explorer"></a>Install the Azure IoT explorer
+### <a name="install-the-azure-iot-explorer"></a>Instalar o Azure IoT Explorer
 
-Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
+Baixe e instale a versão mais recente do **Azure IOT Explorer** na página [repositório](https://github.com/Azure/azure-iot-explorer/releases) da ferramenta, selecionando o arquivo. msi em "ativos" para a atualização mais recente.
 
-### <a name="get-the-connection-string-for-your-company-model-repository"></a>Get the connection string for your company model repository
+### <a name="get-the-connection-string-for-your-company-model-repository"></a>Obter a cadeia de conexão para o repositório de modelos da empresa
 
-You can find your _company model repository connection string_ in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) portal when you sign in with a Microsoft work or school account, or your Microsoft Partner ID if you have one. After you sign in, select **Company repository** and then **Connection strings**.
+Você pode encontrar a _cadeia de conexão do repositório de modelos da empresa_ no portal do [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) ao entrar com uma conta corporativa ou de estudante da Microsoft, ou sua ID de parceiro da Microsoft, se você tiver uma. Depois de entrar, selecione **repositório da empresa** e, em seguida, **cadeias de conexão**.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,9 +50,9 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
-In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) library manager to install the Azure IoT C device SDK in your development environment.
+Neste guia de início rápido, você usa o Gerenciador de biblioteca do [Vcpkg](https://github.com/microsoft/vcpkg) para instalar o SDK do dispositivo do Azure IOT C em seu ambiente de desenvolvimento.
 
-1. Abra uma linha de comandos. Execute the following command to install Vcpkg:
+1. Abra uma linha de comandos. Execute o seguinte comando para instalar o Vcpkg:
 
     ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
@@ -61,71 +61,71 @@ In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) libr
     .\bootstrap-vcpkg.bat
     ```
 
-    Then, to hook up user-wide [integration](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md), run the following (note: requires admin on first use):
+    Em seguida, para conectar a [integração](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md)de todo o usuário, execute o seguinte (Observação: requer administrador no primeiro uso):
 
     ```cmd
     .\vcpkg.exe integrate install
     ```
 
-1. Install Azure IoT C device SDK Vcpkg:
+1. Instalar o SDK do dispositivo do Azure IoT C Vcpkg:
 
     ```cmd
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
-## <a name="author-your-model"></a>Author your model
+## <a name="author-your-model"></a>Crie seu modelo
 
-In this quickstart, you use an existing sample device capability model and associated interfaces.
+Neste guia de início rápido, você usa um modelo de funcionalidade de dispositivo de exemplo existente e as interfaces associadas.
 
-1. Create a `pnp_app` directory in your local drive. You use this folder for the device model files and device code stub.
+1. Crie um diretório `pnp_app` na unidade local. Você usa essa pasta para os arquivos de modelo de dispositivo e o stub de código de dispositivo.
 
-1. Download the [device capability model and interface sample files](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
+1. Baixe o [modelo de funcionalidade do dispositivo e os arquivos de exemplo da interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) e o [exemplo de interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salve os arquivos na pasta `pnp_app`.
 
     > [!TIP]
-    > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
+    > Para baixar um arquivo do GitHub, navegue até o arquivo, clique com o botão direito do mouse em **RAW**e selecione **Salvar link como**.
 
-1. Open `pnp_app` folder with VS Code. You can view the files with IntelliSense:
+1. Abra `pnp_app` pasta com VS Code. Você pode exibir os arquivos com o IntelliSense:
 
-    ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
+    ![Modelo de funcionalidade do dispositivo](media/quickstart-create-pnp-device/dcm.png)
 
-1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+1. Nos arquivos que você baixou, substitua `<YOUR_COMPANY_NAME_HERE>` nos campos `@id` e `schema` com um valor exclusivo. Use somente os caracteres a-z, A-Z, 0-9 e sublinhado. Para obter mais informações, consulte [formato do identificador de entrelaça digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
-## <a name="generate-the-c-code-stub"></a>Generate the C code stub
+## <a name="generate-the-c-code-stub"></a>Gerar o stub do código C
 
-Now that you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS Code:
+Agora que você tem um DCM e suas interfaces associadas, você pode gerar o código do dispositivo que implementa o modelo. Para gerar o stub do código C no VS Code:
 
-1. With the `pnp_app` folder open in VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
+1. Com a pasta `pnp_app` aberta no VS Code, use **Ctrl + Shift + P** para abrir a paleta de comandos, insira **plug and Play de IOT**e selecione **gerar stub de código de dispositivo**.
 
     > [!NOTE]
-    > The first time you use the IoT Plug and Play CodeGen CLI, it takes a few seconds to download and install automatically.
+    > Na primeira vez que você usar a CLI do CodeGen do IoT Plug and Play, levará alguns segundos para baixar e instalar automaticamente.
 
-1. Choose the **SampleDevice.capabilitymodel.json** file to use for generating the device code stub.
+1. Escolha o arquivo **SampleDevice. capabilitymodel. JSON** a ser usado para gerar o stub do código de dispositivo.
 
-1. Enter the project name **sample_device**. This will be the name of your device application.
+1. Insira o nome do projeto **sample_device**. Esse será o nome do aplicativo do dispositivo.
 
-1. Choose **ANSI C** as your language.
+1. Escolha **ANSI C** como seu idioma.
 
-1. Choose **Via IoT Hub device connection string** as connection method.
+1. Escolha **por meio da cadeia de conexão do dispositivo Hub IOT** como método de conexão.
 
-1. Choose **CMake Project on Windows** as your project template.
+1. Escolha **projeto CMake no Windows** como seu modelo de projeto.
 
-1. Choose **Via Vcpkg** as the way to include the device SDK.
+1. Escolha **por meio de Vcpkg** como a maneira de incluir o SDK do dispositivo.
 
-1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
-    ![Device code](media/quickstart-create-pnp-device/device-code.png)
+1. Uma nova pasta chamada **sample_device** é criada no mesmo local que o arquivo DCM e, nele, são os arquivos stub de código de dispositivo gerados. VS Code abre uma nova janela para exibi-las.
+    ![o código do dispositivo](media/quickstart-create-pnp-device/device-code.png)
 
-## <a name="build-and-run-the-code"></a>Build and run the code
+## <a name="build-and-run-the-code"></a>Compilar e executar o código
 
-You use the device SDK source code to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+Você usa o código-fonte do SDK do dispositivo para criar o stub do código de dispositivo gerado. O aplicativo que você cria simula um dispositivo que se conecta a um hub IoT. O aplicativo envia telemetria e propriedades e recebe comandos.
 
-1. Create a `cmake` subdirectory in the `sample_device` folder, and navigate to that folder:
+1. Crie um subdiretório `cmake` na pasta `sample_device` e navegue até essa pasta:
 
     ```cmd
     mkdir cmake
     cd cmake
     ```
 
-1. Run the following commands to build the generated code stub (replacing the placeholder with the directory of your Vcpkg repo):
+1. Execute os seguintes comandos para compilar o stub de código gerado (substituindo o espaço reservado pelo diretório do seu repositório Vcpkg):
 
     ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
@@ -134,7 +134,7 @@ You use the device SDK source code to build the generated device code stub. The 
     ```
     
     > [!NOTE]
-    > If you are using Visual Studio 2017 or 2015, you need to specify the CMake generator based on the build tools you are using:
+    > Se você estiver usando o Visual Studio 2017 ou 2015, precisará especificar o gerador de CMake com base nas ferramentas de compilação que você está usando:
     >```cmd
     ># Either
     >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
@@ -143,75 +143,75 @@ You use the device SDK source code to build the generated device code stub. The 
     >```
 
     > [!NOTE]
-    > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    > Se o CMake não conseguir C++ localizar seu compilador, você obterá erros de compilação ao executar o comando anterior. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. After the build completes successfully, run your application, passing the IoT hub device connection string as a parameter.
+1. Depois que a compilação for concluída com êxito, execute o aplicativo, passando a cadeia de conexão do dispositivo do Hub IoT como um parâmetro.
 
     ```cmd
     .\Debug\sample_device.exe "<device connection string>"
     ```
 
-1. The device application starts sending data to IoT Hub.
+1. O aplicativo do dispositivo começa a enviar dados para o Hub IoT.
 
-    ![Device app running](media/quickstart-create-pnp-device/device-app-running.png)
+    ![Aplicativo de dispositivo em execução](media/quickstart-create-pnp-device/device-app-running.png)
 
-## <a name="validate-the-code"></a>Validate the code
+## <a name="validate-the-code"></a>Validar o código
 
-### <a name="publish-device-model-files-to-model-repository"></a>Publish device model files to model repository
+### <a name="publish-device-model-files-to-model-repository"></a>Publicar arquivos de modelo de dispositivo no repositório de modelos
 
-To validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
+Para validar o código do dispositivo com o **Azure IOT Explorer**, você precisa publicar os arquivos no repositório de modelo.
 
-1. With the `pnp_app` folder open in VS Code, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+1. Com a pasta `pnp_app` aberta em VS Code, use **Ctrl + Shift + P** para abrir a paleta de comandos, digite e selecione **plug-in IOT & reproduzir: enviar arquivos ao repositório de modelos**.
 
-1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
+1. Selecione `SampleDevice.capabilitymodel.json` e `EnvironmentalSensor.interface.json` arquivos.
 
-1. Enter your company model repository connection string.
-
-    > [!NOTE]
-    > The connection string is only required the first time you connect to the repository.
-
-1. In VS Code output window and notification, you can check that the files have been published successfully.
+1. Insira a cadeia de conexão do repositório de modelos da empresa.
 
     > [!NOTE]
-    > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
+    > A cadeia de conexão só é necessária na primeira vez que você se conecta ao repositório.
 
-### <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Use the Azure IoT explorer to validate the code
+1. Em VS Code janela de saída e notificação, você pode verificar se os arquivos foram publicados com êxito.
 
-1. Open Azure IoT explorer. You see the **App configurations** page.
+    > [!NOTE]
+    > Se você receber erros ao publicar os arquivos de modelo do dispositivo, poderá tentar usar o comando **IoT plug and Play: sair do repositório de modelos** para sair e passar pelas etapas novamente.
 
-1. Enter your _IoT Hub connection string_ and select **Connect**.
+### <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Usar o Azure IoT Explorer para validar o código
 
-1. After you connect, you see the **Devices** overview page.
+1. Abra o Azure IoT Explorer. Você verá a página **configurações de aplicativo** .
 
-1. To add your company repository, select **Settings**, then **+ Add module definition source**, then **Company repository**. Add your company model repository connection string, and select **Save and Connect**.
+1. Insira a _cadeia de conexão do Hub IOT_ e selecione **conectar**.
 
-1. Back on the **Devices** overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection state** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
+1. Depois de se conectar, você verá a página Visão geral de **dispositivos** .
 
-1. Expand the interface with ID **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry. The interface name that will appear is the name you put in when authoring your model.
+1. Para adicionar o repositório de sua empresa, selecione **configurações**e **+ Adicionar fonte de definição de módulo**e **repositório da empresa**. Adicione a cadeia de conexão do repositório de modelos da empresa e selecione **salvar e conectar**.
 
-1. Select the **Telemetry** page and hit _Start_ to view the telemetry data the device is sending.
+1. De volta à página Visão geral de **dispositivos** , localize a identidade do dispositivo que você criou anteriormente. Com o aplicativo do dispositivo ainda em execução no prompt de comando, verifique se o **estado da conexão** do dispositivo no Azure IOT Explorer está relatando como _conectado_ (caso contrário, pressione **Atualizar** até que ele esteja). Selecione o dispositivo para exibir mais detalhes.
 
-1. Select the **Properties (non-writable)** page to view the non-writable properties reported by the device.
+1. Expanda a interface com ID **urn: < YOUR_INTERFACE_NAME >: EnvironmentalSensor: 1** para ver os primitivos de plug and Play IOT-Propriedades, comandos e telemetria. O nome da interface que aparecerá é o nome que você colocou ao criar seu modelo.
 
-1. Select the **Properties (writable)** page to view the writable properties you can update.
+1. Selecione a página **telemetria** e clique em _Iniciar_ para exibir os dados de telemetria que o dispositivo está enviando.
 
-1. Expand property **name**, update with a new name and select **Update writable property**. 
+1. Selecione a página **Propriedades (não gravável)** para exibir as propriedades não graváveis relatadas pelo dispositivo.
 
-1. To see the new name show up in the **Reported Property** column, select the **Refresh** button on top of the page.
+1. Selecione a página **Propriedades (gravável)** para exibir as propriedades graváveis que você pode atualizar.
 
-1. Select the **Commands** page to view all the commands the device supports.
+1. Expanda **nome**da propriedade, atualize com um novo nome e selecione **Atualizar propriedade gravável**. 
 
-1. Expand the **blink** command and set a new blink time interval. Select **Send command** to call the command on the device.
+1. Para ver o novo nome aparecer na coluna **Propriedade relatada** , selecione o botão **Atualizar** na parte superior da página.
 
-1. Go to the simulated device command prompt and read through the printed confirmation messages, to verify that the commands have executed as expected.
+1. Selecione a página **comandos** para exibir todos os comandos aos quais o dispositivo dá suporte.
+
+1. Expanda o comando **intermitência** e defina um novo intervalo de tempo de intermitência. Selecione **Enviar comando** para chamar o comando no dispositivo.
+
+1. Acesse o prompt de comando do dispositivo simulado e leia as mensagens de confirmação impressas para verificar se os comandos foram executados conforme o esperado.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
+Neste guia de início rápido, você aprendeu a criar um dispositivo de Plug and Play de IoT usando um DCM.
 
-To learn more about DCMs and how to create your own models, continue to the tutorial:
+Para saber mais sobre o DCMs e como criar seus próprios modelos, prossiga para o tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Tutorial: criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code](tutorial-pnp-visual-studio-code.md)

@@ -98,7 +98,7 @@ Para fazer uma compilação em nuvem, com o Azure DevOps, por exemplo, verifique
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-app-launch-local.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você exportou Azure App dados de configuração a serem usados em um pipeline de implantação. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
 

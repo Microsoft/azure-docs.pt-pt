@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use URL tool to get answer from knowledge base - QnA Maker'
+title: 'Início rápido: Use a ferramenta URL para obter a resposta da base de dados de conhecimento-QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: This quickstart walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
+description: Este guia de início rápido orienta você na obtenção de uma resposta da sua base de dados de conhecimento usando uma ferramenta de teste de URL, como ondulação ou postmaster.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74424427"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Quickstart: Get an answer from knowledge base
+# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Início rápido: obter uma resposta da base de dados de conhecimento
 
 ::: zone pivot="url-test-tool-curl"
 
@@ -32,7 +32,7 @@ ms.locfileid: "74424427"
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Use metadata while generating an answer](create-new-kb-csharp.md)
+> [Usar metadados ao gerar uma resposta](create-new-kb-csharp.md)

@@ -86,6 +86,6 @@ Se você tiver largura de banda sobressalente para replicação e quiser aumenta
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente [a migração do Hyper-V](tutorial-migrate-hyper-v.md) usando a migração de servidor de migrações para Azure.

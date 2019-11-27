@@ -1,6 +1,6 @@
 ---
-title: Azure Disk Encryption with Azure AD app prerequisites (previous release)
-description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
+title: Azure Disk Encryption com os pré-requisitos de aplicativo do Azure AD (versão anterior)
+description: Este artigo fornece pré-requisitos para utilizar o Microsoft Azure Disk Encryption para VMs de IaaS.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
@@ -14,28 +14,28 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457194"
 ---
-# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure Disk Encryption with Azure AD (previous release)
+# <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure Disk Encryption com o Azure AD (versão anterior)
 
-The new release of Azure Disk Encryption eliminates the requirement for providing an Azure Active Directory (Azure AD) application parameter to enable VM disk encryption. With the new release, you're no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters by using the new release. For instructions on how to enable VM disk encryption by using the new release, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.
+A nova versão do Azure Disk Encryption elimina a necessidade de fornecer um parâmetro de aplicativo Azure Active Directory (AD do Azure) para habilitar a criptografia de disco de VM. Com a nova versão, não é mais necessário fornecer as credenciais do Azure AD durante a etapa habilitar criptografia. Todas as novas VMs devem ser criptografadas sem os parâmetros do aplicativo do Azure AD usando a nova versão. Para obter instruções sobre como habilitar a criptografia de disco de VM usando a nova versão, consulte [Azure Disk Encryption para VMs do Linux](disk-encryption-overview.md). As VMs que já foram criptografadas com parâmetros de aplicativo do Azure AD ainda têm suporte e devem continuar a ser mantidas com a sintaxe do AAD.
 
-This article provides supplements to [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md) with additional requirements and prerequisites for Azure Disk Encryption with Azure AD (previous release).
+Este artigo fornece suplementos para [Azure Disk Encryption para VMs Linux](disk-encryption-overview.md) com requisitos e pré-requisitos adicionais para Azure Disk Encryption com o Azure AD (versão anterior).
 
-The information in these sections remains the same:
+As informações contidas nessas seções permanecem as mesmas:
 
-- [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Additional VM requirements](disk-encryption-overview.md#additional-vm-requirements)
+- [VMs e sistemas operacionais com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Requisitos adicionais de VM](disk-encryption-overview.md#additional-vm-requirements)
 
 
  
 
-## <a name="networking-and-group-policy"></a>Networking and Group Policy
+## <a name="networking-and-group-policy"></a>Rede e Política de Grupo
 
-To enable the Azure Disk Encryption feature by using the older AAD parameter syntax, the infrastructure as a service (IaaS) VMs must meet the following network endpoint configuration requirements: 
-  - To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure AD endpoint, \[login.microsoftonline.com\].
-  - To write the encryption keys to your key vault, the IaaS VM must be able to connect to the key vault endpoint.
-  - The IaaS VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
-  -  If your security policy limits access from Azure VMs to the internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).
-  - On Windows, if TLS 1.0 is explicitly disabled and the .NET version isn't updated to 4.6 or higher, the following registry change enables Azure Disk Encryption to select the more recent TLS version:
+Para habilitar o recurso de Azure Disk Encryption usando a sintaxe de parâmetro AAD mais antiga, as VMs de IaaS (infraestrutura como serviço) devem atender aos seguintes requisitos de configuração de ponto de extremidade de rede: 
+  - Para obter um token para se conectar ao cofre de chaves, a VM IaaS deve ser capaz de se conectar a um ponto de extremidade do Azure AD, \[\]login.microsoftonline.com.
+  - Para escrever as chaves de encriptação para o seu Cofre de chaves, a VM de IaaS tem de conseguir ligar ao ponto final do Cofre de chaves.
+  - A VM de IaaS tem de ser capaz de ligar a um ponto de extremidade de armazenamento do Azure que aloja o repositório de extensão do Azure e uma conta de armazenamento do Azure que aloja os ficheiros VHD.
+  -  Se sua política de segurança limitar o acesso de VMs do Azure à Internet, você poderá resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída com os IPs. Para obter mais informações, consulte [Azure Key Vault atrás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).
+  - No Windows, se o TLS 1,0 estiver explicitamente desabilitado e a versão do .NET não for atualizada para 4,6 ou superior, a seguinte alteração de registro permitirá que Azure Disk Encryption selecione a versão mais recente do TLS:
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
             "SystemDefaultTlsVersions"=dword:00000001
@@ -46,20 +46,20 @@ To enable the Azure Disk Encryption feature by using the older AAD parameter syn
             "SchUseStrongCrypto"=dword:00000001` 
          
     
-### <a name="group-policy"></a>Group Policy
- - The Azure Disk Encryption solution uses the BitLocker external key protector for Windows IaaS VMs. For domain-joined VMs, don't push any Group Policies that enforce TPM protectors. For information about the Group Policy for the option **Allow BitLocker without a compatible TPM**, see [BitLocker Group Policy reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+### <a name="group-policy"></a>Política de Grupo
+ - A solução Azure Disk Encryption utiliza o protetor de chave externo do BitLocker para VMs de IaaS do Windows. Para VMs ingressadas no domínio, não envie nenhuma política de grupo que imponha protetores de TPM. Para obter informações sobre o Política de Grupo para a opção **permitir BitLocker sem um TPM compatível**, consulte [referência de política de grupo do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-- BitLocker policy on domain-joined virtual machines with a custom Group Policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption fails when custom Group Policy settings for BitLocker are incompatible. On machines that don't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restart if it's required. 
+- A política do BitLocker em máquinas virtuais ingressadas no domínio com um Política de Grupo personalizado deve incluir a seguinte configuração: [Configurar o armazenamento do usuário das informações de recuperação do BitLocker-> permitir a chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption falha quando as configurações de Política de Grupo personalizadas para o BitLocker são incompatíveis. Em computadores que não têm a configuração de política correta, aplique a nova política, force a nova política a ser atualizada (gpupdate. exe/Force) e, em seguida, reinicie se for necessário. 
 
-## <a name="encryption-key-storage-requirements"></a>Encryption key storage requirements 
+## <a name="encryption-key-storage-requirements"></a>Requisitos de armazenamento de chave de criptografia 
 
-Azure Disk Encryption requires Azure Key Vault to control and manage disk encryption keys and secrets. Your key vault and VMs must reside in the same Azure region and subscription.
+Azure Disk Encryption requer Azure Key Vault para controlar e gerenciar chaves de criptografia de disco e segredos. O cofre de chaves e as VMs devem residir na mesma região e assinatura do Azure.
 
-For more information, see [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md).
+Para obter mais informações, consulte [criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md).
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md)
-- [Enable Azure Disk Encryption with Azure AD on Linux VMs (previous release)](disk-encryption-linux-aad.md)
-- [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started)
-- [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
+- [Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md)
+- [Habilitar Azure Disk Encryption com o Azure AD em VMs do Linux (versão anterior)](disk-encryption-linux-aad.md)
+- [Script da CLI de pré-requisitos Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
+- [Script do PowerShell de Azure Disk Encryption pré-requisitos](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

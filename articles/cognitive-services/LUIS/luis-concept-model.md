@@ -155,6 +155,6 @@ Um descritor é um recurso aplicado a um modelo no tempo de treinamento, incluin
 * fazer com que o LUIS recomende novo texto ou frases para recomendar para o descritor
 * corrigir um erro nos dados de treinamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Entenda as [intenções](luis-concept-intent.md) e as [entidades](luis-concept-entity-types.md). 

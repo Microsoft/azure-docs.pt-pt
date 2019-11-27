@@ -49,7 +49,7 @@ Para saber mais sobre implantações em nível de assinatura, confira [criar gru
 
 ## <a name="result-format"></a>Formato do resultado
 
-Você pode controlar o nível de detalhe que é retornado sobre as alterações previstas. Defina o parâmetro `ResultFormat` como `FullResourcePayloads` para obter uma lista de recursos que serão alterados e detalhes sobre as propriedades que serão alteradas. Defina o parâmetro `ResultFormat` como `ResourceIdOnly` para obter uma lista de recursos que serão alterados. O valor predefinido é `FullResourcePayloads`.  
+Você pode controlar o nível de detalhe que é retornado sobre as alterações previstas. Defina o parâmetro `ResultFormat` como `FullResourcePayloads` para obter uma lista de recursos que serão alterados e detalhes sobre as propriedades que serão alteradas. Defina o parâmetro `ResultFormat` como `ResourceIdOnly` para obter uma lista de recursos que serão alterados. O valor padrão é `FullResourcePayloads`.  
 
 As capturas de tela a seguir mostram os dois formatos de saída diferentes:
 
@@ -116,7 +116,7 @@ Como nenhum recurso está definido no modelo e o modo de implantação está def
 
 É importante lembrar que, se não fizer nenhuma alteração real. A conta de armazenamento ainda existe em seu grupo de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se você observar resultados incorretos da versão de visualização de What-If, informe os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Para implantar modelos com Azure PowerShell, consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](resource-group-template-deploy.md).

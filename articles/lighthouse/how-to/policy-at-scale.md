@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Policy to delegated subscriptions at scale
-description: Learn how Azure delegated resource management lets you deploy a policy definition and policy assignment across multiple tenants.
+title: Implantar Azure Policy em assinaturas delegadas em escala
+description: Saiba como o gerenciamento de recursos delegado do Azure permite implantar uma definição de política e uma atribuição de política em vários locatários.
 ms.date: 11/8/2019
 ms.topic: conceptual
 ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
@@ -10,15 +10,15 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463864"
 ---
-# <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Deploy Azure Policy to delegated subscriptions at scale
+# <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar Azure Policy em assinaturas delegadas em escala
 
-As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. [Azure Lighthouse](../overview.md) allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
+Como um provedor de serviços, você pode ter integrado vários locatários de clientes para o gerenciamento de recursos delegado do Azure. O [Azure Lighthouse](../overview.md) permite que os provedores de serviços executem operações em escala em vários locatários de uma vez, tornando as tarefas de gerenciamento mais eficientes.
 
-This topic shows you how to use [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
+Este tópico mostra como usar [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) para implantar uma definição de política e uma atribuição de política em vários locatários usando comandos do PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento sejam protegidas, permitindo apenas o tráfego HTTPS.
 
-## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Use Azure Resource Graph to query across customer tenants
+## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usar o grafo de recursos do Azure para consultar em locatários do cliente
 
-You can use [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) to query across all subscriptions in the customer tenants that you manage. In this example, we’ll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
+Você pode usar o [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/) para consultar em todas as assinaturas nos locatários do cliente que você gerencia. Neste exemplo, identificaremos todas as contas de armazenamento nessas assinaturas que atualmente não exigem tráfego HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -30,9 +30,9 @@ $ManagedSubscriptions = Search-AzGraph -Query "ResourceContainers | where type =
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | project name, location, subscriptionId, tenantId, properties.supportsHttpsTrafficOnly" -subscription $ManagedSubscriptions.subscriptionId | convertto-json
 ```
 
-## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Deploy a policy across multiple customer tenants
+## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Implantar uma política em vários locatários do cliente
 
-The example below shows how to use an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) to deploy a policy definition and policy assignment across delegated subscriptions in multiple customer tenants. This policy definition requires all storage accounts to use HTTPS traffic, preventing the creation of any new storage accounts that don’t comply and marking existing storage accounts without the setting as non-compliant.
+O exemplo a seguir mostra como usar um [modelo de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) para implantar uma definição de política e uma atribuição de política em assinaturas delegadas em vários locatários de cliente. Essa definição de política requer que todas as contas de armazenamento usem o tráfego HTTPS, impedindo a criação de novas contas de armazenamento que não estejam em conformidade e marcando as contas de armazenamento existentes sem a configuração como sem conformidade.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -48,9 +48,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
-## <a name="validate-the-policy-deployment"></a>Validate the policy deployment
+## <a name="validate-the-policy-deployment"></a>Validar a implantação da política
 
-After you’ve deployed the Azure Resource Manager template, you can confirm that the policy definition was successfully applied by attempting to create a storage account with **EnableHttpsTrafficOnly** set to **false** in one of your delegated subscriptions. Because of the policy assignment, you should be unable to create this storage account.  
+Depois de implantar o modelo de Azure Resource Manager, você pode confirmar que a definição de política foi aplicada com êxito ao tentar criar uma conta de armazenamento com **EnableHttpsTrafficOnly** definido como **false** em uma de suas assinaturas delegadas. Devido à atribuição de política, você não poderá criar essa conta de armazenamento.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `
@@ -63,7 +63,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you’re finished, remove the policy definition and assignment created by the deployment.
+Quando tiver terminado, remova a definição de política e a atribuição criada pela implantação.
 
 ```powershell
 foreach ($ManagedSub in $ManagedSubscriptions)
@@ -88,7 +88,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Learn about [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
-- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
+- Saiba mais sobre [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).

@@ -284,7 +284,7 @@ A resposta é semelhante a este exemplo:
 
 Para comparar os resultados, use a propriedade **Changes** em **resourceChanges** ou avalie a parte de **conteúdo** de cada instantâneo em **resourceChangeDetails** para determinar a diferença. Se você comparar os instantâneos, o **carimbo de data/hora** sempre será mostrado como uma diferença, apesar de ser esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

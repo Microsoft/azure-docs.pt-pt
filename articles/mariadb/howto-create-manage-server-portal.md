@@ -1,126 +1,107 @@
 ---
-title: Criar e gerenciar o banco de dados do Azure para MariaDB Server usando o portal do Azure
-description: Este artigo descreve como você pode criar rapidamente um novo banco de dados do Azure para o MariaDB Server e gerenciar o servidor usando o portal do Azure.
-author: ambhatna
-ms.author: ambhatna
+title: Gerenciar o banco de dados do Azure para MariaDB-portal do Azure
+description: Saiba como gerenciar um banco de dados do Azure para MariaDB Server do portal do Azure.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: 5aae3eb0582956ccb45cc41d8400f489f1077bad
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 11/25/2019
+ms.openlocfilehash: 7e09db9308f9ecf623ce0ab0d948ed1056dd21b1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143443"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534366"
 ---
-# <a name="create-and-manage-azure-database-for-mariadb-server-using-azure-portal"></a>Criar e gerenciar o banco de dados do Azure para MariaDB Server usando o portal do Azure
-Este tópico descreve como você pode criar rapidamente um novo banco de dados do Azure para MariaDB Server. Ele também inclui informações sobre como gerenciar o servidor usando o portal do Azure. O gerenciamento de servidor inclui a exibição de detalhes do servidor e bancos de dados, a redefinição da senha, o dimensionamento de recursos e a exclusão do servidor.
+# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerenciar um banco de dados do Azure para o MariaDB Server usando o portal do Azure
+Este artigo mostra como gerenciar o banco de dados do Azure para servidores MariaDB. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+## <a name="sign-in"></a>Iniciar sessão
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um Azure Database for MariaDB Server
-Siga estas etapas para criar um banco de dados do Azure para o servidor MariaDB chamado "mydemoserver".
+## <a name="create-a-server"></a>Criar um servidor
+Visite o guia de [início rápido](quickstart-create-mariadb-server-database-using-azure-portal.md) para saber como criar e começar a usar um banco de dados do Azure para o MariaDB Server.
 
-1. Clique no botão **criar um recurso** localizado no canto superior esquerdo da portal do Azure.
+## <a name="scale-compute-and-storage"></a>Dimensionar a computação e o armazenamento
 
-2. Na página novo, selecione **bancos**de dados e, em seguida, na página bancos de dados, selecione **Azure database for MariaDB**.
+Após a criação do servidor, você pode dimensionar entre as camadas de Uso Geral e com otimização de memória à medida que suas necessidades mudam. Você também pode dimensionar a computação e a memória aumentando ou diminuindo o vCores. O armazenamento pode ser dimensionado verticalmente (no entanto, você não pode dimensionar o armazenamento verticalmente).
 
-    > Um banco de dados do Azure para o servidor MariaDB é criado com um conjunto definido de recursos de [computação e armazenamento](./concepts-pricing-tiers.md) . O banco de dados é criado dentro de um grupo de recursos do Azure e em um banco de dados do Azure para o servidor MariaDB.
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Dimensionar entre as camadas de Uso Geral e com otimização de memória
 
-   ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
+Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não há suporte para a alteração de e para a camada básica após a criação do servidor. 
 
-3. Preencha o formulário banco de dados do Azure para MariaDB usando as seguintes informações:
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
 
-    | **Campo do Formulário** | **Descrição do Campo** |
-    |----------------|-----------------------|
-    | *Nome do servidor* | mydemoserver (o nome do servidor é globalmente exclusivo) |
-    | *Subscrição* | mysubscription (selecione no menu suspenso) |
-    | *Grupo de recursos* | MyResource Group (criar um novo grupo de recursos ou usar um existente) |
-    | *Selecionar origem* | Em branco (criar um servidor MariaDB em branco) |
-    | *Início de sessão de administrador do servidor* | myadmin (configure o nome da conta de administração) |
-    | *Palavra-passe* | Definir senha da conta de administrador |
-    | *Confirmar palavra-passe* | confirme a palavra-passe da conta de administrador |
-    | *Location* | Sudeste Asiático (selecione entre Europa Setentrional e oeste dos EUA) |
-    | *Versão* | 10,3 (escolha o banco de dados do Azure para a versão do servidor MariaDB) |
-
-   ![create-new-server](./media/howto-create-manage-server-portal/form-field.png)
-
-4. Clique em **Configurar servidor** para especificar a camada de serviço e o nível de desempenho para o novo servidor. Selecione a guia **uso geral** . *Gen 5*, *4 VCORES*, *100 GB*e *7 dias* são os valores padrão para **geração de computação**, **vCore**, **armazenamento**e período de retenção de **backup**. Você pode deixar esses controles deslizantes como eles estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**.
-
-   ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
-
-5. Clique em revisar **+ criar** para ir para a tela de revisão e verificar todos os detalhes. Clique em **Criar** para aprovisionar o servidor. O aprovisionamento demora alguns minutos.
-
-    > Selecione a opção **fixar no painel** para permitir o controle fácil de suas implantações.
-
-## <a name="update-an-azure-database-for-mariadb-server"></a>Atualizar um banco de dados do Azure para o servidor MariaDB
-Depois que o novo servidor tiver sido provisionado, o usuário terá várias opções para configurar o servidor existente, incluindo a redefinição da senha do administrador, a alteração do tipo de preço e a expansão ou redução vertical do servidor, alterando vCore ou armazenamento.
-
-### <a name="change-the-administrator-user-password"></a>Alterar a senha de usuário do administrador
-1. Na **visão geral**do servidor, clique em **Redefinir senha** para mostrar a janela de redefinição de senha.
-
-   ![descrição geral](./media/howto-create-manage-server-portal/overview.png)
-
-2. Insira uma nova senha e confirme a senha na janela, conforme mostrado:
-
-   ![Redefinir senha](./media/howto-create-manage-server-portal/reset-password.png)
-
-3. Clique em **OK** para salvar a nova senha.
-
-### <a name="change-the-pricing-tier"></a>Alterar o tipo de preço
-> [!NOTE]
-> O dimensionamento só tem suporte de Uso Geral para camadas de serviço com otimização de memória e vice-versa. Observe que a alteração de e para o tipo de preço básico após a criação do servidor não tem suporte no banco de dados do Azure para MariaDB.
-> 
-1. Clique em **tipo de preço**, localizado em **configurações**.
-2. Selecione o **tipo de preço** para o qual você deseja alterar.
+2. Selecione **uso geral** ou **memória otimizada**, dependendo do que você está dimensionando. 
 
     ![alterar-camada de preços](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
-4. Clique em **OK** para guardar as alterações. 
+    > [!NOTE]
+    > A alteração de camadas causa uma reinicialização do servidor.
 
-### <a name="scale-vcores-updown"></a>Dimensionar vCores para cima/para baixo
+4. Selecione **OK** para salvar as alterações.
 
-1. Clique em **tipo de preço**, localizado em **configurações**.
+
+### <a name="scale-vcores-up-or-down"></a>Dimensionar vCores para cima ou para baixo
+
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
 
 2. Altere a configuração de **vCore** movendo o controle deslizante para o valor desejado.
 
-    ![escala-computação](./media/howto-create-manage-server-portal/scale-compute.png)
+    ![escala-computação](./media/howto-create-manage-server-portal/scaling-compute.png)
 
-3. Clique em **OK** para guardar as alterações.
+    > [!NOTE]
+    > O dimensionamento de vCores causa uma reinicialização do servidor.
+
+3. Selecione **OK** para salvar as alterações.
+
 
 ### <a name="scale-storage-up"></a>Escalar o armazenamento verticalmente
 
-1. Clique em **tipo de preço**, localizado em **configurações**.
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
 
-2. Altere a configuração de **armazenamento** movendo o controle deslizante para o valor desejado.
+2. Altere a configuração de **armazenamento** movendo o controle deslizante para cima até o valor desejado.
 
-    ![armazenamento em escala](./media/howto-create-manage-server-portal/scale-storage.png)
+    ![armazenamento em escala](./media/howto-create-manage-server-portal/scaling-storage.png)
 
-3. Clique em **OK** para guardar as alterações.
+    > [!NOTE]
+    > O armazenamento não pode ser reduzido verticalmente.
 
-## <a name="delete-an-azure-database-for-mariadb-server"></a>Excluir um banco de dados do Azure para o servidor MariaDB
+3. Selecione **OK** para salvar as alterações.
 
-1. Na **visão geral**do servidor, clique no botão **excluir** para abrir o prompt de confirmação de exclusão.
 
-    ![eliminar](./media/howto-create-manage-server-portal/delete.png)
+## <a name="update-admin-password"></a>Atualizar senha do administrador
+Você pode alterar a senha da função de administrador usando o portal do Azure.
 
-2. Digite o nome do servidor na caixa de entrada para confirmação dupla.
+1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **Redefinir senha**.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm.png)
+   ![descrição geral](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
-3. Clique no botão **excluir** para confirmar a exclusão do servidor. Aguarde até que o pop-up "servidor MariaDB excluído com êxito" apareça na barra de notificação.
+2. Insira uma nova senha e confirme a senha. A caixa de texto solicitará os requisitos de complexidade de senha.
 
-## <a name="list-the-azure-database-for-mariadb-databases"></a>Listar os bancos de dados do Azure para MariaDB
-Na **visão geral**do servidor, role para baixo até ver o bloco do banco de dados na parte inferior. Todos os bancos de dados no servidor são listados na tabela.
+   ![Redefinir senha](./media/howto-create-manage-server-portal/reset-password.png)
 
-   ![Mostrar-bancos de dados](./media/howto-create-manage-server-portal/show-databases.png)
+3. Selecione **OK** para salvar a nova senha.
 
-## <a name="show-details-of-an-azure-database-for-mariadb-server"></a>Mostrar detalhes de um banco de dados do Azure para o servidor MariaDB
-Clique em **Propriedades**, localizado em **configurações** , para exibir informações detalhadas sobre o servidor.
 
-![properties](./media/howto-create-manage-server-portal/properties.png)
+## <a name="delete-a-server"></a>Eliminar um servidor
 
-## <a name="next-steps"></a>Passos seguintes
+Você pode excluir o servidor se não precisar mais dele. 
 
-[Quickstart: Criar banco de dados do Azure para servidor MariaDB usando o portal do Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **excluir**.
+
+    ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
+
+2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que você deseja excluir.
+
+    ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
+
+    > [!NOTE]
+    > A exclusão de um servidor é irreversível.
+
+3. Selecione **Eliminar**.
+
+
+## <a name="next-steps"></a>Passos Seguintes
+- Saiba mais sobre [backups e restauração do servidor](howto-restore-server-portal.md)
+- Saiba mais sobre [as opções de ajuste e monitoramento no banco de dados do Azure para MariaDB](concepts-monitoring.md)

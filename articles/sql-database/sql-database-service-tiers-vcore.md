@@ -1,6 +1,6 @@
 ---
 title: Descrição geral do modelo vCore
-description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
+description: O modelo de compra vCore permite que você dimensione independentemente os recursos de computação e armazenamento, correspondam ao desempenho local e otimize o preço.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -8,176 +8,176 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/25/2019
-ms.openlocfilehash: 94728f2e4be6a16d048b4ff97bedefd5e32957ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 11/27/2019
+ms.openlocfilehash: c5c7883295a30aa217e722abd905f54b982761d3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481285"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547556"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
 
-The virtual core (vCore) model provides several benefits:
+O modelo vCore (núcleo virtual) fornece vários benefícios:
 
-- Higher compute, memory, IO, and storage limits.
-- Control over the hardware generation to better match compute and memory requirements of the workload.
-- Pricing discounts for [Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) and [Reserved Instance (RI)](sql-database-reserved-capacity.md).
-- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
+- Limites de computação, memória, e/s e armazenamento mais altos.
+- Controle sobre a geração de hardware para corresponder melhor aos requisitos de computação e de memória da carga de trabalho.
+- Descontos de preço para [benefício híbrido do Azure (AHB)](sql-database-azure-hybrid-benefit.md) e [instância reservada (ri)](sql-database-reserved-capacity.md).
+- Maior transparência nos detalhes de hardware que alimentam a computação; facilita o planejamento de migrações de implantações locais.
 
 ## <a name="service-tiers"></a>Escalões de serviço
 
-Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and IO limits, and business continuity options related to availability and disaster recovery.
+As opções da camada de serviço no modelo vCore incluem Uso Geral, Comercialmente Crítico e hiperescala. A camada de serviço geralmente define a arquitetura de armazenamento, os limites de espaço e e/s e as opções de continuidade de negócios relacionadas à disponibilidade e à recuperação de desastres.
 
-||**Fins gerais**|**Business critical**|**Hyperscale**|
+||**Fins gerais**|**Comercialmente crítico**|**Em hiperescala**|
 |---|---|---|---|
-|Melhor para|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
-|Armazenamento|Uses remote storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
-|I/O throughput (approximate)|**Single database and elastic pool**: 500 IOPS per vCore up to 40000 maximum IOPS.<br/>**Managed instance**: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per vCore up to 320,000 maximum IOPS|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload.|
-|Disponibilidade|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
-|Cópias de segurança|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
-|Dentro da memória|Não suportado|Suportadas|Não suportado|
+|Melhor para|A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e de computação voltadas para o orçamento, equilibradas e escalonáveis. |Oferece aos aplicativos de negócios a resiliência mais alta para falhas usando várias réplicas isoladas e fornece o desempenho de e/s mais alto por réplica de banco de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento e escala de leitura altamente escalonáveis.  Oferece maior resiliência a falhas, permitindo a configuração de mais de uma réplica de banco de dados isolada. |
+|Storage|Usa o armazenamento remoto.<br/>**Computação provisionada de banco de dados individual e pool elástico**:<br/>5 GB – 4 TB<br/>**Computação sem servidor**:<br/>5 GB-3 TB<br/>**Instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada de banco de dados individual e pool elástico**:<br/>5 GB – 4 TB<br/>**Instância gerenciada**:<br/>32 GB-4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
+|Taxa de transferência de e/s (aproximada)|**Banco de dados individual e pool elástico**: 500 IOPS por vCore até 40000 IOPS máximo.<br/>**Instância gerenciada**: depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por vCore até 320.000 IOPS máximo|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho.|
+|Disponibilidade|1 réplica, sem réplicas de escala de leitura|3 réplicas, 1 [réplica de escala de leitura](sql-database-read-scale-out.md),<br/>alta disponibilidade com redundância de zona (HA)|1 réplica de leitura/gravação, além [de 0-4 réplicas de escala de leitura](sql-database-read-scale-out.md)|
+|Cópias de segurança|[Armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[Ra-grs](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|Backups baseados em instantâneo no armazenamento remoto do Azure. As restaurações usam esses instantâneos para recuperação rápida. Os backups são instantâneos e não afetam O desempenho de e/s de computação. As restaurações são rápidas e não são uma operação de tamanho de dados (levando minutos em vez de horas ou dias).|
+|Dentro da memória|Não suportado|Suportado|Não suportado|
 |||
 
 
 ### <a name="choosing-a-service-tier"></a>Escolher um escalão de serviço
 
-For information on selecting a service tier for your particular workload, see the following articles:
+Para obter informações sobre como selecionar uma camada de serviço para sua carga de trabalho específica, consulte os seguintes artigos:
 
-- [When to choose the General purpose service tier](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
-- [When to choose the Business Critical service tier](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
+- [Quando escolher a camada de serviço de uso geral](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [Quando escolher a camada de serviço Comercialmente Crítico](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [Quando escolher a camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 
-## <a name="compute-tiers"></a>Compute tiers
+## <a name="compute-tiers"></a>Camadas de computação
 
-Compute tier options in the vCore model include the provisioned and serverless compute tiers.
+As opções de camada de computação no modelo vCore incluem as camadas de computação provisionada e sem servidor.
 
 
 ### <a name="provisioned-compute"></a>Computação aprovisionada
 
-The provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
+A camada de computação provisionada fornece uma quantidade específica de recursos de computação que são continuamente provisionados independentemente da atividade de carga de trabalho e cobra pela quantidade de computação provisionada a um preço fixo por hora.
 
 
 ### <a name="serverless-compute"></a>Computação sem servidor
 
-The [serverless compute tier](sql-database-serverless.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
+A [camada de computação sem servidor](sql-database-serverless.md) dimensiona automaticamente os recursos de computação com base na atividade de carga de trabalho e cobra pela quantidade de computação usada por segundo.
 
 
 
-## <a name="hardware-generations"></a>Hardware generations
+## <a name="hardware-generations"></a>Gerações de hardware
 
-Hardware generation options in the vCore model include Gen 4/5, M-series (preview), and Fsv2-series (preview). The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+As opções de geração de hardware no modelo vCore incluem Gen 4/5, série M (versão prévia) e série Fsv2 (versão prévia). A geração de hardware geralmente define os limites de computação e de memória e outras características que afetam o desempenho da carga de trabalho.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
-- Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
+- O hardware Gen4/Gen5 fornece recursos de computação e memória equilibrados e é adequado para a maioria das cargas de trabalho de banco de dados que não têm mais memória, vCore mais elevado ou requisitos de vCore único mais rápidos, conforme fornecido pela série Fsv2 ou série M.
 
-For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5-1).
+Para regiões em que o Gen4/Gen5 está disponível, consulte [disponibilidade de Gen4/Gen5](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Fsv2-series (preview)
+### <a name="fsv2-seriespreview"></a>Série Fsv2 (versão prévia)
 
-- Fsv2-series is a compute optimized hardware option delivering low CPU latency and high clock speed for the most CPU demanding workloads.
-- Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
-- Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
+- A série Fsv2 é uma opção de hardware otimizado para computação que oferece baixa latência de CPU e alta velocidade de clock para a maioria das cargas de trabalho com maior demanda de CPU.
+- Dependendo da carga de trabalho, a série Fsv2 pode fornecer mais desempenho de CPU por vCore do que Gen5, e o tamanho vCore de 72 pode fornecer mais desempenho de CPU para menos custo do que 80 vCores em Gen5. 
+- O Fsv2 fornece menos memória e tempdb por vCore do que outros Hardwares, de modo que as cargas de trabalho sensíveis a esses limites podem querer considerar a Gen5 ou a série M em vez disso.  
 
-For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series).
-
-
-### <a name="m-seriespreview"></a>M-series (preview)
-
-- M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
-- M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
-
-To enable M-series hardware for a subscription and region, a support request must be open. If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+Para regiões em que a Fsv2-Series está disponível, consulte [disponibilidade da série Fsv2](#fsv2-series).
 
 
-### <a name="compute-and-memory-specifications"></a>Compute and memory specifications
+### <a name="m-seriespreview"></a>Série M (visualização)
+
+- A série M é uma opção de hardware com otimização de memória para cargas de trabalho que exigem mais memória e limites de computação mais altos do que o fornecido pelo Gen5.
+- A série M fornece 29 GB por vCore e 128 vCores, o que aumenta o limite de memória em relação ao Gen5 por 8x a quase 4 TB.
+
+Para habilitar o hardware da série M para uma assinatura e uma região, uma solicitação de suporte deve ser aberta. Se a solicitação de suporte for aprovada, a experiência de seleção e provisionamento da série M segue o mesmo padrão que para outras gerações de hardware. Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series).
 
 
-|Hardware generation  |Computação  |Memória  |
+### <a name="compute-and-memory-specifications"></a>Especificações de memória e computação
+
+
+|Geração de hardware  |Computação  |Memória  |
 |:---------|:---------|:---------|
-|Gen4     |- Intel E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
-|Gen5     |**Provisioned compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Auto-scale up to 16 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 48 GB max|
-|Série Fsv2     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision 136 GB|
-|Série M     |- Intel Xeon E7-8890 v3 2.5 GHz processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
+|Gen4     |-Processadores Intel E5-2673 v3 (Haswell) 2,4 GHz<br>-Provisionar até 24 vCores (1 vCore = 1 núcleo físico)  |-7 GB por vCore<br>-Provisionar até 168 GB|
+|Gen5     |**Computação provisionada**<br>-Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake)<br>-Provisionar até 80 vCores (1 vCore = 1 Hyper-thread)<br><br>**Computação sem servidor**<br>-Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake)<br>-Dimensionamento automático para até 16 vCores (1 vCore = 1 Hyper-thread)|**Computação provisionada**<br>-5,1 GB por vCore<br>-Provisionar até 408 GB<br><br>**Computação sem servidor**<br>-Escala automática de até 24 GB por vCore<br>-Escala automática de até 48 GB máx.|
+|Série Fsv2     |-Processadores Intel Xeon Platinum 8168 (SkyLake)<br>-Apresentando uma velocidade de clock de Turbo principal de 3,4 GHz e uma velocidade máxima de clock de único núcleo de 3,7 GHz.<br>-Provisionar 72 vCores (1 vCore = 1 Hyper-thread)|-1,9 GB por vCore<br>-Provisionar 136 GB|
+|Série M     |-Processadores Intel Xeon E7-8890 v3 2,5 GHz<br>-Provisionar 128 vCores (1 vCore = 1 Hyper-thread)|-29 GB por vCore<br>-Provisionar 3,7 TB|
 
 
-For more information on resource limits, see [Resource limits for single databases (vCore)](sql-database-vcore-resource-limits-single-databases.md), or [Resource limits for elastic pools (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
+Para obter mais informações sobre limites de recursos, consulte [limites de recursos para VCORE (bancos de dados individuais)](sql-database-vcore-resource-limits-single-databases.md)ou [limites de recursos para pools elásticos (VCORE)](sql-database-vcore-resource-limits-elastic-pools.md).
 
-### <a name="selecting-a-hardware-generation"></a>Selecting a hardware generation
+### <a name="selecting-a-hardware-generation"></a>Selecionando uma geração de hardware
 
-In the Azure portal, you can select the hardware generation for a SQL database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+No portal do Azure, você pode selecionar a geração de hardware para um banco de dados SQL ou pool no momento da criação ou pode alterar a geração de hardware de um pool ou banco de dados SQL existente.
 
-**To select a hardware generation when creating a SQL database or pool**
+**Para selecionar uma geração de hardware ao criar um banco de dados SQL ou pool**
 
-For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
+Para obter informações detalhadas, consulte [criar um banco de dados SQL](sql-database-single-database-get-started.md).
 
-On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
+Na guia **noções básicas** , selecione o link **configurar banco de dados** na seção **computação + armazenamento** e, em seguida, selecione o link **Alterar configuração** :
 
   ![configurar a base de dados](media/sql-database-service-tiers-vcore/configure-sql-database.png)
 
-Select the desired hardware generation:
+Selecione a geração de hardware desejada:
 
-  ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
+  ![selecionar hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
 
 
-**To change the hardware generation of an existing SQL database or pool**
+**Para alterar a geração de hardware de um pool ou banco de dados SQL existente**
 
-For a database, on the Overview page, select the **Pricing tier** link:
+Para um banco de dados, na página Visão geral, selecione o link **tipo de preço** :
 
-  ![change hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
+  ![alterar hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
 
-For a pool, on the Overview page, select **Configure**.
+Para um pool, na página Visão geral, selecione **Configurar**.
 
-Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
+Siga as etapas para alterar a configuração e selecione a geração de hardware conforme descrito nas etapas anteriores.
 
-### <a name="hardware-availability"></a>Hardware availability
+### <a name="hardware-availability"></a>Disponibilidade de hardware
 
-#### <a name="gen4gen5-1"></a> Gen4/Gen5
+#### <a name="gen4gen5-1"></a>Gen4/Gen5
 
-New Gen4 databases are no longer supported in the Australia East or Brazil South regions. 
+Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil. 
 
-Gen5 is available in most regions worldwide.
+O Gen5 está disponível na maioria das regiões em todo o mundo.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 
-Fsv2-series is available in the following regions: Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
+A Fsv2-Series está disponível nas seguintes regiões: Austrália Central, Austrália Central 2, leste da Austrália, sudeste da Austrália, sul do Brasil, central do Canadá, Ásia Oriental, leste dos EUA, França central, Índia central, Índia ocidental, Coreia central, sul da Coreia, norte Europa, norte da África do Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
 
 #### <a name="m-series"></a>Série M
 
-M-series is available in the following regions: East US, North Europe, West Europe, West US 2.
-M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
+A série M está disponível nas seguintes regiões: leste dos EUA, Europa Setentrional, Europa Ocidental, oeste dos EUA 2.
+A série M também pode ter disponibilidade limitada em regiões adicionais. Você pode solicitar uma região diferente da listada aqui, mas o preenchimento em uma região diferente pode não ser possível.
 
-To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
+Para habilitar a disponibilidade da série M em uma assinatura, o acesso deve ser solicitado por meio do [arquivamento de uma nova solicitação de suporte](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Create a support request to enable M-series: 
+##### <a name="create-a-support-request-to-enable-m-series"></a>Crie uma solicitação de suporte para habilitar a série M: 
 
-1. Select **Help + support** in the portal.
+1. Selecione **ajuda + suporte** no Portal.
 2. Selecione **Novo pedido de suporte**.
 
-On the **Basics** page, provide the following:
+Na página **noções básicas** , forneça o seguinte:
 
-1. For **Issue type**, select **Service and subscription limits (quotas)** .
-2. For **Subscription** = select the subscription to enable M-series.
-3. For **Quota type**, select **SQL database**.
-4. Select **Next** to go to the **Details** page.
+1. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)** .
+2. Para **assinatura** = selecione a assinatura para habilitar a série M.
+3. Para **tipo de cota**, selecione **banco de dados SQL**.
+4. Selecione **Avançar** para ir para a página de **detalhes** .
 
-On the **Details** page, provide the following:
+Na página **detalhes** , forneça o seguinte:
 
-5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
-6. For **SQL Database quota type** select **M-series**.
-7. For **Region**, select the region to enable M-series.
-    For regions where M-series is available, see [M-series availability](#m-series).
+5. Na seção **detalhes do problema** , selecione o link **fornecer detalhes** . 
+6. Para **tipo de cota do banco de dados SQL** **, selecione série M**.
+7. Para **região**, selecione a região para habilitar a série M.
+    Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series).
 
-Approved support requests are typically fulfilled within 5 business days.
+Solicitações de suporte aprovadas normalmente são atendidas dentro de 5 dias úteis.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- To create a SQL database, see [Creating a SQL database using the Azure portal](sql-database-single-database-get-started.md).
-- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
-- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
-- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
+- Para criar um banco de dados SQL, consulte [criando um banco de dados SQL usando o portal do Azure](sql-database-single-database-get-started.md).
+- Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md).
+- Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para pools elásticos, consulte [limites de recursos baseados em vCore do banco de dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
+- Para obter detalhes de preços, consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).

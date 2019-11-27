@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8660d5539d9cfc218667bc7bb077f9f6d1191eec
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e24c97909870c4d76b07ec837e5f624a509bd1f2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184146"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547291"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade gerida a um recurso com o portal do Azure
 
@@ -30,25 +30,25 @@ Depois de configurar um recurso do Azure com uma identidade gerida, pode dar o a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utilizar o RBAC para atribuir um acesso de identidade gerida para outro recurso
 
-Depois de ativar a identidade gerida num recurso do Azure, tal como um [VM do Azure](qs-configure-portal-windows-vm.md) ou [VMSS do Azure](qs-configure-portal-windows-vmss.md):
+Depois de habilitar a identidade gerenciada em um recurso do Azure, como uma [VM do Azure](qs-configure-portal-windows-vm.md) ou [VMSS do Azure](qs-configure-portal-windows-vmss.md):
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure na qual configurou a identidade gerida.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure sob a qual você configurou a identidade gerenciada.
 
 2. Navegue para o recurso pretendido no qual pretende modificar o controlo de acesso. Neste exemplo, estamos oferecendo um acesso de máquina virtual do Azure para uma conta de armazenamento, para que, navegar para a conta de armazenamento.
 
-3. Selecione o **controlo de acesso (IAM)** página do recurso e selecione **+ adicionar atribuição de função**. Em seguida, especifique a **função**, **atribuir acesso a**e especifique o correspondente **subscrição**. Na área de critérios de pesquisa, deverá ver o recurso. Selecione o recurso e selecione **guardar**. 
+3. Selecione a página **controle de acesso (iam)** do recurso e selecione **+ Adicionar atribuição de função**. Em seguida, especifique a **função**, **atribua acesso a**e especifique a **assinatura**correspondente. Na área de critérios de pesquisa, deverá ver o recurso. Selecione o recurso e selecione **salvar**. 
 
    ![Captura de ecrã de controlo (IAM) de acesso](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
      
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Identidade gerida para descrição geral de recursos do Azure](overview.md)
-- Para ativar a identidade gerida numa máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md).
-- Para ativar a identidade gerida num conjunto de dimensionamento de máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure num conjunto de dimensionamento no portal do Azure](qs-configure-portal-windows-vmss.md).
+- [Visão geral da identidade gerenciada para recursos do Azure](overview.md)
+- Para habilitar a identidade gerenciada em uma máquina virtual do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md).
+- Para habilitar a identidade gerenciada em um conjunto de dimensionamento de máquinas virtuais do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure](qs-configure-portal-windows-vmss.md).
 
 

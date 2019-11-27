@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280652"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546935"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -53,10 +53,11 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [Sistema de Ficheiros](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - Para o Amazon S3 e o Google Cloud Storage, `lastModified` se aplica ao Bucket e à chave, mas não à pasta virtual, e `exists` se aplica ao Bucket e à chave, mas não ao prefixo ou à pasta virtual.
 - Para o armazenamento de BLOBs do Azure, `lastModified` se aplica ao contêiner e ao blob, mas não à pasta virtual.
+- `lastModified` filtro atualmente se aplica ao filtro de itens filho, mas não ao próprio arquivo/pasta especificado.
 - O filtro de curingas em pastas/arquivos não tem suporte para a atividade obter metadados.
 
 **Banco de dados relacional**
@@ -193,7 +194,7 @@ Os resultados de obter metadados são mostrados na saída da atividade. A seguir
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

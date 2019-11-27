@@ -41,6 +41,6 @@ Para computadores não Azure, as pesquisas salvas também conhecidas como grupos
 
 ![Selecionar grupos](./media/automation-update-management/select-groups-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de criar um grupo dinâmico, você pode [criar uma implantação de atualização](automation-tutorial-update-management.md)

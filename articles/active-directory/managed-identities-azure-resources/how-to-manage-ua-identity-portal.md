@@ -1,6 +1,6 @@
 ---
-title: Manage a user-assigned managed identity in the Azure portal - Azure AD
-description: Step by step instructions on how to create, list, delete and assign a role to a user-assigned managed identity.
+title: Gerenciar uma identidade gerenciada atribuída pelo usuário no portal do Azure-Azure AD
+description: Instruções passo a passo sobre como criar, listar, excluir e atribuir uma função a uma identidade gerenciada atribuída pelo usuário.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,77 +15,77 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06d25604ca1e8a59ca1da3c8e290d9052856b769
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10caa9e5e61dc1dd0c1062583f55a7357c643ce5
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224632"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547448"
 ---
-# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal
+# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Identidades gerenciadas para recursos do Azure fornecem serviços do Azure com uma identidade gerenciada no Azure Active Directory. Você pode usar essa identidade para autenticar em serviços que dão suporte à autenticação do Azure AD, sem precisar de credenciais em seu código. 
 
-In this article, you learn how to create, list, delete or assign a role to a user-assigned managed identity using the Azure Portal.
+Neste artigo, você aprende a criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+Para criar uma identidade gerenciada atribuída pelo usuário, sua conta precisa da atribuição de função de [colaborador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to create the user-assigned managed identity.
-2. In the search box, type *Managed Identities*, and under **Services**, click **Managed Identities**.
-3. Click **Add** and enter values in the following fields under **Create user assigned managed** identity pane:
-   - **Resource Name**: This is the name for your user-assigned managed identity, for example UAI1.
-   - **Subscription**: Choose the subscription to create the user-assigned managed identity under
-   - **Resource Group**: Create a new resource group to contain your user-assigned managed identity or choose **Use existing** to create the user-assigned managed identity in an existing resource group.
-   - **Location**: Choose a location to deploy the user-assigned managed identity,for example **West US**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para criar a identidade gerenciada atribuída pelo usuário.
+2. Na caixa de pesquisa, digite *identidades gerenciadas*e, em **Serviços**, clique em **identidades gerenciadas**.
+3. Clique em **Adicionar** e insira valores nos campos a seguir em criar painel de identidade **gerenciada atribuída pelo usuário** :
+   - **Nome do recurso**: esse é o nome da identidade gerenciada atribuída pelo usuário, por exemplo, UAI1.
+   - **Assinatura**: escolha a assinatura para criar a identidade gerenciada atribuída pelo usuário em
+   - **Grupo de recursos**: Crie um novo grupo de recursos para conter sua identidade gerenciada atribuída pelo usuário ou escolha **usar existente** para criar a identidade gerenciada atribuída pelo usuário em um grupo de recursos existente.
+   - **Local**: escolha um local para implantar a identidade gerenciada atribuída pelo usuário, por exemplo, **oeste dos EUA**.
 4. Clique em **Criar**.
 
 ![Criar uma identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 
-## <a name="list-user-assigned-managed-identities"></a>List user-assigned managed identities
+## <a name="list-user-assigned-managed-identities"></a>Listar identidades gerenciadas atribuídas pelo usuário
 
-To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) or [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+Para listar/ler uma identidade gerenciada atribuída pelo usuário, sua conta precisa do [operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou da atribuição de função de [colaborador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
-2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
-3. A list of the user-assigned managed identities for your subscription is returned.  To see the details of a user-assigned managed identity click its name.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para listar as identidades gerenciadas atribuídas pelo usuário.
+2. Na caixa de pesquisa, digite *identidades gerenciadas*e, em serviços, clique em **identidades gerenciadas**.
+3. É retornada uma lista das identidades gerenciadas atribuídas pelo usuário para sua assinatura.  Para ver os detalhes de uma identidade gerenciada atribuída pelo usuário, clique em seu nome.
 
-![List user-assigned managed identity](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
+![Listar identidade gerenciada atribuída pelo usuário](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
-## <a name="delete-a-user-assigned-managed-identity"></a>Delete a user-assigned managed identity
+## <a name="delete-a-user-assigned-managed-identity"></a>Excluir uma identidade gerenciada atribuída pelo usuário
 
-To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+Para excluir uma identidade gerenciada atribuída pelo usuário, sua conta precisa da atribuição de função de [colaborador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Deleting a user assigned identity does not remove it from the VM or resource it was assigned to.  To remove the user assigned identity from a VM see, [Remove a user-assigned managed identity from a VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+A exclusão de uma identidade atribuída pelo usuário não a remove da VM ou do recurso ao qual ela foi atribuída.  Para remover a identidade atribuída pelo usuário de uma VM, consulte [remover uma identidade gerenciada atribuída pelo usuário de uma VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to delete a user-assigned managed identity.
-2. Select the user-assigned managed identity and click **Delete**.
-3. Under the confirmation box choose, **Yes**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para excluir uma identidade gerenciada atribuída pelo usuário.
+2. Selecione a identidade gerenciada atribuída pelo usuário e clique em **excluir**.
+3. Na caixa de confirmação, escolha **Sim**.
 
-![Delete user-assigned managed identity](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
+![Excluir identidade gerenciada atribuída pelo usuário](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Assign a role to a user-assigned managed identity 
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função a uma identidade gerenciada atribuída pelo usuário 
 
-To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
+Para atribuir uma função a uma identidade gerenciada atribuída pelo usuário, sua conta precisa da atribuição de função de [administrador de acesso do usuário](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
-2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
-3. A list of the user-assigned managed identities for your subscription is returned.  Select the user-assigned managed identity that you want to assign a role.
-4. Select **Access control (IAM)** and then select **Add role assignment**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para listar as identidades gerenciadas atribuídas pelo usuário.
+2. Na caixa de pesquisa, digite *identidades gerenciadas*e, em serviços, clique em **identidades gerenciadas**.
+3. É retornada uma lista das identidades gerenciadas atribuídas pelo usuário para sua assinatura.  Selecione a identidade gerenciada atribuída pelo usuário para a qual você deseja atribuir uma função.
+4. Selecione **controle de acesso (iam)** e, em seguida, selecione **Adicionar atribuição de função**.
 
-   ![User-assigned managed identity start](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+   ![Início de identidade gerenciada atribuída pelo usuário](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. In the Add role assignment blade, configure the following values and then click **Save**:
-   - **Role** - the role to assign
-   - **Assign access to**  - the resource to assign the user-assigned managed identity
-   - **Select** - the member to assign access
+5. Na folha adicionar atribuição de função, configure os seguintes valores e, em seguida, clique em **salvar**:
+   - **Função** -a função a ser atribuída
+   - **Atribuir acesso ao** -o recurso para atribuir a identidade gerenciada atribuída pelo usuário
+   - **Select** -o membro para atribuir acesso
    
-   ![User-assigned managed identity IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![IAM de identidade gerenciada atribuída pelo usuário](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  

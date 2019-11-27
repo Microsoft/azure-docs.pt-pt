@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832008"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538194"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas frequentes sobre a solução Monitor de Desempenho de Rede
 
@@ -183,6 +183,8 @@ Um salto pode não responder a um traceroute em um ou mais dos cenários abaixo:
 * Os roteadores foram configurados para não revelar sua identidade.
 * Os dispositivos de rede não estão permitindo o tráfego de ICMP_TTL_EXCEEDED.
 * Um firewall está bloqueando a resposta ICMP_TTL_EXCEEDED do dispositivo de rede.
+
+Quando qualquer um dos pontos de extremidade está no Azure, os traceroute exibem saltos não identificados, pois o Azure ndrastructure não revela identidades para os traceroute. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Obtenho alertas para testes não íntegros, mas não vejo os valores altos no grafo de perda e latência do NPM. Como fazer verificar o que não está íntegro?
 O NPM emitirá um alerta se a latência de ponta a ponta entre a origem e o destino cruzar o limite de qualquer caminho entre eles. Algumas redes têm vários caminhos conectando a mesma origem e destino. NPM gera um alerta é que qualquer caminho não está íntegro. A perda e a latência vistas nos grafos são o valor médio de todos os caminhos, portanto, ele pode não mostrar o valor exato de um único caminho. Para entender onde o limite foi violado, procure a coluna "subtipo" no alerta. Se o problema for causado por um caminho, o valor do subtipo será NetworkPath (para testes do monitor de desempenho), EndpointPath (para testes do monitor de conectividade de serviço) e ExpressRoutePath (para testes do monitor ExpressRotue). 

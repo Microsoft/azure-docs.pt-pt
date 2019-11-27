@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b287253e471ced244db3169be9f7d8f14e5862e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045266"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539040"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Início rápido: biblioteca de cliente do Content Moderator para .NET
 
@@ -27,7 +27,7 @@ Use a biblioteca de cliente do Content Moderator para .NET para:
 * [Imagens moderadas](#moderate-images)
 * [Criar uma revisão](#create-a-review)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet)  | [amostras](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet) do NuGet ([código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator)  | [do pacote)  |  de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) biblioteca
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [amostras](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet) do NuGet ( [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [do pacote) | de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -128,8 +128,8 @@ O código a seguir usa um cliente Content Moderator para analisar um corpo de te
 Em seguida, na raiz do seu projeto e adicione um arquivo *textfile. txt* . Adicione seu próprio texto a este arquivo ou use o seguinte texto de exemplo:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
 Adicione a seguinte chamada de método ao seu método de `Main`:
@@ -273,7 +273,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 
 Neste guia de início rápido, você aprendeu a usar o Content Moderator biblioteca .NET para realizar tarefas de moderação. Em seguida, saiba mais sobre a moderação de imagens ou outra mídia lendo um guia conceitual.

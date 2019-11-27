@@ -315,7 +315,7 @@ Para alterar o nome de uma etapa na pasta de trabalho salva, selecione Editar na
 ![selecione Editar na parte inferior de uma etapa da pasta de trabalho para abrir as configurações](./media/storage-insights-overview/fqa-edit.png)
 ![em configurações selecione a engrenagem na parte inferior, para poder alterar o nome da etapa](./media/storage-insights-overview/fqa-change-name.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

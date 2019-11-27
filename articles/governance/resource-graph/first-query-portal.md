@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Your first portal query'
-description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
+title: 'Início rápido: sua primeira consulta do portal'
+description: Neste guia de início rápido, você seguirá as etapas para executar sua primeira consulta de portal do Azure usando o Gerenciador de grafo de recursos do Azure.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
@@ -10,11 +10,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406804"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
 
-The power of Azure Resource Graph is available directly in Azure portal through Azure Resource Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource Manager resource types and properties that you can query. Resource Graph Explorer also provides a clean interface for working with multiple queries, evaluating the results, and even converting the results of some queries into a chart that can be pinned to an Azure dashboard.
+O poder do grafo de recursos do Azure está disponível diretamente no portal do Azure por meio do Gerenciador de grafo de recursos do Azure. O Gerenciador de grafo de recursos fornece informações navegáveis sobre o Azure Resource Manager tipos de recursos e propriedades que você pode consultar. O Gerenciador de gráficos de recursos também fornece uma interface limpa para trabalhar com várias consultas, avaliar os resultados e até mesmo converter os resultados de algumas consultas em um gráfico que pode ser fixado em um painel do Azure.
 
-At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your first Resource Graph query and pinned the results to a dashboard.
+No final deste guia de início rápido, você terá usado portal do Azure e Gerenciador de grafo de recursos para executar sua primeira consulta de grafo de recursos e fixado os resultados em um painel.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,38 +22,38 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer following these steps to run your first Resource Graph query:
+Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Gerenciador de grafo de recursos seguindo estas etapas para executar sua primeira consulta de grafo de recursos:
 
-1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **Explorador de grafo de recursos**.
 
-1. In the **Query 1** portion of the window, enter the query `Resources | project name, type | limit 5` and select **Run query**.
+1. Na parte **consulta 1** da janela, insira o `Resources | project name, type | limit 5` de consulta e selecione **Executar consulta**.
 
    > [!NOTE]
-   > As this query example doesn't provide a sort modifier such as `order by`, running this query multiple times is likely to yield a different set of resources per request.
+   > Como este exemplo de consulta não fornece um modificador de classificação, como `order by`, executar essa consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação.
 
-1. Review the query response in the **Results** tab. Select the **Messages** tab to see details about the query, including the count of results and duration of the query. Errors, if any, are displayed under this tab.
+1. Examine a resposta de consulta na guia **resultados** . Selecione a guia **mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e a duração da consulta. Os erros, se houver, são exibidos nessa guia.
 
-1. Update the query to `order by` the **Name** property: `Resources | project name, type | limit 5 | order by name asc`. Then, select **Run query**.
+1. Atualize a consulta para `order by` a propriedade **Name** : `Resources | project name, type | limit 5 | order by name asc`. Em seguida, selecione **Executar consulta**.
 
    > [!NOTE]
    > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
-1. Update the query to first `order by` the **Name** property and then `limit` to the top five results: `Resources | project name, type | order by name asc | limit 5`. Then, select **Run query**.
+1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` os cinco primeiros resultados: `Resources | project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar consulta**.
 
-When the final query is run several times, assuming that nothing in your environment is changing, the results returned are consistent and as expected -- ordered by the **Name** property, but still limited to the top five results.
+Quando a consulta final é executada várias vezes, supondo que nada em seu ambiente esteja sendo alterado, os resultados retornados são consistentes e conforme esperado – ordenados pela propriedade **Name** , mas ainda limitados aos cinco primeiros resultados.
 
-### <a name="schema-browser"></a>Schema browser
+### <a name="schema-browser"></a>Navegador de esquema
 
-The schema browser is located in the left pane of Resource Graph Explorer. This list of resources shows all the _resource types_ of Azure resources that are both supported by Azure Resource Graph and that exist in a tenant that you have access to. Expanding a resource type or subproperties show child properties that can be used to create a Resource Graph query.
+O navegador de esquema está localizado no painel esquerdo do Gerenciador de gráficos de recursos. Esta lista de recursos mostra todos os _tipos_ de recursos dos recursos do Azure com suporte do grafo de recursos do Azure e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou subpropriedades mostra Propriedades filho que podem ser usadas para criar uma consulta de gráfico de recursos.
 
-Selecting the resource type places `where type =="<resource type>"` into the query box. Selecting one of the child properties adds `where <propertyName> == "INSERT_VALUE_HERE"` into the query box.
-The schema browser is a great way to discover properties for use in queries. Be sure to replace _INSERT\_VALUE\_HERE_ with your own value, adjust the query with conditions, operators, and functions to achieve your intended results.
+Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. A seleção de uma das propriedades filho adiciona `where <propertyName> == "INSERT_VALUE_HERE"` à caixa de consulta.
+O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Certifique-se de substituir _inserir\_valor\_aqui_ pelo seu próprio valor, ajuste a consulta com condições, operadores e funções para atingir os resultados pretendidos.
 
-## <a name="create-a-chart-from-the-resource-graph-query"></a>Create a chart from the Resource Graph query
+## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico a partir da consulta de grafo de recursos
 
-After running the last query above, if you select the **Charts** tab, you get a message that "the result set isn't compatible with a pie chart visualization." Queries that list results can't be made into a chart, but queries that provide counts of resources can. Using the [Sample query - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type), let's create a visualization from the Resource Graph query.
+Depois de executar a última consulta acima, se você selecionar a guia **gráficos** , receberá uma mensagem informando que "o conjunto de resultados não é compatível com uma visualização de gráfico de pizza". As consultas que listam os resultados não podem ser feitas em um gráfico, mas as consultas que fornecem contagens de recursos podem. Usando a [consulta de exemplo – contagem de máquinas virtuais por tipo de so](./samples/starter.md#count-virtual-machines-by-os-type), vamos criar uma visualização da consulta de grafo de recursos.
 
-1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
+1. Na parte **consulta 1** da janela, insira a consulta a seguir e selecione **Executar consulta**.
 
    ```kusto
    Resources
@@ -61,65 +61,65 @@ After running the last query above, if you select the **Charts** tab, you get a 
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-1. Select the **Results** tab and note that the response for this query provides counts.
+1. Selecione a guia **resultados** e observe que a resposta para essa consulta fornece contagens.
 
-1. Select the **Charts** tab. Now, the query results in visualizations. Change the type from _Select chart type..._ to either _Bar chart_ or _Donut chart_ to experiment with the available visualization options.
+1. Selecione a guia **gráficos** . Agora, a consulta resulta em visualizações. Altere o tipo de _Selecionar tipo de gráfico..._ para o _gráfico de barras_ ou o gráfico de _rosca_ para experimentar as opções de visualização disponíveis.
 
-## <a name="pin-the-query-visualization-to-a-dashboard"></a>Pin the query visualization to a dashboard
+## <a name="pin-the-query-visualization-to-a-dashboard"></a>Fixar a visualização de consulta em um painel
 
-When you have results from a query that can be visualized, that data visualization can then be pinned to one of your dashboards. After running the query above, follow these steps:
+Quando você tem resultados de uma consulta que pode ser visualizada, essa visualização de dados pode então ser fixada em um dos seus painéis. Depois de executar a consulta acima, siga estas etapas:
 
-1. Select **Save** and provide the name "VMs by OS Type". Then select **Save** at the bottom of the right pane.
+1. Selecione **salvar** e forneça o nome "VMs por tipo de sistema operacional". Em seguida, selecione **salvar** na parte inferior do painel direito.
 
-1. Select **Run query** to rerun the query now that it's been saved.
+1. Selecione **Executar consulta** para executar novamente a consulta agora que ela foi salva.
 
-1. On the **Charts** tab, select a data visualization. Then select **Pin to dashboard**.
+1. Na guia **gráficos** , selecione uma visualização de dados. Em seguida, selecione **fixar no painel**.
 
-1. Either select the portal notification that appears or select **Dashboard** from the left pane.
+1. Selecione a notificação do portal que aparece ou selecione **painel** no painel esquerdo.
 
-The query is now available on your dashboard with the title of the tile matching the query name. If the query was unsaved when it was pinned, it's named 'Query 1' instead.
+A consulta agora está disponível no painel com o título do bloco correspondente ao nome da consulta. Se a consulta não foi salva quando foi fixada, ela é chamada de "consulta 1".
 
-The query and resulting data visualization run and update each time the dashboard loads, providing real-time and dynamic insights to your Azure environment directly in your workflow.
-
-> [!NOTE]
-> Queries that result in a list can also be pinned to the dashboard. The feature isn't limited to data visualizations of queries.
-
-## <a name="import-example-resource-graph-explorer-dashboards"></a>Import example Resource Graph Explorer dashboards
-
-To provide examples of Resource Graph queries and how Resource Graph Explorer can be used to enhance your Azure portal workflow, try out these example dashboards.
-
-- [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
-
-  [![Example image for Sample Dashboard #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
-
-- [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
-
-  [![Example image for Sample Dashboard #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+A consulta e a visualização de dados resultante são executadas e atualizadas sempre que o painel é carregado, fornecendo informações dinâmicas e em tempo real para seu ambiente do Azure diretamente em seu fluxo de trabalho.
 
 > [!NOTE]
-> Counts and charts in the above example dashboard screenshots will vary depending on your Azure environment.
+> As consultas que resultam em uma lista também podem ser fixadas no painel. O recurso não está limitado a visualizações de dados de consultas.
 
-1. Select and download the sample dashboard you want to evaluate.
+## <a name="import-example-resource-graph-explorer-dashboards"></a>Importar exemplo de painéis do Gerenciador de gráficos de recursos
 
-1. In Azure portal, select **Dashboard** from the left pane.
+Para fornecer exemplos de consultas de grafo de recursos e como o Gerenciador de grafo de recursos pode ser usado para aprimorar seu portal do Azure fluxo de trabalho, experimente esses painéis de exemplo.
 
-1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select **Open**.
+- [Gerenciador de gráficos de recursos-Dashboard de exemplo #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-The imported dashboard is automatically displayed. Since it now exists in your Azure portal, you may explore and make changes as needed or create new dashboards from the example to share with your teams. For more information about working with dashboards, see [Create and share dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+  [![exemplo de imagem para o painel de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+
+- [Gerenciador de gráficos de recursos-Dashboard de exemplo #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
+
+  [![exemplo de imagem para o painel de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+
+> [!NOTE]
+> As contagens e os gráficos no exemplo acima capturas de tela do painel variam de acordo com o ambiente do Azure.
+
+1. Selecione e baixe o painel de exemplo que você deseja avaliar.
+
+1. Em portal do Azure, selecione **painel** no painel esquerdo.
+
+1. Selecione **carregar**, localize e selecione o arquivo de painel de exemplo baixado. Em seguida, selecione **abrir**.
+
+O painel importado é exibido automaticamente. Como agora existe no portal do Azure, você pode explorar e fazer alterações conforme necessário ou criar novos painéis do exemplo para compartilhar com suas equipes. Para obter mais informações sobre como trabalhar com painéis, consulte [criar e compartilhar painéis no portal do Azure](../../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-If you wish to remove the sample Resource Graph dashboards from your Azure portal environment, you can do so with the following steps:
+Se você quiser remover os painéis de gráfico de recursos de exemplo de seu ambiente portal do Azure, poderá fazer isso com as seguintes etapas:
 
-1. Select **Dashboard** from the left pane.
+1. Selecione **painel** no painel esquerdo.
 
-1. From the dashboard drop-down, select the sample Resource Graph dashboard you wish to delete.
+1. Na lista suspensa painel, selecione o painel de gráfico de recursos de exemplo que você deseja excluir.
 
-1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to confirm.
+1. Selecione **excluir** no menu do painel na parte superior do painel e selecione **OK** para confirmar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this quickstart, you've used Azure Resource Graph Explorer to run your first query and looked at dashboard examples powered by Resource Graph. To learn more about the Resource graph language, continue to the query language details page.
+Neste guia de início rápido, você usou o Gerenciador de gráficos de recursos do Azure para executar sua primeira consulta e examinou os exemplos de painel fornecidos pelo grafo de recursos. Para saber mais sobre a linguagem de gráfico de recursos, continue na página de detalhes da linguagem de consulta.
 
 > [!div class="nextstepaction"]
-> [Get more information about the query language](./concepts/query-language.md)
+> [Obter mais informações sobre a linguagem de consulta](./concepts/query-language.md)

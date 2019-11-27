@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create & deploy template
-description: Create your first Azure Resource Manager template. In the tutorial, you learn about the template file syntax and how to deploy a storage account.
+title: Tutorial – criar modelo de implantação de &
+description: Crie seu primeiro modelo de Azure Resource Manager. No tutorial, você aprenderá sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,44 +12,44 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406026"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Create and deploy your first Azure Resource Manager template
+# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager
 
-This tutorial introduces you to Azure Resource Manager templates. It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+Este tutorial apresenta Azure Resource Manager modelos. Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia de acordo com o número de ferramentas que você precisa instalar.
 
-This tutorial is the first of a series. As you progress through the series, you modify the starting template step-by-step until you've explored all of the core parts of a Resource Manager template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
+Este tutorial é o primeiro de uma série. À medida que avança pela série, você modifica o modelo inicial passo a passo até explorar todas as partes principais de um modelo do Resource Manager. Esses elementos são os blocos de construção para modelos muito mais complexos. Esperamos que o final da série você tenha certeza de criar seus próprios modelos e esteja pronto para automatizar suas implantações com modelos.
 
-If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [Azure Resource Manager templates](template-deployment-overview.md).
+Se você quiser saber mais sobre os benefícios de usar modelos e por que deve automatizar a implantação com modelos, consulte [modelos de Azure Resource Manager](template-deployment-overview.md).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="get-tools"></a>Get tools
+## <a name="get-tools"></a>Obter ferramentas
 
-Let's start by making sure you have the tools you need to create and deploy templates.
+Vamos começar verificando se você tem as ferramentas necessárias para criar e implantar modelos.
 
 ### <a name="editor"></a>Editor
 
-Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+Os modelos são arquivos JSON. Para criar modelos, você precisa de um bom editor de JSON. É recomendável Visual Studio Code com a extensão de ferramentas do Resource Manager. Se você precisar instalar essas ferramentas, consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
-### <a name="command-line-deployment"></a>Command-line deployment
+### <a name="command-line-deployment"></a>Implantação de linha de comando
 
-You also need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
+Você também precisa de Azure PowerShell ou CLI do Azure para implantar o modelo. Para obter as instruções de instalação, consulte:
 
 - [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
-- [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
-- [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
+- [Instalar o CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
+- [Instalar o CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
 
-After installing either Azure PowerShell or Azure CLI, make sure you sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
+Depois de instalar o Azure PowerShell ou CLI do Azure, certifique-se de entrar pela primeira vez. Para obter ajuda, consulte [entrar-PowerShell](/powershell/azure/install-az-ps#sign-in) ou [entrar-CLI do Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 
-Okay, you're ready to start learning about templates.
+Ok, você está pronto para começar a aprender sobre modelos.
 
-## <a name="create-your-first-template"></a>Create your first template
+## <a name="create-your-first-template"></a>Criar seu primeiro modelo
 
-1. Open Visual Studio Code with the Resource Manager Tools extension installed.
-1. From the **File** menu, select **New File** to create a new file.
-1. From the **File** menu, select **Save as**.
-1. Name the file **azuredeploy** and select the **JSON** file extension. The complete name of the file **azuredeploy.json**.
-1. Save the file to your workstation. Select a path that is easy to remember because you'll provide that path later when deploying the template.
-1. Copy and paste the following JSON into the file:
+1. Abra Visual Studio Code com a extensão de ferramentas do Resource Manager instalada.
+1. No menu **arquivo** , selecione **novo arquivo** para criar um novo arquivo.
+1. No menu **arquivo** , selecione **salvar como**.
+1. Nomeie o arquivo **azuredeploy** e selecione a extensão de arquivo **JSON** . O nome completo do arquivo **azuredeploy. JSON**.
+1. Salve o arquivo em sua estação de trabalho. Selecione um caminho que seja fácil de lembrar, pois você fornecerá esse caminho mais tarde ao implantar o modelo.
+1. Copie e cole o JSON a seguir no arquivo:
 
     ```json
     {
@@ -59,25 +59,25 @@ Okay, you're ready to start learning about templates.
     }
     ```
 
-    Here's what your VS Code environment looks like:
+    Esta é a aparência de seu ambiente de VS Code:
 
-    ![Resource Manager template visual studio code first template](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![Modelo do Resource Manager modelo do Visual Studio Code-primeiro](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
-    This template doesn't deploy any resources. We're starting with a blank template so you can get familiar with the steps to deploy a template while minimizing the chance of something going wrong.
+    Este modelo não implanta nenhum recurso. Estamos começando com um modelo em branco para que você possa se familiarizar com as etapas para implantar um modelo, minimizando a chance de algo ficar errado.
 
-    The JSON file has these elements:
+    O arquivo JSON tem estes elementos:
 
-    - **$schema**: Specifies the location of the JSON schema file. The schema file describes the properties that are available within a template. For example, the schema defines **resources** as one of the valid properties for a template. Don't worry that the date for the schema is 2015-01-01. This schema version is up-to-date and includes all of the latest features. The schema date hasn't been changed because there have been no breaking changes since its introduction.
-    - **contentVersion**: Specifies the version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used.
-    - **resources**: Contains the resources you want to deploy or update. Currently, it's empty, but you'll add resources later.
+    - **$Schema**: especifica o local do arquivo de esquema JSON. O arquivo de esquema descreve as propriedades que estão disponíveis em um modelo. Por exemplo, o esquema define **recursos** como uma das propriedades válidas para um modelo. Não se preocupe que a data do esquema é 2015-01-01. Essa versão de esquema está atualizada e inclui todos os recursos mais recentes. A data do esquema não foi alterada porque não houve alterações significativas desde sua introdução.
+    - **contentVersion**: especifica a versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para este elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos usando o modelo, esse valor pode ser usado para garantir que o modelo correto esteja sendo usado.
+    - **recursos**: contém os recursos que você deseja implantar ou atualizar. Atualmente, ele está vazio, mas você adicionará recursos mais tarde.
 
 1. Guarde o ficheiro.
 
-Congratulations, you've created your first template.
+Parabéns, você criou seu primeiro modelo.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-To start working with Azure PowerShell/Azure CLI, sign in with your Azure credentials.
+Para começar a trabalhar com Azure PowerShell/CLI do Azure, entre com suas credenciais do Azure.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -94,7 +94,7 @@ az login
 ---
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI. The CLI examples in this article are written for the Bash shell.
+Ao implantar um modelo, você especifica um grupo de recursos que conterá os recursos. Antes de executar o comando de implantação, crie o grupo de recursos com CLI do Azure ou Azure PowerShell. Selecione as guias na seção de código a seguir para escolher entre Azure PowerShell e CLI do Azure. Os exemplos de CLI neste artigo são escritos para o shell bash.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -116,7 +116,7 @@ az group create \
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-To deploy the template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy.
+Para implantar o modelo, use CLI do Azure ou Azure PowerShell. Use o grupo de recursos que você criou. Dê um nome para a implantação para que você possa identificá-la facilmente no histórico de implantação. Para sua conveniência, crie também uma variável que armazena o caminho para o arquivo de modelo. Essa variável facilita a execução dos comandos de implantação porque você não precisa digitar o caminho sempre que implantar.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -140,54 +140,54 @@ az group deployment create \
 
 ---
 
-The deployment command returns results. Look for `ProvisioningState` to see whether the deployment succeeded.
+O comando de implantação retorna resultados. Procure `ProvisioningState` para ver se a implantação foi bem-sucedida.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-![PowerShell deployment provisioning state](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
+![Estado de provisionamento de implantação do PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-![Azure CLI deployment provisioning state](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
+![Estado de provisionamento de CLI do Azure implantação](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
-1. From the left menu, select **Resource groups**.
+1. No menu à esquerda, selecione **grupos de recursos**.
 
-1. Select the resource group deploy in the last procedure. The default name is **myResourceGroup**. You shall see no resource deployed within the resource group.
+1. Selecione o grupo de recursos implantar no último procedimento. O nome padrão é **MyResource**. Você não deverá ver nenhum recurso implantado dentro do grupo de recursos.
 
-1. Notice in the upper right of the overview, the status of the deployment is displayed. Select **1 Succeeded**.
+1. Observe que, no canto superior direito da visão geral, o status da implantação é exibido. A seleção **1 foi bem-sucedida**.
 
-   ![View deployment status](./media/template-tutorial-create-first-template/deployment-status.png)
+   ![Exibir status da implantação](./media/template-tutorial-create-first-template/deployment-status.png)
 
-1. You see a history of deployment for the resource group. Select **blanktemplate**.
+1. Você verá um histórico de implantação para o grupo de recursos. Selecione **blanktemplate**.
 
-   ![Select deployment](./media/template-tutorial-create-first-template/select-from-deployment-history.png)
+   ![Selecionar implantação](./media/template-tutorial-create-first-template/select-from-deployment-history.png)
 
-1. You see a summary of the deployment. In this case, there's not a lot to see because no resources were deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can view inputs, outputs, and the template used during deployment.
+1. Você verá um resumo da implantação. Nesse caso, não há muito a ver porque nenhum recurso foi implantado. Posteriormente nesta série, talvez você ache útil revisar o resumo no histórico de implantação. Observe à esquerda que você pode exibir entradas, saídas e o modelo usado durante a implantação.
 
-   ![View deployment summary](./media/template-tutorial-create-first-template/view-deployment-summary.png)
+   ![Exibir Resumo da implantação](./media/template-tutorial-create-first-template/view-deployment-summary.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
 
-If you're stopping now, you might want to delete the resource group.
+Se estiver parando agora, talvez você queira excluir o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-You created a simple template to deploy to Azure. In the next tutorial, you'll add a storage account to the template and deploy it to your resource group.
+Você criou um modelo simples para implantar no Azure. No próximo tutorial, você adicionará uma conta de armazenamento ao modelo e a implantará em seu grupo de recursos.
 
 > [!div class="nextstepaction"]
-> [Add resource](template-tutorial-add-resource.md)
+> [Adicionar recurso](template-tutorial-add-resource.md)

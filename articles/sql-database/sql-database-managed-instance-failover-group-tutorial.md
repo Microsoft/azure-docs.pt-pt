@@ -1139,7 +1139,7 @@ Não há nenhum script disponível para o portal do Azure.
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você configurou um grupo de failover entre duas instâncias gerenciadas. Aprendeu a:
 

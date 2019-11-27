@@ -1,62 +1,62 @@
 ---
-title: Quickstart -  Azure Key Vault client library for Python
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Python client library
+title: Guia de início rápido – biblioteca de cliente Azure Key Vault para Python
+description: Saiba como criar, recuperar e excluir segredos de um cofre de chaves do Azure usando a biblioteca de cliente do Python
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 7f1b238eb0e355d7e82b985ff82d7cb6cacfad59
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: eea929d68c824ac7cf8045aa6a7ce60430952d03
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457577"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546881"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Quickstart: Azure Key Vault client library for Python
+# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Início rápido: biblioteca de cliente Azure Key Vault para Python
 
-Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
+Introdução à biblioteca de cliente Azure Key Vault para Python. Siga as etapas abaixo para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
 
-O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Use the Key Vault client library for Python to:
+O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Use a biblioteca de cliente Key Vault para Python para:
 
-- Increase security and control over keys and passwords.
-- Create and import encryption keys in minutes.
-- Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for SSL/TLS certificates.
-- Use FIPS 140-2 Level 2 validated HSMs.
+- Aumente a segurança e o controle sobre chaves e senhas.
+- Crie e importe chaves de criptografia em minutos.
+- Reduza a latência com escala de nuvem e redundância global.
+- Simplifique e automatize tarefas para certificados SSL/TLS.
+- Use os HSMs validados pelo FIPS 140-2 nível 2.
 
-[API reference documentation](/python/api/overview/azure/key-vault?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
+[Documentação de referência de API](/python/api/overview/azure/key-vault?view=azure-python) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [pacote (índice de pacote do Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Python 2.7, 3.5.3, or later
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+- Uma assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Python 2,7, 3.5.3 ou posterior
+- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
+Este início rápido pressupõe que você está executando [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) em uma janela de terminal do Linux.
 
-## <a name="setting-up"></a>Setting up
+## <a name="setting-up"></a>Configurando
 
-### <a name="install-the-package"></a>Install the package
+### <a name="install-the-package"></a>Instalar o pacote
 
-From the console window, install the Azure Key Vault secrets library for Python.
+Na janela do console, instale a biblioteca de segredos Azure Key Vault para Python.
 
 ```console
 pip install azure-keyvault-secrets
 ```
 
-For this quickstart, you will need to install the azure.identity package as well:
+Para este guia de início rápido, você precisará instalar o pacote Azure. Identity também:
 
 ```console
 pip install azure.identity
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Create a resource group and key vault
+### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
 
-This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can run the Azure CLI commands below.
+Este guia de início rápido usa um cofre de chaves do Azure criado previamente. Você pode criar um cofre de chaves seguindo as etapas na guia de início rápido [CLI do Azure](quick-create-cli.md), guia de início rápido [Azure PowerShell](quick-create-powershell.md)ou [portal do Azure início rápido](quick-create-portal.md). Como alternativa, você pode executar os comandos de CLI do Azure abaixo.
 
 > [!Important]
-> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+> Cada cofre de chaves deve ter um nome exclusivo. Substitua < seu-Unique-keyvault-Name > pelo nome do seu cofre de chaves nos exemplos a seguir.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -66,15 +66,15 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstart creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
+A maneira mais simples de autenticar um aplicativo .NET baseado em nuvem é com uma identidade gerenciada; consulte [usar uma identidade gerenciada do serviço de aplicativo para acessar Azure Key Vault](managed-identity.md) para obter detalhes. Para simplificar, no entanto, este guia de início rápido cria um aplicativo de console .NET. A autenticação de um aplicativo de área de trabalho com o Azure requer o uso de uma entidade de serviço e uma política de controle de acesso.
 
-Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+Crie uma entidade de serviço usando o comando CLI do Azure [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
 ```azurecli
 az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 ```
 
-This operation will return a series of key / value pairs. 
+Essa operação retornará uma série de pares de chave/valor. 
 
 ```console
 {
@@ -91,21 +91,21 @@ This operation will return a series of key / value pairs.
 }
 ```
 
-Take note of the clientId and clientSecret, as we will use them in the [Set environmental variable](#set-environmental-variables) step below.
+Anote o clientId e o clientSecret, pois eles serão usados na etapa [definir variável de ambiente](#set-environmental-variables) abaixo.
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Give the service principal access to your key vault
+#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao cofre de chaves
 
-Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
+Crie uma política de acesso para o cofre de chaves que concede permissão para sua entidade de serviço passando o clientId para o comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Conceda à entidade de serviço obter, listar e definir permissões para chaves e segredos.
 
 ```azurecli
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
-#### <a name="set-environmental-variables"></a>Set environmental variables
+#### <a name="set-environmental-variables"></a>Definir variáveis de ambiente
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step using the `export VARNAME=VALUE` format. (This method only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
+O método DefaultAzureCredential em nosso aplicativo depende de três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Defina essas variáveis para os valores clientId, clientSecret e tenantid que você anotou na etapa [criar uma entidade de serviço](#create-a-service-principal) usando o formato `export VARNAME=VALUE`. (Esse método define apenas as variáveis para o shell atual e os processos criados a partir do Shell; para adicionar permanentemente essas variáveis ao seu ambiente, edite seu arquivo de `/etc/environment `.) 
 
-You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
+Você também precisará salvar o nome do cofre de chaves como uma variável de ambiente chamada `KEY_VAULT_NAME`.
 
 ```console
 export AZURE_CLIENT_ID=<your-clientID>
@@ -117,17 +117,17 @@ export AZURE_TENANT_ID=<your-tenantId>
 export KEY_VAULT_NAME=<your-key-vault-name>
 ````
 
-## <a name="object-model"></a>Object model
+## <a name="object-model"></a>Modelo de objeto
 
-The Azure Key Vault client library for Python allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+A biblioteca de cliente Azure Key Vault para Python permite que você gerencie chaves e ativos relacionados, como certificados e segredos. Os exemplos de código abaixo mostrarão como criar um cliente, definir um segredo, recuperar um segredo e excluir um segredo.
 
-The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Todo o aplicativo de console está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
-## <a name="code-examples"></a>Code examples
+## <a name="code-examples"></a>Exemplos de código
 
-### <a name="add-directives"></a>Add directives
+### <a name="add-directives"></a>Adicionar diretivas
 
-Add the following directives to the top of your code:
+Adicione as seguintes diretivas à parte superior do seu código:
 
 ```python
 import os
@@ -135,9 +135,9 @@ from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 ```
 
-### <a name="authenticate-and-create-a-client"></a>Authenticate and create a client
+### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://<your-key-vault-name>.vault.azure.net".
+A autenticação no cofre de chaves e a criação de um cliente de cofre de chaves dependem das variáveis ambientais na etapa [definir variáveis de ambiente](#set-environmental-variables) acima. O nome do cofre de chaves é expandido para o URI do Key Vault, no formato "https://< your-key-Vault-Name >. Vault. Azure. net".
 
 ```python
 credential = DefaultAzureCredential()
@@ -145,39 +145,39 @@ credential = DefaultAzureCredential()
 client = SecretClient(vault_endpoint=KVUri, credential=credential)
 ```
 
-### <a name="save-a-secret"></a>Save a secret
+### <a name="save-a-secret"></a>Salvar um segredo
 
-Now that your application is authenticated, you can put a secret into your keyvault using the client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
+Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu cofre de chaves usando o cliente. Método setsecret] (/dotNet/API/Microsoft.Azure.keyvault.keyvaultclientextensions.setsecretasync) requer um nome para o segredo – estamos usando "MySecret" neste exemplo.  
 
 ```python
 client.set_secret(secretName, secretValue);
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
+Você pode verificar se o segredo foi definido com o comando [AZ keyvault segredo show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-### <a name="retrieve-a-secret"></a>Retrieve a secret
+### <a name="retrieve-a-secret"></a>Recuperar um segredo
 
-You can now retrieve the previously set value with the [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Agora você pode recuperar o valor definido anteriormente com o [cliente. Método getsecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
 ```python
 retrieved_secret = client.get_secret(secretName)
  ```
 
-Your secret is now saved as `retrieved_secret.value`.
+Seu segredo agora está salvo como `retrieved_secret.value`.
 
 ### <a name="delete-a-secret"></a>Eliminar um segredo
 
-Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Por fim, vamos excluir o segredo do seu cofre de chaves com o [cliente. Método DeleteSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
 ```python
 client.delete_secret(secretName);
 ```
 
-You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
+Você pode verificar se o segredo desapareceu com o comando [AZ keyvault segredo show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -185,7 +185,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
+Quando não for mais necessário, você poderá usar o CLI do Azure ou Azure PowerShell para remover o cofre de chaves e o grupo de recursos correspondente.
 
 ```azurecli
 az group delete -g "myResourceGroup" -l "EastUS" 
@@ -236,13 +236,11 @@ client.delete_secret(secretName);
 print(" done.");
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this quickstart you created a key vault, stored a secret, and retrieved that secret. See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app).
+Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
 
-To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
-
-- Read an [Overview of Azure Key Vault](key-vault-overview.md)
-- See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
-- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
-- Review [Azure Key Vault best practices](key-vault-best-practices.md)
+- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
+- Consulte o [Guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md)
+- Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)

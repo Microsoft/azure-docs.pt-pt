@@ -126,7 +126,7 @@ Siga estas etapas para limpar os recursos.
 
 5. Para remover o grupo de recursos, selecione **MyResource**Group e, em seguida, selecione **excluir grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Agora você criou um grupo de cargas de trabalho. Execute algumas consultas como ELTLogin para ver como elas são executadas. Consulte [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e o grupo de carga de trabalho atribuído.
 - Para obter mais informações sobre o gerenciamento de carga de trabalho SQL Data Warehouse do Azure, consulte [Gerenciamento de carga](sql-data-warehouse-workload-management.md) de trabalho e [isolamento de carga](sql-data-warehouse-workload-isolation.md)

@@ -1,5 +1,5 @@
 ---
-title: Get intent with REST call in Node.js
+title: Obter a intenção com a chamada REST no node. js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -19,7 +19,7 @@ ms.locfileid: "74414515"
 
 * Linguagem de programação [Node.js](https://nodejs.org/) 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 
@@ -27,9 +27,9 @@ ms.locfileid: "74414515"
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
-Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Use o Node. js para consultar o [ponto de extremidade de previsão](https://aka.ms/luis-apim-v3-prediction) e obter um resultado de previsão.
 
-1. Copy the following code snippet to a file named `predict.js`:
+1. Copie o trecho de código a seguir para um arquivo chamado `predict.js`:
 
     ```javascript
     var request = require('request');
@@ -76,30 +76,30 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Replace the following values:
+1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` to your starter key.
-    * `YOUR-ENDPOINT` to your endpoint URL. Por exemplo, `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-KEY` à sua chave de início.
+    * `YOUR-ENDPOINT` à URL do ponto de extremidade. Por exemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. Install the `request`, `request-promise`, and `querystring` dependencies with this command: 
+1. Instale as dependências de `request`, `request-promise`e `querystring` com este comando: 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. Run your app with this command:
+1. Execute o aplicativo com este comando:
 
     ```console
     node predict.js
     ```
 
- 1. Review the prediction response, which is returned as JSON:   
+ 1. Examine a resposta de previsão, que é retornada como JSON:   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    A resposta JSON formatada para facilitar a leitura: 
 
     ```JSON
     {
@@ -148,9 +148,9 @@ Use Node.js to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predi
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you are finished with this quickstart, delete the file from the file system. 
+Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)

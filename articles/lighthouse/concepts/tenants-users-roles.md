@@ -1,6 +1,6 @@
 ---
-title: Tenants, roles, and users in Azure Lighthouse scenarios
-description: Understand the concepts of Azure Active Directory tenants, users, and roles, as well as how they can be used in Azure Lighthouse scenarios.
+title: Locatários, funções e usuários em cenários de Lighthouse do Azure
+description: Entenda os conceitos de locatários Azure Active Directory, usuários e funções, além de como eles podem ser usados em cenários de Lighthouse do Azure.
 ms.date: 11/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
@@ -10,36 +10,36 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463940"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenants, roles, and users in Azure Lighthouse scenarios
+# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locatários, funções e usuários em cenários de Lighthouse do Azure
 
-Before onboarding customers for [Azure delegated resource management](azure-delegated-resource-management.md), it's important to understand how Azure Active Directory (Azure AD) tenants, users, and roles work, as well as how they can be used in Azure Lighthouse scenarios.
+Antes de integrar os clientes para o [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), é importante entender como os locatários, os usuários e as funções do Azure Active Directory (Azure AD) funcionam, além de como eles podem ser usados em cenários de Lighthouse do Azure.
 
-A *tenant* is a dedicated and trusted instance of Azure AD. Typically, each tenant represents a single organization. Azure delegated resource management enables logical projection of resources from one tenant to another tenant. This allows users in the managing tenant (such as one belonging to a service provider) to access delegated resources in a customer's tenant, or lets [enterprises with multiple tenants centralize their management operations](enterprise.md).
+Um *locatário* é uma instância dedicada e confiável do Azure AD. Normalmente, cada locatário representa uma única organização. O gerenciamento de recursos delegado do Azure permite a projeção lógica de recursos de um locatário para outro locatário. Isso permite que os usuários no locatário de gerenciamento (como um que pertença a um provedor de serviços) acessem recursos delegados no locatário de um cliente ou permite que [empresas com vários locatários Centralize suas operações de gerenciamento](enterprise.md).
 
-In order to achieve this logical projection, a subscription (or one or more resource groups within a subscription) in the customer tenant must be *onboarded* for Azure delegated resource management. This onboarding process can be done either [through Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a public or private offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+Para alcançar essa projeção lógica, uma assinatura (ou um ou mais grupos de recursos em uma assinatura) no locatário do cliente deve ser *integrada* para o gerenciamento de recursos delegado do Azure. Esse processo de integração pode ser feito [por meio de modelos de Azure Resource Manager](../how-to/onboard-customer.md) ou [publicando uma oferta pública ou privada no Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Whichever onboarding method you choose, you will need to define *authorizations*. Each authorization specifies a user account in the managing tenant which will have access to the delegated resources, and a built-in role that sets the permissions that each of these users will have for these resources.
+Seja qual for o método de integração que você escolher, será necessário definir *autorizações*. Cada autorização especifica uma conta de usuário no locatário de gerenciamento que terá acesso aos recursos delegados e uma função interna que define as permissões que cada um desses usuários terá para esses recursos.
 
-## <a name="role-support-for-azure-delegated-resource-management"></a>Role support for Azure delegated resource management
+## <a name="role-support-for-azure-delegated-resource-management"></a>Suporte de função para o gerenciamento de recursos delegado do Azure
 
-When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are not supported.
+Ao definir uma autorização, cada conta de usuário deve ser atribuída a uma das [funções internas de RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Não há suporte para funções personalizadas e [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) .
 
-All [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) are currently supported with Azure delegated resource management, with the following exceptions:
+Atualmente, todas as [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) têm suporte com o gerenciamento de recursos delegado do Azure, com as seguintes exceções:
 
-- The [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role is not supported.
-- Any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission are not supported.
-- The [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) built-in role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the built-in role(s) that this user can assign to managed identities.
+- Não há suporte para a função de [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) .
+- Não há suporte para qualquer função interna com permissão de [Dataactions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) .
+- Há suporte para a função interna de [administrador de acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) , mas apenas para a finalidade limitada de atribuição de [funções a uma identidade gerenciada no locatário do cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Nenhuma outra permissão geralmente concedida por essa função será aplicada. Se você definir um usuário com essa função, também deverá especificar as funções internas que esse usuário pode atribuir a identidades gerenciadas.
 
-## <a name="best-practices-for-defining-users-and-roles"></a>Best practices for defining users and roles
+## <a name="best-practices-for-defining-users-and-roles"></a>Práticas recomendadas para definir usuários e funções
 
-When creating your authorizations, we recommend the following best practices:
+Ao criar suas autorizações, recomendamos as seguintes práticas recomendadas:
 
-- In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
-- Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more info, see [Recommended security practices](../concepts/recommended-security-practices.md).
-- Include a user with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) so that you can [remove access to the delegation](../how-to/onboard-customer.md#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
-- Be sure that any user who needs to [view the My customers page in the Azure portal](../how-to/view-manage-customers.md) has the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access).
+- Na maioria dos casos, você desejará atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de uma série de contas de usuário individuais. Isso permite que você adicione ou remova o acesso para usuários individuais sem precisar atualizar e publicar o plano novamente quando seus requisitos de acesso forem alterados.
+- Certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros inadvertidos. Para obter mais informações, consulte [práticas recomendadas de segurança](../concepts/recommended-security-practices.md).
+- Inclua um usuário com a [função de exclusão da atribuição de registro de serviços gerenciados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) para que você possa [remover o acesso à delegação](../how-to/onboard-customer.md#remove-access-to-a-delegation) posteriormente, se necessário. Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
+- Certifique-se de que qualquer usuário que precise [exibir a página meus clientes no portal do Azure](../how-to/view-manage-customers.md) tenha a função [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou outra função interna que inclua acesso de leitor).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Learn about [recommended security practices for Azure delegated resource management](recommended-security-practices.md).
-- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a private or public managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- Saiba mais sobre as [práticas recomendadas de segurança para o gerenciamento de recursos delegado do Azure](recommended-security-practices.md).
+- Integre seus clientes ao gerenciamento de recursos delegado do Azure, seja [usando modelos de Azure Resource Manager](../how-to/onboard-customer.md) ou [publicando uma oferta privada ou pública de serviços gerenciados para o Azure Marketplace](../how-to/publish-managed-services-offers.md).

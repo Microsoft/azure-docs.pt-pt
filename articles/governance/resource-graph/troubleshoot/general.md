@@ -85,7 +85,7 @@ Se o cliente não tiver permissão de leitura para todas as assinaturas fornecid
 
 Inclua pelo menos uma assinatura na lista de assinaturas que o cliente que está executando a consulta tenha pelo menos acesso de leitura ao. Para obter mais informações, consulte [permissões no grafo de recursos do Azure](../overview.md#permissions-in-azure-resource-graph).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

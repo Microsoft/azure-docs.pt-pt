@@ -373,7 +373,7 @@ delete_compute(compute)
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você concluiu seu primeiro experimento Azure Machine Learning em R, saiba mais sobre o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html).
 

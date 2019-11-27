@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993140"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546263"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurar notificações por email para problemas no Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ O exemplo de notificação por email a seguir indica que um aviso crítico ou al
 ![Exemplo de notificação por email](./media/active-directory-domain-services-alerts/email-alert.png)
 
 > [!WARNING]
-> Sempre verifique se o email é proveniente de um Microsoft Sender verificado antes de clicar nos links na mensagem. As notificações por email sempre vêm do `azure-noreply@microsoft.com` endereço.
+> Sempre verifique se o email é proveniente de um Microsoft Sender verificado antes de clicar nos links na mensagem. As notificações por email são sempre provenientes do endereço `azure-noreply@microsoft.com`.
 
 ### <a name="why-would-i-receive-email-notifications"></a>Por que eu receberia notificações por email?
 
@@ -78,7 +78,7 @@ Se não for possível acessar a página de configurações de notificação no p
 
 ### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Não parece que estou recebendo notificações por email, embora eu tenha fornecido meu endereço de email. Porquê?
 
-Verifique sua pasta de spam ou lixo eletrônico em seu email para a notificação e certifique-se de permitir `azure-noreply@microsoft.com`o remetente do.
+Verifique sua pasta de spam ou lixo eletrônico em seu email para a notificação e certifique-se de permitir o remetente da `azure-noreply@microsoft.com`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

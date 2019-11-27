@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 5e52d60a6cf1d6c8fc248ca8ad8ab7199f5ce885
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483561"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547533"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -213,7 +213,7 @@ Aqui estão os limites do número de artefatos para cada camada de conta de inte
 > [!NOTE]
 > Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Essa camada restringe a taxa de transferência e o uso e não tem nenhum SLA (contrato de nível de serviço).
 
-| Artefacto | Gratuito | Básica | Standard |
+| Artefacto | Livre | Básica | Standard |
 |----------|------|-------|----------|
 | Contratos comerciais de EDI | 10 | 1 | 1,000 |
 | Parceiros comerciais de EDI | 25 | 2 | 1,000 |
@@ -277,7 +277,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 
 * Para dar suporte às chamadas feitas pelos [conectores gerenciados pela Microsoft](../connectors/apis-list.md) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob o título de **saída** nesta seção e são classificados por região. 
 
-* Para habilitar a comunicação para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+* Para habilitar a comunicação para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * Se seus aplicativos lógicos tiverem problemas para acessar contas de armazenamento do Azure que usam [firewalls e regras de firewall](../storage/common/storage-network-security.md), você terá [várias opções para habilitar o acesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -302,7 +302,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | Índia Central | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
 | EUA Central | 13.67.236.76, 40.77.111.254, 40.77.31.87, 104.43.243.39 |
 | Ásia Oriental | 168.63.200.173, 13.75.89.159, 23.97.68.172, 40.83.98.194 |
-| EUA Leste | 137.135.106.54, 40.117.99.79, 40.117.100.228, 137.116.126.165 |
+| East US | 137.135.106.54, 40.117.99.79, 40.117.100.228, 137.116.126.165 |
 | EUA Leste 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253 |
 | França Central | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | Sul de França | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
@@ -320,7 +320,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | Reino Unido Sul | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Reino Unido Oeste | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | EUA Centro-Oeste | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
-| Europa ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
+| Europa Ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
 | Oeste da Índia | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | EUA Oeste | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
 | EUA Oeste 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |
@@ -340,7 +340,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | Índia Central | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164 |
 | EUA Central | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164 |
 | Ásia Oriental | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165 | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169 |
-| EUA Leste | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
+| East US | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | EUA Leste 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 |
 | França Central | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2 |
 | Sul de França | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184 |
@@ -358,13 +358,13 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 | Reino Unido Sul | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15 |
 | Reino Unido Oeste | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 | EUA Centro-Oeste | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22 |
-| Europa ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
+| Europa Ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | Oeste da Índia | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 |
 | EUA Oeste | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49 |
 | EUA Oeste 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * Saiba mais sobre [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

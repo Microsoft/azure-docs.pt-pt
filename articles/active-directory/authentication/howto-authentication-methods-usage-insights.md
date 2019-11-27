@@ -1,6 +1,6 @@
 ---
-title: Authentication methods usage & insights - Azure Active Directory
-description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
+title: Uso de métodos de autenticação & insights-Azure Active Directory
+description: Relatórios sobre a redefinição de senha de autoatendimento do Azure AD e o uso do método de autenticação de autenticação multifator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,84 +18,84 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381906"
 ---
-# <a name="authentication-methods-usage--insights-preview"></a>Authentication methods usage & insights (preview)
+# <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
 
-Usage & insights enables you to understand how authentication methods for features like Azure Multi-Factor Authentication and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
+O uso & insights permite que você entenda como os métodos de autenticação para recursos como a autenticação multifator do Azure e a redefinição de senha de autoatendimento estão funcionando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos estão sendo registrados e como eles estão sendo usados.
 
-## <a name="permissions-and-licenses"></a>Permissions and licenses
+## <a name="permissions-and-licenses"></a>Permissões e licenças
 
-The following roles can access usage and insights:
+As funções a seguir podem acessar o uso e as informações:
 
 - Administrador Global
-- Security Reader
-- Security Administrator
-- Reports Reader
+- Leitor de segurança
+- Administrador de Segurança
+- Leitor de relatórios
 
-No additional licensing is required to access usage and insights. Azure Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Nenhum licenciamento adicional é necessário para acessar o uso e as informações. A autenticação multifator do Azure e as informações de licenciamento de redefinição de senha de autoatendimento (SSPR) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Como funciona
 
-To access authentication method usage and insights:
+Para acessar o uso e as informações do método de autenticação:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Password reset** > **Usage & insights**.
-1. From the **Registration** or **Usage** overviews, you can choose to open the pre-filtered reports to filter based on your needs.
+1. Navegue até **Azure Active Directory** > **redefinição de senha** > **uso & insights**.
+1. Nas visões gerais de **registro** ou **uso** , você pode optar por abrir os relatórios previamente filtrados para filtrar com base em suas necessidades.
 
-![Usage & insights overview](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+![Visão geral do uso & insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-To access usage & insights directly, go to [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). This link will bring you to the registration overview.
+Para acessar o uso do & de informações diretamente, acesse [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Esse link levará você à visão geral do registro.
 
-The Users registered, Users enabled, and Users capable tiles show the following registration data for your users:
+Os blocos usuários registrados, usuários habilitados e usuários compatíveis mostram os seguintes dados de registro para seus usuários:
 
-- Registered: A user is considered registered if they (or an admin) have registered enough authentication methods to meet your organization's SSPR or Multi-Factor Authentication policy.
-- Enabled: A user is considered enabled if they are in scope for the SSPR policy. If SSPR is enabled for a group, then the user is considered enabled if they are in that group. If SSPR is enabled for all users, then all users in the tenant (excluding guests) are considered enabled.
-- Capable: A user is considered capable if they are both registered and enabled. This status means that they can perform SSPR at any time if needed.
+- Registrado: um usuário será considerado registrado se eles (ou um administrador) tiverem registrado métodos de autenticação suficientes para atender à política de SSPR ou autenticação multifator da sua organização.
+- Habilitado: um usuário será considerado habilitado se estiver no escopo da política SSPR. Se SSPR estiver habilitado para um grupo, o usuário será considerado habilitado se ele estiver nesse grupo. Se SSPR estiver habilitado para todos os usuários, todos os usuários no locatário (excluindo convidados) serão considerados habilitados.
+- Compatível: um usuário é considerado compatível se eles estiverem registrados e habilitados. Esse status significa que eles podem executar SSPR a qualquer momento, se necessário.
 
-Clicking on any of these tiles or the insights shown in them will bring you to a pre-filtered list of registration details.
+Clicar em qualquer um desses blocos ou nas informações mostradas nele o levará a uma lista previamente filtrada de detalhes do registro.
 
-The **Registrations** chart on the **Registration** tab shows the number of successful and failed authentication method registrations by authentication method. The **Resets** chart on the **Usage** tab shows the number of successful and failed authentications during the password reset flow by authentication method.
+O gráfico de **registros** na guia **registro** mostra o número de registros do método de autenticação com êxito e com falha por método de autenticação. O gráfico **redefine** a guia **uso** mostra o número de autenticações com êxito e com falha durante o método de autenticação do fluxo de redefinição de senha.
 
-Clicking on either of the charts will bring you to a pre-filtered list of registration or reset events.
+Clicar em um dos gráficos irá levá-lo para uma lista filtrada previamente de registro ou redefinição de eventos.
 
-Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
+Usando o controle no canto superior direito, você pode alterar o intervalo de datas para os dados de auditoria mostrados nos registros e redefine os gráficos para 24 horas, 7 dias ou 30 dias.
 
-### <a name="registration-details"></a>Registration details
+### <a name="registration-details"></a>Detalhes do registro
 
-Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details.
+Clicar nos blocos **usuários registrados**, **usuários habilitados**ou **usuários com capacidade** de inscrição levará você aos detalhes do registro.
 
-The registration details report shows the following information for each user:
-
-- Nome
-- Nome de utilizador
-- Registration status (All, Registered, Not registered)
-- Enabled status (All, Enabled, Not enabled)
-- Capable status (All, Capable, Not capable)
-- Methods (App notification, App code, Phone call, SMS, Email, Security questions)
-
-Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
-
-### <a name="reset-details"></a>Reset details
-
-Clicking on the Registrations or Resets charts will bring you to the reset details.
-
-The reset details report shows registration and reset events from the last 30 days including:
+O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
 - Nome
 - Nome de utilizador
-- Feature (All, Registration, Reset)
-- Authentication method (App notification, App code, Phone call, Office call, SMS, Email, Security questions)
-- Status (All, Success, Failure)
+- Status do registro (tudo, registrado, não registrado)
+- Status habilitado (tudo, habilitado, não habilitado)
+- Status com capacidade (tudo, capaz, sem capacidade)
+- Métodos (notificação do aplicativo, código do aplicativo, chamada telefônica, SMS, email, perguntas de segurança)
 
-Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
+Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
+
+### <a name="reset-details"></a>Redefinir detalhes
+
+Clicar nos gráficos de registros ou redefinições irá levá-lo para os detalhes de redefinição.
+
+O relatório detalhes de redefinir mostra o registro e a redefinição dos eventos dos últimos 30 dias, incluindo:
+
+- Nome
+- Nome de utilizador
+- Recurso (tudo, registro, redefinição)
+- Método de autenticação (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, SMS, email, perguntas de segurança)
+- Status (tudo, êxito, falha)
+
+Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
 
 ## <a name="limitations"></a>Limitações
 
-The data shown in these reports will be delayed by up to 60 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
+Os dados mostrados nesses relatórios serão atrasados em até 60 minutos. Um campo "última atualização" existe no portal do Azure para identificar o quanto os dados são recentes.
 
-Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
+Os dados de uso e insight não são uma substituição para os relatórios de atividade da autenticação multifator do Azure ou informações contidas no relatório de entradas do Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Working with the authentication methods usage report API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
-- [Choosing authentication methods for your organization](concept-authentication-methods.md)
-- [Combined registration experience](concept-registration-mfa-sspr-combined.md)
+- [Trabalhando com a API de relatório de uso dos métodos de autenticação](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Escolhendo métodos de autenticação para sua organização](concept-authentication-methods.md)
+- [Experiência de registro combinada](concept-registration-mfa-sspr-combined.md)

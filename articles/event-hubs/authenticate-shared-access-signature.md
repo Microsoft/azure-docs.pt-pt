@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: cb5c53f3f473c10a3c9a12bb1aac20b109c06422
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992539"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545578"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -24,12 +24,12 @@ A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tip
 - Um cliente não pode representar outro cliente.
 - Um cliente Rouge pode ser impedido de enviar dados para um hub de eventos.
 
-Este artigo aborda a autenticação do acesso a recursos de hubs de eventos usando SAS. Para saber mais sobre como autorizar o acesso aos recursos de hubs de eventos usando SAS, consulte [Este artigo](authorize-access-shared-access-signature.md). 
+Este artigo aborda a autenticação do acesso a recursos de hubs de eventos usando SAS. Para saber mais sobre como **autorizar** o acesso aos recursos de hubs de eventos usando SAS, consulte [Este artigo](authorize-access-shared-access-signature.md). 
 
 > [!NOTE]
 > A Microsoft recomenda que você use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar as assinaturas de acesso compartilhado, que podem ser mais facilmente comprometidas. Embora você possa continuar a usar as SAS (assinaturas de acesso compartilhado) para conceder acesso refinado aos seus recursos de hubs de eventos, o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar com a revogação de uma SAS comprometida.
 > 
-> Para obter mais informações sobre a integração do Azure AD nos hubs de eventos do Azure, consulte autorizar o [acesso aos hubs de eventos usando o Azure ad](authorize-access-azure-active-directory.md). 
+> Para obter mais informações sobre a integração do Azure AD nos hubs de eventos do Azure, consulte [autorizar o acesso aos hubs de eventos usando o Azure ad](authorize-access-azure-active-directory.md). 
 
 
 ## <a name="configuring-for-sas-authentication"></a>Configurando para autenticação SAS
@@ -48,10 +48,10 @@ Ao usar a regra de autorização sendRuleNS, os aplicativos cliente podem enviar
 ## <a name="generate-a-shared-access-signature-token"></a>Gerar um token de assinatura de acesso compartilhado 
 Qualquer cliente que tenha acesso ao nome de um nome de regra de autorização e uma de suas chaves de assinatura pode gerar um token SAS. O token é gerado pela criação de uma cadeia de caracteres no seguinte formato:
 
-- `se`– Instantâneo de expiração do token. Inteiro refletindo segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970 (época do UNIX) quando o token expira
-- `skn`– Nome da regra de autorização, que é o nome da chave SAS.
-- `sr`– URI do recurso que está sendo acessado.
-- `sig`Signature.
+- `se` – instantâneo de expiração do token. Inteiro refletindo segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970 (época do UNIX) quando o token expira
+- `skn` – o nome da regra de autorização, que é o nome da chave SAS.
+- `sr` – URI do recurso que está sendo acessado.
+- `sig` – assinatura.
 
 A cadeia de caracteres de assinatura é o hash SHA-256 calculado sobre o URI de recurso (escopo, conforme descrito na seção anterior) e a representação de cadeia de caracteres do momento de expiração do token, separados por CRLF.
 
@@ -63,13 +63,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 O token contém os valores sem hash para que o destinatário possa recalcular o hash com os mesmos parâmetros, verificando se o emissor está em posse de uma chave de assinatura válida.
 
-O URI de recurso é o URI completo do recurso do barramento de serviço ao qual o acesso é reivindicado. Por exemplo, http://<namespace>. ServiceBus.Windows.NET/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;` isto é, `http://contoso.servicebus.windows.net/eventhubs/eh1`.
+O URI de recurso é o URI completo do recurso do barramento de serviço ao qual o acesso é reivindicado. Por exemplo, http://<namespace>. servicebus.windows.net/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;` ou seja, `http://contoso.servicebus.windows.net/eventhubs/eh1`.
 
 O URI deve ser codificado por percentual.
 
 A regra de autorização de acesso compartilhado usada para assinatura deve ser configurada na entidade especificada por esse URI ou por um de seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/eventhubs/eh1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
-Um token SAS é válido para todos os recursos prefixados <resourceURI> com o usado na cadeia de caracteres de assinatura.
+Um token SAS é válido para todos os recursos prefixados com o <resourceURI> usado na cadeia de caracteres de assinatura.
 
 > [!NOTE]
 > Você gera um token de acesso para hubs de eventos usando a política de acesso compartilhado. Para obter mais informações, consulte [política de autorização de acesso compartilhado](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
@@ -183,22 +183,33 @@ Um publicador de eventos define um ponto final virtual para um hub de eventos. O
 
 Normalmente, um hub de eventos emprega um publicador por cliente. Todas as mensagens enviadas a qualquer um dos editores de um hub de eventos são colocados em fila nesse hub de eventos. Os editores habilitam o controle de acesso refinado.
 
-Cada cliente dos Hubs de eventos é atribuído um token exclusivo, que é carregado para o cliente. Os tokens são produzidos de modo que cada token exclusivo conceda acesso a um Publicador exclusivo diferente. Um cliente que contém um token só pode enviar para um Publicador e nenhum outro editor. Se vários clientes partilharem o mesmo token, em seguida, cada um deles compartilha um publicador.
+Cada cliente dos Hubs de eventos é atribuído um token exclusivo, que é carregado para o cliente. Os tokens são produzidos de modo que cada token exclusivo conceda acesso a um Publicador exclusivo diferente. Um cliente que contém um token só pode enviar para um Publicador e nenhum outro editor. Se vários clientes compartilham o mesmo token, cada um deles compartilha o Publicador.
 
-Todos os tokens são atribuídos com chaves SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave, o que impede outros clientes de tokens de fabricação. Os clientes operam nos mesmos tokens até que expirem.
+Todos os tokens são atribuídos com chaves SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave, o que impede os clientes de fabricar tokens. Os clientes operam nos mesmos tokens até que expirem.
 
 Por exemplo, para definir regras de autorização com escopo para enviar/publicar apenas para os hubs de eventos, você precisa definir uma regra de autorização de envio. Isso pode ser feito em um nível de namespace ou fornecer um escopo mais granular a uma entidade específica (instância de hubs de eventos ou um tópico). Um cliente ou um aplicativo com escopo desse acesso granular é chamado de editor de hubs de eventos. Para fazer isso, siga estas etapas:
 
 1. Crie uma chave SAS na entidade que você deseja publicar para atribuir o escopo de **envio** nela. Para obter mais informações, consulte [políticas de autorização de acesso compartilhado](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Gere um token SAS com um tempo de expiração para um Publicador específico usando a chave gerada em etapa 1.
-3. Forneça o token para o cliente Publicador, que pode ser enviado somente à entidade à qual o token concede acesso.
-4. Depois que o token expira, o cliente perde seu acesso para enviar/publicar para a entidade. 
+
+    ```csharp
+    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
+                new Uri("Service-Bus-URI"),
+                "eventub-name",
+                "publisher-name",
+                "sas-key-name",
+                "sas-key",
+                TimeSpan.FromMinutes(30));
+    ```
+3. Forneça o token para o cliente Publicador, que só pode ser enviado à entidade e ao Publicador ao qual o token concede acesso.
+
+    Depois que o token expira, o cliente perde seu acesso para enviar/publicar para a entidade. 
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser bloqueado de enviar para esse hub de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser bloqueado de enviar para esse hub de eventos.
 > 
-> O comportamento acima pode ser observado quando o mesmo token é distribuído para vários dispositivos, o que fornece acesso no nível do namespace. Nesse caso, um dispositivo/Publicador Rouge não pode ser isolado e revogado. É sempre recomendável fornecer escopos específicos e granulares.
+> É sempre recomendável fornecer escopos específicos e granulares.
 
 > [!IMPORTANT]
 > Depois dos tokens foram criados, cada cliente é aprovisionada com seu próprio token exclusivo.
@@ -209,9 +220,9 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticando consumidores de hubs de eventos com SAS 
-Para autenticar os aplicativos de back-end que consomem dos dados gerados pelos produtores de hubs de eventos, a autenticação de token dos hubs de eventos exige que seus clientes tenham os direitos de **Gerenciamento** ou os privilégios de **escuta** atribuídos aos seus hubs de eventos namespace ou instância ou tópico do hub de eventos. Os dados são consumidos dos hubs de eventos usando grupos de consumidores. Embora a política SAS forneça o escopo granular, esse escopo é definido somente no nível da entidade e não no nível do consumidor. Isso significa que os privilégios definidos no nível do namespace ou na instância ou no nível do tópico do hub de eventos serão aplicados aos grupos de consumidores dessa entidade.
+Para autenticar aplicativos de back-end que consomem dos dados gerados por produtores de hubs de eventos, a autenticação de token dos hubs de eventos exige que seus clientes tenham os direitos **gerenciar** ou os privilégios de **escuta** atribuídos ao namespace de seus hubs de eventos ou à instância ou ao tópico do hub de eventos. Os dados são consumidos dos hubs de eventos usando grupos de consumidores. Embora a política SAS forneça o escopo granular, esse escopo é definido somente no nível da entidade e não no nível do consumidor. Isso significa que os privilégios definidos no nível do namespace ou na instância ou no nível do tópico do hub de eventos serão aplicados aos grupos de consumidores dessa entidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 - [Autorizar usando SAS](authenticate-shared-access-signature.md)

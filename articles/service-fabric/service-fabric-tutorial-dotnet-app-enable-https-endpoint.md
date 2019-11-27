@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 69aa140fcecae13aae0d7a165c9f7bea0ab87ca1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e38822e1d774cc32590a13239edb34d7a15e2d02
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301026"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545769"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto de extremidade HTTPS a um serviço de front-end da API Web ASP.NET Core usando Kestrel
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 
 Este tutorial é a terceira parte de uma série.  Vai aprender a ativar o HTTPS num serviço ASP.NET Core em execução no Service Fabric. Quando tiver terminado, terá uma aplicação de voto com um front-end Web ASP.NET Core com HTTPS ativado a escutar na porta 443. Se não quiser criar a aplicação de voto manualmente em [Criar uma aplicação .NET do Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md), pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída.
 
@@ -163,8 +163,8 @@ serviceContext =>
 
 Adicione também o seguinte método para que esse Kestrel possa encontrar o certificado no arquivo `Cert:\LocalMachine\My` pelo requerente.  
 
-Substitua "&lt;your_CN_value&gt;" por "MyTestCert" se você tiver criado um certificado autoassinado com o comando anterior do PowerShell ou usar o CN do seu certificado.
-Lembre `localhost` -se de que, no caso da implantação local, é preferível usar "CN = localhost" para evitar exceções de autenticação.
+Substitua "&lt;your_CN_value&gt;" por "MyTestCert" se você criou um certificado autoassinado com o comando anterior do PowerShell, ou use o CN do seu certificado.
+Lembre-se de que, no caso da implantação local para `localhost` é preferível usar "CN = localhost" para evitar exceções de autenticação.
 
 ```csharp
 private X509Certificate2 GetHttpsCertificateFromStore()
@@ -187,7 +187,7 @@ private X509Certificate2 GetHttpsCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Dar ao SERVIÇO DE REDE acesso à chave privada do certificado
 
-Num passo anterior, importou o certificado para o arquivo `Cert:\LocalMachine\My` no computador de desenvolvimento.  Agora, conceda explicitamente à conta que está executando o serviço (serviço de rede, por padrão) acesso à chave privada do certificado. Você pode fazer essa etapa manualmente (usando a ferramenta certlm. msc), mas é melhor executar automaticamente um script do PowerShell Configurando [um script de inicialização](service-fabric-run-script-at-service-startup.md) no **SetupEntryPoint** do manifesto do serviço.
+Num passo anterior, importou o certificado para o arquivo `Cert:\LocalMachine\My` no computador de desenvolvimento.  Agora, conceda explicitamente à conta que está executando o serviço (serviço de rede, por padrão) acesso à chave privada do certificado. Você pode fazer essa etapa manualmente (usando a ferramenta certlm. msc), mas é melhor executar automaticamente um script do PowerShell [Configurando um script de inicialização](service-fabric-run-script-at-service-startup.md) no **SetupEntryPoint** do manifesto do serviço.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configurar o ponto de entrada da configuração do serviço
 
@@ -346,15 +346,15 @@ Depois, na secção VotingWebPkg **ServiceManifestImport**, configure uma polít
 
 ## <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-Em Gerenciador de soluções, selecione o aplicativo de **votação** e defina a propriedade **URL do aplicativo** como "\/https:/localhost: 443".
+Em Gerenciador de Soluções, selecione o aplicativo de **votação** e defina a propriedade **URL do aplicativo** como "https:\//localhost: 443".
 
-Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Depois que o aplicativo é implantado, um navegador da Web\/é aberto para https:/localhost: 443. Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
+Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Depois que o aplicativo é implantado, um navegador da Web é aberto para https:\//localhost: 443. Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
 ![Aplicação Voting][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalar o certificado nos nós de cluster remoto
 
-Antes de implantar o aplicativo no Azure, instale o certificado no `Cert:\LocalMachine\My` repositório de todos os nós de cluster remotos.  Os serviços podem ser movidos para diferentes nós do cluster.  Quando o serviço Web de front-end é iniciado num nó de cluster, o script de arranque irá procurar o certificado e configurar as permissões de acesso.
+Antes de implantar o aplicativo no Azure, instale o certificado no repositório de `Cert:\LocalMachine\My` de todos os nós de cluster remotos.  Os serviços podem ser movidos para diferentes nós do cluster.  Quando o serviço Web de front-end é iniciado num nó de cluster, o script de arranque irá procurar o certificado e configurar as permissões de acesso.
 
 Em primeiro lugar, exporte o certificado para um ficheiro PFX. Abra a aplicação certlm.msc e navegue para **Personal** (Pessoal) >**Certificates** (Certificados).  Clique com o botão direito do mouse no certificado *MyTestCert* e selecione **todas as tarefas**>**Exportar**.
 
@@ -362,47 +362,10 @@ Em primeiro lugar, exporte o certificado para um ficheiro PFX. Abra a aplicaçã
 
 No assistente de exportação, escolha **Yes, export the private key** (Sim, exportar a chave privada) e escolha o formato Personal Information Exchange (PFX).  Exporte o ficheiro para *C:\Users\sfuser\votingappcert.pfx*.
 
-Em seguida, instale o certificado no cluster remoto usando o cmdlet [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) .
+Em seguida, instale o certificado no cluster remoto usando [os scripts do PowerShell fornecidos](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!Warning]
 > Para as aplicações de desenvolvimento e teste, basta um certificado autoassinado. Para aplicações de produção, utilize um certificado de uma [autoridade de certificação (AC)](https://wikipedia.org/wiki/Certificate_authority) em vez de um autoassinado.
-
-```powershell
-Connect-AzAccount
-
-$vaultname="sftestvault"
-$certname="VotingAppPFX"
-$certpw="!Password321#"
-$groupname="voting_RG"
-$clustername = "votinghttps"
-$ExistingPfxFilePath="C:\Users\sfuser\votingappcert.pfx"
-
-$appcertpwd = ConvertTo-SecureString -String $certpw -AsPlainText -Force
-
-Write-Host "Reading pfx file from $ExistingPfxFilePath"
-$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $certpw
-
-$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
-$base64 = [System.Convert]::ToBase64String($bytes)
-
-$jsonBlob = @{
-   data = $base64
-   dataType = 'pfx'
-   password = $certpw
-   } | ConvertTo-Json
-
-$contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
-$content = [System.Convert]::ToBase64String($contentbytes)
-
-$secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
-
-# Upload the certificate to the key vault as a secret
-Write-Host "Writing secret to $certname in vault $vaultname"
-$secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
-
-# Add a certificate to all the VMs in the cluster.
-Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
-```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>Abrir a porta 443 no Balanceador de Carga do Azure
 

@@ -1,7 +1,7 @@
 ---
-title: Using SQL Database DAC packages and Stream Analytics jobs with Azure SQL Database Edge | Microsoft Docs
-description: Learn about using Stream Analytics jobs in SQL Database Edge
-keywords: sql database edge, stream analytics, sqlpackage
+title: Usando pacotes de DAC do banco de dados SQL e Stream Analytics trabalhos com a borda do banco de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre como usar trabalhos de Stream Analytics na borda do banco de dados SQL
+keywords: borda do banco de dados SQL, Stream Analytics, SqlPackage
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: conceptual
@@ -16,13 +16,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384164"
 ---
-# <a name="using-sql-database-dac-packages-and-stream-analytics-jobs-with-sql-database-edge"></a>Using SQL Database DAC packages and Stream Analytics jobs with SQL Database Edge
+# <a name="using-sql-database-dac-packages-and-stream-analytics-jobs-with-sql-database-edge"></a>Usando pacotes de DAC do banco de dados SQL e Stream Analytics trabalhos com a borda do banco de dados SQL
 
-Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Database Edge provides in-built streaming capability for real-time analytics and complex event-processing.
+Visualização de borda do banco de dados SQL do Azure é um mecanismo de banco de dados relacional otimizado voltado para implantações de IoT e Edge. Ele foi criado com base nas versões mais recentes do Mecanismo de Banco de Dados do Microsoft SQL Server, que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Juntamente com os recursos de gerenciamento de banco de dados relacional líderes do setor do SQL Server, a borda do banco de dados SQL do Azure fornece recursos de streaming internos para análise em tempo real e processamento de eventos complexos.
 
-Azure SQL Database Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Database Edge.
+A borda do banco de dados SQL do Azure também fornece uma implementação nativa do SqlPackage. exe que permite implantar um pacote de [DAC do banco de dados SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante a implantação da borda do banco de dados SQL.
 
-Azure SQL Database Edge exposes two optional parameters through the `module twin's desired properties` option of the IoT Edge module:
+A borda do banco de dados SQL do Azure expõe dois parâmetros opcionais por meio da opção `module twin's desired properties` do módulo IoT Edge:
 
 ```json
 {
@@ -36,35 +36,35 @@ Azure SQL Database Edge exposes two optional parameters through the `module twin
 
 |Campo | Descrição |
 |------|-------------|
-| SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
-| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information, see [Publishing an ASA Edge job for SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+| SqlPackage | URI do armazenamento de BLOBs do Azure para o arquivo *. zip que contém o pacote de DAC do banco de dados SQL.
+| ASAJobInfo | URI do armazenamento de BLOBs do Azure para o trabalho do ASA Edge. Para obter mais informações, consulte [publicando um trabalho do asa Edge para a borda do banco de dados SQL](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
-## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Using SQL Database DAC packages with SQL Database Edge
+## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Usando pacotes de DAC do banco de dados SQL com borda do banco de dados SQL
 
-To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, take these steps:
+Para usar um pacote de DAC do banco de dados SQL (*. dacpac) com a borda do banco de dados SQL, execute estas etapas:
 
-1. Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
+1. Criar ou extrair um pacote de DAC do banco de dados SQL. Consulte [extraindo um DAC de um banco de dados](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) para obter informações sobre como gerar um pacote de DAC para um banco de dados SQL Server existente.
 
-2. Zip the *.dacpac and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Compacte o *. dacpac e carregue-o em uma conta de armazenamento de BLOBs do Azure. Para obter mais informações sobre como carregar arquivos no armazenamento de BLOBs do Azure, consulte [carregar, baixar e listar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-3. Generate a shared access signature for the zip file by using the Azure portal. For more information, see [Delegate access with shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
+3. Gere uma assinatura de acesso compartilhado para o arquivo zip usando o portal do Azure. Para obter mais informações, consulte [delegar acesso com SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md).
 
-4. Update the SQL Database Edge module configuration to include the shared access URI for the DAC package. To update the SQL Database Edge module, take these steps:
+4. Atualize a configuração do módulo de borda do banco de dados SQL para incluir o URI de acesso compartilhado para o pacote de DAC. Para atualizar o módulo de borda do banco de dados SQL, siga estas etapas:
 
-    1. In the Azure portal, go to your IoT Hub deployment.
+    1. Na portal do Azure, vá para a implantação do Hub IoT.
 
-    2. In the left pane, select **IoT Edge**.
+    2. No painel esquerdo, selecione **IOT Edge**.
 
-    3. On the **IoT Edge** page, find and select the IoT edge where the SQL Database Edge module is deployed.
+    3. Na página **IOT Edge** , localize e selecione o IOT Edge em que o módulo de borda do banco de dados SQL é implantado.
 
-    4. On the **IoT Edge Device** device page, select **Set Module**.
+    4. Na página dispositivo **IOT Edge dispositivo** , selecione **Definir módulo**.
 
-    5. On the **Set modules** page, select **Configure** against the SQL Database Edge module.
+    5. Na página **definir módulos** , selecione **Configurar** no módulo de borda do banco de dados SQL.
 
-    6. In the **IoT Edge Custom Modules** pane, select **Set module twin's desired properties**. Update the desired properties to include the URI for the `SQLPackage` option, as shown in the following example.
+    6. No painel **IOT Edge módulos personalizados** , selecione **definir propriedades desejadas do módulo**. Atualize as propriedades desejadas para incluir o URI para a opção `SQLPackage`, conforme mostrado no exemplo a seguir.
 
         > [!NOTE]
-        > The SAS URI in the following JSON is just an example. Replace the URI with the actual URI from your deployment.
+        > O URI de SAS no JSON a seguir é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
 
         ```json
             {
@@ -77,38 +77,38 @@ To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, take these 
 
     7. Selecione **Guardar**.
 
-    8. On the **Set modules** page, select **Next**.
+    8. Na página **definir módulos** , selecione **Avançar**.
 
-    9. On the **Set modules** page, select **Next** and then **Submit**.
+    9. Na página **definir módulos** , selecione **Avançar** e **Enviar**.
 
-5. After the module update, the DAC package file is downloaded, unzipped, and deployed against the SQL Database Edge instance.
+5. Após a atualização do módulo, o arquivo do pacote de DAC é baixado, descompactado e implantado na instância de borda do banco de dados SQL.
 
-## <a name="using-streaming-jobs-with-sql-database-edge"></a>Using streaming jobs with SQL Database Edge
+## <a name="using-streaming-jobs-with-sql-database-edge"></a>Usando trabalhos de streaming com a borda do banco de dados SQL
 
-Azure SQL Database Edge has a native implementation of the stream analytics runtime. This implementation enables you to create an Azure Stream Analytics edge job and deploy that job as a SQL Database Edge streaming job. To create a Stream Analytics edge job, complete these steps:
+A borda do banco de dados SQL do Azure tem uma implementação nativa do tempo de execução do Stream Analytics. Essa implementação permite que você crie um trabalho de borda Azure Stream Analytics e implante esse trabalho como um trabalho de streaming de borda do banco de dados SQL. Para criar um trabalho de borda Stream Analytics, conclua estas etapas:
 
-1. Go to the Azure portal by using the preview [URL](https://portal.azure.com/?microsoft_azure_streamanalytics_edgeadapterspreview=true). This preview URL enables you to configure SQL Database output for a Stream Analytics edge job.
+1. Vá para o portal do Azure usando a [URL](https://portal.azure.com/?microsoft_azure_streamanalytics_edgeadapterspreview=true)de visualização. Essa URL de visualização permite que você configure a saída do banco de dados SQL para um trabalho de borda Stream Analytics.
 
-2. Create a new **Azure Stream Analytics on IoT Edge** job. Choose the hosting environment that targets **Edge**.
+2. Crie um novo trabalho de **Azure Stream Analytics no IOT Edge** . Escolha o ambiente de hospedagem que tem como alvo o **Edge**.
 
-3. Define an input and output for the Azure Stream Analytics job. Each SQL output, which you'll set up here, is tied to a single table in the database. If you need to stream data to multiple tables, you'll need to create multiple SQL Database outputs. You can configure the SQL outputs to point to different databases.
+3. Defina uma entrada e uma saída para o trabalho de Azure Stream Analytics. Cada saída do SQL, que você configurará aqui, está vinculada a uma única tabela no banco de dados. Se você precisar transmitir dados para várias tabelas, precisará criar várias saídas de banco de dado SQL. Você pode configurar as saídas do SQL para apontar para bancos de dados diferentes.
 
-    **Input**. Choose EdgeHub as the input for the edge job, and provide the resource info.
+    **Entrada**. Escolha EdgeHub como a entrada para o trabalho de borda e forneça as informações do recurso.
 
-    **Output**. Select SQL Database the as output. Select **Provide SQL Database settings manually**. Provide the configuration details for the database and table.
+    **Saída**. Selecione banco de dados SQL como saída. Selecione **fornecer configurações do banco de dados SQL manualmente**. Forneça os detalhes de configuração para o banco de dados e a tabela.
 
     |Campo      | Descrição |
     |---------------|-------------|
-    |Alias de saída | Name of the output alias.|
-    |Base de Dados | Name of the SQL database. It needs to be a valid name of a database that exists on the SQL Database Edge instance.|
-    |Nome do servidor | Name (or IP address) and port number details for the SQL instance. For a SQL Database Edge deployment, you can use **tcp:.,1433** for the server name.|
-    |Nome de utilizador | SQL sign-in account that has data reader and data writer access to the database that you specified earlier.|
-    |Palavra-passe | Password for the SQL sign-in account that you specified earlier.|
-    |Tabelas | Name of the table that will be output for the streaming job.|
-    |Inherit Partitioning| Enables inheriting the partitioning scheme of your previous query step or input. When this option is enabled, you can expect to see better throughput when you write to a disk-based table and have a fully parallel topology for your job.|
-    |Batch Size| The maximum number of records that's sent with every bulk insert transaction.|
+    |Alias de saída | Nome do alias de saída.|
+    |Base de dados | Nome do banco de dados SQL. Ele precisa ser um nome válido de um banco de dados que exista na instância de borda do banco de dados SQL.|
+    |Nome do servidor | Nome (ou endereço IP) e detalhes do número da porta para a instância do SQL. Para uma implantação de borda de banco de dados SQL, você pode usar **TCP:., 1433** para o nome do servidor.|
+    |Nome de Utilizador | Conta de entrada do SQL que tem o leitor de dados e o acesso ao gravador de dados ao banco de dado que você especificou anteriormente.|
+    |Palavra-passe | Senha para a conta de entrada do SQL que você especificou anteriormente.|
+    |Tabela | Nome da tabela que será saída para o trabalho de streaming.|
+    |Herdar particionamento| Permite herdar o esquema de particionamento da entrada ou etapa anterior da consulta. Quando essa opção está habilitada, você pode esperar obter uma melhor taxa de transferência ao gravar em uma tabela baseada em disco e ter uma topologia totalmente paralela para seu trabalho.|
+    |Tamanho do lote| O número máximo de registros que é enviado com cada transação de inserção em massa.|
 
-    Here's a sample input/output configuration:
+    Aqui está um exemplo de configuração de entrada/saída:
 
     ```txt
         Input:
@@ -130,32 +130,32 @@ Azure SQL Database Edge has a native implementation of the stream analytics runt
     ```
 
     > [!NOTE]
-    > For more information on the SQL output adapter for Azure Stream Analytics, see [Azure Stream Analytics output to Azure SQL Database](../stream-analytics/stream-analytics-sql-output-perf.md).
+    > Para obter mais informações sobre o adaptador de saída do SQL para Azure Stream Analytics, consulte [Azure Stream Analytics saída para o banco de dados SQL do Azure](../stream-analytics/stream-analytics-sql-output-perf.md).
 
-4. Define the ASA job query for the edge job. This query should use the defined input/output aliases as the input and output names in the query. For more information, see [Stream Analytics Query Language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
+4. Defina a consulta do trabalho ASA para o trabalho de borda. Essa consulta deve usar os aliases de entrada/saída definidos como os nomes de entrada e saída na consulta. Para obter mais informações, consulte [Stream Analytics referência de linguagem de consulta](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
-5. Set the storage account settings for the edge job. The storage account is used as the publishing target for the edge job.
+5. Defina as configurações da conta de armazenamento para o trabalho de borda. A conta de armazenamento é usada como o destino de publicação para o trabalho de borda.
 
-6. Under **Configure**, select **Publish**, and then select the **Publish** button. Save the SAS URI for use with the SQL Database Edge module.
+6. Em **Configurar**, selecione **publicar**e, em seguida, selecione o botão **publicar** . Salve o URI de SAS para uso com o módulo de borda do banco de dados SQL.
 
-### <a name="deploy-the-stream-analytics-edge-job-to-sql-database-edge"></a>Deploy the Stream Analytics edge job to SQL Database Edge
+### <a name="deploy-the-stream-analytics-edge-job-to-sql-database-edge"></a>Implantar o trabalho de borda do Stream Analytics na borda do banco de dados SQL
 
-To deploy the streaming job to the SQL Database Edge module, update the SQL Database Edge module configuration to include the SAS URI for the streaming job from the earlier step. To update the SQL Database Edge module:
+Para implantar o trabalho de streaming no módulo de borda do banco de dados SQL, atualize a configuração do módulo de borda do banco de dados SQL para incluir o URI de SAS para o trabalho de streaming da etapa anterior. Para atualizar o módulo de borda do banco de dados SQL:
 
-1. In the Azure portal, go to your IoT Hub deployment.
+1. Na portal do Azure, vá para a implantação do Hub IoT.
 
-2. In the left pane, select **IoT Edge**.
+2. No painel esquerdo, selecione **IOT Edge**.
 
-3. On the **IoT Edge** page, find and select the IoT edge where the SQL Database Edge module is deployed.
+3. Na página **IOT Edge** , localize e selecione o IOT Edge em que o módulo de borda do banco de dados SQL é implantado.
 
-4. On the **IoT Edge Device** device page, select **Set Module**.
+4. Na página dispositivo **IOT Edge dispositivo** , selecione **Definir módulo**.
 
-5. On the **Set modules** page, select **Configure** against the SQL Database Edge module.
+5. Na página **definir módulos** , selecione **Configurar** no módulo de borda do banco de dados SQL.
 
-6. In the **IoT Edge Custom Modules** pane, select **Set module twin's desired properties**. Update the desired properties to include the URI for the `ASAJobInfo` option, as shown in the following example.
+6. No painel **IOT Edge módulos personalizados** , selecione **definir propriedades desejadas do módulo**. Atualize as propriedades desejadas para incluir o URI para a opção `ASAJobInfo`, conforme mostrado no exemplo a seguir.
 
     > [!NOTE]
-    > The SAS URI in the following JSON is just an example. Replace the URI with the actual URI from your deployment.
+    > O URI de SAS no JSON a seguir é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
 
     ```json
         {
@@ -168,14 +168,14 @@ To deploy the streaming job to the SQL Database Edge module, update the SQL Data
 
 7. Selecione **Guardar**.
 
-8. On the **Set modules** page, select **Next**.
+8. Na página **definir módulos** , selecione **Avançar**.
 
-9. On the **Set modules** page, select **Next** and then **Submit**.
+9. Na página **definir módulos** , selecione **Avançar** e **Enviar**.
 
-10. After the module update, the stream analytics job file is downloaded, unzipped, and deployed against the SQL Database Edge instance.
+10. Após a atualização do módulo, o arquivo de trabalho do Stream Analytics é baixado, descompactado e implantado na instância de borda do banco de dados SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- For pricing and availability details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
-- Request enabling Azure SQL Database Edge for your subscription.
-- To get started, see [Deploy SQL Database Edge through Azure portal](deploy-portal.md).
+- Para obter detalhes sobre preços e disponibilidade, consulte [borda do banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database-edge/).
+- Solicitação que habilita a borda do banco de dados SQL do Azure para sua assinatura.
+- Para começar, consulte [implantar o Edge do banco de dados SQL por meio de portal do Azure](deploy-portal.md).

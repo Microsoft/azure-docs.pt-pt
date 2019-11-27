@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200328"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533042"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para a plataforma Microsoft Identity (v 2.0)?
 
@@ -62,9 +62,9 @@ O consentimento do administrador feito em nome de uma organização ainda requer
 
 ## <a name="scopes-not-resources"></a>Escopos, não recursos
 
-Para aplicativos que usam o ponto de extremidade v 1.0, um aplicativo pode se comportar como um **recurso**ou um destinatário de tokens. Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que aplicativos cliente solicitem tokens desse recurso para um determinado conjunto de escopos. Considere o API do Graph do Azure AD como um exemplo de um recurso:
+Para aplicativos que usam o ponto de extremidade v 1.0, um aplicativo pode se comportar como um **recurso**ou um destinatário de tokens. Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que aplicativos cliente solicitem tokens desse recurso para um determinado conjunto de escopos. Considere a API Microsoft Graph como um exemplo de um recurso:
 
-* Identificador de recurso ou `AppID URI`: `https://graph.windows.net/`
+* Identificador de recurso ou `AppID URI`: `https://graph.microsoft.com/`
 * Escopos ou `oAuth2Permissions`: `Directory.Read`, `Directory.Write`e assim por diante.
 
 Isso se aplica ao ponto de extremidade da plataforma Microsoft Identity. Um aplicativo ainda pode se comportar como um recurso, definir escopos e ser identificado por um URI. Os aplicativos cliente ainda podem solicitar acesso a esses escopos. No entanto, a maneira como um cliente solicita essas permissões foi alterada.
@@ -103,7 +103,7 @@ Para saber mais sobre o OAuth 2,0, `refresh_tokens`e `access_tokens`, confira a 
 
 ### <a name="openid-profile-and-email"></a>OpenID, perfil e email
 
-Historicamente, o fluxo de entrada mais básico do OpenID Connect com a plataforma de identidade da Microsoft forneceria muitas informações sobre o usuário no *id_token*resultante. As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferencial, endereço de email, ID de objeto e muito mais.
+Historicamente, o fluxo de entrada mais básico do OpenID Connect com a plataforma de identidade da Microsoft forneceria muitas informações sobre o usuário no *id_token*resultante. As declarações em uma id_token podem incluir o nome do usuário, nome de usuário preferencial, endereço de email, ID de objeto e muito mais.
 
 As informações às quais o escopo de `openid` dá acesso ao aplicativo agora estão restritas. O escopo de `openid` só permitirá que seu aplicativo Conecte o usuário e receba um identificador específico do aplicativo para o usuário. Se você quiser obter dados pessoais sobre o usuário em seu aplicativo, seu aplicativo precisa solicitar permissões adicionais do usuário. Dois novos escopos, `email` e `profile`, lhe permitirão solicitar permissões adicionais.
 
@@ -117,7 +117,7 @@ Esses escopos permitem codificar seu aplicativo em um modo de divulgação míni
 O ponto de extremidade da plataforma de identidade da Microsoft emite um conjunto menor de declarações em seus tokens por padrão para manter as cargas pequenas. Se você tiver aplicativos e serviços que têm uma dependência em uma declaração específica em um token v 1.0 que não é mais fornecido por padrão em um token da plataforma de identidade da Microsoft, considere usar o recurso de [declarações opcionais](active-directory-optional-claims.md) para incluir essa declaração.
 
 > [!IMPORTANT]
-> os tokens v 1.0 e v 2.0 podem ser emitidos pelos pontos de extremidade v 1.0 e v 2.0! id_tokens *sempre* correspondem ao ponto de extremidade do qual eles são solicitados e os tokens de acesso *sempre* correspondem ao formato esperado pela API Web que seu cliente chamará usando esse token.  Portanto, se seu aplicativo usar o ponto de extremidade v 2.0 para obter um token para chamar Microsoft Graph, que espera tokens de acesso de formato v 1.0, seu aplicativo receberá um token no formato v 1.0.  
+> os tokens v 1.0 e v 2.0 podem ser emitidos pelos pontos de extremidade v 1.0 e v 2.0! id_tokens *sempre* corresponder ao ponto de extremidade de onde são solicitados e os tokens de acesso *sempre* correspondem ao formato esperado pela API Web, o cliente chamará usando esse token.  Portanto, se seu aplicativo usar o ponto de extremidade v 2.0 para obter um token para chamar Microsoft Graph, que espera tokens de acesso de formato v 1.0, seu aplicativo receberá um token no formato v 1.0.  
 
 ## <a name="limitations"></a>Limitações
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Export template from the Azure portal
-description: Learn how to use an exported template to complete your template development.
+title: Tutorial-exportar modelo do portal do Azure
+description: Saiba como usar um modelo exportado para concluir o desenvolvimento do modelo.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
@@ -12,77 +12,77 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406017"
 ---
-# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use exported template from the Azure portal
+# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: usar o modelo exportado do portal do Azure
 
-In this tutorial series, you've created a template to deploy an Azure storage account. In the next two tutorials, you add an *App Service plan* and a *website*. Instead of creating templates from scratch, you learn how to export templates from the Azure portal and how to use sample templates from the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/). You customize those templates for your use. This tutorial focuses on exporting templates, and customizing the result for your template. It takes about **14 minutes** to complete.
+Nesta série de tutoriais, você criou um modelo para implantar uma conta de armazenamento do Azure. Nos próximos dois tutoriais, você adiciona um *plano do serviço de aplicativo* e um *site*. Em vez de criar modelos do zero, você aprende a exportar modelos do portal do Azure e a usar modelos de exemplo dos modelos de [início rápido do Azure](https://azure.microsoft.com/resources/templates/). Você personaliza esses modelos para seu uso. Este tutorial se concentra na exportação de modelos e na personalização do resultado do modelo. Demora cerca de **14 minutos** para ser concluída.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-We recommend that you complete the [tutorial about outputs](template-tutorial-add-outputs.md), but it's not required.
+Recomendamos que você conclua o [tutorial sobre saídas](template-tutorial-add-outputs.md), mas isso não é necessário.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Review template
+## <a name="review-template"></a>Modelo de revisão
 
-At the end of the previous tutorial, your template had the following JSON:
+No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
 
-This template works well for deploying storage accounts, but you might want to add more resources to it. You can export a template from an existing resource to quickly get the JSON for that resource.
+Esse modelo funciona bem para a implantação de contas de armazenamento, mas talvez você queira adicionar mais recursos a ela. Você pode exportar um modelo de um recurso existente para obter rapidamente o JSON para esse recurso.
 
 ## <a name="create-app-service-plan"></a>Criar plano do App Service
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Select **Create a resource**.
-1. In **Search the Marketplace**, enter **App Service plan**, and then select **App Service plan**.  Don’t select **App Service plan (classic)**
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione **criar um recurso**.
+1. Em **Pesquisar no Marketplace**, insira **plano do serviço de aplicativo**e selecione **plano do serviço de aplicativo**.  Não selecionar **plano do serviço de aplicativo (clássico)**
 1. Selecione **Criar**.
-1. Enter:
+1. Digita
 
     - **Subscrição**: selecione a sua subscrição do Azure.
-    - **Resource Group**: Select **Create new** and then specify a name. Provide a different resource group name than the one you have been using in this tutorial series.
-    - **Name**: enter a name for the App service plan.
-    - **Operating System**: select **Linux**.
-    - **Region**: select an Azure location. For example, **Central US**.
-    - **Pricing tier**: to save costs, change the SKU to **Basic B1** (under Dev/Test).
+    - **Grupo de recursos**: selecione **criar novo** e especifique um nome. Forneça um nome de grupo de recursos diferente daquele que você está usando nesta série de tutoriais.
+    - **Nome**: Insira um nome para o plano do serviço de aplicativo.
+    - **Sistema operacional**: selecione **Linux**.
+    - **Região**: selecione um local do Azure. Por exemplo, **EUA Central**.
+    - **Tipo de preço**: para economizar custos, altere a SKU para **básico B1** (em desenvolvimento/teste).
 
-    ![Resource Manager template export template portal](./media/template-tutorial-export-template/resource-manager-template-export.png)
-1. Select **Review and create**.
-1. Selecione **Criar**. It takes a few moments to create the resource.
+    ![Portal do modelo de exportação de modelos do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-export.png)
+1. Selecione **revisar e criar**.
+1. Selecione **Criar**. Leva alguns minutos para criar o recurso.
 
 ## <a name="export-template"></a>Exportar modelo
 
-1. Select **Go to resource**.
+1. Selecione **ir para o recurso**.
 
     ![Ir para recurso](./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
 
-1. Select **Export template**.
+1. Selecione **Exportar modelo**.
 
-    ![Resource Manager template export template](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
+    ![Modelo de exportação de modelo do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
+   O recurso exportar modelo usa o estado atual de um recurso e gera um modelo para implantá-lo. Exportar um modelo pode ser uma maneira útil de obter rapidamente o JSON de que você precisa para implantar um recurso.
 
-1. Copy the **Microsoft.Web/serverfarms** definition and the parameter definition to your template.
+1. Copie a definição **Microsoft. Web/serverfarms** e a definição de parâmetro para seu modelo.
 
-    ![Resource Manager template export template exported template](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
+    ![Modelo exportado do modelo de exportação do modelo do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the **name** property. You can start with the exported template, and then modify it as you like to fit your requirements.
+> Normalmente, o modelo exportado é mais detalhado do que você pode desejar ao criar um modelo. Por exemplo, o objeto SKU no modelo exportado tem cinco Propriedades. Esse modelo funciona, mas você poderia simplesmente usar a propriedade **Name** . Você pode começar com o modelo exportado e, em seguida, modificá-lo como desejar para atender às suas necessidades.
 
-## <a name="revise-existing-template"></a>Revise existing template
+## <a name="revise-existing-template"></a>Revisar modelo existente
 
-The exported template gives you most of the JSON you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
+O modelo exportado fornece a você a maior parte do JSON que você precisa, mas você precisa personalizá-lo para seu modelo. Preste atenção especial às diferenças em parâmetros e variáveis entre o modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e as variáveis que você já definiu em seu modelo.
 
-The following example highlights the additions to your template. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes the **name** inside the **properties** object because this value is redundant with the **name** property at the resource level.
+O exemplo a seguir realça as adições ao seu modelo. Ele contém o código exportado, além de algumas alterações. Primeiro, ele altera o nome do parâmetro para corresponder à sua Convenção de nomenclatura. Em segundo lugar, ele usa o parâmetro Location para o local do plano do serviço de aplicativo. Em terceiro lugar, ele remove o **nome** dentro do objeto de **Propriedades** porque esse valor é redundante com a propriedade **Name** no nível de recurso.
 
-Copy the whole file and replace your template with its contents.
+Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Use either Azure CLI or Azure PowerShell to deploy a template.
+Use CLI do Azure ou Azure PowerShell para implantar um modelo.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -109,27 +109,27 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-You can verify the deployment by exploring the resource group from the Azure portal.
+Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. From the left menu, select **Resource groups**.
-1. Select the resource group you deployed to.
-1. The resource group contains a storage account and an App Service plan.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. No menu à esquerda, selecione **grupos de recursos**.
+1. Selecione o grupo de recursos no qual você implantou.
+1. O grupo de recursos contém uma conta de armazenamento e um plano do serviço de aplicativo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
+Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-You learned how to export a template from the Azure portal, and how to use the exported template for your template development. You can also use the Azure Quickstart templates to simplify template development.
+Você aprendeu como exportar um modelo do portal do Azure e como usar o modelo exportado para o desenvolvimento do modelo. Você também pode usar os modelos de início rápido do Azure para simplificar o desenvolvimento de modelos.
 
 > [!div class="nextstepaction"]
-> [Use Azure Quickstart templates](template-tutorial-quickstart-template.md)
+> [Usar modelos de início rápido do Azure](template-tutorial-quickstart-template.md)

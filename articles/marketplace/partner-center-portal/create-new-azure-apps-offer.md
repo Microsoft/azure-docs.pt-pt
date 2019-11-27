@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281275"
 ---
-# <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
+# <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
 As etapas para publicar uma oferta de aplicativo do Azure no Marketplace comercial são descritas aqui.
 
@@ -102,7 +102,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerenciar seu
 
 Você pode examinar as ferramentas disponíveis na página [ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/) .  Além disso, se você estiver usando o Visual Studio, o [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-## <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
+## <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
 Para poder criar uma oferta de aplicativo do Azure, você deve primeiro [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), com a guia **visão geral** selecionada.
 
@@ -529,6 +529,6 @@ A etapa de **validação manual** no processo de publicação representa uma an�
 
 Se você encontrou erros em uma ou mais das etapas de publicação, você deve corrigi-los e republicar sua oferta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

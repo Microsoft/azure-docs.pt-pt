@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca02505ba9b7d93cac4216916909a8c6df7fdd05
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 200ba1e227c0e2e116e368a65ce7f2c4d42661f2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184057"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547325"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure
 
@@ -35,10 +35,10 @@ Neste artigo, usando o CLI do Azure, você aprende a executar as seguintes ident
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar os exemplos de script da CLI, tem três opções:
-    - Uso [Azure Cloud Shell](../../cloud-shell/overview.md) do portal do Azure (consulte a secção seguinte).
+    - Use [Azure cloud Shell](../../cloud-shell/overview.md) da portal do Azure (consulte a próxima seção).
     - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir usar um console da CLI local. 
       
@@ -214,7 +214,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' ide
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Identidades geridas de descrição geral de recursos do Azure](overview.md)
+- [Visão geral de identidades gerenciadas para recursos do Azure](overview.md)
 - Para obter os guias de início rápido de criação de VM do Azure completos, consulte: 
   - [Criar uma máquina virtual do Windows com a CLI](../../virtual-machines/windows/quick-create-cli.md)  
   - [Criar uma máquina virtual do Linux com a CLI](../../virtual-machines/linux/quick-create-cli.md) 

@@ -1,22 +1,17 @@
 ---
-title: Tutorial-preparar um registro de contêiner para instâncias de contêiner do Azure
+title: Tutorial – preparar o registro de contêiner para implantar a imagem
 description: Tutorial de instâncias de contêiner do Azure, parte 2 de 3-preparar um registro de contêiner do Azure e enviar uma imagem por push
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325611"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533327"
 ---
-# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Implantar um registro de contêiner do Azure e enviar por push uma imagem de contêiner
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: implantar um registro de contêiner do Azure e enviar por push uma imagem de contêiner
 
 Esta é a parte dois de um tutorial de três partes. Na [Parte um](container-instances-tutorial-prepare-app.md) do tutorial criou uma imagem de contentor Docker para uma aplicação Web Node.js. Neste tutorial, vai enviar a imagem para o Azure Container Registry. Se ainda não tiver criado a imagem de contentor, regresse ao [Tutorial 1 – Criar imagem de contentor](container-instances-tutorial-prepare-app.md).
 
@@ -110,7 +105,7 @@ Result
 mycontainerregistry082.azurecr.io
 ```
 
-Agora, exiba a lista de suas imagens locais com o [][docker-images] comando Docker images:
+Agora, exiba a lista de suas imagens locais com o comando [Docker images][docker-images] :
 
 ```bash
 docker images
@@ -193,7 +188,7 @@ Result
 v1
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, preparou um registo de contentor do Azure para utilização com o Azure Container Instances e enviou por push uma imagem de contentor para o registo. Foram efetuados os seguintes passos:
 

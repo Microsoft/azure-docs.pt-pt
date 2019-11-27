@@ -298,7 +298,7 @@ Os mapeamentos de campo de saída que referenciam dados não existentes/nulos pr
 
 Os [modos de análise do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) precisam saber como o texto é codificado antes de analisá-lo. As duas maneiras mais comuns de codificar texto são UTF-16 e UTF-8. UTF-8 é uma codificação de comprimento variável em que cada caractere está entre 1 byte e 4 bytes de comprimento. UTF-16 é uma codificação de tamanho fixo em que cada caractere tem 2 bytes de comprimento. O UTF-16 tem duas variantes diferentes, "big endian" e "little endian". A codificação de texto é determinada por uma "marca de ordem de byte", uma série de bytes antes do texto.
 
-| Codificação | Marca de ordem de byte |
+| Encoding | Marca de ordem de byte |
 | --- | --- |
 | UTF-16 big endian | 0xFE 0xFF |
 | UTF-16 little endian | 0xFE 0xFF |

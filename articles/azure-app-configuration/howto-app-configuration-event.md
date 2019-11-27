@@ -134,7 +134,7 @@ Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você sabe como criar tópicos e assinaturas de evento, saiba mais sobre os eventos de valor-chave e qual grade de eventos pode ajudá-lo:
 

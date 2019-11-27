@@ -1,10 +1,10 @@
 ---
-title: Azure Functions warmup trigger
-description: Understand how to use the warmup trigger in Azure Functions.
+title: Azure Functions gatilho aquecimento
+description: Entenda como usar o gatilho aquecimento no Azure Functions.
 documentationcenter: na
 author: alexkarcher-msft
 manager: gwallace
-keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
+keywords: Azure functions, functions, processamento de eventos, aquecimento, Cold Start, Premium, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
@@ -16,40 +16,40 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74328498"
 ---
-# <a name="azure-functions-warm-up-trigger"></a>Azure Functions warm-up trigger
+# <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
-This article explains how to work with the warmup trigger in Azure Functions. The warmup trigger is supported only for function apps running in a [Premium plan](functions-premium-plan.md). A warmup trigger  is invoked when an instance is added to scale a running function app. You can use a warmup trigger to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) so that your functions are ready to start processing requests immediately. 
+Este artigo explica como trabalhar com o gatilho aquecimento no Azure Functions. O gatilho aquecimento tem suporte apenas para aplicativos de funções em execução em um [plano Premium](functions-premium-plan.md). Um gatilho aquecimento é invocado quando uma instância é adicionada para dimensionar um aplicativo de funções em execução. Você pode usar um gatilho aquecimento para pré-carregar dependências personalizadas durante o [processo de pré-teste](./functions-premium-plan.md#pre-warmed-instances) para que suas funções estejam prontas para iniciar solicitações de processamento imediatamente. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
-The [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version **3.0.5 or higher** is required. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub repository. 
+O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão **3.0.5 ou superior** , é necessário. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) . 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Acionador
 
-The warmup trigger lets you define a function that will be run on an instance when it is added to your running app. You can use a warmup function to open connections, load dependencies, or run any other custom logic before your app will begin receiving traffic. 
+O gatilho aquecimento permite que você defina uma função que será executada em uma instância do quando ela for adicionada ao seu aplicativo em execução. Você pode usar uma função aquecimento para abrir conexões, carregar dependências ou executar qualquer outra lógica personalizada antes que seu aplicativo comece a receber tráfego. 
 
-The warmup trigger is intended to create shared dependencies that will be used by the other functions in your app. [See examples of shared dependencies here](./manage-connections.md#client-code-examples).
+O gatilho aquecimento destina-se a criar dependências compartilhadas que serão usadas por outras funções em seu aplicativo. [Veja exemplos de dependências compartilhadas aqui](./manage-connections.md#client-code-examples).
 
-Note that the warmup trigger is only called during scale-up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
+Observe que o gatilho aquecimento é chamado apenas durante operações de expansão, não durante reinicializações ou outras inicializações sem escala. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho aquecimento. O carregamento lento é um bom padrão para conseguir isso.
 
-## <a name="trigger---example"></a>Trigger - example
+## <a name="trigger---example"></a>Acionador - exemplo
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that will run on each new instance when it is added to your app. A return value attribute isn't required.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo. Um atributo de valor de retorno não é necessário.
 
 
-* Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
-* To use warmup as a .NET class library function, please make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
+* Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
+* Para usar o aquecimento como uma função de biblioteca de classes .NET, verifique se você tem uma referência de pacote para **Microsoft. Azure. webjobs. Extensions > = 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
 
-Placeholder comments show where in the application to declare and initialize shared dependencies. 
-[Learn more about shared dependencies here](./manage-connections.md#client-code-examples).
+Os comentários de espaço reservado mostram onde o aplicativo deve declarar e inicializar dependências compartilhadas. 
+[Saiba mais sobre dependências compartilhadas aqui](./manage-connections.md#client-code-examples).
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -73,14 +73,14 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 
-The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that will run on each new instance when it is added to your app.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
-Your function must be named ```warmup``` (case-insensitive), and there may only be one warmup function per app.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Here's the *function.json* file:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -94,9 +94,9 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#trigger---configuration) section explains these properties.
+A seção de [configuração](#trigger---configuration) explica essas propriedades.
 
-Here's C# script code that binds to `HttpRequest`:
+Aqui está C# o código de script que se associa a `HttpRequest`:
 
 ```cs
 public static void Run(ILogger log)
@@ -107,11 +107,11 @@ public static void Run(ILogger log)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-The following example shows a warmup trigger in a *function.json* file and a [JavaScript function](functions-reference-node.md)  that will run on each new instance when it is added to your app.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Here's the *function.json* file:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -125,9 +125,9 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#trigger---configuration) section explains these properties.
+A seção de [configuração](#trigger---configuration) explica essas propriedades.
 
-Here's the JavaScript code:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = async function (context, warmupContext) {
@@ -138,11 +138,11 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-The following example shows a warmup trigger in a *function.json* file and a [Python function](functions-reference-python.md) that will run on each new instance when it is added to your app.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função do Python](functions-reference-python.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Here's the *function.json* file:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -156,9 +156,9 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#trigger---configuration) section explains these properties.
+A seção de [configuração](#trigger---configuration) explica essas propriedades.
 
-Here's the Python code:
+Este é o código Python:
 
 ```python
 import logging
@@ -171,11 +171,11 @@ def main(warmupContext: func.Context) -> None:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The following example shows a warmup trigger in a *function.json* file and a [Java functions](functions-reference-java.md)  that will run on each new instance when it is added to your app.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e em [funções Java](functions-reference-java.md) que serão executadas em cada nova instância quando ela for adicionada ao seu aplicativo.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Here's the *function.json* file:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -189,7 +189,7 @@ Here's the *function.json* file:
 }
 ```
 
-Here's the Java code:
+Eis o código Java:
 
 ```java
 @FunctionName("Warmup")
@@ -200,15 +200,15 @@ public void run( ExecutionContext context) {
 
 ---
 
-## <a name="trigger---attributes"></a>Trigger - attributes
+## <a name="trigger---attributes"></a>Acionador - atributos
 
-In [C# class libraries](functions-dotnet-class-library.md), the `WarmupTrigger` attribute is available to configure the function.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), o atributo `WarmupTrigger` está disponível para configurar a função.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
+Este exemplo demonstra como usar o atributo [aquecimento](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
 
-Note that your function must be called ```Warmup``` and there can only be one warmup function per app.
+Observe que sua função deve ser chamada ```Warmup``` e pode haver apenas uma função aquecimento por aplicativo.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -219,47 +219,47 @@ Note that your function must be called ```Warmup``` and there can only be one wa
         }
 ```
 
-For a complete example, see the [trigger example](#trigger---example).
+Para obter um exemplo completo, consulte o [exemplo de gatilho](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+O script não dá suporte C# a atributos.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+Não há suporte para atributos pelo JavaScript.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Não há suporte para atributos no Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The warmup trigger is not supported in Java as an attribute.
+O gatilho aquecimento não tem suporte em Java como um atributo.
 
 ---
 
-## <a name="trigger---configuration"></a>Trigger - configuration
+## <a name="trigger---configuration"></a>Acionador - configuração
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `WarmupTrigger` attribute.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `WarmupTrigger`.
 
-|function.json property | Attribute property |Descrição|
+|propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo** | n/d| Required - must be set to `warmupTrigger`. |
-| **direção** | n/d| Required - must be set to `in`. |
-| **name** | n/d| Required - the variable name used in function code.|
+| **tipo** | n/d| Obrigatório-deve ser definido como `warmupTrigger`. |
+| **direção** | n/d| Obrigatório-deve ser definido como `in`. |
+| **nomes** | n/d| Required – o nome da variável usada no código de função.|
 
-## <a name="trigger---usage"></a>Trigger - usage
+## <a name="trigger---usage"></a>Acionador - utilização
 
-No additional information is provided to a warmup triggered function when it is invoked.
+Nenhuma informação adicional é fornecida a uma função disparada por aquecimento quando ela é chamada.
 
-## <a name="trigger---limits"></a>Trigger - limits
+## <a name="trigger---limits"></a>Gatilho-limites
 
-* The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
-* The warmup trigger is only called during scale up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
-* The warmup trigger cannot be invoked once an instance is already running.
-* There can only be one warmup trigger function per function app.
+* O gatilho aquecimento só está disponível para aplicativos em execução no [plano Premium](./functions-premium-plan.md).
+* O gatilho aquecimento é chamado somente durante operações de escala vertical, não durante reinicializações ou outras inicializações sem escala. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho aquecimento. O carregamento lento é um bom padrão para conseguir isso.
+* O gatilho aquecimento não pode ser invocado depois que uma instância já está em execução.
+* Só pode haver uma função de gatilho aquecimento por aplicativo de função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+[Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)

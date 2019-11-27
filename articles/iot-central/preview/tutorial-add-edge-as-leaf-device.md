@@ -1,6 +1,6 @@
 ---
-title: Add an Azure IoT Edge device to Azure IoT Central | Microsoft Docs
-description: As an operator, add an Azure IoT Edge device to your Azure IoT Central application
+title: Adicionar um dispositivo Azure IoT Edge ao IoT Central do Azure | Microsoft Docs
+description: Como um operador, adicione um dispositivo de Azure IoT Edge ao aplicativo de IoT Central do Azure
 author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
@@ -16,170 +16,170 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406336"
 ---
-# <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application
+# <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: adicionar um dispositivo de Azure IoT Edge ao aplicativo de IoT Central do Azure
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you how to add and configure an Azure IoT Edge device to your Azure IoT Central application. In this tutorial, we chose an IoT Edge-enabled Linux VM from Azure Marketplace.
+Este tutorial mostra como adicionar e configurar um dispositivo de Azure IoT Edge para o aplicativo de IoT Central do Azure. Neste tutorial, escolhemos uma VM Linux habilitada para IoT Edge do Azure Marketplace.
 
 Este tutorial é constituído por duas partes:
 
-* First, as an operator, you learn how to do cloud first provisioning of an IoT Edge device.
-* Then, you learn how to do "device first" provisioning of an IoT Edge device.
+* Primeiro, como um operador, você aprende a fazer a nuvem primeiro provisionando um dispositivo IoT Edge.
+* Em seguida, você aprende a fazer o provisionamento "dispositivo primeiro" de um dispositivo IoT Edge.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Add a new IoT Edge device
-> * Configure the IoT Edge device to help provision by using a shared access signature (SAS) key
-> * View dashboards and module health in IoT Central
-> * Send commands to a module running on the IoT Edge device
-> * Set properties on a module running on the IoT Edge device
+> * Adicionar um novo dispositivo de IoT Edge
+> * Configurar o dispositivo de IoT Edge para ajudar a provisionar usando uma chave de assinatura de acesso compartilhado (SAS)
+> * Exibir painéis e integridade do módulo no IoT Central
+> * Enviar comandos para um módulo em execução no dispositivo de IoT Edge
+> * Definir propriedades em um módulo em execução no dispositivo de IoT Edge
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Follow [this quickstart to create an Azure IoT Central application](./quick-deploy-iot-central.md).
+Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Siga [este guia de início rápido para criar um aplicativo de IOT central do Azure](./quick-deploy-iot-central.md).
 
-## <a name="enable-azure-iot-edge-enrollment-group"></a>Enable Azure IoT Edge enrollment group
-From the **Administration** page, enable SAS keys for Azure IoT Edge enrollment group.
+## <a name="enable-azure-iot-edge-enrollment-group"></a>Habilitar Azure IoT Edge grupo de registro
+Na página **Administração** , habilite as chaves SAS para Azure IOT Edge grupo de registro.
 
-![Screenshot of Administration page, with Device connection highlighted](./media/tutorial-add-edge-as-leaf-device/groupenrollment.png)
+![Captura de tela da página de administração, com a conexão do dispositivo realçada](./media/tutorial-add-edge-as-leaf-device/groupenrollment.png)
 
-## <a name="provision-a-cloud-first-azure-iot-edge-device"></a>Provision a "cloud first" Azure IoT Edge device  
-In this section, you create a new IoT Edge device by using the environment sensor template, and you provision a device. Select **Devices** > **Environment Sensor Template**. 
+## <a name="provision-a-cloud-first-azure-iot-edge-device"></a>Provisionar um dispositivo de Azure IoT Edge de "nuvem primeiro"  
+Nesta seção, você cria um novo dispositivo de IoT Edge usando o modelo de sensor de ambiente e provisiona um dispositivo. Selecione **dispositivos** > **modelo de sensor de ambiente**. 
 
-![Screenshot of Devices page, with Environment Sensor Template highlighted](./media/tutorial-add-edge-as-leaf-device/deviceexplorer.png)
+![Captura de tela da página dispositivos, com o modelo de sensor de ambiente realçado](./media/tutorial-add-edge-as-leaf-device/deviceexplorer.png)
 
-Select **+ New**, and enter a device ID and name of your choosing. Selecione **Criar**.
+Selecione **+ novo**e insira uma ID de dispositivo e um nome de sua escolha. Selecione **Criar**.
 
-![Screenshot of Create new device dialog box, with Device ID and Create highlighted](./media/tutorial-add-edge-as-leaf-device/cfdevicecredentials.png)
+![Captura de tela da caixa de diálogo Criar novo dispositivo, com ID do dispositivo e criar realçado](./media/tutorial-add-edge-as-leaf-device/cfdevicecredentials.png)
 
-The device goes into **Registered** mode.
+O dispositivo entra no modo **registrado** .
 
-![Screenshot of Environment Sensor Template page, with Device status highlighted](./media/tutorial-add-edge-as-leaf-device/cfregistered.png)
+![Captura de tela da página modelo do sensor de ambiente, com status do dispositivo realçado](./media/tutorial-add-edge-as-leaf-device/cfregistered.png)
 
-## <a name="deploy-an-iot-edge-enabled-linux-vm"></a>Deploy an IoT Edge enabled Linux VM
+## <a name="deploy-an-iot-edge-enabled-linux-vm"></a>Implantar um IoT Edge VM do Linux habilitada
 
 > [!NOTE]
-> You can choose to use any machine or device. The operating system can be Linux or Windows.
+> Você pode optar por usar qualquer computador ou dispositivo. O sistema operacional pode ser Linux ou Windows.
 
-For this tutorial, we're using an Azure IoT enabled Linux VM, created on Azure. In [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview), select **GET IT NOW**. 
+Para este tutorial, estamos usando uma VM Linux habilitada para IoT do Azure, criada no Azure. No [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview), selecione **obter agora**. 
 
-![Screenshot of Azure Marketplace, with GET IT NOW highlighted](./media/tutorial-add-edge-as-leaf-device/cfmarketplace.png)
+![Captura de tela do Azure Marketplace, com obter agora realçado](./media/tutorial-add-edge-as-leaf-device/cfmarketplace.png)
 
 Selecione **Continuar**.
 
-![Screenshot of Create this app in Azure dialog box, with Continue highlighted](./media/tutorial-add-edge-as-leaf-device/cfmarketplacecontinue.png)
+![Captura de tela da caixa de diálogo criar este aplicativo no Azure, com continuar realçado](./media/tutorial-add-edge-as-leaf-device/cfmarketplacecontinue.png)
 
 
-You're taken to the Azure portal. Selecione **Criar**.
+Você é levado para a portal do Azure. Selecione **Criar**.
 
-![Screenshot of the Azure portal, with Create highlighted](./media/tutorial-add-edge-as-leaf-device/cfubuntu.png)
+![Captura de tela da portal do Azure, com CREATE realçado](./media/tutorial-add-edge-as-leaf-device/cfubuntu.png)
 
-Select **Subscription**, create a new resource group, and select **(US) West US 2** for VM availability. Then, enter user and password information. These will be required for future steps, so remember them. Selecione **Rever + criar**.
+Selecione **assinatura**, crie um novo grupo de recursos e selecione **(EUA) oeste dos EUA 2** para disponibilidade da VM. Em seguida, insira informações de usuário e senha. Eles serão necessários para futuras etapas, portanto, lembre-se deles. Selecione **Rever + criar**.
 
-![Screenshot of Create a virtual machine details page, with various options highlighted](./media/tutorial-add-edge-as-leaf-device/cfvm.png)
+![Captura de tela da página criar detalhes da máquina virtual, com várias opções realçadas](./media/tutorial-add-edge-as-leaf-device/cfvm.png)
 
-After validation, select **Create**.
+Após a validação, selecione **criar**.
 
-![Screenshot of Create a virtual machine page, with Validation passed and Create highlighted](./media/tutorial-add-edge-as-leaf-device/cfvmvalidated.png)
+![Captura de tela da página criar uma máquina virtual, com validação aprovada e criação realçada](./media/tutorial-add-edge-as-leaf-device/cfvmvalidated.png)
 
-It takes a few minutes to create the resources. Select **Go to resource**.
+Leva alguns minutos para criar os recursos. Selecione **ir para o recurso**.
 
-![Screenshot of deployment completion page, with Go to resource highlighted](./media/tutorial-add-edge-as-leaf-device/cfvmdeploymentcomplete.png)
+![Captura de tela da página conclusão da implantação, com ir para o recurso realçado](./media/tutorial-add-edge-as-leaf-device/cfvmdeploymentcomplete.png)
 
-### <a name="provision-vm-as-an-iot-edge-device"></a>Provision VM as an IoT Edge device 
+### <a name="provision-vm-as-an-iot-edge-device"></a>Provisionar VM como um dispositivo IoT Edge 
 
-Under **Support + troubleshooting**, select **Serial console**.
+Em **suporte + solução de problemas**, selecione **console serial**.
 
-![Screenshot of Support + troubleshooting options, with Serial console highlighted](./media/tutorial-add-edge-as-leaf-device/cfserialconsole.png)
+![Captura de tela de suporte + opções de solução de problemas, com Console serial realçado](./media/tutorial-add-edge-as-leaf-device/cfserialconsole.png)
 
-You'll see a screen similar to the following:
+Você verá uma tela semelhante à seguinte:
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsole.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsole.png)
 
-Press Enter, provide the user name and password as prompted, and then press Enter again. 
+Pressione Enter, forneça o nome de usuário e a senha conforme solicitado e pressione Enter novamente. 
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsolelogin.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsolelogin.png)
 
-To run a command as administrator (user "root"), enter: **sudo su –**
+Para executar um comando como administrador (usuário "raiz"), digite: **sudo su –**
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfsudo.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfsudo.png)
 
-Check the IoT Edge runtime version. At the time of this writing, the current GA version is 1.0.8.
+Verifique a versão do IoT Edge Runtime. No momento da redação deste artigo, a versão atual do GA é 1.0.8.
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsoleversion.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsoleversion.png)
 
-Install the vim editor, or use nano if you prefer. 
+Instale o editor de vim ou use o nano se preferir. 
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsolevim.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsolevim.png)
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfvim.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfvim.png)
 
-Edit the IoT Edge config.yaml file.
+Edite o arquivo IoT Edge config. YAML.
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsoleconfig.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsoleconfig.png)
 
-Scroll down, and comment out the connection string portion of the yaml file. 
+Role para baixo e comente a parte da cadeia de conexão do arquivo YAML. 
 
-**Before**
+**Anterior**
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioning.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioning.png)
 
-**After** (Press Esc, and press lowercase a, to start editing.)
+**Após** (pressione ESC e pressione minúscula a para iniciar a edição.)
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioningcomments.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioningcomments.png)
 
-Uncomment the symmetric key portion of the yaml file. 
+Remova a marca de comentário da parte da chave simétrica do arquivo YAML. 
 
-**Before**
+**Anterior**
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmcomments.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmcomments.png)
 
-**After**
+**Após**
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmuncomments.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmuncomments.png)
 
-Go to IoT Central. Get the scope ID, device ID, and symmetric key of the IoT Edge device.
-![Screenshot of IoT Central, with various device connection options highlighted](./media/tutorial-add-edge-as-leaf-device/cfdeviceconnect.png)
+Vá para IoT Central. Obtenha a ID do escopo, a ID do dispositivo e a chave simétrica do dispositivo IoT Edge.
+![captura de tela de IoT Central, com várias opções de conexão de dispositivo realçadas](./media/tutorial-add-edge-as-leaf-device/cfdeviceconnect.png)
 
-Go to the Linux computer, and replace the scope ID and registration ID with the device ID and symmetric key.
+Vá para o computador Linux e substitua a ID do escopo e a ID de registro pela ID do dispositivo e chave simétrica.
 
-Press Esc, and type **:wq!** . Press Enter to save your changes.
+Pressione ESC e digite **: Wq!** . Pressione Enter para salvar as alterações.
 
-Restart IoT Edge to process your changes, and press Enter.
+Reinicie IoT Edge para processar as alterações e pressione Enter.
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfrestart.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfrestart.png)
 
-Type **iotedge list**. After a few minutes, you'll see three modules deployed.
+Digite **lista de iotedge**. Após alguns minutos, você verá três módulos implantados.
 
-![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsolemodulelist.png)
-
-
-## <a name="iot-central-device-explorer"></a>IoT Central device explorer 
-
-In IoT Central, your device moves into provisioned state.
-
-![Screenshot of IoT Central Devices options, with Device status highlighted](./media/tutorial-add-edge-as-leaf-device/cfprovisioned.png)
-
-The **Modules** tab shows the status of the device and module on IoT Central. 
-
-![Screenshot of IoT Central Modules tab](./media/tutorial-add-edge-as-leaf-device/cfiotcmodulestatus.png)
+![Captura de tela do console](./media/tutorial-add-edge-as-leaf-device/cfconsolemodulelist.png)
 
 
-You'll see cloud properties in a form, from the device template you created in the previous steps. Enter values, and select **Save**. 
+## <a name="iot-central-device-explorer"></a>Gerenciador de dispositivos IoT Central 
 
-![Screenshot of My Linux Edge Device form](./media/tutorial-add-edge-as-leaf-device/deviceinfo.png)
+No IoT Central, seu dispositivo passa para o estado provisionado.
 
-Here's a view presented in the form of a dashboard tile.
+![Captura de tela de opções de dispositivos IoT Central, com status do dispositivo realçado](./media/tutorial-add-edge-as-leaf-device/cfprovisioned.png)
 
-![Screenshot of My Linux Edge Device dashboard tiles](./media/tutorial-add-edge-as-leaf-device/dashboard.png)
+A guia **módulos** mostra o status do dispositivo e do módulo no IOT central. 
 
-## <a name="next-steps"></a>Passos seguintes
+![Captura de tela da guia módulos de IoT Central](./media/tutorial-add-edge-as-leaf-device/cfiotcmodulestatus.png)
 
-Now that you've learned how to work with and manage IoT Edge devices in IoT Central, here's the suggested next step:
+
+Você verá as propriedades de nuvem em um formulário, do modelo de dispositivo que você criou nas etapas anteriores. Insira valores e selecione **salvar**. 
+
+![Captura de tela do formulário do meu dispositivo do Linux Edge](./media/tutorial-add-edge-as-leaf-device/deviceinfo.png)
+
+Aqui está uma exibição apresentada na forma de um bloco do Dashboard.
+
+![Captura de tela de blocos de painel do meu dispositivo do Linux Edge](./media/tutorial-add-edge-as-leaf-device/dashboard.png)
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Agora que você aprendeu como trabalhar com e gerenciar dispositivos IoT Edge no IoT Central, aqui está a próxima etapa sugerida:
 
 <!-- Next how-tos in the sequence -->
 
 > [!div class="nextstepaction"]
-> [Configure transparent gateway](../../iot-edge/how-to-create-transparent-gateway.md)
+> [Configurar gateway transparente](../../iot-edge/how-to-create-transparent-gateway.md)

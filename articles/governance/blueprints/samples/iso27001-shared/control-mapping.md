@@ -1,14 +1,14 @@
 ---
-title: Exemplo de diagrama de serviços compartilhados ISO 27001 – mapeamento de controle
+title: Controles de exemplo do plano gráfico dos serviços compartilhados ISO 27001
 description: Mapeamento de controle do exemplo de plano gráfico dos serviços compartilhados ISO 27001. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 9227b94ce4133d44f73e27c5008aa59d8ed2ea10
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b484bdc2fdaa346e5137b31e3225dc913f43ed0c
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184433"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546717"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico dos serviços compartilhados ISO 27001
 
