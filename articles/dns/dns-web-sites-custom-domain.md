@@ -16,7 +16,7 @@ ms.locfileid: "74211210"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
-Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
+Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, você pode criar um aplicativo Web do Azure e fazer com que os usuários o acessem usando o www\.contoso.com ou contoso.com como um FQDN (nome de domínio totalmente qualificado).
 
 > [!NOTE]
 > Contoso.com é utilizado como um exemplo neste tutorial. Substitua o seu nome de domínio por contoso.com.
@@ -47,7 +47,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* You must have a domain name available to test with that you can host in Azure DNS . Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
+* Você deve ter um nome de domínio disponível para teste com o que você pode hospedar no DNS do Azure. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
 * [Crie uma aplicação do Serviço de Aplicações](../app-service/app-service-web-get-started-html.md) ou utilize uma aplicação que tenha criado para outro tutorial.
 
 * Crie uma zona DNS no DNS do Azure e delegue a zona na sua entidade de registo ao DNS do Azure.
@@ -84,7 +84,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Os Serviços Aplicacionais utilizam este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Pode eliminar este registo TXT após a validação e configuração do domínio personalizado no Serviço de Aplicações.
 
 > [!NOTE]
-> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
+> Se você quiser verificar o nome de domínio, mas não rotear o tráfego de produção para o aplicativo Web, você só precisará especificar o registro TXT para a etapa de verificação.  A verificação não requer um registro A ou CNAME além do registro TXT.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -173,7 +173,7 @@ set-AzWebApp `
 Abra um browser e navegue até `http://www.<your domainname>` e `http://<you domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
+> Certifique-se de incluir o prefixo `http://`, caso contrário, seu navegador poderá tentar prever uma URL para você!
 
 Deverá ver a mesma página para ambos os URLs. Por exemplo:
 

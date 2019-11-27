@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create registry - Powershell
-description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
+title: Início rápido-criar registro-PowerShell
+description: Aprenda rapidamente a criar um registro do Docker privado no registro de contêiner do Azure com o PowerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
@@ -11,23 +11,23 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456369"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Quickstart: Create a private container registry using Azure PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Início rápido: criar um registro de contêiner privado usando Azure PowerShell
 
-O Azure Container Registry é um serviço de registo de contentor do Docker privado e gerido que serve para criar, armazenar e fornecer imagens de contentor do Docker. Neste guia de início rápido, irá aprender a criar um registo de contentor do Azure com o PowerShell. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+O Azure Container Registry é um serviço de registo de contentor do Docker privado e gerido que serve para criar, armazenar e fornecer imagens de contentor do Docker. Neste guia de início rápido, irá aprender a criar um registo de contentor do Azure com o PowerShell. Em seguida, use os comandos do Docker para enviar uma imagem de contêiner para o registro e, por fim, efetuar pull e executar a imagem do registro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart requires Azure PowerShell module. Execute `Get-Module -ListAvailable Az` para determinar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell).
+Este início rápido requer Azure PowerShell módulo. Execute `Get-Module -ListAvailable Az` para determinar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell).
 
-Também tem de ter o Docker instalado localmente. Docker provides packages for [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux] systems.
+Também tem de ter o Docker instalado localmente. O Docker fornece pacotes para sistemas [MacOS][docker-mac], [Windows][docker-windows]e [Linux][docker-linux] .
 
 Uma vez que o Azure Cloud Shell não inclui todos os componentes do Docker necessários (o daemon `dockerd`), não é possível utilizar o Cloud Shell para este guia de início rápido.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Sign in to your Azure subscription with the [Connect-AzAccount][Connect-AzAccount] command, and follow the on-screen directions.
+Entre em sua assinatura do Azure com o comando [Connect-AzAccount][Connect-AzAccount] e siga as instruções na tela.
 
 ```powershell
 Connect-AzAccount
@@ -35,7 +35,7 @@ Connect-AzAccount
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Once you're authenticated with Azure, create a resource group with [New-AzResourceGroup][New-AzResourceGroup]. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Quando você estiver autenticado com o Azure, crie um grupo de recursos com [New-AzResourceGroup][New-AzResourceGroup]. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-container-registry"></a>Criar registo de contentor
 
-Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
+Em seguida, crie um registro de contêiner em seu novo grupo de recursos com o comando [New-AzContainerRegistry][New-AzContainerRegistry] .
 
 O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. O exemplo seguinte cria um registo com o nome "myContainerRegistry007". Substitua *myContainerRegistry007* no comando seguinte e execute-o para criar o registo:
 
@@ -51,17 +51,17 @@ O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carater
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+Neste início rápido, você cria um registro *básico* , que é uma opção com otimização de custo para os desenvolvedores aprenderem sobre o registro de contêiner do Azure. Para obter detalhes sobre as camadas de serviço disponíveis, consulte [SKUs de registro de contêiner][container-registry-skus].
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de enviar e solicitar imagens de contentor, tem de iniciar sessão no registo. In production scenarios you should use an individual identity or service principal for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command:
+Antes de enviar e solicitar imagens de contentor, tem de iniciar sessão no registo. Em cenários de produção, você deve usar uma identidade individual ou entidade de serviço para acesso ao registro de contêiner, mas para manter este resumo rápido, habilite o usuário administrador no registro com o comando [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] :
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Next, run [docker login][docker-login] to log in:
+Em seguida, execute o [logon do Docker][docker-login] para fazer logon:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
@@ -75,7 +75,7 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Once you're done working with the resources you created in this quickstart, use the [Remove-AzResourceGroup][Remove-AzResourceGroup] command to remove the resource group, the container registry, and the container images stored there:
+Quando terminar de trabalhar com os recursos criados neste guia de início rápido, use o comando [Remove-AzResourceGroup][Remove-AzResourceGroup] para remover o grupo de recursos, o registro de contêiner e as imagens de contêiner armazenadas lá:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup
@@ -83,10 +83,10 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this quickstart, you created an Azure Container Registry with Azure PowerShell, pushed a container image, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
+Neste guia de início rápido, você criou um registro de contêiner do Azure com Azure PowerShell, enviou por push uma imagem de contêiner e puxau e executou a imagem do registro. Continue nos tutoriais do registro de contêiner do Azure para obter uma análise mais profunda do ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
+> [Tutoriais do registro de contêiner do Azure][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

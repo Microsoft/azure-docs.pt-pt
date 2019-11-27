@@ -25,10 +25,10 @@ O Gestor de Tráfego do Azure é um balanceador de carga de tráfego baseado em 
 O Gestor de Tráfego utiliza o DNS para direcionar os pedidos do cliente para o ponto final de serviço mais adequado com base num método de encaminhamento de tráfego e no estado de funcionamento dos pontos finais. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure. O Gestor de Tráfego proporciona vários [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) e [opções de monitorização de pontos finais](traffic-manager-monitoring.md) para satisfazer diferentes necessidades das aplicações e modelos de ativação pós-falha automática. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
 
 >[!NOTE]
-> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se estiver à procura de terminação de protocolo TLS (Transport Layer Security) (“descarga de SSL”) ou de processamento de camada de aplicação por pedido HTTP/HTTPS, reveja [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md). If you are looking for regional load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). Combinar estas soluções conforme necessário poderá trazer benefícios aos seus cenários completos.
+> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se estiver à procura de terminação de protocolo TLS (Transport Layer Security) (“descarga de SSL”) ou de processamento de camada de aplicação por pedido HTTP/HTTPS, reveja [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md). Se você estiver procurando por balanceamento de carga regional, examine [Load Balancer](../load-balancer/load-balancer-overview.md). Combinar estas soluções conforme necessário poderá trazer benefícios aos seus cenários completos.
 >
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
-Traffic Manager offers following features:
+> Para obter uma comparação das opções de balanceamento de carga do Azure, consulte [visão geral das opções de balanceamento de carga no Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+O Gerenciador de tráfego oferece os seguintes recursos:
 
 ## <a name="increase-application-availability"></a>Aumentar a disponibilidade das aplicações
 
@@ -40,7 +40,7 @@ O Azure permite-lhe executar serviços cloud ou sites em datacenters em todo o m
 
 ## <a name="perform-service-maintenance-without-downtime"></a>Realizar a manutenção de serviços sem tempo de inatividade
 
-Pode realizar operações de manutenção planeada nas suas aplicações sem tempo de inatividade. Traffic Manager can direct traffic to alternative endpoints while the maintenance is in progress.
+Pode realizar operações de manutenção planeada nas suas aplicações sem tempo de inatividade. O Traffic Manager pode direcionar o tráfego para pontos de extremidade alternativos enquanto a manutenção está em andamento.
 
 ## <a name="combine-hybrid-applications"></a>Combinar aplicações híbridas
 
@@ -48,7 +48,7 @@ O Gestor de Tráfego suporta pontos finais externos não Azure, o que permite qu
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>Distribuir o tráfego para implementações complexas
 
-Using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md), multiple traffic-routing methods can be combined to create sophisticated and flexible rules to scale to the needs of larger, more complex deployments.
+Usando [perfis aninhados do Gerenciador de tráfego](traffic-manager-nested-profiles.md), vários métodos de roteamento de tráfego podem ser combinados para criar regras sofisticadas e flexíveis para dimensionar as necessidades de implantações maiores e mais complexas.
 
 ## <a name="pricing"></a>Preços
 

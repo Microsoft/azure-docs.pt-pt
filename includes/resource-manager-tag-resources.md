@@ -15,59 +15,59 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74451632"
 ---
-1. To view the tags for a resource or a resource group, looks for existing tags in the overview. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia.
+1. Para exibir as marcas de um recurso ou de um grupo de recursos, o procura as marcas existentes na visão geral. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia.
    
-     ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
-1. To add a tag, select **Click here to add tags**.
+     ![Exibir marcas de recurso ou grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
+1. Para adicionar uma marca, selecione **clique aqui para adicionar marcas**.
 
-1. Provide a name and value. Select **+** to add the tag.
+1. Forneça um nome e um valor. Selecione **+** para adicionar a marca.
    
-     ![Add tag](./media/resource-manager-tag-resources/add-tag.png)
-1. Continue adding tags as needed. Quando terminar, selecione **Guardar**.
+     ![Adicionar marca](./media/resource-manager-tag-resources/add-tag.png)
+1. Continue adicionando marcas conforme necessário. Quando terminar, selecione **Guardar**.
    
-     ![Save tags](./media/resource-manager-tag-resources/save-tags.png)
-1. The tags are now displayed in the overview.
+     ![Salvar marcas](./media/resource-manager-tag-resources/save-tags.png)
+1. Agora, as marcas são exibidas na visão geral.
    
-     ![Show tags](./media/resource-manager-tag-resources/view-new-tags.png)
-1. To add or delete a tag, select **change**.
+     ![Mostrar marcas](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Para adicionar ou excluir uma marca, selecione **alterar**.
    
-1. To delete a tag, select the trash icon. Em seguida, selecione **Guardar**.
+1. Para excluir uma marca, selecione o ícone de lixeira. Em seguida, selecione **Guardar**.
 
-     ![Delete tag](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Excluir marca](./media/resource-manager-tag-resources/delete-tag.png)
 
 
-To bulk assign tags to multiple resources:
+Para atribuir marcas em massa a vários recursos:
 
-1. From any list of resources, select the checkbox for the resources you want to assign the tag.
+1. Em qualquer lista de recursos, marque a caixa de seleção dos recursos que você deseja atribuir à marca.
 
-     ![Select multiple resources](./media/resource-manager-tag-resources/select-multiple-resources.png)
+     ![Selecionar vários recursos](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
-1. Select **Assign tags**
+1. Selecionar **atribuir marcas**
 
-     ![Assign tags](./media/resource-manager-tag-resources/assign-tags.png)
+     ![Atribuir marcas](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. After each name and value, select **+** . When done, select **Assign**.
+1. Depois de cada nome e valor, selecione **+** . Quando terminar, selecione **atribuir**.
 
-     ![Select assign](./media/resource-manager-tag-resources/select-assign.png)
+     ![Selecionar atribuir](./media/resource-manager-tag-resources/select-assign.png)
 
-To view all resources with a tag:
+Para exibir todos os recursos com uma marca:
 
-1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
+1. No menu portal do Azure, selecione **todos os serviços**. Selecione **geral**e, em seguida, **marcas**.
 
-     ![Find by tag](./media/resource-manager-tag-resources/find-tags-general.png)
+     ![Localizar por marca](./media/resource-manager-tag-resources/find-tags-general.png)
 
-1. Select the tag for viewing resources.
+1. Selecione a marca para exibir os recursos.
 
-     ![Select tag](./media/resource-manager-tag-resources/select-tag.png)
+     ![Selecionar marca](./media/resource-manager-tag-resources/select-tag.png)
 
-1. All resources with that tag are displayed.
+1. Todos os recursos com essa marca são exibidos.
 
-     ![View resources by tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+     ![Exibir recursos por marca](./media/resource-manager-tag-resources/view-resources-by-tag.png)
 
-1. For quick access, pin the view to the dashboard.
+1. Para acesso rápido, fixe a exibição no painel.
 
      ![Afixar ao dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
-1. The view is available from the dashboard.
+1. O modo de exibição está disponível no painel.
 
      ![Dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)

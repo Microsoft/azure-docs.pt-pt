@@ -11,12 +11,12 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224503"
 ---
-| Recurso | Limite predefinido |
+| Resource | Limite predefinido |
 | --- | --- |
-| Azure Content Delivery Network profiles |25 |
-| Content Delivery Network endpoints per profile |25 |
-| Custom domains per endpoint |25 |
+| Perfis de rede de distribuição de conteúdo do Azure |25 |
+| Pontos de extremidade de rede de distribuição de conteúdo por perfil |25 |
+| Domínios personalizados por ponto de extremidade |25 |
 
-A Content Delivery Network subscription can contain one or more Content Delivery Network profiles. A Content Delivery Network profile can contain one or more Content Delivery Network endpoints. You might want to use multiple profiles to organize your Content Delivery Network endpoints by internet domain, web application, or some other criteria. 
+Uma assinatura de rede de distribuição de conteúdo pode conter um ou mais perfis de rede de distribuição de conteúdo. Um perfil de rede de distribuição de conteúdo pode conter um ou mais pontos de extremidade de rede de distribuição de conteúdo. Talvez você queira usar vários perfis para organizar os pontos de extremidade da rede de distribuição de conteúdo por domínio da Internet, aplicativo Web ou algum outro critério. 
 
 

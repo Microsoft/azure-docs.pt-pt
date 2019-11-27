@@ -42,7 +42,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Grupo de recursos dedicado
 
-Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.
+Como os registros de contêiner são recursos que são usados em vários hosts de contêiner, um registro deve residir em seu próprio grupo de recursos.
 
 Embora possa experimentar um tipo de anfitrião específico, como o Azure Container Instances, irá provavelmente eliminar a instância do contentor quando tiver terminado. No entanto, também pode manter a coleção de imagens enviadas para o Azure Container Registry. Ao colocar o seu registo no seu próprio grupo de recursos, está a minimizar o risco de eliminar acidentalmente a coleção de imagens no registo, ao eliminar o grupo de recursos de instância do contentor.
 
@@ -59,9 +59,9 @@ Para obter informações aprofundadas sobre a autenticação do Azure Container 
 
 ## <a name="manage-registry-size"></a>Gerir o tamanho do registo
 
-The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+As restrições de armazenamento de [cada SKU de registro de contêiner][container-registry-skus] devem se alinhar com um cenário típico: **básico** para introdução, **padrão** para a maioria dos aplicativos de produção e **Premium** para desempenho de hiperescala e [replicação geográfica][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
-Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+Use o comando CLI do Azure [AZ ACR show-Usage][az-acr-show-usage] para exibir o tamanho atual do registro:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
@@ -71,15 +71,15 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-You can also find the current storage used in the **Overview** of your registry in the Azure portal:
+Você também pode encontrar o armazenamento atual usado na **visão geral** do registro no portal do Azure:
 
 ![Informações de utilização do registo no portal do Azure][registry-overview-quotas]
 
-### <a name="delete-image-data"></a>Delete image data
+### <a name="delete-image-data"></a>Excluir dados de imagem
 
-Azure Container Registry supports several methods for deleting image data from your container registry. You can delete images by tag or manifest digest, or delete a whole repository.
+O registro de contêiner do Azure dá suporte a vários métodos para excluir dados de imagem do registro de contêiner. Você pode excluir imagens por marca ou resumo do manifesto ou excluir um repositório inteiro.
 
-For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+Para obter detalhes sobre como excluir dados de imagem do registro, incluindo imagens não marcadas (às vezes chamadas de "pendente" ou "órfãos"), consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

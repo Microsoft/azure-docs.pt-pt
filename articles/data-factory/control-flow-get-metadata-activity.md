@@ -15,7 +15,7 @@ ms.date: 11/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
 ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74280652"
@@ -49,7 +49,7 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 | [Armazenamento em nuvem do Google](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [Sistema de Ficheiros](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -109,7 +109,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 }
 ```
 
-**Dataset**
+**DataSet**
 
 ```json
 {

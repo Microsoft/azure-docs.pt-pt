@@ -22,7 +22,7 @@ ms.locfileid: "74280693"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM usando Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o Microsoft Dynamics 365 ou o Microsoft Dynamics CRM. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para o Microsoft Dynamics 365 ou o Microsoft Dynamics CRM. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -83,8 +83,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Dynamics.
 | servicePrincipalCredentialType | Especifique o tipo de credencial a ser usado para autenticação de entidade de serviço. Os valores permitidos são: **ServicePrincipalKey** ou **ServicePrincipalCert**. | Sim ao usar a autenticação `AADServicePrincipal` |
 | servicePrincipalCredential | Especifique a credencial da entidade de serviço. <br>Ao usar `ServicePrincipalKey` como tipo de credencial, `servicePrincipalCredential` pode ser uma cadeia de caracteres (o ADF a criptografará na implantação do serviço vinculado) ou uma referência a um segredo em AKV. <br>Ao usar `ServicePrincipalCert` como credencial, `servicePrincipalCredential` deve ser uma referência a um certificado em AKV. | Sim ao usar a autenticação `AADServicePrincipal` | 
 | o nome de utilizador | Especifique o nome de usuário para se conectar ao Dynamics. | Sim ao usar a autenticação `Office365` |
-| palavra-passe | Especifique a senha da conta de usuário que você especificou para username. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim ao usar a autenticação `Office365` |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para fonte, sim para o coletor se o serviço vinculado de origem não tiver um tempo de execução de integração |
+| palavra-passe | Especifique a senha da conta de usuário que você especificou para username. Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim ao usar a autenticação `Office365` |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para fonte, sim para o coletor se o serviço vinculado de origem não tiver um tempo de execução de integração |
 
 >[!NOTE]
 >O conector do Dynamics usado para usar a propriedade "OrganizationName" opcional para identificar sua instância do Dynamics CRM/365 online. Enquanto ele continua funcionando, é recomendável especificar a nova propriedade "serviceUri" para obter um melhor desempenho para a descoberta de instância.
@@ -180,7 +180,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Dynamics.
 | authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique **"IFD"** para o Dynamics local com IFD. | Sim |
 | o nome de utilizador | Especifique o nome de usuário para se conectar ao Dynamics. | Sim |
 | palavra-passe | Especifique a senha da conta de usuário que você especificou para username. Você pode optar por marcar esse campo como uma SecureString para armazená-lo com segurança no ADF, ou armazenar a senha em Azure Key Vault e deixar a atividade de cópia efetuar pull a partir daí ao executar a cópia de dados-Saiba mais em [armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para o sink |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para o sink |
 
 **Exemplo: Dynamics local com IFD usando a autenticação IFD**
 
@@ -212,7 +212,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Dynamics.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo DataSet do Dynamics.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo DataSet do Dynamics.
 
 Para copiar dados de e para o Dynamics, há suporte para as propriedades a seguir.
 
@@ -242,7 +242,7 @@ Para copiar dados de e para o Dynamics, há suporte para as propriedades a segui
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelos tipos de origem e de coletor do Dynamics.
+Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pelos tipos de origem e de coletor do Dynamics.
 
 ### <a name="dynamics-as-a-source-type"></a>Dynamics como um tipo de origem
 
@@ -400,4 +400,4 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

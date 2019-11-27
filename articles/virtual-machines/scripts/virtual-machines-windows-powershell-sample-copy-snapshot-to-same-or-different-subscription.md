@@ -23,11 +23,11 @@ ms.locfileid: "74326345"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiar o instantâneo de um disco gerido na mesma subscrição ou numa subscrição diferente com a CLI
 
-Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Use this script for the following scenarios:
+Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Use este script para os seguintes cenários:
 
-1. Migrate a snapshot in Premium storage (Premium_LRS) to Standard storage (Standard_LRS or Standard_ZRS) to reduce your cost.
-1. Migrate a snapshot from locally redundant storage (Premium_LRS, Standard_LRS) to zone redundant storage (Standard_ZRS) to benefit from the higher reliability of ZRS storage.
-1. Move a snapshot to different subscription in the same region for longer retention.
+1. Migre um instantâneo no armazenamento Premium (Premium_LRS) para o armazenamento Standard (Standard_LRS ou Standard_ZRS) para reduzir seu custo.
+1. Migre um instantâneo do armazenamento com redundância local (Premium_LRS, Standard_LRS) para o armazenamento com redundância de zona (Standard_ZRS) para se beneficiar da maior confiabilidade do armazenamento ZRS.
+1. Mova um instantâneo para uma assinatura diferente na mesma região para maior retenção.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Using load-balancing services in Azure | Microsoft Docs
-description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
+title: Usando serviços de balanceamento de carga no Azure | Microsoft Docs
+description: 'Este tutorial mostra como criar um cenário usando o portfólio de balanceamento de carga do Azure: Gerenciador de tráfego, gateway de aplicativo e Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -23,192 +23,192 @@ ms.locfileid: "74227779"
 
 ## <a name="introduction"></a>Introdução
 
-Microsoft Azure provides multiple services for managing how network traffic is distributed and load balanced. You can use these services individually or combine their methods, depending on your needs, to build the optimal solution.
+O Microsoft Azure fornece vários serviços para gerenciar como o tráfego de rede é distribuído e com balanceamento de carga. Você pode usar esses serviços individualmente ou combinar seus métodos, dependendo de suas necessidades, para criar a solução ideal.
 
-In this tutorial, we first define a customer use case and see how it can be made more robust and performant by using the following Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer. We then provide step-by-step instructions for creating a deployment that is geographically redundant, distributes traffic to VMs, and helps you manage different types of requests.
+Neste tutorial, primeiro definimos um caso de uso do cliente e vemos como ele pode se tornar mais robusto e com bom desempenho usando o seguinte portfólio de balanceamento de carga do Azure: Gerenciador de tráfego, gateway de aplicativo e Load Balancer. Em seguida, fornecemos instruções passo a passo para a criação de uma implantação que é geograficamente redundante, distribui o tráfego para VMs e ajuda você a gerenciar diferentes tipos de solicitações.
 
-At a conceptual level, each of these services plays a distinct role in the load-balancing hierarchy.
+Em um nível conceitual, cada um desses serviços desempenha uma função distinta na hierarquia de balanceamento de carga.
 
-* **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy endpoint, in accordance with the routing policy the customer has selected. Options for routing methods are:
-  * Performance routing to send the requestor to the closest endpoint in terms of latency.
-  * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
-  * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
-  * Geography-based routing to distribute the traffic to your application endpoints based on geographic location of the user.
-  * Subnet-based routing to distribute the traffic to your application endpoints based on the subnet (IP address range) of the user.
-  * Multi Value routing that enable you to send IP addresses of more than one application endpoints in a single DNS response.
+* O **Gerenciador de tráfego** fornece balanceamento de carga de DNS global. Ele examina as solicitações DNS de entrada e responde com um ponto de extremidade íntegro, de acordo com a política de roteamento que o cliente selecionou. As opções para os métodos de roteamento são:
+  * Roteamento de desempenho para enviar o solicitante para o ponto de extremidade mais próximo em termos de latência.
+  * Roteamento de prioridade para direcionar todo o tráfego para um ponto de extremidade, com outros pontos de extremidades como backup.
+  * Roteamento de rodízio ponderado, que distribui o tráfego com base no peso atribuído a cada ponto de extremidade.
+  * Roteamento baseado em Geografia para distribuir o tráfego para os pontos de extremidade do aplicativo com base na localização geográfica do usuário.
+  * Roteamento baseado em sub-rede para distribuir o tráfego para os pontos de extremidade do aplicativo com base na sub-rede (intervalo de endereços IP) do usuário.
+  * Roteamento de vários valores que permite enviar endereços IP de mais de um ponto de extremidade de aplicativo em uma única resposta DNS.
 
-  The client connects directly to the endpoint returned by Traffic Manager. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
-* **Application Gateway** provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the application gateway. Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single application gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable, and highly available. Proporciona um conjunto avançado de capacidades de registo e diagnóstico, para uma melhor capacidade de gestão.
-* **Load Balancer** is an integral part of the Azure SDN stack, providing high-performance, low-latency Layer 4 load-balancing services for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints and define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability.
+  O cliente se conecta diretamente ao ponto de extremidade retornado pelo Gerenciador de tráfego. O Gerenciador de tráfego do Azure detecta quando um ponto de extremidade não está íntegro e redireciona os clientes para outra instância íntegra. Consulte a [documentação do Gerenciador de tráfego do Azure](traffic-manager-overview.md) para saber mais sobre o serviço.
+* O **Gateway de aplicativo** fornece o ADC (controlador de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seu aplicativo. Ele permite que os clientes otimizem web farm produtividade descarregando a terminação SSL com uso intensivo de CPU para o gateway de aplicativo. Outros recursos de roteamento de camada 7 incluem distribuição Round Robin de tráfego de entrada, afinidade de sessão baseada em cookie, roteamento baseado em caminho de URL e a capacidade de hospedar vários sites por trás de um único gateway de aplicativo. O gateway de aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway somente interno ou uma combinação de ambos. O gateway de aplicativo é totalmente gerenciado, escalonável e altamente disponível do Azure. Proporciona um conjunto avançado de capacidades de registo e diagnóstico, para uma melhor capacidade de gestão.
+* **Load Balancer** é parte integrante da pilha do Sdn do Azure, fornecendo serviços de balanceamento de carga de camada 4 de alto desempenho e baixa latência para todos os protocolos UDP e TCP. Ele gerencia conexões de entrada e saída. Você pode configurar pontos de extremidade públicos e internos com balanceamento de carga e definir regras para mapear conexões de entrada para destinos de pool de back-end usando as opções de investigação de integridade TCP e HTTP para gerenciar a disponibilidade do serviço.
 
 ## <a name="scenario"></a>Cenário
 
-In this example scenario, we use a simple website that serves two types of content: images and dynamically rendered webpages. The website must be geographically redundant, and it should serve its users from the closest (lowest latency) location to them. The application developer has decided that any URLs that match the pattern /images/* are served from a dedicated pool of VMs that are different from the rest of the web farm.
+Neste cenário de exemplo, usamos um site simples que serve para dois tipos de conteúdo: imagens e páginas da Web renderizadas dinamicamente. O site deve ser geograficamente redundante e deve servir a seus usuários do local mais próximo (menor latência) para eles. O desenvolvedor do aplicativo decidiu que todas as URLs que correspondem ao padrão/images/* são servidas de um pool de VMs dedicado que são diferentes do restante do web farm.
 
-Additionally, the default VM pool serving the dynamic content needs to talk to a back-end database that is hosted on a high-availability cluster. The entire deployment is set up through Azure Resource Manager.
+Além disso, o pool de VMs padrão que atende ao conteúdo dinâmico precisa se comunicar com um banco de dados back-end hospedado em um cluster de alta disponibilidade. Toda a implantação é configurada por meio de Azure Resource Manager.
 
-Using Traffic Manager, Application Gateway, and Load Balancer allows this website to achieve these design goals:
+Usar o Gerenciador de tráfego, o gateway de aplicativo e o Load Balancer permite que este site alcance essas metas de design:
 
-* **Multi-geo redundancy**: If one region goes down, Traffic Manager routes traffic seamlessly to the closest region without any intervention from the application owner.
-* **Reduced latency**: Because Traffic Manager automatically directs the customer to the closest region, the customer experiences lower latency when requesting the webpage contents.
-* **Independent scalability**: Because the web application workload is separated by type of content, the application owner can scale the request workloads independent of each other. Application Gateway ensures that the traffic is routed to the right pools based on the specified rules and the health of the application.
-* **Internal load balancing**: Because Load Balancer is in front of the high-availability cluster, only the active and healthy endpoint for a database is exposed to the application. Additionally, a database administrator can optimize the workload by distributing active and passive replicas across the cluster independent of the front-end application. Load Balancer delivers connections to the high-availability cluster and ensures that only healthy databases receive connection requests.
+* **Redundância de várias regiões geográficas**: se uma região ficar inativa, o Traffic Manager roteará o tráfego diretamente para a região mais próxima sem nenhuma intervenção do proprietário do aplicativo.
+* **Latência reduzida**: como o Gerenciador de tráfego direciona automaticamente o cliente para a região mais próxima, o cliente enfrenta uma latência mais baixa ao solicitar o conteúdo da página da Web.
+* **Escalabilidade independente**: como a carga de trabalho do aplicativo Web é separada por tipo de conteúdo, o proprietário do aplicativo pode dimensionar as cargas de trabalho de solicitação independentemente umas das outras. O gateway de aplicativo garante que o tráfego seja roteado para os pools corretos com base nas regras especificadas e na integridade do aplicativo.
+* **Balanceamento de carga interno**: como Load Balancer está na frente do cluster de alta disponibilidade, somente o ponto de extremidade ativo e íntegro para um banco de dados é exposto ao aplicativo. Além disso, um administrador de banco de dados pode otimizar a carga de trabalho distribuindo réplicas ativas e passivas em todo o cluster, independentemente do aplicativo de front-end. Load Balancer fornece conexões com o cluster de alta disponibilidade e garante que somente bancos de dados íntegros recebam solicitações de conexão.
 
-The following diagram shows the architecture of this scenario:
+O diagrama a seguir mostra a arquitetura desse cenário:
 
-![Diagram of load-balancing architecture](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
+![Diagrama de arquitetura de balanceamento de carga](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
+> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de balanceamento de carga que o Azure oferece. O Gerenciador de tráfego, o gateway de aplicativo e o Load Balancer podem ser combinados e combinados para melhor atender às suas necessidades de balanceamento de carga. Por exemplo, se o descarregamento SSL ou o processamento de camada 7 não for necessário, Load Balancer poderá ser usado no lugar do gateway de aplicativo.
 
-## <a name="setting-up-the-load-balancing-stack"></a>Setting up the load-balancing stack
+## <a name="setting-up-the-load-balancing-stack"></a>Configurando a pilha de balanceamento de carga
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Step 1: Create a Traffic Manager profile
+### <a name="step-1-create-a-traffic-manager-profile"></a>Etapa 1: criar um perfil do Gerenciador de tráfego
 
-1. In the Azure portal, click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
-2. Enter the following basic information:
+1. No portal do Azure, clique em **criar um recurso** > **rede** > **perfil do Gerenciador de tráfego** > **criar**.
+2. Insira as seguintes informações básicas:
 
-   * **Name**: Give your Traffic Manager profile a DNS prefix name.
-   * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
-   * **Subscription**: Select the subscription that contains the profile.
-   * **Resource group**: Select the resource group that contains the profile. It can be a new or existing resource group.
-   * **Resource group location**: Traffic Manager service is global and not bound to a location. However, you must specify a region for the group where the metadata associated with the Traffic Manager profile resides. This location has no impact on the runtime availability of the profile.
+   * **Nome**: Dê ao seu perfil do Gerenciador de tráfego um nome de prefixo DNS.
+   * **Método de roteamento**: selecione a política de método de roteamento de tráfego. Para obter mais informações sobre os métodos, consulte [sobre métodos de roteamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md).
+   * **Assinatura**: selecione a assinatura que contém o perfil.
+   * **Grupo de recursos**: selecione o grupo de recursos que contém o perfil. Pode ser um grupo de recursos novo ou existente.
+   * **Local do grupo de recursos**: o serviço do Gerenciador de tráfego é global e não está associado a um local. No entanto, você deve especificar uma região para o grupo onde os metadados associados ao perfil do Gerenciador de tráfego residem. Esse local não tem impacto sobre a disponibilidade do tempo de execução do perfil.
 
-3. Click **Create** to generate the Traffic Manager profile.
+3. Clique em **criar** para gerar o perfil do Gerenciador de tráfego.
 
-   !["Create Traffic Manager" blade](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Folha "criar Gerenciador de tráfego"](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>Step 2: Create the application gateways
+### <a name="step-2-create-the-application-gateways"></a>Etapa 2: criar os gateways de aplicativo
 
-1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Application Gateway**.
-2. Enter the following basic information about the application gateway:
+1. No portal do Azure, no painel esquerdo, clique em **criar um recurso** > **rede** > **Gateway de aplicativo**.
+2. Insira as seguintes informações básicas sobre o gateway de aplicativo:
 
-   * **Name**: The name of the application gateway.
-   * **SKU size**: The size of the application gateway, available as Small, Medium, or Large.
-   * **Instance count**: The number of instances, a value from 2 through 10.
-   * **Resource group**: The resource group that holds the application gateway. It can be an existing resource group or a new one.
-   * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
+   * **Nome**: o nome do gateway de aplicativo.
+   * **Tamanho do SKU**: o tamanho do gateway de aplicativo, disponível como pequeno, médio ou grande.
+   * **Contagem**de instâncias: o número de instâncias, um valor de 2 a 10.
+   * **Grupo de recursos**: o grupo de recursos que contém o gateway de aplicativo. Pode ser um grupo de recursos existente ou um novo.
+   * **Local**: a região do gateway de aplicativo, que é o mesmo local que o grupo de recursos. O local é importante, pois a rede virtual e o IP público devem estar no mesmo local que o gateway.
 3. Clique em **OK**.
-4. Define the virtual network, subnet, front-end IP, and listener configurations for the application gateway. In this scenario, the front-end IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
-5. Configure the listener with one of the following options:
-    * If you use HTTP, there is nothing to configure. Clique em **OK**.
-    * If you use HTTPS, further configuration is required. Refer to [Create an application gateway](../application-gateway/application-gateway-create-gateway-portal.md), starting at step 9. When you have completed the configuration, click **OK**.
+4. Defina a rede virtual, a sub-rede, o IP de front-end e as configurações de ouvinte para o gateway de aplicativo. Nesse cenário, o endereço IP de front-end é **público**, o que permite que ele seja adicionado como um ponto de extremidade ao perfil do Gerenciador de tráfego posteriormente.
+5. Configure o ouvinte com uma das seguintes opções:
+    * Se você usar HTTP, não há nada a ser configurado. Clique em **OK**.
+    * Se você usar HTTPS, será necessária uma configuração adicional. Consulte [criar um gateway de aplicativo](../application-gateway/application-gateway-create-gateway-portal.md), começando na etapa 9. Quando você tiver concluído a configuração, clique em **OK**.
 
-#### <a name="configure-url-routing-for-application-gateways"></a>Configure URL routing for application gateways
+#### <a name="configure-url-routing-for-application-gateways"></a>Configurar o roteamento de URL para gateways de aplicativo
 
-When you choose a back-end pool, an application gateway that's configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
+Quando você escolhe um pool de back-end, um gateway de aplicativo configurado com uma regra baseada em caminho usa um padrão de caminho da URL de solicitação, além da distribuição Round Robin. Nesse cenário, estamos adicionando uma regra com base no caminho para direcionar qualquer URL com "/images/\*" para o pool de servidores de imagem. Para obter mais informações sobre como configurar o roteamento baseado em caminho de URL para um gateway de aplicativo, consulte [criar uma regra com base no caminho para um gateway de aplicativo](../application-gateway/application-gateway-create-url-route-portal.md).
 
-![Application Gateway web-tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
+![Diagrama da camada da Web do gateway de aplicativo](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
-1. From your resource group, go to the instance of the application gateway that you created in the preceding section.
-2. Under **Settings**, select **Backend pools**, and then select **Add** to add the VMs that you want to associate with the web-tier back-end pools.
-3. Enter the name of the back-end pool and all the IP addresses of the machines that reside in the pool. In this scenario, we are connecting two back-end server pools of virtual machines.
+1. Em seu grupo de recursos, vá para a instância do gateway de aplicativo que você criou na seção anterior.
+2. Em **configurações**, selecione **pools de back-end**e, em seguida, selecione **Adicionar** para adicionar as VMs que você deseja associar aos pools de back-end da camada da Web.
+3. Insira o nome do pool de back-end e todos os endereços IP dos computadores que residem no pool. Nesse cenário, estamos conectando dois pools de servidores back-end de máquinas virtuais.
 
-   ![Application Gateway "Add backend pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Gateway de aplicativo "Adicionar pool de back-end"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a rule.
+4. Em **configurações** do gateway de aplicativo, selecione **regras**e, em seguida, clique no botão **baseado em caminho** para adicionar uma regra.
 
-   ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Botão "baseado em caminho" das regras do gateway de aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. Configure the rule by providing the following information.
+5. Configure a regra fornecendo as informações a seguir.
 
-   Basic settings:
+   Configurações básicas:
 
-   + **Name**: The friendly name of the rule that is accessible in the portal.
-   + **Listener**: The listener that is used for the rule.
-   + **Default backend pool**: The back-end pool to be used with the default rule.
-   + **Default HTTP settings**: The HTTP settings to be used with the default rule.
+   + **Nome**: o nome amigável da regra que é acessível no Portal.
+   + **Listener**: o ouvinte que é usado para a regra.
+   + **Pool de back**-end padrão: o pool de back-ends a ser usado com a regra padrão.
+   + **Configurações http padrão**: as configurações de http a serem usadas com a regra padrão.
 
-   Path-based rules:
+   Regras baseadas em caminho:
 
-   + **Name**: The friendly name of the path-based rule.
-   + **Paths**: The path rule that is used for forwarding traffic.
-   + **Backend Pool**: The back-end pool to be used with this rule.
-   + **HTTP Setting**: The HTTP settings to be used with this rule.
+   + **Nome**: o nome amigável da regra com base no caminho.
+   + **Paths**: a regra de caminho que é usada para encaminhar o tráfego.
+   + **Pool de back**-end: o pool de back-ends a ser usado com esta regra.
+   + **Configuração de http**: as configurações de http a serem usadas com esta regra.
 
    > [!IMPORTANT]
-   > Paths: Valid paths must start with "/". The wildcard "\*" is allowed only at the end. Valid examples are /xyz, /xyz\*, or /xyz/\*.
+   > Caminhos: os caminhos válidos devem começar com "/". O curinga "\*" é permitido apenas no final. Os exemplos válidos são/XYZ,/XYZ\*ou/XYZ/\*.
 
-   ![Application Gateway "Add path-based rule" blade](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
+   ![Folha "Adicionar regra com base no caminho" do gateway de aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
-### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Step 3: Add application gateways to the Traffic Manager endpoints
+### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Etapa 3: Adicionar gateways de aplicativo aos pontos de extremidade do Gerenciador de tráfego
 
-In this scenario, Traffic Manager is connected to application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to your Traffic Manager profile.
+Nesse cenário, o Gerenciador de tráfego está conectado aos gateways de aplicativo (conforme configurado nas etapas anteriores) que residem em regiões diferentes. Agora que os gateways de aplicativo estão configurados, a próxima etapa é conectá-los ao seu perfil do Gerenciador de tráfego.
 
-1. Open your Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
-2. In the left pane, select **Endpoints**, and then click **Add** to add an endpoint.
+1. Abra seu perfil do Gerenciador de tráfego. Para fazer isso, examine seu grupo de recursos ou procure o nome do perfil do Gerenciador de tráfego de **todos os recursos**.
+2. No painel esquerdo, selecione **pontos**de extremidade e, em seguida, clique em **Adicionar** para adicionar um EndPoint.
 
-   ![Traffic Manager Endpoints "Add" button](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Botão "Adicionar" dos pontos de extremidade do Gerenciador de tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. Create an endpoint by entering the following information:
+3. Crie um ponto de extremidade inserindo as seguintes informações:
 
-   * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
-   * **Name**: Enter the name of the endpoint.
-   * **Target resource type**: Select **Public IP address** and then, under **Target resource**, select the public IP of the application gateway that was configured previously.
+   * **Tipo**: selecione o tipo de ponto de extremidade para balancear a carga. Nesse cenário, selecione **ponto de extremidade do Azure** porque estamos conectando-o às instâncias do gateway de aplicativo que foram configuradas anteriormente.
+   * **Nome**: Insira o nome do ponto de extremidade.
+   * **Tipo de recurso de destino**: selecione **endereço IP público** e, em **recurso de destino**, selecione o IP público do gateway de aplicativo que foi configurado anteriormente.
 
-   ![Traffic Manager "Add endpoint"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   !["Adicionar ponto de extremidade" do Gerenciador de tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. Now you can test your setup by accessing it with the DNS of your Traffic Manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up or bring down VMs and web servers that were created in different regions, and change the Traffic Manager profile settings to test your setup.
+4. Agora você pode testar sua configuração acessando-a com o DNS do seu perfil do Gerenciador de tráfego (neste exemplo: TrafficManagerScenario.trafficmanager.net). Você pode reenviar solicitações, ativar ou desativar VMs e servidores Web que foram criados em regiões diferentes e alterar as configurações de perfil do Gerenciador de tráfego para testar a configuração.
 
-### <a name="step-4-create-a-load-balancer"></a>Step 4: Create a load balancer
+### <a name="step-4-create-a-load-balancer"></a>Etapa 4: criar um balanceador de carga
 
-In this scenario, Load Balancer distributes connections from the web tier to the databases within a high-availability cluster.
+Nesse cenário, Load Balancer distribui conexões da camada da Web para os bancos de dados em um cluster de alta disponibilidade.
 
-If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) for step-by-step instructions.
+Se o seu cluster de banco de dados de alta disponibilidade estiver usando o SQL Server AlwaysOn, confira [configurar um ou mais Always on ouvintes do grupo de disponibilidade](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) para obter instruções passo a passo.
 
-For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Para obter mais informações sobre como configurar um balanceador de carga interno, consulte [criar um balanceador de carga interno no portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Load balancer**.
-2. Choose a name for your load balancer.
-3. Set the **Type** to **Internal**, and choose the appropriate virtual network and subnet for the load balancer to reside in.
-4. Under **IP address assignment**, select either **Dynamic** or **Static**.
-5. Under **Resource group**, choose the resource group for the load balancer.
-6. Under **Location**, choose the appropriate region for the load balancer.
-7. Click **Create** to generate the load balancer.
+1. No portal do Azure, no painel esquerdo, clique em **criar um recurso** > **rede** > **balanceador de carga**.
+2. Escolha um nome para o balanceador de carga.
+3. Defina o **tipo** como **interno**e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
+4. Em **atribuição de endereço IP**, selecione **dinâmico** ou **estático**.
+5. Em **grupo de recursos**, escolha o grupo de recursos para o balanceador de carga.
+6. Em **local**, escolha a região apropriada para o balanceador de carga.
+7. Clique em **criar** para gerar o balanceador de carga.
 
-#### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Connect a back-end database tier to the load balancer
+#### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Conectar uma camada de banco de dados back-end ao balanceador de carga
 
-1. From your resource group, find the load balancer that was created in the previous steps.
-2. Under **Settings**, click **Backend pools**, and then click **Add** to add a back-end pool.
+1. Em seu grupo de recursos, localize o balanceador de carga que foi criado nas etapas anteriores.
+2. Em **configurações**, clique em **pools de back-end**e clique em **Adicionar** para adicionar um pool de back-ends.
 
-   ![Load Balancer "Add backend pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Load Balancer "Adicionar pool de back-end"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. Enter the name of the back-end pool.
-4. Add either individual machines or an availability set to the back-end pool.
+3. Insira o nome do pool de back-end.
+4. Adicione máquinas individuais ou um conjunto de disponibilidade ao pool de back-ends.
 
-#### <a name="configure-a-probe"></a>Configure a probe
+#### <a name="configure-a-probe"></a>Configurar uma investigação
 
-1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a probe.
+1. No balanceador de carga, em **configurações**, selecione **investigações**e clique em **Adicionar** para adicionar uma investigação.
 
-   ![Load Balancer "Add probe"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Load Balancer "Adicionar investigação"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. Enter the name for the probe.
-3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load-balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
-4. Enter the **Port** of your database to be used for accessing the probe.
-5. Under **Interval**, specify how frequently to probe the application.
-6. Under **Unhealthy threshold**, specify the number of continuous probe failures that must occur for the back-end VM to be considered unhealthy.
-7. Click **OK** to create the probe.
+2. Insira o nome para a investigação.
+3. Selecione o **protocolo** para a investigação. Para um banco de dados, você pode querer uma investigação TCP em vez de uma investigação HTTP. Para saber mais sobre as investigações do balanceador de carga, consulte [entender as investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md).
+4. Insira a **porta** do banco de dados a ser usada para acessar a investigação.
+5. Em **intervalo**, especifique a frequência de investigação do aplicativo.
+6. Em **limite não íntegro**, especifique o número de falhas de investigação contínua que devem ocorrer para que a VM de back-end seja considerada não íntegra.
+7. Clique em **OK** para criar a investigação.
 
-#### <a name="configure-the-load-balancing-rules"></a>Configure the load-balancing rules
+#### <a name="configure-the-load-balancing-rules"></a>Configurar as regras de balanceamento de carga
 
-1. Under **Settings** of your load balancer, select **Load balancing rules**, and then click **Add** to create a rule.
-2. Enter the **Name** for the load-balancing rule.
-3. Choose the **Frontend IP Address** of the load balancer, **Protocol**, and **Port**.
-4. Under **Backend port**, specify the port to be used in the back-end pool.
-5. Select the **Backend pool** and the **Probe** that were created in the previous steps to apply the rule to.
-6. Under **Session persistence**, choose how you want the sessions to persist.
-7. Under **Idle timeouts**, specify the number of minutes before an idle timeout.
-8. Under **Floating IP**, select either **Disabled** or **Enabled**.
+1. Em **configurações** do balanceador de carga, selecione **regras de balanceamento de carga**e clique em **Adicionar** para criar uma regra.
+2. Insira o **nome** para a regra de balanceamento de carga.
+3. Escolha o **endereço IP de front-end** do balanceador de carga, o **protocolo**e a **porta**.
+4. Em **porta de back-end**, especifique a porta a ser usada no pool de back-ends.
+5. Selecione o **pool de back-end** e a **investigação** que foram criados nas etapas anteriores para aplicar a regra a.
+6. Em **persistência da sessão**, escolha como você deseja que as sessões persistam.
+7. Em **tempos limite de ociosidade**, especifique o número de minutos antes de um tempo limite de ociosidade.
+8. Em **IP flutuante**, selecione **desabilitado** ou **habilitado**.
 9. Clique em **OK** para criar a regra.
 
-### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Step 5: Connect web-tier VMs to the load balancer
+### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Etapa 5: conectar VMs da camada da Web ao balanceador de carga
 
-Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal, go to the front-end IP pool on the **Load balancer settings**.
+Agora, configuramos o endereço IP e a porta de front-end do balanceador de carga nos aplicativos em execução nas VMs da camada da Web para qualquer conexão de banco de dados. Essa configuração é específica para os aplicativos que são executados nessas VMs. Para configurar o endereço IP de destino e a porta, consulte a documentação do aplicativo. Para localizar o endereço IP do front-end, na portal do Azure, vá para o pool de IPS de front-end nas **configurações do balanceador de carga**.
 
-![Load Balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
+![Painel de navegação do Load Balancer "pool de IPS de front-end"](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral do Gestor de Tráfego](traffic-manager-overview.md)
-* [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
+* [Visão geral do gateway de aplicativo](../application-gateway/application-gateway-introduction.md)
 * [Descrição Geral do Balanceador de Carga do Azure (Azure Load Balancer overview)](../load-balancer/load-balancer-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Disenroll device from Azure IoT Hub Device Provisioning Service
-description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service
+title: Cancelar o registro de dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do serviço de provisionamento de dispositivos no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -15,100 +15,100 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228769"
 ---
-# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>How to disenroll a device from Azure IoT Hub Device Provisioning Service
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
 
-Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. 
+O gerenciamento adequado de credenciais de dispositivo é crucial para sistemas de alto perfil como soluções de IoT. Uma prática recomendada para esses sistemas é ter um plano claro de como revogar o acesso para dispositivos quando suas credenciais, se um token SAS (assinaturas de acesso compartilhado) ou um certificado X. 509, puderem ser comprometidos. 
 
-Enrollment in the Device Provisioning Service enables a device to be [auto-provisioned](concepts-auto-provisioning.md). A provisioned device is one that has been registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data. This article describes how to disenroll a device from your provisioning service instance, preventing it from being provisioned again in the future.
+O registro no serviço de provisionamento de dispositivos permite que um dispositivo seja [provisionado automaticamente](concepts-auto-provisioning.md). Um dispositivo provisionado é aquele que foi registrado com o Hub IoT, permitindo que ele receba seu estado inicial de [dispositivo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) de 1 e comece a relatar dados de telemetria. Este artigo descreve como cancelar o registro de um dispositivo de sua instância do serviço de provisionamento, impedindo que ele seja provisionado novamente no futuro.
 
 > [!NOTE] 
-> Be aware of the retry policy of devices that you revoke access for. For example, a device that has an infinite retry policy might continuously try to register with the provisioning service. That situation consumes service resources and possibly affects performance.
+> Lembre-se da política de repetição de dispositivos para os quais você revoga o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita pode tentar se registrar continuamente no serviço de provisionamento. Essa situação consome recursos de serviço e possivelmente afeta o desempenho.
 
-## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Blacklist devices by using an individual enrollment entry
+## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Dispositivos de lista negra usando uma entrada de registro individual
 
-Individual enrollments apply to a single device and can use either X.509 certificates or SAS tokens (in a real or virtual TPM) as the attestation mechanism. (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X. 509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista negra, você pode desabilitar ou excluir sua entrada de registro. 
 
-To temporarily blacklist the device by disabling its enrollment entry: 
+Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando sua entrada de registro: 
 
-1. Sign in to the Azure portal and select **All resources** from the left menu.
-2. In the list of resources, select the provisioning service that you want to blacklist your device from.
-3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the enrollment entry for the device that you want to blacklist. 
+1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
+3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** .
+4. Selecione a entrada de registro para o dispositivo que você deseja adicionar à lista de bloqueios. 
 
-    ![Select your individual enrollment](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+    ![Selecione seu registro individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
 
-5. On your enrollment page, scroll to the bottom, and select **Disable** for the **Enable entry** switch, and then select **Save**.  
+5. Na página de registro, role até a parte inferior e selecione **desabilitar** para a opção **Habilitar entrada** e, em seguida, selecione **salvar**.  
 
-   ![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+   ![Desabilitar a entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
-To permanently blacklist the device by deleting its enrollment entry:
+Para adicionar o dispositivo à lista de bloqueios permanentemente excluindo sua entrada de registro:
 
-1. Sign in to the Azure portal and select **All resources** from the left menu.
-2. In the list of resources, select the provisioning service that you want to blacklist your device from.
-3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the check box next to the enrollment entry for the device that you want to blacklist. 
-5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment. 
+1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
+3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** .
+4. Marque a caixa de seleção ao lado da entrada de registro do dispositivo que você deseja adicionar à lista de bloqueios. 
+5. Selecione **excluir** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que deseja remover o registro. 
 
-   ![Delete individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
+   ![Excluir entrada de registro individual no portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
 
 
-After you finish the procedure, you should see your entry removed from the list of individual enrollments.  
+Depois de concluir o procedimento, você deverá ver sua entrada removida da lista de registros individuais.  
 
-## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Blacklist an X.509 intermediate or root CA certificate by using an enrollment group
+## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Lista negra de um certificado de autoridade de certificação X. 509 intermediário ou raiz usando um grupo de registro
 
-X.509 certificates are typically arranged in a certificate chain of trust. If a certificate at any stage in a chain becomes compromised, trust is broken. The certificate must be blacklisted to prevent Device Provisioning Service from provisioning devices downstream in any chain that contains that certificate. To learn more about X.509 certificates and how they are used with the provisioning service, see [X.509 certificates](./concepts-security.md#x509-certificates). 
+Os certificados X. 509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a confiança será interrompida. O certificado deve estar na lista negra para impedir que o serviço de provisionamento de dispositivos provisione dispositivos downstream em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X. 509 e como eles são usados com o serviço de provisionamento, consulte [certificados x. 509](./concepts-security.md#x509-certificates). 
 
-An enrollment group is an entry for devices that share a common attestation mechanism of X.509 certificates signed by the same intermediate or root CA. The enrollment group entry is configured with the X.509 certificate associated with the intermediate or root CA. The entry is also configured with any configuration values, such as twin state and IoT hub connection, that are shared by devices with that certificate in their certificate chain. To blacklist the certificate, you can either disable or delete its enrollment group.
+Um grupo de registro é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X. 509 assinados pela mesma AC intermediária ou raiz. A entrada do grupo de registros é configurada com o certificado X. 509 associado à AC intermediária ou raiz. A entrada também é configurada com quaisquer valores de configuração, como conexão de estado de conexões e Hub IoT, que são compartilhados por dispositivos com esse certificado em sua cadeia de certificados. Para adicionar o certificado à lista negra, você pode desabilitar ou excluir seu grupo de registro.
 
-To temporarily blacklist the certificate by disabling its enrollment group: 
+Para adicionar temporariamente o certificado à lista de bloqueios desabilitando seu grupo de registro: 
 
-1. Sign in to the Azure portal and select **All resources** from the left menu.
-2. In the list of resources, select the provisioning service that you want to blacklist the signing certificate from.
-3. In your provisioning service, select **Manage enrollments**, and then select the **Enrollment Groups** tab.
-4. Select the enrollment group using the certificate that you want to blacklist.
-5. Select **Disable** on the **Enable entry** switch, and then select **Save**.  
+1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar o certificado de autenticação.
+3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** .
+4. Selecione o grupo de registros usando o certificado que você deseja adicionar à lista de bloqueios.
+5. Selecione **desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **salvar**.  
 
-   ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
+   ![Desabilitar a entrada do grupo de registros no portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-To permanently blacklist the certificate by deleting its enrollment group:
+Para colocar o certificado em lista negra permanentemente excluindo seu grupo de registro:
 
-1. Sign in to the Azure portal and select **All resources** from the left menu.
-2. In the list of resources, select the provisioning service that you want to blacklist your device from.
-3. In your provisioning service, select **Manage enrollments**, and then select the **Enrollment Groups** tab.
-4. Select the check box next to the enrollment group for the certificate that you want to blacklist. 
-5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment group. 
+1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de provisionamento do qual você deseja adicionar seu dispositivo.
+3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** .
+4. Marque a caixa de seleção ao lado do grupo de registros do certificado que você deseja adicionar à lista de bloqueios. 
+5. Selecione **excluir** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que deseja remover o grupo de registros. 
 
-   ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
+   ![Excluir a entrada do grupo de registros no portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
-After you finish the procedure, you should see your entry removed from the list of enrollment groups.  
+Depois de concluir o procedimento, você deverá ver sua entrada removida da lista de grupos de registro.  
 
 > [!NOTE]
-> If you delete an enrollment group for a certificate, devices that have the certificate in their certificate chain might still be able to enroll if an enabled enrollment group for the root certificate or another intermediate certificate higher up in their certificate chain exists.
+> Se você excluir um grupo de registros de um certificado, os dispositivos que têm o certificado em sua cadeia de certificados ainda poderão se registrar se um grupo de registro habilitado para o certificado raiz ou outro certificado intermediário for superior em seu certificado cadeia existente.
 
-## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Blacklist specific devices in an enrollment group
+## <a name="blacklist-specific-devices-in-an-enrollment-group"></a>Dispositivos de lista de bloqueios específicos em um grupo de registros
 
-Devices that implement the X.509 attestation mechanism use the device's certificate chain and private key to authenticate. When a device connects and authenticates with Device Provisioning Service, the service first looks for an individual enrollment that matches the device's credentials. The service then searches enrollment groups to determine whether the device can be provisioned. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting. The service prevents the connection even if an enabled enrollment group for an intermediate or root CA in the device's certificate chain exists. 
+Os dispositivos que implementam o mecanismo de atestado X. 509 usam a cadeia de certificados do dispositivo e a chave privada para autenticação. Quando um dispositivo se conecta e autentica com o serviço de provisionamento de dispositivos, o serviço primeiro procura um registro individual que corresponda às credenciais do dispositivo. Em seguida, o serviço pesquisa grupos de registro para determinar se o dispositivo pode ser provisionado. Se o serviço encontrar um registro individual desabilitado para o dispositivo, ele impedirá que o dispositivo se conecte. O serviço impede a conexão mesmo se um grupo de registro habilitado para uma AC intermediária ou raiz na cadeia de certificados do dispositivo existir. 
 
-To blacklist an individual device in an enrollment group, follow these steps:
+Para lista negra de um dispositivo individual em um grupo de registro, siga estas etapas:
 
-1. Sign in to the Azure portal and select **All resources** from the left menu.
-2. From the list of resources, select the provisioning service that contains the enrollment group for the device that you want to blacklist.
-3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the **Add individual enrollment** button at the top. 
-5. On the **Add Enrollment** page, select **X.509** as the attestation **Mechanism** for the device.
+1. Entre no portal do Azure e selecione **todos os recursos** no menu à esquerda.
+2. Na lista de recursos, selecione o serviço de provisionamento que contém o grupo de registros para o dispositivo em que você deseja adicionar a listagem negra.
+3. No serviço de provisionamento, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** .
+4. Selecione o botão **adicionar registro individual** na parte superior. 
+5. Na página **adicionar registro** , selecione **X. 509** como o **mecanismo** de atestado para o dispositivo.
 
-    Upload the device certificate, and enter the device ID of the device to be blacklisted. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication.
+    Carregue o certificado do dispositivo e insira a ID do dispositivo a ser listada na lista negra. Para o certificado, use o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa o certificado de entidade final assinada para autenticação.
 
-    ![Set device properties for the blacklisted device](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+    ![Definir propriedades de dispositivo para o dispositivo na lista negra](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
 
-6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**. 
+6. Role até a parte inferior da página **adicionar registro** e selecione **desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **salvar**. 
 
-    [![Use disabled individual enrollment entry to disable device from group enrollment, in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![usar a entrada de registro individual desabilitada para desabilitar o dispositivo do registro de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab. 
+Quando você criar o registro com êxito, você deverá ver o registro de dispositivo desabilitado listado na guia **registros individuais** . 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Disenrollment is also part of the larger deprovisioning process. Deprovisioning a device includes both disenrollment from the provisioning service, and deregistering from IoT hub. To learn about the full process, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+O cancelamento do registro também faz parte do processo maior de desprovisionamento. O desprovisionamento de um dispositivo inclui o cancelamento do registro do serviço de provisionamento e o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 

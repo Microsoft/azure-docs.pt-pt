@@ -16,15 +16,15 @@ ms.locfileid: "74230716"
 
 As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web.
 
-In this article, you learn how to use Visual Studio 2019 to locally create and test a "hello world" function and then publish it to Azure. This quickstart is designed for Visual Studio 2019. When creating a Functions project using Visual Studio 2017, you must first install the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
+Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função "Olá, mundo" e, em seguida, publicá-la no Azure. Este guia de início rápido foi projetado para o Visual Studio 2019. Ao criar um projeto do Functions usando o Visual Studio 2017, você deve primeiro instalar as [ferramentas de Azure Functions mais recentes](functions-develop-vs.md#check-your-tools-version).
 
 ![Resposta da função localhost no browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To complete this tutorial, you must first install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Make sure that the **Azure development** workload is also installed.
+Para concluir este tutorial, você deve primeiro instalar o [Visual Studio 2019](https://azure.microsoft.com/downloads/). Verifique se a carga de trabalho de **desenvolvimento do Azure** também está instalada.
 
-![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Instalar o Visual Studio com a carga de trabalho de desenvolvimento do Azure](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,15 +32,15 @@ To complete this tutorial, you must first install [Visual Studio 2019](https://a
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The `FunctionName` attribute on the method sets the name of the function, which by default is `HttpTrigger`. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. O código automático envia uma resposta HTTP que inclui um valor da cadeia de consulta ou de corpo de pedido.
+O Visual Studio cria um projeto e uma classe que contém código clichê para o tipo de função de gatilho HTTP. O atributo `FunctionName` no método define o nome da função, que por padrão é `HttpTrigger`. O atributo `HttpTrigger` especifica que a função é disparada por uma solicitação HTTP. O código automático envia uma resposta HTTP que inclui um valor da cadeia de consulta ou de corpo de pedido.
 
-You can expand the capabilities of your function using input and output bindings by applying the appropriate attributes to the method. Para obter mais informações, veja a secção [Acionadores e enlaces](functions-dotnet-class-library.md#triggers-and-bindings) da [Referência para Programadores do Funções do Azure C#](functions-dotnet-class-library.md).
+Você pode expandir os recursos de sua função usando associações de entrada e saída aplicando os atributos apropriados ao método. Para obter mais informações, veja a secção [Acionadores e enlaces](functions-dotnet-class-library.md#triggers-and-bindings) da [Referência para Programadores do Funções do Azure C#](functions-dotnet-class-library.md).
 
 Agora que criou o projeto de função e uma função acionada por HTTP, pode testá-la no seu computador local.
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
-Visual Studio integrates with Azure Functions Core Tools so that you can test your functions locally using the full Functions runtime.  
+O Visual Studio integra-se com Azure Functions Core Tools para que você possa testar suas funções localmente usando o tempo de execução de funções completas.  
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
@@ -48,7 +48,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
-Deverá ter uma aplicação de funções na sua subscrição do Azure antes de poder publicar o seu projeto. Visual Studio publishing creates a function app for you the first time you publish your project.
+Deverá ter uma aplicação de funções na sua subscrição do Azure antes de poder publicar o seu projeto. A publicação do Visual Studio cria um aplicativo de funções para você na primeira vez que você publicar seu projeto.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
@@ -66,7 +66,7 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-You have used Visual Studio to create and publish a C# function app in Azure with a simple HTTP triggered function. To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md).
+Você usou o Visual Studio para criar e publicar um C# aplicativo de funções no Azure com uma simples função disparada por http. Para saber mais sobre como desenvolver funções como bibliotecas de classes do .NET, confira [ C# Azure Functions referência do desenvolvedor](functions-dotnet-class-library.md).
 
 > [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md)
+> [Adicionar uma associação de fila de armazenamento do Azure à sua função](functions-add-output-binding-storage-queue-vs.md)

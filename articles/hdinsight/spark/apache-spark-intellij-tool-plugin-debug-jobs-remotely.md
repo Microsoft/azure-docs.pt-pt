@@ -59,7 +59,7 @@ Recomendamos que você também crie um cluster Apache Spark no Azure HDInsight q
 
     ![Selecionar hosts no Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Você verá uma lista de nós de cabeçalho, nós de trabalho e nós Zookeeper. Os nós de cabeçalho têm um prefixo **HN**\*. Selecione o primeiro nó principal.
+1. Você verá uma lista de nós de cabeçalho, nós de trabalho e nós Zookeeper. Os nós de cabeçalho têm um prefixo **HN***. Selecione o primeiro nó principal.
 
     ![Localizar o nó de cabeçalho no Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 

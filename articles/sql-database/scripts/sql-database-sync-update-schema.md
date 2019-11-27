@@ -1,5 +1,5 @@
 ---
-title: PowerShell example - Update SQL Data Sync sync schema
+title: Exemplo do PowerShell – atualizar Sincronização de Dados SQL esquema de sincronização
 description: Script de exemplo do Azure PowerShell para atualizar o esquema de sincronização da Sincronização de Dados SQL
 services: sql-database
 ms.service: sql-database
@@ -26,16 +26,16 @@ Este exemplo do PowerShell atualiza o esquema de sincronização num grupo de si
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá AZ PowerShell 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does not support Azure SQL database managed instance at this time.
+> No momento, o Azure Sincronização de Dados SQL não dá suporte à instância gerenciada do banco de dados SQL do Azure.
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="add-all-tables-to-the-sync-schema"></a>Add all tables to the sync schema
+### <a name="add-all-tables-to-the-sync-schema"></a>Adicionar todas as tabelas ao esquema de sincronização
 
 O exemplo seguinte atualiza o esquema da base de dados e adiciona todas as tabelas válidas na base de dados de hub ao esquema de sincronização.
 
@@ -44,7 +44,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resour
     -SyncGroupName <syncGroupName> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
-### <a name="add-and-remove-tables-and-columns"></a>Add and remove tables and columns
+### <a name="add-and-remove-tables-and-columns"></a>Adicionar e remover tabelas e colunas
 
 O exemplo seguinte adiciona `[dbo].[Table1]` e `[dbo].[Table2].[Column1]` ao esquema de sincronização e remove `[dbo].[Table3]`.
 
@@ -87,22 +87,22 @@ O script **UpdateSyncSchema** utiliza os seguintes comandos. Cada comando na tab
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Additional SQL database PowerShell script samples can be found in [Azure SQL database PowerShell scripts](../sql-database-powershell-samples.md).
+Exemplos adicionais de script do PowerShell do banco de dados SQL podem ser encontrados em [scripts do PowerShell do banco de dados SQL do Azure](../sql-database-powershell-samples.md).
 
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
-- Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
-- Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-database-get-started-sql-data-sync.md)
+- Visão geral – [sincronizar dados entre vários bancos de dados locais e de nuvem com o Azure sincronização de dados SQL](../sql-database-sync-data.md)
+- Configurar a sincronização de dados
+    - No portal- [tutorial: configurar sincronização de dados SQL para sincronizar os dados entre o Azure SQL Database e o SQL Server local](../sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         - [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](sql-database-sync-data-between-sql-databases.md)
         - [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](sql-database-sync-data-between-azure-onprem.md)
-- Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](../sql-database-data-sync-agent.md)
-- Best practices - [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
-- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
-- Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
-- Update the sync schema
-    - With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](../sql-database-update-sync-schema.md)
+- Agente de sincronização de dados- [agente de sincronização de dados para Azure sincronização de dados SQL](../sql-database-data-sync-agent.md)
+- Práticas recomendadas- [práticas recomendadas para o Azure sincronização de dados SQL](../sql-database-best-practices-data-sync.md)
+- Monitorar [sincronização de dados SQL monitorar com Azure monitor logs](../sql-database-sync-monitor-oms.md)
+- Solucionar problemas- [solucionar problema com o Azure sincronização de dados SQL](../sql-database-troubleshoot-data-sync.md)
+- Atualizar o esquema de sincronização
+    - Com o Transact-SQL – [Automatize a replicação de alterações de esquema no Azure sincronização de dados SQL](../sql-database-update-sync-schema.md)
 
 Para obter mais informações sobre a Base de Dados SQL, veja:
 

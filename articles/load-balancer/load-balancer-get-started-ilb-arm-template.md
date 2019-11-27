@@ -1,5 +1,5 @@
 ---
-title: Create an Internal Load Balancer - Azure template
+title: Criar um balanceador de carga interno – modelo do Azure
 titleSuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga interno com um modelo no Resource Manager
 services: load-balancer
@@ -45,7 +45,7 @@ Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo
 1. Se nunca tiver utilizado o Azure PowerShell, veja [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) e siga as instruções até ao fim para iniciar sessão no Azure e selecionar a sua subscrição.
 2. Transfira o ficheiro de parâmetros para o disco local.
 3. Edite o ficheiro e guarde-o.
-4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
+4. Execute o cmdlet **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -81,4 +81,4 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 
 [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-For the JSON syntax and properties of a load balancer in a template, see [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).
+Para obter a sintaxe JSON e as propriedades de um balanceador de carga em um modelo, consulte [Microsoft. Network/Load Balancers](/azure/templates/microsoft.network/loadbalancers).

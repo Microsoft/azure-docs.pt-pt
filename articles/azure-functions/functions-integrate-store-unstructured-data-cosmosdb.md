@@ -1,5 +1,5 @@
 ---
-title: Store unstructured data using Azure Cosmos DB and Functions
+title: Armazenar dados não estruturados usando Azure Cosmos DB e funções
 description: Armazenar dados não estruturados usando as funções do Azure e o Cosmos DB
 ms.topic: quickstart
 ms.date: 10/01/2018
@@ -20,7 +20,7 @@ O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é uma óti
 
 Nas Funções do Azure, os enlaces de entrada e saída proporcionam uma forma declarativa para ligar aos dados do serviço externo a partir da sua função. Neste artigo, saiba como atualizar uma função existente para adicionar um enlace de saída que armazena dados não estruturados num documento do Azure Cosmos DB.
 
-![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
+![BD do Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C
-description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign-in.
+title: Início rápido-configurar a entrada para um aplicativo de desktop usando Azure Active Directory B2C
+description: Neste guia de início rápido, execute um aplicativo de área de trabalho WPF de exemplo que usa Azure Active Directory B2C para fornecer entrada de conta.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -20,14 +20,14 @@ ms.locfileid: "74420220"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar o início de sessão para uma aplicação de ambiente de trabalho através do Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF) para iniciar sessão através de um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
+O Azure Active Directory B2C (Azure AD B2C) fornece gerenciamento de identidade de nuvem para manter seus aplicativos, negócios e clientes protegidos. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF) para iniciar sessão através de um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
-- A social account from either Facebook, Google, or Microsoft.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a ASP.net e a carga de trabalho de **desenvolvimento da Web** .
+- Uma conta social tanto do Facebook, do Google ou da Microsoft.
 - [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
     ```
@@ -43,16 +43,16 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 1. Clique em **Iniciar sessão** para iniciar o fluxo de trabalho **Inscrever-se ou Iniciar Sessão**.
 
-    ![Screenshot of the sample WPF application](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
+    ![Captura de tela do aplicativo WPF de exemplo](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    The sample supports several sign-up options. These options include using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
+    O exemplo dá suporte a várias opções de inscrição. Essas opções incluem o uso de um provedor de identidade social ou a criação de uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google ou da Microsoft.
 
 
-2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
+2. Azure AD B2C apresenta uma página de entrada para uma empresa fictícia chamada Fabrikam para o aplicativo Web de exemplo. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
 
-    ![Sign In or Sign Up page showing identity providers](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+    ![Página de entrada ou inscrição mostrando provedores de identidade](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
+    Você autentica (entra) usando suas credenciais de conta social e autoriza o aplicativo a ler informações de sua conta social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
 
 2. Conclua o processo de início de sessão para o fornecedor de identidade.
 
@@ -60,13 +60,13 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 ## <a name="edit-your-profile"></a>Editar o seu perfil
 
-O Azure AD B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. The sample web app uses an Azure AD B2C edit profile user flow for the workflow.
+O Azure AD B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de Azure AD B2C Editar perfil para o fluxo de trabalho.
 
 1. Na barra de menus da aplicação, clique em **Editar perfil** para editar o perfil que criou.
 
-    ![Edit profile button highlighted in WPF sample app](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+    ![Botão Editar perfil realçado no aplicativo de exemplo do WPF](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-2. Escolha o fornecedor de identidade associado à conta que criou. For example, if you used Facebook as the identity provider when you created your account, choose Facebook to modify the associated profile details.
+2. Escolha o fornecedor de identidade associado à conta que criou. Por exemplo, se você usou o Facebook como provedor de identidade ao criar sua conta, escolha Facebook para modificar os detalhes do perfil associado.
 
 3. Altere o **Nome a apresentar** ou a **Cidade** e, em seguida, clique em **Continuar**.
 
@@ -88,12 +88,12 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros início
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this quickstart, you used a sample desktop application to:
+Neste guia de início rápido, você usou um aplicativo de área de trabalho de exemplo para:
 
-* Sign in with a custom login page
-* Sign in with a social identity provider
-* Create an Azure AD B2C account
-* Call a web API protected by Azure AD B2C
+* Entrar com uma página de logon personalizada
+* Entrar com um provedor de identidade social
+* Criar uma conta de Azure AD B2C
+* Chamar uma API da Web protegida por Azure AD B2C
 
 Comece a criar o seu próprio inquilino do Azure AD B2C.
 

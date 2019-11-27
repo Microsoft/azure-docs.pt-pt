@@ -16,18 +16,18 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260845"
 ---
-**Configuration and process server requirements**
+**Requisitos do servidor de configuração e processo**
 
 
-## <a name="hardware-requirements"></a>Hardware requirements
+## <a name="hardware-requirements"></a>Requisitos de hardware
 
 **Componente** | **Requisito** 
 --- | ---
 Núcleos de CPU | 8 
 RAM | 16 GB
-Número de discos | 3, including the OS disk, process server cache disk, and retention drive for failback 
-Free disk space (process server cache) | 600 GB
-Free disk space (retention disk) | 600 GB
+Número de discos | 3, incluindo o disco do sistema operacional, o disco de cache do servidor de processo e a unidade de retenção para failback 
+Espaço livre em disco (cache do servidor de processo) | 600 GB
+Espaço livre em disco (disco de retenção) | 600 GB
  | 
 
 ## <a name="software-requirements"></a>Requisitos de software
@@ -36,10 +36,10 @@ Free disk space (retention disk) | 600 GB
 --- | ---
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Região do sistema operativo | Inglês (en-us)
-Funções do Windows Server | Don't enable these roles: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
-Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting 
-FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
+Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
+Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo já existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+FIPS (Federal Information Processing Standards) | Não habilitar o modo FIPS
 |
 
 ## <a name="network-requirements"></a>Requisitos de rede
@@ -48,38 +48,38 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
 --- | --- 
 Tipo de endereço IP | Estático 
 Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados) 
-NIC type | VMXNET3 (if the configuration server is a VMware VM)
+Tipo de NIC | VMXNET3 (se o servidor de configuração for uma VM VMware)
  |
-**Internet access**  (the server needs access to the following URLs, directly or via proxy):|
-\*.backup.windowsazure.com | Used for replicated data transfer and coordination
-\*.store.core.windows.net | Used for replicated data transfer and coordination
-\*.blob.core.windows.net | Used to access storage account that stores replicated data
-\*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
-https:\//management.azure.com | Used for replication management operations and coordination 
-*.services.visualstudio.com | Used for telemetry purposes (optional)
-time.nist.gov | Used to check time synchronization between system and global time
-time.windows.com | Used to check time synchronization between system and global time
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also whitelisted, if necessary.
+**Acesso à Internet** (o servidor precisa acessar as seguintes URLs, diretamente ou via proxy):|
+\*.backup.windowsazure.com | Usado para transferência e coordenação de dados replicados
+\*.store.core.windows.net | Usado para transferência e coordenação de dados replicados
+\*.blob.core.windows.net | Usado para acessar a conta de armazenamento que armazena os dados replicados
+\*.hypervrecoverymanager.windowsazure.com | Usado para operações de gerenciamento de replicação e coordenação
+https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação 
+*.services.visualstudio.com | Usado para fins de telemetria (opcional)
+time.nist.gov | Usado para verificar a sincronização de horário entre o sistema e a hora global
+time.windows.com | Usado para verificar a sincronização de horário entre o sistema e a hora global
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | A instalação do OVF precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também está na lista de permissões, se necessário.
 |
 
-## <a name="required-software"></a>Required software
+## <a name="required-software"></a>Software necessário
 
 **Componente** | **Requisito** 
 --- | ---
-VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
-MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
+VMware vSphere PowerCLI | A [versão 6,0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o servidor de configuração estiver em execução em uma VM do VMware.
+MYSQL | O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo. (Consulte [definir configurações](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) para obter mais informações)
 |
 
-## <a name="sizing-and-capacity-requirements"></a>Sizing and capacity requirements
+## <a name="sizing-and-capacity-requirements"></a>Requisitos de dimensionamento e capacidade
 
-The following table summarizes capacity requirements for the configuration server. If you're replicating multiple VMware VMs, review the [capacity planning considerations](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) and run the [Azure Site Recovery Deployment Planner tool](../articles/site-recovery/site-recovery-deployment-planner.md).
+A tabela a seguir resume os requisitos de capacidade para o servidor de configuração. Se você estiver replicando várias VMs VMware, examine as [considerações de planejamento de capacidade](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) e execute a [ferramenta de planejador de implantações do Azure site Recovery](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
-**CPU** | **Memory** | **Cache disk** | **Data change rate** | **Máquinas replicadas**
+**CPUs** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Máquinas replicadas**
 --- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16 GB | 300 GB | 500 GB or less | < 100 machines
-12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
-16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
+8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < computadores 100
+12 vCPUs<br/><br/> 2 Socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 a 150 computadores
+16 vCPUs<br/><br/> 2 x Socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computadores
 |
 

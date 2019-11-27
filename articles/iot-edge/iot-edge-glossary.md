@@ -1,6 +1,6 @@
 ---
-title: Glossary of terms - Azure IoT Edge | Microsoft Docs
-description: Concepts - a glossary of common terms relating to Azure IoT Edge.
+title: Glossário de termos - Azure IoT Edge | Documentos da Microsoft
+description: Conceitos - um glossário de termos comuns relacionadas com o Azure IoT Edge.
 author: chrissie926
 manager: philmea
 ms.service: iot-edge
@@ -15,11 +15,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456637"
 ---
-# <a name="glossary-of-terms-for-azure-iot-edge"></a>Glossary of terms for Azure IoT Edge
-This article lists some of the common terms used in the IoT Edge articles.
+# <a name="glossary-of-terms-for-azure-iot-edge"></a>Glossário de termos do Azure IoT Edge
+Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Edge.
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[IoT Hub glossary](../iot-hub/iot-hub-devguide-glossary.md)
+[Glossário do Hub IoT](../iot-hub/iot-hub-devguide-glossary.md)

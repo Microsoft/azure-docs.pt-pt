@@ -18,20 +18,20 @@ ms.locfileid: "74228160"
 Nesta secção, irá enviar notícias de última hora como notificações de modelo etiquetadas a partir da aplicação de consola .NET.
 
 1. No Visual Studio, crie uma nova aplicação da consola Visual C#
-    1. On the menu, select **File** > **New** > **Project**.
-    1. In **Create a new project**, select **Console App (.NET Framework)** for C# in the list of templates, and select **Next**.
-    1. Enter a name for the app.
-    1. For **Solution**, choose **Add to solution**, and select **Create** to create the project.
+    1. No menu, selecione **arquivo** > **novo** **projeto**de > .
+    1. Em **criar um novo projeto**, selecione **aplicativo de console (.NET Framework)** para C# na lista de modelos e selecione **Avançar**.
+    1. Insira um nome para o aplicativo.
+    1. Para **solução**, escolha **Adicionar à solução**e selecione **criar** para criar o projeto.
 
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** and then, in the console window, run the following command:
+1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes** e, em seguida, na janela do console, execute o seguinte comando:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs
    ```
 
-   This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.NotificationHubs] package.
+   Essa ação adiciona uma referência ao SDK dos hubs de notificação do Azure usando o pacote [Microsoft. Azure. NotificationHubs] .
 
-1. Open the *Program.cs* file, and add the following `using` statement:
+1. Abra o arquivo *Program.cs* e adicione a seguinte instrução de `using`:
 
    ```csharp
    using Microsoft.Azure.NotificationHubs;
@@ -69,7 +69,7 @@ Nesta secção, irá enviar notícias de última hora como notificações de mod
 
 1. No código anterior, substitua os marcadores de posição `<hub name>` e `<connection string with full access>` pelo nome do seu hub de notificação e pela cadeia de ligação para *DefaultFullSharedAccessSignature* do dashboard do seu hub de notificação.
 
-1. In the `Main()` method, add the following lines:
+1. No método `Main()`, adicione as seguintes linhas:
 
    ```csharp
     SendTemplateNotificationAsync();
@@ -86,4 +86,4 @@ Nesta secção, irá enviar notícias de última hora como notificações de mod
 [Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Microsoft. Azure. NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

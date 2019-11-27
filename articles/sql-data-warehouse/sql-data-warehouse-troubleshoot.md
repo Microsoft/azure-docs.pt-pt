@@ -1,6 +1,6 @@
 ---
 title: Resolução de problemas
-description: Troubleshooting Azure SQL Data Warehouse.
+description: Solução de problemas do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -18,62 +18,62 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483205"
 ---
-# <a name="troubleshooting-azure-sql-data-warehouse"></a>Troubleshooting Azure SQL Data Warehouse
-This article lists common troubleshooting question.
+# <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
+Este artigo lista perguntas comuns de solução de problemas.
 
-## <a name="connecting"></a>Connecting
+## <a name="connecting"></a>Fazendo
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| falha no início de sessão do utilizador "NT AUTHORITY\ANONYMOUS LOGON". (Microsoft SQL Server, Error: 18456) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador nessa base de dados.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  See [Security overview][Security overview] article for more details. |
-| o principal do servidor "MyUserName" não consegue aceder à base de dados "mestra" no contexto de segurança atual. Não é possível abrir a base de dados predefinida do utilizador. O início de sessão falhou. O início de sessão falhou para o utilizador"MyUserName". (Microsoft SQL Server, Error: 916) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador nessa base de dados.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  See [Security overview][Security overview] article for more details. |
-| CTAIP error                                                  | This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create a login and user on master, and then how to create a user in the SQL Data Warehouse database. |
-| Blocked by Firewall                                          | Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][Configure server firewall access for your client IP] in the [Provisioning instructions][Provisioning instructions]. |
-| Cannot connect with tool or driver                           | SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more information on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
+| falha no início de sessão do utilizador "NT AUTHORITY\ANONYMOUS LOGON". (Microsoft SQL Server, erro: 18456) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador nessa base de dados.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
+| o principal do servidor "MyUserName" não consegue aceder à base de dados "mestra" no contexto de segurança atual. Não é possível abrir a base de dados predefinida do utilizador. O início de sessão falhou. O início de sessão falhou para o utilizador"MyUserName". (Microsoft SQL Server, erro: 916) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador nessa base de dados.  Para corrigir este problema, especifique o SQL Data Warehouse a que pretende ligar na hora de ligação ou adicione o utilizador à base de dados mestra.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
+| Erro de CTAIP                                                  | Esse erro pode ocorrer quando um logon é criado no banco de dados mestre do SQL Server, mas não no banco de dados SQL Data Warehouse.  Se você encontrar esse erro, dê uma olhada no artigo [visão geral de segurança][Security overview] .  Este artigo explica como criar um logon e um usuário no mestre e como criar um usuário no banco de dados do SQL Data Warehouse. |
+| Bloqueado pelo firewall                                          | Os bancos de dados SQL do Azure são protegidos por firewalls de nível de servidor e de banco de dados para garantir que apenas endereços IP conhecidos tenham acesso a um banco de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente o endereço IP ou o intervalo de endereços antes de poder se conectar.  Para configurar o firewall para acesso, siga as etapas em [Configurar o acesso de firewall do servidor para o IP do cliente][Configure server firewall access for your client IP] nas [instruções de provisionamento][Provisioning instructions]. |
+| Não é possível conectar com a ferramenta ou o driver                           | SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio][SSDT for Visual Studio]ou o [sqlcmd][sqlcmd] para consultar seus dados. Para obter mais informações sobre drivers e como se conectar a SQL Data Warehouse, confira [drivers do azure SQL data warehouse][Drivers for Azure SQL Data Warehouse] e [Conecte-se aos artigos do Azure SQL data warehouse][Connect to Azure SQL Data Warehouse] . |
 
 ## <a name="tools"></a>Ferramentas
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Visual Studio object explorer is missing AAD users           | Este é um problema conhecido.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
-| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
-| Generate scripts fails in SSMS                               | Generating a script for SQL Data Warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
+| O pesquisador de objetos do Visual Studio está sem usuários do AAD           | Este é um problema conhecido.  Como alternativa, exiba os usuários em [Sys. database_principals][sys.database_principals].  Consulte [autenticação no Azure SQL data warehouse][Authentication to Azure SQL Data Warehouse] para saber mais sobre como usar Azure Active Directory com SQL data warehouse. |
+| O script manual, o uso do assistente para criação de scripts ou a conexão via SSMS são lentos, não respondem ou produzem erros | Verifique se os usuários foram criados no banco de dados mestre. Em opções de script, verifique também se a edição do mecanismo está definida como "Edição do SQL Data Warehouse do Microsoft Azure" e se o tipo de mecanismo é "Banco de Dados SQL do Microsoft Azure". |
+| Gerar scripts falha no SSMS                               | A geração de um script para SQL Data Warehouse falhará se a opção "gerar script para objetos dependentes" estiver definida como "true". Como alternativa, os usuários devem ir manualmente para ferramentas-> Opções-> Pesquisador de Objetos do SQL Server-> gerar script para opções dependentes e definir como false |
 
 ## <a name="performance"></a>Desempenho
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Query performance troubleshooting                            | If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries][Learning how to monitor your queries]. |
-| TempDB space issues | [Monitor TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb) space usage.  Common causes for running out of TempDB space are:<br>- Not enough resources allocated to the query causing data to spill to TempDB.  See [Workload management](resource-classes-for-workload-management.md) <br>- Statistics are missing or out of date causing excessive data movement.  See [Maintaining table statistics][Statistics] for details on how to create statistics<br>- TempDB space is allocated per service level.  [Scaling your SQL Data Warehouse][Scaling your SQL Data Warehouse] to a higher DWU setting allocates more TempDB space.|
-| Poor query performance and plans often is a result of missing statistics | The most common cause of poor performance is lack of statistics on your tables.  See [Maintaining table statistics][Statistics] for details on how to create statistics and why they are critical to your performance. |
-| Low concurrency / queries queued                             | Understanding [Workload management][Workload management] is important in order to understand how to balance memory allocation with concurrency. |
-| How to implement best practices                              | The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][SQL Data Warehouse best practices] article. |
-| How to improve performance with scaling                      | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Poor query performance as a result of poor index quality     | Some times queries can slow down because of [Poor columnstore index quality][Poor columnstore index quality].  See this article for more information and how to [Rebuild indexes to improve segment quality][Rebuild indexes to improve segment quality]. |
+| Solução de problemas de desempenho de consultas                            | Se você estiver tentando solucionar problemas de uma consulta específica, comece com o [aprendizado de como monitorar suas consultas][Learning how to monitor your queries]. |
+| Problemas de espaço do TempDB | [Monitorar](sql-data-warehouse-manage-monitor.md#monitor-tempdb) o uso de espaço de tempdb.  As causas comuns para a execução fora do espaço de TempDB são:<br>-Não há recursos suficientes alocados para a consulta, fazendo com que os dados sejam despejados para TempDB.  Consulte [Gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) <br>-As estatísticas estão ausentes ou desatualizadas causando uma movimentação de dados excessiva.  Consulte [mantendo as estatísticas da tabela][Statistics] para obter detalhes sobre como criar estatísticas<br>-O espaço de TempDB é alocado por nível de serviço.  [Dimensionar seu SQL data warehouse][Scaling your SQL Data Warehouse] para uma configuração DWU mais alta aloca mais espaço tempdb.|
+| O desempenho e os planos de consulta insatisfatórios geralmente são resultado de estatísticas ausentes | A causa mais comum de baixo desempenho é a falta de estatísticas em suas tabelas.  Consulte [mantendo estatísticas de tabela][Statistics] para obter detalhes sobre como criar estatísticas e por que elas são críticas para o desempenho. |
+| Baixa simultaneidade/consultas enfileiradas                             | Compreender o [Gerenciamento de carga de trabalho][Workload management] é importante para entender como balancear a alocação de memória com simultaneidade. |
+| Como implementar práticas recomendadas                              | O melhor lugar para começar a aprender maneiras de melhorar o desempenho da consulta é SQL Data Warehouse artigo de [práticas recomendadas][SQL Data Warehouse best practices] . |
+| Como melhorar o desempenho com o dimensionamento                      | Às vezes, a solução para melhorar o desempenho é simplesmente adicionar mais poder de computação às suas consultas, [dimensionando seu SQL data warehouse][Scaling your SQL Data Warehouse]. |
+| Desempenho de consulta insatisfatório como resultado da baixa qualidade de índice     | Algumas vezes as consultas podem ficar lentas devido à [baixa qualidade do índice columnstore][Poor columnstore index quality].  Consulte este artigo para obter mais informações e como [recriar índices para melhorar a qualidade do segmento][Rebuild indexes to improve segment quality]. |
 
-## <a name="system-management"></a>System management
+## <a name="system-management"></a>Gerenciamento do sistema
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. | Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
-| Investigating space utilization                              | See [Table sizes][Table sizes] to understand the space utilization of your system. |
-| Help with managing tables                                    | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary]. |
-| Transparent data encryption (TDE) progress bar is not updating in the Azure portal | You can view the state of TDE via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
+| MSG 40847: não foi possível executar a operação porque o servidor excederia a cota de unidade de transação de banco de dados permitida de 45000. | Reduza o [DWU][DWU] do banco de dados que você está tentando criar ou [solicite um aumento de cota][request a quota increase]. |
+| Investigando a utilização de espaço                              | Consulte [tamanhos de tabela][Table sizes] para entender a utilização de espaço do seu sistema. |
+| Ajuda com o gerenciamento de tabelas                                    | Consulte o artigo [visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [tipos de dados de tabela][Data types], [distribuição de uma tabela][Distribute], [indexação de uma tabela][Index], [particionamento de uma tabela][Partition], [manutenção de estatísticas de tabela][Statistics] e [tabelas temporárias][Temporary]. |
+| A barra de progresso da TDE (Transparent Data Encryption) não está atualizando no portal do Azure | Você pode exibir o estado de TDE por meio do [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 
-## <a name="differences-from-sql-database"></a>Differences from SQL Database
+## <a name="differences-from-sql-database"></a>Diferenças do banco de dados SQL
 | Problema                                 | Resolução                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
-| Unsupported SQL Database features     | See [Unsupported table features][Unsupported table features]. |
-| Unsupported SQL Database data types   | See [Unsupported data types][Unsupported data types].        |
-| DELETE and UPDATE limitations         | See [UPDATE workarounds][UPDATE workarounds], [DELETE workarounds][DELETE workarounds] and [Using CTAS to work around unsupported UPDATE and DELETE syntax][Using CTAS to work around unsupported UPDATE and DELETE syntax]. |
-| MERGE statement is not supported      | See [MERGE workarounds][MERGE workarounds].                  |
-| Stored procedure limitations          | See [Stored procedure limitations][Stored procedure limitations] to understand some of the limitations of stored procedures. |
-| UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION][CREATE FUNCTION] for the syntax we support. |
+| Recursos de banco de dados SQL sem suporte     | Consulte [recursos de tabela sem suporte][Unsupported table features]. |
+| Tipos de dados SQL Database sem suporte   | Consulte [tipos de dados sem suporte][Unsupported data types].        |
+| Limitações de exclusão e atualização         | Consulte [soluções alternativas de atualização][UPDATE workarounds], [soluções alternativas de exclusão][DELETE workarounds] e [uso de CTAS para contornar a sintaxe de atualização e exclusão sem suporte][Using CTAS to work around unsupported UPDATE and DELETE syntax]. |
+| Não há suporte para a instrução MERGE      | Consulte [soluções alternativas de mesclagem][MERGE workarounds].                  |
+| Limitações de procedimento armazenado          | Consulte [limitações de procedimento armazenado][Stored procedure limitations] para entender algumas das limitações dos procedimentos armazenados. |
+| UDFs não dão suporte a instruções SELECT | Essa é uma limitação atual de nossos UDFs.  Consulte [criar função][CREATE FUNCTION] para a sintaxe que damos suporte. |
 
 ## <a name="next-steps"></a>Passos seguintes
-For more help in finding solution to your issue, here are some other resources you can try.
+Para obter mais ajuda na localização da solução para seu problema, aqui estão alguns outros recursos que você pode experimentar.
 
 * [Blogues]
 * [Pedidos de funcionalidades]
 * [Vídeos]
-* [CAT team blogs]
+* [Blogs da equipe CAT]
 * [Criar pedido de suporte]
 * [Fórum do MSDN]
 * [Fórum do Stack Overflow]
@@ -123,7 +123,7 @@ For more help in finding solution to your issue, here are some other resources y
 
 <!--Other Web references-->
 [Blogues]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blogs da equipe CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Pedidos de funcionalidades]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Fórum do MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Fórum do Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw

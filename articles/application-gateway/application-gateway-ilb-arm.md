@@ -36,7 +36,7 @@ Este artigo descreve os passos para configurar um gateway de aplicação com um 
 * **Serviço de escuta:** o serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https, sensível às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
 * **Regra:** a regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
 
-## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
 A diferença entre a utilização do Azure Clássico e do Azure Resource Manager é a ordem pela qual vai criar o gateway de aplicação e os itens que devem ser configurados.
 Com o Resource Manager, todos os itens que constituem um gateway de aplicação são configurados individualmente e, em seguida, reunidos para criar o recurso do gateway de aplicação.

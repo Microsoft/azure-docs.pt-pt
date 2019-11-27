@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create geo-replicated registry
+title: Tutorial – criar registro replicado geograficamente
 description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 ms.topic: tutorial
 ms.date: 04/30/2017
@@ -35,9 +35,9 @@ Para concluir este tutorial, precisa de uma instalação local do Docker. O Dock
 
 O Azure Cloud Shell não inclui os componentes do Docker necessários para concluir todos os passos deste tutorial. Portanto, recomendamos uma instalação local da CLI do Azure e do ambiente de desenvolvimento do Docker.
 
-## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
+## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 Selecione **Criar um recurso** > **Contentores** > **Azure Container Registry**.
 
@@ -106,13 +106,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-If you don't have `git` installed, you can [download the ZIP archive][acr-helloworld-zip] directly from GitHub.
+Se você não tiver `git` instalado, poderá [baixar o arquivo zip][acr-helloworld-zip] diretamente do github.
 
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 
 O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Inicia a partir de uma imagem oficial [aspnetcore][dockerhub-aspnetcore], copia os ficheiros de aplicação para o contentor, instala dependências, compila a saída com a imagem oficial [aspnetcore-build][dockerhub-aspnetcore-build] e, por fim, cria uma imagem aspnetcore otimizada.
 
-The [Dockerfile][dockerfile] is located at `./AcrHelloworld/Dockerfile` in the cloned source.
+O [Dockerfile][dockerfile] está localizado em `./AcrHelloworld/Dockerfile` na fonte clonada.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base

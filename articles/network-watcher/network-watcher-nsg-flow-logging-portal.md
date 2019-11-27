@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Log network traffic flow to and from a VM using the Azure portal
+title: Tutorial-registrar o fluxo de tráfego de rede de e para uma VM usando o portal do Azure
 titleSuffix: Azure Network Watcher
-description: In this tutorial, learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
+description: Neste tutorial, saiba como registrar em log o fluxo de tráfego de rede de e para uma VM usando o recurso de logs de fluxo NSG do observador de rede.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -40,8 +40,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or a version of **Ubuntu Server**.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
+2. Selecione **computação**e, em seguida, selecione **Windows Server 2016 datacenter** ou uma versão do **servidor Ubuntu**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
     |Definição|Valor|
@@ -68,7 +68,7 @@ Se já tiver um observador de rede ativado na região EUA Leste, avance para [Re
 
     ![Ativar o Observador de Rede](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
-3. Selecione **Ativar Observador de Rede**.
+3. Selecione **Ativar o Observador de Rede**.
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 
@@ -93,31 +93,31 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | Localização       | Selecione **E.U.A. Leste**                                           |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 
-    A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento. In all cases, the storage account must be in the same region as the NSG. 
+    A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG. 
     
     > [!NOTE]
-    > While Microsoft.Insight and Microsoft.Network providers are currently supported as [trusted Microsoft Services for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), NSG Flow logs is still not fully onboarded. To enable NSG Flow logging, **All Networks** must be selected as mentioned above.
+    > Embora os provedores Microsoft. Insight e Microsoft. Network tenham suporte no momento como [serviços confiáveis da Microsoft para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), os logs de fluxo do NSG ainda não estão totalmente integrados. Para habilitar o log de fluxo NSG, **todas as redes** devem ser selecionadas conforme mencionado acima.
     
-4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados da pesquisa, selecione-o.
+4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados de pesquisa, selecione-a.
 5. Em **REGISTOS**, selecione **Registos de fluxo do NSG**, conforme mostrado na imagem seguinte:
 
     ![NSGs](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. Na lista de NSGs, selecione o NSG denominado **myVm nsg**.
 7. Em **Definições dos registos de fluxo**, selecione **Ligado**.
-8. Select the flow logging version. Version 2 contains flow-session statistics (Bytes and Packets)
+8. Selecione a versão de log de fluxo. A versão 2 contém estatísticas de sessão de fluxo (bytes e pacotes)
 
-   ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+   ![Selecionar versão dos logs de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Selecione a conta de armazenamento que criou no passo 3.
    > [!NOTE]
-   > NSG Flow Logs do not work with storage accounts if:
-   > * The storage accounts have a firewall enabled.
-   > * The storage accounts have [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
-1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados da pesquisa, selecione-o.
+   > Os logs de fluxo do NSG não funcionarão com contas de armazenamento se:
+   > * As contas de armazenamento têm um firewall habilitado.
+   > * As contas de armazenamento têm o [namespace hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados de pesquisa, selecione-a.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Guardar**.
     > [!IMPORTANT]
-    > Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
+    > Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram seu período de retenção para evitar qualquer cobrança incorrida. Para obter mais informações sobre como excluir o blog de armazenamento de log de fluxo do NSG, consulte [excluir blobs de armazenamento de log de fluxo NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Transferir o registo de fluxo
 
@@ -127,10 +127,10 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
    ![Transferir os registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que configurou no passo 2 da secção [Ativar o registo de fluxo do NSG](#enable-nsg-flow-log).
-4. Under **Blob service**, select **Blobs**, and then select the **insights-logs-networksecuritygroupflowevent** container.
-5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+4. Em **serviço blob**, selecione **BLOBs**e, em seguida, selecione o contêiner **insights-logs-networksecuritygroupflowevent** .
+5. No contêiner, navegue até a hierarquia de pastas até chegar a um arquivo PT1H. JSON, conforme mostrado na imagem a seguir. Os arquivos de log são gravados em uma hierarquia de pastas que segue a seguinte convenção de nomenclatura: https://{storageAccountName}. blob. Core. Windows. net/insights-logs-networksecuritygroupflowevent/resourceName =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {year}/m = {mês}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
 
-   ![Flow log](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+   ![Log de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Selecione **...** à direita do ficheiro PT1H.json e, em seguida, **Transferir**.
 
@@ -138,7 +138,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 O seguinte json é um exemplo do que verá no ficheiro PT1H.json para cada fluxo para o qual foram registados dados:
 
-### <a name="version-1-flow-log-event"></a>Version 1 flow log event
+### <a name="version-1-flow-log-event"></a>Evento de log de fluxo da versão 1
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -164,7 +164,7 @@ O seguinte json é um exemplo do que verá no ficheiro PT1H.json para cada fluxo
     }
 }
 ```
-### <a name="version-2-flow-log-event"></a>Version 2 flow log event
+### <a name="version-2-flow-log-event"></a>Evento de log de fluxo da versão 2
 ```json
 {
     "time": "2018-11-13T12:00:35.3899262Z",
@@ -215,15 +215,15 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | 10.0.0.4  | Endereço IP de origem      | O endereço IP de origem do qual teve origem o fluxo. 10.0.0.4 é o endereço IP privado da VM que criou em [Criar uma VM](#create-a-vm).
 | 13.67.143.118     | Endereço IP de destino | O endereço IP de destino para o qual se destinava o fluxo.                                                                                  |
 | 44931        | Porta de origem            | A porta de origem da qual teve origem o fluxo.                                           |
-| 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Since the traffic was destined to port 443, the rule named **UserRule_default-allow-rdp**, in the log file processed the flow.                                                |
+| 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Como o tráfego era destinado à porta 443, a regra chamada **UserRule_default-Allow-RDP**, no arquivo de log, processou o fluxo.                                                |
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
-| O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
+| Minúscula            | Direction              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
-| C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided. |
-| 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
-| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. |
-| 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
-| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.|
+| C            | Somente o estado de fluxo **versão 2** | Captura o estado do fluxo. Os Estados possíveis são **B**: Begin, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo em andamento. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: terminar, quando um fluxo for encerrado. As estatísticas são fornecidas. |
+| 30 | Pacotes enviados-origem para o destino **versão 2 somente** | O número total de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização. |
+| 16978 | Bytes enviados-origem somente para destino **versão 2** | O número total de bytes de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização. Os bytes de pacote incluem o cabeçalho e a carga do pacote. |
+| 24 | Pacotes enviados-destino para a **versão 2** de origem somente | O número total de pacotes TCP ou UDP enviados do destino para a origem desde a última atualização. |
+| 14008| Bytes enviados-destino somente para a **versão 2** de origem | O número total de bytes de pacotes TCP e UDP enviados do destino para a origem desde a última atualização. Bytes de pacote incluem cabeçalho e carga de pacote.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

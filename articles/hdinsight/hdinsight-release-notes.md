@@ -45,7 +45,7 @@ O proxy da API REST do Kafka fornece uma implantação de um único clique do pr
 
 O dimensionamento automático para o Azure HDInsight agora está disponível em todas as regiões para tipos de cluster Apache Spark e Hadoop. Esse recurso possibilita o gerenciamento de cargas de trabalho de análise de Big Data de forma mais econômica e produtiva. Agora você pode otimizar o uso de seus clusters HDInsight e pagar apenas pelo que precisa.
 
-Dependendo dos seus requisitos, você pode escolher entre dimensionamento automático baseado em carga e com base em agendamento. O dimensionamento automático baseado em carga pode dimensionar o tamanho do cluster para cima e para baixo com base nas necessidades do recurso atual, enquanto o dimensionamento automático baseado em agenda pode alterar o tamanho do cluster com base em uma agenda predefinida. 
+Consoante os seus requisitos, pode optar entre o dimensionamento automático baseado na carga ou em agenda. O dimensionamento automático baseado em carga pode dimensionar o tamanho do cluster para cima e para baixo com base nas necessidades do recurso atual, enquanto o dimensionamento automático baseado em agenda pode alterar o tamanho do cluster com base em uma agenda predefinida. 
 
 O suporte a AutoEscala para a carga de trabalho do HBase e do LLAP também é visualização pública. Para obter mais informações, consulte [dimensionar automaticamente clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
 

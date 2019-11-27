@@ -47,7 +47,7 @@ Embora já tenha acesso de administrador, os seus colegas na organização podem
 Introduza as informações necessárias sobre o utilizador. O **ID de início de sessão** tem de ser um endereço de e-mail válido. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. No primeiro início de sessão, o utilizador define uma palavra-passe.
 
 Em **O utilizador tem acesso de administrador**, está selecionada a entidade de raiz da sua organização. Mantenha a raiz selecionada e, em seguida, guarde as informações de utilizador. A seleção da entidade de raiz permite ao utilizador ter permissão de administrador não só para a entidade de raiz na árvore, mas também para todas as entidades que residem abaixo da mesma.  
-  ![Example showing admin access in the Add new user box](./media/tutorial-user-access/new-admin-access.png)
+  ![exemplo mostrando acesso de administrador na caixa Adicionar novo usuário](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Criar um utilizador com acesso de utilizador
 Os utilizadores típicos que precisem de acesso à Cloudyn, como os dashboards e relatórios, devem ter acesso de utilizador para os visualizar. Crie um novo utilizador com acesso de utilizador semelhante ao que criou com acesso de administrador, com as seguintes diferenças:
@@ -56,7 +56,7 @@ Os utilizadores típicos que precisem de acesso à Cloudyn, como os dashboards e
 - Selecione as entidades que o utilizador precisa de aceder na lista **O utilizador tem acesso de utilizador**.
 - Também pode permitir o acesso do administrador a entidades específicas, conforme necessário.
 
-![Example showing user access in the Add new user box](./media/tutorial-user-access/new-user-access.png)
+![Exemplo que mostra o acesso de utilizador na caixa de adicionar novo utilizador](./media/tutorial-user-access/new-user-access.png)
 
 Para ver um tutorial em vídeo sobre como adicionar utilizadores, veja [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30) (Adicionar Utilizadores à Cloudyn).
 
@@ -88,11 +88,11 @@ Quando registou o seu contrato ou conta do Azure no Cloudyn, os dados dos recurs
 
 No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**. Começa por uma única entidade (raiz) e cria a árvore de entidades na raiz. Segue-se um exemplo de uma hierarquia de entidades que poderá assemelhar-se a muitas organizações de TI após a conclusão da árvore:
 
-![Example of an entity tree shown on the Accounts Management page](./media/tutorial-user-access/entity-tree.png)
+![Exemplo de uma árvore de entidades, mostrado na página de gestão de contas](./media/tutorial-user-access/entity-tree.png)
 
 Junto a **Entidades**, clique em **Adicionar Entidade**. Introduza as informações sobre a pessoa ou o departamento que quer adicionar. Os campos **Nome Completo** e **E-mail** não têm de corresponder ao utilizadores existentes. Se quiser ver uma lista de níveis de acesso, procure *Adicionar uma entidade* na ajuda.
 
-![Example showing entity name and access levels in the Add entity box](./media/tutorial-user-access/add-entity.png)
+![Exemplo mostrando os níveis de acesso e o nome na caixa de entidade de adicionar a entidade](./media/tutorial-user-access/add-entity.png)
 
 Quando tiver terminado, **guarde** a entidade.
 

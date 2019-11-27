@@ -11,7 +11,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224370"
 ---
-| Recurso | Limite predefinido | Limite máximo | Nota |
+| Resource | Limite predefinido | Limite máximo | Nota |
 | --- | --- | --- | --- |
-| Observador de Rede do Azure | 1 per region | 1 per region | Network Watcher is created to enable access to the service. Only one instance of Network Watcher is required per subscription per region. |
-| Packet capture sessions |10,000 per region | 10,000 |Number of sessions only, not saved captures. |
+| Observador de Rede do Azure | 1 por região | 1 por região | O observador de rede é criado para habilitar o acesso ao serviço. Somente uma instância do observador de rede é necessária por assinatura por região. |
+| Sessões de captura de pacote |10.000 por região | 10,000 |Número de sessões apenas, não capturas salvas. |

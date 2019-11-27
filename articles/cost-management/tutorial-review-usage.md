@@ -24,7 +24,7 @@ ms.locfileid: "74229791"
 
 A Cloudyn mostra-lhe a utilização e os custos, de modo a que possa ver tendências, detetar ineficiências e criar alertas. Todos os dados de utilização e de custos são apresentados nos relatórios e nos dashboards da Cloudyn. Os exemplos neste tutorial orientam-no ao longo da revisão da utilização e dos custos através dos dashboards e dos relatórios.
 
-O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [Azure Cost Management](overview-cost-mgt.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -51,15 +51,15 @@ O dinheiro efetivamente gasto para utilização e custos é controlado com os re
 
 Segue-se um exemplo de relatório:
 
-![Example Actual Cost Over Time report](./media/tutorial-review-usage/actual-cost01.png)
+![Relatório de custo Efetivo ao longo do tempo de exemplo](./media/tutorial-review-usage/actual-cost01.png)
 
 O relatório mostra todos os gastos ao longo dos últimos 30 dias. Para ver os gastos apenas para serviços do Azure, aplique o grupo Serviços e filtre por todos os serviços do Azure. A imagem seguinte mostra os serviços filtrados.
 
-![Example showing filtered Azure services](./media/tutorial-review-usage/actual-cost02.png)
+![A mostrar exemplo filtrado serviços do Azure](./media/tutorial-review-usage/actual-cost02.png)
 
 No exemplo anterior, foi gasto menos dinheiro a partir de 29-10-2018. No entanto, haver demasiadas colunas pode ocultar uma tendência óbvia. Pode alterar a vista do relatório para uma linha ou área do gráfico para ver os dados apresentados noutras vistas. A imagem seguinte mostra a tendência com mais clareza.
 
-![Example showing a decreasing Azure VM cost trend](./media/tutorial-review-usage/actual-cost03.png)
+![Exemplo que mostra uma tendência de custo de VM do Azure diminuir](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuando com o exemplo, pode ver que o custo de VMs do Azure diminuiu. Os custos para outros serviços do Azure também começou a diminuir nesse dia. Então, o que é que originou a redução nas despesas? Neste exemplo, um projeto grande de trabalho foi concluído, pelo que o consumo de muitos serviços do Azure também diminuíram.
 
@@ -77,15 +77,15 @@ O relatório Recomendações de Dimensionamento Económico identifica potenciais
 
 No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Económico**. Se for útil, aplique um filtro para reduzir os resultados. Segue-se uma imagem de exemplo.
 
-![Cost effective sizing recommendation report for Azure VMs](./media/tutorial-review-usage/sizing01.png)
+![Custo eficaz de dimensionar os relatórios de recomendação para VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
 Neste exemplo, seguir as recomendações para alterar os tipos de instância de VM levaria a uma poupança de 2382 $. Clique no sinal de adição (+) em **Detalhes** na primeira recomendação. Seguem-se os detalhes da primeira recomendação.
 
-![Example showing recommendation details](./media/tutorial-review-usage/sizing02.png)
+![Detalhes de recomendação do exemplo que mostra](./media/tutorial-review-usage/sizing02.png)
 
 Clique no sinal de mais junto a **Lista de Candidatos** para ver os IDs das instâncias de VMs.
 
-![Example showing a list of VM candidates to resize](./media/tutorial-review-usage/sizing03.png)
+![Exemplo que mostra uma lista de candidatos VM para redimensionar](./media/tutorial-review-usage/sizing03.png)
 
 Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Otimizar o Tamanho das VMs na Cloudyn).
 
@@ -93,23 +93,23 @@ O Azure Cost Management também fornece recomendações de poupança de custos p
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para despesas invulgares
 
-Alerts allow you to automatically notify stakeholders of spending anomalies and overspending risks. You can create alerts using reports that support alerts based on budget and cost thresholds.
+Os alertas permitem notificar automaticamente os participantes do gasto de anomalias e a gastar riscos. Você pode criar alertas usando relatórios que dão suporte a alertas com base no orçamento e nos limites de custo.
 
-This example uses the **Actual Cost Over Time** report to send a notification when your spending on an Azure VM  nears your total budget. In this scenario, you have a total budget of $20,000 and you want to receive a notification when costs are approaching half of your budget, $9,000, and an additional alert when costs reach $10,000.
+Este exemplo usa o relatório de **custo real ao longo do tempo** para enviar uma notificação quando seus gastos em uma VM do Azure se aproximarem do orçamento total. Nesse cenário, você tem um orçamento total de $20000 e deseja receber uma notificação quando os custos estão se aproximando da metade do orçamento, $9000 e um alerta adicional quando os custos atingem $10000.
 
-1. From the menu at the top of the Cloudyn portal, select **Costs** > **Cost Analysis** > **Actual Cost Over Time**.
+1. No menu na parte superior do portal do Cloudyn, selecione **custos** > **análise de custo** > **custo real ao longo do tempo**.
 2. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**.
-3. In the top right of the report, select **Actions** and then select **Schedule report**.
-4. To send yourself an email of the report at scheduled interval, select the **Scheduling** tab in the **Save or Schedule this** report dialog. Lembre-se de selecionar **Enviar por e-mail**. Any tags, grouping, and filtering you use are included in the emailed report.
-5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**.
-   1. In the **Red alert** threshold box enter 10000.
-   2. In the **Yellow alert** threshold box enter 9000.
-   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to receive. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
+3. No canto superior direito do relatório, selecione **ações** e, em seguida, selecione **agendar relatório**.
+4. Para enviar por conta própria um email do relatório no intervalo agendado, selecione a guia **agendamento** na caixa de diálogo **salvar ou agendar este** relatório. Lembre-se de selecionar **Enviar por e-mail**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório enviado por email.
+5. Selecione a guia **limite** e, em seguida, selecione **custo real versus limite**.
+   1. Na caixa limite de **alerta vermelho** , insira 10000.
+   2. Na caixa limite de **alerta amarelo** , digite 9000.
+   3. Na caixa **número de alertas consecutivos** , insira o número de alertas consecutivos a serem recebidos. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
 6. Selecione **Guardar**.
 
-![Example showing red and yellow alerts based on spending thresholds](./media/tutorial-review-usage/schedule-alert01.png)
+![Exemplo que mostra alertas amarelas e vermelhas, com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)
 
-You can also choose the **Cost Percentage vs. Budget** threshold metric to create alerts. This allows you to specify the thresholds as percentages of your budget instead of currency values.
+Você também pode escolher o **percentual de custo versus** a métrica de limite de orçamento para criar alertas. Isso permite que você especifique os limites como porcentagens de seu orçamento em vez de valores de moeda.
 
 ## <a name="export-data"></a>Exportar dados
 

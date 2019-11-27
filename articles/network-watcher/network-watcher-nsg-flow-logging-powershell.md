@@ -96,7 +96,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 Para obter informações sobre a estrutura do log, visite [visão geral do log de fluxo do grupo de segurança de rede](network-watcher-nsg-flow-logging-overview.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba como [Visualizar seus logs de fluxo do NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

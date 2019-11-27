@@ -19,7 +19,7 @@ ms.locfileid: "74229982"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registe uma subscrição do Azure individual e veja os dados de custos
 
-Utilize a subscrição do Azure para efetuar o registo na Cloudyn. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como começar a ver os dados de custo imediatamente.
+Utilize a subscrição do Azure para efetuar o registo na Cloudyn. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como pode começar a ver de imediato os dados dos custos.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -29,17 +29,17 @@ Utilize a subscrição do Azure para efetuar o registo na Cloudyn. O registo con
 
 1. No portal do Azure, clique em **Cost Management + Faturação** na lista de serviços.
 2. Em **Descrição geral**, clique em **Cloudyn**  
-    ![Cloudyn page shown in the Azure portal](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+    ![página Cloudyn mostrada na portal do Azure](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. Na página **Cost Management**, clique em **Aceder à Cloudyn** para abrir a página de registo da Cloudyn numa janela nova.
 4. Na página de registo de avaliação do portal da Cloudyn, escreva o nome da empresa e, em seguida, selecione **Proprietário de Subscrição Individual do Azure** e clique em **Seguinte**. O nome de conta e o ID do Inquilino é automaticamente adicionado ao formulário.  
-    ![Trial registration page where you enter your registration information](./media/quick-register-azure-sub/trial-reg-ind.png)
+    ![página de registro de avaliação onde você insere suas informações de registro](./media/quick-register-azure-sub/trial-reg-ind.png)
 5. Selecione o **ID de Oferta - Nome** associado à subscrição. Se não tiver a certeza de qual é o ID de Tarifa da sua subscrição, pode ver a fatura do Azure e procurar por **ID da Oferta**.
 6. Aceite os Termos de Utilização e, em seguida, valide as suas informações e clique em **Seguinte**.
 7. Na página **Reunir dados adicionais**, clique em **Seguinte** para autorizar a Cloudyn a recolher dados de recursos do Azure. Os dados recolhidos incluem dados de utilização, de desempenho, de faturação e da etiqueta das suas subscrições.  
-    ![Gather additional data page where you authorize Cloudyn](./media/quick-register-azure-sub/gather-additional.png)
+    ![coletar página de dados adicional em que você autoriza o Cloudyn](./media/quick-register-azure-sub/gather-additional.png)
 8. O browser leva-o para a página de início de sessão da Cloudyn. Inicie sessão com as credenciais de subscrição do Azure.
 9. Clique em **Aceder à Cloudyn** para abrir o portal da Cloudyn e, em seguida, na página **Gestão de Contas**, deverá ver informações da sua conta de subscrição do Azure.  
-    ![Accounts Management page showing Azure subscription information](./media/quick-register-azure-sub/accounts-mgt.png)
+    página de gerenciamento de contas ![mostrando informações de assinatura do Azure](./media/quick-register-azure-sub/accounts-mgt.png)
 
 Para ver um vídeo tutorial sobre como registar a sua subscrição do Azure, consulte [Finding your Directory GUID and Rate ID for use in Cloudyn (Encontrar o GUID de Diretório e o ID da Tarifa para utilizar na Cloudyn)](https://youtu.be/PaRjnyaNGMI).
 

@@ -1,11 +1,11 @@
 ---
-title: Configure DHCPv6 for Linux VMs
+title: Configurar DHCPv6 para VMs do Linux
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to configure DHCPv6 for Linux VMs.
+description: Neste artigo, saiba como configurar o DHCPv6 para VMs Linux.
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
+keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -21,42 +21,42 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225327"
 ---
-# <a name="configure-dhcpv6-for-linux-vms"></a>Configure DHCPv6 for Linux VMs
+# <a name="configure-dhcpv6-for-linux-vms"></a>Configurar DHCPv6 para VMs do Linux
 
 
-Some of the Linux virtual-machine images in the Azure Marketplace do not have Dynamic Host Configuration Protocol version 6 (DHCPv6) configured by default. To support IPv6, DHCPv6 must be configured in the Linux OS distribution that you are using. The various Linux distributions configure DHCPv6 in a variety of ways because they use different packages.
+Algumas das imagens de máquinas virtuais Linux no Azure Marketplace tem Dynamic Host Configuration Protocol versão 6 (DHCPv6) configurados por predefinição. Para oferecer suporte a IPv6, o DHCPv6 tem de ser configurado da distribuição de SO Linux que está a utilizar. Várias distribuições de Linux configurar DHCPv6 de diversas formas, porque utilizam diferentes pacotes.
 
 > [!NOTE]
-> Recent SUSE Linux and CoreOS images in the Azure Marketplace have been pre-configured with DHCPv6. No additional changes are required when you use these images.
+> Imagens recentes de SUSE Linux e o CoreOS no Azure Marketplace têm sido pré-configuradas com o DHCPv6. Não existem alterações adicionais são necessárias quando utiliza essas imagens.
 
-This document describes how to enable DHCPv6 so that your Linux virtual machine obtains an IPv6 address.
+Este documento descreve como ativar o DHCPv6 para que sua máquina virtual Linux obtém um endereço IPv6.
 
 > [!WARNING]
-> By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
+> Ao editar incorretamente os ficheiros de configuração de rede, pode perder o acesso à rede para a VM. Recomendamos que teste as alterações de configuração em sistemas de não produção. As instruções neste artigo foram testadas nas versões mais recentes das imagens do Linux no Azure Marketplace. Para obter instruções mais detalhadas, consulte a documentação para a sua própria versão do Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
-1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
+1. Edite o arquivo */etc/DHCP/dhclient6.conf* e adicione a seguinte linha:
 
         timeout 10;
 
-2. Edit the network configuration for the eth0 interface with the following configuration:
+2. Edite a configuração de rede para a interface de eth0 com a seguinte configuração:
 
-   * On **Ubuntu 12.04 and 14.04**, edit the */etc/network/interfaces.d/eth0.cfg* file. 
-   * On **Ubuntu 16.04**, edit the */etc/network/interfaces.d/50-cloud-init.cfg* file.
+   * No **Ubuntu 12, 4 e 14, 4**, edite o arquivo */etc/network/interfaces.d/eth0.cfg* . 
+   * No **Ubuntu 16, 4**, edite o arquivo */etc/network/interfaces.d/50-Cloud-init.cfg* .
 
          iface eth0 inet6 auto
              up sleep 5
              up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
-3. Renew the IPv6 address:
+3. Renove o endereço IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Beginning with Ubuntu 17.10, the default network configuration mechanism is [NETPLAN]( https://netplan.io).  At install/instantiation time, NETPLAN reads network configuration from YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml.
+A partir do Ubuntu 17,10, o mecanismo de configuração de rede padrão é [netplan]( https://netplan.io).  No momento da instalação/instanciação, o netplan lê a configuração de rede nos arquivos de configuração do YAML neste local:/{lib, etc, execute}/netplan/*. YAML.
 
-Please include a *dhcp6:true* statement for each ethernet interface in your configuration.  Por exemplo:
+Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configuração.  Por exemplo:
   
         network:
           version: 2
@@ -64,76 +64,76 @@ Please include a *dhcp6:true* statement for each ethernet interface in your conf
             eno1:
               dhcp6: true
 
-During early boot, the netplan “network renderer” writes configuration to /run to hand off control of devices to the specified networking daemon For reference information about NETPLAN, see https://netplan.io/reference.
+Durante a inicialização inicial, o "processador de rede" do netplan grava a configuração em/Run para entregar o controle de dispositivos ao daemon de rede especificado para obter informações de referência sobre o netplan, consulte https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 
-1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
+1. Edite o arquivo */etc/DHCP/dhclient6.conf* e adicione a seguinte linha:
 
         timeout 10;
 
-2. Edit the */etc/network/interfaces* file, and add the following configuration:
+2. Edite o arquivo */etc/network/interfaces* e adicione a seguinte configuração:
 
         iface eth0 inet6 auto
             up sleep 5
             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
-3. Renew the IPv6 address:
+3. Renove o endereço IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel-centos-and-oracle-linux"></a>RHEL, CentOS, and Oracle Linux
+## <a name="rhel-centos-and-oracle-linux"></a>RHEL, CentOS e Oracle Linux
 
-1. Edit the */etc/sysconfig/network* file, and add the following parameter:
+1. Edite o arquivo */etc/sysconfig/network* e adicione o seguinte parâmetro:
 
         NETWORKING_IPV6=yes
 
-2. Edit the */etc/sysconfig/network-scripts/ifcfg-eth0* file, and add the following two parameters:
+2. Edite o arquivo */etc/sysconfig/network-scripts/ifcfg-eth0* e adicione os dois parâmetros a seguir:
 
         IPV6INIT=yes
         DHCPV6C=yes
 
-3. Renew the IPv6 address:
+3. Renove o endereço IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11-and-opensuse-13"></a>SLES 11 and openSUSE 13
+## <a name="sles-11-and-opensuse-13"></a>SLES 11 e openSUSE 13
 
-Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, do the following:
+Recentes SUSE Linux Enterprise Server (SLES) e o openSUSE imagens no Azure têm sido pré-configuradas com o DHCPv6. Não existem alterações adicionais são necessárias quando utiliza essas imagens. Se tiver uma VM que se baseia numa imagem SUSE mais antiga ou personalizada, faça o seguinte:
 
-1. Install the `dhcp-client` package, if needed:
+1. Instale o pacote `dhcp-client`, se necessário:
 
     ```bash
     sudo zypper install dhcp-client
     ```
 
-2. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and add the following parameter:
+2. Edite o arquivo */etc/sysconfig/network/ifcfg-eth0* e adicione o seguinte parâmetro:
 
         DHCLIENT6_MODE='managed'
 
-3. Renew the IPv6 address:
+3. Renove o endereço IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-12-and-opensuse-leap"></a>SLES 12 and openSUSE Leap
+## <a name="sles-12-and-opensuse-leap"></a>SLES 12 e openSUSE salto
 
-Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, do the following:
+Imagens SLES e openSUSE recentes no Azure tenham sido pré-configuradas com o DHCPv6. Não existem alterações adicionais são necessárias quando utiliza essas imagens. Se tiver uma VM que se baseia numa imagem SUSE mais antiga ou personalizada, faça o seguinte:
 
-1. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and replace the `#BOOTPROTO='dhcp4'` parameter with the following value:
+1. Edite o arquivo */etc/sysconfig/network/ifcfg-eth0* e substitua o parâmetro `#BOOTPROTO='dhcp4'` pelo seguinte valor:
 
         BOOTPROTO='dhcp'
 
-2. To the */etc/sysconfig/network/ifcfg-eth0* file, add the following parameter:
+2. Para o arquivo */etc/sysconfig/network/ifcfg-eth0* , adicione o seguinte parâmetro:
 
         DHCLIENT6_MODE='managed'
 
-3. Renew the IPv6 address:
+3. Renove o endereço IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -141,9 +141,9 @@ Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. N
 
 ## <a name="coreos"></a>CoreOS
 
-Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM based on an older or custom CoreOS image, do the following:
+Imagens recentes de CoreOS no Azure tenham sido pré-configuradas com o DHCPv6. Não existem alterações adicionais são necessárias quando utiliza essas imagens. Se tiver uma VM com base numa imagem de CoreOS mais antiga ou personalizada, faça o seguinte:
 
-1. Edit the */etc/systemd/network/10_dhcp.network* file:
+1. Edite o arquivo */etc/systemd/network/10_dhcp. Network* :
 
         [Match]
         eth0
@@ -151,7 +151,7 @@ Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additiona
         [Network]
         DHCP=ipv6
 
-2. Renew the IPv6 address:
+2. Renove o endereço IPv6:
 
     ```bash
     sudo systemctl restart systemd-networkd

@@ -11,7 +11,7 @@ ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 09a1b8e54726accf705515bf077f6a599f0f9b78
 ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74266908"
@@ -48,7 +48,7 @@ Os indexadores rastreiam armazenamentos de dados no Azure.
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Azure data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em versão prévia)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -131,6 +131,6 @@ Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as 
 * [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Indexando BLOBs CSV usando o indexador de blob Pesquisa Cognitiva do Azure](search-howto-index-csv-blobs.md)
 * [Indexando BLOBs JSON com o indexador de blob Pesquisa Cognitiva do Azure](search-howto-index-json-blobs.md)

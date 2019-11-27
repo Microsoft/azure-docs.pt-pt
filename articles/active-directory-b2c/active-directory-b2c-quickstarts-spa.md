@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Set up sign-in for a single-page app using Azure Active Directory B2C
-description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
+title: Início rápido-configurar a entrada para um aplicativo de página única usando Azure Active Directory B2C
+description: Neste guia de início rápido, execute um aplicativo de página única de exemplo que usa Azure Active Directory B2C para fornecer entrada de conta.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -19,18 +19,18 @@ ms.locfileid: "74420177"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: Configurar o início de sessão para uma aplicação de uma página através do Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação de página única para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
+O Azure Active Directory B2C (Azure AD B2C) fornece gerenciamento de identidade de nuvem para manter seus aplicativos, negócios e clientes protegidos. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação de página única para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a **ASP.net e** a carga de trabalho de desenvolvimento Web
 - [Node.js](https://nodejs.org/en/download/)
-- Social account from Facebook, Google, or Microsoft
-- Code sample from GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Conta social do Facebook, Google ou Microsoft
+- Exemplo de código do GitHub: [Active-Directory-B2C-JavaScript-MSAL-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
     
-    You can [download the zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the repository:
+    Você pode [baixar o arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonar o repositório:
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
@@ -58,15 +58,15 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 1. Clique em **Iniciar sessão** para iniciar o fluxo de trabalho.
 
-    ![Single-page application sample app shown in browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Exemplo de aplicativo de aplicativo de página única mostrado no navegador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
+    O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google ou da Microsoft.
 
-2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
+2. Azure AD B2C apresenta uma página de entrada para uma empresa fictícia chamada Fabrikam para o aplicativo Web de exemplo. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
 
-    ![Sign In or Sign Up page showing identity provider buttons](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Página de entrada ou inscrição mostrando botões do provedor de identidade](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
+    Você autentica (entra) usando suas credenciais de conta social e autoriza o aplicativo a ler informações de sua conta social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
 
 3. Conclua o processo de início de sessão para o fornecedor de identidade.
 
@@ -74,7 +74,7 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 
 Clique em **Chamar API Web** para que o nome a apresentar seja devolvido na chamada da API Web como um objeto JSON.
 
-![Sample application in browser showing the web API response](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Aplicativo de exemplo no navegador mostrando a resposta da API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 A aplicação de página única de exemplo inclui um token de acesso no pedido ao recurso protegido da API Web.
 
@@ -84,12 +84,12 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros início
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this quickstart, you used a sample single-page application to:
+Neste guia de início rápido, você usou um aplicativo de página única de exemplo para:
 
-* Sign in with a custom login page
-* Sign in with a social identity provider
-* Create an Azure AD B2C account
-* Call a web API protected by Azure AD B2C
+* Entrar com uma página de logon personalizada
+* Entrar com um provedor de identidade social
+* Criar uma conta de Azure AD B2C
+* Chamar uma API da Web protegida por Azure AD B2C
 
 Comece a criar o seu próprio inquilino do Azure AD B2C.
 

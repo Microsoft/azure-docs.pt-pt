@@ -25,7 +25,7 @@ Neste artigo, você aprende várias maneiras de criar clusters do Azure HDInsigh
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [subscrição do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Uma [assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell e/ou CLI do Azure.
 
 ### <a name="resource-manager-templates"></a>Modelos do Resource Manager

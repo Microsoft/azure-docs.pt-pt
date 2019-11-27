@@ -13,9 +13,9 @@ ms.locfileid: "74451506"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementar o modelo a partir do Cloud Shell
 
-Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. To deploy an external template, provide the URI of the template exactly as you would for any external deployment. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. This section describes how to load the template to your cloud shell account, and deploy it as a local file. If you haven't used Cloud Shell, see [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for information about setting it up.
+Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. Para implantar um modelo externo, forneça o URI do modelo exatamente como você faria para qualquer implantação externa. Para implantar um modelo local, você deve primeiro carregar o modelo na conta de armazenamento para seu Cloud Shell. Esta seção descreve como carregar o modelo para sua conta do Cloud Shell e implantá-lo como um arquivo local. Se você não tiver usado Cloud Shell, consulte [visão geral do Azure cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre como configurá-lo.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O padrão de nome é `cloud-shell-storage-<region>`.
 
@@ -33,29 +33,29 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
    ![Adicionar contentor](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Give your container a name and an access level. The sample template in this article contains no sensitive information, so allow anonymous read access. Selecione **OK**.
+1. Dê um nome e um nível de acesso ao seu contêiner. O modelo de exemplo neste artigo não contém informações confidenciais, portanto, permita acesso de leitura anônimo. Selecione **OK**.
 
-   ![Provide container values](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
+   ![Fornecer valores de contêiner](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Select the container you created.
+1. Selecione o contêiner que você criou.
 
-   ![Select new container](./media/resource-manager-cloud-shell-deploy/select-container.png)
+   ![Selecionar novo contêiner](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Selecione **Upload**.
 
-   ![Upload blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
+   ![Carregar blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Localize e carregue o modelo.
 
    ![Carregar o ficheiro](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
-1. After it has uploaded, select the template.
+1. Depois de carregado, selecione o modelo.
 
-   ![Select new template](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+   ![Selecionar novo modelo](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
 
-1. Copy the URL.
+1. Copie a URL.
 
-   ![Copy URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
+   ![Copiar URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Abra o prompt.
 

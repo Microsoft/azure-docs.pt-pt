@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Back up Windows Server to Azure
+title: Tutorial – fazer backup do Windows Server no Azure
 description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
 ms.topic: tutorial
 ms.date: 08/22/2018
@@ -19,7 +19,7 @@ Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e 
 >
 > * Transferir e configurar o Agente MARS
 > * Configurar horas de cópia de segurança e agenda de retenção para as cópias de segurança do servidor
-> * Perform an on-demand back up
+> * Executar um backup sob demanda
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -59,7 +59,7 @@ O agente dos Serviços de Recuperação do Microsoft Azure (MARS) cria uma assoc
 
 3. No menu **Objetivo de Cópia de Segurança**:
 
-   * for **Where is your workload running?** , select **On-premises**
+   * para **onde sua carga de trabalho está em execução?** , selecione **local**
    * para **Pretende efetuar uma cópia de segurança?** , selecione **Ficheiros e pastas** e clique em **Estado do Sistema**
 
    ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)

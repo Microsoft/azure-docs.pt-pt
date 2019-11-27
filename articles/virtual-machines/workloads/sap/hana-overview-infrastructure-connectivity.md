@@ -1,6 +1,6 @@
 ---
-title: Infrastructure and connectivity to SAP HANA on Azure (large instances) | Microsoft Docs
-description: Configure required connectivity infrastructure to use SAP HANA on Azure (large instances).
+title: Infraestrutura e conectividade para SAP HANA no Azure (instâncias grandes) | Microsoft Docs
+description: Configure a infraestrutura de conectividade necessária para usar SAP HANA no Azure (instâncias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -20,37 +20,37 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224675"
 ---
-# <a name="sap-hana-large-instances-deployment"></a>SAP HANA (large instances) deployment 
+# <a name="sap-hana-large-instances-deployment"></a>Implantação de SAP HANA (instâncias grandes) 
 
-This article assumes that you've completed your purchase of SAP HANA on Azure (large instances) from Microsoft. Before reading this article, for general background, see [HANA large instances common terms](hana-know-terms.md) and [HANA large instances SKUs](hana-available-skus.md).
+Este artigo pressupõe que você concluiu a compra de SAP HANA no Azure (instâncias grandes) da Microsoft. Antes de ler este artigo, para o plano de fundo geral, consulte [termos comuns do Hana em instâncias grandes](hana-know-terms.md) e [SKUs de instâncias grandes do Hana](hana-available-skus.md).
 
 
-Microsoft requires the following information to deploy HANA large instance units:
+A Microsoft requer as seguintes informações para implantar unidades de instância grande do HANA:
 
-- Customer name.
-- Business contact information (including email address and phone number).
-- Technical contact information (including email address and phone number).
-- Technical networking contact information (including email address and phone number).
-- Azure deployment region (for example, West US, Australia East, or North Europe).
-- SAP HANA on Azure (large instances) SKU (configuration).
-- For every Azure deployment region:
-    - A /29 IP address range for ER-P2P connections that connect Azure virtual networks to HANA large instances.
-    - A /24 CIDR Block used for the HANA large instances server IP pool.
-    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
-- The IP address range values used in the virtual network address space attribute of every Azure virtual network that connects to the HANA large instances.
-- Data for each HANA large instances system:
-  - Desired hostname, ideally with a fully qualified domain name.
-  - Desired IP address for the HANA large instance unit out of the Server IP pool address range. (The first 30 IP addresses in the server IP pool address range are reserved for internal use within HANA large instances.)
-  - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes). Microsoft needs the HANA SID for creating the permissions for sidadm on the NFS volumes. These volumes attach to the HANA large instance unit. The HANA SID is also used as one of the name components of the disk volumes that get mounted. If you want to run more than one HANA instance on the unit, you should list multiple HANA SIDs. Each one gets a separate set of volumes assigned.
-  - In the Linux OS, the sidadm user has a group ID. This ID is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group, with a group ID of 1001. The sidadm user is part of that group.
-  - In the Linux OS, the sidadm user has a user ID. This ID is required to create the necessary SAP HANA-related disk volumes. If you're running several HANA instances on the unit, list all the sidadm users. 
-- The Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA large instances are going to be directly connected. This subscription ID references the Azure subscription, which is going to be charged with the HANA large instance unit or units.
+- Nome do cliente.
+- Informações de contato comercial (incluindo endereço de email e número de telefone).
+- Informações de contato técnico (incluindo endereço de email e número de telefone).
+- Informações de contato de rede técnica (incluindo endereço de email e número de telefone).
+- Região de implantação do Azure (por exemplo, oeste dos EUA, leste da Austrália ou Europa Setentrional).
+- SAP HANA no SKU (instâncias grandes) do Azure (configuração).
+- Para cada região de implantação do Azure:
+    - Um intervalo de endereços IP/29 para conexões de ER-P2P que conectam redes virtuais do Azure a instâncias grandes do HANA.
+    - Um bloco CIDR/24 usado para o pool de IPS do servidor de instâncias grandes do HANA.
+    - Opcional ao usar o [ExpressRoute alcance global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para habilitar o roteamento direto do local para as unidades de instância grande do Hana ou o roteamento entre unidades de instância grande do Hana em diferentes regiões do Azure, você precisa reservar outro/29 intervalo de endereços IP. Esse intervalo específico não pode se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
+- Os valores de intervalo de endereços IP usados no atributo espaço de endereço de rede virtual de todas as redes virtuais do Azure que se conectam às instâncias grandes HANA.
+- Dados para cada sistema de instâncias grandes do HANA:
+  - Hostname desejado, idealmente com um nome de domínio totalmente qualificado.
+  - Endereço IP desejado para a unidade de instância grande do HANA do intervalo de endereços do pool de IPS do servidor. (Os 30 primeiros endereços IP no intervalo de endereços do pool de IPS do servidor são reservados para uso interno em instâncias grandes do HANA.)
+  - SAP HANA nome do SID para a instância de SAP HANA (necessário para criar os volumes de disco relacionados ao SAP HANA necessário). A Microsoft precisa do SID do HANA para criar as permissões para SIDADM nos volumes de NFS. Esses volumes são anexados à unidade de instância grande do HANA. O SID do HANA também é usado como um dos componentes de nome dos volumes de disco que são montados. Se você quiser executar mais de uma instância do HANA na unidade, deverá listar vários SIDs do HANA. Cada uma Obtém um conjunto separado de volumes atribuídos.
+  - No sistema operacional Linux, o usuário SIDADM tem uma ID de grupo. Essa ID é necessária para criar os volumes de disco relacionados ao SAP HANA necessários. A instalação do SAP HANA geralmente cria o grupo de SAPs, com uma ID de grupo de 1001. O usuário SIDADM faz parte desse grupo.
+  - No sistema operacional Linux, o usuário SIDADM tem uma ID de usuário. Essa ID é necessária para criar os volumes de disco relacionados ao SAP HANA necessários. Se você estiver executando várias instâncias do HANA na unidade, liste todos os usuários do SIDADM. 
+- A ID de assinatura do Azure para a assinatura do Azure à qual SAP HANA nas instâncias grandes do Azure HANA serão conectadas diretamente. Essa ID de assinatura referencia a assinatura do Azure, que será cobrada com a unidade ou unidades de instância grande do HANA.
 
-After you provide the preceding information, Microsoft provisions SAP HANA on Azure (large instances). Microsoft sends you information to link your Azure virtual networks to HANA large instances. You can also access the HANA large instance units.
+Depois de fornecer as informações anteriores, a Microsoft provisiona SAP HANA no Azure (instâncias grandes). A Microsoft envia informações para vincular suas redes virtuais do Azure às instâncias grandes do HANA. Você também pode acessar as unidades de instância grande do HANA.
 
-Use the following sequence to connect to the HANA large instances after Microsoft has deployed it:
+Use a sequência a seguir para se conectar às instâncias grandes HANA depois que a Microsoft a tiver implantada:
 
-1. [Connecting Azure VMs to HANA large instances](hana-connect-azure-vm-large-instances.md)
-2. [Connecting a VNet to HANA large instances ExpressRoute](hana-connect-vnet-express-route.md)
-3. [Additional network requirements (optional)](hana-additional-network-requirements.md)
+1. [Conectando VMs do Azure a instâncias grandes do HANA](hana-connect-azure-vm-large-instances.md)
+2. [Conectando uma VNet ao SAP HANA em instâncias grandes](hana-connect-vnet-express-route.md)
+3. [Requisitos de rede adicionais (opcional)](hana-additional-network-requirements.md)
 

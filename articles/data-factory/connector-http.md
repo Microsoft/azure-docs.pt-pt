@@ -25,7 +25,7 @@ ms.locfileid: "74278530"
 > * [Versão 1](v1/data-factory-http-connector.md)
 > * [Versão atual](connector-http.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um ponto de extremidade HTTP. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um ponto de extremidade HTTP. O artigo se baseia na [atividade de cópia no Azure data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
 A diferença entre esse conector HTTP, o [conector REST](connector-rest.md) e o [conector de tabela da Web](connector-web-table.md) são:
 
@@ -40,7 +40,7 @@ Este conector HTTP tem suporte para as seguintes atividades:
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados de uma origem HTTP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de uma origem HTTP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia como fontes e coletores, consulte [armazenamentos e formatos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Você pode usar este conector HTTP para:
 
@@ -68,10 +68,10 @@ As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** deve ser definida como **HttpServer**. | Sim |
-| url | A URL base para o servidor Web. | Sim |
+| URL | A URL base para o servidor Web. | Sim |
 | enableServerCertificateValidation | Especifique se a validação de certificado SSL do servidor deve ser habilitada quando você se conectar a um ponto de extremidade HTTP. Se o servidor HTTPS usar um certificado autoassinado, defina essa propriedade como **false**. | Não<br /> (o padrão é **true**) |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows**e **ClientCertificate**. <br><br> Consulte as seções que seguem esta tabela para obter mais propriedades e exemplos de JSON para esses tipos de autenticação. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação básica, Digest ou Windows
 
@@ -80,7 +80,7 @@ Defina a propriedade **authenticationType** como **Basic**, **Digest**ou **Windo
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | userName | O nome de usuário a ser usado para acessar o ponto de extremidade HTTP. | Sim |
-| palavra-passe | A palavra-passe para o utilizador (o **userName** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| palavra-passe | A senha do usuário (o valor de **nome de usuário** ). Marque este campo como um tipo **SecureString** para armazená-lo com segurança em data Factory. Você também pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -114,7 +114,7 @@ Para usar a autenticação ClientCertificate, defina a propriedade **authenticat
 |:--- |:--- |:--- |
 | embeddedCertData | Dados de certificado codificados em base64. | Especifique **embeddedCertData** ou **certThumbprint**. |
 | certThumbprint | A impressão digital do certificado que está instalado no repositório de certificados de seu computador Integration Runtime auto-hospedado. Aplica-se somente quando o tipo auto-hospedado de Integration Runtime é especificado na propriedade **connectVia** . | Especifique **embeddedCertData** ou **certThumbprint**. |
-| palavra-passe | A senha que está associada ao certificado. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| palavra-passe | A senha que está associada ao certificado. Marque este campo como um tipo **SecureString** para armazená-lo com segurança em data Factory. Você também pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 
 Se você usar o **certThumbprint** para autenticação e o certificado estiver instalado no repositório pessoal do computador local, conceda permissões de leitura para o Integration Runtime de hospedagem interna:
 
@@ -169,7 +169,7 @@ Se você usar o **certThumbprint** para autenticação e o certificado estiver i
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
@@ -222,7 +222,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `location`
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
 | format | Se você quiser recuperar dados do ponto de extremidade HTTP como estão sem analisá-los e, em seguida, copiar os dados para um repositório baseado em arquivo, ignore a seção **formato** nas definições do conjunto de dados de entrada e saída.<br/><br/>Se você deseja analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Em **formato**, defina a propriedade **Type** como um desses valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), formato [Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format)e [formato parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos com suporte: **gzip**, **deflate**, **bzip2**e **ZipDeflate**.<br/>Níveis com suporte: **ideal** e **mais rápido**. |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo com suporte e codecs de compactação](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos com suporte: **gzip**, **deflate**, **bzip2**e **ZipDeflate**.<br/>Níveis com suporte: **ideal** e **mais rápido**. |Não |
 
 > [!NOTE]
 > O tamanho da carga de solicitação HTTP com suporte é de cerca de 500 KB. Se o tamanho da carga que você deseja passar para o ponto de extremidade da Web for maior que 500 KB, considere o envio em lote da carga em partes menores.
@@ -270,7 +270,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `location`
 
 Esta seção fornece uma lista das propriedades às quais a origem HTTP dá suporte.
 
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
+Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="http-as-source"></a>HTTP como fonte
 
@@ -377,4 +377,4 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista dos arquivos de dados que a atividade de cópia suporta como origens e sinks no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte da atividade de cópia como fontes e coletores em Azure Data Factory, consulte [armazenamentos de dados e formatos com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

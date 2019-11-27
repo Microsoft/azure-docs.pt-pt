@@ -39,7 +39,7 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Suporte do Windows 7:

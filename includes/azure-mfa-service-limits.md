@@ -11,14 +11,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224475"
 ---
-| Recurso | Limite predefinido | Limite máximo |
+| Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| Maximum number of trusted IP addresses or ranges</a> per subscription |0 |50 |
-| Remember my devices, number of days |14 |60 |
-| Maximum number of app passwords |0 |Sem limite |
+| Número máximo de endereços IP confiáveis ou intervalos</a> por assinatura |0 |50 |
+| Lembrar meus dispositivos, número de dias |14 |60 |
+| Número máximo de senhas de aplicativo |0 |Sem limite |
 | Permitir **X** tentativas durante a chamada MFA |1 |99 |
-| Two-way text message timeout seconds |60 |600 |
-| Segundos de omissão de uso individual predefinidos |300 |1,800 |
-| Bloquear a conta de utilizador após **X** negações consecutivas do MFA |Not set |99 |
-| Repor contador de bloqueio da conta após **X** minutos |Not set |9,999 |
-| Desbloquear a conta após **X** minutos |Not set |9,999 |
+| Tempo limite em segundos de mensagem de texto bidirecional |60 |600 |
+| Segundos de omissão de uso individual predefinidos |300 |1\.800 |
+| Bloquear a conta de utilizador após **X** negações consecutivas do MFA |Não definido |99 |
+| Repor contador de bloqueio da conta após **X** minutos |Não definido |9\.999 |
+| Desbloquear a conta após **X** minutos |Não definido |9\.999 |

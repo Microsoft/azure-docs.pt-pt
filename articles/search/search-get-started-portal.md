@@ -1,7 +1,7 @@
 ---
-title: Create a search index in the Azure portal
+title: Criar um índice de pesquisa no portal do Azure
 titleSuffix: Azure Cognitive Search
-description: In this portal quickstart, learn how to use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search.
+description: Neste guia de início rápido do portal, saiba como usar o assistente de importação de dados para criar, carregar e consultar seu primeiro índice de pesquisa no Azure Pesquisa Cognitiva.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74407003"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Create an Azure Cognitive Search index in the Azure portal
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [C#](search-get-started-dotnet.md)
@@ -25,106 +25,106 @@ ms.locfileid: "74407003"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use the portal's **Import data** wizard and **Search explorer** tools to quickly ramp up on concepts, and write interesting queries against an index within minutes.
+Use o assistente de **importação de dados** do portal e as ferramentas do **Search Explorer** para aumentar rapidamente os conceitos e escrever consultas interessantes em um índice em minutos.
 
-If the tools are too limiting, you can consider a [code-based introduction to programming Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). 
+Se as ferramentas estiverem muito limitadas, você poderá considerar uma [introdução baseada em código para programar pesquisa cognitiva do Azure no .net](search-howto-dotnet-sdk.md) ou usar o [postmaster para fazer chamadas à API REST](search-get-started-postman.md). 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+[Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido. 
 
 ### <a name="check-for-space"></a>Verificar o espaço
 
 Muitos clientes começam com o serviço gratuito. Esta versão está limitada a três índices, três origens de dados e três indexadores. Certifique-se de que tem espaço para itens adicionais antes de começar. Este tutorial cria um objeto de cada.
 
-Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
+As seções no painel de serviço mostram quantos índices, indexadores e fontes de dados você já tem. 
 
-![Lists of indexes, indexers, and datasources](media/search-get-started-portal/tiles-indexers-datasources.png)
+![Listas de índices, indexadores e fontes de fonte](media/search-get-started-portal/tiles-indexers-datasources.png)
 
 ## <a name="create-index"></a> Criar um índice e carregar dados
 
 As consultas de pesquisa iteram num [*índice*](search-what-is-an-index.md) que contém dados pesquisáveis, metadados e construções adicionais que otimizam determinados comportamentos de pesquisa.
 
-For this tutorial, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the [**Import data** wizard](search-import-data-portal.md). Um indexador é um crawler específico da origem que pode ler metadados e conteúdo de origens de dados suportadas pelo Azure. Normally, indexers are used programmatically, but in the portal, you can access them through the **Import data** wizard. 
+Para este tutorial, usamos um conjunto de dados de exemplo interno que pode ser rastreado usando um [*indexador*](search-indexer-overview.md) por meio do assistente de [ **importação de dados** ](search-import-data-portal.md). Um indexador é um crawler específico da origem que pode ler metadados e conteúdo de origens de dados suportadas pelo Azure. Normalmente, os indexadores são usados programaticamente, mas no portal, você pode acessá-los por meio do assistente de **importação de dados** . 
 
-### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Step 1 - Start the Import data wizard and create a data source
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Etapa 1-iniciar o assistente de importação de dados e criar uma fonte de dados
 
-1. On the Azure Cognitive Search service dashboard, click **Import data** on the command bar to create and populate a search index.
+1. No painel do serviço Pesquisa Cognitiva do Azure, clique em **importar dados** na barra de comandos para criar e preencher um índice de pesquisa.
 
    ![Comando de importação de dados](media/search-get-started-portal/import-data-cmd.png)
 
-2. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Depois de criada, torna-se uma “origem de dados existente”, que pode ser reutilizada noutras operações de importação.
+2. No assistente, clique em **conectar-se aos seus dados** > **exemplos** > **Hotéis-exemplo**. Essa fonte de dados é interna. Se você estivesse criando sua própria fonte de dados, precisaria especificar um nome, tipo e informações de conexão. Depois de criada, torna-se uma “origem de dados existente”, que pode ser reutilizada noutras operações de importação.
 
    ![Selecionar o conjunto de dados de exemplo](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Continue to the next page.
+3. Vá para a próxima página.
 
-### <a name="step-2---skip-the-enrich-content-page"></a>Step 2 - Skip the "Enrich content" page
+### <a name="step-2---skip-the-enrich-content-page"></a>Etapa 2 – ignorar a página "enriquecer conteúdo"
 
-The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+O assistente dá suporte à criação de um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) para incorporar os algoritmos de ai de serviços cognitivas à indexação. 
 
-We'll skip this step for now, and move directly on to **Customize target index**.
+Vamos ignorar essa etapa por enquanto e passar diretamente para a personalização do **índice de destino**.
 
    ![Ignorar o passo de capacidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
+> Você pode percorrer um exemplo de indexação de AI em um guia de [início rápido](cognitive-search-quickstart-blob.md) ou [tutorial](cognitive-search-tutorial-blob.md).
 
-### <a name="step-3---configure-index"></a>Step 3 - Configure index
+### <a name="step-3---configure-index"></a>Etapa 3 – configurar o índice
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. No mínimo, os índices precisam de um nome e de uma coleção de campos; um dos campos deve ser marcado como a chave do documento para identificar exclusivamente cada documento. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
+Normalmente, a criação de índice é um exercício baseado em código, concluída antes do carregamento de dados. No entanto, como este tutorial indica, o assistente pode gerar um índice básico para qualquer fonte de dados que possa rastrear. No mínimo, os índices precisam de um nome e de uma coleção de campos; um dos campos deve ser marcado como a chave do documento para identificar exclusivamente cada documento. Além disso, você pode especificar analisadores de idioma ou sugestores se desejar consultas de preenchimento automático ou sugerido.
 
 Os campos têm tipos de dados e atributos. As caixas de verificação na parte superior são *atributos de índice* que controlam a forma como o campo é utilizado.
 
-* **Recuperável** significa que aparece na lista de resultados da pesquisa. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
-* **Key** is the unique document identifier. It's always a string, and it is required.
-* **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
+* **Recuperável** significa que aparece na lista de resultados da pesquisa. Você pode marcar campos individuais como limites para os resultados da pesquisa desmarcando essa caixa de seleção, por exemplo, para campos usados somente em expressões de filtro.
+* **Chave** é o identificador exclusivo do documento. É sempre uma cadeia de caracteres e é obrigatório.
+* **Filtrável**, **classificável**e **facetable** determinam se os campos são usados em uma estrutura de navegação de filtro, classificação ou facetada.
 * **Pesquisável** significa que um campo está incluído na pesquisa de texto completo. As cadeias são pesquisáveis. Os campos numéricos e booleanos são frequentemente marcados como não pesquisáveis.
 
-Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
+Os requisitos de armazenamento não variam como resultado de sua seleção. Por exemplo, se você definir o atributo **recuperável** em vários campos, os requisitos de armazenamento não vão para cima.
 
-Por predefinição, o assistente verifica a origem de dados relativamente a identificadores exclusivos como a base do campo de chaves. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
+Por predefinição, o assistente verifica a origem de dados relativamente a identificadores exclusivos como a base do campo de chaves. As *cadeias de caracteres* são atribuídas como **recuperáveis** e **pesquisáveis**. Os *inteiros* são atribuídos como **recuperáveis**, **filtráveis**, **classificável**e **face**.
 
 1. Aceite as predefinições. 
 
-   If you rerun the wizard a second time using an existing hotels data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports. 
+   Se você executar novamente o assistente uma segunda vez usando uma fonte de dados de hotéis existente, o índice não será configurado com atributos padrão. Você terá que selecionar manualmente os atributos em importações futuras. 
 
-   ![Generated hotels index](media/search-get-started-portal/hotelsindex.png)
+   ![Índice de hotéis gerados](media/search-get-started-portal/hotelsindex.png)
 
-2. Continue to the next page.
+2. Vá para a próxima página.
 
 
-### <a name="step-4---configure-indexer"></a>Step 4 - Configure indexer
+### <a name="step-4---configure-indexer"></a>Etapa 4-configurar o indexador
 
 Ainda no assistente para **Importar dados**, clique em **Indexador** > **Nome** e escreva um nome para o indexador.
 
-Este objeto define um processo executável. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately.
+Este objeto define um processo executável. Você pode colocá-lo no agendamento recorrente, mas, por enquanto, use a opção padrão para executar o indexador uma vez, imediatamente.
 
-Click **Submit** to create and simultaneously run the indexer.
+Clique em **Enviar** para criar e executar o indexador simultaneamente.
 
-  ![hotels indexer](media/search-get-started-portal/hotels-indexer.png)
+  ![indexador de hotéis](media/search-get-started-portal/hotels-indexer.png)
 
-## <a name="monitor-progress"></a>Monitor progress
+## <a name="monitor-progress"></a>Monitorar o progresso
 
-The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click **Indexers**.
+O assistente deve levá-lo para a lista de indexadores onde você pode monitorar o progresso. Para navegação automática, vá para a página Visão geral e clique em **indexadores**.
 
-It can take a few minutes for the portal to update the page, but you should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
+Pode levar alguns minutos para o portal atualizar a página, mas você deve ver o indexador recém-criado na lista, com o status indicando "em andamento" ou êxito, juntamente com o número de documentos indexados.
 
    ![Mensagem de indexador em curso](media/search-get-started-portal/indexers-inprogress.png)
 
 ## <a name="view-the-index"></a>Ver o índice
 
-The main service page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
+A página principal do serviço fornece links para os recursos criados em seu serviço de Pesquisa Cognitiva do Azure.  Para exibir o índice que você acabou de criar, clique em **índices** na lista de links. 
 
-Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
+Aguarde até que a página do portal seja atualizada. Após alguns minutos, você deverá ver o índice com uma contagem de documentos e o tamanho do armazenamento.
 
-   ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
+   ![Lista de índices no painel de serviço](media/search-get-started-portal/indexes-list.png)
 
-From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
+Nessa lista, você pode clicar no índice de *exemplo de hotéis* que acabou de criar, exibir o esquema de índice. e, opcionalmente, adicionar novos campos. 
 
-The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Cognitive Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+A guia **campos** mostra o esquema de índice. Role até a parte inferior da lista para inserir um novo campo. Na maioria dos casos, você não pode alterar os campos existentes. Os campos existentes têm uma representação física no Azure Pesquisa Cognitiva e, portanto, não podem ser modificados, nem mesmo no código. Para alterar fundamentalmente um campo existente, crie um novo índice, descartando o original.
 
    ![definição de índice de exemplo](media/search-get-started-portal/sample-index-def.png)
 
@@ -132,49 +132,49 @@ Outras construções, como a classificação de perfis e as opções de CORS, po
 
 Para compreender claramente o que pode e não pode editar durante o design do índice, dispense um minuto para ver as opções de definição do índice. As opções desativadas são um indicador de que um valor não pode ser alterado nem eliminado. 
 
-## <a name="query-index"></a> Query using Search explorer
+## <a name="query-index"></a>Consultar usando o Gerenciador de pesquisa
 
 Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a página de consulta [**Explorador de procura**](search-explorer.md) incorporada. Fornece uma caixa de pesquisa para que possa testar as cadeias de consulta arbitrária.
 
-**Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
+**O Gerenciador de pesquisa** está equipado apenas para lidar com solicitações da [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita sintaxe para [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis na [API REST do documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) das.
 
 > [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
+> As etapas a seguir são demonstradas em 6m08s no [vídeo visão geral do pesquisa cognitiva do Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 >
 
 1. Clique em **Explorador de pesquisa** na barra de comando.
 
    ![Comando do Explorador de pesquisa](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
+2. Na lista suspensa **índice** , escolha *Hotéis-Sample-index*. Clique no menu suspenso **versão da API** para ver quais APIs REST estão disponíveis. Para as consultas abaixo, use a versão disponível para o público (2019-05-06).
 
    ![Comandos de índice e de API](media/search-get-started-portal/search-explorer-changeindex.png)
 
-3. In the search bar, paste in the query strings below and click **Search**.
+3. Na barra de pesquisa, Cole as cadeias de caracteres de consulta abaixo e clique em **Pesquisar**.
 
-   ![Query string and search button](media/search-get-started-portal/search-explorer-query-string-example.png)
+   ![Cadeia de caracteres de consulta e botão Pesquisar](media/search-get-started-portal/search-explorer-query-string-example.png)
 
-## <a name="example-queries"></a>Example queries
+## <a name="example-queries"></a>Exemplos de consultas
 
-You can enter terms and phrases, similar to what you might do in a Bing or Google search, or fully-specified query expressions. Results are returned as verbose JSON documents.
+Você pode inserir termos e frases, semelhante ao que você pode fazer em uma pesquisa do Bing ou Google, ou expressões de consulta totalmente especificadas. Os resultados são retornados como documentos JSON detalhados.
 
 ### <a name="simple-query-with-top-n-results"></a>Consulta simples com N principais resultados
 
-#### <a name="example-string-query-searchspa"></a>Example (string query): `search=spa`
+#### <a name="example-string-query-searchspa"></a>Exemplo (consulta de cadeia de caracteres): `search=spa`
 
-* The **search** parameter is used to input a keyword search for full text search, in this case, returning hotel data for those containing *spa* in any searchable field in the document.
+* O parâmetro **Search** é usado para inserir uma palavra-chave Search para pesquisa de texto completo, nesse caso, retornando dados do hotel para aqueles que contêm *Spa* em qualquer campo pesquisável no documento.
 
-* O **Explorador de pesquisa** devolve resultados em JSON, que é verboso e difícil de ler se os documentos tiverem uma estrutura densa. This is intentional; visibility into the entire document is important for development purposes, especially during testing. Para uma melhor experiência de utilizador, terá de escrever código que [processa resultados de pesquisa](search-pagination-page-layout.md) para reproduzir elementos importantes.
+* O **Explorador de pesquisa** devolve resultados em JSON, que é verboso e difícil de ler se os documentos tiverem uma estrutura densa. Isso é intencional; a visibilidade de todo o documento é importante para fins de desenvolvimento, especialmente durante o teste. Para uma melhor experiência de utilizador, terá de escrever código que [processa resultados de pesquisa](search-pagination-page-layout.md) para reproduzir elementos importantes.
 
-* Os documentos são compostos por todos os campos marcados como "recuperáveis" no índice. To view index attributes in the portal, click *hotels-sample* in the **Indexes** list.
+* Os documentos são compostos por todos os campos marcados como "recuperáveis" no índice. Para exibir atributos de índice no portal, clique em *Hotéis – exemplo* na lista **índices** .
 
-#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Example (parameterized query): `search=spa&$count=true&$top=10`
+#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemplo (consulta parametrizada): `search=spa&$count=true&$top=10`
 
 * O símbolo **&** é utilizado para acrescentar os parâmetros da pesquisa, que podem ser especificados por qualquer ordem.
 
-* The **$count=true** parameter returns the total count of all documents returned. Este valor é apresentado junto à parte superior dos resultados da pesquisa. Pode verificar as consultas de filtro através da monitorização das alterações comunicadas por **$count=true**. As contagens mais pequenas indicam que o filtro está a funcionar.
+* O parâmetro **$Count = true** retorna a contagem total de todos os documentos retornados. Este valor é apresentado junto à parte superior dos resultados da pesquisa. Pode verificar as consultas de filtro através da monitorização das alterações comunicadas por **$count=true**. As contagens mais pequenas indicam que o filtro está a funcionar.
 
-* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. Pode aumentar ou diminuir a quantidade através de **$top**.
+* O **$Top = 10** retorna os 10 documentos com classificação mais alta do total. Por padrão, o Azure Pesquisa Cognitiva retorna as primeiras 50 melhores correspondências. Pode aumentar ou diminuir a quantidade através de **$top**.
 
 ### <a name="filter-query"></a>Filtrar a consulta
 
@@ -182,7 +182,7 @@ Os filtros são incluídos nos pedidos de pesquisa se acrescentar o parâmetro *
 
 #### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Exemplo (filtrado): `search=beach&$filter=Rating gt 4`
 
-* O parâmetro **$filter** devolve resultados que correspondem aos critérios que indicou. In this case, ratings greater than 4.
+* O parâmetro **$filter** devolve resultados que correspondem aos critérios que indicou. Nesse caso, as classificações maiores que 4.
 
 * A sintaxe do filtro é uma construção OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -192,18 +192,18 @@ Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemplo (por facetas com redução de âmbito): `search=*&facet=Category&$top=2`
 
-* **search=** * é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. For example, you want a faceting navigation structure to consist of all hotels in the index.
-* **facet** devolve uma estrutura de navegação que pode ser transmitida a um controlo de IU. Devolve categorias e uma contagem. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Cognitive Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+* **search=** * é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de faceta consista em todos os hotéis no índice.
+* **facet** devolve uma estrutura de navegação que pode ser transmitida a um controlo de IU. Devolve categorias e uma contagem. Nesse caso, as categorias são baseadas em um campo chamado de *categoria*convenientemente. Não há nenhuma agregação no Azure Pesquisa Cognitiva, mas você pode aproximar a agregação via `facet`, que fornece uma contagem de documentos em cada categoria.
 
 * **$top=2** devolve dois documentos, o que exemplifica que pode utilizar `top` para reduzir ou aumentar os resultados.
 
-#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Example (facet on numeric values): `search=spa&facet=Rating`
+#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exemplo (faceta em valores numéricos): `search=spa&facet=Rating`
 
-* This query is facet for rating, on a text search for *spa*. The term *Rating* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups.
+* Esta consulta é facetada para classificação, em uma pesquisa de texto para *Spa*. A *classificação* de termo pode ser especificada como uma faceta porque o campo está marcado como recuperável, filtrável e de facetable no índice, e os valores que ele contém (numérico, 1 a 5), são adequados para categorizar listagens em grupos.
 
 * Apenas os campos filtráveis podem ser facetados. Apenas os campos recuperáveis podem ser devolvidos nos resultados.
 
-* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* O campo de *classificação* é ponto flutuante de precisão dupla e o agrupamento será por valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas", "classificações de 4 estrelas", etc.), consulte [como implementar a navegação facetada no Azure pesquisa cognitiva](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Realçar os resultados de pesquisa
@@ -212,17 +212,17 @@ O detetor de ocorrências refere-se à formatação no texto que corresponde à 
 
 #### <a name="example-highlighter-searchbeachhighlightdescription"></a>Exemplo (marcador): `search=beach&highlight=Description`
 
-* In this example, the formatted word *beach* is easier to spot in the description field.
+* Neste exemplo *, é mais* fácil localizar a palavra-chave formatada no campo Descrição.
 
 #### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Exemplo (análise linguística): `search=beaches&highlight=Description`
 
-* Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Podem aparecer nos resultados diferentes formas da mesma palavra, devido à análise linguística. 
+* A pesquisa de texto completo reconhece variações básicas em formulários do Word. Nesse caso, os resultados da pesquisa contêm texto realçado para "praia", para hotéis que têm essa palavra em seus campos pesquisáveis, em resposta a uma pesquisa de palavra-chave em "praias". Podem aparecer nos resultados diferentes formas da mesma palavra, devido à análise linguística. 
 
-* Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
+* O Azure Pesquisa Cognitiva dá suporte a analisadores 56 do Lucene e da Microsoft. O padrão usado pelo Azure Pesquisa Cognitiva é o analisador Lucene padrão.
 
 ### <a name="fuzzy-search"></a> Experimentar a pesquisa difusa
 
-By default, misspelled query terms, like *seatle* for "Seattle", fail to return matches in typical search. O exemplo seguinte não devolve nenhum resultado.
+Por padrão, os termos de consulta digitados incorretamente, como *Seatle* para "Seattle", falham ao retornar correspondências na pesquisa típica. O exemplo seguinte não devolve nenhum resultado.
 
 #### <a name="example-misspelled-term-unhandled-searchseatle"></a>Exemplo (termo com erros ortográficos, não processado): `search=seatle`
 
@@ -230,13 +230,13 @@ Para processar erros ortográficos, pode utilizar a pesquisa difusa. A pesquisa 
 
 #### <a name="example-misspelled-term-handled-searchseatlequerytypefull"></a>Exemplo (termo com erros ortográficos, processado): `search=seatle~&queryType=full`
 
-This example now returns documents that include matches on "Seattle".
+Este exemplo agora retorna documentos que incluem correspondências em "Seattle".
 
 Quando **queryType** não é especificado, é utilizado o analisador de consultas simples predefinido. O analisador de consultas simples é mais rápido, mas se precisar de pesquisa difusa, de expressões regulares, da pesquisa de proximidade ou de outros tipos de consultas avançadas, será necessária a sintaxe completa.
 
-A pesquisa difusa e a pesquisa com carateres universais têm implicações no resultado da pesquisa. A análise linguística não é realizada nestes formatos de consulta. Before using fuzzy and wildcard search, review [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
+A pesquisa difusa e a pesquisa com carateres universais têm implicações no resultado da pesquisa. A análise linguística não é realizada nestes formatos de consulta. Antes de usar a pesquisa difusa e de curinga, examine [como a pesquisa de texto completo funciona no Azure pesquisa cognitiva](search-lucene-query-architecture.md#stage-2-lexical-analysis) e procure a seção sobre exceções para análise lexical.
 
-For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Para obter mais informações sobre cenários de consulta habilitados pelo analisador de consulta completo, consulte [sintaxe de consulta Lucene no Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="geo-search"></a> Experimentar a pesquisa geoespacial
 
@@ -246,29 +246,29 @@ A pesquisa geoespacial é suportada através do [tipo de dados edm.GeographyPoin
 
 A consulta de exemplo filtra todos os resultados relativamente a dados posicionais, em que os resultados estejam a menos de cinco quilómetros de distância de um determinado ponto (especificado como coordenadas de latitude e longitude). Ao adicionar **$count**, pode ver quantos resultados são devolvidos quando alterar a distância ou as coordenadas.
 
-A pesquisa geoespacial é útil se a sua aplicação de pesquisa tiver uma funcionalidade “encontrar perto de mim” ou se utilizar a navegação por mapa. Contudo, não é uma pesquisa em texto completo. If you have user requirements for searching on a city or country/region by name, add fields containing city or country/region names, in addition to coordinates.
+A pesquisa geoespacial é útil se a sua aplicação de pesquisa tiver uma funcionalidade “encontrar perto de mim” ou se utilizar a navegação por mapa. Contudo, não é uma pesquisa em texto completo. Se você tiver requisitos de usuário para pesquisar em uma cidade ou país/região por nome, adicione campos que contenham nomes de cidade ou país/região, além de coordenadas.
 
 ## <a name="takeaways"></a>Conclusões
 
-This tutorial provided a quick introduction to Azure Cognitive Search using the Azure portal.
+Este tutorial forneceu uma breve introdução ao Azure Pesquisa Cognitiva usando o portal do Azure.
 
 Aprendeu a criar um índice de pesquisa com o assistente para **Importar dados**. Aprendeu sobre [indexadores](search-indexer-overview.md), bem como o fluxo de trabalho básico para o design de índices, incluindo [modificações suportadas num índice publicado](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 Ao utilizar o **explorador do Search** no portal do Azure, aprendeu a sintaxe básica das consultas através de exemplos práticos que demonstram as capacidades principais, como filtros, detetor de ocorrências, pesquisa difusa e pesquisa geográfica.
 
-You also learned how to find indexes, indexers, and data sources in the portal. Utilizando uma origem de dados nova no futuro, pode utilizar o portal para verificar rapidamente as definições ou as coleções de campos da mesma com um esforço mínimo.
+Você também aprendeu como localizar índices, indexadores e fontes de dados no Portal. Utilizando uma origem de dados nova no futuro, pode utilizar o portal para verificar rapidamente as definições ou as coleções de campos da mesma com um esforço mínimo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+Quando você está trabalhando em sua própria assinatura, é uma boa ideia no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir o conjunto inteiro de recursos.
 
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-While the portal is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
+Embora o portal seja útil para a exploração inicial e tarefas pequenas, a revisão das APIs logo no início ajudará você a entender os conceitos e o fluxo de trabalho em um nível mais profundo:
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Criar um índice usando o SDK do .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

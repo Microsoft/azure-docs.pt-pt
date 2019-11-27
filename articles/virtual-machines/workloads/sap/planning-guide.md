@@ -370,7 +370,7 @@ O ponto de entrada para a carga de trabalho do SAP na documentação do Azure é
 
 As seguintes notas SAP estão relacionadas ao tópico do SAP no Azure:
 
-| Número da nota | Título |
+| Número da nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: produtos e dimensionamento com suporte |
 | [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |

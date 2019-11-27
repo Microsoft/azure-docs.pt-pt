@@ -19,10 +19,10 @@ ms.locfileid: "74305211"
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
-Este artigo explica como trabalhar com [do Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) enlaces no funções do Azure. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
+Este artigo explica como trabalhar com associações de [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) no Azure functions. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
 
 > [!NOTE]
-> Este artigo é para as funções do Azure 1.x. Para obter informações sobre como utilizar essas ligações nas funções 2.x, consulte [do Azure Cosmos DB enlaces das funções do Azure 2.x](functions-bindings-cosmosdb-v2.md).
+> Este artigo é para as funções do Azure 1.x. Para obter informações sobre como usar essas associações no functions 2. x, consulte [Azure Cosmos DB associações para Azure Functions 2. x](functions-bindings-cosmosdb-v2.md).
 >
 >Este enlace foi originalmente denominado DocumentDB. Na versão de funções foi de apenas o acionador 1.x, mudar o nome Cosmos DB; o enlace de entrada, o enlace de saída e o pacote NuGet retém o nome do DocumentDB.
 
@@ -33,19 +33,19 @@ Este artigo explica como trabalhar com [do Azure Cosmos DB](../cosmos-db/serverl
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-As ligações do Azure Cosmos DB para a versão de funções 1.x são fornecidos na [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) pacote NuGet, versão 1.x. É de código-fonte para as ligações na [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) repositório do GitHub.
+As associações de Azure Cosmos DB para as funções versão 1. x são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) , versão 1. x. O código-fonte para as associações está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) .
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>Acionador
 
-O acionador do Azure Cosmos DB utiliza a [Feed de alterações do Azure Cosmos DB](../cosmos-db/change-feed.md) para escutar as inserções e atualizações em várias partições. O feed de alterações publica inserções e atualizações, eliminações não.
+O gatilho de Azure Cosmos DB usa o [Azure Cosmos DB o feed de alterações](../cosmos-db/change-feed.md) para escutar inserções e atualizações entre partições. O feed de alterações publica inserções e atualizações, eliminações não.
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que é invocado quando há insere ou atualiza a coleção e a base de dados especificada.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que é invocada quando há inserções ou atualizações no banco de dados e na coleção especificados.
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -78,9 +78,9 @@ namespace CosmosDBSamplesV1
 
 # <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
-O exemplo seguinte mostra um acionador Cosmos DB ligando uma *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função escreve as mensagens de registo quando os registos de Cosmos DB são modificados.
+O exemplo a seguir mostra uma associação de gatilho Cosmos DB em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função escreve as mensagens de registo quando os registos de Cosmos DB são modificados.
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -114,9 +114,9 @@ Aqui está o código de script do c#:
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra um acionador Cosmos DB ligando uma *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função escreve as mensagens de registo quando os registos de Cosmos DB são modificados.
+O exemplo a seguir mostra uma associação de gatilho Cosmos DB em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função escreve as mensagens de registo quando os registos de Cosmos DB são modificados.
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -147,9 +147,9 @@ Eis o código JavaScript:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) atributo.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) .
 
-Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que pode configurar, consulte [acionador - configuração](#trigger---configuration). Aqui está um `CosmosDBTrigger` exemplo de atributo numa assinatura do método:
+Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que você pode configurar, consulte [Trigger-Configuration](#trigger---configuration). Aqui está um exemplo de atributo `CosmosDBTrigger` em uma assinatura de método:
 
 ```csharp
     [FunctionName("DocumentUpdates")]
@@ -162,7 +162,7 @@ Construtor do atributo pega o nome de base de dados e o nome da coleção. Para 
     }
 ```
 
-Para obter um exemplo completo, consulte [acionador - exemplo do c#](#trigger).
+Para obter um exemplo completo, consulte [gatilho C# -exemplo](#trigger).
 
 # <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
@@ -176,38 +176,38 @@ Não há suporte para atributos pelo JavaScript.
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `CosmosDBTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `CosmosDBTrigger`.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** || Tem de ser definido como `cosmosDBTrigger`. |
-|**direção** || Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
-|**name** || O nome da variável no código de função que representa a lista de documentos com as alterações. |
+|**tipo** || Deve ser definido como `cosmosDBTrigger`. |
+|**direção** || Deve ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**nomes** || O nome da variável no código de função que representa a lista de documentos com as alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta do Azure Cosmos DB a ser monitorizada. |
-|**databaseName**|**DatabaseName**  | O nome da base de dados do Azure Cosmos DB com a coleção a ser monitorizada. |
+|**NomeDoBancoDeDados**|**NomeDoBancoDeDados**  | O nome da base de dados do Azure Cosmos DB com a coleção a ser monitorizada. |
 |**collectionName** |**CollectionName** | O nome da coleção a ser monitorizado. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Opcional) O nome de uma definição de aplicação que contém a cadeia de ligação para o serviço que mantém a coleção de concessão. Quando não definido, o `connectionStringSetting` valor é utilizado. Este parâmetro é definido automaticamente quando a associação é criada no portal. A cadeia de ligação para a coleção de concessões tem de ter permissões de escrita.|
-|**leaseDatabaseName** |**LeaseDatabaseName** | (Opcional) O nome da base de dados que contém a coleção utilizada para armazenar as concessões. Quando não definido, o valor da `databaseName` definição é utilizada. Este parâmetro é definido automaticamente quando a associação é criada no portal. |
-|**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção utilizada para armazenar as concessões. Quando não definido, o valor `leases` é utilizado. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcional) Quando definido como `true`, a coleção de concessões é criada automaticamente quando ainda não exista. O valor predefinido é `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Opcional) Define a quantidade de unidades de pedido para atribuir quando é criada a coleção de concessões. Esta definição é apenas utilizado quando `createLeaseCollectionIfNotExists` está definido como `true`. Esse parâmetro é definido automaticamente quando a associação é criada usando o Portal.
-|**leaseCollectionPrefix**| **leaseCollectionPrefix**| (Opcional) Quando definido, ele adiciona um prefixo para as concessões criadas na coleção de concessão para essa função, permitindo efetivamente dois as funções do Azure separadas partilhar a mesma coleção de concessão por diferentes prefixos a utilizar.
-|**feedPollDelay**| **feedPollDelay**| (Opcional) Quando o conjunto, define, em milissegundos, o atraso entre uma partição para novas alterações no feed de consulta são drenadas alterações Afinal de contas atuais. A predefinição é de 5000 (5 segundos).
-|**leaseAcquireInterval**| **leaseAcquireInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de disparar uma tarefa de computação se as partições são distribuídas uniformemente entre instâncias de host conhecidos. A predefinição é 13000 (13 segundos).
-|**leaseExpirationInterval**| **leaseExpirationInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo para o qual a concessão é criada numa concessão que representa uma partição. Se a concessão não for renovada dentro deste intervalo, fará com que expire e propriedade da partição irá mudar para outra instância. A predefinição é 60000 (60 segundos).
-|**leaseRenewInterval**| **leaseRenewInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente mantido por uma instância. A predefinição é 17000 (17 segundos).
-|**checkpointFrequency**| **checkpointFrequency**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. O padrão é sempre após cada chamada de função.
-|**maxItemsPerInvocation**| **maxItemsPerInvocation**| (Opcional) Quando definida, personaliza a quantidade máxima de itens recebidas por chamada de função.
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Opcional) O nome de uma definição de aplicação que contém a cadeia de ligação para o serviço que mantém a coleção de concessão. Quando não definido, o valor de `connectionStringSetting` é usado. Este parâmetro é definido automaticamente quando a associação é criada no portal. A cadeia de ligação para a coleção de concessões tem de ter permissões de escrita.|
+|**leaseDatabaseName** |**LeaseDatabaseName** | (Opcional) O nome da base de dados que contém a coleção utilizada para armazenar as concessões. Quando não definido, o valor da configuração de `databaseName` é usado. Este parâmetro é definido automaticamente quando a associação é criada no portal. |
+|**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção utilizada para armazenar as concessões. Quando não definido, o valor `leases` é usado. |
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | Adicional Quando definido como `true`, a coleção de concessões é criada automaticamente quando ela ainda não existe. O valor padrão é `false`. |
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Opcional) Define a quantidade de unidades de pedido para atribuir quando é criada a coleção de concessões. Essa configuração só é usada quando `createLeaseCollectionIfNotExists` é definido como `true`. Esse parâmetro é definido automaticamente quando a associação é criada usando o Portal.
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Opcional) Quando definido, ele adiciona um prefixo para as concessões criadas na coleção de concessão para essa função, permitindo efetivamente dois as funções do Azure separadas partilhar a mesma coleção de concessão por diferentes prefixos a utilizar.
+|**feedPollDelay**| **FeedPollDelay**| (Opcional) Quando o conjunto, define, em milissegundos, o atraso entre uma partição para novas alterações no feed de consulta são drenadas alterações Afinal de contas atuais. A predefinição é de 5000 (5 segundos).
+|**leaseAcquireInterval**| **LeaseAcquireInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de disparar uma tarefa de computação se as partições são distribuídas uniformemente entre instâncias de host conhecidos. A predefinição é 13000 (13 segundos).
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo para o qual a concessão é criada numa concessão que representa uma partição. Se a concessão não for renovada dentro deste intervalo, fará com que expire e propriedade da partição irá mudar para outra instância. A predefinição é 60000 (60 segundos).
+|**leaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente mantido por uma instância. A predefinição é 17000 (17 segundos).
+|**checkpointFrequency**| **CheckpointFrequency**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. O padrão é sempre após cada chamada de função.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Quando definida, personaliza a quantidade máxima de itens recebidas por chamada de função.
 |**startFromBeginning**| **StartFromBeginning**| Adicional Quando definido, ele informa ao gatilho para começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona na primeira vez que o gatilho é iniciado, como nas execuções subsequentes, os pontos de verificação já estão armazenados. Definir isso como `true` quando há concessões já criadas não tem nenhum efeito.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-O acionador requer uma segunda coleção, que utiliza para armazenar _concessões_ nas partições. A coleção a ser monitorizado e a coleção que contém as concessões tem de estar disponíveis para o acionador trabalhar.
+O gatilho requer uma segunda coleção que ele usa para armazenar as _concessões_ nas partições. A coleção a ser monitorizado e a coleção que contém as concessões tem de estar disponíveis para o acionador trabalhar.
 
 >[!IMPORTANT]
-> Se várias funções estiverem configuradas para utilizar um acionador Cosmos DB para a mesma coleção, cada uma das funções deve usar uma coleção de concessão dedicado ou especificar um `LeaseCollectionPrefix` para cada função. Caso contrário, será acionada apenas uma das funções. Para obter informações sobre o prefixo, consulte a [seção de configuração](#trigger---configuration).
+> Se várias funções estiverem configuradas para usar um gatilho Cosmos DB para a mesma coleção, cada uma das funções deverá usar uma coleção de concessão dedicada ou especificar um `LeaseCollectionPrefix` diferente para cada função. Caso contrário, será acionada apenas uma das funções. Para obter informações sobre o prefixo, consulte a [seção configuração](#trigger---configuration).
 
 O acionador não indica que se um documento foi atualizado ou inserido, ele fornece apenas o próprio documento. Se precisar manipular atualizações e inserções de forma diferente, poderia fazê-lo através da implementação timestamp campos para inserção ou atualização.
 
@@ -219,14 +219,14 @@ O enlace de entrada do Azure Cosmos DB utiliza a API de SQL para obter um ou mai
 
 Esta secção contém os exemplos seguintes:
 
-* [Acionador de fila, procura de ID de JSON](#queue-trigger-look-up-id-from-json-c)
-* [Acionador HTTP, procura de ID da cadeia de consulta](#http-trigger-look-up-id-from-query-string-c)
-* [Acionador HTTP, procura de ID de dados da rota](#http-trigger-look-up-id-from-route-data-c)
-* [Acionador HTTP, procura de ID de encaminhar os dados, usando SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
-* [HTTP acionar, obter vários documentos, usando SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
-* [HTTP acionar, obter vários documentos, com o DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
+* [Gatilho de fila, Pesquisar ID de JSON](#queue-trigger-look-up-id-from-json-c)
+* [Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta](#http-trigger-look-up-id-from-query-string-c)
+* [Gatilho HTTP, Pesquisar ID de dados de rota](#http-trigger-look-up-id-from-route-data-c)
+* [Gatilho HTTP, Pesquisar ID de dados de rota, usando SQLQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
+* [Gatilho HTTP, obter vários documentos, usando SQLQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
+* [Gatilho HTTP, obtenha vários documentos, usando DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
 
-Consulte os exemplos simples `ToDoItem` tipo:
+Os exemplos se referem a um tipo simples de `ToDoItem`:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -243,7 +243,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, Pesquisar ID de JSON
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém um único documento. A função é acionada por uma mensagem de fila que contém um objeto JSON. O acionador de fila analisa o JSON num objeto chamado `ToDoItemLookup`, que contém o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que recupera um único documento. A função é acionada por uma mensagem de fila que contém um objeto JSON. O gatilho de fila analisa o JSON em um objeto chamado `ToDoItemLookup`, que contém a ID a ser pesquisada. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -292,7 +292,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="http-trigger-look-up-id-from-query-string"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -334,7 +334,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="http-trigger-look-up-id-from-route-data"></a>Gatilho HTTP, Pesquisar ID de dados de rota
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -381,7 +381,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>Gatilho HTTP, Pesquisar ID de dados de rota, usando SQLQuery
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -423,7 +423,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho HTTP, obter vários documentos, usando SQLQuery
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém uma lista de documentos. A função é acionada por um pedido HTTP. A consulta é especificada no `SqlQuery` atributo de propriedade.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é acionada por um pedido HTTP. A consulta é especificada na propriedade de atributo `SqlQuery`.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -466,7 +466,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP acionar, obter vários documentos, com o DocumentClient (c#)
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém uma lista de documentos. A função é acionada por um pedido HTTP. O código utiliza um `DocumentClient` instância fornecida pelo enlace do Azure Cosmos DB para ler uma lista de documentos. O `DocumentClient` instância também poderia ser utilizada para operações de escrita.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é acionada por um pedido HTTP. O código usa uma instância de `DocumentClient` fornecida pela Associação de Azure Cosmos DB para ler uma lista de documentos. A instância de `DocumentClient` também pode ser usada para operações de gravação.
 
 ```cs
 using Microsoft.Azure.Documents.Client;
@@ -527,14 +527,14 @@ namespace CosmosDBSamplesV1
 
 Esta secção contém os exemplos seguintes:
 
-* [Acionador de fila, procura de ID da cadeia](#queue-trigger-look-up-id-from-string-c-script)
-* [Acionador da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [Acionador HTTP, procura de ID da cadeia de consulta](#http-trigger-look-up-id-from-query-string-c-script)
-* [Acionador HTTP, procura de ID de dados da rota](#http-trigger-look-up-id-from-route-data-c-script)
-* [HTTP acionar, obter vários documentos, usando SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [HTTP acionar, obter vários documentos, com o DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
+* [Gatilho de fila, Pesquisar ID da cadeia de caracteres](#queue-trigger-look-up-id-from-string-c-script)
+* [Gatilho de fila, obter vários documentos, usando SQLQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta](#http-trigger-look-up-id-from-query-string-c-script)
+* [Gatilho HTTP, Pesquisar ID de dados de rota](#http-trigger-look-up-id-from-route-data-c-script)
+* [Gatilho HTTP, obter vários documentos, usando SQLQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [Gatilho HTTP, obtenha vários documentos, usando DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
 
-Consulte os exemplos de Acionador HTTP simples `ToDoItem` tipo:
+Os exemplos de gatilho HTTP se referem a um tipo simples de `ToDoItem`:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -551,9 +551,9 @@ namespace CosmosDBSamplesV1
 
 ### <a name="queue-trigger-look-up-id-from-string"></a>Gatilho de fila, Pesquisar ID da cadeia de caracteres
 
-O exemplo seguinte mostra um enlace de entrada do Cosmos DB num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma associação de entrada Cosmos DB em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -568,7 +568,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-O [configuração](#input---configuration) seção explica essas propriedades.
+A seção de [configuração](#input---configuration) explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -586,11 +586,11 @@ Aqui está o código de script do c#:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários documentos, usando SQLQuery
 
-O exemplo seguinte mostra um enlace de entrada do Azure Cosmos DB num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função obtém vários documentos especificados por uma consulta SQL, com um acionador de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma associação de entrada Azure Cosmos DB em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função obtém vários documentos especificados por uma consulta SQL, com um acionador de fila para personalizar os parâmetros de consulta.
 
-O acionador de fila fornece um parâmetro `departmentId`. Uma mensagem de fila de `{ "departmentId" : "Finance" }` retornaria todos os registos para o departamento financeiro.
+O gatilho de fila fornece um parâmetro `departmentId`. Uma mensagem da fila de `{ "departmentId" : "Finance" }` retornaria todos os registros do departamento financeiro.
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -604,7 +604,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-O [configuração](#input---configuration) seção explica essas propriedades.
+A seção de [configuração](#input---configuration) explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -627,9 +627,9 @@ Aqui está o código de script do c#:
 
 ### <a name="http-trigger-look-up-id-from-query-string"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta
 
-A exemplo a seguir mostra um [função de script do c#](functions-reference-csharp.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [ C# função de script](functions-reference-csharp.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
-Aqui está o *Function* ficheiro:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -688,9 +688,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 ### <a name="http-trigger-look-up-id-from-route-data"></a>Gatilho HTTP, Pesquisar ID de dados de rota
 
-A exemplo a seguir mostra um [função de script do c#](functions-reference-csharp.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [ C# função de script](functions-reference-csharp.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
-Aqui está o *Function* ficheiro:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -750,9 +750,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 ### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho HTTP, obter vários documentos, usando SQLQuery
 
-A exemplo a seguir mostra um [função de script do c#](functions-reference-csharp.md) que obtém uma lista de documentos. A função é acionada por um pedido HTTP. A consulta é especificada no `SqlQuery` atributo de propriedade.
+O exemplo a seguir mostra uma [ C# função de script](functions-reference-csharp.md) que recupera uma lista de documentos. A função é acionada por um pedido HTTP. A consulta é especificada na propriedade de atributo `SqlQuery`.
 
-Aqui está o *Function* ficheiro:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -807,9 +807,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 ### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>Gatilho HTTP, obtenha vários documentos, usando DocumentClient
 
-A exemplo a seguir mostra um [função de script do c#](functions-reference-csharp.md) que obtém uma lista de documentos. A função é acionada por um pedido HTTP. O código utiliza um `DocumentClient` instância fornecida pelo enlace do Azure Cosmos DB para ler uma lista de documentos. O `DocumentClient` instância também poderia ser utilizada para operações de escrita.
+O exemplo a seguir mostra uma [ C# função de script](functions-reference-csharp.md) que recupera uma lista de documentos. A função é acionada por um pedido HTTP. O código usa uma instância de `DocumentClient` fornecida pela Associação de Azure Cosmos DB para ler uma lista de documentos. A instância de `DocumentClient` também pode ser usada para operações de gravação.
 
-Aqui está o *Function* ficheiro:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -885,19 +885,19 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Esta secção contém os exemplos seguintes:
 
-* [Acionador de fila, procura de ID de JSON](#queue-trigger-look-up-id-from-json-javascript)
-* [Acionador HTTP, procura de ID da cadeia de consulta](#http-trigger-look-up-id-from-query-string-javascript)
-* [Acionador HTTP, procura de ID de dados da rota](#http-trigger-look-up-id-from-route-data-javascript)
-* [Acionador da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
+* [Gatilho de fila, Pesquisar ID de JSON](#queue-trigger-look-up-id-from-json-javascript)
+* [Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta](#http-trigger-look-up-id-from-query-string-javascript)
+* [Gatilho HTTP, Pesquisar ID de dados de rota](#http-trigger-look-up-id-from-route-data-javascript)
+* [Gatilho de fila, obter vários documentos, usando SQLQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
 
 <a id="queue-trigger-look-up-id-from-json-javascript"></a>
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Gatilho de fila, Pesquisar ID de JSON
 
-O exemplo seguinte mostra um enlace de entrada do Cosmos DB num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma associação de entrada Cosmos DB em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função lê um único documento e atualiza o valor de texto do documento.
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -922,7 +922,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-O [configuração](#input---configuration) seção explica essas propriedades.
+A seção de [configuração](#input---configuration) explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -939,9 +939,9 @@ Eis o código JavaScript:
 
 ### <a name="http-trigger-look-up-id-from-query-string"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta
 
-A exemplo a seguir mostra um [função de JavaScript](functions-reference-node.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
-Aqui está o *Function* ficheiro:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -997,9 +997,9 @@ module.exports = function (context, req, toDoItem) {
 
 ### <a name="http-trigger-look-up-id-from-route-data"></a>Gatilho HTTP, Pesquisar ID de dados de rota
 
-A exemplo a seguir mostra um [função de JavaScript](functions-reference-node.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [função JavaScript](functions-reference-node.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Essa ID é usada para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
-Aqui está o *Function* ficheiro:
+Este é o arquivo *Function. JSON* :
 
 ```json
 {
@@ -1056,11 +1056,11 @@ module.exports = function (context, req, toDoItem) {
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Gatilho de fila, obter vários documentos, usando SQLQuery
 
-O exemplo seguinte mostra um enlace de entrada do Azure Cosmos DB num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função obtém vários documentos especificados por uma consulta SQL, com um acionador de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma associação de entrada Azure Cosmos DB em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função obtém vários documentos especificados por uma consulta SQL, com um acionador de fila para personalizar os parâmetros de consulta.
 
-O acionador de fila fornece um parâmetro `departmentId`. Uma mensagem de fila de `{ "departmentId" : "Finance" }` retornaria todos os registos para o departamento financeiro.
+O gatilho de fila fornece um parâmetro `departmentId`. Uma mensagem da fila de `{ "departmentId" : "Finance" }` retornaria todos os registros do departamento financeiro.
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -1074,7 +1074,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-O [configuração](#input---configuration) seção explica essas propriedades.
+A seção de [configuração](#input---configuration) explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -1095,9 +1095,9 @@ Eis o código JavaScript:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atributo.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) .
 
-Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que pode configurar, consulte [a seguinte secção de configuração](#input---configuration).
+Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que você pode configurar, consulte [a seção de configuração a seguir](#input---configuration).
 
 # <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
@@ -1111,18 +1111,18 @@ Não há suporte para atributos pelo JavaScript.
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `DocumentDB`.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || Tem de ser definido como `documentdb`.        |
-|**direção**     || Tem de ser definido como `in`.         |
-|**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
-|**databaseName** |**DatabaseName** |A base de dados que contém o documento.        |
+|**tipo**     || Deve ser definido como `documentdb`.        |
+|**direção**     || Deve ser definido como `in`.         |
+|**nomes**     || Nome do parâmetro de enlace que representa o documento na função.  |
+|**NomeDoBancoDeDados** |**NomeDoBancoDeDados** |A base de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
-|**id**    | **Id** | O ID do documento a obter. Esta propriedade suporta [expressões de enlace](./functions-bindings-expressions-patterns.md). Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir individualmente, toda a coleção é recuperada. |
-|**sqlQuery**  |**SqlQuery**  | Uma consulta de SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade suporta ligações de tempo de execução, tal como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir individualmente, toda a coleção é recuperada.|
-|**ligação**     |**ConnectionStringSetting**|O nome da definição de aplicação que contém a cadeia de ligação do Azure Cosmos DB.        |
+|**sessão**    | **Id** | O ID do documento a obter. Esta propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina as propriedades **ID** e **SQLQuery** . Se não definir individualmente, toda a coleção é recuperada. |
+|**sqlQuery**  |**SqlQuery**  | Uma consulta de SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade oferece suporte a associações de tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina as propriedades **ID** e **SQLQuery** . Se não definir individualmente, toda a coleção é recuperada.|
+|**conexão**     |**ConnectionStringSetting**|O nome da definição de aplicação que contém a cadeia de ligação do Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor de chave de partição para a pesquisa. Pode incluir parâmetros de ligação.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1139,7 +1139,7 @@ Quando a função é encerrada com êxito, todas as alterações feitas no docum
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-As atualizações não são feitas automaticamente após a saída da função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Consulte o [exemplo de entrada](#input).
+As atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo de entrada](#input).
 
 ---
 
@@ -1154,7 +1154,7 @@ Esta secção contém os exemplos seguintes:
 * Acionador de fila, um de gravação de documentos
 * Gatilho de fila, gravar documentos usando `IAsyncCollector`
 
-Consulte os exemplos simples `ToDoItem` tipo:
+Os exemplos se referem a um tipo simples de `ToDoItem`:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -1169,7 +1169,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="queue-trigger-write-one-doc"></a>Acionador de fila, um de gravação de documentos
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que adiciona um documento a uma base de dados, com dados fornecidos na mensagem do armazenamento de filas.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que adiciona um documento a um banco de dados do, usando o dado fornecido na mensagem do armazenamento de filas.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -1200,7 +1200,7 @@ namespace CosmosDBSamplesV1
 
 ### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Acionador de fila, docs escrita usando IAsyncCollector
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que adiciona uma coleção de documentos para uma base de dados, com dados fornecidos numa mensagem de fila JSON.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que adiciona uma coleção de documentos a um banco de dados do, usando aqueles fornecidos em uma mensagem de fila JSON.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -1242,7 +1242,7 @@ Esta secção contém os exemplos seguintes:
 
 ### <a name="queue-trigger-write-one-doc"></a>Acionador de fila, um de gravação de documentos
 
-O exemplo seguinte mostra uma saída de Azure Cosmos DB ligando uma *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função usa um enlace de entrada de fila de uma fila que recebe JSON no seguinte formato:
+O exemplo a seguir mostra uma associação de saída Azure Cosmos DB em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função usa um enlace de entrada de fila de uma fila que recebe JSON no seguinte formato:
 
 ```json
 {
@@ -1263,7 +1263,7 @@ A função cria documentos do Azure Cosmos DB no seguinte formato para cada regi
 }
 ```
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -1277,7 +1277,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-O [configuração](#output---configuration) seção explica essas propriedades.
+A seção de [configuração](#output---configuration) explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -1304,9 +1304,9 @@ Aqui está o código de script do c#:
 
 ### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Acionador de fila, docs escrita usando IAsyncCollector
 
-Para criar vários documentos, é possível vincular à `ICollector<T>` ou `IAsyncCollector<T>` onde `T` é um dos tipos suportados.
+Para criar vários documentos, você pode associar a `ICollector<T>` ou `IAsyncCollector<T>` em que `T` é um dos tipos com suporte.
 
-Este exemplo se refere a uma simples `ToDoItem` tipo:
+Este exemplo refere-se a um tipo de `ToDoItem` simples:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -1363,7 +1363,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo seguinte mostra uma saída de Azure Cosmos DB ligando um *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função usa um enlace de entrada de fila de uma fila que recebe JSON no seguinte formato:
+O exemplo a seguir mostra uma associação de saída Azure Cosmos DB em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função usa um enlace de entrada de fila de uma fila que recebe JSON no seguinte formato:
 
 ```json
 {
@@ -1384,7 +1384,7 @@ A função cria documentos do Azure Cosmos DB no seguinte formato para cada regi
 }
 ```
 
-Eis a vinculação de dados a *Function* ficheiro:
+Aqui estão os dados de associação no arquivo *Function. JSON* :
 
 ```json
 {
@@ -1398,7 +1398,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-O [configuração](#output---configuration) seção explica essas propriedades.
+A seção de [configuração](#output---configuration) explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -1422,9 +1422,9 @@ Eis o código JavaScript:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atributo.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) .
 
-Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que pode configurar, consulte [de saída - configuração](#output---configuration). Aqui está um `DocumentDB` exemplo de atributo numa assinatura do método:
+Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [saída-configuração](#output---configuration). Aqui está um exemplo de atributo `DocumentDB` em uma assinatura de método:
 
 ```csharp
     [FunctionName("QueueToDocDB")]
@@ -1450,25 +1450,25 @@ Não há suporte para atributos pelo JavaScript.
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `DocumentDB`.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || Tem de ser definido como `documentdb`.        |
-|**direção**     || Tem de ser definido como `out`.         |
-|**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
-|**databaseName** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
+|**tipo**     || Deve ser definido como `documentdb`.        |
+|**direção**     || Deve ser definido como `out`.         |
+|**nomes**     || Nome do parâmetro de enlace que representa o documento na função.  |
+|**NomeDoBancoDeDados** | **NomeDoBancoDeDados**|A base de dados que contém a coleção onde o documento é criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção em que o documento é criado. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Um valor booleano para indicar se a coleção é criada quando não existe. A predefinição é *false* porque novas coleções são criadas com débito reservado, que tem custos implicações. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` é true, define o caminho de chave de partição para a coleção criada.|
-|**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` for verdadeira, define a [débito](../cosmos-db/set-throughput.md) da coleção criada.|
-|**ligação**    |**ConnectionStringSetting** |O nome da definição de aplicação que contém a cadeia de ligação do Azure Cosmos DB.        |
+|**createIfNotExists**  |**CreateIfNotExists**    | Um valor booleano para indicar se a coleção é criada quando não existe. O padrão é *false* porque novas coleções são criadas com taxa de transferência reservada, que tem implicações de custo. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` é true, define o caminho da chave de partição para a coleção criada.|
+|**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` é true, define a [taxa de transferência](../cosmos-db/set-throughput.md) da coleção criada.|
+|**conexão**    |**ConnectionStringSetting** |O nome da definição de aplicação que contém a cadeia de ligação do Azure Cosmos DB.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Por predefinição, quando escreve para o parâmetro de saída na sua função, um documento é criado na base de dados. Este documento tem um GUID gerado automaticamente, como o ID do documento. Pode especificar o ID do documento do documento de saída especificando o `id` propriedade no objeto JSON passado para o parâmetro de saída.
+Por predefinição, quando escreve para o parâmetro de saída na sua função, um documento é criado na base de dados. Este documento tem um GUID gerado automaticamente, como o ID do documento. Você pode especificar a ID do documento de saída especificando a propriedade `id` no objeto JSON passado para o parâmetro de saída.
 
 > [!Note]
 > Quando especificar o ID de um documento existente, seja substituída pelo novo documento de saída.
@@ -1477,12 +1477,12 @@ Por predefinição, quando escreve para o parâmetro de saída na sua função, 
 
 | Vínculo | Referência |
 |---|---|
-| CosmosDB | [Códigos de erro do cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Códigos de erro CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre a base de dados sem servidor computação com o Cosmos DB](../cosmos-db/serverless-computing-database.md)
-* [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+* [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](../cosmos-db/serverless-computing-database.md)
+* [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]
