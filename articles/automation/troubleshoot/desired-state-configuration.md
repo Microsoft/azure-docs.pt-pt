@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting issues with Azure Automation Desired State Configuration (DSC)
-description: This article provides information on troubleshooting Desired State Configuration (DSC)
+title: Solucionando problemas com a DSC (configuração de estado desejado) da automação do Azure
+description: Este artigo fornece informações sobre como solucionar problemas de DSC (configuração de estado desejado)
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -16,40 +16,40 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231542"
 ---
-# <a name="troubleshoot-desired-state-configuration-dsc"></a>Troubleshoot Desired State Configuration (DSC)
+# <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
-This article provides information on troubleshooting issues with Desired State Configuration (DSC).
+Este artigo fornece informações sobre como solucionar problemas com a DSC (configuração de estado desejado).
 
-## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Steps to troubleshoot Desired State Configuration (DSC)
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Etapas para solucionar problemas de DSC (configuração de estado desejado)
 
-When you have errors compiling or deploying configurations in Azure State Configuration, here are a few steps to help you diagnose the issue.
+Quando você tem erros de compilação ou implantação de configurações na configuração de estado do Azure, aqui estão algumas etapas para ajudá-lo a diagnosticar o problema.
 
-1. **Ensure your configuration compiles successfully on your local machine:**  Azure State Configuration is built on PowerShell DSC. You can find the documentation for the DSC language and syntax in the [PowerShell DSC Docs](https://docs.microsoft.com/powershell/scripting/overview).
+1. **Verifique se a configuração foi compilada com êxito no computador local:**  A configuração de estado do Azure é criada na DSC do PowerShell. Você pode encontrar a documentação para a linguagem DSC e a sintaxe nos [documentos DSC do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
-   By compiling your DSC configuration on your local machine you can discover and resolve common errors, such as:
+   Ao compilar sua configuração DSC em seu computador local, você pode descobrir e resolver erros comuns, como:
 
-   - **Missing Modules**
-   - **Syntax Errors**
-   - **Logic Errors**
+   - **Módulos ausentes**
+   - **Erros de sintaxe**
+   - **Erros lógicos**
 
-2. **View DSC logs on your Node:** If your configuration compiles successfully, but fails when applied to a Node, you can find detailed information in the logs. For information about where to find DSC logs, see [Where are the DSC Event Logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+2. **Exibir logs de DSC em seu nó:** Se sua configuração for compilada com êxito, mas falhar quando aplicada a um nó, você poderá encontrar informações detalhadas nos logs. Para obter informações sobre onde encontrar logs de DSC, consulte [onde estão os logs de eventos de DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Furthermore, the [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) can assist you in parsing detailed information from the DSC logs. If you contact support, they will require these logs to diagnose your issue.
+   Além disso, o [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) pode ajudá-lo a analisar informações detalhadas dos logs de DSC. Se você contatar o suporte, eles precisarão desses logs para diagnosticar o problema.
 
-   You can install **xDscDiagnostics** on your local machine using the instructions found under [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+   Você pode instalar o **xDscDiagnostics** em seu computador local usando as instruções encontradas em [instalar o módulo de versão estável](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-   To install **xDscDiagnostics** on your Azure machine, you can use [az vm run-command](/cli/azure/vm/run-command) or [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). You can also use the **Run command** option from the portal, by following the steps found in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+   Para instalar o **xDscDiagnostics** em seu computador do Azure, você pode usar [AZ VM execute-Command](/cli/azure/vm/run-command) ou [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Você também pode usar a opção **executar comando** do portal, seguindo as etapas encontradas em [executar scripts do PowerShell em sua VM do Windows com o comando executar](../../virtual-machines/windows/run-command.md).
 
-   For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), as well as [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Ensure your Nodes and Automation workspace have the required modules:** Desired State Configuration depends on modules installed on the Node.  When using Azure Automation State Configuration, import any required modules into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules.  For more information, see, [Troubleshoot Modules](shared-resources.md#modules).
+   Para obter informações sobre como usar o **xDscDiagnostics**, consulte [usando o xDscDiagnostics para analisar os logs de DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), bem como os [cmdlets do xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+3. **Verifique se os nós e o espaço de trabalho de automação têm os módulos necessários:** A configuração de estado desejado depende dos módulos instalados no nó.  Ao usar a configuração de estado da automação do Azure, importe os módulos necessários para sua conta de automação usando as etapas listadas em [Importar módulos](../shared-resources/modules.md#import-modules). As configurações também podem ter uma dependência em versões específicas de módulos.  Para obter mais informações, consulte [solucionar problemas de módulos](shared-resources.md#modules).
 
-## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Common errors when working with Desired State Configuration (DSC)
+## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com a DSC (configuração de estado desejado)
 
-### <a name="unsupported-characters"></a>Scenario: A configuration with special characters cannot be deleted from the portal
+### <a name="unsupported-characters"></a>Cenário: uma configuração com caracteres especiais não pode ser excluída do portal
 
 #### <a name="issue"></a>Problema
 
-When attempting to delete a DSC configuration from the portal, you see the following error:
+Ao tentar excluir uma configuração DSC do portal, você verá o seguinte erro:
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -57,19 +57,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>Causa
 
-This error is a temporary issue that is planned to be resolved.
+Esse erro é um problema temporário que está planejado para ser resolvido.
 
 #### <a name="resolution"></a>Resolução
 
-* Use the Az Cmdlet "Remove-AzAutomationDscConfiguration" to delete the configuration.
-* The documentation for this cmdlet hasn't been updated yet.  Until then, refer to the documentation for the AzureRM module.
+* Use o cmdlet AZ "Remove-AzAutomationDscConfiguration" para excluir a configuração.
+* A documentação deste cmdlet ainda não foi atualizada.  Até lá, consulte a documentação do módulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Scenario: Failed to register Dsc Agent
+### <a name="failed-to-register-agent"></a>Cenário: falha ao registrar o agente DSC
 
 #### <a name="issue"></a>Problema
 
-When attempting to run `Set-DscLocalConfigurationManager` or another DSC cmdlet you receive the error:
+Ao tentar executar `Set-DscLocalConfigurationManager` ou outro cmdlet de DSC, você receberá o erro:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -84,17 +84,17 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>Causa
 
-This error is normally caused by a firewall, the machine being behind a proxy server, or other network errors.
+Esse erro normalmente é causado por um firewall, o computador está atrás de um servidor proxy ou outros erros de rede.
 
 #### <a name="resolution"></a>Resolução
 
-Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
+Verifique se seu computador tem acesso aos pontos de extremidade apropriados para o Azure DSC de Automação e tente novamente. Para obter uma lista de portas e endereços necessários, consulte [planejamento de rede](../automation-dsc-overview.md#network-planning)
 
-### <a name="failed-not-found"></a>Scenario: Node is in failed status with a "Not found" error
+### <a name="failed-not-found"></a>Cenário: o nó está em status de falha com um erro "não encontrado"
 
 #### <a name="issue"></a>Problema
 
-The node has a report with **Failed** status and containing the error:
+O nó tem um relatório com status de **falha** e que contém o erro:
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -102,21 +102,21 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 #### <a name="cause"></a>Causa
 
-This error typically occurs when the node is assigned to a configuration name (for example, ABC) instead of a node configuration name (for example, ABC.WebServer).
+Esse erro normalmente ocorre quando o nó é atribuído a um nome de configuração (por exemplo, ABC) em vez de um nome de configuração de nó (por exemplo, ABC. Servidor da Web).
 
 #### <a name="resolution"></a>Resolução
 
-* Make sure that you're assigning the node with "node configuration name" and not the "configuration name".
-* You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet.
+* Certifique-se de que você está atribuindo o nó com "nome de configuração do nó" e não o "nome da configuração".
+* Você pode atribuir uma configuração de nó a um nó usando portal do Azure ou com um cmdlet do PowerShell.
 
-  * To assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.
-  * To assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
+  * Para atribuir uma configuração de nó a um nó usando portal do Azure, abra a página **nós DSC** , selecione um nó e clique no botão **atribuir configuração de nó** .
+  * Para atribuir uma configuração de nó a um nó usando o cmdlet do PowerShell, use o cmdlet **set-AzureRmAutomationDscNode**
 
-### <a name="no-mof-files"></a>Scenario: No node configurations (MOF files) were produced when a configuration is compiled
+### <a name="no-mof-files"></a>Cenário: não foram produzidas configurações de nó (Arquivos MOF) quando uma configuração é compilada
 
 #### <a name="issue"></a>Problema
 
-Your DSC compilation job suspends with the error:
+Seu trabalho de compilação DSC é suspenso com o erro:
 
 ```error
 Compilation completed successfully, but no node configuration.mofs were generated.
@@ -124,20 +124,20 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Causa
 
-When the expression following the **Node** keyword in the DSC configuration evaluates to `$null`, then no node configurations are produced.
+Quando a expressão após a palavra-chave **node** na configuração DSC é avaliada como `$null`, nenhuma configuração de nó é produzida.
 
 #### <a name="resolution"></a>Resolução
 
-Any of the following solutions fix the problem:
+Qualquer uma das soluções a seguir corrige o problema:
 
-* Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
-* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md).
+* Certifique-se de que a expressão ao lado da palavra-chave **node** na definição de configuração não esteja avaliando como $NULL.
+* Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que você está passando os valores esperados que a configuração requer do [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck "in progress" state
+### <a name="dsc-in-progress"></a>Cenário: o relatório do nó DSC fica preso no estado "em andamento"
 
 #### <a name="issue"></a>Problema
 
-The DSC agent outputs:
+O agente DSC gera:
 
 ```error
 No instance found with given property values
@@ -145,17 +145,17 @@ No instance found with given property values
 
 #### <a name="cause"></a>Causa
 
-You have upgraded your WMF version and have corrupted WMI.
+Você atualizou a versão do WMF e corrompeu o WMI.
 
 #### <a name="resolution"></a>Resolução
 
-To fix the issue, follow the instructions in the [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) article.
+Para corrigir o problema, siga as instruções no artigo [problemas conhecidos e limitações do DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
-### <a name="issue-using-credential"></a>Scenario: Unable to use a credential in a DSC configuration
+### <a name="issue-using-credential"></a>Cenário: não é possível usar uma credencial em uma configuração DSC
 
 #### <a name="issue"></a>Problema
 
-Your DSC compilation job was suspended with the error:
+Seu trabalho de compilação DSC foi suspenso com o erro:
 
 ```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
@@ -163,17 +163,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>Causa
 
-You've used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
+Você usou uma credencial em uma configuração, mas não forneceu **ConfigurationData** adequados para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó.
 
 #### <a name="resolution"></a>Resolução
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
+* Certifique-se de passar o **ConfigurationData** apropriado para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no Azure DSC de automação](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
-### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
+### <a name="failure-processing-extension"></a>Cenário: integração da extensão de DSC, erro "extensão de processamento de falha"
 
 #### <a name="issue"></a>Problema
 
-When onboarding using DSC extension, a failure occurs containing the error:
+Ao realizar a integração usando a extensão de DSC, ocorre uma falha que contém o erro:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -181,18 +181,18 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>Causa
 
-This error typically occurs when the node is assigned a node configuration name that does not exist in the service.
+Esse erro normalmente ocorre quando o nó recebe um nome de configuração de nó que não existe no serviço.
 
 #### <a name="resolution"></a>Resolução
 
-* Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
-* You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
+* Certifique-se de que você está atribuindo o nó com um nome de configuração de nó que corresponda exatamente ao nome no serviço.
+* Você pode optar por não incluir o nome da configuração do nó, o que fará com que a integração do nó, mas não a atribuição de uma configuração de nó
 
-### <a name="failure-linux-temp-noexec"></a>Scenario: Applying a configuration in Linux, a failure occurs with a general error
+### <a name="failure-linux-temp-noexec"></a>Cenário: aplicando uma configuração no Linux, uma falha ocorre com um erro geral
 
 #### <a name="issue"></a>Problema
 
-When applying a configuration in Linux, a failure occurs containing the error:
+Ao aplicar uma configuração no Linux, ocorre uma falha que contém o erro:
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -200,32 +200,32 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-Customers have identified that if the `/tmp` location is set to `noexec`, the current version of DSC will fail to apply configurations.
+Os clientes identificaram que, se o local de `/tmp` for definido como `noexec`, a versão atual do DSC não conseguirá aplicar as configurações.
 
 #### <a name="resolution"></a>Resolução
 
-* Remove the `noexec` option from the `/tmp` location.
+* Remova a opção `noexec` do local `/tmp`.
 
-### <a name="compilation-node-name-overlap"></a>Scenario: Node configuration names that overlap could result in bad release
+### <a name="compilation-node-name-overlap"></a>Cenário: nomes de configuração de nó que se sobrepõem podem resultar em uma versão incorreta
 
 #### <a name="issue"></a>Problema
 
-If a single configuration script is used to generate multiple node configurations, and some of the node configurations have a name that is a subset of others, an issue in the compilation service could result in assigning the wrong configuration.  This only occurs when using a single script to generate configurations with configuration data per node, and only when the name overlap occurs at the beginning of the string.
+Se um único script de configuração for usado para gerar várias configurações de nó e algumas das configurações de nó tiverem um nome que seja um subconjunto de outros, um problema no serviço de compilação poderá resultar na atribuição da configuração errada.  Isso ocorre apenas ao usar um único script para gerar configurações com dados de configuração por nó e somente quando a sobreposição de nome ocorre no início da cadeia de caracteres.
 
-Example, if a single configuration script is used to generate configurations based on node data passed as a hashtable using cmdlets, and the node data includes a server named "server" and "1server".
+Por exemplo, se um único script de configuração for usado para gerar configurações com base nos dados do nó passados como uma tabela de hash usando cmdlets e os dados do nó incluírem um servidor chamado "Server" e "1server".
 
 #### <a name="cause"></a>Causa
 
-Known issue with the compilation service.
+Problema conhecido com o serviço de compilação.
 
 #### <a name="resolution"></a>Resolução
 
-The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
+A melhor solução alternativa seria compilar localmente ou em um pipeline de CI/CD e carregar os arquivos MOF diretamente no serviço.  Se a compilação no serviço for um requisito, a melhor solução alternativa seria dividir os trabalhos de compilação para que não haja sobreposição em nomes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

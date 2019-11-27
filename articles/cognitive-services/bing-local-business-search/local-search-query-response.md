@@ -1,7 +1,7 @@
 ---
-title: Sending and using API queries and responses - Bing Local Business Search
+title: Enviando e usando respostas e consultas de API – pesquisa de negócios local do Bing
 titleSuffix: Azure Cognitive Services
-description: Use this article to learn how to send and use search queries with the Bing Local Business Search API.
+description: Use este artigo para aprender a enviar e usar consultas de pesquisa com a API de pesquisa de negócios local do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,27 +17,27 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326728"
 ---
-# <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Sending and using Bing Local Business Search API queries and responses
+# <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Enviando e usando consultas e respostas da API de pesquisa de negócios local do Bing
 
-You can get local results from the Bing Local Business Search API by sending a search query to its endpoint and including the `Ocp-Apim-Subscription-Key` header, which is required. Along with available [headers](local-search-reference.md#headers) and [parameters](local-search-reference.md#query-parameters), Searches can be customized by specifying [geographic boundaries](specify-geographic-search.md) for the area to be searched, and the [categories](local-search-query-response.md) of places returned.
+Você pode obter resultados locais da API de pesquisa de negócios local do Bing enviando uma consulta de pesquisa para seu ponto de extremidade e incluindo o cabeçalho `Ocp-Apim-Subscription-Key`, que é necessário. Juntamente com os [cabeçalhos](local-search-reference.md#headers) e [parâmetros](local-search-reference.md#query-parameters)disponíveis, as pesquisas podem ser personalizadas especificando [limites geográficos](specify-geographic-search.md) para a área a ser pesquisada e as [categorias](local-search-query-response.md) de lugares retornadas.
 
-## <a name="creating-a-request"></a>Creating a request
+## <a name="creating-a-request"></a>Criando uma solicitação
 
-To send a request to the Bing Local Business Search API, append a search term to the `q=` parameter before adding it to the API endpoint, and including the `Ocp-Apim-Subscription-Key` header. Por exemplo:
+Para enviar uma solicitação para a API de pesquisa de negócios local do Bing, acrescente um termo de pesquisa ao parâmetro `q=` antes de adicioná-lo ao ponto de extremidade da API e incluindo o cabeçalho `Ocp-Apim-Subscription-Key`. Por exemplo:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
-The full request URL syntax is shown below. See the Bing Local Business Search API [quickstarts](quickstarts/local-quickstart.md), and reference content for [headers](local-search-reference.md#headers) and [parameters](local-search-reference.md#query-parameters) for more information on sending requests. 
+A sintaxe da URL de solicitação completa é mostrada abaixo. Consulte os [guias de início rápido](quickstarts/local-quickstart.md)da API de pesquisa de negócios local do Bing e [conteúdo de](local-search-reference.md#query-parameters) [referência para obter](local-search-reference.md#headers) mais informações sobre como enviar solicitações. 
 
-For information on local search categories, see [Search categories for the Bing Local Business Search API](local-categories.md).
+Para obter informações sobre categorias de pesquisa local, consulte [categorias de pesquisa para a API de pesquisa de negócios local do Bing](local-categories.md).
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
 ```
 
-## <a name="using-responses"></a>Using responses
+## <a name="using-responses"></a>Usando respostas
 
-JSON responses from the Bing Local Business Search API contain a `SearchResponse` object. The API will return relevant search results in the `places` field. if no results are found, the `places` field will not be included in the response.
+As respostas JSON da API de pesquisa comercial local do Bing contêm um objeto `SearchResponse`. A API retornará resultados de pesquisa relevantes no campo `places`. Se nenhum resultado for encontrado, o campo `places` não será incluído na resposta.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -52,29 +52,29 @@ JSON responses from the Bing Local Business Search API contain a `SearchResponse
 . . . 
 ```
 
-### <a name="search-result-attributes"></a>Search result attributes
+### <a name="search-result-attributes"></a>Atributos de resultado da pesquisa
 
-The JSON results returned by the API include the following attributes:
+Os resultados JSON retornados pela API incluem os seguintes atributos:
 
 * _type
-* address
+* corrigir
 * entityPresentationInfo
-* geo
+* graficamente
 * ID
 * nome
 * routeablePoint
-* telephone
+* Ligue
 * url
 
-For general information about headers, parameters, market codes, response objects, errors, etc., see the [Bing Local Search API v7](local-search-reference.md) reference.
+Para obter informações gerais sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência a [API de pesquisa local do Bing v7](local-search-reference.md) .
 
 > [!NOTE]
-> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Local Search API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature. 
+> Você, ou um terceiro em seu nome, não pode usar, reter, armazenar, colocar em cache, compartilhar ou distribuir quaisquer dados da API de pesquisa local com a finalidade de testar, desenvolver, treinar, distribuir ou disponibilizar qualquer serviço ou recurso que não seja da Microsoft. 
 
 
-## <a name="example-json-response"></a>Example JSON response
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
-The following JSON response includes search results specified by the query `?q=restaurant+in+Bellevue`.
+A resposta JSON a seguir inclui os resultados da pesquisa especificados pelo `?q=restaurant+in+Bellevue`de consulta.
 
 ```json
 Vary: Accept-Encoding
@@ -141,13 +141,13 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
  
 ```
 
-## <a name="throttling-requests"></a>Pedidos de limitação
+## <a name="throttling-requests"></a>Limitar pedidos
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Local Business Search quickstart](quickstarts/local-quickstart.md)
-- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
-- [Local Business Search Node quickstart](quickstarts/local-search-node-quickstart.md)
-- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)
+- [Início rápido de pesquisa comercial local](quickstarts/local-quickstart.md)
+- [Início rápido do Java da pesquisa de negócios local](quickstarts/local-search-java-quickstart.md)
+- [Início rápido do nó de pesquisa comercial local](quickstarts/local-search-node-quickstart.md)
+- [Início rápido do Python de pesquisa comercial local](quickstarts/local-search-python-quickstart.md)

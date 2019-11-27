@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 

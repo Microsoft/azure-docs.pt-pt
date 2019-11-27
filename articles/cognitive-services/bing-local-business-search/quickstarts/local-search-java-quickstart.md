@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Send a query to the API using Java - Bing Local Business Search
+title: Início rápido – enviar uma consulta para a API usando a pesquisa de negócios local do Bing do Java
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service.
+description: Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,23 +17,23 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326737"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Quickstart: Send a query to the Bing Local Business Search API using Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Início rápido: Enviar uma consulta para a API de pesquisa de negócios local do Bing usando o Java
 
-Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in Java, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure. Embora esse aplicativo simples seja escrito em Java, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer solicitações HTTP e analisar JSON.
 
-This example application gets local response data from the API for the search query `hotel in Bellevue`.
+Este aplicativo de exemplo obtém dados de resposta locais da API para a consulta de pesquisa `hotel in Bellevue`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* O [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. You will need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Você precisará da chave de acesso fornecida ao ativar sua avaliação gratuita.  Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-This example application gets local response data from the query for a *hotel in Bellevue*.
+Este aplicativo de exemplo obtém dados de resposta locais da consulta para um *Hotel no Bellevue*.
 
-## <a name="create-the-request"></a>Create the request 
+## <a name="create-the-request"></a>Criar a solicitação 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "hotel in Bellevue".  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
+O código a seguir cria uma `WebRequest`, define o cabeçalho de chave de acesso e adiciona uma cadeia de caracteres de consulta para "Hotel in Bellevue".  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
 ```
     // construct URL of search request (endpoint + query string)
@@ -49,11 +49,11 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ```
 
-## <a name="run-the-complete-application"></a>Run the complete application
+## <a name="run-the-complete-application"></a>Executar o aplicativo completo
 
-The Bing Local Business Search API returns results from the Bing search engine.
+A API de pesquisa de negócios local do Bing retorna resultados do mecanismo de pesquisa do Bing.
 1. Transfira ou instale a biblioteca gson.
-2. Crie um novo projeto de Java no seu IDE ou editor favorito.
+2. Crie um novo projeto Java no seu IDE ou editor favorito.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
@@ -165,6 +165,6 @@ public class LocalSearchCls {
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Local Business Search quickstart](local-quickstart.md)
-- [Local Business Search Node quickstart](local-search-node-quickstart.md)
-- [Local Business Search Python quickstart](local-search-python-quickstart.md)
+- [Início rápido de pesquisa comercial local](local-quickstart.md)
+- [Início rápido do nó de pesquisa comercial local](local-search-node-quickstart.md)
+- [Início rápido do Python de pesquisa comercial local](local-search-python-quickstart.md)

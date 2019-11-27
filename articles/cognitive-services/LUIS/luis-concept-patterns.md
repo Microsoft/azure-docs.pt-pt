@@ -1,7 +1,7 @@
 ---
 title: Previsão de ajuda de padrões-LUIS
 titleSuffix: Azure Cognitive Services
-description: Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais.
+description: Um padrão permite-lhe obter maior precisão numa intenção sem fornecer demasiadas expressões.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -19,7 +19,7 @@ ms.lasthandoff: 11/21/2019
 ms.locfileid: "74280861"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
-Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 
+Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior precisão numa intenção sem fornecer demasiadas expressões. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Padrões de resolver a confiança de intenção baixa
 Considere uma aplicação de recursos humanos que os relatórios no organograma em relação a um funcionário. Dado o nome e a relação de um funcionário, LUIS retorne os funcionários envolvidos. Considere um funcionário, Tom, com um Gestor de Alice de nome e uma equipe de subordinados com o nome: Michael, Rebecca e Carl.
@@ -50,7 +50,7 @@ Um padrão destina-se principalmente a ajudar a previsão de intenções e funç
 Não espere ver uma previsão de entidade aprimorada se você recolher várias declarações em um único padrão. Para que as entidades simples sejam acionadas, você precisa adicionar declarações ou usar entidades de lista caso contrário, o padrão não será acionado.
 
 ## <a name="patterns-use-entity-roles"></a>Padrões de utilizam as funções de entidade
-Se dois ou mais entidades num padrão contextualmente estejam relacionadas, padrões de utilizam entidade [funções](luis-concept-roles.md) para extrair informações contextuais sobre entidades.  
+Se duas ou mais entidades em um padrão estiverem contextualmente relacionadas, os padrões usarão [funções](luis-concept-roles.md) de entidade para extrair informações contextuais sobre entidades.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de previsão com e sem padrões
 Tendo em conta suficiente expressões de exemplo, LUIS seria capaz de aumentar a confiança da previsão sem padrões. Padrões de aumentam a pontuação de confiança, sem ter de fornecer expressões com tantos.  
@@ -62,7 +62,7 @@ Um padrão é correspondido com base em detetar as entidades dentro o padrão em
 Você pode criar um aplicativo com tentativas que não têm nenhum exemplo de declarações, contanto que haja um padrão para cada tentativa. Para um aplicativo somente de padrão, o padrão não deve conter entidades aprendidas por computador, pois elas exigem um exemplo de declarações. 
 
 ## <a name="best-practices"></a>Melhores práticas
-Saiba mais [melhores práticas](luis-concept-best-practices.md).
+Conheça [as práticas recomendadas](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Sintaxe de padrão
 

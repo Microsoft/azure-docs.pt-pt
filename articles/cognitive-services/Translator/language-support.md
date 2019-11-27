@@ -122,13 +122,13 @@ O método transliterate dá suporte aos seguintes idiomas. No "to/from", "<-->" 
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
 | Guzarate | `gu`  | `Gujr` Guzerate | --> | `Latn` latino |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | `Latn` latino |
-| Hindi | `hi` | Devanagari `Deva` | <--> | `Latn` latino |
+| Hindi | `hi` | `Deva` de Devanágari | <--> | `Latn` latino |
 | Japonês | `ja` | `Jpan` japonesas | <--> | `Latn` latino |
 | Canarim | `kn` | `Knda` de Kannada | --> | `Latn` latino |
 | Malayalam | `ml` | `Mlym` malaiala | --> | `Latn` latino |
-| Marata | `mr` | Devanagari `Deva` | --> | `Latn` latino |
+| Marata | `mr` | `Deva` de Devanágari | --> | `Latn` latino |
 | Oriá | `or` | `Orya` odia | <--> | `Latn` latino |
-| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | `Latn` latino  |
+| Punjabi | `pa` | `Guru` Gurmukhi  | <--> | `Latn` latino  |
 | Sérvio (Cirílico) | `sr-Cyrl` | `Cyrl` cirílica  | --> | `Latn` latino |
 | Sérvio (Latim) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílica|
 | Tamil | `ta` | `Taml` Tamil | --> | `Latn` latino |

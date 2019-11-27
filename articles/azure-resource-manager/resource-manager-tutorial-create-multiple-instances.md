@@ -16,12 +16,12 @@ ms.locfileid: "74326524"
 
 Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
 
-![Azure Resource Manager creates multiple instances diagram](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Azure Resource Manager cria o diagrama de várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início rápido
+> * Abrir um modelo de Início Rápido
 > * Editar o modelo
 > * Implementar o modelo
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code com a extensão de ferramentas do Resource Manager. Consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 

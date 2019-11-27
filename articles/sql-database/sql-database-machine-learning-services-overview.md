@@ -1,6 +1,6 @@
 ---
-title: Machine Learning Services with R (preview)
-description: This article describes Azure SQL Database Machine Learning Services (with R) and explains how it works.
+title: Serviços de Machine Learning com R (visualização)
+description: Este artigo descreve o Serviços de Machine Learning do banco de dados SQL do Azure (com R) e explica como ele funciona.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -19,46 +19,46 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74462347"
 ---
-# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services with R (preview)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Banco de dados SQL do Azure Serviços de Machine Learning com R (visualização)
 
-Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
+Serviços de Machine Learning é um recurso do banco de dados SQL do Azure, usado para executar scripts R no banco de dados. O recurso inclui pacotes do Microsoft R para análise preditiva de alto desempenho e aprendizado de máquina. Os dados relacionais podem ser usados em scripts R por meio de procedimentos armazenados, o script T-SQL contendo instruções R ou o código R que contém o T-SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 > [!NOTE]
-> The preview is available for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Atualmente, a única linguagem suportada é R. Ainda não há suporte para Python neste momento.
+> A versão prévia está disponível para bancos de dados individuais e pools elásticos usando o modelo de compra baseado em vCore nas camadas de serviço de **uso geral** e crítico para os **negócios** . Nesta visualização inicial, não há suporte para a camada de serviço de **hiperescala** e para a opção de implantação de **instância gerenciada** . Atualmente, a única linguagem suportada é R. Ainda não há suporte para Python neste momento.
 >
-> The preview is currently available in the following regions: West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast.
+> A versão prévia está disponível atualmente nas seguintes regiões: Europa Ocidental, Europa Setentrional, oeste dos EUA 2, leste dos EUA, Sul EUA Central, norte EUA Central, Canadá central, Sudeste Asiático, sul da Índia e sudeste da Austrália.
 
-## <a name="what-you-can-do-with-r"></a>What you can do with R
+## <a name="what-you-can-do-with-r"></a>O que você pode fazer com o R
 
-Use the power of R language to deliver advanced analytics and machine learning in-database. This ability brings calculations and processing to where the data resides, eliminating the need to pull data across the network. Also, you can leverage the power of enterprise R packages to deliver advanced analytics at scale.
+Use o poder da linguagem R para fornecer análise avançada e aprendizado de máquina no banco de dados. Essa capacidade traz cálculos e processamento para onde residem os dados, eliminando a necessidade de efetuar pull de dados pela rede. Além disso, você pode aproveitar o poder dos pacotes de R corporativos para fornecer análises avançadas em escala.
 
-Machine Learning Services includes a base distribution of R, overlaid with enterprise R packages from Microsoft. Microsoft's R functions and algorithms are engineered for both scale and utility, delivering predictive analytics, statistical modeling, data visualizations, and leading-edge machine learning algorithms.
+A Serviços de Machine Learning inclui uma distribuição base de R, sobrepostas com pacotes de R Enterprise da Microsoft. As funções e os algoritmos do R da Microsoft são projetados para escala e utilitário, fornecendo análise preditiva, modelagem estatística, visualizações de dados e algoritmos de aprendizado de máquina de ponta.
 
-### <a name="r-packages"></a>R packages
+### <a name="r-packages"></a>Pacotes de R
 
-Most common open-source R packages are pre-installed in Machine Learning Services. The following R packages from Microsoft are also included:
+Os pacotes de R de software livre mais comuns são pré-instalados em Serviços de Machine Learning. Os seguintes pacotes do R da Microsoft também estão incluídos:
 
-| R package | Descrição|
+| Pacote de R | Descrição|
 |-|-|
-| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open is the enhanced distribution of R from Microsoft. It is a complete open-source platform for statistical analysis and data science. It is based on and 100% compatible with R, and includes additional capabilities for improved performance and reproducibility. |
-| [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR is the primary library for scalable R. Functions in this library are among the most widely used. Data transformations and manipulation, statistical summarization, visualization, and many forms of modeling and analyses are found in these libraries. Additionally, functions in these libraries automatically distribute workloads across available cores for parallel processing, with the ability to work on chunks of data that are coordinated and managed by the calculation engine. |
-| [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML adds machine learning algorithms to create custom models for text analysis, image analysis, and sentiment analysis. |
+| [Microsoft R Open](https://mran.microsoft.com/rro) | O Microsoft R Open é a distribuição aprimorada do R da Microsoft. É uma plataforma de software livre completa para análise estatística e ciência de dados. Ele é baseado em e 100% compatível com o R e inclui recursos adicionais para melhorar o desempenho e o reprodução. |
+| [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR é a biblioteca principal para R escalonáveis. as funções nessa biblioteca estão entre as mais amplamente usadas. Transformações e manipulação de dados, Resumo Estatístico, visualização e muitas formas de modelagem e análise são encontrados nessas bibliotecas. Além disso, as funções nessas bibliotecas distribuem automaticamente cargas de trabalho entre núcleos disponíveis para processamento paralelo, com a capacidade de trabalhar em partes de dados que são coordenadas e gerenciadas pelo mecanismo de cálculo. |
+| [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | O MicrosoftML adiciona algoritmos de aprendizado de máquina para criar modelos personalizados para análise de texto, análise de imagem e análise de sentimentos. |
 
-In addition to the pre-installed packages, you can [install additional packages](sql-database-machine-learning-services-add-r-packages.md).
+Além dos pacotes pré-instalados, você pode [instalar pacotes adicionais](sql-database-machine-learning-services-add-r-packages.md).
 
 <a name="signup"></a>
 
-## <a name="sign-up-for-the-preview"></a>Inscreva-se na pré-visualização
+## <a name="sign-up-for-the-preview"></a>Inscrever-se na pré-visualização
 
 > [!IMPORTANT]
-> Sign up for Azure SQL Database Machine Learning Services (preview) is currently closed.
+> Inscreva-se no Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia) está fechado no momento.
 
-Machine Learning Services with R is not recommended for production workload during the preview.
+Serviços de Machine Learning com R não é recomendável para a carga de trabalho de produção durante a visualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- See the [key differences from SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md).
-- To learn how to use R to query Azure SQL Database Machine Learning Services (preview), see the [Quickstart guide](sql-database-connect-query-r.md).
-- To get started with some simple R scripts, see [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md).
+- Consulte as [principais diferenças de SQL Server serviços de Machine Learning](sql-database-machine-learning-services-differences.md).
+- Para saber como usar o R para consultar o Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia), consulte o [Guia de início rápido](sql-database-connect-query-r.md).
+- Para começar com alguns scripts R simples, consulte [criar e executar scripts r simples no banco de dados SQL do Azure serviços de Machine Learning (versão prévia)](sql-database-quickstart-r-create-script.md).

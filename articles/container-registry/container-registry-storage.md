@@ -1,6 +1,6 @@
 ---
-title: Container image storage
-description: Details on how your Docker container images are stored in Azure Container Registry, including security, redundancy, and capacity.
+title: Armazenamento de imagem de contêiner
+description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no registro de contêiner do Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
 ms.date: 03/21/2018
 ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
@@ -10,43 +10,43 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456202"
 ---
-# <a name="container-image-storage-in-azure-container-registry"></a>Container image storage in Azure Container Registry
+# <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contêiner no registro de contêiner do Azure
 
-Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry benefits from advanced Azure storage features like encryption-at-rest for image data security and geo-redundancy for image data protection. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
+Cada registro de contêiner do Azure [básico, Standard e Premium](container-registry-skus.md) se beneficia dos recursos avançados de armazenamento do Azure, como criptografia em repouso para segurança de dados de imagem e redundância geográfica para proteção de dados de imagem. As seções a seguir descrevem os recursos e os limites do armazenamento de imagem no ACR (registro de contêiner do Azure).
 
-## <a name="encryption-at-rest"></a>Encryption-at-rest
+## <a name="encryption-at-rest"></a>Criptografia em repouso
 
-All container images in your registry are encrypted at rest. Azure automatically encrypts an image before storing it, and decrypts it on-the-fly when you or your applications and services pull the image.
+Todas as imagens de contêiner em seu registro são criptografadas em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e a descriptografa imediatamente quando você ou seus aplicativos e serviços efetuam pull da imagem.
 
 ## <a name="geo-redundant-storage"></a>Armazenamento georredundante
 
-Azure uses a geo-redundant storage scheme to guard against loss of your container images. Azure Container Registry automatically replicates your container images to multiple geographically distant data centers, preventing their loss in the event of a regional storage failure.
+O Azure usa um esquema de armazenamento com redundância geográfica para proteger contra perda de suas imagens de contêiner. O registro de contêiner do Azure replica automaticamente suas imagens de contêiner para vários data centers distantes geograficamente, evitando sua perda no caso de uma falha de armazenamento regional.
 
 ## <a name="geo-replication"></a>Georreplicação
 
-For scenarios requiring even more high-availability assurance, consider using the [geo-replication](container-registry-geo-replication.md) feature of Premium registries. Geo-replication helps guard against losing access to your registry in the event of a *total* regional failure, not just a storage failure. Geo-replication provides other benefits, too, like network-close image storage for faster pushes and pulls in distributed development or deployment scenarios.
+Para cenários que exigem ainda mais garantia de alta disponibilidade, considere o uso do recurso de [replicação geográfica](container-registry-geo-replication.md) de registros Premium. A replicação geográfica ajuda a proteger contra a perda de acesso ao registro no caso de uma falha regional *total* , não apenas uma falha de armazenamento. A replicação geográfica também fornece outros benefícios, como o armazenamento de imagem de fechamento de rede para envios por push e pull mais rápidos em cenários de desenvolvimento ou implantação distribuídos.
 
-## <a name="image-limits"></a>Image limits
+## <a name="image-limits"></a>Limites de imagem
 
-The following table describes the container image and storage limits in place for Azure container registries.
+A tabela a seguir descreve a imagem de contêiner e os limites de armazenamento em vigor para registros de contêiner do Azure.
 
 | Recurso | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |
-| Layers | Sem limite |
+| Layer | Sem limite |
 | Etiquetas | Sem limite|
-| Armazenamento | 5 TB |
+| Storage | 5 TB |
 
-Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags *cannot* be recovered after deletion. For more information about deleting registry resources, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+Números muito altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não utilizados como parte da rotina de manutenção do registro. Os recursos de registro excluídos, como repositórios, imagens e marcas, *não podem* ser recuperados após a exclusão. Para obter mais informações sobre como excluir recursos do registro, consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
 
-## <a name="storage-cost"></a>Custo de armazenamento
+## <a name="storage-cost"></a>Custo do armazenamento
 
-For full details about pricing, see [Azure Container Registry pricing][pricing].
+Para obter detalhes completos sobre os preços, consulte [preços do registro de contêiner do Azure][pricing].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-For more information about the different Azure Container Registry SKUs (Basic, Standard, Premium), see [Azure Container Registry SKUs](container-registry-skus.md).
+Para obter mais informações sobre as diferentes SKUs do registro de contêiner do Azure (Basic, Standard, Premium), consulte [SKUs do registro de contêiner do Azure](container-registry-skus.md).
 
 <!-- IMAGES -->
 

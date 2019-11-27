@@ -186,7 +186,7 @@ Mais à frente no tutorial, vai implementar um lançamento. Para implementar aç
 
 Tem de criar uma identidade gerida atribuída pelo utilizador e configurar o controlo de acesso para a sua subscrição.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Crie uma [identidade gerida atribuída pelo utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. No portal, selecione **Subscrições**, no menu do lado esquerdo, e selecione a sua subscrição.
 4. Selecione **controle de acesso (iam)** e, em seguida, selecione **Adicionar atribuição de função**.

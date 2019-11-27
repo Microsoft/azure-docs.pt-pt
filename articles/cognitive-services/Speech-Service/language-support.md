@@ -182,7 +182,7 @@ Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abre
 | | | Feminino | "Microsoft Server voz texto para voz de voz (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Masculino | "Microsoft Server voz texto para voz de voz (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-por exemplo, oferece suporte a Árabe padrão modernos (MSA).*
+&dagger; *ar-ex suporta o moderno padrão árabe (MSA).*
 
 > [!NOTE]
 > Você pode usar o mapeamento de nome de serviço completo ou o nome de voz curto em suas solicitações de síntese de fala.
@@ -196,7 +196,7 @@ A personalização de voz está disponível para `de-DE`, `en-GB`, `en-IN`, `en-
 
 ## <a name="speech-translation"></a>Tradução de voz
 
-O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem sempre deve ser da tabela de linguagem de fala para texto. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Pode converter voz recebida em mais do que [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas está disponível para [síntese de fala](language-support.md#text-languages).
+A API de **tradução de fala** dá suporte a idiomas diferentes para conversão de fala em fala e de fala em texto. O idioma de origem sempre deve ser da tabela de linguagem de fala para texto. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Você pode traduzir a fala de entrada em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas está disponível para [síntese de fala](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Idiomas de texto
 
@@ -270,4 +270,4 @@ O **tradução por voz** API suporta idiomas diferentes para a tradução de voz
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obter a subscrição de avaliação dos Serviços de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Veja como reconhecer a fala noC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

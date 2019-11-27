@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Blueprint sample to new environment'
-description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
+title: 'Tutorial: exemplo de Blueprint para o novo ambiente'
+description: Neste tutorial, você usa um exemplo Blueprint para criar uma definição de plano gráfico que configura dois grupos de recursos e configura uma atribuição de função para cada.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
@@ -10,180 +10,180 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74321742"
 ---
-# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Create an environment from a blueprint sample
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: criar um ambiente a partir de um exemplo de plano gráfico
 
-Sample blueprints provide examples of what can be done using Azure Blueprints. Each is a sample with a specific intent or purpose, but doesn't create a complete environment by themselves. Each is intended as a starting place to explore using Azure Blueprints with various combinations of included artifacts, designs, and parameters.
+Os planos gráficos de exemplo fornecem exemplos do que pode ser feito usando plantas do Azure. Cada um é um exemplo com uma intenção ou finalidade específica, mas não cria um ambiente completo por si só. Cada um é destinado a um local de partida para explorar o uso de plantas do Azure com várias combinações de artefatos, designs e parâmetros incluídos.
 
-The following tutorial uses the **Resource Groups with RBAC** blueprint sample to showcase different aspects of the Blueprints service. The following steps are covered:
+O tutorial a seguir usa os **grupos de recursos com** a amostra do esquema do RBAC para demonstrar diferentes aspectos do serviço de plantas. As etapas a seguir são abordadas:
 
 > [!div class="checklist"]
-> - Create a new blueprint definition from the sample
-> - Mark your copy of the sample as **Published**
-> - Assign your copy of the blueprint to an existing subscription
-> - Inspect deployed resources for the assignment
-> - Unassign the blueprint to remove the locks
+> - Criar uma nova definição de Blueprint a partir do exemplo
+> - Marque sua cópia do exemplo como **publicado**
+> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+> - Inspecionar recursos implantados para a atribuição
+> - Cancelar a atribuição do plano gráfico para remover os bloqueios
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To complete this tutorial, an Azure subscription is needed. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para concluir este tutorial, é necessária uma assinatura do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-blueprint-definition-from-sample"></a>Create blueprint definition from sample
+## <a name="create-blueprint-definition-from-sample"></a>Criar definição de plano gráfico do exemplo
 
-First, implement the blueprint sample. Importing creates a new blueprint in your environment based on the sample.
+Primeiro, implemente o exemplo Blueprint. A importação cria uma nova especificação técnica em seu ambiente com base no exemplo.
 
-1. Select **All services** in the left pane. Search for and select **Blueprints**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. From the **Getting started** page on the left, select the **Create** button under _Create a blueprint_.
+1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
-1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select **Use this sample**.
+1. Encontre os **grupos de recursos com** a amostra do Blueprint do RBAC em _outros exemplos_ e selecione **usar este exemplo**.
 
-1. Enter the _Basics_ of the blueprint sample:
+1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Blueprint name**: Provide a name for your copy of the blueprint sample. For this tutorial, we'll use the name _two-rgs-with-role-assignments_.
-   - **Definition location**: Use the ellipsis and select the management group or subscription to save your copy of the sample to.
+   - **Nome do plano gráfico**: forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome _dois-RGS-with-role-assignments_.
+   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento ou a assinatura para salvar sua cópia do exemplo.
 
-1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
+1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
 
-1. Review the list of artifacts that make up the blueprint sample. This sample defines two resource groups, with display names of _ProdRG_ and _PreProdRG_. The final name and location of each resource group are set during blueprint assignment. The _ProdRG_ resource group is assigned the _Contributor_ role and the _PreProdRG_ resource group is assigned the _Owner_ and _Readers_ roles. The roles assigned in the definition are static, but user, app, or group that is assigned the role is set during blueprint assignment.
+1. Examine a lista de artefatos que compõem o exemplo Blueprint. Este exemplo define dois grupos de recursos, com nomes de exibição de _ProdRG_ e _PreProdRG_. O nome final e o local de cada grupo de recursos são definidos durante a atribuição do Blueprint. O grupo de recursos _ProdRG_ é atribuído à função _colaborador_ e o grupo de recursos _PreProdRG_ recebe as funções _proprietário_ e _leitores_ . As funções atribuídas na definição são estáticas, mas o usuário, aplicativo ou grupo ao qual a função é atribuída é definido durante a atribuição do Blueprint.
 
-1. Select **Save Draft** when you've finished reviewing the blueprint sample.
+1. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
-This step creates a copy of the sample blueprint definition in the selected management group or subscription. The saved blueprint definition is managed like any blueprint created from scratch. You may save the sample to your management group or subscription as many times as needed. However, each copy must be provided a unique name.
+Esta etapa cria uma cópia do exemplo de definição de Blueprint no grupo de gerenciamento ou na assinatura selecionada. A definição de Blueprint salva é gerenciada como qualquer plano gráfico criado do zero. Você pode salvar o exemplo em seu grupo de gerenciamento ou assinatura quantas vezes forem necessárias. No entanto, cada cópia deve fornecer um nome exclusivo.
 
-Once the **Saving blueprint definition succeeded** portal notification appears, move to the next step.
+Depois que a notificação do portal de **salvamento de definição de planta bem-sucedida** for exibida, vá para a próxima etapa.
 
-## <a name="publish-the-sample-copy"></a>Publish the sample copy
+## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
 
-Your copy of the blueprint sample has now been created in your environment. It's created in **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the blueprint sample can be customized to your environment and needs. For this tutorial, we won't make any changes.
+Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de Blueprint pode ser personalizada para seu ambiente e necessidades. Para este tutorial, não faremos nenhuma alteração.
 
-1. Select **All services** in the left pane. Search for and select **Blueprints**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find the _two-rgs-with-role-assignments_ blueprint definition and then select it.
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar a definição de planta de _dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-1. Select **Publish blueprint** at the top of the page. In the new pane on the right, provide **Version** as _1.0_ for your copy of the blueprint sample. This property is useful for if you make a modification later. Provide **Change notes** such as "First version published from the resource groups with RBAC blueprint sample." Then select **Publish** at the bottom of the page.
+1. Selecione **publicar Blueprint** na parte superior da página. No novo painel à direita, forneça a **versão** como _1,0_ para sua cópia do exemplo de plano gráfico. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada a partir dos grupos de recursos com a amostra de plantas do RBAC". Em seguida, selecione **publicar** na parte inferior da página.
 
-This step makes it possible to assign the blueprint to a subscription. Once published, changes can still be made. Additional changes require publishing with a new **Version** value to track differences between different versions of the same blueprint definition.
+Essa etapa torna possível atribuir o plano gráfico a uma assinatura. Depois de publicadas, as alterações ainda podem ser feitas. Alterações adicionais exigem a publicação com um novo valor de **versão** para acompanhar as diferenças entre diferentes versões da mesma definição de Blueprint.
 
-Once the **Publishing blueprint definition succeeded** portal notification appears, move to the next step.
+Depois que a notificação de **definição de planta de publicação com êxito** do portal for exibida, vá para a próxima etapa.
 
-## <a name="assign-the-sample-copy"></a>Assign the sample copy
+## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
+Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Select **All services** in the left pane. Search for and select **Blueprints**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Select the **Blueprint definitions** page on the left. Use the filters to find the _two-rgs-with-role-assignments_ blueprint definition and then select it.
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar a definição de planta de _dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-1. Select **Assign blueprint** at the top of the blueprint definition page.
+1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
 
-1. Provide the parameter values for the blueprint assignment:
+1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
    - Noções básicas
 
-     - **Subscriptions**: Select one or more of the subscriptions that are in the management group you saved your copy of the blueprint sample to. If you select more than one subscription, an assignment will be created for each using the parameters entered.
-     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint definition.
-     - **Location**: Select a region for the managed identity to be created in. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-       For this tutorial, select _East US 2_.
-     - **Blueprint definition version**: Pick the **Published** version _1.0_ of your copy of the sample blueprint definition.
+     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome da definição do Blueprint.
+     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+       Para este tutorial, selecione _leste dos EUA 2_.
+     - **Versão de definição do Blueprint**: escolha a versão **publicada** _1,0_ da sua cópia da definição do Blueprint de exemplo.
 
-   - Lock Assignment
+   - Atribuição de bloqueio
 
-     Select the _Read Only_ blueprint lock mode. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+     Selecione o modo de bloqueio de Blueprint _somente leitura_ . Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Leave the default _System assigned_ option. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Deixe a opção padrão _atribuído pelo sistema_ . Para obter mais informações, consulte [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - Artifact parameters
+   - Parâmetros de artefato
 
-     The parameters defined in this section apply to the artifact under which it's defined. These parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) since they're defined during the assignment of the blueprint. For each artifact, set the parameter value to what is defined in the **Value** column. For `{Your ID}`, select your Azure user account.
+     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para cada artefato, defina o valor do parâmetro como o que é definido na coluna **valor** . Para `{Your ID}`, selecione sua conta de usuário do Azure.
 
-     |Artifact name|Artifact type|Nome do parâmetro|Valor|Descrição|
+     |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |ProdRG resource group|Grupo de recursos|Nome|ProductionRG|Defines the name of the first resource group.|
-     |ProdRG resource group|Grupo de recursos|Localização|E.U.A. Oeste 2|Sets the location of the first resource group.|
-     |Contribuinte|Atribuição de função|User or Group|{Your ID}|Defines which user or group to grant the _Contributor_ role assignment within the first resource group.|
-     |PreProdRG resource group|Grupo de recursos|Nome|PreProductionRG|Defines the name of the second resource group.|
-     |PreProdRG resource group|Grupo de recursos|Localização|Oeste dos E.U.A.|Sets the location of the second resource group.|
-     |Proprietário|Atribuição de função|User or Group|{Your ID}|Defines which user or group to grant the _Owner_ role assignment within the second resource group.|
-     |Leitores|Atribuição de função|User or Group|{Your ID}|Defines which user or group to grant the _Readers_ role assignment within the second resource group.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Nome|ProductionRG|Define o nome do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Localização|EUA Oeste 2|Define o local do primeiro grupo de recursos.|
+     |Contribuinte|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _colaborador_ dentro do primeiro grupo de recursos.|
+     |Grupo de recursos PreProdRG|Grupo de recursos|Nome|PreProductionRG|Define o nome do segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Grupo de recursos|Localização|EUA Oeste|Define o local do segundo grupo de recursos.|
+     |Proprietário|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _proprietário_ dentro do segundo grupo de recursos.|
+     |Leitores|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _leitores_ dentro do segundo grupo de recursos.|
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página.
 
-This step deploys the defined resources and configures the selected **Lock Assignment**. Blueprint locks can take up to 30 minutes to apply.
+Esta etapa implanta os recursos definidos e configura a **atribuição de bloqueio**selecionada. Os bloqueios do Blueprint podem levar até 30 minutos para serem aplicados.
 
-Once the **Assigning blueprint definition succeeded** portal notification appears, move to the next step.
+Depois que a notificação **atribuição de plano gráfico com êxito** do portal for exibida, vá para a próxima etapa.
 
-## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspect resources deployed by the assignment
+## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspecionar os recursos implantados pela atribuição
 
-The blueprint assignment creates and tracks the artifacts defined in the blueprint definition. We can see the status of the resources from the blueprint assignment page and by looking at the resources directly.
+A atribuição Blueprint cria e controla os artefatos definidos na definição do Blueprint. Podemos ver o status dos recursos na página de atribuição do Blueprint e examinando os recursos diretamente.
 
-1. Select **All services** in the left pane. Search for and select **Blueprints**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Select the **Assigned blueprints** page on the left. Use the filters to find the _Assignment-two-rgs-with-role-assignments_ blueprint assignment and then select it.
+1. Selecione a página **plantas atribuídas** à esquerda. Use os filtros para localizar a atribuição de plano de _atribuição-dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-   From this page, we can see the assignment succeeded and the list of created resources along with their blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down shows details about the deployment of each definition version. Each listed resource that was created can be clicked and opens that resources property page.
+   Nessa página, podemos ver a atribuição bem-sucedida e a lista de recursos criados junto com seu estado de bloqueio Blueprint. Se a atribuição for atualizada, a lista suspensa **operação de atribuição** mostrará detalhes sobre a implantação de cada versão de definição. Cada recurso listado que foi criado pode ser clicado e abre essa página de propriedades de recursos.
 
-1. Select the **ProductionRG** resource group.
+1. Selecione o grupo de recursos **ProductionRG** .
 
-   We see that the name of the resource group is **ProductionRG** and not the artifact display name _ProdRG_. This name matches the value set during the blueprint assignment.
+   Vemos que o nome do grupo de recursos é **ProductionRG** e não o nome de exibição do artefato _ProdRG_. Esse nome corresponde ao valor definido durante a atribuição de Blueprint.
 
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia **atribuições de função** .
 
-   Here we see that your account has been granted the _Contributor_ role on the scope of _This resource_. The _Assignment-two-rgs-with-role-assignments_ blueprint assignment has the _Owner_ role as it was used to create the resource group. These permissions are also used to manage resources with configured blueprint locks.
+   Aqui, vemos que sua conta recebeu a função _colaborador_ no escopo deste _recurso_. A atribuição de plano de _atribuição-dois-RGS-com-atribuições de função_ tem a função _proprietário_ como foi usada para criar o grupo de recursos. Essas permissões também são usadas para gerenciar recursos com bloqueios de Blueprint configurados.
 
-1. From the Azure portal breadcrumb, select **Assignment-two-rgs-with-role-assignments** to go back one page, then select the **PreProductionRG** resource group.
+1. Na barra de navegação portal do Azure, selecione **atribuição-dois-RGS-com-atribuições de função** para voltar uma página e, em seguida, selecione o grupo de recursos **PreProductionRG** .
 
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia **atribuições de função** .
 
-   Here we see that your account has been granted both the _Owner_ and _Reader_ roles, both on the scope of _This resource_. The blueprint assignment also has the _Owner_ role like the first resource group.
+   Aqui, vemos que sua conta recebeu as funções de _proprietário_ e de _leitor_ , ambas no escopo deste _recurso_. A atribuição Blueprint também tem a função de _proprietário_ como o primeiro grupo de recursos.
 
-1. Select the **Deny assignments** tab.
+1. Selecione a guia **atribuições de negação** .
 
-   The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md) on the deployed resource group to enforce the _Read Only_ blueprint lock mode. The deny assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking specific actions. The deny assignment affects _All principals_.
+   A atribuição de Blueprint criou uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implantado para impor o modo de bloqueio de Blueprint _somente leitura_ . A atribuição Deny impede que alguém com direitos apropriados na guia _atribuições de função_ faça ações específicas. A atribuição de negação afeta _todas as entidades de segurança_.
 
-1. Select the deny assignment, then select the **Denied Permissions** page on the left.
+1. Selecione a atribuição negar e selecione a página **permissões negadas** à esquerda.
 
-   The deny assignment is preventing all operations with the **\*** and **Action** configuration, but allows read access by excluding **\*/read** via **NotActions**.
+   A atribuição de negação está impedindo todas as operações com a configuração de **\*** e **ação** , mas permite acesso de leitura, excluindo **\*/Read** por meio de **ações**.
 
-1. From the Azure portal breadcrumb, select **PreProductionRG - Access control (IAM)** . Then select the **Overview** page on the left and then the **Delete resource group** button. Enter the name _PreProductionRG_ to confirm the delete and select **Delete** at the bottom of the pane.
+1. No portal do Azure navegação estrutural, selecione **iam (PreProductionRG-Access Control)** . Em seguida, selecione a página **visão geral** à esquerda e, em seguida, o botão **excluir grupo de recursos** . Insira o nome _PreProductionRG_ para confirmar a exclusão e selecione **excluir** na parte inferior do painel.
 
-   The portal notification **Delete resource group PreProductionRG failed** is displayed. The error states that while your account has permission to delete the resource group, access is denied by the blueprint assignment. Remember that we selected the _Read Only_ blueprint lock mode during blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from deleting the resource. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+   A notificação do portal **excluir grupo de recursos PreProductionRG falhou** é exibida. O erro informa que, embora sua conta tenha permissão para excluir o grupo de recursos, o acesso é negado pela atribuição Blueprint. Lembre-se de que selecionamos o modo de bloqueio de Blueprint _somente leitura_ durante a atribuição de Blueprint. O bloqueio Blueprint impede que uma conta com permissão, mesmo _proprietário_, exclua o recurso. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
-These steps show that our resources were created as defined and the blueprint locks prevented unwanted deletion, even from an account with permission.
+Essas etapas mostram que nossos recursos foram criados conforme definido e os bloqueios de plantas impediram a exclusão indesejada, mesmo de uma conta com permissão.
 
-## <a name="unassign-the-blueprint"></a>Unassign the blueprint
+## <a name="unassign-the-blueprint"></a>Cancelar a atribuição do plano gráfico
 
-The last step is to remove the assignment of the blueprint and the resources that it deployed.
-Removing the assignment doesn't remove the deployed artifacts.
+A última etapa é remover a atribuição do plano gráfico e os recursos implantados.
+A remoção da atribuição não remove os artefatos implantados.
 
-1. Select **All services** in the left pane. Search for and select **Blueprints**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Select the **Assigned blueprints** page on the left. Use the filters to find the _Assignment-two-rgs-with-role-assignments_ blueprint assignment and then select it.
+1. Selecione a página **plantas atribuídas** à esquerda. Use os filtros para localizar a atribuição de plano de _atribuição-dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-1. Select the **Unassign blueprint** button at the top of the page. Read the warning in the confirmation dialog, then select **OK**.
+1. Selecione o botão **desatribuir Blueprint** na parte superior da página. Leia o aviso na caixa de diálogo de confirmação e selecione **OK**.
 
-   With the blueprint assignment removed, the blueprint locks are also removed. The created resources can once again be deleted by an account with permissions.
+   Com a atribuição Blueprint removida, os bloqueios do Blueprint também são removidos. Os recursos criados podem ser novamente excluídos por uma conta com permissões.
 
-1. Select **Resource groups** from the Azure menu, then select **ProductionRG**.
+1. Selecione **grupos de recursos** no menu do Azure e, em seguida, selecione **ProductionRG**.
 
-1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia **atribuições de função** .
 
-The security for each resource groups still has the deployed role assignments, but the blueprint assignment no longer has _Owner_ access.
+A segurança de cada grupo de recursos ainda tem as atribuições de função implantadas, mas a atribuição de Blueprint não tem mais acesso de _proprietário_ .
 
-Once the **Removing blueprint assignment succeeded** portal notification appears, move to the next step.
+Depois que a notificação do portal de **remoção de atribuição de plano gráfico for bem-sucedida** aparecer, vá para a próxima etapa.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When finished with this tutorial, delete the following resources:
+Ao concluir este tutorial, exclua os seguintes recursos:
 
-- Resource group _ProductionRG_
-- Resource group _PreProductionRG_
-- Blueprint definition _two-rgs-with-role-assignments_
+- _ProductionRG_ do grupo de recursos
+- _PreProductionRG_ do grupo de recursos
+- Definição de Blueprint _dois-RGS com atribuições de função_
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this tutorial, you've learned how to create a new blueprint from a sample definition. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+Neste tutorial, você aprendeu a criar um novo plano gráfico com base em uma definição de exemplo. Para saber mais sobre os planos gráficos do Azure, prossiga para o artigo ciclo de vida do Blueprint.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](../concepts/lifecycle.md)
+> [Saiba mais sobre o ciclo de vida do Blueprint](../concepts/lifecycle.md)

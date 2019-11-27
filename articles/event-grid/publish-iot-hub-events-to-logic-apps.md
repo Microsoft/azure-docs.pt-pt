@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
-description: Tutorial - Using the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
+title: Tutorial-usar eventos do Hub IoT para disparar aplicativos lógicos do Azure
+description: Tutorial – usando o serviço de roteamento de eventos da grade de eventos do Azure, crie processos automatizados para executar ações de aplicativos lógicos do Azure com base em eventos do Hub IoT.
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -14,11 +14,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74423746"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: enviar notificações por email sobre os eventos do Hub IoT do Azure usando a grade de eventos e os aplicativos lógicos
 
 O Azure Event Grid permite-lhe reagir a eventos no Hub IoT ao acionar ações nas suas aplicações empresariais a jusante.
 
-This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device is added to your IoT hub. 
+Este artigo percorre uma configuração de exemplo que usa o Hub IoT e a grade de eventos. No final, você tem um aplicativo lógico do Azure configurado para enviar um email de notificação toda vez que um dispositivo é adicionado ao seu hub IoT. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,25 +28,25 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 ## <a name="create-a-logic-app"></a>Criar uma aplicação lógica
 
-First, create a logic app and add an event grid trigger that monitors the resource group for your virtual machine. 
+Primeiro, crie um aplicativo lógico e adicione um gatilho de grade de eventos que monitora o grupo de recursos para sua máquina virtual. 
 
 ### <a name="create-a-logic-app-resource"></a>Criar um recurso de aplicação lógica
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, then type "logic app" in the search box and select return. Select **Logic App** from the results.
+1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**, digite "aplicativo lógico" na caixa de pesquisa e selecione retornar. Selecione **aplicativo lógico** nos resultados.
 
    ![Criar uma aplicação lógica](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
-1. On the next screen, select **Create**. 
+1. Na próxima tela, selecione **criar**. 
 
 1. Atribua um nome à aplicação lógica que seja exclusivo na sua subscrição e, em seguida, selecione essa subscrição, o grupo de recursos e a localização como o seu hub IoT. 
 
-   ![Fields for create logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
+   ![Campos para criar aplicativo lógico](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
 1. Selecione **Criar**.
 
-1. Once the resource is created, navigate to your logic app. To do this, select **Resource groups**, then select the resource group you created for this tutorial. Then find the logic app in the list of resources and select it. 
+1. Depois que o recurso for criado, navegue até seu aplicativo lógico. Para fazer isso, selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos que você criou para este tutorial. Em seguida, localize o aplicativo lógico na lista de recursos e selecione-o. 
 
-1. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
+1. No designer de aplicativos lógicos, Page Down para ver **modelos**. Escolha **aplicativo lógico em branco** para que você possa criar seu aplicativo lógico do zero.
 
 ### <a name="select-a-trigger"></a>Selecionar um acionador
 
@@ -116,7 +116,7 @@ Um acionador é um evento específico que inicia a sua aplicação lógica. Nest
 
 Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trabalho da aplicação lógica. Neste tutorial, a ação consiste no envio de uma notificação por e-mail a partir do seu fornecedor de e-mail. 
 
-1. Selecione **Novo passo**. This opens a window to **Choose an action**.
+1. Selecione **Novo passo**. Isso abre uma janela para **escolher uma ação**.
 
 1. Procure por **E-mail**.
 
@@ -132,9 +132,9 @@ Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trab
 
    * **Para**: introduza o endereço de e-mail para receber as mensagens de e-mail de notificação. Neste tutorial, utilize uma conta de e-mail a que tenha acesso para fins de teste. 
 
-   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {event Type}`. If you can't see Dynamic content, select the **Add dynamic content** hyperlink -- this toggles it on and off.
+   * **Assunto**: Preencha o texto do assunto. Ao clicar na caixa de texto assunto, você pode selecionar o conteúdo dinâmico a ser incluído. Por exemplo, este tutorial usa `IoT Hub alert: {event Type}`. Se não for possível ver o conteúdo dinâmico, selecione o hiperlink **adicionar conteúdo dinâmico** --isso liga e desliga.
 
-   * **Body**: Write the text for your email. Selecione as propriedades de JSON na ferramenta do seletor para incluir conteúdo dinâmico baseado em dados de eventos. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
+   * **Corpo**: escreva o texto para seu email. Selecione as propriedades de JSON na ferramenta do seletor para incluir conteúdo dinâmico baseado em dados de eventos. Se você não conseguir ver o conteúdo dinâmico, selecione o hiperlink **adicionar conteúdo dinâmico** na caixa de texto **corpo** . Se ele não mostrar os campos desejados, clique em *mais* na tela de conteúdo dinâmico para incluir os campos da ação anterior.
 
    O modelo de e-mail pode ter um aspeto semelhante ao deste exemplo:
 
@@ -158,7 +158,7 @@ Antes de sair do Estruturador de Aplicações Lógicas, copie o URL que as aplic
 
 Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que estes ocorrem. 
 
-1. No portal do Azure, navegue para o seu hub IoT. You can do this by selecting **Resource groups**, then select the resource group for this tutorial, and then select your IoT hub from the list of resources.
+1. No portal do Azure, navegue para o seu hub IoT. Você pode fazer isso selecionando **grupos de recursos**e, em seguida, selecionando o grupo de recursos para este tutorial e, em seguida, selecionando o Hub IOT na lista de recursos.
 
 2. Selecione **Eventos**.
 
@@ -170,41 +170,41 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
 
 4. Crie a subscrição de evento com os seguintes valores: 
 
-   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
+   * **Detalhes da assinatura de evento**: forneça um nome descritivo e selecione **esquema de grade de eventos**.
 
-   * **Event Types**: In the **Filter to Event Types**, uncheck all of the choices except **Device Created**.
+   * **Tipos de evento**: no **filtro para tipos de evento**, desmarque todas as opções, exceto o **dispositivo criado**.
 
-       ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+       ![tipos de evento de assinatura](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
 
-   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and select *select an endpoint* and paste the URL that you copied from your logic app and confirm selection.
+   * **Detalhes do ponto de extremidade**: selecione o tipo de ponto de extremidade como um **gancho da Web** e selecione *selecionar um ponto de extremidade* e cole a URL que você copiou do aplicativo lógico e confirme a seleção.
 
      ![selecione o url do ponto final](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   When you're done, the pane should look like the following example: 
+   Quando terminar, o painel deverá ser semelhante ao exemplo a seguir: 
 
     ![Formulário de exemplo de subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. Pode guardar a subscrição de evento aqui e receber notificações para cada dispositivo criado no seu hub IoT. For this tutorial, though, let's use the optional fields to filter for specific devices. Select **Filters** at the top of the pane.
+5. Pode guardar a subscrição de evento aqui e receber notificações para cada dispositivo criado no seu hub IoT. Para este tutorial, no entanto, vamos usar os campos opcionais para filtrar dispositivos específicos. Selecione **filtros** na parte superior do painel.
 
-6. Select **Add new filter**. Fill in the fields with these values:
+6. Selecione **Adicionar novo filtro**. Preencha os campos com estes valores:
 
-   * **Key**: Select `Subject`.
+   * **Chave**: selecione `Subject`.
 
-   * **Operator**: Select `String begins with`.
+   * **Operador**: selecione `String begins with`.
 
-   * **Value**:  Enter `devices/Building1_` to filter for device events in building 1.
+   * **Valor**: Insira `devices/Building1_` para filtrar eventos de dispositivo na compilação 1.
   
-   Add another filter with these values:
+   Adicione outro filtro com estes valores:
 
-   * **Key**: Select `Subject`.
+   * **Chave**: selecione `Subject`.
 
-   * **Operator**: Select `String ends with`.
+   * **Operador**: selecione `String ends with`.
 
-   * **Value**: Enter `_Temperature` to filter for device events related to temperature.
+   * **Valor**: Insira `_Temperature` para filtrar eventos de dispositivo relacionados à temperatura.
 
-   The **Filters** tab of your event subscription should now look similar to this image:
+   A guia **filtros** da sua assinatura de evento agora deve ser semelhante a esta imagem:
 
-   ![Adding filters to event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
+   ![Adicionando filtros à assinatura de evento](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
 
 7. Selecione **Criar** para guardar a subscrição de evento.
 
@@ -227,27 +227,27 @@ Teste a sua aplicação lógica através da criação de um novo dispositivo par
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-   If you added the four examples, your list of IoT devices should look like the following image:
+   Se você adicionou os quatro exemplos, sua lista de dispositivos IoT deve ser parecida com a imagem a seguir:
 
-   ![IoT Hub device list](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
+   ![Lista de dispositivos do Hub IoT](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
 
 6. Após adicionar alguns dispositivos ao seu hub IoT, verifique o e-mail para ver quais foram os que acionaram a aplicação lógica. 
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. Para obter detalhes, consulte as páginas CLI do Azure para [criar uma assinatura de evento](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IOT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. When you're finished trying out the tutorial and testing your results, disable or delete resources that you don't want to keep. 
+Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando você terminar de experimentar o tutorial e testar os resultados, desabilite ou exclua os recursos que não deseja manter. 
 
-To delete all of the resources created in this tutorial, delete the resource group. 
+Para excluir todos os recursos criados neste tutorial, exclua o grupo de recursos. 
 
-1. Select **Resource groups**, then select the resource group you created for this tutorial.
+1. Selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos que você criou para este tutorial.
 
-2. On the Resource group pane, select **Delete resource group**. You are prompted to enter the resource group name, and then you can delete it. All of the resources contained therein are also removed.
+2. No painel grupo de recursos, selecione **excluir grupo de recursos**. Você será solicitado a inserir o nome do grupo de recursos e, em seguida, poderá excluí-lo. Todos os recursos contidos aqui também foram removidos.
 
-If you don't want to remove all of the resources, you can manage them one by one. 
+Se você não quiser remover todos os recursos, poderá gerenciá-los um a um. 
 
 Se não quiser perder o trabalho realizado na sua aplicação lógica, desative-a em vez de a eliminar. 
 

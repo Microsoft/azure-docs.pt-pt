@@ -50,11 +50,11 @@ Cada hiperparâmetro pode ser discreto ou contínuo e tem uma distribuição de 
 
 #### <a name="discrete-hyperparameters"></a>Discretos hiperparâmetros 
 
-Hiperparâmetros discretos especificados como uma `choice` entre valores discretos. `choice` pode ser:
+Hiperparâmetros discretos são especificados como um `choice` entre valores discretos. `choice` pode ser:
 
 * um ou mais valores separados por vírgulas
-* um `range` objeto
-* qualquer arbitrário `list` objeto
+* um objeto `range`
+* qualquer objeto `list` arbitrário
 
 
 ```Python
@@ -64,23 +64,23 @@ Hiperparâmetros discretos especificados como uma `choice` entre valores discret
     }
 ```
 
-Neste caso, `batch_size` assume a um dos valores [16, 32, 64, 128] e `number_of_hidden_layers` assume um dos valores [1, 2, 3, 4].
+Nesse caso, `batch_size` assume um dos valores [16, 32, 64, 128] e `number_of_hidden_layers` usa um dos valores [1, 2, 3, 4].
 
 Hiperparâmetros discretos avançados também podem ser especificados com uma distribuição. Há suporte para as distribuições seguintes:
 
-* `quniform(low, high, q)` -Devolve um valor como round (uniforme (inferior, superior) / p) * p
-* `qloguniform(low, high, q)` -Devolve um valor como round (exp (uniforme (inferior, superior)) / p) * p
-* `qnormal(mu, sigma, q)` -Devolve um valor como round (normal (mu, sigma) / p) * p
-* `qlognormal(mu, sigma, q)` -Devolve um valor como round (exp (normal (mu, sigma)) / p) * p
+* `quniform(low, high, q)`-retorna um valor como Round (uniforme (baixo, alto)/q) * q
+* `qloguniform(low, high, q)`-retorna um valor como Round (exp (uniforme (baixo, alto))/q) * q
+* `qnormal(mu, sigma, q)`-retorna um valor como Round (normal (MU, Sigma)/q) * q
+* `qlognormal(mu, sigma, q)`-retorna um valor como Round (exp (normal (MU, Sigma))/q) * q
 
 #### <a name="continuous-hyperparameters"></a>Hiperparâmetros contínuos 
 
 Hiperparâmetros contínuos são especificados como uma distribuição através de um intervalo contínuo de valores. Distribuições suportadas incluem:
 
-* `uniform(low, high)` -Devolve um valor de distribuídas de maneira uniforme entre baixa e alta
-* `loguniform(low, high)` -Devolve um valor desenhado, de acordo com o exp (uniforme (inferior, superior)), para que o logaritmo de valor de retorno é distribuído uniformemente
-* `normal(mu, sigma)` -Devolve um valor real que normalmente é distribuído com mean sigma mu e desvio padrão
-* `lognormal(mu, sigma)` -Devolve um valor desenhado, de acordo com o exp (normal (mu, sigma)), para que o logaritmo de valor de retorno é normalmente distribuído
+* `uniform(low, high)`-retorna um valor distribuído uniformemente entre baixo e alto
+* `loguniform(low, high)`-retorna um valor desenhado de acordo com exp (uniforme (baixo, alto)) para que o logaritmo do valor de retorno seja distribuído uniformemente
+* `normal(mu, sigma)`-retorna um valor real que normalmente é distribuído com MU Mean e o desvio Standard Sigma
+* `lognormal(mu, sigma)`-retorna um valor desenhado de acordo com exp (normal (MU, Sigma)) para que o logaritmo do valor de retorno seja normalmente distribuído
 
 Um exemplo de uma definição de espaço de parâmetro:
 
@@ -91,7 +91,7 @@ Um exemplo de uma definição de espaço de parâmetro:
     }
 ```
 
-Esse código define um espaço de pesquisa com dois parâmetros - `learning_rate` e `keep_probability`. `learning_rate` tem uma distribuição normal com o valor médio 10 e um desvio-padrão de 3. `keep_probability` tem uma distribuição uniforme com um valor mínimo de 0,05 e um valor máximo de 0,1.
+Esse código define um espaço de pesquisa com dois parâmetros-`learning_rate` e `keep_probability`. `learning_rate` tem uma distribuição normal com valor médio de 10 e um desvio padrão de 3. `keep_probability` tem uma distribuição uniforme com um valor mínimo de 0, 5 e um valor máximo de 0,1.
 
 ### <a name="sampling-the-hyperparameter-space"></a>O espaço de hiper-parâmetros de amostragem
 
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Amostragem de grelha
 
-A [amostragem de grade](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) executa uma pesquisa de grade simples em todos os valores viáveis no espaço de pesquisa definido. Só pode ser utilizado com especificados por meio de hiperparâmetros `choice`. Por exemplo, o seguinte espaço tem um total de seis amostras:
+A [amostragem de grade](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) executa uma pesquisa de grade simples em todos os valores viáveis no espaço de pesquisa definido. Ele só pode ser usado com hiperparâmetros especificados usando `choice`. Por exemplo, o seguinte espaço tem um total de seis amostras:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -148,7 +148,7 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Amostragem de Bayesianos não suporta qualquer política de cessação antecipada (consulte [especificar uma política de cessação antecipada](#specify-early-termination-policy)). Ao utilizar a amostragem de parâmetro Bayesianos, defina `early_termination_policy = None`, ou deixe de fora o `early_termination_policy` parâmetro.
+> A amostragem de Bayesiana não dá suporte a nenhuma política de término antecipado (consulte [especificar uma política de encerramento antecipado](#specify-early-termination-policy)). Ao usar a amostragem de parâmetro Bayesiana, defina `early_termination_policy = None`ou deixe o parâmetro `early_termination_policy`.
 
 <a name='specify-primary-metric-to-optimize'/>
 
@@ -156,8 +156,8 @@ param_sampling = BayesianParameterSampling( {
 
 Especifique a [métrica primária](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) que você deseja que o teste de ajuste de hiperparâmetro Otimize. Cada execução de treinamento é avaliada para a métrica primária. Mau desempenho execuções (em que a métrica primária não cumpre os critérios definidos pela política de cessação antecipada) será terminada. Além do nome de métrica principal, também especificar o objetivo da otimização - se maximizar ou minimizar a métrica primária.
 
-* `primary_metric_name`: O nome da métrica primário para otimizar. O nome da métrica primário tem de corresponder exatamente ao nome da métrica registado pelo script de treinamento. Ver [iniciar sessão métricas para a otimização de hiper-parâmetros](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: Pode ser qualquer um `PrimaryMetricGoal.MAXIMIZE` ou `PrimaryMetricGoal.MINIMIZE` e determina se a métrica primária será maximizada ou minimizada ao avaliar as execuções. 
+* `primary_metric_name`: o nome da métrica primária a ser otimizada. O nome da métrica primário tem de corresponder exatamente ao nome da métrica registado pelo script de treinamento. Consulte [métricas de log para ajuste de hiperparâmetro](#log-metrics-for-hyperparameter-tuning).
+* `primary_metric_goal`: pode ser `PrimaryMetricGoal.MAXIMIZE` ou `PrimaryMetricGoal.MINIMIZE` e determina se a métrica primária será maximizada ou minimizada ao avaliar as execuções. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -180,7 +180,7 @@ run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 
-O script de treinamento calcula o `val_accuracy` e regista-lo como "precisão", que é utilizada como a métrica primária. Sempre que a métrica é registada é recebida, o serviço de otimização de hiper-parâmetros. Cabe ao desenvolvedor de modelo para determinar a frequência de relatório esta métrica.
+O script de treinamento calcula o `val_accuracy` e o registra como "exatidão", que é usado como a métrica primária. Sempre que a métrica é registada é recebida, o serviço de otimização de hiper-parâmetros. Cabe ao desenvolvedor de modelo para determinar a frequência de relatório esta métrica.
 
 <a name='specify-early-termination-policy'/>
 
@@ -190,7 +190,7 @@ Termine mau desempenho é executado automaticamente com uma política de cessaç
 
 Quando utilizar uma política de cessação antecipada, pode configurar os seguintes parâmetros que controlam quando uma política é aplicada:
 
-* `evaluation_interval`: a frequência para aplicar a política. Sempre que o script de treinamento registos a métrica primária é contabilizado como um intervalo. Portanto, um `evaluation_interval` 1 aplicará a diretiva sempre que o script de treinamento reporta a métrica primária. Um `evaluation_interval` de 2 irá aplicar a política de todas as outras vezes o script de treinamento reporta a métrica primária. Se não for especificado, `evaluation_interval` está definido como 1, por predefinição.
+* `evaluation_interval`: a frequência para aplicar a política. Sempre que o script de treinamento registos a métrica primária é contabilizado como um intervalo. Assim, um `evaluation_interval` de 1 aplicará a política sempre que o script de treinamento relatar a métrica primária. Um `evaluation_interval` de 2 aplicará a política a cada vez que o script de treinamento relatar a métrica primária. Se não for especificado, `evaluation_interval` será definido como 1 por padrão.
 * `delay_evaluation`: atrasa a primeira avaliação de política para um número especificado de intervalos. É um parâmetro opcional que permite que todas as configurações ser executado por um número mínimo inicial de intervalos, evitando o encerramento prematuro de treinamento é executado. Se for especificado, a política aplica-se cada múltiplo de evaluation_interval é maior que ou igual a delay_evaluation.
 
 O Azure Machine Learning dá suporte às seguintes políticas de finalização antecipada.
@@ -199,9 +199,9 @@ O Azure Machine Learning dá suporte às seguintes políticas de finalização a
 
 [Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) é uma política de encerramento com base no fator de margem de atraso/valor da margem de atraso e no intervalo de avaliação. A política desde o início termina todas as execuções em que a métrica de principal não está no fator slack especificado / run do slack quantidade em relação ao melhor desempenho de treinamento. Ele usa os seguintes parâmetros de configuração:
 
-* `slack_factor` ou `slack_amount`: slack permitido em relação ao melhor desempenho de treinamento ser executado. `slack_factor` Especifica o slack permitido como um rácio. `slack_amount` Especifica o slack permitido como um valor absoluto, em vez de uma taxa.
+* `slack_factor` ou `slack_amount`: a margem de atraso permitida em relação à execução de treinamento de melhor desempenho. `slack_factor` especifica a margem de atraso permitida como uma taxa. `slack_amount` especifica a margem de atraso permitida como um valor absoluto, em vez de uma taxa.
 
-    Por exemplo, considere uma política de Bandit a ser aplicada neste intervalo de 10. Partem do princípio de que a execução melhor executar no intervalo de 10 comunicado uma métrica primária 0,8 com o objetivo de maximizar a métrica primária. Se a política foi especificada com um `slack_factor` de 0,2, é executada qualquer treinamento, cuja melhor métrica no intervalo de 10 é menor que 0.66 (0,8 / (1 +`slack_factor`)) será terminada. Se em vez disso, a política foi especificada com um `slack_amount` de 0,2, é executada qualquer treinamento, cuja melhor métrica no intervalo de 10 é menor que 0.6 (0,8 - `slack_amount`) será terminada.
+    Por exemplo, considere uma política de Bandit a ser aplicada neste intervalo de 10. Partem do princípio de que a execução melhor executar no intervalo de 10 comunicado uma métrica primária 0,8 com o objetivo de maximizar a métrica primária. Se a política tiver sido especificada com um `slack_factor` de 0,2, qualquer execução de treinamento, cuja melhor métrica no intervalo 10 é menor que 0,66 (0,8/(1 +`slack_factor`)) será encerrada. Em vez disso, a política foi especificada com um `slack_amount` de 0,2, qualquer execução de treinamento, cuja melhor métrica no intervalo 10 é menor que 0,6 (0,8-`slack_amount`) será encerrada.
 * `evaluation_interval`: a frequência para aplicar a política (parâmetro opcional).
 * `delay_evaluation`: atrasa a primeira avaliação de política para um número especificado de intervalos (parâmetro opcional).
 
@@ -231,7 +231,7 @@ Neste exemplo, é aplicada a política de cessação antecipada em cada interval
 
 [Seleção de truncamento](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) cancela um determinado percentual de execuções de execução mais baixa em cada intervalo de avaliação. Execuções são comparadas com base no respetivo desempenho na métrica primária e a mais baixa X % está terminada. Ele usa os seguintes parâmetros de configuração:
 
-* `truncation_percentage`: a percentagem da execução mais baixa é executada para terminar a cada intervalo de avaliação. Especifique um valor inteiro entre 1 e 99.
+* `truncation_percentage`: a porcentagem de execuções de execução mais baixa para terminar em cada intervalo de avaliação. Especifique um valor inteiro entre 1 e 99.
 * `evaluation_interval`: a frequência para aplicar a política (parâmetro opcional).
 * `delay_evaluation`: atrasa a primeira avaliação de política para um número especificado de intervalos (parâmetro opcional).
 
@@ -257,22 +257,22 @@ Se nenhuma política for especificada, o serviço de ajuste de hiperparâmetro p
 
 ### <a name="picking-an-early-termination-policy"></a>Selecionando uma política de encerramento antecipado
 
-* Se estiver procurando por uma política conservador que proporciona poupanças sem terminar tarefas promissoras, pode utilizar uma política de parar de mediana com `evaluation_interval` 1 e `delay_evaluation` 5. Estas são definições conservadoras, que podem fornecer aproximadamente 25% - 35% de poupanças sem perda em métrica primária (com base nos nossos dados de avaliação).
+* Se você estiver procurando uma política conservadora que forneça economia sem encerrar trabalhos promissores, você poderá usar uma política de parada mediana com `evaluation_interval` 1 e `delay_evaluation` 5. Estas são definições conservadoras, que podem fornecer aproximadamente 25% - 35% de poupanças sem perda em métrica primária (com base nos nossos dados de avaliação).
 * Se você estiver procurando uma economia mais agressiva do encerramento antecipado, poderá usar a política Bandit com uma pequena margem de atraso permitida ou uma política de seleção de truncamento (menor), com uma porcentagem maior de truncamento.
 
 ## <a name="allocate-resources"></a>Alocar recursos
 
 Controle o orçamento de recursos para a sua experimentação, especificando o número máximo de total de execuções de preparação de otimização de hiper-parâmetros.  Opcionalmente, especifica a duração máxima para a sua experimentação de otimização de hiper-parâmetros.
 
-* `max_total_runs`: Número total máximo de execuções de preparação que será criada. Limite superior - pode haver menos execuções, por exemplo, se o espaço de hiper-parâmetros é finito e tem menos de exemplos. Tem de ser um número entre 1 e 1000.
-* `max_duration_minutes`: Duração máxima em minutos o experimentação de otimização de hiper-parâmetros. Parâmetro é opcional e, se estiver presente, todas as execuções que estariam sendo executados depois desta duração automaticamente foram canceladas.
+* `max_total_runs`: número total máximo de execuções de treinamento que serão criadas. Limite superior - pode haver menos execuções, por exemplo, se o espaço de hiper-parâmetros é finito e tem menos de exemplos. Tem de ser um número entre 1 e 1000.
+* `max_duration_minutes`: duração máxima em minutos do experimento de ajuste do hiperparâmetro. Parâmetro é opcional e, se estiver presente, todas as execuções que estariam sendo executados depois desta duração automaticamente foram canceladas.
 
 >[!NOTE] 
->Se os dois `max_total_runs` e `max_duration_minutes` forem especificados, o experimentação de otimização de hiper-parâmetros termina quando o primeiro desses dois limites for atingido.
+>Se `max_total_runs` e `max_duration_minutes` forem especificados, o experimento de ajuste de hiperparâmetro será encerrado quando o primeiro desses dois limites for atingido.
 
 Além disso, especifique o número máximo de treinamento é executado para serem executadas em simultâneo durante sua pesquisa de otimização de hiper-parâmetros.
 
-* `max_concurrent_runs`: Número máximo de execuções para executar simultaneamente em determinado momento. Se especificado nenhum, todos `max_total_runs` será iniciado em paralelo. Se for especificado, tem de ser um número entre 1 e 100.
+* `max_concurrent_runs`: número máximo de execuções a serem executadas simultaneamente em um determinado momento. Se nenhum for especificado, todos os `max_total_runs` serão iniciados em paralelo. Se for especificado, tem de ser um número entre 1 e 100.
 
 >[!NOTE] 
 >O número de execuções simultâneas é Check controlado nos recursos disponíveis no destino de computação especificado. Por este motivo, terá de garantir que o destino de computação tem os recursos disponíveis para a simultaneidade pretendido.
@@ -288,7 +288,7 @@ Esse código configura o experimento de ajuste de hiperparâmetro para usar um m
 
 ## <a name="configure-experiment"></a>Configurar experimentação
 
-[Configure seu experimento de ajuste de hiperparâmetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) usando o espaço de pesquisa de hiperparâmetro definido, a política de término antecipado, a métrica primária e a alocação de recursos das seções acima. Além disso, fornecer um `estimator` que será chamado com os amostras hiperparâmetros. O `estimator` descreve o script de treinamento, executar, os recursos por tarefa (única ou múltipla gpu) e o destino de computação para utilizar. Uma vez que a simultaneidade para a sua experimentação de otimização de hiper-parâmetros é Check controlado nos recursos disponíveis, certifique-se de que o destino de computação especificado no `estimator` tem recursos suficientes para a simultaneidade pretendido. (Para obter mais informações sobre os avaliadores, consulte [como a criar modelos](how-to-train-ml-models.md).)
+[Configure seu experimento de ajuste de hiperparâmetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) usando o espaço de pesquisa de hiperparâmetro definido, a política de término antecipado, a métrica primária e a alocação de recursos das seções acima. Além disso, forneça um `estimator` que será chamado com os hiperparâmetros amostrados. O `estimator` descreve o script de treinamento que você executa, os recursos por trabalho (única ou várias GPU) e o destino de computação a ser usado. Como a simultaneidade para seu experimento de ajuste de hiperparâmetro é restringida nos recursos disponíveis, verifique se o destino de computação especificado no `estimator` tem recursos suficientes para a simultaneidade desejada. (Para obter mais informações sobre estimadores, consulte [How to Train Models](how-to-train-ml-models.md).)
 
 Configure a sua experimentação de otimização de hiper-parâmetros:
 
@@ -376,7 +376,7 @@ Além disso, pode identificar visualmente a correlação entre desempenho e os v
 
 [![coordenadas paralelas de ajuste de hiperparâmetro](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-É possível visualizar todos os seus hiper-parâmetros otimização é executada no portal web do Azure. Para obter mais informações sobre como visualizar uma experimentação no web portal, consulte [como controlar experimentações](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+É possível visualizar todos os seus hiper-parâmetros otimização é executada no portal web do Azure. Para obter mais informações sobre como exibir um experimento no portal da Web, consulte [como controlar experimentos](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ## <a name="find-the-best-model"></a>Encontrar o melhor modelo
 
@@ -396,10 +396,10 @@ print('\n batch size:',parameter_values[7])
 
 ## <a name="sample-notebook"></a>Bloco de notas de exemplo
 Consulte os blocos de anotações Train-hiperparameter-* nesta pasta:
-* [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+* [como usar – azureml/treinamento-com o aprendizado profundo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Controlar uma experimentação](how-to-track-experiments.md)
-* [Implementar um modelo preparado](how-to-deploy-and-where.md)
+* [Acompanhar um experimento](how-to-track-experiments.md)
+* [Implantar um modelo treinado](how-to-deploy-and-where.md)

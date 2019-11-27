@@ -19,11 +19,11 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Download [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Baixar [Power bi desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Connecting Power BI to data in Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Conectando Power BI a dados no Azure Blockchain Workbench
 
-1.  Abra o Power BI Desktop.
+1.  Abra o Power BI Desktop.
 2.  Selecione **Obter Dados**.
 
     ![Obter dados](./media/data-powerbi/get-data.png)
@@ -43,7 +43,7 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
     ![Navegador](./media/data-powerbi/navigator.png)
 
-7.  Selecione as vistas que pretende incluir. For demonstration purposes, we include **vwContractAction**, which provides details on the actions that have taken place on a contract.
+7.  Selecione as vistas que pretende incluir. Para fins de demonstração, incluímos **vwContractAction**, que fornece detalhes sobre as ações que ocorreram em um contrato.
 
     ![Selecionar vistas](./media/data-powerbi/select-views.png)
 

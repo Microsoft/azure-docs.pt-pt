@@ -140,14 +140,14 @@ Examine [as práticas recomendadas](luis-concept-best-practices.md) e aplique-as
 
 Se a opção do word ou disposição do word é o mesmo, mas não significa que a mesma coisa, não classifique-o com a entidade. 
 
-As seguintes expressões, o word `fair` é um homograph. Ele é têm a mesma, mas tem um significado diferente:
+O declarações a seguir, a palavra `fair` é um homograph. Ele é têm a mesma, mas tem um significado diferente:
 
 |Expressão|
 |--|
 |Que tipo de fairs condado de estão acontecendo na área de Seattle neste Verão?|
 |É a classificação atual para a revisão de Seattle justo?|
 
-Se quisesse uma entidade de eventos para localizar todos os dados de eventos, a palavra da etiqueta `fair` a primeira expressão, mas não na segunda.
+Se você quisesse que uma entidade de evento localizasse todos os dados do evento, rotule a palavra `fair` no primeiro expressão, mas não no segundo.
 
 
 ## <a name="next-steps"></a>Passos seguintes

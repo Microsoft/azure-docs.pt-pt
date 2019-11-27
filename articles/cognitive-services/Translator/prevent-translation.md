@@ -1,7 +1,7 @@
 ---
-title: Prevent content translation - Translator Text API
+title: Impedir a conversão de conteúdo-API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Prevent translation of content with the Translator Text API. The Translator Text API allows you to tag content so that it isn't translated.
+description: Impedir a tradução de conteúdo com o API de Tradução de Texto. O API de Tradução de Texto permite que você marque o conteúdo para que ele não seja traduzido.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -17,14 +17,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326765"
 ---
-# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>How to prevent translation of content with the Translator Text API
+# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Como impedir a tradução de conteúdo com o API de Tradução de Texto
 
-The Translator Text API allows you to tag content so that it isn't translated. For example, you may want to tag code, a brand name, or a word/phrase that doesn't make sense when localized.
+O API de Tradução de Texto permite que você marque o conteúdo para que ele não seja traduzido. Por exemplo, você pode querer marcar o código, um nome da marca ou uma palavra/frase que não faça sentido quando localizada.
 
-## <a name="methods-for-preventing-translation"></a>Methods for preventing translation
-1. Escape to a Twitter tag @somethingtopassthrough or #somethingtopassthrough. Un-escape after translation. This is the regular expression for valid twitter tags: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. A tag should start with a "@" sign, followed by a character and then followed by one or many characters, digits or underscore. It is recommended to keep tags short and the opening tag must be preceded by a space.
+## <a name="methods-for-preventing-translation"></a>Métodos para impedir a tradução
+1. Escape para uma marca do Twitter @somethingtopassthrough ou #somethingtopassthrough. Cancele o escape após a tradução. Esta é a expressão regular para as marcas válidas do Twitter: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. Uma marca deve começar com um sinal de "@", seguido por um caractere e seguida por um ou vários caracteres, dígitos ou sublinhado. É recomendável manter as marcas curtas e a marca de abertura deve ser precedida por um espaço.
 
-2. Tag your content with `notranslate`. It's by design that this works only when the input textType is set as HTML
+2. Marque seu conteúdo com `notranslate`. É por design que isso funciona somente quando o TextType de entrada é definido como HTML
 
    Exemplo:
 
@@ -38,13 +38,13 @@ The Translator Text API allows you to tag content so that it isn't translated. F
    <div>This will be translated. </div>
    ```
 
-3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+3. Use o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
 
-4. Don't pass the string to the Translator Text API for translation.
+4. Não transmita a cadeia de caracteres para a API de Tradução de Texto para tradução.
 
-5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
+5. Tradutor personalizado: Use um [dicionário no Tradutor personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com uma probabilidade de 100%.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Avoid translation in your Translator API call](reference/v3-0-translate.md)
+> [Evite a tradução em sua chamada à API do Tradutor](reference/v3-0-translate.md)

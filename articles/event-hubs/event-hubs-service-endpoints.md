@@ -43,7 +43,7 @@ O resultado é uma relação isolada e privada entre as cargas de trabalho ligad
 > - Funções do Azure
 
 > [!IMPORTANT]
-> Redes virtuais são suportadas no **padrão** e **dedicado** escalões de Hubs de eventos. Não é suportada no escalão básico.
+> As redes virtuais têm suporte em camadas **padrão** e **dedicadas** dos hubs de eventos. Não é suportada no escalão básico.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada ativados pela integração de VNet 
 
@@ -55,9 +55,9 @@ Isso significa que a segurança confidencial soluções na cloud não ganhará a
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Ligar Hubs de eventos para redes virtuais
 
-*Regras de rede virtual* são o recurso de segurança de firewall que controla se o seu espaço de nomes de Hubs de eventos do Azure aceita ligações a partir de uma sub-rede de rede virtual específico.
+*As regras de rede virtual* são o recurso de segurança de firewall que controla se o namespace de hubs de eventos do Azure aceita conexões de uma sub-rede de rede virtual específica.
 
-Um espaço de nomes de Hubs de eventos de enlace a uma rede virtual é um processo de dois passos. Primeiro, você precisa criar um **ponto de extremidade de serviço de rede virtual** em uma sub-rede de rede virtual e habilitá-la para "Microsoft. EventHub", conforme explicado na [visão geral do ponto de extremidade do serviço][vnet-sep]. Depois de adicionar o ponto final de serviço, vincular o espaço de nomes de Hubs de eventos ao mesmo com um *regra de rede virtual*.
+Um espaço de nomes de Hubs de eventos de enlace a uma rede virtual é um processo de dois passos. Primeiro, você precisa criar um **ponto de extremidade de serviço de rede virtual** em uma sub-rede de rede virtual e habilitá-la para "Microsoft. EventHub", conforme explicado na [visão geral do ponto de extremidade do serviço][vnet-sep]. Depois de adicionar o ponto de extremidade de serviço, vincule o namespace de hubs de eventos a ele com uma *regra de rede virtual*.
 
 A regra de rede virtual é uma associação do namespace de hubs de eventos com uma sub-rede de rede virtual. Embora exista a regra, todas as cargas de trabalho ligadas à sub-rede são concedidas acesso ao espaço de nomes dos Hubs de eventos. Os Hubs de eventos em si nunca estabelece as ligações de saída, não precisa de obter acesso e é, portanto, nunca concedida acesso à sua sub-rede, permitindo que esta regra.
 
@@ -67,9 +67,9 @@ O modelo do Resource Manager seguinte permite adicionar uma regra de rede virtua
 
 Parâmetros do modelo:
 
-* **namespaceName**: espaço de nomes de Hubs de eventos.
-* **vnetRuleName**: nome para a regra de rede Virtual a ser criada.
-* **virtualNetworkingSubnetId**: caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
+* **NamespaceName**: namespace de hubs de eventos.
+* **vnetRuleName**: nome da regra de rede virtual a ser criada.
+* **virtualNetworkingSubnetId**: caminho do Gerenciador de recursos totalmente qualificado para a sub-rede da rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.

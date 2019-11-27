@@ -1,7 +1,7 @@
 ---
-title: PowerShell V2 examples for managing groups - Azure AD  | Microsoft Docs
-description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
-keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
+title: Exemplos do PowerShell v2 para gerenciamento de grupos – Azure AD | Microsoft Docs
+description: Esta página fornece exemplos do PowerShell para ajudá-lo a gerenciar seus grupos no Azure Active Directory
+keywords: Azure AD, Azure Active Directory, PowerShell, grupos, gerenciamento de grupo
 services: active-directory
 author: curtand
 manager: daveba
@@ -21,7 +21,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233118"
 ---
-# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2 cmdlets for group management
+# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets Azure Active Directory versão 2 para gerenciamento de grupo
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
@@ -29,18 +29,18 @@ ms.locfileid: "74233118"
 >
 >
 
-This article contains examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also tells you how to get set up with the Azure AD PowerShell module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+Este artigo contém exemplos de como usar o PowerShell para gerenciar seus grupos no Azure Active Directory (AD do Azure).  Ele também informa como configurar com o módulo do PowerShell do Azure AD. Primeiro, você deve [baixar o módulo do PowerShell do Azure ad](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="install-the-azure-ad-powershell-module"></a>Install the Azure AD PowerShell module
+## <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do PowerShell do Azure AD
 
-To install the Azure AD PowerShell module, use the following commands:
+Para instalar o módulo do PowerShell do Azure AD, use os seguintes comandos:
 
 ```powershell
     PS C:\Windows\system32> install-module azuread
     PS C:\Windows\system32> import-module azuread
 ```
 
-To verify that the module is ready to use, use the following command:
+Para verificar se o módulo está pronto para uso, use o seguinte comando:
 
 ```powershell
     PS C:\Windows\system32> get-module azuread
@@ -50,17 +50,17 @@ To verify that the module is ready to use, use the following command:
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
+Agora você pode começar a usar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, consulte a documentação de referência online para [Azure Active Directory PowerShell versão 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="connect-to-the-directory"></a>Connect to the directory
+## <a name="connect-to-the-directory"></a>Conectar-se ao diretório
 
-Before you can start managing groups using Azure AD PowerShell cmdlets, you must connect your PowerShell session to the directory you want to manage. Utilize o seguinte comando:
+Antes de começar a gerenciar grupos usando os cmdlets do PowerShell do Azure AD, você deve conectar a sessão do PowerShell ao diretório que deseja gerenciar. Utilize o seguinte comando:
 
 ```powershell
     PS C:\Windows\system32> Connect-AzureAD
 ```
 
-The cmdlet prompts you for the credentials you want to use to access your directory. In this example, we are using karen@drumkit.onmicrosoft.com to access the demonstration directory. The cmdlet returns a confirmation to show the session was connected successfully to your directory:
+O cmdlet solicita as credenciais que você deseja usar para acessar o diretório. Neste exemplo, estamos usando karen@drumkit.onmicrosoft.com para acessar o diretório de demonstração. O cmdlet retorna uma confirmação para mostrar que a sessão foi conectada com êxito ao diretório:
 
 ```powershell
     Account                       Environment Tenant
@@ -68,27 +68,27 @@ The cmdlet prompts you for the credentials you want to use to access your direct
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 
-Now you can start using the AzureAD cmdlets to manage groups in your directory.
+Agora você pode começar a usar os cmdlets AzureAD para gerenciar grupos em seu diretório.
 
-## <a name="retrieve-groups"></a>Retrieve groups
+## <a name="retrieve-groups"></a>Recuperar grupos
 
-To retrieve existing groups from your directory, use the Get-AzureADGroups cmdlet. 
+Para recuperar grupos existentes de seu diretório, use o cmdlet Get-AzureADGroups. 
 
-To retrieve all groups in the directory, use the cmdlet without parameters:
+Para recuperar todos os grupos no diretório, use o cmdlet sem parâmetros:
 
 ```powershell
     PS C:\Windows\system32> get-azureadgroup
 ```
 
-The cmdlet returns all groups in the connected directory.
+O cmdlet retorna todos os grupos no diretório conectado.
 
-You can use the -objectID parameter to retrieve a specific group for which you specify the group’s objectID:
+Você pode usar o parâmetro-objectID para recuperar um grupo específico para o qual você especifica o objectID do Grupo:
 
 ```powershell
     PS C:\Windows\system32> get-azureadgroup -ObjectId e29bae11-4ac0-450c-bc37-6dae8f3da61b
 ```
 
-The cmdlet now returns the group whose objectID matches the value of the parameter you entered:
+O cmdlet agora retorna o grupo cujo objectID corresponde ao valor do parâmetro que você inseriu:
 
 ```powershell
     DeletionTimeStamp            :
@@ -107,7 +107,7 @@ The cmdlet now returns the group whose objectID matches the value of the paramet
     SecurityEnabled              : True
 ```
 
-You can search for a specific group using the -filter parameter. This parameter takes an ODATA filter clause and returns all groups that match the filter, as in the following example:
+Você pode pesquisar um grupo específico usando o parâmetro-Filter. Esse parâmetro usa uma cláusula de filtro ODATA e retorna todos os grupos que correspondem ao filtro, como no exemplo a seguir:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -130,19 +130,19 @@ You can search for a specific group using the -filter parameter. This parameter 
 ```
 
 > [!NOTE]
-> The Azure AD PowerShell cmdlets implement the OData query standard. For more information, see **$filter** in [OData system query options using the OData endpoint](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> Os cmdlets do PowerShell do Azure AD implementam o padrão de consulta OData. Para obter mais informações, consulte **$Filter** em [Opções de consulta do sistema OData usando o ponto de extremidade OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
-## <a name="create-groups"></a>Create groups
+## <a name="create-groups"></a>Criar grupos
 
-To create a new group in your directory, use the New-AzureADGroup cmdlet. This cmdlet creates a new security group called “Marketing":
+Para criar um novo grupo em seu diretório, use o cmdlet New-AzureADGroup. Esse cmdlet cria um novo grupo de segurança chamado "marketing":
 
 ```powershell
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 ```
 
-## <a name="update-groups"></a>Update groups
+## <a name="update-groups"></a>Atualizar grupos
 
-To update an existing group, use the Set-AzureADGroup cmdlet. In this example, we’re changing the DisplayName property of the group “Intune Administrators.” First, we’re finding the group using the Get-AzureADGroup cmdlet and filter using the DisplayName attribute:
+Para atualizar um grupo existente, use o cmdlet Set-AzureADGroup. Neste exemplo, estamos alterando a propriedade DisplayName do grupo "administradores do Intune". Primeiro, estamos localizando o grupo usando o cmdlet Get-AzureADGroup e filtrando usando o atributo DisplayName:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -164,13 +164,13 @@ To update an existing group, use the Set-AzureADGroup cmdlet. In this example, w
     SecurityEnabled              : True
 ```
 
-Next, we’re changing the Description property to the new value “Intune Device Administrators”:
+Em seguida, estamos alterando a propriedade Description para o novo valor "administradores de dispositivo do Intune":
 
 ```powershell
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-Now, if we find the group again, we see the Description property is updated to reflect the new value:
+Agora, se encontrarmos o grupo novamente, veremos que a propriedade Description é atualizada para refletir o novo valor:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -191,29 +191,29 @@ Now, if we find the group again, we see the Description property is updated to r
     SecurityEnabled              : True
 ```
 
-## <a name="delete-groups"></a>Delete groups
+## <a name="delete-groups"></a>Excluir grupos
 
-To delete groups from your directory, use the Remove-AzureADGroup cmdlet as follows:
+Para excluir grupos de seu diretório, use o cmdlet Remove-AzureADGroup da seguinte maneira:
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>Manage group membership
+## <a name="manage-group-membership"></a>Gerenciar associação de grupo
 
-### <a name="add-members"></a>Add members
+### <a name="add-members"></a>Adicionar membros
 
-To add new members to a group, use the Add-AzureADGroupMember cmdlet. This command adds a member to the Intune Administrators group we used in the previous example:
+Para adicionar novos membros a um grupo, use o cmdlet Add-AzureADGroupMember. Este comando adiciona um membro ao grupo de administradores do Intune que usamos no exemplo anterior:
 
 ```powershell
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
-The -ObjectId parameter is the ObjectID of the group to which we want to add a member, and the -RefObjectId is the ObjectID of the user we want to add as a member to the group.
+O parâmetro-ObjectId é o ObjectID do grupo ao qual queremos adicionar um membro, e-RefObjectId é o ObjectID do usuário que queremos adicionar como um membro ao grupo.
 
-### <a name="get-members"></a>Get members
+### <a name="get-members"></a>Obter Membros
 
-To get the existing members of a group, use the Get-AzureADGroupMember cmdlet, as in this example:
+Para obter os membros existentes de um grupo, use o cmdlet Get-AzureADGroupMember, como neste exemplo:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -224,29 +224,29 @@ To get the existing members of a group, use the Get-AzureADGroupMember cmdlet, a
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 ```
 
-### <a name="remove-members"></a>Remove members
+### <a name="remove-members"></a>Remover membros
 
-To remove the member we previously added to the group, use the Remove-AzureADGroupMember cmdlet, as is shown here:
+Para remover o membro que adicionamos anteriormente ao grupo, use o cmdlet Remove-AzureADGroupMember, como é mostrado aqui:
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
-### <a name="verify-members"></a>Verify members
+### <a name="verify-members"></a>Verificar Membros
 
-To verify the group memberships of a user, use the Select-AzureADGroupIdsUserIsMemberOf cmdlet. This cmdlet takes as its parameters the ObjectId of the user for which to check the group memberships, and a list of groups for which to check the memberships. The list of groups must be provided in the form of a complex variable of type “Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck”, so we first must create a variable with that type:
+Para verificar as associações de grupo de um usuário, use o cmdlet Select-AzureADGroupIdsUserIsMemberOf. Esse cmdlet usa como seus parâmetros o ObjectId do usuário para o qual verificar as associações de grupo e uma lista de grupos para os quais verificar as associações. A lista de grupos deve ser fornecida na forma de uma variável complexa do tipo "Microsoft. Open. AzureAD. Model. GroupIdsForMembershipCheck", portanto, primeiro, devemos criar uma variável com esse tipo:
 
 ```powershell
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
 ```
 
-Next, we provide values for the groupIds to check in the attribute “GroupIds” of this complex variable:
+Em seguida, fornecemos valores para o groupIds fazer check-in do atributo "GroupIds" dessa variável complexa:
 
 ```powershell
     PS C:\Windows\system32> $g.GroupIds = "b11ca53e-07cc-455d-9a89-1fe3ab24566b", "31f1ff6c-d48c-4f8a-b2e1-abca7fd399df"
 ```
 
-Now, if we want to check the group memberships of a user with ObjectID 72cd4bbd-2594-40a2-935c-016f3cfeeeea against the groups in $g, we should use:
+Agora, se quisermos verificar as associações de grupo de um usuário com ObjectID 72cd4bbd-2594-40a2-935c-016f3cfeeeea em relação aos grupos em $g, devemos usar:
 
 ```powershell
     PS C:\Windows\system32> Select-AzureADGroupIdsUserIsMemberOf -ObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea -GroupIdsForMembershipCheck $g
@@ -256,43 +256,43 @@ Now, if we want to check the group memberships of a user with ObjectID 72cd4bbd-
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 ```
 
-The value returned is a list of groups of which this user is a member. You can also apply this method to check Contacts, Groups or Service Principals membership for a given list of groups, using Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf or Select-AzureADGroupIdsServicePrincipalIsMemberOf
+O valor retornado é uma lista de grupos dos quais este usuário é membro. Você também pode aplicar esse método para verificar a associação de contatos, grupos ou entidades de serviço para uma determinada lista de grupos, usando Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf ou Select-AzureADGroupIdsServicePrincipalIsMemberOf
 
-## <a name="disable-group-creation-by-your-users"></a>Disable group creation by your users
+## <a name="disable-group-creation-by-your-users"></a>Desabilitar a criação de grupo por seus usuários
 
-You can prevent non-admin users from creating security groups. The default behavior in Microsoft Online Directory Services (MSODS) is to allow non-admin users to create groups, whether or not self-service group management (SSGM) is also enabled. The SSGM setting  controls behavior only in the My Apps access panel.
+Você pode impedir que usuários não administradores criem grupos de segurança. O comportamento padrão no Microsoft Online Directory Services (MSODS) é permitir que usuários não administradores criem grupos, independentemente de o gerenciamento de grupo de autoatendimento (SSGM) também estar habilitado. A configuração SSGM controla o comportamento somente no painel de acesso meus aplicativos.
 
-To disable group creation for non-admin users:
+Para desabilitar a criação de grupo para usuários não administradores:
 
-1. Verify that non-admin users are allowed to create groups:
+1. Verifique se os usuários não administradores têm permissão para criar grupos:
    
    ```powershell
    PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
    ```
   
-2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
+2. Se ele retornar `UsersPermissionToCreateGroupsEnabled : True`, os usuários não administradores poderão criar grupos. Para desabilitar esse recurso:
   
    ```powershell 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```
   
-## <a name="manage-owners-of-groups"></a>Manage owners of groups
+## <a name="manage-owners-of-groups"></a>Gerenciar proprietários de grupos
 
-To add owners to a group, use the Add-AzureADGroupOwner cmdlet:
+Para adicionar proprietários a um grupo, use o cmdlet Add-AzureADGroupOwner:
 
 ```powershell
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
-The -ObjectId parameter is the ObjectID of the group to which we want to add an owner, and the -RefObjectId is the ObjectID of the user or service principal we want to add as an owner of the group.
+O parâmetro-ObjectId é o ObjectID do grupo ao qual queremos adicionar um proprietário, e-RefObjectId é o ObjectID do usuário ou da entidade de serviço que desejamos adicionar como um proprietário do grupo.
 
-To retrieve the owners of a group, use the Get-AzureADGroupOwner cmdlet:
+Para recuperar os proprietários de um grupo, use o cmdlet Get-AzureADGroupOwner:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-The cmdlet returns the list of owners (users and service principals) for the specified group:
+O cmdlet retorna a lista de proprietários (usuários e entidades de serviço) para o grupo especificado:
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -300,41 +300,41 @@ The cmdlet returns the list of owners (users and service principals) for the spe
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 ```
 
-If you want to remove an owner from a group, use the Remove-AzureADGroupOwner cmdlet:
+Se você quiser remover um proprietário de um grupo, use o cmdlet Remove-AzureADGroupOwner:
 
 ```powershell
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 ```
 
-## <a name="reserved-aliases"></a>Reserved aliases
+## <a name="reserved-aliases"></a>Aliases reservados
 
-When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
+Quando um grupo é criado, determinados pontos de extremidade permitem que o usuário final especifique um mailNickname ou alias a ser usado como parte do endereço de email do grupo. Os grupos com os seguintes aliases de email altamente privilegiados só podem ser criados por um administrador global do Azure AD. 
   
-* abuse
-* admin
-* administrator
-* hostmaster
+* abuso
+* ADM
+* administradores
+* hostname
 * majordomo
 * postmaster
-* root
+* básica
 * segura
-* avançada
-* ssl-admin
+* security
+* SSL-administrador
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>Group writeback to on-premises (preview)
+## <a name="group-writeback-to-on-premises-preview"></a>Write-back de grupo para local (versão prévia)
 
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Office 365 groups writeback feature for Azure AD is now available for preview.
+Hoje, muitos grupos ainda são gerenciados no local Active Directory. Para responder a solicitações de sincronização de grupos de nuvem de volta para o local, o recurso de write-back de grupos do Office 365 para o Azure AD agora está disponível para visualização.
 
-Office 365 groups are created and managed in the cloud. The writeback capability allows you to write back Office 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
+Os grupos do Office 365 são criados e gerenciados na nuvem. A capacidade de write-back permite que você escreva grupos do Office 365 como grupos de distribuição para uma floresta Active Directory com o Exchange instalado. Os usuários com caixas de correio locais do Exchange podem enviar e receber emails desses grupos. O recurso de write-back de grupo não dá suporte a grupos de segurança ou grupos de distribuição do Azure AD.
 
-For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/how-to-connect-syncservice-features.md).
+Para obter mais detalhes, consulte a documentação para o [serviço de sincronização de Azure ad Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-Office 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+O Write-back do grupo do Office 365 é um recurso de visualização pública do Azure Active Directory (Azure AD) e está disponível com qualquer plano de licença pago do Azure AD. Para obter informações legais sobre visualizações, consulte [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
+Você pode encontrar mais Azure Active Directory documentação do PowerShell em [Azure Active Directory cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

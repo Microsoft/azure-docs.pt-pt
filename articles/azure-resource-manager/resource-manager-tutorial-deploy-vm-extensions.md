@@ -1,5 +1,5 @@
 ---
-title: Deploy VM extensions with template
+title: Implantar extensões de VM com o modelo
 description: Saiba como implementar extensões de máquina virtual com modelos do Azure Resource Manager
 author: mumian
 ms.date: 11/13/2018
@@ -14,7 +14,7 @@ ms.locfileid: "74325365"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager
 
-Aprenda a utilizar [extensões de máquina virtual do Azure](../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager template to run a PowerShell script on a Windows VM.  O script instala o Servidor Web na VM.
+Aprenda a utilizar [extensões de máquina virtual do Azure](../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Neste tutorial, você implanta uma extensão de script personalizado de um modelo de Azure Resource Manager para executar um script do PowerShell em uma VM do Windows.  O script instala o Servidor Web na VM.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -31,44 +31,44 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* Visual Studio Code com a extensão de ferramentas do Resource Manager. Consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). We also recommend that you update your password every three months.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparar o script do Powershell
 
-A PowerShell script with the following content is shared from [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+Um script do PowerShell com o seguinte conteúdo é compartilhado do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-If you choose to publish the file to your own location, you must update the `fileUri` element in the template later in the tutorial.
+Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o elemento `fileUri` no modelo posteriormente no tutorial.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de início rápido
 
-Azure Quickstart Templates is a repository for Resource Manager templates. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Os modelos de início rápido do Azure são um repositório para modelos do Resource Manager. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. In Visual Studio Code, select **File** > **Open File**.
-1. In the **File name** box, paste the following URL: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. Em Visual Studio Code, selecione **arquivo** > **Abrir arquivo**.
+1. Na caixa **nome do arquivo** , Cole a seguinte URL: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. To open the file, select **Open**.
-    The template defines five resources:
+1. Para abrir o arquivo, selecione **abrir**.
+    O modelo define cinco recursos:
 
-   * **Microsoft.Storage/storageAccounts**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * **Microsoft.Network/publicIPAddresses**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft. Storage/storageAccounts**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft. Network/publicIPAddresses**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft. Network/virtualNetworks**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft. Network/NetworkInterfaces**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft. Compute/virtualMachines**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-     It's helpful to get some basic understanding of the template before you customize it.
+     É útil obter alguma compreensão básica do modelo antes de personalizá-lo.
 
-1. Save a copy of the file to your local computer with the name *azuredeploy.json* by selecting **File** > **Save As**.
+1. Salve uma cópia do arquivo em seu computador local com o nome *azuredeploy. JSON* selecionando **arquivo** > **salvar como**.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
@@ -98,37 +98,37 @@ Adicione um recurso de extensão de máquina virtual ao modelo existente com o s
 }
 ```
 
-For more information about this resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Seguem alguns elementos importantes:
+Para obter mais informações sobre essa definição de recurso, consulte a [referência de extensão](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Seguem alguns elementos importantes:
 
-* **nome**: uma vez que o recurso de extensão é um recurso subordinado do objeto de máquina virtual, o nome tem de ter o prefixo do nome da máquina virtual. See [Set name and type for child resources](child-resource-name-type.md).
-* **dependsOn**: Create the extension resource after you've created the virtual machine.
-* **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
-* **commandToExecute**: This command invokes the script.
+* **nome**: uma vez que o recurso de extensão é um recurso subordinado do objeto de máquina virtual, o nome tem de ter o prefixo do nome da máquina virtual. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md).
+* **depende**: Crie o recurso de extensão depois de criar a máquina virtual.
+* **fileuris**: os locais onde os arquivos de script são armazenados. Se você optar por não usar o local fornecido, precisará atualizar os valores.
+* **commandToExecute**: esse comando invoca o script.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
+Para o procedimento de implantação, consulte a seção "implantar o modelo" do [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Recomendamos que você use uma senha gerada para a conta de administrador da máquina virtual. Consulte a seção [pré-requisitos](#prerequisites) deste artigo.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. In the Azure portal, select the VM.
-1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab. The default Internet Information Services (IIS) welcome page opens:
+1. Na portal do Azure, selecione a VM.
+1. Na visão geral da VM, copie o endereço IP selecionando **clicar para copiar**e, em seguida, Cole-o em uma guia do navegador. A página de boas-vindas do Serviços de Informações da Internet padrão (IIS) é aberta:
 
-![The Internet Information Services welcome page](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+![A página de boas-vindas do Serviços de Informações da Internet](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you no longer need the Azure resources you deployed, clean them up by deleting the resource group.
+Quando você não precisar mais dos recursos do Azure implantados, limpe-os excluindo o grupo de recursos.
 
-1. In the Azure portal, in the left pane, select **Resource group**.
-2. In the **Filter by name** box, enter the resource group name.
+1. No portal do Azure, no painel esquerdo, selecione grupo de **recursos**.
+2. Na caixa **Filtrar por nome** , insira o nome do grupo de recursos.
 3. Selecione o nome do grupo de recursos.
-    Six resources are displayed in the resource group.
-4. In the top menu, select **Delete resource group**.
+    Seis recursos são exibidos no grupo de recursos.
+4. No menu superior, selecione **excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, implementou uma máquina virtual e uma extensão de máquina virtual. A extensão instalou o servidor web dos IIS na máquina virtual. To learn how to use the Azure SQL Database extension to import a BACPAC file, see:
+Neste tutorial, implementou uma máquina virtual e uma extensão de máquina virtual. A extensão instalou o servidor web dos IIS na máquina virtual. Para saber como usar a extensão do banco de dados SQL do Azure para importar um arquivo BACPAC, consulte:
 
 > [!div class="nextstepaction"]
-> [Deploy SQL extensions](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
+> [Implantar extensões do SQL](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Workbench Preview overview
-description: Overview of Azure Blockchain Workbench Preview and its capabilities.
+title: Visão geral da visualização do Azure Blockchain Workbench
+description: Visão geral da visualização do Azure Blockchain Workbench e seus recursos.
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
@@ -13,7 +13,7 @@ ms.locfileid: "74324555"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>O que é o Azure Blockchain Workbench?
 
-Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. O Azure Blockchain Workbench fornece as bases de infraestrutura para a criação de aplicações blockchain, o que permite aos programadores concentrarem-se na criação da lógica de negócio e de contratos inteligentes. Também simplifica a criação de aplicações blockchain graças à integração de várias funcionalidades e serviços do Azure que ajudam a automatizar as tarefas de desenvolvimento comuns.
+A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure projetados para ajudá-lo a criar e implantar aplicativos Blockchain para compartilhar dados e processos de negócios com outras organizações. O Azure Blockchain Workbench fornece as bases de infraestrutura para a criação de aplicações blockchain, o que permite aos programadores concentrarem-se na criação da lógica de negócio e de contratos inteligentes. Também simplifica a criação de aplicações blockchain graças à integração de várias funcionalidades e serviços do Azure que ajudam a automatizar as tarefas de desenvolvimento comuns.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -43,7 +43,7 @@ Com os protocolos de blockchain existentes, as identidades de blockchain são re
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Sincronizar dados dentro da cadeia com armazenamento fora da cadeia
 
-O Azure Blockchain Workbench facilita a análise dos dados e eventos blockchain ao sincronizar automaticamente os dados no blockchain com o armazenamento fora da cadeia. Em vez de extrair os dados diretamente a partir do blockchain, pode consultar os sistemas de base de dados fora da cadeia, como o SQL Server. Blockchain expertise is not required for end users who are doing data analysis tasks.
+O Azure Blockchain Workbench facilita a análise dos dados e eventos blockchain ao sincronizar automaticamente os dados no blockchain com o armazenamento fora da cadeia. Em vez de extrair os dados diretamente a partir do blockchain, pode consultar os sistemas de base de dados fora da cadeia, como o SQL Server. A experiência do Blockchain não é necessária para os usuários finais que estão fazendo tarefas de análise de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 

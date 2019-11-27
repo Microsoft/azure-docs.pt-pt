@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Perform a news search using the SDK for C# - Bing News Search'
+title: 'Início rápido: executar uma pesquisa de notícias usando o C# SDK para-pesquisa de notícias do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for news using the Bing News Search SDK for C#, and process the response.
+description: Use este guia de início rápido para pesquisar notícias usando o SDK C#do pesquisa de notícias do Bing para e processar a resposta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -18,17 +18,17 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379019"
 ---
-# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Quickstart: Perform a news search with the Bing News Search SDK for C#
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Início rápido: executar uma pesquisa de notícias com o SDK do Pesquisa de Notícias do Bing paraC#
 
-Use this quickstart to begin searching for news with the Bing News Search SDK for C#. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
+Use este guia de início rápido para começar a procurar notícias com o C#SDK do pesquisa de notícias do Bing para o. Embora Pesquisa de Notícias do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
 * Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 
-* The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installing this package also installs the following:
+* O [pacote NuGet do SDK do pesquisa de notícias do Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). A instalação desse pacote também instala o seguinte:
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
@@ -37,11 +37,11 @@ Para configurar a aplicação de consola através do SDK de Pesquisa de Notícia
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Create a new C# console solution in Visual Studio. Then add the following into the main code file.
+1. Crie uma nova C# solução de console no Visual Studio. Em seguida, adicione o seguinte ao arquivo de código principal.
     
     ```csharp
     using System;
@@ -49,7 +49,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
     ```
 
-2. Create a variable for your API key, a search term, and then instantiate the news search client with it.
+2. Crie uma variável para sua chave de API, um termo de pesquisa e, em seguida, crie uma instância do cliente de pesquisa de notícias com ela.
 
     ```csharp
     var key = "YOUR-ACCESS-KEY";
@@ -57,14 +57,14 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     var client = new NewsSearchClient(new ApiKeyServiceClientCredentials(key));
     ```
 
-## <a name="send-a-request-and-parse-the-result"></a>Send a request, and parse the result
+## <a name="send-a-request-and-parse-the-result"></a>Enviar uma solicitação e analisar o resultado
 
-1. Use the client to send a search request to the Bing News Search service:
+1. Use o cliente para enviar uma solicitação de pesquisa para o serviço de Pesquisa de Notícias do Bing:
     ```csharp
     var newsResults = client.News.SearchAsync(query: searchTerm, market: "en-us", count: 10).Result;
     ```
 
-2. If any results were returned, parse them:
+2. Se algum resultado for retornado, analise-os:
 
     ```csharp
     if (newsResults.Value.Count > 0)

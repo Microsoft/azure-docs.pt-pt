@@ -29,7 +29,7 @@ Usando Azure Monitor, você pode coletar métricas personalizadas por meio de su
 
 Para este tutorial, implantamos uma VM do Linux que executa o sistema operacional Ubuntu 16, 4 LTS. O agente Telegraf tem suporte para a maioria dos sistemas operacionais Linux. Os pacotes Debian e RPM estão disponíveis juntamente com os binários do Linux não empacotados no [portal de download do InfluxData](https://portal.influxdata.com/downloads). Consulte este [Guia de instalação do Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para obter instruções e opções adicionais de instalação. 
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 Criar uma nova VM do Linux: 
 
