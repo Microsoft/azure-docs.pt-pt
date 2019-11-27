@@ -59,6 +59,8 @@
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: Resolver problemas de arranque relacionados com o kernel
       href: 'https://support.microsoft.com/help/4091524'
+    - name: Recuperar VMs configuradas de LVM sem arranque
+      href: chroot-logical-volume-manager.md
     - name: Resolver problemas de erros de fstab
       href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Resolução de problemas detalhada de SSH

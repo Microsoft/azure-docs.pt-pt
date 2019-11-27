@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Entidade de expressão regular-LUIS'
+title: 'Tutorial: regular-entidade de expressão-LUIS'
 titleSuffix: Azure Cognitive Services
 description: Extraia dados formatados de forma consistente a partir de uma expressão com a entidade Expressão Regular.
 services: cognitive-services
@@ -9,19 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0f24721272c85d658a46ab1319e6f4af79b29364
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307591"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465175"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obter dados bem formatados do expressão
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: obter dados bem formatados do expressão
 Neste tutorial, crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .
 
-**Neste tutorial, vai aprender a:**
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -82,7 +84,7 @@ Uma expressão regular é uma boa opção para este tipo de dados quando:
     |Autor de hrf-546234?|
     |Título de hrf-456234?|
 
-    [![Captura de tela da página de intenção com o novo declarações realçado](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![captura de tela da página de intenção com o novo declarações realçado](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -99,7 +101,7 @@ Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato
 
 1. Selecione o botão **Criar nova entidade** na página Entidades. 
 
-1. Na caixa de diálogo de pop-up, introduza o novo nome de entidade `HRF-number`, selecione **RegEx** como tipo de entidade, introduza `hrf-[0-9]{6}` como o valor **Regex** e, em seguida, selecione **Concluído**.
+1. Na caixa de diálogo de pop-up, introduza o novo nome de entidade `HRF-number`, selecione **RegEx** como tipo de entidade, introduza `hrf-[0-9]** ` como o valor **Regex** e, em seguida, selecione **Concluído**.
 
     ![Captura de ecrã da definição Propriedades da nova entidade da caixa de diálogo de pop-up](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
@@ -179,7 +181,7 @@ Crie uma entidade de expressão regular para indicar ao LUIS o que é um formato
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal do LUIS](luis-interactive-test.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este tutorial criou uma nova intenção, adicionou expressões de exemplo e criou uma entidade de expressão regular para extrair dados bem formatados das expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 > [!div class="nextstepaction"]

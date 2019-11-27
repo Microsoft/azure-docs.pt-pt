@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 3939133ae0e562a081e2ac555ce90683a17fcab1
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: b2bdb31372cb22852e64e6b619f8b332705fe324
+  ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73479587"
+  ms.lasthandoff: 11/26/2019
+  ms.locfileid: "74533779"
 landingContent:
 - title: Sobre o Azure Stream Analytics
   linkLists:
@@ -163,6 +163,10 @@ landingContent:
       url: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - text: Desenvolver uma tarefa do IoT Edge no Visual Studio
       url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+  - linkListType: video
+    links:
+    - text: Criar, gerir e testar com o Visual Studio Code
+      url: https://www.youtube.com/watch?v=N9ak_9ZaHms
 - title: Experimentar tutoriais e soluções do Stream Analytics
   linkLists:
   - linkListType: tutorial

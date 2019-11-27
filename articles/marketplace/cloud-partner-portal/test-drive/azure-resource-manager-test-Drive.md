@@ -1,25 +1,26 @@
 ---
-title: Versão de teste de Gestor de recursos do Azure | O Azure Marketplace
-description: Criar uma unidade de teste do Marketplace com o Azure Resource Manager
+title: Azure Resource Manager Test Drive | Azure Marketplace
+description: Criar uma unidade de teste do Marketplace usando Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838085"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
+# <a name="azure-resource-manager-test-drive"></a>Versão de Teste do Azure Resource Manager
 
 Este artigo é para os publicadores que têm a oferta no Azure Marketplace ou que estão no AppSource, porém pretendem criar a unidade de teste com apenas os recursos do Azure.
 
-Um modelo Azure Resource Manager (Resource Manager) é um contentor codificado de recursos do Azure que crie para representam melhor sua solução. Se não estiver familiarizado com que um modelo do Resource Manager é, ler sobre [Noções básicas sobre modelos do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e [criar modelos do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para se certificar de que já sabe como criar e testar seus próprios modelos.
+Um modelo de Azure Resource Manager (Gerenciador de recursos) é um contêiner codificado de recursos do Azure que você cria para representar melhor sua solução. Se você não estiver familiarizado com o que é um modelo do Resource Manager, leia sobre [noções básicas sobre modelos do Resource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) Manager e criação de modelos do [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para garantir que você saiba como criar e testar seus próprios modelos.
 
 O que faz o Test Drive é que ele usa o modelo do Resource Manager fornecidos e faz com que uma implementação de todos os recursos necessários a partir desse modelo do Resource Manager num grupo de recursos.
 
@@ -31,25 +32,25 @@ Se optar por criar uma unidade de teste do Azure Resource Manager, os requisitos
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Como criar uma unidade de teste do Azure Resource Manager
 
-Este é o processo de criação de uma versão de teste de Gestor de recursos do Azure:
+Este é o processo para criar um Azure Resource Manager unidade de teste:
 
-1. O que deseja que os clientes podem fazer num diagrama de fluxo de design.
-1. Defina experiências de que pretende que os seus clientes para criar.
-1. Com base nas definições de acima, decidir que partes e os recursos são necessários para os clientes realizar essa experiência: por exemplo, a instância de D365 ou um Web site com uma base de dados.
-1. Criar o design localmente e testar a experiência.
-1. Pacote de experiência numa implementação do modelo ARM e a partir daí:
-    1. Definir que partes dos recursos são parâmetros de entrada;
+1. Projete o que você deseja que os clientes façam em um diagrama de fluxo.
+1. Defina quais experiências você gostaria que seus clientes criassem.
+1. Com base nas definições acima, decida quais partes e recursos são necessários para os clientes realizarem essa experiência: por exemplo, instância de D365 ou um site com um banco de dados.
+1. Crie o design localmente e teste a experiência.
+1. Empacote a experiência em uma implantação de modelo ARM e a partir daí:
+    1. Defina quais partes dos recursos são parâmetros de entrada;
     1. Quais são as variáveis;
-    1. As saídas são fornecidas para a experiência do cliente.
-1. Publicar, testar e aceda ao vivo.
+    1. Quais saídas são dadas à experiência do cliente.
+1. Publique, teste e entre em tempo real.
 
 É a parte mais importante sobre a criação de uma unidade de teste do Azure Resource Manager definir qual ou quais cenários de seus clientes para experimentar. É que um produto de firewall e quiser bem como lidar com ataques de injeção de script de demonstração? São a que um produto de armazenamento e pretender demonstrar como rápido e fácil de sua solução compacta arquivos?
 
-Certifique-se gastar uma quantidade suficiente de tempo para avaliar quais são as melhores formas de exibir seu produto. Especificamente em torno de todos os recursos necessários seria necessário, já que isso faz empacotando o modelo do Resource Manager suficientemente mais fácil.
+Certifique-se de gastar um tempo suficiente avaliando quais são as melhores maneiras de mostrar seu produto. Especificamente, em todos os recursos necessários, você precisaria, pois torna o empacotamento do modelo do Resource Manager suficientemente mais fácil.
 
 Para continuar com nosso exemplo de firewall, a arquitetura pode ser que precisa de um URL do IP público para o seu serviço e outra URL do IP público para o site no qual está a proteger o seu firewall. Cada IP é implementado numa máquina Virtual e ligada juntamente com um grupo de segurança de rede + a interface de rede.
 
-Assim que tiver criado o pacote desejado de recursos, agora vem a escrita e a construção do modelo de teste da unidade do Resource Manager.
+Depois de criar o pacote de recursos desejado, agora vem a escrita e a criação do modelo test drive do Resource Manager.
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>Escrever o teste de unidade modelos do Resource Manager
 
@@ -84,10 +85,10 @@ Também é importante ter em conta que **todos os parâmetros são opcionais**, 
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
 |---|---|---|---|
-| **BaseUri**     | cadeia          | URI do seu pacote de implementação de base| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **username**    | cadeia          | Novo nome de utilizador aleatório.| admin68876      |
+| **BaseUri**     | string          | URI do seu pacote de implementação de base| https:\//\<\..\>. blob.core.windows.net/\<\..\> |
+| **username**    | string          | Novo nome de utilizador aleatório.| admin68876      |
 | **password**    | cadeia segura    | Nova palavra-passe aleatória | LP! ACS\^2kh     |
-| **Id de sessão**   | cadeia          | Sessão de versão de teste exclusiva ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **Id de sessão**   | string          | Sessão de versão de teste exclusiva ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>o nome de utilizador
 
@@ -207,7 +208,7 @@ Certifique-se de que concatenar as cadeias de caracteres de parâmetro/variável
 
 Por exemplo, a maioria dos nomes de recursos não podem começar com um dígito, mas a função de cadeia de caracteres exclusivo pode retornar uma cadeia de caracteres, que começa com um dígito. Então, se utilizar a saída de cadeia de caracteres bruta exclusivo, as implementações irão falhar. 
 
-Pode encontrar informações adicionais sobre as regras de nomenclatura de recursos e restrições nas [este artigo](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Pode encontrar informações adicionais sobre as regras de nomenclatura de recursos e restrições nas [este artigo](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="deployment-location"></a>Localização de implementação
 
@@ -300,9 +301,9 @@ Durante a certificação de publicação, o Test-Drive unzips seu pacote de impl
 
 | Package                       | Contentor de BLOBs de unidade de teste         |
 |---|---|
-| Template de principal                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
-| Templates/Solution.JSON           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
-| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
+| Template de principal                | https:\//\<\..\>. blob.core.windows.net/\<\..\>/Main-template.JSON  |
+| Templates/Solution.JSON           | https:\//\<\..\>. blob.core.windows.net/\<\..\>/templates/Solution.JSON |
+| scripts/warmup.ps1                | https:\//\<\..\>. blob.core.windows.net/\<\..\>/scripts/warmup.ps1  |
 
 
 Chamamos um Uri de Uri de Base para o contentor de Blobs. Cada revisão do seu laboratório tem seu próprio contentor de BLOBs e, portanto, cada revisão do seu laboratório tem seu próprio Uri de Base. Versão de teste pode passar um Uri de Base do seu pacote de implementação descompactado no seu modelo através de parâmetros do modelo.
@@ -317,7 +318,7 @@ Agora que tem a sua versão de teste criada, esta secção descreve cada um dos 
 
 ![Ativar a versão de teste na interface do usuário](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-O campo de primeiro e mais importante é ativar/desativar se pretende que o Test Drive ativado para a sua oferta, ou não. Quando seleciona **Sim,** o restante do formulário com todos os campos obrigatórios são apresentadas para que possa preencher. Quando seleciona **não,** o formulário torna-se desativado e se voltar a publicar com o Test-Drive desativada, a sua versão de teste é removido da produção.
+O campo de primeiro e mais importante é ativar/desativar se pretende que o Test Drive ativado para a sua oferta, ou não. Quando você seleciona **Sim,** o restante do formulário com todos os campos obrigatórios são apresentados para você preencher. Quando você seleciona **não,** o formulário fica desabilitado e, se você republicar com a unidade de teste desabilitada, sua unidade de teste será removida da produção.
 
 Nota: Se existirem quaisquer testes de unidades utilizadas ativamente por utilizadores, essas versões de teste irá continuar a ser executado até a sessão expira.
 
@@ -382,7 +383,7 @@ Caso contrário, crie um novo inquilino no Azure Active Directory.
 
 ![Inquilinos de lista do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definir a organização, o domínio e o país/região para o inquilino do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definir a organização, o domínio e o país/região para o locatário do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirme a seleção](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -403,8 +404,8 @@ Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplica
 Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
 
 1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-1. Clique em **controlo de acesso (IAM)** .
-1. Clique nas **atribuições de funções** separador.  ![Adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **Controlo de acesso (IAM)** .
+1. Clique na guia **atribuições de função** .  ![adicionar um novo](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg) principal de controle de acesso
 1. Clique em **adicionar atribuição de função**.
 1. Definir a função como **contribuinte**.
 1. Escreva o nome de aplicação do Azure AD e selecione a aplicação para atribuir a função.
@@ -415,7 +416,7 @@ Tendo em conta que estiver a utilizar a aplicação para implementar para a subs
 
 ![Mostra as chaves para a aplicação do Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem todos os campos de Test-Drive preenchidos, passar por e **voltar a publicar** sua oferta. Assim que a sua versão de teste passou a certificação, deve passar um extensivamente testar a experiência do cliente no **pré-visualização** da sua oferta. Iniciar uma versão de teste na interface de Usuário e, em seguida, abra a sua subscrição do Azure no portal do Azure e certifique-se de que as versões de teste estão a ser totalmente implementados corretamente.
 
