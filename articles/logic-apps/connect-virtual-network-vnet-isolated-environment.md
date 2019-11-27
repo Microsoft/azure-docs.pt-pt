@@ -89,11 +89,11 @@ Esta tabela descreve as portas em sua rede virtual do Azure que o ISE usa e onde
 > As portas de origem são efêmeras, portanto, certifique-se de defini-las como `*` para todas as regras.
 > Para a comunicação interna dentro de suas sub-redes, seu ISE exige que você abra todas as portas dentro dessas sub-redes.
 
-| Objetivo | Direção | Portas de destino | Marca de serviço de origem | Etiqueta do serviço de destino | Notas |
+| Finalidade | Direção | Portas de destino | Marca de serviço de origem | Etiqueta do serviço de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Comunicação de aplicativos lógicos do Azure | Saída | 80, 443 | VirtualNetwork | Internet | A porta depende do serviço externo com o qual o serviço de aplicativos lógicos se comunica |
 | Azure Active Directory | Saída | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Dependência de armazenamento do Azure | Saída | 80, 443 | VirtualNetwork | Storage | |
+| Dependência de armazenamento do Azure | Saída | 80, 443 | VirtualNetwork | Armazenamento | |
 | Comunicação entre sub-redes | Saída de & de entrada | 80, 443 | VirtualNetwork | VirtualNetwork | Para comunicação entre sub-redes |
 | Comunicação com o aplicativo lógico do Azure | Entrada | 443 | Pontos de extremidade de acesso interno: <br>VirtualNetwork <p><p>Pontos de extremidade de acesso externo: <br>Internet <p><p>**Observação**: esses pontos de extremidade referem-se à configuração de EndPoint que foi [selecionada na criação do ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Para obter mais informações, consulte [Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | O endereço IP do computador ou serviço que chama qualquer gatilho de solicitação ou webhook que existe em seu aplicativo lógico. Fechar ou bloquear essa porta impede chamadas HTTP para aplicativos lógicos com gatilhos de solicitação. |
 | Histórico de execução do aplicativo lógico | Entrada | 443 | Pontos de extremidade de acesso interno: <br>VirtualNetwork <p><p>Pontos de extremidade de acesso externo: <br>Internet <p><p>**Observação**: esses pontos de extremidade referem-se à configuração de EndPoint que foi [selecionada na criação do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-environment). Para obter mais informações, consulte [Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | O endereço IP do computador do qual você exibe o histórico de execução do aplicativo lógico. Embora o fechamento ou o bloqueio dessa porta não impeça que você exiba o histórico de execução, não é possível exibir as entradas e saídas de cada etapa nesse histórico de execução. |
@@ -132,7 +132,7 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
 
    ![Fornecer detalhes do ambiente](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Subscrição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para seu ambiente |
    | **Grupo de recursos** | Sim | <*Azure-Resource-Group-name*> | O grupo de recursos do Azure em que você deseja criar seu ambiente |

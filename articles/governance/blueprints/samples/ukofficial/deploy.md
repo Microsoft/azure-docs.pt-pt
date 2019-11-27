@@ -97,7 +97,7 @@ Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Opcional: lista de imagens de VM com suporte para SO Linux para adicionar ao escopo (política: \[visualização\]: implantar o agente de Log Analytics para VMs Linux) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo (política: \[visualização\]: implantar o agente de Log Analytics para VMs do Windows) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar os exemplos do plano gráfico do Reino Unido e do Reino Unido NHS, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
 

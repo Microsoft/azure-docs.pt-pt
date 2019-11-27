@@ -30,7 +30,7 @@ A resposta do serviço inclui as seguintes informações:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Idioma
+- Linguagem
 
 ## <a name="profanity"></a>Profanidade
 

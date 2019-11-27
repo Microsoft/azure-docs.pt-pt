@@ -147,7 +147,7 @@ table.CreateIfNotExists();
 table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
 ```
 
-### <a name="cassandra-api"></a>API de Cassandra
+### <a name="cassandra-api"></a>API para Cassandra
 
 Inicie o emulador de um prompt de comando de administrador com "/EnableCassandraEndpoint". Como alternativa, você também pode definir a variável de ambiente `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
@@ -247,17 +247,17 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 | ComputePort | Especificado o número da porta a ser usado para o serviço de gateway de interoperabilidade de computação. A porta de investigação do ponto de extremidade HTTP do gateway é calculada como ComputePort + 79. Portanto, ComputePort e ComputePort + 79 devem estar abertos e disponíveis. Os valores padrão são 8900, 8979. | CosmosDB. Emulator. exe/ComputePort = \<ComputePort\> | \<computeport\>: número da porta única |
 | EnableMongoDbEndpoint | Habilita a API do MongoDB | CosmosDB. Emulator. exe/EnableMongoDbEndpoint | |
 | MongoPort | Especifica o número de porta a utilizar para a API de compatibilidade do MongoDB. O valor padrão é 10255. |CosmosDB. Emulator. exe/MongoPort = \<MongoPort\>|\<mongoport\>: número de porta individual|
-| EnableCassandraEndpoint | Habilita API do Cassandra | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| EnableCassandraEndpoint | Habilita API do Cassandra | CosmosDB. Emulator. exe/EnableCassandraEndpoint | |
 | CassandraPort | Especifica o número da porta a ser usada para o ponto de extremidade Cassandra. O valor padrão é 10350. | CosmosDB. Emulator. exe/CassandraPort = \<CassandraPort\> | \<cassandraport\>: número da porta única |
 | EnableGremlinEndpoint | Habilita a API do Gremlin | CosmosDB. Emulator. exe/EnableGremlinEndpoint | |
 | GremlinPort | Número da porta a ser usada para o ponto de extremidade Gremlin. O valor padrão é 8901. | CosmosDB. Emulator. exe/GremlinPort =\<porta\> | \<porta\>: número de porta individual |
-|EnableTableEndpoint | Habilita o Azure API de Tabela | CosmosDB.Emulator.exe /EnableTableEndpoint | |
+|EnableTableEndpoint | Habilita o Azure API de Tabela | CosmosDB. Emulator. exe/EnableTableEndpoint | |
 |TablePort | Número da porta a ser usada para o ponto de extremidade de tabela do Azure. O valor padrão é 8902. | CosmosDB. Emulator. exe/TablePort =\<porta\> | \<porta\>: número de porta individual|
-| KeyFile | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | CosmosDB. Emulator. exe/KeyFile =\<file_name\> | \<file_name\>: caminho para o arquivo |
+| Chaves | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | CosmosDB. Emulator. exe/KeyFile =\<file_name\> | \<file_name\>: caminho para o arquivo |
 | ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será%LOCALAPPDATA%\CosmosDbEmulator | CosmosDB. Emulator. exe/ResetDataPath =\<caminho > | caminho do \<\>: caminho do arquivo  |
-| StartTraces  |  Comece coletando logs de rastreamento de depuração. | CosmosDB.Emulator.exe /StartTraces | |
-| StopTraces     | Parar coleta de logs de rastreamento de depuração. | CosmosDB.Emulator.exe /StopTraces  | |
-|FailOnSslCertificateNameMismatch | Por padrão, o emulador regenera seu certificado SSL autoassinado, se o SAN do certificado não incluir o nome de domínio do host do emulador, endereço IPv4 local, ' localhost ' e ' 127.0.0.1 '. Com essa opção, o emulador falhará na inicialização em vez disso. Em seguida, você deve usar a opção/GenCert para criar e instalar um novo certificado SSL autoassinado. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
+| StartTraces  |  Comece coletando logs de rastreamento de depuração. | CosmosDB. Emulator. exe/StartTraces | |
+| StopTraces     | Parar coleta de logs de rastreamento de depuração. | CosmosDB. Emulator. exe/StopTraces  | |
+|FailOnSslCertificateNameMismatch | Por padrão, o emulador regenera seu certificado SSL autoassinado, se o SAN do certificado não incluir o nome de domínio do host do emulador, endereço IPv4 local, ' localhost ' e ' 127.0.0.1 '. Com essa opção, o emulador falhará na inicialização em vez disso. Em seguida, você deve usar a opção/GenCert para criar e instalar um novo certificado SSL autoassinado. | CosmosDB. Emulator. exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Gere e instale um novo certificado SSL autoassinado. Opcionalmente, incluindo uma lista separada por vírgulas de nomes DNS adicionais para acessar o emulador pela rede. | CosmosDB. Emulator. exe/GenCert =\<nomes de DNS\> |\<nomes de DNS\>: lista separada por vírgulas opcional de nomes DNS adicionais  |
 | DirectPorts |Especifica as portas a utilizar para conectividade direta. As predefinições são 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: lista delimitada por vírgulas de 4 portas |
 | Chave |Chave de autorização para o emulador. A chave tem de ser a codificação base 64 de um vetor de 64 bytes. | CosmosDB.Emulator.exe /Key:\<key\> | \<chave\>: a chave tem de ser a codificação base 64 de um vetor de 64 bytes|
@@ -265,7 +265,7 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 | DisableRateLimiting |Especifica que o comportamento de limitação da taxa de pedidos está desativado. |CosmosDB.Emulator.exe /DisableRateLimiting | |
 | NoUI | Não mostrar a interface de utilizador do emulador. | CosmosDB.Emulator.exe /NoUI | |
 | NoExplorer | Não mostrar o explorador de dados no arranque. |CosmosDB.Emulator.exe /NoExplorer | | 
-| PartitionCount | Especifica o número máximo de contêineres particionados. Consulte [alterar o número de contêineres](#set-partitioncount) para obter mais informações. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitionCount\>: número máximo de contêineres de partição única permitidos. O valor predefinido é 25. O máximo permitido é 250.|
+| PartitionCount | Especifica o número máximo de contêineres particionados. Consulte [alterar o número de contêineres](#set-partitioncount) para obter mais informações. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitionCount\>: número máximo de contêineres de partição única permitidos. O valor padrão é 25. O máximo permitido é 250.|
 | DefaultPartitionCount| Especifica o número padrão de partições para um contêiner particionado. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> valor padrão é 25.|
 | AllowNetworkAccess | Permite o acesso ao emulador através de uma rede. Tem de passar também /Key=\<key_string\> oru/KeyFile=\<file_name\> para ativar o acesso à rede. | CosmosDB. Emulator. exe/AllowNetworkAccess/Key =\<key_string\> ou CosmosDB. Emulator. exe/AllowNetworkAccess/KeyFile =\<file_name\>| |
 | NoFirewall | Não ajuste as regras de firewall quando a opção/AllowNetworkAccess for usada. |CosmosDB.Emulator.exe /NoFirewall | |

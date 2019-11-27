@@ -96,9 +96,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
-    ![O link de download de certificado](common/copy-metadataurl.png)
+    ![O link de download do certificado](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
@@ -110,7 +110,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao MyAryaka.
 
@@ -118,7 +118,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **MyAryaka**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -130,15 +130,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-myaryaka-sso"></a>Configurar o SSO do MyAryaka
 
-Para configurar o logon único no lado do **MyAryaka** , é necessário enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [MyAryaka](mailto:support@aryaka.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do **MyAryaka** , é necessário enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [MyAryaka](mailto:support@aryaka.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="create-myaryaka-test-user"></a>Criar usuário de teste do MyAryaka
 
-Nesta seção, você criará um usuário chamado B. Simon em MyAryaka. Trabalhe com a [equipe de suporte do MyAryaka](mailto:support@aryaka.com) para adicionar os usuários na plataforma do MyAryaka. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon em MyAryaka. Trabalhe com a [equipe de suporte do MyAryaka](mailto:support@aryaka.com) para adicionar os usuários na plataforma do MyAryaka. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do MyAryaka no painel de acesso, você deverá ser conectado automaticamente ao MyAryaka para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

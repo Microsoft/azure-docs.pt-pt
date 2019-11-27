@@ -107,7 +107,7 @@ Você pode promover uma sessão transmissão ao vivo para um novo alerta selecio
 
 Essa ação abre o assistente de criação de regras, que é preenchido previamente com a consulta associada à sessão transmissão ao vivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a usar o transmissão ao vivo de busca no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

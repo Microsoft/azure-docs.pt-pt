@@ -78,7 +78,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máximo de 48 MB/s |
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[aumentar o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
-| OLTP dentro da memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP na memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | [Réplicas somente leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
 
@@ -134,10 +134,10 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 
 |Tipo de subscrição| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |
-|"Pay-as-you-go"|3|320|
+|Pay as you go|3|320|
 |CSP |8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Desenvolvimento/teste pago conforme o uso|3|320|
-|Enterprise Dev/Test|3|320|
+|Enterprise Programador/Teste|3|320|
 |EUM|8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e Plataformas MSDN|2|32|

@@ -1,6 +1,6 @@
 ---
 title: Atribuir um acesso de identidade gerenciada a um recurso usando o CLI do Azure-Azure AD
-description: Instruções passo a passo instruções para atribuir uma identidade gerida num recurso, o acesso a outro recurso, com a CLI do Azure.
+description: Instruções passo a passo para atribuir uma identidade gerenciada em um recurso, acesso a outro recurso, usando CLI do Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -22,39 +22,39 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74547363"
 ---
-# <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade gerida a um recurso com a CLI do Azure
+# <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Assim que tiver configurado um recurso do Azure com uma identidade gerida, pode dar o acesso de identidade gerida para outro recurso, tal como qualquer entidade de segurança. Este exemplo mostra como conceder acesso de identidade gerida do conjunto de dimensionamento de máquina virtual ou máquina virtual do Azure para uma conta de armazenamento do Azure com a CLI do Azure.
+Depois de configurar um recurso do Azure com uma identidade gerenciada, você pode conceder o acesso de identidade gerenciada a outro recurso, assim como qualquer entidade de segurança. Este exemplo mostra como conceder a uma máquina virtual do Azure ou o acesso de identidade gerenciada do conjunto de dimensionamento de máquinas virtuais a uma conta de armazenamento do Azure usando CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para executar os exemplos de script da CLI, tem três opções:
+- Para executar os exemplos de script da CLI, você tem três opções:
     - Use [Azure cloud Shell](../../cloud-shell/overview.md) da portal do Azure (consulte a próxima seção).
-    - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
+    - Use o Azure Cloud Shell inserido por meio do botão "experimentar", localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir usar um console da CLI local. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utilizar o RBAC para atribuir um acesso de identidade gerida para outro recurso
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usar o RBAC para atribuir um acesso de identidade gerenciada a outro recurso
 
 Depois de habilitar a identidade gerenciada em um recurso do Azure, como uma [máquina virtual do Azure](qs-configure-cli-windows-vm.md) ou um [conjunto de dimensionamento de máquinas virtuais do Azure](qs-configure-cli-windows-vmss.md): 
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta que seja associada à subscrição do Azure sob a qual pretende implementar o conjunto de dimensionamento VM ou numa máquina virtual:
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM ou o conjunto de dimensionamento de máquinas virtuais:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Neste exemplo, estamos oferecendo uma máquina virtual do Azure de acesso a uma conta de armazenamento. Primeiro, usamos a [lista de recursos AZ](/cli/azure/resource/#az-resource-list) para obter a entidade de serviço para a máquina virtual chamada myVM:
+2. Neste exemplo, estamos fornecendo acesso a uma conta de armazenamento a uma máquina virtual do Azure. Primeiro, usamos a [lista de recursos AZ](/cli/azure/resource/#az-resource-list) para obter a entidade de serviço para a máquina virtual chamada myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
-   Para obter um conjunto de dimensionamento de máquina virtual do Azure, o comando é o mesmo, exceto aqui, obtém o principal de serviço para o conjunto de dimensionamento de máquinas virtuais com o nome "DevTestVMSS":
+   Para um conjunto de dimensionamento de máquinas virtuais do Azure, o comando é o mesmo, exceto aqui, você obtém a entidade de serviço para o conjunto de dimensionamento de máquinas virtuais chamado "DevTestVMSS":
    
    ```azurecli-interactive
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)

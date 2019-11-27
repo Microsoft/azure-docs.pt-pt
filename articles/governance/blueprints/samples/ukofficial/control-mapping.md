@@ -156,7 +156,7 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 - \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - Implantar o observador de rede quando redes virtuais forem criadas
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 

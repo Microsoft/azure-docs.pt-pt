@@ -56,7 +56,7 @@ Para essa tarefa, você pode usar a portal do Azure seguindo as etapas nesta se�
 
    ![Fornecer detalhes da conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome** | Sim | <*Integration-nome da conta*> | O nome da sua conta de integração, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "fabrikam integração". |
    | **Subscrição** | Sim | <*Azure-subscription-name*> | O nome para a subscrição do Azure |

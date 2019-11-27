@@ -43,7 +43,7 @@ Se você planeja usar os exemplos de Azure PowerShell neste artigo, certifique-s
 > [!IMPORTANT]
 > - O limite de segurança de identidades gerenciadas para recursos do Azure é o recurso em que ele está sendo usado. Todos os códigos/scripts em execução em uma máquina virtual podem solicitar e recuperar tokens para quaisquer identidades gerenciadas disponíveis nele. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Um aplicativo cliente pode solicitar identidades gerenciadas para o [token de acesso somente de aplicativo](../develop/developer-glossary.md#access-token) de recursos do Azure para acessar um determinado recurso. O token é [baseado nas identidades gerenciadas para a entidade de serviço de recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Assim, não há necessidade de o cliente se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 

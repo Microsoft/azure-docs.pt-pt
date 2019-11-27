@@ -109,7 +109,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 |Implantar migrações para Azure|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de aterrissagem, visite os seguintes artigos para saber mais sobre a arquitetura:
 

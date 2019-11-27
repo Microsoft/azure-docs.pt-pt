@@ -141,6 +141,6 @@ Há oito aspectos para um controle de identidade seguro. Esta lista ajudará voc
 - Bloquear o acesso ao portal de EA do Azure.
 - Implemente o gerenciamento de direitos para fornecer acesso controlado a uma coleção de recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução às [verificações e ações operacionais do Azure ad](active-directory-ops-guide-ops.md).

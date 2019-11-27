@@ -36,10 +36,10 @@ O proxy de aplicativo é um recurso do Azure AD que permite que os usuários ace
 
 O proxy de aplicativo funciona com:
 
-* Aplicações Web que utilizem [a autenticação integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação  
-* Aplicativos que usam baseada em formulários da Web ou [baseado em cabeçalho](application-proxy-configure-single-sign-on-with-ping-access.md) acesso  
+* Aplicativos Web que usam a [autenticação integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação  
+* Aplicativos Web que usam acesso baseado em formulário ou em [cabeçalho](application-proxy-configure-single-sign-on-with-ping-access.md)  
 * APIs que deseja expor para aplicativos avançados em diferentes dispositivos para a Web  
-* Aplicativos hospedados por trás de um [Gateway de ambiente de trabalho remoto](application-proxy-integrate-with-remote-desktop-services.md)  
+* Aplicativos hospedados atrás de um [Gateway de área de trabalho remota](application-proxy-integrate-with-remote-desktop-services.md)  
 * Aplicações de cliente rico que estão integradas com o Active Directory Authentication Library (ADAL)
 
 O proxy de aplicativo dá suporte ao logon único. Para obter mais informações sobre os métodos com suporte, consulte [escolhendo um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
@@ -64,7 +64,7 @@ O diagrama a seguir mostra como o Azure AD e o proxy de aplicativo trabalham jun
 | Ponto Final  | O ponto de extremidade é uma URL ou um [portal do usuário final](end-user-experiences.md). Os utilizadores possam contactar aplicativos enquanto fora da sua rede ao aceder a um URL externo. Os utilizadores na sua rede possam aceder à aplicação através de um URL ou um portal de utilizador final. Quando os utilizadores aceder a um desses pontos de extremidade, eles se autenticar no Azure AD e, em seguida, são encaminhados através do conector para o aplicativo no local.|
 | Azure AD | O AD do Azure executa a autenticação usando o diretório de locatário armazenado na nuvem. |
 | Serviço de proxy de aplicativo | Esse serviço de proxy de aplicativo é executado na nuvem como parte do Azure AD. Ele passa o token de logon do usuário para o conector de proxy de aplicativo. O proxy de aplicativo encaminha todos os cabeçalhos acessíveis na solicitação e define os cabeçalhos de acordo com seu protocolo para o endereço IP do cliente. Se a solicitação de entrada para o proxy já tiver esse cabeçalho, o endereço IP do cliente será adicionado ao final da lista separada por vírgulas que é o valor do cabeçalho.|
-| Conector de proxy de aplicativo | O conector é um agente leve que é executado em um Windows Server dentro de sua rede. O conector gerencia a comunicação entre o serviço de proxy de aplicativo na nuvem e o aplicativo local. O conector usa somente conexões de saída, de modo que você não precisa abrir nenhuma porta de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e extraem informações a partir da cloud conforme necessário. Para obter mais informações sobre conectores, como como eles balanceamento de carga e autenticar, consulte [conectores de Proxy de aplicações do AD Azure compreender](application-proxy-connectors.md).|
+| Conector de proxy de aplicativo | O conector é um agente leve que é executado em um Windows Server dentro de sua rede. O conector gerencia a comunicação entre o serviço de proxy de aplicativo na nuvem e o aplicativo local. O conector usa somente conexões de saída, de modo que você não precisa abrir nenhuma porta de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e extraem informações a partir da cloud conforme necessário. Para obter mais informações sobre conectores, como o balanceamento de carga e a autenticação, consulte [entender os conectores de proxy de aplicativo do AD do Azure](application-proxy-connectors.md).|
 | Active Directory (AD) | Active Directory é executado localmente para realizar a autenticação para contas de domínio. Quando o logon único é configurado, o conector se comunica com o AD para executar qualquer autenticação adicional necessária.
 | Aplicação no local | Por fim, o usuário é capaz de acessar um aplicativo local. 
 

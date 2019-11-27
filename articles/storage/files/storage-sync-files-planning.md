@@ -39,7 +39,7 @@ O agente do Azure File Sync é um pacote transferível que permite a sincroniza�
 - **StorageSync. sys**: o sincronização de arquivos do Azure filtro do sistema de arquivos, que é responsável por enfileirar arquivos para arquivos do Azure (quando a disposição em camadas da nuvem está habilitada).
 - **Cmdlets de gerenciamento do PowerShell**: cmdlets do PowerShell que você usa para interagir com o provedor de recursos do Azure Microsoft. StorageSync. Você pode encontrá-los nos seguintes locais (padrão):
     - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+    - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Vários pontos de extremidade de servidor podem existir no mesmo volume se seus namespaces não se sobrepõem (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de camadas de nuvem individualmente para cada ponto de extremidade do servidor. 
@@ -141,14 +141,14 @@ Para exibir os resultados em CSV:
 
 | Arquivo/pasta | Nota |
 |-|-|
-| Desktop.ini | Arquivo específico para o sistema |
-| ethumbs.db$ | Arquivo temporário para miniaturas |
+| Desktop. ini | Arquivo específico para o sistema |
+| ethumbs. DB $ | Arquivo temporário para miniaturas |
 | ~$\*.\* | Arquivo temporário do Office |
 | \*. tmp | Arquivo temporário |
 | \*. laccdb | Acessar arquivo de bloqueio do BD|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
 | \\informações de volume do sistema | Pasta específica ao volume |
-| $RECYCLE.BIN| Pasta |
+| $RECYCLE. COMPARTIMENTO| Pasta |
 | \\SyncShareState | Pasta para sincronização |
 
 ### <a name="failover-clustering"></a>Clustering de failover
@@ -244,7 +244,7 @@ Em geral, Sincronização de Arquivos do Azure deve dar suporte à interoperabil
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (gerenciamento de armazenamento hierárquico)
 Nenhuma outra solução HSM deve ser usada com Sincronização de Arquivos do Azure.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 Sincronização de Arquivos do Azure está disponível somente nas seguintes regiões:
 
 | Região | Localização do datacenter |
@@ -254,35 +254,35 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
-| Índia Central | Pune |
-| EUA Central | Iowa |
-| Ásia Oriental | RAE de Hong Kong |
-| EUA Leste | Virgínia |
+| Centro da Índia | Pune |
+| Centro dos E.U.A. | Iowa |
+| Este Asiático | RAE de Hong Kong |
+| Este dos E.U.A. | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
 | França Central | Paris |
 | Sul da França * | Marselha |
-| Coreia do Sul Central | Seoul |
-| Coreia do Sul | Busan |
-| Leste do Japão | Tóquio, Saitama |
-| Oeste do Japão | Osaka |
-| EUA Centro-Norte | Illinois |
+| Coreia do Sul Central | Seul |
+| Sul da Coreia do Sul | Busan |
+| Este do Japão | Tóquio, Saitama |
+| Oeste do Japão | Osaca |
+| E.U.A. Centro-Norte | Illinois |
 | Europa do Norte | Irlanda |
 | Norte da África do Sul | Joanesburgo |
 | Oeste da África do Sul * | Cidade do Cabo |
-| EUA Centro-Sul | Texas |
+| E.U.A. Centro-Sul | Texas |
 | Sul da Índia | Chennai |
-| Sudeste asiático | Singapura |
-| Reino Unido Sul | Londres |
-| Reino Unido Oeste | Cardiff |
-| Gov (US) - Arizona | Arizona |
+| Sudeste Asiático | Singapura |
+| Sul do Reino Unido | Londres |
+| Oeste do Reino Unido | Cardiff |
+| US Gov - Texas | Arizona |
 | Gov (US) - Texas | Texas |
-| Gov (US) - Virginia | Virgínia |
+| Gov dos E.U.A. Virginia | Virgínia |
 | Norte dos E.A.U. | Dubai |
 | EAU Central * | Abu Dhabi |
-| Europa ocidental | Países Baixos |
-| EUA Centro-Oeste | Wyoming |
-| EUA Oeste | Califórnia |
-| EUA Oeste 2 | Washington |
+| Europa Ocidental | Países Baixos |
+| E.U.A. Centro-Oeste | Wyoming |
+| Oeste dos E.U.A. | Califórnia |
+| E.U.A. Oeste 2 | Washington |
 
 Sincronização de Arquivos do Azure dá suporte à sincronização somente com um compartilhamento de arquivos do Azure que está na mesma região que o serviço de sincronização de armazenamento.
 
@@ -300,43 +300,43 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 |---------------------|--------------------|
 | Leste da Austrália      | Sudeste da Austrália|
 | Sudeste da Austrália | Leste da Austrália     |
-| Sul do Brasil        | EUA Centro-Sul   |
+| Sul do Brasil        | E.U.A. Centro-Sul   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
-| Índia Central       | Sul da Índia        |
-| EUA Central          | EUA Leste 2          |
-| Ásia Oriental           | Sudeste asiático     |
-| EUA Leste             | EUA Oeste            |
-| EUA Leste 2           | EUA Central         |
+| Centro da Índia       | Sul da Índia        |
+| Centro dos E.U.A.          | Este dos E.U.A. 2          |
+| Este Asiático           | Sudeste Asiático     |
+| Este dos E.U.A.             | Oeste dos E.U.A.            |
+| Este dos E.U.A. 2           | Centro dos E.U.A.         |
 | França Central      | Sul de França       |
 | Sul de França        | França Central     |
-| Leste do Japão          | Oeste do Japão         |
-| Oeste do Japão          | Leste do Japão         |
-| Coreia do Sul Central       | Coreia do Sul        |
-| Coreia do Sul         | Coreia do Sul Central      |
-| Europa do Norte        | Europa ocidental        |
-| EUA Centro-Norte    | EUA Centro-Sul   |
+| Este do Japão          | Oeste do Japão         |
+| Oeste do Japão          | Este do Japão         |
+| Coreia do Sul Central       | Sul da Coreia do Sul        |
+| Sul da Coreia do Sul         | Coreia do Sul Central      |
+| Europa do Norte        | Europa Ocidental        |
+| E.U.A. Centro-Norte    | E.U.A. Centro-Sul   |
 | Norte da África do Sul  | Oeste da África do Sul  |
 | Oeste da África do Sul   | Norte da África do Sul |
-| EUA Centro-Sul    | EUA Centro-Norte   |
-| Sul da Índia         | Índia Central      |
-| Sudeste asiático      | Ásia Oriental          |
-| Reino Unido Sul            | Reino Unido Oeste            |
-| Reino Unido Oeste             | Reino Unido Sul           |
-| Gov (US) - Arizona      | Gov (US) - Texas       |
-| US Gov - Iowa         | Gov (US) - Virginia    |
-| Gov (US) - Virginia      | Gov (US) - Texas       |
-| Europa ocidental         | Europa do Norte       |
-| EUA Centro-Oeste     | EUA Oeste 2          |
-| EUA Oeste             | EUA Leste            |
-| EUA Oeste 2           | EUA Centro-Oeste    |
+| E.U.A. Centro-Sul    | E.U.A. Centro-Norte   |
+| Sul da Índia         | Centro da Índia      |
+| Sudeste Asiático      | Este Asiático          |
+| Sul do Reino Unido            | Oeste do Reino Unido            |
+| Oeste do Reino Unido             | Sul do Reino Unido           |
+| US Gov - Texas      | Gov (US) - Texas       |
+| US Gov - Virginia         | Gov dos E.U.A. Virginia    |
+| Gov dos E.U.A. Virginia      | Gov (US) - Texas       |
+| Europa Ocidental         | Europa do Norte       |
+| E.U.A. Centro-Oeste     | E.U.A. Oeste 2          |
+| Oeste dos E.U.A.             | Este dos E.U.A.            |
+| E.U.A. Oeste 2           | E.U.A. Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Considerar as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
+* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 * [Implantar arquivos do Azure](storage-files-deployment-guide.md)
 * [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

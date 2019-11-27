@@ -24,7 +24,7 @@ Depois que uma onda de [manutenção planejada](maintenance-notifications.md) fo
 
 Você pode usar o portal do Azure e procurar VMs agendadas para manutenção.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No painel de navegação esquerdo, clique em **máquinas virtuais**.
 
@@ -69,6 +69,6 @@ Depois de iniciar a manutenção, sua máquina virtual será mantida e o status 
 Se você perdeu a janela de autoatendimento, ainda poderá ver a janela quando sua VM será mantida pelo Azure. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você também pode manipular a manutenção planejada usando o [CLI do Azure](maintenance-notifications-cli.md) ou o [PowerShell](maintenance-notifications-powershell.md).

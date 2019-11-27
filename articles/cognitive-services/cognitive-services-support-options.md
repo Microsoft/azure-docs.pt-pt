@@ -106,7 +106,7 @@ As notas de versão são atualizadas conforme novas versões são disponibilizad
 
 Notícias sobre serviços cognitivas são compartilhadas no [blog do Azure](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Procurar
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -180,7 +180,7 @@ Detalhe a oferta de serviços cognitivas que você está tentando usar e forneç
 
 O reddit é um site de discussão e classificação de conteúdo da Web orientado pela Comunidade, oferecendo os detalhes mais recentes dos [Serviços cognitivas do Azure](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Os membros registrados podem enviar conteúdo e outros podem votar em ti – habilitar de forma orgânica o conteúdo mais relevante aumentará para o topo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [O que são os serviços cognitivas do Azure?](welcome.md)

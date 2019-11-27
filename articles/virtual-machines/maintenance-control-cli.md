@@ -258,5 +258,5 @@ az maintenance configuration delete \
    --name myConfig
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais, consulte [manutenção e atualizações](maintenance-and-updates.md).

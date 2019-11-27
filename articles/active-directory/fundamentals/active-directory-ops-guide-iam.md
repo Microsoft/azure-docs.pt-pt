@@ -201,6 +201,6 @@ Há cinco aspectos para uma infraestrutura de identidade segura. Essa lista ajud
 - Simplifique o gerenciamento de licenças e a atribuição de aplicativos.
 - Automatize o provisionamento de usuário para aplicativos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução às [verificações e ações de gerenciamento de autenticação](active-directory-ops-guide-auth.md).
