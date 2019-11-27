@@ -85,6 +85,6 @@ Execute o exemplo do console do ou do no IDE:
 
 Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e registados na janela da consola.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

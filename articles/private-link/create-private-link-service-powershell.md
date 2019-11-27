@@ -21,7 +21,7 @@ Este artigo mostra como criar um serviço de vínculo privado no Azure usando Az
 
 Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá a versão mais recente do módulo de Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Antes de criar seu link privado, você deve criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *WestCentralUS* :
 
@@ -173,6 +173,6 @@ Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[
 
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o [link privado do Azure](private-link-overview.md)
  

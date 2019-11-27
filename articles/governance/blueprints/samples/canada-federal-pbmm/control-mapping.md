@@ -1,14 +1,14 @@
 ---
-title: Exemplo de mapeamento de controle do PBMM Blueprint do Canadá
+title: Controles de exemplo do Canadá Federal PBMM Blueprint
 description: Controle o mapeamento dos exemplos federais do Canadá PBMM Blueprint. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 ms.date: 09/04/2019
 ms.topic: sample
-ms.openlocfilehash: 0be73497de36ac3c11637b80a492ab0a8558206d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039698"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545258"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra do Canadá Federal PBMM Blueprint
 
@@ -98,9 +98,9 @@ Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de t
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Resposta AU-5 para falhas de processamento de auditoria
 
@@ -117,9 +117,9 @@ Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de t
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 
 ## <a name="au-12-audit-generation"></a>Geração de auditoria AU-12
 
@@ -127,9 +127,9 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
@@ -291,9 +291,9 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
-- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
+- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
+- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
+- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - Implantar a segurança de dados avançada em servidores SQL
@@ -305,7 +305,7 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 > [!NOTE]
 > A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Você analisou o mapeamento de controle do exemplo de Planejamento Federal de PBMM do Canadá. Em seguida, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB monitoring data reference | Microsoft Docs
-description: Log and metrics reference for monitoring data from Azure Cosmos DB.
+title: Azure Cosmos DB referência de dados de monitoramento | Microsoft Docs
+description: Referência de log e métricas para monitorar dados de Azure Cosmos DB.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -16,89 +16,89 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456525"
 ---
-# <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB monitoring data reference
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See [Monitoring Cosmos DB](monitor-cosmos-db.md) for details on collecting and analyzing monitoring data for Azure Cosmos DB.
+# <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB referência de dados de monitoramento
+Este artigo fornece uma referência de dados de log e métricas coletados para analisar o desempenho e a disponibilidade de Azure Cosmos DB. Consulte [monitoramento Cosmos DB](monitor-cosmos-db.md) para obter detalhes sobre como coletar e analisar dados de monitoramento para Azure Cosmos DB.
 
 
 ## <a name="resource-logs"></a>Registos do recurso
-The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. In Azure Monitor Logs, they're collected in the **AzureDiagnostics** table with a **ResourceProvider** value of *MICROSOFT.DOCUMENTDB*. 
+A tabela a seguir lista as propriedades de Azure Cosmos DB logs de recursos quando eles são coletados nos logs de Azure Monitor ou no armazenamento do Azure. Nos logs de Azure Monitor, eles são coletados na tabela **AzureDiagnostics** com um valor **resourceprovider** da *Microsoft. DOCUMENTDB*. 
 
-| Azure Storage field or property | Azure Monitor Logs property | Descrição |
+| Campo de armazenamento do Azure ou a propriedade | Propriedade de logs de Azure Monitor | Descrição |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
-| **resourceId** | **Recurso** | The Azure Cosmos DB account for which logs are enabled.|
-| **category** | **Categoria** | For Azure Cosmos DB logs, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** are the available log types. |
-| **operationName** | **OperationName** | Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
-| **properties** | n/d | The contents of this field are described in the rows that follow. |
-| **activityId** | **activityId_g** | The unique GUID for the logged operation. |
-| **userAgent** | **userAgent_s** | A string that specifies the client user agent that's performing the request. The format is {user agent name}/{version}.|
-| **requestResourceType** | **requestResourceType_s** | The type of the resource accessed. This value can be any of the following resource types: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
-| **statusCode** | **statusCode_s** | The response status of the operation. |
-| **requestResourceId** | **ResourceId** | The resourceId that pertains to the request. The value may point to databaseRid, collectionRid, or documentRid depending on the operation performed.|
-| **clientIpAddress** | **clientIpAddress_s** | The client's IP address. |
-| **requestCharge** | **requestCharge_s** | The number of RUs that are used by the operation |
-| **collectionRid** | **collectionId_s** | The unique ID for the collection.|
-| **duration** | **duration_s** | The duration of the operation, in milliseconds. |
-| **requestLength** | **requestLength_s** | The length of the request, in bytes. |
-| **responseLength** | **responseLength_s** | The length of the response, in bytes.|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
+| **momento** | **TimeGenerated** | A data e hora (UTC) em que ocorreu a operação. |
+| **Identificação** | **Recurso** | A conta do Azure Cosmos DB para o qual os registos estão ativados.|
+| **Categorias** | **Categoria** | Para logs de Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de log disponíveis. |
+| **operationName** | **OperationName** | Nome da operação. Este valor pode ser qualquer uma das seguintes operações: criar, atualização, leitura, ReadFeed, eliminar, Replace, Execute, SqlQuery, consulta, JSQuery, Head, HeadFeed ou Upsert.   |
+| **Properties** | n/d | O conteúdo deste campo é descrito nas linhas que se seguem. |
+| **activityId** | **activityId_g** | O GUID exclusivo para a operação com sessão iniciada. |
+| **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente de utilizador do cliente que está a efetuar o pedido. O formato é {nome do agente de utilizador} / {version}.|
+| **requestResourceType** | **requestResourceType_s** | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recurso: base de dados, contentor, documentos, anexo, utilizador, permissão, StoredProcedure, acionador, UserDefinedFunction ou oferta. |
+| **statusCode** | **statusCode_s** | O estado de resposta da operação. |
+| **requestResourceId** | **Identificação** | O resourceId que diz respeito ao pedido. O valor pode apontar para databaseRid, collectionRid ou documentRid dependendo da operação efetuada.|
+| **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |
+| **requestCharge** | **requestCharge_s** | O número de RUs que são utilizados pela operação |
+| **collectionRid** | **collectionId_s** | O ID exclusivo para a coleção.|
+| **permanência** | **duration_s** | A duração da operação, em milissegundos. |
+| **requestLength** | **requestLength_s** | O comprimento do pedido, em bytes. |
+| **responseLength** | **responseLength_s** | O comprimento da resposta, em bytes.|
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Esse valor não é vazio quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são usados para autenticação. O valor aponta para o ID de recurso do utilizador. |
 
-For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/diagnostic-logs-schema.md). 
+Para obter uma lista de todas as categorias de log Azure Monitor e links para esquemas associados, consulte [Azure monitor categorias e esquemas de logs](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
 ## <a name="metrics"></a>Métricas
-The following tables list the platform metrics collected for Azure CosmOS DB. All metrics are stored in the namespace **Cosmos DB standard metrics**.
+As tabelas a seguir listam as métricas de plataforma coletadas para o Azure CosmOS DB. Todas as métricas são armazenadas no namespace **Cosmos DB métricas padrão**.
 
-For a list of all Azure Monitor support metrics (including CosmosDB), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). 
+Para obter uma lista de todas as métricas de suporte de Azure Monitor (incluindo CosmosDB), consulte [Azure monitor métricas com suporte](../azure-monitor/platform/metrics-supported.md). 
 
-#### <a name="request-metrics"></a>Request metrics
+#### <a name="request-metrics"></a>Métricas de pedidos
             
-|Metric (Metric Display Name)|Unit (Aggregation Type) |Descrição|Dimensões| Time granularities| Legacy metric mapping | Utilização |
+|Métrica (nome para exibição da métrica)|Unidade (tipo de agregação) |Descrição|Dimensões| Granularidades de tempo| Mapeamento de métricas herdadas | Utilização |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests (Total Requests) | Count (Count) | Number of requests made| DatabaseName, CollectionName, Region, StatusCode| Tudo | TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second | Used to monitor requests per status code, container at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
-| MetadataRequests (Metadata Requests) |Count (Count) | Count of metadata requests. Azure Cosmos DB maintains system metadata container for each account, that allows you to enumerate collections, databases, etc., and their configurations, free of charge. | DatabaseName, CollectionName, Region, StatusCode| Tudo| |Used to monitor throttles due to metadata requests.|
-| MongoRequests (Mongo Requests) | Count (Count) | Number of Mongo Requests Made | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tudo |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Used to monitor Mongo request errors, usages per command type. |
+| TotalRequests (total de solicitações) | Contagem (contagem) | Número de solicitações feitas| DatabaseName, CollectionName, região, StatusCode| Todos | TotalRequests, http 2xx, http 3xx, http 400, http 401, erro interno do servidor, serviço não disponível, solicitações limitadas, média de solicitações por segundo | Usado para monitorar solicitações por código de status, contêiner a uma granularidade de minuto. Para obter a média de solicitações por segundo, use a agregação de contagem em minuto e divida por 60. |
+| MetadataRequests (solicitações de metadados) |Contagem (contagem) | Contagem de solicitações de metadados. Azure Cosmos DB mantém o contêiner de metadados do sistema para cada conta, que permite enumerar coleções, bancos de dados, etc., e suas configurações, gratuitamente. | DatabaseName, CollectionName, região, StatusCode| Todos| |Usado para monitorar limitadores devido a solicitações de metadados.|
+| MongoRequests (solicitações de Mongo) | Contagem (contagem) | Número de solicitações Mongo feitas | DatabaseName, CollectionName, região, CommandName, ErrorCode| Todos |Taxa de solicitação de consulta Mongo, taxa de solicitação de atualização Mongo, taxa de solicitação de exclusão de Mongo, taxa de solicitação de inserção de Mongo, taxa de solicitação de contagem Mongo| Usado para monitorar erros de solicitação Mongo, usos por tipo de comando. |
 
-#### <a name="request-unit-metrics"></a>Request Unit metrics
+#### <a name="request-unit-metrics"></a>Métricas de unidade de solicitação
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Descrição|Dimensões| Time granularities| Legacy metric mapping | Utilização |
+|Métrica (nome para exibição da métrica)|Unidade (tipo de agregação)|Descrição|Dimensões| Granularidades de tempo| Mapeamento de métricas herdadas | Utilização |
 |---|---|---|---| ---| ---| ---|
-| MongoRequestCharge (Mongo Request Charge) | Count (Total) |Mongo Request Units Consumed| DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tudo |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Used to monitor Mongo resource RUs in a minute.|
-| TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |Tudo| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Total aggregation at minute and divide by 60.|
-| ProvisionedThroughput (Provisioned Throughput)| Count (Maximum) |Provisioned throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor provisioned throughput per container.|
+| MongoRequestCharge (encargo de solicitação Mongo) | Contagem (total) |Unidades de solicitação Mongo consumidas| DatabaseName, CollectionName, região, CommandName, ErrorCode| Todos |Encargo de solicitação de consulta Mongo, encargo de solicitação de atualização Mongo, cobrança de solicitação de exclusão Mongo, Mongo de cobrança de solicitação de inserção, custo de solicitação de contagem de Mongo| Usado para monitorar o RUs do recurso Mongo em um minuto.|
+| TotalRequestUnits (total de unidades de solicitação)| Contagem (total) | Unidades de solicitação consumidas| DatabaseName, CollectionName, região, StatusCode |Todos| TotalRequestUnits| Usado para monitorar o uso total de RU a uma granularidade de minuto. Para obter a média de RU consumido por segundo, use a agregação total em minuto e divida por 60.|
+| ProvisionedThroughput (taxa de transferência provisionada)| Contagem (máximo) |Taxa de transferência provisionada na granularidade do contêiner| DatabaseName, ContainerName| 5 min| | Usado para monitorar a taxa de transferência provisionada por contêiner.|
 
-#### <a name="storage-metrics"></a>Storage metrics
+#### <a name="storage-metrics"></a>Métricas de armazenamento
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Descrição|Dimensões| Time granularities| Legacy metric mapping | Utilização |
+|Métrica (nome para exibição da métrica)|Unidade (tipo de agregação)|Descrição|Dimensões| Granularidades de tempo| Mapeamento de métricas herdadas | Utilização |
 |---|---|---|---| ---| ---| ---|
-| AvailableStorage (Available Storage) |Bytes (Total) | Total available storage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Available Storage| Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.| 
-| DataUsage (Data Usage) |Bytes (Total) |Total data usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Data size | Used to monitor total data usage at container and region, minimum granularity should be 5 minutes.|
-| IndexUsage (Index Usage) | Bytes (Total) |Total Index usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Index Size| Used to monitor total data usage at container and region, minimum granularity should be 5 minutes. |
-| DocumentQuota (Document Quota) | Bytes (Total) | Total storage quota reported at 5-minutes granularity per region.| DatabaseName, CollectionName, Region| 5M |Capacidade de Armazenamento| Used to monitor total quota at container and region, minimum granularity should be 5 minutes.|
-| DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
+| AvailableStorage (armazenamento disponível) |Bytes (total) | Armazenamento total disponível relatado com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 min| Armazenamento disponível| Usado para monitorar a capacidade de armazenamento disponível (aplicável somente para coleções de armazenamento fixa) a granularidade mínima deve ser de 5 minutos.| 
+| Datautilization (uso de dados) |Bytes (total) |Uso total de dados relatados com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 min |Tamanho dos dados | Usado para monitorar o uso total de dados no contêiner e na região, a granularidade mínima deve ser de 5 minutos.|
+| IndexUsage (uso de índice) | Bytes (total) |Uso total do índice relatado com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 min| Tamanho do índice| Usado para monitorar o uso total de dados no contêiner e na região, a granularidade mínima deve ser de 5 minutos. |
+| DocumentQuota (cota de documentos) | Bytes (total) | Cota de armazenamento total relatada à granularidade de 5 minutos por região.| DatabaseName, CollectionName, região| 5 min |Capacidade de Armazenamento| Usado para monitorar a cota total no contêiner e na região, a granularidade mínima deve ser de 5 minutos.|
+| DocumentCount (contagem de documentos) | Contagem (total) |Contagem total de documentos relatados à granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 min |Contagem de documentos|Usado para monitorar a contagem de documentos no contêiner e na região, a granularidade mínima deve ser de 5 minutos.|
 
-#### <a name="latency-metrics"></a>Latency metrics
+#### <a name="latency-metrics"></a>Métricas de latência
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Descrição|Dimensões| Time granularities| Utilização |
+|Métrica (nome para exibição da métrica)|Unidade (tipo de agregação)|Descrição|Dimensões| Granularidades de tempo| Utilização |
 |---|---|---|---| ---| ---|
-| ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| Tudo | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
+| ReplicationLatency (latência de replicação)| Milissegundos (mínimo, máximo, média) | Latência de replicação P99 nas regiões de origem e de destino para a conta habilitada para Geografia| SourceRegion, TargetRegion| Todos | Usado para monitorar a latência de replicação P99 entre duas regiões para uma conta replicada geograficamente. |
 
 
-#### <a name="availability-metrics"></a>Availability metrics
+#### <a name="availability-metrics"></a>Métricas de disponibilidade
 
-|Metric (Metric Display Name) |Unit (Aggregation Type)|Descrição| Time granularities| Legacy metric mapping | Utilização |
+|Métrica (nome para exibição da métrica) |Unidade (tipo de agregação)|Descrição| Granularidades de tempo| Mapeamento de métricas herdadas | Utilização |
 |---|---|---|---| ---| ---|
-| ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+| Indisponibilidade (disponibilidade do serviço)| Percentual (mínimo, máximo) | Disponibilidade de solicitações de conta em granularidade de uma hora| 1H | Disponibilidade do serviço | Representa a porcentagem do total de solicitações passadas. Uma solicitação é considerada como falha devido a um erro do sistema se o código de status for 410, 500 ou 503 usado para monitorar a disponibilidade da conta na granularidade de hora. |
 
 
-#### <a name="cassandra-api-metrics"></a>Cassandra API metrics
+#### <a name="cassandra-api-metrics"></a>Métricas de API do Cassandra
 
-|Metric (Metric Display Name)|Unit (Aggregation Type)|Descrição|Dimensões| Time granularities| Utilização |
+|Métrica (nome para exibição da métrica)|Unidade (tipo de agregação)|Descrição|Dimensões| Granularidades de tempo| Utilização |
 |---|---|---|---| ---| ---|
-| CassandraRequests (Cassandra Requests) | Count (Count) | Number of Cassandra API requests made| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| Tudo| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
-| CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request Units consumed by Cassandra API requests| DatabaseName, CollectionName, Region, OperationType, ResourceType| Tudo| Used to monitor RUs used per minute by a Cassandra API account.|
-| CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| Tudo | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
+| CassandraRequests (solicitações de Cassandra) | Contagem (contagem) | Número de solicitações de API do Cassandra feitas| DatabaseName, CollectionName, ErrorCode, região, OperationType, ResourceType| Todos| Usado para monitorar solicitações Cassandra a uma granularidade de minuto. Para obter a média de solicitações por segundo, use a agregação de contagem em minuto e divida por 60.|
+| CassandraRequestCharges (encargos de solicitação do Cassandra) | Contagem (Sum, min, Max, AVG) | Unidades de solicitação consumidas por API do Cassandra solicitações| DatabaseName, CollectionName, Region, OperationType, ResourceType| Todos| Usado para monitorar RUs usado por minuto por uma conta de API do Cassandra.|
+| CassandraConnectionClosures (fechamentos de conexão do Cassandra) |Contagem (contagem) |Número de conexões Cassandra fechadas| ClosureReason, região| Todos | Usado para monitorar a conectividade entre os clientes do e o API do Cassandra de Azure Cosmos DB.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 
-- See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- Consulte [monitoramento Azure Cosmos DB](monitor-cosmos-db.md) para obter uma descrição do Azure Cosmos DB de monitoramento.
+- Consulte [monitorando recursos do Azure com Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre como monitorar recursos do Azure.

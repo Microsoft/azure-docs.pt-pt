@@ -99,7 +99,7 @@ https://download.microsoft.com/download/* | Permite downloads do site de downloa
 
 A tabela a seguir resume os requisitos de porta para avaliação.
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | ---
 **Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexões de saída nas portas 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 **Host/cluster do Hyper-V** | Conexões de entrada nas portas WinRM 5985 (HTTP) e 5986 (HTTPS) para efetuar pull da configuração e dos metadados de desempenho das VMs do Hyper-V usando uma sessão modelo CIM (CIM).
@@ -131,7 +131,7 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Discos/volumes criptografados**    | Sem suporte para migração. |
 | **Discos de RDM/PassThrough**      | Sem suporte para migração. |
 | **Disco compartilhado** | As VMs que usam discos compartilhados não têm suporte para migração.
-| **NFS**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
+| **-**                        | Volumes NFS montados como volumes nas VMs não serão replicados. |
 | **ISCSI**                      | As VMs com destinos iSCSI não têm suporte para migração.
 | **Disco de destino**                | Você pode migrar para VMs do Azure somente com o Managed disks. |
 | **Protocolo** | Não suportado.
@@ -159,13 +159,13 @@ time.windows.com | Verifica a sincronização de hora entre o sistema e o horár
 
 A tabela a seguir resume os requisitos de porta em hosts Hyper-V e VMs para migração de VM.
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | ---
 Hosts/VMs do Hyper-V | Conexões de saída na porta HTTPS 443 para enviar dados de replicação de VM para migrações para Azure.
 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Prepare-se para a avaliação de VM do Hyper-V](tutorial-prepare-hyper-v.md) para migração.

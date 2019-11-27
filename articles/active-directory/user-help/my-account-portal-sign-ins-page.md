@@ -63,7 +63,7 @@ Você pode pesquisar sua atividade de entrada recente por qualquer uma das infor
 
     ![Página atividade recente, mostrando a barra de pesquisa realçada, o botão de pesquisa e os resultados](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de exibir sua atividade de entrada recente, você pode:
 

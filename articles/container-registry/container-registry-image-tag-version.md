@@ -1,6 +1,6 @@
 ---
-title: Image tag best practices
-description: Best practices for tagging and versioning Docker container images when pushing images to and pulling images from an Azure container registry
+title: Práticas recomendadas de marca de imagem
+description: Práticas recomendadas para marcação e controle de versão de imagens de contêiner do Docker ao enviar imagens e extrair imagens de um registro de contêiner do Azure
 author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
@@ -12,50 +12,50 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454991"
 ---
-# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recommendations for tagging and versioning container images
+# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendações para marcação e controle de versão de imagens de contêiner
 
-When pushing deploying container images to a container registry and then deploying them, you need a strategy for image tagging and versioning. This article discusses two approaches and where each fits during the container lifecycle:
+Ao enviar por push as imagens de contêiner para um registro de contêiner e, em seguida, implantá-las, você precisa de uma estratégia para marcação e controle de imagens. Este artigo aborda duas abordagens e onde cada uma se ajusta durante o ciclo de vida do contêiner:
 
-* **Stable tags** - Tags that you reuse, for example, to indicate a major or minor version such as *mycontainerimage:1.0*.
-* **Unique tags** - A different tag for each image you push to a registry, such as *mycontainerimage:abc123*.
+* **Marcas estáveis** -marcas que você reutiliza, por exemplo, para indicar uma versão principal ou secundária, como *mycontainerimage: 1.0*.
+* **Marcas exclusivas** – uma marca diferente para cada imagem que você envia por push para um registro, como *mycontainerimage: abc123*.
 
-## <a name="stable-tags"></a>Stable tags
+## <a name="stable-tags"></a>Marcas estáveis
 
-**Recommendation**: Use stable tags to maintain **base images** for your container builds. Avoid deployments with stable tags, because those tags continue to receive updates and can introduce inconsistencies in production environments.
+**Recomendação**: use marcas estáveis para manter as **imagens base** para suas compilações de contêiner. Evite implantações com marcas estáveis, pois essas marcas continuam a receber atualizações e podem introduzir inconsistências em ambientes de produção.
 
-*Stable tags* mean a developer, or a build system, can continue to pull a specific tag, which continues to get updates. Stable doesn’t mean the contents are frozen. Rather, stable implies the image should be stable for the intent of that version. To stay “stable”, it might be serviced to apply security patches or framework updates.
+*Marcas estáveis* significam que um desenvolvedor, ou um sistema de compilação, pode continuar a extrair uma marca específica, o que continua a obter atualizações. Estável não significa que o conteúdo está congelado. Em vez disso, o estável implica que a imagem deve ser estável para a intenção dessa versão. Para permanecer "estável", pode ser atendido para aplicar patches de segurança ou atualizações de estrutura.
 
 ### <a name="example"></a>Exemplo
 
-A framework team ships version 1.0. They know they’ll ship updates, including minor updates. To support stable tags for a given major and minor version, they have two sets of stable tags.
+Uma equipe de estrutura vem com A versão 1,0. Eles sabem que enviarão atualizações, incluindo atualizações secundárias. Para dar suporte a marcas estáveis para uma determinada versão principal e secundária, elas têm dois conjuntos de marcas estáveis.
 
-* `:1` – a stable tag for the major version. `1` represents the “newest” or “latest” 1.* version.
-* `:1.0`- a stable tag for version 1.0, allowing a developer to bind to updates of 1.0, and not be rolled forward to 1.1 when it is released.
+* `:1` – uma marca estável para a versão principal. `1` representa a versão "mais recente" ou "1. * mais recente".
+* `:1.0`-uma marca estável para a versão 1,0, permitindo que um desenvolvedor se vincule às atualizações de 1,0 e não seja rolado para a 1,1 quando for lançado.
 
-The team also uses the `:latest` tag, which points to the latest stable tag, no matter what the current major version is.
+A equipe também usa a marca de `:latest`, que aponta para a marca estável mais recente, não importa qual é a versão principal atual.
 
-When base image updates are available, or any type of servicing release of the framework, images with the stable tags are updated to the newest digest that represents the most current stable release of that version.
+Quando as atualizações da imagem base estão disponíveis ou qualquer tipo de lançamento de serviço da estrutura, as imagens com as marcas estáveis são atualizadas para o resumo mais recente que representa a versão estável mais atual dessa versão.
 
-In this case, both the major and minor tags are continually being serviced. From a base image scenario, this allows the image owner to provide serviced images.
+Nesse caso, as marcas principal e secundária estão sendo atendidas continuamente. A partir de um cenário de imagem base, isso permite que o proprietário da imagem forneça imagens atendidas.
 
-## <a name="unique-tags"></a>Unique tags
+## <a name="unique-tags"></a>Marcas exclusivas
 
-**Recommendation**: Use unique tags for **deployments**, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
+**Recomendação**: use marcas exclusivas para **implantações**, especialmente em um ambiente que possa ser dimensionado em vários nós. Você provavelmente desejará implantações deliberadas de uma versão consistente dos componentes. Se o contêiner for reiniciado ou um orquestrador expandir mais instâncias, seus hosts não receberão acidentalmente uma versão mais nova, inconsistente com os outros nós.
 
-Unique tagging simply means that every image pushed to a registry has a unique tag. Tags are not reused. There are several patterns you can follow to generate unique tags, including:
+A marcação exclusiva significa simplesmente que cada imagem enviada por push a um registro tem uma marca exclusiva. As marcas não são reutilizadas. Há vários padrões que você pode seguir para gerar marcas exclusivas, incluindo:
 
-* **Date-time stamp** - This approach is fairly common, since you can clearly tell when the image was built. But, how to correlate it back to your build system? Do you have to find the build that was completed at the same time? What time zone are you in? Are all your build systems calibrated to UTC?
-* **Git commit**  – This approach works until you start supporting base image updates. If a base image update happens, your build system  kicks off with the same Git commit as the previous build. However, the base image has new content. In general, a Git commit provides a *semi*-stable tag.
-* **Manifest digest** - Each container image pushed to a container registry is associated with a manifest, identified by a unique SHA-256 hash, or digest. While unique, the digest is long, difficult to read, and uncorrelated with your build environment.
-* **Build ID** - This option may be best since it's likely incremental, and it allows you to correlate back to the specific build to find all the artifacts and logs. However, like a manifest digest, it might be difficult for a human to read.
+* **Carimbo de data/hora** – essa abordagem é bastante comum, pois você pode dizer claramente quando a imagem foi criada. Mas como correlacioná-lo de volta ao seu sistema de compilação? Você precisa encontrar a compilação que foi concluída ao mesmo tempo? Em qual fuso horário você está? Todos os sistemas de compilação são calibrados para o UTC?
+* **Confirmação do git** – essa abordagem funciona até que você comece a dar suporte a atualizações da imagem base. Se ocorrer uma atualização de imagem base, o sistema de compilação iniciará a mesma confirmação de git que a compilação anterior. No entanto, a imagem base tem um novo conteúdo. Em geral, uma *confirmação de git fornece uma marca*semiestável.
+* **Resumo do manifesto** -cada imagem de contêiner enviada por push para um registro de contêiner é associada a um manifesto, identificado por um hash SHA-256 exclusivo ou resumo. Embora seja exclusivo, o resumo é longo, difícil de ler e não correlacionado ao seu ambiente de compilação.
+* **ID da compilação** -essa opção pode ser melhor, pois provavelmente é incremental e permite que você se correlacione de volta à compilação específica para localizar todos os artefatos e logs. No entanto, como um resumo de manifesto, pode ser difícil para uma leitura humana.
 
-  If your organization has several build systems, prefixing the tag with the build system name is a variation on this option: `<build-system>-<build-id>`. For example, you could differentiate builds from the API team’s Jenkins build system and the web team's Azure Pipelines build system.
+  Se sua organização tiver vários sistemas de compilação, a prefixação da marca com o nome do sistema de compilação será uma variação nessa opção: `<build-system>-<build-id>`. Por exemplo, você poderia diferenciar as compilações do sistema de compilação Jenkins da equipe de API e do sistema de Build de Azure Pipelines da equipe da Web.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-For a more detailed discussion of the concepts in this article, see the blog post [Docker Tagging: Best practices for tagging and versioning docker images](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
+Para obter uma discussão mais detalhada sobre os conceitos deste artigo, consulte a postagem do blog [marcação do Docker: práticas recomendadas para marcação e controle de versão de imagens do Docker](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
-To help maximize the performance and cost-effective use of your Azure container registry, see [Best practices for Azure Container Registry](container-registry-best-practices.md).
+Para ajudar a maximizar o desempenho e o uso econômico de seu registro de contêiner do Azure, consulte [práticas recomendadas para o registro de contêiner do Azure](container-registry-best-practices.md).
 
 <!-- IMAGES -->
 

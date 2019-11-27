@@ -81,7 +81,7 @@ Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting
     | Subscrição    |  A sua subscrição  | A assinatura com seu aplicativo de funções.  |
     | Grupo de recursos     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
     | Tipo de recurso     |  Serviços Aplicacionais | Os aplicativos de funções são mostrados como instâncias de serviços de aplicativos no monitor. |
-    | Recurso     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
+    | Resource     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
 
 1. Selecione **aplicar** para escolher o aplicativo de funções como o recurso a ser monitorado.
 
@@ -232,7 +232,7 @@ customMetrics
 | QueueTrigger MaxDurationMs | 90\.249                     |
 | QueueTrigger MinDurationMs | 8\.522                      |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre como monitorar aplicativos de funções](functions-monitoring.md)

@@ -68,6 +68,6 @@ Se você escolher uma ferramenta de migração não Azure para avaliação, come
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente uma avaliação usando o Azure Migrate Server Assessment para VMs [VMware](tutorial-prepare-vmware.md) , [Hyper-V](tutorial-prepare-hyper-v.md)ou [servidores físicos](tutorial-prepare-physical.md)

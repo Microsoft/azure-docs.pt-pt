@@ -55,7 +55,7 @@ Esta tabela fornece informações sobre entidades de backup de núcleo, como cof
 | ResourceGroupName                 | Texto          | Grupo de recursos do recurso (por exemplo, cofre dos serviços de recuperação) para dados que estão sendo coletados |
 | SchemaVersion                     | Texto          | Este campo denota a versão atual do esquema, é **v2** |
 | SecondaryBackupProtectionState    | Texto          | Se a proteção secundária está habilitada para o item de backup  |
-| Estado                             | Texto          | Estado do objeto de item de backup. Por exemplo, ativo, excluído |
+| State                             | Texto          | Estado do objeto de item de backup. Por exemplo, ativo, excluído |
 | StorageReplicationType            | Texto          | Tipo de replicação de armazenamento para o cofre. Por exemplo, georedundante |
 | SubscriptionId                    | Texto          | Identificador de assinatura do recurso (por exemplo, cofre dos serviços de recuperação) para o qual os dados são coletados |
 | VaultName                         | Texto          | Nome do cofre                                            |
@@ -88,7 +88,7 @@ Esta tabela fornece detalhes sobre os campos relacionados ao alerta.
 | ProtectedContainerUniqueId     | Texto          | Identificador exclusivo do servidor protegido associado ao alerta |
 | Recomendado              | Texto          | Ação recomendada para resolver o alerta                      |
 | SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **v2**            |
-| Estado                          | Texto          | Estado atual do objeto de alerta, por exemplo, ativo, excluído |
+| State                          | Texto          | Estado atual do objeto de alerta, por exemplo, ativo, excluído |
 | StorageUniqueId                | Texto          | ID exclusiva usada para identificar a entidade de armazenamento                |
 | VaultUniqueId                  | Texto          | ID exclusiva usada para identificar o cofre relacionado ao alerta    |
 | SourceSystem                   | Texto          | Sistema de origem dos dados atuais-Azure                    |
@@ -108,7 +108,7 @@ Esta tabela fornece campos relacionados a instâncias protegidas básicas.
 | ProtectedContainerUniqueId     | Texto          | ID exclusiva para identificar o contêiner protegido no qual o trabalho é executado |
 | ProtectedInstanceCount         | Texto          | Contagem de instâncias protegidas para o item de backup associado ou o contêiner protegido nessa data e hora |
 | SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **v2**            |
-| Estado                          | Texto          | Estado do objeto de item de backup, por exemplo, ativo, excluído |
+| State                          | Texto          | Estado do objeto de item de backup, por exemplo, ativo, excluído |
 | VaultUniqueId                  | Texto          | Identificador exclusivo do cofre protegido associado à instância protegida |
 | SourceSystem                   | Texto          | Sistema de origem dos dados atuais-Azure                    |
 
@@ -139,7 +139,7 @@ Esta tabela fornece detalhes sobre os campos relacionados ao trabalho.
 | RecoveryJobLocation            | Texto          | O local onde o ponto de recuperação que está sendo recuperado foi armazenado |
 | RecoveryLocationType           | Texto          | Tipo do local de recuperação                                |
 | SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **v2**            |
-| Estado                          | Texto          | Estado atual do objeto de alerta, por exemplo, ativo, excluído |
+| State                          | Texto          | Estado atual do objeto de alerta, por exemplo, ativo, excluído |
 | VaultUniqueId                  | Texto          | Identificador exclusivo do cofre protegido associado ao alerta |
 | SourceSystem                   | Texto          | Sistema de origem dos dados atuais-Azure                    |
 
@@ -177,7 +177,7 @@ Esta tabela fornece detalhes sobre os campos relacionados à política.
 | RetentionDuration               | Texto           | Duração da retenção para backups configurados                    |
 | RetentionType                   | Texto           | Tipo de retenção                                            |
 | SchemaVersion                   | Texto           | Este campo denota a versão atual do esquema, é **v2** |
-| Estado                           | Texto           | Estado atual do objeto de política. Por exemplo, ativo, excluído |
+| State                           | Texto           | Estado atual do objeto de política. Por exemplo, ativo, excluído |
 | SynchronisationFrequencyPerDay  | Número inteiro   | Número de vezes em um dia em que um backup de arquivo é sincronizado para SC DPM e MABS |
 | VaultUniqueId                   | Texto           | ID exclusiva do cofre ao qual essa política pertence          |
 | WeeklyRetentionDaysOfTheWeek    | Texto           | Dias da semana selecionados para retenção semanal               |
@@ -207,7 +207,7 @@ Esta tabela fornece detalhes sobre os campos relacionados ao armazenamento.
 | PreferredWorkloadOnVolume      | Texto          | Carga de trabalho para a qual este volume é o armazenamento preferencial      |
 | ProtectedContainerUniqueId     | Texto          | Identificador exclusivo do servidor protegido associado ao alerta |
 | SchemaVersion                  | Texto          | Versão do esquema. Por exemplo, **v2**                   |
-| Estado                          | Texto          | Estado do objeto de item de backup. Por exemplo, ativo, excluído |
+| State                          | Texto          | Estado do objeto de item de backup. Por exemplo, ativo, excluído |
 | StorageAllocatedInMBs          | Número        | Tamanho do armazenamento alocado pelo item de backup correspondente no armazenamento correspondente do tipo disco |
 | StorageConsumedInMBs           | Número        | Tamanho do armazenamento consumido pelo item de backup correspondente no armazenamento correspondente |
 | StorageName                    | Texto          | Nome da entidade de armazenamento. Por exemplo, E:\                      |
@@ -218,6 +218,6 @@ Esta tabela fornece detalhes sobre os campos relacionados ao armazenamento.
 | VolumeFriendlyName             | Texto          | Nome amigável do volume de armazenamento                          |
 | SourceSystem                   | Texto          | Sistema de origem dos dados atuais-Azure                    |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba como enviar dados de diagnóstico para Log Analytics](https://aka.ms/AA6il6r)

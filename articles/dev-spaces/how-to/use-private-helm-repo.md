@@ -72,7 +72,7 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [o Helm e como ele funciona][helm].
 

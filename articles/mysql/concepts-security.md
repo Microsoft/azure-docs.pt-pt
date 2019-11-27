@@ -1,6 +1,6 @@
 ---
-title: Security in Azure Database for MySQL - Single Server
-description: An overview of the security features in Azure Database for MySQL - Single Server.
+title: Segurança no banco de dados do Azure para MySQL-servidor único
+description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MySQL-servidor único.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -13,42 +13,42 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485058"
 ---
-# <a name="security-in-azure-database-for-mysql---single-server"></a>Security in Azure Database for MySQL - Single Server
+# <a name="security-in-azure-database-for-mysql---single-server"></a>Segurança no banco de dados do Azure para MySQL-servidor único
 
-There are multiple layers of security that are available to protect the data on your Azure Database for MySQL server. This article outlines those security options.
+Há várias camadas de segurança que estão disponíveis para proteger os dados em seu servidor do banco de dados do Azure para MySQL. Este artigo descreve essas opções de segurança.
 
-## <a name="information-protection-and-encryption"></a>Information protection and encryption
+## <a name="information-protection-and-encryption"></a>Proteção de informações e criptografia
 
-### <a name="in-transit"></a>In-transit
-Azure Database for MySQL secures your data by encrypting data in-transit with Transport Layer Security. Encryption (SSL/TLS) is enforced by default.
+### <a name="in-transit"></a>Em trânsito
+O banco de dados do Azure para MySQL protege seus dados criptografando os dados em trânsito com a segurança da camada de transporte. A criptografia (SSL/TLS) é imposta por padrão.
 
-### <a name="at-rest"></a>At-rest
-The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk, with the exception of temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
+### <a name="at-rest"></a>Em repouso
+O serviço banco de dados do Azure para MySQL usa o módulo de criptografia FIPS 140-2 validado para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a codificação AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
 
 ## <a name="network-security"></a>Segurança da rede
-Connections to an Azure Database for MySQL server are first routed through a regional gateway. The gateway has a publicly accessible IP, while the server IP addresses are protected. For more information about the gateway, visit the [connectivity architecture article](concepts-connectivity-architecture.md).  
+As conexões com um servidor de banco de dados do Azure para MySQL são roteadas primeiro por meio de um gateway regional. O gateway tem um IP acessível publicamente, enquanto os endereços IP do servidor são protegidos. Para obter mais informações sobre o gateway, visite o [artigo arquitetura de conectividade](concepts-connectivity-architecture.md).  
 
-A newly created Azure Database for MySQL server has a firewall that blocks all external connections. Though they reach the gateway, they are not allowed to connect to the server. 
+Um servidor de banco de dados do Azure criado recentemente para MySQL tem um firewall que bloqueia todas as conexões externas. Embora eles atinjam o gateway, eles não têm permissão para se conectar ao servidor. 
 
-### <a name="ip-firewall-rules"></a>IP firewall rules
-IP firewall rules grant access to servers based on the originating IP address of each request. See the [firewall rules overview](concepts-firewall-rules.md) for more information.
+### <a name="ip-firewall-rules"></a>Regras de firewall de IP
+As regras de firewall IP concedem acesso a servidores com base no endereço IP de origem de cada solicitação. Consulte a [visão geral das regras de firewall](concepts-firewall-rules.md) para obter mais informações.
 
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
-Virtual network service endpoints extend your virtual network connectivity over the Azure backbone. Using virtual network rules you can enable your Azure Database for MySQL server to allow connections from selected subnets in a virtual network. For more information, see the [virtual network service endpoint overview](concepts-data-access-and-security-vnet.md).
+Os pontos de extremidade de serviço de rede virtual estendem sua conectividade de rede virtual no backbone do Azure. Usando regras de rede virtual, você pode habilitar seu banco de dados do Azure para servidor MySQL para permitir conexões de sub-redes selecionadas em uma rede virtual. Para obter mais informações, consulte [visão geral do ponto de extremidade do serviço de rede virtual](concepts-data-access-and-security-vnet.md).
 
 
 ## <a name="access-management"></a>Gestão de acesso
 
-While creating the Azure Database for MySQL server, you provide credentials for an administrator user. This administrator can be used to create additional MySQL users.
+Ao criar o banco de dados do Azure para o servidor MySQL, você fornece credenciais para um usuário administrador. Esse administrador pode ser usado para criar usuários adicionais do MySQL.
 
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
-You can opt in to [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access-and-security-threat-protection.md) , que detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar servidores.
 
-[Audit logging](concepts-audit-logs.md) is available to track activity in your databases. 
+O [log de auditoria](concepts-audit-logs.md) está disponível para acompanhar a atividade em seus bancos de dados. 
 
 
-## <a name="next-steps"></a>Passos seguintes
-- Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)
+## <a name="next-steps"></a>Passos Seguintes
+- Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)

@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/19/2019
 ms.locfileid: "74187192"
 ---
-# <a name="resource-management-in-dense-elastic-pools"></a>Gerenciamento de recursos em pools elásticos denso
+# <a name="resource-management-in-dense-elastic-pools"></a>Gestão de recursos em conjuntos elásticos densos
 
 Os [pools elásticos](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) do banco de dados SQL do Azure são uma solução econômica para o gerenciamento de muitos banco de dados com diferentes usos de recursos. Todos os bancos de dados em um pool elástico compartilham a mesma alocação de recursos, como CPU, memória, threads de trabalho, espaço de armazenamento, tempdb, na hipótese de que apenas um subconjunto de bancos de dados no pool usará recursos de computação em um determinado momento. Essa suposição permite que os pools elásticos sejam econômicos. Em vez de pagar por todos os recursos que cada banco de dados individual poderia precisar, os clientes pagam um conjunto muito menor de recursos, compartilhados entre todos os bancos de dados no pool.
 
@@ -61,8 +61,8 @@ Além dessas métricas, o banco de dados SQL do Azure fornece uma exibição que
 |Nome da exibição|Descrição|  
 |-----------------|--------------------------------|  
 |[sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)|Retorna as configurações de capacidade e configuração reais usadas pelos mecanismos de governança de recursos no banco de dados atual ou no pool elástico.|
-|[sys.dm_resource_governor_resource_pools](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Retorna informações sobre o estado atual do pool de recursos, a configuração atual de pools de recursos e estatísticas cumulativas do pool de recursos.|
-|[sys.dm_resource_governor_workload_groups](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Retorna estatísticas de grupo de carga de trabalho cumulativa e a configuração atual do grupo de cargas de trabalho. Esse modo de exibição pode ser Unido a sys. dm_resource_governor_resource_pools na coluna `pool_id` para obter informações sobre o pool de recursos.|
+|[sys. dm_resource_governor_resource_pools](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Retorna informações sobre o estado atual do pool de recursos, a configuração atual de pools de recursos e estatísticas cumulativas do pool de recursos.|
+|[sys. dm_resource_governor_workload_groups](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Retorna estatísticas de grupo de carga de trabalho cumulativa e a configuração atual do grupo de cargas de trabalho. Esse modo de exibição pode ser Unido a sys. dm_resource_governor_resource_pools na coluna `pool_id` para obter informações sobre o pool de recursos.|
 |[sys. dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Retorna estatísticas de utilização do pool de recursos para os últimos 32 minutos. Cada linha representa um intervalo de 20 segundos. As colunas `delta_` retornam a alteração em cada estatística durante o intervalo.|
 |[sys. dm_resource_governor_workload_groups_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Retorna estatísticas de utilização do grupo de carga de trabalho para os últimos 32 minutos. Cada linha representa um intervalo de 20 segundos. As colunas `delta_` retornam a alteração em cada estatística durante o intervalo.|
 |||
@@ -113,7 +113,7 @@ SELECT used_log_space_in_percent AS tempdb_log_used_percent
 FROM tempdb.sys.dm_db_log_space_usage;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução aos pools elásticos, consulte [pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
 * Para obter informações sobre como ajustar cargas de trabalho de consulta para reduzir a utilização de recursos, consulte [monitoramento e ajuste]( https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-tuning-index), [monitoramento e ajuste de desempenho](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview).

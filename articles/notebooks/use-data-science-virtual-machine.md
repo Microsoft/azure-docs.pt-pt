@@ -61,6 +61,6 @@ Se vários usuários compartilharem um DSVM, você poderá evitar o bloqueio uns
 1. Insira um novo nome de usuário e senha e selecione **Atualizar**. (Nomes de já existentes não são afetados.)
 1. Repita a etapa anterior para quaisquer usuários adicionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o DSVMs na [introdução às máquinas virtuais de ciência de dados do Azure](/azure/machine-learning/data-science-virtual-machine/overview).

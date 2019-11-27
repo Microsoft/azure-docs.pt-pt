@@ -1,6 +1,6 @@
 ---
-title: Connect MetaMask to an Azure Blockchain Service network
-description: Connect to an Azure Blockchain Service network using MetaMask and deploy a smart contract.
+title: Conectar a metamáscara a uma rede do serviço Blockchain do Azure
+description: Conecte-se a uma rede do serviço Blockchain do Azure usando metamask e implante um contrato inteligente.
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
@@ -11,59 +11,59 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456000"
 ---
-# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Quickstart: Use MetaMask to connect and deploy a smart contract
+# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Início rápido: usar a metamáscara para se conectar e implantar um contrato inteligente
 
-In this quickstart, you'll use MetaMask to connect to an Azure Blockchain Service network and use Remix to deploy a smart contract. Metamask is a browser extension to manage an Ether wallet and perform smart contract actions.
+Neste guia de início rápido, você usará a metamáscara para se conectar a uma rede do serviço Blockchain do Azure e usará o remix para implantar um contrato inteligente. A metamáscara é uma extensão de navegador para gerenciar uma carteira de ether e executar ações de contrato inteligente.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
-* Install [MetaMask browser extension](https://metamask.io)
-* Generate a MetaMask [wallet](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time)
+* Conclua [o início rápido: criar um membro do blockchain usando o portal do Azure](create-member.md) ou [início rápido: criar um membro Blockchain do serviço blockchain do Azure usando o CLI do Azure](create-member-cli.md)
+* Instalar [extensão do navegador de Metamáscara](https://metamask.io)
+* Gerar uma [carteira](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time) de metamáscara
 
-## <a name="get-endpoint-address"></a>Get endpoint address
+## <a name="get-endpoint-address"></a>Obter endereço do ponto de extremidade
 
-You need the Azure Blockchain Service endpoint address to connect to the blockchain network. You can find the endpoint address and access keys in the Azure portal.
+Você precisa do endereço do ponto de extremidade do serviço Blockchain do Azure para se conectar à rede Blockchain. Você pode encontrar o endereço do ponto de extremidade e as chaves de acesso no portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Navegue até o membro do serviço Blockchain do Azure. Selecione **nós de transação** e o link do nó de transação padrão.
 
-    ![Select default transaction node](./media/connect-metamask/transaction-nodes.png)
+    ![Selecionar nó de transação padrão](./media/connect-metamask/transaction-nodes.png)
 
-1. Select **Connection strings > Access keys**.
-1. Copy the endpoint address from **HTTPS (Access key 1)** . You need the address for the next section.
+1. Selecione **cadeias de conexão > chaves de acesso**.
+1. Copie o endereço do ponto de extremidade do **https (tecla de acesso 1)** . Você precisa do endereço para a próxima seção.
 
     ![Cadeia de ligação](./media/connect-metamask/connection-string.png)
 
-## <a name="connect-metamask"></a>Connect MetaMask
+## <a name="connect-metamask"></a>Conectar metamáscara
 
-1. Open MetaMask browser extension and sign in.
-1. In the network dropdown, select  **Custom RPC**.
+1. Abra a extensão do navegador metamask e entre.
+1. Na lista suspensa rede, selecione **RPC personalizado**.
 
-    ![Custom RPC](./media/connect-metamask/custom-rpc.png)
+    ![RPC personalizado](./media/connect-metamask/custom-rpc.png)
 
-1. In **New Network > New RPC URL**, enter your endpoint address copied from the previous section.
+1. Em **nova rede > nova URL RPC**, insira o endereço do ponto de extremidade copiado da seção anterior.
 1. Selecione **Guardar**.
 
-    If connection was successful, the private network is displayed in the network dropdown.
+    Se a conexão tiver sido bem-sucedida, a rede privada será exibida na lista suspensa rede.
 
-    ![New network](./media/connect-metamask/new-network.png)
+    ![Nova rede](./media/connect-metamask/new-network.png)
 
-## <a name="deploy-smart-contract"></a>Deploy smart contract
+## <a name="deploy-smart-contract"></a>Implantar contrato inteligente
 
-Remix is a browser-based Solidity development environment. Using MetaMask and Remix together, you can deploy and take actions on smart contracts.
+Remix é um ambiente de desenvolvimento de solidez baseado em navegador. Usando o metamask e o remix juntos, você pode implantar e executar ações em contratos inteligentes.
 
 1. No seu browser, navegue até `https://remix.ethereum.org`.
-1. Select **New file** in the **Home** tab under **File**.
+1. Selecione **novo arquivo** na guia **início** em **arquivo**.
 
-    Name the new file `simple.sol`.
+    Nomeie o novo arquivo `simple.sol`.
 
-    ![Create file](./media/connect-metamask/create-file.png)
+    ![Criar arquivo](./media/connect-metamask/create-file.png)
 
     Selecione **OK**.
-1. In the Remix editor, paste in the following **simple smart contract** code.
+1. No editor de remix, Cole o código **simples do contrato inteligente** a seguir.
 
     ```solidity
     pragma solidity ^0.5.0;
@@ -85,57 +85,57 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
     }
     ```
 
-    The **simple contract** declares a state variable named **balance**. There are two functions defined. The **add** function adds a number to **balance**. The **get** function returns the value of **balance**.
-1. To compile the contract, first select the Solidity compiler pane then select the  **Compile simple.sol**. 
+    O **contrato simples** declara uma variável de estado denominada **Balance**. Há duas funções definidas. A função **Add** adiciona um número ao **saldo**. A função **Get** retorna o valor do **saldo**.
+1. Para compilar o contrato, primeiro selecione o painel do compilador de solidez e, em seguida, selecione **Compilar simples. sol**. 
 
-    ![Compile](./media/connect-metamask/compile.png)
+    ![Organizar](./media/connect-metamask/compile.png)
 
-1. Select the **Deploy & Run** pane then set the **Environment** to **Injected Web3** to connect through MetaMask to your blockchain member.
+1. Selecione o painel **implantar & executar** e, em seguida, defina o **ambiente** como **injetado Web3** para se conectar por meio de metamask ao membro do blockchain.
 
-    ![Run tab](./media/connect-metamask/injected-web3.png)
+    ![Guia executar](./media/connect-metamask/injected-web3.png)
 
-1. Select the **simple** contract then **Deploy**.
+1. Selecione o contrato **simples** e, em seguida, **implantar**.
 
-    ![Implementar](./media/connect-metamask/deploy.png)
+    ![Implementação](./media/connect-metamask/deploy.png)
 
 
-1. A MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
+1. Uma notificação de metamáscara é exibida alertando você sobre fundos insuficientes para executar a transação.
 
-    For a public blockchain network, you would need Ether to pay for the transaction cost. Since this is a private network in a consortium, you can set gas price to zero.
+    Para uma rede blockchain pública, você precisará de ether para pagar pelo custo da transação. Como essa é uma rede privada em um consórcio, você pode definir o preço de gás como zero.
 
-1.  Select **Gas Fee > Edit > Advanced**,  set the **Gas Price** to 0.
+1.  Selecione a **taxa de gás > editar > avançado**, defina o **preço de gás** como 0.
 
-    ![Gas price](./media/connect-metamask/gas-price.png)
+    ![Preço de gás](./media/connect-metamask/gas-price.png)
 
     Selecione **Guardar**.
 
-1. Select **Confirm** to deploy the smart contract to the blockchain.
-1. In the **Deployed Contracts** section, expand the **simple** contract.
+1. Selecione **confirmar** para implantar o contrato inteligente no blockchain.
+1. Na seção **contratos implantados** , expanda o contrato **simples** .
 
-    ![Deployed contract](./media/connect-metamask/deployed-contract.png)
+    ![Contrato implantado](./media/connect-metamask/deployed-contract.png)
 
-    There are two actions **add** and **get** that map to the functions defined in the contract.
+    Há duas ações **Adicionar** e **obter** esse mapa para as funções definidas no contrato.
 
-1. To perform an **add** transaction on the blockchain, enter a number to add then select **add**. You may get a gas estimation failure message from Remix. You are sending the transaction to a private blockchain that does not require gas. Select **Send Transaction** to force the transaction.
-1. Similar to when you deployed the contract, a MetaMask notification is displayed alerting you of insufficient funds to perform the transaction.
+1. Para executar uma transação de **adição** no blockchain, insira um número para adicionar e selecione **Adicionar**. Você pode obter uma mensagem de falha de estimativa de gás de remix. Você está enviando a transação para um blockchain privado que não requer gás. Selecione **Enviar transação** para forçar a transação.
+1. Semelhante a quando você implantou o contrato, uma notificação de metamáscara é exibida alertando você sobre fundos insuficientes para executar a transação.
 
-    Since this is a private network in a consortium, we can set gas price to zero.
+    Como essa é uma rede privada em um consórcio, podemos definir o preço de gás como zero.
 
-1.  Select **Gas Fee > Edit > Advanced**,  set the **Gas Price** to 0, and select **Save**.
-1. Select **Confirm** to send the transaction to the blockchain.
-1. Select **get** action. This is a call to query node data. A transaction isn't needed.
-1. In the debug pane of Remix, you can see details about the transactions on the blockchain.
+1.  Selecione a **taxa de gás > editar > avançado**, defina o **preço de gás** como 0 e selecione **salvar**.
+1. Selecione **confirmar** para enviar a transação para o blockchain.
+1. Selecione **obter** ação. Esta é uma chamada para dados do nó de consulta. Uma transação não é necessária.
+1. No painel de depuração do remix, você pode ver detalhes sobre as transações no blockchain.
 
-    ![Debug history](./media/connect-metamask/debug.png)
+    ![Histórico de depuração](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+    Você pode ver a criação de um contrato **simples** , transação para **simples. Adicionar**e chamar para **Simple. Get**.
 
-1. You can also see transaction history in MetaMask. Open the MetaMask browser extension.
-1. In the **History** section, you can see a log of the deployed contract and transactions.
+1. Você também pode ver o histórico de transações em metamask. Abra a extensão do navegador de metamáscara.
+1. Na seção **histórico** , você pode ver um log do contrato e das transações implantadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this quickstart, you used the MetaMask browser extension to connect to an Azure Blockchain Service transaction node, deploy a smart contract, and send a transaction to the blockchain. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
+Neste guia de início rápido, você usou a extensão do navegador de metamáscara para se conectar a um nó de transação do serviço Blockchain do Azure, implantar um contrato inteligente e enviar uma transação para o Blockchain. Experimente o próximo tutorial para usar o kit de desenvolvimento do Azure Blockchain para Ethereum e Truffle para criar, compilar, implantar e executar uma função de contrato inteligente por meio de uma transação.
 
 > [!div class="nextstepaction"]
-> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)
+> [Criar, compilar e implantar contratos inteligentes no serviço Blockchain do Azure](send-transaction.md)

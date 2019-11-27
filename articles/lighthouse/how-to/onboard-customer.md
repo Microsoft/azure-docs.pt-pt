@@ -1,6 +1,6 @@
 ---
 title: Integrar um cliente na gestão de recursos delegados do Azure
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
+description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
 ms.date: 11/7/2019
 ms.topic: conceptual
 ms.openlocfilehash: fde0e82ff2dcf048643524b5a2d076d66a4f5a50
@@ -12,33 +12,33 @@ ms.locfileid: "74463947"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
-This article explains how you, as a service provider, can onboard a customer to Azure delegated resource management, allowing their delegated resources (subscriptions and/or resource groups) to be accessed and managed through your own Azure Active Directory (Azure AD) tenant. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos delegados (assinaturas e/ou grupos de recursos) sejam acessados e gerenciados por meio de seu próprio locatário do Azure Active Directory (AD do Azure). Embora possamos nos referir aos provedores de serviços e clientes aqui, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
-You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
+Você pode repetir esse processo se estiver gerenciando recursos para vários clientes. Em seguida, quando um usuário autorizado entra no seu locatário, esse usuário pode ser autorizado entre escopos de aluguel do cliente para executar operações de gerenciamento sem precisar entrar em cada locatário individual do cliente.
 
-You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements and receive recognition. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Note that you'll need to perform this association in your service provider tenant.
+Você pode associar sua ID de Microsoft Partner Network (MPN) às assinaturas integradas para acompanhar o impacto nos compromissos do cliente e receber o reconhecimento. Para obter mais informações, consulte [vincular uma ID de parceiro às suas contas do Azure](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started). Observe que você precisará executar essa associação em seu locatário do provedor de serviços.
 
 > [!NOTE]
-> Customers can also be onboarded when they purchase a managed services offer (public or private) that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here with an offer published to Azure Marketplace.
+> Os clientes também podem ser integrados ao comprarem uma oferta de serviços gerenciados (pública ou privada) que você publicou no Azure Marketplace. Para obter mais informações, consulte [publicar ofertas de serviços gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui com uma oferta publicada no Azure Marketplace.
 
-The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
+O processo de integração requer que as ações sejam executadas de dentro do locatário do provedor de serviços e do locatário do cliente. Todas essas etapas são descritas neste artigo.
 
 > [!IMPORTANT]
-> Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
+> No momento, não é possível carregar uma assinatura (ou grupo de recursos em uma assinatura) para o gerenciamento de recursos delegado do Azure se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura tiver sido registrada para integração com o provedor de recursos **Microsoft. managedservices** , você não poderá criar um espaço de trabalho do databricks para essa assinatura no momento.
 
-## <a name="gather-tenant-and-subscription-details"></a>Gather tenant and subscription details
+## <a name="gather-tenant-and-subscription-details"></a>Coletar detalhes do locatário e da assinatura
 
-To onboard a customer's tenant, it must have an active Azure subscription. You'll need to know the following:
+Para carregar o locatário de um cliente, ele deve ter uma assinatura ativa do Azure. Você precisará saber o seguinte:
 
-- The tenant ID of the service provider's tenant (where you will be managing the customer's resources)
-- The tenant ID of the customer's tenant (which will have resources managed by the service provider)
-- The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider)
+- A ID do locatário do locatário do provedor de serviços (em que você gerenciará os recursos do cliente)
+- A ID do locatário do locatário do cliente (que terá recursos gerenciados pelo provedor de serviços)
+- As IDs de assinatura para cada assinatura específica no locatário do cliente que será gerenciado pelo provedor de serviços (ou que contém os grupos de recursos que serão gerenciados pelo provedor de serviços)
 
-If you don't have this info already, you can retrieve it in one of the following ways.
+Se você ainda não tiver essas informações, poderá recuperá-las de uma das maneiras a seguir.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Your tenant ID can be seen by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. To select and copy your tenant ID, search for "Azure Active Directory" from within the portal, then select **Properties** and copy the value shown in the **Directory ID** field. To find the ID of a subscription, search for "Subscriptions" and then select the appropriate subscription ID.
+Sua ID de locatário pode ser vista passando o mouse sobre o nome da sua conta no lado superior direito da portal do Azure ou selecionando o **diretório de comutador**. Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" de dentro do portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório** . Para localizar a ID de uma assinatura, pesquise "assinaturas" e, em seguida, selecione a ID de assinatura apropriada.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -58,15 +58,15 @@ az account show
 ```
 
 > [!NOTE]
-> When onboarding a subscription (or one or more resource groups within a subscription) using the process described here, the **Microsoft.ManagedServices** resource provider will be registered for that subscription.
+> Ao realizar a integração de uma assinatura (ou de um ou mais grupos de recursos em uma assinatura) usando o processo descrito aqui, o provedor de recursos **Microsoft. managedservices** será registrado para essa assinatura.
 
-## <a name="define-roles-and-permissions"></a>Define roles and permissions
+## <a name="define-roles-and-permissions"></a>Definir funções e permissões
 
-As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need to assign [role-based access control (RBAC) built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) to users in your tenant.
+Como um provedor de serviços, talvez você queira executar várias tarefas para um único cliente, exigindo acesso diferente para escopos diferentes. Você pode definir quantas autorizações forem necessárias para atribuir [funções internas de RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) a usuários em seu locatário.
 
-To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For recommendations and info about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
+Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função, permitindo que você adicione ou remova usuários individuais do grupo em vez de atribuir permissões diretamente a esse usuário. Você também pode querer atribuir funções a uma entidade de serviço. Certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho. Para obter recomendações e informações sobre as funções com suporte, consulte [locatários, usuários e funções em cenários de Lighthouse do Azure](../concepts/tenants-users-roles.md).
 
-In order to define authorizations, you'll need to know the ID values for each user, user group, or service principal to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them in one of the following ways.
+Para definir autorizações, você precisará saber os valores de ID para cada usuário, grupo de usuários ou entidade de serviço ao qual você deseja conceder acesso. Você também precisará da ID de definição de função para cada função interna que você deseja atribuir. Se você ainda não os tiver, poderá recuperá-los de uma das maneiras a seguir.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -104,34 +104,34 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> We recommend assigning the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](#remove-access-to-a-delegation) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+> É recomendável atribuir a [função de exclusão de atribuição de registro de serviços gerenciados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) ao integrar um cliente, para que os usuários em seu locatário possam [remover o acesso à delegação](#remove-access-to-a-delegation) posteriormente, se necessário. Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
 
-## <a name="create-an-azure-resource-manager-template"></a>Create an Azure Resource Manager template
+## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo Azure Resource Manager
 
-To onboard your customer, you'll need to create an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) template for your offer with the following information. The **mspOfferName** and **mspOfferDescription** values are visible to the customer when viewing offer details in the [Service providers page](view-manage-service-providers.md) of the Azure portal.
+Para carregar seu cliente, você precisará criar um modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) para sua oferta com as informações a seguir. Os valores **mspOfferName** e **mspOfferDescription** são visíveis para o cliente ao exibir detalhes da oferta na [página provedores de serviço](view-manage-service-providers.md) do portal do Azure.
 
 |Campo  |Definição  |
 |---------|---------|
-|**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer.         |
-|**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer")      |
-|**managedByTenantId**     |Your tenant ID         |
-|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization and mapped to a built-in **roleDefinitionId** value to specify the level of access         |
+|**mspOfferName**     |Um nome que descreve essa definição. Esse valor é exibido para o cliente como o título da oferta.         |
+|**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "oferta de gerenciamento de VM da Contoso")      |
+|**managedByTenantId**     |Sua ID de locatário         |
+|**autorizações**     |Os valores de **PrincipalId** para os usuários/grupos/SPNs do seu locatário, cada um com um **principalIdDisplayName** para ajudar seu cliente a entender a finalidade da autorização e mapeado para um valor **roleDefinitionId** interno para especificar o nível de acesso         |
 
-To onboard a customer's subscription, use the appropriate Azure Resource Manager template that we provide in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/), along with a corresponding parameters file that you modify to match your configuration and define your authorizations. Separate templates are provided depending on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
+Para carregar a assinatura de um cliente, use o modelo de Azure Resource Manager apropriado que fornecemos em nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/), junto com um arquivo de parâmetros correspondente que você modifica para corresponder à sua configuração e definir suas autorizações. Modelos separados são fornecidos dependendo se você está integrando uma assinatura inteira, um grupo de recursos ou vários grupos de recursos em uma assinatura. Também fornecemos um modelo que pode ser usado para clientes que compraram uma oferta de serviço gerenciado que você publicou no Azure Marketplace, se você preferir integrar suas assinaturas dessa maneira.
 
-|To onboard this  |Use this Azure Resource Manager template  |And modify this parameter file |
+|Para carregar este  |Usar este modelo de Azure Resource Manager  |E modificar esse arquivo de parâmetro |
 |---------|---------|---------|
-|Subscrição   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Grupo de recursos   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Multiple resource groups within a subscription   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Subscrição   |[delegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Grupo de recursos   |[rgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Vários grupos de recursos em uma assinatura   |[multipleRgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Assinatura (ao usar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> The process described here requires a separate deployment for each subscription being onboarded. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
+> O processo descrito aqui requer uma implantação separada para cada assinatura que está sendo integrada. Implantações separadas também serão necessárias se você estiver integrando vários grupos de recursos em assinaturas diferentes. No entanto, a integração de vários grupos de recursos em uma única assinatura pode ser feita em uma implantação.
 >
-> Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
+> Implantações separadas também são necessárias para várias ofertas sendo aplicadas à mesma assinatura (ou grupos de recursos dentro de uma assinatura). Cada oferta aplicada deve usar um **mspOfferName**diferente.
 
-The following example shows **delegatedResourceManagement.parameters.json** file that will be used to onboard a subscription. The resource group parameter files (located in the [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
+O exemplo a seguir mostra o arquivo **delegatedResourceManagement. Parameters. JSON** que será usado para carregar uma assinatura. Os arquivos de parâmetro do grupo de recursos (localizados na pasta [RG-delegued-Resource-Management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) ) são semelhantes, mas também incluem um parâmetro **rgName** para identificar os grupos de recursos específicos a serem integrados.
 
 ```json
 {
@@ -183,16 +183,16 @@ The following example shows **delegatedResourceManagement.parameters.json** file
     }
 }
 ```
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview),  which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+A última autorização no exemplo acima adiciona um **PrincipalId** com a função de administrador de acesso do usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas a [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), o que é necessário para [implantar políticas que podem ser corrigidas](deploy-policy-remediation.md). Nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário será aplicada a esse usuário.
 
-## <a name="deploy-the-azure-resource-manager-templates"></a>Deploy the Azure Resource Manager templates
+## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos de Azure Resource Manager
 
-Once you have updated your parameter file, the customer must deploy the Azure Resource Manager template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
+Depois de atualizar o arquivo de parâmetros, o cliente deve implantar o modelo de Azure Resource Manager no locatário do cliente como uma implantação em nível de assinatura. Uma implantação separada é necessária para cada assinatura que você deseja integrar ao gerenciamento de recursos delegado do Azure (ou para cada assinatura que contenha grupos de recursos que você deseja carregar).
 
-Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
+Como essa é uma implantação em nível de assinatura, ela não pode ser iniciada no portal do Azure. A implantação pode ser feita usando o PowerShell ou CLI do Azure, conforme mostrado abaixo.
 
 > [!IMPORTANT]
-> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)** , and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+> A implantação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário no locatário do cliente pode selecionar a assinatura no portal do Azure, o **iam (Open Access Control)** e [Exibir todos os usuários com a função proprietário](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -234,29 +234,29 @@ az deployment create –-name <deploymentName \
                      --verbose
 ```
 
-## <a name="confirm-successful-onboarding"></a>Confirm successful onboarding
+## <a name="confirm-successful-onboarding"></a>Confirmar integração bem-sucedida
 
-When a customer subscription has successfully been onboarded to Azure delegated resource management, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
+Quando uma assinatura de cliente tiver sido integrada com êxito ao gerenciamento de recursos delegado do Azure, os usuários no locatário do provedor de serviços poderão ver a assinatura e seus recursos (se tiverem recebido acesso a ele por meio do processo acima) seja individualmente ou como um membro de um grupo do Azure AD com as permissões apropriadas). Para confirmar isso, verifique se a assinatura é exibida de uma das maneiras a seguir.  
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-In the service provider's tenant:
+No locatário do provedor de serviços:
 
-1. Navigate to the [My customers page](view-manage-customers.md).
-2. Select **Customers**.
-3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+1. Navegue até a [página meus clientes](view-manage-customers.md).
+2. Selecione **clientes**.
+3. Confirme que você pode ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!IMPORTANT]
-> In order to see the delegated subscription in [My customers](view-manage-customers.md), users in the service provider's tenant must have been granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) when the subscription was onboarded for Azure delegated resource management.
+> Para ver a assinatura delegada em [meus clientes](view-manage-customers.md), os usuários no locatário do provedor de serviços devem ter recebido a função [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou outra função interna que inclui acesso de leitor) quando a assinatura foi integrada ao Azure gerenciamento de recursos delegado.
 
-In the customer's tenant:
+No locatário do cliente:
 
-1. Navigate to the [Service providers page](view-manage-service-providers.md).
-2. Select **Service provider offers**.
-3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+1. Navegue até a [página provedores de serviços](view-manage-service-providers.md).
+2. Selecione **ofertas de provedor de serviço**.
+3. Confirme que você pode ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!NOTE]
-> It may take a few minutes after your deployment is complete before the updates are reflected in the Azure portal.
+> Pode levar alguns minutos depois que a implantação for concluída antes que as atualizações sejam refletidas na portal do Azure.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -274,13 +274,13 @@ Get-AzContext
 az account list
 ```
 
-## <a name="remove-access-to-a-delegation"></a>Remove access to a delegation
+## <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
-By default, a user in the customer's tenant who has the appropriate permissions can remove access to resources that have been delegated to a service provider in the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal.
+Por padrão, um usuário no locatário do cliente que tem as permissões apropriadas pode remover o acesso a recursos que foram delegados a um provedor de serviços na [página provedores de serviço](view-manage-service-providers.md#add-or-remove-service-provider-offers) do portal do Azure.
 
-If you have included users with the [Managed Services Registration Assignment Delete Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) when onboarding the customer for Azure delegated resource management, those users in your tenant can also remove the delegation. When you do so, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
+Se você tiver incluído usuários com a [atribuição de registro de serviços gerenciados excluir função](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) ao integrar o cliente para o gerenciamento de recursos delegado do Azure, esses usuários em seu locatário também poderão remover a delegação. Quando você fizer isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
 
-The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file:
+O exemplo a seguir mostra uma atribuição que concede a **função de exclusão de atribuição de registro de serviços gerenciados** que pode ser incluída em um arquivo de parâmetro:
 
 ```json
     "authorizations": [ 
@@ -292,7 +292,7 @@ The example below shows an assignment granting the **Managed Services Registrati
     ] 
 ```
 
-A user with this permission can remove a delegation in one of the following ways.
+Um usuário com essa permissão pode remover uma delegação de uma das seguintes maneiras.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -338,7 +338,7 @@ az managedservices assignment list
 az managedservices assignment delete –assignment <id or full resourceId>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
-- [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
+- [Exiba e gerencie clientes](view-manage-customers.md) acessando **meus clientes** na portal do Azure.

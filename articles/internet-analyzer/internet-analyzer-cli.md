@@ -130,7 +130,7 @@ A CLI do Internet Analyzer expõe os seguintes tipos de recursos:
     ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Procure a [referência da CLI do Internet Analyzer](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para obter a lista completa de comandos e exemplos de uso com suporte.
 * Leia as [perguntas frequentes do Internet Analyzer](internet-analyzer-faq.md).

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1676ad3dde5a97d2afdb64595d51f5502f9dcc3d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185921"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534496"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um dispositivo para VMs do Hyper-V
 
@@ -50,7 +50,7 @@ Verifique se o arquivo compactado é seguro, antes de implantá-lo.
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 2. Execute o comando a seguir para gerar o hash para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
 3.  Para a versão do dispositivo 2.19.11.12, o hash gerado deve corresponder a essas configurações.
 
   **Algoritmo** | **Valor de hash**
@@ -70,9 +70,9 @@ Importe o arquivo baixado e crie a VM.
     ![Implantar VHD](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. No assistente de importação de máquina virtual > **antes de começar**, clique em **Avançar**.
-3. Em **Localizar pasta**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Seguinte**.
+3. Em **Localizar pasta**, especifique a pasta que contém o VHD extraído. Clique depois em **Seguinte**.
 1. Em **selecionar máquina virtual**, clique em **Avançar**.
-2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Seguinte**.
+2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Clique depois em **Seguinte**.
 3. Em **escolher destino**, deixe a configuração padrão. Clique em **Seguinte**.
 4. Em **pastas de armazenamento**, deixe a configuração padrão. Clique em **Seguinte**.
 5. Em **escolher rede**, especifique o comutador virtual que será usado pela VM. A opção precisa de conectividade com a Internet para enviar dados para o Azure.
@@ -153,6 +153,6 @@ Após a conclusão da descoberta, você pode verificar se as VMs aparecem no Por
 2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente a [avaliação do Hyper-V](tutorial-assess-hyper-v.md) com a avaliação do servidor de migrações para Azure.

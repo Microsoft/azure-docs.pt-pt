@@ -117,7 +117,7 @@ As migrações para Azure precisam de permissões para descobrir servidores loca
 - **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial:
 

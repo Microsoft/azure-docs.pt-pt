@@ -252,7 +252,7 @@ Para ajudar a controlar o nível de acesso concedido a aplicativos, serviços ou
 - **Colaborador de conta de âncoras espaciais**: os aplicativos ou usuários que têm essa função podem criar âncoras espaciais, consultá-los, mas não podem excluí-los.
 - **Leitor de conta de âncoras espaciais**: os aplicativos ou usuários que têm essa função só podem consultar âncoras espaciais, mas não podem criar novos, excluir ou atualizar metadados em âncoras espaciais. Normalmente, isso é usado para aplicativos em que alguns usuários separam o ambiente, enquanto outros só podem recuperar âncoras previamente colocadas nesse ambiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Crie seu primeiro aplicativo com âncoras espaciais do Azure.
 

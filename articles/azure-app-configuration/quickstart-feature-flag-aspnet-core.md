@@ -38,7 +38,7 @@ As bibliotecas de gerenciamento de recursos do .NET Core estendem a estrutura co
 
 6. Selecione **Gerenciador de recursos** >  **+ Adicionar** para adicionar os seguintes sinalizadores de recurso:
 
-    | Chave | Estado |
+    | Chave | State |
     |---|---|
     | Beta | Desativado |
 
@@ -286,7 +286,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 1. Selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
-    | Chave | Estado |
+    | Chave | State |
     |---|---|
     | Beta | Ativado |
 
@@ -300,7 +300,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou para gerenciar recursos em um aplicativo Web ASP.NET Core por meio das [bibliotecas de gerenciamento de recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 

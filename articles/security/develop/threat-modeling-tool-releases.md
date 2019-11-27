@@ -1,6 +1,6 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: Documenting the release notes for the threat modeling tool
+title: Threat Modeling Tool releases-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+description: Documentando as notas de versão da ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: jegeib
@@ -22,28 +22,28 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224784"
 ---
-# <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool Releases
+# <a name="threat-modeling-tool-releases"></a>Versões Threat Modeling Tool
 
-The Microsoft Threat Modeling Tool is currently released as a free [click-to-download](https://aka.ms/threatmodelingtool) application for Windows. This delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool.
+O Microsoft Threat Modeling Tool é lançado no momento como um aplicativo de [clique para baixar](https://aka.ms/threatmodelingtool) gratuito para Windows. Esse mecanismo de entrega nos permite enviar por push os aprimoramentos e correções de bugs mais recentes para os clientes sempre que abrirem a ferramenta.
 
 ## <a name="system-requirements"></a>Requisitos de Sistema
 
 - Sistemas Operativos Suportados
-  - Microsoft Windows 10 Anniversary Update or later
-- .NET Version Required
-  - .NET 4.7.1 or later
+  - Atualização de aniversário do Microsoft Windows 10 ou posterior
+- Versão do .NET necessária
+  - .NET 4.7.1 ou posterior
 - Requisitos Adicionais
-  - An Internet connection is required to receive updates to the tool and templates.
+  - Uma conexão com a Internet é necessária para receber atualizações para a ferramenta e os modelos.
 
-## <a name="release-notes"></a>Notas de Lançamento
+## <a name="release-notes"></a>Notas de Versão
 
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.61015.1](threat-modeling-tool-releases-71610151.md) - October 16 2019
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.60702.1](threat-modeling-tool-releases-71607021.md) - July 2 2019
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.60408.1](threat-modeling-tool-releases-71604081.md) - April 9 2019
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.60126.1](threat-modeling-tool-releases-71601261.md) - January 29 2019
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.51023.1](threat-modeling-tool-releases-71510231.md) - November 1 2018
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.50911.2](threat-modeling-tool-releases-71509112.md) - September 12 2018
+- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.61015.1](threat-modeling-tool-releases-71610151.md) – outubro de 16 2019
+- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.60702.1](threat-modeling-tool-releases-71607021.md) – julho de 2 2019
+- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.60408.1](threat-modeling-tool-releases-71604081.md) – abril de 9 2019
+- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.60126.1](threat-modeling-tool-releases-71601261.md) – janeiro de 29 2019
+- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.51023.1](threat-modeling-tool-releases-71510231.md) – novembro de 1 2018
+- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.50911.2](threat-modeling-tool-releases-71509112.md) – setembro de 12 2018
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Download the latest version of the [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Baixe a versão mais recente do [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

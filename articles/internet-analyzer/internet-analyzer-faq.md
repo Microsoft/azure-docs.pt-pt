@@ -69,14 +69,14 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Índia Central
     * EUA Central
     * Ásia Oriental
-    * EUA Leste
+    * East US
     * Oeste do Japão
     * Europa do Norte
     * Norte da África do Sul
-    * Sudeste asiático
+    * Sudeste Asiático
     * Norte dos E.A.U.
     * Reino Unido Oeste  
-    * Europa ocidental
+    * Europa Ocidental
     * EUA Oeste
     * EUA Oeste 2
 * **Várias combinações de regiões do Azure**
@@ -103,6 +103,6 @@ O Internet Analyzer ajuda você a entender o desempenho de seus usuários finais
 
 O Azure tem [processos fortes de segurança e atende a uma ampla gama de padrões de conformidade](https://azure.microsoft.com/support/trust-center/). Somente você e sua equipe designada têm acesso aos seus dados. A equipe da Microsoft pode ter acesso restrito a ela somente sob circunstâncias limitadas específicas com seu conhecimento. Ele é criptografado em trânsito e em repouso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais, Confira nossa [visão geral do Internet Analyzer](internet-analyzer-overview.md).

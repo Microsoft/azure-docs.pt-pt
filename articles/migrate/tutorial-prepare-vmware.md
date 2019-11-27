@@ -154,7 +154,7 @@ Examine os requisitos para a [migração baseada em agente](server-migrate-overv
 4. Observação: [acesso à URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
 5. Examine o [acesso de porta](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) que os componentes de migração do Azure precisam para o acesso baseado em agente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial:
 

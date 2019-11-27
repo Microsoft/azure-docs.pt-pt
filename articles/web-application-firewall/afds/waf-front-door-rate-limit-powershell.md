@@ -102,7 +102,7 @@ O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a supo
 > [!NOTE]
 > Você só precisa definir a propriedade *WebApplicationFirewallPolicyLink* uma vez para vincular uma política de segurança a um front-end de porta frontal. As atualizações de política subsequentes são aplicadas automaticamente ao front-end.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a [porta da frente](../../frontdoor/front-door-overview.md). 
 

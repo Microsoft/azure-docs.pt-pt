@@ -123,7 +123,7 @@ Nesses casos, depois que a implantação do aplicativo ou da infraestrutura for 
 
 Este artigo aborda o fluxo de trabalho geral da política como código e também onde a avaliação da política deve fazer parte de outros fluxos de trabalho de implantação. Esse fluxo de trabalho pode ser usado em qualquer ambiente que ofereça suporte a etapas e automação com script com base em gatilhos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Saiba mais sobre a [estrutura de atribuição de política](./assignment-structure.md).

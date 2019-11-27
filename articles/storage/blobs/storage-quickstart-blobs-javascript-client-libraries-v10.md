@@ -356,7 +356,7 @@ Neste ponto, você pode iniciar a página e experimentar para ter uma ideia de c
 
 Para limpar os recursos criados durante este guia de início rápido, vá para o [portal do Azure](https://portal.azure.com) e exclua o grupo de recursos que você criou na seção pré-requisitos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um site simples que acessa o armazenamento de BLOBs do JavaScript baseado em navegador. Para saber como você pode hospedar um site em si no armazenamento de BLOBs, prossiga para o tutorial a seguir:
 

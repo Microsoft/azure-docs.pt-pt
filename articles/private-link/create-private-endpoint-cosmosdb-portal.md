@@ -36,12 +36,12 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Insira *MyVirtualNetwork*. |
-    | Espaço de endereços | Enter *10.1.0.0/16*. |
+    | Espaço de endereços | Insira *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK**. |
     | Localização | Selecione **WestCentralUS**.|
     | Nome da sub-rede | Insira *mysubnet*. |
-    | Sub-rede - Intervalo de endereços | Enter *10.1.0.0/24*. |
+    | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
 
 1. Deixe o restante como padrão e selecione **criar**.
@@ -64,7 +64,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Imagem | Selecione **Windows Server 2019 datacenter**. |
     | Tamanho | Deixe o **DS1 v2**padrão. |
     | **CONTA DE ADMINISTRADOR** |  |
-    | Nome de utilizador | Insira um nome de usuário de sua escolha. |
+    | Nome de Utilizador | Insira um nome de usuário de sua escolha. |
     | Palavra-passe | Insira uma senha de sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar senha | Insira a senha novamente. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
@@ -83,7 +83,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | ------- | ----- |
     | Rede virtual | Deixe o **MyVirtualNetwork**padrão.  |
     | Espaço de endereços | Deixe o **10.1.0.0/24**padrão.|
-    | Subrede | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
+    | Subnet | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-IP**. |
     | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
     | Selecionar portas de entrada | Selecione **http** e **RDP**.|
@@ -109,7 +109,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
 
-1. Selecione **transferir ficheiro RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+1. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
 
 1. Abra o arquivo *. rdp* baixado.
 
@@ -174,7 +174,7 @@ Quando você terminar de usar o ponto de extremidade privado, a conta do Azure C
 
 1. Insira o grupo de *recursos* de para **digite o nome** e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você criou uma VM em uma rede virtual, uma conta do Azure Cosmos e um ponto de extremidade privado. Você se conectou à VM da Internet e se comunica com segurança à conta do Azure Cosmos usando o link privado.
 

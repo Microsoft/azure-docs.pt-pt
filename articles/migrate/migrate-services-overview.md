@@ -42,7 +42,7 @@ Atualmente, há duas versões do serviço migrações para Azure:
 
 Além das ferramentas nativas do Azure, as migrações para Azure integram-se com várias ofertas de ISV. 
 
-**ISV** | **Funcionalidade**
+**FICHEIRO** | **Funcionalidade**
 --- | ---
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrar servidores
 [Cloudamize](https://www.cloudamize.com/platform) | Avaliar servidores
@@ -130,9 +130,9 @@ As migrações para Azure integram-se com o Assistente de Migração de serviço
 
 ## <a name="offline-data-migration"></a>Migração de dados offline
 
-Você pode usar os produtos Azure Data Box para mover grandes quantidades de dados offline para o Azure. [Saber mais](https://docs.microsoft.com/azure/databox/)
+Você pode usar os produtos Azure Data Box para mover grandes quantidades de dados offline para o Azure. [Obter mais informações](https://docs.microsoft.com/azure/databox/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Experimente nossos tutoriais para avaliar [VMs do VMware](tutorial-assess-vmware.md) e VMs do [Hyper-V](tutorial-assess-hyper-v.md).
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.

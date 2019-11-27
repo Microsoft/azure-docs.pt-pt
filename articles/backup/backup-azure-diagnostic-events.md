@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281106"
 ---
-# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Usando configurações de diagnóstico para cofres dos serviços de recuperação
+# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Utilizar Definições de Diagnóstico para os Cofres dos Serviços de Recuperação
 
 O backup do Azure envia eventos de diagnóstico que podem ser coletados e usados para fins de análise, alertas e relatórios. 
 
@@ -82,6 +82,6 @@ A imagem abaixo mostra um exemplo de um usuário que tem três configurações d
 
 ![Três configurações](./media/backup-azure-diagnostics-events/three-settings-example.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Aprenda o modelo de dados de Log Analytics para os eventos de diagnóstico](https://aka.ms/diagnosticsdatamodel)

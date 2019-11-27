@@ -1,7 +1,7 @@
 ---
-title: 'Train Clustering Model: Module Reference'
+title: 'Treinar modelo de clustering: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Train Clustering Model module in Azure Machine Learning to train clustering models.
+description: Saiba como usar o módulo treinar modelo de clustering em Azure Machine Learning para treinar modelos de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,44 +18,44 @@ ms.locfileid: "74232581"
 ---
 # <a name="train-clustering-model"></a>Preparar Modelo de Clustering
 
-This article describes a module in Azure Machine Learning designer (preview).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use this module to train a clustering model.
+Use este módulo para treinar um modelo de clustering.
 
-The module takes an untrained clustering model that you have already configured using the [K-Means Clustering](k-means-clustering.md) module, and trains the model using a labeled or unlabeled data set. The module creates both a trained model that you can use for prediction, and a set of cluster assignments for each case in the training data.
+O módulo usa um modelo de clustering não treinado que você já configurou usando o módulo de [clustering K-](k-means-clustering.md) means e treina o modelo usando um conjunto de dados rotulado ou sem rótulo. O módulo cria um modelo treinado que você pode usar para previsão e um conjunto de atribuições de cluster para cada caso nos dados de treinamento.
 
 > [!NOTE]
-> A clustering model cannnot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
+> Um modelo de clustering não foi possível ser treinado usando o módulo [treinar modelo](train-model.md) , que é o módulo genérico para treinar modelos de aprendizado de máquina. Isso ocorre porque o [modelo de treinamento](train-model.md) funciona apenas com algoritmos de aprendizado supervisionados. K-means e outros algoritmos de clustering permitem aprendizado não supervisionado, o que significa que o algoritmo pode aprender com dados não rotulados.  
   
-## <a name="how-to-use-train-clustering-model"></a>How to use Train Clustering Model  
+## <a name="how-to-use-train-clustering-model"></a>Como usar o modelo treinar clustering  
 
-1.  Add the **Train Clustering Model** module to your pipeline in the designer. You can find the module under **Machine Learning Modules**, in the **Train** category.  
+1.  Adicione o módulo **treinar modelo de clustering** ao seu pipeline no designer. Você pode encontrar o módulo em **módulos Machine Learning**, na categoria **treinar** .  
   
-2. Add the [K-Means Clustering](k-means-clustering.md) module, or another custom module that creates a compatible clustering model, and set the parameters of the clustering model.  
+2. Adicione o módulo de [clustering K-](k-means-clustering.md) means ou outro módulo personalizado que cria um modelo de clustering compatível e defina os parâmetros do modelo de clustering.  
     
-3.  Attach a training dataset to the right-hand input of **Train Clustering Model**.
+3.  Anexe um conjunto de dados de treinamento à entrada à direita do **modelo Train clustering**.
   
-5.  In **Column Set**, select the columns from the dataset to use in building clusters. Be sure to select columns that make good features: for example, avoid using IDs or other columns that have unique values, or columns that have all the same values.
+5.  Em **conjunto de colunas**, selecione as colunas do conjunto de um para usar na criação de clusters. Certifique-se de selecionar colunas que tenham bons recursos: por exemplo, evite usar IDs ou outras colunas que tenham valores exclusivos ou colunas que tenham os mesmos valores.
 
-    If a label is available, you can either use it as a feature, or leave it out.  
+    Se um rótulo estiver disponível, você poderá usá-lo como um recurso ou deixá-lo fora.  
   
-6. Select the option, **Check for append or uncheck for result only**, if you want to output the training data together with the new cluster label.
+6. Selecione a opção, **marque para acrescentar ou desmarque somente o resultado**, se desejar gerar os dados de treinamento junto com o novo rótulo de cluster.
 
-    If you deselect this option, only the cluster assignments are output. 
+    Se você desmarcar essa opção, somente as atribuições de cluster serão geradas. 
 
-7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
+7. Execute o pipeline ou clique no módulo **treinar modelo de clustering** e selecione **executar selecionado**.  
   
 ### <a name="results"></a>Resultados
 
-After training has completed:
+Após a conclusão do treinamento:
 
 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
++  Para exibir os valores no conjunto de linhas, clique com o botão direito do mouse no módulo, selecione **resultado conjuntos de resultados**e clique em **Visualizar**.
 
-+ To save the trained model for later reuse, right-click the module, select **Trained model**, and click **Save As Trained Model**.
++ Para salvar o modelo treinado para reutilização posterior, clique com o botão direito do mouse no módulo, selecione **modelo treinado**e clique em **salvar como modelo treinado**.
 
-+ To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
++ Para gerar pontuações do modelo, use [atribuir dados a clusters](assign-data-to-clusters.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -75,7 +75,7 @@ Neste artigo, vai aprender a:
 > [!WARNING]
 > Verifique se você criou as regras de roteamento apropriadas para seu domínio Apex ou adicionou o domínio às regras de roteamento existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

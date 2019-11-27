@@ -153,5 +153,5 @@ Um servidor de AD FS já deve estar configurado e funcionando antes de você ini
 1.  A janela **Editar regras de declaração** mostrará a nova regra. Clique em **Aplicar**.  
 1.  Clique em **OK**. O servidor de AD FS agora está configurado para Federação direta usando WS-enalimentado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Em seguida, você vai [Configurar a Federação direta no Azure ad](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) no portal do Azure ad ou usando o PowerShell. 

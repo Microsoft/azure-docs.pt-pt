@@ -39,7 +39,7 @@ As bibliotecas de gerenciamento de recursos do Spring boot estendem a estrutura 
 
 6. Selecione **Gerenciador de recursos** >  **+ criar** para adicionar os seguintes sinalizadores de recurso:
 
-    | Chave | Estado |
+    | Chave | State |
     |---|---|
     | Beta | Desativado |
 
@@ -232,7 +232,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 3. No portal de configuração do aplicativo, selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
-    | Chave | Estado |
+    | Chave | State |
     |---|---|
     | Beta | Ativado |
 
@@ -244,7 +244,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou para gerenciar recursos em um aplicativo Web Spring boot por meio das [bibliotecas de gerenciamento de recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 

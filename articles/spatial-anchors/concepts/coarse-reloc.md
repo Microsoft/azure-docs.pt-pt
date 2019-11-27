@@ -665,11 +665,11 @@ A tabela a seguir resume os dados do sensor coletados em cada uma das plataforma
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| GPS         | N/D | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
+| GPS         | N/A | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
 | Wi-Fi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Suportado. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
 | Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Use a relocalização de alta utilização em um aplicativo.
 

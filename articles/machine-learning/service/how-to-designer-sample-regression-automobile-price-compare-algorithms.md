@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict car prices (advanced) example'
+title: 'Designer: prever o exemplo de preços do carro (avançado)'
 titleSuffix: Azure Machine Learning
-description: Build & compare multiple ML regression models to predict an automobile's price  based on technical features with Azure Machine Learning designer.
+description: Crie & Compare vários modelos de regressão de ML para prever o preço de um automóvel com base em recursos técnicos com Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,84 +17,84 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224995"
 ---
-# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Train & compare multiple regression models to predict car prices with Azure Machine Learning designer
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Treine & comparar vários modelos de regressão para prever os preços de carros com o designer de Azure Machine Learning
 
-**Designer (preview) sample 2**
+**Amostra 2 do designer (visualização)**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
+Saiba como criar um pipeline de Machine Learning sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse pipeline para que você possa lidar com seus próprios problemas de aprendizado de máquina.
 
-If you're just getting started with machine learning, take a look at the [basic version](how-to-designer-sample-regression-automobile-price-basic.md) of this pipeline.
+Se você estiver apenas começando a usar o Machine Learning, dê uma olhada na [versão básica](how-to-designer-sample-regression-automobile-price-basic.md) desse pipeline.
 
-Here's the completed graph for this pipeline:
+Este é o grafo concluído para este pipeline:
 
-[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
+[![grafo do pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click sample 2 to open it. 
+4. Clique em exemplo 2 para abri-lo. 
 
-## <a name="pipeline-summary"></a>Pipeline summary
+## <a name="pipeline-summary"></a>Resumo do pipeline
 
-Use following steps to build the machine learning pipeline:
+Use as etapas a seguir para criar o pipeline do Machine Learning:
 
-1. Get the data.
-1. Pre-process the data.
-1. Train the model.
-1. Test, evaluate, and compare the models.
+1. Obter os dados.
+1. Pré-processar os dados.
+1. Treine o modelo.
+1. Teste, avalie e compare os modelos.
 
 ## <a name="get-the-data"></a>Obter os dados
 
-This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. This dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score.
+Este exemplo usa o conjunto de **dados de preço do automóvel (bruto)** , que é do repositório do Machine Learning UCI. Esse conjunto de dados contém 26 colunas que contêm informações sobre autocelular, incluindo marca, modelo, preço, recursos de veículo (como o número de cilindros), MPG e uma pontuação de risco de seguro.
 
-## <a name="pre-process-the-data"></a>Pre-process the data
+## <a name="pre-process-the-data"></a>Pré-processar os dados
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the designer, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+As principais tarefas de preparação de dados incluem limpeza, integração, transformação, redução e discretização ou Quantificação de dados. No designer, você pode encontrar módulos para executar essas operações e outras tarefas de pré-processamento de dados no grupo de **transformação de dados** no painel esquerdo.
 
-Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
+Use o módulo **selecionar colunas no conjunto de DataSet** para excluir as perdas normalizadas que têm muitos valores ausentes. Em seguida, usamos **dados ausentes limpos** para remover as linhas que têm valores ausentes. Isso ajuda a criar um conjunto limpo de dados de treinamento.
 
-![Data pre-processing](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Pré-processamento de dados](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
-## <a name="train-the-model"></a>Formar o modelo
+## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
+Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisa ajustar seus parâmetros para treinar um modelo mais preciso. Em seguida, você precisa avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
 
-Because the goal of this pipeline is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear.
+Como o objetivo desse pipeline é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
 
-To compare the performance of different algorithms, we use two nonlinear algorithms, **Boosted Decision Tree Regression** and **Decision Forest Regression**, to build models. Both algorithms have parameters that you can change, but this sample uses the default values for this pipeline.
+Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, **regressão de árvore de decisão aumentada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas este exemplo usa os valores padrão para esse pipeline.
 
-Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
+Use o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% do dado original.
 
-## <a name="test-evaluate-and-compare-the-models"></a>Test, evaluate, and compare the models
+## <a name="test-evaluate-and-compare-the-models"></a>Testar, avaliar e comparar os modelos
 
-You use two different sets of randomly chosen data to train and then test the model, as described in the previous section. Split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
+Você usa dois conjuntos diferentes de dados escolhidos aleatoriamente para treinar e testar o modelo, conforme descrito na seção anterior. Divida o conjunto de informações e use conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-After the model is trained, use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. **Score Model** generates predictions for the test dataset by using the trained model. Then pass the scores to **Evaluate Model** to generate evaluation metrics.
+Depois que o modelo for treinado, use o **modelo de Pontuação** e avalie os módulos de **modelo** para gerar resultados previstos e avaliar os modelos. O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Em seguida, passe as pontuações para **avaliar o modelo** para gerar métricas de avaliação.
 
 
 
-Here are the results:
+Estes são os resultados:
 
-![Compare the results](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Comparar os resultados](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
+Esses resultados mostram que o modelo criado com a **regressão da árvore de decisão aumentada** tem um erro de média de minúsculas raiz inferior ao modelo criado na **regressão da floresta de decisão**.
 
-Both algorithms have a lower error on the training dataset than on the unseen testing dataset.
+Ambos os algoritmos têm um erro inferior no conjunto de testes de treinamento do que no conjunto de teste não visto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Explore the other samples available for the designer:
+Explore os outros exemplos disponíveis para o designer:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
+- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
+- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
+- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)

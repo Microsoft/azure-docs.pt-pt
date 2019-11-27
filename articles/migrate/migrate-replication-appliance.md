@@ -30,7 +30,7 @@ O dispositivo de replicação é implantado como um único computador local, sej
 
 ## <a name="appliance-deployment"></a>Implantação de dispositivo
 
-**Implantar como** | **Utilizado para** | **Detalhes**
+**Implantar como** | **Usado para** | **Detalhes**
 --- | --- |  ---
 VM VMware | Geralmente usado ao migrar VMs VMware usando a ferramenta de migração de migrações para Azure com migração baseada em agente. | Você baixa o modelo OVA do Hub migrações para Azure e importa para vCenter Server para criar a VM do dispositivo.
 Um computador físico | Usado ao migrar servidores físicos locais se você não tiver uma infra-estrutura do VMware ou se não for possível criar uma VM do VMware usando um modelo OVA. | Você baixa um instalador de software do Hub migrações para Azure e o executa para configurar o computador do dispositivo.
@@ -66,7 +66,7 @@ O dispositivo é atualizado manualmente do Hub migrações para Azure. É recome
 2. Em **servidores de configuração**, um link aparece na **versão do agente** quando uma nova versão do dispositivo de replicação está disponível. 
 3. Baixe o instalador no computador do dispositivo de replicação e instale a atualização. O instalador detecta a versão em execução no momento no dispositivo.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba como](tutorial-assess-vmware.md#set-up-the-appliance-vm) configurar o dispositivo para VMware.
 [Saiba como](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) configurar o dispositivo para o Hyper-V.

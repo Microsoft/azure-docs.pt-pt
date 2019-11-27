@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Visma | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Visma.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Visma | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Visma.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -23,131 +23,131 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485586"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visma"></a>Tutorial: Azure Active Directory single sign-on (SSO) integration with Visma
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visma"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Visma
 
-In this tutorial, you'll learn how to integrate Visma with Azure Active Directory (Azure AD). When you integrate Visma with Azure AD, you can:
+Neste tutorial, você aprenderá a integrar o Visma com o Azure Active Directory (Azure AD). Ao integrar o Visma ao Azure AD, você pode:
 
-* Control in Azure AD who has access to Visma.
-* Enable your users to be automatically signed-in to Visma with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Controle no Azure AD quem tem acesso ao Visma.
+* Habilite seus usuários a serem conectados automaticamente ao Visma com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To get started, you need the following items:
+Para começar, você precisa dos seguintes itens:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Visma single sign-on (SSO) enabled subscription.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Visma.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Visma supports **SP and IDP** initiated SSO
-* Visma supports **Just In Time** user provisioning
+* O Visma dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* O Visma dá suporte ao provisionamento **de usuário just in time**
 
-## <a name="adding-visma-from-the-gallery"></a>Adding Visma from the gallery
+## <a name="adding-visma-from-the-gallery"></a>Adicionando o Visma da Galeria
 
-To configure the integration of Visma into Azure AD, you need to add Visma from the gallery to your list of managed SaaS apps.
+Para configurar a integração do Visma ao Azure AD, você precisará adicionar o Visma da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Visma** in the search box.
-1. Select **Visma** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **Visma** na caixa de pesquisa.
+1. Selecione **Visma** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-visma"></a>Configure and test Azure AD single sign-on for Visma
+## <a name="configure-and-test-azure-ad-single-sign-on-for-visma"></a>Configurar e testar o logon único do Azure AD para o Visma
 
-Configure and test Azure AD SSO with Visma using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Visma.
+Configure e teste o SSO do Azure AD com o Visma usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Visma.
 
-To configure and test Azure AD SSO with Visma, complete the following building blocks:
+Para configurar e testar o SSO do Azure AD com o Visma, conclua os seguintes blocos de construção:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Visma SSO](#configure-visma-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Visma test user](#create-visma-test-user)** - to have a counterpart of B.Simon in Visma that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do Visma](#configure-visma-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do Visma](#create-visma-test-user)** – para ter um equivalente de B. Simon em Visma que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Visma** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Visma** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-    a. In the **Identifier** text box, type a URL using the following pattern: `https://<SUBDOMAIN>.my.connect.visma.com`
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.my.connect.visma.com`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern: `https://<SUBDOMAIN>.my.connect.visma.com/saml/acs`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.my.connect.visma.com/saml/acs`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:  `https://<SUBDOMAIN>.my.connect.visma.com`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.my.connect.visma.com`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Visma Client support team](https://www.visma.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do Visma](https://www.visma.com/contact) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
-    ![The Certificate download link](common/copy-metadataurl.png)
+    ![O link de download de certificado](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Visma.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Visma.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Visma**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Visma**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![The Add User link](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-visma-sso"></a>Configure Visma SSO
+## <a name="configure-visma-sso"></a>Configurar o SSO do Visma
 
-To configure single sign-on on **Visma** side, you need to send the **App Federation Metadata Url** to [Visma support team](https://www.visma.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+Para configurar o logon único no lado do **Visma** , é necessário enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [Visma](https://www.visma.com/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-### <a name="create-visma-test-user"></a>Create Visma test user
+### <a name="create-visma-test-user"></a>Criar usuário de teste do Visma
 
-In this section, a user called B.Simon is created in Visma. Visma supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Visma, a new one is created after authentication.
+Nesta seção, um usuário chamado B. Simon é criado em Visma. O Visma dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no Visma, um novo será criado após a autenticação.
 
-## <a name="test-sso"></a>Test SSO
+## <a name="test-sso"></a>Testar SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-When you click the Visma tile in the Access Panel, you should be automatically signed in to the Visma for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Visma no painel de acesso, você deverá ser conectado automaticamente ao Visma para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Visma with Azure AD](https://aad.portal.azure.com/)
+- [Experimente o Visma com o Azure AD](https://aad.portal.azure.com/)

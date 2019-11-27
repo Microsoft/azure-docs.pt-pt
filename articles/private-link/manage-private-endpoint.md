@@ -1,6 +1,6 @@
 ---
-title: Manage a Private Endpoint connection in Azure
-description: Learn how to manage private endpoint connections in Azure
+title: Gerenciar uma conexão de ponto de extremidade privado no Azure
+description: Saiba como gerenciar conexões de ponto de extremidade privadas no Azure
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,78 +14,78 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232535"
 ---
-# <a name="manage-a-private-endpoint-connection"></a>Manage a Private Endpoint connection
-Azure Private Link works on an approval call flow model wherein the Private Link service consumer can request a connection to the service provider for consuming the service. The service provider can then decide whether to allow the consumer to connect or not. Azure Private Link enables the service providers to manage the private endpoint connection on their resources. This article provides instructions about how to manage the Private Endpoint connections.
+# <a name="manage-a-private-endpoint-connection"></a>Gerenciar uma conexão de ponto de extremidade privado
+O link privado do Azure funciona em um modelo de fluxo de chamadas de aprovação no qual o consumidor do serviço de vínculo privado pode solicitar uma conexão com o provedor de serviços para consumir o serviço. O provedor de serviços pode decidir se deseja permitir que o consumidor se conecte ou não. O link privado do Azure permite que os provedores de serviços gerenciem a conexão de ponto de extremidade particular em seus recursos. Este artigo fornece instruções sobre como gerenciar as conexões de ponto de extremidade privadas.
 
-![Manage Private Endpoints](media/manage-private-endpoint/manage-private-endpoint.png)
+![Gerenciar pontos de extremidade privados](media/manage-private-endpoint/manage-private-endpoint.png)
 
-There are two connection approval methods that a Private Link service consumer can choose from:
-- **Automatic**: If the service consumer has RBAC permissions on the service provider resource, the consumer can choose the automatic approval method. In this case, when the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
-- **Manual**: On the contrary, if the service consumer doesn’t have RBAC permissions on the service provider resource, the consumer can choose the manual approval method. In this case, the connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all Private Endpoint connections: **Approved**, **Reject**, **Remove**.
+Há dois métodos de aprovação de conexão que um consumidor de serviço de vínculo privado pode escolher:
+- **Automático**: se o consumidor de serviço tiver permissões RBAC no recurso do provedor de serviço, o consumidor poderá escolher o método de aprovação automática. Nesse caso, quando a solicitação atinge o recurso do provedor de serviços, nenhuma ação é necessária do provedor de serviços e a conexão é aprovada automaticamente. 
+- **Manual**: por contrário, se o consumidor de serviço não tiver permissões de RBAC no recurso de provedor de serviço, o consumidor poderá escolher o método de aprovação manual. Nesse caso, a solicitação de conexão é exibida nos recursos de serviço como **pendentes**. O provedor de serviços deve aprovar manualmente a solicitação antes que as conexões possam ser estabelecidas. Em casos manuais, o consumidor de serviço também pode especificar uma mensagem com a solicitação para fornecer mais contexto ao provedor de serviços. O provedor de serviços tem as seguintes opções para escolher para todas as conexões de ponto de extremidade particulares: **aprovada**, **rejeitar**, **remover**.
 
-The below table shows the various service provider actions and the resulting connection states for Private Endpoints.  The service provider can also change the connection state of private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
+A tabela abaixo mostra as várias ações do provedor de serviços e os Estados de conexão resultantes para pontos de extremidade privados.  O provedor de serviços também pode alterar o estado de conexão da conexão de ponto de extremidade particular em um momento posterior, sem intervenção do consumidor. A ação atualizará o estado do ponto de extremidade no lado do consumidor. 
 
 
-|Service Provider Action   |Service Consumer Private Endpoint State   |Descrição   |
+|Ação do provedor de serviço   |Estado do ponto de extremidade particular do consumidor de serviço   |Descrição   |
 |---------|---------|---------|
-|Nenhuma    |    Pendente     |    Connection is created manually and is pending for approval by the Private Link resource owner.       |
-|Aprovar    |  Aprovado       |  Connection was automatically or manually approved and is ready to be used.     |
-|Rejeitar     | Rejected        | Connection was rejected by the private link resource owner.        |
-|Remover    |  Disconnected       | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean up.        |
+|Nenhum    |    Pendente     |    A conexão é criada manualmente e está pendente para aprovação pelo proprietário do recurso de link privado.       |
+|Aprovar    |  Aprovado       |  A conexão foi aprovada automaticamente ou manualmente e está pronta para ser usada.     |
+|Rejeitar     | Recusa        | A conexão foi rejeitada pelo proprietário do recurso de link privado.        |
+|Remover    |  Desligado       | A conexão foi removida pelo proprietário do recurso de link privado, o ponto de extremidade privado torna-se informativo e deve ser excluído para limpeza.        |
 |   |         |         |
    
-## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Manage Private Endpoint Connections on Azure PaaS resources
-Portal is the preferred method for managing private endpoint connections on Azure PaaS resources. Currently, we don’t have PowerShell/CLI support for managing connections on Azure PaaS resources.
+## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Gerenciar conexões de ponto de extremidade privado nos recursos de PaaS do Azure
+O portal é o método preferencial para o gerenciamento de conexões de ponto de extremidade privado nos recursos de PaaS do Azure. No momento, não temos suporte do PowerShell/CLI para gerenciar conexões nos recursos de PaaS do Azure.
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
-2. Navigate to Private Link Center.
-3. Under **Resources**, select the resource type you want to manage the private endpoint connections.
-4. For each of your resource type, you can view the number of Private Endpoint Connections associated with it. You can filter the resources as needed.
-5. Select the private endpoint connections.  Under the connections listed, select the connection that you want to manage. 
-6. You can change the state of the connection by selecting from the options at the top.
+2. Navegue até o centro de links privado.
+3. Em **recursos**, selecione o tipo de recurso para o qual você deseja gerenciar as conexões de ponto de extremidade privado.
+4. Para cada tipo de recurso, você pode exibir o número de conexões de ponto de extremidade privadas associadas a ela. Você pode filtrar os recursos conforme necessário.
+5. Selecione as conexões de ponto de extremidade privado.  Nas conexões listadas, selecione a conexão que você deseja gerenciar. 
+6. Você pode alterar o estado da conexão selecionando as opções na parte superior.
 
-## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Manage Private Endpoint connections on a customer/partner owned Private Link service
+## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Gerenciar conexões de ponto de extremidade privado em um serviço de link privado de cliente/parceiro pertencente
 
-Azure PowerShell and Azure CLI are the preferred methods for managing Private Endpoint connections on Microsoft Partner Services or customer owned services. Currently, we don’t have any portal support for managing connections on a Private Link service.  
+Azure PowerShell e CLI do Azure são os métodos preferenciais para gerenciar conexões de ponto de extremidade privadas nos serviços de parceiro da Microsoft ou serviços de Propriedade do cliente. No momento, não temos nenhum suporte ao portal para gerenciar conexões em um serviço de vínculo privado.  
  
 ### <a name="powershell"></a>PowerShell 
   
-Use the following PowerShell commands to manage private endpoint connections.  
-#### <a name="get-private-link-connection-states"></a>Get Private Link connection states 
-Use the `Get-AzPrivateLinkService` cmdlet to get the Private Endpoint connections and their states.  
+Use os comandos do PowerShell a seguir para gerenciar conexões de ponto de extremidade privadas.  
+#### <a name="get-private-link-connection-states"></a>Obter Estados de conexão de link privado 
+Use o cmdlet `Get-AzPrivateLinkService` para obter as conexões de ponto de extremidade particulares e seus Estados.  
 ```azurepowershell
 Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourceGroup 
  ```
  
-#### <a name="approve-a-private-endpoint-connection"></a>Approve a Private Endpoint connection 
+#### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma conexão de ponto de extremidade particular 
  
-Use the `Approve-AzPrivateEndpointConnection` cmdlet to approve a Private Endpoint connection. 
+Use o cmdlet `Approve-AzPrivateEndpointConnection` para aprovar uma conexão de ponto de extremidade privada. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 ```
  
-#### <a name="deny-private-endpoint-connection"></a>Deny Private Endpoint connection 
+#### <a name="deny-private-endpoint-connection"></a>Negar conexão de ponto de extremidade privado 
  
-Use the `Deny-AzPrivateEndpointConnection` cmdlet to reject a Private Endpoint connection. 
+Use o cmdlet `Deny-AzPrivateEndpointConnection` para rejeitar uma conexão de ponto de extremidade privada. 
 ```azurepowershell
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
-#### <a name="remove-private-endpoint-connection"></a>Remove Private Endpoint Connection 
+#### <a name="remove-private-endpoint-connection"></a>Remover conexão de ponto de extremidade particular 
  
-Use the `Remove-AzPrivateEndpointConnection` cmdlet to remove a Private Endpoint connection. 
+Use o cmdlet `Remove-AzPrivateEndpointConnection` para remover uma conexão de ponto de extremidade privada. 
 ```azurepowershell
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
 ### <a name="azure-cli"></a>CLI do Azure 
  
-Use `az network private-link-service update` for managing your Private Endpoint connections. The connection state is specified in the ```azurecli connection-status``` parameter. 
+Use `az network private-link-service update` para gerenciar suas conexões de ponto de extremidade privadas. O estado da conexão é especificado no parâmetro ```azurecli connection-status```. 
 ```azurecli
 az network private-link-service connection update -g myResourceGroup -n myPrivateEndpointConnection1 --service-name myPLS --connection-status Approved 
 ```
 
    
 
-## <a name="next-steps"></a>Passos seguintes
-- [Learn about Private Endpoints](private-endpoint-overview.md)
+## <a name="next-steps"></a>Passos Seguintes
+- [Saiba mais sobre pontos de extremidade privados](private-endpoint-overview.md)
  

@@ -1,6 +1,6 @@
 ---
-title: Migrate SQL ServerWindows users and groups to managed instance using T-SQL
-description: Learn about how to migrate SQL Server on-premises Windows users and groups to managed instance
+title: Migrar usuários e grupos do SQL ServerWindows para a instância gerenciada usando o T-SQL
+description: Saiba mais sobre como migrar SQL Server usuários e grupos locais do Windows para a instância gerenciada
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -17,41 +17,41 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227929"
 ---
-# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migrate SQL Server on-premises Windows users and groups to Azure SQL Database managed instance using T-SQL DDL syntax
+# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: migrar SQL Server usuários e grupos locais do Windows para a instância gerenciada do banco de dados SQL do Azure usando a sintaxe DDL T-SQL
 
 > [!NOTE]
-> The syntax used to migrate users and groups to managed instance in this article is in **public preview**.
+> A sintaxe usada para migrar usuários e grupos para a instância gerenciada neste artigo está em **Visualização pública**.
 
-This article takes you through the process of migrating your on-premises Windows users and groups in your SQL Server to an existing Azure SQL Database managed instance using T-SQL syntax.
+Este artigo orienta você pelo processo de migração de seus usuários e grupos locais do Windows em sua SQL Server para uma instância gerenciada do banco de dados SQL do Azure existente usando a sintaxe T-SQL.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> - Create logins for SQL Server
-> - Create a test database for migration
-> - Create logins, users, and roles
-> - Backup and restore your database to managed instance (MI)
-> - Manually migrate users to MI using ALTER USER syntax
-> - Testing authentication with the new mapped users
+> - Criar logons para SQL Server
+> - Criar um banco de dados de teste para migração
+> - Criar logons, usuários e funções
+> - Fazer backup e restaurar seu banco de dados para a instância gerenciada (MI)
+> - Migre usuários manualmente para MI usando ALTER USER Syntax
+> - Testando a autenticação com os novos usuários mapeados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To complete this tutorial, the following prerequisites apply:
+Para concluir este tutorial, os seguintes pré-requisitos se aplicam:
 
-- The Windows domain is federated with Azure Active Directory (Azure AD).
-- Access to Active Directory to create users/groups.
-- An existing SQL Server in your on-premises environment.
-- An existing managed instance. See [Quickstart: Create an Azure SQL Database managed instance](sql-database-managed-instance-get-started.md).
-  - A `sysadmin` in the managed instance must be used to create Azure AD logins.
-- [Create an Azure AD admin for managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
-- You can connect to your managed instance within your network. See the following articles for additional information: 
-    - [Connect your application to Azure SQL Database managed instance](sql-database-managed-instance-connect-app.md)
-    - [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
+- O domínio do Windows é federado com o Azure Active Directory (AD do Azure).
+- Acesso a Active Directory para criar usuários/grupos.
+- Um SQL Server existente no seu ambiente local.
+- Uma instância gerenciada existente. Consulte [início rápido: criar uma instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-get-started.md).
+  - Um `sysadmin` na instância gerenciada deve ser usado para criar logons do Azure AD.
+- [Crie um administrador do Azure ad para a instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+- Você pode se conectar à sua instância gerenciada em sua rede. Consulte os seguintes artigos para obter informações adicionais: 
+    - [Conectar seu aplicativo à instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-connect-app.md)
+    - [Início rápido: configurar uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md)
     - [Configurar o ponto final público na instância gerida da Base de Dados SQL do Azure](sql-database-managed-instance-public-endpoint-configure.md)
 
-## <a name="t-sql-ddl-syntax"></a>T-SQL DDL syntax
+## <a name="t-sql-ddl-syntax"></a>Sintaxe DDL T-SQL
 
-Below are the T-SQL DDL syntax used to support SQL Server on-premises Windows users and groups migration to managed instance with Azure AD authentication.
+Veja abaixo a sintaxe DDL T-SQL usada para dar SQL Server suporte à migração de grupos e usuários locais do Windows para a instância gerenciada com a autenticação do Azure AD.
 
 ```sql
 -- For individual Windows users with logins 
@@ -64,25 +64,25 @@ ALTER USER [domainName\groupName] WITH LOGIN=[groupName]
 ## <a name="arguments"></a>Argumentos
 
 _domainName_</br>
-Specifies the domain name of the user.
+Especifica o nome de domínio do usuário.
 
-_userName_</br>
-Specifies the name of the user identified inside the database.
+_Usu_</br>
+Especifica o nome do usuário identificado dentro do banco de dados.
 
 _= loginName\@domainName.com_</br>
-Remaps a user to the Azure AD login
+Remapeia um usuário para o logon do Azure AD
 
 _groupName_</br>
-Specifies the name of the group identified inside the database.
+Especifica o nome do grupo identificado dentro do banco de dados.
 
-## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Part 1: Create logins for SQL Server on-premises users and groups
+## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Parte 1: criar logons para SQL Server usuários e grupos locais
 
 > [!IMPORTANT]
-> The following syntax creates a user and a group login in your SQL Server. You'll need to make sure that the user and group exist inside your Active Directory (AD) before executing the below syntax. </br> </br>
-> Users: testUser1, testGroupUser </br>
-> Group: migration - testGroupUser needs to belong to the migration group in AD
+> A sintaxe a seguir cria um logon de usuário e grupo no seu SQL Server. Você precisará certificar-se de que o usuário e o grupo existam dentro de seu Active Directory (AD) antes de executar a sintaxe abaixo. </br> </br>
+> Usuários: testUser1, testGroupUser </br>
+> Grupo: Migration-testGroupUser precisa pertencer ao grupo de migração no AD
 
-The example below creates a login in SQL Server for an account named _testUser1_ under the domain _aadsqlmi_. 
+O exemplo a seguir cria um logon no SQL Server para uma conta chamada _testUser1_ no domínio _aadsqlmi_. 
 
 ```sql
 -- Sign into SQL Server as a sysadmin or a user that can create logins and databases
@@ -106,7 +106,7 @@ select * from sys.server_principals;
 go; 
 ```
 
-Create a database for this test.
+Crie um banco de dados para este teste.
 
 ```sql
 -- Create a database called [migration]
@@ -114,9 +114,9 @@ create database migration
 go
 ```
 
-## <a name="part-2-create-windows-users-and-groups-then-add-roles-and-permissions"></a>Part 2: Create Windows users and groups, then add roles and permissions
+## <a name="part-2-create-windows-users-and-groups-then-add-roles-and-permissions"></a>Parte 2: criar usuários e grupos do Windows e adicionar funções e permissões
 
-Use the following syntax to create the test user.
+Use a sintaxe a seguir para criar o usuário de teste.
 
 ```sql
 use migration;  
@@ -127,7 +127,7 @@ create user [aadsqlmi\testUser1] from login [aadsqlmi\testUser1];
 go 
 ```
 
-Check the user permissions:
+Verifique as permissões do usuário:
 
 ```sql
 -- Check the user in the Metadata 
@@ -139,7 +139,7 @@ select user_name(grantee_principal_id), * from sys.database_permissions;
 go
 ```
 
-Create a role and assign your test user to this role:
+Crie uma função e atribua o usuário de teste a essa função:
 
 ```sql 
 -- Create a role with some permissions and assign the user to the role
@@ -153,7 +153,7 @@ alter role UserMigrationRole add member [aadsqlmi\testUser1];
 go 
 ``` 
 
-Use the following query to display user names assigned to a specific role:
+Use a consulta a seguir para exibir nomes de usuário atribuídos a uma função específica:
 
 ```sql
 -- Display user name assigned to a specific role 
@@ -168,7 +168,7 @@ WHERE DP1.type = 'R'
 ORDER BY DP1.name; 
 ```
 
-Use the following syntax to create a group. Then add the group to the role `db_owner`.
+Use a sintaxe a seguir para criar um grupo. Em seguida, adicione o grupo à função `db_owner`.
 
 ```sql
 -- Create Windows group
@@ -185,7 +185,7 @@ go
 -- Output  ( 1 means YES) 
 ```
 
-Create a test table and add some data using the following syntax:
+Crie uma tabela de teste e adicione alguns dados usando a seguinte sintaxe:
 
 ```sql
 -- Create a table and add data 
@@ -200,9 +200,9 @@ select * from test;
 go
 ```
 
-## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>Part 3: Backup and restore the individual user database to managed instance
+## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>Parte 3: fazer backup e restaurar o banco de dados de usuário individual para a instância gerenciada
 
-Create a backup of the migration database using the article [Copy Databases with Backup and Restore](/sql/relational-databases/databases/copy-databases-with-backup-and-restore), or use the following syntax:
+Crie um backup do banco de dados de migração usando o artigo [copiar bancos de dados com backup e restauração](/sql/relational-databases/databases/copy-databases-with-backup-and-restore)ou use a seguinte sintaxe:
 
 ```sql
 use master; 
@@ -211,16 +211,16 @@ backup database migration to disk = 'C:\Migration\migration.bak';
 go
 ```
 
-Follow our [Quickstart: Restore a database to a managed instance](sql-database-managed-instance-get-started-restore.md).
+Siga nosso [início rápido: restaurar um banco de dados para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md).
 
-## <a name="part-4-migrate-users-to-managed-instance"></a>Part 4: Migrate users to managed instance
+## <a name="part-4-migrate-users-to-managed-instance"></a>Parte 4: migrar usuários para a instância gerenciada
 
 > [!NOTE]
-> The Azure AD admin for managed instance functionality after creation has changed. For more information, see [New Azure AD admin functionality for MI](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+> O administrador do Azure AD para a funcionalidade de instância gerenciada após a criação ter sido alterado. Para obter mais informações, consulte [nova funcionalidade de administrador do Azure ad para mi](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
 
-Execute the ALTER USER command to complete the migration process on managed instance.
+Execute o comando ALTER USER para concluir o processo de migração na instância gerenciada.
 
-1. Sign into your managed instance using the Azure AD admin account for managed instance. Then create your Azure AD login in the managed instance using the following syntax. For more information, see [Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)](sql-database-managed-instance-aad-security-tutorial.md).
+1. Entre em sua instância gerenciada usando a conta de administrador do Azure AD para a instância gerenciada. Em seguida, crie seu logon do Azure AD na instância gerenciada usando a sintaxe a seguir. Para obter mais informações, consulte [tutorial: segurança de instância gerenciada no banco de dados SQL do Azure usando entidades de servidor do Azure AD (logons)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 
@@ -239,7 +239,7 @@ Execute the ALTER USER command to complete the migration process on managed inst
     go
     ```
 
-1. Check your migration for the correct database, table, and principals.
+1. Verifique a migração para o banco de dados, a tabela e as entidades de segurança corretas.
 
     ```sql
     -- Switch to the database migration that is already restored for MI 
@@ -257,7 +257,7 @@ Execute the ALTER USER command to complete the migration process on managed inst
     -- the old group aadsqlmi\migration should be there
     ```
 
-1. Use the ALTER USER syntax to map the on-premises user to the Azure AD login.
+1. Use a sintaxe ALTER USER para mapear o usuário local para o logon do Azure AD.
 
     ```sql
     /** Execute the ALTER USER command to alter the Windows user [aadsqlmi\testUser1]
@@ -288,7 +288,7 @@ Execute the ALTER USER command to complete the migration process on managed inst
     ORDER BY DP1.name;
     ```
 
-1. Use the ALTER USER syntax to map the on-premises group to the Azure AD login.
+1. Use a sintaxe ALTER USER para mapear o grupo local para o logon do Azure AD.
 
     ```sql
     /** Execute ALTER USER command to alter the Windows group [aadsqlmi\migration]
@@ -312,26 +312,26 @@ Execute the ALTER USER command to complete the migration process on managed inst
     -- Output 1 means 'YES'
     ```
 
-## <a name="part-5-testing-azure-ad-user-or-group-authentication"></a>Part 5: Testing Azure AD user or group authentication
+## <a name="part-5-testing-azure-ad-user-or-group-authentication"></a>Parte 5: testando o usuário do Azure AD ou a autenticação de grupo
 
-Test authenticating to managed instance using the user previously mapped to the Azure AD login using the ALTER USER syntax.
+Testar a autenticação para a instância gerenciada usando o usuário mapeado anteriormente para o logon do Azure AD usando a sintaxe ALTER USER.
  
-1. Log into the federated VM using your MI subscription as  `aadsqlmi\testUser1`
-1. Using SQL Server Management Studio (SSMS), sign into your managed instance using **Active Directory Integrated** authentication, connecting to the database `migration`.
-    1. You can also sign in using the testUser1@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log in to your managed instance.
-1. As part of the role member **SELECT**, you can select from the `test` table
+1. Faça logon na VM federada usando sua assinatura MI como `aadsqlmi\testUser1`
+1. Usando o SQL Server Management Studio (SSMS), entre em sua instância gerenciada usando a autenticação **integrada Active Directory** , conectando-se ao banco de dados `migration`.
+    1. Você também pode entrar usando as credenciais de testUser1@aadsqlmi.net com a opção SSMS **Active Directory – universal com suporte a MFA**. No entanto, nesse caso, você não pode usar o mecanismo de logon único e deve digitar uma senha. Você não precisará usar uma VM federada para fazer logon em sua instância gerenciada.
+1. Como parte da **seleção**de membro da função, você pode selecionar na tabela `test`
 
     ```sql
     Select * from test  --  and see one row (1,10)
     ```
 
 
-Test authenticating to a managed instance using a member of a Windows group `migration`. The user `aadsqlmi\testGroupUser` should have been added to the group `migration` before the migration.
+Teste a autenticação em uma instância gerenciada usando um membro de um grupo do Windows `migration`. O usuário `aadsqlmi\testGroupUser` deve ter sido adicionado ao grupo `migration` antes da migração.
 
-1. Log into the federated VM using your MI subscription as  `aadsqlmi\testGroupUser` 
-1. Using SSMS with **Active Directory Integrated** authentication, connect to the MI server and the database `migration`
-    1. You can also sign in using the testGroupUser@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log into your managed instance. 
-1. As part of the `db_owner` role, you can create a new table.
+1. Faça logon na VM federada usando sua assinatura MI como `aadsqlmi\testGroupUser` 
+1. Usando o SSMS com **Active Directory autenticação integrada** , conecte-se ao servidor mi e ao banco de dados `migration`
+    1. Você também pode entrar usando as credenciais de testGroupUser@aadsqlmi.net com a opção SSMS **Active Directory – universal com suporte a MFA**. No entanto, nesse caso, você não pode usar o mecanismo de logon único e deve digitar uma senha. Você não precisará usar uma VM federada para fazer logon em sua instância gerenciada. 
+1. Como parte da função de `db_owner`, você pode criar uma nova tabela.
 
     ```sql
     -- Create table named 'new' with a default schema
@@ -339,11 +339,11 @@ Test authenticating to a managed instance using a member of a Windows group `mig
     ```
                              
 > [!NOTE] 
-> Due to a known design issue for Azure SQL DB, a create a table statement executed as a member of a group will fail with the following error: </br> </br>
+> Devido a um problema de design conhecido para o banco de BD SQL do Azure, uma instrução criar uma tabela executada como um membro de um grupo falhará com o seguinte erro: </br> </br>
 > `Msg 2760, Level 16, State 1, Line 4 
 The specified schema name "testGroupUser@aadsqlmi.net" either does not exist or you do not have permission to use it.` </br> </br>
-> The current workaround is to create a table with an existing schema in the case above <dbo.new>
+> A solução alternativa atual é criar uma tabela com um esquema existente no caso acima < dbo. New >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Tutorial: Migrate SQL Server to an Azure SQL Database managed instance offline using DMS](../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json)
+- [Tutorial: migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure offline usando DMS](../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json)

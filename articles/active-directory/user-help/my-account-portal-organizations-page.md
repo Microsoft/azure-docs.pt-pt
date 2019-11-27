@@ -1,6 +1,6 @@
 ---
-title: Manage your organizations from the My Account portal - Azure AD
-description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
+title: Gerenciar suas organizações no portal minha conta – Azure AD
+description: Como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante na página organizações do portal minha conta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,52 +19,52 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231853"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Manage organizations connected to your work or school account from the Organizations page
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Gerenciar organizações conectadas à sua conta corporativa ou de estudante na página organizações
 
-You can manage your organizations from the **Organizations** page of the **My Account** portal.
+Você pode gerenciar suas organizações na página **organizações** do portal **minha conta** .
 
-There are two types of organizations shown on the **Organizations** page:
+Há dois tipos de organizações mostrados na página **organizações** :
 
-- **Home organization.** Your home organization is the organization that owns your work or school account. You can't leave your home organization.
+- **Organização inicial.** Sua organização doméstica é a organização que possui sua conta corporativa ou de estudante. Você não pode sair de sua organização doméstica.
 
-- **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
+- **Outras organizações.** As outras organizações são qualquer grupo que você tenha entrado para usar anteriormente sua conta corporativa ou de estudante. Você pode deixar qualquer uma dessas organizações a qualquer momento.
 
     >[!NOTE]
-    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
+    > Se você não tiver uma organização inicial atribuída, verá apenas um único título que diz às organizações a lista de suas organizações associadas.
 
-## <a name="view-your-organizations"></a>View your organizations
+## <a name="view-your-organizations"></a>Exibir suas organizações
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
 
-2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
+2. Selecione **organizações** no painel de navegação esquerdo ou selecione o link **gerenciar organizações** no bloco **organizações** .
 
-    ![My Account page, showing highlighted Organizations links](media/my-account-portal/my-account-portal-organizations.png)
+    ![Página minha conta, mostrando links para organizações realçadas](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Review the information for your **Home organization**.
+3. Examine as informações da sua **organização doméstica**.
 
-    ![Organizations page](media/my-account-portal/my-account-portal-organization-page.png)
+    ![Página organizações](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Review your other associated organizations, making sure you recognize all of the organizations connected to your account.
+4. Examine suas outras organizações associadas, certificando-se de reconhecer todas as organizações conectadas à sua conta.
 
 ## <a name="leave-an-organization"></a>Sair de uma organização
 
-You can leave any organization that isn't your Home organization.
+Você pode deixar qualquer organização que não seja sua organização doméstica.
 
 >[!Important]
->If you leave an organization by mistake, there's no way to undo it. You'll have to wait for the administrator of that organization to invite you again.
+>Se você deixar uma organização por engano, não há como desfazê-la. Você precisará aguardar o administrador dessa organização para convidá-lo novamente.
 
-1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
+1. Selecione **deixar organização** ao lado da organização que você deseja sair e selecione **deixar** para confirmar que deseja sair.
 
-    ![Organizations page with highlighted leave organization link](media/my-account-portal/my-account-portal-organizations-leave.png)
+    ![Página organizações com o link deixar organização realçado](media/my-account-portal/my-account-portal-organizations-leave.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-After viewing your organizations, you can:
+Depois de exibir suas organizações, você pode:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).

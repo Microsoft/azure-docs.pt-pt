@@ -1,6 +1,6 @@
 ---
 title: Práticas de segurança recomendadas
-description: When using Azure delegated resource management, it’s important to consider security and access control.
+description: Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso.
 ms.date: 07/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
@@ -12,35 +12,35 @@ ms.locfileid: "74463896"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
-When using Azure delegated resource management, it’s important to consider security and access control. Users in your tenant will have direct access to customer subscriptions and resource groups, so you’ll want to take steps to maintain your tenant’s security. You’ll also want to make sure you only allow the access that’s needed to effectively manage your customers’ resources. This topic provides recommendations to help you do so.
+Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso. Os usuários em seu locatário terão acesso direto a grupos de recursos e assinaturas de cliente, portanto, você desejará tomar medidas para manter a segurança do seu locatário. Você também desejará certificar-se de permitir apenas o acesso necessário para gerenciar os recursos de seus clientes com eficiência. Este tópico fornece recomendações para ajudá-lo a fazer isso.
 
-## <a name="require-azure-multi-factor-authentication"></a>Require Azure Multi-Factor Authentication
+## <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)  (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your service provider tenant, including any users who will have access to customer resources.
+A [autenticação multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a impedir que invasores obtenham acesso a uma conta exigindo várias etapas de autenticação. Você deve exigir a autenticação multifator para todos os usuários em seu locatário do provedor de serviços, incluindo qualquer usuário que terá acesso aos recursos do cliente.
 
-We suggest that you ask your customers to implement Azure Multi-Factor Authentication in their tenants as well.
+Sugerimos que você solicite que seus clientes implementem a autenticação multifator do Azure em seus locatários também.
 
-## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Assign permissions to groups, using the principle of least privilege
+## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Atribuir permissões a grupos, usando o princípio de privilégios mínimos
 
-To make management easier, we recommend using Azure AD user groups for each role required to manage your customers’ resources. This lets you add or remove individual users to the group as needed, rather than assigning permissions directly to that user.
+Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função necessária para gerenciar os recursos dos seus clientes. Isso permite que você adicione ou remova usuários individuais do grupo, conforme necessário, em vez de atribuir permissões diretamente a esse usuário.
 
-When creating your permission structure, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
+Ao criar sua estrutura de permissão, certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros inadvertidos.
 
-For example, you may want to use a structure like this:
+Por exemplo, talvez você queira usar uma estrutura como esta:
 
-|Group name  |Tipo  |principalId  |Definição de função  |Role definition ID  |
+|Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
-|Architects     |Grupo de utilizadores         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|VM Specialists     |Grupo de utilizadores         |\<principalId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |Service principal name (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Arquitetos     |Grupo de utilizadores         |\<PrincipalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Avaliação     |Grupo de utilizadores         |\<PrincipalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Especialistas de VM     |Grupo de utilizadores         |\<PrincipalId\>         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
+|Automatização     |SPN (nome da entidade de serviço)         |\<PrincipalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
-Once you’ve created these groups, you can assign users as needed. Only add the users who truly need to have access. Be sure to review group membership regularly and remove any users that are no longer appropriate or necessary to include.
+Depois de criar esses grupos, você pode atribuir usuários conforme necessário. Somente adicione os usuários que realmente precisam ter acesso. Certifique-se de revisar a associação de grupo regularmente e remover os usuários que não são mais apropriados ou necessários para incluir.
 
-Keep  in mind that when you [onboard customers through a public managed service offer](../how-to/publish-managed-services-offers.md), any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you’ll need to publish a separate private plan that is exclusive to each customer, or onboard customers individually by using Azure Resource Manager templates. For example, you could publish a public plan that has very limited access, then work with the customer directly to onboard their resources for additional access using a customized Azure Resource Template granting additional access as needed.
+Tenha em mente que, quando você integrar [clientes por meio de uma oferta de serviço gerenciado público](../how-to/publish-managed-services-offers.md), qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, você precisará publicar um plano privado separado que seja exclusivo para cada cliente ou integrar clientes individualmente usando modelos de Azure Resource Manager. Por exemplo, você pode publicar um plano público com acesso muito limitado e, em seguida, trabalhar com o cliente diretamente para integrar seus recursos para acesso adicional usando um modelo de recurso personalizado do Azure concedendo acesso adicional, conforme necessário.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
-- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- [Implante a autenticação multifator do Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

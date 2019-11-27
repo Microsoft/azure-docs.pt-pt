@@ -144,6 +144,6 @@ Após a migração, faça o seguinte nas VMs do Azure que são criadas.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Decida qual método você deseja usar para [migrar VMs VMware](server-migrate-overview.md) para o Azure ou iniciar a migração de [VMs Hyper-V](tutorial-migrate-hyper-v.md) ou [servidores físicos ou VMS virtualizadas/de nuvem](tutorial-migrate-physical-virtual-machines.md).

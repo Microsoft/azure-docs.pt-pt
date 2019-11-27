@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Set up dev platform'
+title: 'Início rápido: configurar a plataforma de desenvolvimento'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to install the Speech SDK for your preferred platform and programming language combination.
+description: Neste guia de início rápido, você aprenderá a instalar o SDK de fala para sua combinação de plataforma e linguagem de programação preferida.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -18,10 +18,10 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74221977"
 ---
-# <a name="quickstart-setup-development-environment"></a>Quickstart: Setup development environment
+# <a name="quickstart-setup-development-environment"></a>Início rápido: configurar o ambiente de desenvolvimento
 
 ::: zone pivot="programming-language-csharp"
-**Choose your target environment**
+**Escolha seu ambiente de destino**
 #### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 [!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
 #### <a name="net-coretabdotnetcore"></a>[.NET Core](#tab/dotnetcore)
@@ -37,7 +37,7 @@ ms.locfileid: "74221977"
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-**Choose your target environment**
+**Escolha seu ambiente de destino**
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 [!INCLUDE [linux](../includes/quickstarts/platform/cpp-linux.md)]
 #### <a name="macostabmacos"></a>[macOS](#tab/macos)
@@ -48,8 +48,8 @@ ms.locfileid: "74221977"
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-**Choose your target environment**
-#### <a name="java-runtimetabjre"></a>[Java Runtime](#tab/jre)
+**Escolha seu ambiente de destino**
+#### <a name="java-runtimetabjre"></a>[Tempo de execução Java](#tab/jre)
 [!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
 #### <a name="androidtabandroid"></a>[Android](#tab/android)
 [!INCLUDE [android](../includes/quickstarts/platform/java-android.md)]

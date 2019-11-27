@@ -21,7 +21,7 @@ Este artigo mostra como criar um serviço de vínculo privado no Azure usando CL
 
 Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use a versão mais recente do CLI do Azure. Para localizar sua versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Ligação Privada
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para poder criar uma rede virtual, você precisa criar um grupo de recursos para hospedar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *MyResource* Group no local *westcentralus* :
 
@@ -60,7 +60,7 @@ Uma sonda de estado de funcionamento verifica todas as instâncias de máquina v
     --port 80   
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
 
 Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no conjunto de front-end *myFrontEnd* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80. 
 
@@ -160,6 +160,6 @@ Consulte solicitações de conexão em seu serviço de vínculo privado usando [
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o [serviço de vínculo privado do Azure](private-link-service-overview.md)
  

@@ -109,7 +109,7 @@ As bibliotecas de gerenciamento de recursos do .NET estendem a estrutura com sup
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um sinalizador de recurso na configuração do aplicativo e o utilizou com um aplicativo de console .NET Framework. Para saber como atualizar dinamicamente os sinalizadores de recursos e outros valores de configuração sem reiniciar o aplicativo, prossiga para o próximo tutorial.
 

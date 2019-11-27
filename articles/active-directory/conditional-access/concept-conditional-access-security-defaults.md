@@ -126,7 +126,7 @@ Para habilitar os padrões de segurança em seu diretório:
 1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
 

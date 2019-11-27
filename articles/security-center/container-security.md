@@ -66,7 +66,7 @@ Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes complet
 1.  Abra a página de **aplicativos & de computação** da central de segurança.
 2.  Clique na guia **contêineres** . A postura de seus clusters AKS, registros de ACR e VMs que executam o Docker é exibida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a segurança de contêiner na central de segurança do Azure, consulte:
 * Detalhes da [integração com o serviço kubernetes do Azure](azure-kubernetes-service-integration.md)

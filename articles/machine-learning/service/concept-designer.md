@@ -91,7 +91,7 @@ Use os recursos de computação do seu espaço de trabalho para executar seu pip
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
 | Computação do Machine Learning do Azure | ✓ | |
-| Azure Kubernetes Service | | ✓ |
+| Serviço Kubernetes do Azure | | ✓ |
 
 Os destinos de computação são anexados ao seu [espaço de trabalho](concept-workspace.md)do Machine Learning. Você gerencia seus destinos de computação em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
@@ -132,7 +132,7 @@ Você pode converter experimentos de interface visual existentes e serviços Web
 [!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com [o tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 * Use um dos exemplos e modifique para a suíte de suas necessidades:

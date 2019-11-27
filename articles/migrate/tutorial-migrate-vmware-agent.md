@@ -207,7 +207,7 @@ Se você não seguir o tutorial para avaliar as VMs do VMware, configure um proj
 
     **Geografia** | **Região**
     --- | ---
-    Ásia | Sudeste asiático
+    Ásia | Sudeste Asiático
     Europa | Europa Setentrional ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Oeste EUA Central
 
@@ -274,7 +274,7 @@ Depois de baixar o modelo OVF, você o importará para o VMware para criar o apl
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após a conclusão da instalação, entre na VM como administrador, usando a senha de administrador.
 4. Na primeira vez que você entrar, a ferramenta de instalação do dispositivo de replicação (Azure Site Recovery ferramenta de configuração) será iniciada em alguns segundos.
-5. Insira um nome a ser usado para registrar o dispositivo com a migração de servidor de migrações para Azure. Em seguida, clique em **Seguinte**.
+5. Insira um nome a ser usado para registrar o dispositivo com a migração de servidor de migrações para Azure. Clique depois em **Seguinte**.
 6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure.
 7. Aguarde até que a ferramenta termine de registrar um aplicativo do Azure AD para identificar o dispositivo. O dispositivo é reinicializado.
 1. Inicie sessão na máquina novamente. Em poucos segundos, o Assistente de Gestão do Servidor de Configuração inicia automaticamente.
@@ -333,8 +333,8 @@ Agora, selecione VMs para migração.
 10. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
 11. Em **Benefício Híbrido do Azure**:
 
-    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
-    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
+    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Clique depois em **Seguinte**.
+    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Clique depois em **Seguinte**.
 
 12. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
@@ -342,7 +342,7 @@ Agora, selecione VMs para migração.
     - **Disco do so**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
     - **Conjunto de disponibilidade**: se a VM deve estar em um conjunto de disponibilidade do Azure após a migração, especifique o conjunto. O conjunto deve estar no grupo de recursos de destino especificado para a migração.
 
-13. Em **discos**, especifique se os discos de VM devem ser replicados no Azure e selecione o tipo de disco (SSD padrão/HDD ou discos gerenciados Premium) no Azure. Em seguida, clique em **Seguinte**.
+13. Em **discos**, especifique se os discos de VM devem ser replicados no Azure e selecione o tipo de disco (SSD padrão/HDD ou discos gerenciados Premium) no Azure. Clique depois em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
@@ -424,7 +424,7 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 ## <a name="post-migration-best-practices"></a>Práticas recomendadas após a migração
 
-- Local
+- No local
     - Mova o tráfego da aplicação para a aplicação em execução na instância da VM do Azure migrada.
     - Remova as VMs no local do seu inventário de VMs locais.
     - Remova as VMs no local das cópias de segurança locais.
@@ -450,6 +450,6 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 
 
- ## <a name="next-steps"></a>Passos seguintes
+ ## <a name="next-steps"></a>Passos Seguintes
 
 Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) na estrutura de adoção de nuvem do Azure.

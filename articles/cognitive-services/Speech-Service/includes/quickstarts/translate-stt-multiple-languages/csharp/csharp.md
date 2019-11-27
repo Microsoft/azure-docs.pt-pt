@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech to multiple languages, C# - Speech Service'
+title: 'Início rápido: traduzir a fala para vários C# idiomas,-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260835"
 ---
-**Choose your target environment**
+**Escolha seu ambiente de destino**
 
 #### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 [!INCLUDE [dotnet](./dotnet.md)]

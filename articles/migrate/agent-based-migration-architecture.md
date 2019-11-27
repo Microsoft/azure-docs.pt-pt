@@ -75,7 +75,7 @@ O serviço de mobilidade se comunica com o dispositivo de replicação e com má
 
 ## <a name="ports"></a>Portas
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | --- 
 VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local na porta HTTPS 443 de entrada para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no dispositivo de replicação por padrão) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
 Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
@@ -97,7 +97,7 @@ Os valores nesta tabela podem ser usados para descobrir se você precisa de um s
 - Se sua taxa de alteração diária (taxa de rotatividade) tiver mais de 2 TB, implante um servidor de processo adicional.
 - Se você estiver replicando mais de 200 computadores, implante um dispositivo de replicação adicional.
 
-**CPU** | **Memória** | **Espaço livre para cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
+**CPUs** | **Memória** | **Espaço livre para cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
 --- | --- | --- | --- | ---
 8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | < computadores 100 
 12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 computadores.
@@ -126,6 +126,6 @@ Se você precisar implantar um servidor de processo de expansão, essa tabela po
     3. Em **limitação**, selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**. Defina os limites de horas de trabalho e de folga. Intervalos válidos são de 512 kbps a 1.023 Mbps.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente a [migração de VM VMware](tutorial-migrate-vmware-agent.md) baseada em agente usando a migração de servidor de migrações para Azure.

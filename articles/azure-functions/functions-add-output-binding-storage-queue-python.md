@@ -1,6 +1,6 @@
 ---
-title: Add an Azure Storage queue binding to your Python function
-description: Learn how to add an Azure Storage queue output binding to your Python function.
+title: Adicionar uma associação de fila de armazenamento do Azure à sua função Python
+description: Saiba como adicionar uma associação de saída de fila do armazenamento do Azure à sua função do Python.
 ms.date: 10/02/2019
 ms.topic: quickstart
 ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
@@ -10,33 +10,33 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231240"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Add an Azure Storage queue binding to your Python function
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila de armazenamento do Azure à sua função Python
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-python.md) with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
+Este artigo mostra como integrar a função que você criou no artigo de [início rápido anterior](functions-create-first-function-python.md) com uma fila de armazenamento do Azure. A associação de saída que você adiciona a essa função grava dados de uma solicitação HTTP em uma mensagem na fila.
 
-Most bindings require a stored connection string that Functions uses to access the bound service. To make this connection easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
+A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço associado. Para facilitar essa conexão, use a conta de armazenamento que você criou com seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Before you start this article, complete the steps in [part 1 of the Python quickstart](functions-create-first-function-python.md).
+Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido do Python](functions-create-first-function-python.md).
 
 [!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
 
-## <a name="download-the-function-app-settings"></a>Download the function app settings
+## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
 [!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
-## <a name="enable-extension-bundles"></a>Enable extension bundles
+## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-You can now add the Storage output binding to your project.
+Agora você pode adicionar a associação de saída de armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
+Em funções, cada tipo de associação requer um `direction`, `type`e um `name` exclusivo a ser definido no arquivo function. JSON. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -44,52 +44,52 @@ In Functions, each type of binding requires a `direction`, `type`, and a unique 
 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
-When you use an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
+Ao usar uma associação de saída, você não precisa usar o código do SDK de armazenamento do Azure para autenticação, obter uma referência de fila ou gravar dados. O tempo de execução de funções e a associação de saída de fila executam essas tarefas para você.
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
-As before, use the following command to start the Functions runtime locally:
+Como antes, use o seguinte comando para iniciar o tempo de execução do Functions localmente:
 
 ```bash
 func host start
 ```
 
 > [!NOTE]  
-> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Como você habilitou pacotes de extensão no host. JSON, a [extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com as outras extensões de associação da Microsoft.
 
-Copie o URL da função `HttpTrigger` do resultado do runtime e cole-o na barra de endereço do browser. Append the query string `?name=<yourname>` to this URL and run the request. You should see the same response in the browser as you did in the previous article.
+Copie o URL da função `HttpTrigger` do resultado do runtime e cole-o na barra de endereço do browser. Acrescente a cadeia de caracteres de consulta `?name=<yourname>` a essa URL e execute a solicitação. Você deve ver a mesma resposta no navegador como fez no artigo anterior.
 
-This time, the output binding also creates a queue named `outqueue` in your Storage account and adds a message with this same string.
+Desta vez, a associação de saída também cria uma fila chamada `outqueue` em sua conta de armazenamento e adiciona uma mensagem com essa mesma cadeia de caracteres.
 
-Next, you use the Azure CLI to view the new queue and verify that a message was added. You can also view your queue by using the [Microsoft Azure Storage Explorer][Azure Storage Explorer] or in the [Azure portal](https://portal.azure.com).
+Em seguida, use o CLI do Azure para exibir a nova fila e verificar se uma mensagem foi adicionada. Você também pode exibir sua fila usando o [Gerenciador de armazenamento do Microsoft Azure][Azure Storage Explorer] ou no [portal do Azure](https://portal.azure.com).
 
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-### <a name="redeploy-the-project"></a>Redeploy the project 
+### <a name="redeploy-the-project"></a>Reimplantar o projeto 
 
-To update your published app, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this example, replace `<APP_NAME>` with the name of your app.
+Para atualizar seu aplicativo publicado, use o comando [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools para implantar o código do projeto no Azure. Neste exemplo, substitua `<APP_NAME>` pelo nome do seu aplicativo.
 
 ```command
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
-Again, you can use cURL or a browser to test the deployed function. As before, append the query string `&name=<yourname>` to the URL, as in this example:
+Novamente, você pode usar a ondulação ou um navegador para testar a função implantada. Como antes, acrescente a cadeia de caracteres de consulta `&name=<yourname>` à URL, como neste exemplo:
 
 ```bash
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-You can [examine the Storage queue message](#query-the-storage-queue) again to verify that the output binding generates a new message in the queue, as expected.
+Você pode [examinar a mensagem da fila de armazenamento](#query-the-storage-queue) novamente para verificar se a associação de saída gera uma nova mensagem na fila, conforme o esperado.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-You've updated your HTTP-triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md). For examples of complete Function projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). To learn more about pricing, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and the [Estimating Consumption plan costs](functions-consumption-costs.md) article.
+Você atualizou sua função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre como desenvolver Azure Functions com Python, confira o [Guia do desenvolvedor Azure Functions Python](functions-reference-python.md) e [Azure Functions gatilhos e associações](functions-triggers-bindings.md). Para obter exemplos de projetos de funções completos no Python, consulte os [exemplos de funções do Python](/samples/browse/?products=azure-functions&languages=python). Para saber mais sobre preços, consulte a [página de preços do Functions](https://azure.microsoft.com/pricing/details/functions/) e o artigo [calculando os custos do plano de consumo](functions-consumption-costs.md) .
 
-Next, you should enable Application Insights monitoring for your function app:
+Em seguida, você deve habilitar o monitoramento de Application Insights para seu aplicativo de funções:
 
 > [!div class="nextstepaction"]
 > [Ativar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)

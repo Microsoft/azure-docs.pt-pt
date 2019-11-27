@@ -96,7 +96,7 @@ Uma avaliação pode não ter todos os pontos de dados por vários motivos:
 - Algumas VMs foram criadas após a deteção numa Avaliação do Servidor ter sido iniciada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Neste caso, os dados de desempenho das novas VMs não vão estar disponíveis durante todo este período e a classificação de confiança seria baixa.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba](concepts-assessment-calculation.md) como as avaliações são calculadas.
 - [Saiba](how-to-modify-assessment.md) como personalizar uma avaliação.

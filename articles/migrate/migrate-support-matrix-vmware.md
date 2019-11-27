@@ -26,7 +26,7 @@ A tabela resume os cenários com suporte para VMs VMware.
 **Implementação** | **Detalhes**
 --- | ---
 **Avaliar VMs VMware locais** | [Configure](tutorial-prepare-vmware.md) sua primeira avaliação.<br/><br/> [Execute](scale-vmware-assessment.md) uma avaliação em larga escala.
-**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Saber mais](server-migrate-overview.md)
+**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Obter mais informações](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Projetos de migrações para Azure
@@ -121,7 +121,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 ## <a name="assessment-port-requirements"></a>Avaliação – requisitos de porta
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | ---
 Baseado | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexões de saída na porta 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/><br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
@@ -182,7 +182,7 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Cluster de disco compartilhado** | Não suportado.
 **Discos independentes** | Não suportado.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
-**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Não suportado.
 **VMotion de armazenamento** | Não suportado. A replicação não funcionará se uma VM usar o Storage vMotion.
@@ -225,7 +225,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 ## <a name="agentless-migration-port-requirements"></a>Migração sem agente – requisitos de porta
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | ---
 Baseado | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
 vCenter Server | Conexões de entrada na porta 443 para permitir que o dispositivo coordene a replicação-criar instantâneos, copiar dados, liberar instantâneos
@@ -273,7 +273,7 @@ TLS | O TLS 1,2 deve estar habilitado.
 MySQL | O MySQL deve ser instalado no dispositivo.<br/> O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo durante a implantação do dispositivo.
 Outros aplicativos | Não execute outros aplicativos no dispositivo de replicação.
 Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V
-Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saber mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Obter mais informações](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo já existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Configurações de rede** |
 Tipo de endereço IP | Estático
@@ -328,10 +328,10 @@ Baixar e instalar em migrações para Azure | Quando você instalar o dispositiv
 **Cluster de disco compartilhado** | Não suportado.
 **Discos independentes** | Suportado.
 **Discos de passagem** | Suportado.
-**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Não suportado.
-**VMotion de armazenamento** | Suportado
+**VMotion de armazenamento** | Suportadas
 **NICs agrupadas** | Não suportado.
 **Protocolo** | Não suportado.
 
@@ -359,7 +359,7 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 
 ## <a name="agent-based-migration-port-requirements"></a>Migração baseada em agente-requisitos de porta
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | ---
 VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local (servidor de configuração) na porta HTTPS 443 de entrada, para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
 Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
@@ -386,6 +386,6 @@ Conectar após a migração-Windows | Para se conectar às VMs do Azure que exec
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Prepare-se para](tutorial-prepare-vmware.md) avaliação e migração do VMware.

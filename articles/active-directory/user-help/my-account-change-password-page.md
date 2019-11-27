@@ -1,6 +1,6 @@
 ---
-title: Change your work or school account password - Azure AD
-description: Learn to change your work or school account password from the Change Password page of the My Account portal.
+title: Alterar sua senha de conta corporativa ou de estudante-Azure AD
+description: Saiba como alterar sua senha de conta corporativa ou de estudante na página Alterar senha do portal minha conta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,41 +19,41 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231877"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Change your work or school account password from the My Account portal
+# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Alterar a senha de sua conta corporativa ou de estudante do portal minha conta
 
-From the **Change password** page of the **My Account** portal, you can update your work or school account password. This will only work if you know your existing password and if you aren't locked out of your account.
+Na página **alterar senha** do portal **minha conta** , você pode atualizar sua senha de conta corporativa ou de estudante. Isso só funcionará se você souber sua senha existente e se não estiver bloqueada para sua conta.
 
-If you don't remember your password, if you've been locked out of your account, or if you never got a password from your company support team, you can use your security info and your mobile device to reset your password. For more information, see [Reset your work or school password](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+Se você não se lembrar da sua senha, se você tiver sido bloqueado de sua conta ou se você nunca tiver uma senha de sua equipe de suporte da empresa, poderá usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
 
 >[!Note]
->If you're trying to get back into a personal account like for Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+>Se você estiver tentando voltar a uma conta pessoal como para Xbox, hotmail.com ou outlook.com, tente as sugestões no artigo [quando não conseguir entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>To change your password from the My Account portal
+## <a name="to-change-your-password-from-the-my-account-portal"></a>Para alterar sua senha do portal minha conta
 
-1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
+1. Entre em sua conta corporativa ou de estudante, usando sua senha existente e, em seguida, vá para a página https://myprofile.microsoft.com/.
 
-2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
+2. Selecione **senha** no painel de navegação esquerdo ou selecione o link **alterar senha** do bloco de **senha** .
 
-    ![My Account page, showing highlighted Change password link](media/my-account-portal/my-account-portal-change-password.png)
+    ![Página minha conta, mostrando o link realçado alterar senha](media/my-account-portal/my-account-portal-change-password.png)
 
-3. Type your old password, and then create and confirm your new password.
+3. Digite sua senha antiga e, em seguida, crie e confirme sua nova senha.
 
-    ![Change password page, showing password fields](media/my-account-portal/my-account-portal-change-password-page.png)
+    ![Página Alterar senha, mostrando campos de senha](media/my-account-portal/my-account-portal-change-password-page.png)
 
-4. Select **Submit**.
+4. Selecione **Enviar**.
 
-    Your password will be changed and you'll be asked to sign in to your work or school account again.
+    Sua senha será alterada e você será solicitado a entrar em sua conta corporativa ou de estudante novamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-After changing your password, you can:
+Depois de alterar sua senha, você pode:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).

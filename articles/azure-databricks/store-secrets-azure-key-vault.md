@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 7983e18066578e3f036da84c73b6554ead2c40a1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791574"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539073"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 > [!Note]
 > Este tutorial não pode ser executado usando a **assinatura de avaliação gratuita do Azure**.
@@ -40,7 +40,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Criar uma conta de armazenamento e um contêiner de BLOB
 
-1. No portal do Azure, selecione **criar um recurso** > **armazenamento**. Em seguida, selecione **conta de armazenamento**.
+1. Na portal do Azure, selecione **criar um recurso** > **armazenamento**. Em seguida, selecione **conta de armazenamento**.
 
    ![Localizar recurso de conta de armazenamento do Azure](./media/store-secrets-azure-key-vault/create-storage-account-resource.png)
 
@@ -52,7 +52,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 4. Navegue até sua conta de armazenamento recém-criada e selecione **BLOBs** em **Serviços** na página **visão geral** . Em seguida, selecione **+ contêiner** e insira um nome de contêiner. Selecione **OK**.
 
-   ![Criar novo contêiner](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
+   ![Criar novo contentor](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
 
 5. Localize um arquivo que você deseja carregar em seu contêiner de armazenamento de BLOBs. Se você não tiver um arquivo, use um editor de texto para criar um novo arquivo de texto com algumas informações. Neste exemplo, um arquivo chamado **HW. txt** contém o texto "Olá, mundo". Salve o arquivo de texto localmente e carregue-o no contêiner de armazenamento de BLOBs.
 
@@ -129,7 +129,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 4. Quando o espaço de trabalho do Azure Databricks estiver aberto em uma janela separada, acrescente **#secrets/createscope** à URL. A URL deve ter o seguinte formato: 
 
-   **https://< \location >. azuredatabricks. net/? o = < \id > #secrets/createscope**.
+   **https://< \location >. azuredatabricks. net/#secrets/createscope**.
 
 5. Insira um nome de escopo e insira o Azure Key Vault nome DNS e a ID de recurso que você salvou anteriormente. Salve o nome do escopo em um editor de texto para uso posterior neste tutorial. Em seguida, selecione **Criar**.
 
@@ -207,7 +207,7 @@ Se você não pretende usar este aplicativo, exclua todo o grupo de recursos com
 
 2. Selecione **excluir grupo de recursos** e digite o nome do grupo de recursos. Em seguida, selecione **Eliminar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Avance para o próximo artigo para saber como implementar um ambiente de databricks injetado VNet com um ponto de extremidade de serviço habilitado para Cosmos DB.
 > [!div class="nextstepaction"]

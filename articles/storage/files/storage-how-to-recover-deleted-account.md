@@ -1,5 +1,5 @@
 ---
-title: Use an Azure file share with Azure Storage | Microsoft Docs
+title: Usar um compartilhamento de arquivos do Azure com o armazenamento do Azure | Microsoft Docs
 description: Saiba como utilizar uma partilha de ficheiros do Azure com o Windows e o Windows Server.
 author: todmccoy
 manager: dcscontentpm
@@ -17,29 +17,29 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233795"
 ---
-# <a name="how-to-recover-a-deleted-storage-account"></a>How to recover a deleted storage account
+# <a name="how-to-recover-a-deleted-storage-account"></a>Como recuperar uma conta de armazenamento excluída
 
-Azure Storage provides data resiliency through automated replicas, but doesn't prevent users or application code from corrupting data, whether accidentally or maliciously. Maintaining data fidelity during instances of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log.
+O armazenamento do Azure fornece resiliência de dados por meio de réplicas automatizadas, mas não impede que os usuários ou o código do aplicativo corrompam dados, seja acidentalmente ou intencionalmente. Manter a fidelidade de dados durante instâncias de erro de aplicativo ou de usuário requer técnicas mais avançadas, como copiar os dados para um local de armazenamento secundário com um log de auditoria.
 
-The following table provides overview of the scope of Storage Account Recovery depending on the replication strategy.
+A tabela a seguir fornece uma visão geral do escopo da recuperação da conta de armazenamento, dependendo da estratégia de replicação.
 
-| |LRS|ZRS|GRS|RA - GRS|
+| |LRS|ZRS|GRS|RA-GRS|
 |---|---|---|---|---|
-|Storage Account Azure Resource Manager|Sim|Sim|Sim|Sim|
-|Storage Account Classic|Sim|Sim|Sim|Sim|
+|Azure Resource Manager da conta de armazenamento|Sim|Sim|Sim|Sim|
+|Conta de armazenamento clássica|Sim|Sim|Sim|Sim|
 
-Gather the following information and file a support request with Microsoft Support:
+Reúna as informações a seguir e arquivo uma solicitação de suporte com Suporte da Microsoft:
 
 * Nome da conta de armazenamento
-* Date of deletion
-* Storage account region
-* How was the storage account deleted?
-* What method deleted the storage account? (Portal, PowerShell, etc.)
+* Data de exclusão
+* Região da conta de armazenamento
+* Como a conta de armazenamento foi excluída?
+* Qual método excluiu a conta de armazenamento? (Portal, PowerShell, etc.)
 
-Important Points
+Pontos importantes
 
-* It can generally take up to 15 days from the time of deletion for the storage service to perform garbage collection, so storage accounts recovery may not be recovered with an SLA.
-* Microsoft Support will try to recover the Container/Account on a best-effort basis and cannot guarantee the recovery.
+* Em geral, pode levar até 15 dias a partir do momento da exclusão do serviço de armazenamento para executar a coleta de lixo, portanto, a recuperação das contas de armazenamento pode não ser recuperada com um SLA.
+* Suporte da Microsoft tentará recuperar o contêiner/conta em uma base de melhor esforço e não poderá garantir a recuperação.
 
 > [!NOTE]
-> The recovery may not be successful if the account has been re-created. If you have already re-created the account, you must delete it first before recovery can be attempted.
+> A recuperação poderá não ser bem-sucedida se a conta tiver sido recriada. Se você já criou a conta novamente, deverá excluí-la primeiro antes que a recuperação possa ser tentada.

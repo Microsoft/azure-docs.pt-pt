@@ -407,7 +407,7 @@ Quando você terminar de usar o aplicativo de exemplo, limpe os recursos do Azur
 az group delete -y --no-wait -n MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu a usar o plug-in de Azure Dev Spaces para Jenkins e o plug-in de registro de contêiner do Azure para compilar o código e implantá-lo em um espaço de desenvolvimento.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone - Speech Service'
+title: 'Início rápido: reconhecer a fala de um serviço de fala de microfone'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/20/2019
 ms.author: erhopf
-ms.openlocfilehash: 561acc798df475b9cb7f451163016b1b6abe83cf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: bee3b64ece3faac6258fe4d017f12833b12e370d
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451441"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74536343"
 ---
-In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to interactively recognize speech from a microphone input, and get the text transcription from captured audio. It's easy to integrate this feature into your apps or and devices for common recognition tasks, such as transcribing conversations. It can also be used for more complex integrations, like using the Bot Framework with the Speech SDK to build voice assistants.
+Neste guia de início rápido, você usará o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconhecer de forma interativa a fala de uma entrada de microfone e obterá a transcrição de texto do áudio capturado. É fácil integrar esse recurso em seus aplicativos ou dispositivos para tarefas de reconhecimento comuns, como transcrever conversas. Ele também pode ser usado para integrações mais complexas, como usar o bot Framework com o SDK de fala para criar assistentes de voz.
 
-After satisfying a few prerequisites, recognizing speech from a microphone only takes four steps:
+Depois de satisfazer alguns pré-requisitos, reconhecer a fala de um microfone usa apenas quatro etapas:
 
 > [!div class="checklist"]
-> * Create a `SpeechConfig` object from your subscription key and region.
-> * Create a `SpeechRecognizer` object using the `SpeechConfig` object from above.
-> * Using the `SpeechRecognizer` object, start the recognition process for a single utterance.
-> * Inspect the `SpeechRecognitionResult` returned.
+> * Crie um objeto de `SpeechConfig` de sua chave de assinatura e região.
+> * Crie um objeto `SpeechRecognizer` usando o objeto `SpeechConfig` acima.
+> * Usando o objeto `SpeechRecognizer`, inicie o processo de reconhecimento para um único expressão.
+> * Inspecione o `SpeechRecognitionResult` retornado.

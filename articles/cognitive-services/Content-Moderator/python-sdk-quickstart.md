@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744406"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538992"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Início rápido: biblioteca de cliente Content Moderator para Python
 
@@ -104,8 +104,8 @@ Crie uma instância de um cliente com o ponto de extremidade e a chave. Crie um 
 O código a seguir usa um cliente Content Moderator para analisar um corpo de texto e imprimir os resultados no console. Primeiro, crie um **text_files/** pasta na raiz do seu projeto e adicione um arquivo *content_moderator_text_moderation. txt* . Adicione seu próprio texto a este arquivo ou use o seguinte texto de exemplo:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Adicione uma referência à nova pasta.
@@ -348,7 +348,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você aprendeu a usar a biblioteca Content Moderator Python para realizar tarefas de moderação. Em seguida, saiba mais sobre a moderação de imagens ou outra mídia lendo um guia conceitual.
 

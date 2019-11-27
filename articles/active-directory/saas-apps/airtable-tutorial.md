@@ -107,7 +107,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.

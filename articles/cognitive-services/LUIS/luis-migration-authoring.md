@@ -104,6 +104,6 @@ Após o processo de migração, todos os aplicativos que você possui estão dis
 
 As chaves de criação do LUIS só ficam visíveis no portal do LUIS após a conclusão do processo de migração. Se você criar as chaves de criação, como com a CLI do LUIS, o usuário ainda precisará concluir o processo de migração. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como migrar seu aplicativo para um recurso de criação](luis-migration-authoring-steps.md)

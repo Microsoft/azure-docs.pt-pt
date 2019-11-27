@@ -182,6 +182,6 @@ Vincule um objeto de política WAF a um host front-end existente e atualize as p
 Para exibir o modelo que cria uma política de serviço do Azure front door e uma política de WAF com regras de restrição de IP personalizadas, vá para [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar um perfil de serviço de porta frontal do Azure](../../frontdoor/quickstart-create-front-door.md).

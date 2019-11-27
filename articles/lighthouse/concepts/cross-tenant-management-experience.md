@@ -1,6 +1,6 @@
 ---
 title: Experiências de gestão entre inquilinos
-description: Azure delegated resource management enables a cross-tenant management experience.
+description: O gerenciamento de recursos delegado do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 11/7/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
@@ -12,127 +12,127 @@ ms.locfileid: "74464029"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
-As a service provider, you can use [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). Most tasks and services can be performed on delegated Azure resources across managed tenants. This article describes some of the enhanced scenarios where Azure delegated resource management can be effective.
+Como um provedor de serviços, você pode usar o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md) para gerenciar recursos do Azure para vários clientes de dentro de seu próprio locatário no [portal do Azure](https://portal.azure.com). A maioria das tarefas e serviços pode ser executado em recursos delegados do Azure entre locatários gerenciados. Este artigo descreve alguns dos cenários aprimorados em que o gerenciamento de recursos delegado do Azure pode ser eficaz.
 
 > [!NOTE]
-> Azure delegated resource management can also be used within an enterprise which has multiple tenants of its own to simplify cross-tenant administration.
+> O gerenciamento de recursos delegado do Azure também pode ser usado em uma empresa que tem vários locatários próprios para simplificar a administração entre locatários.
 
-## <a name="understanding-customer-tenants"></a>Understanding customer tenants
+## <a name="understanding-customer-tenants"></a>Noções básicas sobre locatários do cliente
 
-An Azure Active Directory (Azure AD) tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization receives when they create a relationship with Microsoft by signing up for Azure, Microsoft 365, or other services. Each Azure AD tenant is distinct and separate from other Azure AD tenants, and has its own tenant ID (a GUID). For more info, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+Um locatário Azure Active Directory (Azure AD) é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização recebe quando cria uma relação com a Microsoft inscrevendo-se no Azure, Microsoft 365 ou outros serviços. Cada locatário do Azure AD é distinto e separado de outros locatários do Azure AD e tem sua própria ID de locatário (um GUID). Para obter mais informações, consulte [o que é Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 
-Typically, in order to manage Azure resources for a customer, service providers would have to sign in to the Azure portal using an account associated with that customer's tenant, requiring an administrator in the customer's tenant to create and manage user accounts for the service provider.
+Normalmente, para gerenciar recursos do Azure para um cliente, os provedores de serviço precisam entrar no portal do Azure usando uma conta associada ao locatário do cliente, exigindo que um administrador no locatário do cliente crie e gerencie contas de usuário para o provedor de serviços.
 
-With Azure delegated resource management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions, resource groups, and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access. This can be done by visiting the [My customers](../how-to/view-manage-customers.md) page in the Azure portal, or by working directly within the context of that customer's subscription, either in the Azure portal or via APIs.
+Com o gerenciamento de recursos delegado do Azure, o processo de integração especifica os usuários no locatário do provedor de serviços que poderão acessar e gerenciar assinaturas, grupos de recursos e recursos no locatário do cliente. Esses usuários podem, então, entrar no portal do Azure usando suas próprias credenciais. Dentro do portal do Azure, eles podem gerenciar recursos que pertencem a todos os clientes aos quais eles têm acesso. Isso pode ser feito visitando a página [meus clientes](../how-to/view-manage-customers.md) no portal do Azure ou trabalhando diretamente no contexto da assinatura do cliente, seja na portal do Azure ou via APIs.
 
-Azure delegated resource management allows greater flexibility to manage resources for multiple customers without having to sign in to different accounts in different tenants. For example, a service provider may have three customers, with different responsibilities and access levels, as shown here:
+O gerenciamento de recursos delegado do Azure permite maior flexibilidade para gerenciar recursos para vários clientes sem precisar entrar em contas diferentes em locatários diferentes. Por exemplo, um provedor de serviços pode ter três clientes, com responsabilidades e níveis de acesso diferentes, como mostrado aqui:
 
-![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.jpg)
+![Três locatários do cliente mostrando responsabilidades do provedor de serviços](../media/azure-delegated-resource-management-customer-tenants.jpg)
 
-Using Azure delegated resource management, authorized users can sign in to the service provider’s tenant to access these resources, as shown here:
+Usando o gerenciamento de recursos delegado do Azure, os usuários autorizados podem entrar no locatário do provedor de serviços para acessar esses recursos, conforme mostrado aqui:
 
-![Customer resources managed through one service provider tenant](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
+![Recursos do cliente gerenciados por meio de um locatário do provedor de serviços](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="apis-and-management-tool-support"></a>APIs and management tool support
+## <a name="apis-and-management-tool-support"></a>Suporte a ferramentas de gerenciamento e APIs
 
-You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
+Você pode executar tarefas de gerenciamento em recursos delegados diretamente no portal ou usando APIs e ferramentas de gerenciamento (como CLI do Azure e Azure PowerShell). Todas as APIs existentes podem ser usadas ao trabalhar com recursos delegados, desde que a funcionalidade tenha suporte para gerenciamento entre locatários e o usuário tenha as permissões apropriadas.
 
-We also provide APIs to perform Azure delegated resource management tasks. For more info, see the **Reference** section.
+Também fornecemos APIs para executar tarefas de gerenciamento de recursos delegadas do Azure. Para obter mais informações, consulte a seção de **referência** .
 
-## <a name="enhanced-services-and-scenarios"></a>Enhanced services and scenarios
+## <a name="enhanced-services-and-scenarios"></a>Cenários e serviços aprimorados
 
-Most tasks and services can be performed on delegated resources across managed tenants. Below are some of the key scenarios where cross-tenant management can be effective.
+A maioria das tarefas e serviços pode ser executado em recursos delegados entre locatários gerenciados. Abaixo estão alguns dos principais cenários em que o gerenciamento entre locatários pode ser eficaz.
 
-[Azure Arc for servers (preview)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+[Arco do Azure para servidores (visualização)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
 
-- [Connect Windows Server or Linux machines outside Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) to delegated subscriptions and/or resource groups in Azure
-- Manage connected machines using Azure constructs, such as Azure Policy and tagging
+- [Conectar computadores Windows Server ou Linux fora do Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) a assinaturas delegadas e/ou grupos de recursos no Azure
+- Gerenciar computadores conectados usando construções do Azure, como Azure Policy e marcação
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/):
+[Automação do Azure](https://docs.microsoft.com/azure/automation/):
 
-- Use automation accounts to access and work with delegated customer resources
+- Usar contas de automação para acessar e trabalhar com recursos de cliente delegados
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/):
+[Backup do Azure](https://docs.microsoft.com/azure/backup/):
 
-- Back up and restore customer data in customer tenants
+- Fazer backup e restaurar dados do cliente em locatários do cliente
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/):
+[AKs (serviço kubernetes do Azure)](https://docs.microsoft.com//azure/aks/):
 
-- Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
+- Gerenciar ambientes kubernetes hospedados e implantar e gerenciar aplicativos em contêineres dentro de locatários do cliente
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
+[Azure monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
-- View alerts for delegated subscriptions, with the ability to view alerts across all subscriptions
-- View activity log details for delegated subscriptions
-- Log analytics: Query data from remote customer workspaces in multiple tenants
-- Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
+- Exibir alertas para assinaturas delegadas, com a capacidade de exibir alertas em todas as assinaturas
+- Exibir detalhes do log de atividades para assinaturas delegadas
+- Log Analytics: consultar dados de espaços de trabalho de clientes remotos em vários locatários
+- Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no locatário do provedor de serviços por meio de WebHooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
-- Compliance snapshots show details for assigned policies within delegated subscriptions
-- Create and edit policy definitions within a delegated subscription
-- Assign customer-defined policy definitions within the delegated subscription
-- Customers see policies authored by the service provider alongside any policies they've authored themselves
-- Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation.md)
+- Instantâneos de conformidade mostram detalhes de políticas atribuídas em assinaturas delegadas
+- Criar e Editar definições de política em uma assinatura delegada
+- Atribuir definições de política definidas pelo cliente dentro da assinatura delegada
+- Os clientes veem as políticas criadas pelo provedor de serviços junto com as políticas que eles mesmos criaram
+- Pode [corrigir deployIfNotExists ou modificar atribuições dentro do locatário do cliente](../how-to/deploy-policy-remediation.md)
 
-[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
+[Grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/):
 
-- Now includes the tenant ID in returned query results, allowing you to identify whether a subscription belongs to the customer tenant or service provider tenant
+- Agora inclui a ID do locatário nos resultados da consulta retornados, permitindo que você identifique se uma assinatura pertence ao locatário do cliente ou ao locatário do provedor de serviço
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/):
+[Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/):
 
-- Cross-tenant visibility
-  - Monitor compliance to security policies and ensure security coverage across all tenants’ resources
-  - Continuous regulatory compliance monitoring across multiple customers in a single view
-  - Monitor, triage, and prioritize actionable security recommendations with secure score calculation
-- Cross-tenant security posture management
-  - Manage security policies
-  - Take action on resources that are out of compliance with actionable security recommendations
-  - Collect and store security-related data
-- Cross-tenant threat detection and protection
-  - Detect threats across tenants’ resources
-  - Apply advanced threat protection controls such as just-in-time (JIT) VM access
-  - Harden network security group configuration with Adaptive Network Hardening
-  - Ensure servers are running only the applications and processes they should be with adaptive application controls
-  - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
+- Visibilidade entre locatários
+  - Monitorar a conformidade com as políticas de segurança e garantir a cobertura de segurança em todos os recursos dos locatários
+  - Monitoramento contínuo da conformidade regulatória entre vários clientes em uma única exibição
+  - Monitorar, fazer triagem e priorizar recomendações de segurança acionáveis com o cálculo de Pontuação seguro
+- Gerenciamento de postura de segurança entre locatários
+  - Gerenciar políticas de segurança
+  - Execute ações em recursos que estão fora de conformidade com recomendações de segurança acionáveis
+  - Coletar e armazenar dados relacionados à segurança
+- Proteção e detecção de ameaças entre locatários
+  - Detectar ameaças nos recursos dos locatários
+  - Aplicar controles de proteção avançada contra ameaças, como acesso à VM just-in-time (JIT)
+  - Proteger a configuração do grupo de segurança de rede com o fortalecimento de rede adaptável
+  - Verifique se os servidores estão executando apenas os aplicativos e processos que eles devem estar com controles de aplicativo adaptáveis
+  - Monitorar alterações em arquivos importantes e entradas de registro com o monitoramento de integridade de arquivo (FIM)
 
-[Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
+[Sentinela do Azure](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
 
-- Manage Azure Sentinel resources in customer tenants
+- Gerenciar recursos do Azure Sentinel em locatários do cliente
 
-[Azure Service Health](https://docs.microsoft.com/azure/service-health/):
+[Integridade do serviço do Azure](https://docs.microsoft.com/azure/service-health/):
 
-- Monitor the health of customer resources with Azure Resource Health
-- Track the health of the Azure services used by your customers
+- Monitore a integridade dos recursos do cliente com o Azure Resource Health
+- Acompanhe a integridade dos serviços do Azure usados por seus clientes
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
 
-- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use RunAs accounts to copy VM extensions)
+- Gerenciar opções de recuperação de desastre para máquinas virtuais do Azure em locatários do cliente (Observe que você não pode usar contas Executar como para copiar extensões de VM)
 
-[Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/):
+[Máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/):
 
-- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
-- Use boot diagnostics to troubleshoot Azure VMs in customer tenants
-- Access VMs with serial console in customer tenants
-- Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
+- Usar extensões de máquina virtual para fornecer tarefas de configuração e automação de pós-implantação em VMs do Azure em locatários do cliente
+- Usar o diagnóstico de inicialização para solucionar problemas de VMs do Azure em locatários do cliente
+- Acessar VMs com o console serial em locatários do cliente
+- Observe que você não pode usar Azure Active Directory para fazer logon remoto em uma VM e não pode integrar uma VM com uma Key Vault para senhas, segredos ou chaves de criptografia para criptografia de disco
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
+[Rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/):
 
-- Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
+- Implantar e gerenciar redes virtuais e vNICs (placas de interface de rede virtual) em locatários do cliente
 
-Support requests:
+Solicitações de suporte:
 
-- Open support requests for delegated resources from the **Help + support** blade in the Azure portal (selecting the support plan available to the delegated scope)
+- Abrir solicitações de suporte para recursos delegados da folha **ajuda + suporte** na portal do Azure (selecionando o plano de suporte disponível para o escopo delegado)
 
 ## <a name="current-limitations"></a>Limitações atuais
-With all scenarios, please be aware of the following current limitations:
+Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
-- Requests handled by Azure Resource Manager can be performed using Azure delegated resource management. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as KeyVault secrets access or storage data access) aren’t supported with Azure delegated resource management. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations. 
-- Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are not supported.
-- Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
-- While you can onboard subscriptions and resource groups for Azure delegated resource management which have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can’t create their own deny assignments (user-assigned deny assignments).
+- As solicitações manipuladas pelo Azure Resource Manager podem ser executadas usando o gerenciamento de recursos delegado do Azure. Os URIs de operação para essas solicitações começam com `https://management.azure.com`. No entanto, as solicitações que são manipuladas por uma instância de um tipo de recurso (por exemplo, acesso a dados de armazenamento ou acesso aos segredos do keyvault) não têm suporte com o gerenciamento de recursos delegado do Azure. Os URIs de operação para essas solicitações normalmente começam com um endereço que é exclusivo de sua instância, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. A última opção também são operações de dados em vez de operações de gerenciamento. 
+- As atribuições de função devem usar [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto o proprietário ou qualquer função interna com a permissão [Dataactions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) . A função Administrador de acesso do usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Não há suporte para funções personalizadas e [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) .
+- No momento, não é possível carregar uma assinatura (ou grupo de recursos em uma assinatura) para o gerenciamento de recursos delegado do Azure se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura tiver sido registrada para integração com o provedor de recursos **Microsoft. managedservices** , você não poderá criar um espaço de trabalho do databricks para essa assinatura no momento.
+- Embora você possa integrar assinaturas e grupos de recursos para o gerenciamento de recursos delegado do Azure que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) que protegem recursos gerenciados pelo sistema, como aquelas criadas por aplicativos gerenciados do Azure ou plantas do Azure (atribuições de negação atribuída pelo sistema), impedem que os usuários no locatário de gerenciamento atuem nesses recursos; no entanto, no momento, os usuários no locatário do cliente não podem criar suas próprias atribuições de negação (atribuições de negação atribuída pelo usuário).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a private or public managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
-- [View and manage customers](../how-to/view-manage-customers.md) by going to **My customers** in the Azure portal.
+- Integre seus clientes ao gerenciamento de recursos delegado do Azure, seja [usando modelos de Azure Resource Manager](../how-to/onboard-customer.md) ou [publicando uma oferta privada ou pública de serviços gerenciados para o Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- [Exiba e gerencie clientes](../how-to/view-manage-customers.md) acessando **meus clientes** na portal do Azure.

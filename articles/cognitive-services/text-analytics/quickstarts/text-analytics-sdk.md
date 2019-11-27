@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Text Analytics client library | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do Análise de Texto | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
+description: Neste guia de início rápido, detecte o idioma usando o API de Análise de Texto dos serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -18,11 +18,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74220789"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use the Text Analytics client library
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Início rápido: usar a biblioteca de cliente Análise de Texto
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+Introdução à biblioteca de cliente do Análise de Texto. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
 
-Use the Text Analytics client library to perform:
+Use a biblioteca de cliente Análise de Texto para executar:
 
 * Análise de sentimentos
 * Deteção de idioma
@@ -61,19 +61,19 @@ Use the Text Analytics client library to perform:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os outros recursos associados a ele.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 
 * [Descrição Geral da Análise de Texto](../overview.md)
-* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
+* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Reconhecimento de entidade](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Detectar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Reconhecimento de idioma](../how-tos/text-analytics-how-to-language-detection.md)

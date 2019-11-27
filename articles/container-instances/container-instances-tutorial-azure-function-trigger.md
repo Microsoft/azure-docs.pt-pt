@@ -1,22 +1,17 @@
 ---
-title: Tutorial – disparar instâncias de contêiner do Azure por uma função do Azure
+title: Tutorial-disparar grupo de contêineres por função do Azure
 description: Criar uma função do PowerShell sem servidor disparada por HTTP para automatizar a criação de instâncias de contêiner do Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 00bd017b0bcff6386e678802c301087819792744
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179982"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533381"
 ---
-# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Usar uma função do Azure disparada por HTTP para criar um grupo de contêineres
+# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: usar uma função do Azure disparada por HTTP para criar um grupo de contêineres
 
 [Azure Functions](../azure-functions/functions-overview.md) é um serviço de computação sem servidor que pode executar scripts ou código em resposta a uma variedade de eventos, como uma solicitação HTTP, um temporizador ou uma mensagem em uma fila de armazenamento do Azure.
 
@@ -66,7 +61,7 @@ az functionapp identity assign \
 
 ## <a name="modify-httptrigger-function"></a>Modificar função HttpTrigger
 
-Modifique o código do PowerShell para a função **HttpTrigger** para criar um grupo de contêineres. Em arquivo `run.ps1` para a função, localize o bloco de código a seguir. Esse código exibirá um valor de nome, se um for passado como uma cadeia de caracteres de consulta na URL da função:
+Modifique o código do PowerShell para a função **HttpTrigger** para criar um grupo de contêineres. No arquivo `run.ps1` para a função, localize o bloco de código a seguir. Esse código exibirá um valor de nome, se um for passado como uma cadeia de caracteres de consulta na URL da função:
 
 ```powershell
 [...]
@@ -92,11 +87,11 @@ if ($name) {
 [...]
 ```
 
-Este exemplo cria um grupo de contêineres que consiste em uma única instância de `alpine` contêiner que executa a imagem. O contêiner executa um único `echo` comando e, em seguida, termina. Em um exemplo do mundo real, você pode disparar a criação de um ou mais grupos de contêineres para executar um trabalho em lotes.
+Este exemplo cria um grupo de contêineres que consiste em uma única instância de contêiner que executa a imagem de `alpine`. O contêiner executa um único comando `echo` e, em seguida, termina. Em um exemplo do mundo real, você pode disparar a criação de um ou mais grupos de contêineres para executar um trabalho em lotes.
  
 ## <a name="test-function-app-locally"></a>Testar o aplicativo de funções localmente
 
-Certifique-se de que a função seja executada corretamente localmente antes de republicar o projeto de aplicativo de funções no Azure. Conforme mostrado no [início rápido do PowerShell](../azure-functions/functions-create-first-function-powershell.md), insira um ponto de interrupção local no script do `Wait-Debugger` PowerShell e uma chamada acima dele. Para obter diretrizes de depuração, consulte [depurar o PowerShell Azure Functions localmente](../azure-functions/functions-debug-powershell-local.md).
+Certifique-se de que a função seja executada corretamente localmente antes de republicar o projeto de aplicativo de funções no Azure. Conforme mostrado no [início rápido do PowerShell](../azure-functions/functions-create-first-function-powershell.md), insira um ponto de interrupção local no script do PowerShell e uma `Wait-Debugger` chamada acima dele. Para obter diretrizes de depuração, consulte [depurar o PowerShell Azure Functions localmente](../azure-functions/functions-debug-powershell-local.md).
 
 
 ## <a name="republish-azure-function-app"></a>Republicar o aplicativo de funções do Azure
@@ -104,7 +99,7 @@ Certifique-se de que a função seja executada corretamente localmente antes de 
 Depois de verificar que a função é executada corretamente no computador local, é hora de republicar o projeto no aplicativo de funções existente no Azure.
 
 > [!NOTE]
-> Lembre-se de remover todas `Wait-Debugger` as chamadas para antes de publicar suas funções no Azure.
+> Lembre-se de remover todas as chamadas para `Wait-Debugger` antes de publicar suas funções no Azure.
 
 1. Em Visual Studio Code, abra a paleta de comandos. Procure e selecione `Azure Functions: Deploy to function app...`.
 1. Selecione a pasta de trabalho atual para zip e implantar.
@@ -114,7 +109,7 @@ Depois de criar a aplicação de funções, é apresentada uma notificação e o
 
 ## <a name="run-the-function-in-azure"></a>Executar a função no Azure
 
-Depois que a implantação for concluída com êxito, obtenha a URL da função. Por exemplo, use o **Azure: A** área de funções no Visual Studio Code para copiar a URL da função **HttpTrigger** ou obter a URL da função no [portal do Azure](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+Depois que a implantação for concluída com êxito, obtenha a URL da função. Por exemplo, use a área **Azure: Functions** no Visual Studio Code para copiar a URL da função **HttpTrigger** ou obter a url da função no [portal do Azure](../azure-functions/functions-create-first-azure-function.md#test-the-function).
 
 A URL da função inclui um código exclusivo e está no formato:
 
@@ -124,13 +119,13 @@ https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0Gng
 
 ### <a name="run-function-without-passing-a-name"></a>Executar função sem passar um nome
 
-Como um primeiro teste, execute o `curl` comando e passe a URL da função sem acrescentar uma `name` cadeia de caracteres de consulta. Certifique-se de incluir o código exclusivo da função.
+Como um primeiro teste, execute o comando `curl` e passe a URL da função sem acrescentar uma cadeia de caracteres de consulta `name`. Certifique-se de incluir o código exclusivo da função.
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M=="
 ```
 
-A função retorna o código de status 400 e `Please pass a name on the query string or in the request body`o texto:
+A função retorna o código de status 400 e o texto `Please pass a name on the query string or in the request body`:
 
 ```
 [...]
@@ -151,7 +146,7 @@ Please pass a name on the query string or in the request body.
 
 ### <a name="run-function-and-pass-the-name-of-a-container-group"></a>Executar a função e passar o nome de um grupo de contêineres
 
-Agora, execute `curl` o comando acrescentando o nome de um grupo de contêineres (*MyContainer*Group) como uma `&name=mycontainergroup`cadeia de caracteres de consulta:
+Agora, execute o comando `curl` acrescentando o nome de um grupo de contêineres (*MyContainer*Group) como uma cadeia de caracteres de consulta `&name=mycontainergroup`:
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==&name=mycontainergroup"
@@ -196,7 +191,7 @@ Se você não precisar mais de nenhum dos recursos criados neste tutorial, poder
 az group delete --name myfunctionapp
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você criou uma função do Azure que usa uma solicitação HTTP e dispara a implantação de um grupo de contêineres. Aprendeu a:
 

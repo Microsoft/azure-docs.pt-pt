@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict income example'
+title: 'Designer: classificar, exemplo de renda de previsão'
 titleSuffix: Azure Machine Learning
-description: Follow this example build a no-code classifier to predict income with Azure Machine Learning designer.
+description: Siga este exemplo criar um classificador sem código para prever a renda com o designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,69 +17,69 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214140"
 ---
-# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Build a classifier & use feature selection to predict income with Azure Machine Learning designer
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Criar um classificador & usar a seleção de recursos para prever a renda com o designer de Azure Machine Learning
 
-**Designer (preview) sample 3**
+**Designer (visualização) exemplo 3**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
+Saiba como criar um classificador de aprendizado de máquina sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina uma **árvore de decisão aumentada de duas classes** para prever censo de renda de adulto (> = 50 mil ou < = 50 mil).
 
-Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+Porque a pergunta está respondendo "Qual é?" Isso é chamado de problema de classificação. No entanto, você pode aplicar o mesmo processo fundamental para lidar com qualquer tipo de problema de aprendizado de máquina, seja regressão, classificação, clustering e assim por diante.
 
-Here's the final pipeline graph for this sample:
+Este é o grafo de pipeline final para este exemplo:
 
-![Graph of the pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
+![Grafo do pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click the sample 3 to open it.
+4. Clique no exemplo 3 para abri-lo.
 
 
 
 ## <a name="data"></a>Dados
 
-The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset: ![data](media/how-to-designer-sample-classification-predict-income/data.png)
+O conjunto de conteúdo contém 14 recursos e uma coluna de rótulo. Há vários tipos de recursos, incluindo numéricos e categóricos. O diagrama a seguir mostra um trecho do conjunto de dados: ![data](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
-## <a name="pipeline-summary"></a>Pipeline summary
+## <a name="pipeline-summary"></a>Resumo do pipeline
 
-Follow these steps to create the pipeline:
+Siga estas etapas para criar o pipeline:
 
-1. Drag the Adult Census Income Binary dataset module into the pipeline canvas.
-1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
-1. Add the **Filter Based Feature Selection** module to select 5 features by PearsonCorreclation. 
-1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
-1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
-1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.
-![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
-1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
+1. Arraste o módulo conjunto de conteúdo binário censo de renda de adulto para a tela de pipeline.
+1. Adicione um módulo **dividir dados** para criar os conjuntos de treinamento e teste. Defina a fração de linhas no primeiro conjunto de registros de saída como 0,7. Essa configuração especifica que 70% dos dados serão gerados para a porta esquerda do módulo e a porta restante para a direita. Usamos o conjunto de espaço da esquerda para treinamento e o correto para teste.
+1. Adicione o módulo **seleção de recursos baseada em filtro** para selecionar 5 recursos por PearsonCorreclation. 
+1. Adicione um módulo de **árvore de decisão aumentada de duas classes** para inicializar um classificador de árvore de decisão aumentada.
+1. Adicione um módulo **modelo de treinamento** . Conecte o classificador da etapa anterior à porta de entrada à esquerda do **modelo de treinamento**. Conecte o conjunto de texto filtrado do módulo seleção de recursos com base em filtro como conjunto de módulos de treinamento.  O **modelo de treinamento** treinará o classificador.
+1. Adicione a transformação selecionar colunas e aplique o módulo transformação para aplicar a mesma transformação (seleção de recursos com base em filtro) para testar o conjunto de testes.
+![aplicar-transformação](media/how-to-designer-sample-classification-predict-income/transformation.png)
+1. Adicione o módulo **modelo de Pontuação** e conecte o módulo **modelo de treinamento** a ele. Em seguida, adicione o conjunto de teste (a saída do módulo aplicar transformação que aplica a seleção de recursos também ao conjunto de teste) ao **modelo de Pontuação**. O **modelo de Pontuação** fará as previsões. Você pode selecionar sua porta de saída para ver as previsões e as probabilidades de classe positivas.
 
 
-    This pipeline has two score modules, the one on the right has excluded label column before make the prediction. This is prepared to deploy a real-time endpoint, because the web service input will expect only features not label. 
+    Esse pipeline tem dois módulos de pontuação, aquele à direita excluiu a coluna de rótulo antes de fazer a previsão. Isso está preparado para implantar um ponto de extremidade em tempo real, pois a entrada do serviço Web esperará apenas recursos que não são rotulados. 
 
-1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
+1. Adicione um módulo **avaliar modelo** e conecte o conjunto de dados pontuado à sua porta de entrada à esquerda. Para ver os resultados da avaliação, selecione a porta de saída do módulo **avaliar modelo** e selecione **Visualizar**.
 
 ## <a name="results"></a>Resultados
 
-![Evaluate the results](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
+![Avaliar os resultados](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
-In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
+Nos resultados da avaliação, você pode ver que as curvas, como o ROC, a recuperação de precisão e as métricas de confusão. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Explore the other samples available for the designer:
+Explore os outros exemplos disponíveis para o designer:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
+- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
+- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)

@@ -201,7 +201,7 @@ Especifique as configurações de política da seguinte maneira:
 
 Você configurou com êxito os backups para seus bancos de dados de SAP HANA.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Saiba como [executar backups sob demanda em SAP Hana bancos de dados em execução em VMs do Azure](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Saiba como [restaurar SAP Hana bancos de dados em execução em VMs do Azure](sap-hana-db-restore.md)

@@ -130,7 +130,7 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
 
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas VMs íntegras recebam tráfego, você pode, opcionalmente, definir uma investigação de integridade. O Load Balancer básico usa uma investigação de IPv4 para avaliar a integridade dos pontos de extremidade IPv4 e IPv6 nas VMs. O balanceador de carga Standard inclui suporte para investigações de integridade IPv6 explicitamente.
 
@@ -378,6 +378,6 @@ Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGr
 Remove-AzResourceGroup -Name dsRG1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você criou um Load Balancer básico com uma configuração de IP de front-end (IPv4 e IPv6). Você também criou duas máquinas virtuais que incluíam NICs com configurações de IP duplo (IPV4 + IPv6) que foram adicionadas ao pool de back-end do balanceador de carga. Para saber mais sobre o suporte a IPv6 em redes virtuais do Azure, consulte [o que é IPv6 para a rede virtual do Azure?](ipv6-overview.md)

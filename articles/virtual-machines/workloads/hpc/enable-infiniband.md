@@ -64,6 +64,6 @@ sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
 sudo systemctl restart waagent
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.

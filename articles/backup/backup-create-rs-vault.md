@@ -80,7 +80,7 @@ O backup do Azure manipula automaticamente o armazenamento para o cofre. Você p
 * A **exclusão reversível** por padrão é **habilitada** em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para examinar e modificar as configurações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos serviços de recuperação.
 [Saiba mais](backup-azure-delete-vault.md) Excluir cofres dos serviços de recuperação.

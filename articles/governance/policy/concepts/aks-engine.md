@@ -276,7 +276,7 @@ As informações coletadas pelo complemento não são dados pessoais. Os detalhe
 - Exceções/erros encontrados por Azure Policy complemento durante a instalação do agente na avaliação da política
 - Número de políticas de gatekeeper não instaladas pelo complemento Azure Policy
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

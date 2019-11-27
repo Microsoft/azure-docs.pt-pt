@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create an Azure Active Directory Domain Services instance | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services instance and specify advanced configuration options using the Azure portal.
+title: Tutorial – criar uma instância de Azure Active Directory Domain Services | Microsoft Docs
+description: Neste tutorial, você aprenderá a criar e configurar uma instância de Azure Active Directory Domain Services e especificar opções de configuração avançadas usando o portal do Azure.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -16,225 +16,225 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74208705"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Create and configure an Azure Active Directory Domain Services instance with advanced configuration options
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: criar e configurar uma instância de Azure Active Directory Domain Services com opções de configuração avançadas
 
-Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
+O Azure Active Directory Domain Services (Azure AD DS) fornece serviços de domínio gerenciados, como ingresso no domínio, diretiva de grupo, LDAP, autenticação Kerberos/NTLM que é totalmente compatível com o Windows Server Active Directory. Você consome esses serviços de domínio sem implantar, gerenciar e aplicar patches a controladores de domínio por conta própria. O Azure AD DS integra-se ao seu locatário existente do Azure AD. Essa integração permite que os usuários entrem usando suas credenciais corporativas e você pode usar grupos existentes e contas de usuário para proteger o acesso aos recursos.
 
-You can [create a managed domain using default configuration options][tutorial-create-instance] for networking and synchronization, or manually define these settings. This tutorial shows how to define those advanced configuration options to create and configure an Azure AD DS instance using the Azure portal.
+Você pode [criar um domínio gerenciado usando as opções de configuração padrão][tutorial-create-instance] para rede e sincronização ou definir manualmente essas configurações. Este tutorial mostra como definir essas opções de configuração avançadas para criar e configurar uma instância de AD DS do Azure usando o portal do Azure.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure DNS and virtual network settings for a managed domain
+> * Definir as configurações de rede virtual e DNS para um domínio gerenciado
 > * Criar uma instância do Azure AD DS
-> * Add administrative users to domain management
-> * Ativar a sincronização de palavras-passe de hash
+> * Adicionar usuários administrativos ao gerenciamento de domínio
+> * Ativar a sincronização de hash de palavra-passe
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To complete this tutorial, you need the following resources and privileges:
+Para concluir este tutorial, você precisa dos seguintes recursos e privilégios:
 
 * Uma subscrição ativa do Azure.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
-* You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
+    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
+    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
+* Você precisa de privilégios de *administrador global* em seu locatário do Azure ad para habilitar o Azure AD DS.
+* Você precisa de privilégios de *colaborador* em sua assinatura do Azure para criar os recursos de AD DS do Azure necessários.
 
-Although not required for Azure AD DS, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Azure AD tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
+Embora não seja necessário para o Azure AD DS, é recomendável [Configurar o SSPR (redefinição de senha de autoatendimento)][configure-sspr] para o locatário do Azure AD. Os usuários podem alterar sua senha sem SSPR, mas o SSPR ajuda a esquecer sua senha e precisa redefini-la.
 
 > [!IMPORTANT]
-> After you create an Azure AD DS managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+> Depois de criar um domínio gerenciado do Azure AD DS, você não poderá mover a instância para um grupo de recursos, rede virtual, assinatura etc. diferentes. Tome cuidado para selecionar a assinatura, o grupo de recursos, a região e a rede virtual mais apropriados ao implantar a instância de AD DS do Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-In this tutorial, you create and configure the Azure AD DS instance using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+Neste tutorial, você criará e configurará a instância de AD DS do Azure usando o portal do Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-instance-and-configure-basic-settings"></a>Create an instance and configure basic settings
+## <a name="create-an-instance-and-configure-basic-settings"></a>Criar uma instância e definir as configurações básicas
 
-To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
+Para iniciar o assistente para **habilitar Azure AD Domain Services** , conclua as seguintes etapas:
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-1. Enter *Domain Services* into the search bar, then choose *Azure AD Domain Services* from the search suggestions.
-1. On the Azure AD Domain Services page, select **Create**. The **Enable Azure AD Domain Services** wizard is launched.
-1. Select the Azure **Subscription** in which you would like to create the managed domain.
-1. Select the **Resource group** to which the managed domain should belong. Choose to **Create new** or select an existing resource group.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
+1. Insira *serviços de domínio* na barra de pesquisa e, em seguida, escolha *Azure AD Domain Services* nas sugestões de pesquisa.
+1. Na página Azure AD Domain Services, selecione **criar**. O assistente para **habilitar Azure AD Domain Services** é iniciado.
+1. Selecione a **assinatura** do Azure na qual você gostaria de criar o domínio gerenciado.
+1. Selecione o **grupo de recursos** ao qual o domínio gerenciado deve pertencer. Escolha **criar novo** ou selecionar um grupo de recursos existente.
 
-When you create an Azure AD DS instance, you specify a DNS name. There are some considerations when you choose this DNS name:
+Ao criar uma instância de AD DS do Azure, você especifica um nome DNS. Há algumas considerações quando você escolhe esse nome DNS:
 
-* **Built-in domain name:** By default, the built-in domain name of the directory is used (a *.onmicrosoft.com* suffix). If you wish to enable secure LDAP access to the managed domain over the internet, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a Certificate Authority (CA) won't issue a certificate.
-* **Custom domain names:** The most common approach is to specify a custom domain name, typically one that you already own and is routable. When you use a routable, custom domain, traffic can correctly flow as needed to support your applications.
-* **Non-routable domain suffixes:** We generally recommend that you avoid a non-routable domain name suffix, such as *contoso.local*. The *.local* suffix isn't routable and can cause issues with DNS resolution.
+* **Nome de domínio interno:** Por padrão, o nome de domínio interno do diretório é usado (sufixo *. onmicrosoft.com* ). Se desejar habilitar o acesso LDAP seguro ao domínio gerenciado pela Internet, você não poderá criar um certificado digital para proteger a conexão com esse domínio padrão. A Microsoft possui o domínio *. onmicrosoft.com* , portanto, uma AC (autoridade de certificação) não emitirá um certificado.
+* **Nomes de domínio personalizados:** A abordagem mais comum é especificar um nome de domínio personalizado, normalmente um que você já possui e é roteável. Quando você usa um domínio reroteável, personalizado, o tráfego pode fluir corretamente conforme necessário para dar suporte aos seus aplicativos.
+* **Sufixos de domínio não roteáveis:** Geralmente, recomendamos que você evite um sufixo de nome de domínio não roteável, como *contoso. local*. O sufixo *. local* não é roteável e pode causar problemas com a resolução DNS.
 
 > [!TIP]
-> If you create a custom domain name, take care with existing DNS namespaces. It's recommended to include a unique prefix for the domain name. For example, if your DNS root name is *contoso.com*, create an Azure AD DS managed domain with the custom domain name of *corp.contoso.com* or *ds.contoso.com*. In a hybrid environment with an on-premises AD DS environment, these prefixes may already be in use. Use a unique prefix for Azure AD DS.
+> Se você criar um nome de domínio personalizado, tome cuidado com os namespaces DNS existentes. É recomendável incluir um prefixo exclusivo para o nome de domínio. Por exemplo, se o nome raiz do DNS for *contoso.com*, crie um domínio gerenciado AD DS do Azure com o nome de domínio personalizado *Corp.contoso.com* ou *DS.contoso.com*. Em um ambiente híbrido com um ambiente de AD DS local, esses prefixos já podem estar em uso. Use um prefixo exclusivo para AD DS do Azure.
 >
-> You can use the root DNS name for your Azure AD DS managed domain, but you may need to create some additional DNS records for other services in your environment. For example, if you run a webserver that hosts a site using the root DNS name, there can be naming conflicts that require additional DNS entries.
+> Você pode usar o nome DNS raiz para seu domínio gerenciado AD DS do Azure, mas talvez precise criar alguns registros DNS adicionais para outros serviços em seu ambiente. Por exemplo, se você executar um servidor Webque hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
 >
-> In these tutorials and how-to articles, the custom domain of *contoso.com* is used as a short example. In all commands, specify your own domain name, which may include a unique prefix.
+> Nesses tutoriais e artigos de instruções, o domínio personalizado do *contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
 >
-> For more information, see [Select a naming prefix for the domain][naming-prefix].
+> Para obter mais informações, consulte [selecionar um prefixo de nomenclatura para o domínio] [nome-prefixo].
 
-The following DNS name restrictions also apply:
+As seguintes restrições de nome DNS também se aplicam:
 
-* **Domain prefix restrictions:** You can't create a managed domain with a prefix longer than 15 characters. The prefix of your specified domain name (such as *contoso* in the *contoso.com* domain name) must contain 15 or fewer characters.
-* **Network name conflicts:** The DNS domain name for your managed domain shouldn't already exist in the virtual network. Specifically, check for the following scenarios that would lead to a name conflict:
-    * If you already have an Active Directory domain with the same DNS domain name on the Azure virtual network.
-    * If the virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
-    * If you have an existing Azure cloud service with that name on the Azure virtual network.
+* **Restrições de prefixo de domínio:** Você não pode criar um domínio gerenciado com um prefixo com mais de 15 caracteres. O prefixo do nome de domínio especificado (como *contoso* no nome de domínio *contoso.com* ) deve conter 15 caracteres ou menos.
+* **Conflitos de nome de rede:** O nome de domínio DNS para seu domínio gerenciado já não deve existir na rede virtual. Especificamente, verifique os seguintes cenários que levam a um conflito de nome:
+    * Se você já tiver um domínio Active Directory com o mesmo nome de domínio DNS na rede virtual do Azure.
+    * Se a rede virtual em que você planeja habilitar o domínio gerenciado tiver uma conexão VPN com sua rede local. Nesse cenário, verifique se você não tem um domínio com o mesmo nome de domínio DNS em sua rede local.
+    * Se você tiver um serviço de nuvem do Azure existente com esse nome na rede virtual do Azure.
 
-Complete the fields in the *Basics* window of the Azure portal to create an Azure AD DS instance:
+Preencha os campos na janela *noções básicas* do portal do Azure para criar uma instância do AD DS do Azure:
 
-1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
-1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
+1. Insira um **nome de domínio DNS** para seu domínio gerenciado, levando em consideração os pontos anteriores.
+1. Escolha o **local** do Azure no qual o domínio gerenciado deve ser criado. Se você escolher uma região com suporte a Zonas de Disponibilidade, os recursos de AD DS do Azure serão distribuídos entre zonas para redundância adicional.
 
-    As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions.
+    As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas.
 
-    There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
+    Não há nada a ser configurado para o Azure AD DS ser distribuído entre zonas. A plataforma Azure manipula automaticamente a distribuição de zona de recursos. Para obter mais informações e ver a disponibilidade da região, consulte [o que são zonas de disponibilidade no Azure?][availability-zones]
 
-1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
+1. Uma *floresta* é uma construção lógica usada pelo Active Directory Domain Services para agrupar um ou mais domínios. Por padrão, um domínio gerenciado do Azure AD DS é criado como uma floresta de *usuário* . Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente de AD DS local. Uma floresta de *recursos* só sincroniza usuários e grupos criados diretamente no Azure AD. Atualmente, as florestas de recursos estão em versão prévia. Para obter mais informações sobre florestas de *recursos* , incluindo por que você pode usar um e como criar relações de confiança de floresta com domínios AD DS locais, consulte [visão geral das florestas de recursos do Azure AD DS][resource-forests].
 
-    For this tutorial, choose to create a *User* forest.
+    Para este tutorial, escolha criar uma floresta de *usuário* .
 
-    ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance-advanced/basics-window.png)
+    ![Definir configurações básicas para uma instância de Azure AD Domain Services](./media/tutorial-create-instance-advanced/basics-window.png)
 
-1. To manually configure additional options, choose **Next - Networking**. Otherwise, select **Review + create** to accept the default configuration options, then skip to the section to [Deploy your managed domain](#deploy-the-managed-domain). The following defaults are configured when you choose this create option:
+1. Para configurar manualmente as opções adicionais, escolha **Next-Networking**. Caso contrário, selecione **revisar + criar** para aceitar as opções de configuração padrão e, em seguida, vá para a seção para [implantar seu domínio gerenciado](#deploy-the-managed-domain). Os padrões a seguir são configurados quando você escolhe essa opção de criação:
 
-* Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
-* Creates a subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
-* Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
+* Cria uma rede virtual chamada *aadds-vnet* que usa o intervalo de endereços IP de *10.0.1.0/24*.
+* Cria uma sub-rede denominada *aadds-subnet* usando o intervalo de endereços IP de *10.0.1.0/24*.
+* Sincroniza *todos* os usuários do Azure AD com o domínio gerenciado AD DS do Azure.
 
-## <a name="create-and-configure-the-virtual-network"></a>Create and configure the virtual network
+## <a name="create-and-configure-the-virtual-network"></a>Criar e configurar a rede virtual
 
-To provide connectivity, an Azure virtual network and a dedicated subnet are needed. Azure AD DS is enabled in this virtual network subnet. In this tutorial, you create a virtual network, though you could instead choose to use an existing virtual network. In either approach, you must create a dedicated subnet for use by Azure AD DS.
+Para fornecer conectividade, é necessária uma rede virtual do Azure e uma sub-rede dedicada. O AD DS do Azure está habilitado nesta sub-rede de rede virtual. Neste tutorial, você criará uma rede virtual, embora possa optar por usar uma rede virtual existente. Em qualquer abordagem, você deve criar uma sub-rede dedicada para uso pelo Azure AD DS.
 
-Some considerations for this dedicated virtual network subnet include the following areas:
+Algumas considerações para essa sub-rede de rede virtual dedicada incluem as seguintes áreas:
 
-* The subnet must have at least 3-5 available IP addresses in its address range to support the Azure AD DS resources.
-* Don't select the *Gateway* subnet for deploying Azure AD DS. It's not supported to deploy Azure AD DS into a *Gateway* subnet.
-* Don't deploy any other virtual machines to the subnet. Applications and VMs often use network security groups to secure connectivity. Running these workloads in a separate subnet lets you apply those network security groups without disrupting connectivity to your managed domain.
-* You can't move your managed domain to a different virtual network after you enable Azure AD DS.
+* A sub-rede deve ter pelo menos 3-5 endereços IP disponíveis em seu intervalo de endereços para dar suporte aos recursos de AD DS do Azure.
+* Não selecione a sub-rede de *Gateway* para implantar AD DS do Azure. Não há suporte para implantar o Azure AD DS em uma sub-rede de *Gateway* .
+* Não implante nenhuma outra máquina virtual na sub-rede. Os aplicativos e as VMs geralmente usam grupos de segurança de rede para proteger a conectividade. A execução dessas cargas de trabalho em uma sub-rede separada permite que você aplique esses grupos de segurança de rede sem interromper a conectividade com o domínio gerenciado.
+* Você não pode mover seu domínio gerenciado para uma rede virtual diferente depois de habilitar o Azure AD DS.
 
-For more information on how to plan and configure the virtual network, see [networking considerations for Azure Active Directory Domain Services][network-considerations].
+Para obter mais informações sobre como planejar e configurar a rede virtual, consulte [considerações de rede para Azure Active Directory Domain Services][network-considerations].
 
-Complete the fields in the *Network* window as follows:
+Preencha os campos na janela *rede* da seguinte maneira:
 
-1. On the **Network** page, choose a virtual network to deploy Azure AD DS into from the drop-down menu, or select **Create new**.
-    1. If you choose to create a virtual network, enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.0.1.0/24*.
-    1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.0.1.0/24*.
+1. Na página **rede** , escolha uma rede virtual para implantar o Azure AD DS no no menu suspenso ou selecione **criar novo**.
+    1. Se você optar por criar uma rede virtual, insira um nome para a rede virtual, como *myVnet*, em seguida, forneça um intervalo de endereços, como *10.0.1.0/24*.
+    1. Crie uma sub-rede dedicada com um nome claro, como *DomainServices*. Forneça um intervalo de endereços, como *10.0.1.0/24*.
 
-    ![Create a virtual network and subnet for use with Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
+    ![Criar uma rede virtual e uma sub-rede para uso com Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
 
-    Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Azure AD DS.
+    Certifique-se de escolher um intervalo de endereços que esteja dentro de seu intervalo de endereços IP privado. Os intervalos de endereços IP que não são de sua propriedade no espaço de endereço público causam erros no AD DS do Azure.
 
-1. Select a virtual network subnet, such as *DomainServices*.
-1. When ready, choose **Next - Administration**.
+1. Selecione uma sub-rede de rede virtual, como *DomainServices*.
+1. Quando estiver pronto, escolha **Avançar-administração**.
 
-## <a name="configure-an-administrative-group"></a>Configure an administrative group
+## <a name="configure-an-administrative-group"></a>Configurar um grupo administrativo
 
-A special administrative group named *AAD DC Administrators* is used for management of the Azure AD DS domain. Members of this group are granted administrative permissions on VMs that are domain-joined to the managed domain. On domain-joined VMs, this group is added to the local administrators group. Members of this group can also use Remote Desktop to connect remotely to domain-joined VMs.
+Um grupo administrativo especial chamado *Administradores de DC do AAD* é usado para o gerenciamento do domínio de AD DS do Azure. Os membros desse grupo recebem permissões administrativas em VMs que ingressaram no domínio para o domínio gerenciado. Em VMs ingressadas no domínio, esse grupo é adicionado ao grupo local de administradores. Os membros desse grupo também podem usar Área de Trabalho Remota para se conectar remotamente a VMs ingressadas no domínio.
 
-You don't have *Domain Administrator* or *Enterprise Administrator* permissions on a managed domain using Azure AD DS. These permissions are reserved by the service and aren't made available to users within the tenant. Instead, the *AAD DC Administrators* group lets you perform some privileged operations. These operations include joining computers to the domain, belonging to the administration group on domain-joined VMs, and configuring Group Policy.
+Você não tem permissões de administrador de *domínio* ou de *administrador corporativo* em um domínio gerenciado usando o Azure AD DS. Essas permissões são reservadas pelo serviço e não são disponibilizadas para os usuários dentro do locatário. Em vez disso, o grupo de *Administradores de DC do AAD* permite que você execute algumas operações privilegiadas. Essas operações incluem o ingresso de computadores no domínio, pertencente ao grupo de administração em VMs ingressadas no domínio e a configuração de Política de Grupo.
 
-The wizard automatically creates the *AAD DC Administrators* group in your Azure AD directory. If you have an existing group with this name in your Azure AD directory, the wizard selects this group. You can optionally choose to add additional users to this *AAD DC Administrators* group during the deployment process. These steps can be completed later.
+O assistente cria automaticamente o grupo de *Administradores de DC do AAD* em seu diretório do Azure AD. Se você tiver um grupo existente com esse nome em seu diretório do Azure AD, o assistente selecionará esse grupo. Opcionalmente, você pode optar por adicionar outros usuários a esse grupo de *Administradores de DC do AAD* durante o processo de implantação. Essas etapas podem ser concluídas mais tarde.
 
-1. To add additional users to this *AAD DC Administrators* group, select **Manage group membership**.
+1. Para adicionar usuários adicionais a esse grupo de *Administradores de DC do AAD* , selecione **gerenciar associação de grupo**.
 
-    ![Configure group membership of the AAD DC Administrators group](./media/tutorial-create-instance-advanced/admin-group.png)
+    ![Configurar a associação de grupo do grupo de administradores de DC do AAD](./media/tutorial-create-instance-advanced/admin-group.png)
 
-1. Select the **Add members** button, then search for and select users from your Azure AD directory. For example, search for your own account, and add it to the *AAD DC Administrators* group.
-1. If desired, change or add additional recipients for notifications when there are alerts in the Azure AD DS managed domain that require attention.
-1. When ready, choose **Next - Synchronization**.
+1. Selecione o botão **adicionar membros** e procure e selecione usuários no seu diretório do Azure AD. Por exemplo, pesquise sua própria conta e adicione-a ao grupo de *Administradores de DC do AAD* .
+1. Se desejar, altere ou adicione destinatários adicionais para notificações quando houver alertas no domínio gerenciado AD DS do Azure que exigem atenção.
+1. Quando estiver pronto, escolha **próxima sincronização**.
 
-## <a name="configure-synchronization"></a>Configure synchronization
+## <a name="configure-synchronization"></a>Configurar sincronização
 
-Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize *all* users and groups, you can't later choose to only perform a scoped synchronization. For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].
+O AD DS do Azure permite sincronizar *todos* os usuários e grupos disponíveis no Azure ad ou uma sincronização com *escopo* apenas de grupos específicos. Se você optar por sincronizar *todos* os usuários e grupos, não poderá optar por executar apenas uma sincronização com escopo. Para obter mais informações sobre sincronização com escopo, consulte [Azure AD Domain Services sincronização com escopo][scoped-sync].
 
-1. For this tutorial, choose to synchronize **All** users and groups. This synchronization choice is the default option.
+1. Para este tutorial, escolha sincronizar **todos** os usuários e grupos. Essa opção de sincronização é a opção padrão.
 
-    ![Perform a full synchronization of users and groups from Azure AD](./media/tutorial-create-instance-advanced/sync-all.png)
+    ![Executar uma sincronização completa de usuários e grupos do Azure AD](./media/tutorial-create-instance-advanced/sync-all.png)
 
 1. Selecione **Rever + criar**.
 
-## <a name="deploy-the-managed-domain"></a>Deploy the managed domain
+## <a name="deploy-the-managed-domain"></a>Implantar o domínio gerenciado
 
-On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes. To redeploy an Azure AD DS managed domain to a different Azure AD tenant in a consistent way using these configuration options, you can also **Download a template for automation**.
+Na página **Resumo** do assistente, examine as definições de configuração do domínio gerenciado. Você pode voltar a qualquer etapa do assistente para fazer alterações. Para reimplantar um domínio gerenciado do Azure AD DS em um locatário do Azure AD diferente de forma consistente usando essas opções de configuração, você também pode **baixar um modelo para automação**.
 
-1. To create the managed domain, select **Create**. A note is displayed that certain configuration options like DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
-1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Azure AD DS deployment. Select the notification to see detailed progress for the deployment.
+1. Para criar o domínio gerenciado, selecione **criar**. É exibida uma observação de que determinadas opções de configuração, como o nome DNS ou a rede virtual, não podem ser alteradas depois que o Azure AD DS gerenciado foi criado. Para continuar, selecione **OK**.
+1. O processo de provisionamento do domínio gerenciado pode levar até uma hora. Uma notificação é exibida no portal que mostra o progresso de sua implantação de AD DS do Azure. Selecione a notificação para ver o progresso detalhado da implantação.
 
-    ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
+    ![Notificação na portal do Azure da implantação em andamento](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
+1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *contoso.com*. A guia **visão geral** mostra que o domínio gerenciado está sendo *implantado*no momento. Você não pode configurar o domínio gerenciado até que ele seja totalmente provisionado.
 
-    ![Domain Services status during the provisioning state](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
+    ![Status dos serviços de domínio durante o estado de provisionamento](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 
-1. When the managed domain is fully provisioned, the **Overview** tab shows the domain status as *Running*.
+1. Quando o domínio gerenciado é totalmente provisionado, a guia **visão geral** mostra o status do domínio como *em execução*.
 
-    ![Domain Services status once successfully provisioned](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
+    ![Status dos serviços de domínio depois de provisionado com êxito](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-The managed domain is associated with your Azure AD tenant. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Azure AD tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
+O domínio gerenciado é associado ao seu locatário do Azure AD. Durante o processo de provisionamento, o Azure AD DS cria dois aplicativos empresariais denominados *serviços de controlador de domínio* e *AzureActiveDirectoryDomainControllerServices* no locatário do Azure AD. Esses aplicativos empresariais são necessários para atender ao domínio gerenciado. Não exclua esses aplicativos.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Atualizar as definições de DNS para a Azure Virtual Network
 
-With Azure AD DS successfully deployed, now configure the virtual network to allow other connected VMs and applications to use the managed domain. To provide this connectivity, update the DNS server settings for your virtual network to point to the two IP addresses where Azure AD DS is deployed.
+Com o Azure AD DS implantado com êxito, agora configure a rede virtual para permitir que outras VMs e aplicativos conectados usem o domínio gerenciado. Para fornecer essa conectividade, atualize as configurações do servidor DNS para sua rede virtual para apontar para os dois endereços IP em que o Azure AD DS é implantado.
 
-1. The **Overview** tab for your managed domain shows some **Required configuration steps**. The first configuration step is to update DNS server settings for your virtual network. Once the DNS settings are correctly configured, this step is no longer shown.
+1. A guia **visão geral** do domínio gerenciado mostra algumas **etapas de configuração necessárias**. A primeira etapa de configuração é atualizar as configurações do servidor DNS para sua rede virtual. Depois que as configurações de DNS estiverem configuradas corretamente, essa etapa não será mais mostrada.
 
-    The addresses listed are the domain controllers for use in the virtual network. In this example, those addresses are *10.1.0.4* and *10.1.0.5*. You can later find these IP addresses on the **Properties** tab.
+    Os endereços listados são os controladores de domínio para uso na rede virtual. Neste exemplo, esses endereços são *10.1.0.4* e *10.1.0.5*. Posteriormente, você poderá encontrar esses endereços IP na guia **Propriedades** .
 
-    ![Configure DNS settings for your virtual network with the Azure AD Domain Services IP addresses](./media/tutorial-create-instance-advanced/configure-dns.png)
+    ![Definir as configurações de DNS para sua rede virtual com os endereços IP Azure AD Domain Services](./media/tutorial-create-instance-advanced/configure-dns.png)
 
-1. To update the DNS server settings for the virtual network, select the **Configure** button. The DNS settings are automatically configured for your virtual network.
+1. Para atualizar as configurações do servidor DNS para a rede virtual, selecione o botão **Configurar** . As configurações de DNS são configuradas automaticamente para sua rede virtual.
 
 > [!TIP]
-> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Azure portal, Azure PowerShell, or the Azure CLI.
+> Se você selecionou uma rede virtual existente nas etapas anteriores, todas as VMs conectadas à rede só obtêm as novas configurações de DNS após uma reinicialização. Você pode reiniciar as VMs usando o portal do Azure, Azure PowerShell ou a CLI do Azure.
 
-## <a name="enable-user-accounts-for-azure-ad-ds"></a>Enable user accounts for Azure AD DS
+## <a name="enable-user-accounts-for-azure-ad-ds"></a>Habilitar contas de usuário para o Azure AD DS
 
-To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
+Para autenticar usuários no domínio gerenciado, o Azure AD DS precisa de hashes de senha em um formato adequado para autenticação Kerberos e NTLM (NT LAN Manager). O Azure AD não gera ou armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos até que você habilite o Azure AD DS para seu locatário. Por motivos de segurança, o Azure AD também não armazena nenhuma credencial de senha no formato de texto não criptografado. Portanto, o Azure AD não pode gerar automaticamente esses hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos usuários.
 
 > [!NOTE]
-> Once appropriately configured, the usable password hashes are stored in the Azure AD DS managed domain. If you delete the Azure AD DS managed domain, any password hashes stored at that point are also deleted. Synchronized credential information in Azure AD can't be re-used if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new Azure AD DS managed domain. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
+> Uma vez configurado adequadamente, os hashes de senha utilizáveis são armazenados no domínio gerenciado AD DS do Azure. Se você excluir o domínio gerenciado AD DS do Azure, todos os hashes de senha armazenados nesse ponto também serão excluídos. As informações de credenciais sincronizadas no Azure AD não poderão ser reutilizadas se você criar posteriormente um domínio gerenciado do Azure AD DS-você deve reconfigurar a sincronização de hash de senha para armazenar os hashes de senha novamente. As VMs previamente Unidas ao domínio ou os usuários não poderão autenticar imediatamente – o AD do Azure precisa gerar e armazenar os hashes de senha no novo domínio gerenciado do Azure AD DS. Para obter mais informações, consulte [processo de sincronização de hash de senha para Azure AD DS e Azure ad Connect][password-hash-sync-process].
 
-The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. These user accounts aren't synchronized from an on-premises directory. In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Azure AD Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
+As etapas para gerar e armazenar esses hashes de senha são diferentes para contas de usuário somente em nuvem criadas no Azure AD em vez de contas de usuário que são sincronizadas do seu diretório local usando Azure AD Connect. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Essas contas de usuário não são sincronizadas de um diretório local. Neste tutorial, vamos trabalhar com uma conta de usuário básica somente de nuvem. Para obter mais informações sobre as etapas adicionais necessárias para usar Azure AD Connect, consulte [sincronizar hashes de senha para contas de usuário sincronizadas do seu ad local para seu domínio gerenciado][on-prem-sync].
 
 > [!TIP]
-> If your Azure AD tenant has a combination of cloud-only users and users from your on-premises AD, you need to complete both sets of steps.
+> Se o seu locatário do Azure AD tiver uma combinação de usuários somente de nuvem e usuários do seu AD local, você precisará concluir os dois conjuntos de etapas.
 
-For cloud-only user accounts, users must change their passwords before they can use Azure AD DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure AD DS, which forces a password change on next sign-in, or instruct them to manually change their passwords. For this tutorial, let's manually change a user password.
+Para contas de usuário somente em nuvem, os usuários devem alterar suas senhas antes de poderem usar o Azure AD DS. Esse processo de alteração de senha faz com que os hashes de senha para autenticação Kerberos e NTLM sejam gerados e armazenados no Azure AD. Você pode expirar as senhas para todos os usuários no locatário que precisam usar o AD DS do Azure, que força uma alteração de senha na próxima entrada ou instrui-los a alterar suas senhas manualmente. Para este tutorial, vamos alterar manualmente uma senha de usuário.
 
-Before a user can reset their password, the Azure AD tenant must be [configured for self-service password reset][configure-sspr].
+Antes que um usuário possa redefinir sua senha, o locatário do Azure AD deve ser [configurado para redefinição de senha de autoatendimento][configure-sspr].
 
-To change the password for a cloud-only user, the user must complete the following steps:
+Para alterar a senha de um usuário somente em nuvem, o usuário deve concluir as seguintes etapas:
 
-1. Go to the Azure AD Access Panel page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
+1. Acesse a página do painel de acesso do Azure AD em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. No canto superior direito, selecione seu nome e, em seguida, escolha **perfil** no menu suspenso.
 
     ![Selecionar perfil](./media/tutorial-create-instance-advanced/select-profile.png)
 
-1. On the **Profile** page, select **Change password**.
-1. On the **Change password** page, enter your existing (old) password, then enter and confirm a new password.
-1. Select **Submit**.
+1. Na página **perfil** , selecione **alterar senha**.
+1. Na página **alterar senha** , insira sua senha existente (antiga) e, em seguida, insira e confirme uma nova senha.
+1. Selecione **Enviar**.
 
-It takes a few minutes after you've changed your password for the new password to be usable in Azure AD DS and to successfully sign in to computers joined to the managed domain.
+Levará alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS e entrar com êxito em computadores ingressados no domínio gerenciado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Configure DNS and virtual network settings for a managed domain
+> * Definir as configurações de rede virtual e DNS para um domínio gerenciado
 > * Criar uma instância do Azure AD DS
-> * Add administrative users to domain management
-> * Enable user accounts for Azure AD DS and generate password hashes
+> * Adicionar usuários administrativos ao gerenciamento de domínio
+> * Habilitar contas de usuário para o Azure AD DS e gerar hashes de senha
 
-To see this managed domain in action, create and join a virtual machine to the domain.
+Para ver esse domínio gerenciado em ação, crie e ingresse uma máquina virtual no domínio.
 
 > [!div class="nextstepaction"]
-> [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
+> [Ingressar uma máquina virtual do Windows Server em seu domínio gerenciado](join-windows-vm.md)
 
 <!-- INTERNAL LINKS -->
 [tutorial-create-instance]: tutorial-create-instance.md

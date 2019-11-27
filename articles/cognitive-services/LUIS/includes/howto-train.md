@@ -21,7 +21,7 @@ ms.locfileid: "74451561"
 
     ![Botão de preparação](../media/train-button-preview.png)
 
-2. Training is complete when you see the status confirming success.
+2. O treinamento é concluído quando você vê o status confirmando o sucesso.
 
     > [!Tip]
-    > **Notifications** is available in the top-right navigation and includes a history.
+    > As **notificações** estão disponíveis na navegação superior direita e incluem um histórico.

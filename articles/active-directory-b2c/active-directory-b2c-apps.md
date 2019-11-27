@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 5643f1df6cefa9ca6c60453939be533b2c00eaf4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066152"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533087"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
@@ -63,7 +63,7 @@ Em um aplicativo Web, cada execução de uma [política](active-directory-b2c-re
 1. O usuário navega para o aplicativo Web.
 2. O aplicativo Web redireciona o usuário para Azure AD B2C indicando a política a ser executada.
 3. O usuário conclui a política.
-4. Azure ad B2C retorna um `id_token` para o navegador.
+4. Azure AD B2C retorna um `id_token` ao navegador.
 5. O `id_token` é Postado no URI de redirecionamento.
 6. O `id_token` é validado e um cookie de sessão é definido.
 7. Uma página segura é retornada ao usuário.
@@ -91,12 +91,12 @@ A API web pode utilizar o token para verificar a identidade do autor da chamada 
 Uma API da Web pode receber tokens de muitos tipos de clientes, incluindo aplicativos Web, aplicativos móveis e de área de trabalho, aplicativos de página única, daemons do lado do servidor e outras APIs da Web. Aqui está um exemplo do fluxo completo para um aplicativo Web que chama uma API da Web:
 
 1. O aplicativo Web executa uma política e o usuário conclui a experiência do usuário.
-2. Azure ad B2C retorna um (OpenID Connect) `id_token` e um código de autorização para o navegador.
-3. O navegador posta o `id_token` código de autorização e para o URI de redirecionamento.
+2. Azure AD B2C retorna um `id_token` (OpenID Connect) e um código de autorização para o navegador.
+3. O navegador posta o `id_token` e o código de autorização para o URI de redirecionamento.
 4. O servidor Web valida o `id_token` e define um cookie de sessão.
-5. O servidor Web solicita Azure ad B2C para um `access_token` fornecendo-o com o código de autorização, a ID do cliente do aplicativo e as credenciais do cliente.
-6. O `access_token` e`refresh_token` são retornados ao servidor Web.
-7. A API da Web é chamada com `access_token` o em um cabeçalho de autorização.
+5. O servidor Web solicita Azure AD B2C de um `access_token` fornecendo-o ao código de autorização, à ID do cliente do aplicativo e às credenciais do cliente.
+6. O `access_token` e `refresh_token` são retornados ao servidor Web.
+7. A API da Web é chamada com o `access_token` em um cabeçalho de autorização.
 8. A API da Web valida o token.
 9. Dados seguros são retornados para o aplicativo Web.
 
@@ -108,7 +108,7 @@ Para saber como proteger uma API web utilizando o Azure AD B2C, consulte os tuto
 
 Os aplicativos instalados em dispositivos, como aplicativos móveis e de área de trabalho, geralmente precisam acessar serviços de back-end ou APIs da Web em nome dos usuários. Você pode adicionar experiências personalizadas de gerenciamento de identidades a seus aplicativos nativos e chamar com segurança serviços de back-end usando Azure AD B2C e o [fluxo de código de autorização do OAuth 2,0](active-directory-b2c-reference-oauth-code.md).
 
-Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-policies.md) e recebe um `authorization_code` do Azure ad depois que o usuário conclui a política. O `authorization_code` representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário que está conectado no momento. Em seguida, o aplicativo pode `authorization_code` trocar o em segundo plano `access_token` por um `refresh_token`e um.  O aplicativo pode usar o `access_token` para autenticar para uma API Web de back-end em solicitações HTTP. Também pode utilizar o `refresh_token` para obter um novo `access_token` quando o antigo expira.
+Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-policies.md) e recebe uma `authorization_code` do Azure ad depois que o usuário conclui a política. O `authorization_code` representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário que está conectado no momento. Em seguida, o aplicativo pode trocar o `authorization_code` em segundo plano por um `access_token` e um `refresh_token`.  O aplicativo pode usar o `access_token` para autenticar em uma API Web de back-end em solicitações HTTP. Também pode utilizar o `refresh_token` para obter um novo `access_token` quando o antigo expira.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -124,7 +124,7 @@ Para configurar o fluxo de credenciais do cliente, consulte [Azure Active Direct
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Cadeias de API Web (fluxo em-nome-de)
 
-Muitas arquiteturas incluem uma API web que precisa chamar outra API web a jusante, estando ambas protegidas pelo Azure AD B2C. Esse cenário é comum em clientes nativos que têm um back-end da API Web e chama um serviço online da Microsoft, como o API do Graph do Azure AD.
+Muitas arquiteturas incluem uma API web que precisa chamar outra API web a jusante, estando ambas protegidas pelo Azure AD B2C. Esse cenário é comum em clientes nativos que têm um back-end da API Web e chama um serviço online da Microsoft, como a API do Microsoft Graph ou o Azure AD API do Graph.
 
 Este cenário de API web em cadeia pode ser suportado utilizando a concessão de credencial de portador do OAuth 2.0 JWT, também conhecido como fluxo em-nome-de.  No entanto, o fluxo em nome de não está atualmente implementado no Azure AD B2C.
 

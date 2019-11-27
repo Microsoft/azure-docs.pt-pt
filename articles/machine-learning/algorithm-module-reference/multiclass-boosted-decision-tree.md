@@ -1,7 +1,7 @@
 ---
-title: 'Multiclass Boosted Decision Tree: Module Reference'
+title: 'Árvore de decisão aumentada multiclasse: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Boosted Decision Tree module in Azure Machine Learning to create a classifier using labeled data.
+description: Saiba como usar o módulo árvore de decisão aumentada multiclasse no Azure Machine Learning para criar um classificador usando dados rotulados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,46 +18,46 @@ ms.locfileid: "74232594"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árvore de Decisões Elevada Multiclasse
 
-This article describes a module in Azure Machine Learning designer (preview).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use this module to create a machine learning model that is based on the boosted decision trees algorithm.
+Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
 
-A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth. Predictions are based on the ensemble of trees together.
+Uma árvore de decisão aumentada é um método de aprendizado Ensemble no qual a segunda árvore corrige os erros da primeira árvore, a terceira árvore corrige os erros da primeira e segunda árvores e assim por diante. As previsões são baseadas na Ensemble de árvores juntas.
 
-## <a name="how-to-configure"></a>How to configure 
+## <a name="how-to-configure"></a>Como configurar 
 
-This module creates an untrained classification model. Because classification is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows.
+Este módulo cria um modelo de classificação não treinado. Como a classificação é um método de aprendizado supervisionado, você precisa de um conjunto de informações *rotulado* que inclua uma coluna de rótulo com um valor para todas as linhas.
 
-You can train this type of model by using the [Train Model](././train-model.md). 
+Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././train-model.md). 
 
-1.  Add the **Multiclass Boosted Decision Tree** module to your pipeline.
+1.  Adicione o módulo **árvore de decisão aumentada multiclasse** ao seu pipeline.
 
-1.  Specify how you want the model to be trained by setting the **Create trainer mode** option.
+1.  Especifique como você deseja que o modelo seja treinado definindo a opção **criar modo de instrutor** .
 
-    + **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
+    + **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
 
 
-    *  **Maximum number of leaves per tree** limits the maximum number of terminal nodes (leaves) that can be created in any tree.
+    *  O **número máximo de folhas por árvore** limita o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.
     
-        By increasing this value, you potentially increase the size of the tree and achieve higher precision, at the risk of overfitting and longer training time.
+        Ao aumentar esse valor, você pode aumentar o tamanho da árvore e obter uma precisão maior, com o risco de superajuste e tempo de treinamento mais longo.
   
-    * **Minimum number of samples per leaf node** indicates the number of cases required to create any terminal node (leaf) in a tree.  
+    * O **número mínimo de amostras por nó folha** indica o número de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.  
 
-         By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
+         Ao aumentar esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos cinco casos que atendam às mesmas condições.
 
-    * **Learning rate** defines the step size while learning. Enter a number between 0 and 1.
+    * A **taxa de aprendizagem** define o tamanho da etapa durante o aprendizado. Insira um número entre 0 e 1.
 
-         The learning rate determines how fast or slow the learner converges on an optimal solution. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution.
+         A taxa de aprendizagem determina o quão rápido ou lento o aprendiz convergi em uma solução ideal. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para convergir na melhor solução.
 
-    * **Number of trees constructed** indicates the total number of decision trees to create in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time will increase.
+    * **Número de árvores construídas** indica o número total de árvores de decisão a serem criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumentará.
 
-    *  **Random number seed** optionally sets a non-negative integer to use as the random seed value. Specifying a seed ensures reproducibility across runs that have the same data and parameters.  
+    *  A **semente de número aleatório** define opcionalmente um inteiro não negativo para usar como o valor de semente aleatória. A especificação de uma semente garante reprodução entre as execuções que têm os mesmos dados e parâmetros.  
 
-         The random seed is set by default to 42. Successive runs using different random seeds can have different results.
+         A semente aleatória é definida por padrão como 42. As execuções sucessivas usando sementes aleatórias diferentes podem ter resultados diferentes.
 
 > [!Note]
-> If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.
+> Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](./train-model.md) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

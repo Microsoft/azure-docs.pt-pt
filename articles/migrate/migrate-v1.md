@@ -340,5 +340,5 @@ VMConnection
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre](migrate-services-overview.md) a versão mais recente das migrações para Azure.

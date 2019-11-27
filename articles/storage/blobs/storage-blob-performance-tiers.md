@@ -78,7 +78,7 @@ Para saber mais, consulte [gerenciar o ciclo de vida do armazenamento de BLOBs d
 
 Não é possível mover dados armazenados em uma conta de armazenamento de blob de blocos Premium entre camadas frequentes, esporádicas e de arquivo morto. No entanto, você pode copiar blobs de uma conta de armazenamento de blobs de blocos para a camada de acesso quente em uma conta *diferente* . Para copiar dados para uma conta diferente, use o [bloco Put da API de URL](/rest/api/storageservices/put-block-from-url) ou [AzCopy V10](../common/storage-use-azcopy-v10.md). O **bloco Put da API de URL copia de** forma síncrona os dados no servidor. A chamada é concluída somente depois que todos os dados são movidos do local do servidor original para o local de destino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Avalie o Hot, o frio e o arquivo em contas de armazenamento de BLOBs e GPv2.
 

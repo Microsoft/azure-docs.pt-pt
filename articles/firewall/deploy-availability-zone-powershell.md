@@ -58,6 +58,6 @@ New-AzFirewall `
   -Zone 1,2,3
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

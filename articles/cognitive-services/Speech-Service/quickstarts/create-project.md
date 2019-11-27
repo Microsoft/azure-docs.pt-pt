@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a project'
+title: 'Início rápido: criar um projeto'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll create an empty project for your preferred programming language that you'll use to complete a quickstart or create an application.
+description: Neste guia de início rápido, você criará um projeto vazio para sua linguagem de programação preferida que você usará para concluir um início rápido ou criar um aplicativo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -18,12 +18,12 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74221851"
 ---
-# <a name="quickstart-create-a-project"></a>Quickstart: Create a project
+# <a name="quickstart-create-a-project"></a>Início rápido: criar um projeto
 
-In this quickstart, you'll create an empty project for your preferred programming language that you'll use to complete a quickstart or create an application.
+Neste guia de início rápido, você criará um projeto vazio para sua linguagem de programação preferida que você usará para concluir um início rápido ou criar um aplicativo.
 
 ::: zone pivot="programming-language-csharp"
-**Choose your target environment**
+**Escolha seu ambiente de destino**
 #### <a name="visual-studiotabvs"></a>[Visual Studio](#tab/vs)
 [!INCLUDE [vs](~/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 #### <a name="unitytabunity"></a>[Unity](#tab/unity)
@@ -35,18 +35,18 @@ In this quickstart, you'll create an empty project for your preferred programmin
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-**Choose your target environment**
+**Escolha seu ambiente de destino**
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
-For this sample, we'll be compiling with g++, so all you need for an empty project is to create a helloworld.cpp with your favorite text editor.
+Para este exemplo, vamos compilar com g + +, portanto, tudo o que você precisa para um projeto vazio é criar um HelloWorld. cpp com seu editor de texto favorito.
 #### <a name="macostabmacos"></a>[macOS](#tab/macos)
-For this sample, we'll be compiling with g++, so all you need for an empty project is to create a helloworld.cpp with your favorite text editor.
+Para este exemplo, vamos compilar com g + +, portanto, tudo o que você precisa para um projeto vazio é criar um HelloWorld. cpp com seu editor de texto favorito.
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 [!INCLUDE [C++ quickstart](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-**Choose your target environment**
-#### <a name="java-runtimetabjre"></a>[Java Runtime](#tab/jre)
+**Escolha seu ambiente de destino**
+#### <a name="java-runtimetabjre"></a>[Tempo de execução Java](#tab/jre)
 [!INCLUDE [jre](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 #### <a name="androidtabandroid"></a>[Android](#tab/android)
 [!INCLUDE [android](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
@@ -55,14 +55,14 @@ For this sample, we'll be compiling with g++, so all you need for an empty proje
 
 ::: zone pivot="programming-language-python"
 
-For the Python-based quickstarts, all you'll need to do is create a file named `helloworld.py` with your favorite text editor or IDE.
+Para os guias de início rápido baseados em Python, tudo o que você precisará fazer é criar um arquivo chamado `helloworld.py` com seu editor de texto favorito ou IDE.
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Quickstart: Recognize speech from a microphone](speech-to-text-from-microphone.md)
-- [Quickstart: Recognize speech from a file](speech-to-text-from-file.md)
-- [Quickstart: Translate speech-to-text](translate-speech-to-text.md)
-- [Quickstart: Synthesize speech to text](text-to-speech.md)
-- [Quickstart: Recognize Intents](intent-recognition.md)
+- [Início rápido: reconhecer a fala de um microfone](speech-to-text-from-microphone.md)
+- [Início rápido: reconhecer a fala de um arquivo](speech-to-text-from-file.md)
+- [Início rápido: converter a fala em texto](translate-speech-to-text.md)
+- [Início rápido: sintetizar a fala em texto](text-to-speech.md)
+- [Início rápido: reconhecer tentativas](intent-recognition.md)

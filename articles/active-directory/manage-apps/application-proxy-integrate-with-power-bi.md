@@ -46,7 +46,7 @@ Para configurar o KCD para o Reporting Services, continue com as etapas a seguir
 ### <a name="configure-the-service-principal-name-spn"></a>Configurar o SPN (nome da entidade de serviço)
 
 O SPN é um identificador exclusivo para um serviço que usa a autenticação Kerberos. Você precisará verificar se tem um SPN HTTP adequado presente para seu servidor de relatório. Para obter informações sobre como configurar o SPN (nome da entidade de serviço) adequado para o servidor de relatório, consulte [registrar um SPN (nome da entidade de serviço) para um servidor de relatório](https://msdn.microsoft.com/library/cc281382.aspx).
-Você pode verificar se o SPN foi adicionado executando o comando setspn com a opção-L. Para saber mais sobre este comando, consulte [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
+Você pode verificar se o SPN foi adicionado executando o comando setspn com a opção-L. Para saber mais sobre esse comando, consulte [setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
 
 ### <a name="enable-negotiate-authentication"></a>Habilitar autenticação de negociação
 
@@ -70,7 +70,7 @@ Para configurar o KCD, repita as seguintes etapas para cada computador do conect
 1. Entre em um controlador de domínio como um administrador de domínio e, em seguida, abra **Active Directory usuários e computadores**.
 2. Encontre o que o conector está em execução no computador.  
 3. Clique duas vezes no computador e selecione a guia **delegação** .
-4. Defina as configurações de delegação para **confiar neste computador para delegação somente para os serviços especificados**. Em seguida, selecione **utilizar qualquer protocolo de autenticação**.
+4. Defina as configurações de delegação para **confiar neste computador para delegação somente para os serviços especificados**. Em seguida, selecione **usar qualquer protocolo de autenticação**.
 5. Selecione **Adicionar**e, em seguida, selecione **usuários ou computadores**.
 6. Insira a conta de serviço que você está usando para Reporting Services. Essa é a conta à qual você adicionou o SPN dentro da configuração de Reporting Services.
 7. Clique em **OK**. Para salvar as alterações, clique em **OK** novamente.
@@ -91,15 +91,15 @@ Agora você está pronto para configurar o Azure Proxy de Aplicativo do AD.
 
 2. Assim que a sua aplicação for publicada, configure as definições de início de sessão únicas com os seguintes passos:
 
-   a. Na página da aplicação no portal, selecione **início de sessão único**.
+   a. Na página aplicativo no portal, selecione **logon único**.
 
    b. Para o **modo de logon único**, selecione **autenticação integrada do Windows**.
 
    c. Defina **SPN do aplicativo interno** para o valor que você definiu anteriormente.  
 
-   d. Escolha o **identidade delegada de início de sessão** para o conector para utilizar em nome dos seus utilizadores. Para obter mais informações, consulte [trabalhando com diferentes identidades locais e na nuvem](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Escolha a **identidade de logon delegada** para o conector a ser usado em nome dos usuários. Para obter mais informações, consulte [trabalhando com diferentes identidades locais e na nuvem](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
-   e. Clique em **guardar** para guardar as alterações.
+   e. Clique em **salvar** para salvar as alterações.
 
 Para concluir a configuração do aplicativo, vá para **a seção usuários e grupos** e atribua usuários para acessar este aplicativo.
 
@@ -157,7 +157,7 @@ Você pode usar Microsoft Intune para gerenciar os aplicativos cliente que a for
 
 Se o aplicativo retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, talvez seja necessário alterar a configuração de tempo limite. Por padrão, o proxy de aplicativo dá suporte a aplicativos que levam até 85 segundos para responder a uma solicitação. Para aumentar essa configuração para 180 segundos, selecione o tempo limite de back-end para **longo** na página de configurações de proxy de aplicativo para o aplicativo. Para obter dicas sobre como criar relatórios rápidos e confiáveis, consulte [práticas recomendadas de Power bi relatórios](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Permitir que aplicativos cliente nativos interajam com aplicativos de proxy](application-proxy-configure-native-client-application.md)
 - [Exibir KPIs e relatórios locais do servidor de relatório no Power BI aplicativos móveis](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports)

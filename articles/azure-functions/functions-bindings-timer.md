@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57eec1293867a6596eb93f20ba27d468498e4e61
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278703"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545735"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para Azure Functions 
 
@@ -283,7 +283,10 @@ Aqui estão alguns exemplos de expressões NCRONTAB que você pode usar para o g
 
 Os números em uma expressão CRON referem-se a uma hora e data, não a um período de tempo. Por exemplo, um 5 no campo `hour` refere-se a 5:00 AM, e não a cada 5 horas.
 
-O fuso horário padrão usado com as expressões CRON é UTC (tempo Universal Coordenado). Para que sua expressão CRON se baseie em outro fuso horário, crie uma configuração de aplicativo para seu aplicativo de funções chamada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [índice de fuso horário da Microsoft](https://technet.microsoft.com/library/cc749073). 
+O fuso horário padrão usado com as expressões CRON é UTC (tempo Universal Coordenado). Para que sua expressão CRON se baseie em outro fuso horário, crie uma configuração de aplicativo para seu aplicativo de funções chamada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [índice de fuso horário da Microsoft](https://technet.microsoft.com/library/cc749073).
+
+  > [!NOTE]
+  > no momento, não há suporte para `WEBSITE_TIME_ZONE` no plano de consumo do Linux.
 
 Por exemplo, o *horário padrão do leste* é o UTC-05:00. Para que o gatilho do temporizador seja acionado às 10:00 AM EST todos os dias, use a seguinte expressão NCRONTAB que conta para o fuso horário UTC:
 
@@ -339,7 +342,7 @@ Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente
 
 Para obter informações sobre o que fazer quando o gatilho do temporizador não funciona conforme o esperado, consulte [investigando e relatando problemas com funções disparadas por temporizador não acionando](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um início rápido que usa um gatilho de temporizador](functions-create-scheduled-function.md)

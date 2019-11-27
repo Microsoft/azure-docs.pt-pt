@@ -1,7 +1,7 @@
 ---
-title: 'Designer: classify book reviews example'
+title: 'Designer: exemplo de classificação de análises de livros'
 titleSuffix: Azure Machine Learning
-description: Build a multiclass logistic regression classifier to predict the company category with wikipedia SP 500 dataset using Azure Machine Learning designer.
+description: Crie um classificador de regressão logística de multiclasse para prever a categoria da empresa com o Azure Machine Learning conjunto 500 de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,102 +17,102 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74213787"
 ---
-# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Build a classifier to predict company category using Azure Machine Learning designer.
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Crie um classificador para prever a categoria da empresa usando o designer de Azure Machine Learning.
 
-**Designer (preview) sample 7**
+**Designer (visualização) exemplo 7**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-This sample demonstrates how to use text analytics modules to build a text classification pipeline in Azure Machine Learning designer (preview).
+Este exemplo demonstra como usar módulos de análise de texto para criar um pipeline de classificação de texto no designer de Azure Machine Learning (versão prévia).
 
-The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. Applications of text classification include categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
+A meta da classificação de texto é atribuir uma parte do texto a uma ou mais classes ou categorias predefinidas. A parte do texto pode ser um documento, artigo de notícias, consulta de pesquisa, email, tweet, tíquetes de suporte, comentários do cliente, revisão do produto do usuário, etc. Aplicativos de classificação de texto incluem a categorização de artigos de jornal e conteúdo de emails de notícias em tópicos, organização de páginas da Web em categorias hierárquicas, filtragem de e-mail de spam, análise de sentimentos, previsão de intenção de usuário de consultas de pesquisa, roteamento suporte a tíquetes e análise de comentários do cliente. 
 
-This pipeline trains a **multiclass logistic regression classifier** to predict the company category with **Wikipedia SP 500 dataset derived from Wikipedia**.  
+Esse pipeline treina um **classificador de regressão logística de multiclasse** para prever a categoria da empresa com o **conjunto de conjuntos da Wikipédia SP 500 derivado da Wikipédia**.  
 
-The fundamental steps of a training machine learning model with text data are:
+As etapas fundamentais de um modelo de aprendizado de máquina de treinamento com dados de texto são:
 
 1. Obter os dados
 
-1. Pre-process the text data
+1. Pré-processar os dados de texto
 
-1. Feature Engineering
+1. Engenharia de recursos
 
-   Convert text feature into the numerical feature with feature extracting module such as feature hashing, extract n-gram feature from the text data.
+   Converta o recurso de texto no recurso numérico com o módulo de extração de recursos, como o hash de recurso, extraia o recurso n-Gram dos dados de texto.
 
-1. Formar o modelo
+1. Dar formação sobre o modelo
 
-1. Score dataset
+1. Conjunto de pontos de Pontuação
 
 1. Avaliar o modelo
 
-Here's the final, completed graph of the pipeline we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
+Aqui está o grafo final concluído do pipeline no qual vamos trabalhar. Forneceremos a lógica para todos os módulos para que você possa tomar decisões semelhantes por conta própria.
 
-[![Graph of the pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
+[![grafo do pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## <a name="data"></a>Dados
 
-In this pipeline, we use the **Wikipedia SP 500** dataset. The dataset is derived from Wikipedia (https://www.wikipedia.org/) based on articles of each S&P 500 company. Before uploading to Azure Machine Learning designer, the dataset was processed as follows:
+Nesse pipeline, usamos o conjunto de entrada da **Wikipédia SP 500** . O conjunto de notícias é derivado da Wikipédia (https://www.wikipedia.org/) com base em artigos de cada S & a empresa P 500. Antes de carregar no Azure Machine Learning designer, o conjunto de um foi processado da seguinte maneira:
 
-- Extract text content for each specific company
-- Remove wiki formatting
-- Remove non-alphanumeric characters
-- Convert all text to lowercase
-- Known company categories were added
+- Extraia o conteúdo de texto para cada empresa específica
+- Remover formatação wiki
+- Remover caracteres não alfanuméricos
+- Converter todo o texto em minúsculas
+- Foram adicionadas categorias de empresa conhecidas
 
-Articles could not be found for some companies, so the number of records is less than 500.
+Não foi possível encontrar artigos para algumas empresas, portanto, o número de registros é menor que 500.
 
-## <a name="pre-process-the-text-data"></a>Pre-process the text data
+## <a name="pre-process-the-text-data"></a>Pré-processar os dados de texto
 
-We use the **Preprocess Text** module to preprocess the text data, including detect the sentences, tokenize sentences and so on. You would found all supported options in the [**Preprocess Text**](../algorithm-module-reference/preprocess-text.md) article. After pre-processing tex data, we use the **Split Data** module to randomly divide the input data so that the training dataset contains 50% of the original data and the testing dataset contains 50% of the original data.
+Usamos o módulo de **texto pré-processar** para pré-processar os dados de texto, incluindo detectar as sentenças, Tokenize sentenças e assim por diante. Você encontraria todas as opções com suporte no artigo de [**texto de pré-processamento**](../algorithm-module-reference/preprocess-text.md) . Após o pré-processamento dos dados de Tex, usamos o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de modo que o conjunto de dados de treinamento contenha 50% dos dados originais e o conjunto de dado de teste contenha 50% dos originais.
 
-## <a name="feature-engineering"></a>Feature Engineering
-In this sample, we will use two methods performing feature engineering.
+## <a name="feature-engineering"></a>Engenharia de recursos
+Neste exemplo, usaremos dois métodos executando a engenharia de recursos.
 
 ### <a name="feature-hashing"></a>Hashing de Funcionalidade
-We used the [**Feature Hashing**](../algorithm-module-reference/feature-hashing.md) module to convert the plain text of the articles to integers and used the integer values as input features to the model. 
+Usamos o módulo [**hash de recurso**](../algorithm-module-reference/feature-hashing.md) para converter o texto sem formatação dos artigos em inteiros e usei os valores inteiros como recursos de entrada para o modelo. 
 
-The **Feature Hashing** module can be used to convert variable-length text documents to equal-length numeric feature vectors, using the 32-bit murmurhash v3 hashing method provided by the Vowpal Wabbit library. The objective of using feature hashing is dimensionality reduction; also feature hashing makes the lookup of feature weights faster at classification time because it uses hash value comparison instead of string comparison.
+O módulo **hash de recurso** pode ser usado para converter documentos de texto de comprimento variável em vetores de recursos numéricos de comprimento igual, usando o método de hash de 32 bits murmurhash v3 fornecido pela biblioteca Vowpal Wabbit. O objetivo de usar o hash de recurso é a redução da dimensionalidade; o hash de recurso também torna a pesquisa de pesos de recursos mais rápida no tempo de classificação porque usa comparação de valor de hash em vez de comparação de cadeia de caracteres.
 
-In the sample pipeline, we set the number of hashing bits to 14 and set the number of n-grams to 2. With these settings, the hash table can hold 2^14 entries, in which each hashing feature represents one or more n-gram features and its value represents the occurrence frequency of that n-gram in the text instance. For many problems, a hash table of this size is more than adequate, but in some cases, more space might be needed to avoid collisions. Evaluate the performance of your machine learning solution using different number of bits. 
+No pipeline de exemplo, definimos o número de bits de hash como 14 e definimos o número de n-grams como 2. Com essas configurações, a tabela de hash pode conter 2 ^ 14 entradas, nas quais cada recurso de hash representa um ou mais recursos de n-Gram e seu valor representa a frequência de ocorrência desse n-Gram na instância de texto. Para muitos problemas, uma tabela de hash desse tamanho é mais do que a adequada, mas em alguns casos, mais espaço pode ser necessário para evitar colisões. Avalie o desempenho da sua solução de aprendizado de máquina usando um número diferente de bits. 
 
-### <a name="extract-n-gram-feature-from-text"></a>Extract N-Gram Feature from Text
+### <a name="extract-n-gram-feature-from-text"></a>Extrair recurso de N-Gram de texto
 
-An n-gram is a contiguous sequence of n terms from a given sequence of text. An n-gram of size 1 is referred to as a unigram; an n-gram of size 2 is a bigram; an n-gram of size 3 is a trigram. N-grams of larger sizes are sometimes referred to by the value of n, for instance, "four-gram", "five-gram", and so on.
+Um n-Gram é uma sequência contígua de n termos de uma determinada sequência de texto. Um n-grama de tamanho 1 é chamado de unigram; um n-grama de tamanho 2 é um bigrama; um n-grama de tamanho 3 é um diagrama. N-gramas de tamanhos maiores às vezes são referenciados pelo valor de n, por exemplo, "quatro-Gram", "cinco-grama" e assim por diante.
 
-We used [**Extract N-Gram Feature from Text**](../algorithm-module-reference/extract-n-gram-features-from-text.md)module as another solution for feature engineering. This module first extracts the set of n-grams, in addition to the n-grams, the number of documents where each n-gram appears in the text is counted(DF). In this sample, TF-IDF metric is used to calculate feature values. Then, it converts unstructured text data into equal-length numeric feature vectors where each feature represents the TF-IDF of an n-gram in a text instance.
+Usamos a [**extração do recurso N-Gram do módulo de texto**](../algorithm-module-reference/extract-n-gram-features-from-text.md)como outra solução para a engenharia de recursos. Esse módulo primeiro extrai o conjunto de n-grams, além de n-grams, o número de documentos em que cada n-Gram aparece no texto é contado (DF). Neste exemplo, a métrica TF-IDF é usada para calcular valores de recursos. Em seguida, ele converte dados de texto não estruturados em vetores de recursos numéricos de comprimento igual, em que cada recurso representa o TF-IDF de um n-Gram em uma instância de texto.
 
-After converting text data into numeric feature vectors, A **Select Column** module is used to remove the text data from the dataset. 
+Depois de converter os dados de texto em vetores de recursos numéricos, um módulo **Selecionar coluna** é usado para remover os dados de texto do DataSet. 
 
-## <a name="train-the-model"></a>Formar o modelo
+## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-Your choice of algorithm often depends on the requirements of the use case. Because the goal of this pipeline is to predict the category of company, a multi-class classifier model is a good choice. Considering that the number of features is large and these features are sparse, we use **Multiclass Logistic Regression** model for this pipeline.
+A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Como o objetivo desse pipeline é prever a categoria da empresa, um modelo classificador multiclasse é uma boa opção. Considerando que o número de recursos é grande e que esses recursos são esparsos, usamos o modelo de **regressão logística multiclasse** para esse pipeline.
 
-## <a name="test-evaluate-and-compare"></a>Test, evaluate, and compare
+## <a name="test-evaluate-and-compare"></a>Testar, avaliar e comparar
 
- We split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
+ Dividimos o conjunto de informações e usamos conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-After the model is trained, we would use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. However, before using the **Score Model** module, performing feature engineering as what we have done during training is required. 
+Depois que o modelo é treinado, usaremos o **modelo de Pontuação** e **avaliamos** os módulos de modelo para gerar resultados previstos e avaliar os modelos. No entanto, antes de usar o módulo **modelo de Pontuação** , é necessário realizar a engenharia de recursos como o que fizemos durante o treinamento. 
 
-For **Feature Hashing** module, it is easy to perform feature engineer on scoring flow as training flow. Use **Feature Hashing** module directly to process the input text data.
+Para o módulo **hash de recurso** , é fácil executar engenheiro de recursos no fluxo de Pontuação como fluxo de treinamento. Use o módulo **hash de recurso** diretamente para processar os dados de texto de entrada.
 
-For **Extract N-Gram Feature from Text** module, we would connect the **Result Vocabulary output** from the training dataflow to the **Input Vocabulary** on the scoring dataflow, and set the **Vocabulary mode** parameter to **ReadOnly**.
-[![Graph of n-gram score](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
+Para **extrair o recurso N-Gram do módulo de texto** , conectamos a **saída do vocabulário de resultado** do fluxo de **dados** de treinamento ao vocabulário de entrada no fluxo de informações de Pontuação e definimos o parâmetro **modo de vocabulário** como **ReadOnly** .
+[Grafo de ![de Pontuação de n-Gram](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
-After finishing the engineering step, **Score Model** could be used to generate predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
+Depois de concluir a etapa de engenharia, o **modelo de Pontuação** poderia ser usado para gerar previsões para o conjunto de teste usando o modelo treinado. Para verificar o resultado, selecione a porta de saída do **modelo de Pontuação** e, em seguida, selecione **Visualizar**.
 
-We then pass the scores to the **Evaluate Model** module to generate evaluation metrics. **Evaluate Model** has two input ports, so that we could evaluate and compare scored datasets that are generated with different methods. In this sample, we compare the performance of the result generated with feature hashing method and n-gram method.
-To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
+Em seguida, passamos as pontuações para o módulo **modelo** de avaliação para gerar métricas de avaliação. O **modelo de avaliação** tem duas portas de entrada, para que possamos avaliar e comparar conjuntos de dados pontuados que são gerados com métodos diferentes. Neste exemplo, comparamos o desempenho do resultado gerado com o método de hash de recurso e o método n-Gram.
+Para verificar o resultado, selecione a porta de saída do **modelo de avaliação** e, em seguida, selecione **Visualizar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Explore the other samples available for the designer:
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+Explore os outros exemplos disponíveis para o designer:
+- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
+- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
+- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)

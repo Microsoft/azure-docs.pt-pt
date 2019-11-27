@@ -76,7 +76,7 @@ O conjunto de regras padrão gerenciadas pelo Azure é habilitado por padrão. P
 
  ![Alterar conjunto de regras WAF](../media/waf-front-door-create-portal/managed2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o Firewall do aplicativo Web do azure](../overview.md)

@@ -356,7 +356,7 @@ Veja estes recursos adicionais para o desenvolvimento de Node.js com o Armazenam
 - Veja a [Referência da API de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente do Node.js.
 - Explore os [Exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) escritos com a biblioteca de cliente do Node.js.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo demonstra como carregar um arquivo entre um disco local e o armazenamento de BLOBs do Azure usando o Node. js. Para saber mais sobre a utilização do armazenamento de blobs, avance para o repositório do GitHub.
 

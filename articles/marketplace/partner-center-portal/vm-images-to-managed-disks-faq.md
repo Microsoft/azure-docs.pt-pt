@@ -1,6 +1,6 @@
 ---
-title: We're moving virtual machine (VM) images to managed disk storage in the Azure Marketplace
-description: To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.
+title: Estamos movendo imagens de máquina virtual (VM) para o armazenamento em disco gerenciado no Azure Marketplace
+description: Para fornecer armazenamento mais rápido e confiável e suporte para novos recursos e funcionalidades do Marketplace, estamos movendo as imagens de VM do Marketplace para o armazenamento em disco gerenciado.
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
@@ -15,48 +15,48 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456676"
 ---
-# <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>We’re moving virtual machine (VM) images on Azure Marketplace to managed disk storage
+# <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos movendo as imagens da VM (máquina virtual) no Azure Marketplace para o armazenamento em disco gerenciado
 
-To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.
+Para fornecer armazenamento mais rápido e confiável e suporte para novos recursos e funcionalidades do Marketplace, estamos movendo as imagens de VM do Marketplace para o armazenamento em disco gerenciado.
 
-Starting on January 2, 2020, we’ll move VM images to managed disk storage in phases. In the first phase, we’ll only move images with no new deployments or running VMs in the previous 90 days. Before we move any of the images, we’ll send an email to let the publisher know which images will move and when they’ll be moved.
+A partir de 2 de janeiro de 2020, moveremos as imagens da VM para o armazenamento em disco gerenciado em fases. Na primeira fase, moveremos apenas imagens sem novas implantações ou máquinas virtuais em execução nos últimos 90 dias. Antes de movermos qualquer uma das imagens, enviaremos um email para permitir que o Publicador saiba quais imagens serão movidas e quando elas serão transferidas.
 
-Publishers or consumers don’t need to take any action, and users won’t be affected. The marketplace offers will remain available and customers will still be able to deploy managed VMs from these images, during and after the move.
+Os editores ou consumidores não precisam realizar nenhuma ação e os usuários não serão afetados. As ofertas do Marketplace permanecerão disponíveis e os clientes ainda poderão implantar VMs gerenciadas dessas imagens, durante e após a movimentação.
 
-If you have any questions, please [contact us](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff).
+Se você tiver alguma dúvida, [entre em contato conosco](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff).
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
-### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Would the users of my VM images experience an outage?
+### <a name="would-the-users-of-my-vm-images-experience-an-outage"></a>Os usuários de minhas imagens de VM sofreram uma interrupção?
 
-Users of the VM images will not experience an outage. 
+Os usuários das imagens de VM não sofrerão uma interrupção. 
 
-In the first phase, we will only move VM images that have no running VMs. As there are no users for these images, there will not be any impact. For the subsequent phases too, there will be no impact on the users.
+Na primeira fase, moveremos apenas as imagens de VM que não têm VMs em execução. Como não há nenhum usuário para essas imagens, não haverá nenhum impacto. Para as fases subsequentes também, não haverá nenhum impacto sobre os usuários.
 
-### <a name="how-long-does-it-take-for-the-process-to-complete"></a>How long does it take for the process to complete?
+### <a name="how-long-does-it-take-for-the-process-to-complete"></a>Quanto tempo leva para que o processo seja concluído?
 
-It may take up to 24 hours to complete the migration.
+Pode levar até 24 horas para concluir a migração.
 
-### <a name="do-i-need-to-take-any-action"></a>Do I need to take any action?
+### <a name="do-i-need-to-take-any-action"></a>Preciso realizar qualquer ação?
 
-Não. Publishers or consumers don’t need to take any action.
+Não. Os editores ou consumidores não precisam realizar nenhuma ação.
 
-### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>Do I have to update my system to call the Cloud Portal APIs in a different way after they are moved to Managed Disk storage?
+### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>É necessário atualizar meu sistema para chamar as APIs do portal de nuvem de uma maneira diferente depois que elas são movidas para o armazenamento de disco gerenciado?
 
-Não. Your existing API calls will continue to work.
+Não. Suas chamadas à API existentes continuarão a funcionar.
 
-### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>Would all my VM images be moved to Managed Disk at the same time?
+### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>Todas as imagens de minha VM seriam movidas para o disco gerenciado ao mesmo tempo?
 
-We will be moving all your VM images on the same day. We will notify you once they have been moved.
+Iremos mover todas as suas imagens de VM no mesmo dia. Você será notificado quando eles forem movidos.
 
-### <a name="can-i-request-to-schedule-the-move-of-my-vm-images-to-a-later-time"></a>Can I request to schedule the move of my VM images to a later time?
+### <a name="can-i-request-to-schedule-the-move-of-my-vm-images-to-a-later-time"></a>Posso solicitar para agendar a movimentação de minhas imagens de VM para um momento posterior?
 
-We recommend moving the images on the scheduled date. However, if you have concerns, please reach out to us to reschedule the move.
+Recomendamos mover as imagens na data agendada. No entanto, se você tiver preocupações, entre em contato conosco para reagendar a movimentação.
 
-### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>Can I publish updates to my VM Images during the move?
+### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>Posso publicar atualizações em minhas imagens de VM durante a movimentação?
 
-Updates to the VM images cannot be made during the move.
+As atualizações para as imagens de VM não podem ser feitas durante a movimentação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Visit the [virtual machine offer publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) page.
+Visite a página de [Guia do Publicador de oferta de máquina virtual](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .

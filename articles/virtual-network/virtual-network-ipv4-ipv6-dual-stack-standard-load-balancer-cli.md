@@ -150,7 +150,7 @@ az network lb address-pool create \
 --resource-group DsResourceGroup01
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
 
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. 
 
@@ -385,6 +385,6 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
  az group delete --name DsResourceGroup01
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você criou um Standard Load Balancer com uma configuração de IP de front-end (IPv4 e IPv6). Você também criou duas máquinas virtuais que incluíam NICs com configurações de IP duplo (IPV4 + IPv6) que foram adicionadas ao pool de back-end do balanceador de carga. Para saber mais sobre o suporte a IPv6 em redes virtuais do Azure, consulte [o que é IPv6 para a rede virtual do Azure?](ipv6-overview.md)

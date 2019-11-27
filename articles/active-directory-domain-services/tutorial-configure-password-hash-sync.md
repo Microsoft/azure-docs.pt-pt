@@ -1,6 +1,6 @@
 ---
-title: Enable password hash sync for Azure AD Domain Services | Microsoft Docs
-description: In this tutorial, learn how to enable password hash synchronization using Azure AD Connect to an Azure Active Directory Domain Services managed domain.
+title: Habilitar sincronização de hash de senha para Azure AD Domain Services | Microsoft Docs
+description: Neste tutorial, saiba como habilitar a sincronização de hash de senha usando o Azure AD Connect para um domínio gerenciado Azure Active Directory Domain Services.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -16,64 +16,64 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481166"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Enable password synchronization in Azure Active Directory Domain Services for hybrid environments
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: habilitar a sincronização de senha em Azure Active Directory Domain Services para ambientes híbridos
 
-For hybrid environments, an Azure Active Directory (Azure AD) tenant can be configured to synchronize with an on-premises Active Directory Domain Services (AD DS) environment using Azure AD Connect. By default, Azure AD Connect doesn't synchronize legacy NT LAN Manager (NTLM) and Kerberos password hashes that are needed for Azure Active Directory Domain Services (Azure AD DS).
+Para ambientes híbridos, um locatário Azure Active Directory (Azure AD) pode ser configurado para sincronizar com um ambiente de Active Directory Domain Services (AD DS) local usando Azure AD Connect. Por padrão, Azure AD Connect não sincroniza os hashes de senha Kerberos e NTLM (NT LAN Manager) herdados necessários para Azure Active Directory Domain Services (Azure AD DS).
 
-To use Azure AD DS with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize those password hashes required for NTLM and Kerberos authentication. After Azure AD Connect is configured, an on-premises account creation or password change event also then synchronizes the legacy password hashes to Azure AD.
+Para usar o Azure AD DS com contas sincronizadas de um ambiente de AD DS local, você precisa configurar o Azure AD Connect para sincronizar os hashes de senha necessários para a autenticação NTLM e Kerberos. Depois que Azure AD Connect estiver configurado, um evento de criação de conta local ou alteração de senha também sincronizará os hashes de senha herdados para o Azure AD.
 
-You don't need to perform these steps if you use cloud-only accounts with no on-premises AD DS environment.
+Você não precisa executar essas etapas se usar contas somente de nuvem sem um ambiente de AD DS local.
 
-In this tutorial, you learn:
+Neste tutorial, você aprende:
 
 > [!div class="checklist"]
-> * Why legacy NTLM and Kerberos password hashes are needed
-> * How to configure legacy password hash synchronization for Azure AD Connect
+> * Por que os hashes de senha NTLM e Kerberos herdados são necessários
+> * Como configurar a sincronização de hash de senha herdada para Azure AD Connect
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To complete this tutorial, you need the following resources:
+Para concluir este tutorial, você precisa dos seguintes recursos:
 
 * Uma subscrição ativa do Azure.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription that's synchronized with an on-premises directory using Azure AD Connect.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-    * If needed, [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Um locatário Azure Active Directory associado à sua assinatura que é sincronizado com um diretório local usando Azure AD Connect.
+    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
+    * Se necessário, [habilite Azure ad Connect para a sincronização de hash de senha][enable-azure-ad-connect].
+* Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
+    * Se necessário, [crie e configure uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 
-## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Password hash synchronization using Azure AD Connect
+## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Sincronização de hash de senha usando Azure AD Connect
 
-Azure AD Connect is used to synchronize objects like user accounts and groups from an on-premises AD DS environment into an Azure AD tenant. As part of the process, password hash synchronization enables accounts to use the same password in the on-prem AD DS environment and Azure AD.
+Azure AD Connect é usado para sincronizar objetos como contas de usuário e grupos de um ambiente de AD DS local em um locatário do Azure AD. Como parte do processo, a sincronização de hash de senha permite que as contas usem a mesma senha no ambiente de AD DS local e no Azure AD.
 
-To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NTLM and Kerberos authentication. Azure AD doesn't store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
+Para autenticar usuários no domínio gerenciado, o Azure AD DS precisa de hashes de senha em um formato adequado para autenticação NTLM e Kerberos. O Azure AD não armazena hashes de senha no formato necessário para autenticação NTLM ou Kerberos até que você habilite o Azure AD DS para seu locatário. Por motivos de segurança, o Azure AD também não armazena nenhuma credencial de senha no formato de texto não criptografado. Portanto, o Azure AD não pode gerar automaticamente esses hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos usuários.
 
-Azure AD Connect can be configured to synchronize the required NTLM or Kerberos password hashes for Azure AD DS. Make sure that you have completed the steps to [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect]. If you had an existing instance of Azure AD Connect, [download and update to the latest version][azure-ad-connect-download] to make sure you can synchronize the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. Azure AD Connect version *1.1.614.0* or later is required.
+Azure AD Connect pode ser configurado para sincronizar os hashes de senha NTLM ou Kerberos necessários para o AD DS do Azure. Verifique se você concluiu as etapas para [habilitar a Azure ad Connect para a sincronização de hash de senha][enable-azure-ad-connect]. Se você tivesse uma instância existente do Azure AD Connect, [Baixe e atualize para a versão mais recente][azure-ad-connect-download] para certificar-se de que você possa sincronizar os hashes de senha herdados para NTLM e Kerberos. Essa funcionalidade não está disponível em versões anteriores do Azure AD Connect ou com a ferramenta DirSync herdada. Azure AD Connect versão *1.1.614.0* ou posterior é necessária.
 
 > [!IMPORTANT]
-> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+> Azure AD Connect só devem ser instalados e configurados para sincronização com ambientes de AD DS locais. Não há suporte para instalar Azure AD Connect em um domínio gerenciado do Azure AD DS para sincronizar objetos de volta para o Azure AD.
 
-## <a name="enable-synchronization-of-password-hashes"></a>Enable synchronization of password hashes
+## <a name="enable-synchronization-of-password-hashes"></a>Habilitar a sincronização de hashes de senha
 
-With Azure AD Connect installed and configured to synchronize with Azure AD, now configure the legacy password hash sync for NTLM and Kerberos. A PowerShell script is used to configure the required settings and then start a full password synchronization to Azure AD. When that Azure AD Connect password hash synchronization process is complete, users can sign in to applications through Azure AD DS that use legacy NTLM or Kerberos password hashes.
+Com Azure AD Connect instalado e configurado para sincronizar com o Azure AD, agora configure a sincronização de hash de senha herdada para NTLM e Kerberos. Um script do PowerShell é usado para definir as configurações necessárias e, em seguida, iniciar uma sincronização de senha completa para o Azure AD. Quando esse Azure AD Connect processo de sincronização de hash de senha for concluído, os usuários poderão entrar em aplicativos por meio de AD DS do Azure que usam hashes de senha NTLM ou Kerberos herdados.
 
-1. On the computer with Azure AD Connect installed, from the Start menu, open the **Azure AD Connect > Synchronization Service**.
-1. Select the **Connectors** tab. The connection information used to establish the synchronization between the on-premises AD DS environment and Azure AD are listed.
+1. No computador com Azure AD Connect instalado, no menu Iniciar, abra o **Azure AD Connect > serviço de sincronização**.
+1. Selecione a guia **conectores** . As informações de conexão usadas para estabelecer a sincronização entre o ambiente de AD DS local e o Azure AD são listadas.
 
-    The **Type** indicates either *Windows Azure Active Directory (Microsoft)* for the Azure AD connector or *Active Directory Domain Services* for the on-premises AD DS connector. Make a note of the connector names to use in the PowerShell script in the next step.
+    O **tipo** indica o *Windows Azure Active Directory (Microsoft)* para o conector do Azure ad ou *Active Directory Domain Services* para o conector de AD DS local. Anote os nomes de conector a serem usados no script do PowerShell na próxima etapa.
 
-    ![List the connector names in Sync Service Manager](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
+    ![Listar os nomes de conectores no Service Manager de sincronização](media/tutorial-configure-password-hash-sync/service-sync-manager.png)
 
-    In this example screenshot, the following connectors are used:
+    Nesta captura de tela de exemplo, os seguintes conectores são usados:
 
-    * The Azure AD connector is named *contoso.onmicrosoft.com - AAD*
-    * The on-premises AD DS connector is named *onprem.contoso.com*
+    * O conector do AD do Azure é denominado *contoso.onmicrosoft.com-AAD*
+    * O conector de AD DS local é chamado de *OnPrem.contoso.com*
 
-1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. The script triggers a full password sync that includes legacy password hashes. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.
+1. Copie e cole o seguinte script do PowerShell no computador com Azure AD Connect instalado. O script dispara uma sincronização de senha completa que inclui hashes de senha herdados. Atualize as variáveis `$azureadConnector` e `$adConnector` com os nomes dos conectores da etapa anterior.
 
-    Run this script on each AD forest to synchronize on-premises account NTLM and Kerberos password hashes to Azure AD.
+    Execute esse script em cada floresta do AD para sincronizar os hashes de senha NTLM e Kerberos da conta local com o Azure AD.
 
     ```powershell
     # Define the Azure AD Connect connector names and import the required PowerShell module
@@ -95,18 +95,18 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the Azure AD DS managed domain after they've synchronized to Azure AD.
+    Dependendo do tamanho do diretório em termos de número de contas e grupos, a sincronização dos hashes de senha herdados para o Azure AD pode levar algum tempo. As senhas são então sincronizadas com o domínio gerenciado AD DS do Azure depois de serem sincronizadas com o Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-In this tutorial, you learned:
+Neste tutorial, você aprendeu:
 
 > [!div class="checklist"]
-> * Why legacy NTLM and Kerberos password hashes are needed
-> * How to configure legacy password hash synchronization for Azure AD Connect
+> * Por que os hashes de senha NTLM e Kerberos herdados são necessários
+> * Como configurar a sincronização de hash de senha herdada para Azure AD Connect
 
 > [!div class="nextstepaction"]
-> [Learn how synchronization works in an Azure AD Domain Services managed domain](synchronization.md)
+> [Saiba como a sincronização funciona em um domínio gerenciado Azure AD Domain Services](synchronization.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

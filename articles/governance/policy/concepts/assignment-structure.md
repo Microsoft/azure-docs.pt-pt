@@ -17,7 +17,7 @@ As atribuições de política são usadas pelo Azure Policy para definir quais r
 Você usa JSON para criar uma atribuição de política. A atribuição de política contém elementos para:
 
 - Nome a apresentar
-- descrição
+- Descrição
 - do IdP
 - modo de imposição
 - definição de política
@@ -89,7 +89,7 @@ Esse design torna possível reutilizar uma definição de política ou iniciativ
 
 Neste exemplo, os parâmetros definidos anteriormente na definição de política são `prefix` e `suffix`. Essa atribuição de política específica define `prefix` para o **depta** e `suffix` a **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições de política, oferecendo flexibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).

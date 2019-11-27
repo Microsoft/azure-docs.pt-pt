@@ -1,6 +1,6 @@
 ---
-title: Use dependency injection in .NET Azure Functions
-description: Learn how to use dependency injection for registering and using services in .NET functions
+title: Usar injeção de dependência no .NET Azure Functions
+description: Saiba como usar a injeção de dependência para registrar e usar serviços em funções do .NET
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/05/2019
@@ -13,27 +13,27 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226979"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions
+# <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET Azure Functions
 
-Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
+Azure Functions dá suporte ao padrão de design de software injeção de dependência (DI), que é uma técnica para obter [inversão de controle (IOC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre classes e suas dependências.
 
-- Dependency injection in Azure Functions is built on the .NET Core Dependency Injection features. Familiarity with the [.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) is recommended. There are differences, however, in how you override dependencies and how configuration values are read with Azure Functions on the Consumption plan.
+- A injeção de dependência no Azure Functions é criada sobre os recursos de injeção de dependência do .NET Core. É recomendável ter familiaridade com a [injeção de dependência do .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) . No entanto, há diferenças em como você substitui dependências e como os valores de configuração são lidos com Azure Functions no plano de consumo.
 
-- Support for dependency injection begins with Azure Functions 2.x.
+- O suporte para injeção de dependência começa com Azure Functions 2. x.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Before you can use dependency injection, you must install the following NuGet packages:
+Antes de poder usar a injeção de dependência, você deve instalar os seguintes pacotes NuGet:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
+- [Pacote Microsoft. net. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
 
-## <a name="register-services"></a>Register services
+## <a name="register-services"></a>Registrar serviços
 
-To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
+Para registrar serviços, crie um método para configurar e adicionar componentes a uma instância de `IFunctionsHostBuilder`.  O host Azure Functions cria uma instância de `IFunctionsHostBuilder` e a transmite diretamente para o seu método.
 
-To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
+Para registrar o método, adicione o atributo `FunctionsStartup` assembly que especifica o nome de tipo usado durante a inicialização.
 
 ```csharp
 using System;
@@ -62,19 +62,19 @@ namespace MyNamespace
 }
 ```
 
-### <a name="caveats"></a>Caveats
+### <a name="caveats"></a>ADVERTÊNCIAS
 
-A series of registration steps run before and after the runtime processes the startup class. Therefore, the keep in mind the following items:
+Uma série de etapas de registro executada antes e depois que o tempo de execução processa a classe de inicialização. Portanto, tenha em mente os seguintes itens:
 
-- *The startup class is meant for only setup and registration.* Avoid using services registered at startup during the startup process. For instance, don't try to log a message in a logger that is being registered during startup. This point of the registration process is too early for your services to be available for use. After the `Configure` method is run, the Functions runtime continues to register additional dependencies, which can affect how your services operate.
+- *A classe de inicialização destina-se apenas à instalação e ao registro.* Evite usar serviços registrados na inicialização durante o processo de inicialização. Por exemplo, não tente registrar uma mensagem em um agente que está sendo registrado durante a inicialização. Esse ponto do processo de registro é muito cedo para que os serviços estejam disponíveis para uso. Depois que o método de `Configure` é executado, o tempo de execução do Functions continua registrando dependências adicionais, o que pode afetar o funcionamento dos serviços.
 
-- *The dependency injection container only holds explicitly registered types*. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during setup or as injectable types.
+- *O contêiner de injeção de dependência só mantém tipos explicitamente registrados*. Os únicos serviços disponíveis como tipos que podem ser injetados são os que são configurados no método `Configure`. Como resultado, tipos específicos de funções como `BindingContext` e `ExecutionContext` não estão disponíveis durante a instalação ou como tipos injetados.
 
-## <a name="use-injected-dependencies"></a>Use injected dependencies
+## <a name="use-injected-dependencies"></a>Usar dependências injetadas
 
-Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes.
+A injeção de construtor é usada para disponibilizar suas dependências em uma função. O uso de injeção de construtor requer que você não use classes estáticas.
 
-The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) package required to register an `HttpClient` at startup.
+O exemplo a seguir demonstra como as dependências de `IMyService` e `HttpClient` são injetadas em uma função disparada por HTTP. Este exemplo usa o pacote [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registrar um `HttpClient` na inicialização.
 
 ```csharp
 using System;
@@ -114,46 +114,46 @@ namespace MyNamespace
 }
 ```
 
-## <a name="service-lifetimes"></a>Service lifetimes
+## <a name="service-lifetimes"></a>Tempos de vida do serviço
 
-Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
+Azure Functions aplicativos fornecem os mesmos tempos de vida de serviço como [injeção de dependência ASP.net](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Para um aplicativo do functions, os tempos de vida de serviço diferentes se comportam da seguinte maneira:
 
-- **Transient**: Transient services are created upon each request of the service.
-- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
-- **Singleton**: The singleton service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `SqlConnection` or `HttpClient` instances.
+- **Transitório**: os serviços transitórios são criados após cada solicitação do serviço.
+- Com **escopo**: o tempo de vida do serviço com escopo corresponde a um tempo de vida de execução da função. Os serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
+- **Singleton**: o tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado nas execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `SqlConnection` ou instâncias de `HttpClient`.
 
-View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample) on GitHub.
+Exiba ou baixe uma [amostra de tempos de vida de serviço diferentes](https://aka.ms/functions/di-sample) no github.
 
-## <a name="logging-services"></a>Logging services
+## <a name="logging-services"></a>Serviços de log
 
-If you need your own logging provider, register a custom type as an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
+Se você precisar de seu próprio provedor de log, registre um tipo personalizado como uma instância de `ILoggerProvider`. Application Insights é adicionado por Azure Functions automaticamente.
 
 > [!WARNING]
-> - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
+> - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, pois ela registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
+> - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights.
 
-## <a name="function-app-provided-services"></a>Function app provided services
+## <a name="function-app-provided-services"></a>Serviços fornecidos pelo aplicativo de funções
 
-The function host registers many services. The following services are safe to take as a dependency in your application:
+O host de função registra vários serviços. Os seguintes serviços são seguros para serem adotados como uma dependência em seu aplicativo:
 
-|Tipo de Serviço|Lifetime|Descrição|
+|Tipo de Serviço|Existência|Descrição|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Runtime configuration|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsible for providing the ID of the host instance|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Único|Configuração de tempo de execução|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Único|Responsável por fornecer a ID da instância do host|
 
-If there are other services you want to take a dependency on, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+Se houver outros serviços nos quais você deseja assumir uma dependência, [crie um problema e proponha-os no GitHub](https://github.com/azure/azure-functions-host).
 
-### <a name="overriding-host-services"></a>Overriding host services
+### <a name="overriding-host-services"></a>Substituindo serviços de host
 
-Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+Atualmente, não há suporte para a substituição de serviços fornecidos pelo host.  Se houver serviços que você deseja substituir, [crie um problema e proponha-os no GitHub](https://github.com/azure/azure-functions-host).
 
-## <a name="working-with-options-and-settings"></a>Working with options and settings
+## <a name="working-with-options-and-settings"></a>Trabalhando com opções e configurações
 
-Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
+Os valores definidos nas [configurações do aplicativo](./functions-how-to-use-azure-function-app-settings.md#settings) estão disponíveis em uma instância do `IConfiguration`, que permite que você leia os valores das configurações do aplicativo na classe de inicialização.
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
+Você pode extrair valores da instância de `IConfiguration` para um tipo personalizado. Copiar os valores das configurações do aplicativo para um tipo personalizado torna fácil testar seus serviços, tornando esses valores injetados. As configurações lidas na instância de configuração devem ser pares de chave/valor simples.
 
-Consider the following class that includes a property named consistent with an app setting.
+Considere a seguinte classe que inclui uma propriedade chamada consistente com uma configuração de aplicativo.
 
 ```csharp
 public class MyOptions
@@ -162,7 +162,7 @@ public class MyOptions
 }
 ```
 
-From inside the `Startup.Configure` method, you can extract values from the `IConfiguration` instance into your custom type using the following code:
+De dentro do método `Startup.Configure`, você pode extrair valores da instância `IConfiguration` para seu tipo personalizado usando o seguinte código:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -172,9 +172,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-Calling `Bind` copies values that have matching property names from the configuration into the custom instance. The options instance is now available in the IoC container to inject into a function.
+Chamar `Bind` copia os valores que têm nomes de propriedade correspondentes da configuração na instância personalizada. A instância de opções agora está disponível no contêiner IoC para injetar em uma função.
 
-The options object is injected into the function as an instance of the generic `IOptions` interface. Use the `Value` property to access the values found in your configuration.
+O objeto options é injetado na função como uma instância da interface de `IOptions` genérica. Use a propriedade `Value` para acessar os valores encontrados em sua configuração.
 
 ```csharp
 using System;
@@ -191,14 +191,14 @@ public class HttpTrigger
 }
 ```
 
-Refer to [Options pattern in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+Consulte o [padrão de opções em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) para obter mais detalhes sobre como trabalhar com opções.
 
 > [!WARNING]
-> Avoid attempting to read values from files like *local.settings.json* or *appsettings.{environment}.json* on the Consumption plan. Values read from these files related to trigger connections aren't available as the app scales because the hosting infrastructure has no access to the configuration information.
+> Evite tentar ler valores de arquivos como *local. Settings. JSON* ou *appSettings. { Environment}. JSON* no plano de consumo. Os valores lidos desses arquivos relacionados a conexões de gatilho não estão disponíveis conforme o aplicativo é dimensionado porque a infraestrutura de hospedagem não tem acesso às informações de configuração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
-- [How to monitor your function app](functions-monitoring.md)
-- [Best practices for functions](functions-best-practices.md)
+- [Como monitorar seu aplicativo de funções](functions-monitoring.md)
+- [Práticas recomendadas para funções](functions-best-practices.md)

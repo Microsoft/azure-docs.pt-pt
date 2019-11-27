@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (app registration) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (app registration)
+title: Aplicativo Web que conecta usuários (registro de aplicativo)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que entra em usuários (registro de aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -22,109 +22,109 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482054"
 ---
-# <a name="web-app-that-signs-in-users-app-registration"></a>Web app that signs in users: App registration
+# <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
-This article explains the app registration specifics for a web app that signs in users.
+Este artigo explica as especificações de registro do aplicativo para um aplicativo Web que conecta os usuários.
 
-To register your application, you can use:
+Para registrar seu aplicativo, você pode usar:
 
-- The [web app quickstarts](#register-an-app-by-using-the-quickstarts). In addition to being a great first experience with creating an application, quickstarts in the Azure portal contain a button named **Make this change for me**. You can use this button to set the properties you need, even for an existing app. You'll need to adapt the values of these properties to your own case. In particular, the web API URL for your app is probably going to be different from the proposed default, which will also affect the sign-out URI.
-- The Azure portal to [register your application manually](#register-an-app-by-using-the-azure-portal).
-- PowerShell and command-line tools.
+- Os [guias de início rápido do aplicativo Web](#register-an-app-by-using-the-quickstarts). Além de ser uma ótima primeira experiência com a criação de um aplicativo, os guias de início rápido no portal do Azure contêm um botão chamado **fazer essa alteração para mim**. Você pode usar esse botão para definir as propriedades necessárias, mesmo para um aplicativo existente. Você precisará adaptar os valores dessas propriedades ao seu próprio caso. Em particular, a URL da API Web para seu aplicativo provavelmente será diferente do padrão proposto, o que também afetará o URI de saída.
+- O portal do Azure para [registrar seu aplicativo manualmente](#register-an-app-by-using-the-azure-portal).
+- PowerShell e ferramentas de linha de comando.
 
-## <a name="register-an-app-by-using-the-quickstarts"></a>Register an app by using the quickstarts
+## <a name="register-an-app-by-using-the-quickstarts"></a>Registrar um aplicativo usando os guias de início rápido
 
-You can use these links to bootstrap the creation of your web application:
+Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
 - [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
-## <a name="register-an-app-by-using-the-azure-portal"></a>Register an app by using the Azure portal
+## <a name="register-an-app-by-using-the-azure-portal"></a>Registrar um aplicativo usando o portal do Azure
 
 > [!NOTE]
-> The portal to use is different depending on whether your application runs in the Microsoft Azure public cloud or in a national or sovereign cloud. For more information, see [National clouds](./authentication-national-cloud.md#app-registration-endpoints).
+> O portal a ser usado é diferente dependendo se o aplicativo é executado no Microsoft Azure nuvem pública ou em uma nuvem nacional ou soberanas. Para obter mais informações, consulte [nuvens nacionais](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account. Alternatively, sign in to the Azure portal of choice for the national cloud.
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
-1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta Microsoft pessoal. Como alternativa, entre no portal do Azure de escolha para a nuvem nacional.
+1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito. Em seguida, defina a sessão do portal para o locatário do Azure Active Directory (Azure AD) desejado.
+1. No painel esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo** > **novo registro**.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
-   1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **AspNetCore-WebApp**.
-   1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. For example, enter **https://localhost:44321** . Then, select **Register**.
-1. Select the **Authentication** menu, and then add the following information:
-   1. For **Reply URL**, add **https://localhost:44321/signin-oidc** of type **Web**.
-   1. In the **Advanced settings** section, set **Logout URL** to **https://localhost:44321/signout-oidc** .
-   1. Under **Implicit grant**, select **ID tokens**.
+   1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
+   1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
+   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **registrar**.
+1. Selecione o menu **autenticação** e, em seguida, adicione as seguintes informações:
+   1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
+   1. Na seção **Configurações avançadas** , defina **URL de logoff** para **https://localhost:44321/signout-oidc** .
+   1. Em **concessão implícita**, selecione **tokens de ID**.
    1. Selecione **Guardar**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
-   1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **MailApp-openidconnect-v2**.
-   1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/** .
+   1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
+   1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2**.
+   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **https://localhost:44326/** .
 1. Selecione **Registar** para criar a aplicação.
-1. Select the **Authentication** menu. 
-1. In the **Advanced settings** | **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
+1. Selecione o menu **autenticação** . 
+1. Na seção **Configurações avançadas** | **concessão implícita** , selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
 1. Selecione **Guardar**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. When the **Register an application page** appears, enter a display name for the application. For example, enter **java-webapp**. 
-1. Select **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)** , and then select **Web app / API** for **Application Type**.
-1. Select **Register** to register the application.
-1. On the left menu, select **Authentication**. Under **Redirect URIs**, select **Web**. 
+1. Quando a **página registrar um aplicativo** for exibida, insira um nome de exibição para o aplicativo. Por exemplo, digite **Java-webapp**. 
+1. Selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** e, em seguida, selecione **aplicativo Web/API** para o **tipo de aplicativo**.
+1. Selecione **registrar** para registrar o aplicativo.
+1. No menu à esquerda, selecione **autenticação**. Em **URIs de redirecionamento**, selecione **Web**. 
 
-1. Enter two redirect URIs: one for the sign-in page, and one for the graph page. For both, use the same host and port number, followed by **/msal4jsample/secure/aad** for the sign-in page and **msal4jsample/graph/me** for the user information page.
+1. Insira dois URIs de redirecionamento: um para a página de entrada e outro para a página do grafo. Para ambos, use o mesmo host e número da porta, seguido por **/msal4jsample/Secure/AAD** para a página de entrada e **msal4jsample/Graph/me** para a página de informações do usuário.
  
-   By default, the sample uses:
+   Por padrão, o exemplo usa:
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. In the **Advanced settings** section, set **Logout URL** to **http://localhost:8080/msal4jsample/sign_out** . Em seguida, selecione **Guardar**.
+1. Na seção **Configurações avançadas** , defina **URL de logoff** para **http://localhost:8080/msal4jsample/sign_out** . Em seguida, selecione **Guardar**.
 
-1. Select **Certificates & secrets** from the menu. 
-1. In the **Client secrets** section, select **New client secret**, and then:
+1. Selecione **certificados & segredos** no menu. 
+1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
 
-   1. Enter a key description.
-   1. Select the key duration **In 1 year**.
+   1. Insira uma descrição de chave.
+   1. Selecione a duração da chave **em 1 ano**.
    1. Selecione **Adicionar**.
-   1. When the key value appears, copy it for later. This value will not be displayed again or be retrievable by any other means.
+   1. Quando o valor da chave for exibido, copie-o para mais tarde. Esse valor não será exibido novamente ou poderá ser recuperado por outros meios.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **python-webapp**.
-   1. Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)** .
-   1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: **http://localhost:5000/getAToken** .
+   1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **Python-webapp**.
+   1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
+   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **http://localhost:5000/getAToken** .
 1. Selecione **Registar** para criar a aplicação.
-1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
-1. Select the **Authentication** section. In **Advanced settings**, set **Logout URL** to **http://localhost:5000/logout** . Em seguida, selecione **Guardar**.
-1. On the left menu, select **Certificates & secrets**.
-1. In the **Client Secrets** section, select **New client secret**, and then:
+1. Na página **visão geral** do aplicativo, localize o valor da **ID do aplicativo (cliente)** e registre-o para mais tarde. Você precisará dela para configurar o arquivo de configuração do Visual Studio para este projeto.
+1. Selecione a seção **autenticação** . Em **Configurações avançadas**, defina **URL de logoff** como **http://localhost:5000/logout** . Em seguida, selecione **Guardar**.
+1. No menu à esquerda, selecione **certificados & segredos**.
+1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
 
-   1. Enter a key description.
-   1. Select a key duration of **In 1 year**.
+   1. Insira uma descrição de chave.
+   1. Selecione uma duração de chave de **em 1 ano**.
    1. Selecione **Adicionar**.
-   1. When the key value appears, copy it. Precisará dela mais tarde.
+   1. Quando o valor da chave for exibido, copie-o. Precisará dela mais tarde.
 ---
 
-## <a name="register-an-app-by-using-powershell"></a>Register an app by using PowerShell
+## <a name="register-an-app-by-using-powershell"></a>Registrar um aplicativo usando o PowerShell
 
 > [!NOTE]
-> Currently, Azure AD PowerShell creates applications with only the following supported account types:
+> Atualmente, o PowerShell do Azure AD cria aplicativos com apenas os seguintes tipos de conta com suporte:
 >
-> - MyOrg (accounts in this organizational directory only)
-> - AnyOrg (accounts in any organizational directory)
+> - MyOrg (contas neste diretório organizacional somente)
+> - AnyOrg (contas em qualquer diretório organizacional)
 >
-> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the `signInAudience` property in the application manifest from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
+> Você pode criar um aplicativo que conecte usuários com suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, crie um aplicativo multilocatário. Os tipos de conta com suporte são contas em qualquer diretório organizacional. Em seguida, altere a propriedade `signInAudience` no manifesto do aplicativo do portal do Azure. Para obter mais informações, consulte a [etapa 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial de ASP.NET Core. Você pode generalizar essa etapa para aplicativos Web em qualquer idioma.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [App's code configuration](scenario-web-app-sign-user-app-configuration.md)
+> [Configuração de código do aplicativo](scenario-web-app-sign-user-app-configuration.md)

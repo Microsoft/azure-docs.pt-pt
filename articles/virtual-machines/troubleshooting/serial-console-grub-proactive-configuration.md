@@ -436,5 +436,5 @@ Para obter mais informações sobre como acessar o modo de usuário único, cons
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [console serial do Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)

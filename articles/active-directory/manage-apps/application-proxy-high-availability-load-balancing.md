@@ -96,10 +96,10 @@ Aqui estão algumas opções para o cenário 2:
 
 Consulte a documentação do fornecedor do software para entender os requisitos de balanceamento de carga do aplicativo de back-end.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Ativar o Proxy de aplicações](application-proxy-add-on-premises-application.md)
+- [Habilitar o proxy de aplicativo](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
-- [Resolver problemas que possa ter com o Proxy de aplicações](application-proxy-troubleshoot.md)
+- [Solucionar problemas que você está tendo com o proxy de aplicativo](application-proxy-troubleshoot.md)
 - [Saiba como a arquitetura do Azure AD dá suporte à alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

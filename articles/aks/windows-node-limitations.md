@@ -98,7 +98,7 @@ Sim, você pode, no entanto, Azure Monitor não coleta logs (stdout) de contêin
 
 Trabalhamos muito para reunir todos os recursos de que você precisa para o Windows no AKS, mas se você encontrar lacunas, o projeto de [AKs-Engine][aks-engine] de software livre fornecerá uma maneira fácil e totalmente personalizável de executar o kubernetes no Azure, incluindo o suporte do Windows. Certifique-se de conferir nosso roteiro de recursos que estão chegando ao [roteiro do AKS][aks-roadmap].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nós que executa o Windows Server em AKs][windows-node-cli].
 

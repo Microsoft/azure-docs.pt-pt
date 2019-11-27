@@ -1,7 +1,7 @@
 ---
-title: Configuration data at scale - Azure Automation
-description: Learn how to configure data at scale for state configuration in Azure Automation.
-keywords: dsc,powershell,configuration,setup
+title: Dados de configuração em escala – automação do Azure
+description: Saiba como configurar dados em escala para configuração de estado na automação do Azure.
+keywords: DSC, PowerShell, configuração, instalação
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -19,38 +19,38 @@ ms.locfileid: "74231696"
 ---
 # <a name="configuration-data-at-scale"></a>Dados de configuração à escala
 
-> Applies To: Windows PowerShell 5.1
+> Aplica-se a: Windows PowerShell 5,1
 
-Managing hundreds or thousands of servers can be a challenge.
-Customers have provided feedback that the most difficult aspect is actually managing [configuration data](/powershell/scripting/dsc/configurations/configdata).
-Organizing information across logical constructs like location, type, and environment.
+O gerenciamento de centenas ou milhares de servidores pode ser um desafio.
+Os clientes forneceram comentários de que o aspecto mais difícil é realmente gerenciar [dados de configuração](/powershell/scripting/dsc/configurations/configdata).
+Organizar informações em constructos lógicos, como localização, tipo e ambiente.
 
 > [!NOTE]
-> This article refers to a solution that is maintained by the Open Source community.
-> Support is only available in the form of GitHub collaboration, not from Microsoft.
+> Este artigo refere-se a uma solução mantida pela comunidade de código-fonte aberto.
+> O suporte está disponível apenas na forma de colaboração do GitHub, não da Microsoft.
 
-## <a name="community-project-datum"></a>Community project: Datum
+## <a name="community-project-datum"></a>Projeto da Comunidade: Datum
 
-A community maintained solution named [Datum](https://github.com/gaelcolas/Datum) has been created to resolve this challenge.
-Datum builds on great ideas from other configuration management platforms and implements the same type of solution for PowerShell DSC.
-Information is [organized in to text files](https://github.com/gaelcolas/Datum#3-intended-usage) based on logical ideas.
-Examples would be:
+Uma solução mantida pela comunidade chamada [Datum](https://github.com/gaelcolas/Datum) foi criada para resolver esse desafio.
+A Datum se baseia em incríveis ideias de outras plataformas de gerenciamento de configuração e implementa o mesmo tipo de solução para o DSC do PowerShell.
+As informações são [organizadas em arquivos de texto](https://github.com/gaelcolas/Datum#3-intended-usage) com base em ideias lógicas.
+Os exemplos seriam:
 
-- Settings that should apply globally
-- Settings that should apply to all servers in a location
-- Settings that should apply to all database servers
-- Individual server settings
+- Configurações que devem ser aplicadas globalmente
+- Configurações que devem ser aplicadas a todos os servidores em um local
+- Configurações que devem ser aplicadas a todos os servidores de banco de dados
+- Configurações de servidor individual
 
-This information is organized in the file format you prefer (JSON, Yaml, or PSD1).
-Then cmdlets are provided to generate configuration data files by [consolidating the information](https://github.com/gaelcolas/Datum#datum-tree) from each file in to single view of a server or server role.
+Essas informações são organizadas no formato de arquivo que você preferir (JSON, YAML ou PSD1).
+Em seguida, os cmdlets são fornecidos para gerar arquivos de dados de configuração, [consolidando as informações](https://github.com/gaelcolas/Datum#datum-tree) de cada arquivo no modo de exibição único de uma função de servidor ou servidor.
 
-Once the data files have been generated, you can use them with [DSC Configuration scripts](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
+Depois que os arquivos de dados tiverem sido gerados, você poderá usá-los com [scripts de configuração DSC](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) para gerar arquivos MOF e [carregar os arquivos MOF para a automação do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Em seguida, registre os servidores no [local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) ou [no Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para efetuar pull das configurações.
 
-To try out Datum, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/datum/) and download the solution or click "Project Site" to view the [documentation](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
+Para experimentar a Datum, visite a [Galeria do PowerShell](https://www.powershellgallery.com/packages/datum/) e baixe a solução ou clique em "site do projeto" para exibir a [documentação](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [Visão geral da configuração de estado desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
+- [Recursos de DSC](/powershell/scripting/dsc/resources/resources)
+- [Configurando o Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig)

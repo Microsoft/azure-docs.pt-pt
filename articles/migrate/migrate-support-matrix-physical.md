@@ -106,12 +106,12 @@ https://download.microsoft.com/download/* | Permite downloads do site de downloa
 
 A tabela a seguir resume os requisitos de porta para avaliação.
 
-**Vice** | **ligação**
+**Vice** | **Conexão**
 --- | ---
 **Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexões de saída nas portas 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 **Servidores físicos** | **Windows:** Conexões de entrada nas portas 443, 5989 para efetuar pull de metadados de configuração e desempenho de servidores Windows. <br/> **Linux:**  Conexões de entrada na porta 22 (UDP) para efetuar pull de metadados de configuração e desempenho de servidores Linux. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Prepare-se para a avaliação do servidor físico](tutorial-prepare-physical.md) para avaliação e migração de servidor físico.

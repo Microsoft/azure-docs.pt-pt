@@ -106,6 +106,6 @@ Na instalação de executar, você pode fornecer uma descrição para a execuç�
 
 A guia **consumir** contém o ponto de extremidade REST para executar novamente seu pipeline. Para fazer uma chamada REST, você precisará de um cabeçalho de autenticação do tipo portador OAuth 2,0. Consulte a seguinte [seção do tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para obter mais detalhes sobre como configurar a autenticação para seu espaço de trabalho e fazer uma chamada REST com parâmetros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implantar um modelo de regressão.

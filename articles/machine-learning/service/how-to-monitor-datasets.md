@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 10532ba2b43e40c4ffa2990e924947046d03b576
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049180"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539209"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -64,18 +64,18 @@ Conceitualmente, há três cenários principais para configurar monitores de con
 Cenário | Descrição
 ---|---
 Monitorando os dados de serviço de um modelo para descompasso dos dados de treinamento do modelo | Os resultados desse cenário podem ser interpretados como monitoramento de um proxy para a precisão do modelo, Considerando que a precisão do modelo diminui se o fornecimento de dados descompassos dos dados de treinamento.
-Monitoramento de um conjunto de uma série temporal para descompasso de um período de tempo anterior. | Esse cenário é mais geral e pode ser usado para monitorar conjuntos de linhas envolvidos no upstream ou no downstream da construção do modelo.  O conjunto de recursos de destino deve ter uma coluna timestamp, enquanto o conjunto de linha de base pode ser qualquer conjunto de tabelas de tabela que tenha recursos em comum com o DataSet de destino.
-Executando a análise nos dados anteriores. | Isso pode ser usado para entender dados históricos e informar decisões em configurações para monitores de conjuntos de dados.
+Monitoramento de um conjunto de uma série temporal para descompasso de um período de tempo anterior. | Esse cenário é mais geral e pode ser usado para monitorar conjuntos de linhas envolvidos no upstream ou no downstream da construção do modelo.  O conjunto de recursos de destino deve ter uma coluna de carimbo de data/hora, enquanto o conjunto de linha de base pode ser qualquer conjunto de tabelas que tenha recursos em comum com o DataSet de destino.
+Executando a análise nos dados anteriores. | Esse cenário pode ser usado para entender dados históricos e informar decisões em configurações para monitores de conjuntos de dados.
 
 ## <a name="how-dataset-can-monitor-data"></a>Como o DataSet pode monitorar dados
 
-Usando o Azure Machine Learning, a descompasso de dados é monitorada por meio de DataSets. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um conjunto de dados de destino-geralmente, o modelo de dado de entrada, é comparado ao longo do tempo para o conjunto de dados de Isso significa que o DataSet de destino deve ter uma coluna timestamp especificada.
+Usando o Azure Machine Learning, a descompasso de dados é monitorada por meio de DataSets. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um conjunto de dados de destino-geralmente, o modelo de dado de entrada, é comparado ao longo do tempo para o conjunto de dados de Essa comparação significa que o DataSet de destino deve ter uma coluna de carimbo de data/hora especificada.
 
 ### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Definir a característica `timeseries` no conjunto de entrada de destino
 
 O conjunto de dados de destino precisa ter a característica `timeseries` configurada especificando a coluna timestamp a partir de uma coluna nos dados ou uma coluna virtual derivada do padrão de caminho dos arquivos. Isso pode ser feito por meio do SDK do Python ou do Azure Machine Learning Studio. Uma coluna que representa um carimbo de data/hora "refinado" deve ser especificada para adicionar `timeseries` característica ao DataSet. Se os dados forem particionados na estrutura de pastas com informações de tempo, como ' {YYYY/MM/DD} ', você poderá criar uma coluna virtual por meio da configuração de padrão de caminho e defini-la como o carimbo de data/hora "granular" para melhorar a importância da funcionalidade de série temporal. 
 
-#### <a name="python-sdk"></a>SDK Python
+#### <a name="python-sdk"></a>Python SDK
 
 O método de [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) classe ' [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) define a coluna de carimbo de data/hora para o conjunto de um. 
 
@@ -133,19 +133,19 @@ Esta tabela contém as configurações básicas usadas para o monitor de conjunt
 | ------- | ----------- | ---- | ------- | 
 | Nome | Nome do monitor de DataSet. | | Não |
 | Conjunto de linha de base | Conjunto de tabelas que será usado como a linha de base para comparação do conjunto de origem de destino ao longo do tempo. | O conjunto de linha de base deve ter recursos em comum com o DataSet de destino. Em geral, a linha de base deve ser definida como um conjunto de linhas de treinamento do modelo ou uma fatia do conjunto de origem de destino. | Não |
-| DataSet de destino | Conjunto de dados tabular com coluna timestamp especificada que será analisada para descompasso | O conjunto de dados de destino deve ter recursos em comum com o conjunto de dados de linha de base e deve ser um conjunto de dados `timeseries` para o qual são anexados novos. Os dados de histórico no DataSet de destino podem ser analisados ou novos dados podem ser monitorados. | Não | 
-| Frequência | Essa é a frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Ajuste essa configuração para incluir um tamanho comparável de dados para a linha de base. | Não | 
-| Funcionalidades | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | Sim | 
+| DataSet de destino | Conjunto de dados de tabela com coluna de carimbo de data/hora especificada que será analisada quanto à descompasso de | O conjunto de dados de destino deve ter recursos em comum com o conjunto de dados de linha de base, e deve ser um conjunto de dados `timeseries`, ao qual novos são anexados. Os dados de histórico no DataSet de destino podem ser analisados ou novos dados podem ser monitorados. | Não | 
+| Frequência | A frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Ajuste essa configuração para incluir um tamanho comparável de dados para a linha de base. | Não | 
+| Funcionalidades | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo. | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | Sim | 
 | Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | Sim | 
 
 ### <a name="monitor-settings"></a>Configurações do monitor
 
-Essas configurações são para o pipeline monitor do conjunto de DataSet agendado que será criado. 
+Essas configurações são para o pipeline monitor do conjunto de DataSet agendado, que será criado. 
 
 | Definição | Descrição | Sugestões | Mutável | 
 | ------- | ----------- | ---- | ------- |
-| Ativar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite-o para analisar dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
-| Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL que meu DataSet encapsula, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
+| Ativar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
+| Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
 | Endereços de e-mail | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
 | Limiar | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim | 
 
@@ -156,7 +156,7 @@ Essas configurações são para executar um aterramento nos dados anteriores par
 | Definição | Descrição | Sugestões |
 | ------- | ----------- | ---- |
 | Data de início | Data de início do trabalho de aterramento. | | 
-| Data de término | Data de término do trabalho de aterramento. | Isso não pode ter mais de 31 * unidades de frequência de tempo a partir da data de início. Em um monitor de conjunto de dados existente, as métricas podem ser repreenchidas para analisar dados históricos ou substituir métricas por configurações atualizadas. |
+| Data de término | Data de término do trabalho de aterramento. | A data de término não pode ter mais de 31 * unidades de frequência de tempo a partir da data de início. Em um monitor de conjunto de dados existente, as métricas podem ser repreenchidas para analisar dados históricos ou substituir métricas por configurações atualizadas. |
 
 ## <a name="create-dataset-monitors"></a>Criar monitores de conjuntos de conjunto 
 
@@ -181,7 +181,7 @@ O monitor do conjunto de resultados resultante será exibido na lista. Selecione
 
 Consulte a [documentação de referência do SDK do Python sobre descompasso de dados](/python/api/azureml-datadrift/azureml.datadrift) para obter detalhes completos. 
 
-Veja a seguir um exemplo de criação de um monitor de conjunto de um DataSet usando o SDK do Python
+O exemplo a seguir mostra como criar um monitor de conjunto de um DataSet usando o SDK do Python
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -252,7 +252,7 @@ A imagem a seguir é um exemplo de gráficos vistos na **visão geral de descomp
 
 A seção **detalhes do recurso** contém informações em nível de recurso sobre a alteração na distribuição do recurso selecionado, bem como outras estatísticas, ao longo do tempo. 
 
-O conjunto de ponto de origem de destino também é criado com o passar do tempo. A distância estatística entre a distribuição de linha de base de cada recurso é comparada com o conjunto de dados de destino ao longo do tempo, o que é conceitualmente semelhante à magnitude da descompasso do dado, com a exceção de que se trata de um recurso individual. Mín., máx. e média também estão disponíveis. 
+O conjunto de ponto de origem de destino também é criado com o passar do tempo. A distância estatística entre a distribuição de linha de base de cada recurso é comparada com o conjunto de dados de destino ao longo do tempo, o que é conceitualmente semelhante à magnitude da descompasso de dados, com a exceção de que essa distância estatística é para um recurso individual. Mín., máx. e média também estão disponíveis. 
 
 No Azure Machine Learning Studio, se você clicar em um ponto de dados no grafo, a distribuição do recurso que está sendo mostrado será ajustada de acordo. Por padrão, ele mostra a distribuição do conjunto de linhas de base e a distribuição da execução mais recente do mesmo recurso. 
 
@@ -295,7 +295,7 @@ Selecione logs (análise) em monitoramento no painel esquerdo:
 
 ![Visão geral do Application insights](media/how-to-monitor-datasets/ai-overview.png)
 
-As métricas do monitor de conjunto de um DataSet são armazenadas como `customMetrics`. Você pode escrever e executar uma consulta simples depois de configurar um monitor de conjunto de um DataSet para exibi-los:
+As métricas do monitor de conjunto de um DataSet são armazenadas como `customMetrics`. Você pode escrever e executar uma consulta depois de configurar um monitor de conjunto de um DataSet para exibi-los:
 
 [![consulta do log Analytics](media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 
@@ -318,12 +318,12 @@ Limitações e problemas conhecidos:
 
 Colunas ou recursos, no conjunto de linhas, são classificados como categóricos ou numéricos com base nas condições na tabela a seguir. Se o recurso não atender a essas condições-por exemplo, uma coluna do tipo cadeia de caracteres com > 100 valores exclusivos-o recurso será descartado de nosso algoritmo de descompasso de dados, mas ainda terá o perfil criado. 
 
-| Tipo de recurso | Data type | Condição | Limitações | 
+| Tipo de recurso | Tipo de dados | condição | Limitações | 
 | ------------ | --------- | --------- | ----------- |
 | Categórico | Cadeia de caracteres, bool, int, float | O número de valores exclusivos no recurso é menor que 100 e menor que 5% do número de linhas. | NULL é tratado como sua própria categoria. | 
-| Numérica | int, float | De um tipo de dados numérico e não atende às condições de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
+| Numérica | int, float | Os valores no recurso são de um tipo de dados numérico e não atendem à condição de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Vá para o [Azure Machine Learning Studio](https://ml.azure.com) ou o [Notebook Python](https://aka.ms/datadrift-notebook) para configurar um monitor de conjunto de um DataSet.
 * Veja como configurar a descompasso de dados em [modelos implantados no serviço kubernetes do Azure](how-to-monitor-data-drift.md).

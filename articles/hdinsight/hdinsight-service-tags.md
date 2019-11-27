@@ -44,7 +44,7 @@ Para descobrir quais marcas de serviço adicionar para sua região, leia as seç
 
 Se você preferir a opção de marca de serviço dois, e o cluster estiver localizado em uma das regiões listadas nesta tabela, você só precisará adicionar uma única marca de serviço regional ao seu grupo de segurança de rede.
 
-| País | Região | Marca de serviço |
+| Country | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 | &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
@@ -83,19 +83,19 @@ Por exemplo, se o cluster for criado na região de `East US 2`, você precisará
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| País | Região | Marca de serviço |
+| Country | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Estados Unidos | EUA Leste 2 | HDInsight. EastUS2 |
 | &nbsp; | EUA Central | HDInsight. Centralus |
 | &nbsp; | NorthCentral nós | HDInsight. NorthCentralUS |
 | &nbsp; | EUA Centro-Sul | HDInsight. SouthCentralUS |
-| &nbsp; | EUA Leste | HDInsight. Eastus |
+| &nbsp; | East US | HDInsight. Eastus |
 | &nbsp; | EUA Oeste | HDInsight. Westus |
 | Japão | Leste do Japão | HDInsight. JapanEast |
 | Europa | Europa do Norte | HDInsight. NorthEurope |
-| &nbsp; | Europa ocidental| HDInsight. WestEurope |
+| &nbsp; | Europa Ocidental| HDInsight. WestEurope |
 | Ásia | Ásia Oriental | HDInsight. EastAsia |
-| &nbsp; | Sudeste asiático | HDInsight. SoutheastAsia |
+| &nbsp; | Sudeste Asiático | HDInsight. SoutheastAsia |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 
 #### <a name="group-2"></a>Grupo 2
@@ -110,7 +110,7 @@ Os clusters nas regiões de **US gov Iowa** e **US gov-Virgínia**precisam permi
 
 Os clusters nas regiões da **Alemanha central** e da **Alemanha nordeste**precisam permitir duas marcas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNorthEast`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Grupos de segurança de rede – marcas de serviço](../virtual-network/security-overview.md#security-rules)
 * [Criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md)

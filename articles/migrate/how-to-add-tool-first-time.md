@@ -81,6 +81,6 @@ Em algumas circunstâncias, talvez seja necessário criar projetos adicionais de
 3. Em **configurações**, selecione **clique aqui para criar um novo projeto**.
 4. Crie um novo projeto e adicione uma nova ferramenta, conforme descrito no procedimento anterior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como adicionar ferramentas adicionais de [avaliação](how-to-assess.md) e [migração](how-to-migrate.md) . 

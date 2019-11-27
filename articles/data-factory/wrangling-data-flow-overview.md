@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e36cc044e6a4160d16f15b93d8a88d946f476c89
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287105"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531382"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
 
@@ -44,7 +44,7 @@ Examine visualmente seus dados de forma livre de código para remover exceções
 | -- | -- | --|
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave da Conta |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | CSV | Principal de Serviço |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Chave de conta, entidade de serviço |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | CSV | Chave de conta, entidade de serviço |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
 | [Análise de Synapse do Azure](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
 
@@ -62,6 +62,6 @@ Para obter mais informações sobre as transformações com suporte, consulte [f
 
 Atualmente, o fluxo de dados Wrangling só dá suporte à gravação em um coletor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [criar um fluxo de dados do Wrangling](wrangling-data-flow-tutorial.md).

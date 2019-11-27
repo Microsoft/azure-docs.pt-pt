@@ -1,6 +1,6 @@
 ---
-title: Durable functions billing - Azure Functions
-description: Learn about the internal behaviors of Durable Functions and how they affect billing for Azure Functions.
+title: Cobrança de funções duráveis-Azure Functions
+description: Saiba mais sobre os comportamentos internos de Durable Functions e como eles afetam a cobrança de Azure Functions.
 author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
@@ -12,45 +12,45 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233003"
 ---
-# <a name="durable-functions-billing"></a>Durable Functions billing
+# <a name="durable-functions-billing"></a>Cobrança de Durable Functions
 
-[Durable Functions](durable-functions-overview.md) is billed the same way as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+[Durable Functions](durable-functions-overview.md) é cobrado da mesma maneira que Azure functions. Para obter mais informações, consulte [preços de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-When executing orchestrator functions in Azure Functions [Consumption plan](../functions-scale.md#consumption-plan), you need to be aware of some billing behaviors. The following sections describe these behaviors and their effect in more detail.
+Ao executar funções de orquestrador no [plano de consumo](../functions-scale.md#consumption-plan)Azure functions, você precisa estar ciente de alguns comportamentos de cobrança. As seções a seguir descrevem esses comportamentos e seus efeitos em mais detalhes.
 
-## <a name="orchestrator-function-replay-billing"></a>Orchestrator function replay billing
+## <a name="orchestrator-function-replay-billing"></a>Cobrança de reprodução de função de orquestrador
 
-[Orchestrator functions](durable-functions-orchestrations.md) might replay several times throughout the lifetime of an orchestration. Each replay is viewed by the Azure Functions runtime as a distinct function invocation. For this reason, in the Azure Functions Consumption plan you're billed for each replay of an orchestrator function. Other plan types don't charge for orchestrator function replay.
+As [funções de orquestrador](durable-functions-orchestrations.md) podem ser reproduzidas várias vezes durante o tempo de vida de uma orquestração. Cada repetição é exibida pelo tempo de execução de Azure Functions como uma invocação de função distinta. Por esse motivo, no plano de consumo de Azure Functions, você será cobrado por cada repetição de uma função de orquestrador. Outros tipos de plano não cobram pela reprodução da função do Orchestrator.
 
-## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Awaiting and yielding in orchestrator functions
+## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Aguardando e produzindo em funções de orquestrador
 
-When an orchestrator function waits for an asynchronous action to finish by using **await** in C# or **yield** in JavaScript, the runtime considers that particular execution to be finished. The billing for the orchestrator function stops at that point. It doesn't resume until the next orchestrator function replay. You aren't billed for any time spent awaiting or yielding in an orchestrator function.
+Quando uma função de orquestrador aguarda a conclusão de uma ação assíncrona usando **Await** em C# ou **yield** em JavaScript, o tempo de execução considera que a execução específica será concluída. A cobrança da função de orquestrador é interrompida nesse ponto. Ele não é retomado até a próxima reprodução da função de orquestrador. Você não é cobrado por nenhum tempo gasto aguardando ou produzindo em uma função de orquestrador.
 
 > [!NOTE]
-> Functions calling other functions is considered by some to be an antipattern. This is because of a problem known as _double billing_. When a function calls another function directly, both run at the same time. The called function is actively running code while the calling function is waiting for a response. In this case, you must pay for the time the calling function spends waiting for the called function to run.
+> As funções que chamam outras funções são consideradas como um antipadrão. Isso ocorre devido a um problema conhecido como _cobrança dupla_. Quando uma função chama outra função diretamente, ambas são executadas ao mesmo tempo. A função chamada está executando o código ativamente enquanto a função de chamada está aguardando uma resposta. Nesse caso, você deve pagar pelo tempo que a função de chamada gasta aguardando a execução da função chamada.
 >
-> There is no double billing in orchestrator functions. An orchestrator function's billing stops while it waits for the result of an activity function or sub-orchestration.
+> Não há nenhuma cobrança dupla nas funções de orquestrador. A cobrança de uma função de orquestrador é interrompida enquanto aguarda o resultado de uma função de atividade ou de uma suborquestração.
 
-## <a name="durable-http-polling"></a>Durable HTTP polling
+## <a name="durable-http-polling"></a>Sondagem de HTTP durável
 
-Orchestrator functions can make long-running HTTP calls to external endpoints as described in the [HTTP features article](durable-functions-http-features.md). The **CallHttpAsync** method in C# and the **callHttp** method in JavaScript might internally poll an HTTP endpoint while following the [asynchronous 202 pattern](durable-functions-http-features.md#http-202-handling).
+As funções de orquestrador podem fazer chamadas HTTP de longa execução para pontos de extremidade externos, conforme descrito no [artigo recursos http](durable-functions-http-features.md). O método **CallHttpAsync** no C# e o método **callHttp** no JavaScript podem sondar internamente um ponto de extremidade HTTP enquanto segue o [padrão assíncrono 202](durable-functions-http-features.md#http-202-handling).
 
-There currently isn't direct billing for internal HTTP polling operations. However, internal polling might cause the orchestrator function to periodically replay. You'll be billed standard charges for these internal function replays.
+Atualmente, não há uma cobrança direta para operações internas de sondagem HTTP. No entanto, a sondagem interna pode fazer com que a função de orquestrador reproduza periodicamente. Você será cobrado pelas cobranças padrão por essas repetições de função internas.
 
-## <a name="azure-storage-transactions"></a>Azure Storage transactions
+## <a name="azure-storage-transactions"></a>Transações de armazenamento do Azure
 
-Durable Functions uses Azure Storage by default to keep state persistent, process messages, and manage partitions via blob leases. Because you own this storage account, any transaction costs are billed to your Azure subscription. For more information about the Azure Storage artifacts used by Durable Functions, see the [Task hubs article](durable-functions-task-hubs.md).
+O Durable Functions usa o armazenamento do Azure por padrão para manter o estado persistente, processar mensagens e gerenciar partições por meio de concessões de BLOB. Como você é proprietário dessa conta de armazenamento, qualquer custo de transação é cobrado em sua assinatura do Azure. Para obter mais informações sobre os artefatos de armazenamento do Azure usados pelo Durable Functions, consulte o [artigo hubs de tarefas](durable-functions-task-hubs.md).
 
-Several factors contribute to the actual Azure Storage costs incurred by your Durable Functions app:
+Vários fatores contribuem para os custos reais de armazenamento do Azure incorridos pelo seu aplicativo Durable Functions:
 
-* A single function app is associated with a single task hub, which shares a set of Azure Storage resources. These resources are used by all durable functions in a function app. The actual number of functions in the function app has no effect on Azure Storage transaction costs.
-* Each function app instance internally polls multiple queues in the storage account by using an exponential-backoff polling algorithm. An idle app instance polls the queues less often than does an active app, which results in fewer transaction costs. For more information about Durable Functions queue-polling behavior, see the [queue-polling section of the Performance and Scale article](durable-functions-perf-and-scale.md#queue-polling).
-* When running in the Azure Functions Consumption or Premium plans, the [Azure Functions scale controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) regularly polls all task-hub queues in the background. If a function app is under light to moderate scale, only a single scale controller instance will poll these queues. If the function app scales out to a large number of instances, more scale controller instances might be added. These additional scale controller instances can increase the total queue-transaction costs.
-* Each function app instance competes for a set of blob leases. These instances will periodically make calls to the Azure Blob service either to renew held leases or to attempt to acquire new leases. The task hub's configured partition count determines the number of blob leases. Scaling out to a larger number of function app instances likely increases the Azure Storage transaction costs associated with these lease operations.
+* Um único aplicativo de funções é associado a um único Hub de tarefas, que compartilha um conjunto de recursos de armazenamento do Azure. Esses recursos são usados por todas as funções duráveis em um aplicativo de funções. O número real de funções no aplicativo de funções não tem efeito sobre os custos de transação do armazenamento do Azure.
+* Cada instância do aplicativo de funções sonda internamente várias filas na conta de armazenamento usando um algoritmo de sondagem de retirada exponencial. Uma instância de aplicativo ociosa sonda as filas com menos frequência do que um aplicativo ativo, o que resulta em menos custos de transação. Para obter mais informações sobre Durable Functions comportamento de sondagem de fila, consulte a [seção sondagem de fila do artigo desempenho e escala](durable-functions-perf-and-scale.md#queue-polling).
+* Durante a execução nos planos de consumo Azure Functions ou Premium, o [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sonda regularmente todas as filas do hub de tarefas em segundo plano. Se um aplicativo de funções estiver sob uma escala moderada, apenas uma única instância do controlador de escala sondará essas filas. Se o aplicativo de funções for dimensionado para um grande número de instâncias, mais instâncias do controlador de escala poderão ser adicionadas. Essas instâncias adicionais do controlador de escala podem aumentar os custos totais da transação de fila.
+* Cada instância do aplicativo de funções compete para um conjunto de concessões de BLOB. Essas instâncias farão periodicamente chamadas para o serviço blob do Azure para renovar concessões mantidas ou para tentar adquirir novas concessões. A contagem de partições configuradas do hub de tarefas determina o número de concessões de BLOB. Expandir para um número maior de instâncias do aplicativo de funções provavelmente aumenta os custos de transação do armazenamento do Azure associados a essas operações de concessão.
 
-You can find more information on Azure Storage pricing in the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) documentation. 
+Você pode encontrar mais informações sobre preços do armazenamento do Azure na documentação de [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) . 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/)
+> [Saiba mais sobre preços de Azure Functions](https://azure.microsoft.com/pricing/details/functions/)

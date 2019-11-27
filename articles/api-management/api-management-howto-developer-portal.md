@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure API Management developer portal - Azure API Management | Microsoft Docs
-description: Learn about the developer portal in API Management.
+title: Visão geral do portal do desenvolvedor de gerenciamento de API do Azure – gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre o portal do desenvolvedor no gerenciamento de API.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -19,123 +19,123 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454402"
 ---
-# <a name="azure-api-management-developer-portal-overview"></a>Azure API Management developer portal overview
+# <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal do desenvolvedor do gerenciamento de API do Azure
 
-Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
+O portal do desenvolvedor é um site da Web, totalmente personalizado e gerado com a documentação de suas APIs. É aí que os consumidores de API podem descobrir suas APIs, saber como usá-las, solicitar acesso e experimentá-las.
 
-This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
+Este artigo descreve as diferenças entre as versões autohospedadas e gerenciadas do portal do desenvolvedor no gerenciamento de API. Ele também explica sua arquitetura e fornece respostas para perguntas frequentes.
 
 > [!WARNING]
 >
-> [Learn how to migrate from the preview version to the generally available version](#preview-to-ga) of the developer portal.
+> [Saiba como migrar da versão de visualização para a versão disponível](#preview-to-ga) do portal do desenvolvedor.
 
-![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
+![Portal do desenvolvedor de gerenciamento de API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
+## <a name="managed-vs-self-hosted"></a>Versões gerenciadas e auto-hospedadas
 
-You can build your developer portal in two ways:
+Você pode criar seu portal do desenvolvedor de duas maneiras:
 
-- **Managed version** - by editing and customizing the portal, which is built into your API Management instance and is accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize the managed portal.
-- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. You also need to upgrade the portal to the latest version yourself. For details and instructions, refer to the [GitHub repository with the source code of the portal][1]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is also featured in the self-hosted version.
+- **Versão gerenciada** – editando e personalizando o portal, que é incorporado à sua instância de gerenciamento de API e pode ser acessado por meio da URL `<your-api-management-instance-name>.developer.azure-api.net`. Consulte [Este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como acessar e personalizar o portal gerenciado.
+- **Versão hospedada internamente** – Implantando e hospedando internamente seu portal fora de uma instância de gerenciamento de API. Essa abordagem permite que você edite a base de código do portal e estenda a funcionalidade básica fornecida. Você também precisa atualizar o portal para a versão mais recente por conta própria. Para obter detalhes e instruções, consulte o [repositório do GitHub com o código-fonte do portal][1]. O [tutorial para a versão gerenciada](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que também está em destaque na versão hospedada internamente.
 
-## <a name="portal-architectural-concepts"></a>Portal architectural concepts
+## <a name="portal-architectural-concepts"></a>Conceitos de arquitetura do portal
 
-The portal components can be logically divided into two categories: *code* and *content*.
+Os componentes do portal podem ser divididos logicamente em duas categorias: *código* e *conteúdo*.
 
-*Code* is maintained in [the GitHub repository][1] and includes:
+O *código* é mantido no [repositório do GitHub][1] e inclui:
 
-- Widgets - which represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
-- Styling definitions - which specify how widgets can be styled
-- Engine - which generates static webpages from portal content and is written in JavaScript
-- Visual editor - which allows for in-browser customization and authoring experience
+- Widgets – que representam elementos visuais e combinam HTML, JavaScript, capacidade de estilo, configurações e mapeamento de conteúdo. Os exemplos são uma imagem, um parágrafo de texto, um formulário, uma lista de APIs etc.
+- Definições de estilo – que especificam como os widgets podem ser estilizados
+- Mecanismo – que gera páginas da Web estáticas do conteúdo do portal e é escrito em JavaScript
+- Editor visual – que permite a experiência de criação e personalização no navegador
 
-*Content* is divided into two subcategories: *portal content* and *API Management content*.
+O *conteúdo* é dividido em duas subcategorias: conteúdo do *portal* e conteúdo de *Gerenciamento de API*.
 
-*Portal content* is specific to the portal and includes:
+O *conteúdo do portal* é específico para o portal e inclui:
 
-- Pages - for example, landing page, API tutorials, blog posts
-- Media - images, animations, and other file-based content
-- Layouts - templates, which are matched against a URL and define how pages are displayed
-- Styles - values for styling definitions, e.g. fonts, colors, borders
-- Settings - configuration, e.g. favicon, website metadata
+- Páginas-por exemplo, página de aterrissagem, tutoriais de API, Postagens de blog
+- Mídia-imagens, animações e outros conteúdos com base em arquivo
+- Layouts-modelos, que são correspondidos em uma URL e definem como as páginas são exibidas
+- Estilos – valores para definições de estilo, por exemplo, fontes, cores, bordas
+- Configurações-configuração, por exemplo, favicon, metadados do site
 
-*Portal content*, except for media, is expressed as JSON documents.
+O *conteúdo do portal*, exceto para mídia, é expresso como documentos JSON.
 
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
+O *conteúdo de gerenciamento de API* inclui entidades como APIs, operações, produtos, assinaturas.
 
-The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (for example, a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
+O portal é baseado em uma bifurcação adaptada da [estrutura Paperbits](https://paperbits.io/). A funcionalidade original do Paperbits foi estendida para fornecer widgets específicos de gerenciamento de API (por exemplo, uma lista de APIs, uma lista de produtos) e um conector para o serviço de gerenciamento de API para salvar e recuperar conteúdo.
 
-## <a name="faq"></a> Frequently asked questions
+## <a name="faq"></a>Perguntas frequentes
 
-In this section, we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
+Nesta seção, respondemos a perguntas comuns sobre o novo portal do desenvolvedor, que são de natureza geral. Para perguntas específicas para a versão hospedada internamente, consulte [a seção wiki do repositório do GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> How can I migrate from the preview version of the portal?
+### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> como posso migrar da versão de visualização do portal?
 
-By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
+Usando a versão de visualização do portal do desenvolvedor, você provisionou o conteúdo de visualização em seu serviço de gerenciamento de API. O conteúdo padrão foi modificado significativamente na versão disponível para melhor experiência do usuário. Ele também inclui novos widgets.
 
-If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content. The portal's engine has been automatically updated in your API Management service.
+Se você estiver usando a versão gerenciada, redefina o conteúdo do portal clicando em **Redefinir Conteúdo** na seção do menu **operações** . A confirmação dessa operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. O mecanismo do portal foi atualizado automaticamente no serviço de gerenciamento de API.
 
-![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
+![Redefinir o conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
-If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content. Make sure you upgrade your portal's code to the latest release from the GitHub repository beforehand.
+Se você estiver usando a versão hospedada internamente, use o `scripts/cleanup.bat` e `scripts/generate.bat` do repositório GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
 
-If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
+Se não quiser redefinir o conteúdo do portal, você pode considerar o uso de widgets disponíveis recentemente em todas as páginas. Os widgets existentes foram atualizados automaticamente para as versões mais recentes.
 
-If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
+Se o portal foi provisionado após o comunicado de disponibilidade geral, ele já deve apresentar o novo conteúdo padrão. Nenhuma ação é necessária do seu lado.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>How can I migrate from the old developer portal to the new developer portal?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>Como posso migrar do portal do desenvolvedor antigo para o novo portal do desenvolvedor?
 
-Portals are incompatible and you need to migrate the content manually.
+Os portais são incompatíveis e você precisa migrar o conteúdo manualmente.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>Does the new portal have all the features of the old portal?
+### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>O novo portal tem todos os recursos do portal antigo?
 
-The new developer portal doesn't support *Applications* and *Issues*. If you have used *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
+O novo portal do desenvolvedor não dá suporte a *aplicativos* e *problemas*. Se você tiver usado *problemas* no portal antigo e precisar deles em um novo, poste um comentário em [um problema dedicado do GitHub](https://github.com/Azure/api-management-developer-portal/issues/122).
 
-Authentication with OAuth in the interactive developer console is not yet supported. You can track the progress through [the GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/208).
+Ainda não há suporte para a autenticação com OAuth no console interativo do desenvolvedor. Você pode acompanhar o progresso por meio [do problema do GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
 
-### <a name="has-the-old-portal-been-deprecated"></a>Has the old portal been deprecated?
+### <a name="has-the-old-portal-been-deprecated"></a>O portal antigo foi preterido?
 
-The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. As novas funcionalidades só serão implementadas no novo portal do programador.
+Os portais antigos do desenvolvedor e do Publicador agora são recursos *herdados* . eles receberão apenas atualizações de segurança. As novas funcionalidades só serão implementadas no novo portal do programador.
 
-Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
+A substituição dos portais herdados será anunciada separadamente. Se você tiver dúvidas, preocupações ou comentários, gere-os [em um problema dedicado do GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
 
-### <a name="how-can-i-automate-portal-deployments"></a>How can I automate portal deployments?
+### <a name="how-can-i-automate-portal-deployments"></a>Como posso automatizar as implantações do portal?
 
-You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
+Você pode acessar e gerenciar programaticamente o conteúdo do portal do desenvolvedor por meio da API REST, independentemente de estar usando uma versão gerenciada ou hospedada internamente.
 
-The API is documented in [the GitHub repository's wiki section][2]. It can also be used for automating migrations of portal content between environments - for example from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
+A API está documentada na [seção wiki do repositório do GitHub][2]. Ele também pode ser usado para automatizar migrações de conteúdo do portal entre ambientes, por exemplo, de um ambiente de teste para o ambiente de produção. Você pode saber mais sobre esse processo [neste artigo de documentação](https://aka.ms/apimdocs/migrateportal) sobre o github.
 
-### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
+### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>O portal dá suporte a modelos de Azure Resource Manager e/ou é compatível com o DevOps Resource Kit de gerenciamento de API?
 
 Não.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Do I need to enable additional VNet connectivity for the new managed portal dependencies?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Preciso habilitar conectividade VNet adicional para as novas dependências do portal gerenciado?
 
-In most cases - no.
+Na maioria dos casos, não.
 
-If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+Se o serviço de gerenciamento de API estiver em uma VNet interna, o portal do desenvolvedor só poderá ser acessado de dentro da rede. O nome do host do ponto de extremidade de gerenciamento deve ser resolvido para o VIP interno do serviço do computador que você usa para acessar a interface administrativa do Portal. Verifique se o ponto de extremidade de gerenciamento está registrado no DNS. No caso de uma configuração incorreta, você verá um erro: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>I have assigned a custom API Management domain and the published portal doesn't work
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>Atribuí um domínio de gerenciamento de API personalizado e o portal publicado não funciona
 
-After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+Depois de atualizar o domínio, você precisará [republicar o portal](api-management-howto-developer-portal-customize.md#publish) para que as alterações entrem em vigor.
 
-### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>I have added an identity provider and I can't see it in the portal
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>Adicionei um provedor de identidade e não consigo vê-lo no portal
 
-After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+Depois de configurar um provedor de identidade (por exemplo, AAD, AAD B2C), você precisará [republicar o portal](api-management-howto-developer-portal-customize.md#publish) para que as alterações entrem em vigor.
 
-### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>I have set up delegation and the portal doesn't use it
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>Configurei a delegação e o portal não a utiliza
 
-After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+Depois de configurar a delegação, você precisará [republicar o portal](api-management-howto-developer-portal-customize.md#publish) para que as alterações entrem em vigor.
 
-### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>My other API Management configuration changes haven't been propagated in the developer portal
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>Minhas outras alterações de configuração de gerenciamento de API não foram propagadas no portal do desenvolvedor
 
-Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
+A maioria das alterações de configuração (por exemplo, VNet, entrada e termos do produto) requer [a republicação do portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>I'm getting a CORS error when using the interactive console
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>Estou recebendo um erro de CORS ao usar o console interativo
 
-The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s). You can specify all the parameters manually or use wildcard `*` values. Por exemplo:
+O console interativo faz uma solicitação de API do lado do cliente do navegador. Você pode resolver o problema de CORS adicionando [uma política de CORS](api-management-cross-domain-policies.md#CORS) em suas API (s). Você pode especificar todos os parâmetros manualmente ou usar valores de `*` curinga. Por exemplo:
 
 ```XML
 <cors>
@@ -163,19 +163,19 @@ The interactive console makes a client-side API request from the browser. You ca
 
 > [!NOTE]
 > 
-> If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
+> Se você aplicar a política CORS no escopo do produto, em vez do escopo de API (s), e sua API usar a autenticação de chave de assinatura por meio de um cabeçalho, o console não funcionará.
 >
-> The browser automatically issues an OPTIONS HTTP request, which doesn’t contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can’t apply the CORS policy.
+> O navegador emite automaticamente uma solicitação HTTP OPTIONS, que não contém um cabeçalho com a chave de assinatura. Devido à chave de assinatura ausente, o gerenciamento de API não pode associar a chamada de opções a um produto, portanto, ele não pode aplicar a política CORS.
 >
-> As a workaround you can pass the subscription key in a query parameter.
+> Como alternativa, você pode passar a chave de assinatura em um parâmetro de consulta.
 
-### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>What permissions do I need to edit the developer portal?
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quais permissões preciso para editar o portal do desenvolvedor?
 
-If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC).
+Se você estiver vendo o erro de `Oops. Something went wrong. Please try again later.` ao abrir o portal no modo administrativo, talvez você não esteja perdendo as permissões necessárias (RBAC).
 
-The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+Os portais herdados exigiam a permissão `Microsoft.ApiManagement/service/getssotoken/action` no escopo do serviço (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) para permitir que o administrador do usuário acesse os portais. O novo portal requer a permissão `Microsoft.ApiManagement/service/users/token/action` no `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`do escopo.
 
-You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
+Você pode usar o seguinte script do PowerShell para criar uma função com a permissão necessária. Lembre-se de alterar o parâmetro `<subscription-id>`. 
 
 ```PowerShell
 #New Portals Admin Role 
@@ -193,33 +193,33 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure portal. Assigning this role to a user will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service. At the minimum, this role needs to be assigned to the administrator of the service. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
+Depois que a função é criada, ela pode ser concedida a qualquer usuário da seção de **controle de acesso (iam)** no portal do Azure. A atribuição dessa função a um usuário atribuirá a permissão no escopo do serviço. O usuário poderá gerar tokens SAS em nome de *qualquer* usuário no serviço. No mínimo, essa função precisa ser atribuída ao administrador do serviço. O comando do PowerShell a seguir demonstra como atribuir a função a um usuário `user1` no escopo mais baixo para evitar conceder permissões desnecessárias ao usuário: 
 
 ```PowerShell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 
-After the permissions have been granted to a user, the user must sign out and sign in again to the Azure portal for the new permissions to take effect.
+Depois que as permissões tiverem sido concedidas a um usuário, o usuário deverá sair e entrar novamente no portal do Azure para que as novas permissões entrem em vigor.
 
-### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>I'm seeing the `Unable to start the portal. See if settings are specified correctly (...)` error
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Estou vendo o erro de `Unable to start the portal. See if settings are specified correctly (...)`
 
-This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
+Esse erro é mostrado quando uma chamada de `GET` para `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` falha. A chamada é emitida pelo navegador pela interface administrativa do Portal.
 
-If your API Management service is in a VNet - refer to the VNet connectivity question above.
+Se o serviço de gerenciamento de API estiver em uma VNet, consulte a pergunta de conectividade de VNet acima.
 
-The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
+A falha de chamada também pode ser causada por um certificado SSL, que é atribuído a um domínio personalizado e não é confiável para o navegador. Como uma mitigação, você pode remover o ponto de extremidade de gerenciamento domínio personalizado-o gerenciamento de API voltará ao ponto de extremidade padrão com um certificado confiável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Learn more about the new developer portal:
+Saiba mais sobre o novo portal do desenvolvedor:
 
-- [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
-- [Set up self-hosted version of the portal][2]
+- [Acessar e personalizar o portal do desenvolvedor gerenciado](api-management-howto-developer-portal-customize.md)
+- [Configurar a versão hospedada internamente do portal][2]
 
-Browse other resources:
+Procurar outros recursos:
 
-- [GitHub repository with the source code][1]
-- [Public roadmap of the project][3]
+- [Repositório GitHub com o código-fonte][1]
+- [Roteiro público do projeto][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki

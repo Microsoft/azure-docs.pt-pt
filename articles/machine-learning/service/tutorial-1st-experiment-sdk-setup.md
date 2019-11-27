@@ -90,7 +90,7 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
 1. Depois que a VM estiver disponível, ela será exibida na barra de ferramentas superior.  Agora você pode executar o bloco de anotações usando **executar tudo** na barra de ferramentas ou usando **Shift + Enter** nas células de código do bloco de anotações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você concluiu estas tarefas:
 

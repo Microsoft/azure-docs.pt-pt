@@ -87,7 +87,7 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
         ---|---|---
         Formato de arquivo|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitados
         Delimitador|Um ou mais caracteres para especificar o limite entre&nbsp; regiões separadas e independentes em texto sem formatação ou outros fluxos de dados. |Pontos
-        Codificação|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
+        Encoding|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
         Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhum
 
@@ -209,7 +209,7 @@ Exclua apenas a instância de implantação do Azure Machine Learning Studio, se
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você usou o Azure Machine Learning Studio para criar e implantar um modelo de classificação. Consulte estes artigos para obter mais informações e as próximas etapas:
 

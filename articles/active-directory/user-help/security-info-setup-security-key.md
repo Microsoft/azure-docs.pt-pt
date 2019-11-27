@@ -148,7 +148,7 @@ Você pode criar um novo PIN de chave de segurança para sua chave de segurança
 
 Para registrar uma chave de segurança, você deve ter pelo menos um método de verificação de segurança adicional registrado. Consulte a [seção visão geral](security-info-add-update-methods-overview.md) para obter mais informações. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre métodos de verificação com senha, leia o [Microsoft Azure ad começa a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o artigo o [que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md) e os artigos de [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 

@@ -106,5 +106,5 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 > Após a operação de movimentação, as soluções removidas e o link da conta de automação devem ser reconfigurados para colocar o espaço de trabalho de volta ao estado anterior.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](../../azure-resource-manager/move-support-resources.md).

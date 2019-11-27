@@ -1,7 +1,7 @@
 ---
-title: 'Assign Data to Cluster: Module Reference'
+title: 'Atribuir dados ao cluster: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning to score clustering model.
+description: Saiba como usar o módulo atribuir dados ao cluster em Azure Machine Learning para pontuar o modelo de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,36 +16,36 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214557"
 ---
-# <a name="module-assign-data-to-clusters"></a>Module: Assign Data to Clusters
+# <a name="module-assign-data-to-clusters"></a>Módulo: atribuir dados a clusters
 
-This article describes how to use the *Assign Data to Clusters* module in Azure Machine Learning designer (preview). The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
+Este artigo descreve como usar o módulo *atribuir dados a clusters* no designer de Azure Machine Learning (versão prévia). O módulo gera previsões por meio de um modelo de clustering que foi treinado com o algoritmo de *clustering K-* means.
 
-The Assign Data to Clusters module returns a dataset that contains the probable assignments for each new data point. 
+O módulo atribuir dados a clusters retorna um DataSet que contém as atribuições prováveis para cada novo ponto de dados. 
 
-## <a name="how-to-use-assign-data-to-clusters"></a>How to use Assign Data to Clusters
+## <a name="how-to-use-assign-data-to-clusters"></a>Como usar atribuir dados a clusters
   
-1. In Azure Machine Learning designer, locate a previously trained clustering model. You can create and train a clustering model by using either of the following methods:  
+1. No Azure Machine Learning designer, localize um modelo de clustering treinado anteriormente. Você pode criar e treinar um modelo de clustering usando um dos seguintes métodos:  
   
-    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) module, and train the model by using a dataset and the Train Clustering Model module (this article).  
+    - Configure o algoritmo de clustering K-means usando o módulo de [clustering k-](k-means-clustering.md) means e treine o modelo usando um conjunto de um DataSet e o módulo treinar modelo de clustering (este artigo).  
   
-    - You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
+    - Você também pode adicionar um modelo de clustering treinado existente do grupo **modelos salvos** em seu espaço de trabalho.
 
-2. Attach the trained model to the left input port of **Assign Data to Clusters**.  
+2. Anexe o modelo treinado à porta de entrada à esquerda de **atribuir dados a clusters**.  
 
-3. Attach a new dataset as input. 
+3. Anexe um novo conjunto de dados como entrada. 
 
-   In this dataset, labels are optional. Generally, clustering is an unsupervised learning method. You are not expected to know the categories in advance. However, the input columns must be the same as the columns that were used in training the clustering model, or an error occurs.
+   Nesse conjunto de DataSet, os rótulos são opcionais. Em geral, o clustering é um método de aprendizado não supervisionado. Você não deve conhecer as categorias com antecedência. No entanto, as colunas de entrada devem ser iguais às colunas usadas no treinamento do modelo de clustering ou ocorre um erro.
 
     > [!TIP]
-    > To reduce the number of columns that are written to the designer from the cluster predictions, use [Select columns in the dataset](select-columns-in-dataset.md), and select a subset of the columns. 
+    > Para reduzir o número de colunas que são gravadas no designer de previsões de cluster, use [selecionar colunas no conjunto](select-columns-in-dataset.md)de linhas e selecione um subconjunto das colunas. 
     
-4. Leave the **Check for append or uncheck for result only** check box selected if you want the results to contain the full input dataset, including a column that displays the results (cluster assignments).
+4. Deixe a caixa de seleção **Marcar para acrescentar ou desmarcar para resultado somente** marcada se desejar que os resultados contenham o conjunto de dados de entrada completo, incluindo uma coluna que exibe os resultados (atribuições de cluster).
   
-    If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
+    Se você desmarcar essa caixa de seleção, somente os resultados serão retornados. Essa opção pode ser útil quando você cria previsões como parte de um serviço Web.
   
 5.  Executar o pipeline.  
   
 ### <a name="results"></a>Resultados
 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
++  Para exibir os valores no conjunto de linhas, clique com o botão direito do mouse no módulo, selecione **resultado conjuntos de resultados**e, em seguida, selecione **Visualizar**.
 

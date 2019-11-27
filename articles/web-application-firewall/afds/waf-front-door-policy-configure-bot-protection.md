@@ -33,6 +33,6 @@ Crie uma política de WAF básica para a porta frontal seguindo as instruções 
     
    ![Regra de proteção de bot](.././media/waf-front-door-configure-bot-protection/botprotect2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [monitorar o WAF](waf-front-door-monitor.md).

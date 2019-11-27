@@ -83,5 +83,5 @@ Update-AzFrontDoorFireWallPolicy `
 -CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o [Firewall do aplicativo Web com a porta frontal do Azure](../afds/afds-overview.md)

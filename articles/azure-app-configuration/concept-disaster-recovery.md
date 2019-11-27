@@ -68,7 +68,7 @@ Para automatizar esse processo de exportação, use o CLI do Azure. O comando a 
 
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu a aumentar seu aplicativo para obter resiliência geográfica durante o tempo de execução para a configuração do aplicativo. Você também pode inserir dados de configuração da configuração do aplicativo no momento da compilação ou implantação. Para obter mais informações, consulte [integrar com um pipeline de CI/CD](./integrate-ci-cd-pipeline.md).
 

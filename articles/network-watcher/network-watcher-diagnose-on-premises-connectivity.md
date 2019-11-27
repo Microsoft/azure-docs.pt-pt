@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275945"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531819"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio de gateways de VPN
 
@@ -42,7 +42,7 @@ Você deseja configurar uma conexão site a site entre o Azure e o local usando 
 
 As diretrizes detalhadas passo a passo para configurar uma configuração site a site podem ser encontradas visitando: [criar uma VNet com uma conexão site a site usando o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-Uma das etapas de configuração críticas é configurar os parâmetros de comunicação IPsec, qualquer configuração incorreta leva à perda de conectividade entre a rede local e o Azure. Atualmente, os gateways de VPN do Azure são configurados para dar suporte aos seguintes parâmetros IPsec para a fase 1. Observe que, como mencionado anteriormente, essas configurações não podem ser modificadas.  Como você pode ver na tabela abaixo, os algoritmos de criptografia com suporte do gateway de VPN do Azure são AES256, AES128 e 3DES.
+Uma das etapas de configuração críticas é configurar os parâmetros de comunicação IPsec, qualquer configuração incorreta leva à perda de conectividade entre a rede local e o Azure. Atualmente, os gateways de VPN do Azure são configurados para dar suporte aos seguintes parâmetros IPsec para a fase 1. Como você pode ver na tabela abaixo, os algoritmos de criptografia com suporte do gateway de VPN do Azure são AES256, AES128 e 3DES.
 
 ### <a name="ike-phase-1-setup"></a>Fase 1 da instalação do IKE
 
@@ -53,7 +53,7 @@ Uma das etapas de configuração críticas é configurar os parâmetros de comun
 | Método de autenticação |Chave Pré-partilhada |Chave Pré-partilhada |
 | Algoritmos de Encriptação |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo Hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Duração (Tempo) da Associação de Segurança (SA) da Fase 1 |28 800 segundos |10 800 segundos |
+| Duração (Tempo) da Associação de Segurança (SA) da Fase 1 |28 800 segundos |28 800 segundos |
 
 Como usuário, seria necessário configurar o FortiGate, uma configuração de exemplo pode ser encontrada no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sem saber, você configurou seu FortiGate para usar o SHA-512 como o algoritmo de hash. Como esse algoritmo não é um algoritmo com suporte para conexões baseadas em políticas, sua conexão VPN funciona.
 
@@ -113,7 +113,7 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 | IkePolicyMismatch | O gateway par tem políticas IKE que não são suportadas pelo Azure. | Sim|
 | WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como verificar a conectividade do gateway de VPN com o PowerShell e a automação do Azure visitando [monitorar gateways de VPN com a solução de problemas do observador de rede do Azure](network-watcher-monitor-with-azure-automation.md)
 

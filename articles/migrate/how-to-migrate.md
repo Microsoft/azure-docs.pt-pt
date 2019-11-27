@@ -74,6 +74,6 @@ Para migrar grandes quantidades de dados para o Azure, você pode solicitar um A
 2. Em **selecionar seu Azure data Box**, especifique sua assinatura. 
 3. A transferência será uma importação para o Azure. Especifique a fonte de dados e o destino da região do Azure para os dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente uma migração usando a migração de servidor de migração do Azure para VMs [Hyper-V](tutorial-migrate-hyper-v.md) ou [VMware](tutorial-migrate-vmware.md) .

@@ -60,7 +60,7 @@ Após a conclusão da descoberta, se você forneceu credenciais para a descobert
 
 O inventário de aplicativos é exportado e baixado no formato do Excel. A folha de **inventário de aplicativos** exibe todos os aplicativos descobertos em todos os computadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Crie uma avaliação](how-to-create-assessment.md) para a migração de comparação e de deslocamento dos servidores descobertos.
 - Avaliar um SQL Server bancos de dados usando [migrações para Azure: avaliação de banco de dados](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

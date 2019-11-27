@@ -92,7 +92,7 @@ Siga as instruções neste [artigo](how-to-set-up-appliance-vmware.md) para conf
 
 As migrações para Azure exigem algumas alterações de VM para garantir que as VMs possam ser migradas para o Azure.
 
-- Para alguns sistemas operacionais, as migrações para Azure fazem essas alterações automaticamente. [Saber mais](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
+- Para alguns sistemas operacionais, as migrações para Azure fazem essas alterações automaticamente. [Obter mais informações](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - Se você estiver migrando uma VM que não tem um desses sistemas operacionais, siga as instruções para preparar a VM.
 - É importante fazer essas alterações antes de começar a migração. Se você migrar a VM antes de fazer a alteração, a VM poderá não ser inicializada no Azure.
 - As alterações de configuração feitas em VMs locais são replicadas no Azure depois que a replicação para a VM é habilitada. Para garantir que as alterações sejam replicadas, verifique se o ponto de recuperação que você migra para o é posterior à hora em que as alterações de configuração foram feitas localmente.
@@ -156,8 +156,8 @@ Com a deteção concluída, pode começar a replicação de VMs do VMware no Azu
 6. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
 7. Em **Benefício Híbrido do Azure**:
 
-    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
-    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
+    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Clique depois em **Seguinte**.
+    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Clique depois em **Seguinte**.
 
     ![Configurações de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
@@ -169,7 +169,7 @@ Com a deteção concluída, pode começar a replicação de VMs do VMware no Azu
 
     ![Configurações de computação da VM](./media/tutorial-migrate-vmware/compute-settings.png)
 
-9. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Em seguida, clique em **Seguinte**.
+9. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Clique depois em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
@@ -274,6 +274,6 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 -  Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) na estrutura de adoção de nuvem do Azure.

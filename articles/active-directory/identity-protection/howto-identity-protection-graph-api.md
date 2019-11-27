@@ -141,7 +141,7 @@ Neste ponto, você deve ter:
 
 Para autenticar, envie uma solicitação post para `https://login.microsoft.com` com os seguintes parâmetros no corpo:
 
-- grant_type: “**client_credentials**”
+- grant_type: "**client_credentials**"
 - recurso: `https://graph.microsoft.com`
 - client_id: \<sua ID do cliente\>
 - client_secret: \<sua chave\>
@@ -219,7 +219,7 @@ Quando você acredita que um usuário pode ter sido comprometido, você pode ent
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Parabéns, você acabou de fazer sua primeira chamada para Microsoft Graph!  
 Agora você pode consultar as detecções de risco de identidade e usar os dados, no entanto, se desejar.

@@ -1,6 +1,6 @@
 ---
-title: View privacy-related info from the My Account portal - Azure AD
-description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
+title: Exibir informações relacionadas à privacidade no portal minha conta – Azure AD
+description: Saiba como sua organização usa suas informações relacionadas à privacidade na página de privacidade do portal minha conta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,34 +19,34 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231824"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>View how your organization uses your privacy-related data
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Veja como sua organização usa seus dados relacionados à privacidade
 
-You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
+Você pode exibir como sua organização usa seus dados na página **privacidade** do portal **minha conta** .
 
 ## <a name="view-your-privacy-related-info"></a>Ver as suas informações relacionadas com a privacidade
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
 
-2. Select **Privacy** from the left navigation pane or select the **Review privacy** link from the **Privacy** block.
+2. Selecione **privacidade** no painel de navegação esquerdo ou selecione o link **examinar privacidade** do bloco de **privacidade** .
 
-    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
+    ![Página minha conta, mostrando links de privacidade realçados](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Review the information, including:
+3. Examine as informações, incluindo:
 
-    - **Services.** A list of online services you're connected to using your work or school account.
+    - **Serviços.** Uma lista de serviços online você está conectado a usar sua conta corporativa ou de estudante.
 
-    - **Terms of use**. Your organization's terms of use.
+    - **Termos de uso**. Os termos de uso da sua organização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-After viewing how your organization uses your data, you can:
+Depois de exibir como sua organização usa seus dados, você pode:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- Exiba ou gerencie suas [informações de segurança](user-help-security-info-overview.md).
 
-- View or manage your connected [devices](my-account-portal-devices-page.md).
+- Exiba ou gerencie seus [dispositivos](my-account-portal-devices-page.md)conectados.
 
-- View or manage your [organizations](my-account-portal-organizations-page.md).
+- Exiba ou gerencie suas [organizações](my-account-portal-organizations-page.md).
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 
-- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
+- Você também pode exibir suas preferências de contato relacionadas ao Microsoft Office e informações de privacidade na [página de privacidade do portal do Office, segurança &](https://portal.office.com/account/#security).

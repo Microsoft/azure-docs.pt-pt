@@ -1,6 +1,6 @@
 ---
-title: Developer's Guide to Durable Entities in .NET - Azure Functions
-description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
+title: Guia do desenvolvedor para entidades duráveis no .NET-Azure Functions
+description: Como trabalhar com entidades duráveis no .NET com a extensão Durable Functions para Azure Functions.
 author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
@@ -12,26 +12,26 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231434"
 ---
-# <a name="developers-guide-to-durable-entities-in-net"></a>Developer's guide to durable entities in .NET
+# <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis no .NET
 
-In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
+Neste artigo, descrevemos as interfaces disponíveis para desenvolver entidades duráveis com o .NET em detalhes, incluindo exemplos e conselhos gerais. 
 
-Entity functions provide serverless application developers with a convenient way to organize application state as a collection of fine-grained entities. For more detail about the underlying concepts, see the [Durable Entities: Concepts](durable-functions-entities.md) article.
+As funções de entidade fornecem aos desenvolvedores de aplicativos sem servidor uma maneira conveniente de organizar o estado do aplicativo como uma coleção de entidades refinadas. Para obter mais detalhes sobre os conceitos subjacentes, consulte o artigo [entidades duráveis: conceitos](durable-functions-entities.md) .
 
-We currently offer two APIs for defining entities:
+Atualmente, oferecemos duas APIs para definir entidades:
 
-- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces easily readable code and allows operations to be invoked in a type-checked manner through interfaces. 
+- A **sintaxe baseada em classe** representa entidades e operações como classes e métodos. Essa sintaxe produz um código facilmente legível e permite que as operações sejam invocadas de forma com uma verificação de tipo por meio de interfaces. 
 
-- The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
+- A **sintaxe baseada em função** é uma interface de nível inferior que representa entidades como funções. Ele fornece controle preciso sobre como as operações de entidade são expedidas e como o estado da entidade é gerenciado.  
 
-This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
+Este artigo se concentra principalmente na sintaxe baseada em classe, pois esperamos que seja mais adequado para a maioria dos aplicativos. No entanto, a [sintaxe baseada em função](#function-based-syntax) pode ser apropriada para aplicativos que desejam definir ou gerenciar suas próprias abstrações para estado e operações de entidade. Além disso, pode ser apropriado para implementar bibliotecas que exigem a genericidade que não tem suporte atualmente pela sintaxe baseada em classe. 
 
 > [!NOTE]
-> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application. 
+> A sintaxe baseada em classe é apenas uma camada sobre a sintaxe baseada em função; portanto, ambas as variantes podem ser usadas de maneira intercambiável no mesmo aplicativo. 
  
-## <a name="defining-entity-classes"></a>Defining entity classes
+## <a name="defining-entity-classes"></a>Definindo classes de entidade
 
-The following example is an implementation of a `Counter` entity that stores a single value of type integer, and offers four operations `Add`, `Reset`, `Get`, and `Delete`.
+O exemplo a seguir é uma implementação de uma entidade `Counter` que armazena um único valor do tipo inteiro e oferece quatro operações `Add`, `Reset`, `Get`e `Delete`.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -67,38 +67,38 @@ public class Counter
 }
 ```
 
-The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
+A função `Run` contém o texto clichê necessário para usar a sintaxe baseada em classe. Ele deve ser uma função *estática* do Azure. Ele é executado uma vez para cada mensagem de operação processada pela entidade. Quando `DispatchAsync<T>` é chamado e a entidade ainda não está na memória, ela constrói um objeto do tipo `T` e popula seus campos do último JSON persistente encontrado no armazenamento (se houver). Em seguida, ele invoca o método com o nome correspondente.
 
 > [!NOTE]
-> The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
+> O estado de uma entidade baseada em classe é **criado implicitamente** antes que a entidade processe uma operação e pode ser **excluída explicitamente** em uma operação chamando `Entity.Current.DeleteState()`.
 
-### <a name="class-requirements"></a>Class Requirements
+### <a name="class-requirements"></a>Requisitos de classe
  
-Entity classes are POCOs (plain old CLR objects) that require no special superclasses, interfaces, or attributes. However:
+As classes de entidade são POCOs (objetos antigos do CLR) que não exigem superclasses, interfaces ou atributos especiais. Porém
 
-- The class must be constructible (see [Entity construction](#entity-construction)).
-- The class must be JSON-serializable (see [Entity serialization](#entity-serialization)).
+- A classe deve ser constructible (consulte a [construção da entidade](#entity-construction)).
+- A classe deve ser serializável em JSON (consulte [serialização de entidade](#entity-serialization)).
 
-Also, any method that is intended to be invoked as an operation must satisfy additional requirements:
+Além disso, qualquer método destinado a ser invocado como uma operação deve atender a requisitos adicionais:
 
-- An operation must have at most one argument, and must not have any overloads or generic type arguments.
-- An operation meant to be called from an orchestration using an interface must return `Task` or `Task<T>`.
-- Arguments and return values must be serializable values or objects.
+- Uma operação deve ter no máximo um argumento e não deve ter sobrecargas ou argumentos de tipo genérico.
+- Uma operação destinada a ser chamada de uma orquestração usando uma interface deve retornar `Task` ou `Task<T>`.
+- Os argumentos e os valores de retorno devem ser valores serializáveis ou objetos.
 
-### <a name="what-can-operations-do"></a>What can operations do?
+### <a name="what-can-operations-do"></a>O que as operações podem fazer?
 
-All entity operations can read and update the entity state, and changes to the state are automatically persisted to storage. Moreover, operations can perform external I/O or other computations, within the general limits common to all Azure Functions.
+Todas as operações de entidade podem ler e atualizar o estado da entidade e as alterações no estado são persistidas automaticamente no armazenamento. Além disso, as operações podem executar e/s externa ou outros cálculos, dentro dos limites gerais comuns a todos os Azure Functions.
 
-Operations also have access to functionality provided by the `Entity.Current` context:
+As operações também têm acesso à funcionalidade fornecida pelo contexto de `Entity.Current`:
 
-* `EntityName`: the name of the currently executing entity.
-* `EntityKey`: the key of the currently executing entity.
-* `EntityId`: the ID of the currently executing entity (includes name and key).
-* `SignalEntity`: sends a one-way message to an entity.
-* `CreateNewOrchestration`: starts a new orchestration.
-* `DeleteState`: deletes the state of this entity.
+* `EntityName`: o nome da entidade atualmente em execução.
+* `EntityKey`: a chave da entidade atualmente em execução.
+* `EntityId`: a ID da entidade atualmente em execução (inclui nome e chave).
+* `SignalEntity`: envia uma mensagem unidirecional para uma entidade.
+* `CreateNewOrchestration`: inicia uma nova orquestração.
+* `DeleteState`: exclui o estado desta entidade.
 
-For example, we can modify the counter entity so it starts an orchestration when the counter reaches 100 and passes the entity ID as an input argument:
+Por exemplo, podemos modificar a entidade do contador para que ela inicie uma orquestração quando o contador atingir 100 e passe a ID da entidade como um argumento de entrada:
 
 ```csharp
     public void Add(int amount) 
@@ -111,16 +111,16 @@ For example, we can modify the counter entity so it starts an orchestration when
     }
 ```
 
-## <a name="accessing-entities-directly"></a>Accessing entities directly
+## <a name="accessing-entities-directly"></a>Acessando entidades diretamente
 
-Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
+As entidades baseadas em classe podem ser acessadas diretamente, usando nomes de cadeia de caracteres explícitos para a entidade e suas operações. Fornecemos alguns exemplos abaixo; para obter uma explicação mais detalhada dos conceitos subjacentes (como sinais versus chamadas), consulte a discussão em [entidades de acesso](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
-> Where possible, we recommend [Accessing entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
+> Sempre que possível, é recomendável [acessar entidades por meio de interfaces](#accessing-entities-through-interfaces), pois ela fornece mais verificação de tipo.
 
-### <a name="example-client-signals-entity"></a>Example: client signals entity
+### <a name="example-client-signals-entity"></a>Exemplo: entidade de sinais de cliente
 
-The following Azure Http Function implements a DELETE operation using REST conventions. It sends a delete signal to the counter entity whose key is passed in the URL path.
+A seguinte função http do Azure implementa uma operação de exclusão usando convenções REST. Ele envia um sinal de exclusão para a entidade do contador cuja chave é passada no caminho da URL.
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -135,9 +135,9 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-### <a name="example-client-reads-entity-state"></a>Example: client reads entity state
+### <a name="example-client-reads-entity-state"></a>Exemplo: o cliente lê o estado da entidade
 
-The following Azure Http Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
+A seguinte função http do Azure implementa uma operação GET usando convenções REST. Ele lê o estado atual da entidade do contador cuja chave é passada no caminho da URL.
 
 ```csharp
 [FunctionName("GetCounter")]
@@ -153,11 +153,11 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it may be stale, and modifying this object has no effect on the actual entity. 
+> O objeto retornado por `ReadEntityStateAsync` é apenas uma cópia local, ou seja, um instantâneo do estado da entidade de algum momento anterior. Em particular, ele pode estar obsoleto e a modificação desse objeto não tem efeito sobre a entidade real. 
 
-### <a name="example-orchestration-first-signals-then-calls-entity"></a>Example: orchestration first signals, then calls entity
+### <a name="example-orchestration-first-signals-then-calls-entity"></a>Exemplo: primeiro os sinais de orquestração e, em seguida, chama a entidade
 
-The following orchestration signals a counter entity to increment it, and then calls the same entity to read its latest value.
+A orquestração a seguir sinaliza uma entidade de contador para incrementar a ti e, em seguida, chama a mesma entidade para ler seu valor mais recente.
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -176,11 +176,11 @@ public static async Task<int> Run(
 }
 ```
 
-## <a name="accessing-entities-through-interfaces"></a>Accessing entities through interfaces
+## <a name="accessing-entities-through-interfaces"></a>Acessando entidades por meio de interfaces
 
-Interfaces can be used for accessing entities via generated proxy objects. This approach ensures that the name and argument type of an operation matches what is implemented. We recommend using interfaces for accessing entities whenever possible.
+As interfaces podem ser usadas para acessar entidades por meio de objetos de proxy gerados. Essa abordagem garante que o nome e o tipo de argumento de uma operação correspondam ao que é implementado. É recomendável usar interfaces para acessar entidades sempre que possível.
 
-For example, we can modify the counter example as follows:
+Por exemplo, podemos modificar o exemplo de contador da seguinte maneira:
 
 ```csharp
 public interface ICounter
@@ -197,13 +197,13 @@ public class Counter : ICounter
 }
 ```
 
-Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
+Classes de entidade e interfaces de entidade são semelhantes às interfaces granulares e granulares populares por [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). Para obter mais informações sobre semelhanças e diferenças entre entidades duráveis e Orleans, consulte [comparação com atores virtuais](durable-functions-entities.md#comparison-with-virtual-actors).
 
-Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
+Além de fornecer verificação de tipo, as interfaces são úteis para uma separação melhor das preocupações dentro do aplicativo. Por exemplo, como uma entidade pode implementar várias interfaces, uma única entidade pode atender a várias funções. Além disso, como uma interface pode ser implementada por várias entidades, os padrões de comunicação gerais podem ser implementados como bibliotecas reutilizáveis.
 
-### <a name="example-client-signals-entity-through-interface"></a>Example: client signals entity through interface
+### <a name="example-client-signals-entity-through-interface"></a>Exemplo: o cliente sinaliza a entidade por meio da interface
 
-Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. Por exemplo:
+O código do cliente pode usar `SignalEntityAsync<TEntityInterface>` para enviar sinais a entidades que implementam `TEntityInterface`. Por exemplo:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -218,15 +218,15 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-In this example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Delete` into a signal.
+Neste exemplo, o parâmetro `proxy` é uma instância gerada dinamicamente de `ICounter`, que converte internamente a chamada para `Delete` em um sinal.
 
 > [!NOTE]
-> The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
-For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
+> As APIs de `SignalEntityAsync` podem ser usadas somente para operações unidirecionais. Mesmo que uma operação retorne `Task<T>`, o valor do parâmetro `T` sempre será nulo ou `default`, não o resultado real.
+Por exemplo, não faz sentido sinalizar a operação de `Get`, uma vez que nenhum valor é retornado. Em vez disso, os clientes podem usar qualquer `ReadStateAsync` para acessar o estado do contador diretamente ou podem iniciar uma função de orquestrador que chama a operação de `Get`. 
 
-### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Example: orchestration first signals, then calls entity through proxy
+### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Exemplo: primeiro os sinais de orquestração e, em seguida, chama a entidade por meio do proxy
 
-To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
+Para chamar ou sinalizar uma entidade de dentro de uma orquestração, `CreateEntityProxy` pode ser usada, juntamente com o tipo de interface, para gerar um proxy para a entidade. Esse proxy pode então ser usado para chamar ou sinalizar operações:
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -246,39 +246,39 @@ public static async Task<int> Run(
 }
 ```
 
-Implicitly, any operations that return `void` are signaled, and any operations that return `Task` or `Task<T>` are called. One can change this default behavior, and signal operations even if they return Task, by using the `SignalEntity<IInterfaceType>` method explicitly.
+Implicitamente, todas as operações que retornam `void` são sinalizadas e quaisquer operações que retornam `Task` ou `Task<T>` são chamadas. É possível alterar esse comportamento padrão e as operações de sinal, mesmo que retornem a tarefa, usando o método `SignalEntity<IInterfaceType>` explicitamente.
 
-### <a name="shorter-option-for-specifying-the-target"></a>Shorter option for specifying the target
+### <a name="shorter-option-for-specifying-the-target"></a>Opção mais curta para especificar o destino
 
-When calling or signaling an entity using an interface, the first argument must specify the target entity. The target can be specified either by specifying the entity ID, or, in cases where there's just one class that implements the entity, just the entity key:
+Ao chamar ou sinalizar uma entidade usando uma interface, o primeiro argumento deve especificar a entidade de destino. O destino pode ser especificado especificando a ID da entidade ou, nos casos em que há apenas uma classe que implementa a entidade, apenas a chave de entidade:
 
 ```csharp
 context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
 context.SignalEntity<ICounter>("myCounter", ...);
 ```
 
-If only the entity key is specified and a unique implementation can't be found at runtime, `InvalidOperationException` is thrown. 
+Se apenas a chave de entidade for especificada e uma implementação exclusiva não puder ser encontrada em tempo de execução, `InvalidOperationException` será lançada. 
 
-### <a name="restrictions-on-entity-interfaces"></a>Restrictions on entity interfaces
+### <a name="restrictions-on-entity-interfaces"></a>Restrições em interfaces de entidade
 
-As usual, all parameter and return types must be JSON-serializable. Otherwise, serialization exceptions are thrown at runtime.
+Como de costume, todos os tipos de parâmetro e de retorno devem ser serializáveis em JSON. Caso contrário, as exceções de serialização são lançadas em tempo de execução.
 
-We also enforce some additional rules:
-* Entity interfaces must only define methods.
-* Entity interfaces must not contain generic parameters.
-* Entity interface methods must not have more than one parameter.
-* Entity interface methods must return `void`, `Task`, or `Task<T>` 
+Também impõem algumas regras adicionais:
+* As interfaces de entidade devem definir apenas métodos.
+* As interfaces de entidade não devem conter parâmetros genéricos.
+* Os métodos de interface de entidade não devem ter mais de um parâmetro.
+* Os métodos de interface de entidade devem retornar `void`, `Task`ou `Task<T>` 
 
-If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
+Se qualquer uma dessas regras for violada, uma `InvalidOperationException` será lançada em tempo de execução quando a interface for usada como um argumento de tipo para `SignalEntity` ou `CreateProxy`. A mensagem de exceção explica qual regra foi quebrada.
 
 > [!NOTE]
-> Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
+> Métodos de interface que retornam `void` só podem ser sinalizados (unidirecional), não chamados (bidirecional). Métodos de interface que retornam `Task` ou `Task<T>` podem ser chamados ou sinalizados. Se chamado, eles retornam o resultado da operação ou geram novamente exceções lançadas pela operação. No entanto, quando sinalizado, eles não retornam o resultado real ou a exceção da operação, mas apenas o valor padrão.
 
-## <a name="entity-serialization"></a>Entity serialization
+## <a name="entity-serialization"></a>Serialização de entidade
 
-Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports a number of policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
+Como o estado de uma entidade é permanentemente persistido, a classe de entidade deve ser serializável. O tempo de execução de Durable Functions usa a biblioteca [JSON.net](https://www.newtonsoft.com/json) para essa finalidade, que dá suporte a várias políticas e atributos para controlar o processo de serialização e desserialização. Os tipos de C# dados usados com mais frequência (incluindo matrizes e tipos de coleção) já são serializáveis e podem ser facilmente usados para definir o estado de entidades duráveis.
 
-For example, Json.NET can easily serialize and deserialize the following class:
+Por exemplo, Json.NET pode facilmente serializar e desserializar a seguinte classe:
 
 ```csharp
 [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
@@ -307,13 +307,13 @@ public class User
 }
 ```
 
-### <a name="serialization-attributes"></a>Serialization Attributes
+### <a name="serialization-attributes"></a>Atributos de serialização
 
-In the example above, we chose to include several attributes to make the underlying serialization more visible:
-- We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as JSON properties.
--  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the JSON representation.
+No exemplo acima, optamos por incluir vários atributos para tornar a serialização subjacente mais visível:
+- Anotamos a classe com `[JsonObject(MemberSerialization.OptIn)]` para nos lembrar que a classe deve ser serializável e manter somente os membros explicitamente marcados como propriedades JSON.
+-  Anotamos os campos a serem persistidos com `[JsonProperty("name")]` para lembrá-lo de que um campo faz parte do estado de entidade persistente e especificar o nome da propriedade a ser usada na representação JSON.
 
-However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one may use `[DataContract]` attributes, or no attributes at all:
+No entanto, esses atributos não são obrigatórios; outras convenções ou atributos são permitidos contanto que funcionem com Json.NET. Por exemplo, um pode usar atributos de `[DataContract]` ou nenhum atributo:
 
 ```csharp
 [DataContract]
@@ -331,29 +331,29 @@ public class Counter
 }
 ```
 
-By default, the name of the class is *not* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
+Por padrão, o nome da classe *não* é armazenado como parte da representação JSON: ou seja, usamos `TypeNameHandling.None` como a configuração padrão. Esse comportamento padrão pode ser substituído usando atributos `JsonObject` ou `JsonProperty`.
 
-### <a name="making-changes-to-class-definitions"></a>Making changes to class definitions
+### <a name="making-changes-to-class-definitions"></a>Fazendo alterações nas definições de classe
 
-Some care is required when making changes to a class definition after an application has been run, because the stored JSON object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
+É necessário algum cuidado ao fazer alterações em uma definição de classe após a execução de um aplicativo, pois o objeto JSON armazenado pode não corresponder mais à nova definição de classe. Ainda assim, geralmente é possível lidar corretamente com a alteração dos formatos de dados, desde que um entenda o processo de desserialização usado pelo `JsonConvert.PopulateObject`.
 
-For example, here are some examples of changes and their effect:
+Por exemplo, aqui estão alguns exemplos de alterações e seus efeitos:
 
-1. If a new property is added, which is not present in the stored JSON, it assumes its default value.
-1. If a property is removed, which is present in the stored JSON, the previous content is lost.
-1. If a property is renamed, the effect is as if removing the old one and adding a new one.
-1. If the type of a property is changed so it can no longer be deserialized from the stored JSON, an exception is thrown.
-1. If the type of a property is changed, but it can still be deserialized from the stored JSON, it will do so.
+1. Se uma nova propriedade for adicionada, que não está presente no JSON armazenado, ela assumirá seu valor padrão.
+1. Se uma propriedade for removida, que está presente no JSON armazenado, o conteúdo anterior será perdido.
+1. Se uma propriedade for renomeada, o efeito será como se estiver removendo a antiga e adicionando uma nova.
+1. Se o tipo de uma propriedade for alterado para que ela não possa mais ser desserializada do JSON armazenado, uma exceção será lançada.
+1. Se o tipo de uma propriedade for alterado, mas ainda puder ser desserializado do JSON armazenado, isso será feito.
 
-There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored JSON contains a field that is not present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It is also possible to write custom code for deserialization that can read JSON stored in arbitrary formats.
+Há muitas opções disponíveis para personalizar o comportamento de Json.NET. Por exemplo, para forçar uma exceção se o JSON armazenado contiver um campo que não está presente na classe, especifique o atributo `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. Também é possível escrever código personalizado para desserialização que possa ler JSON armazenado em formatos arbitrários.
 
-## <a name="entity-construction"></a>Entity construction
+## <a name="entity-construction"></a>Construção de entidade
 
-Sometimes we want to exert more control over how entity objects are constructed. We now describe several options for changing the default behavior when constructing entity objects. 
+Às vezes, queremos exercer mais controle sobre como os objetos de entidade são construídos. Agora, descrevemos várias opções para alterar o comportamento padrão ao construir objetos de entidade. 
 
-### <a name="custom-initialization-on-first-access"></a>Custom initialization on first access
+### <a name="custom-initialization-on-first-access"></a>Inicialização personalizada no primeiro acesso
 
-Occasionally we need to perform some special initialization before dispatching an operation to an entity that has never been accessed, or that has been deleted. To specify this behavior, one can add a conditional before the `DispatchAsync`:
+Ocasionalmente, precisamos executar alguma inicialização especial antes de distribuir uma operação para uma entidade que nunca foi acessada ou que foi excluída. Para especificar esse comportamento, é possível adicionar uma condicional antes da `DispatchAsync`:
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -367,11 +367,11 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-### <a name="bindings-in-entity-classes"></a>Bindings in entity classes
+### <a name="bindings-in-entity-classes"></a>Associações em classes de entidade
 
-Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
+Diferentemente das funções regulares, os métodos de classe de entidade não têm acesso direto a associações de entrada e saída. Em vez disso, os dados de associação devem ser capturados na declaração da função de ponto de entrada e, em seguida, passados para o método `DispatchAsync<T>`. Todos os objetos passados para `DispatchAsync<T>` serão automaticamente passados para o construtor da classe de entidade como um argumento.
 
-The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob.md#input) can be made available to a class-based entity.
+O exemplo a seguir mostra como uma referência de `CloudBlobContainer` da [Associação de entrada de blob](../functions-bindings-storage-blob.md#input) pode ser disponibilizada para uma entidade baseada em classe.
 
 ```csharp
 public class BlobBackedEntity
@@ -398,11 +398,11 @@ public class BlobBackedEntity
 }
 ```
 
-For more information on bindings in Azure Functions, see the [Azure Functions Triggers and Bindings](../functions-triggers-bindings.md) documentation.
+Para obter mais informações sobre associações no Azure Functions, consulte a documentação [Azure Functions gatilhos e associações](../functions-triggers-bindings.md) .
 
-### <a name="dependency-injection-in-entity-classes"></a>Dependency injection in entity classes
+### <a name="dependency-injection-in-entity-classes"></a>Injeção de dependência em classes de entidade
 
-Entity classes support [Azure Functions Dependency Injection](../functions-dotnet-dependency-injection.md). The following example demonstrates how to register an `IHttpClientFactory` service into a class-based entity.
+As classes de entidade dão suporte à [injeção de dependência Azure Functions](../functions-dotnet-dependency-injection.md). O exemplo a seguir demonstra como registrar um serviço de `IHttpClientFactory` em uma entidade baseada em classe.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
@@ -419,7 +419,7 @@ namespace MyNamespace
 }
 ```
 
-The following snippet demonstrates how to incorporate the injected service into your entity class.
+O trecho a seguir demonstra como incorporar o serviço injetado à sua classe de entidade.
 
 ```csharp
 public class HttpEntity
@@ -447,16 +447,16 @@ public class HttpEntity
 ```
 
 > [!NOTE]
-> To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
+> Para evitar problemas com a serialização, certifique-se de excluir os campos destinados a armazenar valores injetados da serialização.
 
 > [!NOTE]
-> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a non-static function entry point may cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
+> Ao contrário de quando usar a injeção de Construtor no .NET Azure Functions regular, o método de ponto de entrada de funções para entidades baseadas em classe *deve* ser declarado `static`. Declarar um ponto de entrada de função não estática pode causar conflitos entre o inicializador de objeto de Azure Functions normal e o inicializador de objeto de entidades duráveis.
 
-## <a name="function-based-syntax"></a>Function-based syntax
+## <a name="function-based-syntax"></a>Sintaxe baseada em função
 
-So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
+Até agora, nos concentramos na sintaxe baseada em classe, pois esperamos que seja mais adequado para a maioria dos aplicativos. No entanto, a sintaxe baseada em função pode ser apropriada para aplicativos que desejam definir ou gerenciar suas próprias abstrações para estado e operações de entidade. Além disso, pode ser apropriado ao implementar bibliotecas que exigem a genericidade sem suporte atualmente pela sintaxe baseada em classe. 
 
-With the function-based syntax, the Entity Function explicitly handles the operation dispatch, and explicitly manages the state of the entity. For example, the following code shows the *Counter* entity implemented using the function-based syntax.  
+Com a sintaxe baseada em função, a função de entidade manipula explicitamente a expedição da operação e gerencia explicitamente o estado da entidade. Por exemplo, o código a seguir mostra a entidade de *contador* implementada usando a sintaxe baseada em função.  
 
 ```csharp
 [FunctionName("Counter")]
@@ -480,34 +480,34 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-### <a name="the-entity-context-object"></a>The entity context object
+### <a name="the-entity-context-object"></a>O objeto de contexto de entidade
 
-Entity-specific functionality can be accessed via a context object of type `IDurableEntityContext`. This context object is available as a parameter to the entity function, and via the async-local property `Entity.Current`.
+A funcionalidade específica da entidade pode ser acessada por meio de um objeto de contexto do tipo `IDurableEntityContext`. Esse objeto de contexto está disponível como um parâmetro para a função de entidade e por meio da propriedade local assíncrona `Entity.Current`.
 
-The following members provide information about the current operation, and allow us to specify a return value. 
+Os membros a seguir fornecem informações sobre a operação atual e nos permitem especificar um valor de retorno. 
 
-* `EntityName`: the name of the currently executing entity.
-* `EntityKey`: the key of the currently executing entity.
-* `EntityId`: the ID of the currently executing entity (includes name and key).
-* `OperationName`: the name of the current operation.
-* `GetInput<TInput>()`: gets the input for the current operation.
-* `Return(arg)`: returns a value to the orchestration that called the operation.
+* `EntityName`: o nome da entidade atualmente em execução.
+* `EntityKey`: a chave da entidade atualmente em execução.
+* `EntityId`: a ID da entidade atualmente em execução (inclui nome e chave).
+* `OperationName`: o nome da operação atual.
+* `GetInput<TInput>()`: Obtém a entrada para a operação atual.
+* `Return(arg)`: retorna um valor para a orquestração que chamou a operação.
 
-The following members manage the state of the entity (create, read, update, delete). 
+Os membros a seguir gerenciam o estado da entidade (criar, ler, atualizar, excluir). 
 
-* `HasState`: whether the entity exists, that is, has some state. 
-* `GetState<TState>()`: gets the current state of the entity. If it does not already exist, it is created.
-* `SetState(arg)`: creates or updates the state of the entity.
-* `DeleteState()`: deletes the state of the entity, if it exists. 
+* `HasState`: se a entidade existe, ou seja, tem algum estado. 
+* `GetState<TState>()`: Obtém o estado atual da entidade. Se ele ainda não existir, ele será criado.
+* `SetState(arg)`: cria ou atualiza o estado da entidade.
+* `DeleteState()`: exclui o estado da entidade, se ela existir. 
 
-If the state returned by `GetState` is an object, it can be directly modified by the application code. There is no need to call `SetState` again at the end (but also no harm). If `GetState<TState>` is called multiple times, the same type must be used.
+Se o estado retornado por `GetState` for um objeto, ele poderá ser modificado diretamente pelo código do aplicativo. Não há necessidade de chamar `SetState` novamente no final (mas também sem danos). Se `GetState<TState>` for chamado várias vezes, o mesmo tipo deverá ser usado.
 
-Finally, the following members are used to signal other entities, or start new orchestrations:
+Por fim, os membros a seguir são usados para sinalizar outras entidades ou iniciar novas orquestrações:
 
-* `SignalEntity(EntityId, operation, input)`: sends a one-way message to an entity.
-* `CreateNewOrchestration(orchestratorFunctionName, input)`: starts a new orchestration.
+* `SignalEntity(EntityId, operation, input)`: envia uma mensagem unidirecional para uma entidade.
+* `CreateNewOrchestration(orchestratorFunctionName, input)`: inicia uma nova orquestração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Learn about entity concepts](durable-functions-entities.md)
+> [Saiba mais sobre os conceitos de entidade](durable-functions-entities.md)

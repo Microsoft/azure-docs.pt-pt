@@ -73,6 +73,6 @@ Use o procedimento a seguir para examinar os problemas documentados na solicita�
 
    ![Primeira correção e resposta de comentário](./media/first-comment-reply.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de corrigir os problemas críticos documentados na PR (s) revisão (ões), você deve [republicar sua oferta de aplicativo do Azure](./create-new-azure-apps-offer.md#publish).

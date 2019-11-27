@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84275be5c85570a44d968dca8887b448fce09979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473778"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546847"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -39,16 +39,12 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando portal do Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione sua conta e, em seguida, **Alterne o diretório**.
 1. Depois que o painel **diretório + assinatura** for aberto, escolha o Active Directory locatário no qual você deseja registrar seu aplicativo, na lista **favoritos** ou **todos os diretórios** .
 1. Selecione **todos os serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
-1. No painel de **Azure Active Directory** , selecione **registros de aplicativo (Herdado)** para exibir uma lista de todos os seus aplicativos.
-
-     Se você não vir o aplicativo que deseja mostrar aqui, use os vários filtros na parte superior da lista **registros de aplicativo (herdada)** para restringir a lista ou role para baixo na lista para localizar seu aplicativo.
-
-1. Selecione o aplicativo no qual você deseja definir funções de aplicativo.
-1. Na folha do seu aplicativo, selecione **manifesto**.
+1. No painel de **Azure Active Directory** , selecione **registros de aplicativo** para exibir uma lista de todos os seus aplicativos.
+1. Selecione o aplicativo no qual você deseja definir funções de aplicativo. Em seguida, selecione **manifesto**.
 1. Edite o manifesto do aplicativo localizando a configuração de `appRoles` e adicionando todas as suas funções de aplicativo.
 
      > [!NOTE]

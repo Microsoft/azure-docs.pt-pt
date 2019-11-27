@@ -21,7 +21,7 @@ ms.locfileid: "74277228"
 > * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
-> * [Android Java](set-up-coarse-reloc-java.md)
+> * [Java Android](set-up-coarse-reloc-java.md)
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 

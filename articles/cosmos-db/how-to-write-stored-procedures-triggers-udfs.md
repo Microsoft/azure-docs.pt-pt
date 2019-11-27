@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606264"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533175"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
@@ -75,7 +75,7 @@ function createToDoItem(itemToCreate) {
 
 ### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrizes como parâmetros de entrada para procedimentos armazenados 
 
-Ao definir um procedimento armazenado no portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia de caracteres para o procedimento armazenado. Mesmo que você passe uma matriz de cadeias de caracteres como uma entrada, a matriz é convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para solucionar esse erro, você pode definir uma função em seu procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir mostra como analisar um parâmetro de entrada de cadeia de caracteres como uma matriz:
+Ao definir um procedimento armazenado no portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia de caracteres para o procedimento armazenado. Mesmo se passar uma matriz de cadeias de caracteres como entrada, a matriz é convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para solucionar esse erro, você pode definir uma função em seu procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir mostra como analisar um parâmetro de entrada de cadeia de caracteres como uma matriz:
 
 ```javascript
 function sample(arr) {
@@ -238,7 +238,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Os pré-gatilhos não podem ter nenhum parâmetro de entrada. O objeto de solicitação no gatilho é usado para manipular a mensagem de solicitação associada à operação. No exemplo anterior, o pré-gatilho é executado ao criar um item Cosmos do Azure e o corpo da mensagem de solicitação contém o item a ser criado no formato JSON.
+Pré-acionadores não podem ter parâmetros de entrada. O objeto de solicitação no gatilho é usado para manipular a mensagem de solicitação associada à operação. No exemplo anterior, o pré-gatilho é executado ao criar um item Cosmos do Azure e o corpo da mensagem de solicitação contém o item a ser criado no formato JSON.
 
 Quando os gatilhos são registrados, você pode especificar as operações com as quais ele pode ser executado. Esse gatilho deve ser criado com um valor `TriggerOperation` de `TriggerOperation.Create`, o que significa que usar o gatilho em uma operação de substituição, conforme mostrado no código a seguir, não é permitido.
 
@@ -316,6 +316,17 @@ function tax(income) {
 ```
 
 Para obter exemplos de como registrar e usar uma função definida pelo usuário, consulte [como usar funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) artigo.
+
+## <a name="logging"></a>Registo 
+
+Ao usar procedimentos armazenados, gatilhos ou funções definidas pelo usuário, você pode registrar as etapas usando o comando `console.log()`. Este comando irá concentrar uma cadeia de caracteres para depuração quando `EnableScriptLogging` for definido como true, conforme mostrado no exemplo a seguir:
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

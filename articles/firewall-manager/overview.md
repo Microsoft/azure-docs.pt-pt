@@ -18,7 +18,7 @@ ms.locfileid: "74267959"
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-A versão prévia do Gerenciador de firewall do Azure é um serviço de gerenciamento de segurança que fornece política de segurança central e gerenciamento de rotas para perímetros de segurança baseados em nuvem. Ele funciona com o [Hub de WAN virtual do Azure](../virtual-wan/virtual-wan-about.md#resources), um recurso gerenciado pela Microsoft que permite criar facilmente arquiteturas de Hub e spoke. Quando as políticas de segurança e roteamento são associadas a esse Hub, ele é conhecido como um *[Hub virtual protegido](secured-virtual-hub.md)* . 
+A Pré-visualização do Azure Firewall Manager é um serviço de gestão de segurança que oferece gestão de políticas de segurança centrais e gestão de rotas para perímetros de segurança com base na cloud. Ele funciona com o [Hub de WAN virtual do Azure](../virtual-wan/virtual-wan-about.md#resources), um recurso gerenciado pela Microsoft que permite criar facilmente arquiteturas de Hub e spoke. Quando as políticas de segurança e roteamento são associadas a esse Hub, ele é conhecido como um *[Hub virtual protegido](secured-virtual-hub.md)* . 
 
 ![Gerenciador de firewall](media/overview/firewallmanagerv3.png)
 
@@ -77,7 +77,7 @@ A versão prévia do Gerenciador de firewall do Azure tem os seguintes problemas
 |As políticas de base devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política de base. Você ainda pode aplicar uma política que foi criada em uma região em um hub protegido de outra região.|Investigando atualmente.|
 |A comunicação entre os hubs não está funcionando com o Hub virtual protegido|Ainda não há suporte para o Hub virtual protegido para comunicação de Hub virtual protegida.|Investigando atualmente.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Examinar a [visão geral da implantação do Azure firewall Manager Preview](deployment-overview.md)
 - Saiba mais sobre os [hubs virtuais protegidos](secured-virtual-hub.md).
