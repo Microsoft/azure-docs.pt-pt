@@ -1,5 +1,5 @@
 ---
-title: Create a function that runs on a schedule in Azure
+title: Criar uma função que é executada em uma agenda no Azure
 description: Saiba como criar uma função no Azure que é executada com base numa agenda definida por si.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.locfileid: "74227180"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
 
-Learn how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function that runs based on a schedule that you define.
+Saiba como usar Azure Functions para criar uma função sem [servidor](https://azure.microsoft.com/solutions/serverless/) que é executada com base em um agendamento que você define.
 
 ![Criar uma aplicação de função no portal do Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -36,15 +36,15 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-timer-triggered-function"></a>Criar uma função acionada por temporizador
 
-1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Otherwise, go to step 3.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, vá para a etapa 3.
 
-   ![Início rápido das funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
+   ![Página de início rápido das funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
 2. Escolha **Mais modelos** e **Terminar e ver os modelos**.
 
     ![Início Rápido das funções, escolher mais modelos](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. In the search field, type `timer` and configure the new trigger with the settings as specified in the table below the image.
+3. No campo de pesquisa, digite `timer` e configure o novo gatilho com as configurações, conforme especificado na tabela abaixo da imagem.
 
     ![Crie uma função acionada por um cronómetro no portal do Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
@@ -77,6 +77,6 @@ Tem agora uma função que é executada uma vez por hora.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criou uma função que é executada com base numa agenda. For more information about timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
+Criou uma função que é executada com base numa agenda. Para obter mais informações sobre gatilhos de temporizador, consulte [agendar a execução de código com Azure Functions](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

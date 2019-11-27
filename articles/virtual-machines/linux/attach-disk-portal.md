@@ -33,7 +33,7 @@ Antes de anexar discos à sua VM, examine estas dicas:
 
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, clique em **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
 4. Para a página máquinas virtuais, em **Essentials**, clique em **discos**.

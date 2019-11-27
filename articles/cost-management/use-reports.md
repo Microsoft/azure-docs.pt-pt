@@ -1,6 +1,6 @@
 ---
-title: Use Cloudyn reports in Azure | Microsoft Docs
-description: This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal to help you effectively use them.
+title: Utilizar relatórios do Cloudyn no Azure | Documentos da Microsoft
+description: Este artigo descreve a finalidade dos relatórios do Cloudyn que estão incluídos no portal do Cloudyn para o ajudar a usá-las efetivamente.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,504 +17,504 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74218862"
 ---
-# <a name="reports-available-in-the-cloudyn-portal"></a>Reports available in the Cloudyn portal
+# <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal do Cloudyn
 
-This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use Cloudyn reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
+Este artigo descreve a finalidade dos relatórios do Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como pode usar com eficiência os relatórios. A maioria dos relatórios são intuitivos e tem uma aparência uniforme. A maioria das ações que pode fazer num relatório, também pode fazer de outros relatórios. Para obter uma visão geral sobre como usar os relatórios do Cloudyn, incluindo como personalizar e salvar ou agendar relatórios, consulte [noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 
-O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [Azure Cost Management](overview-cost-mgt.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
 
-## <a name="report-types"></a>Report types
+## <a name="report-types"></a>Tipos de relatório
 
-There are three types of Cloudyn reports:
+Existem três tipos de relatórios do Cloudyn:
 
-- Over-time reports. For example, the Cost Over Time report. Over-time reports show a time series of data over a selected interval with a predefined resolution and show a weekly resolution for last two months. You can use grouping and filtering to zoom in to various data points.
-  - Over-time reports can help you view trends and detect spikes or anomalies.
-- Analysis reports. For example, the Cost Analysis report. These reports show aggregated data over a period that you define and allow grouping and filtering on the data.
-  - Analysis reports can help you view spikes and determine anomaly root-causes and to show you a granular break-down of your data.
-- Tabular reports. You can view any report as a table, but some reports are viewed only as a table. These reports provide you detailed lists of items.
-  - Recommendations are tabular reports—there are no visualizations for recommendations. However, you can visualize recommendation results. For example, savings over time.
-  - Tabular reports are useful as lists of actions or for data export for further processing. For example, a chargeback report.
+- Relatórios de excesso de tempo. Por exemplo, o relatório de custo ao longo do tempo. Os relatórios de tempo excessiva mostram uma série de tempo dos dados ao longo de um intervalo selecionado com uma resolução predefinido e mostram uma resolução semanal para os últimos dois meses. Pode utilizar o agrupamento e filtragem de ampliar a vários pontos de dados.
+  - Relatórios de excesso de tempo podem ajudá-lo a ver as tendências e detetar picos ou de anomalias.
+- Relatórios de análise. Por exemplo, o relatório de análise de custo. Estes relatórios mostram os dados agregados num período de que define e permitir que o agrupamento e filtragem nos dados.
+  - Análise de relatórios podem ajudá-lo a ver picos e determinar as causas de raiz de anomalias e para mostrar a uma garantia de reparação pendente granular dos seus dados.
+- Relatórios de tabela. Pode ver qualquer relatório como uma tabela, mas alguns relatórios são visualizados apenas como uma tabela. Estes relatórios fornecem detalhadas listas de itens.
+  - Recomendações são relatórios em tabela — não há nenhuma visualização para obter recomendações. No entanto, é possível visualizar os resultados de recomendação. Por exemplo, economia ao longo do tempo.
+  - Relatórios de tabela são úteis como listas de ações ou para exportação de dados para processamento adicional. Por exemplo, um relatório de estorno.
 
-Cost reports show either _actual_ or _amortized_ costs.
+Os relatórios de custo mostram os custos _reais_ ou _amortizados_ .
 
-Actual cost reports display the payments made during the selected time frame. For example, all one-time fees such as reserved instance (RI) purchases are shown in actual cost reports as spikes in cost.
+Os relatórios de custo real apresentam os pagamentos feitos durante o período de tempo selecionado. Por exemplo, todas as tarifas únicas, como a compra de instância reservada (RIS) são apresentadas nos relatórios de custo real como aumento de custo.
 
-Amortized cost reports spread one-time fees over a period to which they apply. For example, one-time fees for RI purchases are spread over the reservation term and are not shown as a spike. The amortized view is the only way to see true trends and make cost projections.
+Relatórios de custo amortizado propagam-se tarifas únicas durante um período a que sejam aplicáveis. Por exemplo, as tarifas únicas para compras de RI são distribuídas ao longo do período de reserva e não são apresentadas como um pico. A visualização amortizada é a única forma de ver as tendências verdadeiras e fazer as previsões do custo.
 
-In some cases, the amortization is presented as a separate report. Examples include the Cost Analysis and Amortized Cost Analysis reports. In other cases, amortization is a report policy such as the Cost Allocation and Cost Analysis reports.
+Em alguns casos, a amortização é apresentada como um relatório separado. Os exemplos incluem os relatórios de análise de custo e a análise de custo amortizado. Em outros casos, a amortização é uma política de relatório, como os relatórios de alocação de custos e a análise de custos.
 
-You can schedule any report for periodic delivery. Cost reports allow setting a threshold, so they're useful for alerts.
+Pode agendar qualquer relatório para entrega periódica. Relatórios de custos permitem definir um limite, para que sejam úteis para os alertas.
 
-## <a name="cost-analysis-vs-cost-allocation"></a>Cost analysis vs. cost allocation
+## <a name="cost-analysis-vs-cost-allocation"></a>Análise de custos vs. alocação de custos
 
-_Cost analysis_ reports display billing data from your cloud providers. Using the reports, you can group and drill into various data segments itemized from the billing file. The reports enable granular cost navigation across your cloud vendor's raw billing data.
+Os relatórios de _análise de custo_ exibem dados de cobrança de seus provedores de nuvem. Utilizar os relatórios, pode agrupar e fazer uma busca em diversos segmentos de dados discriminados a partir do ficheiro de faturação. Os relatórios de permitem a navegação de custo granular em dados não processados de faturação do seu fornecedor de cloud.
 
-Some _cost analysis_ reports don't group costs by resource tags. And, tag-based billing information only appears in reports after you allocate costs by creating a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+Alguns relatórios de _análise de custo_ não agrupam custos por marcas de recurso. E as informações de cobrança baseadas em marcas aparecem apenas em relatórios depois que você aloca custos criando um modelo de custo usando a [alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Cost allocation_ reports are available after you create a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn processes cost and billing data and _matches_ the data to the usage and tag data of your cloud accounts. To match the data, Cloudyn requires access to your usage data. If you have accounts that are missing credentials, they are labeled as _uncategorized resources_.
+Os relatórios de _alocação de custo_ ficam disponíveis depois que você cria um modelo de custo usando a [alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). O Cloudyn processa os dados de custo e de cobrança e _faz a correspondência_ dos dados com os dados de uso e de marcação de suas contas de nuvem. Para fazer corresponder os dados, o Cloudyn requer acesso aos seus dados de utilização. Se você tiver contas que não têm credenciais, elas serão rotuladas como _recursos não categorizados_.
 
 ## <a name="dashboards"></a>Dashboards
 
-Dashboards in Cloudy provide a high-level view of reports. Dashboards are made up of widgets and each widget is essentially a report thumbnail. When you [customize reports](understanding-cost-reports.md#save-and-schedule-reports), you save them to My Reports and they're added to the dashboard. For more information about dashboards, see [View key cost metrics with dashboards](dashboards.md).
+Dashboards no Cloudy fornecem uma visão geral de relatórios. Dashboards são compostos de widgets e cada widget é essencialmente uma miniatura de relatório. Ao [Personalizar relatórios](understanding-cost-reports.md#save-and-schedule-reports), você os salva em meus relatórios e eles são adicionados ao painel. Para obter mais informações sobre painéis, consulte [Exibir métricas de custo-chave com painéis](dashboards.md).
 
-## <a name="budget-information-in-reports"></a>Budget information in reports
+## <a name="budget-information-in-reports"></a>Informações de orçamento nos relatórios
 
-Many Cloudyn reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget Management settings](#budget-management-settings).
+Muitos relatórios do Cloudyn mostram informações de orçamento, depois de ter criado manualmente um. Então, os relatórios não mostrará informações de orçamento até criar um orçamento. Para obter mais informações, consulte [configurações de gerenciamento de orçamento](#budget-management-settings).
 
-## <a name="reports-and-reporting-features"></a>Reports and reporting features
+## <a name="reports-and-reporting-features"></a>Relatórios e recursos de relatórios
 
-Cloudyn includes the following reports and reporting features.
+O Cloudyn inclui os relatórios e os recursos de relatório a seguir.
 
-### <a name="cost-navigator-report"></a>Cost Navigator report
+### <a name="cost-navigator-report"></a>Relatório de navegador de custos
 
-The Cost Navigator report is a quick way to view your billing consumption using a dashboard view. It has a subset of filters and basic views to immediately show a summarized view of organization's costs. Costs are shown by date. Because the report is intended as an initial view of your costs, it's not as flexible or as comprehensive as many other reports or custom dashboards that you create yourself.
+O relatório de custo navegador é uma forma rápida de ver o consumo de faturação usando uma vista de dashboard. Ele tem um subconjunto de filtros e exibições básicas para imediatamente mostrar uma exibição resumida de custos da organização. Os custos são mostrados por data. Como o relatório destina-se como uma vista inicial dos seus custos, não é tão flexível ou tão abrangente como muitos outros relatórios ou dashboards personalizados que criar por conta própria.
 
-By default, major views in the report show:
+Por predefinição, grandes vistas no relatório mostram:
 
-- Cost over time showing a work week bar chart view. You can change the **Date Range** to change date range bar chart.
-- Expenditures by service, using a pie chart.
-- Resource categorization by tags, using a pie chart.
-- Expenditures by cost entities, using a pie chart.
-- Cost total, per date in a list view.
-
-### <a name="cost-analysis-report"></a>Relatório Análise de Custos
-
-The Cost Analysis report is a calculation of showback and chargeback, based on your policy. It aggregates your cloud consumption during a selected time frame, after having applied all allocation rules to your cost. For example, it calculates the costs by tags, reassigns the costs of untagged resources and optionally allocates the utilization of reserved instances.
-
-The policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report and results are then combined with information from your cloud vendor's raw data.
-
-How is this report calculated? The Cloudyn service ensures allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and are not calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
-
-Use the Cost Analysis report to:
-
-- Calculate your organization chargeback/showback
-- Categorize all your costs
-- Display an aggregated view of your entire deployment for a specific time frame.
-- View costs by tag categories based on policies created in the cost model.
-
-To use the Cost Analysis report:
-
-1. Select a date range.
-2. Add tags, as needed.
-3. Add groups.
-4. Choose a cost model that you created previously.
-
-### <a name="cost-over-time-report"></a>Relatório de Custos ao Longo do Tempo
-
-The Cost over Time report displays the results of cost allocation as time series. It allows you to observe trends and detect irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
-
-Use the Cost Over Time report to:
-
-- See changes over time and which influences change from one day (or date range) to the next.
-- Analyze costs over time for a specific instance.
-- Understand why there was a cost increase for a specific instance.
-
-To use the Cost Over Time report:
-
-1. Select a date range.
-2. Add tags, as needed.
-3. Add groups.
-4. Choose a cost model that you created previously.
-5. Select actual costs or amortized costs.
-6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost view.
-
-### <a name="actual-cost-analysis-report"></a>Actual Cost Analysis report
-
-The Actual Cost Analysis report shows provider costs with no modifications. It shows your main cost contributors, including ongoing costs and one-time fees.
-
-You can use the report to view cost information for your subscriptions. In the report, Azure subscriptions are shown as **account name** and **account number**. **Linked accounts** show AWS subscriptions. To view per subscription costs, a breakdown for each account, under **Groups**, select the type of subscription that you have.
-
-Use the Actual Cost Analysis report to:
-
-- Analyze and monitor raw provider costs spent during a specified time frame.
-- Schedule a threshold alert.
-- Analyze unmodified costs incurred by your accounts and entities.
-
-### <a name="actual-cost-over-time-report"></a>Actual Cost Over Time report
-
-The Actual Cost Over Time report is a standard cost analysis report distributing cost over a defined time resolution. The report displays spending over time to allow you to observe trends and detect spending irregularities. This report shows your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame.
-
-Use the Actual Cost Over Time report to:
-
-- See cost trends over time.
-- Find irregularities in cost.
-- Find all cost-related questions related to cloud providers.
-
-### <a name="amortized-cost-reports"></a>Amortized cost reports
-
-This set of amortized cost reports shows linearized non-usage based service fees, or one-time payable costs and spread their cost over time evenly during their lifespan. For example, one-time fees might include:
-
-- Annual support fees
-- Annual security component fees
-- Reserved Instances purchase fees
-- Some Azure Marketplace items
-
-In the billing file, one-time fees are characterized when the service consumption start and end dates (timestamp) have equal values. The Cloudyn service then recognizes them as one-time fees that are amortized. Other consumption-based services with on-demand usage costs are not amortized.
-
-Amortized cost reports include:
-
-- Amortized cost analysis
-- Amortized cost over time
+- Custo ao longo do tempo, que mostra uma semana de trabalho de barra vista de gráfico. Você pode alterar o **intervalo de datas** para alterar o gráfico de barras do intervalo de datas.
+- Despesas ao serviço, com um gráfico de pizza.
+- Categorização de recursos por etiquetas, utilizar um gráfico circular.
+- Despesas por entidades de custo, utilizar um gráfico circular.
+- Custo total, por data numa vista de lista.
 
 ### <a name="cost-analysis-report"></a>Relatório Análise de Custos
 
-The Cost Analysis report provides insight into your cloud consumption and spending during a selected time frame. The policies set in the [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report.
+O relatório de análise de custo é um cálculo de análise de custos e estorno, com base na sua política. Agrega o consumo da cloud durante um período de tempo selecionado, depois de ter aplicado a todas as regras de alocação para o seu custo. Por exemplo, ele calcula os custos por etiquetas, reatribui os custos de recursos não marcados e, opcionalmente, aloca a utilização de instâncias reservadas.
 
-How does Cloudyn calculate this report?
+As políticas definidas na [alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) são usadas no relatório de análise de custo e os resultados, em seguida, são combinados com informações dos dados brutos do seu fornecedor de nuvem.
 
-Cloudyn ensures that allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service also doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and aren't calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
+Como é calculado a este relatório? O serviço Cloudyn garante que a alocação retenha a integridade de cada conta vinculada aplicando a _afinidade de conta_. Afinidade garante uma conta que não usa um serviço específico não tem quaisquer custos deste serviço alocado. Os custos acumulados de conta de permanecer nessa conta e não são calculados pelas políticas de alocação. Por exemplo, poderá ter cinco contas ligadas. Se apenas três deles usar serviços de armazenamento, o custo dos serviços de armazenamento apenas é alocado em etiquetas nas contas de três.
 
-Use the Cost Analysis report to:
+Utilize o relatório de análise de custos para:
 
-- Display an aggregated view of your entire deployment for a specific time frame.
-- View costs by tag categories based on policies created in the cost model.
+- Calcular a sua organização estorno/análise de custos
+- Categorizar os seus custos
+- Apresenta uma exibição agregada de toda a implementação para um período de tempo específico.
+- Ver os custos, as categorias de etiqueta com base em políticas criadas no modelo de custos.
+
+Para utilizar o relatório de análise de custos:
+
+1. Selecione um intervalo de datas.
+2. Adicione etiquetas, conforme necessário.
+3. Adicione grupos.
+4. Escolha um modelo de custos que criou anteriormente.
 
 ### <a name="cost-over-time-report"></a>Relatório de Custos ao Longo do Tempo
 
-The Cost Over Time report displays spending over time so you can spot trends and notice irregularities in your deployment. It essentially shows costs distributed over a defined period. The report includes your main cost contributors including ongoing costs and one-time reserved instance fees that are being spent during a selected time frame. Policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in this report.
+O custo ao longo do relatório de tempo apresenta os resultados da alocação de custos que os da série de tempo. Pode observar as tendências e detetar irregularidades na sua implementação. Essencialmente, ele mostra os custos distribuídos por um período de tempo definido. O relatório inclui sua contribuidores de custo principal, incluindo os custos contínuos e taxas de uso individual de instância reservada que estão a ser gasto durante um período de tempo selecionado. As políticas definidas na [alocação de custo 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) são usadas neste relatório.
 
-Use the Cost Over Time report to:
+Utilize o relatório de custo ao longo do tempo para:
 
-- See changes over time and which influences change from one day (or date range) to the next.
-- Analyze costs over time for a specific instance.
-- Understand why there was a cost increase for a specific instance.
+- Ver as alterações ao longo do tempo e que influencia alterado a partir de um dia (ou intervalo de datas) para a seguinte.
+- Analise os custos ao longo do tempo de uma instância específica.
+- Compreender por que Motive houve um aumento de custo de uma instância específica.
 
-### <a name="custom-charges-report"></a>Custom Charges report
+Para utilizar o relatório de custo ao longo do tempo:
 
-Enterprise and CSP users often find themselves providing added services to their external or internal customers, in addition to their own cloud resource consumption. You define custom charges for added services or discounts that are added to customer's billing or chargeback reports as custom line items.
+1. Selecione um intervalo de datas.
+2. Adicione etiquetas, conforme necessário.
+3. Adicione grupos.
+4. Escolha um modelo de custos que criou anteriormente.
+5. Selecione os custos reais ou amortizados custos.
+6. Escolha se pretende aplicar regras de alocação para a vista em bruto de vista de dados de faturação ou para recalculada vista de custo.
 
-Custom service charges reflect services that aren't normally shown in a bill. The custom charges that you create are then shown in Cost reports.
+### <a name="actual-cost-analysis-report"></a>Relatório de análise de custo real
 
-*Custom charges aren't custom pricing*. The list of custom charges doesn't show the different rates that you may be charging. For example, AWS billing charges are displayed just as they are charged.
+O relatório de análise de custo real mostra os custos de fornecedor sem nenhuma modificação. Ele mostra os seus colaboradores de custo principal, incluindo os custos contínuos e tarifas únicas anteriores.
 
-To create a custom charge:
+Pode utilizar o relatório para ver informações de custo para as suas subscrições. No relatório, as assinaturas do Azure são mostradas como o **nome da conta** e o número da **conta**. **Contas vinculadas** mostram assinaturas do AWS. Para exibir os custos por assinatura, uma divisão para cada conta, em **grupos**, selecione o tipo de assinatura que você tem.
 
-1. In **Custom Charges**, click  **Add New**. The _Add New Custom Charge_ dialog box is displayed.
-2. In **Provider Name**, enter the name of the provider.
-3. In **Service Name**, enter the type of service.
-4. In **Description**, add a description for the custom charge.
-5. In **Type**, enter the select  **Percentage** and then in Services dropdown, select the services to include as custom charges in the cost reports.
-6. In **Payment**, select if the charge is a One-Time Fee or Recurring Fee. If the charge is a Recurring Fee, select Amortized if you want the charge to be amortized and select the number of months.
-7. In **Dates**, if a one-time fee is selected, in **Effective Date**, enter the date the charge is paid. If Recurring Fee is selected, enter the date range including start date and the end date for the charge.
-8. In the **Entities tree**, select the entities that you want to apply the charge to and then select **On**.
+Utilize o relatório de análise de custo real para:
 
-_When charges are assigned to an entity, users can't change them. Charges that are added by an administrator to a parent entity are read-only._
+- Analisar e monitorizar os custos de fornecedor não processados gastos durante um período de tempo especificado.
+- Agende um alerta do limiar.
+- Analise sem modificações custos incorridos por suas contas e entidades.
 
-To view custom charges:
+### <a name="actual-cost-over-time-report"></a>Relatório de custo ao longo do tempo real
 
-Custom charges are shown in Cost reports. For example, open the Actual Cost Analysis report, then under **Extended Filters**, select **Standalone**. Then filter to show **Custom Charges**.
+O relatório de custo real ao longo do tempo é um relatório de análise de custo padrão a distribuição de custo ao longo de uma resolução de tempo definido. O relatório apresenta gastos ao longo do tempo para que possa observar as tendências e detetar irregularidades gastos. Este relatório mostra os contribuidores de custo principal incluindo os custos contínuos e taxas de uso individual de instância reservada que estão a ser gasto durante um período de tempo selecionado.
 
-### <a name="cost-allocation-360"></a>Cost Allocation 360
+Utilize o relatório de custo real ao longo do tempo para:
 
-You use Cost Allocation 360 to create custom cost allocation models to assign costs to consumed cloud resources. Many reports show information from custom cost models that you've created with custom cost models. And, some reports only show information after you've created a custom cost model with cost allocation.
+- Ver as tendências de custo ao longo do tempo.
+- Encontre irregularidades no custo.
+- Encontre todas as perguntas relacionadas com custos relacionados com o fornecedor de serviços cloud.
 
-For more information about creating custom cost models, see [Tutorial: Manage costs by using Cloudyn](tutorial-manage-costs.md).
+### <a name="amortized-cost-reports"></a>Relatórios de custo amortizado
 
-### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Budget Over Time report
+Este conjunto de custo amortizado relatórios mostra linearized não-utilização com base em taxas de serviço ou uma única vez custos a pagar e distribuir os seus custos ao longo do tempo uniformemente durante o tempo de vida. Por exemplo, as tarifas únicas poderão incluir:
 
-The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. The assigned budget appears in the report so that you can view your (over/under/par) budget consumption over time. Using Show/Hide Fields at the top of the report, you can select to view cost, budget, accumulated cost, and total budget.
+- Tarifas de suporte anual
+- Taxas de componente de segurança anual
+- Taxas de compra de instâncias reservadas
+- Alguns itens do Azure Marketplace
 
-### <a name="current-month-projected-cost-report"></a>Current Month Projected Cost report
+No ficheiro de faturação, as tarifas únicas são caracterizadas quando o consumo do serviço de começar e terminar datas (timestamp) têm valores iguais. O serviço do Cloudyn, em seguida, reconhece-os como uma única vez taxas que são amortizadas. Não são amortizados a outros serviços baseado no consumo com os custos de utilização a pedido.
 
-The Current Month Projected Cost report provides insight into your current month-to-date cost summary. This report displays your costs from the beginning of month, from the previous month, and the total projected cost for the current month. The current month projected cost is calculated as sum of the up-to-date monthly cost and a projection based on the cost monitored in the last 30 days.
+Relatórios de custo amortizado incluem:
 
-Use the Current Month Projected Cost report to:
+- Análise de custo amortizado
+- Custo amortizado ao longo do tempo
 
-- Project monthly costs by service
-- Project monthly costs by account
+### <a name="cost-analysis-report"></a>Relatório Análise de Custos
 
-### <a name="annual-projected-cost-report"></a>Annual Projected Cost report
+O relatório de análise de custo fornece informações sobre o consumo na cloud e os gastos durante um período de tempo selecionado. As políticas definidas na [alocação de custo 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) são usadas no relatório de análise de custo.
 
-The Annual Projected Costs report allows you to view annual projected costs based on previous spending trends. It shows the next 12 months of overall projected costs. The projections are made using a trend function extrapolated over the next 12 months, based on the costs associated with the last 30 days of usage.
+Como é que o Cloudyn calcular este relatório?
 
-### <a name="budget-management-settings"></a>Budget Management settings
+O Cloudyn garante que a alocação retenha a integridade de cada conta vinculada aplicando a _afinidade de conta_. Afinidade garante uma conta que não usa um serviço específico também não tem quaisquer custos deste serviço alocado. Os custos acumulados de conta de permanecer nessa conta e não são calculados pelas políticas de alocação. Por exemplo, poderá ter cinco contas ligadas. Se apenas três deles usar serviços de armazenamento, o custo dos serviços de armazenamento apenas é alocado em etiquetas nas contas de três.
 
-Budget Management allows you to set a budget for your fiscal year.
+Utilize o relatório de análise de custos para:
 
-To add a budget to an entity:
+- Apresenta uma exibição agregada de toda a implementação para um período de tempo específico.
+- Ver os custos, as categorias de etiqueta com base em políticas criadas no modelo de custos.
 
-1. On the Budget Management page, under **Entities**, select the entity where you want to create the budget.
-2. In the budget year, select the year where you want to create the budget.
-3. In each month, set your budget and then and click **Save**.
+### <a name="cost-over-time-report"></a>Relatório de Custos ao Longo do Tempo
 
-To import a file for the annual budget:
+O relatório de custo ao longo do tempo apresenta gastos ao longo do tempo para detetar tendências e irregularidades de aviso na sua implementação. Essencialmente, ele mostra os custos distribuídos por um período de tempo definido. O relatório inclui sua contribuidores de custo principal, incluindo os custos contínuos e taxas de uso individual de instância reservada que estão a ser gasto durante um período de tempo selecionado. As políticas definidas na [alocação de custo 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) são usadas neste relatório.
 
-1. Under **Actions**, select **Export** to download an empty CSV template to use as your basis for the budget.
-2. Fill in the CSV file with your budget entries and save it locally.
-3. Under **Actions**, select **Import**.
-4. Select your saved file and then click  **OK**.
+Utilize o relatório de custo ao longo do tempo para:
 
-To export your completed budget as a CSV file, under **Actions**, select **Export** to download the file.
+- Ver as alterações ao longo do tempo e que influencia alterado a partir de um dia (ou intervalo de datas) para a seguinte.
+- Analise os custos ao longo do tempo de uma instância específica.
+- Compreender por que Motive houve um aumento de custo de uma instância específica.
 
-When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. You can also schedule reports based on budget thresholds.
+### <a name="custom-charges-report"></a>Relatório de custos personalizado
 
-### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer report
+Os utilizadores de Enterprise e CSP muitas vezes descobrem fornecendo serviços adicionados aos clientes internos ou externos, além de suas próprias consumo de recursos na cloud. É possível definir despesas personalizadas para serviços adicionados ou descontos que são adicionados a faturação ou de relatórios de estorno como itens de linha personalizadas do cliente.
 
-The Azure Resource Explorer report shows a bulk list of all the Azure resources available in Cloudyn. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
+Os encargos de serviços personalizados refletem os serviços que normalmente não são apresentados numa fatura. Os encargos personalizados criado por si, em seguida, são apresentados nos relatórios de custo.
 
-### <a name="azure-resources-over-time-report"></a>Azure Resources Over Time report
+As *cobranças personalizadas não são preços personalizados*. A lista de custos personalizados não mostra as taxas de diferentes que pode cobrar. Por exemplo, despesas de faturação do AWS é apresentado exatamente como eles são cobrados.
 
-The Azure Resources Over Time report shows a breakdown of all resources running over a specific period. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
+Para criar uma cobrança personalizada:
 
-### <a name="instance-explorer-report"></a>Instance Explorer report
+1. Em **encargos personalizados**, clique em **Adicionar novo**. A caixa de diálogo _Adicionar novo encargo personalizado_ é exibida.
+2. Em **nome do provedor**, insira o nome do provedor.
+3. Em **nome do serviço**, insira o tipo de serviço.
+4. Em **Descrição**, adicione uma descrição para a cobrança personalizada.
+5. Em **tipo**, insira a **porcentagem** de seleção e, em seguida, no menu suspenso de serviços, selecione os serviços a serem incluídos como encargos personalizados nos relatórios de custo.
+6. Em **pagamento**, selecione se a cobrança é uma taxa única ou recorrente. Se o custo é uma taxa periódico, selecione Amortized se pretender que a cobrança para ser amortizado e selecione o número de meses.
+7. Em **datas**, se uma taxa ocasional for selecionada, em data de **efetivação**, insira a data em que a cobrança é paga. Se a taxa recorrente é selecionada, introduza o intervalo de datas, incluindo a data de início e a data de fim para a cobrança.
+8. Na **árvore entidades**, selecione as entidades às quais você deseja aplicar a cobrança e, em seguida, **Selecione.**
 
-The Instance Explorer report is used to view various metrics for assets of your virtual machines. You can drill-into specific instances to view information such as:
-- Instance running intervals
-- Life cycle in the selected period
-- CPU utilization
-- Network input
-- Output traffic
-- Active disks
+_Quando as cobranças são atribuídas a uma entidade, os usuários não podem alterá-las. Os encargos que são adicionados por um administrador a uma entidade pai são somente leitura._
 
-The Instance Explorer report collects all running intervals within the defined date range and aggregates data accordingly. To view each of the running intervals during the date range, expand the instance. The cost of each instance is calculated for the date range selected based on AWS and Azure list prices. No discounts are applied. You can add additional fields to the report using Show/Hide Fields.
+Para ver as despesas personalizadas:
 
-Use Instance Explorer report to:
+Despesas personalizadas são apresentadas nos relatórios de custo. Por exemplo, abra o relatório de análise de custo real e, em **filtros estendidos**, selecione **autônomo**. Em seguida, filtre para mostrar os **encargos personalizados**.
 
-- Calculate the estimated cost per machine.
-- Create a full list, including aggregated running hours, of all machines that were active during a time range.
-- Create a list by cloud service provider or account.
-- View machines created or terminated during a time range.
-- View all currently stopped machines.
-- View the tags of each machine.
+### <a name="cost-allocation-360"></a>Alocação de custos 360
 
-### <a name="instances-over-time-report"></a>Instances Over Time report
+Utilizar o Cost Allocation 360 para criar modelos de alocação de custos personalizado para atribuir os custos para recursos de cloud consumidos. Muitos relatórios apresentam informações a partir de modelos de custos personalizado que criou com modelos de custos personalizado. Além disso, alguns relatórios mostram apenas informações depois de criar um modelo de custos personalizado com alocação de custos.
 
-Using the Instances Over Time report, you can see the maximum number of machines that were active each during the selected time range. If the defined resolution is by week or month, results are the maximum number of machines active on any given day during that month. Select a date range to select the filters that you want displayed in the report.
+Para obter mais informações sobre como criar modelos de custo personalizados, consulte [tutorial: gerenciar custos usando o Cloudyn](tutorial-manage-costs.md).
 
-### <a name="instance-utilization-over-time-report"></a>Instance Utilization Over Time report
+### <a name="cost-vs-budget-over-time-report"></a>Relatório custo versus orçamento ao longo do tempo
 
-This report shows a breakdown of CPU or memory use over time for all your instances.
+O relatório custo versus orçamento ao longo do tempo permite que você compare os principais colaboradores de custo com relação ao seu orçamento. O orçamento atribuído é apresentado no relatório, de modo a que possa ver o consumo de orçamento (a ativação pós-falha/sob/par) ao longo do tempo. Mostrar/ocultar campos a utilizar na parte superior do relatório, pode optar por ver custo, o orçamento, o custo acumulado e o orçamento total.
 
-### <a name="compute-power-cost-over-time-report"></a>Compute Power Cost Over Time report
+### <a name="current-month-projected-cost-report"></a>Relatório de custo previsto do mês atual
 
-The Compute Power Over Time report provides a breakdown of compute power over a specified date range. Although other reports show the number of running machines or the runtime hours, this report shows Core hours, Compute unit hours, or GB RAM hours.
+O relatório de custo previsto do mês atual fornece informações sobre o custo de mês até à data atual resumo. Este relatório mostra os custos do início do mês, do mês anterior, e o total custo previsto do mês atual. O custo previsto do mês é calculado como soma do custo mensal atualizado e uma projeção baseada no custo monitorizado nos últimos 30 dias.
 
-Use the report to:
+Utilize o relatório de custo previsto do mês atual para:
 
-- Check compute power within a specified date range.
-- View compute times based on cost allocation models.
+- Custos mensais do projeto por serviço
+- Custos mensais do projeto por conta
 
-This report is linked to your [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are shown based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
+### <a name="annual-projected-cost-report"></a>Relatório de custo previsto anual
 
-### <a name="compute-power-average-cost-over-time-report"></a>Compute Power Average Cost Over Time report
+O relatório de custos estimados anual permite-lhe ver os custos estimados anuais com base em tendências de gastos anteriores. Mostra os 12 meses seguintes dos custos previstos geral. As projeções são feitas usando uma função de tendência extrapolada ao longo dos próximos de 12 meses, com base nos custos associados com os últimos 30 dias de utilização.
 
-You use the Compute Power Average Cost Over Time report to view more than just the cost of each running machine. The report shows your average cost per instance hour, core hour, compute unit hour, and GB RAM hour. The report provides insight into the efficiency of your deployment.
+### <a name="budget-management-settings"></a>Definições de gestão do orçamento
 
-This report is linked to your [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) policies so results are displayed based on the defined tagging and policies your selected cost policy. When you don't have a policy created, then results aren't shown.
+Gestão de orçamento permite-lhe definir um orçamento para o ano fiscal.
 
-### <a name="s3-cost-over-time-report"></a>S3 Cost Over Time report
+Para adicionar um orçamento para uma entidade:
 
-The S3 Cost Over Time report provides a breakdown of Amazon Simple Storage Service (S3) costs per bucket over time for a specified time frame. The report helps you find the buckets that are your main cost drivers and it shows you trends in your S3 usage and spending.
+1. Na página Gerenciamento de orçamento, em **entidades**, selecione a entidade na qual você deseja criar o orçamento.
+2. No ano de orçamento, selecione o ano em que pretende criar o orçamento.
+3. Em cada mês, defina seu orçamento e, em seguida, clique em **salvar**.
 
-### <a name="s3-distribution-of-cost-report"></a>S3 Distribution of Cost report
+Para importar um ficheiro para o orçamento anual:
 
-Use the report to analyze your S3 cost for the last month by bucket and storage class. You can use the pie chart view to set the visibility threshold. Or, you can use the table view to see subtotals.
+1. Em **ações**, selecione **Exportar** para baixar um modelo CSV vazio para usar como base para o orçamento.
+2. Preencha o ficheiro CSV com suas entradas de orçamento e guarde-o localmente.
+3. Em **ações**, selecione **importar**.
+4. Selecione o arquivo salvo e clique em **OK**.
 
-### <a name="s3-bucket-properties-report"></a>S3 Bucket Properties report
+Para exportar o orçamento concluído como um arquivo CSV, em **ações**, selecione **Exportar** para baixar o arquivo.
 
-Use the report to view S3 bucket properties. You can use the pie chart view to set the visibility threshold. Or, you can use the table view to see subtotals.
+Quando concluído, o orçamento é mostrado nos relatórios de análise de custo e no relatório custo versus orçamento ao longo do tempo. Também pode agendar relatórios baseados em limiares de orçamento.
 
-### <a name="rds-instances-over-time-report"></a>RDS Instances Over Time report
+### <a name="azure-resource-explorer-report"></a>Relatório de Explorador de recursos do Azure
 
-Use the report to view a breakdown of all Amazon Relational Database Service (RDS) instances running during the specified period.
+O relatório do Azure Resource Explorer mostra uma lista de em massa de todos os recursos do Azure disponíveis no Cloudyn. Para utilizar eficazmente o relatório, as suas contas do Azure devem tiver expandido métricas ativadas. Métricas expandidas fornecem acesso ao Cloudyn nas VMS do Azure. Para obter mais informações, consulte [adicionar métricas estendidas para máquinas virtuais do Azure](azure-vm-extended-metrics.md).
 
-### <a name="rds-active-instances-report"></a>RDS Active Instances report
+### <a name="azure-resources-over-time-report"></a>Relatório de recursos ao longo do tempo do Azure
 
-Use the report to analyze RDS active instances. In the report, expand the line item to view additional information.
+O relatório de recursos do Azure ao longo do tempo mostra uma análise detalhada de todos os recursos em execução durante um período específico. Para utilizar eficazmente o relatório, as suas contas do Azure devem tiver expandido métricas ativadas. Métricas expandidas fornecem acesso ao Cloudyn nas VMS do Azure. Para obter mais informações, consulte [adicionar métricas estendidas para máquinas virtuais do Azure](azure-vm-extended-metrics.md).
 
-### <a name="azure-reserved-instances-report"></a>Azure Reserved Instances report
+### <a name="instance-explorer-report"></a>Relatório de Explorador de instância
 
-The Azure Reserved Instances report provides you with a single view of all your Azure reserved instances. This report displays each purchase as is its own line item. The report also shows details about that purchase such as the account that purchased it, the type of purchase and instance type, days remaining and so on. You can show or hide report data using Show/Hide Fields.
+O relatório de instância Explorer é utilizado para ver várias métricas dos recursos das suas máquinas virtuais. É possível exploração em instâncias específicas para ver informações como:
+- Instância em execução a intervalos
+- Ciclo de vida no período selecionado
+- Utilização da CPU
+- Entrada de rede
+- Tráfego de saída
+- Discos ativos
 
-Use the Azure Reserved Instances report to view:
+O relatório de instância Explorer recolhe todos os intervalos de em execução dentro do intervalo de data definidas e agrega os dados em conformidade. Para ver cada um dos intervalos de em execução durante o intervalo de datas, expanda a instância. O custo de cada instância é calculado para a data intervalo selecionado com base no AWS e do Azure de lista de preços. Não existem descontos são aplicados. Pode adicionar campos adicionais para o relatório com campos de Mostrar/ocultar.
 
-- A list of all reservations by purchase date.
-- Time remaining until the RI expires.
-- One-time fees.
-- The account that purchased RIs, and when.
+Utilize o relatório de instância Explorer para:
 
-### <a name="aws-reserved-instances-report"></a>AWS Reserved Instances report
+- Calcule o custo estimado por máquina.
+- Criar uma lista completa, incluindo agregados em horas, a execução de todas as máquinas que estavam ativas durante um intervalo de tempo.
+- Crie uma lista pelo fornecedor de serviços cloud ou conta.
+- Ver máquinas criadas ou terminaram durante um intervalo de tempo.
+- Ver todas as máquinas atualmente paradas.
+- Ver as etiquetas de cada máquina.
 
-The AWS Reserved Instances report provides you with a single view of all AWS reserved instances. This report displays each purchase is its own line item and details about that purchase such as the account that purchased it, the type of purchase and instance type, days remaining and so on. You can show or hide report data using Show/Hide Fields.
+### <a name="instances-over-time-report"></a>Relatório de instâncias ao longo do tempo
 
-Use the AWS Reserved Instances report to view:
+Utilizar o relatório de instâncias ao longo do tempo, é possível ver o número máximo de máquinas que estavam ativos cada durante o intervalo de tempo selecionado. Se a resolução definida por semana ou mês, os resultados são o número máximo de máquinas ativas num determinado dia durante esse mês. Selecione um intervalo de datas para selecionar os filtros que pretende que sejam apresentados no relatório.
 
-- A list of all reservations by purchase date.
-- Time remaining until the RI expires.
-- One-time fees.
-- Original purchase ID (reservation ID).
-- The account that purchased RIs and when.
+### <a name="instance-utilization-over-time-report"></a>Relatório de utilização ao longo do tempo de instância
 
-### <a name="ec2-ri-buying-recommendations-report"></a>EC2 RI Buying Recommendations report
+Este relatório mostra uma divisão de utilização de CPU ou memória ao longo do tempo para todas as suas instâncias.
 
-The foundation of cloud resource consumption is the on-demand model, where resources incur cost only when used. There are no up-front commitments — you pay only for what you use, when you use it.
+### <a name="compute-power-cost-over-time-report"></a>Relatório do Power custo ao longo do tempo de computação
 
-AWS offers an alternative pricing model for its Elastic Compute Cloud (EC2) services — the reserved instance (RI). This pricing model guarantees users the capacity whenever they need it for the duration of the RI. The RI offers significant price discounts over on-demand pricing. In return, users make an upfront commitment for the use of a virtual instance. The commitment is bound to a specific family, size, availability zone (AZ), and operating system, over the period of commitment (one or three years). The RI allows AWS to efficiently plan future capacity, as well as to gain customer commitment to using its services.
+O relatório de computação Power ao longo do tempo fornece uma repartição da potência de computação através de um intervalo de datas especificado. Embora outros relatórios mostram o número da execução de máquinas ou as horas de tempo de execução, este relatório mostra horas de núcleo, horas de unidade de computação ou horas de GB de RAM.
 
-Three payment options for RIs, which are all-upfront:
+Utilize o relatório para:
 
-- Bulk sum at day 0, offering the highest discount
-- No upfront - in which the cost of RI is paid in monthly installments over the duration of the RI, offering the lowest discount
-- Partial upfront, in which ¼ - ½ of the price is paid up front, and the rest in monthly installments, with a discount rate that is lower, but close, to the all-upfront rate
+- Verifique o poder de computação dentro de um intervalo de data especificada.
+- Horas de computação do modo de exibição com base em modelos de alocação de custos.
 
-Cloudyn evaluates the uptime of each machine for the last 30 days. Cloudyn recommends buying RIs when it is more cost-effective to run the machine with an RI at the current uptime level.
+Esse relatório está vinculado às políticas de [alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) para que os resultados sejam mostrados com base na marcação definida e nas políticas de sua política de custo selecionada. Quando não tiver uma política criada, não são apresentados os resultados.
 
-The report shows the justification for its recommendations to save the most money over the year. The recommendations suggest replacing on-demand instances with RIs. You can purchase RIs directly from the report.
+### <a name="compute-power-average-cost-over-time-report"></a>Relatório de energia médio custo ao longo do tempo de computação
 
-Each tab opens as a full report. Notable sections in tabs include:
+Utilize o relatório de computação energia médio custo ao longo do tempo para ver mais do que apenas o custo de cada máquina em execução. O relatório mostra sua média custo por hora de instância, núcleo hora, hora de unidade de computação e a hora de GB de RAM. O relatório fornece informações sobre a eficiência da sua implementação.
 
-- **EC2 RI Purchase Impact** - This section provides a simulation of the difference between on-demand vs reserved instances. Click  **Zoom in**, to see the full EC2 RI Purchase Impact report with the filters already defined to your recommendation. This report shows the purchase impact of all potential RI purchases. You can adjust the expected average uptime to see the potential saving when you purchase EC2 Reserved Instances.
+Esse relatório está vinculado às políticas de [alocação de custos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) para que os resultados sejam exibidos com base na marcação definida e nas políticas de sua política de custo selecionada. Quando não tiver uma política criada, não são apresentados os resultados.
 
-- **Saving Analysis** - This section provides the potential savings achieved and the month the savings are actualized when following Cloudyn recommendations. The actual savings and the percent saved are highlighted in red.
+### <a name="s3-cost-over-time-report"></a>Relatório de S3 custo ao longo do tempo
 
-- **EC2 RI Type Comparison** - This section emphasizes the ROI highlights of Cloudyn's recommended deployment, including all relevant options. The results in this report assume that the machine is running at 100% uptime. Click **Zoom In**  to open the detailed report.
+O relatório de S3 custo ao longo do tempo fornece uma análise detalhada de custos do Amazon Simple Storage Service (S3) por bucket ao longo do tempo para um intervalo de tempo especificado. O relatório ajuda a localizar os registos que são os controladores de custo principal e mostra-lhe as tendências em seus S3 utilização e gastos.
 
-- **Instances Over Time** - This section displays a breakdown of all instances associated with the recommendation, OnDemand, Reserved Instances, and Spot. Click  **Zoom In**  to open the detailed report.
-- **Breakeven Points** - This section displays a table of all the possible recommended deployments and the ROI and the month when the ROI occurs. Click  **Zoom In** to open the detailed report.
+### <a name="s3-distribution-of-cost-report"></a>Relatório de S3 distribuição de custos
 
-### <a name="ec2-reservations-over-time-report"></a>EC2 Reservations Over Time report
+Utilize o relatório para analisar o custo de S3 para o mês passado por classe de armazenamento e de registo. Pode utilizar o modo de exibição de gráfico circular para definir o limiar de visibilidade. Em alternativa, pode utilizar a vista de tabela para ver os subtotais.
 
-The EC2 Reservations Over Time report tracks the status of your usage of your purchased EC2 RIs. You can set the resolution of the report to hour, day, or week.
+### <a name="s3-bucket-properties-report"></a>Relatório de propriedades de registo de S3
 
-Use the report to:
+Utilize o relatório para ver as propriedades de registo de S3. Pode utilizar o modo de exibição de gráfico circular para definir o limiar de visibilidade. Em alternativa, pode utilizar a vista de tabela para ver os subtotais.
 
-- Display reservations purchased that are used and not used.
-- Drill in to the resolution by hour to see RI usage per hour.
+### <a name="rds-instances-over-time-report"></a>Relatório de RDS instâncias ao longo do tempo
 
-### <a name="savings-over-time-report"></a>Savings Over Time report
+Utilize o relatório para ver uma análise detalhada de todas as instâncias de serviço da base de dados relacional (RDS) de Amazon em execução durante o período de tempo especificado.
 
-Use the Savings Over Time report to view the savings achieved using reserved instances as well as spot instances. The report shows the ROI achieved over time resulting from RI purchases.
+### <a name="rds-active-instances-report"></a>Relatório de instâncias ativas de RDS
 
-To view savings from RIs, group the results by **Price Model** and select **Reservation**. To view RI savings achieved by a specific account or instance type, add the relevant grouping and filter to the account or instance type.
+Utilize o relatório para analisar instâncias ativas de RDS. No relatório, expanda o item de linha para ver informações adicionais.
 
-To see savings from Spot instance use, filter the **Price Model** to **Spot**. The default filter for this report is RI and Spot Instances.
+### <a name="azure-reserved-instances-report"></a>Relatório de instâncias reservadas do Azure
 
-### <a name="rds-ri-buying-recommendations-report"></a>RDS RI Buying Recommendations report
+O relatório de instâncias reservadas do Azure fornece uma vista única de todas as instâncias reservadas do Azure. Este relatório apresenta cada compra que seja o seu próprio item de linha. O relatório também mostra os detalhes dessa compra, como a conta que comprou, o tipo de compra e tipo de instância, dias restantes e assim por diante. Pode mostrar ou ocultar os dados de relatório com campos de Mostrar/ocultar.
 
-RDS RI Buying Recommendations report recommends when to use RDS RIs instead of on-demand instances.
+Utilize o relatório de instâncias reservadas do Azure para ver:
 
-Each tab opens as a full report. Notable sections in tabs include:
+- Uma lista de todas as reservas por data de compra.
+- Tempo restante até que a RI expire.
+- Tarifas únicas.
+- A conta que comprou RIs, e quando.
 
-- **RDS RI Purchase Impact** - This section provides a simulation of the difference between on demand vs reserved instances. Click  **Zoom in** to see the full RDS RI Purchase Impact report with the filters already defined to your recommendation. This report allows you to see the purchase impact of all potential RI purchases.  You can adjust the expected average uptime and see the potential saving by purchasing RIs.
-- **Saving Analysis** – This section provides the potential savings achieved and the month the savings are actualized when following Cloudyn recommendations. The actual savings and the percent saved are highlighted in red.
+### <a name="aws-reserved-instances-report"></a>Relatório de instâncias reservadas do AWS
 
-- **RDS RI Type Comparison** - This section emphasizes the ROI highlights of the recommended deployment, including all relevant options. The results in this report assume that the machine is running at 100% uptime. Click **Zoom In** to open the detailed report for the selected machine.
-- **Instances Over Time** – This section displays a breakdown of all instances associated with the recommendation, OnDemand, Reserved Instances, and Spot. Click **Zoom In** to open the detailed report.
+O relatório de instâncias reservadas do AWS fornece a que uma vista única de AWS todas as instâncias reservada. Este relatório que apresenta cada compra é o seu próprio item de linha e detalhes sobre essa compra, como a conta que comprou, o tipo de compra e tipo de instância, dias restantes e assim por diante. Pode mostrar ou ocultar os dados de relatório com campos de Mostrar/ocultar.
 
-- **Breakeven Points** – This section displays a table of all the possible recommended deployments and the ROI and the month when the ROI occurs. Click **Zoom In** to open the detailed report.
+Utilize o relatório de instâncias reservadas do AWS para ver:
 
-### <a name="rds-reservations-over-time-report"></a>RDS Reservations Over Time report
+- Uma lista de todas as reservas por data de compra.
+- Tempo restante até que a RI expire.
+- Tarifas únicas.
+- ID de compra original (ID de reserva).
+- A conta que comprou RIs e quando.
 
-Use the RDS Reservation Over Time report to view a breakdown of both your used and unused reservations during the specified period.
+### <a name="ec2-ri-buying-recommendations-report"></a>Relatório de recomendações de compra de RI de EC2
 
-### <a name="reserved-instance-purchase-impact-report"></a>Reserved Instance Purchase Impact report
+A base do consumo de recursos de nuvem é o modelo de sob demanda, onde recursos incorrer em custos apenas quando utilizadas. Sem compromissos inicial, só paga o que utilizar, quando usá-lo.
 
-The EC2 RI Purchase Impact report allows you to simulate reserved instance cost versus on-demand cost over time. It can help you make better purchasing decisions. Adjust the filters such as average runtime, term, platform, and others to make informed decisions when you consider RI purchases.
+AWS oferece uma alternativa ao modelo para seus serviços Cloud de computação elástica (EC2) de preços — a instância reservada (RIS). Este modelo de preços garante os utilizadores a capacidade sempre que o necessário durante o período da RI. A RI oferece descontos significativos de preço sobre o preço a pedido. Em troca, os utilizadores criam um compromisso inicial para a utilização de uma instância virtual. O compromisso está vinculado a uma família específica, o tamanho, a zona de disponibilidade (AZ) e o sistema operativo, ao longo do período de alocação (um ou três anos). O RIS permite que o AWS planear a capacidade futura, bem como para obter o compromisso de cliente a utilizar os seus serviços com eficiência.
 
-### <a name="cost-effective-sizing-recommendations-report"></a>Cost-Effective Sizing Recommendations report
+Três opções de pagamento para RIs, o que são à cabeça de todos os:
 
-The Cost-Effective Sizing Recommendations report provides results for AWS and Azure. For AWS users, your RI purchases are taken into consideration and the results don't include machines running as RI's. This report provides a list of underutilized instances that are candidates to downsize. Recommendations are based on your usage and performance data from the last 30 days. In each recommendation is a list of candidates to downsize, the justification to downsize, and a link to view complete details and performance metrics of the instance. And when relevant recommendations advise changing to newer generation instance types.
+- Soma em massa no day 0, o maior desconto da oferta
+- Não antemão - em que o custo da RI é pago em prestações mensais ao longo da duração da RI, oferecendo o desconto mais baixo
+- Parcial inicial, no qual ¼ - ½ do preço é pago com antecedência, e o resto em prestações mensais, com uma taxa de desconto inferior, mas fechar, a taxa de cabeça de todos os
 
-You can't download the list of instance IDs that are recommended to downsize from this report. To download Instance IDs, use the All Sizing Recommendations report.
+Cloudyn avalia o tempo de atividade de cada máquina dos últimos 30 dias. Recomenda-se a Cloudyn a comprar RIs, quando é mais rentável para executar a máquina com uma RI ao nível do tempo de atividade atual.
 
-Consider the following downsizing example:
+O relatório mostra a justificativa para as recomendações guardar o maioria dos dinheiro ao longo do ano. As recomendações de sugerem a substituição de instâncias a pedido com o RIs. Pode comprar RIs diretamente a partir do relatório.
 
-You have six m3.xlarge running instances. Cloudyn analysis shows that five of them have low CPU utilization. Consider downsizing them.
+Cada guia é aberta como um relatório completo. As seções notáveis em separadores incluem:
 
-In Cost Impact, the cost impact is calculated. In this example, by expanding the line item, you can see the current price for one m3.xlarge instance (Linux/Unix) costs $0.266 per hour and one m3.large instance (Linux/Unix) costs $0.133 per hour. So, the annual cost is $11,651 for five m3.xlarge instances running at 100% utilization. The annual cost is $5,825 for five m3.large instances running at 100% utilization. The potential savings are $5,825.
+- **Impacto de compra do EC2 ri** – esta seção fornece uma simulação da diferença entre instâncias do vs reservadas sob demanda. Clique em **ampliar**para ver o relatório de impacto de compra completo do EC2 ri com os filtros já definidos para sua recomendação. Este relatório mostra o impacto de compra de todas as potenciais compras de RI. Pode ajustar o tempo de atividade de média esperado para ver o potencial de a guardar na compra de instâncias reservadas do EC2.
 
-To view cost-effective sizing justifications, click + to expand the line item. In **Details**:
+- **Salvando a análise** -esta seção fornece a economia potencial alcançada e o mês em que a economia é real ao seguir as recomendações de Cloudyn. As poupanças reais e a percentagem de guardados estão realçadas em vermelho.
 
-- The **Recommendation Justification** section displays the current deployment and the number of instances recommended to downsize.
-- The **Cost Impact** section displays the calculation used to determine potential savings.
-- The **Potential Annual Savings** section displays the potential annual savings when downsizing per Cloudyn's recommendation.
+- **Comparação do tipo ri EC2** -esta seção enfatiza os destaques de ROI da implantação recomendada do Cloudyn, incluindo todas as opções relevantes. Os resultados apresentados neste relatório partem do princípio de que a máquina está em execução em 100% de tempo de atividade. Clique em **ampliar** para abrir o relatório detalhado.
 
-### <a name="all-sizing-recommendations-report"></a>All Sizing Recommendations report
+- **Instâncias ao longo do tempo** – esta seção exibe uma divisão de todas as instâncias associadas à recomendação, OnDemand, instâncias reservadas e Spot. Clique em **ampliar** para abrir o relatório detalhado.
+- **Pontos breakeven** – esta seção exibe uma tabela de todas as implantações recomendadas possíveis e o ROI e o mês em que o ROI ocorre. Clique em **ampliar** para abrir o relatório detalhado.
 
-This report provides a list of underutilized instances that are candidates to downsize. The recommendations are based on your usage and performance data from the last 30 days. In each recommendation, you can view complete details and performance metrics of the instance.
+### <a name="ec2-reservations-over-time-report"></a>Relatório de EC2 as reservas ao longo do tempo
 
-If you've purchased AWS reserved instances, this report contains results for all running instances, including instances running as RIs.
+O relatório de EC2 as reservas ao longo do tempo controla o estado da sua utilização das suas RIs adquiridas do EC2. Pode definir a resolução do relatório a hora, dia ou semana.
 
-Use the All Sizing Recommendations report to:
+Utilize o relatório para:
 
-- See a list of all your instances that are candidates to downsize.
-- Export a report list containing Instance Names and IDs.
+- Reservas de exibição adquiridas que são utilizadas e não utilizadas.
+- Explore para a resolução por hora para ver a utilização de RI por hora.
 
-To view recommendation details for a specific Instance, click **+** to expand the details. The Recommendation Details section provides an overview of the recommendation.
+### <a name="savings-over-time-report"></a>Relatório de economia ao longo do tempo
 
-The **Tags** section provides the list of the tag keys and values for the selected instance. Use Tags in the left pane to filter the section.
+Utilize o relatório de economia ao longo do tempo para ver a economia obtida com as instâncias reservadas, bem como as instâncias spot. O relatório mostra o ROI obtido ao longo do tempo resultantes de compras de RI.
 
-The **CPU Utilization** section provides the CPU utilization for the instance over the last month, by day.
+Para exibir a economia do RIs, agrupe os resultados por **modelo de preço** e selecione **reserva**. Para ver as poupanças de RI alcançadas por uma conta específica ou o tipo de instância, adicione o agrupamento relevante e o filtro para o tipo de conta ou instância.
 
-Click the graph to drill down and open the Instance CPU Over Time Report to see a breakdown of the instances.
+Para ver a economia do uso da instância Spot, filtre o **modelo de preço** para **identificar**. O filtro predefinido para este relatório é RI e instâncias Spot.
 
-- Use **Show/Hide Fields** to add or remove fields: Timestamp, Avg CPU, Min CPU, Max CPU.
-- Use **Date Range** to enter a date or date range and drill into a specific InstanceID.
-- Use **Extended Filters** to show all or a specific Instance ID
-- Click **Zoom in** to open the CPU Utilization Report
+### <a name="rds-ri-buying-recommendations-report"></a>Relatório de recomendações de compra de RI de RDS
 
-If the instance hasn't been monitored for 30 days, incomplete data is shown.
+Relatório de recomendações de compra de RI de RDS recomenda quando usar o RIs de RDS em vez de instâncias a pedido.
 
-The **Memory Utilization (GB)** section provides information about the memory utilized. For AWS users, memory metrics are not automatically available and need to be added per instance through AWS. AWS charges you to enable memory metrics for EC2 instances.
+Cada guia é aberta como um relatório completo. As seções notáveis em separadores incluem:
 
-The **Memory Utilization (%)** section displays the percent of memory used.
+- **Impacto na compra do RDS ri** – esta seção fornece uma simulação da diferença entre instâncias do vs. reservadas sob demanda. Clique em **ampliar** para ver o relatório completo de impacto de compra do RDS ri com os filtros já definidos para sua recomendação. Este relatório permite-lhe ver o impacto de compra de todas as potenciais compras de RI.  Pode ajustar o tempo de atividade de média esperado e ver o potencial de a guardar ao comprar RIs.
+- **Salvando a análise** – esta seção fornece a economia potencial alcançada e o mês em que a economia é real ao seguir as recomendações de Cloudyn. As poupanças reais e a percentagem de guardados estão realçadas em vermelho.
 
-The **Network Input Traffic** section displays a snapshot over time of the network traffic, average, and maximum, for the selected instance. Hover over the lines to see the date and maximum traffic for that time. Click **Zoom In** to open the Network Input Traffic Report.
+- **Comparação do tipo RDS ri** – esta seção enfatiza os destaques do ROI da implantação recomendada, incluindo todas as opções relevantes. Os resultados apresentados neste relatório partem do princípio de que a máquina está em execução em 100% de tempo de atividade. Clique em **ampliar** para abrir o relatório detalhado do computador selecionado.
+- **Instâncias ao longo do tempo** – esta seção exibe uma divisão de todas as instâncias associadas à recomendação, OnDemand, instâncias reservadas e Spot. Clique em **ampliar** para abrir o relatório detalhado.
 
-The **Network Output Traffic** section displays a snapshot of the network output traffic for the selected instance. Hover over the lines to see the date and maximum traffic for that time. Click **Zoom In** to open the Network Output Traffic report.
+- **Pontos breakeven** – esta seção exibe uma tabela de todas as implantações recomendadas possíveis e o ROI e o mês em que o ROI ocorre. Clique em **ampliar** para abrir o relatório detalhado.
 
-### <a name="instance-metrics-explorer-report"></a>Instance Metrics Explorer report
+### <a name="rds-reservations-over-time-report"></a>Relatório de RDS as reservas ao longo do tempo
 
-The Instance Metrics Explorer report shows cross-cloud performance metrics per instance. Use the report to view instances that are over or under-utilized based on CPU, memory, and network metric thresholds.
+Utilize o relatório de RDS reserva ao longo do tempo para ver uma divisão de ambas as reservas não utilizadas e utilizadas durante o período de tempo especificado.
 
-To view cross-cloud performance per instance:
+### <a name="reserved-instance-purchase-impact-report"></a>Relatório de impacto de compra de instância reservado
 
-1. In **Date Range**, select a date range for which you want to view performance.
-2. In **Tags**, select any tags that you want to view.
-3. In **Filters**, select the filters you want to display in the report.
-4. In **Extended Filters**, adjust the report thresholds for:
-    - Avg CPU
-    - Max CPU
-    - Avg Memory
-    - Max Memory
-5. In **Extended Filters**, click **Show** and then select the type of instances to display.
+O relatório de impacto de compra de RI de EC2 permite-lhe simular o custo de instância reservada versus sob demanda custo ao longo do tempo. Ele pode ajudar a tomar decisões de compras melhor. Ajuste os filtros, como o tempo de execução médio, termo, plataforma e outras pessoas para tomar decisões informadas ao considerar as compras de RI.
 
-To view a specific instance's metrics over time:
+### <a name="cost-effective-sizing-recommendations-report"></a>Relatório de recomendações de dimensionamento económico
 
-- Go to the Instance Metrics Explorer report and click **+** to view details.
+O relatório de recomendações de dimensionamento de effective fornece resultados para o AWS e do Azure. Para os utilizadores do AWS, as suas compras de RI são levadas em consideração e os resultados não incluem computadores que executam como da RI. Este relatório fornece uma lista de instâncias subutilizadas que são candidatos para a atividade. Recomendações baseiam-se nos seus dados de utilização e o desempenho dos últimos 30 dias. Em cada recomendação é uma lista de candidatos para a atividade, a justificação à atividade e uma ligação para ver os detalhes completos e métricas de desempenho da instância. E, quando relevantes recomendações aconselha a alteração para tipos de instância de geração mais recente.
 
-### <a name="rds-sizing-recommendations-report"></a>RDS Sizing Recommendations report
+Não é possível transferir a lista de IDs que são recomendados para a atividade a partir deste relatório de instância. Para transferir os IDs de instância, utilize o relatório de todas as recomendações de dimensionamento.
 
-The RDS Sizing Recommendations report provides RDS sizing recommendations to optimize your cloud usage. It provides a list of underutilized instances that are candidates to downsize. Cloudyn recommendations are based on the usage and performance data of the last 30 days. You can filter recommendations by Account Name, Region, Instance Type, and Status.
+Considere o seguinte exemplo de downsizing:
 
-### <a name="sizing-threshold-manager-report"></a>Sizing Threshold Manager report
+Tem seis instâncias em execução de m3.xlarge. Análise da Cloudyn mostra que tem cinco dessas baixa utilização da CPU. Considere downsizing-los.
 
-Cloudyn's built-in sizing recommendations are calculated using a complex algorithm to provide accurate sizing suggestions. You can adjust the thresholds for downsizing recommendations.
+No impacto de custo, o impacto de custo é calculado. Neste exemplo, ao expandir o item de linha, pode ver que o preço atual para uma instância de m3.xlarge (Linux/Unix) custa US $0.266 por hora e os custos de instâncias (Linux/Unix) de um m3.large 0.133 us $ por hora. Por isso, o custo anual é US $11,651 para cinco instâncias de m3.xlarge, 100% da utilização. O custo anual é US $5,825 para cinco instâncias de m3.large, 100% da utilização. As economias potenciais são de US $5,825.
 
-To manually adjust threshold sizing recommendations:
+Para ver as justificativas de dimensionamento económico, clique em + para expandir o item de linha. Em **detalhes**:
 
-1. In Sizing Threshold Manager, adjust the following thresholds as you like:
-    - Average CPU %
-    - Maximum CPU %
-    - Average Memory %
-    - Maximum Memory %
-3. Click **Apply** to save changes.
-4. Changes apply immediately to all your recommendations.
+- A seção **justificação de recomendação** exibe a implantação atual e o número de instâncias recomendadas para diminuir.
+- A seção **impacto de custo** exibe o cálculo usado para determinar a economia em potencial.
+- A seção **potencial de economia anual** exibe a economia anual potencial quando downsizing por recomendação de Cloudyn.
 
-To restore default thresholds:
+### <a name="all-sizing-recommendations-report"></a>Relatório de todas as recomendações de dimensionamento
 
-- In Sizing Threshold Manager, click **Restore Defaults**.
+Este relatório fornece uma lista de instâncias subutilizadas que são candidatos para a atividade. As recomendações baseiam-se nos seus dados de utilização e o desempenho dos últimos 30 dias. Em cada recomendação, pode ver detalhes completos e métricas de desempenho da instância.
 
-### <a name="compute-instance-types-report"></a>Compute Instance Types report
+Se tiver comprado instâncias reservada do AWS, este relatório contém resultados de todas as instâncias em execução, incluindo instâncias em execução que o RIs.
 
-Use the Instance Types report to:
+Utilize o relatório de todas as recomendações de dimensionamento para:
 
-- View instance types by Service, Family, API Name, and Name.
-- View details such as CPU, ECU, RAM, and Network.
+- Ver uma lista de todas as instâncias que são candidatos para a atividade.
+- Exporte uma lista de relatório que contém nomes de instância e IDs.
 
-You can use **Search** to find specific line items.
+Para exibir detalhes de recomendação de uma instância específica, clique em **+** para expandir os detalhes. A seção de detalhes da recomendação fornece uma descrição geral da recomendação.
+
+A seção **marcas** fornece a lista de valores e chaves de marca para a instância selecionada. Utilize etiquetas no painel da esquerda para a secção de filtro.
+
+A seção **utilização da CPU** fornece a utilização da CPU para a instância no último mês, por dia.
+
+Clique no gráfico para fazer uma busca detalhada e abrir o instância da CPU ao longo do tempo de relatório para ver uma análise detalhada das instâncias.
+
+- Use **Mostrar/ocultar campos** para adicionar ou remover campos: carimbo de data/hora, média de CPU, Mín de CPU, máximo de CPU.
+- Use o **intervalo de datas** para inserir um intervalo de datas ou datas e detalhar uma InstanceId específica.
+- Usar **filtros estendidos** para mostrar toda ou uma ID de instância específica
+- Clique em **ampliar** para abrir o relatório de utilização da CPU
+
+Se a instância ainda não foi monitorizada durante 30 dias, são mostrados dados incompletos.
+
+A seção **utilização de memória (GB)** fornece informações sobre a memória utilizada. Para os utilizadores do AWS, as métricas de memória não estão disponíveis automaticamente e tem de ser adicionados por instância por meio do AWS. AWS cobra-lhe ativar as métricas de memória de instâncias do EC2.
+
+A seção **utilização de memória (%)** exibe a porcentagem de memória usada.
+
+A seção **tráfego de entrada de rede** exibe um instantâneo ao longo do tempo de tráfego de rede, média e máximo para a instância selecionada. Paire o rato sobre as linhas para ver a data e máximos de tráfego para essa hora. Clique em **ampliar** para abrir o relatório de tráfego de entrada de rede.
+
+A seção **tráfego de saída de rede** exibe um instantâneo do tráfego de saída da rede para a instância selecionada. Paire o rato sobre as linhas para ver a data e máximos de tráfego para essa hora. Clique em **ampliar** para abrir o relatório tráfego de saída de rede.
+
+### <a name="instance-metrics-explorer-report"></a>Relatório de Explorador de métricas de instância
+
+O relatório de Explorador de métricas de instância mostra as métricas de desempenho entre Clouds por instância. Utilize o relatório para ver instâncias que estão acima ou subutilizados com base na CPU, memória e os limiares de métricas de rede.
+
+Para ver o desempenho de entre Clouds por instância:
+
+1. Em **intervalo de datas**, selecione um intervalo de datas para o qual você deseja exibir o desempenho.
+2. Em **marcas**, selecione as marcas que você deseja exibir.
+3. Em **filtros**, selecione os filtros que você deseja exibir no relatório.
+4. Em **filtros estendidos**, ajuste os limites do relatório para:
+    - Média da CPU
+    - Máx. da CPU
+    - Memória média
+    - Máx. de memória
+5. Em **filtros estendidos**, clique em **Mostrar** e selecione o tipo de instâncias a serem exibidas.
+
+Para ver métricas de uma instância específica ao longo do tempo:
+
+- Vá para a instância Metrics Explorer relatório e clique em **+** para exibir detalhes.
+
+### <a name="rds-sizing-recommendations-report"></a>Relatório de recomendações de dimensionamento de RDS
+
+O relatório de recomendações de dimensionamento de RDS fornece recomendações para otimizar a utilização da cloud de dimensionamento de RDS. Ele fornece uma lista de instâncias subutilizadas que são candidatos para a atividade. Recomendações do Cloudyn baseiam-se nos dados de utilização e o desempenho dos últimos 30 dias. Pode filtrar recomendações por nome da conta, região, tipo de instância e o estado.
+
+### <a name="sizing-threshold-manager-report"></a>Relatório de Gestor de limiar de dimensionamento
+
+Recomendações de dimensionamento incorporados do Cloudyn são calculadas usando um algoritmo de complexo para fornecer sugestões de dimensionamento precisos. Pode ajustar os limiares para recomendações de downsizing.
+
+Para ajustar manualmente as recomendações de dimensionamento de limiar:
+
+1. No Gestor do limiar de dimensionamento, ajuste os limiares de seguintes que forem necessárias:
+    - % De CPU média
+    - % De CPU máxima
+    - % De memória médio
+    - % De memória máxima
+3. Clique em **aplicar** para salvar as alterações.
+4. Alterações aplicam-se imediatamente a todas as suas recomendações.
+
+Para restaurar os limiares predefinidos:
+
+- Em Gerenciador de limite de dimensionamento, clique em **Restaurar padrões**.
+
+### <a name="compute-instance-types-report"></a>Relatório de tipos de instância de computação
+
+Utilize o relatório de tipos de instância para:
+
+- Tipos de instância de vista pelo serviço, o família, o nome da API e o nome.
+- Ver os detalhes, tais como CPU, ECU, RAM e de rede.
+
+Você pode usar **Pesquisar** para localizar itens de linha específicos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Learn about how to use reports, including how to customize or save and schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
-- Learn about the dashboards included in Cloudyn and about how to create your own custom dashboards, see [View key cost metrics with dashboards](dashboards.md).
+- Saiba mais sobre como usar relatórios, incluindo como personalizar ou salvar e agendar relatórios, consulte [noções básicas sobre relatórios de custo](understanding-cost-reports.md).
+- Saiba mais sobre os dashboards incluídos no Cloudyn e sobre como criar seus próprios painéis personalizados, consulte [Exibir métricas de custo-chave com painéis](dashboards.md).

@@ -17,50 +17,50 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230005"
 ---
-# <a name="what-is-the-cloudyn-service"></a>What is the Cloudyn service?
+# <a name="what-is-the-cloudyn-service"></a>O que é o serviço do Cloudyn?
 
 A Cloudyn, uma subsidiária da Microsoft, permite-lhe controlar a utilização da cloud e os gastos dos seus recursos do Azure e de outros fornecedores de cloud, incluindo AWS e Google. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. A Cloudyn ajuda a otimizar os gastos da cloud ao identificar recursos subutilizados que pode gerir e ajustar.
 
 Para ver um vídeo introdutório, veja [Introduction to Azure Cloudyn (Introdução à Azure Cloudyn)](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
-O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [Azure Cost Management](overview-cost-mgt.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
 
-Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
+Assista ao [vídeo de gerenciamento de custos e Cloudyn do Azure](https://www.youtube.com/watch?v=PmwFWwSluh8) para ver as recomendações quando você deve usar o gerenciamento de custos do Azure ou o Cloudyn, com base em suas necessidades de negócios.
 
 >[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
-## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Cloudyn features moving to Azure Cost Management
+## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Recursos do Cloudyn migrando para o gerenciamento de custos do Azure
 
-Microsoft acquired Cloudyn and is migrating its cost management features from the Cloudyn portal natively into Azure. To use the new features, sign-in to the Azure portal and navigate to [Cost Management and Billing](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) in the list of Azure services. Compared to Cloudyn, the native experience offers improved performance and lower data latency of about eight hours.
+A Microsoft adquiriu o Cloudyn e está migrando seus recursos de gerenciamento de custos do portal do Cloudyn nativamente para o Azure. Para usar os novos recursos, entre no portal do Azure e navegue até [Gerenciamento de custos e cobrança](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) na lista de serviços do Azure. Em comparação com o Cloudyn, a experiência nativa oferece desempenho aprimorado e menor latência de dados de cerca de oito horas.
 
-Key feature migration for Enterprise Agreement, Pay-As-You-Go, and MSDN offer categories to Azure Cost Management is complete. CSP subscriptions are in the process of being migrated over to Azure Cost Management.
+A migração de recursos-chave para as categorias de ofertas Enterprise Agreement, pré-pago e MSDN para o gerenciamento de custos do Azure foi concluída. As assinaturas do CSP estão em processo de migração para o gerenciamento de custos do Azure.
 
-If you have an offer category not yet migrated, you should continue to use the Cloudyn portal. Everyone else can use Azure Cost Management.
+Se você tiver uma categoria de oferta ainda não migrada, você deverá continuar a usar o portal do Cloudyn. Todos os outros podem usar o gerenciamento de custos do Azure.
 
-| Microsoft Azure offers and features | Recommended cost management service |
+| Ofertas e recursos do Microsoft Azure | Serviço de gerenciamento de custos recomendado |
 | --- | --- |
-| Azure Enterprise Agreement | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Enterprise Agreement do Azure | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
 | Azure Web Direct (PAYG/MSDN) | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
 | Azure Government | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
-| Cross-cloud cost analysis support for AWS (in preview) | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| AWS recommendations | [Cloudyn](https://azure.cloudyn.com) |
+| CSP do Azure | [Cloudyn](https://azure.cloudyn.com) |
+| Suporte à análise de custo entre nuvens para AWS (em versão prévia) | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Recomendações do AWS | [Cloudyn](https://azure.cloudyn.com) |
 
-Some of the following features are available in Cloudyn, but all of them are available now in Azure Cost Management.
+Alguns dos recursos a seguir estão disponíveis no Cloudyn, mas todos eles estão disponíveis agora no gerenciamento de custos do Azure.
 
 - APIs
-- Azure compute recommendations
-- Azure Reservation recommendations
+- Recomendações de computação do Azure
+- Recomendações de reserva do Azure
 - Orçamentos
 - Análise de custos
-- Export data to an Azure storage account
+- Exportar dados para uma conta de armazenamento do Azure
 - Latências mais baixas
-- Power BI content pack and connector
-- Resource tag support
+- Pacote de conteúdo do Power BI e conector
+- Suporte à marca de recurso
 
 ## <a name="monitor-usage-and-spending"></a>Monitorizar a utilização e os gastos
 
-Monitorizar a utilização e os gastos é extremamente importante para infraestruturas da cloud porque as organizações pagam pelos recursos que consomem ao longo do tempo. Quando a utilização excede os limiares do contrato, podem ocorrer excessos de custos inesperados. A few important factors can make ad hoc monitoring difficult. Em primeiro lugar, a projeção de custos baseada na utilização média assume que o consumo permanece consistente num determinado período de faturação. Em segundo lugar, quando os custos estão próximos ou excedem o seu orçamento, é importante receber notificações de forma pró-ativa para ajustar os gastos. Além disso, os fornecedores de serviços cloud podem não oferecer projeção de custo de acordo com os limiares ou relatórios de comparação de períodos.
+Monitorizar a utilização e os gastos é extremamente importante para infraestruturas da cloud porque as organizações pagam pelos recursos que consomem ao longo do tempo. Quando a utilização excede os limiares do contrato, podem ocorrer excessos de custos inesperados. Alguns fatores importantes podem dificultar o monitoramento ad hoc. Em primeiro lugar, a projeção de custos baseada na utilização média assume que o consumo permanece consistente num determinado período de faturação. Em segundo lugar, quando os custos estão próximos ou excedem o seu orçamento, é importante receber notificações de forma pró-ativa para ajustar os gastos. Além disso, os fornecedores de serviços cloud podem não oferecer projeção de custo de acordo com os limiares ou relatórios de comparação de períodos.
 
 Os relatórios ajudam a monitorizar os gastos para analisar e controlar a utilização da cloud, os custos e as tendências. Ao utilizar relatórios ao Longo do Tempo, pode detetar anomalias diferentes das tendências normais. São visíveis ineficiências na sua implementação da cloud nos relatórios de otimização. Também pode reparar em ineficiências nos relatórios de análise de custos.
 

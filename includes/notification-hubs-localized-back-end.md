@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260843"
 ---
-When you send template notifications, you only need to provide a set of properties. In this scenario, the set of properties contain the localized version of the current news.
+Ao enviar notificações de modelo, você só precisa fornecer um conjunto de propriedades. Nesse cenário, o conjunto de propriedades contém a versão localizada das notícias atuais.
 
 ```json
 {
@@ -25,9 +25,9 @@ When you send template notifications, you only need to provide a set of properti
 }
 ```
 
-### <a name="send-notifications-using-a-c-console-app"></a>Send notifications using a C# console app
+### <a name="send-notifications-using-a-c-console-app"></a>Enviar notificações usando um C# aplicativo de console
 
-This section shows how to send notifications using a console app. The code broadcasts notifications to both Windows Store and iOS devices. Modifique o método `SendTemplateNotificationAsync` na aplicação de consola que criou anteriormente com o seguinte código:
+Esta seção mostra como enviar notificações usando um aplicativo de console. O código transmite notificações para dispositivos Windows Store e iOS. Modifique o método `SendTemplateNotificationAsync` na aplicação de consola que criou anteriormente com o seguinte código:
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
@@ -66,11 +66,11 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-The SendTemplateNotificationAsync method delivers the localized piece of news to **all** your devices, irrespective of the platform. Your notification hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
+O método SendTemplateNotificationAsync entrega a parte de notícias localizada para **todos os** seus dispositivos, independentemente da plataforma. O Hub de notificação cria e entrega a carga nativa correta para todos os dispositivos inscritos em uma marca específica.
 
-### <a name="sending-notification-with-mobile-services"></a>Sending notification with Mobile Services
+### <a name="sending-notification-with-mobile-services"></a>Enviando notificação com os serviços móveis
 
-In your Mobile Services scheduler, use the following script:
+No Agendador de serviços móveis, use o seguinte script:
 
 ```csharp
 var azure = require('azure');

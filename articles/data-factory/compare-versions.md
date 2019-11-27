@@ -132,7 +132,7 @@ Os SDKs que são atualizados na versão atual não são compatíveis com versõe
 | ------ | -- | -- | 
 | Portal do Azure | [Sim](quickstart-create-data-factory-portal.md) | Não |
 | Azure PowerShell | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
-| SDK .NET | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
+| .NET SDK | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
 | API REST | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
 | Python SDK | [Sim](quickstart-create-data-factory-python.md) | Não |
 | Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting degraded status on Azure Traffic Manager
-description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
+title: Solucionando problemas de status degradado no Gerenciador de tráfego do Azure
+description: Como solucionar problemas de perfis do Gerenciador de tráfego quando ele aparece como status degradado.
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -19,36 +19,36 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227723"
 ---
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Troubleshooting degraded state on Azure Traffic Manager
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de estado degradado no Gerenciador de tráfego do Azure
 
-This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. As a first step in troubleshooting a Azure Traffic Manager degraded state is to enable diagnostic logging.  Refer to [Enable diagnostic logs](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) for more information. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
+Este artigo descreve como solucionar problemas de um perfil do Gerenciador de tráfego do Azure que está mostrando um status degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o log de diagnóstico.  Consulte [Habilitar logs de diagnóstico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que você configurou um perfil do Gerenciador de tráfego apontando para alguns dos seus serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de tráfego exibir um status **degradado** , o status de um ou mais pontos de extremidade poderá ser **degradado**:
 
-![degraded endpoint status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
+![status de ponto de extremidade degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-If the health of your Traffic Manager displays an **Inactive** status, then both end points may be **Disabled**:
+Se a integridade do seu Gerenciador de tráfego exibir um status **inativo** , ambos os pontos de extremidade poderão ser **desabilitados**:
 
-![Inactive Traffic Manager status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
+![Status do Gerenciador de tráfego inativo](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>Understanding Traffic Manager probes
+## <a name="understanding-traffic-manager-probes"></a>Entendendo as investigações do Gerenciador de tráfego
 
-* Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. If you application returns any other HTTP response code you should add that response code to [Expected status code ranges](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) of your Traffic Manager profile.
-* A 30x redirect response is treated as failure unless you have specified this as a valid response code in [Expected status code ranges](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) of your Traffic Manager profile. Traffic Manager does not probe the redirection target.
-* For HTTPs probes, certificate errors are ignored.
-* The actual content of the probe path doesn't matter, as long as a 200 is returned. Probing a URL to some static content like "/favicon.ico" is a common technique. Dynamic content, like the ASP pages, may not always return 200, even when the application is healthy.
-* A best practice is to set the probe path to something that has enough logic to determine that the site is up or down. In the previous example, by setting the path to "/favicon.ico", you are only testing that w3wp.exe is responding. This probe may not indicate that your web application is healthy. A better option would be to set a path to a something such as "/Probe.aspx" that has logic to determine the health of the site. For example, you could use performance counters to CPU utilization or measure the number of failed requests. Or you could attempt to access database resources or session state to make sure that the web application is working.
-* If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
+* O Gerenciador de tráfego considera um ponto de extremidade como ONLINE somente quando a investigação recebe uma resposta HTTP 200 do caminho de investigação. Se seu aplicativo retornar qualquer outro código de resposta HTTP, você deverá adicionar esse código de resposta aos [intervalos de código de status esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego.
+* Uma resposta de redirecionamento de 30 vezes é tratada como falha, a menos que você tenha especificado isso como um código de resposta válido em [intervalos de códigos de status esperados](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) do seu perfil do Gerenciador de tráfego. O Gerenciador de tráfego não investiga o destino de redirecionamento.
+* Para investigações HTTPs, os erros de certificado são ignorados.
+* O conteúdo real do caminho de investigação não importa, desde que um 200 seja retornado. Investigar uma URL para algum conteúdo estático como "/favicon.ico" é uma técnica comum. O conteúdo dinâmico, como as páginas ASP, nem sempre pode retornar 200, mesmo quando o aplicativo está íntegro.
+* Uma prática recomendada é definir o caminho de investigação para algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao definir o caminho para "/favicon.ico", você está testando apenas que w3wp. exe está respondendo. Essa investigação não pode indicar que seu aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como "/Probe.aspx" que tem lógica para determinar a integridade do site. Por exemplo, você pode usar contadores de desempenho para utilização da CPU ou medir o número de solicitações com falha. Ou você pode tentar acessar os recursos do banco de dados ou o estado da sessão para certificar-se de que o aplicativo Web está funcionando.
+* Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de tráfego tratará todos os pontos de extremidade como íntegros e roteará o tráfego para todos os pontos de extremidade. Esse comportamento garante que os problemas com o mecanismo de investigação não resultem em uma interrupção completa do seu serviço.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
+Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno do código de status HTTP da URL de investigação. Há muitas ferramentas disponíveis que mostram a resposta HTTP bruta.
 
 * [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Also, you can use the Network tab of the F12 Debugging Tools in Internet Explorer to view the HTTP responses.
+Além disso, você pode usar a guia rede das ferramentas de depuração F12 no Internet Explorer para exibir as respostas HTTP.
 
-For this example we want to see the response from our probe URL: http:\//watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
+Para este exemplo, queremos ver a resposta de nossa URL de investigação: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo do PowerShell a seguir ilustra o problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -60,9 +60,9 @@ Exemplo de saída:
     ---------- -----------------
            301 Moved Permanently
 
-Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
+Observe que recebemos uma resposta de redirecionamento. Como mencionado anteriormente, qualquer StatusCode diferente de 200 é considerado uma falha. O Gerenciador de tráfego altera o status do ponto de extremidade para offline. Para resolver o problema, verifique a configuração do site para garantir que o StatusCode apropriado possa ser retornado do caminho de investigação. Reconfigure a investigação do Traffic Manager para apontar para um caminho que retorna um 200.
 
-If your probe is using the HTTPS protocol, you may need to disable certificate checking to avoid SSL/TLS errors during your test. The following PowerShell statements disable certificate validation for the current PowerShell session:
+Se sua investigação estiver usando o protocolo HTTPS, talvez seja necessário desabilitar a verificação de certificado para evitar erros de SSL/TLS durante o teste. As instruções do PowerShell a seguir desabilitam a validação de certificado para a sessão atual do PowerShell:
 
 ```powershell
 add-type @"
@@ -81,16 +81,16 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Próximos Passos
 
-[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
+[Sobre métodos de roteamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md)
 
-[What is Traffic Manager](traffic-manager-overview.md)
+[O que é o Gerenciador de tráfego](traffic-manager-overview.md)
 
 [Serviços Cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[App Service do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Serviço de Aplicações Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure Traffic Manager Cmdlets][1]
+[Cmdlets do Gerenciador de tráfego do Azure][1]
 
 [1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

@@ -1,6 +1,6 @@
 ---
-title: Template functions - deployment
-description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
+title: Funções de modelo – implantação
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: a255cea128241465788f21013eb0522a29f5bd9e
@@ -10,26 +10,26 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230241"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Deployment functions for Azure Resource Manager templates 
+# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos de Azure Resource Manager 
 
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
+O Gerenciador de recursos fornece as seguintes funções para obter valores de seções do modelo e valores relacionados à implantação:
 
-* [deployment](#deployment)
-* [environment](#environment)
+* [planta](#deployment)
+* [ambiente](#environment)
 * [parameters](#parameters)
-* [variables](#variables)
+* [as](#variables)
 
-To get values from resources, resource groups, or subscriptions, see [Resource functions](resource-group-template-functions-resource.md).
+Para obter valores de recursos, grupos de recursos ou assinaturas, consulte funções de [recurso](resource-group-template-functions-resource.md).
 
-## <a name="deployment"></a>implementação
+## <a name="deployment"></a>deployment
 
 `deployment()`
 
-Returns information about the current deployment operation.
+Retorna informações sobre a operação de implantação atual.
 
-### <a name="return-value"></a>Return value
+### <a name="return-value"></a>Valor de retorno
 
-This function returns the object that is passed during deployment. The properties in the returned object differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
+Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado diferem com base em se o objeto de implantação é passado como um link ou como um objeto embutido. Quando o objeto de implantação é passado em linha, como ao usar o parâmetro **-TemplateFile** em Azure PowerShell para apontar para um arquivo local, o objeto retornado tem o seguinte formato:
 
 ```json
 {
@@ -51,7 +51,7 @@ This function returns the object that is passed during deployment. The propertie
 }
 ```
 
-When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format: 
+Quando o objeto é passado como um link, como ao usar o parâmetro **-TemplateUri** para apontar para um objeto remoto, o objeto é retornado no seguinte formato: 
 
 ```json
 {
@@ -75,11 +75,11 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
 }
 ```
 
-When you [deploy to an Azure subscription](deploy-to-subscription.md), instead of a resource group, the return object includes a `location` property. The location property is included when deploying either a local template or an external template.
+Quando você [implanta em uma assinatura do Azure](deploy-to-subscription.md), em vez de um grupo de recursos, o objeto de retorno inclui uma propriedade `location`. A propriedade Location é incluída durante a implantação de um modelo local ou de um modelo externo.
 
 ### <a name="remarks"></a>Observações
 
-You can use deployment() to link to another template based on the URI of the parent template.
+Você pode usar a implantação () para vincular a outro modelo com base no URI do modelo pai.
 
 ```json
 "variables": {  
@@ -87,11 +87,11 @@ You can use deployment() to link to another template based on the URI of the par
 }
 ```  
 
-If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
+Se você reimplantar um modelo do histórico de implantação no portal, o modelo será implantado como um arquivo local. A propriedade `templateLink` não é retornada na função de implantação. Se o modelo depender de `templateLink` para construir um link para outro modelo, não use o portal para reimplantar. Em vez disso, use os comandos usados para implantar o modelo originalmente.
 
 ### <a name="example"></a>Exemplo
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) returns the deployment object:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) a seguir retorna o objeto de implantação:
 
 ```json
 {
@@ -107,7 +107,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-The preceding example returns the following object:
+O exemplo anterior retorna o seguinte objeto:
 
 ```json
 {
@@ -131,17 +131,17 @@ The preceding example returns the following object:
 }
 ```
 
-For a subscription-level template that uses the deployment function, see [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). It's deployed with either `az deployment create` or `New-AzDeployment` commands.
+Para um modelo de nível de assinatura que usa a função de implantação, consulte [função de implantação de assinatura](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Ele é implantado com comandos `az deployment create` ou `New-AzDeployment`.
 
 ## <a name="environment"></a>environment
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Retorna informações sobre o ambiente do Azure usado para implantação.
 
-### <a name="return-value"></a>Return value
+### <a name="return-value"></a>Valor de retorno
 
-This function returns properties for the current Azure environment.
+Essa função retorna propriedades para o ambiente atual do Azure.
 
 ```json
 {
@@ -179,7 +179,7 @@ This function returns properties for the current Azure environment.
 
 ### <a name="example"></a>Exemplo
 
-The following example template returns the environment object.
+O modelo de exemplo a seguir retorna o objeto de ambiente.
 
 ```json
 {
@@ -195,7 +195,7 @@ The following example template returns the environment object.
 }
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+O exemplo anterior retorna o seguinte objeto quando implantado no Azure global:
 
 ```json
 {
@@ -235,21 +235,21 @@ The preceding example returns the following object when deployed to global Azure
 
 `parameters(parameterName)`
 
-Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
+Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |string |The name of the parameter to return. |
+| parameterName |Sim |string |O nome do parâmetro a ser retornado. |
 
-### <a name="return-value"></a>Return value
+### <a name="return-value"></a>Valor de retorno
 
-The value of the specified parameter.
+O valor do parâmetro especificado.
 
 ### <a name="remarks"></a>Observações
 
-Typically, you use parameters to set resource values. The following example sets the name of web site to the parameter value passed in during deployment.
+Normalmente, você usa parâmetros para definir valores de recurso. O exemplo a seguir define o nome do site para o valor do parâmetro passado durante a implantação.
 
 ```json
 "parameters": { 
@@ -269,7 +269,7 @@ Typically, you use parameters to set resource values. The following example sets
 
 ### <a name="example"></a>Exemplo
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) shows a simplified use of the parameters function.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) a seguir mostra um uso simplificado da função Parameters.
 
 ```json
 {
@@ -324,37 +324,37 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-The output from the preceding example with the default values is:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | option 1 |
+| stringOutput | Cadeia | Opção 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"one": "a", "two": "b"} |
+| objectOutput | Objeto | {"One": "a", "Two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | String | option 1 |
+| crossOutput | Cadeia | Opção 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>as
 
 `variables(variableName)`
 
-Returns the value of variable. The specified variable name must be defined in the variables section of the template.
+Retorna o valor da variável. O nome de variável especificado deve ser definido na seção de variáveis do modelo.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| variableName |Sim |String |The name of the variable to return. |
+| variableName |Sim |Cadeia |O nome da variável a ser retornada. |
 
-### <a name="return-value"></a>Return value
+### <a name="return-value"></a>Valor de retorno
 
-The value of the specified variable.
+O valor da variável especificada.
 
 ### <a name="remarks"></a>Observações
 
-Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account.
+Normalmente, você usa variáveis para simplificar o modelo construindo valores complexos apenas uma vez. O exemplo a seguir constrói um nome exclusivo para uma conta de armazenamento.
 
 ```json
 "variables": {
@@ -378,7 +378,7 @@ Typically, you use variables to simplify your template by constructing complex v
 
 ### <a name="example"></a>Exemplo
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) returns different variable values.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) a seguir retorna valores de variáveis diferentes.
 
 ```json
 {
@@ -416,20 +416,20 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-The output from the preceding example with the default values is:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | Cadeia | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+| exampleOutput3 | Cadeia | myVariable |
+| exampleOutput4 |  Objeto | {"Property1": "value1", "Property2": "value2"} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To merge several templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](resource-group-authoring-templates.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md).
 

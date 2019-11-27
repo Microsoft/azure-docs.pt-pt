@@ -99,7 +99,7 @@ Os agentes instalados em máquinas virtuais e computadores coletam dados sobre a
 
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução:
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
 | Agentes do Linux |Sim |Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Linux e inicia a instalação de atualizações necessárias em distribuições com suporte. |

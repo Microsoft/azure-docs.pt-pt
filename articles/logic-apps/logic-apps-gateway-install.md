@@ -1,6 +1,6 @@
 ---
-title: Install on-premises data gateway - Azure Logic Apps
-description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
+title: Instalar o gateway de dados local-aplicativos lógicos do Azure
+description: Antes de poder acessar dados locais de aplicativos lógicos do Azure, baixe e instale o gateway de dados local
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,268 +16,268 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326380"
 ---
-# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Install on-premises data gateway for Azure Logic Apps
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para aplicativos lógicos do Azure
 
-Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Power Automate, Power Apps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
+Antes de poder [se conectar a fontes de dados locais de aplicativos lógicos do Azure](../logic-apps/logic-apps-gateway-connection.md), baixe e instale o [Gateway de dados](https://aka.ms/on-premises-data-gateway-installer) local em um computador local. O gateway funciona como uma ponte que fornece transferência rápida de dados e criptografia entre fontes de dados locais e seus aplicativos lógicos. Você pode usar a mesma instalação de gateway com outros serviços de nuvem, como Power BI, Power mate, Power apps e Azure Analysis Services. Para obter informações sobre como usar o gateway com esses serviços, consulte estes artigos:
 
-* [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
-* [Microsoft Power BI on-premises data gateway](/power-bi/service-gateway-onprem)
-* [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
-* [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+* [Gateway de dados local do Microsoft Power Automate](/power-automate/gateway-reference)
+* [Gateway de dados local do Microsoft Power BI](/power-bi/service-gateway-onprem)
+* [Gateway de dados local do Microsoft Power apps](/powerapps/maker/canvas-apps/gateway-reference)
+* [Azure Analysis Services Gateway de dados local](../analysis-services/analysis-services-gateway.md)
 
-This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic. For more information about the gateway, see [What is an on-premises gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
+Este artigo mostra como baixar, instalar e configurar seu gateway de dados local para que você possa acessar fontes de dados locais de aplicativos lógicos do Azure. Você também pode saber mais sobre [como o gateway de dados funciona](#gateway-cloud-service) mais adiante neste tópico. Para obter mais informações sobre o gateway, consulte [o que é um gateway local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
 
 <a name="requirements"></a>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta e subscrição do Azure. If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se você não tiver uma conta do Azure com uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-  * Your Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You must use the same Azure account for installing and administering the gateway on your local computer.
+  * Sua conta do Azure deve pertencer a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você deve usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
 
-  * During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. Later, in the Azure portal, you must use the same Azure account and Azure AD tenant when you create an Azure gateway resource that registers and claims your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
+  * Durante a instalação do gateway, você entra com sua conta do Azure, que vincula a instalação do seu gateway à sua conta do Azure e somente essa conta. Posteriormente, no portal do Azure, você deve usar a mesma conta do Azure e o locatário do Azure AD ao criar um recurso de gateway do Azure que registra e declara a instalação do seu gateway. Em aplicativos lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais.
 
     > [!NOTE]
-    > You can link only one gateway installation and one Azure gateway resource to each other. You can't link the same gateway installation to multiple Azure accounts or Azure gateway resources. However, an Azure account can link to multiple gateway installations and Azure gateway resources. In an on-premises trigger or action, you can select from your various Azure subscriptions, and then select an associated gateway resource.
+    > Você pode vincular apenas uma instalação de gateway e um recurso de gateway do Azure entre si. Não é possível vincular a mesma instalação de gateway a várias contas do Azure ou recursos de gateway do Azure. No entanto, uma conta do Azure pode ser vinculada a várias instalações de gateway e recursos de gateway do Azure. Em um gatilho ou ação local, você pode selecionar entre suas várias assinaturas do Azure e, em seguida, selecionar um recurso de gateway associado.
 
-  * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
+  * Você precisa entrar com uma conta corporativa ou de estudante, também conhecida como uma conta da *organização* , que se parece com `username@contoso.com`. Você não pode usar contas do Azure B2B (convidado) ou contas pessoais da Microsoft, como @hotmail.com ou @outlook.com.
 
     > [!TIP]
-    > If you signed up for an Office 365 offering and didn't provide your work email address, your address might look like `username@domain.onmicrosoft.com`. Your account is stored within a tenant in an Azure Active Directory (Azure AD). In most cases, the User Principal Name (UPN) for your Azure AD account is the same as your email address.
+    > Se você se inscreveu para uma oferta do Office 365 e não forneceu seu endereço de email de trabalho, seu endereço pode ser semelhante a `username@domain.onmicrosoft.com`. Sua conta é armazenada em um locatário em um Azure Active Directory (Azure AD). Na maioria dos casos, o nome principal do usuário (UPN) para sua conta do Azure AD é o mesmo que seu endereço de email.
     >
-    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's linked to a Microsoft account, first [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
+    > Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) que esteja vinculada a um conta Microsoft, primeiro [crie um locatário no Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e conceda a esse usuário acesso à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
-* Here are requirements for your local computer:
+* Aqui estão os requisitos para seu computador local:
 
-  **Minimum requirements**
+  **Requisitos mínimos**
 
   * .NET Framework 4.7.2
-  * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
+  * versão de 64 bits do Windows 7 ou Windows Server 2008 R2 (ou posterior)
 
-  **Recommended requirements**
+  **Requisitos recomendados**
 
-  * 8-core CPU
-  * 8 GB memory
-  * 64-bit version of Windows Server 2012 R2 or later
-  * Solid-state drive (SSD) storage for spooling
+  * CPU de 8 núcleos
+  * 8 GB de memória
+  * versão de 64 bits do Windows Server 2012 R2 ou posterior
+  * Armazenamento SSD (unidade de estado sólido) para o spooling
 
   > [!NOTE]
-  > The gateway doesn't support Windows Server Core.
+  > O gateway não dá suporte ao Windows Server Core.
 
-* **Related considerations**
+* **Considerações relacionadas**
 
-  * Install the on-premises data gateway only on a local computer, not a domain controller. You don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
+  * Instale o gateway de dados local somente em um computador local, não em um controlador de domínio. Você não precisa instalar o gateway no mesmo computador que a fonte de dados. Você precisa de apenas um gateway para todas as suas fontes de dados, portanto, não é necessário instalar o gateway para cada fonte de dados.
 
     > [!TIP]
-    > To minimize latency, you can install the gateway as close as possible to your data source, or on the same computer, assuming that you have permissions.
+    > Para minimizar a latência, você pode instalar o gateway o mais próximo possível da fonte de dados ou no mesmo computador, supondo que você tenha permissões.
 
-  * Install the gateway on a computer that's on a wired network, connected to the internet, always turned on, and doesn't go to sleep. Otherwise, the gateway can't run, and performance might suffer over a wireless network.
+  * Instale o gateway em um computador que esteja em uma rede com fio, conectado à Internet, sempre ligado e não vá para o estado de suspensão. Caso contrário, o gateway não pode ser executado e o desempenho pode ser afetado em uma rede sem fio.
 
-  * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
+  * Se você planeja usar a autenticação do Windows, certifique-se de instalar o gateway em um computador que seja membro do mesmo ambiente de Active Directory que suas fontes de dados.
 
-  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
+  * A região que você selecionar para a instalação do gateway é o mesmo local que você deve selecionar quando você cria posteriormente o recurso de gateway do Azure para seu aplicativo lógico. Por padrão, essa região é o mesmo local que o seu locatário do Azure AD que gerencia sua conta do Azure. No entanto, você pode alterar o local durante a instalação do gateway.
 
-  * If you're updating your gateway installation to the latest version, uninstall your current gateway first for a cleaner experience.
+  * Se você estiver atualizando a instalação do gateway para a versão mais recente, desinstale primeiro o gateway atual para obter uma experiência de limpeza.
 
-  * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
+  * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica somente a Power BI. Você não pode ter mais de um gateway em execução no mesmo modo no mesmo computador.
 
-  * Azure Logic Apps supports read and write operations through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
 ## <a name="install-data-gateway"></a>Instalar o gateway de dados
 
-1. [Download and run the gateway installer on a local computer](https://aka.ms/on-premises-data-gateway-installer).
+1. [Baixe e execute o instalador do gateway em um computador local](https://aka.ms/on-premises-data-gateway-installer).
 
-1. After the installer opens, select **Next**.
+1. Depois que o instalador for aberto, selecione **Avançar**.
 
-   ![Intro screen for gateway installer](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Tela de introdução para o instalador do gateway](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
-1. Select **On-premises data gateway (recommended)** , which is standard mode, and then select **Next**.
+1. Selecione **Gateway de dados local (recomendado)** , que é o modo padrão e, em seguida, selecione **Avançar**.
 
-   ![Select run mode for data gateway](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
+   ![Selecione o modo de execução para o gateway de dados](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
-1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
+1. Examine os requisitos mínimos, mantenha o caminho de instalação padrão, aceite os termos de uso e, em seguida, selecione **instalar**.
 
-   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
+   ![Revise os requisitos e aceite os termos de uso](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
-1. After the gateway successfully installs, provide the email address for your Azure account, and then select **Sign in**, for example:
+1. Depois que o gateway for instalado com êxito, forneça o endereço de email para sua conta do Azure e, em seguida, selecione **entrar**, por exemplo:
 
-   ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
+   ![Entrar com uma conta corporativa ou de estudante](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Your gateway installation can link to only one Azure account.
+   A instalação do gateway pode ser vinculada a apenas uma conta do Azure.
 
-1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
+1. Selecione **registrar um novo gateway neste computador** > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
 
-   ![Register gateway on local computer](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
+   ![Registrar gateway no computador local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
-1. Provide this information for your gateway installation:
+1. Forneça essas informações para a instalação do gateway:
 
-   * A gateway name that's unique across your Azure AD tenant
-   * The recovery key, which must have at least eight characters, that you want to use
-   * Confirmation for your recovery key
+   * Um nome de gateway que é exclusivo em seu locatário do Azure AD
+   * A chave de recuperação, que deve ter pelo menos oito caracteres, que você deseja usar
+   * Confirmação para sua chave de recuperação
 
-   ![Provide information for gateway installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
+   ![Fornecer informações para a instalação do gateway](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
-   > Save and keep your recovery key in a safe place. You need this key if you ever want to change the location, move, recover, or take over a gateway installation.
+   > Salve e mantenha sua chave de recuperação em um local seguro. Você precisará dessa chave se quiser alterar o local, mover, recuperar ou assumir uma instalação de gateway.
 
-   Note the option to **Add to an existing gateway cluster**, which you select when you install additional gateways for [high-availability scenarios](#high-availability).
+   Observe a opção para **Adicionar a um cluster de gateway existente**, que você seleciona ao instalar gateways adicionais para [cenários de alta disponibilidade](#high-availability).
 
-1. Check the region for the gateway cloud service and [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
+1. Verifique a região para o serviço de nuvem do gateway e o [barramento de serviço do Azure](https://azure.microsoft.com/services/service-bus/) que é usado pela instalação do seu gateway. Por padrão, essa região é o mesmo local que o locatário do Azure AD para sua conta do Azure.
 
-   ![Confirm region for gateway service and service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
+   ![Confirmar região para serviço de gateway e barramento de serviço](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
-1. To accept the default region, select **Configure**. However, if the default region isn't the one that's closest to you, you can change the region.
+1. Para aceitar a região padrão, selecione **Configurar**. No entanto, se a região padrão não for aquela mais próxima de você, você poderá alterar a região.
 
-   *Why change the region for your gateway installation?*
+   *Por que alterar a região para a instalação do gateway?*
 
-   For example, to reduce latency, you might change your gateway's region to the same region as your logic app. Or, you might select the region closest to your on-premises data source. Your *gateway resource in Azure* and your logic app can have different locations.
+   Por exemplo, para reduzir a latência, você pode alterar a região do gateway para a mesma região que seu aplicativo lógico. Ou, você pode selecionar a região mais próxima de sua fonte de dados local. O *recurso de gateway no Azure* e seu aplicativo lógico podem ter locais diferentes.
 
-   1. Next to the current region, select **Change Region**.
+   1. Ao lado da região atual, selecione **alterar região**.
 
-      ![Change the current gateway region](./media/logic-apps-gateway-install/change-gateway-service-region.png)
+      ![Alterar a região do gateway atual](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
-   1. On the next page, open the **Select Region** list, select the region you want, and select **Done**.
+   1. Na página seguinte, abra a lista **selecionar região** , selecione a região desejada e selecione **concluído**.
 
-      ![Select another region for gateway service](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Selecionar outra região para o serviço de gateway](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. Review the information in the final confirmation window. This example uses the same account for Logic Apps, Power BI, Power Apps, and Power Automate, so the gateway is available for all these services. When you're ready, select **Close**.
+1. Examine as informações na janela de confirmação final. Este exemplo usa a mesma conta para aplicativos lógicos, Power BI, Power apps e automatização de energia, para que o gateway esteja disponível para todos esses serviços. Quando estiver pronto, selecione **fechar**.
 
-   ![Confirm data gateway information](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confirmar informações do gateway de dados](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-1. Now [create the Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
+1. Agora, [crie o recurso do Azure para a instalação do gateway](../logic-apps/logic-apps-gateway-connection.md).
 
-## <a name="check-or-adjust-communication-settings"></a>Check or adjust communication settings
+## <a name="check-or-adjust-communication-settings"></a>Verificar ou ajustar as configurações de comunicação
 
-The on-premises data gateway depends on [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus. The gateway has several communication settings, which you can adjust. For more information, see these topics:
+O gateway de dados local depende do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e ao barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para obter mais informações, consulte estes tópicos:
 
-* [Adjust communication settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Configure proxy settings for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Ajustar as configurações de comunicação para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
+* [Definir configurações de proxy para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
-## <a name="high-availability-support"></a>High availability support
+## <a name="high-availability-support"></a>Suporte de alta disponibilidade
 
-To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability.
+Para evitar pontos únicos de falha para acesso a dados local, você pode ter várias instalações de gateway (somente no modo padrão) com cada um em um computador diferente e configurá-las como um cluster ou grupo. Dessa forma, se o gateway primário não estiver disponível, as solicitações de dados serão roteadas para o segundo gateway e assim por diante. Como você pode instalar apenas um gateway padrão em um computador, você deve instalar cada gateway adicional que está no cluster em um computador diferente. Todos os conectores que trabalham com o gateway de dados local dão suporte à alta disponibilidade.
 
-* You must already have at least one gateway installation with the same Azure account as the primary gateway and the recovery key for that installation.
+* Você já deve ter pelo menos uma instalação de gateway com a mesma conta do Azure que o gateway primário e a chave de recuperação para essa instalação.
 
-* Your primary gateway must be running the gateway update from November 2017 or later.
+* O gateway primário deve estar executando a atualização do gateway de novembro de 2017 ou posterior.
 
-After you set up your primary gateway, when you go to install another gateway, select **Add to an existing gateway cluster**, select the primary gateway, which is the first gateway that you installed, and provide the recovery key for that gateway. For more information, see [High availability clusters for on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+Depois de configurar o gateway primário, quando você for instalar outro gateway, selecione **Adicionar a um cluster de gateway existente**, selecione o gateway primário, que é o primeiro gateway que você instalou e forneça a chave de recuperação para esse gateway. Para obter mais informações, consulte [clusters de alta disponibilidade para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
-## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Change location, migrate, restore, or take over existing gateway
+## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Alterar local, migrar, restaurar ou assumir o gateway existente
 
-If you must change your gateway's location, move your gateway installation to a new computer, recover a damaged gateway, or take ownership for an existing gateway, you need the recovery key that was provided during gateway installation.
+Se for necessário alterar o local do gateway, mover a instalação do gateway para um novo computador, recuperar um gateway danificado ou apropriar-se de um gateway existente, você precisará da chave de recuperação que foi fornecida durante a instalação do gateway.
 
-1. Run the gateway installer on the computer that has the existing gateway. If you don't have the latest gateway installer, [download the latest gateway version](https://aka.ms/on-premises-data-gateway-installer).
+1. Execute o instalador do gateway no computador que tem o gateway existente. Se você não tiver o instalador do gateway mais recente, [Baixe a versão mais recente do gateway](https://aka.ms/on-premises-data-gateway-installer).
 
    > [!NOTE]
-   > Before you restore the gateway on the computer that has the original gateway installation, you must first uninstall the gateway on that computer. This action disconnects the original gateway.
-   > If you remove or delete a gateway cluster for any cloud service, you can't restore that cluster.
+   > Antes de restaurar o gateway no computador que tem a instalação do gateway original, você deve primeiro desinstalar o gateway nesse computador. Essa ação desconecta o gateway original.
+   > Se você remover ou excluir um cluster de gateway para qualquer serviço de nuvem, não poderá restaurar esse cluster.
 
-1. After the installer opens, sign in with the same Azure account that was used to install the gateway.
+1. Depois que o instalador for aberto, entre com a mesma conta do Azure que foi usada para instalar o gateway.
 
-1. Select **Migrate, restore, or takeover an existing gateway** > **Next**, for example:
+1. Selecione **migrar, restaurar ou tomada um gateway existente** > **Avançar**, por exemplo:
 
-   ![Select "Migrate, restore, or takeover an existing gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
+   ![Selecione "migrar, restaurar ou tomada um gateway existente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-1. Select from the available clusters and gateways, and enter the recovery key for the selected gateway, for example:
+1. Selecione entre os clusters e gateways disponíveis e insira a chave de recuperação para o gateway selecionado, por exemplo:
 
-   ![Select gateway and provide recovery key](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Selecionar gateway e fornecer chave de recuperação](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-1. To change the region, select **Change Region**, and select the new region.
+1. Para alterar a região, selecione **alterar região**e selecione a nova região.
 
-1. When you're ready, select **Configure** so that you can finish your task.
+1. Quando estiver pronto, selecione **Configurar** para que você possa concluir a tarefa.
 
-## <a name="tenant-level-administration"></a>Tenant-level administration
+## <a name="tenant-level-administration"></a>Administração no nível do locatário
 
-To get visibility into all the on-premises data gateways in an Azure AD tenant, global administrators in that tenant can sign in to the [Power Platform Admin center](https://powerplatform.microsoft.com) as a tenant administrator and select the **Data Gateways** option. For more information, see [Tenant-level administration for the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+Para obter visibilidade de todos os gateways de dados locais em um locatário do Azure AD, os administradores globais nesse locatário podem entrar no centro de [Administração do Power Platform](https://powerplatform.microsoft.com) como administrador de locatários e selecionar a opção de **gateways de dados** . Para obter mais informações, consulte [administração em nível de locatário para o gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
-## <a name="restart-gateway"></a>Restart gateway
+## <a name="restart-gateway"></a>Reiniciar gateway
 
-By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service". However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its "Log On As" account credentials and has "Log on as a service" permissions.
+Por padrão, a instalação do gateway no computador local é executada como uma conta de serviço do Windows denominada "serviço de gateway de dados local". No entanto, a instalação do gateway usa o nome do `NT SERVICE\PBIEgwService` para suas credenciais de conta "fazer logon como" e tem permissões para "fazer logon como um serviço".
 
 > [!NOTE]
-> Your Windows service account differs from the account used for connecting to on-premises data sources and from the Azure account that you use when you sign in to cloud services.
+> Sua conta de serviço do Windows difere da conta usada para conectar-se a fontes de dados locais e da conta do Azure que você usa ao entrar nos serviços de nuvem.
 
-Like any other Windows service, you can start and stop the gateway in various ways. For more information, see [Restart an on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
+Como qualquer outro serviço do Windows, você pode iniciar e parar o gateway de várias maneiras. Para obter mais informações, consulte [reiniciar um gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
-## <a name="how-the-gateway-works"></a>How the gateway works
+## <a name="how-the-gateway-works"></a>Como funciona o gateway
 
-Users in your organization can access on-premises data for which they already have authorized access. However, before these users can connect to your on-premises data source, you need to install and set up an on-premises data gateway. Usually, an admin is the person who installs and sets up a gateway. These actions might require Server Administrator permissions or special knowledge about your on-premises servers.
+Os usuários em sua organização podem acessar dados locais para os quais eles já têm acesso autorizado. No entanto, antes que esses usuários possam se conectar à sua fonte de dados local, você precisa instalar e configurar um gateway de dados local. Normalmente, um administrador é a pessoa que instala e configura um gateway. Essas ações podem exigir permissões de administrador do servidor ou conhecimento especial sobre seus servidores locais.
 
-The gateway facilitates quick and secure communication behind-the-scenes-communication. This communication flows between a user in the cloud, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between the user, the gateway, and your on-premises data source.
+O gateway facilita a comunicação rápida e segura por trás das cenas de comunicação. Essa comunicação flui entre um usuário na nuvem, o serviço de nuvem do gateway e sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais de fonte de dados e detalhes do gateway. O serviço também roteia consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
 
-The gateway works with firewalls and uses only outbound connections. All traffic originates as secure outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
+O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). Esse barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam pelo gateway são criptografados.
 
-![Architecture for on-premises data gateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![Arquitetura do gateway de dados local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 > [!NOTE]
-> Depending on the cloud service, you might need to set up a data source for the gateway.
+> Dependendo do serviço de nuvem, talvez seja necessário configurar uma fonte de dados para o gateway.
 
-These steps describe what happens when you interact with an element that's connected to an on-premises data source:
+Estas etapas descrevem o que acontece quando você interage com um elemento que está conectado a uma fonte de dados local:
 
-1. The cloud service creates a query, along with the encrypted credentials for the data source. The service then sends the query and credentials to the gateway queue for processing.
+1. O serviço de nuvem cria uma consulta, juntamente com as credenciais criptografadas para a fonte de dados. Em seguida, o serviço envia a consulta e as credenciais para a fila do gateway para processamento.
 
-1. The gateway cloud service analyzes the query and pushes the request to Azure Service Bus.
+1. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para o barramento de serviço do Azure.
 
-1. Azure Service Bus sends the pending requests to the gateway.
+1. O barramento de serviço do Azure envia as solicitações pendentes para o gateway.
 
-1. The gateway gets the query, decrypts the credentials, and connects to one or more data sources with those credentials.
+1. O gateway Obtém a consulta, descriptografa as credenciais e se conecta a uma ou mais fontes de dados com essas credenciais.
 
-1. The gateway sends the query to the data source for running.
+1. O gateway envia a consulta à fonte de dados para execução.
 
-1. The results are sent from the data source back to the gateway, and then to the gateway cloud service. The gateway cloud service then uses the results.
+1. Os resultados são enviados da fonte de dados de volta para o gateway e, em seguida, para o serviço de nuvem do gateway. Em seguida, o serviço de nuvem do gateway usa os resultados.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Authentication to on-premises data sources
+### <a name="authentication-to-on-premises-data-sources"></a>Autenticação para fontes de dados locais
 
-A stored credential is used to connect from the gateway to on-premises data sources. Regardless of the user, the gateway uses the stored credential to connect. There might be authentication exceptions for specific services, such as DirectQuery and LiveConnect for Analysis Services in Power BI.
+Uma credencial armazenada é usada para se conectar do gateway para fontes de dados locais. Independentemente do usuário, o gateway usa a credencial armazenada para se conectar. Pode haver exceções de autenticação para serviços específicos, como DirectQuery e LiveConnect para Analysis Services em Power BI.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Microsoft cloud services use [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the User Principal Name (UPN) for your account.
+Os serviços de nuvem da Microsoft usam o [Azure ad](../active-directory/fundamentals/active-directory-whatis.md) para autenticar usuários. Um locatário do Azure AD contém nomes de domínio e grupos de segurança. Normalmente, o endereço de email que você usa para entrar é o mesmo que o UPN (nome principal do usuário) da sua conta.
 
-### <a name="what-is-my-upn"></a>What is my UPN?
+### <a name="what-is-my-upn"></a>Qual é o meu UPN?
 
-If you're not a domain admin, you might not know your UPN. To find the UPN for your account, run the `whoami /upn` command from your workstation. Although the result looks like an email address, the result is the UPN for your local domain account.
+Se você não for um administrador de domínio, talvez não saiba seu UPN. Para localizar o UPN para sua conta, execute o comando `whoami /upn` da sua estação de trabalho. Embora o resultado seja como um endereço de email, o resultado é o UPN para sua conta de domínio local.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synchronize an on-premises Active Directory with Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Sincronizar um Active Directory local com o Azure AD
 
-The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account.
+O UPN para suas contas de Active Directory locais e contas do Azure AD deve ser o mesmo. Portanto, certifique-se de que cada conta de Active Directory local corresponde à sua conta do Azure AD. Os serviços de nuvem sabem apenas sobre contas no Azure AD. Portanto, você não precisa adicionar uma conta ao seu Active Directory local. Se a conta não existir no Azure AD, você não poderá usar essa conta.
 
-Here are ways that you can match your on-premises Active Directory accounts with Azure AD.
+Aqui estão as maneiras pelas quais você pode corresponder às suas contas de Active Directory locais com o Azure AD.
 
-* Add accounts manually to Azure AD.
+* Adicione contas manualmente ao Azure AD.
 
-  Create an account in the Azure portal or in the Microsoft 365 admin center. Make sure that the account name matches the UPN for the on-premises Active Directory account.
+  Crie uma conta no portal do Azure ou no centro de administração do Microsoft 365. Verifique se o nome da conta corresponde ao UPN para a conta de Active Directory local.
 
-* Synchronize local accounts to your Azure AD tenant by using the Azure Active Directory Connect tool.
+* Sincronize contas locais para seu locatário do Azure AD usando a ferramenta Azure Active Directory Connect.
 
-  The Azure AD Connect tool provides options for directory synchronization and authentication setup. These options include password hash sync, pass-through authentication, and federation. If you're not a tenant admin or a local domain admin, contact your IT admin to get Azure AD Connect set up. Azure AD Connect ensures that your Azure AD UPN matches your local Active Directory UPN. This matching helps if you're using Analysis Services live connections with Power BI or single sign-on (SSO) capabilities.
+  A ferramenta de Azure AD Connect fornece opções de sincronização de diretório e configuração de autenticação. Essas opções incluem sincronização de hash de senha, autenticação de passagem e Federação. Se você não for um administrador de locatários ou um administrador de domínio local, entre em contato com o administrador de ti para obter Azure AD Connect configurado. Azure AD Connect garante que o UPN do Azure AD corresponda ao seu UPN Active Directory local. Essa correspondência ajudará se você estiver usando Analysis Services conexões dinâmicas com Power BI ou recursos de logon único (SSO).
 
   > [!NOTE]
-  > Synchronizing accounts with the Azure AD Connect tool creates new accounts in your Azure AD tenant.
+  > A sincronização de contas com a ferramenta Azure AD Connect cria novas contas em seu locatário do Azure AD.
 
 <a name="faq"></a>
 
-## <a name="faq-and-troubleshooting"></a>FAQ and troubleshooting
+## <a name="faq-and-troubleshooting"></a>Perguntas frequentes e solução de problemas
 
-For more information, see these topics:
+Para obter mais informações, consulte estes tópicos:
 
 * [FAQ sobre o gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Solucionar problemas do gateway de dados local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Monitorar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md)
-* [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md)
+* [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Conectores para Azure Logic Apps](../connectors/apis-list.md)

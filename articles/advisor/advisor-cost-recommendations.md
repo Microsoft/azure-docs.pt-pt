@@ -62,7 +62,7 @@ Para economizar 60% do custo, é recomendável armazenar seus instantâneos no a
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Advisor](advisor-overview.md)
-* [Introdução](advisor-get-started.md)
+* [Começar](advisor-get-started.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)

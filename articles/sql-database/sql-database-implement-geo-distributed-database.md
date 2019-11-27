@@ -1,6 +1,6 @@
 ---
-title: Implement a geo-distributed solution
-description: Learn to configure your Azure SQL database and application for failover to a replicated database, and test failover.
+title: Implementar uma solução distribuída geograficamente
+description: Saiba como configurar seu banco de dados SQL do Azure e o aplicativo para failover para um banco de dados replicado e failover de teste.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -18,13 +18,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74421135"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implement a geo-distributed database
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente
 
-Configure an Azure SQL database and application for failover to a remote region and test a failover plan. Saiba como:
+Configure um banco de dados SQL do Azure e um aplicativo para failover para uma região remota e teste um plano de failover. Saiba como:
 
 > [!div class="checklist"]
-> - Create a [failover group](sql-database-auto-failover-group.md)
-> - Run a Java application to query an Azure SQL database
+> - Criar um [grupo de failover](sql-database-auto-failover-group.md)
+> - Executar um aplicativo Java para consultar um banco de dados SQL do Azure
 > - Ativação pós-falha de teste
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -34,36 +34,36 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
-To complete the tutorial, make sure you've installed the following items:
+Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
-- [O Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- A single database in Azure SQL Database. To create one use,
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- Um banco de dados individual no banco de dados SQL do Azure. Para criar um uso,
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
-  > The tutorial uses the *AdventureWorksLT* sample database.
+  > O tutorial usa o banco de dados de exemplo *AdventureWorksLT* .
 
-- Java and Maven, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), highlight **Java** and select your environment, then follow the steps.
+- Java e Maven, consulte [criar um aplicativo usando SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), realçar **Java** e selecionar seu ambiente e, em seguida, siga as etapas.
 
 > [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
+> Certifique-se de configurar as regras de firewall para usar o endereço IP público do computador no qual você está executando as etapas neste tutorial. As regras de firewall no nível de banco de dados serão replicadas automaticamente para o servidor secundário.
 >
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
+> Para obter informações, consulte [criar uma regra de firewall no nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP usado para a regra de firewall no nível de servidor para seu computador, consulte [criar um firewall de nível de servidor](sql-database-server-level-firewall-rule.md).  
 
-## <a name="create-a-failover-group"></a>Create a failover group
+## <a name="create-a-failover-group"></a>Criar um grupo de failover
 
-Using Azure PowerShell, create [failover groups](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group.
+Usando Azure PowerShell, crie [grupos de failover](sql-database-auto-failover-group.md) entre um SQL Server do Azure existente e um novo SQL Server do Azure em outra região. Em seguida, adicione o banco de dados de exemplo ao grupo de failover.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-To create a failover group, run the following script:
+Para criar um grupo de failover, execute o seguinte script:
 
 ```powershell
 $admin = "<adminName>"
@@ -93,7 +93,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
-> Run `az login` to sign in to Azure.
+> Execute `az login` para entrar no Azure.
 
 ```powershell
 $admin = "<adminName>"
@@ -118,29 +118,29 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Geo-replication settings can also be changed in the Azure portal, by selecting your database, then **Settings** > **Geo-Replication**.
+As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** > **replicação geográfica**.
 
-![Geo-replication settings](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
+![Configurações de replicação geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
-## <a name="run-the-sample-project"></a>Run the sample project
+## <a name="run-the-sample-project"></a>Executar o projeto de exemplo
 
-1. In the console, create a Maven project with the following command:
+1. No console do, crie um projeto Maven com o seguinte comando:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Type **Y** and press **Enter**.
+1. Digite **Y** e pressione **Enter**.
 
-1. Change directories to the new project.
+1. Altere os diretórios para o novo projeto.
 
    ```bash
    cd SqlDbSample
    ```
 
-1. Using your favorite editor, open the *pom.xml* file in your project folder.
+1. Usando seu editor favorito, abra o arquivo *pom. xml* na pasta do projeto.
 
-1. Add the Microsoft JDBC Driver for SQL Server dependency by adding the following `dependency` section. The dependency must be pasted within the larger `dependencies` section.
+1. Adicione o Microsoft JDBC Driver para SQL Server dependência adicionando a seção `dependency` a seguir. A dependência deve ser colada na seção `dependencies` maior.
 
    ```xml
    <dependency>
@@ -150,7 +150,7 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
    </dependency>
    ```
 
-1. Specify the Java version by adding the `properties` section after the `dependencies` section:
+1. Especifique a versão do Java adicionando a seção `properties` após a `dependencies` seção:
 
    ```xml
    <properties>
@@ -159,7 +159,7 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
    </properties>
    ```
 
-1. Support manifest files by adding the `build` section after the `properties` section:
+1. Dê suporte a arquivos de manifesto adicionando a seção `build` após a `properties` seção:
 
    ```xml
    <build>
@@ -180,9 +180,9 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
    </build>
    ```
 
-1. Save and close the *pom.xml* file.
+1. Salve e feche o arquivo *pom. xml* .
 
-1. Open the *App.java* file located in ..\SqlDbSample\src\main\java\com\sqldbsamples and replace the contents with the following code:
+1. Abra o arquivo *app. java* localizado em.. \SqlDbSample\src\main\java\com\sqldbsamples e substitua o conteúdo pelo código a seguir:
 
    ```java
    package com.sqldbsamples;
@@ -288,15 +288,15 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
    }
    ```
 
-1. Save and close the *App.java* file.
+1. Salve e feche o arquivo *app. java* .
 
-1. In the command console, run the following command:
+1. No console de comando, execute o seguinte comando:
 
    ```bash
    mvn package
    ```
 
-1. Start the application that will run for about 1 hour until stopped manually, allowing you time to run the failover test.
+1. Inicie o aplicativo que será executado por cerca de 1 hora até ser interrompido manualmente, permitindo que você execute o teste de failover.
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -315,27 +315,27 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
 
 ## <a name="test-failover"></a>Ativação pós-falha de teste
 
-Run the following scripts to simulate a failover and observe the application results. Notice how some inserts and selects will fail during the database migration.
+Execute os scripts a seguir para simular um failover e observar os resultados do aplicativo. Observe como algumas inserções e seleções falharão durante a migração do banco de dados.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-You can check the role of the disaster recovery server during the test with the following command:
+Você pode verificar a função do servidor de recuperação de desastre durante o teste com o seguinte comando:
 
 ```powershell
 (Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
     -ResourceGroupName $resourceGroup -ServerName $drServer).ReplicationRole
 ```
 
-To test a failover:
+Para testar um failover:
 
-1. Start a manual failover of the failover group:
+1. Inicie um failover manual do grupo de failover:
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 
-1. Revert failover group back to the primary server:
+1. Reverter grupo de failover de volta para o servidor primário:
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
@@ -344,21 +344,21 @@ To test a failover:
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-You can check the role of the disaster recovery server during the test with the following command:
+Você pode verificar a função do servidor de recuperação de desastre durante o teste com o seguinte comando:
 
 ```azure-cli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
 ```
 
-To test a failover:
+Para testar um failover:
 
-1. Start a manual failover of the failover group:
+1. Inicie um failover manual do grupo de failover:
 
    ```azure-cli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
    ```
 
-1. Revert failover group back to the primary server:
+1. Reverter grupo de failover de volta para o servidor primário:
 
    ```azure-cli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
@@ -368,14 +368,14 @@ To test a failover:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this tutorial, you configured an Azure SQL database and application for failover to a remote region and tested a failover plan. Aprendeu a:
+Neste tutorial, você configurou um banco de dados SQL do Azure e um aplicativo para failover para uma região remota e testou um plano de failover. Aprendeu a:
 
 > [!div class="checklist"]
 > - Criar um grupo de ativação pós-falha de georreplicação
-> - Run a Java application to query an Azure SQL database
+> - Executar um aplicativo Java para consultar um banco de dados SQL do Azure
 > - Ativação pós-falha de teste
 
-Advance to the next tutorial on how to migrate using DMS.
+Avance para o próximo tutorial sobre como migrar usando o DMS.
 
 > [!div class="nextstepaction"]
-> [Migrate SQL Server to Azure SQL database managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Migrar SQL Server para a instância gerenciada do banco de dados SQL do Azure usando DMS](../dms/tutorial-sql-server-to-managed-instance.md)

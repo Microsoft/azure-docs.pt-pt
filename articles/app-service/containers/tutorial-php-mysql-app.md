@@ -1,6 +1,6 @@
 ---
-title: PHP (Laravel) with MySQL on Linux - Azure App Service | Microsoft Docs
-description: Learn how to get a PHP app working in Azure App Service on Linux, with connection to a MySQL database in Azure. Laravel is used in the tutorial.
+title: PHP (Laravel) com MySQL no serviço Linux-Azure App | Microsoft Docs
+description: Saiba como fazer com que um aplicativo PHP funcione no serviço de Azure App no Linux, com conexão a um banco de dados MySQL no Azure. Laravel é usado no tutorial.
 services: app-service\web
 author: cephalin
 manager: jeconnoc
@@ -18,13 +18,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481321"
 ---
-# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Build a PHP and MySQL app in Azure App Service on Linux
+# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilar um aplicativo PHP e MySQL no serviço de Azure App no Linux
 
 > [!NOTE]
-> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. To deploy to App Service on _Windows_, see [Build a PHP and MySQL app in Azure](../app-service-web-tutorial-php-mysql.md).
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implantar o serviço de aplicativo no _Windows_, consulte [COMPILAR um aplicativo PHP e MySQL no Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. This tutorial shows how to create a PHP app and connect it to a MySQL database. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução no Serviço de Aplicações no Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar um aplicativo PHP e conectá-lo a um banco de dados MySQL. Quando tiver terminado, terá uma aplicação [Laravel](https://laravel.com/) em execução no Serviço de Aplicações no Linux.
 
 ![Aplicação PHP em execução no Serviço de Aplicações do Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -44,7 +44,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-* [Instalar o Git](https://git-scm.com/)
+* [Instale o Git](https://git-scm.com/)
 * [Instalar o PHP 5.6.4 ou superior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
 * Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
@@ -161,7 +161,7 @@ Neste passo, vai criar uma base de dados MySQL na [Base de Dados do Azure para M
 
 Crie um servidor na Base de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-In the following command, substitute a unique server name for the *\<mysql-server-name>* placeholder, a user name for the *\<admin-user>* , and a password for the *\<admin-password>*  placeholder. O nome do servidor é utilizado como parte do ponto final do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure. For details on selecting MySQL DB SKU, please see [Create an Azure Database for MySQL server](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+No comando a seguir, substitua um nome de servidor exclusivo para o espaço reservado *\<MySQL-Server-name >* , um nome de usuário para o *> de usuário admin\<* e uma senha para o espaço reservado\<*admin-password >* . O nome do servidor é utilizado como parte do ponto final do MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure. Para obter detalhes sobre como selecionar o SKU do BD MySQL, consulte [criar um banco de dados do Azure para o servidor MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -182,7 +182,7 @@ Quando o servidor MySQL tiver sido criado, a CLI do Azure mostra informações s
 }
 ```
 
-### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
+### <a name="configure-server-firewall"></a>Configurar firewall do servidor
 
 Crie uma regra de firewall para o servidor MySQL permitir ligações ao cliente com o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-n
 > Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
+No Cloud Shell, execute o comando novamente para permitir o acesso do computador local, substituindo *\<seu endereço ip >* pelo [endereço IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -202,7 +202,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql-ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ligar ao servidor MySQL de produção localmente
 
-Na janela de terminal, ligue ao servidor MySQL no Azure. Use the value you specified previously for _&lt;admin-user>_ and _&lt;mysql-server-name>_ . Quando lhe for pedida uma palavra-passe, utilize a que especificou quando criou a base de dados no Azure.
+Na janela de terminal, ligue ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;> de usuário admin_ e _&lt;MySQL-server-name >_ . Quando lhe for pedida uma palavra-passe, utilize a que especificou quando criou a base de dados no Azure.
 
 ```bash
 mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
@@ -239,7 +239,7 @@ Neste passo, vai ligar a aplicação PHP à base de dados MySQL que criou na Bas
 
 ### <a name="configure-the-database-connection"></a>Configurar a ligação à base de dados
 
-Na raiz do repositório, crie um ficheiro _.env.production_ e copie as variáveis seguintes para o mesmo. Replace the placeholder _&lt;mysql-server-name>_ .
+Na raiz do repositório, crie um ficheiro _.env.production_ e copie as variáveis seguintes para o mesmo. Substitua o espaço reservado _&lt;MySQL-Server-name >_ .
 
 ```txt
 APP_ENV=production
@@ -323,7 +323,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 
 A aplicação do Laravel é iniciada no diretório _/public_. A imagem PHP predefinida do Docker para o Serviço de Aplicações utiliza o Apache e não lhe permite personalizar `DocumentRoot` para o Laravel. No entanto, pode utilizar `.htaccess` para reescrever todos os pedidos para que apontem para _/public_ em vez do diretório de raiz. Na raiz do repositório, já é adicionado um `.htaccess` para este fim. Com o mesmo, a sua aplicação do Laravel está pronta para ser implementada.
 
-For more information, see [Change site root](configure-language-php.md#change-site-root).
+Para obter mais informações, consulte [alterar site raiz](configure-language-php.md#change-site-root).
 
 ### <a name="configure-a-deployment-user"></a>Configurar um utilizador de implementação
 
@@ -341,13 +341,13 @@ For more information, see [Change site root](configure-language-php.md#change-si
 
 No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql-server-name>_ .
+O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname >_ e _&lt;MySQL-server-name >_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-You can use the PHP [getenv](https://php.net/manual/en/function.getenv.php) method to [access the app settings](configure-language-php.md#access-environment-variables). The Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. Por exemplo, a configuração do MySQL em _config/database.php_ é semelhante ao código abaixo:
+Você pode usar o método [getenv](https://php.net/manual/en/function.getenv.php) do PHP para [acessar as configurações do aplicativo](configure-language-php.md#access-environment-variables). O código Laravel usa um wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) sobre o `getenv`do php. Por exemplo, a configuração do MySQL em _config/database.php_ é semelhante ao código abaixo:
 
 ```php
 'mysql' => [
@@ -370,13 +370,13 @@ Utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em 
 php artisan key:generate --show
 ```
 
-Set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command. Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_ .
+Defina a chave do aplicativo no aplicativo do serviço de aplicativo usando o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . Substitua os marcadores de posição _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` tells Laravel to return debugging information when the deployed app encounters errors. Ao executar uma aplicação de produção, defina-o como `false`, que é mais seguro.
+`APP_DEBUG="true"` informa ao Laravel para retornar informações de depuração quando o aplicativo implantado encontra erros. Ao executar uma aplicação de produção, defina-o como `false`, que é mais seguro.
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
@@ -416,10 +416,10 @@ remote: Running deployment command...
 > - `deploy.sh` – o script de implementação personalizado. Se revir o ficheiro, verá que executa `php composer.phar install` a seguir a `npm install`.
 > - `composer.phar` – o gestor de pacotes do Composer.
 >
-> Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. For more information, see [Run Composer](configure-language-php.md#run-composer).
+> Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. Para obter mais informações, consulte [executar o Composer](configure-language-php.md#run-composer).
 >
 
-### <a name="browse-to-the-azure-app"></a>Browse to the Azure app
+### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure
 
 Navegue para `http://<app-name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
@@ -458,7 +458,7 @@ public function up()
 
 O código anterior adiciona uma coluna booleana na tabela `tasks`, com o nome `complete`.
 
-Substitua o método `down` pelo código abaixo na ação de reversão:
+Substitua o método `down` pelo código seguinte na ação de reversão:
 
 ```php
 public function down()
@@ -563,25 +563,25 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to the Azure app and test the new functionality.
+Quando o `git push` for concluído, navegue até o aplicativo do Azure e teste a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="manage-the-azure-app"></a>Manage the Azure app
+## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 
-Go to the [Azure portal](https://portal.azure.com) to manage the app you created.
+Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o aplicativo que você criou.
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-You see your app's Overview page. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
+Você vê a página de visão geral do seu aplicativo. Aqui, pode realizar tarefas de gestão básicas, como parar, iniciar, reiniciar, navegar e eliminar.
 
 O menu do lado esquerdo disponibiliza páginas para configurar a aplicação.
 
@@ -603,12 +603,12 @@ Neste tutorial, ficou a saber como:
 > * Transmitir os registos de diagnóstico em fluxo a partir do Azure
 > * Gerir a aplicação no portal do Azure
 
-Advance to the next tutorial to learn how to map a custom DNS name to your app.
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
 
-Or, check out other resources:
+Ou então, confira outros recursos:
 
 > [!div class="nextstepaction"]
-> [Configure PHP app](configure-language-php.md)
+> [Configurar aplicativo PHP](configure-language-php.md)

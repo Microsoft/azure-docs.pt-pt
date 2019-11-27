@@ -1,5 +1,5 @@
 ---
-title: Register using CSP Partner information with Cloudyn in Azure
+title: Registrar-se usando informações de parceiros CSP com o Cloudyn no Azure
 description: Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn.
 services: cost-management
 keywords: ''
@@ -19,7 +19,7 @@ ms.locfileid: "74229969"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
-Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como começar a ver os dados de custo imediatamente.
+Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo concede acesso ao portal Cloudyn. Este guia de introdução detalha o processo de registo necessário para criar uma subscrição de avaliação do Cloudyn e iniciar sessão no portal Cloudyn. Também lhe mostra como pode começar a ver de imediato os dados dos custos.
 
 
 > [!NOTE]
@@ -31,7 +31,7 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
 >
 > O acesso ao Cloudyn pode ser disponibilizado aos Revendedores CSP Indiretos após o respetivo Fornecedor CSP Indireto se registar no Cloudyn. Os Revendedores CSP Indiretos podem então fornecer acesso ao Cloudyn aos clientes e subscrições do Azure.
 >
->Cloudy is complaint with the Microsoft Secure Application model. For more information, see [Enabling the Secure Application Model framework](/partner-center/develop/enable-secure-app-model).
+>A nuvem é uma reclamação com o modelo de aplicativo seguro da Microsoft. Para obter mais informações, consulte [habilitando a estrutura do modelo de aplicativo seguro](/partner-center/develop/enable-secure-app-model).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -41,7 +41,7 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
 
 1. No portal do Azure, clique em **Cost Management + Faturação** na lista de serviços.
 2. Em **Descrição geral**, clique em **Cloudyn**  
-    ![Cloudyn page shown in the Azure portal](./media/quick-register-csp/cost-mgt-billing-service.png)
+    ![página Cloudyn mostrada na portal do Azure](./media/quick-register-csp/cost-mgt-billing-service.png)
 3. Na página da **Cloudyn**, **Aceda à Cloudyn** para abrir a página de registo na Cloudyn numa janela nova.
 4. Na página de registo da avaliação do portal Cloudyn, escreva o nome da empresa, selecione **Administrador do Programa Parceiro CSP da Microsoft** e, em seguida, clique em **Seguinte**.  
 5. Introduza um **ID de Aplicação**, um **ID de Comércio**, uma **Chave Secreta da Aplicação** e selecione o **Plano de Preços Predefinido**. Se não tiver as informações perto de si, inicie sessão no portal do Centro de Parceiros em [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) com a conta de administrador principal e efetue os seguintes passos:
@@ -50,9 +50,9 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
    3. Copie o GUID do **ID da Aplicação** na sua aplicação Web.
    4. Copie o GUID do **ID de Comércio** na sua aplicação Web.
    5. Selecione a duração de validade da chave como um ou dois anos, conforme necessário. Selecione **Adicionar chave** e, em seguida, copie e guarde o valor da chave secreta.  
-    ![Partner Dashboard where you copy credential information](./media/quick-register-csp/csp-partner-center.png)
+    ![painel de parceiros em que você copia informações de credenciais](./media/quick-register-csp/csp-partner-center.png)
    6. Volte à página de registo da Cloudyn e cole as informações.  
-      ![Paste credential information in the Cloudyn registration page](./media/quick-register-csp/csp-reg.png)
+      ![Informações de credenciais de colar na página de registo do Cloudyn](./media/quick-register-csp/csp-reg.png)
 6. Aceite os Termos de Utilização e, em seguida, valide as suas informações. Clique em **Seguinte** para autorizar o Cloudyn a recolher dados de recursos do Azure. Os dados recolhidos incluem dados de utilização, de desempenho, de faturação e da etiqueta das suas subscrições.  
 7. Em **Convidar outros intervenientes**, pode adicionar utilizadores ao escrever os respetivos endereços de e-mail. Quando terminar, clique em **Seguinte**. Demora cerca de duas horas para todos os dados de faturação serem adicionados ao Cloudyn.
 8. Clique em **Aceder ao Cloudyn** para abrir o portal Cloudyn e, em seguida, na página **Gestão de Contas da Cloud**, deverá ver as informações da sua conta CSP registada.
@@ -61,7 +61,7 @@ Na qualidade de Parceiro CSP, pode efetuar o registo na Cloudyn. O registo conce
 
 Por predefinição, a API do Centro de Parceiros só está acessível para CSPs diretos. No entanto, um fornecedor CSP direto pode configurar o acesso para os respetivos parceiros ou clientes CSP indiretos utilizando grupos de entidades no Cloudyn.
 
-To enable access for indirect CSP customers or partners, follow the steps in [Register with Cloudyn](#register-with-cloudyn) to set up a trial registration. Em seguida, conclua os passos seguintes para segmentar os dados CSP indiretos utilizando grupos de entidades do Cloudyn. Em seguida, atribua as permissões de utilizador adequadas aos grupos de entidades.
+Para habilitar o acesso para clientes ou parceiros do CSP indiretos, siga as etapas em [registrar com Cloudyn](#register-with-cloudyn) para configurar um registro de avaliação. Em seguida, conclua os passos seguintes para segmentar os dados CSP indiretos utilizando grupos de entidades do Cloudyn. Em seguida, atribua as permissões de utilizador adequadas aos grupos de entidades.
 
 1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-and-manage-entities).
 2. Siga os passos indicados em [Atribuir subscrições a Entidades de Custo](https://www.youtube.com/watch?v=d9uTWSdoQYo). Associe a conta e as respetivas subscrições do Azure do cliente CSP indireto à entidade que criou anteriormente.

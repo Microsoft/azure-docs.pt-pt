@@ -1,6 +1,6 @@
 ---
 title: Implementação contínua para Funções do Azure
-description: Use the continuous deployment features of Azure App Service to publish your functions.
+description: Use os recursos de implantação contínua do serviço de Azure App para publicar suas funções.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
@@ -13,72 +13,72 @@ ms.locfileid: "74230888"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
 
-You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers deployment to Azure. If you're new to Azure Functions, get started by reviewing the [Azure Functions overview](functions-overview.md).
+Você pode usar Azure Functions para implantar o código continuamente usando a [integração de controle do código-fonte](functions-deployment-technologies.md#source-control). A integração de controle do código-fonte habilita um fluxo de trabalho no qual uma atualização de código dispara a implantação no Azure. Se você for novo no Azure Functions, comece analisando o [Azure Functions visão geral](functions-overview.md).
 
-Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous deployment in Azure Functions from the following source code locations:
+A implantação contínua é uma boa opção para projetos em que você integra contribuições múltiplas e frequentes. Ao usar a implantação contínua, você mantém uma única fonte de verdade para seu código, o que permite que as equipes colaborem facilmente. Você pode configurar a implantação contínua no Azure Functions dos seguintes locais de código-fonte:
 
 * [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
-The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time. After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the source of truth is set to be elsewhere.
+A unidade de implantação para funções no Azure é o aplicativo de funções. Todas as funções em um aplicativo de funções são implantadas ao mesmo tempo. Depois de habilitar a implantação contínua, o acesso ao código de função no portal do Azure é configurado como *somente leitura* porque a fonte de verdade está definida como em outro lugar.
 
-## <a name="requirements-for-continuous-deployment"></a>Requirements for continuous deployment
+## <a name="requirements-for-continuous-deployment"></a>Requisitos para implantação contínua
 
-For continuous deployment to succeed, your directory structure must be compatible with the basic folder structure that Azure Functions expects.
+Para que a implantação contínua seja realizada com sucesso, sua estrutura de diretório deve ser compatível com a estrutura de pasta básica que Azure Functions espera.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 >[!NOTE]  
-> Continuous deployment is not yet supported for Linux apps running on a Consumption plan. 
+> A implantação contínua ainda não tem suporte para aplicativos do Linux em execução em um plano de consumo. 
 
-## <a name="credentials"></a>Set up continuous deployment
+## <a name="credentials"></a>Configurar a implantação contínua
 
-To configure continuous deployment for an existing function app, complete these steps. The steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
+Para configurar a implantação contínua para um aplicativo de funções existente, conclua estas etapas. As etapas demonstram a integração com um repositório GitHub, mas etapas semelhantes se aplicam para Azure Repos ou outros repositórios de código-fonte.
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment Center**.
+1. Em seu aplicativo de funções no [portal do Azure](https://portal.azure.com), selecione **recursos de plataforma** > **centro de implantação**.
 
-    ![Open Deployment Center](./media/functions-continuous-deployment/platform-features.png)
+    ![Abrir o centro de implantação](./media/functions-continuous-deployment/platform-features.png)
 
-2. In **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue**. 
+2. Na **central de implantação**, selecione **GitHub**e, em seguida, selecione **autorizar**. Se você já tiver autorizado o GitHub, selecione **continuar**. 
 
-    ![Azure App Service Deployment Center](./media/functions-continuous-deployment/github.png)
+    ![Centro de implantação de serviço Azure App](./media/functions-continuous-deployment/github.png)
 
-3. In GitHub, select the **Authorize AzureAppService** button. 
+3. No GitHub, selecione o botão **autorizar AzureAppService** . 
 
-    ![Authorize Azure App Service](./media/functions-continuous-deployment/authorize.png)
+    ![Autorizar serviço Azure App](./media/functions-continuous-deployment/authorize.png)
     
-    In **Deployment Center** in the Azure portal, select **Continue**.
+    Na **central de implantação** no portal do Azure, selecione **continuar**.
 
-4. Select one of the following build providers:
+4. Selecione um dos seguintes provedores de compilação:
 
-    * **App Service build service**: Best when you don't need a build or if you need a generic build.
-    * **Azure Pipelines (Preview)** : Best when you need more control over the build. This provider currently is in preview.
+    * **Serviço de compilação do serviço de aplicativo**: melhor quando você não precisa de uma compilação ou se precisa de uma compilação genérica.
+    * **Azure pipelines (visualização)** : melhor quando você precisa de mais controle sobre a compilação. Este provedor está em visualização no momento.
 
-    ![Select a build provider](./media/functions-continuous-deployment/build.png)
+    ![Selecionar um provedor de compilação](./media/functions-continuous-deployment/build.png)
 
-5. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Then, select **Continue**.
+5. Configure informações específicas para a opção de controle do código-fonte que você especificou. Para o GitHub, você deve inserir ou selecionar valores para **organização**, **repositório**e **ramificação**. Os valores se baseiam no local do seu código. Em seguida, selecione **continuar**.
 
-    ![Configure GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    ![Configurar o GitHub](./media/functions-continuous-deployment/github-specifics.png)
 
-6. Review all details, and then select **Finish** to complete your deployment configuration.
+6. Examine todos os detalhes e, em seguida, selecione **concluir** para concluir a configuração da implantação.
 
     ![Resumo](./media/functions-continuous-deployment/summary.png)
 
-When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
+Quando o processo for concluído, todo o código da origem especificada será implantado em seu aplicativo. Nesse ponto, as alterações na origem da implantação disparam uma implantação dessas alterações em seu aplicativo de funções no Azure.
 
 ## <a name="deployment-scenarios"></a>Cenários de implementação
 
 <a name="existing"></a>
 
-### <a name="move-existing-functions-to-continuous-deployment"></a>Move existing functions to continuous deployment
+### <a name="move-existing-functions-to-continuous-deployment"></a>Mover funções existentes para implantação contínua
 
-If you've already written functions in the [Azure portal](https://portal.azure.com) and you want to download the contents of your app before you switch to continuous deployment, go to the **Overview** tab of your function app. Select the **Download app content** button.
+Se você já escreveu funções no [portal do Azure](https://portal.azure.com) e deseja baixar o conteúdo do seu aplicativo antes de alternar para a implantação contínua, vá para a guia **visão geral** do seu aplicativo de funções. Selecione o botão **baixar conteúdo do aplicativo** .
 
-![Download app content](./media/functions-continuous-deployment/download.png)
+![Baixar o conteúdo do aplicativo](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
-> After you configure continuous integration, you can no longer edit your source files in the Functions portal.
+> Depois de configurar a integração contínua, você não poderá mais editar seus arquivos de origem no portal do functions.
 
 ## <a name="next-steps"></a>Passos seguintes
 

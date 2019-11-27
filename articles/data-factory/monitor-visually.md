@@ -32,7 +32,7 @@ O modo de exibição de monitoramento padrão é a lista de execuções de pipel
 | Nome do pipeline | Nome do pipeline |
 | Ações | Ícones que permitem exibir detalhes da atividade, cancelar ou executar novamente o pipeline |
 | Iniciar execução | Data e hora de início para a execução do pipeline (MM/DD/AAAA, HH: MM: SS AM/PM) |
-| Duração | Duração da execução (HH: MM: SS) |
+| Duration | Duração da execução (HH: MM: SS) |
 | Disparado por | O nome do gatilho que iniciou o pipeline |
 | Estado | **Com falha, com** **êxito**, **em andamento**, **cancelado**ou **na fila** |
 | Anotações | Marcas filtráveis associadas a um pipeline  |
@@ -56,7 +56,7 @@ Para exibir as execuções de atividade para cada execução de pipeline, seleci
 | Tipo de atividade | Tipo de atividade, como **Copy**, **ExecuteDataFlow**ou **AzureMLExecutePipeline** |
 | Ações | Ícones que permitem que você veja informações de entrada JSON, informações de saída JSON ou experiências detalhadas de monitoramento específicas da atividade | 
 | Iniciar execução | Data e hora de início para a execução da atividade (MM/DD/AAAA, HH: MM: SS AM/PM) |
-| Duração | Duração da execução (HH: MM: SS) |
+| Duration | Duração da execução (HH: MM: SS) |
 | Estado | **Com falha, com** **êxito**, **em andamento**ou **cancelado** |
 | Integration Runtime | Em que Integration Runtime a atividade foi executada |
 | Propriedades do usuário | Propriedades definidas pelo usuário da atividade |

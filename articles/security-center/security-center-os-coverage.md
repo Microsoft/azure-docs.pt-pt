@@ -43,7 +43,7 @@ As seções a seguir listam os sistemas operacionais de servidor com suporte nos
 
 |SO|Com suporte na central de segurança do Azure|Suporte para integração com o Microsoft defender ATP|
 |:---|:-:|:-:|
-|Windows Server 2019|✔|X|
+|Windows Server de 2019|✔|X|
 |Windows Server 2016|✔|✔|
 |Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
@@ -95,7 +95,7 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * Função
 * Serviço Cloud
 * VNet
-* Subrede
+* Subnet
 * NIC
 * NSG
 * Conta do Batch
@@ -110,7 +110,7 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * Redis
 * Data Lake Analytics
 * Data Lake Store
-* Key Vault
+* Key vault
 
 Para saber mais sobre os recursos com suporte para a lista acima de recursos de PaaS, consulte [recursos compatíveis com serviços de PaaS](security-center-services.md#paas-services).
 

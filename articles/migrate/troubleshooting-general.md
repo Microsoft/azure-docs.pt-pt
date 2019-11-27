@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Migrate issues | Microsoft Docs
-description: Provides an overview of known issues in the Azure Migrate service, as well as troubleshooting tips for common errors.
+title: Solucionar problemas de migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral dos problemas conhecidos no serviço de migrações para Azure, bem como dicas de solução de problemas para erros comuns.
 author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
@@ -16,400 +16,400 @@ ms.locfileid: "74384069"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
+As [migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros. Este artigo ajuda você a solucionar problemas com migrações para Azure, avaliação de servidor migrações para Azure e migração de servidor de migrações para Azure.
 
 
-## <a name="find-a-project"></a>Find a project
+## <a name="find-a-project"></a>Localizar um projeto
 
-There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
-
-
-If you created the Azure Migrate project in the current version of Azure Migrate, do the following:
-
-1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-2. In the Azure Migrate dashboard > **Servers**, select **change** in the upper-right corner.
-
-    ![Switch to an existing Azure Migrate project](./media/troubleshooting-general/switch-project.png)
-
-3. Select the appropriate subscription and Azure Migrate project.
+Há [duas versões](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) de migrações para Azure.
 
 
-If you created the project in the previous version of Azure Migrate,  do the following:
+Se você criou o projeto de migrações para Azure na versão atual das migrações para Azure, faça o seguinte:
 
-1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
+1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
+2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
 
-    ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
+    ![Alternar para um projeto atual de migrações para Azure](./media/troubleshooting-general/switch-project.png)
 
-3. Review the list of old project.
-
-
-## <a name="create-additional-projects"></a>Create additional projects
-
-Create a new Azure Migrate project as follows:
-
-1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-2. On the Azure Migrate dashboard > **Servers**, select **change** in the upper-right corner.
-
-   ![Change Azure Migrate project](./media/troubleshooting-general/switch-project.png)
-
-3. To create a new project, select **click here**.
-
-   ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
-
-## <a name="review-supported-geographies"></a>Review supported geographies
-
-Review supported geographies for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
-
-## <a name="delete-projectsworkspaces"></a>Delete projects/workspaces
-
-When deleting Azure Migrate projects and Log Analytics workspaces, note that:
-
-- When you delete an Azure Migrate project, the project *and* the metadata about discovered machines are deleted.
-- If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted.
-- The same Log Analytics workspace can be used for multiple scenarios.
-- If you want to delete the Log Analytics workspace, you must do that manually.
+3. Selecione a assinatura apropriada e o projeto de migrações para Azure.
 
 
-### <a name="delete-a-project"></a>Delete a project
+Se você criou o projeto na versão anterior do migrações para Azure, faça o seguinte:
 
-To delete a project in the current version of Azure Migrate:
+1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
+2. No painel migrações para Azure, se você tiver criado um projeto na versão anterior, um banner referenciando projetos mais antigos será exibido. Selecione a faixa.
 
-1. Open the Azure resource group in which the project was created.
-2. In the resource group page, select **Show hidden types**.
-3. Select the migrate project you want to delete. The resource type is Microsoft.Migrate/migrateprojects, and deletes it.
+    ![Acessar projetos existentes](./media/troubleshooting-general/access-existing-projects.png)
 
-To delete a project in the older version of Azure Migrate:
+3. Examine a lista de projetos antigos.
 
-1. Open the Azure resource group in which the project was created.
-2. Select the migrate project you want to delete. The resource type is Migration project, and deletes it.
+
+## <a name="create-additional-projects"></a>Criar projetos adicionais
+
+Crie um novo projeto de migrações para Azure da seguinte maneira:
+
+1. Na [portal do Azure](https://portal.azure.com), pesquise **migrações para Azure**.
+2. No painel migrações para Azure > **servidores**, selecione **alterar** no canto superior direito.
+
+   ![Alterar projeto de migrações para Azure](./media/troubleshooting-general/switch-project.png)
+
+3. Para criar um novo projeto, selecione **clique aqui**.
+
+   ![Criar um segundo projeto de migrações para Azure](./media/troubleshooting-general/create-new-project.png)
+
+## <a name="review-supported-geographies"></a>Examinar regiões com suporte
+
+Examine as geografias com suporte para [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+
+## <a name="delete-projectsworkspaces"></a>Excluir projetos/espaços de trabalho
+
+Ao excluir projetos de migração do Azure e espaços de trabalho Log Analytics, observe que:
+
+- Quando você exclui um projeto de migrações para Azure, o projeto *e* os metadados sobre computadores descobertos são excluídos.
+- Se você anexou um espaço de trabalho Log Analytics à ferramenta de avaliação do servidor, o espaço de trabalho não será excluído automaticamente.
+- O mesmo espaço de trabalho Log Analytics pode ser usado para vários cenários.
+- Se você quiser excluir o espaço de trabalho Log Analytics, deverá fazer isso manualmente.
+
+
+### <a name="delete-a-project"></a>Excluir um projeto
+
+Para excluir um projeto na versão atual do migrações para Azure:
+
+1. Abra o grupo de recursos do Azure no qual o projeto foi criado.
+2. Na página grupo de recursos, selecione **Mostrar tipos ocultos**.
+3. Selecione o projeto de migração que você deseja excluir. O tipo de recurso é Microsoft. Migrate/migrateprojects e o exclui.
+
+Para excluir um projeto na versão mais antiga do migrações para Azure:
+
+1. Abra o grupo de recursos do Azure no qual o projeto foi criado.
+2. Selecione o projeto de migração que você deseja excluir. O tipo de recurso é projeto de migração e o exclui.
 
 
 ### <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
-Browse to the Log Analytics workspace attached to the project.
-* If you haven't deleted the Azure Migrate project, you can find the link to the workspace in **Essentials** > **Server Assessment**.
-       ![LA Workspace](./media/troubleshooting-general/loganalytics-workspace.png)
+Navegue até o espaço de trabalho Log Analytics anexado ao projeto.
+* Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials** > **Server**.
+       Espaço de trabalho ![LA](./media/troubleshooting-general/loganalytics-workspace.png)
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
-## <a name="error-requests-must-contain-user-identity-headers"></a>Error "Requests must contain user identity headers"
+## <a name="error-requests-must-contain-user-identity-headers"></a>Erro "as solicitações devem conter cabeçalhos de identidade do usuário"
 
-When creating a project this error might indicate that you don't have access to the Azure Active Directory (Azure AD) tenant of the organization.
+Ao criar um projeto, esse erro pode indicar que você não tem acesso ao locatário do Azure Active Directory (Azure AD) da organização.
 
-- When you're added to an Azure AD tenant for the first time, you receive an email invitation to join the tenant.
-- Accept the invitation to get successfully added to the tenant.
-    - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) to you.
-    - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
-
-
-## <a name="error-invalid-ovf-manifest-entry"></a>Error "Invalid OVF manifest entry"
-
-If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
-
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). If the hash value doesn't match, download the OVA file again and retry the deployment.
-2. If deployment still fails, and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
-3. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
-   - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
-   - In **Home** > **Inventory**, select **File** > **Deploy OVF template**. Browse to the OVA and complete the deployment.
-4. If the deployment still fails, contact Azure Migrate support.
-
-## <a name="appliance-cant-connect-to-the-internet"></a>Appliance can't connect to the internet
-
-This can happen if the appliance machine is behind a proxy.
-
-- Make sure you provide the authorization credentials if the proxy needs them.
-- If you're using a URL-based firewall proxy to control outbound connectivity, add these URLs to an allow list:
-
-    - [URLs for VMware assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-    - [URLs for Hyper-V assessment](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-    - [URLs for VMware agentless migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-    - [URLS for VMware agent-based migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-    - [URLs for Hyper-V migration](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
-
-- If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
-
-## <a name="errordatetime-synchronization"></a>Error:Date/time synchronization
-
-An error about date and time synchronization (802) indicates that the server clock might be out of synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time:
-
-1. Open an admin command prompt on the VM.
-2. To check the time zone, run **w32tm /tz**.
-3. To synchronize the time, run **w32tm /resync**.
+- Quando você é adicionado a um locatário do Azure AD pela primeira vez, você recebe um convite por email para ingressar no locatário.
+- Aceite o convite para ser adicionado com êxito ao locatário.
+    - Se você não conseguir ver o email, entre em contato com um usuário com acesso ao locatário e peça para [reenviar o convite](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) para você.
+    - Depois de receber o email de convite, abra-o e selecione o link para aceitar o convite. Em seguida, saia do portal do Azure e entre novamente. (a atualização do navegador não funcionará.) Em seguida, você pode começar a criar o projeto de migração.
 
 
-## <a name="error-unabletoconnecttoserver"></a>Error: UnableToConnectToServer
+## <a name="error-invalid-ovf-manifest-entry"></a>Erro "entrada de manifesto OVF inválida"
 
-If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that can accept the message.
+Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada de manifesto OVF inválida", faça o seguinte:
 
-- Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector).
-- If the issue still occurs in the latest version, the appliance might be unable to resolve the specified vCenter Server name, or the specified port might be wrong. By default, if the port is not specified, the collector will try to connect to port number 443.
+1. Verifique se o arquivo OVA do dispositivo de migração do Azure foi baixado corretamente verificando seu valor de hash. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor de hash não corresponder, baixe o arquivo OVA novamente e repita a implantação.
+2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
+3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
+   - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (*endereço IP do host*do https://< >/UI).
+   - Em **início** > **inventário**, selecione **arquivo** > **implantar o modelo OVF**. Navegue até o OVA e conclua a implantação.
+4. Se a implantação ainda falhar, entre em contato com o suporte para migrações para Azure.
 
-    1. Ping *Servername*.com from the appliance.
-    2. If step 1 fails, try to connect to the vCenter server using the IP address.
-    3. Identify the correct port number to connect to vCenter Server.
-    4. Verify that vCenter Server is up and running.
+## <a name="appliance-cant-connect-to-the-internet"></a>O dispositivo não pode se conectar à Internet
 
+Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 
-## <a name="error-appliance-might-not-be-registered"></a>Error: Appliance might not be registered
+- Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
+- Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione essas URLs a uma lista de permissões:
 
-- Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
-    - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
-- Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
-    - In the Azure portal and check whether the project exists in the resource group.
-    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
+    - [URLs para avaliação do VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
+    - [URLs para avaliação do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
+    - [URLs para migração sem agente do VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
+    - [URLS para migração baseada em agente do VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
+    - [URLs para migração do Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
 
-## <a name="error-key-vault-management-operation-failed"></a>Error: Key Vault management operation failed
+- Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following:
-- Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-- Make sure the account has access to the key vault specified in the error message, and then retry the operation.
-- If the issue persists, contact Microsoft support.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
+## <a name="errordatetime-synchronization"></a>Erro: sincronização de data/hora
 
-## <a name="fix-discovery-couldnt-be-initiated"></a>Fix: Discovery couldn't be initiated
+Um erro sobre a sincronização de data e hora (802) indica que o relógio do servidor pode estar fora de sincronização com a hora atual em mais de cinco minutos. Altere a hora do relógio na VM do coletor para corresponder à hora atual:
 
-Error 60028: "Discovery couldn't be initiated because of an error. The operation failed for the specified list of hosts or clusters" indicates that discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added.
-
-- Add the hosts listed in the error again, using the **Add host** option.
-- If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
-
-## <a name="fix-azure-ad-operation-failed-60025"></a>Fix: Azure AD operation failed (60025)
-
-Error 60025: "An Azure AD operation failed. The error occurred while creating or updating the Azure AD application" occurs when the Azure user account used to initiate the discovery is different from the account used to register the appliance. Do one of the following:
-
-- Ensure that the user account initiating the discovery is same as the one used to register the appliance.
-- Provide Azure Active Directory application access permissions to the user account for which the discovery operation is failing.
-- Delete the resource group previously created for the Azure Migrate project. Create another resource group to start again.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
+1. Abra um prompt de comando de administrador na VM.
+2. Para verificar o fuso horário, execute **w32tm/TZ**.
+3. Para sincronizar o tempo, execute **w32tm/resync**.
 
 
-## <a name="discovered-vms-not-in-portal"></a>Discovered VMs not in portal
+## <a name="error-unabletoconnecttoserver"></a>Erro: UnableToConnectToServer
 
-If you start discovery so that **Server Assessment** and **Server Migration** show **Discovery in progress**, but don't yet see the VMs in the portal, note the following:
+Se você receber esse erro de conexão, talvez não consiga se conectar ao vCenter Server *ServerName*. com: 9443. Os detalhes do erro indicam que não há nenhum ponto de extremidade ouvindo em https://*ServerName*. com: 9443/SDK que pode aceitar a mensagem.
 
-- After starting discovery from the appliance, it takes around 15 minutes for a VMware VM discovery, and around two minutes for each added host for Hyper-V VM discovery.
-- If you continue to see **Discovery in progress** even after these waiting periods, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in **Server Assessment** and **Server Migration**.
+- Verifique se você está executando a versão mais recente do dispositivo. Se você não tiver, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Se o problema ainda ocorrer na versão mais recente, o dispositivo poderá não conseguir resolver o nome de vCenter Server especificado ou a porta especificada poderá estar errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
 
-
-## <a name="deleted-vms-in-the-portal"></a>Deleted VMs in the portal
-
-If you've deployed an appliance that continuously discovers your on-premises environment, but deleted VMs are still showing in the portal, note the following:  
-
-- It takes up to 30 minutes for the discovery data gathered by the appliance to be reflected in the portal.
-- If you don't see up-to-date information after 30 minutes, refresh the data by following these steps:
-
-    1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
-    2. Under **Manage**, select **Agent Health**
-    3. Select **Refresh agent**.
-    1. Wait for the refresh operation to complete. You should now see up-to-date information.
-
-## <a name="vm-information-isnt-in-the-portal"></a>VM information isn't in the portal
-
-- It takes up to 30 minutes for the discovery data gathered by the appliance to be reflected in the portal.
-- If you don't see up-to-date information after 30 minutes, refresh the data by following these steps:
-
-    1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
-    2. Under **Manage**, select **Agent Health**
-    3. Select **Refresh agent**.
-    1. Wait for the refresh operation to complete. You should now see up-to-date information.
+    1. Execute o ping *ServerName*. com do dispositivo.
+    2. Se a etapa 1 falhar, tente se conectar ao servidor do vCenter usando o endereço IP.
+    3. Identifique o número da porta correto para se conectar ao vCenter Server.
+    4. Verifique se vCenter Server está em execução.
 
 
-## <a name="fix-cant-connect-to-host-or-cluster"></a>Fix: Can't connect to host or cluster
+## <a name="error-appliance-might-not-be-registered"></a>Erro: o dispositivo pode não estar registrado
 
-Error 50004: "Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided.
+- O erro 60052, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" ocorrerá se a conta do Azure usada para registrar o dispositivo não tiver permissões suficientes.
+    - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
+    - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sobre as funções e permissões necessárias do Azure.
+- O erro 60039, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" pode ocorrer se o registro falhar porque o projeto de migrações para Azure usado para registrar o dispositivo não foi encontrado.
+    - No portal do Azure e verifique se o projeto existe no grupo de recursos.
+    - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Saiba como](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
 
-- If you see this error on the cluster, cluster FQDN.
-- You might also see this error for hosts in a cluster. This indicates that the appliance can connect to the cluster, but the cluster returns host names that aren't FQDNs. To resolve this error, update the hosts file on the appliance by adding a mapping of the IP address and host names:
-    1. Open Notepad as an admin.
-    2. Open the C:\Windows\System32\Drivers\etc\hosts file.
-    3. Add the IP address and host name in a row. Repeat for each host or cluster where you see this error.
-    4. Save and close the hosts file.
-    5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
+## <a name="error-key-vault-management-operation-failed"></a>Erro: falha na operação de gerenciamento de Key Vault
 
-## <a name="application-discovery-issues"></a>Application discovery issues
+Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciamento de Azure Key Vault", faça o seguinte:
+- Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
+- Verifique se a conta tem acesso ao cofre de chaves especificado na mensagem de erro e repita a operação.
+- Se o problema persistir, entre em contato com o suporte da Microsoft.
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sobre as funções e permissões do Azure necessárias.
 
-Discovery of applications is currently only supported for VMware VMs. Support for Hyper-V VMs and physical servers will be enabled in future.
+## <a name="fix-discovery-couldnt-be-initiated"></a>Correção: não foi possível iniciar a descoberta
 
-The discovery of applications requires you to provide VM credentials in the appliance, if you have not provided VM credentials in the appliance, application discovery will not work. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed for vCenter Server and for VMware VMs. If you have provided VM credentials in the appliance and the application discovery is failing, review the following table to identify the cause for the failure and remediation action:
+Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operação falhou para a lista especificada de hosts ou clusters "indica que a descoberta não pôde ser iniciada nos hosts listados no erro devido a um problema no acesso ou na recuperação de informações da VM. O restante dos hosts foi adicionado com êxito.
 
-**Error code** | **Message** | **Possible cause** | **Ação recomendada**
+- Adicione os hosts listados no erro novamente, usando a opção **Adicionar host** .
+- Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
+
+## <a name="fix-azure-ad-operation-failed-60025"></a>Correção: falha na operação do Azure AD (60025)
+
+Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Efetue uma das seguintes ações:
+
+- Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
+- Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.
+- Exclua o grupo de recursos criado anteriormente para o projeto de migrações para Azure. Crie outro grupo de recursos para iniciar novamente.
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sobre as permissões de aplicativo Azure Active Directory.
+
+
+## <a name="discovered-vms-not-in-portal"></a>VMs descobertas não estão no portal
+
+Se você iniciar a descoberta para que a **avaliação do servidor** e a **migração do servidor** mostrem a **descoberta em andamento**, mas ainda não veja as VMs no portal, observe o seguinte:
+
+- Depois de iniciar a descoberta do dispositivo, leva cerca de 15 minutos para uma descoberta de VM VMware e cerca de dois minutos para cada host adicionado para a descoberta de VM do Hyper-V.
+- Se você continuar vendo a **descoberta em andamento** mesmo após esses períodos de espera, selecione **Atualizar** na guia **servidores** . Isso deve mostrar a contagem dos servidores descobertos na **avaliação do servidor** e na migração do **servidor**.
+
+
+## <a name="deleted-vms-in-the-portal"></a>VMs excluídas no portal
+
+Se você tiver implantado um dispositivo que descobre continuamente seu ambiente local, mas as VMs excluídas ainda estão sendo exibidas no portal, observe o seguinte:  
+
+- Leva até 30 minutos para que os dados de descoberta coletados pelo dispositivo sejam refletidos no Portal.
+- Se você não vir informações atualizadas após 30 minutos, atualize os dados seguindo estas etapas:
+
+    1. Em **servidores** > **avaliação do servidor de migrações para Azure**, selecione **visão geral**.
+    2. Em **gerenciar**, selecione **integridade do agente**
+    3. Selecione **Atualizar agente**.
+    1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
+
+## <a name="vm-information-isnt-in-the-portal"></a>As informações da VM não estão no portal
+
+- Leva até 30 minutos para que os dados de descoberta coletados pelo dispositivo sejam refletidos no Portal.
+- Se você não vir informações atualizadas após 30 minutos, atualize os dados seguindo estas etapas:
+
+    1. Em **servidores** > **avaliação do servidor de migrações para Azure**, selecione **visão geral**.
+    2. Em **gerenciar**, selecione **integridade do agente**
+    3. Selecione **Atualizar agente**.
+    1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
+
+
+## <a name="fix-cant-connect-to-host-or-cluster"></a>Correção: não é possível conectar-se ao host ou cluster
+
+Erro 50004: "não é possível se conectar a um host ou cluster porque o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9 "poderá ocorrer se o serviço DNS do Azure para o dispositivo não puder resolver o cluster ou o nome do host fornecido.
+
+- Se você vir esse erro no cluster, o FQDN do cluster.
+- Você também pode ver esse erro para hosts em um cluster. Isso indica que o dispositivo pode se conectar ao cluster, mas o cluster retorna nomes de host que não são FQDNs. Para resolver esse erro, atualize o arquivo de hosts no dispositivo adicionando um mapeamento do endereço IP e nomes de host:
+    1. Abra o bloco de notas como administrador.
+    2. Abra o arquivo C:\Windows\System32\Drivers\etc\hosts.
+    3. Adicione o endereço IP e o nome do host em uma linha. Repita para cada host ou cluster em que você vê esse erro.
+    4. Guarde e feche o ficheiro de anfitriões.
+    5. Verifique se o dispositivo pode se conectar aos hosts, usando o aplicativo de gerenciamento de dispositivo. Após 30 minutos, você deverá ver as informações mais recentes para esses hosts na portal do Azure.
+
+## <a name="application-discovery-issues"></a>Problemas de descoberta de aplicativos
+
+Atualmente, a descoberta de aplicativos só tem suporte para VMs VMware. O suporte para VMs Hyper-V e servidores físicos será habilitado no futuro.
+
+A descoberta de aplicativos exige que você forneça credenciais de VM no dispositivo, se você não tiver fornecido credenciais de VM no dispositivo, a descoberta de aplicativos não funcionará. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre os privilégios de acesso necessários para vCenter Server e para VMs VMware. Se você tiver fornecido credenciais de VM no dispositivo e a descoberta do aplicativo estiver falhando, revise a tabela a seguir para identificar a causa da ação de falha e correção:
+
+**Código de erro** | **Mensagem** | **Causa possível** | **Ação recomendada**
 --- | --- | --- | ---
-10000 | Unable to discover the applications installed on the server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
-10001 | Unable to retrieve the applications installed the server. | This is due to an internal error as there are some missing files in appliance. | Please contact Microsoft Support.
-10002 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent in the Azure Migrate appliance is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-10003 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-10004 | Unable to discover installed applications for <Windows/Linux> machines. |  Credentials to access <Windows/Linux> machines were not provided in the Azure Migrate appliance | Please add a credential in the Azure Migrate appliance that has  access to the <Windows/Linux> machines.
-10005 | Unable to access the on-premises server. | This could happen if the credentials provided for machine to access the server is incorrect. | Please update the credentials provided in the appliance and ensure that the server is accessible using the credential.
-10006 | Unable to access the on-premises server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
-9000 | Unable to discover the applications installed on the VM. | VMware tools might not be installed or is corrupted. | Install/Reinstall VMware tools in the VM and check if it is running.
-9001 | Unable to discover the applications installed on the VM. | VMware tools might not be installed or is corrupted. | Install/Reinstall VMware tools in the VM and check if it is running.
-9002 | Unable to discover the applications installed on the VM. | VMware tools might not be running. | Install/Reinstall VMware tools in the VM and check if it is running.
-9003 | Unable to discover the applications installed on the server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
-9004 | Unable to discover the applications installed on the server. | This could happen if the VM is powered off. | To discover installed applications on the server, ensure that the VM is powered on.
-9005 | Unable to discover the applications installed on the VM. | This could happen if the operating system running on the VM is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
-9006 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-9007 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-9008 | Unable to retrieve the applications installed the server. | The issue can occur due to an internal error.  | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-9009 | Unable to retrieve the applications installed the server. | The issue can occur if the Windows User Account Control (UAC) settings on the server are restrictive and prevent discovery of installed applications. | Search for 'User Account Control' settings on the server and configure the UAC setting on the server to be at one of the lower two levels.
-9010 | Unable to retrieve the applications installed the server. | The issue can occur due to an internal error.  | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
-8084 | Unable to discover applications due to VMware error: <Exception from VMware> | The Azure Migrate appliance uses VMware APIs to discover applications. This issue can happen due to an exception thrown by vCenter Server while trying to discover applications. The fault message from VMware is displayed in the error message shown in portal. | Review the [VMware documentation](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), search for the fault message and follow the troubleshooting steps in the VMware article to fix the issue. If you are still unable to fix the issue, reach out to Microsoft Support.
+10000 | Não é possível descobrir os aplicativos instalados no servidor. | Isso pode acontecer se o sistema operacional em execução no servidor não for o Windows nem o Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+10001 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso ocorre devido a um erro interno, pois há alguns arquivos ausentes no dispositivo. | Entre em contato com Suporte da Microsoft.
+10002 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta no dispositivo de migrações para Azure não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+10003 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+10004 | Não é possível descobrir os aplicativos instalados para < computadores > Windows/Linux. |  As credenciais para acessar < computadores > Windows/Linux não foram fornecidas no dispositivo de migrações para Azure | Adicione uma credencial no dispositivo de migrações para Azure que tenha acesso ao < computadores > Windows/Linux.
+10005 | Não é possível acessar o servidor local. | Isso pode acontecer se as credenciais fornecidas para o computador acessar o servidor estiverem incorretas. | Atualize as credenciais fornecidas no dispositivo e verifique se o servidor está acessível usando a credencial.
+10006 | Não é possível acessar o servidor local. | Isso pode acontecer se o sistema operacional em execução no servidor não for o Windows nem o Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+9000 | Não é possível descobrir os aplicativos instalados na VM. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware na VM e verifique se ela está em execução.
+9001 | Não é possível descobrir os aplicativos instalados na VM. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware na VM e verifique se ela está em execução.
+9002 | Não é possível descobrir os aplicativos instalados na VM. | As ferramentas do VMware podem não estar em execução. | Instale/reinstale as ferramentas do VMware na VM e verifique se ela está em execução.
+9003 | Não é possível descobrir os aplicativos instalados no servidor. | Isso pode acontecer se o sistema operacional em execução no servidor não for o Windows nem o Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+9004 | Não é possível descobrir os aplicativos instalados no servidor. | Isso pode acontecer se a VM estiver desligada. | Para descobrir os aplicativos instalados no servidor, verifique se a VM está ligada.
+9005 | Não é possível descobrir os aplicativos instalados na VM. | Isso pode acontecer se o sistema operacional em execução na VM não for Windows nem Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+9006 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9007 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9008 | Não é possível recuperar os aplicativos que instalaram o servidor. | O problema pode ocorrer devido a um erro interno.  | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9009 | Não é possível recuperar os aplicativos que instalaram o servidor. | O problema pode ocorrer se as configurações do controle de conta de usuário (UAC) do Windows no servidor são restritivas e impedem a descoberta de aplicativos instalados. | Procure as configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para estar em um dos dois níveis inferiores.
+9010 | Não é possível recuperar os aplicativos que instalaram o servidor. | O problema pode ocorrer devido a um erro interno.  | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+8084 | Não é possível descobrir aplicativos devido a um erro do VMware: <Exception from VMware> | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer devido a uma exceção gerada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Examine a [documentação do VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), procure a mensagem de falha e siga as etapas de solução de problemas no artigo do VMware para corrigir o problema. Se você ainda não conseguir corrigir o problema, acesse Suporte da Microsoft.
 
 
-## <a name="fix-assessment-readiness"></a>Fix assessment readiness
+## <a name="fix-assessment-readiness"></a>Corrigir preparação de avaliação
 
-Fix assessment readiness issues as follows:
+Corrija os problemas de preparação da avaliação da seguinte maneira:
 
-**Issue** | **Fix**
+**Lo** | **Soluciona**
 --- | ---
-Unsupported boot type | Azure doesn't support VMs with an EFI boot type. We recommend that you convert the boot type to BIOS before you run a migration. <br/><br/>You can use Azure Migrate Server Migration to handle the migration of such VMs. It will convert the boot type of the VM to BIOS during the migration.
-Conditionally supported Windows operating system | The operating system has passed its end-of-support date, and needs a Custom Support Agreement (CSA) for [support in Azure](https://aka.ms/WSosstatement). Consider upgrading before you migrate to Azure.
-Unsupported Windows operating system | Azure supports only [selected Windows OS versions](https://aka.ms/WSosstatement). Consider upgrading the machine before you migrate to Azure.
-Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the machine before you migrate to Azure.
-Unendorsed Linux OS | The machine might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
-Unknown operating system | The operating system of the VM was specified as "Other" in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Make sure that the operating system is [supported](https://aka.ms/azureoslist) by Azure before you migrate the machine.
-Unsupported bit version | VMs with a 32-bit operating systems might boot in Azure, but we recommended that you upgrade to 64-bit before you migrate to Azure.
-Requires a Microsoft Visual Studio subscription | The machine is running a Windows client operating system, which is supported only through a Visual Studio subscription.
-VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
-VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
-VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).
-One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
-Disk count exceeds limit | Remove unused disks from the machine before migration.
-Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64 TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits.
-Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
-Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
-Could not determine disk suitability because of an internal error | Try creating a new assessment for the group.
-VM with required cores and memory not found | Azure couldn't find a suitable VM type. Reduce the memory and number of cores of the on-premises machine before you migrate.
-Could not determine VM suitability because of an internal error | Try creating a new assessment for the group.
-Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
-Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
+Tipo de inicialização sem suporte | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
+Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](https://aka.ms/WSosstatement). Considere a atualização antes de migrar para o Azure.
+Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões selecionadas do sistema operacional Windows](https://aka.ms/WSosstatement). Considere atualizar o computador antes de migrar para o Azure.
+Sistema operacional Linux endossado condicionalmente | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure.
+Sistema operacional Linux não endossado | O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. Considere atualizar para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure.
+Sistema operacional desconhecido | O sistema operacional da VM foi especificado como "other" em vCenter Server. Esse comportamento impede que as migrações para Azure verifiquem a prontidão do Azure da VM. Verifique se o sistema operacional tem [suporte](https://aka.ms/azureoslist) do Azure antes de migrar o computador.
+Versão de bits sem suporte | As VMs com sistemas operacionais de 32 bits podem ser inicializadas no Azure, mas recomendamos que você atualize para 64 bits antes de migrar para o Azure.
+Requer uma assinatura Microsoft Visual Studio | O computador está executando um sistema operacional cliente Windows, que tem suporte apenas por meio de uma assinatura do Visual Studio.
+VM não encontrada para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
+VM não encontrada para o desempenho de rede necessário | O desempenho de rede (entrada/saída) necessário para o computador excede o suporte de VM do Azure. Reduza os requisitos de rede para o computador.
+VM não encontrada no local especificado | Use um local de destino diferente antes da migração.
+Um ou mais discos inadequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)pelo Azure.
+Um ou mais adaptadores de rede inadequados. | Remova adaptadores de rede não utilizados do computador antes da migração.
+A contagem de discos excede o limite | Remova os discos não utilizados do computador antes da migração.
+O tamanho do disco excede o limite | Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento mais altos.
+Disco não disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
+Disco não disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
+Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+VM com núcleos necessários e memória não encontrada | O Azure não pôde encontrar um tipo de VM adequado. Reduza a memória e o número de núcleos do computador local antes de migrar.
+Não foi possível determinar a adequação da VM devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+Não foi possível determinar a adequação para um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+Não foi possível determinar a adequação para um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 
-## <a name="linux-vms-are-conditionally-ready"></a>Linux VMs are "conditionally ready"
+## <a name="linux-vms-are-conditionally-ready"></a>As VMs do Linux estão "prontamente prontas"
 
-Server Assessment marks Linux VMs as  "Conditionally ready" due to a known gap in Server Assessment.
+A avaliação do servidor marca as VMs do Linux como "prontamente prontas" devido a uma lacuna conhecida na avaliação do servidor.
 
-- The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
-- For example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version.
--  Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment.
-- You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](https://aka.ms/migrate/selfhost/azureendorseddistros).
--  After you've verified the endorsed distribution, you can ignore this warning.
+- A lacuna impede que ele detecte a versão secundária do sistema operacional Linux instalada nas VMs locais.
+- Por exemplo, para RHEL 6,10, atualmente a avaliação do servidor detecta apenas RHEL 6 como a versão do sistema operacional.
+-  Como o Azure endossa apenas versões específicas do Linux, as VMs do Linux estão atualmente marcadas como prontas para avaliação de servidor.
+- Você pode determinar se o SO Linux em execução na VM local é endossado no Azure examinando o [suporte do Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros).
+-  Depois de verificar a distribuição endossada, você pode ignorar este aviso.
 
-## <a name="azure-skus-exceed-on-premises-sizing"></a>Azure SKUs exceed on-premises sizing
+## <a name="azure-skus-exceed-on-premises-sizing"></a>Os SKUs do Azure excedem o dimensionamento local
 
-Azure Migrate Server Assessment might recommend Azure VM SKUs with more cores and memory than current on-premises allocation based on the type of assessment:
-
-
-- The VM SKU recommendation depends on the assessment properties.
-- This is affected by the type of assessment you perform in Server Assessment: *Performance-based*, or *As on-premises*.
-- For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. It also adds a comfort factor when determining effective utilization.
-- For on-premises sizing, performance data is not considered, and the target SKU is recommended based on-premises allocation.
-
-To show how this can affect recommendations, let's take an example:
-
-We have an on-premises VM with four cores and eight GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
-
--  If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
-- If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
-- [Learn more](concepts-assessment-calculation.md#sizing) about assessment sizing.
-
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>Azure disk SKUs bigger than on-premises
-
-Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
-- Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
-- If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
-
-As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
-
-## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>Fix: Percentage of utilized core or memory missing
-
-Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Migrate appliance can't collect performance data for the relevant on-premises VMs.
-
-- This can occur if the VMs are turned off during the assessment duration. The appliance can't collect performance data for a VM when it's turned off.
-- If only the memory counters are missing and you're trying to assess Hyper-V VMs, check whether you have dynamic memory enabled on these VMs. There's a known issue for Hyper-V VMs only, in which an Azure Migrate appliance can't collect memory utilization data for VMs that don't have dynamic memory enabled.
-- If any of the performance counters are missing, Azure Migrate Server Assessment falls back to the allocated cores and memory, and it recommends a corresponding VM size.
-
-## <a name="is-the-vm-os-license-cost-included-in-cost-assessment"></a>Is the VM OS license cost included in cost assessment?
-
-Azure Migrate Server Assessment currently considers the operating system license cost only for Windows machines. License costs for Linux machines aren't currently considered.
-
-## <a name="performance-history-and-percentile-use"></a>Performance history and percentile use
-
-These properties apply only to performance-based sizing in Azure Migrate Server Assessment.
-
-A Avaliação do Servidor recolhe continuamente os dados de desempenho das máquinas no local e utiliza-os para recomendar o SKU da VM e o SKU do disco no Azure. This performance data is collected by Server Assessment as follows:
-- The Azure Migrate appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds for VMware VMs, and every 30 seconds for Hyper-V VMs.
-- The appliance rolls up the 20 or 30-second samples to create a single data point for every 10 minutes. To create the single data point, the appliance selects the peak value from all the 20-second and 30-second samples, and then sends it to Azure.
-- Quando cria uma avaliação na Avaliação do Servidor, com base na duração do desempenho e no valor de percentil do histórico de desempenho, o valor de utilização representativo é identificado. For example, if the performance history is one week and percentile utilization is 95th, Azure Migrate sorts all the 10-minute sample points for the last one week in ascending order and then selects the 95th percentile as the representative value.
-- The 95th percentile value makes sure that you ignore any outliers, which might be included if you pick the 99th percentile.
-- If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile for percentile utilization.
+A avaliação de servidor de migrações para Azure pode recomendar SKUs de VM do Azure com mais núcleos e memória do que a alocação local atual com base no tipo de avaliação:
 
 
-## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>I can't find dependency visualization for Azure Government
+- A recomendação de SKU de VM depende das propriedades de avaliação.
+- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *baseada em desempenho*ou *como local*.
+- Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Ele também adiciona um fator de conforto ao determinar a utilização efetiva.
+- Para o dimensionamento local, os dados de desempenho não são considerados e o SKU de destino é recomendado com base na alocação local.
 
-Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
+Para mostrar como isso pode afetar as recomendações, vamos usar um exemplo:
 
-## <a name="dependencies-dont-show-after-installing-agents"></a>Dependencies don't show after installing agents
+Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utilização da CPU e 50% de utilização da memória e um fator de conforto especificado de 1,3.
 
-After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
+-  Se a avaliação for **como local**, é recomendável um SKU de VM do Azure com 4 núcleos e 8 GB de memória.
+- Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (com suporte mais próximo tamanho da memória) é recomendado.
+- [Saiba mais](concepts-assessment-calculation.md#sizing) sobre o dimensionamento da avaliação.
 
-For Windows VMs:
-1. In the Control Panel, start MMA.
-2. In the **Microsoft Monitoring Agent properties** > **Azure Log Analytics (OMS)** , make sure that the **Status** for the workspace is green.
-3. If the status isn't green, try removing the workspace and adding it again to MMA.
+## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKUs de disco do Azure maiores do que localmente
 
-      ![MMA Properties dialog box](./media/troubleshooting-general/mma-status.png)
+A avaliação de servidor de migrações para Azure pode recomendar um disco maior com base no tipo de avaliação.
+- O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
+- Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for definido como **automático**, os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (HDD Standard, SSD Standard ou Premium). Um SKU de disco do tipo de disco é recomendado, e a recomendação considera os requisitos de tamanho do disco local.
+- Se os critérios de dimensionamento forem **baseados em desempenho**e o tipo de armazenamento for **Premium**, um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para executar o dimensionamento de disco quando os critérios de dimensionamento são **locais** e o tipo de armazenamento é **HDD Standard**, **SSD Standard**ou **Premium**.
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded.
+Por exemplo, se você tiver um disco local com 32 GB de memória, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco que possa dar suporte ao r IOPS e tamanho de ecessário. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomenda um disco maior devido ao requisito de IOPS alto do disco local.
 
-## <a name="supported-mma-os"></a>Supported MMA OS
+## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>Correção: porcentagem do núcleo utilizado ou memória ausente
 
- Review the supported [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems), and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) operating systems.
+A avaliação do servidor relata "PercentageOfCoresUtilizedMissing" ou "PercentageOfMemoryUtilizedMissing" quando o dispositivo de migrações para Azure não pode coletar dados de desempenho para as VMs locais relevantes.
 
-## <a name="supported-dependency-agent-os"></a>Supported dependency agent OS
+- Isso pode ocorrer se as VMs estiverem desativadas durante a duração da avaliação. O dispositivo não pode coletar dados de desempenho para uma VM quando ela está desativada.
+- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V, verifique se você tem memória dinâmica habilitada nessas VMs. Há um problema conhecido apenas para VMs do Hyper-V, em que um dispositivo de migrações para Azure não pode coletar dados de utilização de memória para VMs que não têm memória dinâmica habilitada.
+- Se algum dos contadores de desempenho estiver ausente, a avaliação do servidor de migrações para Azure voltará para os núcleos e a memória alocados e recomendará um tamanho de VM correspondente.
 
-Review the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
+## <a name="is-the-vm-os-license-cost-included-in-cost-assessment"></a>O custo da licença do sistema operacional da VM está incluído na avaliação de custo?
 
-## <a name="dependencies-for-more-than-an-hour"></a>Dependencies for more than an hour
+A avaliação de servidor de migrações para Azure atualmente considera o custo de licença do sistema operacional somente para computadores Windows. Os custos de licença para computadores Linux não são atualmente considerados.
 
-Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
+## <a name="performance-history-and-percentile-use"></a>Histórico de desempenho e uso de percentil
 
-For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only.
+Essas propriedades se aplicam somente ao dimensionamento baseado em desempenho na avaliação do servidor de migrações para Azure.
 
-However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
-
-## <a name="i-cant-visualize-dependencies-for-groups-with-more-than-10-vms"></a>I can't visualize dependencies for groups with more than 10 VMs
-
-In Azure Migrate Server Assessment, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
-
-## <a name="machines-show-install-agent-not-view-dependencies"></a>Machines show "Install agent" not "View dependencies"
-
-After migrating machines with dependency visualization enabled to Azure, machines might show "Install agent" action instead of "View dependencies" due to the following behavior:
-
-
-- After migration to Azure, on-premises machines are turned off and equivalent VMs are spun up in Azure. These machines acquire a different MAC address.
-- Machines might also have a different IP address, based on whether you've retained the on-premises IP address or not.
-- If both MAC and IP addresses are different from on-premises, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. In this case, it will show the option to install the agent rather than to view dependencies.
-- After a test migration to Azure, on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless you block outgoing Azure Monitor log traffic from these machines, Azure Migrate won't associate the on-premises machines with any Service Map dependency data, and thus will show the option to install agents, rather than to view dependencies.
+A Avaliação do Servidor recolhe continuamente os dados de desempenho das máquinas no local e utiliza-os para recomendar o SKU da VM e o SKU do disco no Azure. Esses dados de desempenho são coletados pela avaliação do servidor da seguinte maneira:
+- O dispositivo de migrações para Azure cria perfis continuamente no ambiente local para coletar dados de utilização em tempo real a cada 20 segundos para VMs VMware e a cada 30 segundos para VMs do Hyper-V.
+- O dispositivo acumula os exemplos de 20 ou 30 segundos para criar um único ponto de dados para cada 10 minutos. Para criar o ponto de dados único, o dispositivo seleciona o valor de pico de todas as amostras de 20 segundos e 30 segundos e, em seguida, envia-o para o Azure.
+- Quando cria uma avaliação na Avaliação do Servidor, com base na duração do desempenho e no valor de percentil do histórico de desempenho, o valor de utilização representativo é identificado. Por exemplo, se o histórico de desempenho for uma semana e a utilização de percentil for 95 º, as migrações para Azure classificarão todos os pontos de exemplo de 10 minutos para a última semana em ordem crescente e, em seguida, selecionará o 95 º percentil como o valor representativo.
+- O valor do 95 º percentil garante que você ignore quaisquer exceções, que poderão ser incluídas se você escolher o 99 º percentil.
+- Se você quiser escolher o pico de uso do período e não quiser perder as exceções, deverá selecionar o 99 º percentil para utilização de percentil.
 
 
-## <a name="collect-network-traffic-logs-in-portal"></a>Collect network traffic logs in portal
+## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>Não consigo encontrar a visualização de dependência para o Azure governamental
 
-Collect logs as follows:
+As migrações para Azure dependem Mapa do Serviço para a funcionalidade de visualização de dependência. Como Mapa do Serviço não está disponível no Azure governamental no momento, essa funcionalidade não está disponível no Azure governamental.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Press F12 to start Developer Tools. If needed, clear the  **Clear entries on navigation** setting.
-3. Select the **Network** tab, and start capturing network traffic:
-   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being captured. If the red circle doesn't appear, select the black circle to start.
-   - In Microsoft Edge and Internet Explorer, recording should start automatically. If it doesn't, select the green play button.
-4. Try to reproduce the error.
-5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
-   - In Chrome, right-click and select **Save as HAR with content**. This action compresses and exports the logs as a .har file.
-   - In Microsoft Edge or Internet Explorer, select the **Export captured traffic** option. This action compresses and exports the log.
-6. Select the **Console** tab to check for any warnings or errors. To save the console log:
-   - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.
-   - In Microsoft Edge or Internet Explorer, right-click the errors and select **Copy all**.
-7. Close Developer Tools.
+## <a name="dependencies-dont-show-after-installing-agents"></a>As dependências não são mostradas após a instalação de agentes
+
+Depois de instalar os agentes de visualização de dependência em VMs locais, as migrações para Azure normalmente leva 15-30 minutos para exibir as dependências no Portal. Se você tiver aguardado por mais de 30 minutos, verifique se o Microsoft Monitoring Agent (MMA) pode se conectar ao espaço de trabalho Log Analytics.
+
+Para VMs do Windows:
+1. No painel de controle, inicie o MMA.
+2. Nas **Propriedades de Microsoft Monitoring Agent** > **log Analytics do Azure (OMS)** , verifique se o **status** do espaço de trabalho está verde.
+3. Se o status não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
+
+      ![Caixa de diálogo Propriedades de MMA](./media/troubleshooting-general/mma-status.png)
+
+Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito.
+
+## <a name="supported-mma-os"></a>SO MMA com suporte
+
+ Examine os sistemas operacionais [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) com suporte.
+
+## <a name="supported-dependency-agent-os"></a>Sistema operacional do agente de dependência com suporte
+
+Examine os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
+
+## <a name="dependencies-for-more-than-an-hour"></a>Dependências por mais de uma hora
+
+Embora as migrações para Azure permitam que você volte para uma data específica no último mês, a duração máxima para a qual você pode visualizar as dependências é de uma hora.
+
+Por exemplo, você pode usar a funcionalidade duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las somente para um período de uma hora.
+
+No entanto, você pode usar os logs de Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
+
+## <a name="i-cant-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo visualizar dependências de grupos com mais de 10 VMs
+
+Na avaliação do servidor de migrações para Azure, você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMS. Para grupos maiores, recomendamos que você divida as VMs em grupos menores para visualizar as dependências.
+
+## <a name="machines-show-install-agent-not-view-dependencies"></a>As máquinas mostram "instalar o agente" não "Exibir dependências"
+
+Após a migração de computadores com a visualização de dependência habilitada para o Azure, as máquinas podem mostrar a ação "instalar agente" em vez de "Exibir dependências" devido ao seguinte comportamento:
+
+
+- Após a migração para o Azure, as máquinas locais são desativadas e as VMs equivalentes são giradas no Azure. Esses computadores adquirem um endereço MAC diferente.
+- Os computadores também podem ter um endereço IP diferente, dependendo se você manteve o endereço IP local ou não.
+- Se os endereços MAC e IP forem diferentes do local, as migrações para Azure não associarão os computadores locais a qualquer Mapa do Serviço dados de dependência. Nesse caso, ele mostrará a opção para instalar o agente em vez de exibir as dependências.
+- Após uma migração de teste para o Azure, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes giradas no Azure adquirem um endereço MAC diferente e podem adquirir endereços IP diferentes. A menos que você bloqueie o tráfego de log Azure Monitor de saída desses computadores, as migrações para Azure não associarão os computadores locais a qualquer Mapa do Serviço dados de dependência e, portanto, mostrarão a opção de instalar agentes, em vez de exibir dependências.
+
+
+## <a name="collect-network-traffic-logs-in-portal"></a>Coletar logs de tráfego de rede no portal
+
+Colete logs da seguinte maneira:
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Pressione F12 para iniciar a Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação** .
+3. Selecione a guia **rede** e inicie a captura do tráfego de rede:
+   - No Chrome, selecione **preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se o círculo vermelho não aparecer, selecione o círculo preto para iniciar.
+   - No Microsoft Edge e no Internet Explorer, a gravação deve ser iniciada automaticamente. Se não estiver, selecione o botão verde Play.
+4. Tente reproduzir o erro.
+5. Depois de encontrar o erro durante a gravação, interrompa a gravação e salve uma cópia da atividade gravada:
+   - No Chrome, clique com o botão direito do mouse e selecione **salvar como Har com conteúdo**. Essa ação compacta e exporta os logs como um arquivo. Har.
+   - No Microsoft Edge ou Internet Explorer, selecione a opção **Exportar tráfego capturado** . Essa ação compacta e exporta o log.
+6. Selecione a guia **console** para verificar se há avisos ou erros. Para salvar o log do console:
+   - No Chrome, clique com o botão direito do mouse em qualquer lugar no log do console. Selecione **salvar como**, para exportar e compactar o log.
+   - No Microsoft Edge ou no Internet Explorer, clique com o botão direito do mouse nos erros e selecione **copiar tudo**.
+7. Feche Ferramentas para Desenvolvedores.

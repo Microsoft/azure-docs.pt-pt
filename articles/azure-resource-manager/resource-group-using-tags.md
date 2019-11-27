@@ -1,6 +1,6 @@
 ---
-title: Tag resources for logical organization
-description: Shows how to apply tags to organize Azure resources for billing and managing.
+title: Marcar recursos para a organização lógica
+description: Mostra como aplicar marcas para organizar recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
@@ -14,13 +14,13 @@ ms.locfileid: "74484278"
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-To apply tags to resources, the user must have write access to that resource type. To apply tags to all resource types, use the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Para aplicar marcas aos recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar marcas a todos os tipos de recursos, use a função [colaborador](../role-based-access-control/built-in-roles.md#contributor) . Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [colaborador da máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="policies"></a>Políticas
 
-You can use [Azure Policy](../governance/policy/overview.md) to enforce tagging rules and conventions. By creating a policy, you avoid the scenario of resources being deployed to your subscription that don't comply with the expected tags for your organization. Instead of manually applying tags or searching for resources that aren't compliant, you can create a policy that automatically applies the needed tags during deployment. Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). The following section shows example policies for tags.
+Você pode usar [Azure Policy](../governance/policy/overview.md) para impor regras e convenções de marcação. Ao criar uma política, você evita o cenário dos recursos que estão sendo implantados em sua assinatura que não estão em conformidade com as marcas esperadas para sua organização. Em vez de aplicar marcas manualmente ou procurar recursos que não são compatíveis, você pode criar uma política que aplica automaticamente as marcas necessárias durante a implantação. Agora, as marcas também podem ser aplicadas a recursos existentes com o novo efeito [Modificar](../governance/policy/concepts/effects.md#modify) e uma [tarefa de correção](../governance/policy/how-to/remediate-resources.md). A seção a seguir mostra as políticas de exemplo para marcas.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -67,7 +67,7 @@ Para obter *recursos com uma etiqueta específica*, utilize:
 (Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
-To get *resources that have a specific tag name*, use:
+Para obter *recursos que têm um nome de marca específico*, use:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName Dept).Name
@@ -104,7 +104,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -114,7 +114,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *manter as marcas existentes nos recursos que não são duplicatas*, use o seguinte script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -165,25 +165,25 @@ Este script devolve o formato seguinte:
 }
 ```
 
-Or, to see the existing tags for a *resource that has a specified name, type, and resource group*, use:
+Ou, para ver as marcas existentes de um *recurso que tem um nome, tipo e grupo de recursos especificados*, use:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-When looping through a collection of resources, you might want to show the resource by resource ID. A complete example is shown later in this article. Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
+Ao executar um loop em uma coleção de recursos, talvez você queira mostrar o recurso por ID de recurso. Um exemplo completo é mostrado posteriormente neste artigo. Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-To get resource groups that have a specific tag, use `az group list`:
+Para obter os grupos de recursos que têm uma marca específica, use `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-To get all the resources that have a particular tag and value, use `az resource list`:
+Para obter todos os recursos que têm uma marca e um valor específicos, use `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -203,7 +203,7 @@ Para adicionar etiquetas a um *recurso que não tenha etiquetas*, utilize:
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags:
+Para adicionar marcas a um recurso que já tem marcas, recupere as marcas existentes, reformate esse valor e reaplique as marcas existentes e novas:
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags -o json)
@@ -211,7 +211,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -227,7 +227,7 @@ do
 done
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -247,7 +247,7 @@ done
 
 ## <a name="templates"></a>Modelos
 
-To tag a resource during deployment, add the `tags` element to the resource you're deploying. Forneça o nome de etiqueta e o valor.
+Para marcar um recurso durante a implantação, adicione o elemento `tags` ao recurso que você está implantando. Forneça o nome de etiqueta e o valor.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicar um valor literal ao nome da etiqueta
 
@@ -283,7 +283,7 @@ O exemplo seguinte mostra uma conta de armazenamento com duas etiquetas (`Dept` 
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
+Para definir uma marca para um valor DateTime, use a [função UtcNow](resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Aplicar um objeto ao elemento da etiqueta
 
@@ -325,7 +325,7 @@ Pode definir um parâmetro de objeto que armazene várias etiquetas e aplicar es
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicar uma cadeia JSON ao nome da etiqueta
 
-Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que represente os valores. The entire JSON string is stored as one tag that can't exceed 256 characters. O exemplo seguinte tem uma única etiqueta com o nome `CostCenter` que contém vários valores de uma cadeia JSON:  
+Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que represente os valores. A cadeia de caracteres JSON inteira é armazenada como uma marca que não pode exceder 256 caracteres. O exemplo seguinte tem uma única etiqueta com o nome `CostCenter` que contém vários valores de uma cadeia JSON:  
 
 ```json
 {
@@ -356,9 +356,9 @@ Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que 
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Apply tags from resource group
+### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-To apply tags from a resource group to a resource, use the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a sintaxe `tags.[tag-name]` em vez da sintaxe `tags.tag-name`, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {
@@ -396,17 +396,17 @@ To apply tags from a resource group to a resource, use the [resourceGroup](resou
 
 ## <a name="rest-api"></a>API REST
 
-The Azure portal and PowerShell both use the [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) behind the scenes. If you need to integrate tagging into another environment, you can get tags by using **GET** on the resource ID and update the set of tags by using a **PATCH** call.
+O portal do Azure e o PowerShell usam a [API REST do Gerenciador de recursos](https://docs.microsoft.com/rest/api/resources/) em segundo plano. Se você precisar integrar a marcação em outro ambiente, poderá obter marcas usando **Get** na ID do recurso e atualizar o conjunto de marcas usando uma chamada de **patch** .
 
-## <a name="tags-and-billing"></a>Tags and billing
+## <a name="tags-and-billing"></a>Marcas e cobrança
 
-You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
+Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se você estiver executando várias VMs para organizações diferentes, use as marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos por ambiente de tempo de execução, como o uso de cobrança para VMs em execução no ambiente de produção.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+Você pode recuperar informações sobre marcas por meio de [APIs de RateCard e uso de recursos do Azure](../billing/billing-usage-rate-card-overview.md) ou o arquivo CSV (valores separados por vírgula) de uso. Você baixa o arquivo de uso do [centro de contas do Azure](https://account.azure.com/Subscriptions) ou portal do Azure. Para obter mais informações, consulte [baixar ou exibir sua fatura de cobrança do Azure e dados de uso diário](../billing/billing-download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **versão 2**. Para serviços que dão suporte a marcas com cobrança, as marcas aparecem na coluna **marcas** .
 
-For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
+Para operações da API REST, consulte [referência da API REST de cobrança do Azure](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resource-groups-portal.md).  
+* Nem todos os tipos de recurso dão suporte a marcas. Para determinar se você pode aplicar uma marca a um tipo de recurso, consulte [suporte a marcas para recursos do Azure](tag-support.md).
+* Para obter uma introdução ao uso do portal, consulte [usando o portal do Azure para gerenciar seus recursos do Azure](manage-resource-groups-portal.md).  

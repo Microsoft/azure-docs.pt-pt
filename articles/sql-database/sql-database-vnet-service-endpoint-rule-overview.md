@@ -1,6 +1,6 @@
 ---
-title: VNet endpoints and rules for single and pooled databases
-description: Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet.
+title: Pontos de extremidade de VNet e regras para bancos de dados individuais e em pool
+description: Marque uma sub-rede como um ponto de extremidade de serviço de rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL do seu banco de dados SQL do Azure. Em seguida, o banco de dados SQL aceita a comunicação de todas as máquinas virtuais e de outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -18,110 +18,110 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422519"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use virtual network service endpoints and rules for database servers
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores de banco de dados
 
-*Virtual network rules* are one firewall security feature that controls whether the database server for your single databases and elastic pool in Azure [SQL Database](sql-database-technical-overview.md) or for your databases in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
+*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de banco de dados para seus bancos de dados individuais e pool elástico no [banco de dados SQL](sql-database-technical-overview.md) do Azure ou em seus bancos no [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações que são enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com o banco de dados SQL do Azure e SQL Data Warehouse.
 
 > [!IMPORTANT]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
+> Este artigo aplica-se ao SQL Server do Azure e ao banco de dados SQL e SQL Data Warehouse bancos que são criados no SQL Server do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo não *se aplica* a uma implantação de **instância gerenciada** no banco de dados SQL do Azure porque não tem um ponto de extremidade de serviço associado a ela.
 
-To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
+Para criar uma regra de rede virtual, primeiro deve haver um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra referenciar.
 
-## <a name="how-to-create-a-virtual-network-rule"></a>How to create a virtual network rule
+## <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra de rede virtual
 
-If you only create a virtual network rule, you can skip ahead to the steps and explanation [later in this article](#anchor-how-to-by-using-firewall-portal-59j).
+Se você criar apenas uma regra de rede virtual, poderá pular para as etapas e explicação [mais adiante neste artigo](#anchor-how-to-by-using-firewall-portal-59j).
 
 <!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
-## <a name="details-about-virtual-network-rules"></a>Details about virtual network rules
+## <a name="details-about-virtual-network-rules"></a>Detalhes sobre regras de rede virtual
 
-This section describes several details about virtual network rules.
+Esta seção descreve vários detalhes sobre as regras de rede virtual.
 
-### <a name="only-one-geographic-region"></a>Only one geographic region
+### <a name="only-one-geographic-region"></a>Apenas uma região geográfica
 
-Each Virtual Network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet.
+Cada ponto de extremidade de serviço de rede virtual aplica-se a apenas uma região do Azure. O ponto de extremidade não permite que outras regiões aceitem comunicação da sub-rede.
 
-Any virtual network rule is limited to the region that its underlying endpoint applies to.
+Qualquer regra de rede virtual é limitada à região à qual seu ponto de extremidade subjacente se aplica.
 
-### <a name="server-level-not-database-level"></a>Server-level, not database-level
+### <a name="server-level-not-database-level"></a>Nível de servidor, não nível de banco de dados
 
-Each virtual network rule applies to your whole Azure SQL Database server, not just to one particular database on the server. In other words, virtual network rule applies at the server-level, not at the database-level.
+Cada regra de rede virtual se aplica a todo o servidor de banco de dados SQL do Azure, não apenas a um banco de dados específico no servidor. Em outras palavras, a regra de rede virtual se aplica no nível do servidor, não no nível do banco de dados.
 
-- In contrast, IP rules can apply at either level.
+- Por outro lado, as regras de IP podem ser aplicadas em qualquer nível.
 
-### <a name="security-administration-roles"></a>Security administration roles
+### <a name="security-administration-roles"></a>Funções de administração de segurança
 
-There is a separation of security roles in the administration of Virtual Network service endpoints. Action is required from each of the following roles:
+Há uma separação de funções de segurança na administração de pontos de extremidade de serviço de rede virtual. A ação é necessária de cada uma das seguintes funções:
 
-- **Network Admin:** &nbsp; Turn on the endpoint.
-- **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the SQL Database server.
+- **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
+- **Administrador de banco de dados:** &nbsp; atualizar a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao servidor do banco de dados SQL.
 
-*RBAC alternative:*
+*Alternativa de RBAC:*
 
-The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
+As funções de administrador de rede e administrador de banco de dados têm mais recursos do que o necessário para gerenciar regras de rede virtual. Apenas um subconjunto de seus recursos é necessário.
 
-You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
+Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tem apenas o subconjunto necessário de recursos. A função personalizada pode ser usada em vez de envolver o administrador de rede ou o administrador de banco de dados. A área da superfície de sua exposição de segurança será menor se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas principais funções de administrador.
 
 > [!NOTE]
-> In some cases the Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
-> - Both subscriptions must be in the same Azure Active Directory tenant.
-> - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
-> - Both subscriptions must have the Microsoft.Sql provider registered.
+> Em alguns casos, o banco de dados SQL do Azure e a sub-rede VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
+> - Ambas as assinaturas devem estar no mesmo locatário Azure Active Directory.
+> - O usuário tem as permissões necessárias para iniciar operações, como habilitar pontos de extremidade de serviço e adicionar uma sub-rede de rede virtual ao servidor especificado.
+> - Ambas as assinaturas devem ter o provedor Microsoft. SQL registrado.
 
 ## <a name="limitations"></a>Limitações
 
-For Azure SQL Database, the virtual network rules feature has the following limitations:
+Para o banco de dados SQL do Azure, o recurso de regras de rede virtual tem as seguintes limitações:
 
-- In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
+- No firewall do banco de dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o banco de dados SQL.
 
-- Each Azure SQL Database server can have up to 128 ACL entries for any given virtual network.
+- Cada servidor de banco de dados SQL do Azure pode ter até 128 entradas de ACL para qualquer rede virtual específica.
 
-- Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
+- As regras de rede virtual se aplicam somente a redes virtuais Azure Resource Manager; e não para redes de [modelo de implantação clássica][arm-deployment-model-568f] .
 
-- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostgreSQL Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or PostgreSQL instances may fail.
-  - The underlying reason is that MySQL and PostgreSQL likely do not have a virtual network rule configured. You must configure a virtual network rule for Azure Database for MySQL and PostgreSQL and the connection will succeed.
+- Ativar pontos de extremidade de serviço de rede virtual para o banco de dados SQL do Azure também habilita os pontos de extremidade para os serviços MySQL e PostgreSQL do Azure. No entanto, com os pontos de extremidade ATIVAdos, as tentativas de conexão dos pontos de extremidade com as instâncias do MySQL ou PostgreSQL podem falhar.
+  - O motivo subjacente é que o MySQL e PostgreSQL provavelmente não têm uma regra de rede virtual configurada. Você deve configurar uma regra de rede virtual para o banco de dados do Azure para MySQL e PostgreSQL e a conexão terá sucesso.
 
-- On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
-  - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
-  - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+- No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
+  - [VPN (rede virtual privada) site a site (S2S)][vpn-gateway-indexmd-608y]
+  - Local via [ExpressRoute][expressroute-indexmd-744v]
 
-### <a name="considerations-when-using-service-endpoints"></a>Considerations when using Service Endpoints
+### <a name="considerations-when-using-service-endpoints"></a>Considerações ao usar pontos de extremidade de serviço
 
-When using service endpoints for Azure SQL Database, review the following considerations:
+Ao usar pontos de extremidade de serviço para o banco de dados SQL do Azure, examine as seguintes considerações:
 
-- **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
+- **São necessários IPS públicos de saída para o banco de dados SQL do Azure**: NSGs (grupos de segurança de rede) devem ser abertos para IPS de banco de dados SQL do Azure para permitir conectividade. Você pode fazer isso usando marcas de [serviço](../virtual-network/security-overview.md#service-tags) NSG para o banco de dados SQL do Azure.
 
 ### <a name="expressroute"></a>ExpressRoute
 
-If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de seu local, para emparelhamento público ou emparelhamento da Microsoft, será necessário identificar os endereços IP de NAT que são usados. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
   
-To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your NAT.
+Para permitir a comunicação do seu circuito com o banco de dados SQL do Azure, você deve criar regras de rede IP para os endereços IP públicos de seu NAT.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impact of using VNet Service Endpoints with Azure storage
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto do uso de pontos de extremidade de serviço de VNet com o armazenamento do Azure
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
+O armazenamento do Azure implementou o mesmo recurso que permite limitar a conectividade à sua conta de armazenamento do Azure. Se você optar por usar esse recurso com uma conta de armazenamento do Azure que está sendo usada pelo SQL Server do Azure, poderá encontrar problemas. Veja a seguir uma lista e uma discussão sobre os recursos do banco de dados SQL do Azure e do Azure SQL Data Warehouse que são afetados por isso.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
+### <a name="azure-sql-data-warehouse-polybase"></a>Polybase do Azure SQL Data Warehouse
 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
+O polybase é comumente usado para carregar dados no Azure SQL Data Warehouse de contas de armazenamento do Azure. Se a conta de armazenamento do Azure para a qual você está carregando dados limita o acesso somente a um conjunto de sub-redes de VNet, a conectividade do polybase com a conta será interrompida. Para habilitar os cenários de importação e exportação do polybase com o Azure SQL Data Warehouse se conectando ao armazenamento do Azure que é protegido para VNet, siga as etapas indicadas abaixo:
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-- Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
+- Instale Azure PowerShell usando este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Se você tiver uma conta de armazenamento de blob v1 ou de uso geral, deverá primeiro atualizar para a versão v2 de uso geral usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+- Você deve ter **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** ativada em firewalls da conta de armazenamento do Azure e no menu **de configurações de redes virtuais** . Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obter mais informações.
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
 
 #### <a name="steps"></a>Passos
 
-1. In PowerShell, **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+1. No PowerShell, **Registre seu SQL Server do Azure** hospedando sua instância do SQL data warehouse do azure com Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -129,159 +129,159 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Crie uma **conta de armazenamento de uso geral v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
    > [!NOTE]
-   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - Se você tiver uma conta de armazenamento de blob v1 ou de uso geral, deverá **primeiro atualizar para v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Under your storage account, navigate to **Access Control (IAM)** , and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
+1. Em sua conta de armazenamento, navegue até **controle de acesso (iam)** e clique em **Adicionar atribuição de função**. Atribua a função de RBAC de **colaborador de dados de blob de armazenamento** à sua SQL Server do Azure hospedando sua SQL data warehouse do Azure que você registrou com Azure Active Directory (AAD) como na etapa 1.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Somente membros com privilégio de proprietário podem executar esta etapa. Para várias funções internas para recursos do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1. **Polybase connectivity to the Azure Storage account:**
+1. **Conectividade do polybase com a conta de armazenamento do Azure:**
 
-   1. Create a database **[master key](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** if you haven't created one earlier:
+   1. Crie uma **[chave mestra](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** de banco de dados se você não tiver criado uma anteriormente:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Create database scoped credential with **IDENTITY = 'Managed Service Identity'** :
+   1. Criar credencial no escopo do banco de dados com **identidade = ' identidade de serviço gerenciada '** :
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
 
        > [!NOTE]
-       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
-       > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
+       > - Não é necessário especificar o segredo com a chave de acesso de armazenamento do Azure porque esse mecanismo usa a [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
+       > - O nome da identidade deve ser **' identidade de serviço gerenciada '** para que a conectividade polybase funcione com a conta de armazenamento do Azure protegida para VNet.
 
-   1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
+   1. Crie uma fonte de dados externa com o esquema abfss://para se conectar à sua conta de armazenamento de uso geral v2 usando o polybase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with abfss:// scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
-       > - For more information on abfss:// scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blob v1 ou de uso geral, deverá primeiro descartar essas tabelas externas e, em seguida, remover a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com o esquema abfss://se conectando à conta de armazenamento de uso geral v2 como acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Você pode usar o [Assistente para gerar e publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar a facilidade de criar scripts para todas as tabelas externas.
+       > - Para obter mais informações sobre o esquema abfss://, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Para obter mais informações sobre como criar uma fonte de dados externa, consulte este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Consultar normalmente usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database Blob Auditing
+### <a name="azure-sql-database-blob-auditing"></a>Auditoria de blob do banco de dados SQL do Azure
 
-Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQL Database to the storage account will break.
+A auditoria de blob envia os logs de auditoria para sua própria conta de armazenamento. Se essa conta de armazenamento usar o recurso de pontos de extremidade de serviço de VNet, a conectividade do banco de dados SQL do Azure à conta de armazenamento será interrompida.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adding a VNet Firewall rule to your server without turning On VNet Service Endpoints
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de firewall de VNet ao seu servidor sem ativar os pontos de extremidade de serviço de VNet
 
-Long ago, before this feature was enhanced, you were required to turn VNet service endpoints On before you could implement a live VNet rule in the Firewall. The endpoints related a given VNet-subnet to an Azure SQL Database. But now as of January 2018, you can circumvent this requirement by setting the **IgnoreMissingVNetServiceEndpoint** flag.
+Há muito tempo, antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade do serviço VNet antes de implementar uma regra de VNet ao vivo no firewall. Os pontos de extremidade relacionados a uma determinada sub-rede de VNet a um banco de dados SQL do Azure. Mas, agora, a partir de janeiro de 2018, você pode burlar esse requisito definindo o sinalizador **IgnoreMissingVNetServiceEndpoint** .
 
-Merely setting a Firewall rule does not help secure the server. You must also turn VNet service endpoints On for the security to take effect. When you turn service endpoints On, your VNet-subnet experiences downtime until it completes the transition from Off to On. This is especially true in the context of large VNets. You can use the **IgnoreMissingVNetServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+Simplesmente definir uma regra de firewall não ajuda a proteger o servidor. Você também deve ativar os pontos de extremidade de serviço da VNet para que a segurança entre em vigor. Quando você ativa os pontos de extremidade de serviço, sua sub-rede VNet experimenta o tempo de inatividade até que conclua a transição de desativado para ativado. Isso é especialmente verdadeiro no contexto de grandes VNets. Você pode usar o sinalizador **IgnoreMissingVNetServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
-You can set the **IgnoreMissingVNetServiceEndpoint** flag by using PowerShell. For details, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Você pode definir o sinalizador **IgnoreMissingVNetServiceEndpoint** usando o PowerShell. Para obter detalhes, consulte [PowerShell para criar um ponto de extremidade de serviço de rede virtual e regra para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-## <a name="errors-40914-and-40615"></a>Errors 40914 and 40615
+## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615
 
-Connection error 40914 relates to *virtual network rules*, as specified on the Firewall pane in the Azure portal. Error 40615 is similar, except it relates to *IP address rules* on the Firewall.
+O erro de conexão 40914 está relacionado às *regras de rede virtual*, conforme especificado no painel Firewall no portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele está relacionado às *regras de endereço IP* no firewall.
 
-### <a name="error-40914"></a>Error 40914
+### <a name="error-40914"></a>Erro 40914
 
-*Message text:* Cannot open server ' *[server-name]* ' requested by the login. Client is not allowed to access the server.
+*Texto da mensagem:* Não é possível abrir o servidor ' *[Server-Name]* ' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
 
-*Error description:* The client is in a subnet that has virtual network server endpoints. No entanto, o servidor da Base de Dados SQL do Azure não tem nenhuma regra de rede virtual que concede à sub-rede o direito de comunicar com a Base de Dados SQL.
+*Descrição do erro:* O cliente está em uma sub-rede que tem pontos de extremidade de servidor de rede virtual. No entanto, o servidor da Base de Dados SQL do Azure não tem nenhuma regra de rede virtual que concede à sub-rede o direito de comunicar com a Base de Dados SQL.
 
-*Error resolution:* On the Firewall pane of the Azure portal, use the virtual network rules control to [add a virtual network rule](#anchor-how-to-by-using-firewall-portal-59j) for the subnet.
+*Resolução de erro:* No painel Firewall do portal do Azure, use o controle de regras de rede virtual para [Adicionar uma regra de rede virtual](#anchor-how-to-by-using-firewall-portal-59j) para a sub-rede.
 
-### <a name="error-40615"></a>Error 40615
+### <a name="error-40615"></a>Erro 40615
 
-*Message text:* Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.
+*Texto da mensagem:* Não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP '{1}' não tem permissão para acessar o servidor.
 
-*Error description:* The client is trying to connect from an IP address that is not authorized to connect to the Azure SQL Database server. O servidor da firewall não dispõe de qualquer regra de endereço IP que permita a um cliente comunicar entre esse mesmo endereço IP e a Base de Dados SQL.
+*Descrição do erro:* O cliente está tentando se conectar de um endereço IP que não está autorizado a se conectar ao servidor do banco de dados SQL do Azure. O servidor da firewall não dispõe de qualquer regra de endereço IP que permita a um cliente comunicar entre esse mesmo endereço IP e a Base de Dados SQL.
 
-*Error resolution:* Enter the client's IP address as an IP rule. Faça isso através do painel Firewall no portal do Azure.
+*Resolução de erro:* Insira o endereço IP do cliente como uma regra de IP. Faça isso através do painel Firewall no portal do Azure.
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## <a name="portal-can-create-a-virtual-network-rule"></a>Portal can create a virtual network rule
+## <a name="portal-can-create-a-virtual-network-rule"></a>O portal pode criar uma regra de rede virtual
 
-This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
+Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* no banco de dados SQL do Azure. A regra diz ao banco de dados SQL para aceitar a comunicação de uma determinada sub-rede que foi marcada como um *ponto de extremidade de serviço de rede virtual*.
 
 > [!NOTE]
-> If you intend to add a service endpoint to the VNet firewall rules of your Azure SQL Database server, first ensure that service endpoints are turned On for the subnet.
+> Se você pretende adicionar um ponto de extremidade de serviço às regras de firewall de VNet do seu servidor de banco de dados SQL do Azure, primeiro verifique se os pontos de extremidade de serviço estão ativados para a sub-rede.
 >
-> If service endpoints are not turned on for the subnet, the portal asks you to enable them. Click the **Enable** button on the same blade on which you add the rule.
+> Se os pontos de extremidade de serviço não estiverem ativados para a sub-rede, o portal solicitará que você os habilite. Clique no botão **habilitar** na mesma folha em que você adiciona a regra.
 
-## <a name="powershell-alternative"></a>PowerShell alternative
+## <a name="powershell-alternative"></a>Alternativa do PowerShell
 
-A script can also create virtual network rules using PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** or [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Um script também pode criar regras de rede virtual usando o cmdlet do PowerShell **New-AzSqlServerVirtualNetworkRule** ou [AZ Network vnet Create](/cli/azure/network/vnet#az-network-vnet-create). Se estiver interessado, consulte [PowerShell para criar um ponto de extremidade de serviço de rede virtual e regra para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-## <a name="rest-api-alternative"></a>REST API alternative
+## <a name="rest-api-alternative"></a>Alternativa da API REST
 
-Internally, the PowerShell cmdlets for SQL VNet actions call REST APIs. You can call the REST APIs directly.
+Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs REST. Você pode chamar as APIs REST diretamente.
 
-- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r]
+- [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-You must already have a subnet that is tagged with the particular Virtual Network service endpoint *type name* relevant to Azure SQL Database.
+Você já deve ter uma sub-rede que esteja marcada com o *nome do tipo* de ponto de extremidade de serviço de rede virtual específico relevante para o banco de dados SQL do Azure.
 
-- The relevant endpoint type name is **Microsoft.Sql**.
-- If your subnet might not be tagged with the type name, see [Verify your subnet is an endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
+- O nome do tipo de ponto de extremidade relevante é **Microsoft. SQL**.
+- Se sua sub-rede não puder ser marcada com o nome do tipo, consulte [verificar se sua sub-rede é um ponto de extremidade][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200" />
 
-## <a name="azure-portal-steps"></a>Azure portal steps
+## <a name="azure-portal-steps"></a>Etapas de portal do Azure
 
-1. Inicie sessão no [portal do Azure][http-azure-portal-link-ref-477t].
+1. Inicie sessão no [Portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Then navigate the portal to **SQL servers** &gt; **Firewall / Virtual Networks**.
+2. Em seguida, navegue até o portal para **servidores SQL** &gt; **Firewall/redes virtuais**.
 
-3. Set the **Allow access to Azure services** control to OFF.
+3. Defina o controle **permitir acesso aos serviços do Azure** como desativado.
 
     > [!IMPORTANT]
-    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet inside the Azure boundary i.e. originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
+    > Se você deixar o controle definido como ON, seu servidor de banco de dados SQL do Azure aceitará a comunicação de qualquer sub-rede dentro do limite do Azure, ou seja, proveniente de um dos endereços IP que é reconhecido como aqueles dentro de intervalos definidos para data centers do Azure. Deixar o controle definido como ON pode ser o acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço Rede Virtual do Microsoft Azure, em coordenação com o recurso de regra de rede virtual do banco de dados SQL, em conjunto pode reduzir sua área de superfície de segurança.
 
-4. Click the **+ Add existing** control, in the **Virtual networks** section.
+4. Clique em **+ Adicionar controle existente** , na seção **redes virtuais** .
 
-    ![Click add existing (subnet endpoint, as a SQL rule).][image-portal-firewall-vnet-add-existing-10-png]
+    ![Clique em Adicionar existente (ponto de extremidade de sub-rede, como uma regra SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
-5. In the new **Create/Update** pane, fill in the controls with the names of your Azure resources.
+5. No novo painel **criar/atualizar** , preencha os controles com os nomes dos recursos do Azure.
 
     > [!TIP]
-    > You must include the correct **Address prefix** for your subnet. You can find the value in the portal.
-    > Navigate **All resources** &gt; **All types** &gt; **Virtual networks**. The filter displays your virtual networks. Click your virtual network, and then click **Subnets**. The **ADDRESS RANGE** column has the Address prefix you need.
+    > Você deve incluir o **prefixo de endereço** correto para sua sub-rede. Você pode encontrar o valor no Portal.
+    > Navegue por **todos os recursos** &gt; **todos os tipos** &gt; **redes virtuais**. O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **sub-redes**. A coluna **intervalo de endereços** tem o prefixo de endereço de que você precisa.
 
-    ![Fill in fields for new rule.][image-portal-firewall-create-update-vnet-rule-20-png]
+    ![Preencha os campos para a nova regra.][image-portal-firewall-create-update-vnet-rule-20-png]
 
-6. Click the **OK** button near the bottom of the pane.
+6. Clique no botão **OK** próximo à parte inferior do painel.
 
-7. See the resulting virtual network rule on the firewall pane.
+7. Consulte a regra de rede virtual resultante no painel Firewall.
 
-    ![See the new rule, on the firewall pane.][image-portal-firewall-vnet-result-rule-30-png]
+    ![Consulte a nova regra, no painel Firewall.][image-portal-firewall-vnet-result-rule-30-png]
 
 > [!NOTE]
-> The following statuses or states apply to the rules:
-> - **Ready:** Indicates that the operation that you initiated has Succeeded.
-> - **Failed:** Indicates that the operation that you initiated has Failed.
-> - **Deleted:** Only applies to the Delete operation, and indicates that the rule has been deleted and no longer applies.
-> - **InProgress:** Indicates that the operation is in progress. The old rule applies while the operation is in this state.
+> Os status ou os Estados a seguir se aplicam às regras:
+> - **Pronto:** Indica que a operação iniciada foi bem-sucedida.
+> - **Com falha:** Indica que a operação iniciada falhou.
+> - **Excluído:** Aplica-se somente à operação de exclusão e indica que a regra foi excluída e não se aplica mais.
+> - Em **andamento:** Indica que a operação está em andamento. A regra antiga se aplica enquanto a operação está nesse estado.
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
-- [Azure SQL Database server-level and database-level firewall rules][sql-db-firewall-rules-config-715d]
+- [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
+- [Regras de firewall no nível de servidor e banco de dados do banco de dados SQL do Azure][sql-db-firewall-rules-config-715d]
 
-The virtual network rule feature for Azure SQL Database became available in late September 2017.
+O recurso de regra de rede virtual para o banco de dados SQL do Azure tornou-se disponível no final de setembro de 2017.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r] with REST APIs
+- [Use o PowerShell para criar um ponto de extremidade de serviço de rede virtual e uma regra de rede virtual para o banco de dados SQL do Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r] com APIs REST
 
 <!-- Link references, to images. -->
 [image-portal-firewall-vnet-add-existing-10-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png

@@ -85,7 +85,7 @@ O Serviço de Aprovisionamento de Dispositivos tem muitas funcionalidades, o que
 
 Pode saber mais sobre os conceitos e as funcionalidades envolvidas no aprovisionamento de dispositivos em [conceitos de dispositivo](concepts-device.md), [conceitos de serviço](concepts-service.md) e [conceitos de segurança](concepts-security.md).
 
-## <a name="cross-platform-support"></a>Suporte de várias plataformas
+## <a name="cross-platform-support"></a>Suporte para várias plataformas
 O Serviço de Aprovisionamento de Dispositivos, como todos os serviços IoT do Azure, funciona em várias plataformas com diversos sistemas operativos. O Azure disponibiliza SDKs open source em várias [linguagens](https://github.com/Azure/azure-iot-sdks) para facilitar a ligação dos dispositivos e a gestão do serviço. O Serviço de Aprovisionamento de Dispositivos suporta os seguintes protocolos para ligar dispositivos:
 
 * HTTPS

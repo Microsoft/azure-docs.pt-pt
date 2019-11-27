@@ -88,14 +88,14 @@ A tabela a seguir lista quais gateways e conexões têm suporte com a solução 
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
-|VPN      | Suportado        |
+|VPN      | Suportadas        |
 |ExpressRoute | Não Suportado |
 |**Tipos de VPN** | |
-|Baseado em rota | Suportado|
+|Baseado em rota | Suportadas|
 |Baseado em política | Não Suportado|
 |**Tipos de conexão**||
-|IPSec| Suportado|
-|VNet2Vnet| Suportado|
+|IPSec| Suportadas|
+|VNet2Vnet| Suportadas|
 |ExpressRoute| Não Suportado|
 |VPNClient| Não Suportado|
 

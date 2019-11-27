@@ -122,7 +122,7 @@ Sinta-se à vontade para personalizar esse modelo para suas necessidades. Há v�
 
 * Se você tiver uma grande quantidade de logs, recomendamos que investigue uma solução usando outro armazenamento de dados como o Data Lake ou o SQL Server.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba como visualizar seus logs de fluxo do NSG com a pilha elástica visitando [Visualizar logs de fluxo do NSG do observador de rede do Azure usando ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 

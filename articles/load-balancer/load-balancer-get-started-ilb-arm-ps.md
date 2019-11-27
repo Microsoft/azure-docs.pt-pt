@@ -1,5 +1,5 @@
 ---
-title: Create an Azure internal Load Balancer by using PowerShell
+title: Criar um balanceador de carga interno do Azure com o PowerShell
 titleSuffix: Azure Load Balancer
 description: Saiba como utilizar o módulo do Azure PowerShell com o Azure Resource Manager para criar um balanceador de carga interno
 services: load-balancer
@@ -251,7 +251,7 @@ Depois de a máquina virtual ter sido criada, adicione a interface de rede.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Passo 1: Armazenar o recurso de balanceador de carga
 
-Armazene o recurso do balanceador de carga numa variável (se ainda não o tiver feito). We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
+Armazene o recurso do balanceador de carga numa variável (se ainda não o tiver feito). Estamos usando o nome da variável **$lb**. Para os valores de atributo no script, use os nomes para os recursos do balanceador de carga que foram criados nas etapas anteriores.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -319,7 +319,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="remove-an-existing-load-balancer"></a>Remover um balanceador de carga existente
 
-Utilize o comando `Remove-AzLoadBalancer` para eliminar o balanceador de carga **NRP-LB** no grupo de recursos **NRP-RG**:
+Utilize o comando **para eliminar o balanceador de carga**NRP-LB**no grupo de recursos**NRP-RG`Remove-AzLoadBalancer`:
 
 ```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG

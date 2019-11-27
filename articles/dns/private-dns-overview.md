@@ -1,6 +1,6 @@
 ---
 title: O que é o DNS Privado do Azure?
-description: In this article, get started with an overview of the private DNS hosting service on Microsoft Azure.
+description: Neste artigo, comece com uma visão geral do serviço de Hospedagem de DNS privado no Microsoft Azure.
 services: dns
 author: asudbring
 ms.service: dns
@@ -16,66 +16,66 @@ ms.locfileid: "74210638"
 ---
 # <a name="what-is-azure-private-dns"></a>O que é o DNS Privado do Azure?
 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address.  Azure DNS is a hosting service for DNS domains, providing name resolution using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS also supports private DNS zones.
+O sistema de nomes de domínio, ou DNS, é responsável por converter (ou resolver) um nome de serviço para seu endereço IP.  O DNS do Azure é um serviço de hospedagem para domínios DNS, fornecendo resolução de nomes usando a infraestrutura de Microsoft Azure. Além de dar suporte a domínios DNS voltados para a Internet, o DNS do Azure também dá suporte a zonas DNS privadas.
 
-Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
+O Azure DNS privado fornece um serviço DNS confiável e seguro para gerenciar e resolver nomes de domínio em uma rede virtual sem a necessidade de adicionar uma solução DNS personalizada. Usando zonas DNS privadas, você pode usar seus próprios nomes de domínio personalizados em vez dos nomes fornecidos pelo Azure disponíveis hoje. O uso de nomes de domínio personalizados ajuda você a personalizar sua arquitetura de rede virtual para melhor atender às necessidades da sua organização. Ele fornece resolução de nomes para VMs (máquinas virtuais) em uma rede virtual e entre redes virtuais. Além disso, você pode configurar os nomes de zonas com uma exibição de horizonte dividido, que permite que uma zona DNS privada e pública Compartilhe o nome.
 
-To resolve the records of a private DNS zone from your virtual network, you must link the virtual network with the zone. Linked virtual networks have full access and can resolve all DNS records published in the private zone. Additionally, you can also enable autoregistration on a virtual network link. If you enable autoregistration on a virtual network link, the DNS records for the virtual machines on that virtual network are registered in the private zone. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
+Para resolver os registros de uma zona DNS privada de sua rede virtual, você deve vincular a rede virtual à zona. As redes virtuais vinculadas têm acesso completo e podem resolver todos os registros DNS publicados na zona privada. Além disso, você também pode habilitar o registro em um link de rede virtual. Se você habilitar o registro em um link de rede virtual, os registros DNS para as máquinas virtuais nessa rede virtual serão registrados na zona privada. Quando o Autoregistro está habilitado, o DNS do Azure também atualiza os registros de zona sempre que uma máquina virtual é criada, altera seu ' endereço IP ' ou é excluído.
 
-![DNS overview](./media/private-dns-overview/scenario.png)
+![Visão geral do DNS](./media/private-dns-overview/scenario.png)
 
 > [!NOTE]
-> As a best practice, do not use a *.local* domain for your private DNS zone. Not all operating systems support this.
+> Como prática recomendada, não use um domínio *. local* para sua zona DNS privada. Nem todos os sistemas operacionais dão suporte a isso.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
-Azure Private DNS provides the following benefits:
+O DNS privado do Azure oferece os seguintes benefícios:
 
-* **Removes the need for custom DNS solutions**. Previously, many customers created custom DNS solutions to manage DNS zones in their virtual network. You can now manage DNS zones using the native Azure infrastructure, which removes the burden of creating and managing custom DNS solutions.
+* **Elimina a necessidade de soluções de DNS personalizadas**. Anteriormente, muitos clientes criaram soluções de DNS personalizadas para gerenciar zonas DNS em sua rede virtual. Agora você pode gerenciar zonas DNS usando a infraestrutura nativa do Azure, que elimina a carga de criar e gerenciar soluções de DNS personalizadas.
 
-* **Use all common DNS records types**. Azure DNS supports A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT records.
+* **Use todos os tipos de registros DNS comuns**. O DNS do Azure dá suporte A registros A, AAAA, CNAME, MX, PTR, SOA, SRV e TXT.
 
-* **Automatic hostname record management**. Along with hosting your custom DNS records, Azure automatically maintains hostname records for the VMs in the specified virtual networks. In this scenario, you can optimize the domain names you use without needing to create custom DNS solutions or modify applications.
+* **Gerenciamento de registro de nome de host automático**. Juntamente com a hospedagem de seus registros DNS personalizados, o Azure mantém automaticamente os registros de nome de host das VMs nas redes virtuais especificadas. Nesse cenário, você pode otimizar os nomes de domínio que usa sem a necessidade de criar soluções de DNS personalizadas ou modificar aplicativos.
 
-* **Hostname resolution between virtual networks**. Unlike Azure-provided host names, private DNS zones can be shared between virtual networks. This capability simplifies cross-network and service-discovery scenarios, such as virtual network peering.
+* **Resolução de nome de host entre redes virtuais**. Ao contrário dos nomes de host fornecidos pelo Azure, as zonas DNS privadas podem ser compartilhadas entre redes virtuais. Essa funcionalidade simplifica cenários de descoberta de serviços e de rede, como o emparelhamento de rede virtual.
 
-* **Familiar tools and user experience**. To reduce the learning curve, this service uses well-established Azure DNS tools (Azure portal, Azure PowerShell, Azure CLI, Azure Resource Manager templates, and the REST API).
+* **Ferramentas familiares e experiência do usuário**. Para reduzir a curva de aprendizado, esse serviço usa as ferramentas de DNS do Azure bem estabelecidas (portal do Azure, Azure PowerShell, CLI do Azure, modelos de Azure Resource Manager e a API REST).
 
-* **Split-horizon DNS support**. With Azure DNS, you can create zones with the same name that resolve to different answers from within a virtual network and from the public internet. A typical scenario for split-horizon DNS is to provide a dedicated version of a service for use inside your virtual network.
+* **Suporte a DNS de omissão de divisão**. Com o DNS do Azure, você pode criar zonas com o mesmo nome que resolvem para diferentes respostas de dentro de uma rede virtual e da Internet pública. Um cenário típico para o DNS de omissão de divisão é fornecer uma versão dedicada de um serviço para uso dentro de sua rede virtual.
 
-* **Available in all Azure regions**. The Azure DNS private zones feature is available in all Azure regions in the Azure public cloud.
+* **Disponível em todas as regiões do Azure**. O recurso de zonas privadas do DNS do Azure está disponível em todas as regiões do Azure na nuvem pública do Azure.
 
-## <a name="capabilities"></a>Funções
+## <a name="capabilities"></a>Capacidades
 
-Azure DNS provides the following capabilities:
+O DNS do Azure fornece os seguintes recursos:
 
-* **Automatic registration of virtual machines from a virtual network that's linked to a private zone with autoregistration enabled**. The virtual machines are registered (added) to the private zone as A records pointing to their private IP addresses. When a virtual machine in a virtual network link with autoregistration enabled is deleted, Azure DNS also automatically removes the corresponding DNS record from the linked private zone.
+* **Registro automático de máquinas virtuais de uma rede virtual que está vinculada a uma zona privada com o Autoregistro habilitado**. As máquinas virtuais são registradas (adicionadas) na zona privada como registros que apontam para seus endereços IP privados. Quando uma máquina virtual em um link de rede virtual com o registro automático habilitado é excluída, o DNS do Azure também remove automaticamente o registro DNS correspondente da zona privada vinculada.
 
-* **Forward DNS resolution is supported across virtual networks that are linked to the private zone**. For cross-virtual network DNS resolution, there's no explicit dependency such that the virtual networks are peered with each other. However, you might want to peer virtual networks for other scenarios (for example, HTTP traffic).
+* **A resolução de DNS progressivo tem suporte em redes virtuais que estão vinculadas à zona privada**. Para a resolução de DNS de rede virtual cruzada, não há dependência explícita, de modo que as redes virtuais estejam emparelhadas entre si. No entanto, talvez você queira emparelhar redes virtuais para outros cenários (por exemplo, tráfego HTTP).
 
-* **Reverse DNS lookup is supported within the virtual-network scope**. Reverse DNS lookup for a private IP within the virtual network assigned to a private zone returns the FQDN that includes the host/record name and the zone name as the suffix.
+* **A pesquisa inversa de DNS tem suporte no escopo de rede virtual**. A pesquisa inversa de DNS para um IP privado na rede virtual atribuída a uma zona privada retorna o FQDN que inclui o nome do host/registro e o nome da zona como o sufixo.
 
 ## <a name="other-considerations"></a>Outras considerações
 
-Azure DNS has the following limitations:
+O DNS do Azure tem as seguintes limitações:
 
-* A specific virtual network can be linked to only one private zone if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
-* Reverse DNS works only for private IP space in the linked virtual network
-* Reverse DNS for a private IP address for a linked virtual network returns *internal.cloudapp.net* as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP address  returns two FQDNs: one with default the suffix *internal.cloudapp.net* and another with the private zone suffix.
-* Conditional forwarding is not currently natively supported. To enable resolution between Azure and on-premises networks. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Uma rede virtual específica pode ser vinculada a apenas uma zona privada se o registro automático de registros DNS da VM estiver habilitado. No entanto, você pode vincular várias redes virtuais a uma única zona DNS.
+* O DNS reverso funciona apenas para o espaço IP privado na rede virtual vinculada
+* O DNS reverso para um endereço IP privado para uma rede virtual vinculada retorna *Internal.cloudapp.net* como o sufixo padrão para a máquina virtual. Para redes virtuais que estão vinculadas a uma zona privada com o Autoregistro habilitado, o DNS reverso para um endereço IP privado retorna dois FQDNs: um com o padrão de sufixo *Internal.cloudapp.net* e outro com o sufixo de zona privada.
+* O encaminhamento condicional não tem suporte nativo no momento. Para habilitar a resolução entre o Azure e redes locais. Consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
 ## <a name="pricing"></a>Preços
 
-For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+Para obter informações sobre preços, consulte [preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
+* Saiba como criar uma zona privada no DNS do Azure usando [Azure PowerShell](./private-dns-getstarted-powershell.md) ou [CLI do Azure](./private-dns-getstarted-cli.md).
 
-* Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
+* Leia sobre alguns cenários comuns de [zona privada](./private-dns-scenarios.md) que podem ser percebidos com zonas privadas no DNS do Azure.
 
-* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.md).
+* Para perguntas e respostas comuns sobre zonas privadas no DNS do Azure, incluindo um comportamento específico que você pode esperar para determinados tipos de operações, consulte [DNS privado perguntas frequentes](./dns-faq-private.md).
 
-* Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
+* Saiba mais sobre zonas e registros DNS visitando [visão geral de zonas e registros DNS](dns-zones-records.md).
 
 * Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) do Azure.

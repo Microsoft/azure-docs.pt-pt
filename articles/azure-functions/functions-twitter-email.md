@@ -43,9 +43,9 @@ Se ainda não o fez, conclua estes passos agora para criar a sua aplicação de 
 
 As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos individuais. Utilize a API de Análise de Texto para detetar o sentimento dos tweets que estão a ser monitorizados.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
+2. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 3. Clique em **IA + Machine Learning** > **Análise de Texto**. Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
 
@@ -54,7 +54,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
     | Definição      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusivo. |
-    | **Localização** | Oeste dos E.U.A. | Utilize a localização mais próxima de si. |
+    | **Localização** | EUA Oeste | Utilize a localização mais próxima de si. |
     | **Escalão de preço** | F0 | Comece com o escalão mais baixo. Se ficar sem chamadas, aumente para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
@@ -78,7 +78,7 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
 
 1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
 
-    ![Início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
+    ![Página de início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
 
 2. Em seguida, selecione **Webhook + API** e clique em **Criar**. 
 
@@ -121,7 +121,7 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
     ```
     Este código de função devolve uma categoria de cor com base na classificação de sentimento recebida no pedido. 
 
-4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. É devolvido o valor **RED** no corpo da resposta. 
+4. Para testar a função, clique em **testar** na extrema direita para expandir a guia teste. Digite um valor de `0.2` para o **corpo da solicitação**e clique em **executar**. É devolvido o valor **RED** no corpo da resposta. 
 
     ![Testar a função no portal do Azure](./media/functions-twitter-email/07-function-test.png)
 
@@ -141,7 +141,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome adequado para a sua aplicação. |
     | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos que utilizou anteriormente. |
-    | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si. |    
+    | **Localização** | EUA Leste | Escolha uma localização perto de si. |    
 
 4. Depois de introduzir os valores de definições apropriadas, clique em **Criar** para criar a sua aplicação lógica. 
 
