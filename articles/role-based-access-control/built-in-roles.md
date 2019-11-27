@@ -174,7 +174,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | * | Criar e gerenciar recursos de todos os tipos |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -193,7 +193,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Authorization/elevateAccess/Action | Concede ao usuário do chamador acesso de administrador no escopo do locatário |
 > | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar quaisquer atribuições de Blueprint |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Excluir quaisquer atribuições de Blueprint |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -208,7 +208,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | */read | Ler recursos de todos os tipos, exceto segredos. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -223,7 +223,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Exclua o artefato em um registro de contêiner. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -238,7 +238,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ContainerRegistry/registries/sign/write | Metadados de confiança de conteúdo de push/pull para um registro de contêiner. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -253,7 +253,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ContainerRegistry/registries/pull/read | Efetuar pull ou obter imagens de um registro de contêiner. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -269,7 +269,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ContainerRegistry/registries/push/write | Enviar por Push ou gravar imagens em um registro de contêiner. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -284,7 +284,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. ContainerRegistry/registros/quarentena/leitura | Efetuar pull ou obter imagens em quarentena do registro de contêiner |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -300,7 +300,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. ContainerRegistry/registros/quarentena/gravação | Gravar/modificar o estado de quarentena de imagens em quarentena |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -321,7 +321,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -350,7 +350,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obter chaves associadas ao usuário |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -372,7 +372,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obter chaves associadas ao usuário |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -394,7 +394,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -414,7 +414,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -441,7 +441,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -476,7 +476,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -496,7 +496,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -529,7 +529,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obtém os recursos para o grupo de recursos. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retorna o resultado da exclusão de um blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um BLOB ou uma lista de BLOBs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retorna o resultado da gravação de um blob |
@@ -556,7 +556,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de blob put |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retorna o resultado da exclusão de um blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retorna um BLOB ou uma lista de BLOBs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retorna o resultado da gravação de um blob |
@@ -573,7 +573,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.EventHub/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.EventHub/* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -588,7 +588,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.EventHub/*/receive/action |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -603,7 +603,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.EventHub/*/eventhubs/read |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.EventHub/*/send/action |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -618,7 +618,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerenciado |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -633,7 +633,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerenciado |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -648,7 +648,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Maps/accounts/data/read | Concede acesso de leitura de dados a uma conta do Maps. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -675,7 +675,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -702,7 +702,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -731,7 +731,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -746,7 +746,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ServiceBus/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.ServiceBus/* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -763,7 +763,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.ServiceBus/*/receive/action |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -780,7 +780,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.ServiceBus/*/send/action |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -797,7 +797,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.AzureStack/registrations/read | Obtém as propriedades de um registro de Azure Stack |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -853,7 +853,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -924,7 +924,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -976,7 +976,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/Vaults/usages/read | Retorna os detalhes de uso de um cofre dos serviços de recuperação. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -997,7 +997,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1018,7 +1018,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1033,7 +1033,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtém ou lista os nós de transação de membro Blockchain existentes. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Conecta-se a um nó de transação de membro Blockchain. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1052,7 +1052,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1071,7 +1071,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1093,7 +1093,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1115,7 +1115,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1137,7 +1137,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1159,7 +1159,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1180,7 +1180,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1201,7 +1201,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1217,7 +1217,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenera as chaves de acesso existentes para a conta de armazenamento. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1248,7 +1248,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1279,7 +1279,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1294,7 +1294,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1321,7 +1321,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1342,7 +1342,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1366,7 +1366,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
 > | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
 > | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1382,7 +1382,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Enviar uma solicitação de restauração |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1405,7 +1405,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1428,7 +1428,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1448,7 +1448,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. Data Box/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1470,7 +1470,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1492,7 +1492,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1527,7 +1527,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Excluir uma regra de firewall. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Criar ou atualizar uma política de computação. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Excluir uma política de computação. |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1545,7 +1545,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.OperationalInsights/workspaces/purge/action | Excluir dados especificados do espaço de trabalho |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1591,7 +1591,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retorna as chaves de acesso para a conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Lista os tamanhos disponíveis para os quais a máquina virtual pode ser atualizada |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1612,7 +1612,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1633,7 +1633,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1656,7 +1656,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1676,7 +1676,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1699,7 +1699,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1716,7 +1716,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. AAD/DomainServices/oucontainer/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1737,7 +1737,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1758,7 +1758,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Limpar um cofre de chaves com exclusão reversível |
 > | Microsoft.KeyVault/hsmPools/* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1779,7 +1779,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1806,7 +1806,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1824,7 +1824,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera as chaves compartilhadas para o espaço de trabalho. Essas chaves são usadas para conectar agentes do insights operacionais da Microsoft ao espaço de trabalho. |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1859,7 +1859,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/sites/functions/listSecrets/action | Listar segredos de função. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1890,7 +1890,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/serverFarms/read | Obter as propriedades em um plano do serviço de aplicativo |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1907,7 +1907,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1924,7 +1924,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1946,7 +1946,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1967,7 +1967,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -1984,7 +1984,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. Managedservices/operationStatuses/Read | Lê o status da operação para o recurso. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2003,7 +2003,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Management/managementGroups/write | Criar ou atualizar um grupo de gerenciamento. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2018,7 +2018,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2058,7 +2058,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft. AlertsManagement/smartDetectorAlertRules/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2075,7 +2075,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Insights/Metrics/Write | Métricas de gravação |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2092,7 +2092,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2113,7 +2113,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2134,7 +2134,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2151,7 +2151,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/read | Retorna a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2172,7 +2172,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2192,7 +2192,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2213,7 +2213,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2234,7 +2234,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2259,7 +2259,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2283,7 +2283,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2305,7 +2305,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Management/managementGroups/read | Listar grupos de gerenciamento para o usuário autenticado. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2346,7 +2346,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2388,7 +2388,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Alternar contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Ativação Pós-falha de Teste |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza do failover de teste |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Ativação Pós-Falha |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Ativação pós-falha |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar serviço de mobilidade |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler mapeamentos de contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler provedores de serviços de recuperação |
@@ -2418,7 +2418,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2463,7 +2463,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2478,7 +2478,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Criar âncoras espaciais |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
@@ -2498,7 +2498,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Criar âncoras espaciais |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Excluir âncoras espaciais |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
@@ -2519,7 +2519,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Descobrir âncoras espaciais próximas |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obter propriedades de âncoras espaciais |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Localizar âncoras espaciais |
@@ -2570,7 +2570,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2598,7 +2598,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2655,7 +2655,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2706,7 +2706,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Editar políticas de alerta de segurança do SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2729,7 +2729,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2745,7 +2745,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenera as chaves de acesso para a conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2763,7 +2763,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço BLOB. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Excluir um blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retornar um BLOB ou uma lista de BLOBs. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Gravar em um blob. |
@@ -2781,7 +2781,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço BLOB. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Permissões totais em BLOBs. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2797,7 +2797,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço BLOB. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retornar um BLOB ou uma lista de BLOBs. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2812,7 +2812,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço BLOB. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2827,7 +2827,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retorna o resultado da gravação de um arquivo ou da criação de uma pasta. |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retorna o resultado da exclusão de um arquivo/pasta. |
@@ -2844,7 +2844,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retorna o resultado da gravação de um arquivo ou da criação de uma pasta. |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retorna o resultado da exclusão de um arquivo/pasta. |
@@ -2862,7 +2862,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retorna um arquivo/pasta ou uma lista de arquivos/pastas. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2879,7 +2879,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Modificar metadados ou propriedades da fila. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Excluir uma ou mais mensagens de uma fila. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Espiar ou recuperar uma ou mais mensagens de uma fila. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Adicione uma mensagem a uma fila. |
@@ -2896,7 +2896,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Inspecionar uma mensagem. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Recuperar e excluir uma mensagem. |
 > | **NotDataActions** |  |
@@ -2912,7 +2912,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Adicione uma mensagem a uma fila. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2927,7 +2927,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retorna uma fila ou uma lista de filas. |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Espiar ou recuperar uma ou mais mensagens de uma fila. |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2944,7 +2944,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2965,7 +2965,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -2982,7 +2982,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -3001,7 +3001,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Fazer logon em uma máquina virtual como um usuário normal |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Fazer logon em uma máquina virtual com privilégios de administrador do Windows ou de usuário raiz do Linux |
 > | **NotDataActions** |  |
@@ -3054,7 +3054,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -3073,7 +3073,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Fazer logon em uma máquina virtual como um usuário normal |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -3095,7 +3095,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/hostingEnvironments/Join/Action | Une um Ambiente do Serviço de Aplicativo |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
@@ -3121,7 +3121,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/sites/* | Criar e gerenciar sites (a criação de site também requer permissões de gravação para o plano do serviço de aplicativo associado) |
 > | **NotActions** |  |
 > | *None* |  |
-> | **DataActions** |  |
+> | **Dataactions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |

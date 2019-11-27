@@ -12,15 +12,15 @@ ms.locfileid: "74277531"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início rápido: Clonar um bloco de notas
 
-Muitos programadores e os cientistas de dados armazenam seus blocos de notas na [repositórios do GitHub](https://github.com), um gratuitas de serviço que fornece controle de versão e de armazenamento para muitos tipos diferentes de projetos. GitHub é frequentemente utilizado como um meio de colaboração em blocos de notas do Jupyter que são executados localmente. Nesses casos, cada colaborador mantém uma cópia local do repositório e executa os blocos de notas dessa cópia.
+Muitos cientistas de dados e desenvolvedores armazenam seus notebooks em [repositórios GitHub](https://github.com), um serviço gratuito que fornece armazenamento e controle de versão para muitos tipos diferentes de projetos. GitHub é frequentemente utilizado como um meio de colaboração em blocos de notas do Jupyter que são executados localmente. Nesses casos, cada colaborador mantém uma cópia local do repositório e executa os blocos de notas dessa cópia.
 
 A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de blocos de notas do Azure em vez disso. Este clone é independente do seu repositório original; as alterações são armazenadas na sua conta de blocos de notas do Azure apenas e não afetam o original. Como seu clone é na cloud, pode partilhar o projeto com outros funcionários que não precisam fazer quaisquer cópias locais ou até mesmo ter Jupyter instalado em seus próprios computadores. Também pode clonar um bloco de notas simplesmente como um ponto de partida para um projeto de seu próprio ou para obter ficheiros de dados.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonar blocos de notas de serviços cognitivos do Azure
 
-1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. (Para obter detalhes, consulte [início rápido - início de sessão para blocos de notas do Azure](quickstart-sign-in-azure-notebooks.md)).
+1. Vá para [Azure notebooks](https://notebooks.azure.com) e entre. (Para obter detalhes, consulte [início rápido-entrar no Azure notebooks](quickstart-sign-in-azure-notebooks.md)).
 
-1. Na sua página de perfil público, selecione **meus projetos** na parte superior da página:
+1. Na página de seu perfil público, selecione **meus projetos** na parte superior da página:
 
     ![Meu link de projetos na parte superior da janela do browser](media/quickstarts/my-projects-link.png)
 
@@ -32,9 +32,9 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
    - **Repositório GitHub**: Microsoft/cognitiva-Services-notebooks (esse nome clona os notebooks Jupyter para serviços cognitivas do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Clonar recursivamente**: (limpo)
-   - **Nome do projeto**: Clone de serviços cognitivos
-   - **ID do projeto**: clone de serviços cognitivos
-   - **Público**: (limpo)
+   - **Nome do projeto**: clone de serviços cognitivas
+   - **ID do projeto**: cognitiva-Services-clone
+   - **Público**: (desmarcado)
 
      ![Carregar pop-up do repositório do GitHub para coletar informações do repositório](media/quickstarts/upload-github-repo-popup.png)
 
@@ -46,25 +46,25 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
 ## <a name="share-a-notebook"></a>Partilhar um bloco de notas
 
-1. Para partilhar a sua cópia do projeto clonado, utilize o **partilhar** controlar ou obter uma ligação, obter o código HTML ou de Markdown que contém a ligação ou criar uma mensagem de e-mail com a ligação:
+1. Para compartilhar sua cópia do projeto clonado, use o controle de **compartilhamento** ou obtenha um link, obtenha HTML ou código de redução que contém o link ou crie uma mensagem de email com o link:
 
     ![Comando de partilha do projeto](media/quickstarts/share-project-command.png)
 
-1. Uma vez que limpou a **público** opção ao clonar o projeto, o clone é privada. Para fazer a cópia pública, selecione **definições do projeto**, defina o **projeto público** opção no popup e, em seguida, selecione **guardar**.
+1. Como você desmarcou a opção **pública** ao clonar o projeto, o clone é privado. Para tornar sua cópia pública, selecione **configurações do projeto**, defina a opção **projeto público** no pop-up e, em seguida, selecione **salvar**.
 
 1. Selecione um bloco de notas no projeto para executá-lo. Cada bloco de anotações no repositório de serviços cognitivos do Azure, por exemplo, é sua própria guia de introdução autossuficiente. A imagem abaixo mostra o resultado da utilização do bloco de notas BingImageSearchAPI, depois de adicionar uma chave de assinatura de API dos serviços cognitivos e alterando o termo de pesquisa "puppies" para "bunnies":
 
     ![A executar o bloco de notas do Jupyter clonou do GitHub](media/quickstarts/clone-notebook-result.png)
 
-1. Quando terminar a executar o bloco de notas, selecione **arquivo** > **fechar e parar** para fechar o bloco de notas e sua janela do browser.
+1. Quando você terminar de executar o bloco de anotações, selecione **arquivo** > **fechar e parar** para fechar o bloco de anotações e a janela do navegador.
 
-1. Para partilhar um bloco de notas individual no projeto, o bloco de notas com o botão direito e selecione **copiar ligação** (atalho de teclado: y):
+1. Para compartilhar um bloco de anotações individual no projeto, clique com o botão direito do mouse no bloco de anotações e selecione **Copiar link** (atalho de teclado: y):
 
     ![Comando de menu de contexto para copiar uma ligação para um bloco de anotações individual](media/quickstarts/copy-link-to-individual-notebook.png)
 
-1. Para editar ficheiros diferentes dos blocos de notas, clique com botão direito no projeto e selecione o ficheiro de **Editar ficheiro** (atalho de teclado: eu). A ação de predefinição **executar** (atalho de teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
+1. Para editar arquivos que não sejam blocos de anotações, clique com o botão direito do mouse no arquivo no projeto e selecione **Editar arquivo** (atalho de teclado: i). A ação padrão, **executar** (atalho de teclado: r), mostra apenas o conteúdo do arquivo e não permite edição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar uma execução de um bloco de anotações Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)

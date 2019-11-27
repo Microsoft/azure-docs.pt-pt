@@ -69,7 +69,7 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
     ![Para adicionar o recurso de previsão LUIS, selecione Adicionar recurso de previsão](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recursos**.
+1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recurso**.
 
    ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
 

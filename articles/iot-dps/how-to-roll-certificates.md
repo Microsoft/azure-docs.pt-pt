@@ -1,6 +1,6 @@
 ---
-title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
-description: How to roll X.509 certificates with your Device Provisioning service instance
+title: Distribuir certificados X. 509 no serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como distribuir certificados X. 509 com a instância do serviço de provisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -14,203 +14,203 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228760"
 ---
-# <a name="how-to-roll-x509-device-certificates"></a>How to roll X.509 device certificates
+# <a name="how-to-roll-x509-device-certificates"></a>Como distribuir certificados de dispositivo X. 509
 
-During the lifecycle of your IoT solution, you'll need to roll certificates. Two of the main reasons for rolling certificates would be a security breach, and certificate expirations. 
+Durante o ciclo de vida da sua solução de IoT, você precisará reverter os certificados. Dois dos principais motivos para a reversão de certificados seriam uma violação de segurança e expirações de certificado. 
 
-Rolling certificates is a security best practice to help secure your system in the event of a breach. As part of [Assume Breach Methodology](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft advocates the need for having reactive security processes in place along with preventative measures. Rolling your device certificates should be included as part of these security processes. The frequency in which you roll your certificates will depend on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificate daily, while others roll their certificates every couple years.
+Certificados contínuos é uma prática recomendada de segurança para ajudar a proteger seu sistema em caso de violação. Como parte da [metodologia de supor a violação](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), a Microsoft defende a necessidade de ter processos de segurança reativos em vigor juntamente com medidas preventivas. A distribuição dos certificados de dispositivo deve ser incluída como parte desses processos de segurança. A frequência em que você acumula seus certificados dependerá das necessidades de segurança de sua solução. Os clientes com soluções que envolvem dados altamente confidenciais podem lançar o certificado diariamente, enquanto outros distribuem seus certificados a cada dois anos.
 
-Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [auto-provisioning](concepts-auto-provisioning.md) with the Device Provisioning Service.
+Os certificados de dispositivo sem interrupção envolverão a atualização do certificado armazenado no dispositivo e o Hub IoT. Posteriormente, o dispositivo pode se reprovisionar com o Hub IoT usando o [provisionamento automático](concepts-auto-provisioning.md) normal com o serviço de provisionamento de dispositivos.
 
 
-## <a name="obtain-new-certificates"></a>Obtain new certificates
+## <a name="obtain-new-certificates"></a>Obter novos certificados
 
-There are many ways to obtain new certificates for your IoT devices. These include obtaining certificates from the device factory, generating your own certificates, and having a third party manage certificate creation for you. 
+Há várias maneiras de obter novos certificados para seus dispositivos IoT. Isso inclui a obtenção de certificados da fábrica de dispositivos, a geração de seus próprios certificados e a existência de terceiros para gerenciar o certificado para você. 
 
-Certificates are signed by each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-security.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+Os certificados são assinados entre si para formar uma cadeia de confiança de um certificado de autoridade de certificação raiz para um [certificado de folha](concepts-security.md#end-entity-leaf-certificate). Um certificado de autenticação é o certificado usado para assinar o certificado de folha no final da cadeia de confiança. Um certificado de autenticação pode ser um certificado de autoridade de certificação raiz ou um certificado intermediário na cadeia de confiança. Para obter mais informações, consulte [certificados X. 509](concepts-security.md#x509-certificates).
  
-There are two different ways to obtain a signing certificate. The first way, which is recommended for production systems, is to purchase a signing certificate from a root certificate authority (CA). This way chains security down to a trusted source. 
+Há duas maneiras diferentes de obter um certificado de autenticação. A primeira maneira, que é recomendada para sistemas de produção, é comprar um certificado de autenticação de uma autoridade de certificação raiz (CA). Dessa forma, o encadeia a segurança para uma fonte confiável. 
 
-The second way is to create your own X.509 certificates using a tool like OpenSSL. This approach is great for testing X.509 certificates but provides few guarantees around security. We recommend you only use this approach for testing unless you prepared to act as your own CA provider.
+A segunda maneira é criar seus próprios certificados X. 509 usando uma ferramenta como a OpenSSL. Essa abordagem é excelente para testar certificados X. 509, mas fornece algumas garantias relacionadas à segurança. Recomendamos que você use essa abordagem apenas para teste, a menos que esteja preparado para atuar como seu próprio provedor de autoridade de certificação.
  
 
-## <a name="roll-the-certificate-on-the-device"></a>Roll the certificate on the device
+## <a name="roll-the-certificate-on-the-device"></a>Reverter o certificado no dispositivo
 
-Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-device.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
+Os certificados em um dispositivo sempre devem ser armazenados em um local seguro, como um [HSM (módulo de segurança de hardware)](concepts-device.md#hardware-security-module). A maneira como você reverte os certificados de dispositivo dependerá de como eles foram criados e instalados nos dispositivos em primeiro lugar. 
 
-If you got your certificates from a third party, you must look into how they roll their certificates. The process may be included in your arrangement with them, or it may be a separate service they offer. 
+Se você tiver seus certificados de terceiros, deverá examinar como eles distribuem seus certificados. O processo pode ser incluído em seu arranjo, ou pode ser um serviço separado que ele oferece. 
 
-If you're managing your own device certificates, you'll have to build your own pipeline for updating certificates. Make sure both old and new leaf certificates have the same common name (CN). By having the same CN, the device can reprovision itself without creating a duplicate registration record. 
+Se estiver gerenciando seus próprios certificados de dispositivo, você precisará criar seu próprio pipeline para atualizar certificados. Certifique-se de que os certificados de folha novos e antigos tenham o mesmo nome comum (CN). Com o mesmo CN, o dispositivo pode se reprovisionar sem criar um registro de registro duplicado. 
 
 
-## <a name="roll-the-certificate-in-the-iot-hub"></a>Roll the certificate in the IoT hub
+## <a name="roll-the-certificate-in-the-iot-hub"></a>Reverter o certificado no Hub IoT
 
-The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning service instance. In this article, we'll assume a Device Provisioning service instance is being used to support auto-provisioning.
+O certificado do dispositivo pode ser adicionado manualmente a um hub IoT. O certificado também pode ser automatizado usando uma instância do serviço de provisionamento de dispositivos. Neste artigo, vamos supor que uma instância do serviço de provisionamento de dispositivos está sendo usada para dar suporte ao provisionamento automático.
 
-When a device is initially provisioned through auto-provisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s leaf certificate as the credential. The provisioning service then tells the device which IoT hub it's assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub. 
+Quando um dispositivo é inicialmente provisionado por meio do provisionamento automático, ele é inicializado e entra em contato com o serviço de provisionamento. O serviço de provisionamento responde executando uma verificação de identidade antes de criar uma identidade de dispositivo em um hub IoT usando o certificado de folha do dispositivo como a credencial. Em seguida, o serviço de provisionamento informa ao dispositivo a qual Hub IoT ele está atribuído, e o dispositivo usa seu certificado folha para autenticar e conectar-se ao Hub IoT. 
 
-Once a new leaf certificate has been rolled to the device, it can no longer connect to the IoT hub because it’s using a new certificate to connect. The IoT hub only recognizes the device with the old certificate. The result of the device's connection attempt will be an "unauthorized" connection error. To resolve this error, you must update the enrollment entry for the device to account for the device's new leaf certificate. Then the provisioning service can update the IoT Hub device registry information as needed when the device is reprovisioned. 
+Depois que um novo certificado de folha for revertido para o dispositivo, ele não poderá mais se conectar ao Hub IoT porque ele está usando um novo certificado para se conectar. O Hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de conexão do dispositivo será um erro de conexão "não autorizado". Para resolver esse erro, você deve atualizar a entrada de registro para o dispositivo a fim de considerar o novo certificado de folha do dispositivo. Em seguida, o serviço de provisionamento pode atualizar as informações de registro do dispositivo do Hub IoT conforme necessário quando o dispositivo é reprovisionado. 
 
-One possible exception to this connection failure would be a scenario where you've created an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you aren't rolling the root or intermediate certificates in the device's certificate chain of trust, then the device will be recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least blacklist the specific device certificates in the group that are considered to be breached. For more information, see [Blacklist specific devices in an enrollment group](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Uma possível exceção a essa falha de conexão seria um cenário em que você criou um [grupo de registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver distribuindo os certificados raiz ou intermediários na cadeia de certificados de confiança do dispositivo, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se esse cenário surgir como uma reação a uma violação de segurança, você deverá, pelo menos, adicionar à lista negra os certificados de dispositivo específicos no grupo que serão considerados violados. Para obter mais informações, consulte [dispositivos específicos da lista negra em um grupo de registro](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
-Updating enrollment entries for rolled certificates is accomplished on the **Manage enrollments** page. To access that page, follow these steps:
+A atualização de entradas de registro para certificados acumulados é realizada na página **gerenciar registros** . Para acessar essa página, siga estas etapas:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the IoT Hub Device Provisioning Service instance that has the enrollment entry for your device.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até a instância do serviço de provisionamento de dispositivos do Hub IOT que tem a entrada de registro para seu dispositivo.
 
 2. Clique em **Gerir inscrições**.
 
-    ![Manage enrollments](./media/how-to-roll-certificates/manage-enrollments-portal.png)
+    ![Gerenciar registros](./media/how-to-roll-certificates/manage-enrollments-portal.png)
 
 
-How you handle updating the enrollment entry will depend on whether you're using individual enrollments, or group enrollments. Also the recommended procedures differ depending on whether you're rolling certificates because of a security breach, or certificate expiration. The following sections describe how to handle these updates.
+A maneira como você lida com a atualização da entrada de registro dependerá se você está usando registros individuais ou registros de grupo. Além disso, os procedimentos recomendados são diferentes, dependendo se você está sem interrupção de certificados devido a uma violação de segurança ou à expiração do certificado. As seções a seguir descrevem como lidar com essas atualizações.
 
 
-## <a name="individual-enrollments-and-security-breaches"></a>Individual enrollments and security breaches
+## <a name="individual-enrollments-and-security-breaches"></a>Registros individuais e violações de segurança
 
-If you're rolling certificates in response to a security breach, you should use the following approach that deletes the current certificate immediately:
+Se você estiver sem interrupção de certificados em resposta a uma violação de segurança, deverá usar a seguinte abordagem que exclui o certificado atual imediatamente:
 
-1. Click **Individual Enrollments**, and click the registration ID entry in the list. 
+1. Clique em **registros individuais**e clique na entrada ID de registro na lista. 
 
-2. Click the **Delete current certificate** button and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save** when finished.
+2. Clique no botão **excluir certificado atual** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **salvar** quando terminar.
 
-    These steps should be completed for the primary and secondary certificate, if both are compromised.
+    Essas etapas devem ser concluídas para o certificado primário e o secundário, se ambos estiverem comprometidos.
 
-    ![Manage individual enrollments](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Gerenciar registros individuais](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as a device registration for it exists there. You can address this two ways: 
+3. Depois que o certificado comprometido tiver sido removido do serviço de provisionamento, o certificado ainda poderá ser usado para fazer conexões de dispositivo com o Hub IoT, desde que exista um registro de dispositivo para ele. Você pode abordar essas duas maneiras: 
 
-    The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when the device provisions again with an updated certificate, a new device registration will be created.     
+    A primeira maneira seria navegar manualmente para o Hub IoT e remover imediatamente o registro do dispositivo associado ao certificado comprometido. Em seguida, quando o dispositivo for provisionado novamente com um certificado atualizado, um novo registro de dispositivo será criado.     
 
-    ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+    ![Remover registro de dispositivo do Hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
-    The second way would be to use reprovisioning support to reprovision the device to the same IoT hub. This approach can be used to replace the certificate for the device registration on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
+    A segunda maneira seria usar o suporte de reprovisionamento para reprovisionar o dispositivo para o mesmo Hub IoT. Essa abordagem pode ser usada para substituir o certificado para o registro de dispositivo no Hub IoT. Para obter mais informações, consulte [como reprovisionar dispositivos](how-to-reprovision.md).
 
-## <a name="individual-enrollments-and-certificate-expiration"></a>Individual enrollments and certificate expiration
+## <a name="individual-enrollments-and-certificate-expiration"></a>Registros individuais e expiração do certificado
 
-If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision.
+Se você estiver sem interrupção de certificados para lidar com expirações de certificado, deverá usar a configuração de certificado secundário da seguinte maneira para reduzir o tempo de inatividade de dispositivos tentando provisionar.
 
-Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
+Posteriormente, quando o certificado secundário também se aproximar da expiração e precisar ser revertido, você poderá girar para usar a configuração primária. A rotação entre os certificados primário e secundário dessa maneira reduz o tempo de inatividade dos dispositivos que tentam provisionar.
 
 
-1. Click **Individual Enrollments**, and click the registration ID entry in the list. 
+1. Clique em **registros individuais**e clique na entrada ID de registro na lista. 
 
-2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Clique em **Guardar**.
+2. Clique em **certificado secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Guardar**.
 
-    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Gerenciar registros individuais usando o certificado secundário](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
-3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
+3. Mais tarde, quando o certificado primário tiver expirado, volte e exclua esse certificado primário clicando no botão **excluir certificado atual** .
 
-## <a name="enrollment-groups-and-security-breaches"></a>Enrollment groups and security breaches
+## <a name="enrollment-groups-and-security-breaches"></a>Grupos de registro e violações de segurança
 
-To update a group enrollment in response to a security breach, you should use one of the following approaches that will delete the current root CA, or intermediate certificate immediately.
+Para atualizar um registro de grupo em resposta a uma violação de segurança, você deve usar uma das abordagens a seguir que excluirá a autoridade de certificação raiz atual ou o certificado intermediário imediatamente.
 
-#### <a name="update-compromised-root-ca-certificates"></a>Update compromised root CA certificates
+#### <a name="update-compromised-root-ca-certificates"></a>Atualizar certificados de AC raiz comprometidos
 
-1. Click the **Certificates** tab for your Device Provisioning service instance.
+1. Clique na guia **certificados** para a instância do serviço de provisionamento de dispositivos.
 
-2. Click the compromised certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**. Repeat this process for all compromised certificates.
+2. Clique no certificado comprometido na lista e, em seguida, clique no botão **excluir** . Confirme a exclusão inserindo o nome do certificado e clique em **OK**. Repita esse processo para todos os certificados comprometidos.
 
-    ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
+    ![Excluir certificado de autoridade de certificação raiz](./media/how-to-roll-certificates/delete-root-cert.png)
 
-3. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
+3. Siga as etapas descritas em [configurar certificados de autoridade de certificação verificados](how-to-verify-certificates.md) para adicionar e verificar novos certificados de AC raiz.
 
-4. Click the **Manage enrollments** tab for your Device Provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
+4. Clique na guia **gerenciar registros** para a instância do serviço de provisionamento de dispositivos e clique na lista **grupos de registros** . Clique no nome do grupo de registro na lista.
 
-5. Click **CA Certificate**, and select your new root CA certificate. Em seguida, clique em **Guardar**. 
+5. Clique em **certificado de autoridade de certificação**e selecione seu novo certificado de autoridade de certificação raiz. Em seguida, clique em **Guardar**. 
 
-    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Selecione o novo certificado de autoridade de certificação raiz](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
+6. Depois que o certificado comprometido tiver sido removido do serviço de provisionamento, o certificado ainda poderá ser usado para fazer conexões de dispositivo com o Hub IoT, desde que os registros do dispositivo existam lá. Você pode abordar essas duas maneiras: 
 
-    The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.     
+    A primeira maneira seria navegar manualmente para o Hub IoT e remover imediatamente o registro do dispositivo associado ao certificado comprometido. Em seguida, quando seus dispositivos se provisionam novamente com certificados atualizados, um novo registro de dispositivo será criado para cada um.     
 
-    ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+    ![Remover registro de dispositivo do Hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
-    The second way would be to use reprovisioning support to reprovision your devices to the same IoT hub. This approach can be used to replace certificates for device registrations on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
+    A segunda maneira seria usar o suporte de reprovisionamento para reprovisionar seus dispositivos para o mesmo Hub IoT. Essa abordagem pode ser usada para substituir certificados para registros de dispositivo no Hub IoT. Para obter mais informações, consulte [como reprovisionar dispositivos](how-to-reprovision.md).
 
 
 
-#### <a name="update-compromised-intermediate-certificates"></a>Update compromised intermediate certificates
+#### <a name="update-compromised-intermediate-certificates"></a>Atualizar certificados intermediários comprometidos
 
-1. Click **Enrollment Groups**, and then click the group name in the list. 
+1. Clique em **grupos de registro**e, em seguida, clique no nome do grupo na lista. 
 
-2. Click **Intermediate Certificate**, and **Delete current certificate**. Click the folder icon to navigate to the new intermediate certificate to be uploaded for the enrollment group. Click **Save** when you're finished. These steps should be completed for both the primary and secondary certificate, if both are compromised.
+2. Clique em **certificado intermediário**e **exclua certificado atual**. Clique no ícone de pasta para navegar até o novo certificado intermediário a ser carregado para o grupo de registro. Clique em **salvar** quando tiver terminado. Essas etapas devem ser concluídas para o certificado primário e o secundário, se ambos estiverem comprometidos.
 
-    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+    Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação raiz verificado que já foi adicionado ao serviço de provisionamento. Para obter mais informações, consulte [certificados X. 509](concepts-security.md#x509-certificates).
 
-    ![Manage individual enrollments](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Gerenciar registros individuais](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
+3. Depois que o certificado comprometido tiver sido removido do serviço de provisionamento, o certificado ainda poderá ser usado para fazer conexões de dispositivo com o Hub IoT, desde que os registros do dispositivo existam lá. Você pode abordar essas duas maneiras: 
 
-    The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.     
+    A primeira maneira seria navegar manualmente para o Hub IoT e remover imediatamente o registro do dispositivo associado ao certificado comprometido. Em seguida, quando seus dispositivos se provisionam novamente com certificados atualizados, um novo registro de dispositivo será criado para cada um.     
 
-    ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+    ![Remover registro de dispositivo do Hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
-    The second way would be to use reprovisioning support to reprovision your devices to the same IoT hub. This approach can be used to replace certificates for device registrations on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
+    A segunda maneira seria usar o suporte de reprovisionamento para reprovisionar seus dispositivos para o mesmo Hub IoT. Essa abordagem pode ser usada para substituir certificados para registros de dispositivo no Hub IoT. Para obter mais informações, consulte [como reprovisionar dispositivos](how-to-reprovision.md).
 
 
-## <a name="enrollment-groups-and-certificate-expiration"></a>Enrollment groups and certificate expiration
+## <a name="enrollment-groups-and-certificate-expiration"></a>Grupos de registro e expiração do certificado
 
-If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision.
+Se você estiver sem interrupção de certificados para lidar com expirações de certificado, deverá usar a configuração de certificado secundário da seguinte maneira para garantir que não haja tempo de inatividade para os dispositivos que tentarem provisionar.
 
-Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
+Posteriormente, quando o certificado secundário também se aproximar da expiração e precisar ser revertido, você poderá girar para usar a configuração primária. A rotação entre os certificados primário e secundário dessa maneira garante nenhum tempo de inatividade para os dispositivos que tentam provisionar. 
 
-#### <a name="update-expiring-root-ca-certificates"></a>Update expiring root CA certificates
+#### <a name="update-expiring-root-ca-certificates"></a>Atualizar certificados de autoridade de certificação raiz expirando
 
-1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
+1. Siga as etapas descritas em [configurar certificados de autoridade de certificação verificados](how-to-verify-certificates.md) para adicionar e verificar novos certificados de AC raiz.
 
-2. Click the **Manage enrollments** tab for your Device Provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
+2. Clique na guia **gerenciar registros** para a instância do serviço de provisionamento de dispositivos e clique na lista **grupos de registros** . Clique no nome do grupo de registro na lista.
 
-3. Click **CA Certificate**, and select your new root CA certificate under the **Secondary Certificate** configuration. Em seguida, clique em **Guardar**. 
+3. Clique em **certificado de autoridade de certificação**e selecione seu novo certificado de autoridade de certificação raiz na configuração de **certificado secundário** . Em seguida, clique em **Guardar**. 
 
-    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Selecione o novo certificado de autoridade de certificação raiz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Later when the primary certificate has expired, click the **Certificates** tab for your Device Provisioning service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name, and click **OK**.
+4. Mais tarde, quando o certificado primário tiver expirado, clique na guia **certificados** para a instância do serviço de provisionamento de dispositivos. Clique no certificado expirado na lista e, em seguida, clique no botão **excluir** . Confirme a exclusão inserindo o nome do certificado e clique em **OK**.
 
-    ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
+    ![Excluir certificado de autoridade de certificação raiz](./media/how-to-roll-certificates/delete-root-cert.png)
 
 
 
-#### <a name="update-expiring-intermediate-certificates"></a>Update expiring intermediate certificates
+#### <a name="update-expiring-intermediate-certificates"></a>Atualizar certificados intermediários expirando
 
 
-1. Click **Enrollment Groups**, and click the group name in the list. 
+1. Clique em **grupos de registro**e clique no nome do grupo na lista. 
 
-2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Clique em **Guardar**.
+2. Clique em **certificado secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Guardar**.
 
-    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+    Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação raiz verificado que já foi adicionado ao serviço de provisionamento. Para obter mais informações, consulte [certificados X. 509](concepts-security.md#x509-certificates).
 
-   ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Gerenciar registros individuais usando o certificado secundário](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
-3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
+3. Mais tarde, quando o certificado primário tiver expirado, volte e exclua esse certificado primário clicando no botão **excluir certificado atual** .
 
 
-## <a name="reprovision-the-device"></a>Reprovision the device
+## <a name="reprovision-the-device"></a>Reprovisionar o dispositivo
 
-Once the certificate is rolled on both the device and the Device Provisioning Service, the device can reprovision itself by contacting the Device Provisioning service. 
+Depois que o certificado é distribuído no dispositivo e no serviço de provisionamento de dispositivos, o dispositivo pode se provisionar novamente entrando em contato com o serviço de provisionamento de dispositivos. 
 
-One easy way of programming devices to reprovision is to program the device to contact the provisioning service to go through the provisioning flow if the device receives an “unauthorized” error from attempting to connect to the IoT hub.
+Uma maneira fácil de programar dispositivos para reprovisionar é programar o dispositivo para entrar em contato com o serviço de provisionamento para passar pelo fluxo de provisionamento se o dispositivo receber um erro "não autorizado" da tentativa de conexão com o Hub IoT.
 
-Another way is for both the old and the new certificates to be valid for a short overlap, and use the IoT hub to send a command to devices to have them re-register via the provisioning service to update their IoT Hub connection information. Because each device can process commands differently, you will have to program your device to know what to do when the command is invoked. There are several ways you can command your device via IoT Hub, and we recommend using [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) or [jobs](../iot-hub/iot-hub-devguide-jobs.md) to initiate the process.
+Outra maneira é que os certificados antigos e novos sejam válidos para uma sobreposição curta e use o Hub IoT para enviar um comando aos dispositivos para que eles se registrem novamente por meio do serviço de provisionamento para atualizar as informações de conexão do Hub IoT. Como cada dispositivo pode processar comandos de forma diferente, você precisará programar seu dispositivo para saber o que fazer quando o comando for invocado. Há várias maneiras de você poder fazer o comando do dispositivo por meio do Hub IoT e é recomendável usar métodos ou [trabalhos](../iot-hub/iot-hub-devguide-jobs.md) [diretos](../iot-hub/iot-hub-devguide-direct-methods.md) para iniciar o processo.
 
-Once reprovisioning is complete, devices will be able to connect to IoT Hub using their new certificates.
+Depois que o reprovisionamento for concluído, os dispositivos poderão se conectar ao Hub IoT usando seus novos certificados.
 
 
-## <a name="blacklist-certificates"></a>Blacklist certificates
+## <a name="blacklist-certificates"></a>Certificados de lista negra
 
-In response to a security breach, you may need to blacklist a device certificate. To blacklist a device certificate, disable the enrollment entry for the target device/certificate. For more information, see blacklisting devices in the [Manage disenrollment](how-to-revoke-device-access-portal.md) article.
+Em resposta a uma violação de segurança, talvez seja necessário adicionar um certificado de dispositivo à lista negra. Para adicionar um certificado de dispositivo à lista negra, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte lista negra de dispositivos no artigo [gerenciar cancelamento de registro](how-to-revoke-device-access-portal.md) .
 
-Once a certificate is included as part of a disabled enrollment entry, any attempts to register with an IoT hub using that certificates will fail even if it is enabled as part of another enrollment entry.
+Depois que um certificado é incluído como parte de uma entrada de registro desabilitada, qualquer tentativa de registro com um hub IoT usando esses certificados falhará mesmo que ele esteja habilitado como parte de outra entrada de registro.
  
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- To learn more about X.509 certificates in the Device Provisioning Service, see [Security](concepts-security.md) 
-- To learn about how to do proof-of-possession for X.509 CA certificates with the Azure IoT Hub Device Provisioning Service, see [How to verify certificates](how-to-verify-certificates.md)
-- To learn about how to use the portal to create an enrollment group, see [Managing device enrollments with Azure portal](how-to-manage-enrollments.md).
+- Para saber mais sobre os certificados X. 509 no serviço de provisionamento de dispositivos, consulte [segurança](concepts-security.md) 
+- Para saber mais sobre como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure, consulte [como verificar certificados](how-to-verify-certificates.md)
+- Para saber mais sobre como usar o portal para criar um grupo de registro, consulte [Gerenciando registros de dispositivo com o portal do Azure](how-to-manage-enrollments.md).
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Set up liveness probe on container instance
-description: Learn how to configure liveness probes to restart unhealthy containers in Azure Container Instances
+title: Configurar investigação de vida na instância de contêiner
+description: Saiba como configurar testes de vida para reiniciar contêineres não íntegros em instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 06/08/2018
 ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
@@ -12,15 +12,15 @@ ms.locfileid: "74481678"
 ---
 # <a name="configure-liveness-probes"></a>Configurar as pesquisas liveness
 
-Containerized applications may run for extended periods of time, resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes so that you can configure your containers within your container group to restart if critical functionality is not working. The liveness probe behaves like a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+Os aplicativos em contêineres podem ser executados por longos períodos de tempo, resultando em Estados desfeitos que talvez precisem ser reparados reiniciando o contêiner. As instâncias de contêiner do Azure dão suporte a investigações de vida para que você possa configurar seus contêineres dentro do grupo de contêineres para reiniciar se a funcionalidade crítica não estiver funcionando. A investigação de tempo de vida se comporta como uma [investigação de vida kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-This article explains how to deploy a container group that includes a liveness probe, demonstrating the automatic restart of a simulated unhealthy container.
+Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de tempo de vida, demonstrando a reinicialização automática de um contêiner não íntegro simulado.
 
-Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
+As instâncias de contêiner do Azure também dão suporte a [investigações de preparação](container-instances-readiness-probe.md), que podem ser configuradas para garantir que o tráfego atinja um contêiner somente quando ele estiver pronto para ele.
 
-## <a name="yaml-deployment"></a>YAML deployment
+## <a name="yaml-deployment"></a>Implantação do YAML
 
-Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy.
+Crie um arquivo de `liveness-probe.yaml` com o trecho a seguir. Esse arquivo define um grupo de contêineres que consiste em um contêiner NGNIX que eventualmente se torna não íntegro.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -52,53 +52,53 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Run the following command to deploy this container group with the above YAML configuration:
+Execute o seguinte comando para implantar esse grupo de contêineres com a configuração YAML acima:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name livenesstest -f liveness-probe.yaml
 ```
 
-### <a name="start-command"></a>Start command
+### <a name="start-command"></a>Comando iniciar
 
-The deployment defines a starting command to be run when the container first starts running, defined by the `command` property, which accepts an array of strings. In this example, it will start a bash session and create a file called `healthy` within the `/tmp` directory by passing this command:
+A implantação define um comando inicial a ser executado quando o contêiner começa a ser executado pela primeira vez, definido pela propriedade `command`, que aceita uma matriz de cadeias de caracteres. Neste exemplo, ele iniciará uma sessão de bash e criará um arquivo chamado `healthy` dentro do diretório `/tmp` passando este comando:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- It will then sleep for 30 seconds before deleting the file, then enters a 10-minute sleep.
+ Em seguida, ele será suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entrará em uma suspensão de 10 minutos.
 
-### <a name="liveness-command"></a>Liveness command
+### <a name="liveness-command"></a>Comando de vida
 
-This deployment defines a `livenessProbe` that supports an `exec` liveness command that acts as the liveness check. If this command exits with a non-zero value, the container will be killed and restarted, signaling the `healthy` file could not be found. If this command exits successfully with exit code 0, no action will be taken.
+Essa implantação define um `livenessProbe` que dá suporte a um comando de `exec` de tempo de vida que atua como a verificação de tempo de vida. Se esse comando for encerrado com um valor diferente de zero, o contêiner será encerrado e reiniciado, sinalizando que o arquivo de `healthy` não pôde ser encontrado. Se esse comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
 
-The `periodSeconds` property designates the liveness command should execute every 5 seconds.
+A propriedade `periodSeconds` designa que o comando de vida deve ser executado a cada 5 segundos.
 
-## <a name="verify-liveness-output"></a>Verify liveness output
+## <a name="verify-liveness-output"></a>Verificar a saída de vida
 
-Within the first 30 seconds, the `healthy` file created by the start command exists. When the liveness command checks for the `healthy` file's existence, the status code returns a zero, signaling success, so no restarting occurs.
+Nos primeiros 30 segundos, o arquivo de `healthy` criado pelo comando Iniciar existe. Quando o comando de tempo de vida verifica a existência do `healthy` arquivo, o código de status retorna um zero, sinalizando o êxito e, portanto, não ocorre uma reinicialização.
 
-After 30 seconds, the `cat /tmp/healthy` will begin to fail, causing unhealthy and killing events to occur.
+Após 30 segundos, a `cat /tmp/healthy` começará a falhar, fazendo com que eventos não íntegros e de eliminação ocorram.
 
-These events can be viewed from the Azure portal or Azure CLI.
+Esses eventos podem ser exibidos no portal do Azure ou CLI do Azure.
 
-![Portal unhealthy event][portal-unhealthy]
+![Evento de não integridade do portal][portal-unhealthy]
 
-By viewing the events in the Azure portal, events of type `Unhealthy` will be triggered upon the liveness command failing. The subsequent event will be of type `Killing`, signifying a container deletion so a restart can begin. The restart count for the container increments each time this event  occurs.
+Ao exibir os eventos no portal do Azure, os eventos do tipo `Unhealthy` serão disparados após a falha do comando de vida. O evento subsequente será do tipo `Killing`, significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
 
-Restarts are completed in-place so resources like public IP addresses and node-specific contents will be preserved.
+As reinicializações são concluídas no local para que os recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
 
-![Portal restart counter][portal-restart]
+![Contador de reinicialização do portal][portal-restart]
 
-If the liveness probe continuously fails and triggers too many restarts, your container will enter an exponential back off delay.
+Se a investigação de vida falhar continuamente e disparar muitas reinicializações, o contêiner entrará em um atraso de retirada exponencial.
 
-## <a name="liveness-probes-and-restart-policies"></a>Liveness probes and restart policies
+## <a name="liveness-probes-and-restart-policies"></a>Testes de vida e políticas de reinicialização
 
-Restart policies supersede the restart behavior triggered by liveness probes. For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart because of a failed liveness check. The container group will instead adhere to the container group's restart policy of `Never`.
+As políticas de reinicialização substituem o comportamento de reinicialização acionado por investigações de vida. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. Em vez disso, o grupo de contêineres aderirá à política de reinicialização do grupo de contêineres de `Never`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Cenários baseados em tarefas podem exigir uma investigação de vida para habilitar reinicializações automáticas se uma função de pré-requisito não estiver funcionando corretamente. Para obter mais informações sobre como executar contêineres baseados em tarefas, consulte [executar tarefas em contêineres em instâncias de contêiner do Azure](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

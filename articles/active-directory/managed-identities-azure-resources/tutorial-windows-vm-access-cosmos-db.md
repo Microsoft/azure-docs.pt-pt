@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Cosmos DB - Windows - Azure AD
+title: Tutorial`:` usar uma identidade gerenciada para acessar o Azure Cosmos DB-Windows-Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -38,7 +38,7 @@ Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo siste
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps)
+- Instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB 
 
@@ -73,7 +73,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente. 
 
-You will need to install the latest version of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your Windows VM.
+Será necessário instalar a versão mais recente do [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em sua VM do Windows.
 
 1. No portal do Azure, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em seguida, na página **Descrição Geral**, clique em **Ligar** na parte superior. 
 2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 

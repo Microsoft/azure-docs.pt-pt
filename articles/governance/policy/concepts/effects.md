@@ -30,12 +30,12 @@ Atualmente, há suporte para esses efeitos em uma definição de política:
 
 As solicitações para criar ou atualizar um recurso por meio de Azure Resource Manager são avaliadas por Azure Policy primeiro. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
 
-- **Desativado** será verificado primeiro para determinar se a regra de política deve ser avaliada.
+- **Desabilitado** primeiro é verificado para determinar se a regra de política deve ser avaliada.
 - **Acréscimo** e **modificação** são então avaliados. Como o pode alterar a solicitação, uma alteração feita pode impedir o disparo de um efeito de auditoria ou negação.
-- **Negar** , em seguida, é avaliada. Avaliando negar antes de auditoria, registo duplo de um recurso indesejado é evitado.
-- **Auditoria** , em seguida, é avaliado antes do pedido vai para o fornecedor de recursos.
+- Em seguida, **Deny** é avaliado. Avaliando negar antes de auditoria, registo duplo de um recurso indesejado é evitado.
+- A **auditoria** é avaliada antes que a solicitação vá para o provedor de recursos.
 
-Depois do fornecedor de recursos devolve um código de sucesso **AuditIfNotExists** e **DeployIfNotExists** avaliar para determinar se o registo de conformidade adicionais ou ação é necessária.
+Depois que o provedor de recursos retornar um código de êxito, **AuditIfNotExists** e **DeployIfNotExists** serão avaliados para determinar se a ação ou o log de conformidade adicional é necessário.
 
 No momento, não há nenhuma ordem de avaliação para os efeitos **EnforceOPAConstraint** ou **EnforceRegoPolicy** .
 
@@ -55,13 +55,13 @@ Acrescentar é usado para adicionar campos adicionais para o recurso solicitado 
 
 ### <a name="append-evaluation"></a>Acrescentar a avaliação
 
-Acrescentar avalia antes do pedido é processado por um fornecedor de recursos durante a criação ou atualização de um recurso. Acrescentar adiciona campos ao recurso quando o **se** é cumprida a condição de regra de política. Se o efeito de acréscimo poderia substituir um valor no pedido original com um valor diferente, em seguida, ele atua como um efeito de recusa e rejeita o pedido. Para acrescentar um novo valor a uma matriz existente, use a versão **[\*]** do alias.
+Acrescentar avalia antes do pedido é processado por um fornecedor de recursos durante a criação ou atualização de um recurso. Append adiciona campos ao recurso quando a condição **If** da regra de política é atendida. Se o efeito de acréscimo poderia substituir um valor no pedido original com um valor diferente, em seguida, ele atua como um efeito de recusa e rejeita o pedido. Para acrescentar um novo valor a uma matriz existente, use a versão **[\*]** do alias.
 
-Quando uma definição de política com o efeito de acréscimo é executada como parte de um ciclo de avaliação, não faz as alterações aos recursos já existentes. Em vez disso, ele marca a qualquer recurso que cumpra os **se** condição como não conforme.
+Quando uma definição de política com o efeito de acréscimo é executada como parte de um ciclo de avaliação, não faz as alterações aos recursos já existentes. Em vez disso, ele marca qualquer recurso que atenda à condição **If** como não compatível.
 
 ### <a name="append-properties"></a>Propriedades de acréscimo
 
-Um efeito de acréscimo apenas tem um **detalhes** matriz, o que é necessário. Como **detalhes** é uma matriz, pode demorar um único **campo/valor** par ou múltiplos. Consulte a [estrutura de definição](definition-structure.md#fields) para obter a lista de campos aceitáveis.
+Um efeito de acréscimo tem apenas uma matriz de **detalhes** , que é necessária. Como os **detalhes** são uma matriz, pode levar um único par de **campo/valor** ou múltiplos. Consulte a [estrutura de definição](definition-structure.md#fields) para obter a lista de campos aceitáveis.
 
 ### <a name="append-examples"></a>Exemplos de acréscimo
 
@@ -106,14 +106,14 @@ Modify é usado para adicionar, atualizar ou remover marcas em um recurso durant
 
 Modify avalia antes que a solicitação seja processada por um provedor de recursos durante a criação ou atualização de um recurso. Modifique adiciona ou atualiza marcas em um recurso quando a condição **se** da regra de política for atendida.
 
-Quando uma definição de política que usa o efeito modificar é executada como parte de um ciclo de avaliação, ela não faz alterações nos recursos que já existem. Em vez disso, ele marca a qualquer recurso que cumpra os **se** condição como não conforme.
+Quando uma definição de política que usa o efeito modificar é executada como parte de um ciclo de avaliação, ela não faz alterações nos recursos que já existem. Em vez disso, ele marca qualquer recurso que atenda à condição **If** como não compatível.
 
 ### <a name="modify-properties"></a>Modificar propriedades
 
 A propriedade **Details** do efeito modificar tem todas as subpropriedades que definem as permissões necessárias para a correção e as **operações** usadas para adicionar, atualizar ou remover valores de marca.
 
-- **roleDefinitionIds** [necessário]
-  - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
+- **roleDefinitionIds** [obrigatório]
+  - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [correção – configurar definição de política](../how-to/remediate-resources.md#configure-policy-definition).
   - A função definida deve incluir todas as operações concedidas à função [colaborador](../../../role-based-access-control/built-in-roles.md#contributor) .
 - **operações** [obrigatório]
   - Uma matriz de todas as operações de marca a serem concluídas em recursos correspondentes.
@@ -216,13 +216,13 @@ Negar serve para impedir que um pedido de recurso que não corresponde aos padr�
 
 ### <a name="deny-evaluation"></a>Avaliação de negação
 
-Quando criar ou atualizar um recurso correspondente, negar impede que o pedido antes de serem enviados para o fornecedor de recursos. O pedido é retornado como um `403 (Forbidden)`. No portal, o proibido pode ser visualizado como um Estado de implementação que foi impedida pela atribuição de política.
+Quando criar ou atualizar um recurso correspondente, negar impede que o pedido antes de serem enviados para o fornecedor de recursos. A solicitação é retornada como um `403 (Forbidden)`. No portal, o proibido pode ser visualizado como um Estado de implementação que foi impedida pela atribuição de política.
 
 Durante a avaliação dos recursos existentes, os recursos que correspondam a uma definição de política de negação são marcados como não conforme.
 
 ### <a name="deny-properties"></a>Propriedades de negação
 
-O efeito de recusa não tem as propriedades adicionais para utilização no **, em seguida,** condição para a definição de política.
+O efeito de negação não tem nenhuma propriedade adicional para uso na condição **then** da definição de política.
 
 ### <a name="deny-example"></a>Exemplo de negação
 
@@ -244,7 +244,7 @@ Audit é o último efeito verificado por Azure Policy durante a criação ou a a
 
 ### <a name="audit-properties"></a>Propriedades de auditoria
 
-O efeito de auditoria não tem as propriedades adicionais para utilização no **, em seguida,** condição para a definição de política.
+O efeito de auditoria não tem nenhuma propriedade adicional para uso na condição **then** da definição de política.
 
 ### <a name="audit-example"></a>Exemplo de auditoria
 
@@ -258,17 +258,17 @@ Exemplo: A utilizar o efeito de auditoria.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists permite a auditoria em recursos que correspondam a **se** condição, mas não tem os componentes especificados no **detalhes** do **, em seguida,** condição.
+O AuditIfNotExists habilita a auditoria em recursos que correspondem à condição **If** , mas não tem os componentes especificados nos **detalhes** da condição **then** .
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação de AuditIfNotExists
 
-AuditIfNotExists é executado depois de um fornecedor de recursos tratou de um pedido de recurso de criar ou atualizar e devolveu um código de estado de êxito. A auditoria ocorre se existirem não existem recursos relacionados a ou se os recursos definidos pelo **ExistenceCondition** não avaliadas como verdadeiras. Azure Policy adiciona uma operação de `Microsoft.Authorization/policies/audit/action` ao log de atividades da mesma maneira que o efeito de auditoria. Quando acionado, o recurso que satisfeitos os **se** condição é o recurso que está marcado como não conforme.
+AuditIfNotExists é executado depois de um fornecedor de recursos tratou de um pedido de recurso de criar ou atualizar e devolveu um código de estado de êxito. A auditoria ocorrerá se não houver recursos relacionados ou se os recursos definidos por **ExistenceCondition** não forem avaliados como true. Azure Policy adiciona uma operação de `Microsoft.Authorization/policies/audit/action` ao log de atividades da mesma maneira que o efeito de auditoria. Quando disparado, o recurso que satisfez a condição **If** é o recurso marcado como sem conformidade.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades de AuditIfNotExists
 
-O **detalhes** propriedade dos efeitos AuditIfNotExists tem todos os subproperties que definem os recursos relacionados para corresponder.
+A propriedade **Details** dos efeitos AuditIfNotExists tem todas as subpropriedades que definem os recursos relacionados a serem correspondentes.
 
-- **Tipo de** [necessário]
+- **Tipo** [obrigatório]
   - Especifica o tipo de recurso relacionado para corresponder.
   - Se **Details. Type** for um tipo de recurso sob o recurso **If** Condition, a política consultará os recursos desse **tipo** dentro do escopo do recurso avaliado. Caso contrário, as consultas de política dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
@@ -276,21 +276,21 @@ O **detalhes** propriedade dos efeitos AuditIfNotExists tem todos os subproperti
   - Quando os valores de condição para **If. Field. Type** e **. Details. Type** forem correspondentes, o **nome** será _necessário_ e deverá ser `[field('name')]`. No entanto, um efeito de [auditoria](#audit) deve ser considerado em vez disso.
 - **ResourceGroupName** (opcional)
   - Permite a correspondência do recurso relacionado provenientes de um grupo de recursos diferente.
-  - Não se aplica se **tipo** é um recurso que seria por baixo da **se** recursos de condição.
-  - A predefinição é o **se** grupo de recursos do recurso de condição.
+  - Não se aplica se o **tipo** for um recurso que estaria abaixo do recurso de condição **If** .
+  - O padrão é o grupo de recursos do recurso de condição **If** .
 - **ExistenceScope** (opcional)
-  - Valores permitidos são _subscrição_ e _ResourceGroup_.
+  - Os valores permitidos são _Subscription_ e _resourcegroup_.
   - Define o âmbito de como obter o recurso relacionado para corresponder a partir de.
-  - Não se aplica se **tipo** é um recurso que seria por baixo da **se** recursos de condição.
-  - Para _ResourceGroup_, seria o limite para o **se** grupo de recursos do recurso de condição ou o grupo de recursos especificado na **ResourceGroupName**.
-  - Para _subscrição_, consulta da subscrição completa para os recursos relacionados.
-  - A predefinição é _ResourceGroup_.
+  - Não se aplica se o **tipo** for um recurso que estaria abaixo do recurso de condição **If** .
+  - Para _resourcegroup_, limitaria ao grupo de recursos do recurso de condição **If** ou ao grupo de recursos especificado em **ResourceGroupName**.
+  - Para _assinatura_, o consulta toda a assinatura para o recurso relacionado.
+  - O padrão é _resourcegroup_.
 - **ExistenceCondition** (opcional)
-  - Se não for especificado, quaisquer relacionadas com recursos de **tipo** satisfaça o efeito e não aciona a auditoria.
-  - Utiliza o mesmo idioma como a regra de política para o **se** de condição, mas é avaliado relativamente a cada recurso relacionado individualmente.
+  - Se não for especificado, qualquer recurso relacionado do **tipo** satisfizer o efeito e não disparará a auditoria.
+  - Usa o mesmo idioma que a regra de política para a condição **If** , mas é avaliada em cada recurso relacionado individualmente.
   - Se todos os recursos relacionados correspondente for avaliada como true, o efeito é satisfeito e não aciona a auditoria.
-  - Pode utilizar [field()] para verificar a equivalência com valores no **se** condição.
-  - Por exemplo, poderia ser usado para validar que o recurso principal (no **se** condição) está na mesma localização de recursos que o recurso relacionado correspondente.
+  - Pode usar [Field ()] para verificar a equivalência com valores na condição **If** .
+  - Por exemplo, pode ser usado para validar que o recurso pai (na condição **If** ) está no mesmo local de recurso que o recurso relacionado correspondente.
 
 ### <a name="auditifnotexists-example"></a>Exemplo de AuditIfNotExists
 
@@ -327,11 +327,11 @@ Exemplo: Avalia as máquinas virtuais para determinar se a extensão de Antimalw
 Semelhante a AuditIfNotExists, uma definição de política DeployIfNotExists executa uma implantação de modelo quando a condição é atendida.
 
 > [!NOTE]
-> [Aninhados modelos](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) são suportadas com **deployIfNotExists**, mas [ligado modelos](../../../azure-resource-manager/resource-group-linked-templates.md) não são atualmente suportadas.
+> [Modelos aninhados](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) têm suporte com **deployIfNotExists**, mas atualmente não há suporte para [modelos vinculados](../../../azure-resource-manager/resource-group-linked-templates.md) .
 
 ### <a name="deployifnotexists-evaluation"></a>Avaliação de DeployIfNotExists
 
-DeployIfNotExists é executado depois de um fornecedor de recursos tratou de um pedido de recurso de criar ou atualizar e devolveu um código de estado de êxito. Uma implementação de modelo ocorre se existirem não existem recursos relacionados a ou se os recursos definidos pelo **ExistenceCondition** não avaliadas como verdadeiras.
+DeployIfNotExists é executado depois de um fornecedor de recursos tratou de um pedido de recurso de criar ou atualizar e devolveu um código de estado de êxito. Uma implantação de modelo ocorrerá se não houver recursos relacionados ou se os recursos definidos por **ExistenceCondition** não forem avaliados como true.
 
 Durante um ciclo de avaliação, definições de política com um efeito de DeployIfNotExists que correspondem aos recursos são marcadas como não conforme, mas foi efetuada nenhuma ação esse recurso.
 
@@ -339,42 +339,42 @@ Durante um ciclo de avaliação, definições de política com um efeito de Depl
 
 A propriedade **Details** do efeito DeployIfNotExists tem todas as subpropriedades que definem os recursos relacionados para corresponder e a implantação de modelo a ser executada.
 
-- **Tipo de** [necessário]
+- **Tipo** [obrigatório]
   - Especifica o tipo de recurso relacionado para corresponder.
-  - Começa ao tentar obter um recurso por baixo da **se** recursos de condição, em seguida, consultas dentro do mesmo grupo de recursos como o **se** recursos de condição.
+  - Começa com a tentativa de buscar um recurso sob o recurso condição **If** e, em seguida, consultas dentro do mesmo grupo de recursos que o recurso **If** Condition.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso para corresponder e faz com que a política para obter um recurso específico em vez de todos os recursos do tipo especificado.
   - Quando os valores de condição para **If. Field. Type** e **. Details. Type** forem correspondentes, o **nome** será _necessário_ e deverá ser `[field('name')]`.
 - **ResourceGroupName** (opcional)
   - Permite a correspondência do recurso relacionado provenientes de um grupo de recursos diferente.
-  - Não se aplica se **tipo** é um recurso que seria por baixo da **se** recursos de condição.
-  - A predefinição é o **se** grupo de recursos do recurso de condição.
+  - Não se aplica se o **tipo** for um recurso que estaria abaixo do recurso de condição **If** .
+  - O padrão é o grupo de recursos do recurso de condição **If** .
   - Se uma implementação do modelo for executada, é implementada no grupo de recursos deste valor.
 - **ExistenceScope** (opcional)
-  - Valores permitidos são _subscrição_ e _ResourceGroup_.
+  - Os valores permitidos são _Subscription_ e _resourcegroup_.
   - Define o âmbito de como obter o recurso relacionado para corresponder a partir de.
-  - Não se aplica se **tipo** é um recurso que seria por baixo da **se** recursos de condição.
-  - Para _ResourceGroup_, seria o limite para o **se** grupo de recursos do recurso de condição ou o grupo de recursos especificado na **ResourceGroupName**.
-  - Para _subscrição_, consulta da subscrição completa para os recursos relacionados.
-  - A predefinição é _ResourceGroup_.
+  - Não se aplica se o **tipo** for um recurso que estaria abaixo do recurso de condição **If** .
+  - Para _resourcegroup_, limitaria ao grupo de recursos do recurso de condição **If** ou ao grupo de recursos especificado em **ResourceGroupName**.
+  - Para _assinatura_, o consulta toda a assinatura para o recurso relacionado.
+  - O padrão é _resourcegroup_.
 - **ExistenceCondition** (opcional)
-  - Se não for especificado, quaisquer relacionadas com recursos de **tipo** satisfaça o efeito e não aciona a implementação.
-  - Utiliza o mesmo idioma como a regra de política para o **se** de condição, mas é avaliado relativamente a cada recurso relacionado individualmente.
+  - Se não for especificado, qualquer recurso relacionado do **tipo** satisfizer o efeito e não disparará a implantação.
+  - Usa o mesmo idioma que a regra de política para a condição **If** , mas é avaliada em cada recurso relacionado individualmente.
   - Se todos os recursos relacionados correspondente for avaliada como true, o efeito é satisfeito e não aciona a implementação.
-  - Pode utilizar [field()] para verificar a equivalência com valores no **se** condição.
-  - Por exemplo, poderia ser usado para validar que o recurso principal (no **se** condição) está na mesma localização de recursos que o recurso relacionado correspondente.
-- **roleDefinitionIds** [necessário]
-  - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
+  - Pode usar [Field ()] para verificar a equivalência com valores na condição **If** .
+  - Por exemplo, pode ser usado para validar que o recurso pai (na condição **If** ) está no mesmo local de recurso que o recurso relacionado correspondente.
+- **roleDefinitionIds** [obrigatório]
+  - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [correção – configurar definição de política](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (opcional)
-  - Valores permitidos são _subscrição_ e _ResourceGroup_.
+  - Os valores permitidos são _Subscription_ e _resourcegroup_.
   - Define o tipo de implantação a ser disparada. A _assinatura_ indica uma [implantação no nível da assinatura](../../../azure-resource-manager/deploy-to-subscription.md), _resourcegroup_ indica uma implantação em um grupo de recursos.
   - Uma propriedade _Location_ deve ser especificada na _implantação_ ao usar implantações de nível de assinatura.
-  - A predefinição é _ResourceGroup_.
-- **Implementação** [necessário]
-  - Esta propriedade deve incluir a implementação do modelo completo, como ele foi transmitido para o `Microsoft.Resources/deployments` colocar API. Para obter mais informações, consulte a [API do REST de implementações](/rest/api/resources/deployments).
+  - O padrão é _resourcegroup_.
+- **Implantação** [obrigatório]
+  - Essa propriedade deve incluir a implantação de modelo completa, pois ela seria passada para a API `Microsoft.Resources/deployments` PUT. Para obter mais informações, consulte a [API REST de implantações](/rest/api/resources/deployments).
 
   > [!NOTE]
-  > Todas as funções dentro de **implementação** propriedade são avaliadas como componentes do modelo, não a política. A exceção é o **parâmetros** propriedade que passa os valores da política para o modelo. O **valor** nesta secção num modelo de nome do parâmetro é utilizado para efetuar este valor passando (consulte _fullDbName_ no exemplo DeployIfNotExists).
+  > Todas as funções dentro da propriedade de **implantação** são avaliadas como componentes do modelo, não a política. A exceção é a propriedade **Parameters** que passa valores da política para o modelo. O **valor** nesta seção em um nome de parâmetro de modelo é usado para executar esse valor de passagem (consulte _fullDbName_ no exemplo de DeployIfNotExists).
 
 ### <a name="deployifnotexists-example"></a>Exemplo de DeployIfNotExists
 
@@ -564,7 +564,7 @@ Se a diretiva 1 e 2 de política que tinha efeitos de negações, a situação m
 - De qualquer novo recurso na subscrição não está no 'westus' é negado por política 1
 - De qualquer novo recurso no grupo de recursos B de uma subscrição é negado
 
-Cada atribuição individualmente é avaliada. Como tal, existem não é uma oportunidade para um recurso de ortografia passar por meio de um intervalo de diferenças no âmbito. O resultado líquido de políticas de disposição em camadas ou sobreposição de diretivas é considerado como estando **cumulativa mais restritivo**. Por exemplo, se ambas as políticas de 1 e 2 tinham um efeito de recusa, um recurso seria bloqueado pelas políticas de conflitantes e sobrepostas. Se ainda precisar do recurso a ser criadas no âmbito de destino, reveja as exclusões em cada atribuição para validar as políticas corretas estão a afetar os âmbitos certos.
+Cada atribuição individualmente é avaliada. Como tal, existem não é uma oportunidade para um recurso de ortografia passar por meio de um intervalo de diferenças no âmbito. O resultado líquido de políticas de camadas ou sobreposição de política é considerado como **cumulativo mais restritivo**. Por exemplo, se ambas as políticas de 1 e 2 tinham um efeito de recusa, um recurso seria bloqueado pelas políticas de conflitantes e sobrepostas. Se ainda precisar do recurso a ser criadas no âmbito de destino, reveja as exclusões em cada atribuição para validar as políticas corretas estão a afetar os âmbitos certos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

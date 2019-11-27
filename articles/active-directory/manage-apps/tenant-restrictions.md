@@ -30,7 +30,7 @@ A solução Azure Active Directory (Azure AD) para esse desafio é um recurso ch
 
 Com as restrições de locatário, as organizações podem especificar a lista de locatários que seus usuários têm permissão para acessar. O Azure AD, em seguida, só concede acesso a estes permitido inquilinos.
 
-Este artigo se concentra em restrições de locatário para o Office 365, mas o recurso deve funcionar com qualquer aplicativo de nuvem SaaS que usa protocolos de autenticação modernos com o Azure AD para logon único. Se utilizar aplicações com um diferente do Azure AD de inquilino do inquilino utilizado pelo Office 365 de SaaS, certifique-se de que todas as necessárias de inquilinos são permitidos. Para obter mais informações sobre as aplicações de cloud de SaaS, consulte a [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Este artigo se concentra em restrições de locatário para o Office 365, mas o recurso deve funcionar com qualquer aplicativo de nuvem SaaS que usa protocolos de autenticação modernos com o Azure AD para logon único. Se utilizar aplicações com um diferente do Azure AD de inquilino do inquilino utilizado pelo Office 365 de SaaS, certifique-se de que todas as necessárias de inquilinos são permitidos. Para obter mais informações sobre aplicativos de nuvem SaaS, consulte o [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -42,7 +42,7 @@ A solução geral inclui os seguintes componentes:
 
 3. **Software cliente**: para dar suporte a restrições de locatário, o software cliente deve solicitar tokens diretamente do Azure AD, para que a infraestrutura de proxy possa interceptar o tráfego. Atualmente, os aplicativos do Office 365 baseados em navegador dão suporte a restrições de locatário, como clientes do Office que usam autenticação moderna (como o OAuth 2,0).
 
-4. **Autenticação moderna**: os serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitidos. Você deve configurar os serviços de nuvem do Office 365 para usar protocolos de autenticação modernos por padrão. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Autenticação moderna**: os serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitidos. Você deve configurar os serviços de nuvem do Office 365 para usar protocolos de autenticação modernos por padrão. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [atualização da autenticação moderna do office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 O diagrama seguinte ilustra o fluxo de tráfego de alto nível. As restrições de locatário exigem a inspeção SSL somente no tráfego para o Azure AD, não nos serviços de nuvem do Office 365. Essa distinção é importante, pois o volume de tráfego para autenticação no Azure AD normalmente é muito menor do que o volume de tráfego para aplicativos SaaS, como o Exchange Online e o SharePoint Online.
 
@@ -70,16 +70,16 @@ A configuração a seguir é necessária para habilitar restrições de locatár
 
 #### <a name="configuration"></a>Configuração
 
-Para cada pedido recebido login.microsoftonline.com, login.microsoft.com e login.windows.net, inserir dois cabeçalhos HTTP: *restringir acesso para inquilinos* e *contexto de restringir acesso*.
+Para cada solicitação de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *restrict-Access-to-locatários* e *restrict-Access-Context*.
 
 Os cabeçalhos devem incluir os seguintes elementos:
 
-- Para *restringir o acesso-para-locatários*, use um valor de \<lista de locatários permitidos\>, que é uma lista separada por vírgulas de locatários que você deseja permitir que os usuários acessem. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o par nome/valor é semelhante a: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- Para *restringir o acesso-para-locatários*, use um valor de \<lista de locatários permitidos\>, que é uma lista separada por vírgulas de locatários que você deseja permitir que os usuários acessem. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos locatários contoso e Fabrikam, o par nome/valor é semelhante a: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Para o *contexto de acesso restrito*, use um valor de uma ID de diretório único, declarando qual locatário está definindo as restrições de locatário. Por exemplo, para declarar contoso como o locatário que define a política de restrições de locatário, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
-> Você pode encontrar a ID do diretório no [portal de Azure Active Directory](https://aad.portal.azure.com/). Inicie sessão como administrador, selecione **do Azure Active Directory**, em seguida, selecione **propriedades**.
+> Você pode encontrar a ID do diretório no [portal de Azure Active Directory](https://aad.portal.azure.com/). Entre como administrador, selecione **Azure Active Directory**e, em seguida, selecione **Propriedades**.
 
 Para impedir que os usuários insiram seu próprio cabeçalho HTTP com locatários não aprovados, o proxy precisa substituir o cabeçalho *restrict-Access-to-locatários* se ele já estiver presente na solicitação de entrada.
 
@@ -108,9 +108,9 @@ O administrador do locatário especificado como o locatário de contexto de aces
 Como outros relatórios no portal do Azure, pode utilizar filtros para especificar o âmbito do seu relatório. Você pode filtrar em um intervalo de tempo, usuário, aplicativo, cliente ou status específico. Se você selecionar o botão **colunas** , poderá optar por exibir os dados com qualquer combinação dos seguintes campos:
 
 - **Usuário**
-- **Aplicação**
+- **Aplicativo**
 - **Estado**
-- **data**
+- **Date**
 - **Data (UTC)** (em que UTC é o tempo Universal Coordenado)
 - **Método** de autenticação de MFA (método de pseudo-autenticação multifator)
 - **Detalhe** de autenticação de MFA (detalhe de pseudo-autenticação de multifator)
@@ -128,13 +128,13 @@ Os aplicativos do Office 365 devem atender a dois critérios para oferecer supor
 1. O cliente usado dá suporte à autenticação moderna.
 2. Autenticação moderna está ativada como o protocolo de autenticação predefinido para o serviço cloud.
 
-Consulte a [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) para as informações mais recentes no Office que os clientes suportam atualmente autenticação moderna. Essa página também inclui ligações para instruções para habilitar a autenticação moderna no específicos Exchange Online e Skype para empresas Online inquilinos. O SharePoint Online já habilita a autenticação moderna por padrão.
+Consulte [autenticação moderna do office 365 atualizada](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) para obter as informações mais recentes sobre quais clientes do Office atualmente dão suporte à autenticação moderna. Essa página também inclui ligações para instruções para habilitar a autenticação moderna no específicos Exchange Online e Skype para empresas Online inquilinos. O SharePoint Online já habilita a autenticação moderna por padrão.
 
 Os aplicativos baseados em navegador do Office 365 (o portal do Office, Yammer, sites do SharePoint, Outlook na Web e mais) atualmente dão suporte a restrições de locatário. Clientes densos (Outlook, Skype for Business, Word, Excel, PowerPoint e mais) podem impor restrições de locatário somente ao usar a autenticação moderna.  
 
 Clientes do Outlook e Skype for Business que dão suporte à autenticação moderna ainda podem usar protocolos herdados em locatários em que a autenticação moderna não está habilitada, ignorando efetivamente as restrições de locatário. Restrições de locatário podem bloquear aplicativos que usam protocolos herdados se entrarem em contato com login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
 
-Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionando contas de correio não aprovados a seus perfis. Por exemplo, consulte a [impedir a adição de contas do Exchange não predefinidas](https://gpsearch.azurewebsites.net/default.aspx?ref=1) definição de política de grupo.
+Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionando contas de correio não aprovados a seus perfis. Por exemplo, consulte a configuração da política de grupo [impedir a adição de contas do Exchange não padrão](https://gpsearch.azurewebsites.net/default.aspx?ref=1) .
 
 ## <a name="testing"></a>Testar
 
@@ -144,15 +144,15 @@ Se você quiser experimentar restrições de locatário antes de implementá-lo 
 
 Fiddler é um proxy que pode ser usado para capturar e modificar o tráfego HTTP/HTTPS, incluindo a inserção de cabeçalhos HTTP de depuração de web gratuito. Para configurar o Fiddler para testar restrições de locatário, execute as seguintes etapas:
 
-1. [Transferir e instalar o Fiddler](https://www.telerik.com/fiddler).
+1. [Baixe e instale o Fiddler](https://www.telerik.com/fiddler).
 
-2. Configurar o Fiddler para desencriptar o tráfego HTTPS, por [documentação de ajuda do Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+2. Configure o Fiddler para descriptografar o tráfego HTTPS, por [documentação de ajuda do Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 
-3. Configurar o Fiddler para inserir o *restringir acesso para inquilinos* e *contexto de restringir acesso* cabeçalhos usando regras personalizadas:
+3. Configure o Fiddler para inserir os cabeçalhos *restrict-Access-to-Tenants* e *restrict-Access-Context* usando regras personalizadas:
 
-   1. Na ferramenta de depurador da Web Fiddler, selecione o **regras** menu e selecione **personalizar regras...** Para abrir o ficheiro de CustomRules.
+   1. Na ferramenta depurador da Web do Fiddler, selecione o menu **regras** e selecione **Personalizar regras...** Para abrir o ficheiro de CustomRules.
 
-   2. Adicione as linhas a seguir no início da função `OnBeforeRequest`. Substitua \<\> de domínio do locatário por um domínio registrado com seu locatário (por exemplo, `contoso.onmicrosoft.com`). Substitua \<ID de diretório\> com o identificador de GUID do Azure AD do seu inquilino.
+   2. Adicione as linhas a seguir no início da função `OnBeforeRequest`. Substitua \<\> de domínio do locatário por um domínio registrado com seu locatário (por exemplo, `contoso.onmicrosoft.com`). Substitua \<ID de diretório\> pelo identificador de GUID do Azure AD do locatário.
 
       ```JScript.NET
       if (
@@ -172,7 +172,7 @@ Fiddler é um proxy que pode ser usado para capturar e modificar o tráfego HTTP
 
 4. Guarde e feche o ficheiro de CustomRules.
 
-Depois de configurar o Fiddler, pode capturar o tráfego ao aceder a **arquivo** menu e selecionando **capturar tráfego**.
+Depois de configurar o Fiddler, você pode capturar o tráfego acessando o menu **arquivo** e selecionando **capturar tráfego**.
 
 ### <a name="staged-rollout-of-proxy-settings"></a>Distribuição em etapas das definições de proxy
 
@@ -185,5 +185,5 @@ Para obter detalhes específicos, consulte a documentação do servidor proxy.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia sobre [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
-- Reveja o [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
+- Leia sobre a [autenticação moderna do Office 365 atualizada](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+- Examinar as [URLs do Office 365 e os intervalos de endereços IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

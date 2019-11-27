@@ -19,7 +19,7 @@ Neste artigo, vai aprender a utilizar a [Extensão das Funções do Azure para o
 
 ![Código de funções do Azure num projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently supports C#, JavaScript, Java, and Python functions. The steps in this article and the article that follows support only JavaScript and C# functions. To learn how to use Visual Studio Code to create and publish Python functions, see [Create and deploy serverless Azure Functions in Python with Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
+Atualmente, a extensão C#dá suporte a funções JavaScript, Java e Python. As etapas neste artigo e o artigo a seguir dão suporte apenas a JavaScript C# e funções. Para saber como usar Visual Studio Code para criar e publicar funções Python, consulte [criar e implantar Azure Functions sem servidor no Python com Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). Para saber como usar Visual Studio Code para criar e publicar funções do PowerShell, consulte [criar sua primeira função do PowerShell no Azure](functions-create-first-function-powershell.md). 
 
 A extensão está atualmente em pré-visualização. Para obter mais informações, veja a página de extensão [Extensão das Funções do Azure para o Visual Studio Code].
 
@@ -29,16 +29,16 @@ Para concluir este guia de início rápido:
 
 * Instale o [Visual Studio Code](https://code.visualstudio.com/) numa das [plataformas suportadas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2).
+* Instale a versão 2. x do [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Linguagem | Requisito |
+    | Idioma | Requisito |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+    | **C#** | [C#extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | <sup>*</sup> do [node. js](https://nodejs.org/) | 
  
-    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+    <sup>*</sup> Active LTS e manutenção LTS versões (8.11.1 e 10.14.1 recomendado).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,9 +54,9 @@ Depois de verificar que a função é executada corretamente no computador local
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="run-the-function-in-azure"></a>Run the function in Azure
+## <a name="run-the-function-in-azure"></a>Executar a função no Azure
 
-1. Copie o URL do acionador de HTTP no painel **Resultados**. This URL includes the function key, which is passed to the `code` query parameter. Tal como antes, certifique-se de que adiciona a cadeia de consulta `?name=<yourname>` ao final deste URL e execute o pedido.
+1. Copie o URL do acionador de HTTP no painel **Resultados**. Essa URL inclui a chave de função, que é passada para o `code` parâmetro de consulta. Tal como antes, certifique-se de que adiciona a cadeia de consulta `?name=<yourname>` ao final deste URL e execute o pedido.
 
     O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 
@@ -68,10 +68,10 @@ Depois de verificar que a função é executada corretamente no computador local
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilizou o Visual Studio Code para criar uma aplicação de funções com uma função simples acionada por HTTP. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. The next article also shows you how to clean up these new Azure resources by removing the resource group you created.
+Utilizou o Visual Studio Code para criar uma aplicação de funções com uma função simples acionada por HTTP. No próximo artigo, você expande essa função adicionando uma associação de saída. Essa associação grava a cadeia de caracteres da solicitação HTTP para uma mensagem em uma fila de armazenamento de filas do Azure. O próximo artigo também mostra como limpar esses novos recursos do Azure removendo o grupo de recursos que você criou.
 
 > [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
+> [Adicionar uma associação de fila de armazenamento do Azure à sua função](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Extensão das Funções do Azure para o Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

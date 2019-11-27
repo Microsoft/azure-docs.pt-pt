@@ -1,6 +1,6 @@
 ---
-title: Get container instance logs & events
-description: Learn how to debug with container logs and events with Azure Container Instances
+title: Obter logs de instância de contêiner & eventos
+description: Saiba como depurar com logs de contêiner e eventos com instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 03/21/2019
 ms.custom: mvc
@@ -11,15 +11,15 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481744"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Retrieve container logs and events in Azure Container Instances
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs de contêiner e eventos em instâncias de contêiner do Azure
 
-When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
+Quando você tiver um contêiner com comportamento inadequado, comece exibindo seus logs com [AZ container logs][az-container-logs]e transmitindo seu erro padrão e padrão com [AZ container Attach][az-container-attach].
 
 ## <a name="view-logs"></a>Ver registos
 
-To view logs from your application code within a container, you can use the [az container logs][az-container-logs] command.
+Para exibir os logs do código do aplicativo em um contêiner, você pode usar o comando [AZ container logs][az-container-logs] .
 
-The following is log output from the example task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having fed it an invalid URL to process:
+A seguir está a saída de log do contêiner de exemplo baseado em tarefa em [executar uma tarefa em contêineres no ACI](container-instances-restart-policy.md), depois de ter colocado uma URL inválida para o processo:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -45,9 +45,9 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Anexar fluxos de saída
 
-The [az container attach][az-container-attach] command provides diagnostic information during container startup. Once the container has started, it streams STDOUT and STDERR to your local console.
+O comando [AZ container Attach][az-container-attach] fornece informações de diagnóstico durante a inicialização do contêiner. Depois que o contêiner for iniciado, ele transmitirá STDOUT e STDERR para o console local.
 
-For example, here is output from the task-based container in [Run a containerized task in ACI](container-instances-restart-policy.md), after having supplied a valid URL of a large text file to process:
+Por exemplo, aqui está a saída do contêiner baseado em tarefa em [executar uma tarefa em contêineres no ACI](container-instances-restart-policy.md), depois de ter fornecido uma URL válida de um arquivo de texto grande para processar:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -74,15 +74,15 @@ Start streaming logs:
  ('is', 8195)]
 ```
 
-## <a name="get-diagnostic-events"></a>Get diagnostic events
+## <a name="get-diagnostic-events"></a>Obter eventos de diagnóstico
 
-If your container fails to deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the [az container show][az-container-show] command:
+Se o contêiner não for implantado com êxito, você precisará examinar as informações de diagnóstico fornecidas pelo provedor de recursos das instâncias de contêiner do Azure. Para exibir os eventos para o seu contêiner, execute o comando [AZ container show] [AZ-contêiner-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-The output includes the core properties of your container, along with deployment events (shown here truncated):
+A saída inclui as propriedades básicas do seu contêiner, juntamente com os eventos de implantação (mostrados aqui truncados):
 
 ```JSON
 {
@@ -143,7 +143,7 @@ The output includes the core properties of your container, along with deployment
 }
 ```
 ## <a name="next-steps"></a>Passos seguintes
-Learn how to [troubleshoot common container and deployment issues](container-instances-troubleshooting.md) for Azure Container Instances.
+Saiba como [solucionar problemas comuns de contêiner e implantação](container-instances-troubleshooting.md) para instâncias de contêiner do Azure.
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

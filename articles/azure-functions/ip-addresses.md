@@ -1,6 +1,6 @@
 ---
-title: IP addresses in Azure Functions
-description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
+title: Endereços IP no Azure Functions
+description: Saiba como localizar endereços IP de entrada e saída para aplicativos de funções e o que os faz alterar.
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
@@ -10,53 +10,53 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230332"
 ---
-# <a name="ip-addresses-in-azure-functions"></a>IP addresses in Azure Functions
+# <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure Functions
 
-This article explains the following topics related to IP addresses of function apps:
+Este artigo explica os seguintes tópicos relacionados aos endereços IP dos aplicativos de funções:
 
-* How to find the IP addresses currently in use by a function app.
-* What causes a function app's IP addresses to be changed.
-* How to restrict the IP addresses that can access a function app.
-* How to get dedicated IP addresses for a function app.
+* Como localizar os endereços IP atualmente em uso por um aplicativo de funções.
+* O que faz com que os endereços IP de um aplicativo de funções sejam alterados.
+* Como restringir os endereços IP que podem acessar um aplicativo de funções.
+* Como obter endereços IP dedicados para um aplicativo de funções.
 
-IP addresses are associated with function apps, not with individual functions. Incoming HTTP requests can't use the inbound IP address to call individual functions; they must use the default domain name (functionappname.azurewebsites.net) or a custom domain name.
+Os endereços IP são associados a aplicativos de funções, não com funções individuais. As solicitações HTTP de entrada não podem usar o endereço IP de entrada para chamar funções individuais; Eles devem usar o nome de domínio padrão (functionappname.azurewebsites.net) ou um nome de domínio personalizado.
 
-## <a name="function-app-inbound-ip-address"></a>Function app inbound IP address
+## <a name="function-app-inbound-ip-address"></a>Endereço IP de entrada do aplicativo de funções
 
-Each function app has a single inbound IP address. To find that IP address:
+Cada aplicativo de funções tem um único endereço IP de entrada. Para encontrar esse endereço IP:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Navigate to the function app.
-3. Select **Platform features**.
-4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Navegue até o aplicativo de funções.
+3. Selecione **recursos de plataforma**.
+4. Selecione **Propriedades**e o endereço IP de entrada aparece em **endereço IP virtual**.
 
-## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
+## <a name="find-outbound-ip-addresses"></a>Endereços IP de saída do aplicativo de funções
 
-Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
+Cada aplicativo de funções tem um conjunto de endereços IP de saída disponíveis. Qualquer conexão de saída de uma função, como para um banco de dados back-end, usa um dos endereços IP de saída disponíveis como o endereço IP de origem. Você não pode saber antecipadamente qual endereço IP uma determinada conexão usará. Por esse motivo, o serviço de back-end deve abrir seu firewall para todos os endereços IP de saída do aplicativo de funções.
 
-To find the outbound IP addresses available to a function app:
+Para localizar os endereços IP de saída disponíveis para um aplicativo de funções:
 
-1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
-2. Select **subscriptions > {your subscription} > providers > Microsoft.Web > sites**.
-3. In the JSON panel, find the site with an `id` property that ends in the name of your function app.
-4. See `outboundIpAddresses` and `possibleOutboundIpAddresses`. 
+1. Entre no [Azure Resource Explorer](https://resources.azure.com).
+2. Selecione **assinaturas > {sua assinatura} > provedores > sites > da Microsoft. Web**.
+3. No painel JSON, localize o site com uma propriedade `id` que termine no nome do seu aplicativo de funções.
+4. Consulte `outboundIpAddresses` e `possibleOutboundIpAddresses`. 
 
-The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
+O conjunto de `outboundIpAddresses` está disponível no momento para o aplicativo de funções. O conjunto de `possibleOutboundIpAddresses` inclui endereços IP que estarão disponíveis somente se o aplicativo de funções for [dimensionado para outros tipos de preço](#outbound-ip-address-changes).
 
-An alternative way to find the available outbound IP addresses is by using the [Cloud Shell](../cloud-shell/quickstart.md):
+Uma maneira alternativa de localizar os endereços IP de saída disponíveis é usando o [Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on the Consumption plan, you may need to whitelist the entire data center.
+> Quando um aplicativo de funções que é executado no [plano de consumo](functions-scale.md#consumption-plan) é dimensionado, um novo intervalo de endereços IP de saída pode ser atribuído. Quando em execução no plano de consumo, poderá ter lista aprovada integral do Datacenter.
 
-## <a name="data-center-outbound-ip-addresses"></a>Data center outbound IP addresses
+## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do Data Center
 
-If you need to whitelist the outbound IP addresses used by your function apps, another option is to whitelist the function apps' data center (Azure region). You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
+Se você precisar colocar os endereços IP de saída usados por seus aplicativos de funções na lista de permissões, outra opção será a lista de permissões do aplicativo de funções ' data center (região do Azure). Você pode [baixar um arquivo JSON que lista os endereços IP para todos os data centers do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Em seguida, localize o fragmento JSON que se aplica à região em que seu aplicativo de funções é executado.
 
-For example, this is what the Western Europe JSON fragment might look like:
+Por exemplo, é assim que o fragmento JSON da Europa ocidental poderia ser:
 
 ```
 {
@@ -78,56 +78,56 @@ For example, this is what the Western Europe JSON fragment might look like:
 }
 ```
 
- For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+ Para obter informações sobre quando esse arquivo é atualizado e quando os endereços IP são alterados, expanda a seção **detalhes** da [página do centro de download](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## <a name="inbound-ip-address-changes"></a>Inbound IP address changes
+## <a name="inbound-ip-address-changes"></a>Alterações de endereço IP de entrada
 
-The inbound IP address **might** change when you:
+O endereço IP de entrada **pode ser** alterado quando você:
 
-- Delete a function app and recreate it in a different resource group.
-- Delete the last function app in a resource group and region combination, and re-create it.
-- Delete an SSL binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Exclua um aplicativo de funções e recrie-o em um grupo de recursos diferente.
+- Exclua o último aplicativo de funções em uma combinação de grupo de recursos e região e recrie-o.
+- Excluir uma associação SSL, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate)).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode ser alterado quando você não executou nenhuma ação como aquelas listadas.
 
-## <a name="outbound-ip-address-changes"></a>Outbound IP address changes
+## <a name="outbound-ip-address-changes"></a>Alterações de endereço IP de saída
 
-The set of available outbound IP addresses for a function app might change when you:
+O conjunto de endereços IP de saída disponíveis para um aplicativo de funções pode ser alterado quando você:
 
-* Take any action that can change the inbound IP address.
-* Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
+* Execute qualquer ação que possa alterar o endereço IP de entrada.
+* Altere o tipo de preço do plano do serviço de aplicativo. A lista de todos os endereços IP de saída possíveis que seu aplicativo pode usar, para todos os tipos de preço, está na propriedade `possibleOutboundIPAddresses`. Consulte [Localizar IPS de saída](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de saída também pode ser alterado quando você não executou nenhuma ação como aquelas listadas.
 
-To deliberately force an outbound IP address change:
+Para forçar deliberadamente uma alteração de endereço IP de saída:
 
-1. Scale your App Service plan up or down between Standard and Premium v2 pricing tiers.
-2. Wait 10 minutes.
-3. Scale back to where you started.
+1. Dimensione o plano do serviço de aplicativo para cima ou para baixo entre os tipos de preço Standard e Premium v2.
+2. Aguarde 10 minutos.
+3. Dimensione de volta para onde você começou.
 
-## <a name="ip-address-restrictions"></a>IP address restrictions
+## <a name="ip-address-restrictions"></a>Restrições de endereço IP
 
-You can configure a list of IP addresses that you want to allow or deny access to a function app. For more information, see [Azure App Service Static IP Restrictions](../app-service/app-service-ip-restrictions.md).
+Você pode configurar uma lista de endereços IP que deseja permitir ou negar acesso a um aplicativo de funções. Para obter mais informações, consulte [Azure app restrições de IP estático do serviço](../app-service/app-service-ip-restrictions.md).
 
-## <a name="dedicated-ip-addresses"></a>Dedicated IP addresses
+## <a name="dedicated-ip-addresses"></a>Endereços IP dedicados
 
-If you need static, dedicated IP addresses, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+Se você precisar de endereços IP estáticos dedicados, recomendamos os [ambientes do serviço de aplicativo](../app-service/environment/intro.md) (a [camada isolada](https://azure.microsoft.com/pricing/details/app-service/) dos planos do serviço de aplicativo). Para obter mais informações, consulte [ambiente do serviço de aplicativo endereços IP](../app-service/environment/network-info.md#ase-ip-addresses) e [como controlar o tráfego de entrada para um ambiente do serviço de aplicativo](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
 
-To find out if your function app runs in an App Service Environment:
+Para descobrir se seu aplicativo de funções é executado em um Ambiente do Serviço de Aplicativo:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Navigate to the function app.
-3. Select the **Overview** tab.
-4. The App Service plan tier appears under **App Service plan/pricing tier**. The App Service Environment pricing tier is **Isolated**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Navegue até o aplicativo de funções.
+3. Selecione a guia **visão geral** .
+4. A camada de plano do serviço de aplicativo aparece em **plano do serviço de aplicativo/tipo de preço**. O tipo de preço Ambiente do Serviço de Aplicativo é **isolado**.
  
-As an alternative, you can use the [Cloud Shell](../cloud-shell/quickstart.md):
+Como alternativa, você pode usar o [Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
 
-The App Service Environment `sku` is `Isolated`.
+O `sku` de Ambiente do Serviço de Aplicativo é `Isolated`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A common cause of IP changes is function app scale changes. [Learn more about function app scaling](functions-scale.md).
+Uma causa comum das alterações de IP é as alterações de escala do aplicativo de funções. [Saiba mais sobre o dimensionamento do aplicativo de funções](functions-scale.md).

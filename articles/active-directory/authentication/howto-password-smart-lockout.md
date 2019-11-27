@@ -1,6 +1,6 @@
 ---
-title: Preventing attacks using smart lockout - Azure Active Directory
-description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
+title: Impedindo ataques usando o bloqueio inteligente-Azure Active Directory
+description: Azure Active Directory bloqueio inteligente ajuda a proteger sua organização contra ataques de força bruta tentando adivinhar senhas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,72 +18,72 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381534"
 ---
-# <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart lockout
+# <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Azure Active Directory
 
-Smart lockout assists in locking out bad actors who are trying to guess your users’ passwords or use brute-force methods to get in. It can recognize sign-ins coming from valid users and treat them differently than ones of attackers and other unknown sources. Smart lockout locks out the attackers, while letting your users continue to access their accounts and be productive.
+O bloqueio inteligente ajuda a bloquear atores ruins que estão tentando adivinhar as senhas de seus usuários ou usar métodos de força bruta para entrar. Ele pode reconhecer entradas provenientes de usuários válidos e tratá-los de forma diferente daqueles de invasores e outras fontes desconhecidas. O bloqueio inteligente bloqueia os invasores, enquanto permite que os usuários continuem acessando suas contas e sejam produtivos.
 
-By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
+Por padrão, o bloqueio inteligente bloqueia a conta de tentativas de entrada por um minuto após 10 tentativas com falha. A conta é bloqueada novamente após cada tentativa de entrada com falha subsequente, por um minuto a primeiro e mais longa em tentativas subsequentes.
 
-Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout.
+O bloqueio inteligente rastreia os três últimos hashes de senha inválidos para evitar incrementar o contador de bloqueios para a mesma senha. Se alguém inserir a mesma senha inválida várias vezes, esse comportamento não causará o bloqueio da conta.
 
  > [!NOTE]
- > Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
+ > A funcionalidade de controle de hash não está disponível para clientes com autenticação de passagem habilitada, pois a autenticação ocorre localmente, não na nuvem.
 
-Federated deployments using AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
+Implantações federadas usando AD FS 2016 e AF FS 2019 podem permitir benefícios semelhantes usando [AD FS bloqueio de extranet e bloqueio inteligente de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
+O bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com essas configurações padrão que oferecem a combinação certa de segurança e usabilidade. A personalização das configurações de bloqueio inteligente, com valores específicos para sua organização, requer licenças pagas do Azure AD para seus usuários.
 
-Using smart lockout does not guarantee that a genuine user will never be locked out. When smart lockout locks a user account, we try our best to not lockout the genuine user. The lockout service attempts to ensure that bad actors can’t gain access to a genuine user account.  
+O uso do bloqueio inteligente não garante que um usuário original nunca será bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, nós experimentamos o melhor para não bloquear o usuário original. O serviço de bloqueio tenta garantir que os atores ruins não possam obter acesso a uma conta de usuário original.  
 
-* Each Azure Active Directory data center tracks lockout independently. A user will have (threshold_limit * datacenter_count) number of attempts, if the user hits each data center.
-* Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Unfamiliar and familiar locations will both have separate lockout counters.
+* Cada Azure Active Directory data center rastreia o bloqueio de forma independente. Um usuário terá o número de tentativas (threshold_limit * datacenter_count), se o usuário atingir cada data center.
+* O bloqueio inteligente usa um local familiar versus um local desconhecido para diferenciar entre um ator insatisfatório e o usuário original. Os locais desconhecidos e familiares terão contadores de bloqueio separados.
 
-Smart lockout can be integrated with hybrid deployments, using password hash sync or pass-through authentication to protect on-premises Active Directory accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises Active Directory.
+O bloqueio inteligente pode ser integrado a implantações híbridas, usando a sincronização de hash de senha ou a autenticação de passagem para proteger as contas de Active Directory locais sejam bloqueadas pelos invasores. Ao definir as políticas de bloqueio inteligente no Azure AD adequadamente, os ataques podem ser filtrados antes de alcançarem Active Directory locais.
 
-When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you need to make sure that:
+Ao usar [a autenticação de passagem](../hybrid/how-to-connect-pta.md), você precisa certificar-se de que:
 
-* The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
-* The Azure AD lockout duration must be set longer than the Active Directory reset account lockout counter after duration. Be aware that the Azure AD duration is set in seconds, while the AD duration is set in minutes. 
+* O limite de bloqueio do Azure AD é **menor** que o limite de bloqueio de conta de Active Directory. Defina os valores para que o limite de bloqueio da conta de Active Directory seja pelo menos duas ou três vezes mais tempo do que o limite de bloqueio do Azure AD. 
+* A duração do bloqueio do Azure AD deve ser definida por mais tempo do que o Active Directory reiniciar o contador de bloqueios de conta após a duração. Lembre-se de que a duração do Azure AD é definida em segundos, enquanto a duração do anúncio é definida em minutos. 
 
-For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds).
+Por exemplo, se você quiser que seu contador do Azure AD seja maior que o AD, o Azure AD será de 120 segundos (2 minutos) enquanto seu AD local for definido como 1 minuto (60 segundos).
 
 > [!IMPORTANT]
-> Currently, an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire. However, the user can unlock by using self-service password reset (SSPR) from a trusted device or location.
+> Atualmente, um administrador não poderá desbloquear as contas de nuvem dos usuários se elas tiverem sido bloqueadas pelo recurso de bloqueio inteligente. O administrador deve aguardar a duração do bloqueio expirar. No entanto, o usuário pode desbloquear usando a SSPR (redefinição de senha de autoatendimento) de um dispositivo ou local confiável.
 
-## <a name="verify-on-premises-account-lockout-policy"></a>Verify on-premises account lockout policy
+## <a name="verify-on-premises-account-lockout-policy"></a>Verificar a política de bloqueio de conta local
 
-Use the following instructions to verify your on-premises Active Directory account lockout policy:
+Use as instruções a seguir para verificar sua política de bloqueio de conta Active Directory local:
 
-1. Open the Group Policy Management tool.
-2. Edit the group policy that includes your organization's account lockout policy, for example, the **Default Domain Policy**.
-3. Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
-4. Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
+1. Abra a ferramenta de gerenciamento de Política de Grupo.
+2. Edite a política de grupo que inclui a política de bloqueio de conta da sua organização, por exemplo, a **política de domínio padrão**.
+3. Navegue até **configuração do computador** > **políticas** > **configurações do Windows** > **configurações de segurança** > políticas de **conta** > política de **bloqueio de conta**.
+4. Verifique seu **limite de bloqueio de conta** e **redefina o contador de bloqueios de conta após** os valores.
 
-![Modify the on-premises Active Directory account lockout policy](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificar a política de bloqueio de conta Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
-## <a name="manage-azure-ad-smart-lockout-values"></a>Manage Azure AD smart lockout values
+## <a name="manage-azure-ad-smart-lockout-values"></a>Gerenciar valores de bloqueio inteligente do Azure AD
 
-Based on your organizational requirements, smart lockout values may need to be customized. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
+Com base nos requisitos organizacionais, os valores de bloqueio inteligente podem precisar ser personalizados. A personalização das configurações de bloqueio inteligente, com valores específicos para sua organização, requer licenças pagas do Azure AD para seus usuários.
 
-To check or modify the smart lockout values for your organization, use the following steps:
+Para verificar ou modificar os valores de bloqueio inteligente para sua organização, use as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Search for and select *Azure Active Directory*. Select **Authentication methods** > **Password protection**.
-1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout. The default is 10.
-1. Set the **Lockout duration in seconds**, to the length in seconds of each lockout. The default is 60 seconds (one minute).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Procure e selecione *Azure Active Directory*. Selecione os **métodos de autenticação** > proteção por **senha**.
+1. Defina o **limite de bloqueio**, com base em quantas entradas com falha são permitidas em uma conta antes de seu primeiro bloqueio. O padrão é 10.
+1. Defina a **duração do bloqueio em segundos**, para o comprimento em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).
 
 > [!NOTE]
-> If the first sign-in after a lockout also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
+> Se a primeira entrada após um bloqueio também falhar, a conta é bloqueada novamente. Se uma conta for bloqueada repetidamente, a duração do bloqueio aumentará.
 
-![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+![Personalizar a política de bloqueio inteligente do Azure AD no portal do Azure](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>How to determine if the Smart lockout feature is working or not
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Como determinar se o recurso de bloqueio inteligente está funcionando ou não
 
-When the smart lockout threshold is triggered, you will get the following message while the account is locked:
+Quando o limite de bloqueio inteligente for disparado, você receberá a seguinte mensagem enquanto a conta estiver bloqueada:
 
-**Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
+**Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde e, se você ainda tiver problemas, entre em contato com seu administrador.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)
-* [Configure self-service password reset to allow users to unlock their own accounts.](quickstart-sspr.md)
+* [Descubra como proibir senhas ruins em sua organização usando o Azure AD.](howto-password-ban-bad.md)
+* [Configure a redefinição de senha de autoatendimento para permitir que os usuários desbloqueiem suas próprias contas.](quickstart-sspr.md)

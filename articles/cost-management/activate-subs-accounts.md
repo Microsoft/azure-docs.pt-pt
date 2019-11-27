@@ -41,7 +41,7 @@ Se estiver atribuída a função **Contribuidor** à sua conta, não tem permiss
 3. No Azure Active Directory, selecione **Definições do utilizador**.
 4. Verifique a opção **Registos das aplicações**.
     - Se estiver definida para **Sim**, os utilizadores que não forem administradores podem registar aplicações do AD. Esta definição significa que qualquer utilizador no inquilino do Azure AD pode registar uma aplicação.  
-    ![select App registrations in User settings](./media/activate-subs-accounts/app-register.png)
+    ![selecione Registros de aplicativo nas configurações do usuário](./media/activate-subs-accounts/app-register.png)
     - Se a opção **Registos das aplicações** estiver definida para **Não**, apenas os utilizadores administrativos do inquilino podem registar aplicações do Azure Active Directory. O administrador do seu inquilino tem de registar a aplicação CloudynCollector.
 
 
@@ -53,14 +53,14 @@ Ao adicionar uma conta ou atualizar uma subscrição, concede ao Cloudyn acesso 
 
 1. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**.
 2. Clique em **Adicionar nova conta** para apresentar a caixa **Adicionar nova conta**. Introduza as informações necessárias.  
-    ![enter required information in the Add new account box](./media/activate-subs-accounts/add-new-account.png)
+    ![Insira as informações necessárias na caixa Adicionar nova conta](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Atualizar uma subscrição
 
 1. Se quiser atualizar uma subscrição _desativada_ já existente no Cloudyn, em Gestão de Contas, clique no símbolo de lápis de edição à direita do _GUID de inquilino_ principal. As subscrições são agrupadas num inquilino principal, pelo que deve evitar ativar subscrições individualmente.
-    ![select your tenant ID in the Rediscover subscriptions box](./media/activate-subs-accounts/existing-sub.png)
+    ![selecione sua ID de locatário na caixa assinaturas de redescoberta](./media/activate-subs-accounts/existing-sub.png)
 2. Se for necessário, introduza o ID de Inquilino. Se não souber o ID de Inquilino, siga os passos abaixo para o encontrar:
-    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
     2. No portal do Azure, selecione **Azure Active Directory**.
     3. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
     4. Copie o GUID do ID do Diretório. Este valor é o ID do inquilino.
@@ -87,7 +87,7 @@ Ao utilizar o portal do Cloudyn pela primeira vez, poderão ser apresentadas as 
 
 - *A chave de API especificada não é uma chave de inscrição de nível superior*, apresentada no assistente de **Configuração do Cloudyn**.
 - *Inscrição Direta – Não*, apresentada no portal do Contrato Enterprise.
-- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* displayed in the Cloudyn portal.
+- *Nenhum dado de uso foi encontrado nos últimos 30 dias. Entre em contato com seu distribuidor para verificar se a marcação foi habilitada para sua conta do Azure* exibida no portal do Cloudyn.
 
 As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. O seu revendedor ou CSP tem de ativar a _marcação_ para a sua conta do Azure, para que possa ver os dados no Cloudyn.
 

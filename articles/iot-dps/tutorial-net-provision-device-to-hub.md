@@ -1,6 +1,6 @@
 ---
-title: Provision device using Azure IoT Hub Device Provisioning Service (.NET)
-description: Tutorial - Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
+title: Provisionar o dispositivo usando o serviço de provisionamento de dispositivos no Hub IoT do Azure (.NET)
+description: Tutorial-provisionar seu dispositivo para um único Hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure (.NET)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -16,7 +16,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229484"
 ---
-# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
+# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: registrar o dispositivo em um hub IoT usando o cliente do serviço de provisionamento do Hub IoT do Azure (.NET)
 
 No tutorial anterior, aprendeu a configurar um dispositivo para se ligar ao Serviço Aprovisionamento de Dispositivos. Neste tutorial, vai aprender a utilizar este serviço para aprovisionar o seu dispositivo num hub IoT individual através da **_Inscrição Individual_** e de **_Grupos de Inscrição_** . Este tutorial mostrar-lhe como:
 
@@ -129,7 +129,7 @@ Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de D
     Console.ReadLine();
     ```
         
-1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...** . Select **Single startup project**, and then select the **DeviceProvisioning** project in the dropdown menu.  
+1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em sua solução e clique em **definir projetos de inicialização...** . Selecione **único projeto de inicialização**e, em seguida, selecione o projeto **DeviceProvisioning** no menu suspenso.  
 
 1. Execute a aplicação de dispositivo .NET **DeviceProvisiong**. Deve configurar o aprovisionamento para o dispositivo: 
 

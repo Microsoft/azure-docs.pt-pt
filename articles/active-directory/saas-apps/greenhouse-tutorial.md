@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Greenhouse | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Greenhouse.
+title: 'Tutorial: integração do Azure Active Directory com o estufa | Microsoft Docs'
+description: Saiba como configurar o logon único entre Azure Active Directory e estufa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -22,206 +22,206 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227551"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Azure Active Directory integration with Greenhouse
+# <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: integração do Azure Active Directory com o estufa
 
-In this tutorial, you learn how to integrate Greenhouse with Azure Active Directory (Azure AD).
-Integrating Greenhouse with Azure AD provides you with the following benefits:
+Neste tutorial, você aprenderá a integrar o estufa ao Azure Active Directory (Azure AD).
+A integração do estufa ao Azure AD oferece os seguintes benefícios:
 
-* You can control in Azure AD who has access to Greenhouse.
-* You can enable your users to be automatically signed-in to Greenhouse (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* No Azure AD, é possível controlar quem tem acesso ao estufa.
+* Você pode permitir que seus usuários sejam conectados automaticamente ao estufa (logon único) com suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To configure Azure AD integration with Greenhouse, you need the following items:
+Para configurar a integração do Azure AD com o estufa, você precisará dos seguintes itens:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Greenhouse single sign-on enabled subscription
+* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único do estufa
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Greenhouse supports **SP** initiated SSO
+* O efeito estufa dá suporte ao SSO iniciado pelo **SP**
 
-## <a name="adding-greenhouse-from-the-gallery"></a>Adding Greenhouse from the gallery
+## <a name="adding-greenhouse-from-the-gallery"></a>Adicionando o efeito estufa da Galeria
 
-To configure the integration of Greenhouse into Azure AD, you need to add Greenhouse from the gallery to your list of managed SaaS apps.
+Para configurar a integração do estufa ao Azure AD, você precisará adicionar o estufa da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**To add Greenhouse from the gallery, perform the following steps:**
+**Para adicionar o efeito estufa da galeria, execute as seguintes etapas:**
 
-1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![The Azure Active Directory button](common/select-azuread.png)
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
-    ![The Enterprise applications blade](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![The New application button](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. In the search box, type **Greenhouse**, select **Greenhouse** from result panel then click **Add** button to add the application.
+4. Na caixa de pesquisa, digite **estufa**, selecione **estufa** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Greenhouse in the results list](common/search-new-app.png)
+     ![Estufa na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-In this section, you configure and test Azure AD single sign-on with Greenhouse based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Greenhouse needs to be established.
+Nesta seção, você configurará e testará o logon único do Azure AD com o estufa, com base em um usuário de teste chamado **Brenda Simon**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado em estufa.
 
-To configure and test Azure AD single sign-on with Greenhouse, you need to complete the following building blocks:
+Para configurar e testar o logon único do Azure AD com o estufa, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Greenhouse Single Sign-On](#configure-greenhouse-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Greenhouse test user](#create-greenhouse-test-user)** - to have a counterpart of Britta Simon in Greenhouse that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único estufa](#configure-greenhouse-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+5. **[Criar usuário de teste do estufa](#create-greenhouse-test-user)** – para ter um equivalente de Brenda Simon em estufa que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-To configure Azure AD single sign-on with Greenhouse, perform the following steps:
+Para configurar o logon único do Azure AD com o estufa, execute as seguintes etapas:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Greenhouse** application integration page, select **Single sign-on**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **estufa** , selecione **logon único**.
 
-    ![Configure single sign-on link](common/select-sso.png)
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
-    ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    ![Greenhouse Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Informações de logon único de domínio e URLs do estufa](common/sp-identifier.png)
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern: `https://<companyname>.greenhouse.io`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<companyname>.greenhouse.io`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Greenhouse Client support team](https://www.greenhouse.io/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do estufa](https://www.greenhouse.io/contact) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
-6. On the **Set up Greenhouse** section, copy the appropriate URL(s) as per your requirement.
+6. Na seção **Configurar a estufa** , copie as URLs apropriadas de acordo com seu requisito.
 
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. Login URL
+    a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
-    c. Logout URL
+    c. URL de fim de sessão
 
-### <a name="configure-greenhouse-single-sign-on"></a>Configure Greenhouse Single Sign-On
+### <a name="configure-greenhouse-single-sign-on"></a>Configurar logon único estufa
 
-To configure single sign-on on **Greenhouse** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Greenhouse support team](https://www.greenhouse.io/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+Para configurar o logon único no lado do **efeito estufa** , é necessário enviar o **XML de metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a equipe de suporte do [estufa](https://www.greenhouse.io/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Select **New user** at the top of the screen.
+2. Selecione **novo usuário** na parte superior da tela.
 
-    ![New user Button](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    ![The User dialog box](common/user-properties.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Greenhouse.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao estufa.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Greenhouse**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **estufa**.
 
-    ![Enterprise applications blade](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. In the applications list, select **Greenhouse**.
+2. Na lista de aplicativos, selecione **estufa**.
 
-    ![The Greenhouse link in the Applications list](common/all-applications.png)
+    ![O link de efeito estufa na lista de aplicativos](common/all-applications.png)
 
-3. In the menu on the left, select **Users and groups**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-greenhouse-test-user"></a>Create Greenhouse test user
+### <a name="create-greenhouse-test-user"></a>Criar usuário de teste do estufa
 
-In order to enable Azure AD users to log into Greenhouse, they must be provisioned into Greenhouse. In the case of Greenhouse, provisioning is a manual task.
+Para permitir que os usuários do AD do Azure façam logon em estufa, eles devem ser provisionados em estufa. No caso do efeito estufa, o provisionamento é uma tarefa manual.
 
 >[!NOTE]
->You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision Azure AD user accounts. 
+>Você pode usar qualquer outra ferramenta de criação de conta de usuário estufa ou APIs fornecidas por estufa para provisionar contas de usuário do Azure AD. 
 
-**To provision a user accounts, perform the following steps:**
+**Para provisionar contas de usuário, execute as seguintes etapas:**
 
-1. Log in to your **Greenhouse** company site as an administrator.
+1. Faça logon em seu site de empresa **estufa** como administrador.
 
-2. In the menu on the top, click **Configure**, and then click **Users**.
+2. No menu na parte superior, clique em **Configurar**e em **usuários**.
    
     ![Utilizadores](./media/greenhouse-tutorial/ic790791.png "Utilizadores")
 
-3. Click **New Users**.
+3. Clique em **novos usuários**.
    
-    ![New User](./media/greenhouse-tutorial/ic790792.png "New User")
+    ![Novo usuário](./media/greenhouse-tutorial/ic790792.png "Novo usuário")
 
-4. In the **Add New User** section, perform the following steps:
+4. Na seção **Adicionar novo usuário** , execute as seguintes etapas:
    
-    ![Add New User](./media/greenhouse-tutorial/ic790793.png "Add New User")
+    ![Adicionar novo usuário](./media/greenhouse-tutorial/ic790793.png "Adicionar novo usuário")
 
-    a. In the **Enter user emails** textbox, type the email address of a valid Azure Active Directory account you want to provision.
+    a. Na caixa de texto **Inserir emails do usuário** , digite o endereço de email de uma conta de Azure Active Directory válida que você deseja provisionar.
 
     b. Clique em **Guardar**.    
    
       >[!NOTE]
-      >The Azure Active Directory account holders will receive an email including a link to confirm the account before it becomes active.
+      >Os detentores de conta Azure Active Directory receberão um email, incluindo um link para confirmar a conta antes que ela se torne ativa.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-When you click the Greenhouse tile in the Access Panel, you should be automatically signed in to the Greenhouse for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco estufa no painel de acesso, você deverá ser conectado automaticamente à estufa para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

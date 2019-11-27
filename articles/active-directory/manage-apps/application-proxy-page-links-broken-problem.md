@@ -47,5 +47,5 @@ Há três maneiras de resolver esse problema. As opções a seguir estão listad
 3.  Se nenhuma dessas opções for viável, haverá várias opções para habilitar a conversão de link embutido. Essas opções incluem o uso do Intune Managed Browser, a extensão My Apps ou o uso da configuração de conversão de link em seu aplicativo. Para saber mais sobre cada uma dessas opções e como habilitá-las, consulte [redirecionar links codificados para aplicativos publicados com o Azure proxy de aplicativo do AD](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-[Trabalhar com servidores de proxy no local existentes](application-proxy-configure-connectors-with-proxy-servers.md)
+[Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)
 

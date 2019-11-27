@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with UserVoice | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and UserVoice.
+title: 'Tutorial: integração do Azure Active Directory com o UserVoice | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o UserVoice.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -22,234 +22,234 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232011"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Azure Active Directory integration with UserVoice
+# <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: integração do Azure Active Directory com o UserVoice
 
-In this tutorial, you learn how to integrate UserVoice with Azure Active Directory (Azure AD).
-Integrating UserVoice with Azure AD provides you with the following benefits:
+Neste tutorial, você aprenderá a integrar o UserVoice ao Azure Active Directory (Azure AD).
+A integração do UserVoice ao Azure AD oferece os seguintes benefícios:
 
-* You can control in Azure AD who has access to UserVoice.
-* You can enable your users to be automatically signed-in to UserVoice (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* No Azure AD, é possível controlar quem tem acesso ao UserVoice.
+* Você pode permitir que seus usuários sejam conectados automaticamente ao UserVoice (logon único) com suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To configure Azure AD integration with UserVoice, you need the following items:
+Para configurar a integração do Azure AD ao UserVoice, você precisa dos seguintes itens:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* UserVoice single sign-on enabled subscription
+* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura habilitada para logon único do UserVoice
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* UserVoice supports **SP** initiated SSO
+* UserVoice dá suporte ao SSO iniciado pelo **SP**
 
-## <a name="adding-uservoice-from-the-gallery"></a>Adding UserVoice from the gallery
+## <a name="adding-uservoice-from-the-gallery"></a>Adicionando o UserVoice da Galeria
 
-To configure the integration of UserVoice into Azure AD, you need to add UserVoice from the gallery to your list of managed SaaS apps.
+Para configurar a integração do UserVoice ao Azure AD, você precisa adicionar o UserVoice da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**To add UserVoice from the gallery, perform the following steps:**
+**Para adicionar o UserVoice da galeria, execute as seguintes etapas:**
 
-1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![The Azure Active Directory button](common/select-azuread.png)
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
-    ![The Enterprise applications blade](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![The New application button](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. In the search box, type **UserVoice**, select **UserVoice** from result panel then click **Add** button to add the application.
+4. Na caixa de pesquisa, digite **UserVoice**, selecione **UserVoice** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![UserVoice in the results list](common/search-new-app.png)
+     ![UserVoice na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-In this section, you configure and test Azure AD single sign-on with UserVoice based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in UserVoice needs to be established.
+Nesta seção, você configurará e testará o logon único do Azure AD com o UserVoice, com base em um usuário de teste chamado **Brenda Simon**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no UserVoice.
 
-To configure and test Azure AD single sign-on with UserVoice, you need to complete the following building blocks:
+Para configurar e testar o logon único do Azure AD com o UserVoice, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure UserVoice Single Sign-On](#configure-uservoice-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create UserVoice test user](#create-uservoice-test-user)** - to have a counterpart of Britta Simon in UserVoice that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Configurar o logon único do UserVoice](#configure-uservoice-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+5. **[Criar usuário de teste do UserVoice](#create-uservoice-test-user)** – para ter um equivalente de Brenda Simon no UserVoice que esteja vinculado à representação do usuário no Azure AD.
+6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-To configure Azure AD single sign-on with UserVoice, perform the following steps:
+Para configurar o logon único do Azure AD com o UserVoice, execute as seguintes etapas:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **UserVoice** application integration page, select **Single sign-on**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **UserVoice** , selecione **logon único**.
 
-    ![Configure single sign-on link](common/select-sso.png)
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
-    ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    ![UserVoice Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Informações de logon único de domínio e URLs do UserVoice](common/sp-identifier.png)
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern: `https://<tenantname>.UserVoice.com`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<tenantname>.UserVoice.com`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<tenantname>.UserVoice.com`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [UserVoice Client support team](https://www.uservoice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do UserVoice](https://www.uservoice.com/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
+5. Na seção **certificado de autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
 
-    ![Edit SAML Signing Certificate](common/edit-certificate.png)
+    ![Editar certificado de autenticação SAML](common/edit-certificate.png)
 
-6. In the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
+6. Na seção **certificado de autenticação SAML** , copie a **impressão digital** e salve-a no computador.
 
-    ![Copy Thumbprint value](common/copy-thumbprint.png)
+    ![Copiar valor de impressão digital](common/copy-thumbprint.png)
 
-7. On the **Set up UserVoice** section, copy the appropriate URL(s) as per your requirement.
+7. Na seção **Configurar UserVoice** , copie as URLs apropriadas de acordo com seu requisito.
 
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. Login URL
+    a. URL de início de sessão
 
-    b. Azure AD Identifier
+    b. Identificador do Azure AD
 
-    c. Logout URL
+    c. URL de fim de sessão
 
-### <a name="configure-uservoice-single-sign-on"></a>Configure UserVoice Single Sign-On
+### <a name="configure-uservoice-single-sign-on"></a>Configurar o logon único do UserVoice
 
-1. In a different web browser window, sign in to your UserVoice company site as an administrator.
+1. Em uma janela diferente do navegador da Web, entre no site da sua empresa do UserVoice como administrador.
 
-2. In the toolbar on the top, click **Settings**, and then select **Web portal** from the menu.
+2. Na barra de ferramentas na parte superior, clique em **configurações**e selecione **portal da Web** no menu.
    
-    ![Settings Section On App Side](./media/uservoice-tutorial/ic777519.png "Definições")
+    ![Seção de configurações no lado do aplicativo](./media/uservoice-tutorial/ic777519.png "Definições")
 
-3. On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page.
+3. Na guia **portal da Web** , na seção **autenticação de usuário** , clique em **Editar** para abrir a página de diálogo **Editar Autenticação de usuário** .
    
-    ![Web portal Tab](./media/uservoice-tutorial/ic777520.png "Web portal")
+    ![Guia portal da Web](./media/uservoice-tutorial/ic777520.png "Portal da Web")
 
-4. On the **Edit User Authentication** dialog page, perform the following steps:
+4. Na página da caixa de diálogo **Editar Autenticação de usuário** , execute as seguintes etapas:
    
-    ![Edit user authentication](./media/uservoice-tutorial/ic777521.png "Edit user authentication")
+    ![Editar autenticação de usuário](./media/uservoice-tutorial/ic777521.png "Editar autenticação de usuário")
    
-    a. Click **Single Sign-On (SSO)** .
+    a. Clique em **SSO (logon único)** .
  
-    b. Paste the **Login URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-In** textbox.
+    b. Cole o valor da **URL de logon** copiado do portal do Azure na caixa de texto **entrada remota de SSO** .
 
-    c. Paste the **Logout URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-Out textbox**.
+    c. Cole o valor da **URL de logout** copiado do portal do Azure na **caixa de texto saída remota de SSO**.
  
-    d. Paste the **Thumbprint** value , which you have copied from Azure portal  into the **Current certificate SHA1 fingerprint** textbox.
+    d. Cole o valor de **impressão digital** copiado de portal do Azure na caixa de texto **impressão digital SHA1 do certificado atual** .
     
-    e. Click **Save authentication settings**.
+    e. Clique em **salvar configurações de autenticação**.
 
-### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Select **New user** at the top of the screen.
+2. Selecione **novo usuário** na parte superior da tela.
 
-    ![New user Button](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    ![The User dialog box](common/user-properties.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to UserVoice.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao UserVoice.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **UserVoice**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **UserVoice**.
 
-    ![Enterprise applications blade](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. In the applications list, select **UserVoice**.
+2. Na lista de aplicativos, selecione **UserVoice**.
 
-    ![The UserVoice link in the Applications list](common/all-applications.png)
+    ![O link do UserVoice na lista de aplicativos](common/all-applications.png)
 
-3. In the menu on the left, select **Users and groups**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-uservoice-test-user"></a>Create UserVoice test user
+### <a name="create-uservoice-test-user"></a>Criar usuário de teste do UserVoice
 
-To enable Azure AD users to sign in to UserVoice, they must be provisioned into UserVoice. In the case of UserVoice, provisioning is a manual task.
+Para permitir que os usuários do Azure AD entrem no UserVoice, eles devem ser provisionados no UserVoice. No caso do UserVoice, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>To provision a user account, perform the following steps:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-1. Sign in to your **UserVoice** tenant.
+1. Entre no seu locatário do **UserVoice** .
 
-2. Go to **Settings**.
+2. Vá para **configurações**.
    
     ![Definições](./media/uservoice-tutorial/ic777811.png "Definições")
 
-3. Click **General**.
+3. Clique em **geral**.
 
-4. Click **Agents and permissions**.
+4. Clique em **agentes e permissões**.
    
-    ![Agents and permissions](./media/uservoice-tutorial/ic777812.png "Agents and permissions")
+    ![Agentes e permissões](./media/uservoice-tutorial/ic777812.png "Agentes e permissões")
 
-5. Click **Add admins**.
+5. Clique em **adicionar administradores**.
    
-    ![Add admins](./media/uservoice-tutorial/ic777813.png "Add admins")
+    ![Adicionar administradores](./media/uservoice-tutorial/ic777813.png "Adicionar administradores")
 
-6. On the **Invite admins** dialog, perform the following steps:
+6. Na caixa de diálogo **convidar administradores** , execute as seguintes etapas:
    
-    ![Invite admins](./media/uservoice-tutorial/ic777814.png "Invite admins")
+    ![Convidar administradores](./media/uservoice-tutorial/ic777814.png "Convidar administradores")
    
-    a. In the Emails textbox, type the email address of the account you want to provision, and then click **Add**.
+    a. Na caixa de texto emails, digite o endereço de email da conta que você deseja provisionar e clique em **Adicionar**.
    
-    b. Click **Invite**.
+    b. Clique em **convidar**.
 
 > [!NOTE]
-> You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision Azure AD user accounts.
+> Você pode usar qualquer outra ferramenta de criação de conta de usuário do UserVoice ou APIs fornecidas pelo UserVoice para provisionar contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-When you click the UserVoice tile in the Access Panel, you should be automatically signed in to the UserVoice for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco UserVoice no painel de acesso, você deverá ser conectado automaticamente ao UserVoice para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

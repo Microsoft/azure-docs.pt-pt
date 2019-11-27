@@ -1,6 +1,6 @@
 ---
-title: Combined registration for SSPR and MFA - Azure Active Directory
-description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
+title: Registro combinado para SSPR e MFA-Azure Active Directory
+description: Autenticação multifator do Azure AD e registro de redefinição de senha de autoatendimento (versão prévia)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,134 +18,134 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381946"
 ---
-# <a name="combined-security-information-registration-preview"></a>Combined security information registration (preview)
+# <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinadas (versão prévia)
 
-Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
+Antes do registro combinado, os usuários registraram os métodos de autenticação para a autenticação multifator do Azure e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
 
-![My Profile showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Meu perfil mostrando informações de segurança registradas para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/user-help-security-info-overview.md) to prepare your users for the new experience and help to ensure a successful rollout.
+Antes de habilitar a nova experiência, examine esta documentação voltada para o administrador e a documentação voltada para o usuário para garantir que você compreenda a funcionalidade e o efeito desse recurso. Baseie seu treinamento na [documentação do usuário](../user-help/user-help-security-info-overview.md) para preparar seus usuários para a nova experiência e para ajudar a garantir uma distribuição bem-sucedida.
 
-Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
+O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como Azure EUA governamental, Azure Alemanha ou Azure China 21Vianet.
 
 |     |
 | --- |
-| Combined security information registration for Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| O registro de informações de segurança combinadas para a autenticação multifator e a redefinição de senha de autoatendimento do Azure Active Directory (Azure AD) é um recurso de visualização pública do Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 > [!IMPORTANT]
-> Users who are enabled for both the original preview and the enhanced combined registration experience will see the new behavior. Users who are enabled for both experiences will see only the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+> Os usuários que estão habilitados para a versão prévia original e a experiência de registro combinado aprimorada verão o novo comportamento. Os usuários que estiverem habilitados para as duas experiências verão apenas a nova experiência meu perfil. O novo meu perfil se alinha com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver meu perfil acessando [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 
 > [!NOTE] 
-> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser. 
+> Você pode encontrar uma mensagem de erro ao tentar acessar a opção informações de segurança. Por exemplo, "Desculpe, não é possível conectá-lo". Nesse caso, confirme que você não tem nenhuma configuração ou objeto de política de grupo que bloqueia cookies de terceiros no navegador da Web. 
 
-My Profile pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages will continue to render in the last language used. If you clear the cache, the pages will re-render. If you want to force a specific language, you can add `?lng=<language>` to the end of the URL, where `<language>` is the code of the language you want to render.
+Minhas páginas de perfil são localizadas com base nas configurações de idioma do computador que está acessando a página. A Microsoft armazena a linguagem mais recente usada no cache do navegador, portanto, as tentativas subsequentes de acessar as páginas continuarão a ser renderizadas no último idioma usado. Se você limpar o cache, as páginas serão renderizadas novamente. Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language>` ao final da URL, em que `<language>` é o código do idioma que você deseja renderizar.
 
-![Set up SSPR or other security verification methods](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Configurar SSPR ou outros métodos de verificação de segurança](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
-## <a name="methods-available-in-combined-registration"></a>Methods available in combined registration
+## <a name="methods-available-in-combined-registration"></a>Métodos disponíveis no registro combinado
 
-Combined registration supports the following authentication methods and actions:
+O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
 |   | Registar | Alterar | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Yes (maximum of 5) | Não | Sim |
-| Other authenticator app | Yes (maximum of 5) | Não | Sim |
-| Hardware token | Não | Não | Sim |
+| Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
+| Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
+| Token de hardware | Não | Não | Sim |
 | Telefone | Sim | Sim | Sim |
-| Alternate phone | Sim | Sim | Sim |
-| Office phone | Não | Não | Não |
-| E-mail | Sim | Sim | Sim |
-| Security questions | Sim | Não | Sim |
+| Telefone alternativo | Sim | Sim | Sim |
+| Telefone comercial | Não | Não | Não |
+| Email | Sim | Sim | Sim |
+| Perguntas de segurança | Sim | Não | Sim |
 | Palavras-passe de aplicações | Sim | Não | Sim |
 
 > [!NOTE]
-> App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a Conditional Access policy.
+> As senhas de aplicativo estão disponíveis somente para usuários que foram impostos para a autenticação multifator. As senhas de aplicativo não estão disponíveis para usuários que estão habilitados para autenticação multifator por meio de uma política de acesso condicional.
 
-Users can set one of the following options as the default Multi-Factor Authentication method:
+Os usuários podem definir uma das seguintes opções como o método de autenticação multifator padrão:
 
-- Microsoft Authenticator – notification.
-- Authenticator app or hardware token – code.
-- Phone call.
-- Text message.
+- Microsoft Authenticator – notificação.
+- Aplicativo autenticador ou token de hardware – código.
+- Chamada telefônica.
+- Mensagem de texto.
 
-As we continue to add more authentication methods to Azure AD, those methods will be available in combined registration.
+À medida que continuarmos adicionando mais métodos de autenticação ao Azure AD, esses métodos estarão disponíveis no registro combinado.
 
-## <a name="combined-registration-modes"></a>Combined registration modes
+## <a name="combined-registration-modes"></a>Modos de registro combinados
 
-There are two modes of combined registration: interrupt and manage.
+Há dois modos de registro combinado: interrupção e gerenciamento.
 
-- **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
+- O **modo de interrupção** é uma experiência semelhante a um assistente, apresentada aos usuários quando eles registram ou atualizam suas informações de segurança na entrada.
 
-- **Manage mode** is part of the user profile and allows users to manage their security info.
+- O **modo gerenciar** faz parte do perfil do usuário e permite que os usuários gerenciem suas informações de segurança.
 
-For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info.
+Para ambos os modos, os usuários que registraram anteriormente um método que pode ser usado para a autenticação multifator precisarão executar a autenticação multifator antes de poderem acessar suas informações de segurança.
 
-### <a name="interrupt-mode"></a>Interrupt mode
+### <a name="interrupt-mode"></a>Modo de interrupção
 
-Combined registration respects both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration.
+O registro combinado respeita as políticas de autenticação multifator e SSPR, se ambas estiverem habilitadas para seu locatário. Essas políticas controlam se um usuário é interrompido para registro durante a entrada e quais métodos estão disponíveis para o registro.
 
-Here are several scenarios in which users might be prompted to register or refresh their security info:
+Aqui estão vários cenários em que os usuários podem ser solicitados a registrar ou atualizar suas informações de segurança:
 
-- Multi-Factor Authentication registration enforced through Identity Protection: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- Multi-Factor Authentication registration enforced through Conditional Access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-- SSPR registration enforced: Users are asked to register during sign-in. They register only SSPR methods.
-- SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
+- Registro de autenticação multifator imposto por meio da proteção de identidade: os usuários são solicitados a se registrar durante a entrada. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
+- Registro de autenticação multifator imposto por meio da autenticação multifator por usuário: os usuários são solicitados a se registrar durante a entrada. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
+- Registro de autenticação multifator imposto por meio de acesso condicional ou outras políticas: os usuários são solicitados a se registrar quando usam um recurso que requer autenticação multifator. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
+- Registro SSPR imposto: os usuários são solicitados a se registrarem durante a entrada. Eles registram apenas os métodos SSPR.
+- SSPR atualização imposta: os usuários são obrigados a revisar suas informações de segurança em um intervalo definido pelo administrador. Os usuários são mostrados suas informações e podem confirmar as informações atuais ou fazer alterações, se necessário.
 
-When registration is enforced, users are shown the minimum number of methods needed to be compliant with both Multi-Factor Authentication and SSPR policies, from most to least secure.
+Quando o registro é imposto, os usuários são mostrados o número mínimo de métodos necessários para serem compatíveis com as políticas de autenticação multifator e SSPR, do mais para o menos seguro.
 
 Por exemplo:
 
-- A user is enabled for SSPR. The SSPR policy required two methods to reset and has enabled mobile app code, email, and phone.
-   - This user is required to register two methods.
-      - The user is shown authenticator app and phone by default.
-      - The user can choose to register email instead of authenticator app or phone.
+- Um usuário está habilitado para SSPR. A política SSPR exigiu dois métodos para redefinir e habilitou o código, o email e o telefone do aplicativo móvel.
+   - Esse usuário é necessário para registrar dois métodos.
+      - Por padrão, o usuário é mostrado aplicativo autenticador e telefone.
+      - O usuário pode optar por registrar o email em vez do aplicativo autenticador ou telefone.
 
-This flowchart describes which methods are shown to a user when interrupted to register during sign-in:
+Este fluxograma descreve quais métodos são mostrados para um usuário quando interrompido para registro durante a entrada:
 
-![Combined security info flowchart](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Fluxograma de informações de segurança combinadas](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
-If you have both Multi-Factor Authentication and SSPR enabled, we recommend that you enforce Multi-Factor Authentication registration.
+Se você tiver a autenticação multifator e a SSPR habilitada, recomendamos que você imponha o registro da autenticação multifator.
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
+Se a política de SSPR exigir que os usuários revisem suas informações de segurança em intervalos regulares, os usuários serão interrompidos durante a entrada e mostrarão todos os seus métodos registrados. Eles podem confirmar as informações atuais se estiverem atualizadas ou poderão fazer alterações se precisarem dela.
 
-### <a name="manage-mode"></a>Manage mode
+### <a name="manage-mode"></a>Modo de gerenciamento
 
-Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) or by selecting **Security info** from My Profile. From there, users can add methods, delete or change existing methods, change the default method, and more.
+Os usuários podem acessar o modo de gerenciamento acessando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou selecionando **informações de segurança** em meu perfil. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
 
-## <a name="key-usage-scenarios"></a>Key usage scenarios
+## <a name="key-usage-scenarios"></a>Principais cenários de uso
 
-### <a name="set-up-security-info-during-sign-in"></a>Set up security info during sign-in
+### <a name="set-up-security-info-during-sign-in"></a>Configurar informações de segurança durante a entrada
 
-An admin has enforced registration.
+Um administrador impôs o registro.
 
-A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+Um usuário não configurou todas as informações de segurança necessárias e vai para a portal do Azure. Depois de inserir o nome de usuário e a senha, o usuário será solicitado a configurar as informações de segurança. Em seguida, o usuário segue as etapas mostradas no Assistente para configurar as informações de segurança necessárias. Se suas configurações permitirem, o usuário poderá optar por configurar métodos diferentes daqueles mostrados por padrão. Depois de concluir o assistente, os usuários examinam os métodos que eles configuram e seu método padrão para a autenticação multifator. Para concluir o processo de instalação, o usuário confirma as informações e continua a portal do Azure.
 
-### <a name="set-up-security-info-from-my-profile"></a>Set up security info from My Profile
+### <a name="set-up-security-info-from-my-profile"></a>Configurar informações de segurança do meu perfil
 
-An admin has not enforced registration.
+Um administrador não impô o registro.
 
-A user who hasn't yet set up all required security info goes to [https://myprofile.microsoft.com](https://myprofile.microsoft.com). The user selects **Security info** in the left pane. From there, the user chooses to add a method, selects any of the methods available, and follows the steps to set up that method. When finished, the user sees the method that was just set up on the Security info page.
+Um usuário que ainda não configurou todas as informações de segurança necessárias vai para [https://myprofile.microsoft.com](https://myprofile.microsoft.com). O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que acabou de ser configurado na página informações de segurança.
 
-### <a name="delete-security-info-from-my-profile"></a>Delete security info from My Profile
+### <a name="delete-security-info-from-my-profile"></a>Excluir informações de segurança do meu perfil
 
-A user who has previously set up at least one method navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user chooses to delete one of the previously registered methods. When finished, the user no longer sees that method on the Security info page.
+Um usuário que configurou anteriormente pelo menos um método navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário escolhe excluir um dos métodos registrados anteriormente. Quando terminar, o usuário não verá mais esse método na página informações de segurança.
 
-### <a name="change-the-default-method-from-my-profile"></a>Change the default method from My Profile
+### <a name="change-the-default-method-from-my-profile"></a>Alterar o método padrão do meu perfil
 
-A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
+Um usuário que configurou anteriormente pelo menos um método que pode ser usado para a autenticação multifator navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário altera o método padrão atual para um método padrão diferente. Quando terminar, o usuário verá o novo método padrão na página informações de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
-[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+[Habilitar o registro combinado em seu locatário](howto-registration-mfa-sspr-combined.md)
 
-[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+[Relatórios de uso e informações do SSPR e MFA](howto-authentication-methods-usage-insights.md)
 
-[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
+[Métodos disponíveis para autenticação multifator e SSPR](concept-authentication-methods.md)
 
-[Configure self-service password reset](howto-sspr-deployment.md)
+[Configurar a redefinição de senha de autoatendimento](howto-sspr-deployment.md)
 
-[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurar a autenticação multifator do Azure](howto-mfa-getstarted.md)

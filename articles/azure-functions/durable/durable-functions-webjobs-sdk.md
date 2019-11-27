@@ -1,6 +1,6 @@
 ---
-title: How to run Durable Functions as WebJobs - Azure
-description: Learn how to code and configure Durable Functions to run in WebJobs by using the WebJobs SDK.
+title: Como executar Durable Functions como trabalhos Web-Azure
+description: Saiba como codificar e configurar o Durable Functions para executar em trabalhos Web usando o SDK de trabalhos Web.
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
@@ -11,49 +11,49 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232730"
 ---
-# <a name="how-to-run-durable-functions-as-webjobs"></a>How to run Durable Functions as WebJobs
+# <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar Durable Functions como trabalhos Web
 
-By default, Durable Functions uses the Azure Functions runtime to host orchestrations. However, there may be certain scenarios where you need more control over the code that listens for events. This article shows you how to implement your orchestration using the WebJobs SDK. To see a more detailed comparison between Functions and WebJobs, see [Compare Functions and WebJobs](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
+Por padrão, Durable Functions usa o tempo de execução Azure Functions para hospedar orquestrações. No entanto, pode haver alguns cenários em que você precisa de mais controle sobre o código que escuta eventos. Este artigo mostra como implementar sua orquestração usando o SDK de trabalhos Web. Para ver uma comparação mais detalhada entre funções e trabalhos Web, consulte [comparar funções e trabalhos](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)Web.
 
-[Azure Functions](../functions-overview.md) and the [Durable Functions](durable-functions-overview.md) extension are built on the [WebJobs SDK](../../app-service/webjobs-sdk-how-to.md). The job host in the WebJobs SDK is the runtime in Azure Functions. If you need to control behavior in ways not possible in Azure Functions, you can develop and run Durable Functions by using the WebJobs SDK yourself.
+[Azure Functions](../functions-overview.md) e a extensão de [Durable Functions](durable-functions-overview.md) são criadas no [SDK de trabalhos](../../app-service/webjobs-sdk-how-to.md)Web. O host de trabalho no SDK de trabalhos Web é o tempo de execução no Azure Functions. Se você precisar controlar o comportamento de maneiras não possíveis no Azure Functions, você poderá desenvolver e executar Durable Functions usando o SDK de trabalhos Web por conta própria.
 
-In version 3.x of the WebJobs SDK, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object.
+Na versão 3. x do SDK de trabalhos Web, o host é uma implementação de `IHost`e, na versão 2. x, você usa o objeto `JobHost`.
 
-The chaining Durable Functions sample is available in a WebJobs SDK 2.x version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/), and go to the *samples\\webjobssdk\\chaining* folder.
+O exemplo de encadeamento de Durable Functions está disponível em uma versão do SDK do webjobs 2. x: Baixe ou clone o [repositório de durable Functions](https://github.com/azure/azure-functions-durable-extension/)e vá para os *exemplos\\pasta webjobssdk\\de encadeamento* .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-This article assumes you're familiar with the basics of the WebJobs SDK, C# class library development for Azure Functions, and Durable Functions. If you need an introduction to these topics, see the following resources:
+Este artigo pressupõe que você esteja familiarizado com os conceitos básicos do SDK de trabalhos C# Web, desenvolvimento de biblioteca de classes para Azure Functions e Durable functions. Se você precisar de uma introdução a esses tópicos, consulte os seguintes recursos:
 
-* [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
+* [Introdução ao SDK de trabalhos Web](../../app-service/webjobs-sdk-get-started.md)
 * [Criar a sua primeira função com o Visual Studio](../functions-create-your-first-function-visual-studio.md)
 * [Durable Functions](durable-functions-sequence.md)
 
-To complete the steps in this article:
+Para concluir as etapas neste artigo:
 
-* [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload.
+* [Instale o Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) com a carga de trabalho de **desenvolvimento do Azure** .
 
-  If you already have Visual Studio, but don't have that workload, add the workload by selecting **Tools** > **Get Tools and Features**.
+  Se você já tiver o Visual Studio, mas não tiver essa carga de trabalho, adicione a carga de trabalho selecionando **ferramentas** > **obter ferramentas e recursos**.
 
-  (You can use [Visual Studio Code](https://code.visualstudio.com/) instead, but some of the instructions are specific to Visual Studio.)
+  (Você pode usar [Visual Studio Code](https://code.visualstudio.com/) em vez disso, mas algumas das instruções são específicas para o Visual Studio.)
 
-* Install and run [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) version 5.2 or later. An alternative is to update the *App.config* file with an Azure Storage connection string.
+* Instale e execute o [emulador de armazenamento do Azure](../../storage/common/storage-use-emulator.md) versão 5,2 ou posterior. Uma alternativa é atualizar o arquivo *app. config* com uma cadeia de conexão de armazenamento do Azure.
 
-## <a name="webjobs-sdk-versions"></a>WebJobs SDK versions
+## <a name="webjobs-sdk-versions"></a>Versões do SDK de trabalhos Web
 
-This article explains how to develop a WebJobs SDK 2.x project (equivalent to Azure Functions version 1.x). For information about version 3.x, see [WebJobs SDK 3.x](#webjobs-sdk-3x) later in this article.
+Este artigo explica como desenvolver um projeto webjobs SDK 2. x (equivalente a Azure Functions versão 1. x). Para obter informações sobre a versão 3. x, consulte [SDK de trabalhos Web 3. x](#webjobs-sdk-3x) mais adiante neste artigo.
 
 ## <a name="create-a-console-app"></a>Criar uma aplicação de consola
 
-To run Durable Functions as WebJobs, you must first create a console app. A WebJobs SDK project is just a console app project with the appropriate NuGet packages installed.
+Para executar Durable Functions como trabalhos Web, você deve primeiro criar um aplicativo de console. Um projeto do SDK de trabalhos Web é apenas um projeto de aplicativo de console com os pacotes NuGet apropriados instalados.
 
-In the Visual Studio **New Project** dialog box, select **Windows Classic Desktop** > **Console App (.NET Framework)** . In the project file, the `TargetFrameworkVersion` should be `v4.6.1`.
+Na caixa de diálogo **novo projeto** do Visual Studio, selecione **área de trabalho clássica do Windows** > **aplicativo de console (.NET Framework)** . No arquivo de projeto, o `TargetFrameworkVersion` deve ser `v4.6.1`.
 
-Visual Studio also has a WebJob project template, which you can use by selecting **Cloud** > **Azure WebJob (.NET Framework)** . This template installs many packages, some of which you might not need.
+O Visual Studio também tem um modelo de projeto WebJob, que pode ser usado selecionando **nuvem** > **WebJob do Azure (.NET Framework)** . Esse modelo instala vários pacotes, alguns dos quais você talvez não precise.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-You need NuGet packages for the WebJobs SDK, core bindings, the logging framework, and the Durable Task extension. Here are **Package Manager Console** commands for those packages, with the latest stable version numbers as of the date this article was written:
+Você precisa de pacotes NuGet para o SDK de trabalhos Web, associações de núcleo, a estrutura de log e a extensão de tarefa durável. Aqui estão os comandos do **console do Gerenciador de pacotes** para esses pacotes, com os números de versão mais recentes estáveis a partir da data em que este artigo foi escrito:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
@@ -61,24 +61,24 @@ Install-Package Microsoft.Extensions.Logging -version 2.0.1
 Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
 ```
 
-You also need logging providers. The following commands install the Azure Application Insights provider and the `ConfigurationManager`. The `ConfigurationManager` lets you get the Application Insights instrumentation key from app settings.
+Você também precisa de provedores de registro em log. Os comandos a seguir instalam o provedor do Aplicativo Azure insights e o `ConfigurationManager`. O `ConfigurationManager` permite que você obtenha a chave de instrumentação Application Insights das configurações do aplicativo.
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
 Install-Package System.Configuration.ConfigurationManager -version 4.4.1
 ```
 
-The following command installs the console provider:
+O comando a seguir instala o provedor de console do:
 
 ```powershell
 Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
 ```
 
-## <a name="jobhost-code"></a>JobHost code
+## <a name="jobhost-code"></a>Código JobHost
 
-Having created the console app and installed the NuGet packages you need, you're ready to use Durable Functions. You do so by using JobHost code.
+Depois de criar o aplicativo de console e instalar os pacotes NuGet necessários, você estará pronto para usar Durable Functions. Você faz isso usando o código JobHost.
 
-To use the Durable Functions extension, call `UseDurableTask` on the `JobHostConfiguration` object in your `Main` method:
+Para usar a extensão Durable Functions, chame `UseDurableTask` no objeto `JobHostConfiguration` em seu método `Main`:
 
 ```cs
 var config = new JobHostConfiguration();
@@ -88,9 +88,9 @@ config.UseDurableTask(new DurableTaskExtension
 };
 ```
 
-For a list of properties that you can set in the `DurableTaskExtension` object, see [host.json](../functions-host-json.md#durabletask).
+Para obter uma lista de propriedades que podem ser definidas no objeto `DurableTaskExtension`, consulte [host. JSON](../functions-host-json.md#durabletask).
 
-The `Main` method is also the place to set up logging providers. The following example configures the console and Application Insights providers.
+O método `Main` também é o local para configurar provedores de log. O exemplo a seguir configura o console e os provedores de Application Insights.
 
 ```cs
 static void Main(string[] args)
@@ -121,21 +121,21 @@ static void Main(string[] args)
 
 ## <a name="functions"></a>Funções
 
-Durable Functions in the context of WebJobs differs somewhat from Durable Functions in the context of Azure Functions. It's important to be aware of the differences as you write your code.
+Durable Functions no contexto de trabalhos Web difere um pouco de Durable Functions no contexto de Azure Functions. É importante estar ciente das diferenças à medida que você escreve seu código.
 
-The WebJobs SDK doesn't support the following Azure Functions features:
+O SDK de trabalhos Web não dá suporte aos seguintes recursos de Azure Functions:
 
-* [FunctionName attribute](#functionname-attribute)
-* [HTTP trigger](#http-trigger)
-* [Durable Functions HTTP management API](#http-management-api)
+* [Atributo FunctionName](#functionname-attribute)
+* [Gatilho HTTP](#http-trigger)
+* [API de gerenciamento de HTTP Durable Functions](#http-management-api)
 
-### <a name="functionname-attribute"></a>FunctionName attribute
+### <a name="functionname-attribute"></a>Atributo FunctionName
 
-In a WebJobs SDK project, the method name of a function is the function name. The `FunctionName` attribute is used only in Azure Functions.
+Em um projeto do SDK de trabalhos Web, o nome do método de uma função é o nome da função. O atributo `FunctionName` é usado somente em Azure Functions.
 
 ### <a name="http-trigger"></a>Acionador HTTP
 
-The WebJobs SDK does not have an HTTP trigger. The sample project's orchestration client uses a timer trigger:
+O SDK de trabalhos Web não tem um gatilho HTTP. O cliente de orquestração do projeto de exemplo usa um gatilho de temporizador:
 
 ```cs
 public static async Task CronJob(
@@ -147,17 +147,17 @@ public static async Task CronJob(
 }
 ```
 
-### <a name="http-management-api"></a>HTTP management API
+### <a name="http-management-api"></a>API de gerenciamento HTTP
 
-Because it has no HTTP trigger, the WebJobs SDK has no [HTTP management API](durable-functions-http-api.md).
+Como não tem nenhum gatilho HTTP, o SDK de trabalhos Web não tem nenhuma [API de gerenciamento http](durable-functions-http-api.md).
 
-In a WebJobs SDK project, you can call methods on the orchestration client object, instead of by sending HTTP requests. The following methods correspond to the three tasks you can do with the HTTP management API:
+Em um projeto do SDK de trabalhos Web, você pode chamar métodos no objeto de cliente Orchestration, em vez de enviar solicitações HTTP. Os métodos a seguir correspondem às três tarefas que você pode fazer com a API de gerenciamento HTTP:
 
 * `GetStatusAsync`
 * `RaiseEventAsync`
 * `TerminateAsync`
 
-The orchestration client function in the sample project starts the orchestrator function, and then goes into a loop that calls `GetStatusAsync` every 2 seconds:
+A função de cliente de orquestração no projeto de exemplo inicia a função de orquestrador e entra em um loop que chama `GetStatusAsync` a cada 2 segundos:
 
 ```cs
 string instanceId = await client.StartNewAsync(nameof(HelloSequence), input: null);
@@ -182,49 +182,49 @@ while (true)
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-You've got Durable Functions set up to run as a WebJob, and you now have an understanding of how this will differ from running Durable Functions as standalone Azure Functions. At this point, seeing it work in a sample might be helpful.
+Você tem Durable Functions configurado para ser executado como um WebJob, e agora você tem uma compreensão de como isso será diferente de executar Durable Functions como Azure Functions autônomo. Neste ponto, a exibição do trabalho em um exemplo pode ser útil.
 
-This section provides an overview of how to run the [sample project](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining). For detailed instructions that explain how to run a WebJobs SDK project locally and deploy it to an Azure WebJob, see [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
+Esta seção fornece uma visão geral de como executar o [projeto de exemplo](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining). Para obter instruções detalhadas que explicam como executar um projeto do SDK de trabalhos Web localmente e implantá-lo em um WebJob do Azure, consulte Introdução ao [SDK do webjobs](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
 
 ### <a name="run-locally"></a>Executar localmente
 
-1. Make sure the Storage emulator is running (see [Prerequisites](#prerequisites)).
+1. Verifique se o emulador de armazenamento está em execução (consulte [pré-requisitos](#prerequisites)).
 
-1. If you want to see logs in Application Insights when you run the project locally:
+1. Se você quiser ver os logs no Application Insights ao executar o projeto localmente:
 
-    a. Create an Application Insights resource, and use the **General** app type for it.
+    a. Crie um recurso de Application Insights e use o tipo de aplicativo **geral** para ele.
 
-    b. Save the instrumentation key in the *App.config* file.
+    b. Salve a chave de instrumentação no arquivo *app. config* .
 
-1. Run the project.
+1. Execute o projeto.
 
-### <a name="run-in-azure"></a>Run in Azure
+### <a name="run-in-azure"></a>Executar no Azure
 
-1. Create a web app and a storage account.
+1. Crie um aplicativo Web e uma conta de armazenamento.
 
-1. In the web app, save the storage connection string in an app setting named `AzureWebJobsStorage`.
+1. No aplicativo Web, salve a cadeia de conexão de armazenamento em uma configuração de aplicativo chamada `AzureWebJobsStorage`.
 
-1. Create an Application Insights resource, and use the **General** app type for it.
+1. Crie um recurso de Application Insights e use o tipo de aplicativo **geral** para ele.
 
-1. Save the instrumentation key in an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY`.
+1. Salve a chave de instrumentação em uma configuração de aplicativo chamada `APPINSIGHTS_INSTRUMENTATIONKEY`.
 
-1. Deploy as a WebJob.
+1. Implante como um WebJob.
 
-## <a name="webjobs-sdk-3x"></a>WebJobs SDK 3.x
+## <a name="webjobs-sdk-3x"></a>SDK de trabalhos Web 3. x
 
-This article explains how to develop a WebJobs SDK 2.x project. If you're developing a [WebJobs SDK 3.x](../../app-service/webjobs-sdk-get-started.md) project, this section helps you understand the differences.
+Este artigo explica como desenvolver um projeto do SDK de trabalhos Web 2. x. Se você estiver desenvolvendo um projeto do [SDK do webjobs 3. x](../../app-service/webjobs-sdk-get-started.md) , esta seção o ajudará a entender as diferenças.
 
-The main change introduced is the use of .NET Core instead of .NET Framework. To create a WebJobs SDK 3.x project, the instructions are the same, with these exceptions:
+A principal alteração introduzida é o uso do .NET Core em vez de .NET Framework. Para criar um projeto webjobs SDK 3. x, as instruções são as mesmas, com estas exceções:
 
-1. Create a .NET Core console app. In the Visual Studio **New Project** dialog box, select  **.NET Core** > **Console App (.NET Core)** . The project file specifies that `TargetFramework` is `netcoreapp2.x`.
+1. Crie um aplicativo de console do .NET Core. Na caixa de diálogo **novo projeto** do Visual Studio, selecione **.NET Core** > **aplicativo de console (.NET Core)** . O arquivo de projeto especifica que `TargetFramework` é `netcoreapp2.x`.
 
-1. Choose the release version WebJobs SDK 3.x of the following packages:
+1. Escolha a versão de lançamento SDK 3. x dos seguintes pacotes:
 
     * `Microsoft.Azure.WebJobs.Extensions`
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Set the storage connection string and the Application Insights instrumentation key in an *appsettings.json* file, by using the .NET Core configuration framework. Segue-se um exemplo:
+1. Defina a cadeia de conexão de armazenamento e a chave de instrumentação de Application Insights em um arquivo *appSettings. JSON* , usando a estrutura de configuração do .NET Core. Segue-se um exemplo:
 
     ```json
         {
@@ -233,7 +233,7 @@ The main change introduced is the use of .NET Core instead of .NET Framework. To
         }
     ```
 
-1. Change the `Main` method code to do this. Segue-se um exemplo:
+1. Altere o código do método `Main` para fazer isso. Segue-se um exemplo:
 
    ```cs
    static void Main(string[] args)
@@ -271,4 +271,4 @@ The main change introduced is the use of .NET Core instead of .NET Framework. To
 
 ## <a name="next-steps"></a>Passos seguintes
 
-To learn more about the WebJobs SDK, see [How to use the WebJobs SDK](../../app-service/webjobs-sdk-how-to.md).
+Para saber mais sobre o SDK de trabalhos Web, consulte [como usar o SDK de trabalhos](../../app-service/webjobs-sdk-how-to.md)Web.

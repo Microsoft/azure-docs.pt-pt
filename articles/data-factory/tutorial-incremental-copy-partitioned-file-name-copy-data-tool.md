@@ -1,6 +1,6 @@
 ---
-title: Incrementally copy new files based on time partitioned file name
-description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files only based on time partitioned file name.
+title: Copiar os novos arquivos incrementalmente com base no nome do arquivo particionado
+description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base no nome do arquivo particionado.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -21,9 +21,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74217454"
 ---
-# <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Incrementally copy new files based on time partitioned file name by using the Copy Data tool
+# <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente novos arquivos com base no nome do arquivo particionado usando a ferramenta de Copiar Dados
 
-Neste tutorial, irá utilizar o portal do Azure para criar uma fábrica de dados. Then, you use the Copy Data tool to create a pipeline that incrementally copies new files based on time partitioned file name from Azure Blob storage to Azure Blob storage. 
+Neste tutorial, irá utilizar o portal do Azure para criar uma fábrica de dados. Em seguida, você usa a ferramenta Copiar Dados para criar um pipeline que copia incrementalmente novos arquivos com base no nome de arquivo particionado do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure. 
 
 > [!NOTE]
 > Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -38,24 +38,24 @@ Neste tutorial, vai executar os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Azure storage account**: Use Blob storage as the _source_  and _sink_ data store. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
-### <a name="create-two-containers-in-blob-storage"></a>Create two containers in Blob storage
+### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
 
-Prepare your Blob storage for the tutorial by performing these steps.
+Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
-1. Create a container named **source**.  Create a folder path as **2019/02/26/14** in your container. Create an empty text file, and name it as **file1.txt**. Upload the file1.txt to the folder path **source/2019/02/26/14** in your storage account.  Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
+1. Crie um contêiner chamado **origem**.  Crie um caminho de pasta como **2019/02/26/14** em seu contêiner. Crie um arquivo de texto vazio e nomeie-o como **arquivo1. txt**. Carregue o arquivo1. txt no caminho da pasta **Source/2019/02/26/14** em sua conta de armazenamento.  Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
     
-    ![upload files](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
+    ![carregar arquivos](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > Please adjust the folder name with your UTC time.  For example, if the current UTC time is 2:03 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/14/** by the rule of **source/{Year}/{Month}/{Day}/{Hour}/** .
+    > Ajuste o nome da pasta com a hora UTC.  Por exemplo, se a hora UTC atual for 2:03 PM em fevereiro de 26, 2019, você poderá criar o caminho da pasta como **Source/2019/02/26/14/** pela regra de **origem/{ano}/{month}/{Day}/{hora}/** .
 
-2. Create a container named **destination**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
+2. Crie um contêiner chamado **destino**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
+1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -81,7 +81,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 8. Selecione **Criar**.
 9. No dashboard, o mosaico **A Implementar a Fábrica de Dados** mostra o estado do processo.
 
-    ![Mosaico de implementação da fábrica da dados](media/tutorial-copy-data-tool/deploying-data-factory.png)
+    ![Mosaico A Implementar o Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Depois de concluída a criação, é apresentada a home page **Fábrica de Dados**.
    
     ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
@@ -89,19 +89,19 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utilizar a ferramenta Copiar Dados para criar um pipeline
 
-1. On the **Let's get started** page, select the **Copy Data** title to launch the Copy Data tool. 
+1. Na página **introdução** , selecione o título de **copiar dados** para iniciar a ferramenta de copiar dados. 
 
    ![Mosaico ferramenta Copiar Dados](./media/doc-common-process/get-started-page.png)
    
-2. On the **Properties** page, take the following steps:
+2. Na página **Propriedades** , execute as seguintes etapas:
 
-    a. Under **Task name**, enter **DeltaCopyFromBlobPipeline**.
+    a. Em **nome da tarefa**, insira **DeltaCopyFromBlobPipeline**.
 
-    b. Under **Task cadence or Task schedule**, select **Run regularly on schedule**.
+    b. Em **cadência da tarefa ou no agendamento da tarefa**, selecione **executar regularmente na agenda**.
 
-    c. Under **Trigger type**, select **Tumbling Window**.
+    c. Em **tipo de gatilho**, selecione **janela em cascata**.
     
-    d. Under **Recurrence**, enter **1 Hour(s)** . 
+    d. Em **recorrência**, insira **1 hora (s)** . 
     
     e. Selecione **Seguinte**. 
     
@@ -110,48 +110,48 @@ Prepare your Blob storage for the tutorial by performing these steps.
     ![Página Propriedades](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/copy-data-tool-properties-page.png)
 3. Na página **Arquivo de dados de origem**, conclua os seguintes passos:
 
-    a. Click  **+ Create new connection**, to add a connection.
+    a. Clique em **+ criar nova conexão**para adicionar uma conexão.
 
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
     
-    b. Select **Azure Blob Storage** from the gallery, and then click **Continue**.
+    b. Selecione **armazenamento de BLOBs do Azure** na galeria e clique em **continuar**.
 
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
-    c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then click **Finish**.
+    c. Na página **novo serviço vinculado** , selecione sua conta de armazenamento na lista **nome da conta de armazenamento** e clique em **concluir**.
     
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
-    d. Select the newly created linked service, then click **Next**. 
+    d. Selecione o serviço vinculado recém-criado e clique em **Avançar**. 
     
    ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-linkedservice.png)
 4. Na página **Escolher o ficheiro ou pasta de entrada**, execute os seguintes passos:
     
-    a. Browse and select the **source** container, then select **Choose**.
+    a. Procure e selecione o contêiner de **origem** e selecione **escolher**.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
     
-    b. Under **File loading behavior**, select **Incremental load: time-partitioned folder/file names**.
+    b. Em **comportamento de carregamento de arquivo**, selecione **carga incremental: nomes de pasta/arquivo particionados por tempo**.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    c. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/** , and change the format as followings:
+    c. Grave o caminho da pasta dinâmica como **fonte/{ano}/{mês}/{dia}/{hora}/** e altere o formato da seguinte maneira:
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
-    d. Check **Binary copy** and click **Next**.
+    d. Marque **cópia binária** e clique em **Avançar**.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
-5. On the **Destination data store** page, select the **AzureBlobStorage**, which is the same storage account as data source store, and then click **Next**.
+5. Na página **armazenamento de dados de destino** , selecione o **AzureBlobStorage**, que é a mesma conta de armazenamento que o armazenamento de fonte de dados e clique em **Avançar**.
 
     ![Página arquivo de dados de destino](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png) 
-6. On the **Choose the output file or folder** page, do the following steps:
+6. Na página **escolher o arquivo de saída ou a pasta** , execute as seguintes etapas:
     
-    a. Browse and select the **destination** folder, then click **Choose**.
+    a. Procure e selecione a pasta de **destino** e clique em **escolher**.
     
     ![Escolher ficheiro ou pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/** , and change the format as followings:
+    b. Grave o caminho da pasta dinâmica como **fonte/{ano}/{mês}/{dia}/{hora}/** e altere o formato da seguinte maneira:
     
     ![Escolher ficheiro ou pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
@@ -166,38 +166,38 @@ Prepare your Blob storage for the tutorial by performing these steps.
     ![Página de resumo](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
     
 9. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa).
-    ![Deployment page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
+    página de implantação do ![](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
     
-10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente.  You need wait for the pipeline run when it is triggered automatically (about after one hour).  When it runs, the **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list, and select the **View Activity Runs** link in the **Actions** column. 
+10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente.  Você precisa aguardar a execução do pipeline quando ele é disparado automaticamente (aproximadamente uma hora).  Quando ele é executado, a coluna **Actions** inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline. Selecione **Atualizar** para atualizar a lista e selecione o link **Exibir execuções de atividade** na coluna **ações** . 
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. You can see the source file (file1.txt) has been copied from  **source/2019/02/26/14/**  to **destination/2019/02/26/14/** with the same file name.  
+11. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. Você pode ver o arquivo de origem (file1. txt) foi copiado de **Source/2019/02/26/14/** para **Destination/2019/02/26/14/** com o mesmo nome de arquivo.  
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files.
+    Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure (https://storageexplorer.com/) para verificar os arquivos.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Create another empty text file with the new name as **file2.txt**. Upload the file2.txt file to the folder path **source/2019/02/26/15** in your storage account.   Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
+12. Crie outro arquivo de texto vazio com o novo nome como **file2. txt**. Carregue o arquivo File2. txt no caminho da pasta **Source/2019/02/26/15** em sua conta de armazenamento.   Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > You might be aware that a new folder path is required to be created. Please adjust the folder name with your UTC time.  For example, if the current UTC time is 3:20 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/15/** by the rule of **{Year}/{Month}/{Day}/{Hour}/** .
+    > Você pode estar ciente de que um novo caminho de pasta deve ser criado. Ajuste o nome da pasta com a hora UTC.  Por exemplo, se a hora UTC atual for 3:20 PM em Fev 26, 2019, você poderá criar o caminho da pasta como **Source/2019/02/26/15/** pela regra de **{year}/{month}/{Day}/{Hour}/** .
     
-13. To go back to the **Pipeline Runs** view, select **All Pipelines Runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
+13. Para voltar para a exibição **execuções de pipeline** , selecione **todos os pipelines são executados**e aguarde até que o mesmo pipeline seja disparado novamente automaticamente após outra hora.  
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Select **View Activity Run** for the second pipeline run when it comes, and do the same to review details.  
+14. Selecione **Exibir execução da atividade** para a segunda execução do pipeline quando ele vier e faça o mesmo para examinar os detalhes.  
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs6.png)
     
-    You can see the source file (file2.txt) has been copied from  **source/2019/02/26/15/**  to **destination/2019/02/26/15/** with the same file name.
+    Você pode ver o arquivo de origem (arquivo2. txt) foi copiado de **Source/2019/02/26/15/** para **Destination/2019/02/26/15/** com o mesmo nome de arquivo.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files in **destination** container
+    Você também pode verificar o mesmo usando Gerenciador de Armazenamento do Azure (https://storageexplorer.com/) para examinar os arquivos no contêiner de **destino**
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

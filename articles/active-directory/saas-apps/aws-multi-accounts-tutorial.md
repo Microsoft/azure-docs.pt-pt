@@ -33,7 +33,7 @@ A integração do Amazon Web Services (AWS) ao Azure AD oferece os seguintes ben
 - Você pode permitir que seus usuários façam logon automaticamente no Amazon Web Services (AWS) (logon único) com suas contas do Azure AD.
 - Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
@@ -63,7 +63,7 @@ Para configurar a integração do Azure AD ao Amazon Web Services (AWS), você p
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+- Se você não tiver um ambiente de avaliação do Azure AD, poderá [obter uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -77,7 +77,7 @@ Para configurar a integração do Amazon Web Services (AWS) ao Azure AD, você p
 
 **Para adicionar o Amazon Web Services (AWS) da galeria, execute as seguintes etapas:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -85,7 +85,7 @@ Para configurar a integração do Amazon Web Services (AWS) ao Azure AD, você p
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
@@ -107,9 +107,9 @@ No Amazon Web Services (AWS), atribua o valor do **nome de usuário** no Azure a
 
 Para configurar e testar o logon único do Azure AD com o Amazon Web Services (AWS), você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do Amazon Web Services (AWS)](#configure-amazon-web-services-aws-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
-3. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+3. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -125,7 +125,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
     ![Editar configuração básica de SAML](common/edit-urls.png)
 
@@ -159,7 +159,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
 
-    f. Clique em **Ok**
+    f. Clique em **OK**
 
     g. Clique em **Guardar**.
 
@@ -364,7 +364,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Como configurar o provisionamento usando APIs do MS Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: Add a Symbol layer to Azure Maps | Microsoft Docs
-description: How to add symbols to the Azure Maps Web SDK.
+title: Adicionar uma camada de símbolo ao Azure Maps | Microsoft Docs
+description: Como adicionar símbolos ao SDK da Web do Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -16,24 +16,24 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480611"
 ---
-# <a name="add-a-symbol-layer-to-a-map"></a>Add a symbol layer to a map
+# <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 
-A symbol can be connected up to a data source and used to render an icon and/or text at a given point. Symbol layers are rendered using WebGL and can be used to render large collections of points on the map. This layer can render a lot more point data on the map, with good performance, than what is achievable using HTML markers. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
+Um símbolo pode ser conectado a uma fonte de dados e usado para renderizar um ícone e/ou texto em um determinado ponto. As camadas de símbolo são renderizadas usando WebGL e podem ser usadas para renderizar grandes coleções de pontos no mapa. Essa camada pode renderizar muito mais dados de ponto no mapa, com bom desempenho do que o que pode ser alcançado usando marcadores de HTML. No entanto, a camada de símbolo não dá suporte a elementos CSS tradicionais e HTML para estilização.  
 
 > [!TIP]
-> Symbol layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
+> As camadas de símbolo, por padrão, renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de ponto, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se você quiser incluir recursos do MultiPoint também.
 
-The maps image sprite manager, which is used to load custom images used by the symbol layer supports the following image formats:
+O Gerenciador de Sprite da imagem de mapas, que é usado para carregar imagens personalizadas usadas pela camada de símbolo, dá suporte aos seguintes formatos de imagem:
 
 - JPEG
 - PNG
-- SVG
+- ESCALÁVEIS
 - BMP
-- GIF (no animations)
+- GIF (sem animações)
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
-To add a symbol layer to the map and render data, a data source first needs to be created and added the map. A symbol layer can then be created and passed in the data source to retrieve the data from. Finally, data needs to be added into the data source so that there is something to be rendered. The following code shows the code that should be added to the map after it has loaded to render a single point on the map using a symbol layer. 
+Para adicionar uma camada de símbolo ao mapa e renderizar dados, primeiro é necessário criar uma fonte de dados e adicionar o mapa. Uma camada de símbolo pode ser criada e passada na fonte de dados para a qual recuperar os dados. Por fim, os dados precisam ser adicionados à fonte de dados para que haja algo a ser renderizado. O código a seguir mostra o código que deve ser adicionado ao mapa depois que ele é carregado para renderizar um único ponto no mapa usando uma camada de símbolo. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -50,50 +50,50 @@ map.layers.add(layer);
 dataSource.add(new atlas.data.Point([0, 0]));
 ```
 
-There are four different types of point data to that can be added to the map:
+Há quatro tipos diferentes de dados de ponto para que podem ser adicionados ao mapa:
 
-- GeoJSON Point geometry - This object only contains a coordinate of a point and nothing else. The `atlas.data.Point` helper class can be used to easily create these objects.
-- GeoJSON MultiPoint geometry - This object contains the coordinates of multiple points but nothing else. The `atlas.data.MultiPoint` helper class can be used to easily create these objects.
-- GeoJSON Feature - This object consists of any GeoJSON geometry and a set of properties that contain metadata associated to the geometry. The `atlas.data.Feature` helper class can be used to easily create these objects.
-- `atlas.Shape` class is similar to the GeoJSON feature in that it consists of a GeoJSON geometry and a set of properties that contain metadata associated to the geometry. If a GeoJSON object is added to a data source it can easily be rendered in a layer, however, if the coordinates property of that GeoJSON object is updated, the data source and map don't change as there is no mechanism in the JSON object to trigger an update. The shape class provides functions for updating the data it contains, and when a change is made, the data source and map are automatically notified and updated. 
+- Geometria de ponto geojson-esse objeto contém apenas uma coordenada de um ponto e nada mais. A classe auxiliar `atlas.data.Point` pode ser usada para criar facilmente esses objetos.
+- Geometria geojson do MultiPoint – este objeto contém as coordenadas de vários pontos, mas nada mais. A classe auxiliar `atlas.data.MultiPoint` pode ser usada para criar facilmente esses objetos.
+- Recurso geojson – esse objeto consiste em qualquer geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. A classe auxiliar `atlas.data.Feature` pode ser usada para criar facilmente esses objetos.
+- `atlas.Shape` classe é semelhante ao recurso geojson, pois consiste em uma geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. Se um objeto geojson for adicionado a uma fonte de dados, ele poderá ser facilmente renderizado em uma camada, no entanto, se a propriedade coordenadas desse objeto geojson for atualizada, a fonte de dados e o mapa não serão alterados, pois não há nenhum mecanismo no objeto JSON para disparar uma atualização. A classe Shape fornece funções para atualizar os dados que ela contém e quando uma alteração é feita, a fonte de dados e o mapa são automaticamente notificados e atualizados. 
 
-The following code sample creates a GeoJSON Point geometry and passes it into the `atlas.Shape` class to make it easy to update. The center of the map is used initially to render a symbol. A click event is added to the map such that when it fires, the coordinates of where the mouse was clicked are used with the shapes `setCoordinates` function that updates the location of the symbol on the map.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-> [!TIP]
-> By default, for performance, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `allowOverlap` property of the `iconOptions` options to `true`.
-
-## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Add a custom icon to a symbol layer
-
-Symbol layers are rendered using WebGL. As such all resources, such as icon images, must be loaded into the WebGL context. This sample shows how to add a custom icon to the map resources and then use it to render point data with a custom symbol on the map. The `textField` property of the symbol layer requires an expression to be specified. In this case, we want to render the temperature property but since it's a number, it needs to be converted to a string. Additionally we want to append the "°F" to it. An expression can be used to do this; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+O exemplo de código a seguir cria uma geometria de ponto geojson e a transmite para a classe `atlas.Shape` para facilitar a atualização. O centro do mapa é usado inicialmente para renderizar um símbolo. Um evento de clique é adicionado ao mapa de modo que, quando ele é acionado, as coordenadas de onde o mouse foi clicado são usadas com as formas `setCoordinates` função que atualiza o local do símbolo no mapa.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Alternar local do PIN' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>opção fixar local do pino</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more infromation, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
+> Por padrão, para desempenho, as camadas de símbolo otimizam a renderização de símbolos, ocultando os símbolos que se sobrepõem. À medida que você aumenta o zoom, os símbolos ocultos se tornam visíveis. Para desabilitar esse recurso e renderizar todos os símbolos em todos os momentos, defina a propriedade `allowOverlap` das opções de `iconOptions` como `true`.
 
-## <a name="customize-a-symbol-layer"></a>Customize a symbol layer 
+## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adicionar um ícone personalizado a uma camada de símbolo
 
-The symbol layer has many styling options available. Here is a tool to test out these various styling options.
+As camadas de símbolo são renderizadas usando WebGL. Como todos os recursos, como imagens de ícone, devem ser carregados no contexto WebGL. Este exemplo mostra como adicionar um ícone personalizado aos recursos de mapa e, em seguida, usá-lo para renderizar dados de ponto com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo requer que uma expressão seja especificada. Nesse caso, desejamos renderizar a propriedade de temperatura, mas como é um número, ela precisa ser convertida em uma cadeia de caracteres. Além disso, queremos acrescentar "° f" a ele. Uma expressão pode ser usada para fazer isso; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Symbol Layer Options' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Symbol Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ícone de imagem de símbolo personalizado' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>ícone imagem de símbolo personalizado</a> da caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> When you only want to render text with a symbol layer, you can hide the icon by setting the `image` property of the icon options to `'none'`.
+> O SDK da Web do Azure Maps fornece vários modelos de imagem personalizáveis que você pode usar com a camada de símbolo. Para obter mais informações, consulte o documento [como usar modelos de imagem](how-to-use-image-templates-web-sdk.md) .
+
+## <a name="customize-a-symbol-layer"></a>Personalizar uma camada de símbolo 
+
+A camada de símbolo tem muitas opções de estilo disponíveis. Aqui está uma ferramenta para testar essas várias opções de estilo.
+
+<br/>
+
+<iframe height='700' scrolling='no' title='Opções de camada de símbolo' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Opções da camada símbolo</a> de caneta pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+> [!TIP]
+> Quando você só deseja renderizar texto com uma camada de símbolo, pode ocultar o ícone definindo a propriedade `image` das opções de ícone como `'none'`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Learn more about the classes and methods used in this article:
+Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
 > [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
@@ -102,33 +102,33 @@ Learn more about the classes and methods used in this article:
 > [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+> [Íconeoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
-See the following articles for more code samples to add to your maps:
+Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-web-sdk.md)
+> [Criar uma fonte de dados](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Add a popup](map-add-popup.md)
+> [Adicionar um pop-up](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+> [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [How to use image templates](how-to-use-image-templates-web-sdk.md)
+> [Como usar modelos de imagem](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Add a line layer](map-add-line-layer.md)
+> [Adicionar uma camada de linha](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](map-add-shape.md)
+> [Adicionar uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer.md)
+> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Add HTML Makers](map-add-bubble-layer.md)
+> [Adicionar makes HTML](map-add-bubble-layer.md)

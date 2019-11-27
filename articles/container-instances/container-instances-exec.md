@@ -1,6 +1,6 @@
 ---
-title: Execute commands in running container instance
-description: Learn how execute a command in a container that's currently running in Azure Container Instances
+title: Executar comandos na instância de contêiner em execução
+description: Saiba como executar um comando em um contêiner que está sendo executado atualmente nas instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: 10d0ea0c2dfa60aad64d0ae11532aff24a7ce773
@@ -10,25 +10,25 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481576"
 ---
-# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Execute a command in a running Azure container instance
+# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Executar um comando em uma instância de contêiner do Azure em execução
 
-Azure Container Instances supports executing a command in a running container. Running a command in a container you've already started is especially helpful during application development and troubleshooting. The most common use of this feature is to launch an interactive shell so that you can debug issues in a running container.
+As instâncias de contêiner do Azure dão suporte à execução de um comando em um contêiner em execução. A execução de um comando em um contêiner que você já iniciou é especialmente útil durante o desenvolvimento de aplicativos e a solução de problemas. O uso mais comum desse recurso é iniciar um shell interativo para que você possa depurar problemas em um contêiner em execução.
 
-## <a name="run-a-command-with-azure-cli"></a>Run a command with Azure CLI
+## <a name="run-a-command-with-azure-cli"></a>Executar um comando com CLI do Azure
 
-Execute a command in a running container with [az container exec][az-container-exec] in the [Azure CLI][azure-cli]:
+Execute um comando em um contêiner em execução com [AZ container exec][az-container-exec] no [CLI do Azure][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
 ```
 
-For example, to launch a Bash shell in an Nginx container:
+Por exemplo, para iniciar um shell bash em um contêiner Nginx:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
 ```
 
-In the example output below, the Bash shell is launched in a running Linux container, providing a terminal in which `ls` is executed:
+Na saída de exemplo abaixo, o shell bash é iniciado em um contêiner do Linux em execução, fornecendo um terminal no qual `ls` é executado:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
@@ -40,7 +40,7 @@ exit
 Bye.
 ```
 
-In this example, Command Prompt is launched in a running Nanoserver container:
+Neste exemplo, o prompt de comando é iniciado em um contêiner do beserver em execução:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
@@ -70,9 +70,9 @@ Bye.
 
 ## <a name="multi-container-groups"></a>Grupos com vários contentores
 
-If your [container group](container-instances-container-groups.md) has multiple containers, such as an application container and a logging sidecar, specify the name of the container in which to run the command with `--container-name`.
+Se o [grupo de contêineres](container-instances-container-groups.md) tiver vários contêineres, como um contêiner de aplicativo e um sidecar de log, especifique o nome do contêiner no qual executar o comando com `--container-name`.
 
-For example, in the container group *mynginx* are two containers, *nginx-app* and *logger*. To launch a shell on the *nginx-app* container:
+Por exemplo, no grupo de contêineres *mynginx* são dois contêineres, *Nginx-app* e *logger*. Para iniciar um shell no contêiner *Nginx-app* :
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
@@ -80,11 +80,11 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Restrições
 
-Azure Container Instances currently supports launching a single process with [az container exec][az-container-exec], and you cannot pass command arguments. For example, you cannot chain commands like in `sh -c "echo FOO && echo BAR"`, or execute `echo FOO`.
+Atualmente, as instâncias de contêiner do Azure dão suporte à inicialização de um único processo com [AZ container exec][az-container-exec], e você não pode passar argumentos de comando. Por exemplo, você não pode encadear comandos como no `sh -c "echo FOO && echo BAR"`ou executar `echo FOO`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Learn about other troubleshooting tools and common deployment issues in [Troubleshoot container and deployment issues in Azure Container Instances](container-instances-troubleshooting.md).
+Saiba mais sobre outras ferramentas de solução de problemas e problemas comuns de implantação em [solucionar problemas de contêiner e implantação em instâncias de contêiner do Azure](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
 [az-container-create]: /cli/azure/container#az-container-create

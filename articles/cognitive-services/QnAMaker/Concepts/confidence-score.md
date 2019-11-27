@@ -1,7 +1,7 @@
 ---
-title: Confidence Score - QnA Maker
+title: Pontuação de confiança-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: The confidence score indicates the confidence that the answer is the right match for the given user query.
+description: A pontuação de confiança indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,94 +18,94 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229110"
 ---
-# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Confidence score of a QnA Maker knowledge base
-When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query. 
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
+Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
 
-The confidence score is a number between 0 and 100. A score of 100 is likely an exact match, while a score of 0 means, that no matching answer was found. The higher the score- the greater the confidence in the answer. For a given query, there could be multiple answers returned. In that case, the answers are returned in order of decreasing confidence score.
+A pontuação de confiança é um número entre 0 e 100. Uma pontuação igual a 100 provavelmente é uma correspondência exata, enquanto uma pontuação igual a 0 significa que nenhuma resposta correspondente foi encontrada. Quanto maior for a pontuação - maior confiança na resposta. Para uma determinada consulta, pode haver várias respostas devolvidas. Nesse caso, as respostas são devolvidas por ordem de diminuir a pontuação de confiança.
 
-In the example below, you can see one QnA entity, with 2 questions. 
-
-
-![Sample QnA pair](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
-
-For the above example- you can expect scores like the sample score range below- for different types of user queries:
+No exemplo a seguir, pode ver uma entidade do QnA, com perguntas de 2. 
 
 
-![Ranker score range](../media/qnamaker-concepts-confidencescore/ranker-score-range.png)
+![Par de QnA de exemplo](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
+
+O exemplo acima-podem esperar as pontuações como o intervalo de pontuação de exemplo abaixo-para diferentes tipos de consultas do utilizador:
 
 
-The following table indicates typical confidence associated for a given score.
+![Intervalo de pontuação classificador](../media/qnamaker-concepts-confidencescore/ranker-score-range.png)
 
-|Score Value|Score Meaning|Example Query|
+
+A tabela seguinte indica típica confiança associada para uma determinada classificação.
+
+|Valor de pontuação|Significado de pontuação|Consulta de exemplo|
 |--|--|--|
-|90 - 100|A near exact match of user query and a KB question|"My changes aren't updated in KB after publish"|
-|> 70|High confidence - typically a good answer that completely answers the user's query|"I published my KB but it's not updated"|
-|50 - 70|Medium confidence - typically a fairly good answer that should answer the main intent of the user query|"Should I save my updates before I publish my KB?"|
-|30 - 50|Low confidence - typically a related answer, that partially answers the user's intent|" What does the save and train do?"|
-|< 30|Very low confidence - typically does not answer the user's query, but has some matching words or phrases |" Where can I add synonyms to my KB"|
-|0|No match, so the answer is not returned.|"How much does the service cost"|
+|90 - 100|A perto de uma correspondência exata de consulta de utilizador e uma pergunta KB|"Minhas alterações não são atualizadas em KB após a publicação"|
+|> 70|Alta confiança - normalmente, uma boa resposta que responde completamente a consulta do utilizador|"Publiquei meu KB, mas este não é atualizado"|
+|50 - 70|Confiança média - normalmente, uma resposta muito boa que deve responder a intenção principal a consulta do utilizador|"Deve salvo meu atualizações antes da publicação do meu KB?"|
+|30 - 50|Confiança de baixa - normalmente, uma resposta relacionada, que responde a parcialmente a intenção do usuário|"O que faz o salvamento e train?"|
+|< a 30|Muito baixa confiança - normalmente, não à consulta do utilizador, mas tem algumas palavras ou frases correspondente |"Em que posso adicionar sinónimos para a minha BDC"|
+|0|Nenhuma correspondência, para que a resposta não é devolvida.|"Quanto o serviço custa"|
 
-## <a name="choose-a-score-threshold"></a>Choose a score threshold
-The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to 0, so that all possible answers are returned. The recommended threshold that should work for most KBs, is **50**.
+## <a name="choose-a-score-threshold"></a>Escolha um limiar de pontuação
+A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, como cada KB é diferente e tem tipos diferentes de palavras, intenções e metas-recomendamos que você teste e escolha o limite que melhor funciona para você. Por padrão, o limite é definido como 0, para que todas as respostas possíveis sejam retornadas. O limite recomendado que deve funcionar para a maioria dos KBs é de **50**.
 
-When choosing your threshold, keep in mind the balance between Accuracy and Coverage, and tweak your threshold based on your requirements.
+Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cobertura e ajustar o limiar com base nos seus requisitos.
 
-- If **Accuracy** (or precision) is more important for your scenario, then increase your threshold. This way, every time you return an answer, it will be a much more CONFIDENT case, and much more likely to be the answer users are looking for. In this case, you might end up leaving more questions unanswered. *For example:* if you make the threshold **70**, you might miss some ambiguous examples likes "what is save and train?".
+- Se a **precisão** (ou precisão) for mais importante para seu cenário, aumente o limite. Dessa forma, sempre que retornar alguma resposta, é um CONFIDENT muito mais maiúsculas e minúsculas e muito mais provável que os utilizadores de resposta estão procurando. Neste caso, poderá acabar deixando mais perguntas sem resposta. *Por exemplo:* se você tornar o limite **70**, poderá perder alguns exemplos ambíguos gosta de "o que é salvar e treinar?".
 
-- If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give answers for queries like "Where can I edit my KB?"
+- Se a **cobertura** (ou recall) for mais importante – e você quiser responder o máximo de perguntas possível, mesmo se houver apenas uma relação parcial com a pergunta do usuário, diminua o limite. Isso significa que lá pode ser mais casos em que a resposta não à consulta de real do usuário, mas oferece alguns outra resposta um pouco relacionada. *Por exemplo:* se você tornar o limite **30**, poderá fornecer respostas para consultas como "onde posso editar meu KB?"
 
 > [!NOTE]
-> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+> Versões mais recentes do QnA Maker incluem melhoramentos de lógica de classificação e afetam o limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Você pode verificar a versão do serviço QnA [aqui](https://www.qnamaker.ai/UserSettings)e ver como obter as atualizações mais recentes [aqui](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-## <a name="set-threshold"></a>Set threshold 
+## <a name="set-threshold"></a>Definir limite 
 
-Set the threshold score as a property of the [GenerateAnswer API JSON body](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you set it for each call to GenerateAnswer. 
+Defina a pontuação de limite como uma propriedade do [corpo JSON da API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Isso significa que você o define para cada chamada para GenerateAnswer. 
 
-From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+Na estrutura do bot, defina a Pontuação como parte do objeto de opções com [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
-## <a name="improve-confidence-scores"></a>Improve confidence scores
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
-
-
-## <a name="similar-confidence-scores"></a>Similar confidence scores
-When multiple responses have a similar confidence score, it is likely that the query was too generic and therefore matched with equal likelihood with multiple answers. Try to structure your QnAs better so that every QnA entity has a distinct intent.
+## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
+Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta. Você também pode usar as [alterações de palavras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) que não diferenciam maiúsculas de minúsculas para adicionar sinônimos a palavras-chave em sua base de dados de conhecimento.
 
 
-## <a name="confidence-score-differences-between-test-and-production"></a>Confidence score differences between test and production
-The confidence score of an answer may change negligibly between the test and published version of the knowledge base even if the content is the same. This is because the content of the test and the published knowledge base are located in different Azure Cognitive Search indexes. 
-
-The test index holds all the QnA pairs of your knowledge bases. When querying the test index, the query applies to the entire index then results are restricted to the partition for that specific knowledge base. If the test query results are negatively impacting your ability to validate the knowledge base, you can:
-* organize your knowledge base using one of the following:
-    * 1 resource restricted to 1 KB: restrict your single QnA resource (and the resulting Azure Cognitive Search test index) to a single knowledge base. 
-    * 2 resources - 1 for test, 1 for production: have two QnA Maker resources, using one for testing (with its own test and  production indexes) and one for product (also having its own test and production indexes)
-* and, always use the same parameters, such as **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** when querying both your test and production knowledge base
-
-When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search. See how the [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) operation works.
-
-If you have a knowledge base in different regions, each region uses its own Azure Cognitive Search index. Because different indexes are used, the scores will not be exactly the same. 
+## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes
+Quando várias respostas tem uma pontuação de confiança semelhante, é provável que a consulta era demasiado genérico e, portanto, correspondentes com probabilidade igual com várias respostas. Tente estruturar seu QnAs melhor para que cada entidade do QnA tem uma intenção distinta.
 
 
-## <a name="no-match-found"></a>No match found
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this [default response](#change-default-answer) in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
+## <a name="confidence-score-differences-between-test-and-production"></a>Diferenças de Pontuação de confiança entre teste e produção
+A pontuação de confiança de uma resposta pode ser alteradas negligibly o teste e a versão publicada da base de dados de conhecimento, mesmo que o conteúdo é o mesmo. Isso ocorre porque o conteúdo do teste e a base de dados de conhecimento publicado estão localizados em diferentes índices de Pesquisa Cognitiva do Azure. 
 
-## <a name="change-default-answer"></a>Change Default Answer
+O índice de teste contém todos os pares de QnA de suas bases de dados de conhecimento. Ao consultar o índice de teste, a consulta se aplica a todo o índice. em seguida, os resultados são restritos à partição para essa base de dados de conhecimento específica. Se os resultados da consulta de teste estiverem afetando negativamente a sua capacidade de validar a base de dados de conhecimento, você poderá:
+* Organize sua base de dados de conhecimento usando uma das seguintes opções:
+    * 1 recurso restrito a 1 KB: restrinja seu único recurso QnA (e o índice de teste Pesquisa Cognitiva do Azure resultante) a uma única base de dados de conhecimento. 
+    * 2 recursos-1 para teste, 1 para produção: tenha dois recursos de QnA Maker, usando um para teste (com seus próprios índices de teste e produção) e outro para o produto (também tendo seus próprios índices de teste e produção)
+* e sempre usam os mesmos parâmetros, como **[Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** ao consultar a base de dados de conhecimento de teste e de produção
 
-1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
+Quando você publica uma base de dados de conhecimento, o conteúdo de perguntas e respostas de sua base de dados de conhecimento se move do índice de teste para um índice de produção no Azure Search. Veja como funciona a operação de [publicação](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) .
 
-2. Click to open the **App Service**.
+Se você tiver uma base de dados de conhecimento em regiões diferentes, cada região usará seu próprio índice de Pesquisa Cognitiva do Azure. Como diferentes índices são usados, as pontuações não serão exatamente iguais. 
 
-    ![In the Azure portal, access App service for QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Clique em **Guardar**.
+## <a name="no-match-found"></a>Nenhuma correspondência localizada
+Quando for encontrada nenhuma correspondência de boa pelo classificador, é devolvida a classificação de confiança de 0,0 ou "None" e a resposta padrão não é "Nenhuma boa correspondência encontrada no artigo do BDC". Você pode substituir essa [resposta padrão](#change-default-answer) no bot ou no código do aplicativo que chama o ponto de extremidade. Como alternativa, também pode definir a resposta de substituição no Azure, e isso muda a predefinição para todas as bases de dados de conhecimento implementado num determinado serviço QnA Maker.
 
-    ![Select Application Settings and then edit DefaultAnswer for QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+## <a name="change-default-answer"></a>Resposta de padrão de alteração
 
-4. Restart your App service
+1. Vá para a [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que representa o serviço de QnA Maker que você criou.
 
-    ![After you change the DefaultAnswer, restart the QnA Maker appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+2. Clique para abrir o **serviço de aplicativo**.
+
+    ![No portal do Azure, aceder ao serviço de aplicações para o QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+
+3. Clique em **configurações do aplicativo** e edite o campo **defaultanswer** para a resposta padrão desejada. Clique em **Guardar**.
+
+    ![Selecione as definições da aplicação e, em seguida, editar DefaultAnswer para o QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+
+4. Reinicie o serviço de aplicações
+
+    ![Depois de alterar o DefaultAnswer, reinicie o serviço de aplicações do QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Data sources supported](./data-sources-supported.md)
+> [Fontes de dados com suporte](./data-sources-supported.md)
 

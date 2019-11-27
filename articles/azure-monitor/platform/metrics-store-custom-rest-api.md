@@ -79,7 +79,7 @@ Salve o token de acesso da resposta.
 
 1. Na janela do prompt de comando, poste os dados da métrica: 
    - **azureRegion**. Deve corresponder à região de implantação do recurso para o qual você está emitindo métricas. 
-   - **resourceID**.  ID de recurso do recurso do Azure no qual você está acompanhando a métrica.  
+   - **ResourceId**.  ID de recurso do recurso do Azure no qual você está acompanhando a métrica.  
    - **AccessToken**. Cole o token que você adquiriu anteriormente.
 
      ```Shell 

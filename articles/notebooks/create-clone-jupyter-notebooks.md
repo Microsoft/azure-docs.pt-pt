@@ -12,13 +12,13 @@ ms.locfileid: "74277567"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
-Blocos de notas do Azure organiza seus blocos de notas do Jupyter e arquivos relacionados em grupos lógicos chamados *projetos*. Criar um projeto primeiro como um contêiner, em seguida, crie ou clonar um ou mais blocos de notas dentro de uma pasta em conjunto com outros ficheiros de projeto. (Este processo é demonstrado a [tutorial](tutorial-create-run-jupyter-notebook.md).)
+Azure Notebooks organiza seus blocos de anotações do Jupyter e os arquivos relacionados em grupos lógicos chamados *projetos*. Criar um projeto primeiro como um contêiner, em seguida, crie ou clonar um ou mais blocos de notas dentro de uma pasta em conjunto com outros ficheiros de projeto. (Esse processo é demonstrado no [tutorial](tutorial-create-run-jupyter-notebook.md).)
 
-Um projeto também mantém metadados e outras definições de configuração que afetam o servidor nos quais blocos de notas que executar, incluindo os passos de configuração personalizada e instalação do pacote. Para obter mais informações, consulte [gerir e configurar projetos](configure-manage-azure-notebooks-projects.md).
+Um projeto também mantém metadados e outras definições de configuração que afetam o servidor nos quais blocos de notas que executar, incluindo os passos de configuração personalizada e instalação do pacote. Para obter mais informações, consulte [gerenciar e configurar projetos](configure-manage-azure-notebooks-projects.md).
 
 ## <a name="use-the-my-projects-dashboard"></a>Utilize o dashboard de meus projetos
 
-Sua **meus projetos** dashboard em `https://notebooks.azure.com/<userID>/projects` é onde pode ver, gere e criar projetos:
+O painel **meus projetos** em `https://notebooks.azure.com/<userID>/projects` é onde você exibe, gerencia e cria projetos:
 
 [![painel meus projetos no Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
@@ -26,18 +26,18 @@ O que pode fazer no dashboard depende se iniciou sessão com a conta que possui 
 
 | Comando | Disponível para | Descrição |
 | --- | --- | --- |
-| **Executar** | Proprietário | Inicia o servidor de projeto e abre a pasta de projeto no Jupyter. (Mais comum, que navegue primeiro para uma pasta do projeto, em seguida, iniciar um bloco de notas a partir daí.) |
-| **Transferir** | Qualquer pessoa | Transfere uma cópia do projeto selecionado como um ficheiro ZIP. |
-| **Partilhar** | Qualquer pessoa | Apresenta o popup partilha através do qual pode obter um URL para um projeto selecionado, partilhe a mídia social, enviar um e-mail com o URL e obter o código HTML ou Markdown para com um destaque de "Bloco de notas de lançamento" (consulte [obter um destaque de lançamento](#obtain-a-launch-badge)) com o URL. |
+| **Funcionam** | Proprietário | Inicia o servidor de projeto e abre a pasta de projeto no Jupyter. (Mais comum, que navegue primeiro para uma pasta do projeto, em seguida, iniciar um bloco de notas a partir daí.) |
+| **Transferência** | Qualquer pessoa | Transfere uma cópia do projeto selecionado como um ficheiro ZIP. |
+| **Partilhar** | Qualquer pessoa | Exibe o pop-up de compartilhamento por meio do qual você pode obter uma URL para um projeto selecionado, compartilhar com mídia social, enviar um email com a URL e obter código HTML ou de redução para com um selo de "Iniciar bloco de anotações" (consulte [obter uma notificação de inicialização](#obtain-a-launch-badge)) com a URL. |
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
-| **Terminal** | Proprietário | Inicia o servidor de projeto, em seguida, abre-se de uma nova janela do browser com o bash para esse servidor de terminal. |
-| **+ Novo projeto** | Proprietário | Cria um novo projeto. Ver [criar um novo projeto](#create-a-new-project). |
-| **Carregar repositório GitHub** | Proprietário | Importa um projeto do GitHub. [Importar um projeto do GitHub](#import-a-project-from-github). |
-| **Clone** | Qualquer pessoa | Copia um projeto selecionado para a sua própria conta. Pede-lhe para iniciar sessão em se não o tiver feito. Ver [clonar um projeto](#clone-a-project). |
+| **Componentes** | Proprietário | Inicia o servidor de projeto, em seguida, abre-se de uma nova janela do browser com o bash para esse servidor de terminal. |
+| **+ Novo projeto** | Proprietário | Cria um novo projeto. Consulte [criar um novo projeto](#create-a-new-project). |
+| **Carregar repositório GitHub** | Proprietário | Importa um projeto do GitHub. [Importe um projeto do GitHub](#import-a-project-from-github). |
+| **8i** | Qualquer pessoa | Copia um projeto selecionado para a sua própria conta. Pede-lhe para iniciar sessão em se não o tiver feito. Consulte [clonar um projeto](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Obter um destaque de lançamento
 
-Quando utiliza a **partilha** de comandos e selecione o **incorporação** separador, pode copiar o código HTML ou Markdown que cria um distintivo "Bloco de notas de lançamento":
+Ao usar o comando **compartilhar** e selecionar a guia **Inserir** , você pode copiar um código HTML ou uma redução que cria um selo de "Iniciar bloco de anotações":
 
 ![Inicie o destaque do bloco de notas](https://notebooks.azure.com/launch.png)
 
@@ -53,14 +53,14 @@ Se não tiver um projeto de blocos de notas do Azure, pode criar uma ligação q
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
-Quando utiliza a **+ novo projeto** comando, blocos de notas do Azure apresenta uma **criar novo projeto** pop-up. Neste pop-up, introduza as informações seguintes, em seguida, selecione **criar**:
+Quando você usa o comando **+ New Project** , Azure notebooks exibe um pop-up **criar novo projeto** . Nesse pop-up, insira as informações a seguir e, em seguida, selecione **criar**:
 
 | Campo | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que blocos de notas do Azure utiliza para fins de exibição. Por exemplo, "meu projeto de notebook". |
-| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
+| ID do Projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
 | Público | Se definido, permite que qualquer pessoa com a ligação para acessar o projeto. Ao criar um projeto privado, desmarque esta opção. |
-| Inicializar esse projeto com um ficheiro Leia-me | Se definido, cria uma predefinição *README.md* arquivo no projeto. R *README.md* ficheiro é onde fornecer documentação para o seu projeto, se assim o desejar. |
+| Inicializar esse projeto com um ficheiro Leia-me | Se definido, cria um arquivo *README.MD* padrão no projeto. Um arquivo *README.MD* é onde você fornece documentação para seu projeto, se desejar. |
 
 ### <a name="reserved-project-ids"></a>IDs de projeto reservadas
 
@@ -80,14 +80,14 @@ Como uma ID de projeto também faz parte da URL de um projeto, o software bloque
 
 ## <a name="import-a-project-from-github"></a>Importar um projeto do GitHub
 
-Pode importar facilmente um repositório do GitHub público inteiro como um projeto, incluindo todos os dados e *README.md* ficheiros. Utilize o **carregar repositório do GitHub** comando, forneça os detalhes seguintes no pop-up, em seguida, selecione **importação**:
+Você pode importar facilmente um repositório GitHub público inteiro como um projeto, incluindo dados e arquivos *README.MD* . Use o comando **carregar repositório GitHub** , forneça os seguintes detalhes no pop-up e selecione **importar**:
 
 | Campo | Descrição |
 | --- | --- |
-| Repositório do GitHub | O nome do repositório de código-fonte no github.com. Por exemplo, para clonar os blocos de notas do Jupyter para os serviços cognitivos do Azure no [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks), introduza "Microsoft/cognitivos-services-blocos de notas".  |
+| Repositório do GitHub | O nome do repositório de código-fonte no github.com. Por exemplo, para clonar os blocos de anotações do Jupyter para serviços cognitivas do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), insira "Microsoft/cognitiva-Services-notebooks".  |
 | Clonar recursivamente | Repositórios do GitHub podem conter vários repositórios de subordinados. Defina esta opção se pretender clonar o repositório principal e todos os respetivos subordinados. Como é possível para um repositório ter várias crianças, deixe esta opção clara, a menos que sabe o que for preciso. |
 | Nome do projeto | Um nome amigável para o seu projeto que blocos de notas do Azure utiliza para fins de exibição. |
-| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
+| ID do Projeto | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
 | Público | Se definido, permite que qualquer pessoa com a ligação para acessar o projeto. Ao criar um projeto privado, desmarque esta opção. |
 
 Também importar um repositório do GitHub importa o respetivo histórico. Pode utilizar comandos de Git padrão a partir do terminal para consolidar as alterações novas, tirar alterações do GitHub e assim por diante.
@@ -98,22 +98,22 @@ A clonagem cria uma cópia de um projeto existente na sua própria conta, onde p
 
 Para clonar um projeto:
 
-1. Sobre o **meus projetos** dashboard, clique com o botão direito no projeto pretendido e selecione **Clone** (atalho de teclado: c).
+1. No painel **meus projetos** , clique com o botão direito do mouse no projeto desejado e selecione **clonar** (atalho de teclado: c).
 
     ![Comando de clonagem no menu de contexto do projeto](media/clone-command.png)
 
-1. Na **projeto de Clone** pop-up, introduza um nome e ID para o clone e especifique se o clone público. Estas definições são os mesmos que para uma [novo projeto](#create-a-new-project).
+1. No pop-up **clonar projeto** , insira um nome e uma ID para o clone e especifique se o clone é público. Essas configurações são as mesmas para um [novo projeto](#create-a-new-project).
 
     ![Pop-up de projeto de clone](media/clone-project.png)
 
-1. Depois de selecionar o **Clone** navega de botão, blocos de notas do Azure diretamente para a cópia.
+1. Depois de selecionar o botão **clonar** , Azure notebooks navega diretamente para a cópia.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
-- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Explorar blocos de anotações de exemplo](azure-notebooks-samples.md)
+- [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [Como instalar pacotes de dentro de um bloco de anotações](install-packages-jupyter-notebook.md)
+- [Como: apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
+- [Como trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
 - [Como: usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

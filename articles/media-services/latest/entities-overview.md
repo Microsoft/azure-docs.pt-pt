@@ -169,16 +169,16 @@ A tabela a seguir mostra como você pode aplicar as opções de filtragem e orde
 ||properties.policyId|`eq`, `ne`||
 |[Tarefas](https://docs.microsoft.com/rest/api/media/jobs)| nome  | `eq`            | `asc` e `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
-||Properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
-||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
+||Properties.created      | `gt`, `ge`, `lt``le`| `asc` e `desc`|
+||properties.lastModified | `gt`, `ge`, `lt``le` | `asc` e `desc`| 
 |[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 |[Políticas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 |[Transformações](https://docs.microsoft.com/rest/api/media/transforms)| nome | `eq`            | `asc` e `desc`|
-|| Properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
-|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
+|| Properties.created      | `gt`, `ge`, `lt``le`| `asc` e `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt``le`| `asc` e `desc`|
 
 ## <a name="next-steps"></a>Passos seguintes
 

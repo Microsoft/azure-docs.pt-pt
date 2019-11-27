@@ -1,6 +1,6 @@
 ---
-title: How to target Azure Functions runtime versions
-description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
+title: Como direcionar Azure Functions versões de tempo de execução
+description: O Azure Functions dá suporte a várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de um aplicativo de funções hospedado no Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
@@ -10,62 +10,62 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230312"
 ---
-# <a name="how-to-target-azure-functions-runtime-versions"></a>How to target Azure Functions runtime versions
+# <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar Azure Functions versões de tempo de execução
 
-A function app runs on a specific version of the Azure Functions runtime. There are two major versions: [1.x and 2.x](functions-versions.md), with version 3.x in preview. By default, function apps that are created version 2.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
+Um aplicativo de funções é executado em uma versão específica do tempo de execução de Azure Functions. Há duas versões principais: [1. x e 2. x](functions-versions.md), com a versão 3. x na visualização. Por padrão, os aplicativos de funções que são criados versão 2. x do tempo de execução. Este artigo explica como configurar um aplicativo de funções no Azure para ser executado na versão que você escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [código e teste Azure Functions localmente](functions-run-local.md).
 
-## <a name="automatic-and-manual-version-updates"></a>Automatic and manual version updates
+## <a name="automatic-and-manual-version-updates"></a>Atualizações automáticas e manuais de versão
 
-Azure Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version.
+Azure Functions permite que você direcione uma versão específica do tempo de execução usando a configuração de aplicativo `FUNCTIONS_EXTENSION_VERSION` em um aplicativo de funções. O aplicativo de funções é mantido na versão principal especificada até que você escolha explicitamente mover para uma nova versão.
 
-If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions do not introduce breaking changes. If you specify a minor version (for example, "2.0.12345"), the function app is pinned to that specific version until you explicitly change it.
+Se você especificar apenas a versão principal, o aplicativo de funções será atualizado automaticamente para novas versões secundárias do tempo de execução quando eles forem disponibilizados. As novas versões secundárias não introduzem alterações significativas. Se você especificar uma versão secundária (por exemplo, "2.0.12345"), o aplicativo de funções será fixado nessa versão específica até que você a altere explicitamente.
 
 > [!NOTE]
-> If you pin to a specific version of Azure Functions, and then try to publish to Azure using Visual Studio, a dialog window will pop up prompting you to update to the latest version or cancel the publish. To avoid this, add the `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` property in your `.csproj` file.
+> Se você fixar em uma versão específica do Azure Functions e tentar publicar no Azure usando o Visual Studio, uma janela de diálogo será exibida solicitando que você atualize para a versão mais recente ou cancele a publicação. Para evitar isso, adicione a propriedade `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` em seu arquivo de `.csproj`.
 
-When a new version is publicly available, a prompt in the portal gives you the chance to move up to that version. After moving to a new version, you can always use the `FUNCTIONS_EXTENSION_VERSION` application setting to move back to a previous version.
+Quando uma nova versão estiver disponível publicamente, um prompt no portal lhe dará a chance de se mover para essa versão. Depois de mover para uma nova versão, você sempre pode usar a configuração `FUNCTIONS_EXTENSION_VERSION` aplicativo para voltar para uma versão anterior.
 
-The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each major version to enable automatic updates:
+A tabela a seguir mostra os valores de `FUNCTIONS_EXTENSION_VERSION` para cada versão principal para habilitar as atualizações automáticas:
 
-| Major version | `FUNCTIONS_EXTENSION_VERSION` value |
+| Versão principal | valor `FUNCTIONS_EXTENSION_VERSION` |
 | ------------- | ----------------------------------- |
-| 3.x (preview) | `~3` |
+| 3. x (visualização) | `~3` |
 | 2.x  | `~2` |
 | 1.x | `~1` |
 
-A change to the runtime version causes a function app to restart.
+Uma alteração na versão de tempo de execução faz com que um aplicativo de funções seja reiniciado.
 
-## <a name="view-and-update-the-current-runtime-version"></a>View and update the current runtime version
+## <a name="view-and-update-the-current-runtime-version"></a>Exibir e atualizar a versão de tempo de execução atual
 
-You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
+Você pode alterar a versão de tempo de execução usada pelo seu aplicativo de funções. Devido ao potencial de alterações significativas, você só pode alterar a versão de tempo de execução antes de criar qualquer função em seu aplicativo de funções. 
 
 > [!IMPORTANT]
-> Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, you should make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.
+> Embora a versão de tempo de execução seja determinada pela configuração de `FUNCTIONS_EXTENSION_VERSION`, você deve fazer essa alteração na portal do Azure e não alterando a configuração diretamente. Isso ocorre porque o portal valida as alterações e faz outras alterações relacionadas, conforme necessário.
 
-### <a name="from-the-azure-portal"></a>From the Azure portal
+### <a name="from-the-azure-portal"></a>Da portal do Azure
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
-> Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
+> Usando o portal do Azure, você não pode alterar a versão de tempo de execução de um aplicativo de funções que já contém funções.
 
-### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>From the Azure CLI
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Da CLI do Azure
 
-You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.
+Você também pode exibir e definir o `FUNCTIONS_EXTENSION_VERSION` do CLI do Azure.
 
 >[!NOTE]
->Because other settings may be impacted by the runtime version, you should change the version in the portal. The portal automatically makes the other needed updates, such as Node.js version and runtime stack, when you change runtime versions.  
+>Como outras configurações podem ser afetadas pela versão de tempo de execução, você deve alterar a versão no Portal. O portal automaticamente faz as outras atualizações necessárias, como a versão do node. js e a pilha de tempo de execução, quando você altera as versões de tempo de execução.  
 
-Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
+Usando o CLI do Azure, exiba a versão de tempo de execução atual com o comando [AZ functionapp config appSettings Set](/cli/azure/functionapp/config/appsettings) .
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
 --resource-group <my_resource_group>
 ```
 
-In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. 
+Nesse código, substitua `<function_app>` pelo nome do seu aplicativo de funções. Substitua também `<my_resource_group>` pelo nome do grupo de recursos para seu aplicativo de funções. 
 
-You see the `FUNCTIONS_EXTENSION_VERSION` in the following output, which has been truncated for clarity:
+Você verá a `FUNCTIONS_EXTENSION_VERSION` na seguinte saída, que foi truncada para maior clareza:
 
 ```output
 [
@@ -90,7 +90,7 @@ You see the `FUNCTIONS_EXTENSION_VERSION` in the following output, which has bee
 ]
 ```
 
-You can update the `FUNCTIONS_EXTENSION_VERSION` setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
+Você pode atualizar a configuração de `FUNCTIONS_EXTENSION_VERSION` no aplicativo de funções com o comando [AZ functionapp config appSettings Set](/cli/azure/functionapp/config/appsettings) .
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -98,16 +98,16 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
 
-Replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. Also, replace `<version>` with a valid version of the 1.x runtime or `~2` for version 2.x.
+Substitua `<function_app>` pelo nome do seu aplicativo de funções. Substitua também `<my_resource_group>` pelo nome do grupo de recursos para seu aplicativo de funções. Além disso, substitua `<version>` por uma versão válida do tempo de execução 1. x ou `~2` para a versão 2. x.
 
-You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
+Você pode executar esse comando no [Azure cloud Shell](../cloud-shell/overview.md) escolhendo **experimentar** no exemplo de código anterior. Você também pode usar o [CLI do Azure localmente](/cli/azure/install-azure-cli) para executar esse comando depois de executar [AZ login](/cli/azure/reference-index#az-login) para entrar.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Target the 2.0 runtime in your local development environment](functions-run-local.md)
+> [Direcione o tempo de execução de 2,0 em seu ambiente de desenvolvimento local](functions-run-local.md)
 
 > [!div class="nextstepaction"]
-> [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+> [Consulte notas de versão para versões de tempo de execução](https://github.com/Azure/azure-webjobs-sdk-script/releases)

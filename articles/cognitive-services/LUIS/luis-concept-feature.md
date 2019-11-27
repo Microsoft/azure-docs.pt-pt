@@ -87,8 +87,8 @@ Uma entidade (A) deve ser adicionada como um recurso a outra entidade (B) quando
 Por exemplo, se a entidade endereço (a) for detectada, a localização do endereço (A) adiciona peso à previsão para a entidade endereço de envio (B). 
 
 ## <a name="best-practices"></a>Melhores práticas
-Saiba mais [melhores práticas](luis-concept-best-practices.md).
+Conheça [as práticas recomendadas](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ver [adicionar funcionalidades](luis-how-to-add-features.md) para saber mais sobre como adicionar funcionalidades à sua aplicação LUIS.
+Consulte [Adicionar recursos](luis-how-to-add-features.md) para saber mais sobre como adicionar recursos ao seu aplicativo Luis.

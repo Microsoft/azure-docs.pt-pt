@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/25/2019
 ms.author: swmachan
-ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671955"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533710"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de solicitação para Tradução de Texto
 
@@ -29,12 +29,12 @@ A tabela a seguir lista os limites de elemento e de caracteres de matriz para ca
 
 | Operação | Tamanho máximo do elemento de matriz |   Número máximo de elementos da matriz |  Tamanho máximo da solicitação (caracteres) |
 |:----|:----|:----|:----|
-| Translate | 5,000 | 100   | 5,000 |
-| Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10,000 | 100 |   50,000 |
-| BreakSentence | 10,000    | 100 | 50,000 |
+| Traduzir | 5\.000 | 100   | 5\.000 |
+| Transliterar | 5\.000 | 10    | 5\.000 |
+| Detetar | 10,000 | 100 |   50 000 |
+| BreakSentence | 10,000    | 100 | 50 000 |
 | Pesquisa no Dicionário| 100 |  10  | 1,000 |
-| Exemplos do dicionário | 100 para texto e 100 para conversão (total de 200)| 10|   2\.000 |
+| Exemplos do dicionário | 100 para texto e 100 para conversão (total de 200)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caracteres por hora
 
@@ -58,7 +58,7 @@ Esses limites são restritos aos modelos de tradução padrão da Microsoft. Os 
 
 ## <a name="latency"></a>Latência
 
-A API de Tradução de Texto tem uma latência máxima de 15 segundos usando modelos padrão. A conversão usando modelos personalizados tem uma latência máxima de 25 segundos. Desta vez, você terá recebido um resultado ou uma resposta de tempo limite. Normalmente, as respostas são retornadas em 150 milissegundos a 300 milissegundos. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique sua conexão de rede e tente novamente.
+A API de Tradução de Texto tem uma latência máxima de 15 segundos usando modelos padrão e 120 segundos ao usar modelos personalizados. Normalmente, as respostas *de texto dentro de 100 caracteres* são retornadas em 150 milissegundos a 300 milissegundos. Os modelos de Tradutor personalizados têm características de latência semelhantes na taxa de solicitação sustentada e podem ter uma latência mais alta quando a taxa de solicitação é intermitente. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique seu código, sua conexão de rede e tente novamente. 
 
 ## <a name="sentence-length-limits"></a>Limites de comprimento da frase
 

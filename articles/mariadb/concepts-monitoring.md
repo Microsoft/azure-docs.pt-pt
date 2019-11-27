@@ -1,6 +1,6 @@
 ---
-title: Monitoring in Azure Database for MariaDB
-description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
+title: Monitoramento no banco de dados do Azure para MariaDB
+description: Este artigo descreve as métricas para monitoramento e alertas para o banco de dados do Azure para MariaDB, incluindo CPU, armazenamento e estatísticas de conexão.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -13,58 +13,58 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382053"
 ---
-# <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoring in Azure Database for MariaDB
-Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
+# <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoramento no banco de dados do Azure para MariaDB
+O monitoramento de dados sobre seus servidores ajuda você a solucionar problemas e otimizar sua carga de trabalho. O banco de dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas as métricas do Azure têm uma frequência de um minuto e cada métrica fornece 30 dias de histórico. Você pode configurar alertas nas métricas. Outras tarefas incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [visão geral de métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
+Para obter orientações passo a passo, consulte [como configurar alertas](howto-alert-metric.md).
 
-### <a name="list-of-metrics"></a>List of metrics
-These metrics are available for Azure Database for MariaDB:
+### <a name="list-of-metrics"></a>Lista de métricas
+Essas métricas estão disponíveis para o banco de dados do Azure para MariaDB:
 
-|Métrica|Metric Display Name|Unidade|Descrição|
+|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
 |---|---|---|---|
-|cpu_percent|CPU percent|Percentagem|The percentage of CPU in use.|
-|memory_percent|Memory percent|Percentagem|The percentage of memory in use.|
-|io_consumption_percent|IO percent|Percentagem|The percentage of IO in use.|
-|storage_percent|Storage percentage|Percentagem|The percentage of storage used out of the server's maximum.|
-|storage_used|Armazenamento utilizado|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
-|serverlog_storage_percent|Server Log storage percent|Percentagem|The percentage of server log storage used out of the server's maximum server log storage.|
-|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
-|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
-|storage_limit|Storage limit|Bytes|The maximum storage for this server.|
-|active_connections|Active Connections|Contagem|The number of active connections to the server.|
-|connections_failed|Ligações com Falhas|Contagem|The number of failed connections to the server.|
-|network_bytes_egress|Saída da Rede|Bytes|Network Out across active connections.|
-|network_bytes_ingress|Entrada na Rede|Bytes|Network In across active connections.|
+|cpu_percent|Percentual de CPU|Percentagem|A porcentagem de CPU em uso.|
+|memory_percent|Porcentagem de memória|Percentagem|A porcentagem de memória em uso.|
+|io_consumption_percent|Porcentagem de e/s|Percentagem|A porcentagem de e/s em uso.|
+|storage_percent|Porcentagem de armazenamento|Percentagem|A porcentagem de armazenamento usada fora do máximo do servidor.|
+|storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transações e os logs do servidor.|
+|serverlog_storage_percent|Porcentagem de armazenamento de log do servidor|Percentagem|A porcentagem de armazenamento de log do servidor usado fora do armazenamento de log do servidor máximo do servidor.|
+|serverlog_storage_usage|Armazenamento de log do servidor usado|Bytes|A quantidade de armazenamento de log do servidor em uso.|
+|serverlog_storage_limit|Limite de armazenamento de log do servidor|Bytes|O armazenamento máximo de log do servidor para este servidor.|
+|storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
+|active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
+|connections_failed|Ligações com Falhas|Contagem|O número de conexões com falha com o servidor.|
+|network_bytes_egress|Saída da Rede|Bytes|Saída de rede entre conexões ativas.|
+|network_bytes_ingress|Entrada na Rede|Bytes|Rede entre conexões ativas.|
 
 ## <a name="server-logs"></a>Registos do servidor
 
-You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+Você pode habilitar o log de consultas lentos no servidor. Esses logs também estão disponíveis por meio dos logs de diagnóstico do Azure em logs de Azure Monitor, hubs de eventos e conta de armazenamento. Para saber mais sobre registro em log, visite a página [logs do servidor](concepts-server-logs.md) .
 
 ## <a name="query-store"></a>Arquivo de Consultas
 
-[Query Store](concepts-query-store.md) keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in the **mysql** schema. You can control the collection and storage of data via various configuration knobs.
+[Repositório de consultas](concepts-query-store.md) controla o desempenho da consulta ao longo do tempo, incluindo estatísticas de tempo de execução de consulta e eventos de espera. O recurso persiste as informações de desempenho de tempo de execução de consulta no esquema **MySQL** . Você pode controlar a coleta e o armazenamento de dados por meio de vários botões de configuração.
 
-## <a name="query-performance-insight"></a>Estatísticas de Desempenho de Consultas
+## <a name="query-performance-insight"></a>Query Performance Insight
 
-[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible in the **Intelligent Performance** section of your Azure Database for MariaDB server's portal page.
+[Análise de desempenho de consultas](concepts-query-performance-insight.md) trabalha em conjunto com repositório de consultas para fornecer visualizações acessíveis do portal do Azure. Esses gráficos permitem que você identifique as principais consultas que afetam o desempenho. Análise de Desempenho de Consultas é acessível na seção de **desempenho inteligente** da página do portal do banco de dados do Azure para o MariaDB Server.
 
 ## <a name="performance-recommendations"></a>Recomendações de Desempenho
 
-The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
+O recurso de [recomendações de desempenho](concepts-performance-recommendations.md) identifica oportunidades para melhorar o desempenho da carga de trabalho. As recomendações de desempenho fornecem recomendações para a criação de novos índices que têm o potencial de melhorar o desempenho de suas cargas de trabalho. Para produzir recomendações de índice, o recurso leva em consideração várias características de banco de dados, incluindo seu esquema e a carga de trabalho conforme relatado pelo Repositório de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
 
-## <a name="service-health"></a>Estado de funcionamento do serviço
-[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+## <a name="service-health"></a>Estado de funcionamento dos serviços
+A [integridade do serviço do Azure](../service-health/overview.md) fornece uma exibição de todas as notificações de integridade do serviço em sua assinatura. Você pode configurar alertas de integridade do serviço para notificá-lo por meio de seus canais de comunicação preferenciais quando houver problemas ou alterações que possam afetar os serviços e as regiões do Azure que você usa.
 
-You can view scheduled maintenance events for Azure Database for MariaDB by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+Você pode exibir eventos de manutenção agendados para o banco de dados do Azure para MariaDB usando o tipo de evento de **manutenção planejada** . Para saber como criar **alertas de integridade do serviço**, visite o artigo [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md) .
 
 > [!IMPORTANT]
-> The planned maintenance notifications is available in preview for EAST US and UK South only.
+> As notificações de manutenção planejada estão disponíveis em versão prévia para o leste dos EUA e apenas Sul do Reino Unido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-  - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.
+- Para obter mais informações sobre como acessar e exportar métricas usando o portal do Azure, a API REST ou a CLI, consulte a [visão geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+  - Consulte [como configurar alertas](howto-alert-metric.md) para obter orientação sobre como criar um alerta em uma métrica.

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Check spelling with the REST API and PHP - Bing Spell Check'
+title: 'Início rápido: verificar a ortografia com a API REST e o PHP-Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: This simple PHP application sends a request to the Bing Spell Check API and returns a list of suggested corrections.
+description: Esse aplicativo simples do PHP envia uma solicitação para a API de Verificação Ortográfica do Bing e retorna uma lista de correções sugeridas.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,13 +17,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383856"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Check spelling with the Bing Spell Check REST API and PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Início rápido: verificar a ortografia com a API REST do Verificação Ortográfica do Bing e PHP
 
-Use this quickstart to make your first call to the Bing Spell Check REST API. This simple PHP application sends a request to the API and returns a list of suggested corrections. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
+Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing. Esse aplicativo simples do PHP envia uma solicitação para a API e retorna uma lista de correções sugeridas. Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [PHP 5.6.x](https://php.net/downloads.php)
+* [PHP 5.6. x](https://php.net/downloads.php)
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](../tutorials/spellcheck.md)
+> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
-- [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
+- [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

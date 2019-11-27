@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: New policy assignment with templates'
-description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
+title: 'Início rápido: nova atribuição de política com modelos'
+description: Neste guia de início rápido, você usa um modelo do Resource Manager para criar uma atribuição de política para identificar recursos sem conformidade.
 ms.date: 11/25/2019
 ms.topic: quickstart
 ms.openlocfilehash: 61bffcdeb5d562fe18df98fda091d5d6aa4b4051
@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482339"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Quickstart: Create a policy assignment to identify non-compliant resources by using a Resource Manager template
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
 Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
@@ -23,66 +23,66 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-In this quickstart, you create a policy assignment and assign a built-in policy definition called _Audit VMs that do not use managed disks_. For a partial list of available built-in policies, see [Azure Policy samples](./samples/index.md).
+Neste guia de início rápido, você cria uma atribuição de política e atribui uma definição de política interna chamada _VMs de auditoria que não usam discos gerenciados_. Para obter uma lista parcial de políticas internas disponíveis, consulte [exemplos de Azure Policy](./samples/index.md).
 
-There are several methods for creating policy assignments. In this quickstart, you use a [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
-Here is a copy of the template:
+Há vários métodos para criar atribuições de política. Neste guia de início rápido, você usa um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+Aqui está uma cópia do modelo:
 
 [!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
-> Azure Policy service is free. For more information, see [Overview of Azure Policy](./overview.md).
+> Azure Policy serviço é gratuito. Para obter mais informações, consulte [visão geral do Azure Policy](./overview.md).
 
-1. Select the following image to sign in to the Azure portal and open the template:
+1. Selecione a imagem a seguir para entrar no portal do Azure e abrir o modelo:
 
-   [![Deploy the Policy template to Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![implantar o modelo de política no Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
-1. Select or enter the following values:
+1. Selecione ou insira os seguintes valores:
 
    | Nome | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
-   | Grupo de recursos | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is _mypolicyquickstart\<Date in MMDD\>rg_. |
-   | Localização | Select a region. For example, **Central US**. |
-   | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
-   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
-   | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
-   | I agree to the terms and conditions stated above | (Select) |
+   | Grupo de recursos | Selecione **criar novo**, especifique um nome e, em seguida, selecione **OK**. Na captura de tela, o nome do grupo de recursos é _mypolicyquickstart\<data em MMDD\>RG_. |
+   | Localização | Selecione uma região. Por exemplo, **EUA Central**. |
+   | Nome da atribuição de política | Especifique um nome de atribuição de política. Você pode usar a exibição definição de política se desejar. Por exemplo, **audite VMs que não usam discos gerenciados**. |
+   | Nome RG | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste guia de início rápido, use o valor padrão **[resourcegroup (). Name]** . **[resourcegroup ()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
+   | ID de definição de política | Especifique **/Providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4C19-B460-a2d36003525a**. |
+   | Eu concordo com os termos e condições declarados acima | Não |
 
 1. Selecione **Comprar**.
 
-Some additional resources:
+Alguns recursos adicionais:
 
-- To find more samples templates, see [Azure Quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
-- To see the template reference, go to [Azure template reference](/azure/templates/microsoft.authorization/allversions).
-- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](../../azure-resource-manager/resource-group-overview.md).
-- To learn subscription-level deployment, see [Create resource groups and resources at the subscription level](../../azure-resource-manager/deploy-to-subscription.md).
+- Para encontrar mais modelos de exemplos, consulte [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- Para ver a referência de modelo, vá para [referência de modelo do Azure](/azure/templates/microsoft.authorization/allversions).
+- Para saber como desenvolver modelos do Resource Manager, consulte a [documentação do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+- Para aprender a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](../../azure-resource-manager/deploy-to-subscription.md).
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 
-Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use managed disks** policy assignment you created.
+Selecione **conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
 
-![Policy compliance overview page](./media/assign-policy-template/policy-compliance.png)
+![Página Visão geral de conformidade de política](./media/assign-policy-template/policy-compliance.png)
 
-If there are any existing resources that aren't compliant with this new assignment, they appear under **Non-compliant resources**.
+Se houver algum recurso existente que não esteja em conformidade com essa nova atribuição, eles aparecerão em **recursos sem conformidade**.
 
-For more information, see [How compliance works](./how-to/get-compliance-data.md#how-compliance-works).
+Para obter mais informações, consulte [como funciona a conformidade](./how-to/get-compliance-data.md#how-compliance-works).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-To remove the assignment created, follow these steps:
+Para remover a atribuição de criado, siga estes passos:
 
 1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página Azure Policy e localize a atribuição de política **Auditar VMs que não utilizam discos geridos** que criou.
 
-1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**.
+1. Clique com o botão direito do mouse na atribuição **auditar VMs que não usam a política de discos gerenciados** e selecione **excluir atribuição**.
 
-   ![Delete an assignment from the compliance overview page](./media/assign-policy-template/delete-assignment.png)
+   ![Excluir uma atribuição da página Visão geral de conformidade](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this quickstart, you assigned a built-in policy definition to a scope and evaluated its compliance report. The policy definition validates that all the resources in the scope are compliant and identifies which ones aren't.
+Neste guia de início rápido, você atribuiu uma definição de política interna a um escopo e avaliou seu relatório de conformidade. A definição de política valida que todos os recursos no âmbito estão em conformidade e identifica quais não estão.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the tutorial for:
+Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, avance para o tutorial para:
 
 > [!div class="nextstepaction"]
 > [Criar e gerir políticas](./tutorials/create-and-manage.md)

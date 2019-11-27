@@ -1,6 +1,6 @@
 ---
-title: Optimize your cloud investment with Azure Cost Management | Microsoft Docs
-description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
+title: Otimizar o seu investimento na cloud com o Azure Cost Management | Documentos da Microsoft
+description: Este artigo ajuda a tirar o máximo proveito pelos seus investimentos na cloud, reduzir os custos e avaliar onde é gasto o dinheiro.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,81 +17,81 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74219123"
 ---
-# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>How to optimize your cloud investment with Azure Cost Management
+# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o seu investimento na cloud com o Azure Cost Management
 
-Azure Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization’s cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
+O Azure Cost Management fornece as ferramentas para planejar, analisar e reduzir os gastos para maximizar o seu investimento na cloud. Este documento fornece-lhe uma abordagem metódica para gestão de custos e realça as ferramentas disponíveis para, como resolver desafios de custo de sua organização. O Azure torna fácil criar e implementar soluções na cloud. No entanto, é importante que essas soluções são otimizadas para minimizar o custo para a sua organização. Seguir os princípios descritos neste documento e usar que nossas ferramentas irão ajudar a certificar-se de que sua organização está preparado para o sucesso.
 
 ## <a name="methodology"></a>Metodologia
 
-Cost management is an organizational problem and should be an ongoing practice that begins before you spend money on cloud resources. To successfully implement cost management and optimize costs, your organization must:
+Gestão de custos é um problema de organizacional e deve ser uma prática em curso que começa antes de investir recursos em nuvem. Para implementar a gestão de custos e otimizar os custos com êxito, sua organização tem de:
 
-- Be prepared with the proper tools for success
-- Be accountable for costs
-- Take appropriate action to optimize spending
+- Esteja preparado com as ferramentas apropriadas para o sucesso
+- Responsabilizar-se de que os custos de
+- Execute as ações apropriadas para otimizar os gastos
 
-Three key groups, outlined below, must be aligned in your organization to make sure that you successfully manage costs.
+Três grupos principais, descritos a seguir, devem obrigatoriamente estar alinhados na sua organização para se certificar de que gerencie com êxito os custos.
 
-- **Finance** - People responsible for approving budget requests across the organization based on cloud spending forecasts. They pay the corresponding bill and assign costs to various teams to drive accountability.
-- **Managers** - Business decision makers in an organization that need to understand cloud spending to find the best spending results.
-- **App teams** - Engineers managing cloud resources on a day-to-day basis, developing services to meet the organization's needs. These teams need the flexibility to deliver the most value in their defined budgets.
+- **Finanças** -pessoas responsáveis por aprovar solicitações de orçamento na organização com base em previsões de gastos de nuvem. Eles pagam a correspondente fatura e atribuir custos a várias equipes a responsabilidade de unidade.
+- **Gerentes** – tomadores de decisões de negócios em uma organização que precisam entender os gastos de nuvem para encontrar os melhores resultados de gastos.
+- **Equipes de aplicativos** – engenheiros que gerenciam recursos de nuvem diariamente, desenvolvendo serviços para atender às necessidades da organização. Essas equipes tem a flexibilidade de fornecer o máximo proveito de seus orçamentos definidos.
 
-### <a name="key-principles"></a>Key principles
+### <a name="key-principles"></a>Princípios fundamentais
 
-Use the principles outlined below to position your organization for success in cloud cost management.
+Utilize os princípios descritos abaixo para posicionar sua organização para o sucesso na gestão de custos na cloud.
 
 #### <a name="planning"></a>Planeamento
 
-Comprehensive, up-front planning allows you to tailor cloud usage to your specific business requirements. Ask yourself:
+Planejamento abrangente e inicial permite que personalize a utilização da cloud aos seus requisitos comerciais específicos. Pergunte-se:
 
-- What business problem am I solving?
-- What usage patterns do I expect from my resources?
+- Que problema de negócios que estou a resolver
+- Quais padrões de uso que espero do meus recursos?
 
-Your answers will help you select the offerings that are right for you. They determine the infrastructure to use and how it's used to maximize your Azure efficiency.
+Suas respostas irão ajudá-lo a selecionar as ofertas que são adequadas para si. Eles determinam a infraestrutura de utilização e como são utilizadas para maximizar sua eficiência do Azure.
 
-#### <a name="visibility"></a>Visibility
+#### <a name="visibility"></a>Visibilidade
 
-When structured well, Cost Management helps you to inform people about the Azure costs they're responsible for or for the money they spend. Azure has services designed to give you insight into *where* your money is spent. Take advantage of these tools. They can help you find resources that are underused, remove waste, and maximize cost-saving opportunities.
+Quando estruturados bem, o Cost Management ajuda-o para informar as pessoas sobre os custos do Azure são responsáveis para ou por que gastam dinheiro. O Azure tem serviços projetados para fornecer informações sobre *onde* seu dinheiro é gasto. Tire partido destas ferramentas. Eles podem ajudá-lo a localizar os recursos que são utilizados, remova o desperdício e maximizam as oportunidades de poupança de custos.
 
-#### <a name="accountability"></a>Accountability
+#### <a name="accountability"></a>Responsabilidade
 
-Attribute costs in your organization to make sure that people responsible are accountable for their team's spending. To fully understand your organization's Azure spending, you should organize your resources to maximize insight into cost attribution. Good organization helps to manage and reduce costs and hold people accountable for efficient spending in your organization.
+Os custos de atributo na sua organização para garantir que as pessoas responsáveis são responsáveis pela gastos da sua equipe. Para compreender totalmente gastos do Azure da sua organização, deve organizar os recursos para maximizar a informações sobre a atribuição de custo. Boa organização ajuda a gerir e reduzir os custos e manter as pessoas responsáveis pela gastos eficiente na sua organização.
 
 #### <a name="optimization"></a>Otimização
 
-Act to reduce your spending. Make the most of it based on the findings gathered through planning and increasing cost visibility. You might consider purchase and licensing optimizations along with infrastructure deployment changes that are discussed in detail later in this document.
+Act para reduzir os gastos. Aproveite ao máximo-lo com base em averiguações coletadas por meio de planejamento e aumentar a visibilidade de custo. Pode considerar a compra e licenciamento otimizações, juntamente com as alterações de implementação de infraestrutura que são discutidas detalhadamente mais adiante neste documento.
 
-#### <a name="iteration"></a>Iteration
+#### <a name="iteration"></a>Iteração
 
-Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
+Todas as pessoas na sua organização devem fazer do ciclo de vida de gestão de custos. Eles precisam para se manter envolvidos numa base contínua para otimizar os custos. Ser rigoroso sobre esse processo interativo e torná-lo um princípio importante de governação de responsável de cloud na sua organização.
 
-![Key principles diagram showing visibility, accountability, and optimization](./media/cost-mgt-best-practices/principles.png)
+![Diagrama de princípios fundamentais que mostra visibilidade, da responsabilização e Otimização](./media/cost-mgt-best-practices/principles.png)
 
-## <a name="plan-with-cost-in-mind"></a>Plan with cost in mind
+## <a name="plan-with-cost-in-mind"></a>Planear com custo em mente
 
-Before you deploy cloud resources, assess the following items:
+Antes de implementar recursos na cloud, avalie os seguintes itens:
 
-- The Azure offer that best meets your needs
-- The resources you plan to use
-- How much they might cost
+- A oferta do Azure que melhor atenda às suas necessidades
+- Os recursos que pretende utilizar
+- Quanto poderão custar
 
-Azure provides tools to assist you in the assessment process. The tools can give you a good idea of the investment required to enable your workloads. Then you can select the best configuration for your situation.
+O Azure fornece ferramentas para ajudá-lo no processo de avaliação. As ferramentas podem fornecer uma boa noção sobre o investimento necessário para permitir que as cargas de trabalho. Em seguida, pode selecionar a melhor configuração para a sua situação.
 
-### <a name="azure-onboarding-options"></a>Azure onboarding options
+### <a name="azure-onboarding-options"></a>Opções de integração do Azure
 
-The first step in maximizing your experience within Cost Management is to investigate and decide which Azure offer is best for you. Think about how you plan to use Azure in the future. Also consider how you want your billing model configured. Consider the following questions when making your decision:
+A primeira etapa no aumento de sua experiência de gestão de custo é investigar e decidir qual oferta do Azure é melhor para. Pense sobre como planear a utilização do Azure no futuro. Além disso, considere como pretende que o modelo de faturação configurado. Ao tomar a sua decisão, considere as seguintes perguntas:
 
-- How long do I plan to use Azure? Am I testing, or do I plan to build longer-term infrastructure?
-- How do I want to pay for Azure? Should I prepay for a reduced price or get invoiced at the end of the month?
+- Quanto posso planear a utilização do Azure? Estou testando, ou posso planear criar a infraestrutura de longo prazo?
+- Como deseja pagar para o Azure? Deve, efetue o pré-pagamento de um preço reduzido ou obter faturado no final do mês?
 
-To learn more about the various options, visit [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/). Several of the most common billing models are identified below.
+Para saber mais sobre as várias opções, visite [como comprar o Azure](https://azure.microsoft.com/pricing/purchase-options/). Vários dos modelos de faturação mais comuns são identificados abaixo.
 
 #### <a name="freehttpsazuremicrosoftcomfree"></a>[Gratuito](https://azure.microsoft.com/free/)
 
 - 12 meses de serviços gratuitos populares
-- $200 in credit to explore services for 30 days
-- 25+ services are always free
+- $200 em créditos para explorar os serviços durante 30 dias
+- 25 serviços sempre são gratuitos
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p)
 
 - Sem valores mínimos ou compromissos
 - Preços Competitivos
@@ -100,96 +100,96 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Options for up-front monetary commitments
-- Access to reduced Azure pricing
+- Opções para compromissos monetários iniciais
+- Acesso a redução de preços do Azure
 
-## <a name="estimate-the-cost-of-your-solution"></a>Estimate the cost of your solution
+## <a name="estimate-the-cost-of-your-solution"></a>Calcular o custo da sua solução
 
-Before you deploy any infrastructure, assess how much your solution will cost. The assessment will help you create a budget for your organization for the workload, up-front. Then you can use a budget over time to benchmark the validity of your initial estimation. And you can compare it with the actual cost of your deployed solution.
+Antes de implementar qualquer infraestrutura, avalie a sua solução quanto custará. A avaliação irá ajudá-lo a criar um orçamento para a sua organização para a carga de trabalho, inicial. Em seguida, pode usar um orçamento ao longo do tempo para efetuar testes de desempenho a validade de sua estimativa inicial. E pode compará-lo com o custo real da sua solução implementada.
 
 ### <a name="azure-pricing-calculator"></a>Calculadora de preços do Azure
 
-The Azure pricing calculator allows you to mix and match different combinations of Azure services to see an estimate of the costs. You can implement your solution using different ways in Azure - each might influence your overall spending. Thinking early about all of the infrastructure needs of your cloud deployment helps you use the tool most effectively. It can help you get a solid estimate of your estimated spending in Azure.
+A Calculadora de preços do Azure permite-lhe combinar e corresponder diferentes combinações de serviços do Azure para ver uma estimativa dos custos. Pode implementar a sua solução com diferentes formas no Azure – cada pode influenciar seus gastos gerais. Pensar no início sobre todas as necessidades de infraestrutura da sua implementação na cloud ajuda-o a utilizar a ferramenta de forma mais eficaz. Ele pode ajudá-lo a obter uma estimativa sólida dos seus gastos estimados no Azure.
 
-For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+Para obter mais informações, consulte a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator).
 
 ### <a name="azure-migrate"></a>Azure Migrate
 
-Azure Migrate is a service that assesses your organization's current workloads in on-premises datacenters. It gives you insight into what you might need from an Azure replacement solution. First, Migrate analyzes your on-premises machines to determine whether migration is feasible. Then, it recommends VM sizing in Azure to maximize performance. Finally, it also creates a cost estimate for an Azure-based solution.
+O Azure Migrate é um serviço que avalia as cargas de trabalho atual da sua organização em datacenters no local. Ele fornece informações sobre o que poderão precisar de uma solução de substituição do Azure. Em primeiro lugar, para migrar analisa as suas máquinas no local para determinar se a migração é viável. Em seguida, ele recomenda o dimensionamento de VM no Azure para maximizar o desempenho. Por fim, também cria uma estimativa de custo para uma solução baseada no Azure.
 
-For more information, see [Azure Migrate](../migrate/migrate-overview.md).
+Para obter mais informações, consulte [migrações para Azure](../migrate/migrate-overview.md).
 
-## <a name="analyze-and-manage-your-costs"></a>Analyze and manage your costs
+## <a name="analyze-and-manage-your-costs"></a>Analisar e gerir os seus custos
 
-Keep informed about how your organization's costs evolve over time. Use the following techniques to properly understand and manage your spending.
+Mantenha-se informado sobre como os custos da sua organização evoluam ao longo do tempo. Utilize as seguintes técnicas para compreender e gerir os seus gastos adequadamente.
 
-### <a name="organize-and-tag-your-resources"></a>Organize and tag your resources
+### <a name="organize-and-tag-your-resources"></a>Organizar e marcar seus recursos
 
-Organize your resources with cost in mind. As you create subscriptions and resource groups, think about the teams that are responsible for associated costs. Make sure your reporting keeps your organization in mind. Subscriptions and resource groups provide good buckets to organize and attribute spending across your organization. Tags provide a good way to attribute cost. You can use tags as a filter. And you can use them to group by when you analyze data and investigate costs. Enterprise Agreement customers can also create departments and place subscriptions under them. Cost-based organization in Azure helps keep the relevant people in your organization accountable for reducing their team's spending.
+Organize os recursos com custo em mente. Como criar subscrições e grupos de recursos, considere as equipes responsáveis pelos custos associados. Certifique-se de que os relatórios de mantém a sua organização em mente. As subscrições e grupos de recursos fornecem registos boa para organizar e atributo gastos na sua organização. Etiquetas fornecem uma boa maneira de custo de atributo. Pode utilizar etiquetas como um filtro. E pode usá-los para agrupar por, quando analisa dados e investigar os custos. Clientes com contrato Enterprise também podem criar os departamentos e colocar as subscrições abaixo deles. Com base no custo de organização no Azure ajuda a manter as pessoas relevantes na sua organização responsáveis pela reduzir os gastos da sua equipe.
 
-### <a name="use-cost-analysis"></a>Use cost analysis
+### <a name="use-cost-analysis"></a>Utilizar a análise de custos
 
-Cost analysis allows you to analyze your organizational costs in-depth by slicing and dicing your costs using standard resource properties. Consider the following common questions as a guide for your analysis. Answering these questions on a regular basis will help you stay more informed and enable more cost-conscious decisions.
+Análise de custo permite-lhe analisar os custos organizacionais aprofundados ao dividir e repartir os custos com propriedades de recurso padrão. Considere as seguintes perguntas comuns como guia para sua análise. Resposta a estas perguntas regularmente irá ajudá-lo a manter-se mais informadas e ativar mais econômico decisões.
 
-- **Estimated costs for the current month** – How much have I incurred so far this month? Will I stay under my budget?
-- **Investigate anomalies** – Do routine checks to make sure that costs stay within a reasonable range of normal usage. Quais são as tendências? Are there any outliers?
-- **Invoice reconciliation** - Is my latest invoiced cost more than the previous month? How did spending habits change month-over-month?
-- **Internal chargeback** - Now that I know how much I'm being charged, how should those charges be broken down for my organization?
+- **Custos estimados para o mês atual** – quanto eu incorrerei até agora neste mês? Irá permanecer em meu orçamento?
+- **Investigue anomalias** – faça verificações rotineiras para garantir que os custos permaneçam dentro de um intervalo razoável de uso normal. Quais são as tendências? Existem quaisquer valores atípicos?
+- **Reconciliação de fatura** -é o meu custo faturado mais recente do que o mês anterior? Como hábitos gastos alterar mês ano-mês?
+- **Chargeback interno** – agora que sei quanto estou sendo cobrado, como esses encargos devem ser divididos para minha organização?
 
-For more information, see [cost analysis](quick-acm-cost-analysis.md).
+Para obter mais informações, consulte [análise de custo](quick-acm-cost-analysis.md).
 
-### <a name="export-billing-data-on-a-schedule"></a>Export billing data on a schedule
+### <a name="export-billing-data-on-a-schedule"></a>Exportar dados de faturação com base numa agenda
 
-Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
+Precisa importar os seus dados de faturação para um sistema externo, como um dashboard ou o sistema financeiro? Configurar exportações automatizadas para o armazenamento do Azure e evitar o download manualmente ficheiros de todos os meses. Pode, em seguida, configurar facilmente automática integrações com outros sistemas para manter os seus dados de faturação em sincronia.
 
-For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
+Para obter mais informações sobre como exportar dados de cobrança, consulte [criar e gerenciar dados exportados](tutorial-export-acm-data.md).
 
-### <a name="create-budgets"></a>Create budgets
+### <a name="create-budgets"></a>Criar orçamentos
 
-After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Azure budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Azure budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
+Depois de ter identificado e analisado os padrões de gastos, é importante começar a definir limites para si e para as suas equipas. Orçamentos do Azure dão-lhe a capacidade de definir um custo ou o orçamento de baseada na utilização de mensagens em fila com muitos limiares e alertas. Certifique-se rever os orçamentos de que cria regularmente para ver o progresso de grave pendente de orçamento e fazer alterações, conforme necessário. Orçamentos do Azure também permitem-lhe configurar um acionador de automatização quando for atingido um limiar de orçamento determinado. Por exemplo, pode configurar o seu serviço para encerrar as VMs. Ou, pode mover a infraestrutura para um escalão de preço diferente em resposta a um acionador de orçamento.
 
-For more information, see [Azure Budgets](tutorial-acm-create-budgets.md).
+Para obter mais informações, consulte [orçamentos do Azure](tutorial-acm-create-budgets.md).
 
-For more information about budget-based automation, see [Budget Based Automation](../billing/billing-cost-management-budget-scenario.md).
+Para obter mais informações sobre a automação baseada em orçamento, consulte [automação baseada em orçamento](../billing/billing-cost-management-budget-scenario.md).
 
-## <a name="act-to-optimize"></a>Act to optimize
-Use the following ways to optimize spending.
+## <a name="act-to-optimize"></a>Agir de forma a otimizar
+Utilize as seguintes opções para otimizar os gastos.
 
-### <a name="cut-out-waste"></a>Cut out waste
+### <a name="cut-out-waste"></a>Recortar desperdício
 
-Depois de implementar a sua infraestrutura no Azure, é importante verificar se está a ser utilizada. A maneira mais fácil de começar a poupar imediatamente é rever os seus recursos e remover os que não estejam a ser utilizados. From there, you should determine if your resources are being used as efficiently as possible.
+Depois de implementar a sua infraestrutura no Azure, é importante verificar se está a ser utilizada. A maneira mais fácil de começar a poupar imediatamente é rever os seus recursos e remover os que não estejam a ser utilizados. A partir daí, deve determinar se seus recursos estão a ser utilizados mais eficientemente possível.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
-Azure Advisor is a service that, among other things, identifies virtual machines with low utilization from a CPU or network usage standpoint. From there, you can decide to either shut down or resize the machine based on the estimated cost to continue running the machines. Advisor also provides recommendations for reserved instance purchases. The recommendations are based on your last 30 days of virtual machine usage. When acted on, the recommendations can help you reduce your spending.
+O Azure Advisor é um serviço que, entre outras coisas, identifica as máquinas virtuais com baixa utilização de um ponto de vista de utilização da CPU ou de rede. A partir daí, pode decidir encerrar ou redimensionar a máquina baseada no custo estimado para continuar a executar as máquinas. O Advisor também fornece recomendações para compras de instância reservada. As recomendações baseiam-se os últimos 30 dias de utilização da máquina virtual. Quando acionado, as recomendações podem ajudar a reduzir os gastos.
 
-For more information, see [Azure Advisor](../advisor/advisor-overview.md).
+Para obter mais informações, consulte [Azure Advisor](../advisor/advisor-overview.md).
 
-### <a name="size-your-vms-properly"></a>Size your VMs properly
+### <a name="size-your-vms-properly"></a>As VMs de tamanho corretamente
 
-VM sizing has a significant impact on your overall Azure cost. The number of VMs needed in Azure might not equate to what you currently have deployed in an on-premises datacenter. Make sure your choose the right size for the workloads that you plan to run.
+Dimensionamento de VM tem um impacto significativo sobre o custo geral do Azure. O número de VMs necessárias no Azure poderá não são equivalentes para o que atualmente implementados num datacenter no local. Certifique-se de sua escolha com a dimensão certa para as cargas de trabalho que pretende executar.
 
-For more information, see [Azure IaaS: proper sizing and cost](https://azure.microsoft.com/resources/videos/azurecon-2015-azure-iaas-proper-sizing-and-cost/).
+Para obter mais informações, consulte [Azure IaaS: dimensionamento e custo adequados](https://azure.microsoft.com/resources/videos/azurecon-2015-azure-iaas-proper-sizing-and-cost/).
 
-### <a name="use-purchase-discounts"></a>Use purchase discounts
+### <a name="use-purchase-discounts"></a>Descontos de compra de utilização
 
-Azure has many discounts that your organization should take advantage of to save money.
+O Azure tem muitas descontos que sua organização deve tirar vantagem para poupar dinheiro.
 
 #### <a name="azure-reservations"></a>Reservas do Azure
 
-Azure Reservations allow you to prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices with one-year or three-year upfront commitment. As reservas oferecem um desconto de faturação e não afetam o estado de runtime das máquinas virtuais ou bases de dados SQL.
+Reservas do Azure permitem que efetue o pré-pagamento de um ano ou três anos de máquina virtual ou base de dados SQL a capacidade de computação. Pré-pagamento permitirá que obter um desconto sobre os recursos que utiliza. Reservas do Azure podem reduzir significativamente sua máquina virtual ou os custos de computação de base de dados do SQL — até 72% em preços pay as you go com o compromisso inicial de um ano ou três anos. As reservas oferecem um desconto de faturação e não afetam o estado de runtime das máquinas virtuais ou bases de dados SQL.
 
-For more information, see [What are Azure Reservations?](../billing/billing-save-compute-costs-reservations.md).
+Para obter mais informações, consulte [o que são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md).
 
 #### <a name="use-azure-hybrid-benefit"></a>Utilizar o Benefício Híbrido do Azure
 
-If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. Com o benefício do Windows Server, cada licença cobre o custo do sistema operativo (em até duas máquinas virtuais!) e paga apenas os custos de computação base. Pode utilizar licenças do SQL Server existentes para poupar até 55 por cento em opções da Base de Dados SQL baseadas em vCore. As opções incluem o SQL Server nas Máquinas Virtuais do Azure e SQL Server Integration Services.
+Se já tiver licenças do Windows Server ou SQL Server das implementações no local, pode utilizar o programa benefício híbrido do Azure para guardar no Azure. Com o benefício do Windows Server, cada licença cobre o custo do sistema operativo (em até duas máquinas virtuais!) e paga apenas os custos de computação base. Pode utilizar licenças do SQL Server existentes para poupar até 55 por cento em opções da Base de Dados SQL baseadas em vCore. As opções incluem o SQL Server nas Máquinas Virtuais do Azure e SQL Server Integration Services.
 
-For more information, see [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Para obter mais informações, consulte a [calculadora de economia de benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ### <a name="other-resources"></a>Outros recursos
 
-Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../batch/batch-low-pri-vms.md).
+O Azure também tem um serviço que lhe permite criar serviços que tiram partido da capacidade excedente no Azure para taxas reduzidas. Para obter mais informações, consulte [usar VMs de baixa prioridade com o lote](../batch/batch-low-pri-vms.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-- If you're new to Cost Management, read [What is Azure Cost Management?](overview-cost-mgt.md) to learn how it helps monitor and control Azure spending and to optimize resource use.
+- Se você for novo no gerenciamento de custos, leia [o que é o gerenciamento de custos do Azure?](overview-cost-mgt.md) para saber como ele ajuda a monitorar e controlar os gastos do Azure e a otimizar o uso de recursos.

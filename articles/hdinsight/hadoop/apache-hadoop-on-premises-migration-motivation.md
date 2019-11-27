@@ -39,7 +39,7 @@ O Azure HDInsight é uma distribuição em nuvem de componentes do Hadoop. O Azu
 
 - **Hardware e configuração gerenciados** – não há necessidade de se preocupar com o hardware ou a infraestrutura física com um cluster HDInsight. Basta especificar a configuração do cluster e o Azure o configura.
 
-- **Facilmente escalonável** – o HDInsight permite [escala](../hdinsight-administer-use-portal-linux.md) que você dimensione as cargas de trabalho para cima ou para baixo. O Azure cuida da redistribuição de dados e do rebalanceamento de carga de trabalho sem interromper os trabalhos de processamento de dados.
+- **Facilmente escalonável** – o HDInsight permite que você [dimensione](../hdinsight-administer-use-portal-linux.md) as cargas de trabalho para cima ou para baixo. O Azure cuida da redistribuição de dados e do rebalanceamento de carga de trabalho sem interromper os trabalhos de processamento de dados.
 
 - **Disponibilidade global** – o HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) do que qualquer outra oferta de análise de Big Data. O Azure HDInsight também está disponível no Azure Government, na China e na Alemanha, o que lhe permite satisfazer as suas necessidades empresariais nas principais áreas soberanas.
 
@@ -166,7 +166,7 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |**Tópico**: **infraestrutura** |||
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Atenda**|
-| Região preferida|Este dos EUA||
+| Região preferida|E.U.A Leste||
 |VNet preferencial?|Sim||
 |HA/DR necessários?|Sim||
 |Integração com outros serviços de nuvem?|ADF, CosmosDB||

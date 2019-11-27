@@ -42,7 +42,7 @@ O servidor de banco de dados SQL do Azure suporta a criação de um banco de dad
 
 Você pode usar um grupo existente do Azure AD ou criar um novo usando o PowerShell do Azure AD.
 
-1.  Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo.
+1.  Instale o módulo do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) .
 
 2.  Entre usando `Connect-AzureAD`, execute o seguinte cmdlet para criar um grupo e salve-o em uma variável:
 

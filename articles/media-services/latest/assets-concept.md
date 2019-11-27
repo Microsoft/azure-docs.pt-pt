@@ -117,13 +117,13 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 
 |Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
-|Encriptação de armazenamento dos serviços de multimédia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
-|[Encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Suportado|Suportado|
-|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Não suportado|Não suportado|
+|Encriptação de armazenamento dos serviços de multimédia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
+|[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Suportado|Suportado|
+|[Criptografia do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Não suportado|Não suportado|
 
 <sup>1</sup> enquanto os serviços de mídia dão suporte ao tratamento de conteúdo em claro/sem qualquer forma de criptografia, fazer isso não é recomendado.
 
-<sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
+<sup>2</sup> no Media Services V3, a criptografia de armazenamento (criptografia AES-256) tem suporte apenas para compatibilidade com versões anteriores quando seus ativos foram criados com os serviços de mídia v2. O que significa v3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
 
 ## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
 

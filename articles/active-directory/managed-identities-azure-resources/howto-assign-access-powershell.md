@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fa5019e740d16d0b97111fcf8dbc4f6c91d57b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a2283ac076ef761fd098d75e7120e6557a959574
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184006"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547252"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerida a um recurso com o PowerShell
 
@@ -32,15 +32,15 @@ Assim que tiver configurado um recurso do Azure com uma identidade gerida, pode 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez.
+- Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não tiver feito isso.
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utilizar o RBAC para atribuir um acesso de identidade gerida para outro recurso
 
-Depois de ativar a identidade gerida num recurso do Azure, [como uma VM do Azure](qs-configure-powershell-windows-vm.md):
+Depois de habilitar a identidade gerenciada em um recurso do Azure, [como uma VM do Azure](qs-configure-powershell-windows-vm.md):
 
-1. Inicie sessão no Azure com o `Connect-AzAccount` cmdlet. Utilize uma conta que seja associada à subscrição do Azure na qual configurou a identidade gerida:
+1. Entre no Azure usando o cmdlet `Connect-AzAccount`. Utilize uma conta que seja associada à subscrição do Azure na qual configurou a identidade gerida:
 
    ```powershell
    Connect-AzAccount
@@ -54,5 +54,5 @@ Depois de ativar a identidade gerida num recurso do Azure, [como uma VM do Azure
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Identidade gerida para descrição geral de recursos do Azure](overview.md)
-- Para ativar a identidade gerida numa VM do Azure, consulte [configurar geridos identidades para recursos do Azure na VM do Azure com o PowerShell](qs-configure-powershell-windows-vm.md).
+- [Visão geral da identidade gerenciada para recursos do Azure](overview.md)
+- Para habilitar a identidade gerenciada em uma VM do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](qs-configure-powershell-windows-vm.md).

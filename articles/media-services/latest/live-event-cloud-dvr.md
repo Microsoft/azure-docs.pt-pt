@@ -45,7 +45,7 @@ Mesmo depois de parar e excluir o evento, os usuários podem transmitir o conte�
 
 Se você publicou o ativo da sua saída ao vivo usando um localizador de streaming, o evento ao vivo (até o comprimento da janela DVR) continuará a ser exibido até a expiração ou a exclusão do localizador de streaming, o que ocorrer primeiro.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Visão geral da transmissão ao vivo](live-streaming-overview.md)
 - [Tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md)

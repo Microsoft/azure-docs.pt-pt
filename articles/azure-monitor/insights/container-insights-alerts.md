@@ -284,7 +284,7 @@ Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das re
 >O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../platform/alerts-log-api-switch.md).
 >
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Monitor** no painel no lado esquerdo. Em **insights**, selecione **contêineres**.
 3. Na guia **clusters monitorados** , selecione um cluster na lista.
 4. No painel no lado esquerdo, em **monitoramento**, selecione **logs** para abrir a página logs de Azure monitor. Use essa página para gravar e executar consultas de Log Analytics do Azure.

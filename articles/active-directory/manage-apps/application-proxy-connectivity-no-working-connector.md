@@ -69,6 +69,6 @@ Se os únicos conectores no grupo estiverem inativos, eles provavelmente estarã
 consulte o documento de solução de problemas de portas para obter detalhes sobre como investigar esse problema.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)
+[Entender os conectores de Proxy de Aplicativo do AD do Azure](application-proxy-connectors.md)
 
 

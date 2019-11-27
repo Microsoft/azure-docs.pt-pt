@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Windows - Azure AD
+title: Tutorial`:` usar uma identidade gerenciada para acessar o Azure Key Vault-Windows-Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -41,7 +41,7 @@ Saiba como:
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso da VM a um segredo armazenado num Key Vault 
  
-Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials. 
+Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure AD.  No entanto, nem todos os serviços do Azure dão suporte à autenticação do Azure AD. Para usar identidades gerenciadas para recursos do Azure com esses serviços, armazene as credenciais de serviço no Azure Key Vault e use a identidade gerenciada da VM para acessar Key Vault para recuperar as credenciais. 
 
 Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida atribuída pelo sistema da VM ao Key Vault.   
 
@@ -50,7 +50,7 @@ Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida
 3. Localize o Key Vault na mesma subscrição e grupo de recursos da VM que criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar novo**. 
 5. Em Configurar a partir do modelo, selecione **Gestão de Segredos**. 
-6. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Select the VM in the result list and click **Select**. 
+6. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Selecione a VM na lista de resultados e clique em **selecionar**. 
 7. Clique em **OK** para concluir a adição da nova política de acesso e em **OK** para concluir a seleção da política de acesso. 
 8. Clique em **Criar** para concluir a criação do Key Vault. 
 
@@ -62,7 +62,7 @@ Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o s
 1. Selecione **Todos os Recursos** e localize e selecione o Key Vault que criou. 
 2. Selecione **Segredos** e clique em **Adicionar**. 
 3. Selecione **Manual** em **Opções de carregamento**. 
-4. Introduza o nome e o valor do segredo.  The value can be anything you want. 
+4. Introduza o nome e o valor do segredo.  O valor pode ser qualquer coisa que você desejar. 
 5. Deixe as datas de ativação e expiração claras e mantenha **Ativado** como **Sim**. 
 6. Clique em **Criar** para criar o segredo. 
  
@@ -95,7 +95,7 @@ Primeiro, utilizamos a identidade gerida atribuída pelo sistema da VM para obte
     $KeyVaultToken = $content.access_token 
     ```
     
-    Por fim, utilize o comando Invoke-WebRequest do PowerShell para obter o segredo que criou anteriormente no Key Vault ao transmitir o token de acesso no cabeçalho de Autorização.  You’ll need the URL of your Key Vault, which is in the **Essentials** section of the **Overview** page of the Key Vault.  
+    Por fim, utilize o comando Invoke-WebRequest do PowerShell para obter o segredo que criou anteriormente no Key Vault ao transmitir o token de acesso no cabeçalho de Autorização.  Você precisará da URL da sua Key Vault, que está na seção **Essentials** da página **visão geral** da Key Vault.  
     
     ```powershell
     (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 

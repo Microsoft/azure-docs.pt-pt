@@ -1,6 +1,6 @@
 ---
-title: Create your first durable function in Azure using JavaScript
-description: Create and publish an Azure Durable Function using Visual Studio Code.
+title: Criar sua primeira função durável no Azure usando o JavaScript
+description: Crie e publique uma função durável do Azure usando Visual Studio Code.
 author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
@@ -12,27 +12,27 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231303"
 ---
-# <a name="create-your-first-durable-function-in-javascript"></a>Create your first durable function in JavaScript
+# <a name="create-your-first-durable-function-in-javascript"></a>Criar sua primeira função durável em JavaScript
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. A extensão gere o estado, os pontos de verificação e os reinícios por si.
+*Durable Functions* é uma extensão de [Azure Functions](../functions-overview.md) que permite que você escreva funções com estado em um ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. Em seguida, publique o código de função no Azure.
+Neste artigo, você aprenderá a usar a extensão de Azure Functions de Visual Studio Code para criar e testar localmente uma função durável "Olá, mundo".  Essa função orquestrará e encadeará chamadas para outras funções. Em seguida, publique o código de função no Azure.
 
-![Running durable function in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Executando a função durável no Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/download).
+* Instale o [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+* Verifique se você tem a versão mais recente do [Azure Functions Core Tools](../functions-run-local.md).
 
-* On a Windows computer, verify you have the [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) installed and running. On a Mac or Linux computer, you must use an actual Azure storage account.
+* Em um computador Windows, verifique se o [emulador de armazenamento do Azure](../../storage/common/storage-use-emulator.md) está instalado e em execução. Em um computador Mac ou Linux, você deve usar uma conta de armazenamento do Azure real.
 
-* Make sure that you have version 8.0 or a later version of [Node.js](https://nodejs.org/) installed.
+* Verifique se você tem a versão 8,0 ou uma versão posterior do [node. js](https://nodejs.org/) instalada.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,72 +40,72 @@ Para concluir este tutorial:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
 
-## <a name="install-the-durable-functions-npm-package"></a>Install the Durable Functions npm package
+## <a name="install-the-durable-functions-npm-package"></a>Instalar o pacote Durable Functions NPM
 
-1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
+1. Instale o pacote `durable-functions` NPM executando `npm install durable-functions` no diretório raiz do aplicativo de funções.
 
-## <a name="creating-your-functions"></a>Creating your functions
+## <a name="creating-your-functions"></a>Criando suas funções
 
-We'll now create the three functions you need to get started with Durable Functions: an HTTP starter, an orchestrator, and an activity function. The HTTP starter will initiate your entire solution, and the orchestrator will dispatch work to various activity functions.
+Agora, criaremos as três funções que você precisa para começar a Durable Functions: um iniciador de HTTP, um orquestrador e uma função de atividade. O iniciador HTTP iniciará toda a sua solução e o orquestrador irá distribuir o trabalho para várias funções de atividade.
 
-### <a name="http-starter"></a>HTTP starter
+### <a name="http-starter"></a>Iniciador de HTTP
 
-First, create an HTTP triggered function that starts a durable function orchestration.
+Primeiro, crie uma função disparada por HTTP que inicia uma orquestração de função durável.
 
-1. From *Azure: Functions*, choose the **Create Function** icon.
+1. No *Azure: Functions*, escolha o ícone **criar função** .
 
     ![Criar uma função](./media/quickstart-js-vscode/create-function.png)
 
-2. Select the folder with your function app project and select the **Durable Functions HTTP Starter** function template.
+2. Selecione a pasta com seu projeto de aplicativo de funções e selecione o modelo de função de **início de HTTP Durable Functions** .
 
-    ![Choose the HTTP starter template](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Escolher o modelo de início de HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Leave the default name as `DurableFunctionsHttpStart` and press ****Enter**, then select **Anonymous** authentication.
+3. Deixe o nome padrão como `DurableFunctionsHttpStart` e pressione * * * * Enter * * e, em seguida, selecione Autenticação **anônima** .
 
     ![Escolher autenticação anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-We've now created an entry-point into our Durable Function. Let's add an orchestrator.
+Agora, criamos um ponto de entrada em nossa função durável. Vamos adicionar um orquestrador.
 
 ### <a name="orchestrator"></a>Orchestrator
 
-Now, we'll create an orchestrator to coordinate activity functions.
+Agora, criaremos um orquestrador para coordenar funções de atividade.
 
-1. From *Azure: Functions*, choose the **Create Function** icon.
+1. No *Azure: Functions*, escolha o ícone **criar função** .
 
     ![Criar uma função](./media/quickstart-js-vscode/create-function.png)
 
-2. Select the folder with your function app project and select the **Durable Functions orchestrator** function template. Leave the name as the default "DurableFunctionsOrchestrator"
+2. Selecione a pasta com seu projeto de aplicativo de funções e selecione o modelo de função **Durable Functions Orchestrator** . Deixe o nome como o padrão "DurableFunctionsOrchestrator"
 
-    ![Choose the orchestrator template](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Escolher o modelo de orquestrador](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-We've added an orchestrator to coordinate activity functions. Let's now add the referenced activity function.
+Adicionamos um orquestrador para coordenar funções de atividade. Agora, vamos adicionar a função de atividade referenciada.
 
 ### <a name="activity"></a>Atividade
 
-Now, we'll create an activity function to actually carry out the work of the solution.
+Agora, criaremos uma função de atividade para realmente realizar o trabalho da solução.
 
-1. From *Azure: Functions*, choose the **Create Function** icon.
+1. No *Azure: Functions*, escolha o ícone **criar função** .
 
     ![Criar uma função](./media/quickstart-js-vscode/create-function.png)
 
-2. Select the folder with your function app project and select the **Durable Functions activity** function template. Leave the name as the default "Hello".
+2. Selecione a pasta com seu projeto de aplicativo de funções e selecione o modelo função de **atividade de durable Functions** . Deixe o nome como o padrão "Olá".
 
-    ![Choose the activity template](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Escolher o modelo de atividade](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-We've now added all components needed to start off an orchestration and chain together activity functions.
+Agora adicionamos todos os componentes necessários para iniciar uma orquestração e encadear as funções de atividade.
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Deve instalar estas ferramentas ao iniciar uma função do Visual Studio Code pela primeira vez.
 
-1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of *local.settings.json* is set to `UseDevelopmentStorage=true`.
+1. Em um computador Windows, inicie o emulador de armazenamento do Azure e verifique se a propriedade **AzureWebJobsStorage** de *local. Settings. JSON* está definida como `UseDevelopmentStorage=true`.
 
-    For Storage Emulator 5.8 make sure that the **AzureWebJobsSecretStorageType** property of local.settings.json is set to `files`. On     a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage         account. You create a storage account later in this article.
+    Para o emulador de armazenamento 5,8, certifique-se de que a propriedade **AzureWebJobsSecretStorageType** de local. Settings. JSON esteja definida como `files`. Em um computador Mac ou Linux, você deve definir a propriedade **AzureWebJobsStorage** como a cadeia de conexão de uma conta de armazenamento do Azure existente. Você criará uma conta de armazenamento mais adiante neste artigo.
 
-2. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
+2. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se esta for a primeira vez que você usa Durable Functions, a extensão Durable Functions será instalada e a compilação poderá levar alguns segundos.
 
     > [!NOTE]
-    > JavaScript Durable Functions require version **1.7.0** or greater of the **Microsoft.Azure.WebJobs.Extensions.DurableTask** extension. Run the following command from the root folder of your Azure Functions app to install the Durable Functions extension `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
+    > O JavaScript Durable Functions requer a versão **1.7.0** ou posterior da extensão **Microsoft. Azure. webjobs. Extensions. DurableTask** . Execute o seguinte comando na pasta raiz do seu aplicativo Azure Functions para instalar a extensão de Durable Functions `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
 
@@ -113,13 +113,13 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 4. Substitua `{functionName}` por `DurableFunctionsOrchestrator`.
 
-5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
+5. Usando uma ferramenta como o [postmaster](https://www.getpostman.com/) ou a [ondulação](https://curl.haxx.se/), envie uma solicitação HTTP post para o ponto de extremidade da URL.
 
-   The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+   A resposta é o resultado inicial da função HTTP que nos permite saber que a orquestração durável foi iniciada com êxito. Ainda não é o resultado final da orquestração. A resposta inclui algumas URLs úteis. Por enquanto, vamos consultar o status da orquestração.
 
-6. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
+6. Copie o valor da URL para `statusQueryGetUri` e cole-o na barra de endereços do navegador e execute a solicitação. Como alternativa, você também pode continuar a usar o postmaster para emitir a solicitação GET.
 
-   The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
+   A solicitação consultará a instância de orquestração do status. Você deve obter uma resposta eventual, que nos mostra que a instância foi concluída e inclui as saídas ou os resultados da função durável. Ele é semelhante a: 
 
     ```json
     {
@@ -137,7 +137,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
     }
     ```
 
-7. To stop debugging, press **Shift + F5** in VS Code.
+7. Para interromper a depuração, pressione **Shift + F5** em vs Code.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 
@@ -151,11 +151,11 @@ Depois de verificar que a função é executada corretamente no computador local
 
         http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 
-2. Cole este novo URL do pedido HTTP na barra de endereço do browser. You should get the same status response as before when using the published app.
+2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Você deve obter a mesma resposta de status que antes de usar o aplicativo publicado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-You have used Visual Studio Code to create and publish a JavaScript durable function app.
+Você usou Visual Studio Code para criar e publicar um aplicativo de funções duráveis do JavaScript.
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
+> [Saiba mais sobre padrões comuns de função durável](durable-functions-overview.md#application-patterns)

@@ -47,7 +47,7 @@ Para obter detalhes de implementação, consulte [conceder acesso às contas de 
  
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Os utilizadores de concessão B2B no Azure AD acedem às suas aplicações no local](hybrid-cloud-to-on-premises.md)
+- [Conceder aos usuários B2B no Azure AD acesso aos seus aplicativos locais](hybrid-cloud-to-on-premises.md)
 - [Conceder acesso às contas de parceiros gerenciadas localmente aos recursos de nuvem usando a colaboração B2B do Azure AD](hybrid-on-premises-to-cloud.md)
 
 

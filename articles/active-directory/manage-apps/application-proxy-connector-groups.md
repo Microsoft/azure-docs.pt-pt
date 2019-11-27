@@ -34,15 +34,15 @@ Todas as aplicações são atribuídas a um grupo de conectores. Se não criar g
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para os conectores de grupo, terá de certificar-se de que [instalados vários conectores](application-proxy-add-on-premises-application.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo do conector.
+Para agrupar seus conectores, você precisa ter certeza de que [instalou vários conectores](application-proxy-add-on-premises-application.md). Quando você instala um novo conector, ele automaticamente une o grupo de conectores **padrão** .
 
 ## <a name="create-connector-groups"></a>Criar grupos de conectores
 
 Utilize estes passos para criar grupos de conectores tantas quanto quiser.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **proxy de aplicações**.
-1. Selecione **novo grupo conector**. No painel do novo grupo conector aparece.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione **Azure Active Directory** > **aplicativos empresariais** > **proxy de aplicativo**.
+1. Selecione **novo grupo de conectores**. No painel do novo grupo conector aparece.
 
    ![Mostra a tela para selecionar um novo grupo de conectores](./media/application-proxy-connector-groups/new-group.png)
 
@@ -53,9 +53,9 @@ Utilize estes passos para criar grupos de conectores tantas quanto quiser.
 
 Utilize estes passos para cada aplicação que tenham publicado com o Proxy de aplicações. Pode atribuir uma aplicação para um grupo de conectores quando publicá-lo pela primeira vez, ou pode utilizar estes passos para alterar a atribuição de sempre que quiser.
 
-1. A partir do dashboard de gestão para o seu diretório, selecione **aplicações empresariais** > **todas as aplicações** > a aplicação que pretende atribuir a um grupo do conector > **Proxy de aplicações**.
-1. Utilizar o **grupo de conectores** menu pendente para selecionar o grupo que pretende que a aplicação a utilizar.
-1. Selecione **guardar** para aplicar a alteração.
+1. No painel de gerenciamento do seu diretório, selecione **aplicativos empresariais** > **todos os aplicativos** > o aplicativo que você deseja atribuir a um grupo de conectores > **proxy de aplicativo**.
+1. Use o menu suspenso **grupo de conectores** para selecionar o grupo que você deseja que o aplicativo use.
+1. Selecione **salvar** para aplicar a alteração.
 
 ## <a name="use-cases-for-connector-groups"></a>Casos de utilização para grupos de conectores
 
@@ -128,5 +128,5 @@ No exemplo abaixo, a empresa tem dois centros de dados, A e B, com dois conector
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)
+* [Entender os conectores de Proxy de Aplicativo do AD do Azure](application-proxy-connectors.md)
 * [Ativar o início de sessão único](what-is-single-sign-on.md)

@@ -1,6 +1,6 @@
 ---
 title: Descrição Geral do Azure Blueprints
-description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
+description: Entenda como o serviço de plantas do Azure permite criar, definir e implantar artefatos em seu ambiente do Azure.
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
@@ -42,7 +42,7 @@ Uma [política](../policy/overview.md) é um sistema de negação explícita e p
 
 A inclusão de uma política num esquema permite a criação do design ou padrão de direitos durante a atribuição do esquema. A inclusão da política assegura que apenas as alterações aprovadas ou esperadas podem ser efetuadas ao ambiente para proteger a conformidade contínua com a intenção do esquema.
 
-A policy can be included as one of many _artifacts_ in a blueprint definition. Os esquemas também suportam a utilização de parâmetros com políticas e iniciativas.
+Uma política pode ser incluída como um dos muitos _artefatos_ em uma definição de Blueprint. Os esquemas também suportam a utilização de parâmetros com políticas e iniciativas.
 
 ## <a name="blueprint-definition"></a>Definição de esquema
 
@@ -51,13 +51,13 @@ Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seg
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
-|Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Templates, including nested and linked templates, are used to compose complex environments. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
-|Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. The policy or initiative must be within the scope of the blueprint definition location. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
+|Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Modelos, incluindo modelos aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
+|Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do Blueprint. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
 |Atribuição de Função | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
 
-### <a name="blueprint-definition-locations"></a>Blueprint definition locations
+### <a name="blueprint-definition-locations"></a>Locais de definição do Blueprint
 
-Ao criar uma definição de esquema, irá definir onde o esquema é guardado. Blueprints can be saved to a [management group](../management-groups/overview.md) or subscription that you have **Contributor** access to. If the location is a management group, the blueprint is available to assign to any child subscription of that management group.
+Ao criar uma definição de esquema, irá definir onde o esquema é guardado. Os planos gráficos podem ser salvos em um [grupo de gerenciamento](../management-groups/overview.md) ou assinatura ao qual você tem acesso de **colaborador** . Se o local for um grupo de gerenciamento, o plano gráfico estará disponível para ser atribuído a qualquer assinatura filho desse grupo de gerenciamento.
 
 ### <a name="blueprint-parameters"></a>Parâmetros de esquema
 
@@ -72,12 +72,12 @@ Para obter mais informações, veja [parâmetros de esquema](./concepts/paramete
 
 ### <a name="blueprint-publishing"></a>Publicação do esquema
 
-Quando um esquema é criado, considera-se que está no modo de **Rascunho**. Quando estiver pronto para ser atribuído, tem de ser **Publicado**. A publicação exige a definição de uma cadeia de **Versão** (letras, números e hífenes com um comprimento máximo de 20 carateres), juntamente com **Notas de alteração** opcionais. A **Versão** distingue-o de futuras alterações ao mesmo esquema e permite a atribuição de cada versão. Isto também significa que diferentes **Versões** do mesmo esquema podem ser atribuídas à mesma subscrição. When additional changes are made to the blueprint, the **Published**
-**Version** still exists, as do the **Unpublished changes**. Quando as alterações estiverem concluídas, o esquema atualizado é **Publicado** com uma **Versão** nova e exclusiva, que agora também pode ser atribuída.
+Quando um esquema é criado, considera-se que está no modo de **Rascunho**. Quando estiver pronto para ser atribuído, tem de ser **Publicado**. A publicação exige a definição de uma cadeia de **Versão** (letras, números e hífenes com um comprimento máximo de 20 carateres), juntamente com **Notas de alteração** opcionais. A **Versão** distingue-o de futuras alterações ao mesmo esquema e permite a atribuição de cada versão. Isto também significa que diferentes **Versões** do mesmo esquema podem ser atribuídas à mesma subscrição. Quando são feitas alterações adicionais no plano gráfico, a **versão** **publicada**
+ainda existe, assim como as **alterações não publicadas**. Quando as alterações estiverem concluídas, o esquema atualizado é **Publicado** com uma **Versão** nova e exclusiva, que agora também pode ser atribuída.
 
 ## <a name="blueprint-assignment"></a>Atribuição do esquema
 
-Each **Published** **Version** of a blueprint can be assigned (with a max name length of 90 characters) to an existing subscription. No portal, o esquema utiliza como predefinição a **Versão** **Publicada** mais recentemente. Se existirem parâmetros de artefacto (ou parâmetros de esquema), os parâmetros são definidos durante o processo de atribuição.
+Cada **versão** publicada de um plano gráfico pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a uma assinatura existente. No portal, o esquema utiliza como predefinição a **Versão** **Publicada** mais recentemente. Se existirem parâmetros de artefacto (ou parâmetros de esquema), os parâmetros são definidos durante o processo de atribuição.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões no Azure Blueprints
 
@@ -94,7 +94,7 @@ Para eliminar esquemas, a sua conta necessita das seguintes permissões:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> The blueprint definition permissions must be granted or inherited on the management group or subscription scope where it is saved.
+> As permissões de definição do Blueprint devem ser concedidas ou herdadas no grupo de gerenciamento ou no escopo da assinatura onde ele é salvo.
 
 Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das seguintes permissões:
 
@@ -104,39 +104,39 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 > [!NOTE]
 > À medida que as atribuições de esquema são criadas numa subscrição, as permissões de atribuição e anulação da atribuição de esquema têm de ser concedidas no âmbito de uma subscrição ou herdadas para o âmbito de uma subscrição.
 
-The following built-in roles are available:
+As seguintes funções internas estão disponíveis:
 
-|RBAC Role | Descrição |
+|Função RBAC | Descrição |
 |-|-|
-|[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
-|[Contribuidor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
-|[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
-|[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |
+|[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, o inclui todas as Azure Blueprint permissões relacionadas. |
+|[Contribuidor](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, o pode criar e excluir definições de plano gráfico, mas não tem permissões de atribuição de Blueprint. |
+|[Colaborador do Blueprint](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Pode gerenciar definições de plantas, mas não atribuí-las. |
+|[Operador Blueprint](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Pode atribuir plantas publicadas existentes, mas não pode criar novas definições de Blueprint. A atribuição de Blueprint só funcionará se a atribuição for feita com uma identidade gerenciada atribuída pelo usuário. |
 
 Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> If using a system-assigned managed identity, the service principal for Azure Blueprints requires the **Owner** role on the assigned subscription in order to enable deployment. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. If using a user-assigned managed identity, only the user creating the blueprint assignment needs the `Microsoft.Blueprint/blueprintAssignments/write` permission, which is included in both the **Owner** and **Blueprint Operator** built-in roles.
+> Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para plantas do Azure exigirá a função de **proprietário** na assinatura atribuída para habilitar a implantação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se você estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que criar a atribuição Blueprint precisará da permissão `Microsoft.Blueprint/blueprintAssignments/write`, que está incluída nas funções internas do operador de **proprietário** e do **plano gráfico** .
 
-## <a name="naming-limits"></a>Naming limits
+## <a name="naming-limits"></a>Limites de nomenclatura
 
-The following limitations exist for certain fields:
+As seguintes limitações existem para determinados campos:
 
-|Object|Campo|Allowed Characters|Um máximo de Comprimento|
+|Objeto|Campo|Caracteres permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Blueprint|Nome|letters, numbers, hyphens, and periods|48|
-|Blueprint|Versão|letters, numbers, hyphens, and periods|20|
-|Atribuição do esquema|Nome|letters, numbers, hyphens, and periods|90|
-|Blueprint artifact|Nome|letters, numbers, hyphens, and periods|48|
+|Gráfico|Nome|letras, números, hifens e pontos|48|
+|Gráfico|Versão|letras, números, hifens e pontos|20|
+|Atribuição do esquema|Nome|letras, números, hifens e pontos|90|
+|Artefato do Blueprint|Nome|letras, números, hifens e pontos|48|
 
-## <a name="video-overview"></a>Video overview
+## <a name="video-overview"></a>Visão geral em vídeo
 
-The following overview of Azure Blueprints is from Azure Fridays. For video download, visit [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) on Channel 9.
+A visão geral a seguir das plantas do Azure é da sexta-feira do Azure. Para download de vídeo, visite [Azure sexta-feiras-uma visão geral das plantas do Azure](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) no Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Create a blueprint - Portal](./create-blueprint-portal.md).
-- [Create a blueprint - PowerShell](./create-blueprint-powershell.md).
-- [Create a blueprint - REST API](./create-blueprint-rest-api.md).
+- [Criar um Blueprint-portal](./create-blueprint-portal.md).
+- [Criar um Blueprint-PowerShell](./create-blueprint-powershell.md).
+- [Criar uma API de plano gráfico-REST](./create-blueprint-rest-api.md).

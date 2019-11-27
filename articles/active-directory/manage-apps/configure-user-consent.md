@@ -55,7 +55,7 @@ Para conceder consentimento de administrador ao registrar um aplicativo:
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Navegue até a folha **registros do aplicativo** .
 3. Selecione o aplicativo para o consentimento.
-4. Selecione **permissões API**.
+4. Selecione **permissões de API**.
 5. Clique em **conceder consentimento do administrador**.
 
 

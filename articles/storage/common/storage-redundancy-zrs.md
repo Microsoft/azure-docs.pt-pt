@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186666"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544618"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -35,14 +35,14 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Leste do Japão
 - Reino Unido Sul
 - Centro dos EUA
-- Este dos EUA
+- E.U.A Leste
 - Este dos EUA 2
 - EUA Oeste 2
 
-Para contas de armazenamento de arquivo (compartilhamentos de arquivos Premium), o ZRS está geralmente disponível nas seguintes regiões:
+Para contas de armazenamento de arquivo (compartilhamentos de arquivos Premium) e contas de BlockBlobStorage (BLOBs de blocos Premium), o ZRS está geralmente disponível nas seguintes regiões:
 
 - Europa Ocidental
-- Este dos EUA
+- E.U.A Leste
 
 A Microsoft continua a habilitar o ZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre novas regiões.
 
@@ -163,7 +163,7 @@ Para atualizar para o ZRS usando a CLI, chame o seguinte comando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
 - [Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)

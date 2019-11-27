@@ -106,7 +106,7 @@ Opcionalmente, você pode habilitar o provisionamento de objetos de grupo do Azu
 
 Isso resulta em qualquer objeto de grupo atribuído à margem de atraso na seção **usuários e grupos** sendo totalmente sincronizada do Azure ad até a margem de atraso. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo de margem de atraso.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 

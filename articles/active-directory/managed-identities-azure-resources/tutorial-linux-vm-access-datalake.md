@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Linux - Azure AD
+title: Tutorial`:` usar uma identidade gerenciada para acessar Azure Data Lake Store-Linux-Azure AD
 description: Um tutorial que lhe mostra como utilizar uma identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -26,7 +26,7 @@ ms.locfileid: "74224277"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Data Lake Store. Saiba como: 
+Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema para uma VM (máquina virtual) do Linux para acessar o Azure Data Lake Store. Saiba como: 
 
 Neste tutorial, ficará a saber como:
 
@@ -71,7 +71,7 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 
 1. No portal, navegue para a VM do Linux. Em **Descrição Geral**, selecione **Ligar**.  
 2. Ligue à VM através do cliente SSH que escolher. 
-3. Na janela de terminal, com o cURL, faça um pedido às identidades geridas locais do Axure para o ponto final dos recursos do Azure obter um token de acesso para o sistema de ficheiros do Data Lake Store. The resource identifier for Data Lake Store is `https://datalake.azure.net/`.  É importante incluir a barra à direita no identificador de recurso.
+3. Na janela de terminal, com o cURL, faça um pedido às identidades geridas locais do Axure para o ponto final dos recursos do Azure obter um token de acesso para o sistema de ficheiros do Data Lake Store. O identificador de recurso para Data Lake Store é `https://datalake.azure.net/`.  É importante incluir a barra à direita no identificador de recurso.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

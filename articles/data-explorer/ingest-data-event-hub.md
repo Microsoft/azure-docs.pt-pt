@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 102cfa81c6093ff1aeefdd8d1937143a25cf76f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1750267b5780dcfbb227ffcd6bb98e2f77ff1511
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028487"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539293"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do hub de eventos para o Azure Data Explorer
 
@@ -35,7 +35,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
@@ -51,7 +51,7 @@ Neste artigo, você gera dados de exemplo e os envia para um hub de eventos. O p
 
 1. Selecione a subscrição em que quer criar o hub de eventos e crie um grupo de recursos chamado *test-hub-rg*.
 
-    ![Criar um grupo de recursos](media/ingest-data-event-hub/create-resource-group.png)
+    ![Criar um grupo de recursos:](media/ingest-data-event-hub/create-resource-group.png)
 
 1. Preencha o formulário com as seguintes informações.
 
@@ -61,9 +61,9 @@ Neste artigo, você gera dados de exemplo e os envia para um hub de eventos. O p
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Subscription | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
-    | Resource group | *test-hub-rg* | Crie um novo grupo de recursos. |
-    | Location | *E.U.A. Oeste* | Selecione *oeste dos EUA* para este artigo. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o namespace do hub de eventos no mesmo local que o cluster Kusto para obter o melhor desempenho (o mais importante para namespaces do hub de eventos com alta taxa de transferência).
+    | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
+    | Grupo de recursos | *test-hub-rg* | Crie um novo grupo de recursos. |
+    | Localização | *E.U.A. Oeste* | Selecione *oeste dos EUA* para este artigo. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o namespace do hub de eventos no mesmo local que o cluster Kusto para obter o melhor desempenho (o mais importante para namespaces do hub de eventos com alta taxa de transferência).
     | Nome do espaço de nomes | Um nome de espaço de nomes exclusivo | Escolha um nome exclusivo que identifique o seu espaço de nomes. Por exemplo, *mytestnamespace*. O nome de domínio *servicebus.windows.net* é anexado ao nome que indicar. O nome só pode conter letras, números e hífenes. O nome tem de começar com uma letra e terminar com uma letra ou número. O valor deve ter entre 6 e 50 carateres.
     | Nome do hub de eventos | *test-hub* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. O nome do hub de eventos tem de ser exclusivo no espaço de nomes. |
     | Nome do grupo de consumidores | *test-group* | Os grupos de consumidores permitem que cada aplicação de consumo tenha uma vista separada do fluxo de eventos. |
@@ -137,6 +137,8 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
     > [!NOTE]
     > * Selecionar **meus dados inclui informações de roteamento** para usar o roteamento dinâmico, onde os dados incluem as informações de roteamento necessárias, como visto nos comentários do [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Se ambas as propriedades estática e dinâmica forem definidas, as propriedades dinâmicas substituirão as estáticas. 
     > * Somente os eventos enfileirados após a criação da conexão de dados são ingeridos.
+    > * Habilite a compactação GZip para roteamento estático abrindo uma [solicitação de suporte no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Habilite a compactação GZip para roteamento dinâmico como visto no [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
+    > * O formato Avro e as propriedades do sistema de eventos não têm suporte na carga de compactação.
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de ligação
 

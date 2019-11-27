@@ -12,7 +12,7 @@ ms.locfileid: "74277670"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
-O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
+O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como ipython) é um projeto de software livre que permite combinar facilmente o texto de redução, o código executável, os dados persistentes, os gráficos e as visualizações em uma única tela compartilhável, o *Notebook* (cortesia da imagem de jupyter.org):
 
 [![exemplos de notebooks Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
@@ -31,17 +31,17 @@ Blocos de notas se tornar ainda mais poderosos quando as pessoas podem colaborar
 
 Como blocos de notas do Azure é um código geral de criação, execução e a partilha de plataforma, pode usá-lo para vários cenários diferentes:
 
-- Aprenda uma nova linguagem de programação – experimente um do [tutoriais do frontpage](https://notebooks.azure.com/Microsoft/projects/samples/html/Introduction%20to%20Python.ipynb)
-- Saiba de ciência de dados – experimente [livro de Jake VanderPlas](https://notebooks.azure.com/jakevdp/projects/PythonDataScienceHandbook)
-- [Ensinar um curso](https://notebooks.azure.com/garth-wells/projects/CUED-IA-Computing-Michaelmas) para centenas de estudantes
+- Aprenda uma nova linguagem de programação – Experimente um dos [tutoriais do FrontPage](https://notebooks.azure.com/Microsoft/projects/samples/html/Introduction%20to%20Python.ipynb)
+- Aprenda sobre a ciência de dados – Experimente o [livro Jake VanderPlas](https://notebooks.azure.com/jakevdp/projects/PythonDataScienceHandbook)
+- [Ensinar um curso](https://notebooks.azure.com/garth-wells/projects/CUED-IA-Computing-Michaelmas) para centenas de alunos
 - Dar um webinar online ou numa conferência sem tempo gastos sobre a instalação 
-- Permitir que os utilizadores GitHub diretamente carregar e executar blocos de notas por [criando um destaque de iniciação do GitHub](https://notebooks.azure.com/help/projects/sharing/create-a-github-badge)
-- Dê [PowerPoint como apresentações de slides](https://notebooks.azure.com/help/jupyter-notebooks/slides) onde o código em slides é executável!
+- Permitir que os usuários do GitHub carreguem e executem blocos de anotações diretamente [criando uma notificação de lançamento do GitHub](https://notebooks.azure.com/help/projects/sharing/create-a-github-badge)
+- Dê ao [PowerPoint como apresentações de slides](https://notebooks.azure.com/help/jupyter-notebooks/slides) em que o código nos slides é executável!
 
 Em resumo, blocos de notas do Azure ajuda-o a realizar seu trabalho com mais eficiência e, portanto, obter muito mais.
 
 > [!Note]
-> Obter mais informações sobre o Jupyter em si podem ser encontradas no [jupyter.org](https://jupyter.org/) e, no [Jupyter documentação](https://jupyter-notebook.readthedocs.io/en/latest/).
+> Mais informações sobre o Jupyter em si podem ser encontradas em [jupyter.org](https://jupyter.org/) e na [documentação do Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Preços e quotas
 
@@ -71,11 +71,11 @@ Além das distribuições de bases, os blocos de notas do Azure vem pré-instala
 
 Blocos de notas do Azure é pré-configurado com as seguintes extensões de Jupyter:
 
-- [AUMENTAR](https://github.com/damianavila/RISE): A Jupyter Slideshow extensão (também conhecido como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do bloco de notas](present-jupyter-notebooks-slideshow.md).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): um ambiente computacional completa para trabalhar com blocos de notas do Jupyter.
-- [Altair](https://github.com/ellisonbg/altair): uma biblioteca de visualização de estatísticas declarativa para Python.
-- [BQPlot](https://github.com/bloomberg/bqplot): uma estrutura de desenho interativa para blocos de notas do Jupyter.
-- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): widgets de HTML interativos para blocos de notas do Jupyter.
+- [Elevação](https://github.com/damianavila/RISE): uma extensão de apresentação de slides Jupyter (também conhecida como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do notebook](present-jupyter-notebooks-slideshow.md).
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): um ambiente computacional completo para trabalhar com notebooks Jupyter.
+- [Altair](https://github.com/ellisonbg/altair): uma biblioteca de visualização estatística declarativa para Python.
+- [BQPlot](https://github.com/bloomberg/bqplot): uma estrutura de plotagem interativa para notebooks Jupyter.
+- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): WIDGETs HTML interativos para notebooks Jupyter.
 
 ## <a name="issues-and-getting-help"></a>Problemas e obter ajuda
 
@@ -83,30 +83,30 @@ Uma vez que blocos de notas do Azure ainda está em pré-visualização, o servi
 
 No momento, é recomendável contra a utilização de pré-visualização de blocos de notas do Azure para aplicações críticas para a empresa, ou blocos de notas confidenciais e dados.
 
-Para discutir suas perguntas sobre blocos de notas do Azure, enviar um problema no [repositório do GitHub](https://github.com/Microsoft/AzureNotebooks/issues).
+Para discutir suas perguntas sobre Azure Notebooks, execute um problema no [repositório do GitHub](https://github.com/Microsoft/AzureNotebooks/issues).
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
+- [Explorar blocos de anotações de exemplo](azure-notebooks-samples.md)
 
 - Inícios rápidos:
 
-  - [Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)
-  - [Clonar um bloco de notas](quickstart-clone-jupyter-notebook.md)
-  - [Migrar de um bloco de notas Jupyter local](quickstart-migrate-local-jupyter-notebook.md)
-  - [Utilizar um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md)
-  - [Iniciar sessão e defina um ID de utilizador](quickstart-sign-in-azure-notebooks.md)
+  - [Criar e compartilhar um bloco de anotações](quickstart-create-share-jupyter-notebook.md)
+  - [Clonar um bloco de anotações](quickstart-clone-jupyter-notebook.md)
+  - [Migrar um notebook Jupyter local](quickstart-migrate-local-jupyter-notebook.md)
+  - [Usar um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md)
+  - [Entrar e definir uma ID de usuário](quickstart-sign-in-azure-notebooks.md)
 
 - Tutoriais:
 
-  - [Criar e executar um bloco de notas](tutorial-create-run-jupyter-notebook.md  )
+  - [Criar e executar um bloco de anotações](tutorial-create-run-jupyter-notebook.md  )
 
 - Artigos de procedimentos:
   
   - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
-  - [Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-  - [Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-  - [Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+  - [Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+  - [Instalar pacotes de dentro de um bloco de anotações](install-packages-jupyter-notebook.md)
+  - [Apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
   - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
-  - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+  - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
   - [Usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

@@ -68,7 +68,7 @@ Você pode desativar o **treinamento não determinístico** ao [treinar todos os
 
 ## <a name="e-exponent-notation"></a>Notação de I (expoente)
 
-Pontuações de predição podem usar a notação expoente, _que aparece_ acima 0-1 intervalo, tais como `9.910309E-07`. Esta pontuação é uma indicação de um muito **pequeno** número.
+As pontuações de previsão podem usar a notação exponencial, que _aparece_ acima do intervalo de 0-1, como `9.910309E-07`. Essa pontuação é uma indicação de um número muito **pequeno** .
 
 |Pontuação de notação E |Pontuação real|
 |--|--|
@@ -80,4 +80,4 @@ Pontuações de predição podem usar a notação expoente, _que aparece_ acima 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ver [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.
+Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades ao seu aplicativo Luis.

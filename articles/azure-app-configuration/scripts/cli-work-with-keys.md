@@ -88,9 +88,9 @@ Esse script usa os seguintes comandos para operar em valores de chave em um repo
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Cria ou atualiza um valor de chave. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lista os valores de chave em um repositório de configuração de aplicativo. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Exclui um valor de chave. |
+| [conjunto de kV AZ appconfig](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Cria ou atualiza um valor de chave. |
+| [lista AZ AppConfig kV](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lista os valores de chave em um repositório de configuração de aplicativo. |
+| [AZ AppConfig kV Delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Exclui um valor de chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

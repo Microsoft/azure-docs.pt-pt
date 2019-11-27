@@ -35,7 +35,7 @@ Neste tutorial, vai criar duas VNets em modo peering:
 - **VNet-Hub** - a firewall está nesta VNet.
 - **VN-Spoke** - o servidor de carga de trabalho está nesta VNet.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na página de boas-vindas do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **Adicionar**.

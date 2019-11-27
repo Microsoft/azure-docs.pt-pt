@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the REST API and C# - Bing Visual Search'
+title: 'Início rápido: obter informações de imagem usando a API REST e C# -pesquisa visual do Bing'
 titleSuffix: Azure Cognitive Services
-description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
+description: Saiba como carregar uma imagem no API da Pesquisa Visual do Bing e obter informações sobre ela.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -17,21 +17,21 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383640"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Quickstart: Get image insights using the Bing Visual Search REST API and C#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Início rápido: obter informações de imagem usando a API REST do Pesquisa Visual do Bing eC#
 
-This quickstart demonstrates how to upload an image to the Bing Visual Search API and to view the insights that it returns.
+Este guia de início rápido demonstra como carregar uma imagem no API da Pesquisa Visual do Bing e exibir as informações que ele retorna.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* The [Json.NET framework](https://www.newtonsoft.com/json), available as a NuGet package.
-* If you're using Linux/MacOS, you can run this application using [Mono](https://www.mono-project.com/).
+* Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* A [estrutura JSON.net](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
+* Se você estiver usando o linux/MacOS, poderá executar esse aplicativo usando o [mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. In Visual Studio, create a new console solution named BingSearchApisQuickStart. Add the following namespaces to the main code file:
+1. No Visual Studio, crie uma nova solução de console chamada BingSearchApisQuickStart. Adicione os seguintes namespaces ao arquivo de código principal:
 
     ```csharp
     using System;
@@ -41,7 +41,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
     using System.Collections.Generic;
     ```
 
-2. Add variables for your subscription key, endpoint, and path to the image you want to upload:
+2. Adicione variáveis para sua chave de assinatura, ponto de extremidade e caminho para a imagem que você deseja carregar:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";
@@ -49,7 +49,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
         static string imagePath = @"<path_to_image>";
     ```
 
-3. Create a method named `GetImageFileName()` to get the path for your image:
+3. Crie um método chamado `GetImageFileName()` para obter o caminho para a imagem:
     
     ```csharp
     static string GetImageFileName(string path)
@@ -58,7 +58,7 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
             }
     ```
 
-4. Create a method to get the binary data of the image:
+4. Crie um método para obter os dados binários da imagem:
 
     ```csharp
     static byte[] GetImageBinary(string path)
@@ -67,9 +67,9 @@ This quickstart demonstrates how to upload an image to the Bing Visual Search AP
     }
     ```
 
-## <a name="build-the-form-data"></a>Build the form data
+## <a name="build-the-form-data"></a>Criar os dados do formulário
 
-To upload a local image, you first build the form data to send to the API. The form data must include the `Content-Disposition` header, its `name` parameter must be set to "image", and the `filename` parameter can be set to any string. The contents of the form contain the binary data of the image. The maximum image size you can upload is 1 MB.
+Para carregar uma imagem local, primeiro você cria os dados do formulário a serem enviados para a API. Os dados do formulário devem incluir o cabeçalho `Content-Disposition`, seu parâmetro `name` deve ser definido como "Image", e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O conteúdo do formulário contém os dados binários da imagem. O tamanho máximo da imagem que você pode carregar é 1 MB.
 
     ```
     --boundary_1234-abcd
@@ -80,7 +80,7 @@ To upload a local image, you first build the form data to send to the API. The f
     --boundary_1234-abcd--
     ```
 
-1. Add boundary strings to format the POST form data. Boundary strings determine the start, end, and newline characters for the data:
+1. Adicione cadeias de caracteres de limite para formatar os dados do formulário de POSTAgem. Cadeias de caracteres de limite determinam o início, o fim e o caractere de nova linha para os dados:
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -90,14 +90,14 @@ To upload a local image, you first build the form data to send to the API. The f
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. Use the following variables to add parameters to the form data:
+2. Use as seguintes variáveis para adicionar parâmetros aos dados do formulário:
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-3. Create a function named `BuildFormDataStart()` to create the start of the form data using the boundary strings and image path:
+3. Crie uma função chamada `BuildFormDataStart()` para criar o início dos dados do formulário usando as cadeias de caracteres de limite e o caminho da imagem:
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -111,7 +111,7 @@ To upload a local image, you first build the form data to send to the API. The f
         }
     ```
 
-4. Create a function named `BuildFormDataEnd()` to create the end of the form data using the boundary strings:
+4. Crie uma função chamada `BuildFormDataEnd()` para criar o final dos dados do formulário usando as cadeias de caracteres de limite:
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -120,13 +120,13 @@ To upload a local image, you first build the form data to send to the API. The f
         }
     ```
 
-## <a name="call-the-bing-visual-search-api"></a>Call the Bing Visual Search API
+## <a name="call-the-bing-visual-search-api"></a>Chamar o API da Pesquisa Visual do Bing
 
-1. Create a function to call the Bing Visual Search endpoint and return the JSON response. The function takes the start and end of the form data, a byte array containing the image data, and a `contentType` value.
+1. Crie uma função para chamar o ponto de extremidade Pesquisa Visual do Bing e retornar a resposta JSON. A função usa o início e o final dos dados do formulário, uma matriz de bytes que contém os dados da imagem e um valor `contentType`.
 
-2. Use a `WebRequest` to store your URI, contentType value, and headers.  
+2. Use um `WebRequest` para armazenar seu URI, valor contentType e cabeçalhos.  
 
-3. Use `request.GetRequestStream()` to write your form and image data, then get the response. Your function should be similar to the one below:
+3. Use `request.GetRequestStream()` para gravar seus dados de formulário e imagem e obter a resposta. Sua função deve ser semelhante à seguinte:
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -156,16 +156,16 @@ To upload a local image, you first build the form data to send to the API. The f
         }
     ```
 
-## <a name="create-the-main-method"></a>Create the Main method
+## <a name="create-the-main-method"></a>Criar o método Main
 
-1. In the `Main` method of your application, get the filename and binary data of your image:
+1. No método `Main` do seu aplicativo, obtenha o nome de arquivo e os dados binários da imagem:
 
     ```csharp
     var filename = GetImageFileName(imagePath);
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Set up the POST body by formatting the boundary for it. Then call `startFormData()` and `endFormData` to create the form data:
+2. Configure o corpo da POSTAgem Formatando o limite para ele. Em seguida, chame `startFormData()` e `endFormData` para criar os dados do formulário:
 
     ```csharp
     // Set up POST body.
@@ -174,13 +174,13 @@ To upload a local image, you first build the form data to send to the API. The f
     var endFormData = BuildFormDataEnd(boundary);
     ```
 
-3. Create the `ContentType` value by formatting `CONTENT_TYPE_HEADER_PARAMS` and the form data boundary:
+3. Crie o valor `ContentType` Formatando `CONTENT_TYPE_HEADER_PARAMS` e o limite de dados do formulário:
 
     ```csharp
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Get the API response by calling `BingImageSearch()` and print the response:
+4. Obtenha a resposta da API chamando `BingImageSearch()` e imprima a resposta:
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -191,9 +191,9 @@ To upload a local image, you first build the form data to send to the API. The f
 
 ## <a name="using-httpclient"></a>Utilizar HttpClient
 
-If you use `HttpClient`, you can use the `MultipartFormDataContent` class to build the form data. Just use the following sections of code to replace the corresponding methods in the previous example.
+Se você usar `HttpClient`, poderá usar a classe `MultipartFormDataContent` para criar os dados do formulário. Basta usar as seções de código a seguir para substituir os métodos correspondentes no exemplo anterior.
 
-Replace the `Main` method with this code:
+Substitua o método `Main` por este código:
 
 ```csharp
         static void Main()
@@ -233,7 +233,7 @@ Replace the `Main` method with this code:
         }
 ```
 
-Replace the `BingImageSearch` method with this code:
+Substitua o método `BingImageSearch` por este código:
 
 ```csharp
         /// <summary>
@@ -270,4 +270,4 @@ Replace the `BingImageSearch` method with this code:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Create a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Criar um aplicativo Web de página única Pesquisa Visual](../tutorial-bing-visual-search-single-page-app.md)

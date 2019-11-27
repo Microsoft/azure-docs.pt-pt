@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark | Microsoft Docs'
-description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
+description: Este tutorial mostra como executar consultas do Spark em um cluster Azure Databricks para acessar dados em uma conta de armazenamento de Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -17,59 +17,59 @@ ms.locfileid: "74327525"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
-This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
+Este tutorial mostra como conectar o cluster Azure Databricks aos dados armazenados em uma conta de armazenamento do Azure que tenha Azure Data Lake Storage Gen2 habilitado. Essa conexão permite que você execute de forma nativa consultas e análises do seu cluster em seus dados.
 
 Neste tutorial, irá:
 
 > [!div class="checklist"]
 > * Criar um cluster do Databricks
 > * Ingerir dados não estruturados numa conta de armazenamento
-> * Run analytics on your data in Blob storage
+> * Execute a análise em seus dados no armazenamento de BLOBs
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Create an Azure Data Lake Storage Gen2 account.
+* Crie uma conta de Azure Data Lake Storage Gen2.
 
-  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+  Consulte [criar uma conta de Azure data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
+* Certifique-se de que sua conta de usuário tenha a [função de colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atribuída a ela.
 
-* Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* Instale o AzCopy v10. Consulte [transferir dados com AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Crie uma entidade de serviço. Consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-  There's a couple of specific things that you'll have to do as you perform the steps in that article.
+  Há algumas coisas específicas que você precisará fazer ao executar as etapas nesse artigo.
 
-  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+  : heavy_check_mark: ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
 
   > [!IMPORTANT]
-  > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
+  > Certifique-se de atribuir a função no escopo da conta de armazenamento Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos ou à assinatura pai, mas receberá erros relacionados a permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
+  : heavy_check_mark: ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
 
 ### <a name="download-the-flight-data"></a>Transferir os dados de voos
 
-This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
+Este tutorial usa dados de vôo do Bureau de estatísticas de transporte para demonstrar como executar uma operação de ETL. Você deve baixar esses dados para concluir o tutorial.
 
-1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Vá para [pesquisa e administração inovadora de tecnologia, Bureau de estatísticas de transporte](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-2. Select the **Prezipped File** check box to select all data fields.
+2. Marque a caixa de seleção **arquivo prezipado** para selecionar todos os campos de dados.
 
-3. Select the **Download** button and save the results to your computer. 
+3. Selecione o botão **baixar** e salve os resultados em seu computador. 
 
-4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
+4. Descompacte o conteúdo do arquivo compactado e anote o nome do arquivo e o caminho do arquivo. Você precisará dessas informações em uma etapa posterior.
 
-## <a name="create-an-azure-databricks-service"></a>Create an Azure Databricks service
+## <a name="create-an-azure-databricks-service"></a>Criar um serviço de Azure Databricks
 
-In this section, you create an Azure Databricks service by using the Azure portal.
+Nesta seção, você cria um serviço de Azure Databricks usando o portal do Azure.
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
 
-    ![Databricks on Azure portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Databricks no portal do Azure](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-2. Under **Azure Databricks Service**, provide the following values to create a Databricks service:
+2. Em **Azure Databricks Service**, forneça os seguintes valores para criar um serviço databricks:
 
     |Propriedade  |Descrição  |
     |---------|---------|
@@ -77,25 +77,25 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/resource-group-overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).       |
-    |**Escalão de Preço**     |  Select **Standard**.     |
+    |**Escalão de Preço**     |  Selecione **padrão**.     |
 
-    ![Create an Azure Databricks workspace](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
+    ![Criar um espaço de trabalho Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Criar um serviço de Azure Databricks")
 
-3. A criação da conta demora alguns minutos. To monitor the operation status, view the progress bar at the top.
+3. A criação da conta demora alguns minutos. Para monitorar o status da operação, exiba a barra de progresso na parte superior.
 
 4. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Criar um cluster do Spark no Azure Databricks
 
-1. In the Azure portal, go to the Databricks service that you created, and select **Launch Workspace**.
+1. Na portal do Azure, vá para o serviço databricks que você criou e selecione **Iniciar espaço de trabalho**.
 
-2. You're redirected to the Azure Databricks portal. No portal, selecione **Cluster**.
+2. Você será redirecionado para o portal de Azure Databricks. No portal, selecione **Cluster**.
 
-    ![Databricks on Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks on Azure")
+    ![Databricks no Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks no Azure")
 
 3. Na página **Novo cluster**, indique os valores para criar um cluster.
 
-    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+    ![Criar um cluster Spark do databricks no Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Criar um cluster Spark do databricks no Azure")
 
     Preencha os valores para os campos seguintes e aceite os valores predefinidos para os outros campos:
 
@@ -103,49 +103,49 @@ In this section, you create an Azure Databricks service by using the Azure porta
      
     - Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
-4. Selecione **Criar cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+4. Selecione **Criar cluster**. Depois que o cluster estiver em execução, você poderá anexar blocos de anotações ao cluster e executar trabalhos do Spark.
 
 ## <a name="ingest-data"></a>Ingerir dados
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copiar dados de origem para a conta de armazenamento
 
-Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account.
+Use AzCopy para copiar dados do seu arquivo *. csv* para sua conta do data Lake Storage Gen2.
 
-1. Open a command prompt window, and enter the following command to log into your storage account.
+1. Abra uma janela de prompt de comando e digite o seguinte comando para fazer logon em sua conta de armazenamento.
 
    ```bash
    azcopy login
    ```
 
-   Follow the instructions that appear in the command prompt window to authenticate your user account.
+   Siga as instruções que aparecem na janela do prompt de comando para autenticar sua conta de usuário.
 
-2. To copy data from the *.csv* account, enter the following command.
+2. Para copiar dados da conta *. csv* , insira o comando a seguir.
 
    ```bash
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+   * Substitua o valor do espaço reservado `<csv-folder-path>` pelo caminho para o arquivo *. csv* .
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+   * Substitua o valor do espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
-   * Replace the `<container-name>` placeholder with any name that you want to give your container.
+   * Substitua o espaço reservado `<container-name>` por qualquer nome que você deseja dar ao seu contêiner.
 
-## <a name="create-a-container-and-mount-it"></a>Create a container and mount it
+## <a name="create-a-container-and-mount-it"></a>Criar um contêiner e montá-lo
 
-In this section, you'll create a container and a folder in your storage account.
+Nesta seção, você criará um contêiner e uma pasta em sua conta de armazenamento.
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
+1. Na [portal do Azure](https://portal.azure.com), vá para o serviço de Azure Databricks que você criou e selecione **Iniciar espaço de trabalho**.
 
-2. On the left, select **Workspace**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
+2. À esquerda, selecione **espaço de trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
-    ![Create a notebook in Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Criar um bloco de anotações no databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Criar bloco de anotações no databricks")
 
-3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Select **Python** as the language, and then select the Spark cluster that you created earlier.
+3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que você criou anteriormente.
 
 4. Selecione **Criar**.
 
-5. Copy and paste the following code block into the first cell, but don't run this code yet.
+5. Copie e cole o bloco de código a seguir na primeira célula, mas não execute esse código ainda.
 
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
@@ -161,28 +161,28 @@ In this section, you'll create a container and a folder in your storage account.
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name that you gave to the container on the previous step.
+18. Nesse bloco de código, substitua os valores de espaço reservado `appId`, `password`, `tenant`e `storage-account-name` nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial. Substitua o valor do espaço reservado `container-name` pelo nome que você atribuiu ao contêiner na etapa anterior.
 
-Use these values to replace the mentioned placeholders.
+Use esses valores para substituir os espaços reservados mencionados.
 
-   * The `appId`, and `password` are from the app that you registered with active directory as part of creating a service principal.
+   * O `appId`e `password` são do aplicativo que você registrou com o Active Directory como parte da criação de uma entidade de serviço.
 
-   * The `tenant-id` is from your subscription.
+   * O `tenant-id` é de sua assinatura.
 
-   * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
+   * O `storage-account-name` é o nome da sua conta de armazenamento de Azure Data Lake Storage Gen2.
 
-   * Replace the `container-name` placeholder with any name that you want to give your container.
+   * Substitua o espaço reservado `container-name` por qualquer nome que você deseja dar ao seu contêiner.
 
    > [!NOTE]
-   > In a production setting, consider storing your password in Azure Databricks. Then, add a look up key to your code block instead of the password. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+   > Em uma configuração de produção, considere armazenar sua senha no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da senha. Depois de concluir este guia de início rápido, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks para ver exemplos dessa abordagem.
 
-19. Press the **SHIFT + ENTER** keys to run the code in this block.
+19. Pressione as teclas **Shift + Enter** para executar o código neste bloco.
 
-   Keep this notebook open as you will add commands to it later.
+   Mantenha este bloco de anotações aberto, pois você adicionará comandos a ele mais tarde.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Utilize o Databricks Notebook para converter CSV em Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
+No bloco de anotações que você criou anteriormente, adicione uma nova célula e cole o código a seguir nessa célula. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -198,7 +198,7 @@ print("Done")
 
 ## <a name="explore-data"></a>Explorar dados
 
-In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy.
+Em uma nova célula, Cole o código a seguir para obter uma lista de arquivos CSV carregados por meio de AzCopy.
 
 ```python
 import os.path
@@ -220,9 +220,9 @@ Com estes exemplos de código, explorou a natureza hierárquica do HDFS através
 
 Em seguida, pode começar a consultar os dados que carregou para a sua conta de armazenamento. Introduza cada um dos seguintes blocos de código em **Cmd 1** e prima **Cmd + Enter** para executar o script de Python.
 
-To create data frames for your data sources, run the following script:
+Para criar quadros de dados para suas fontes de dados, execute o seguinte script:
 
-* Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+* Substitua o valor do espaço reservado `<csv-folder-path>` pelo caminho para o arquivo *. csv* .
 
 ```python
 # Copy this into a Cmd cell in your notebook.
@@ -251,7 +251,7 @@ flightDF.show(20, False)
 display(flightDF)
 ```
 
-Enter this script to run some basic analysis queries against the data.
+Insira esse script para executar algumas consultas básicas de análise nos dados.
 
 ```python
 # Run each of these queries, preferably in a separate cmd cell for separate analysis
@@ -285,7 +285,7 @@ print('Airlines that fly to/from Texas: ', out1.show(100, False))
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and select **Delete**.
+Quando eles não forem mais necessários, exclua o grupo de recursos e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos para a conta de armazenamento e selecione **excluir**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -57,7 +57,7 @@ Pode satisfazer estes requisitos, efetuando os passos no artigo, [Criar um espa�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -160,7 +160,7 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
 Neste tutorial, você usa os [Serviços cognitivas do Azure análise de texto APIs](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimentos em um fluxo de tweets quase em tempo real. Antes de usar as APIs, você deve criar uma conta de serviços cognitivas do Azure no Azure e recuperar uma chave de acesso para usar as APIs de Análise de Texto.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 2. Selecione **+ Criar um recurso**.
 
@@ -180,7 +180,7 @@ Neste tutorial, você usa os [Serviços cognitivas do Azure análise de texto AP
 
      Selecione **Criar**.
 
-5. Depois da conta é criada, do **descrição geral** separador, selecione **Mostrar chaves de acesso**.
+5. Depois que a conta for criada, na guia **visão geral** , selecione **Mostrar chaves de acesso**.
 
     ![Mostrar chaves de acesso](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Mostrar chaves de acesso")
 
@@ -622,7 +622,7 @@ Depois de executar o tutorial, pode terminar o cluster. Para tal, na área de tr
 
 ![Parar um cluster do databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Parar um cluster do databricks")
 
-Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Aprendeu a:

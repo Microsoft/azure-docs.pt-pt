@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft identity platform to access secure resources without user interaction | Azure
-description: Build web applications by using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
+title: Use a plataforma de identidade da Microsoft para acessar recursos seguros sem interação com o usuário | Azure
+description: Crie aplicativos Web usando a implementação da plataforma de identidade da Microsoft do protocolo de autenticação OAuth 2,0.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -25,76 +25,76 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74207637"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft identity platform and the OAuth 2.0 client credentials flow
+# <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
+Você pode usar a [concessão de credenciais de cliente OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-4.4) especificada na RFC 6749, às vezes chamada de *OAuth de duas pernas*, para acessar recursos hospedados na Web usando a identidade de um aplicativo. Esse tipo de concessão é comumente usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativos são geralmente chamados de *daemons* ou *contas de serviço*.
 
-This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+Este artigo descreve como programar diretamente em relação ao protocolo em seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
 
-The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a web site. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
+O fluxo de concessão de credenciais de cliente do OAuth 2,0 permite que um serviço Web (cliente confidencial) Use suas próprias credenciais, em vez de representar um usuário, para autenticar ao chamar outro serviço Web. Nesse cenário, o cliente é normalmente um serviço Web de camada intermediária, um serviço de daemon ou um site da Web. Para um nível mais alto de garantia, a plataforma de identidade da Microsoft também permite que o serviço de chamada use um certificado (em vez de um segredo compartilhado) como uma credencial.
 
 > [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
+> O ponto de extremidade da plataforma de identidade da Microsoft não dá suporte a todos os cenários e recursos do Azure AD. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
 
-In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](v2-permissions-and-consent.md) process. However, in the client credentials (*two-legged OAuth*) flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action and not the user.
+No OAuth mais comum de *três pernas*, um aplicativo cliente recebe permissão para acessar um recurso em nome de um usuário específico. A permissão é delegada do usuário para o aplicativo, geralmente durante o processo de [consentimento](v2-permissions-and-consent.md) . No entanto, no fluxo de credenciais do cliente (*OAuth de duas pernas*), as permissões são concedidas diretamente ao próprio aplicativo. Quando o aplicativo apresenta um token para um recurso, o recurso impõe que o próprio aplicativo tenha autorização para executar uma ação e não o usuário.
 
-## <a name="protocol-diagram"></a>Protocol diagram
+## <a name="protocol-diagram"></a>Diagrama de protocolo
 
-The entire client credentials flow looks similar to the following diagram. We describe each of the steps later in this article.
+Todo o fluxo de credenciais do cliente é semelhante ao diagrama a seguir. Descrevemos cada uma das etapas mais adiante neste artigo.
 
-![Diagram showing the client credentials flow](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagrama mostrando o fluxo de credenciais do cliente](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
-## <a name="get-direct-authorization"></a>Get direct authorization
+## <a name="get-direct-authorization"></a>Obter autorização direta
 
-An app typically receives direct authorization to access a resource in one of two ways:
+Um aplicativo normalmente recebe autorização direta para acessar um recurso de uma das duas maneiras:
 
-* [Through an access control list (ACL) at the resource](#access-control-lists)
-* [Through application permission assignment in Azure AD](#application-permissions)
+* [Por meio de uma ACL (lista de controle de acesso) no recurso](#access-control-lists)
+* [Por meio da atribuição de permissão de aplicativo no Azure AD](#application-permissions)
 
-These two methods are the most common in Azure AD and we recommend them for clients and resources that perform the client credentials flow. A resource can also choose to authorize its clients in other ways. Each resource server can choose the method that makes the most sense for its application.
+Esses dois métodos são os mais comuns no Azure AD e são recomendados para clientes e recursos que executam o fluxo de credenciais do cliente. Um recurso também pode optar por autorizar seus clientes de outras maneiras. Cada servidor de recursos pode escolher o método que faz mais sentido para seu aplicativo.
 
-### <a name="access-control-lists"></a>Listas de controlo de acesso
+### <a name="access-control-lists"></a>Lista de controlo de acesso
 
-A resource provider might enforce an authorization check based on a list of application (client) IDs that it knows and grants a specific level of access to. When the resource receives a token from the Microsoft identity platform endpoint, it can decode the token and extract the client's application ID from the `appid` and `iss` claims. Then it compares the application against an access control list (ACL) that it maintains. The ACL's granularity and method might vary substantially between resources.
+Um provedor de recursos pode impor uma verificação de autorização com base em uma lista de IDs de aplicativo (cliente) que ele conhece e concede um nível específico de acesso ao. Quando o recurso recebe um token do ponto de extremidade da plataforma Microsoft Identity, ele pode decodificar o token e extrair a ID do aplicativo do cliente do `appid` e `iss` declarações. Em seguida, ele compara o aplicativo com uma ACL (lista de controle de acesso) que ele mantém. A granularidade e o método da ACL podem variar substancialmente entre os recursos.
 
-A common use case is to use an ACL to run tests for a web application or for a web API. The web API might grant only a subset of full permissions to a specific client. To run end-to-end tests on the API, create a test client that acquires tokens from the Microsoft identity platform endpoint and then sends them to the API. The API then checks the ACL for the test client's application ID for full access to the API's entire functionality. If you use this kind of ACL, be sure to validate not only the caller's `appid` value but also validate that the `iss` value of the token is trusted.
+Um caso de uso comum é usar uma ACL para executar testes para um aplicativo Web ou para uma API da Web. A API da Web pode conceder apenas um subconjunto de permissões completas para um cliente específico. Para executar testes de ponta a ponta na API, crie um cliente de teste que adquire tokens do ponto de extremidade da plataforma Microsoft Identity e, em seguida, os envia para a API. Em seguida, a API verifica a ACL para a ID do aplicativo do cliente de teste para ter acesso completo à funcionalidade inteira da API. Se você usar esse tipo de ACL, certifique-se de validar não apenas o valor de `appid` do chamador, mas também validar que o valor de `iss` do token é confiável.
 
-This type of authorization is common for daemons and service accounts that need to access data owned by consumer users who have personal Microsoft accounts. For data owned by organizations, we recommend that you get the necessary authorization through application permissions.
+Esse tipo de autorização é comum para daemons e contas de serviço que precisam acessar dados de propriedade de usuários do consumidor que têm contas pessoais da Microsoft. Para dados de propriedade de organizações, recomendamos que você obtenha a autorização necessária por meio de permissões de aplicativo.
 
-### <a name="application-permissions"></a>Application permissions
+### <a name="application-permissions"></a>Permissões de aplicativo
 
-Instead of using ACLs, you can use APIs to expose a set of application permissions. An application permission is granted to an application by an organization's administrator, and can be used only to access data owned by that organization and its employees. For example, Microsoft Graph exposes several application permissions to do the following:
+Em vez de usar ACLs, você pode usar APIs para expor um conjunto de permissões de aplicativo. Uma permissão de aplicativo é concedida a um aplicativo pelo administrador de uma organização e pode ser usada somente para acessar dados pertencentes a essa organização e a seus funcionários. Por exemplo, Microsoft Graph expõe várias permissões de aplicativo para fazer o seguinte:
 
-* Read mail in all mailboxes
-* Read and write mail in all mailboxes
-* Send mail as any user
-* Read directory data
+* Ler emails em todas as caixas de correio
+* Ler e gravar emails em todas as caixas de correio
+* Enviar email como qualquer usuário
+* Ler dados do diretório
 
-For more information about application permissions, go to [Microsoft Graph](https://developer.microsoft.com/graph).
+Para obter mais informações sobre permissões de aplicativo, acesse [Microsoft Graph](https://developer.microsoft.com/graph).
 
-To use application permissions in your app, follow the steps discussed in the next sections.
+Para usar permissões de aplicativo em seu aplicativo, siga as etapas discutidas nas próximas seções.
 
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Request the permissions in the app registration portal
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registro de aplicativo
 
-1. Register and create an app through the new [App registrations (Preview) experience](quickstart-register-app.md).
-2. Go to your application in the App registrations (Preview) experience. Navigate to the **Certificates & secrets** section, and add a **new client secret**, because you'll need at least one client secret to request a token.
-3. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
-4. **Save** the app registration.
+1. Registre e crie um aplicativo por meio da nova [experiência de registros de aplicativo (versão prévia)](quickstart-register-app.md).
+2. Vá para o aplicativo na experiência de Registros de aplicativo (versão prévia). Navegue até a seção **certificados & segredos** e adicione um **novo segredo do cliente**, pois você precisará de pelo menos um segredo do cliente para solicitar um token.
+3. Localize a seção **permissões de API** e adicione as permissões de **aplicativo** que seu aplicativo requer.
+4. **Salve** o registro do aplicativo.
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>Recommended: Sign the user into your app
+#### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: conectar o usuário ao seu aplicativo
 
-Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
+Normalmente, quando você cria um aplicativo que usa permissões de aplicativo, o aplicativo requer uma página ou exibição na qual o administrador aprova as permissões do aplicativo. Essa página pode fazer parte do fluxo de entrada do aplicativo, parte das configurações do aplicativo ou pode ser um fluxo de "conexão" dedicado. Em muitos casos, faz sentido que o aplicativo mostre esse modo de exibição "conectar" somente depois que um usuário tiver entrado com uma conta Microsoft corporativa ou de estudante.
 
-If you sign the user into your app, you can identify the organization to which the user belongs to before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
+Se você conectar o usuário ao seu aplicativo, poderá identificar a organização à qual o usuário pertence antes de solicitar que o usuário aprove as permissões do aplicativo. Embora não seja estritamente necessário, ele pode ajudá-lo a criar uma experiência mais intuitiva para seus usuários. Para conectar o usuário, siga nossos [tutoriais de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
-#### <a name="request-the-permissions-from-a-directory-admin"></a>Request the permissions from a directory admin
+#### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitar as permissões de um administrador de diretório
 
-When you're ready to request permissions from the organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
+Quando estiver pronto para solicitar permissões do administrador da organização, você poderá redirecionar o usuário para o *ponto de extremidade de consentimento do administrador*da plataforma de identidade da Microsoft.
 
 > [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.) [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar esta solicitação no postmaster! (Use sua própria ID de aplicativo para obter melhores resultados-o aplicativo tutorial não solicitará permissões úteis.) [![tentar executar esta solicitação no postmaster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -115,16 +115,16 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
-| `client_id` | Obrigatório | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
-| `redirect_uri` | Obrigatório | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded, and it can have additional path segments. |
-| `state` | Recomendado | A value that's included in the request that's also returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| `tenant` | Necessário | O locatário do diretório do qual você deseja solicitar permissão. Isso pode estar no formato de nome amigável ou GUID. Se você não souber a qual locatário o usuário pertence e quiser permitir que eles entrem com qualquer locatário, use `common`. |
+| `client_id` | Necessário | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `redirect_uri` | Necessário | O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL e pode ter segmentos de caminho adicionais. |
+| `state` | Recomendado | Um valor que é incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
 
-At this point, Azure AD enforces that only a tenant administrator can sign into complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
+Neste ponto, o Azure AD impõe que apenas um administrador de locatários possa entrar para concluir a solicitação. O administrador será solicitado a aprovar todas as permissões diretas do aplicativo que você solicitou para seu aplicativo no portal de registro de aplicativo.
 
-##### <a name="successful-response"></a>Successful response
+##### <a name="successful-response"></a>Resposta bem-sucedida
 
-If the admin approves the permissions for your application, the successful response looks like this:
+Se o administrador aprovar as permissões para seu aplicativo, a resposta bem-sucedida terá esta aparência:
 
 ```
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
@@ -132,13 +132,13 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `tenant` | The directory tenant that granted your application the permissions that it requested, in GUID format. |
-| `state` | A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| `admin_consent` | Set to **True**. |
+| `tenant` | O locatário de diretório que concedeu ao aplicativo as permissões que ele solicitou, no formato GUID. |
+| `state` | Um valor que é incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
+| `admin_consent` | Defina como **true**. |
 
-##### <a name="error-response"></a>Error response
+##### <a name="error-response"></a>Resposta de erro
 
-If the admin does not approve the permissions for your application, the failed response looks like this:
+Se o administrador não aprovar as permissões para seu aplicativo, a resposta com falha terá esta aparência:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -146,19 +146,19 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `error` | An error code string that you can use to classify types of errors, and which you can use to react to errors. |
-| `error_description` | A specific error message that can help you identify the root cause of an error. |
+| `error` | Uma cadeia de caracteres de código de erro que você pode usar para classificar tipos de erros e que você pode usar para reagir a erros. |
+| `error_description` | Uma mensagem de erro específica que pode ajudá-lo a identificar a causa raiz de um erro. |
 
-After you've received a successful response from the app provisioning endpoint, your app has gained the direct application permissions that it requested. Now you can request a token for the resource that you want.
+Depois de receber uma resposta bem-sucedida do ponto de extremidade de provisionamento de aplicativo, seu aplicativo terá as permissões diretas de aplicativo solicitadas. Agora você pode solicitar um token para o recurso desejado.
 
-## <a name="get-a-token"></a>Get a token
+## <a name="get-a-token"></a>Obter um token
 
-After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` Microsoft identity platform endpoint:
+Depois de adquirir a autorização necessária para seu aplicativo, continue com a aquisição de tokens de acesso para APIs. Para obter um token usando a concessão de credenciais de cliente, envie uma solicitação POST para o `/token` ponto de extremidade da plataforma de identidade da Microsoft:
 
 > [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.) [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar esta solicitação no postmaster! (Use sua própria ID de aplicativo para obter melhores resultados-o aplicativo tutorial não solicitará permissões úteis.) [![tentar executar esta solicitação no postmaster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>First case: Access token request with a shared secret
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -178,13 +178,13 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | The directory tenant the application plans to operate against, in GUID or domain-name format. |
-| `client_id` | Obrigatório | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
-| `scope` | Obrigatório | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value tells the Microsoft identity platform endpoint that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obrigatório | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
-| `grant_type` | Obrigatório | Must be set to `client_credentials`. |
+| `tenant` | Necessário | O locatário de diretório no qual o aplicativo planeja operar, no formato GUID ou nome de domínio. |
+| `client_id` | Necessário | A ID do aplicativo que é atribuída ao seu aplicativo. Você pode encontrar essas informações no portal em que você registrou seu aplicativo. |
+| `scope` | Necessário | O valor passado para o parâmetro `scope` nessa solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso desejado, afixado com o sufixo `.default`. Para o exemplo de Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, o ponto de extremidade deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo de `/.default`, consulte a [documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Necessário | O segredo do cliente que você gerou para seu aplicativo no portal de registro de aplicativo. O segredo do cliente deve ser codificado por URL antes de ser enviado. |
+| `grant_type` | Necessário | Deve ser definido como `client_credentials`. |
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Second case: Access token request with a certificate
+### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -200,16 +200,16 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | The directory tenant the application plans to operate against, in GUID or domain-name format. |
-| `client_id` | Obrigatório |The application (client) ID that's assigned to your app. |
-| `scope` | Obrigatório | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value informs the Microsoft identity platform endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_assertion_type` | Obrigatório | The value must be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obrigatório | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
-| `grant_type` | Obrigatório | Must be set to `client_credentials`. |
+| `tenant` | Necessário | O locatário de diretório no qual o aplicativo planeja operar, no formato GUID ou nome de domínio. |
+| `client_id` | Necessário |A ID do aplicativo (cliente) atribuída ao seu aplicativo. |
+| `scope` | Necessário | O valor passado para o parâmetro `scope` nessa solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso desejado, afixado com o sufixo `.default`. Para o exemplo de Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, ele deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo de `/.default`, consulte a [documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Necessário | O valor deve ser definido como `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Necessário | Uma asserção (um token Web JSON) que você precisa para criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Leia sobre [as credenciais do certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e o formato da asserção.|
+| `grant_type` | Necessário | Deve ser definido como `client_credentials`. |
 
-Notice that the parameters are almost the same as in the case of the request by shared secret except that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
+Observe que os parâmetros são quase iguais aos do caso da solicitação por segredo compartilhado, exceto pelo fato de que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 
-### <a name="successful-response"></a>Successful response
+### <a name="successful-response"></a>Resposta bem-sucedida
 
 Uma resposta com êxito tem o seguinte aspeto:
 
@@ -223,13 +223,13 @@ Uma resposta com êxito tem o seguinte aspeto:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
-| `token_type` | Indicates the token type value. The only type that Microsoft identity platform supports is `bearer`. |
-| `expires_in` | The amount of time that an access token is valid (in seconds). |
+| `access_token` | O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como em uma API da Web. |
+| `token_type` | Indica o valor do tipo de token. O único tipo com suporte da plataforma de identidade da Microsoft é `bearer`. |
+| `expires_in` | A quantidade de tempo que um token de acesso é válido (em segundos). |
 
-### <a name="error-response"></a>Error response
+### <a name="error-response"></a>Resposta de erro
 
-An error response looks like this:
+Uma resposta de erro é parecida com esta:
 
 ```
 {
@@ -246,16 +246,16 @@ An error response looks like this:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `error` | An error code string that you can use to classify types of errors that occur, and to react to errors. |
-| `error_description` | A specific error message that might help you identify the root cause of an authentication error. |
-| `error_codes` | A list of STS-specific error codes that might help with diagnostics. |
-| `timestamp` | The time when the error occurred. |
-| `trace_id` | A unique identifier for the request to help with diagnostics. |
-| `correlation_id` | A unique identifier for the request to help with diagnostics across components. |
+| `error` | Uma cadeia de caracteres de código de erro que você pode usar para classificar tipos de erros que ocorrem e reagir a erros. |
+| `error_description` | Uma mensagem de erro específica que pode ajudar a identificar a causa raiz de um erro de autenticação. |
+| `error_codes` | Uma lista de códigos de erro específicos do STS que podem ajudar com o diagnóstico. |
+| `timestamp` | A hora em que o erro ocorreu. |
+| `trace_id` | Um identificador exclusivo para a solicitação para ajudar com o diagnóstico. |
+| `correlation_id` | Um identificador exclusivo para a solicitação para ajudar com o diagnóstico entre os componentes. |
 
-## <a name="use-a-token"></a>Use a token
+## <a name="use-a-token"></a>Usar um token
 
-Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
+Agora que você adquiriu um token, use o token para fazer solicitações para o recurso. Quando o token expirar, repita a solicitação para o ponto de extremidade `/token` para adquirir um novo token de acesso.
 
 ```
 GET /v1.0/me/messages
@@ -271,11 +271,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## <a name="code-samples-and-other-documentation"></a>Code samples and other documentation
+## <a name="code-samples-and-other-documentation"></a>Exemplos de código e outras documentações
 
-Read the [client credentials overview documentation](https://aka.ms/msal-net-client-credentials) from the Microsoft Authentication Library
+Leia a [documentação visão geral das credenciais do cliente](https://aka.ms/msal-net-client-credentials) na biblioteca de autenticação da Microsoft
 
-| Exemplo | Plataforma |Descrição |
+| Sample | Plataforma |Descrição |
 |--------|----------|------------|
-|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2.1 Console | A simple .NET Core application that displays the users of a tenant querying the Microsoft Graph using the identity of the application, instead of on behalf of a user. The sample also illustrates the variation using certificates for authentication. |
-|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | A web application that syncs data from the Microsoft Graph using the identity of the application, instead of on behalf of a user. |
+|[Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Console do .NET Core 2,1 | Um aplicativo .NET Core simples que exibe os usuários de um locatário consultando o Microsoft Graph usando a identidade do aplicativo, em vez de em nome de um usuário. O exemplo também ilustra a variação usando certificados para autenticação. |
+|[Active-Directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Um aplicativo Web que sincroniza dados do Microsoft Graph usando a identidade do aplicativo, em vez de em nome de um usuário. |

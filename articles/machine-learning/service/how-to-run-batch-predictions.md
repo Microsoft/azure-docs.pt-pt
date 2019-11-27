@@ -276,7 +276,7 @@ batch_env.spark.precache_packages = False
 - `process_count_per_node`: o número de processos por nó.
 - `environment`: a definição de ambiente do Python. Você pode configurá-lo para usar um ambiente Python existente ou para configurar um ambiente temporário para o experimento. A definição também é responsável por definir as dependências de aplicativo necessárias (opcional).
 - `logging_level`: detalhes do log. Os valores no detalhamento crescente são: `WARNING`, `INFO`e `DEBUG`. O padrão é `INFO` (opcional).
-- `run_invocation_timeout`: o tempo limite de invocação do método `run()` em segundos. O valor predefinido é `60`.
+- `run_invocation_timeout`: o tempo limite de invocação do método `run()` em segundos. O valor padrão é `60`.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig

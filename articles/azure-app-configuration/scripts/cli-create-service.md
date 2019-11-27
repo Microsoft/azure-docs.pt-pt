@@ -76,8 +76,8 @@ Esse script usa os comandos a seguir para criar um novo grupo de recursos e um r
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Cria um recurso de repositório de configuração de aplicativo. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Liste as chaves armazenadas em um repositório de configuração de aplicativo. |
+| [criar AZ appconfig](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Cria um recurso de repositório de configuração de aplicativo. |
+| [lista AZ AppConfig kV](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Liste as chaves armazenadas em um repositório de configuração de aplicativo. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Durable Functions Overview - Azure
-description: Introduction to the Durable Functions extension for Azure Functions.
+title: Visão geral de Durable Functions-Azure
+description: Introdução à extensão de Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: overview
 ms.date: 08/07/2019
@@ -15,38 +15,38 @@ ms.locfileid: "74232832"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows by writing [*orchestrator functions*](durable-functions-orchestrations.md) and stateful entities by writing [*entity functions*](durable-functions-entities.md) using the Azure Functions programming model. Behind the scenes, the extension manages state, checkpoints, and restarts for you, allowing you to focus on your business logic.
+*Durable Functions* é uma extensão de [Azure Functions](../functions-overview.md) que permite que você escreva funções com estado em um ambiente de computação sem servidor. A extensão permite definir fluxos de trabalho com estado escrevendo [*funções de orquestrador*](durable-functions-orchestrations.md) e entidades com estado escrevendo [*funções de entidade*](durable-functions-entities.md) usando o modelo de programação Azure functions. Nos bastidores, a extensão gerencia o estado, pontos de verificação e reinicializações para você, permitindo que você se concentre em sua lógica de negócios.
 
-## <a name="language-support"></a>Supported languages
+## <a name="language-support"></a>Idiomas com suporte
 
-Durable Functions currently supports the following languages:
+O Durable Functions atualmente dá suporte aos seguintes idiomas:
 
-* **C#** : both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
-* **F#** : precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
-* **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
+* **C#** : as [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [ C# o script](../functions-reference-csharp.md).
+* **F#** : script e bibliotecas de F# classes pré-compiladas. F#o script só tem suporte para a versão 1. x do tempo de execução de Azure Functions.
+* **JavaScript**: com suporte apenas para a versão 2. x do tempo de execução de Azure functions. Requer a versão 1.7.0 da extensão de Durable Functions ou uma versão posterior. 
 
-Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
+Durable Functions tem o objetivo de dar suporte a todas as [linguagens de Azure Functions](../supported-languages.md). Consulte a [lista de problemas de durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) para obter o status do trabalho mais recente para dar suporte a idiomas adicionais.
 
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+Assim como Azure Functions, há modelos para ajudá-lo a desenvolver Durable Functions usando o [Visual Studio 2019](durable-functions-create-first-csharp.md), o [Visual Studio Code](quickstart-js-vscode.md)e o [portal do Azure](durable-functions-create-portal.md).
 
 ## <a name="application-patterns"></a>Padrões de aplicação
 
-The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following sections describe typical application patterns that can benefit from Durable Functions:
+O caso de uso primário para o Durable Functions é simplificar os requisitos complexos de coordenação com estado em aplicativos sem servidor. As seções a seguir descrevem os padrões de aplicativo típicos que podem se beneficiar do Durable Functions:
 
-* [Function chaining](#chaining)
-* [Fan-out/fan-in](#fan-in-out)
-* [Async HTTP APIs](#async-http)
+* [Encadeamento de funções](#chaining)
+* [Fan-out/Fan-in](#fan-in-out)
+* [APIs HTTP assíncronas](#async-http)
 * [Monitorização](#monitoring)
-* [Human interaction](#human)
-* [Aggregator](#aggregator)
+* [Interação humana](#human)
+* [Agregador](#aggregator)
 
-### <a name="chaining"></a>Pattern #1: Function chaining
+### <a name="chaining"></a>#1 padrão: encadeamento de funções
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
+No padrão de encadeamento de funções, uma sequência de funções é executada em uma ordem específica. Nesse padrão, a saída de uma função é aplicada à entrada de outra função.
 
-![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
+![Um diagrama do padrão de encadeamento de funções](./media/durable-functions-concepts/function-chaining.png)
 
-You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example:
+Você pode usar Durable Functions para implementar o padrão de encadeamento de funções de forma concisa, conforme mostrado no exemplo a seguir:
 
 #### <a name="c"></a>C#
 
@@ -69,7 +69,7 @@ public static async Task<object> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -82,22 +82,22 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
+Neste exemplo, os valores `F1`, `F2`, `F3`e `F4` são os nomes de outras funções no aplicativo de funções. Você pode implementar o fluxo de controle usando construções de codificação imperativas normais. O código é executado de cima para baixo. O código pode envolver a semântica de fluxo de controle de linguagem existente, como condicionais e loops. Você pode incluir a lógica de tratamento de erros no `try`/`catch`/blocos de `finally`.
 
-You can use the `context` parameter [IDurableOrchestrationContext] \(.NET\) and the `context.df` object (JavaScript) to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework checkpoints the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the preceding `await` or `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+Você pode usar o parâmetro `context` [IDurableOrchestrationContext] \(.NET\) e o objeto `context.df` (JavaScript) para invocar outras funções por nome, passar parâmetros e retornar a saída da função. Cada vez que o código chama `await`C#() ou `yield` (JavaScript), o Durable Functions Framework verifica o progresso da instância de função atual. Se o processo ou a VM for reciclado percorrendo a execução, a instância de função será retomada da chamada anterior `await` ou `yield`. Para obter mais informações, consulte a próxima seção, padrão #2: Fan-out/Fan in.
 
 > [!NOTE]
-> The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object), not only the [IDurableOrchestrationContext] parameter.
+> O objeto `context` em JavaScript representa o [contexto de função](../functions-reference-node.md#context-object)inteiro, não apenas o parâmetro [IDurableOrchestrationContext].
 
-### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
+### <a name="fan-in-out"></a>#2 padrão: Fan-out/Fan in
 
-In the fan out/fan in pattern, you execute multiple functions in parallel and then wait for all functions to finish. Often, some aggregation work is done on the results that are returned from the functions.
+No padrão Fan-out/Fan, execute várias funções em paralelo e aguarde a conclusão de todas as funções. Geralmente, algum trabalho de agregação é feito nos resultados retornados das funções.
 
-![A diagram of the fan out/fan pattern](./media/durable-functions-concepts/fan-out-fan-in.png)
+![Um diagrama do padrão de Fan-out/Fan](./media/durable-functions-concepts/fan-out-fan-in.png)
 
-With normal functions, you can fan out by having the function send multiple messages to a queue. Fanning back in is much more challenging. To fan in, in a normal function, you write code to track when the queue-triggered functions end, and then store function outputs.
+Com as funções normais, você pode se espalhar fazendo com que a função envie várias mensagens para uma fila. Fan de volta é muito mais desafiador. Para o Fan-in, em uma função normal, você escreve o código para controlar quando as funções disparadas por fila terminam e, em seguida, armazenam saídas de função.
 
-The Durable Functions extension handles this pattern with relatively simple code:
+A extensão Durable Functions manipula esse padrão com código relativamente simples:
 
 #### <a name="c"></a>C#
 
@@ -124,7 +124,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -146,22 +146,22 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. The .NET `Task.WhenAll` API or JavaScript `context.df.Task.all` API is called, to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+O trabalho de Fan-out é distribuído para várias instâncias da função `F2`. O trabalho é acompanhado usando uma lista dinâmica de tarefas. A API .NET `Task.WhenAll` ou a API de `context.df.Task.all` JavaScript é chamada, para aguardar a conclusão de todas as funções chamadas. Em seguida, as saídas da função `F2` são agregadas da lista de tarefas dinâmicas e passadas para a função `F3`.
 
-The automatic checkpointing that happens at the `await` or `yield` call on `Task.WhenAll` or `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+O ponto de verificação automático que ocorre na chamada de `await` ou `yield` em `Task.WhenAll` ou `context.df.Task.all` garante que uma falha ou reinicialização do Midway em potencial não exija a inicialização de uma tarefa já concluída.
 
 > [!NOTE]
-> In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would re-run from the beginning after the process recovers.
+> Em raras circunstâncias, é possível que uma falha ocorra na janela depois que uma função de atividade for concluída, mas antes de sua conclusão ser salva no histórico de orquestração. Se isso acontecer, a função de atividade seria executada novamente desde o início depois que o processo for recuperado.
 
-### <a name="async-http"></a>Pattern #3: Async HTTP APIs
+### <a name="async-http"></a>#3 padrão: APIs HTTP assíncronas
 
-The async HTTP API pattern addresses the problem of coordinating the state of long-running operations with external clients. A common way to implement this pattern is by having an HTTP endpoint trigger the long-running action. Then, redirect the client to a status endpoint that the client polls to learn when the operation is finished.
+O padrão de API HTTP assíncrona resolve o problema de coordenar o estado de operações de longa execução com clientes externos. Uma maneira comum de implementar esse padrão é fazer com que um ponto de extremidade HTTP dispare a ação de execução longa. Em seguida, redirecione o cliente para um ponto de extremidade de status que o cliente sonda para saber quando a operação foi concluída.
 
-![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
+![Um diagrama do padrão de API HTTP](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md) and [JavaScript](quickstart-js-vscode.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+O Durable Functions fornece **suporte interno** para esse padrão, simplificando ou até mesmo removendo o código que você precisa escrever para interagir com execuções de função de execução longa. Por exemplo, os exemplos de início rápido[C#](durable-functions-create-first-csharp.md) do Durable Functions (e [JavaScript](quickstart-js-vscode.md)) mostram um comando REST simples que você pode usar para iniciar novas instâncias de função de orquestrador. Depois que uma instância é iniciada, a extensão expõe as APIs HTTP do webhook que consultam o status da função de orquestrador. 
 
-The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
+O exemplo a seguir mostra os comandos REST que iniciam um orquestrador e consultam seu status. Para maior clareza, alguns detalhes de protocolo são omitidos do exemplo.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -186,23 +186,23 @@ Content-Type: application/json
 {"runtimeStatus":"Completed","lastUpdatedTime":"2019-03-16T21:20:57Z", ...}
 ```
 
-Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
+Como o tempo de execução do Durable Functions gerencia o estado para você, você não precisa implementar seu próprio mecanismo de controle de status.
 
-The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [orchestration client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
+A extensão Durable Functions expõe as APIs HTTP internas que gerenciam orquestrações de longa execução. Como alternativa, você pode implementar esse padrão usando seus próprios gatilhos de função (como HTTP, uma fila ou hubs de eventos do Azure) e a [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client). Por exemplo, você pode usar uma mensagem da fila para disparar o encerramento. Ou você pode usar um gatilho HTTP que é protegido por uma política de autenticação Azure Active Directory em vez das APIs HTTP internas que usam uma chave gerada para autenticação.
 
-For more information, see the [HTTP features](durable-functions-http-features.md) article, which explains how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
+Para obter mais informações, consulte o artigo [recursos http](durable-functions-http-features.md) , que explica como você pode expor processos assíncronos de execução longa via http usando a extensão Durable functions.
 
-### <a name="monitoring"></a>Pattern #4: Monitor
+### <a name="monitoring"></a>#4 padrão: monitor
 
-The monitor pattern refers to a flexible, recurring process in a workflow. An example is polling until specific conditions are met. You can use a regular [timer trigger](../functions-bindings-timer.md) to address a basic scenario, such as a periodic cleanup job, but its interval is static and managing instance lifetimes becomes complex. You can use Durable Functions to create flexible recurrence intervals, manage task lifetimes, and create multiple monitor processes from a single orchestration.
+O padrão de monitor refere-se a um processo recorrente e flexível em um fluxo de trabalho. Um exemplo é sondando até que condições específicas sejam atendidas. Você pode usar um [gatilho de temporizador](../functions-bindings-timer.md) regular para abordar um cenário básico, como um trabalho de limpeza periódico, mas seu intervalo é estático e o gerenciamento de tempos de vida da instância se torna complexo. Você pode usar Durable Functions para criar intervalos de recorrência flexíveis, gerenciar tempos de vida da tarefa e criar vários processos de monitor de uma única orquestração.
 
-An example of the monitor pattern is to reverse the earlier async HTTP API scenario. Instead of exposing an endpoint for an external client to monitor a long-running operation, the long-running monitor consumes an external endpoint, and then waits for a state change.
+Um exemplo do padrão de monitor é reverter o cenário de API HTTP assíncrono anterior. Em vez de expor um ponto de extremidade para um cliente externo monitorar uma operação de execução longa, o monitor de execução longa consome um ponto de extremidade externo e aguarda uma alteração de estado.
 
-![A diagram of the monitor pattern](./media/durable-functions-concepts/monitor.png)
+![Um diagrama do padrão de monitor](./media/durable-functions-concepts/monitor.png)
 
-In a few lines of code, you can use Durable Functions to create multiple monitors that observe arbitrary endpoints. The monitors can end execution when a condition is met, or the `IDurableOrchestrationClient` can terminate the monitors. You can change a monitor's `wait` interval based on a specific condition (for example, exponential backoff.) 
+Em algumas linhas de código, você pode usar Durable Functions para criar vários monitores que observam pontos de extremidade arbitrários. Os monitores podem encerrar a execução quando uma condição é atendida ou o `IDurableOrchestrationClient` pode encerrar os monitores. Você pode alterar o intervalo de `wait` de um monitor com base em uma condição específica (por exemplo, retirada exponencial). 
 
-The following code implements a basic monitor:
+O código a seguir implementa um monitor básico:
 
 #### <a name="c"></a>C#
 
@@ -234,7 +234,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -262,19 +262,19 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When the `context.CurrentUtcDateTime` (.NET) or `context.df.currentUtcDateTime` (JavaScript) exceeds the `expiryTime` value, the monitor ends.
+Quando uma solicitação é recebida, uma nova instância de orquestração é criada para essa ID de trabalho. A instância sonda um status até que uma condição seja atendida e o loop seja encerrado. Um temporizador durável controla o intervalo de sondagem. Em seguida, mais trabalho pode ser executado ou a orquestração pode terminar. Quando o `context.CurrentUtcDateTime` (.NET) ou `context.df.currentUtcDateTime` (JavaScript) excede o valor de `expiryTime`, o monitor termina.
 
-### <a name="human"></a>Pattern #5: Human interaction
+### <a name="human"></a>#5 padrão: interação humana
 
-Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using timeouts and compensation logic.
+Muitos processos automatizados envolvem algum tipo de interação humana. Envolver seres humanos em um processo automatizado é complicado porque as pessoas não são tão altamente disponíveis e tão responsivas como serviços de nuvem. Um processo automatizado pode permitir essa interação usando tempos limite e lógica de compensação.
 
-An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (maybe the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
+Um processo de aprovação é um exemplo de um processo de negócios que envolve interação humana. A aprovação de um gerente pode ser necessária para um relatório de despesas que exceda um valor determinado em dólar. Se o gerente não aprovar o relatório de despesas dentro de 72 horas (talvez o gerente tenha entrado em férias), um processo de escalonamento será acionado para obter a aprovação de outra pessoa (talvez o gerente do gerente).
 
-![A diagram of the human interaction pattern](./media/durable-functions-concepts/approval.png)
+![Um diagrama do padrão de interação humana](./media/durable-functions-concepts/approval.png)
 
-You can implement the pattern in this example by using an orchestrator function. The orchestrator uses a [durable timer](durable-functions-timers.md) to request approval. The orchestrator escalates if timeout occurs. The orchestrator waits for an [external event](durable-functions-external-events.md), such as a notification that's generated by a human interaction.
+Você pode implementar o padrão neste exemplo usando uma função de orquestrador. O orquestrador usa um [temporizador durável](durable-functions-timers.md) para solicitar aprovação. O orquestrador escala se o tempo limite ocorrer. O orquestrador aguarda um [evento externo](durable-functions-external-events.md), como uma notificação gerada por uma interação humana.
 
-These examples create an approval process to demonstrate the human interaction pattern:
+Estes exemplos criam um processo de aprovação para demonstrar o padrão de interação humana:
 
 #### <a name="c"></a>C#
 
@@ -303,7 +303,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 ```javascript
 const df = require("durable-functions");
@@ -325,9 +325,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-To create the durable timer, call `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript). The notification is received by `context.WaitForExternalEvent` (.NET) or `context.df.waitForExternalEvent` (JavaScript). Then, `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript) is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+Para criar o temporizador durável, chame `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript). A notificação é recebida por `context.WaitForExternalEvent` (.NET) ou `context.df.waitForExternalEvent` (JavaScript). Em seguida, `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript) é chamado para decidir se deve ser escalonado (o tempo limite ocorre primeiro) ou processar a aprovação (a aprovação é recebida antes do tempo limite).
 
-An external client can deliver the event notification to a waiting orchestrator function by using either the [built-in HTTP APIs](durable-functions-http-api.md#raise-event) or by using the `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) method from another function:
+Um cliente externo pode entregar a notificação de eventos a uma função de orquestrador em espera usando as [APIs http internas](durable-functions-http-api.md#raise-event) ou usando o método `RaiseEventAsync` (.net) ou `raiseEvent` (JavaScript) de outra função:
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -354,15 +354,15 @@ module.exports = async function (context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-### <a name="aggregator"></a>Pattern #6: Aggregator
+### <a name="aggregator"></a>#6 padrão: agregador
 
-The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated may come from multiple sources, may be delivered in batches, or may be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients may need to query the aggregated data.
+O sexto padrão é a agregação de dados de evento durante um período de tempo em uma única *entidade*endereçável. Nesse padrão, os dados que estão sendo agregados podem vir de várias fontes, podem ser entregues em lotes ou podem estar espalhados por longos períodos de tempo. O agregador pode precisar executar uma ação nos dados de evento conforme ele chega e os clientes externos talvez precisem consultar os dados agregados.
 
-![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
+![Diagrama do agregador](./media/durable-functions-concepts/aggregator.png)
 
-The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
+A coisa complicada de tentar implementar esse padrão com as funções normal e sem estado é que o controle de simultaneidade se torna um grande desafio. Você não só precisa se preocupar com vários threads modificando os mesmos dados ao mesmo tempo, você também precisa se preocupar em garantir que o agregador só seja executado em uma única VM por vez.
 
-You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
+Você pode usar [entidades duráveis](durable-functions-entities.md) para implementar facilmente esse padrão como uma única função.
 
 ```csharp
 [FunctionName("Counter")]
@@ -405,7 +405,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-Durable entities can also be modeled as classes in .NET. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+As entidades duráveis também podem ser modeladas como classes no .NET. Esse modelo pode ser útil se a lista de operações é fixa e torna-se grande. O exemplo a seguir é uma implementação equivalente da entidade `Counter` usando classes e métodos .NET.
 
 ```csharp
 public class Counter
@@ -425,7 +425,7 @@ public class Counter
 }
 ```
 
-Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
+Os clientes podem enfileirar *as operações* de uma função de entidade (também conhecida como "sinalização") usando a [Associação de cliente de entidade](durable-functions-bindings.md#entity-client).
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -443,7 +443,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
+> Os proxies gerados dinamicamente também estão disponíveis no .NET para sinalizar entidades de forma segura de tipo. Além de sinalizar, os clientes também podem consultar o estado de uma função de entidade usando [métodos de tipo seguro](durable-functions-bindings.md#entity-client-usage) na associação de cliente de orquestração.
 
 
 ```javascript
@@ -456,42 +456,42 @@ module.exports = async function (context) {
 };
 ```
 
-Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above.
+As funções de entidade estão disponíveis no [Durable Functions 2,0](durable-functions-versions.md) e superior.
 
-## <a name="the-technology"></a>The technology
+## <a name="the-technology"></a>A tecnologia
 
-Behind the scenes, the Durable Functions extension is built on top of the [Durable Task Framework](https://github.com/Azure/durabletask), an open-source library on GitHub that's used to build workflows in code. Like Azure Functions is the serverless evolution of Azure WebJobs, Durable Functions is the serverless evolution of the Durable Task Framework. Microsoft and other organizations use the Durable Task Framework extensively to automate mission-critical processes. It's a natural fit for the serverless Azure Functions environment.
+Nos bastidores, a extensão Durable Functions é criada sobre a estrutura de [tarefa durável](https://github.com/Azure/durabletask), uma biblioteca de software livre no GitHub que é usada para criar fluxos de trabalho no código. Como Azure Functions é a evolução sem servidor do Azure WebJobs, Durable Functions é a evolução sem servidor do Framework de tarefa durável. A Microsoft e outras organizações usam o Framework de tarefa durável extensivamente para automatizar processos críticos. É uma opção natural para o ambiente de Azure Functions sem servidor.
 
-## <a name="code-constraints"></a>Code constraints
+## <a name="code-constraints"></a>Restrições de código
 
-In order to provide reliable and long-running execution guarantees, orchestrator functions have a set of coding rules that must be followed. For more information, see the [Orchestrator function code constraints](durable-functions-code-constraints.md) article.
+Para fornecer garantias de execução confiáveis e de execução longa, as funções de orquestrador têm um conjunto de regras de codificação que devem ser seguidas. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
 
 ## <a name="billing"></a>Faturação
 
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../functions-scale.md#consumption-plan), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
+Durable Functions são cobradas da mesma forma que Azure Functions. Para obter mais informações, consulte [preços de Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de consumo](../functions-scale.md#consumption-plan)de Azure functions, há alguns comportamentos de cobrança a serem cientes. Para obter mais informações sobre esses comportamentos, consulte o artigo [Durable Functions cobrança](durable-functions-billing.md) .
 
-## <a name="jump-right-in"></a>Jump right in
+## <a name="jump-right-in"></a>Ir direto para a direita
 
-You can get started with Durable Functions in under 10 minutes by completing one of these language-specific quickstart tutorials:
+Você pode começar a usar o Durable Functions em menos de 10 minutos, concluindo um destes tutoriais de início rápido específicos do idioma:
 
-* [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
-* [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
+* [C#usando o Visual Studio 2019](durable-functions-create-first-csharp.md)
+* [JavaScript usando Visual Studio Code](quickstart-js-vscode.md)
 
-In both quickstarts, you locally create and test a "hello world" durable function. Em seguida, publique o código de função no Azure. The function you create orchestrates and chains together calls to other functions.
+Em ambos os guias de início rápido, você cria e testa localmente uma função durável "Olá, mundo". Em seguida, publique o código de função no Azure. A função que você cria orquestra e encadeia chamadas para outras funções.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
-The following video highlights the benefits of Durable Functions:
+O vídeo a seguir destaca os benefícios de Durable Functions:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
-For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
+Para obter uma discussão mais detalhada sobre o Durable Functions e a tecnologia subjacente, consulte o vídeo a seguir (ele se concentra no .NET, mas os conceitos também se aplicam a outros idiomas com suporte):
 
 > [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204/player]
 
-Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
+Como Durable Functions é uma extensão avançada para [Azure Functions](../functions-overview.md), ela não é apropriada para todos os aplicativos. Para obter uma comparação com outras tecnologias de orquestração do Azure, consulte [comparar Azure Functions e aplicativos lógicos do Azure](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Durable Functions function types and features](durable-functions-types-features-overview.md)
+> [Durable Functions tipos de função e recursos](durable-functions-types-features-overview.md)

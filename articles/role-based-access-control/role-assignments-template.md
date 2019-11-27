@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources using RBAC and Azure Resource Manager templates | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure Resource Manager templates.
+title: Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos usando o controle de acesso baseado em função (RBAC) e modelos de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -20,17 +20,17 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383998"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Manage access to Azure resources using RBAC and Azure Resource Manager templates
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como você pode gerenciar o acesso usando RBAC e modelos.
 
-## <a name="get-object-ids"></a>Get object IDs
+## <a name="get-object-ids"></a>Obter IDs de objeto
 
-To assign a role, you need to specify the ID of the user, group, or application you want to assign the role to. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal, Azure PowerShell, or Azure CLI.
+Para atribuir uma função, você precisa especificar a ID do usuário, grupo ou aplicativo ao qual deseja atribuir a função. A ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure, Azure PowerShell ou CLI do Azure.
 
 ### <a name="user"></a>Utilizador
 
-To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
+Para obter a ID de um usuário, você pode usar os comandos [Get-AzADUser](/powershell/module/az.resources/get-azaduser) ou [AZ ad User show](/cli/azure/ad/user#az-ad-user-show) .
 
 ```azurepowershell
 $objectid = (Get-AzADUser -DisplayName "{name}").id
@@ -42,7 +42,7 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### <a name="group"></a>Grupo
 
-To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
+Para obter a ID de um grupo, você pode usar os comandos [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) ou [AZ ad Group show](/cli/azure/ad/group#az-ad-group-show) .
 
 ```azurepowershell
 $objectid = (Get-AzADGroup -DisplayName "{name}").id
@@ -52,9 +52,9 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-### <a name="application"></a>Candidatura
+### <a name="application"></a>Aplicação
 
-To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+Para obter a ID de uma entidade de serviço (identidade usada por um aplicativo), você pode usar os comandos de lista [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [AZ ad SP](/cli/azure/ad/sp#az-ad-sp-list) . Para uma entidade de serviço, use a ID de objeto e **não** a ID do aplicativo.
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
@@ -64,16 +64,16 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Create a role assignment at a resource group scope (without parameters)
+## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Criar uma atribuição de função em um escopo de grupo de recursos (sem parâmetros)
 
-No RBAC, para conceder acesso, crie uma atribuição de função. The following template shows a basic way to create a role assignment. Some values are specified within the template. The following template demonstrates:
+No RBAC, para conceder acesso, crie uma atribuição de função. O modelo a seguir mostra uma maneira básica de criar uma atribuição de função. Alguns valores são especificados no modelo. O modelo a seguir demonstra:
 
--  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
+-  Como atribuir a função [leitor](built-in-roles.md#reader) a um usuário, grupo ou aplicativo em um escopo de grupo de recursos
 
-To use the template, you must do the following:
+Para usar o modelo, você deve fazer o seguinte:
 
-- Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the ID of a user, group, or application to assign the role to
+- Criar um novo arquivo JSON e copiar o modelo
+- Substituir `<your-principal-id>` pela ID de um usuário, grupo ou aplicativo ao qual atribuir a função
 
 ```json
 {
@@ -93,7 +93,7 @@ To use the template, you must do the following:
 }
 ```
 
-Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment in a resource group named ExampleGroup.
+Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um grupo de recursos denominado myGroup.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
@@ -103,21 +103,21 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
-The following shows an example of the Reader role assignment to a user for a resource group after deploying the template.
+Veja a seguir um exemplo de atribuição de função de leitor para um usuário para um grupo de recursos após a implantação do modelo.
 
-![Role assignment at resource group scope](./media/role-assignments-template/role-assignment-template.png)
+![Atribuição de função no escopo do grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Create a role assignment at a resource group or subscription scope
+## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Criar uma atribuição de função em um grupo de recursos ou escopo de assinatura
 
-The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. The following template demonstrates:
+O modelo anterior não é muito flexível. O modelo a seguir usa parâmetros e pode ser usado em escopos diferentes. O modelo a seguir demonstra:
 
-- How to assign a role to a user, group, or application at either a resource group or subscription scope
-- How to specify the Owner, Contributor, and Reader roles as a parameter
+- Como atribuir uma função a um usuário, grupo ou aplicativo em um grupo de recursos ou escopo de assinatura
+- Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
 
-To use the template, you must specify the following inputs:
+Para usar o modelo, você deve especificar as seguintes entradas:
 
-- The ID of a user, group, or application to assign the role to
-- A unique ID that will be used for the role assignment, or you can use the default ID
+- A ID de um usuário, grupo ou aplicativo ao qual atribuir a função
+- Uma ID exclusiva que será usada para a atribuição de função ou você poderá usar a ID padrão
 
 ```json
 {
@@ -169,9 +169,9 @@ To use the template, you must specify the following inputs:
 ```
 
 > [!NOTE]
-> This template is not idempotent unless the same `roleNameGuid` value is provided as a parameter for each deployment of the template. If no `roleNameGuid` is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a `Conflict: RoleAssignmentExists` error.
+> Esse modelo não é idempotente, a menos que o mesmo valor de `roleNameGuid` seja fornecido como um parâmetro para cada implantação do modelo. Se nenhum `roleNameGuid` for fornecido, por padrão, um novo GUID será gerado em cada implantação e implantações subsequentes falharão com um erro de `Conflict: RoleAssignmentExists`.
 
-The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
+O escopo da atribuição de função é determinado do nível da implantação. Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um escopo de grupo de recursos.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
@@ -181,7 +181,7 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-Here are example [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) and [az deployment create](/cli/azure/deployment#az-deployment-create) commands for how to start the deployment at a subscription scope and specify the location.
+Aqui estão exemplos de comandos [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) e [AZ Deployment Create](/cli/azure/deployment#az-deployment-create) para saber como iniciar a implantação em um escopo de assinatura e especificar o local.
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
@@ -191,26 +191,26 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>Create a role assignment at a resource scope
+## <a name="create-a-role-assignment-at-a-resource-scope"></a>Criar uma atribuição de função em um escopo de recurso
 
-If you need to create a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
+Se você precisar criar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Você fornece o namespace do provedor de recursos e o tipo de recurso do recurso ao qual atribuir a função. Você também inclui o nome do recurso no nome da atribuição de função.
 
-For the type and name of the role assignment, use the following format:
+Para o tipo e o nome da atribuição de função, use o seguinte formato:
 
 ```json
 "type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
 "name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
 ```
 
-The following template demonstrates:
+O modelo a seguir demonstra:
 
 - Como criar uma nova conta de armazenamento
-- How to assign a role to a user, group, or application at the storage account scope
-- How to specify the Owner, Contributor, and Reader roles as a parameter
+- Como atribuir uma função a um usuário, grupo ou aplicativo no escopo da conta de armazenamento
+- Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
 
-To use the template, you must specify the following inputs:
+Para usar o modelo, você deve especificar as seguintes entradas:
 
-- The ID of a user, group, or application to assign the role to
+- A ID de um usuário, grupo ou aplicativo ao qual atribuir a função
 
 ```json
 {
@@ -273,7 +273,7 @@ To use the template, you must specify the following inputs:
 }
 ```
 
-To deploy the previous template, you use the resource group commands. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource scope.
+Para implantar o modelo anterior, use os comandos do grupo de recursos. Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um escopo de recurso.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
@@ -283,23 +283,23 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
-The following shows an example of the Contributor role assignment to a user for a storage account after deploying the template.
+Veja a seguir um exemplo de atribuição de função de colaborador para um usuário para uma conta de armazenamento depois de implantar o modelo.
 
-![Role assignment at resource scope](./media/role-assignments-template/role-assignment-template-resource.png)
+![Atribuição de função no escopo de recurso](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Create a role assignment for a new service principal
+## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Criar uma atribuição de função para uma nova entidade de serviço
 
-If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal in the same Azure Resource Manager template, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment.
+Se você criar uma nova entidade de serviço e tentar atribuir imediatamente uma função a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma nova identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade de serviço no mesmo modelo de Azure Resource Manager, a atribuição de função poderá falhar. O motivo dessa falha é provavelmente um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve definir a propriedade `principalType` como `ServicePrincipal` ao criar a atribuição de função.
 
-The following template demonstrates:
+O modelo a seguir demonstra:
 
-- How to create a new managed identity service principal
-- How to specify the `principalType`
-- How to assign the Contributor role to that service principal at a resource group scope
+- Como criar uma nova entidade de serviço de identidade gerenciada
+- Como especificar o `principalType`
+- Como atribuir a função de colaborador a essa entidade de serviço em um escopo de grupo de recursos
 
-To use the template, you must specify the following inputs:
+Para usar o modelo, você deve especificar as seguintes entradas:
 
-- The base name of the managed identity, or you can use the default string
+- O nome de base da identidade gerenciada ou você pode usar a cadeia de caracteres padrão
 
 ```json
 {
@@ -341,7 +341,7 @@ To use the template, you must specify the following inputs:
 }
 ```
 
-Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
+Aqui estão exemplos de comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para saber como iniciar a implantação em um escopo de grupo de recursos.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
@@ -351,13 +351,13 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rba
 az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
-The following shows an example of the Contributor role assignment to a new managed identity service principal after deploying the template.
+Veja a seguir um exemplo da atribuição de função de colaborador para uma nova entidade de serviço de identidade gerenciada após a implantação do modelo.
 
-![Role assignment for a new managed identity service principal](./media/role-assignments-template/role-assignment-template-msi.png)
+![Atribuição de função para uma nova entidade de serviço de identidade gerenciada](./media/role-assignments-template/role-assignment-template-msi.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
-- [Create resource groups and resources at the subscription level](../azure-resource-manager/deploy-to-subscription.md)
+- [Criar grupos de recursos e recursos no nível da assinatura](../azure-resource-manager/deploy-to-subscription.md)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

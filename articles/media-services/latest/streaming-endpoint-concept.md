@@ -66,7 +66,7 @@ CDN|CDN do Azure, CDN de terceiros ou nenhuma CDN.|CDN do Azure, CDN de terceiro
 A cobrança é rateada| Diariamente|Diariamente
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escala|Escala verticalmente para a taxa de transferência de destino.|SUs adicional
+Dimensionamento|Escala verticalmente para a taxa de transferência de destino.|SUs adicional
 Filtragem de IP/G20/host personalizado <sup>1</sup>|Sim|Sim
 Download progressivo|Sim|Sim
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.

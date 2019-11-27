@@ -142,7 +142,7 @@ Se você tiver qualquer um desses problemas, faça o seguinte:
 
 - Se o processo de captura manual parecer parar de responder ou a página de entrada não responder, tente o processo de captura manual novamente. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione a guia **console** . digite **Window. location = " *&lt;a URL de entrada que você especificou ao configurar o aplicativo&gt;* "** e pressione Enter. Isso força um redirecionamento de página que encerra o processo de captura e armazena os campos que foram capturados.
 
-### <a name="contact-support"></a>Contacte o suporte
+### <a name="contact-support"></a>Contactar o suporte
 
 Se você ainda tiver problemas, abra um caso com Suporte da Microsoft. Descreva o que você tentou. Inclua os detalhes descritos em [Exibir detalhes de notificação do portal](#view-portal-notification-details) e [Enviar detalhes da notificação a um engenheiro de suporte para obter](#send-notification-details-to-a-support-engineer-to-get-help) as seções de ajuda deste artigo (se aplicável).
 
@@ -252,4 +252,4 @@ As informações a seguir explicam o que significa cada item de notificação e 
     Exemplo: ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Passos seguintes
-[Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)
+[Fornecer logon único para seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)

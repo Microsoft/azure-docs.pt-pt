@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5721879ee78a694c90e607d15f30f99394e49fc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f757819e16db9908e80c5e7350c082dbf1573677
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183603"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547237"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -35,7 +35,7 @@ Neste artigo, usando a ONDULAção para fazer chamadas para o ponto de extremida
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar as operações de gerenciamento neste artigo, sua conta precisa das seguintes atribuições de controle de acesso com base em função do Azure:
 
@@ -92,7 +92,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -187,7 +187,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em um conjunto de
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -220,7 +220,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em um conjunto de
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. |
  
    **Corpo da solicitação**
@@ -254,7 +254,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em um conjunto de
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -298,7 +298,7 @@ Para desabilitar uma identidade atribuída pelo sistema em um conjunto de dimens
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -355,7 +355,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -442,7 +442,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. |
  
    **Corpo da solicitação**
@@ -558,7 +558,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -590,7 +590,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -626,7 +626,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -665,7 +665,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -726,7 +726,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -758,7 +758,7 @@ Nesta seção, você aprenderá a adicionar e remover a identidade gerenciada at
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
    **Corpo da solicitação**
@@ -788,7 +788,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
-|*Content-Type*     | Necessário. Definido como `application/json`.        |
+|*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
 **Corpo da solicitação**
@@ -815,7 +815,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
-|*Content-Type*     | Necessário. Definido como `application/json`.        |
+|*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
 **Corpo da solicitação**

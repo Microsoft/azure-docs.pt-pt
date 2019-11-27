@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Get image insights using the SDK for Node.js - Bing Visual Search'
+title: 'Início rápido: obter informações de imagem usando o SDK para node. js-Pesquisa Visual do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Node.js SDK.
+description: Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do node. js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,14 +17,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383576"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Quickstart: Get image insights using the Bing Visual Search SDK for Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Início rápido: obter informações de imagem usando o SDK do Pesquisa Visual do Bing para node. js
 
-Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Node.js SDK. While Bing Visual Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
+Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do node. js. Embora Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Node.js](https://www.nodejs.org/)
-* The Bing Visual Search SDK for Node.js
-    * To set up a console application using the Bing Visual Search SDK, run the following commands:
+* O SDK do Pesquisa Visual do Bing para node. js
+    * Para configurar um aplicativo de console usando o SDK do Pesquisa Visual do Bing, execute os seguintes comandos:
         1. `npm install ms-rest-azure`
         2. `npm install azure-cognitiveservices-search-visualSearch`.
 
@@ -35,7 +35,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Create a new JavaScript file in your favorite IDE or editor, and add the following requirements. Then create variables for your subscription key, Custom Configuration ID, and file path to the image you want to upload. 
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito e adicione os requisitos a seguir. Em seguida, crie variáveis para sua chave de assinatura, ID de configuração personalizada e caminho de arquivo para a imagem que você deseja carregar. 
 
     ```javascript
     const os = require("os");
@@ -49,15 +49,15 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     let filePath = "../Data/image.jpg";
     ```
 
-2. Instantiate the client.
+2. Crie uma instância do cliente.
 
     ```javascript
     let visualSearchClient = new Search.VisualSearchClient(credentials);
     ```
 
-## <a name="search-for-images"></a>Search for images
+## <a name="search-for-images"></a>Pesquisar por imagens
 
-1. Use `fs.createReadStream()` to read in your image file, and create variables for your search request and results. Then use the client to search images.
+1. Use `fs.createReadStream()` para ler o arquivo de imagem e criar variáveis para os resultados e a solicitação de pesquisa. Em seguida, use o cliente para pesquisar imagens.
 
     ```javascript
     let fileStream = fs.createReadStream(filePath);
@@ -110,4 +110,4 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](tutorial-bing-visual-search-single-page-app.md)

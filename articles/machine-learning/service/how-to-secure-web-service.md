@@ -58,8 +58,8 @@ Se você ainda não possui um nome de domínio, compre um de um *registrador de 
 
 Há várias maneiras de obter um certificado SSL (certificado digital). O mais comum é comprar um de uma *autoridade de certificação* (CA). Independentemente de onde você obtém o certificado, você precisa dos seguintes arquivos:
 
-* R **certificado**. O certificado deve conter a cadeia de certificados completa e deve ser "codificado por PEM".
-* R **chave**. A chave também deve ser codificada por PEM.
+* Um **certificado**. O certificado deve conter a cadeia de certificados completa e deve ser "codificado por PEM".
+* Uma **chave**. A chave também deve ser codificada por PEM.
 
 Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja usar para o serviço Web (por exemplo, www\.contoso.com). O endereço que é carimbado no certificado e o endereço que os clientes usam são comparados para verificar a identidade do serviço Web. Se esses endereços não corresponderem, o cliente receberá uma mensagem de erro.
 

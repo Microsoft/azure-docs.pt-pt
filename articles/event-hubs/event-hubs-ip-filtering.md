@@ -34,7 +34,7 @@ Qualquer tentativa de conexão de um endereço IP que não corresponda a uma reg
 
 ## <a name="default-setting"></a>Definição predefinida
 
-Por predefinição, o **filtro IP** grelha no portal dos Hubs de eventos está vazia. Essa configuração padrão significa que o seu hub de eventos aceita ligações a partir de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
+Por padrão, a grade de **filtro IP** no portal para os hubs de eventos está vazia. Essa configuração padrão significa que o seu hub de eventos aceita ligações a partir de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
 ## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
 

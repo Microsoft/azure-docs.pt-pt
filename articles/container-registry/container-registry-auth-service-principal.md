@@ -1,6 +1,6 @@
 ---
-title: Authenticate with service principal
-description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
+title: Autenticar com a entidade de serviço
+description: Forneça acesso a imagens em seu registro de contêiner privado usando uma entidade de serviço Azure Active Directory.
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
@@ -10,96 +10,96 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455402"
 ---
-# <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry authentication with service principals
+# <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do registro de contêiner do Azure com entidades de serviço
 
-You can use an Azure Active Directory (Azure AD) service principal to provide container image `docker push` and `pull` access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
+Você pode usar uma entidade de serviço do Azure Active Directory (AD do Azure) para fornecer `docker push` de imagem de contêiner e `pull` acesso ao registro de contêiner. Usando uma entidade de serviço, você pode fornecer acesso a aplicativos e serviços "sem periféricos".
 
 ## <a name="what-is-a-service-principal"></a>O que é um principal de serviço?
 
-Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs to access the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
+As *entidades de serviço* do Azure ad fornecem acesso aos recursos do Azure em sua assinatura. Você pode considerar uma entidade de serviço como uma identidade de usuário para um serviço, em que "serviço" é qualquer aplicativo, serviço ou plataforma que precise acessar os recursos. Você pode configurar uma entidade de serviço com direitos de acesso com escopo apenas para os recursos que você especificar. Em seguida, configure seu aplicativo ou serviço para usar as credenciais da entidade de serviço para acessar esses recursos.
 
-In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or other permissions to your private registry in Azure. For a complete list, see [Azure Container Registry roles and permissions](container-registry-roles.md).
+No contexto do registro de contêiner do Azure, você pode criar uma entidade de serviço do Azure AD com pull, push e pull ou outras permissões para seu registro particular no Azure. Para obter uma lista completa, consulte [funções e permissões do registro de contêiner do Azure](container-registry-roles.md).
 
-## <a name="why-use-a-service-principal"></a>Why use a service principal?
+## <a name="why-use-a-service-principal"></a>Por que usar uma entidade de serviço?
 
-By using an Azure AD service principal, you can provide scoped access to your private container registry. Create different service principals for each of your applications or services, each with tailored access rights to your registry. And, because you can avoid sharing credentials between services and applications, you can rotate credentials or revoke access for only the service principal (and thus the application) you choose.
+Usando uma entidade de serviço do Azure AD, você pode fornecer acesso com escopo ao seu registro de contêiner privado. Crie entidades de serviço diferentes para cada um dos seus aplicativos ou serviços, cada um com direitos de acesso adaptados ao registro. E, como você pode evitar o compartilhamento de credenciais entre serviços e aplicativos, você pode girar credenciais ou revogar o acesso apenas para a entidade de serviço (e, portanto, o aplicativo) escolhido.
 
-For example, configure your web application to use a service principal that provides it with image `pull` access only, while your build system uses a service principal that provides it with both `push` and `pull` access. If development of your application changes hands, you can rotate its service principal credentials without affecting the build system.
+Por exemplo, configure seu aplicativo Web para usar uma entidade de serviço que fornece a ele somente acesso de `pull` de imagem, enquanto o sistema de compilação usa uma entidade de serviço que fornece o acesso `push` e `pull`. Se o desenvolvimento do seu aplicativo mudar de mãos, você poderá girar suas credenciais de entidade de serviço sem afetar o sistema de compilação.
 
-## <a name="when-to-use-a-service-principal"></a>When to use a service principal
+## <a name="when-to-use-a-service-principal"></a>Quando usar uma entidade de serviço
 
-You should use a service principal to provide registry access in **headless scenarios**. That is, any application, service, or script that must push or pull container images in an automated or otherwise unattended manner. Por exemplo:
+Você deve usar uma entidade de serviço para fornecer acesso ao registro em **cenários sem periféricos**. Ou seja, qualquer aplicativo, serviço ou script que deva enviar por Push ou extrair imagens de contêiner de maneira automatizada ou autônoma. Por exemplo:
 
-  * *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
+  * *Pull*: implante contêineres de um registro para sistemas de orquestração, incluindo KUBERNETES, DC/so e Docker Swarm. Você também pode efetuar pull de registros de contêiner para serviços do Azure relacionados, como o [AKs (serviço kubernetes do Azure)](../aks/cluster-container-registry-integration.md), [instâncias de contêiner do Azure](container-registry-auth-aci.md), [serviço de aplicativo](../app-service/index.yml), [lote](../batch/index.yml), [Service Fabric](/azure/service-fabric/)e outros.
 
-  * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
+  * *Push*: crie imagens de contêiner e envie-as por push para um registro usando soluções de implantação e integração contínuas como Azure pipelines ou Jenkins.
 
-For individual access to a registry, such as when you manually pull a container image to your development workstation, we recommend using your own [Azure AD identity](container-registry-authentication.md#individual-login-with-azure-ad) instead for registry access (for example, with [az acr login][az-acr-login]).
+Para acesso individual a um registro, como quando você efetua pull manualmente de uma imagem de contêiner para sua estação de trabalho de desenvolvimento, é recomendável usar sua própria [identidade do Azure ad](container-registry-authentication.md#individual-login-with-azure-ad) em vez de acesso ao registro (por exemplo, com [AZ ACR login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
 ### <a name="sample-scripts"></a>Scripts de exemplo
 
-You can find the preceding sample scripts for Azure CLI on GitHub, as well as versions for Azure PowerShell:
+Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
-* [O Azure PowerShell][acr-scripts-psh]
+* [Azure PowerShell][acr-scripts-psh]
 
-## <a name="authenticate-with-the-service-principal"></a>Authenticate with the service principal
+## <a name="authenticate-with-the-service-principal"></a>Autenticar com a entidade de serviço
 
-Once you have a service principal that you've granted access to your container registry, you can configure its credentials for access to "headless" services and applications, or enter them using the `docker login` command. Utilize os seguintes valores:
+Depois que você tiver uma entidade de serviço que concedeu acesso ao registro de contêiner, você pode configurar suas credenciais para acessar serviços e aplicativos "sem periféricos" ou inseri-los usando o comando `docker login`. Utilize os seguintes valores:
 
-* **User name** - service principal application ID (also called *client ID*)
-* **Password** - service principal password (also called *client secret*)
+* **Nome de usuário** -ID do aplicativo da entidade de serviço (também chamada de *ID do cliente*)
+* **Senha** -senha da entidade de serviço (também chamada de *segredo do cliente*)
 
-Each value is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Cada valor é um GUID do formulário `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.
+> Você pode regenerar a senha de uma entidade de serviço executando o comando [AZ ad SP Reset-Credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) .
 >
 
-### <a name="use-credentials-with-azure-services"></a>Use credentials with Azure services
+### <a name="use-credentials-with-azure-services"></a>Usar credenciais com os serviços do Azure
 
-You can use service principal credentials from any Azure service that authenticates with an Azure container registry.  Use service principal credentials in place of the registry's admin credentials for a variety of scenarios.
+Você pode usar as credenciais da entidade de serviço de qualquer serviço do Azure que se autentique com um registro de contêiner do Azure.  Use as credenciais de entidade de serviço em vez das credenciais de administrador do registro para uma variedade de cenários.
 
-For example, use the credentials to pull an image from an Azure container registry to [Azure Container Instances](container-registry-auth-aci.md).
+Por exemplo, use as credenciais para efetuar pull de uma imagem de um registro de contêiner do Azure para [instâncias de contêiner do Azure](container-registry-auth-aci.md).
 
-### <a name="use-with-docker-login"></a>Use with docker login
+### <a name="use-with-docker-login"></a>Usar com o logon do Docker
 
-You can run `docker login` using a service principal. In the following example, the service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`. For best practices to manage Docker credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+Você pode executar `docker login` usando uma entidade de serviço. No exemplo a seguir, a ID do aplicativo da entidade de serviço é passada na variável de ambiente `$SP_APP_ID`e a senha na variável `$SP_PASSWD`. Para obter as práticas recomendadas para gerenciar as credenciais do Docker, consulte a referência do comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials
 docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Once logged in, Docker caches the credentials.
+Depois de conectado, o Docker armazena as credenciais em cache.
 
-### <a name="use-with-certificate"></a>Use with certificate
+### <a name="use-with-certificate"></a>Usar com certificado
 
-If you've added a certificate to your service principal, you can sign into the Azure CLI with certificate-based authentication, and then use the [az acr login][az-acr-login] command to access a registry. Using a certificate as a secret instead of a password provides additional security when you use the CLI. 
+Se você tiver adicionado um certificado à sua entidade de serviço, poderá entrar no CLI do Azure com autenticação baseada em certificado e, em seguida, usar o comando [AZ ACR login][az-acr-login] para acessar um registro. Usar um certificado como um segredo em vez de uma senha fornece segurança adicional quando você usa a CLI. 
 
-A self-signed certificate can be created when you [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli). Or, add one or more certificates to an existing service principal. For example, if you use one of the scripts in this article to create or update a service principal with rights to pull or push images from a registry, add a certificate using the [az ad sp credential reset][az-ad-sp-credential-reset] command.
+Um certificado autoassinado pode ser criado quando você [cria uma entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli). Ou adicione um ou mais certificados a uma entidade de serviço existente. Por exemplo, se você usar um dos scripts neste artigo para criar ou atualizar uma entidade de serviço com direitos para extrair ou enviar imagens por push de um registro, adicione um certificado usando o comando [AZ ad SP Credential rereset][az-ad-sp-credential-reset] .
 
-To use the service principal with certificate to [sign into the Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), the certificate must be in PEM format and include the private key. If your certificate isn't in the required format, use a tool such as `openssl` to convert it. When you run [az login][az-login] to sign into the CLI using the service principal, also provide the service principal's application ID and the Active Directory tenant ID. The following example shows these values as environment variables:
+Para usar a entidade de serviço com o certificado para [entrar no CLI do Azure](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), o certificado deve estar no formato PEM e incluir a chave privada. Se o certificado não estiver no formato necessário, use uma ferramenta como `openssl` para convertê-lo. Ao executar o [AZ login][az-login] para entrar na CLI usando a entidade de serviço, forneça também a ID do aplicativo da entidade de serviço e a ID do locatário do Active Directory. O exemplo a seguir mostra esses valores como variáveis de ambiente:
 
 ```azurecli
 az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
 ```
 
-Then, run [az acr login][az-acr-login] to authenticate with the registry:
+Em seguida, execute [AZ ACR login][az-acr-login] para autenticar com o registro:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-The CLI uses the token created when you ran `az login` to authenticate your session with the registry.
+A CLI usa o token criado quando você executou `az login` para autenticar a sessão com o registro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* See the [authentication overview](container-registry-authentication.md) for other scenarios to authenticate with an Azure container registry.
+* Consulte a [visão geral de autenticação](container-registry-authentication.md) para outros cenários para autenticar com um registro de contêiner do Azure.
 
-* For an example of using an Azure key vault to store and retrieve service principal credentials for a container registry, see the tutorial to [build and deploy a container image using ACR Tasks](container-registry-tutorial-quick-task.md).
+* Para obter um exemplo de como usar um cofre de chaves do Azure para armazenar e recuperar as credenciais da entidade de serviço para um registro de contêiner, consulte o tutorial para [criar e implantar uma imagem de contêiner usando tarefas ACR](container-registry-tutorial-quick-task.md).
 
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry

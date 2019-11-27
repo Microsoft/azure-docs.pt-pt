@@ -95,7 +95,7 @@ As principais diferenças na sintaxe de `CREATE AUDIT` para a auditoria para o a
 - É fornecida uma nova sintaxe `TO URL` que você pode usar para especificar a URL do contêiner de armazenamento de BLOBs do Azure em que os arquivos de `.xel` são colocados.
 - Não há suporte para a sintaxe `TO FILE` porque uma instância gerenciada não pode acessar compartilhamentos de arquivos do Windows.
 
-Para obter mais informações, veja: 
+Para obter mais informações, consulte: 
 
 - [CRIAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTERAR AUDITORIA DO SERVIDOR](/sql/t-sql/statements/alter-server-audit-transact-sql)

@@ -1,25 +1,20 @@
 ---
-title: Disponibilidade de recursos das instâncias de contêiner do Azure
+title: Disponibilidade de recursos por região
 description: Disponibilidade de recursos de computação e memória para o serviço de instâncias de contêiner do Azure em diferentes regiões do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 05/14/2019
-ms.author: danlep
-ms.openlocfilehash: 24edce511c2d07050db1e77edeae4e587fcd79b0
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: aef66a9fdbe73ccd4da79ce972b7beb061e9fe35
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172400"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533476"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contêiner do Azure em regiões do Azure
 
 Este artigo detalha a disponibilidade de recursos de computação e memória de instâncias de contêiner do Azure em regiões do Azure. 
 
-Os valores apresentados são o máximo de recursos disponíveis por implantação de um [grupo](container-instances-container-groups.md)de contêineres. Os valores são atuais no momento da publicação. 
+Os valores apresentados são o máximo de recursos disponíveis por implantação de um [grupo de contêineres](container-instances-container-groups.md). Os valores são atuais no momento da publicação. 
 
 > [!NOTE]
 > Os grupos de contêineres criados dentro desses limites de recursos estão sujeitos à disponibilidade na região de implantação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para atenuar essa falha de implantação, tente implantar instâncias com configurações de recursos menores ou tente a implantação mais tarde.
@@ -30,13 +25,13 @@ Para obter informações sobre cotas e outros limites em suas implantações, co
 
 As seguintes regiões e recursos estão disponíveis para grupos de contêineres com Linux e contêineres com [suporte](container-instances-faq.md#what-windows-base-os-images-are-supported) do Windows Server 2016.
 
-| Location | OS | CPU | Memória (GB) |
+| Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, oeste dos EUA | Linux | 4 | 16 |
 | Europa Ocidental, oeste dos EUA 2 | Linux | 4 | 14 |
 | Leste da Austrália, leste do Japão | Linux | 2 | 8 |
 | Norte EUA Central, sul da Índia | Linux | 2 | 3.5 |
-| Europa Ocidental | Windows | 4 | 16 |
+| Europa ocidental | Windows | 4 | 16 |
 | Leste dos EUA, oeste dos EUA | Windows | 4 | 14 |
 | Leste da Austrália, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA 2, leste do Japão, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, oeste dos EUA 2 | Windows | 2 | 3.5 |
 
@@ -44,7 +39,7 @@ As seguintes regiões e recursos estão disponíveis para grupos de contêineres
 
 As seguintes regiões e recursos estão disponíveis para grupos de contêineres com contêineres baseados no Windows Server 2019 (versão prévia).
 
-| Location | OS | CPU | Memória (GB) |
+| Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
 | Sudeste Asiático, Europa Setentrional, Europa Ocidental, EUA Central, leste dos EUA, oeste dos EUA, oeste dos EUA 2 | Windows | 4 | 16 |
 | EUA Leste 2 | Windows | 2 | 3.5 |
@@ -63,7 +58,7 @@ As seguintes regiões e recursos estão disponíveis para um grupo de contêiner
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Deixe a equipe saber se você gostaria de ver regiões adicionais ou maior disponibilidade de recursos em [aka.ms/ACI/feedback](https://aka.ms/aci/feedback).
 

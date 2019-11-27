@@ -52,7 +52,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Em primeiro lugar, crie um grupo de recursos para conter os recursos necessários para implementar a firewall. Em seguida, crie uma VNet, sub-redes e servidores de teste.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 O grupo de recursos contém todos os recursos para o tutorial.
 
@@ -126,8 +126,8 @@ Use as informações na tabela a seguir para configurar outra máquina virtual c
 |Definição  |Valor  |
 |---------|---------|
 |Subrede|**Carga de trabalho-SN**|
-|IP público|**Nenhum**|
-|Portas de entrada públicas|**Nenhum**|
+|IP público|**None**|
+|Portas de entrada públicas|**None**|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 

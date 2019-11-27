@@ -1,6 +1,6 @@
 ---
-title: Use risk detections with Azure Active Directory Conditional Access
-description: In this quickstart, you learn how you can configure an Azure Active Directory (Azure AD) Conditional Access policy to block sign-ins based on session risks.
+title: Usar as detecções de risco com Azure Active Directory acesso condicional
+description: Neste guia de início rápido, você aprende a configurar uma política de acesso condicional do Azure Active Directory (Azure AD) para bloquear entradas com base em riscos de sessão.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,11 +18,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381061"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Quickstart: Block access when a session risk is detected with Azure Active Directory Conditional Access  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional  
 
-To keep your environment protected, you might want to block suspicious users from sign-in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a Conditional Access policy to respond to specific sign-in risk levels.
+Para manter seu ambiente protegido, talvez você queira bloquear usuários suspeitos de entrar. A [proteção de identidade do Azure Active Directory (AD do Azure)](../active-directory-identityprotection.md) analisa cada entrada e calcula a probabilidade de uma tentativa de entrada não ter sido executada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de entrada](conditions.md#sign-in-risk). Ao definir a condição de risco de entrada, você pode configurar uma política de acesso condicional para responder a níveis de risco de entrada específicos.
 
-This quickstart shows how to configure a [Conditional Access policy](../active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected.
+Este guia de início rápido mostra como configurar uma [política de acesso condicional](../active-directory-conditional-access-azure-portal.md) que bloqueia uma entrada quando um nível de risco de entrada configurado for detectado.
 
 ![Criar política](./media/app-sign-in-risk/1000.png)
 
@@ -32,150 +32,150 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para concluir o cenário deste tutorial, precisa de:
 
-- **Access to an Azure AD Premium P2 edition** - While Conditional Access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection.
-- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
-- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as sign-ins from anonymous IP addresses, which have a medium risk level. For more information, see [Azure Active Directory risk detections](../reports-monitoring/concept-risk-events.md).  
-- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Acesso a uma edição Azure ad Premium P2** – embora o acesso condicional seja um recurso Azure ad Premium P1, você precisa de uma edição P2 porque o cenário deste início rápido requer a proteção de identidade.
+- **Proteção de identidade** -o cenário neste guia de início rápido requer que o Identity Protection esteja habilitado. Se você não souber como habilitar a proteção de identidade, consulte [habilitando Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
+- **Tor browser** – o [navegador do Tor](https://www.torproject.org/projects/torbrowser.html.en) foi projetado para ajudá-lo a preservar sua privacidade online. A proteção de identidade detecta uma entrada de um navegador Tor como entradas de endereços IP anônimos, que têm um nível de risco médio. Para obter mais informações, consulte [Azure Active Directory as detecções de risco](../reports-monitoring/concept-risk-events.md).  
+- **Uma conta de teste chamada Alain Charon** -se você não souber como criar uma conta de teste, consulte [Adicionar usuários baseados em nuvem](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
-## <a name="test-your-sign-in"></a>Test your sign-in
+## <a name="test-your-sign-in"></a>Testar sua entrada
 
-The goal of this step is to make sure that your test account can access your tenant using the Tor Browser.
+O objetivo desta etapa é garantir que sua conta de teste possa acessar seu locatário usando o navegador Tor.
 
-**To test your sign-in:**
+**Para testar sua entrada:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as **Alain Charon**.
+1. Entre em seu [portal do Azure](https://portal.azure.com) como **Alain Charon**.
 1. Termine a sessão.
 
-## <a name="create-your-conditional-access-policy"></a>Create your Conditional Access policy
+## <a name="create-your-conditional-access-policy"></a>Criar sua política de acesso condicional
 
-The scenario in this quickstart uses a sign-in from a Tor Browser to generate a detected **Sign-ins from anonymous IP addresses** risk detection. The risk level of this risk detection is medium. To respond to this risk detection, you set the sign-in risk condition to medium. In a production environment, you should set the sign-in risk condition either to high or to medium and high.
+O cenário neste guia de início rápido usa uma entrada de um navegador Tor para gerar entradas detectadas **de detecção de risco de endereços IP anônimos** . O nível de risco dessa detecção de risco é médio. Para responder a essa detecção de risco, defina a condição de risco de entrada como médio. Em um ambiente de produção, você deve definir a condição de risco de entrada como alta ou média e alta.
 
-This section shows how to create the required Conditional Access policy. In your policy, set:
+Esta seção mostra como criar a política de acesso condicional necessária. Em sua política, defina:
 
 | Definição | Valor |
 | --- | --- |
 | Utilizadores e grupos | Alain Charon  |
-| Cloud apps | All cloud apps |
-| Sign-in risk | Médio |
-| Grant | Block access |
+| Aplicativos de nuvem | Todos os aplicativos de nuvem |
+| Risco de entrada | Médio |
+| Conceder | Bloquear acesso |
 
 ![Criar política](./media/app-sign-in-risk/130.png)
 
-**To configure your Conditional Access policy:**
+**Para configurar sua política de acesso condicional:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
+1. Entre em seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Na portal do Azure, na barra de navegação à esquerda, clique em **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-1. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
+1. Na página **Azure Active Directory** , na seção **segurança** , clique em **acesso condicional**.
 
    ![Acesso Condicional](./media/app-sign-in-risk/03.png)
 
-1. On the **Conditional Access** page, in the toolbar on the top, click **Add**.
+1. Na página **acesso condicional** , na barra de ferramentas na parte superior, clique em **Adicionar**.
 
    ![Nome](./media/app-sign-in-risk/108.png)
 
-1. On the **New** page, in the **Name** textbox, type **Block access for medium risk level**.
+1. Na página **novo** , na caixa de texto **nome** , digite **bloquear acesso para nível de risco médio**.
 
    ![Nome](./media/app-sign-in-risk/104.png)
 
-1. In the **Assignment** section, click **Users and groups**.
+1. Na seção **atribuição** , clique em **usuários e grupos**.
 
    ![Utilizadores e grupos](./media/app-sign-in-risk/06.png)
 
-1. On the **Users and groups** page:
+1. Na página **usuários e grupos** :
 
    ![Acesso Condicional](./media/app-sign-in-risk/107.png)
 
-   1. Click **Select users and groups**, and then select **Users and groups**.
+   1. Clique em **Selecionar usuários e grupos**e selecione **usuários e grupos**.
    1. Clique em **Selecionar**.
-   1. On the **Select** page, select **Alain Charon**, and then click **Select**.
-   1. On the **Users and groups** page, click **Done**.
-1. Click **Cloud apps**.
+   1. Na página **selecionar** , selecione **Alain Charon**e clique em **selecionar**.
+   1. Na página **usuários e grupos** , clique em **concluído**.
+1. Clique em **aplicativos de nuvem**.
 
-   ![Cloud apps](./media/app-sign-in-risk/08.png)
+   ![Aplicativos de nuvem](./media/app-sign-in-risk/08.png)
 
-1. On the **Cloud apps** page:
+1. Na página **aplicativos de nuvem** :
 
    ![Acesso Condicional](./media/app-sign-in-risk/109.png)
 
-   1. Click **All cloud apps**.
+   1. Clique em **todos os aplicativos de nuvem**.
    1. Clique em **Concluído**.
-1. Click **Conditions**.
+1. Clique em **condições**.
 
-   ![Access controls](./media/app-sign-in-risk/19.png)
+   ![Controles de acesso](./media/app-sign-in-risk/19.png)
 
-1. On the **Conditions** page:
+1. Na página **condições** :
 
-   ![Sign-in risk level](./media/app-sign-in-risk/21.png)
+   ![Nível de risco de entrada](./media/app-sign-in-risk/21.png)
 
-   1. Click **Sign-in risk**.
-   1. As **Configure**, click **Yes**.
-   1. As sign-in risk level, select **Medium**.
+   1. Clique em **risco de entrada**.
+   1. Como **Configurar**, clique em **Sim**.
+   1. Em nível de risco de entrada, selecione **médio**.
    1. Clique em **Selecionar**.
-   1. On the **Conditions** page, click **Done**.
-1. In the **Access controls** section, click **Grant**.
+   1. Na página **condições** , clique em **concluído**.
+1. Na seção **controles de acesso** , clique em **conceder**.
 
-   ![Access controls](./media/app-sign-in-risk/10.png)
+   ![Controles de acesso](./media/app-sign-in-risk/10.png)
 
-1. On the **Grant** page:
+1. Na página **conceder** :
 
    ![Acesso Condicional](./media/app-sign-in-risk/105.png)
 
-   1. Select **Block access**.
+   1. Selecione **bloquear acesso**.
    1. Clique em **Selecionar**.
-1. In the **Enable policy** section, click **On**.
+1. Na seção **habilitar política** , clique **em ativar**.
 
-   ![Enable policy](./media/app-sign-in-risk/18.png)
+   ![Ativar política](./media/app-sign-in-risk/18.png)
 
 1. Clique em **Criar**.
 
-## <a name="evaluate-a-simulated-sign-in"></a>Evaluate a simulated sign-in
+## <a name="evaluate-a-simulated-sign-in"></a>Avaliar uma entrada simulada
 
-Now that you have configured your Conditional Access policy, you probably want to know whether it works as expected. As a first step, use the Conditional Access **what if policy tool** to simulate a sign-in of your test user. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
+Agora que você configurou sua política de acesso condicional, provavelmente desejará saber se ela funciona conforme o esperado. Como uma primeira etapa, use a ferramenta de política de acesso condicional **What If** para simular uma entrada de seu usuário de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
-When you run the **what if policy tool** for this scenario, the **Block access for medium risk level** should be listed under **Policies that will apply**.
+Quando você executa a **ferramenta de política What If** para esse cenário, o **nível bloquear o acesso para risco médio** deve ser listado em **políticas que serão aplicadas**.
 
 ![Utilizador](./media/app-sign-in-risk/117.png)
 
-**To evaluate your Conditional Access policy:**
+**Para avaliar sua política de acesso condicional:**
 
-1. On the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
+1. Na página [acesso condicional-políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) , no menu na parte superior, clique em **What If**.  
 
    ![What If](./media/app-sign-in-risk/14.png)
 
-1. Click **User**, select **Alan Charon** on the **Users** page, and then click **Select**.
+1. Clique em **usuário**, selecione **Alan Charon** na página **usuários** e, em seguida, clique em **selecionar**.
 
    ![Utilizador](./media/app-sign-in-risk/116.png)
 
-1. As **Sign-in risk**, select **Medium**.
+1. **Em risco de entrada**, selecione **médio**.
 
    ![Utilizador](./media/app-sign-in-risk/119.png)
 
-1. Click **What If**.
+1. Clique em **What If**.
 
-## <a name="test-your-conditional-access-policy"></a>Test your Conditional Access policy
+## <a name="test-your-conditional-access-policy"></a>Testar sua política de acesso condicional
 
-In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your Conditional Access policy to make sure that it works as expected.
+Na seção anterior, você aprendeu como avaliar uma entrada simulada. Além de uma simulação, você também deve testar sua política de acesso condicional para certificar-se de que ela funciona conforme o esperado.
 
-To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) as **Alan Charon** using the Tor Browser. Your sign-in attempt should be blocked by your Conditional Access policy.
+Para testar sua política, tente entrar no seu [portal do Azure](https://portal.azure.com) como **Alan Charon** usando o navegador Tor. Sua tentativa de entrada deve ser bloqueada pela política de acesso condicional.
 
-![Autenticação multifator](./media/app-sign-in-risk/118.png)
+![Multi-Factor Authentication](./media/app-sign-in-risk/118.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When no longer needed, delete the test user, the Tor Browser, and the Conditional Access policy:
+Quando não for mais necessário, exclua o usuário de teste, o navegador Tor e a política de acesso condicional:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-- To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
+- Se você não souber como excluir um usuário do Azure AD, consulte [excluir usuários do Azure ad](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+- Para excluir sua política, selecione sua política e clique em **excluir** na barra de ferramentas de acesso rápido.
 
-   ![Autenticação multifator](./media/app-sign-in-risk/33.png)
+   ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
+- Para obter instruções para remover o navegador Tor, consulte [desinstalando](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Require terms of use to be accepted](require-tou.md)
-> [Require MFA for specific apps](app-based-mfa.md)
+> [Exigir que os termos de uso sejam aceitos](require-tou.md)
+> [exigir MFA para aplicativos específicos](app-based-mfa.md)

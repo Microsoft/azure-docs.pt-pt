@@ -44,8 +44,8 @@ Para desenvolver uma função com Java e IntelliJ, instale o seguinte software:
 1. Na janela **novo projeto** , selecione **Maven** no painel esquerdo.
 1. Marque a caixa de seleção **criar do arquétipo** e, em seguida, selecione **Adicionar arquétipo** para o [Azure-Functions-arquétipo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
 1. Na janela **Adicionar arquétipo** , preencha os campos da seguinte maneira:
-    - _GroupId_: com.microsoft.azure
-    - _ArtifactId_: azure-functions-archetype
+    - _GroupId_: com. Microsoft. Azure
+    - _Artefatoid_: Azure-Functions-arquétipo
     - _Versão_: Use a versão mais recente **1,22** do [repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![criar um projeto Maven do arquétipo no IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selecione **OK**e, em seguida, selecione **Avançar**.

@@ -94,7 +94,7 @@ O gerenciamento de aplicativo de autoatendimento requer uma configuração inici
 3. Selecione **grupos**.
 4. Selecione **novo grupo**.
 5. Em **tipo de grupo**, selecione **segurança**.
-6. Introduza um **Nome do grupo** e uma **Descrição do grupo**.
+6. Digite um **nome de grupo** e uma **Descrição de grupo**.
 7. Em **tipo de associação**, selecione **atribuído**.
 8. Selecione **criar**e feche a página **grupo** .
 9. Na página **grupos – todos os grupos** , abra o grupo. 

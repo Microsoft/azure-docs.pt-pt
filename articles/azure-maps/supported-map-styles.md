@@ -1,6 +1,6 @@
 ---
-title: Supported map styles in Azure Maps| Microsoft Docs
-description: Map styles supported by Azure Maps
+title: Estilos de mapa com suporte no Azure Maps | Microsoft Docs
+description: Estilos de mapa suportados pelo Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -15,94 +15,94 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325405"
 ---
-# <a name="azure-maps-supported-map-styles"></a>Azure Maps supported map styles
-Azure Maps supports several different built-in map styles as described below.
+# <a name="azure-maps-supported-map-styles"></a>Estilos de mapa com suporte do Azure Maps
+O Azure Maps dá suporte a vários estilos de mapa internos diferentes, conforme descrito abaixo.
 
-## <a name="road"></a>road
-A **road** map is a standard map that displays roads, natural and artificial features along with the labels for those features.
+## <a name="road"></a>rodoviário
+Um mapa de **estrada** é um mapa padrão que exibe estradas, recursos naturais e artificiais juntamente com os rótulos para esses recursos.
 
-![road](./media/supported-map-styles/road.png)
+![rodoviário](./media/supported-map-styles/road.png)
 
-**Applicable APIs:**
-* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Web SDK map control
-* Android map control
+**APIs aplicáveis:**
+* [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Bloco de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Controle de mapa do SDK da Web
+* Controle de mapa do Android
 
-## <a name="blank-and-blank_accessible"></a>blank and blank_accessible
+## <a name="blank-and-blank_accessible"></a>em branco e blank_accessible
 
-The **blank** and **blank_accessible** map styles provide a blank canvas on which to visualize data on. The **blank_accessible** style will continue to provide screen reader updates with location details of where the map is located, even though the base map is not displayed.
+Os estilos de mapa **em branco** e de **blank_accessible** fornecem uma tela em branco na qual os dados são visualizados. O estilo de **blank_accessible** continuará a fornecer atualizações de leitor de tela com detalhes de local de onde o mapa está localizado, mesmo que o mapa base não seja exibido.
 
 > [!Note]
-> In the web SDK you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
+> No SDK Web, você pode alterar a cor do plano de fundo do mapa definindo o estilo de `background-color` CSS do elemento DIV do mapa.
 
-**Applicable APIs:**
-* Web SDK map control
+**APIs aplicáveis:**
+* Controle de mapa do SDK da Web
 
-## <a name="satellite"></a>satellite 
-The **satellite** style is a combination of satellite and aerial imagery.
+## <a name="satellite"></a>escritório 
+O estilo **satélite** é uma combinação de imagens satélite e aéreas.
 
-![satellite](./media/supported-map-styles/satellite.png)
+![escritório](./media/supported-map-styles/satellite.png)
 
-**Applicable APIs:**
-* [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* Web SDK map control
-* Android map control
+**APIs aplicáveis:**
+* [Bloco satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* Controle de mapa do SDK da Web
+* Controle de mapa do Android
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
-This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
+Esse estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imagens satélite e aéreas.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
-**Applicable APIs:**
-* Web SDK map control
-* Android map control
+**APIs aplicáveis:**
+* Controle de mapa do SDK da Web
+* Controle de mapa do Android
 
 ## <a name="grayscale_dark"></a>grayscale_dark
-**grayscale dark** is a dark version of the road map style.
+a **escala de cinza escura** é uma versão escura do estilo de mapa rodoviário.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
-**Applicable APIs:**
-* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Web SDK map control 
-* Android map control
+**APIs aplicáveis:**
+* [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Bloco de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Controle de mapa do SDK da Web 
+* Controle de mapa do Android
 
 
 ## <a name="grayscale_light"></a>grayscale_light
-**grayscale light** is a light version of the road map style.
+a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 
-![grayscale light](./media/supported-map-styles/grayscale_light.png)
+![luz de tons de cinza](./media/supported-map-styles/grayscale_light.png)
 
-**Applicable APIs:**
-* Web SDK map control
-* Android map control
+**APIs aplicáveis:**
+* Controle de mapa do SDK da Web
+* Controle de mapa do Android
 
 
-## <a name="night"></a>night
-**night** is a dark version of the road map style with colored roads and symbols.
+## <a name="night"></a>jogo
+a **noite** é uma versão escura do estilo de mapa rodoviário com estradas e símbolos coloridos.
 
-![night](./media/supported-map-styles/night.png)
+![jogo](./media/supported-map-styles/night.png)
 
-**Applicable APIs:**
-* Web SDK map control
-* Android map control
+**APIs aplicáveis:**
+* Controle de mapa do SDK da Web
+* Controle de mapa do Android
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
-**road shaded relief** is an Azure Maps main style completed with contours of the Earth.
+o **alívio de estrada sombreado** é um estilo principal do Azure Maps concluído com contornos da terra.
 
-![shaded relief](./media/supported-map-styles/shaded-relief.png)
+![alívio sombreado](./media/supported-map-styles/shaded-relief.png)
 
-**Applicable APIs:**
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Web SDK map control
-* Android map control
+**APIs aplicáveis:**
+* [Bloco de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Controle de mapa do SDK da Web
+* Controle de mapa do Android
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Learn about how to set a map style in Azure Maps:
+Saiba mais sobre como definir um estilo de mapa no Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Choose a map style](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+> [Escolher um estilo de mapa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

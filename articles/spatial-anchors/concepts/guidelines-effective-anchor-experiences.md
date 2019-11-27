@@ -82,7 +82,7 @@ No cenário de destino, as fotos podem ajudar. Se você mostrar aos usuários um
 
 ![Ilustração de uma âncora, mostrando uma foto do destino no dispositivo móvel de um usuário](./media/start-here-edit.png)
 
-### <a name="rooms"></a>salas
+### <a name="rooms"></a>Salas
 
 No cenário de sala, os usuários inserem um espaço simplesmente sabendo que há uma âncora aqui em algum lugar. Os usuários verificam o espaço com seu dispositivo e localizam rapidamente a âncora.
 

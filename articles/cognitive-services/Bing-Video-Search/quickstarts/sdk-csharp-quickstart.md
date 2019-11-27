@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Search for videos using the SDK for C# - Bing Video Search'
+title: 'Início rápido: pesquisar vídeos usando o SDK para C# -pesquisa de vídeo do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send video search requests using the Bing Video Search SDK for C#.
+description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo C#usando o SDK do pesquisa de vídeo do Bing para o.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,18 +17,18 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383749"
 ---
-# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Quickstart: Perform a video search with the Bing Video Search SDK for C#
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Início rápido: executar uma pesquisa de vídeo com o SDK do Pesquisa de Vídeo do Bing paraC#
 
-Use this quickstart to begin searching for news with the Bing Video Search SDK for C#. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) with additional annotations, and features.
+Use este guia de início rápido para começar a procurar notícias com o C#SDK do pesquisa de vídeo do Bing para o. Embora Pesquisa de Vídeo do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) com anotações adicionais e recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
-* The Json.NET framework, available [as a NuGet package](https://www.nuget.org/packages/Newtonsoft.Json/).
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
+* A estrutura Json.NET, disponível [como um pacote NuGet](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-To add the Bing Video Search SDK to your project, select **Manage NuGet Packages** from **Solution Explorer** in Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
+Para adicionar o SDK do Pesquisa de Vídeo do Bing ao seu projeto, selecione **gerenciar pacotes NuGet** do **Gerenciador de soluções** no Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
-Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) also installs the following dependencies:
+Instalar o [[pacote SDK do NuGet pesquisa de vídeo]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) também instala as seguintes dependências:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -39,7 +39,7 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Create a new C# console solution in Visual Studio. Then add the following into the main code file.
+1. Crie uma nova C# solução de console no Visual Studio. Em seguida, adicione o seguinte ao arquivo de código principal.
 
     ```csharp
     using System;
@@ -49,21 +49,21 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
     using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
     ```
 
-2. Instantiate the client by creating a new `ApiKeyServiceClientCredentials` object with your subscription key, and calling the constructor.
+2. Crie uma instância do cliente criando um novo objeto `ApiKeyServiceClientCredentials` com sua chave de assinatura e chamando o construtor.
 
     ```csharp
     var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-## <a name="send-a-search-request-and-process-the-results"></a>Send a search request and process the results
+## <a name="send-a-search-request-and-process-the-results"></a>Enviar uma solicitação de pesquisa e processar os resultados
 
-1. Use the client to send a search request. Use "SwiftKey" for the search query.
+1. Use o cliente para enviar uma solicitação de pesquisa. Use "SwiftKey" para a consulta de pesquisa.
 
     ```csharp
     var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
     ```
 
-2. If any results were returned, get the first one with `videoResults.Value[0]`. Then print the video's ID, title, and url.
+2. Se algum resultado for retornado, obtenha o primeiro com `videoResults.Value[0]`. Em seguida, imprima a ID, o título e a URL do vídeo.
 
     ```csharp
     if (videoResults.Value.Count > 0)
@@ -84,9 +84,9 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consulte também 
 
-* [What is the Bing Video Search API?](../overview.md)
+* [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)
 * [Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

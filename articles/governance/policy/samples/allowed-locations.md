@@ -1,6 +1,6 @@
 ---
-title: Sample - Allowed locations
-description: This sample policy definition requires that all resources are deployed to the approved locations defined in a parameter.
+title: Exemplos de locais permitidos
+description: Esta definição de política de exemplo requer que todos os recursos sejam implantados nos locais aprovados definidos em um parâmetro.
 ms.date: 01/26/2019
 ms.topic: sample
 ms.openlocfilehash: 7620055c82a49c1e805da69205d14c5f0a925e8c
@@ -10,14 +10,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463705"
 ---
-# <a name="sample---allowed-region-locations"></a>Sample - Allowed region locations
+# <a name="sample---allowed-region-locations"></a>Exemplo-locais de região permitidos
 
-Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos. Utilize para impor os requisitos de conformidade geográfica. Excludes resource groups, Microsoft.AzureActiveDirectory/b2cDirectories, and resources that use the 'global' region. You specify an array of allowed locations.
+Esta política permite-lhe restringir as localizações que a sua organização pode especificar ao implementar recursos. Utilize para impor os requisitos de conformidade geográfica. Exclui grupos de recursos, Microsoft. AzureActiveDirectory/b2cDirectories e recursos que usam a região ' global '. Especifique uma matriz de locais permitidos.
 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
-- [O Azure PowerShell](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 
@@ -50,12 +50,12 @@ O JSON que define os parâmetros da política, utilizado pela CLI do Azure e o A
 
 |Nome |Tipo |Campo |Descrição |
 |---|---|---|---|
-|listOfAllowedLocations |Array |locations |The list of allowed locations|
+|listOfAllowedLocations |Matriz |locations |A lista de locais permitidos|
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
 
-In this example parameter, only the _eastus2_ or _westus_ locations will be allowed.
+Neste parâmetro de exemplo, somente os locais _eastus2_ ou _westus_ serão permitidos.
 
 ```json
 {
@@ -70,8 +70,8 @@ In this example parameter, only the _eastus2_ or _westus_ locations will be allo
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
-[![Deploy the Policy sample to Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![implantar o exemplo de política no azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![implantar o exemplo de política para o Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -121,7 +121,7 @@ Os scripts de implementação e remoção utilizam os seguintes comandos. Cada c
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
@@ -163,7 +163,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 Existem várias ferramentas que podem ser utilizadas para interagir com a API REST do Gestor de Recursos, como o [ARMClient](https://github.com/projectkudu/ARMClient) ou o PowerShell.
 
-### <a name="deploy-with-rest-api"></a>Implementar com API REST
+### <a name="deploy-with-rest-api"></a>Implementar com a API REST
 
 - Crie a Definição de Política (âmbito da Subscrição). Utilize o JSON [definição de política](#policy-definition) para o Corpo do Pedido.
 

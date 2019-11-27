@@ -73,7 +73,7 @@ Pode levar alguns minutos para que a ação de aceitação entre em vigor. Depoi
 1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 2.  No painel de navegação, selecione **Azure Active Directory**.
 3.  Em **gerenciar**, selecione **relações organizacionais**.
-4.  Selecione **definições**.
+4.  Selecione **configurações**.
 5.  Em **habilitar o email de senha de uso único para convidados (versão prévia)** , selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para aceitar o uso do PowerShell
@@ -140,7 +140,7 @@ Pode levar alguns minutos para que a ação de aceitação entre em vigor. Se vo
 1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 2.  No painel de navegação, selecione **Azure Active Directory**.
 3.  Em **gerenciar**, selecione **relações organizacionais**.
-4.  Selecione **definições**.
+4.  Selecione **configurações**.
 5.  Em **habilitar o email de senha de uso único para convidados (versão prévia)** , selecione **não**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a visualização usando o PowerShell

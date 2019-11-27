@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 943f6cee70367d8a1ff0dc003d06e46b487e3a48
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e194b7070d338e9a5c56e9f0cc913f6e8b20bb52
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898811"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545702"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Monitor de Desempenho de Rede solução no Azure
 
@@ -37,14 +37,17 @@ Mais informações sobre os vários recursos com suporte do [Monitor de desempen
  
 ## <a name="supported-regions"></a>Regiões com suporte
 O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte do mundo, de um espaço de trabalho hospedado em uma das seguintes regiões:
-* Europa Ocidental
-* E.U.A. Centro-Oeste
-* Este dos E.U.A.
+* Europa ocidental
+* EUA Centro-Oeste
+* EUA Centro-Norte
+* EUA Leste
 * Leste do Japão
 * Sudeste Asiático
 * Sudeste da Austrália
+* Austrália Central
+* Leste da Austrália
 * Sul do Reino Unido
-* Centro da Índia
+* Índia Central
 * Virgínia do governo dos EUA
 * Leste da China 2
 
@@ -74,7 +77,7 @@ Monitor de Desempenho de Rede usa transações sintéticas para monitorar o dese
 
 * **Protocolo TCP**: se você escolher TCP como o protocolo para monitoramento, abra a porta do firewall nos agentes usados para monitor de desempenho de rede e o monitor do ExpressRoute para garantir que os agentes possam se conectar entre si. Para abrir a porta, execute o script do PowerShell [EnableRules. ps1](https://aka.ms/npmpowershellscript) sem parâmetros em uma janela do PowerShell com privilégios administrativos.
 
-    O script cria chaves do registro exigidas pela solução. Ele também cria regras de firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do registro criadas pelo script especificam se devem ser registradas em log os logs de depuração e o caminho para o arquivo de logs. O script também define a porta TCP do agente usada para comunicação. Os valores dessas chaves são automaticamente definidos pelo script. Não altere manualmente essas chaves. A porta aberta por padrão é 8084. Você pode usar uma porta personalizada fornecendo o parâmetro portNumber para o script. Use a mesma porta em todos os computadores em que o script é executado. 
+    O script cria chaves do registro exigidas pela solução. Ele também cria regras de firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do registro criadas pelo script especificam se devem ser registradas em log os logs de depuração e o caminho para o arquivo de logs. O script também define a porta TCP do agente usada para comunicação. Os valores para estas chaves são definidos automaticamente pelo script. Não altere manualmente essas chaves. A porta aberta por padrão é 8084. Você pode usar uma porta personalizada fornecendo o parâmetro portNumber para o script. Use a mesma porta em todos os computadores em que o script é executado. 
 
     >[!NOTE]
     > O script configura apenas o Firewall do Windows localmente. Se você tiver um firewall de rede, verifique se ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
@@ -154,12 +157,12 @@ Configure os recursos desejados:
 
  
 
-## <a name="data-collection-details"></a>Detalhes da coleta de dados
+## <a name="data-collection-details"></a>Detalhes de recolha de dados
 Para coletar informações de perda e latência, Monitor de Desempenho de Rede usa pacotes de handshake TCP SYN-SYNACK-ACK quando você escolhe TCP como o protocolo. Monitor de Desempenho de Rede usa ICMP ECHO ICMP ECHO REPLY quando você escolhe ICMP como o protocolo. A rota de rastreamento também é usada para obter informações de topologia.
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para Monitor de Desempenho de Rede.
 
-| Plataforma | Agente direto | Agente de System Center Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Operations Manager dados do agente enviados por meio do grupo de gerenciamento | Frequência da recolha |
+| Plataforma | Agente direto | Agente de System Center Operations Manager | Storage do Azure | Operations Manager necessário? | Operations Manager dados do agente enviados por meio do grupo de gerenciamento | Frequência da recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |Handshakes TCP/mensagens de eco ICMP a cada 5 segundos, dados enviados a cada 3 minutos |
  
@@ -172,7 +175,7 @@ A solução usa transações sintéticas para avaliar a integridade da rede. Log
 >[!NOTE]
 > Embora os agentes se comuniquem entre si com frequência, eles não geram tráfego de rede significativo durante a condução dos testes. Os agentes dependem apenas dos pacotes de handshake TCP SYN-SYNACK-ACK para determinar a perda e a latência. Nenhum pacote de dados é trocado. Durante esse processo, os agentes se comunicam entre si somente quando necessário. A topologia de comunicação do agente é otimizada para reduzir o tráfego de rede.
 
-## <a name="use-the-solution"></a>Usar a solução 
+## <a name="use-the-solution"></a>Utilizar a solução 
 
 ### <a name="network-performance-monitor-overview-tile"></a>Bloco de visão geral Monitor de Desempenho de Rede 
 

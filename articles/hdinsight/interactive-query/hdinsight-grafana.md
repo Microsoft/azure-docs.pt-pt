@@ -69,7 +69,7 @@ Nesta seção, você cria um cluster de consulta interativa no HDInsight usando 
 
 ## <a name="access-the-grafana-dashboard"></a>Acessar o painel do Grafana
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **clusters HDInsight**e, em seguida, selecione o nome do cluster que você criou na última seção.
 

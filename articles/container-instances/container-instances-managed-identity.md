@@ -1,20 +1,14 @@
 ---
-title: Usar uma identidade gerenciada com instâncias de contêiner do Azure
-description: Saiba como usar uma identidade gerenciada para autenticar com outros serviços do Azure de instâncias de contêiner do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Habilitar identidade gerenciada no grupo de contêineres
+description: Saiba como habilitar uma identidade gerenciada em instâncias de contêiner do Azure que podem ser autenticadas com outros serviços do Azure
 ms.topic: article
 ms.date: 10/22/2018
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325926"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533683"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades gerenciadas com instâncias de contêiner do Azure
 
@@ -64,7 +58,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que vo
 
 Os exemplos neste artigo usam uma identidade gerenciada em instâncias de contêiner do Azure para acessar um segredo de Azure Key Vault. 
 
-Primeiro, crie um grupo de recursos  chamado MyResource Group no  local eastus com o seguinte comando [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) :
+Primeiro, crie um grupo de recursos chamado *MyResource* Group no local *eastus* com o seguinte comando [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -84,7 +78,7 @@ az keyvault secret set --name SampleSecret --value "Hello Container Instances!" 
 
 Continue com os exemplos a seguir para acessar o Key Vault usando uma identidade gerenciada atribuída pelo usuário ou pelo sistema em instâncias de contêiner do Azure.
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Exemplo 1: Usar uma identidade atribuída pelo usuário para acessar o Azure Key Vault
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Exemplo 1: usar uma identidade atribuída pelo usuário para acessar Azure Key Vault
 
 ### <a name="create-an-identity"></a>Criar uma identidade
 
@@ -106,7 +100,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --
 
 ### <a name="enable-a-user-assigned-identity-on-a-container-group"></a>Habilitar uma identidade atribuída pelo usuário em um grupo de contêineres
 
-Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base no servidor Ubuntu. Este exemplo fornece um grupo de contêiner único que você pode usar para acessar interativamente outros serviços do Azure. O `--assign-identity` parâmetro passa sua identidade gerenciada atribuída pelo usuário para o grupo. O comando de execução longa mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o Key Vault, mas você pode especificar um diferente.
+Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base no servidor Ubuntu. Este exemplo fornece um grupo de contêiner único que você pode usar para acessar interativamente outros serviços do Azure. O parâmetro `--assign-identity` passa sua identidade gerenciada atribuída pelo usuário para o grupo. O comando de execução longa mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o Key Vault, mas você pode especificar um diferente.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/azure-cli --assign-identity $resourceID --command-line "tail -f /dev/null"
@@ -118,7 +112,7 @@ Dentro de alguns segundos, deverá receber uma resposta da CLI do Azure que indi
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-A `identity` seção na saída é semelhante à seguinte, mostrando que a identidade está definida no grupo de contêineres. O `principalID` em`userAssignedIdentities` é a entidade de serviço da identidade que você criou em Azure Active Directory:
+A seção `identity` na saída é semelhante ao seguinte, mostrando que a identidade está definida no grupo de contêineres. O `principalID` em `userAssignedIdentities` é a entidade de serviço da identidade que você criou em Azure Active Directory:
 
 ```console
 ...
@@ -183,11 +177,11 @@ A resposta é semelhante à seguinte, mostrando o segredo. Em seu código, você
 {"value":"Hello Container Instances!","contentType":"ACIsecret","id":"https://mykeyvault.vault.azure.net/secrets/SampleSecret/xxxxxxxxxxxxxxxxxxxx","attributes":{"enabled":true,"created":1539965967,"updated":1539965967,"recoveryLevel":"Purgeable"},"tags":{"file-encoding":"utf-8"}}
 ```
 
-## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemplo 2: Usar uma identidade atribuída pelo sistema para acessar Azure Key Vault
+## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemplo 2: usar uma identidade atribuída pelo sistema para acessar Azure Key Vault
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Habilitar uma identidade atribuída pelo sistema em um grupo de contêineres
 
-Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base no servidor Ubuntu. Este exemplo fornece um grupo de contêiner único que você pode usar para acessar interativamente outros serviços do Azure. O `--assign-identity` parâmetro sem valor adicional habilita uma identidade gerenciada atribuída pelo sistema no grupo. O comando de execução longa mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o Key Vault, mas você pode especificar um diferente.
+Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base no servidor Ubuntu. Este exemplo fornece um grupo de contêiner único que você pode usar para acessar interativamente outros serviços do Azure. O parâmetro `--assign-identity` sem valor adicional habilita uma identidade gerenciada atribuída pelo sistema no grupo. O comando de execução longa mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o Key Vault, mas você pode especificar um diferente.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/azure-cli --assign-identity --command-line "tail -f /dev/null"
@@ -199,7 +193,7 @@ Dentro de alguns segundos, deverá receber uma resposta da CLI do Azure que indi
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-A `identity` seção na saída é semelhante à seguinte, mostrando que uma identidade atribuída pelo sistema é criada no Azure Active Directory:
+A seção `identity` na saída é semelhante ao seguinte, mostrando que uma identidade atribuída pelo sistema é criada no Azure Active Directory:
 
 ```console
 ...
@@ -267,7 +261,7 @@ A resposta é semelhante à seguinte, mostrando o segredo. Em seu código, você
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Habilitar identidade gerenciada usando o modelo do Resource Manager
 
-Para habilitar uma identidade gerenciada em um grupo de contêineres usando um [modelo do Resource Manager](container-instances-multi-container-group.md), defina `Microsoft.ContainerInstance/containerGroups` a `identity` Propriedade do `ContainerGroupIdentity` objeto com um objeto. Os trechos de código a `identity` seguir mostram a propriedade configurada para cenários diferentes. Consulte a [referência de modelo do Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Especifique um `apiVersion` de `2018-10-01`.
+Para habilitar uma identidade gerenciada em um grupo de contêineres usando um [modelo do Resource Manager](container-instances-multi-container-group.md), defina a propriedade `identity` do objeto `Microsoft.ContainerInstance/containerGroups` com um objeto `ContainerGroupIdentity`. Os trechos de código a seguir mostram a propriedade `identity` configurada para cenários diferentes. Consulte a [referência de modelo do Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Especifique um `apiVersion` de `2018-10-01`.
 
 ### <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
 
@@ -352,7 +346,7 @@ identity:
    {'myResourceID1':{}}
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre identidades gerenciadas em instâncias de contêiner do Azure e como:
 

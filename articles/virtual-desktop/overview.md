@@ -1,6 +1,6 @@
 ---
 title: O que é o Windows Virtual Desktop? - Azure
-description: An overview of Windows Virtual Desktop.
+description: Uma visão geral da área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -16,79 +16,79 @@ ms.locfileid: "74227706"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
-Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
+A área de trabalho virtual do Windows é um serviço de desktop e de virtualização de aplicativo que é executado na nuvem.
 
-Here’s what you can do when you run Windows Virtual Desktop on Azure:
+Veja o que você pode fazer ao executar a área de trabalho virtual do Windows no Azure:
 
-* Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
-* Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
-* Provide Windows 7 virtual desktops with free Extended Security Updates
-* Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
-* Virtualize both desktops and apps
-* Manage Windows 10, Windows Server, and Windows 7 desktops and apps with a unified management experience
+* Configurar uma implantação de várias sessões do Windows 10 que fornece um Windows 10 completo com escalabilidade
+* Virtualizar o Office 365 ProPlus e otimizá-lo para ser executado em cenários virtuais de vários usuários
+* Fornecer áreas de trabalho virtuais do Windows 7 com atualizações de segurança estendidas gratuitas
+* Traga seus aplicativos e desktops Serviços de Área de Trabalho Remota (RDS) e Windows Server existentes para qualquer computador
+* Virtualização de desktops e aplicativos
+* Gerencie desktops e aplicativos Windows 10, Windows Server e Windows 7 com uma experiência de gerenciamento unificada
 
-## <a name="introductory-video"></a>Introductory video
+## <a name="introductory-video"></a>Vídeo introdutório
 
-Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
+Saiba mais sobre a área de trabalho virtual do Windows, por que é exclusivo e o que há de novo neste vídeo:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-For more videos about Windows Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
+Para obter mais vídeos sobre a área de trabalho virtual do Windows, consulte [nossa lista de reprodução](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## <a name="key-capabilities"></a>Principais capacidades
 
-With Windows Virtual Desktop, you can set up a scalable and flexible environment:
+Com a área de trabalho virtual do Windows, você pode configurar um ambiente escalonável e flexível:
 
-* Create a full desktop virtualization environment in your Azure subscription without having to run any additional gateway servers.
-* Publish as many host pools as you need to accommodate your diverse workloads.
-* Bring your own image for production workloads or test from the Azure Gallery.
-* Reduce costs with pooled, multi-session resources. With the new Windows 10 Enterprise multi-session capability exclusive to Windows Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system (OS) overhead while still providing the same resources to your users.
-* Provide individual ownership through personal (persistent) desktops.
+* Crie um ambiente de virtualização de área de trabalho completo em sua assinatura do Azure sem precisar executar servidores de gateway adicionais.
+* Publique quantos pools de hosts forem necessários para acomodar suas diversas cargas de trabalho.
+* Traga sua própria imagem para cargas de trabalho de produção ou teste na galeria do Azure.
+* Reduza os custos com recursos de várias sessões em pool. Com a nova funcionalidade de várias sessões do Windows 10 Enterprise exclusiva para a função de RDSH (área de trabalho virtual do Windows e Host da Sessão da Área de Trabalho Remota) no Windows Server, você pode reduzir muito o número de máquinas virtuais e a sobrecarga de sistema operacional (SO) enquanto ainda fornecendo os mesmos recursos aos seus usuários.
+* Forneça propriedade individual por meio de áreas de trabalho pessoais (persistentes).
 
-You can deploy and manage virtual desktops:
+Você pode implantar e gerenciar áreas de trabalho virtuais:
 
-* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
-* Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
-* As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
-* Use the new Diagnostics service to troubleshoot errors.
-* Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
+* Use o PowerShell da área de trabalho virtual do Windows e as interfaces REST para configurar os pools de hosts, criar grupos de aplicativos, atribuir usuários e publicar recursos.
+* Publique aplicativos de área de trabalho completa ou remotos individuais de um único pool de hosts, crie grupos de aplicativos individuais para diferentes conjuntos de usuários ou até mesmo Atribua usuários a vários grupos de aplicativos para reduzir o número de imagens.
+* Ao gerenciar seu ambiente, use o acesso delegado interno para atribuir funções e coletar diagnósticos para entender vários erros de configuração ou de usuário.
+* Use o novo serviço de diagnóstico para solucionar erros.
+* Gerencie apenas a imagem e as máquinas virtuais, não a infraestrutura. Você não precisa gerenciar pessoalmente as funções de Área de Trabalho Remota como faz com Serviços de Área de Trabalho Remota, apenas as máquinas virtuais em sua assinatura do Azure.
 
-You can also assign and connect users to your virtual desktops:
+Você também pode atribuir e conectar usuários a suas áreas de trabalho virtuais:
 
-* Once assigned, users can launch any Windows Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
-* Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
+* Depois de atribuídas, os usuários podem iniciar qualquer cliente de área de trabalho virtual do Windows para conectar os usuários aos seus aplicativos e desktops Windows publicados. Conecte-se de qualquer dispositivo por meio de um aplicativo nativo no seu dispositivo ou do cliente Web do HTML5 da área de trabalho virtual do Windows.
+* Estabeleça usuários com segurança por meio de conexões inversas com o serviço, para que você nunca precise deixar as portas de entrada abertas.
 
 ## <a name="requirements"></a>Requisitos
 
-There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
+Há algumas coisas que você precisa para configurar a área de trabalho virtual do Windows e conectar seus usuários com êxito a seus aplicativos e desktops Windows.
 
-We plan to add support for the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
+Planejamos adicionar suporte para os seguintes SOS, portanto, verifique se você tem as [licenças apropriadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para seus usuários com base na área de trabalho e nos aplicativos que planeja implantar:
 
-|SO|Required license|
+|SO|Licença necessária|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise Multi-Session ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
+|Windows Server 2012 R2, 2016, 2019|CAL (licença de acesso para cliente) do RDS com Software Assurance|
 
-Your infrastructure needs the following things to support Windows Virtual Desktop:
+Sua infraestrutura precisa dos seguintes itens para dar suporte à área de trabalho virtual do Windows:
 
-* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
-  * Azure AD Connect (for hybrid organizations)
-  * Azure AD Domain Services (for hybrid or cloud organizations)
-* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
+* Um [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* Um Active Directory do Windows Server em sincronia com o Azure Active Directory. Você pode configurar isso com um dos seguintes:
+  * Azure AD Connect (para organizações híbridas)
+  * Azure AD Domain Services (para organizações híbridas ou de nuvem)
+* Uma assinatura do Azure que contém uma rede virtual que contém ou está conectada ao Windows Server Active Directory
   
-The Azure virtual machines you create for Windows Virtual Desktop must be:
+As máquinas virtuais do Azure criadas para a área de trabalho virtual do Windows devem ser:
 
-* [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
-* Running one of the following [supported OS images](#supported-virtual-machine-os-images).
+* [Ingressado no AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) [padrão](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou híbrido. As máquinas virtuais não podem ser ingressadas no Azure AD.
+* Executando uma das seguintes [imagens de sistema operacional com suporte](#supported-virtual-machine-os-images).
 
 >[!NOTE]
->If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
+>Se precisar de uma assinatura do Azure, você poderá [se inscrever para uma avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se você estiver usando a versão de avaliação gratuita do Azure, deverá usar Azure AD Domain Services para manter o Active Directory do Windows Server em sincronia com Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+As máquinas virtuais do Azure que você cria para a área de trabalho virtual do Windows devem ter acesso TCP 443 de saída às seguintes URLs:
 
-* *.wvd.microsoft.com
+* *. wvd.microsoft.com
 * *.blob.core.windows.net
 * *.core.windows.net
 * *.servicebus.windows.net
@@ -96,44 +96,44 @@ The Azure virtual machines you create for Windows Virtual Desktop must have outb
 * catalogartifact.azureedge.net
 
 >[!NOTE]
->Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
+>Abrir essas URLs é essencial para uma implantação de área de trabalho virtual do Windows confiável. Não há suporte para o bloqueio de acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos da área de trabalho virtual do Windows e não incluem URLS para outros serviços como o Azure AD.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
+A área de trabalho virtual do Windows inclui os aplicativos e as áreas de trabalho do Windows que você fornece aos usuários e à solução de gerenciamento, que é hospedada como um serviço no Azure pela Microsoft. Desktops e aplicativos podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gerenciamento e os dados para essas VMs residirão no Estados Unidos. Isso pode resultar na transferência de dados para o Estados Unidos.
 
-For optimal performance, make sure your network meets the following requirements:
+Para obter um desempenho ideal, verifique se sua rede atende aos seguintes requisitos:
 
-* Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms.
-* Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
-* To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
+* Latência de ida e volta (RTT) da rede do cliente para a região do Azure em que os pools de hosts foram implantados devem ser inferiores a 150 ms.
+* O tráfego de rede pode fluir fora das bordas de país/região quando as VMs que hospedam áreas de trabalho e aplicativos se conectam ao serviço de gerenciamento.
+* Para otimizar o desempenho da rede, recomendamos que as VMs do host de sessão sejam colocadas na mesma região do Azure que o serviço de gerenciamento.
 
-## <a name="supported-remote-desktop-clients"></a>Supported Remote Desktop clients
+## <a name="supported-remote-desktop-clients"></a>Clientes Área de Trabalho Remota com suporte
 
-The following Remote Desktop clients support Windows Virtual Desktop:
+Os seguintes Área de Trabalho Remota clientes dão suporte à área de trabalho virtual do Windows:
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-images"></a>Supported virtual machine OS images
+## <a name="supported-virtual-machine-os-images"></a>Imagens do sistema operacional da máquina virtual com suporte
 
-Windows Virtual Desktop supports the following x64 operating system images:
+A área de trabalho virtual do Windows dá suporte às seguintes imagens do sistema operacional x64:
 
-* Windows 10 Enterprise multi-session, version 1809 or later
-* Windows 10 Enterprise, version 1809 or later
+* Windows 10 Enterprise Multi-Session, versão 1809 ou posterior
+* Windows 10 Enterprise, versão 1809 ou posterior
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
+A área de trabalho virtual do Windows não oferece suporte a imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N ou Windows 10 Enterprise KN.
 
-Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
+As opções de automação e implantação disponíveis dependem do sistema operacional e da versão que você escolher, conforme mostrado na tabela a seguir: 
 
-|Sistema operativo|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
+|Sistema operativo|Galeria de imagens do Azure|Implantação manual de VM|Integração do modelo de Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|Atualizações do agente de área de trabalho virtual do Windows|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Sim|Sim|Sim|Sim|Automático|
-|Windows 10 multi-session, version 1809|Sim|Sim|Não|Não|Automático|
-|Windows 10 Enterprise, version 1903|Sim|Sim|Sim|Sim|Automático|
-|Windows 10 Enterprise, version 1809|Sim|Sim|Não|Não|Automático|
+|Windows 10 de várias sessões, versão 1903|Sim|Sim|Sim|Sim|Automático|
+|Windows 10 de várias sessões, versão 1809|Sim|Sim|Não|Não|Automático|
+|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|Automático|
+|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|Automático|
 |Windows 7 Enterprise|Sim|Sim|Não|Não|Manual|
 |Windows Server 2019|Sim|Sim|Não|Não|Automático|
 |Windows Server 2016|Sim|Sim|Sim|Sim|Automático|
@@ -141,7 +141,7 @@ Available automation and deployment options depend on which OS and version you c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
+Para começar, você precisará criar um locatário. Para saber mais sobre como criar um locatário, continue para o tutorial de criação de locatário.
 
 > [!div class="nextstepaction"]
 > [Criar um inquilino no Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

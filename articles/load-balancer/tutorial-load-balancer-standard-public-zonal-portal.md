@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load Balancer VMs within a zone--Azure portal'
+title: 'Tutorial: Load Balancer VMs em uma zona – portal do Azure'
 titleSuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end zonal para fazer o balanceamento de carga das VMs dentro de uma zona de disponibilidade através do portal do Azure
 services: load-balancer
@@ -48,33 +48,33 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Quando cria um novo IP público durante a criação do balanceador de carga, o mesmo é configurado, de forma automática, como uma versão de SKU Standard. Também tem redundância de zona automaticamente.
 
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
+2. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **revisar + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Select **Create new** and type *MyResourceGroupZLB* in the text box.|
+    | Grupo de recursos         | Selecione **criar novo** e digite *MyResourceGroupZLB* na caixa de texto.|
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Tipo          | Select **Public**.                                        |
-    | SKU           | Select **Standard**.                          |
+    | Tipo          | Selecione **público**.                                        |
+    | SKU           | Selecione **padrão**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
-    | Public IP address name              | Type *myPublicIP* in the text box.   |
-    |Availability zone| Selecione **1**.    |
-3. In the **Review + create** tab, click **Create**.   
+    | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione **1**.    |
+3. Na guia **revisar + criar** , clique em **criar**.   
 
    ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas virtuais na mesma zona (nomeadamente, na zona 1) da região para adicionar ao conjunto de back-ends do seu balanceador de carga. Em seguida, vai instalar o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância entre zonas. Se uma VM falhar, a sonda de estado de funcionamento da VM na mesma zona falha. O tráfego continua a ser servido pelas outras VMs na mesma zona.
 
-### <a name="create-a-virtual-network"></a>Criar rede virtual
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Rede virtual**.  Introduza estes valores para a rede virtual:
     - **myVNet**, no nome da rede virtual.
     - **myResourceGroupZLB**, no nome do grupo de recursos existente.
     - **myBackendSubnet**, no nome da sub-rede.
 2. Selecione **Criar** para criar a rede virtual.
 
-    ![Criar rede virtual](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+    ![Criar uma rede virtual](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 

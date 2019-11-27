@@ -1,6 +1,6 @@
 ---
-title: Handle events with Azure Maps | Microsoft Docs
-description: How to make an interactive Web SDK map with map events
+title: Manipular eventos com o Azure Maps | Microsoft Docs
+description: Como criar um mapa de SDK da Web interativo com eventos de mapa
 author: jingjing-z
 ms.author: jinzh
 ms.date: 09/10/2019
@@ -16,105 +16,105 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484287"
 ---
-# <a name="interact-with-the-map"></a>Interact with the map
+# <a name="interact-with-the-map"></a>Interagir com o mapa
 
-This article shows you how to use [map class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
+Este artigo mostra como usar a propriedade de [eventos da classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) para realçar eventos no mapa e em camadas diferentes do mapa. Ele também mostra como usar a propriedade de eventos da classe Map para realçar eventos quando você interage com um marcador HTML.
 
-## <a name="interact-with-the-map"></a>Interact with the map
+## <a name="interact-with-the-map"></a>Interagir com o mapa
 
-Play with the map below, and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on the **Edit on CodePen** button and edit the code on CodePen.
-
-<br/>
-
-<iframe height='600' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-## <a name="interact-with-map-layers"></a>Interact with map layers
-
-The following code highlights the name of the events that get fired up as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers do not support any of these events.
+Jogue com o mapa abaixo e veja os eventos de mouse correspondentes realçados à direita. Você pode clicar na **guia js** para exibir e editar o código JavaScript. Você também pode clicar no botão **Editar no CodePen** e editar o código em CodePen.
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interacting with the map – Layer Events' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interacting with the map – Layer Events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagir com o mapa – eventos de mouse</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="interact-with-html-marker"></a>Interact with HTML Marker
+## <a name="interact-with-map-layers"></a>Interagir com as camadas do mapa
 
-The following code adds Javascript map events to an HTML marker. It also highlights the name of the events that get fired up as you interact with the HTML marker.
+O código a seguir realça o nome dos eventos que são acionados enquanto você interage com a camada de símbolo. O símbolo, a bolha, a linha e a camada de polígono oferecem suporte ao mesmo conjunto de eventos. As camadas mapa de calor e bloco não oferecem suporte a nenhum desses eventos.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa – eventos de camada' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagindo com os eventos de camada do mapa</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The following table lists all of the supported map class events.
+## <a name="interact-with-html-marker"></a>Interagir com marcador HTML
+
+O código a seguir adiciona eventos de mapa JavaScript a um marcador HTML. Ele também realça o nome dos eventos que são acionados enquanto você interage com o marcador HTML.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Interagindo com o mapa-eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a caneta <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>interagindo com os eventos do marcador MAP-HTML</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+A tabela a seguir lista todos os eventos de classe de mapa com suporte.
 
 | Evento               | Descrição |
 |---------------------|-------------|
-| `boxzoomend`        | Fired when a "box zoom" interaction ends.|
-| `boxzoomstart`      | Fired when a "box zoom" interaction starts.|
-| `click`             | Fired when a pointing device is pressed and released at the same point on the map.|
-| `close`             | Fired when the popup is closed manually or programatically.|
-| `contextmenu`       | Fired when the right button of the mouse is clicked.|
-| `data`              | Fired when any map data loads or changes. |
-| `dataadded`         | Fired when shapes are added to the `DataSource`.|
-| `dataremoved`       | Fired when shapes are removed from the `DataSource`.|
-| `datasourceupdated` | Fired when the `DataSource` object is updated.|
-| `dblclick`          | Fired when a pointing device is clicked twice at the same point on the map.|
-| `drag`              | Fired repeatedly during a "drag to pan" interaction on the map, popup, or HTML marker.|
-| `dragend`           | Fired when a "drag to pan" interaction ends on the map, popup, or HTML marker.|
-| `dragstart`         | Fired when a "drag to pan" interaction starts on the map, popup, or HTML marker.|
-| `error`             | Fired when an error occurs.|
-| `idle`              | <p>Fired after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p>|
-| `keydown`           | Fired when a key is pressed down.|
-| `keypress`          | Fired when a key that produces a typable character (an ANSI key) is pressed.|
-| `keyup`             | Fired when a key is released.|
-| `layeradded`        | Fired when a layer is added to the map.|
-| `layerremoved`      | Fired when a layer is removed from the map.|
-| `load`              | Fired immediately after all necessary resources have been downloaded and the first visually complete rendering of the map has occurred.|
-| `mousedown`         | Fired when a pointing device is pressed within the map or when on top of an element.|
-| `mouseenter`        | Fired when a pointing device is initially moved over the map or an element. |
-| `mouseleave`        | Fired when a pointing device is moved out the map or an element. |
-| `mousemove`         | Fired when a pointing device is moved within the map or an element.|
-| `mouseout`          | Fired when a point device leaves the map's canvas our leaves an element.|
-| `mouseover`         | Fired when a pointing device is moved over the map or an element.|
-| `mouseup`           | Fired when a pointing device is released within the map or when on top of an element.|
-| `move`              | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods.|
-| `moveend`           | Fired just after the map completes a transition from one view to another, as the result of either user interaction or methods.|
-| `movestart`         | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods.|
-| `open`              | Fired when the popup is opened manually or programatically.|
-| `pitch`             | Fired whenever the map's pitch (tilt) changes as the result of either user interaction or methods.|
-| `pitchend`          | Fired immediately after the map's pitch (tilt) finishes changing as the result of either user interaction or methods.|
-| `pitchstart`        | Fired whenever the map's pitch (tilt) begins a change as the result of either user interaction or methods.|
-| `ready`             | Fired when the minimum required map resources are loaded before the map is ready to be programmatically interacted with.|
-| `render`            | <p>Fired whenever the map is drawn to the screen, as the result of:<ul><li>A change to the map's position, zoom, pitch, or bearing.</li><li>A change to the map's style.</li><li>A change to a `DataSource` source.</li><li>The loading of a vector tile, GeoJSON file, glyph, or sprite.</li></ul></p>|
-| `resize`            | Fired immediately after the map has been resized.|
-| `rotate`            | Fired repeatedly during a "drag to rotate" interaction.|
-| `rotateend`         | Fired when a "drag to rotate" interaction ends.|
-| `rotatestart`       | Fired when a "drag to rotate" interaction starts.|
-| `shapechanged`      | Fired when a shape object property is changed.|
-| `sourcedata`        | Fired when one of the map's sources loads or changes, including if a tile belonging to a source loads or changes. |
-| `sourceadded`       | Fired when a `DataSource` or `VectorTileSource` is added to the map.|
-| `sourceremoved`     | Fired when a `DataSource` or `VectorTileSource` is removed from the map.|
-| `styledata`         | Fired when the map's style loads or changes.|
-| `styleimagemissing` | Fired when a layer tries to load an image from the image sprite that doesn't exist |
-| `tokenacquired`     | Fired when an AAD access token is obtained.|
-| `touchcancel`       | Fired when a touchcancel event occurs within the map.|
-| `touchend`          | Fired when a touchend event occurs within the map.|
-| `touchmove`         | Fired when a touchmove event occurs within the map.|
-| `touchstart`        | Fired when a touchstart event occurs within the map.|
-| `wheel`             | Fired when a mouse wheel event occurs within the map.|
-| `zoom`              | Fired repeatedly during an animated transition from one zoom level to another, as the result of either user interaction or methods.|
-| `zoomend`           | Fired just after the map completes a transition from one zoom level to another, as the result of either user interaction or methods.|
-| `zoomstart`         | Fired just before the map begins a transition from one zoom level to another, as the result of either user interaction or methods.|
+| `boxzoomend`        | Acionado quando uma interação de "caixa de zoom" termina.|
+| `boxzoomstart`      | Acionado quando uma interação "caixa de zoom" é iniciada.|
+| `click`             | Acionado quando um dispositivo apontador é pressionado e liberado no mesmo ponto no mapa.|
+| `close`             | Acionado quando o popup é fechado manualmente ou programaticamente.|
+| `contextmenu`       | Acionado quando o botão direito do mouse é clicado.|
+| `data`              | Acionado quando os dados do mapa são carregados ou alterados. |
+| `dataadded`         | Acionado quando formas são adicionadas ao `DataSource`.|
+| `dataremoved`       | Acionado quando as formas são removidas da `DataSource`.|
+| `datasourceupdated` | Acionado quando o objeto de `DataSource` é atualizado.|
+| `dblclick`          | Acionado quando um dispositivo apontador é clicado duas vezes no mesmo ponto no mapa.|
+| `drag`              | Acionado repetidamente durante uma interação "arrastar para panorâmica" no marcador de mapa, pop-up ou HTML.|
+| `dragend`           | Acionado quando uma interação "arrastar para a panorâmica" termina no marcador de mapa, pop-up ou HTML.|
+| `dragstart`         | Acionado quando uma interação "arrastar para a panorâmica" começa no marcador de mapa, pop-up ou HTML.|
+| `error`             | Acionado quando ocorre um erro.|
+| `idle`              | <p>Acionado após o último quadro renderizado antes do mapa entrar em um estado "ocioso":<ul><li>Nenhuma transição de câmera está em andamento.</li><li>Todos os blocos atualmente solicitados foram carregados.</li><li>Todas as animações de esmaecimento/transição foram concluídas.</li></ul></p>|
+| `keydown`           | Acionado quando uma tecla é pressionada.|
+| `keypress`          | Acionado quando uma chave que produz um caractere typable (uma tecla ANSI) é pressionada.|
+| `keyup`             | Acionado quando uma chave é liberada.|
+| `layeradded`        | Acionado quando uma camada é adicionada ao mapa.|
+| `layerremoved`      | Acionado quando uma camada é removida do mapa.|
+| `load`              | Acionado imediatamente depois que todos os recursos necessários tiverem sido baixados e o primeiro processamento visual completo do mapa tiver ocorrido.|
+| `mousedown`         | Acionado quando um dispositivo apontador é pressionado no mapa ou na parte superior de um elemento.|
+| `mouseenter`        | Acionado quando um dispositivo apontador é movido inicialmente sobre o mapa ou um elemento. |
+| `mouseleave`        | Acionado quando um dispositivo apontador é movido para fora do mapa ou de um elemento. |
+| `mousemove`         | Acionado quando um dispositivo apontador é movido dentro do mapa ou de um elemento.|
+| `mouseout`          | Acionado quando um dispositivo de ponto deixa a tela do mapa, nosso deixa um elemento.|
+| `mouseover`         | Acionado quando um dispositivo apontador é movido sobre o mapa ou um elemento.|
+| `mouseup`           | Acionado quando um dispositivo apontador é liberado no mapa ou na parte superior de um elemento.|
+| `move`              | Disparado repetidamente durante uma transição animada de uma exibição para outra, como resultado de uma interação do usuário ou métodos.|
+| `moveend`           | Acionado logo após o mapa concluir uma transição de uma exibição para outra, como resultado de uma interação do usuário ou métodos.|
+| `movestart`         | Disparado pouco antes de o mapa começar uma transição de uma exibição para outra, como resultado de uma interação do usuário ou métodos.|
+| `open`              | Acionado quando o popup é aberto manualmente ou programaticamente.|
+| `pitch`             | Acionado sempre que a inclinação do mapa (inclinação) muda como resultado de uma interação do usuário ou métodos.|
+| `pitchend`          | Acionado imediatamente após a densidade do mapa (inclinação) terminar de ser alterado como resultado da interação do usuário ou dos métodos.|
+| `pitchstart`        | Acionado sempre que a densidade do mapa (inclinação) inicia uma alteração como resultado de uma interação do usuário ou métodos.|
+| `ready`             | Acionado quando os recursos de mapa mínimos necessários são carregados antes que o mapa esteja pronto para ser interagindo de forma programática.|
+| `render`            | <p>Acionado sempre que o mapa é desenhado na tela, como resultado de:<ul><li>Uma alteração na posição, no zoom, na inclinação ou no posicionamento do mapa.</li><li>Uma alteração no estilo do mapa.</li><li>Uma alteração em uma fonte de `DataSource`.</li><li>O carregamento de um bloco de vetor, arquivo geojson, glifo ou Sprite.</li></ul></p>|
+| `resize`            | Acionado imediatamente após o mapa ter sido redimensionado.|
+| `rotate`            | Acionado repetidamente durante uma interação "arrastar para girar".|
+| `rotateend`         | Acionado quando uma interação "arrastar para girar" termina.|
+| `rotatestart`       | Acionado quando uma interação "arrastar para girar" é iniciada.|
+| `shapechanged`      | Acionado quando uma propriedade de objeto de forma é alterada.|
+| `sourcedata`        | Acionado quando uma das fontes do mapa é carregada ou alterada, incluindo se um bloco que pertence a uma origem carrega ou altera. |
+| `sourceadded`       | Acionado quando um `DataSource` ou `VectorTileSource` é adicionado ao mapa.|
+| `sourceremoved`     | Acionado quando um `DataSource` ou `VectorTileSource` é removido do mapa.|
+| `styledata`         | Acionado quando o estilo do mapa é carregado ou alterado.|
+| `styleimagemissing` | Acionado quando uma camada tenta carregar uma imagem da imagem Sprite que não existe |
+| `tokenacquired`     | Acionado quando um token de acesso do AAD é obtido.|
+| `touchcancel`       | Acionado quando um evento touchcancel ocorre dentro do mapa.|
+| `touchend`          | Acionado quando um evento touchend ocorre dentro do mapa.|
+| `touchmove`         | Acionado quando um evento TouchMove ocorre dentro do mapa.|
+| `touchstart`        | Acionado quando um evento touchstart ocorre dentro do mapa.|
+| `wheel`             | Acionado quando ocorre um evento de roda do mouse dentro do mapa.|
+| `zoom`              | Disparado repetidamente durante uma transição animada de um nível de zoom para outro, como resultado de uma interação do usuário ou métodos.|
+| `zoomend`           | Disparado logo após o mapa concluir uma transição de um nível de zoom para outro, como resultado de uma interação do usuário ou métodos.|
+| `zoomstart`         | Disparado pouco antes de o mapa começar uma transição de um nível de zoom para outro, como resultado de uma interação do usuário ou métodos.|
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-See the following articles for full code examples:
+Consulte os seguintes artigos para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Using the Azure Maps Services module](./how-to-use-services-module.md)
+> [Usando o módulo de serviços do Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

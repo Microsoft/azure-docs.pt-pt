@@ -1,6 +1,6 @@
 ---
-title: Use the Azure portal to manage Azure AD access rights to blob and queue data with RBAC - Azure Storage | Microsoft Docs
-description: Use role-based access control (RBAC) from the Azure portal to assign access to containers and queues to security principals. Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
+title: Use o portal do Azure para gerenciar os direitos de acesso do Azure AD aos dados de BLOB e de fila com o armazenamento do Azure RBAC | Microsoft Docs
+description: Use o RBAC (controle de acesso baseado em função) do portal do Azure para atribuir acesso a contêineres e filas a entidades de segurança. O armazenamento do Azure dá suporte a funções RBAC personalizadas e internas para autenticação por meio do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -16,89 +16,89 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74421987"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Grant access to Azure blob and queue data with RBAC in the Azure portal
+# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Conceder acesso a dados de BLOB e de fila do Azure com RBAC no portal do Azure
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
+O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio [do RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB ou de fila. 
 
-When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível da assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use the Azure portal to assign RBAC roles. The Azure portal provides a simple interface for assigning RBAC roles and managing access to your storage resources. You can also assign RBAC roles for blob and queue resources using Azure command-line tools or the Azure Storage management APIs. For more information about RBAC roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md). 
+Este artigo descreve como usar o portal do Azure para atribuir funções de RBAC. O portal do Azure fornece uma interface simples para atribuir funções RBAC e gerenciar o acesso aos seus recursos de armazenamento. Você também pode atribuir funções RBAC para recursos de BLOB e fila usando as ferramentas de linha de comando do Azure ou as APIs de gerenciamento de armazenamento do Azure. Para obter mais informações sobre as funções RBAC para recursos de armazenamento, consulte [autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md). 
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC roles for blobs and queues
+## <a name="rbac-roles-for-blobs-and-queues"></a>Funções de RBAC para BLOBs e filas
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determine resource scope 
+## <a name="determine-resource-scope"></a>Determinar o escopo do recurso 
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Assign RBAC roles using the Azure portal
+## <a name="assign-rbac-roles-using-the-azure-portal"></a>Atribuir funções de RBAC usando o portal do Azure
 
-After you have determined the appropriate scope for a role assignment, navigate to that resource in the Azure portal. Display the **Access Control (IAM)** settings for the resource, and follow these instructions to manage role assignments:
+Depois de determinar o escopo apropriado para uma atribuição de função, navegue até esse recurso na portal do Azure. Exiba as configurações de **controle de acesso (iam)** para o recurso e siga estas instruções para gerenciar as atribuições de função:
 
-1. Assign the appropriate Azure Storage RBAC role to grant access to an Azure AD security principal.
+1. Atribua a função apropriada do RBAC do armazenamento do Azure para conceder acesso a uma entidade de segurança do Azure AD.
 
-1. Assign the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role to users who need to access containers or queues via the Azure portal using their Azure AD credentials. 
+1. Atribua a função [leitor](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager a usuários que precisam acessar contêineres ou filas por meio do portal do Azure usando suas credenciais do Azure AD. 
 
-The following sections describe each of these steps in more detail.
+As seções a seguir descrevem cada uma dessas etapas mais detalhadamente.
 
 > [!NOTE]
-> As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or a container or queue.
+> Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Você pode atribuí-lo ao nível de sua assinatura, grupo de recursos, conta de armazenamento ou um contêiner ou fila.
 > 
-> You cannot assign a role scoped to a container or queue if your storage account has a hierarchical namespace enabled.
+> Você não poderá atribuir uma função com escopo a um contêiner ou fila se sua conta de armazenamento tiver um namespace hierárquico habilitado.
 
-### <a name="assign-a-built-in-rbac-role"></a>Assign a built-in RBAC role
+### <a name="assign-a-built-in-rbac-role"></a>Atribuir uma função RBAC interna
 
-Before you assign a role to a security principal, be sure to consider the scope of the permissions you are granting. Review the [Determine resource scope](#determine-resource-scope) section to decide the appropriate scope.
+Antes de atribuir uma função a uma entidade de segurança, certifique-se de considerar o escopo das permissões que você está concedendo. Examine a seção [determinar escopo do recurso](#determine-resource-scope) para decidir o escopo apropriado.
 
-The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
+O procedimento mostrado aqui atribui uma função com escopo a um contêiner, mas você pode seguir as mesmas etapas para atribuir uma função com escopo a uma fila: 
 
-1. In the [Azure portal](https://portal.azure.com), go to your storage account and display the **Overview** for the account.
-1. Under Services, select **Blobs**. 
-1. Locate the container for which you want to assign a role, and display the container's settings. 
-1. Select **Access control (IAM)** to display access control settings for the container. Select the **Role assignments** tab to see the list of role assignments.
+1. Na [portal do Azure](https://portal.azure.com), vá para sua conta de armazenamento e exiba a **visão geral** da conta.
+1. Em serviços, selecione **BLOBs**. 
+1. Localize o contêiner para o qual você deseja atribuir uma função e exiba as configurações do contêiner. 
+1. Selecione **controle de acesso (iam)** para exibir as configurações de controle de acesso para o contêiner. Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
 
-    ![Screenshot showing container access control settings](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    ![Captura de tela mostrando as configurações de controle de acesso do contêiner](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
 
-1. Click the **Add role assignment** button to add a new role.
-1. In the **Add role assignment** window, select the Azure Storage role that you want to assign. Then search to locate the security principal to which you want to assign that role.
+1. Clique no botão **Adicionar atribuição de função** para adicionar uma nova função.
+1. Na janela **Adicionar atribuição de função** , selecione a função de armazenamento do Azure que você deseja atribuir. Em seguida, pesquise para localizar a entidade de segurança para a qual você deseja atribuir essa função.
 
-    ![Screenshot showing how to assign an RBAC role](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    ![Captura de tela mostrando como atribuir uma função de RBAC](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Clique em **Guardar**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that the user added now has read permissions to data in the container named *sample-container*.
+1. Clique em **Guardar**. A identidade para a qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para dados no contêiner denominado *Sample-container*.
 
-    ![Screenshot showing list of users assigned to a role](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    ![Captura de tela mostrando a lista de usuários atribuídos a uma função](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
-You can follow similar steps to assign a role scoped to the storage account, resource group, or subscription.
+Você pode seguir etapas semelhantes para atribuir uma função com escopo à conta de armazenamento, ao grupo de recursos ou à assinatura.
 
-### <a name="assign-the-reader-role-for-portal-access"></a>Assign the Reader role for portal access
+### <a name="assign-the-reader-role-for-portal-access"></a>Atribuir a função leitor para acesso ao portal
 
-When you assign a built-in or custom role for Azure Storage to a security principal, you are granting permissions to that security principal to perform operations on data in your storage account. The built-in **Data Reader** roles provide read permissions for the data in a container or queue, while the built-in **Data Contributor** roles provide read, write, and delete permissions to a container or queue. Permissions are scoped to the specified resource.  
+Ao atribuir uma função interna ou personalizada para o armazenamento do Azure para uma entidade de segurança, você está concedendo permissões a essa entidade de segurança para executar operações nos dados em sua conta de armazenamento. As funções internas do **leitor de dados** fornecem permissões de leitura para os dados em um contêiner ou fila, enquanto as funções de **colaborador de dados** internas fornecem permissões de leitura, gravação e exclusão a um contêiner ou fila. As permissões estão no escopo do recurso especificado.  
 
-For example, if you assign the **Storage Blob Data Contributor** role to user Mary at the level of a container named **sample-container**, then Mary is granted read, write, and delete access to all of the blobs in that container.
+Por exemplo, se você atribuir a função de **colaborador de dados de blob de armazenamento** ao usuário Mary no nível de um contêiner denominado **Sample-container**, Mary receberá acesso de leitura, gravação e exclusão a todos os BLOBs nesse contêiner.
 
-However, if Mary wants to view a blob in the Azure portal, then the **Storage Blob Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the blob in order to view it. Additional Azure AD permissions are required to navigate through the portal and view the other resources that are visible there.
+No entanto, se Mary quiser exibir um blob no portal do Azure, a função de **colaborador de dados do blob de armazenamento** não fornecerá permissões suficientes para navegar pelo portal para o blob a fim de exibi-lo. Permissões adicionais do Azure AD são necessárias para navegar pelo portal e exibir os outros recursos visíveis lá.
 
-If your users need to be able to access blobs in the Azure portal, then assign them an additional RBAC role, the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, to those users, at the level of the storage account or above. The **Reader** role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources.
+Se os usuários precisarem ser capazes de acessar BLOBs no portal do Azure, atribua a eles uma função RBAC adicional, a função [leitor](../../role-based-access-control/built-in-roles.md#reader) , a esses usuários, no nível da conta de armazenamento ou acima. A função **leitor** é uma função Azure Resource Manager que permite aos usuários exibir os recursos da conta de armazenamento, mas não modificá-los. Ele não fornece permissões de leitura para dados no armazenamento do Azure, mas apenas para recursos de gerenciamento de conta.
 
-Follow these steps to assign the **Reader** role so that a user can access blobs from the Azure portal. In this example, the assignment is scoped to the storage account:
+Siga estas etapas para atribuir a função **leitor** para que um usuário possa acessar BLOBs da portal do Azure. Neste exemplo, a atribuição tem como escopo a conta de armazenamento:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
-1. Select **Access control (IAM)** to display the access control settings for the storage account. Select the **Role assignments** tab to see the list of role assignments.
-1. In the **Add role assignment** window, select the **Reader** role. 
-1. From the **Assign access to** field, select **Azure AD user, group, or service principal**.
-1. Search to locate the security principal to which you want to assign the role.
-1. Save the role assignment.
+1. Na [portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento.
+1. Selecione **controle de acesso (iam)** para exibir as configurações de controle de acesso para a conta de armazenamento. Selecione a guia **atribuições de função** para ver a lista de atribuições de função.
+1. Na janela **Adicionar atribuição de função** , selecione a função **leitor** . 
+1. No campo **atribuir acesso a** , selecione **usuário, grupo ou entidade de serviço do Azure ad**.
+1. Pesquise para localizar a entidade de segurança à qual você deseja atribuir a função.
+1. Salve a atribuição de função.
 
 > [!NOTE]
-> Assigning the Reader role is necessary only for users who need to access blobs or queues using the Azure portal. 
+> A atribuição da função leitor é necessária apenas para usuários que precisam acessar BLOBs ou filas usando o portal do Azure. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- For more information about RBAC roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md). 
-- To learn more about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
-- To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
-    - [Manage role-based access control (RBAC) with Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-    - [Manage role-based access control (RBAC) with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-    - [Manage role-based access control (RBAC) with the REST API](../../role-based-access-control/role-assignments-rest.md)
-- To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with Azure Storage applications](storage-auth-aad-app.md).
+- Para obter mais informações sobre as funções RBAC para recursos de armazenamento, consulte [autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md). 
+- Para saber mais sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
+- Para saber como atribuir e gerenciar atribuições de função RBAC com Azure PowerShell, CLI do Azure ou a API REST, consulte estes artigos:
+    - [Gerenciar RBAC (controle de acesso baseado em função) com Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+    - [Gerenciar RBAC (controle de acesso baseado em função) com CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
+    - [Gerenciar o RBAC (controle de acesso baseado em função) com a API REST](../../role-based-access-control/role-assignments-rest.md)
+- Para saber como autorizar o acesso a contêineres e filas de dentro de seus aplicativos de armazenamento, consulte [usar o Azure AD com aplicativos de armazenamento do Azure](storage-auth-aad-app.md).

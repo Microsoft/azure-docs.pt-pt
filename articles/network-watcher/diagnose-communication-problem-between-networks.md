@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Diagnose communication problem between networks using the Azure portal
+title: Tutorial-diagnosticar problema de comunicação entre redes usando o portal do Azure
 titleSuffix: Azure Network Watcher
-description: In this tutorial, learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
+description: Neste tutorial, saiba como diagnosticar um problema de comunicação entre uma rede virtual do Azure conectada a um local ou outra rede virtual, por meio de um gateway de rede virtual do Azure, usando o recurso de diagnóstico de VPN do observador de rede.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -40,14 +40,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar o diagnóstico de VPN, tem de ter um gateway de VPN existente e em execução. Se não tiver um gateway de VPN existente para diagnosticar, pode implementar um com o [script do PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Pode executar o script do PowerShell a partir de:
-- **A local PowerShell installation**: The script requires the Azure PowerShell `Az` module. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+- **Uma instalação local do PowerShell**: o script requer o módulo Azure PowerShell `Az`. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - **O Azure Cloud Shell**: o [Azure Cloud Shell](https://shell.azure.com/powershell) tem a versão mais recente do PowerShell instalada e configurada e inicia a sua sessão no Azure.
 
 O script demora aproximadamente uma hora para criar um gateway de VPN. Os passos restantes presumem que o gateway que está a diagnosticar é aquele implementado por este script. Se diagnosticar o seu próprio gateway existente, os resultados variam.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Ativar o Observador de Rede
 
@@ -58,12 +58,12 @@ Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para 
 
     ![Ativar o Observador de Rede](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 
-3. Selecione **Ativar Observador de Rede**.
+3. Selecione **Ativar o Observador de Rede**.
 
 ## <a name="diagnose-a-gateway"></a>Diagnosticar um gateway
 
 1. No lado esquerdo do portal, selecione **Todos os serviços**.
-2. Comece a escrever *observador de rede* na caixa **Filtro**. Quando o **Observador de Rede** aparecer nos resultados da pesquisa, selecione-o.
+2. Comece a escrever *observador de rede* na caixa **Filtro**. Quando a opção **Observador de Rede** aparecer nos resultados de pesquisa, selecione-a.
 3. Em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**, selecione **Diagnóstico de VPN**.
 4. Selecione **Conta de armazenamento** e, em seguida, selecione a conta de armazenamento para a qual pretende escrever informações de diagnóstico.
 5. A partir da lista de **Contas de armazenamento**, selecione a conta de armazenamento que pretende utilizar. Se não tiver uma conta de armazenamento existente, selecione **+ Conta de armazenamento**, introduza ou selecione as informações necessárias e, em seguida, selecione **Criar** para criar uma. Se tiver criado um gateway de VPN com o script em [pré-requisitos](#prerequisites), é recomendado criar a conta de armazenamento no mesmo grupo de recursos, *TestRG1*, que o gateway.

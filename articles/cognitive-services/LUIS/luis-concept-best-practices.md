@@ -38,13 +38,13 @@ A lista seguinte inclui as melhores práticas para aplicações de LUIS:
 
 |O que deve fazer|O que não deve fazer|
 |--|--|
-|[Definir objetivos distintos](#do-define-distinct-intents)<br>[Adicionar descritores a tentativas](#do-add-descriptors-to-intents) |[Adicionar muitas expressões de exemplo para intenções](#dont-add-many-example-utterances-to-intents)<br>[Usar algumas ou entidades simples](#dont-use-few-or-simple-entities) |
-|[Encontrar um encontramos uma boa entre demasiado genérico e muito específico para cada intenção](#do-find-sweet-spot-for-intents)|[Utilizar o LUIS como uma plataforma de treinamento](#dont-use-luis-as-a-training-platform)|
-|[Crie seu aplicativo iterativamente com versões](#do-build-your-app-iteratively-with-versions)<br>[Criar entidades para a decomposição do modelo](#do-build-for-model-decomposition)|[Adicionar muitas expressões de exemplo do formato do mesmo, a ignorar a outros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Adicionar padrões em iterações posteriores](#do-add-patterns-in-later-iterations)|[Mistura a definição de objetivos e entidades](#dont-mix-the-definition-of-intents-and-entities)|
-|[Equilibre sua declarações em todas as](#balance-your-utterances-across-all-intents) intenções, exceto a intenção de nenhum.<br>[Adicionar expressões de exemplo para nenhum intenção](#do-add-example-utterances-to-none-intent)|[Criar descritores com todos os valores possíveis](#dont-create-descriptors-with-all-the-possible-values)|
-|[Tirar partido da funcionalidade de sugerido para aprendizagem ativa](#do-leverage-the-suggest-feature-for-active-learning)|[Adicionar muitos padrões](#dont-add-many-patterns)|
-|[Monitorar o desempenho do seu aplicativo com testes em lotes](#do-monitor-the-performance-of-your-app)|[Formar e publicar com cada expressão única de exemplo adicionado](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Definir tentativas distintas](#do-define-distinct-intents)<br>[Adicionar descritores a tentativas](#do-add-descriptors-to-intents) |[Adicionar muitos exemplos de declarações a intenções](#dont-add-many-example-utterances-to-intents)<br>[Usar algumas ou entidades simples](#dont-use-few-or-simple-entities) |
+|[Encontre um ponto forte entre muito genérico e muito específico para cada tentativa](#do-find-sweet-spot-for-intents)|[Usar o LUIS como uma plataforma de treinamento](#dont-use-luis-as-a-training-platform)|
+|[Crie seu aplicativo iterativamente com versões](#do-build-your-app-iteratively-with-versions)<br>[Criar entidades para a decomposição do modelo](#do-build-for-model-decomposition)|[Adicionar vários exemplos de declarações do mesmo formato, ignorando outros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Adicionar padrões em iterações posteriores](#do-add-patterns-in-later-iterations)|[Misturar a definição de intenções e entidades](#dont-mix-the-definition-of-intents-and-entities)|
+|[Equilibre sua declarações em todas as](#balance-your-utterances-across-all-intents) intenções, exceto a intenção de nenhum.<br>[Adicionar declarações de exemplo a intenção None](#do-add-example-utterances-to-none-intent)|[Criar descritores com todos os valores possíveis](#dont-create-descriptors-with-all-the-possible-values)|
+|[Aproveite o recurso sugerir para o aprendizado ativo](#do-leverage-the-suggest-feature-for-active-learning)|[Adicionar muitos padrões](#dont-add-many-patterns)|
+|[Monitorar o desempenho do seu aplicativo com testes em lotes](#do-monitor-the-performance-of-your-app)|[Treine e publique com cada exemplo de expressão adicionado](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## <a name="do-define-distinct-intents"></a>Definir objetivos distintos
 Certifique-se do que vocabulário para cada intenção é apenas para esse propósito e não sobrepostos com um objetivo diferente. Por exemplo, se você quiser ter um aplicativo que lide com as organizações de viagem, como vôos de viagens aéreas e Hotéis, você pode optar por ter essas áreas de assunto como intenções separadas ou a mesma intenção com entidades para dados específicos dentro do expressão.
@@ -141,7 +141,7 @@ Essa é a intenção de fallback, indicando tudo fora do seu aplicativo. Adicion
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>A tirar partido da funcionalidade de sugerido para aprendizagem ativa
 
-Uso [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md)da **rever expressões de ponto final** regularmente, em vez de adicionar mais expressões de exemplo para objetivos. Uma vez que a aplicação está a receber constantemente expressões de ponto final, esta lista está crescendo e alterar.
+Use o declarações de **ponto de extremidade** de [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)regularmente, em vez de adicionar mais declarações de exemplo a intenções. Uma vez que a aplicação está a receber constantemente expressões de ponto final, esta lista está crescendo e alterar.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitorizar o desempenho da sua aplicação
 
@@ -175,7 +175,7 @@ A segunda coluna utiliza diferentes verbos (comprar, reserva, livro), quantidade
 
 Crie um objetivo para qualquer ação do bot irá demorar. Utilize entidades como parâmetros que tornam essa ação possível. 
 
-Para um bot que irá reservar vôos de companhia aérea, crie uma intenção **BookFlight** . Não crie um objetivo para cada companhia aérea ou de cada destino. Utilizar essas partes de dados como [entidades](luis-concept-entity-types.md) e marcá-los nas expressões de exemplo. 
+Para um bot que irá reservar vôos de companhia aérea, crie uma intenção **BookFlight** . Não crie um objetivo para cada companhia aérea ou de cada destino. Use essas partes de dados como [entidades](luis-concept-entity-types.md) e marque-as no exemplo declarações. 
 
 ## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Não crie descritores com todos os valores possíveis
 
@@ -183,7 +183,7 @@ Forneça alguns exemplos nas [listas de frases](luis-concept-feature.md) de desc
 
 ## <a name="dont-add-many-patterns"></a>Não adicione muitos padrões
 
-Não adicione demasiados [padrões](luis-concept-patterns.md). LUIS destina-se para saber rapidamente com menos de exemplos. Não sobrecarregar o sistema desnecessariamente.
+Não adicione muitos [padrões](luis-concept-patterns.md). LUIS destina-se para saber rapidamente com menos de exemplos. Não sobrecarregar o sistema desnecessariamente.
 
 ## <a name="dont-train-and-publish-with-every-single-example-utterance"></a>Não formar e publicar com cada expressão única de exemplo
 
@@ -191,4 +191,4 @@ Adicione expressões de 10 ou 15 antes de treinamento e publicação. Que pode v
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [planear a sua aplicação](luis-how-plan-your-app.md) na sua aplicação LUIS.
+* Saiba como [planejar seu aplicativo](luis-how-plan-your-app.md) em seu aplicativo Luis.

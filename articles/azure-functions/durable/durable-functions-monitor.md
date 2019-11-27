@@ -1,6 +1,6 @@
 ---
-title: Monitors in Durable Functions - Azure
-description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions.
+title: Monitores no Durable Functions-Azure
+description: Saiba como implementar um monitor de status usando a extensão Durable Functions para Azure Functions.
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -11,9 +11,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232863"
 ---
-# <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitor scenario in Durable Functions - Weather watcher sample
+# <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor no exemplo do observador de Durable Functions de clima
 
-The monitor pattern refers to a flexible *recurring* process in a workflow - for example, polling until certain conditions are met. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement monitoring.
+O padrão de monitor refere-se a um processo *recorrente* flexível em um fluxo de trabalho, por exemplo, sondando até que determinadas condições sejam atendidas. Este artigo explica um exemplo que usa [Durable Functions](durable-functions-overview.md) para implementar o monitoramento.
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
@@ -21,110 +21,110 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 ## <a name="scenario-overview"></a>Descrição geral do cenário
 
-This sample monitors a location's current weather conditions and alerts a user by SMS when the skies are clear. You could use a regular timer-triggered function to check the weather and send alerts. However, one problem with this approach is **lifetime management**. If only one alert should be sent, the monitor needs to disable itself after clear weather is detected. The monitoring pattern can end its own execution, among other benefits:
+Este exemplo monitora as condições do clima atual de um local e alerta um usuário por SMS quando o Skies está claro. Você pode usar uma função disparada por temporizador regular para verificar o clima e enviar alertas. No entanto, um problema com essa abordagem é o **Gerenciamento da vida útil**. Se apenas um alerta for enviado, o monitor precisará se desabilitá-lo depois que o clima claro for detectado. O padrão de monitoramento pode terminar sua própria execução, entre outros benefícios:
 
-* Monitors run on intervals, not schedules: a timer trigger *runs* every hour; a monitor *waits* one hour between actions. A monitor's actions will not overlap unless specified, which can be important for long-running tasks.
-* Monitors can have dynamic intervals: the wait time can change based on some condition.
-* Monitors can terminate when some condition is met or be terminated by another process.
-* Monitors can take parameters. The sample shows how the same weather-monitoring process can be applied to any requested location and phone number.
-* Monitors are scalable. Because each monitor is an orchestration instance, multiple monitors can be created without having to create new functions or define more code.
-* Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](durable-functions-sub-orchestrations.md).
+* Monitores executados em intervalos, não em agendas: um gatilho de temporizador *é executado* a cada hora; um monitor *aguarda* uma hora entre as ações. As ações de um monitor não se sobrepõem a menos que especificado, o que pode ser importante para tarefas de longa execução.
+* Os monitores podem ter intervalos dinâmicos: o tempo de espera pode ser alterado com base em alguma condição.
+* Os monitores podem terminar quando alguma condição é atendida ou terminada por outro processo.
+* Os monitores podem usar parâmetros. O exemplo mostra como o mesmo processo de monitoramento meteorológico pode ser aplicado a qualquer local e número de telefone solicitados.
+* Os monitores são escalonáveis. Como cada monitor é uma instância de orquestração, vários monitores podem ser criados sem a necessidade de criar novas funções ou definir mais códigos.
+* Os monitores integram-se facilmente a fluxos de trabalho maiores. Um monitor pode ser uma seção de uma função de orquestração mais complexa ou uma [suborquestração](durable-functions-sub-orchestrations.md).
 
-## <a name="configuring-twilio-integration"></a>Configuring Twilio integration
+## <a name="configuring-twilio-integration"></a>Configurando a integração do twilio
 
 [!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
-## <a name="configuring-weather-underground-integration"></a>Configuring Weather Underground integration
+## <a name="configuring-weather-underground-integration"></a>Configurando a integração do Weather Underground
 
-This sample involves using the Weather Underground API to check current weather conditions for a location.
+Este exemplo envolve o uso da API Weather Underground para verificar as condições do clima atual de um local.
 
-The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you will need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
+A primeira coisa que você precisa é de uma conta de clima Underground. Você pode criar um gratuitamente em [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Quando você tiver uma conta, será necessário adquirir uma chave de API. Você pode fazer isso visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)e, em seguida, selecionando configurações de chave. O plano de desenvolvedor do Stratus é gratuito e suficiente para executar este exemplo.
 
-Once you have an API key, add the following **app setting** to your function app.
+Quando você tiver uma chave de API, adicione a seguinte **configuração de aplicativo** ao seu aplicativo de funções.
 
-| App setting name | Value description |
+| Nome da configuração do aplicativo | Descrição do valor |
 | - | - |
-| **WeatherUndergroundApiKey**  | Your Weather Underground API key. |
+| **WeatherUndergroundApiKey**  | Sua chave de API de clima Underground. |
 
-## <a name="the-functions"></a>The functions
+## <a name="the-functions"></a>As funções
 
-This article explains the following functions in the sample app:
+Este artigo explica as seguintes funções no aplicativo de exemplo:
 
-* `E3_Monitor`: An orchestrator function that calls `E3_GetIsClear` periodically. It calls `E3_SendGoodWeatherAlert` if `E3_GetIsClear` returns true.
-* `E3_GetIsClear`: An activity function that checks the current weather conditions for a location.
-* `E3_SendGoodWeatherAlert`: An activity function that sends an SMS message via Twilio.
+* `E3_Monitor`: uma função de orquestrador que chama `E3_GetIsClear` periodicamente. Ele chama `E3_SendGoodWeatherAlert` se `E3_GetIsClear` retorna true.
+* `E3_GetIsClear`: uma função de atividade que verifica as condições do clima atual de um local.
+* `E3_SendGoodWeatherAlert`: uma função de atividade que envia uma mensagem SMS por meio de twilio.
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
+As seções a seguir explicam a configuração e o código que C# é usado para script e JavaScript. O código para desenvolvimento do Visual Studio é mostrado no final do artigo.
 
-## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>The weather monitoring orchestration (Visual Studio Code and Azure portal sample code)
+## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de monitoramento meteorológico (Visual Studio Code e portal do Azure código de exemplo)
 
-The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
+A função **E3_Monitor** usa o *Function. JSON* padrão para funções de orquestrador.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
 
-Here is the code that implements the function:
+Este é o código que implementa a função:
 
-### <a name="c-script"></a>C# Script
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
-This orchestrator function performs the following actions:
+Essa função de orquestrador executa as seguintes ações:
 
-1. Gets the **MonitorRequest** consisting of the *location* to monitor and the *phone number* to which it will send an SMS notification.
-2. Determines the expiration time of the monitor. The sample uses a hard-coded value for brevity.
-3. Calls **E3_GetIsClear** to determine whether there are clear skies at the requested location.
-4. If the weather is clear, calls **E3_SendGoodWeatherAlert** to send an SMS notification to the requested phone number.
-5. Creates a durable timer to resume the orchestration at the next polling interval. The sample uses a hard-coded value for brevity.
-6. Continues running until the `CurrentUtcDateTime` (.NET) or `currentUtcDateTime` (JavaScript) passes the monitor's expiration time, or an SMS alert is sent.
+1. Obtém o **MonitorRequest** que consiste no *local* a ser monitorado e o *número de telefone* para o qual ele enviará uma notificação de SMS.
+2. Determina o tempo de expiração do monitor. O exemplo usa um valor embutido em código para fins de brevidade.
+3. Chama **E3_GetIsClear** para determinar se há uma clara Skies no local solicitado.
+4. Se o clima estiver claro, o chamará **E3_SendGoodWeatherAlert** para enviar uma notificação de SMS para o número de telefone solicitado.
+5. Cria um temporizador durável para retomar a orquestração no próximo intervalo de sondagem. O exemplo usa um valor embutido em código para fins de brevidade.
+6. Continua em execução até que o `CurrentUtcDateTime` (.NET) ou `currentUtcDateTime` (JavaScript) passe o tempo de expiração do monitor ou um alerta do SMS seja enviado.
 
-Multiple orchestrator instances can run simultaneously by sending multiple **MonitorRequests**. The location to monitor and the phone number to send an SMS alert to can be specified.
+Várias instâncias de orquestrador podem ser executadas simultaneamente enviando vários **MonitorRequests**. O local a ser monitorado e o número de telefone para o qual enviar um alerta do SMS pode ser especificado.
 
-## <a name="strongly-typed-data-transfer-net-only"></a>Strongly-typed data transfer (.NET only)
+## <a name="strongly-typed-data-transfer-net-only"></a>Transferência de dados fortemente tipados (somente .NET)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
+O orquestrador requer várias partes de dados; portanto, os [objetos poco compartilhados](../functions-reference-csharp.md#reusing-csx-code) são usados para transferência de dados com C# rigidez C# de tipos e script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 
-The JavaScript sample uses regular JSON objects as parameters.
+O exemplo de JavaScript usa objetos JSON regulares como parâmetros.
 
-## <a name="helper-activity-functions"></a>Helper activity functions
+## <a name="helper-activity-functions"></a>Funções de atividade do auxiliar
 
-As with other samples, the helper activity functions are regular functions that use the `activityTrigger` trigger binding. The **E3_GetIsClear** function gets the current weather conditions using the Weather Underground API and determines whether the sky is clear. The *function.json* is defined as follows:
+Assim como ocorre com outros exemplos, as funções de atividade auxiliar são funções regulares que usam a associação de gatilho `activityTrigger`. A função **E3_GetIsClear** Obtém as condições do clima atual usando a API Weather Underground e determina se o céu está claro. O *Function. JSON* é definido da seguinte maneira:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-And here is the implementation. Like the POCOs used for data transfer, logic to handle the API call and parse the response JSON is abstracted into a shared class in C#. You can find it as part of the [Visual Studio sample code](#run-the-sample).
+E aqui está a implementação. Como o POCOs usado para transferência de dados, a lógica para manipular a chamada à API e analisar a resposta JSON é dissociada em uma C#classe compartilhada no. Você pode encontrá-lo como parte do [código de exemplo do Visual Studio](#run-the-sample).
 
-### <a name="c-script"></a>C# Script
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS message notifying the end user that it's a good time for a walk. Its *function.json* is simple:
+A função **E3_SendGoodWeatherAlert** usa a associação twilio para enviar uma mensagem SMS notificando o usuário final que é um bom momento para uma passagem. Seu *Function. JSON* é simples:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/function.json)]
 
-And here is the code that sends the SMS message:
+E aqui está o código que envia a mensagem SMS:
 
-### <a name="c-script"></a>C# Script
+### <a name="c-script"></a>C#Prescritiva
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 only)
+### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2,0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
+Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor
@@ -143,9 +143,9 @@ RetryAfter: 10
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
-The **E3_Monitor** instance starts and queries the current weather conditions for the requested location. If the weather is clear, it calls an activity function to send an alert; otherwise, it sets a timer. When the timer expires, the orchestration will resume.
+A instância **E3_Monitor** inicia e consulta as condições do clima atual para o local solicitado. Se o clima estiver claro, ele chamará uma função de atividade para enviar um alerta; caso contrário, ele definirá um temporizador. Quando o temporizador expirar, a orquestração será retomada.
 
-You can see the orchestration's activity by looking at the function logs in the Azure Functions portal.
+Você pode ver a atividade da orquestração examinando os logs de função no portal de Azure Functions.
 
 ```
 2018-03-01T01:14:41.649 Function started (Id=2d5fcadf-275b-4226-a174-f9f943c90cd1)
@@ -163,24 +163,24 @@ You can see the orchestration's activity by looking at the function logs in the 
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-The orchestration will [terminate](durable-functions-instance-management.md) once its timeout is reached or clear skies are detected. You can also use `TerminateAsync` (.NET) or `terminate` (JavaScript) inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination:
+A orquestração será [encerrada](durable-functions-instance-management.md) quando seu tempo limite for atingido ou se a figura estiver clara. Você também pode usar `TerminateAsync` (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar o webhook **terminatePostUri** http post referenciado na resposta 202 acima, substituindo `{text}` pelo motivo do encerramento:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
 
-## <a name="visual-studio-sample-code"></a>Visual Studio sample code
+## <a name="visual-studio-sample-code"></a>Código de exemplo do Visual Studio
 
-Here is the orchestration as a single C# file in a Visual Studio project:
+Aqui está a orquestração como um único C# arquivo em um projeto do Visual Studio:
 
 > [!NOTE]
-> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code below.
+> Será necessário instalar o `Microsoft.Azure.WebJobs.Extensions.Twilio` pacote NuGet para executar o código de exemplo abaixo.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-This sample has demonstrated how to use Durable Functions to monitor an external source's status using [durable timers](durable-functions-timers.md) and conditional logic. The next sample shows how to use external events and [durable timers](durable-functions-timers.md) to handle human interaction.
+Este exemplo demonstrou como usar Durable Functions para monitorar o status de uma fonte externa usando [temporizadores duráveis](durable-functions-timers.md) e a lógica condicional. O exemplo a seguir mostra como usar eventos externos e [temporizadores duráveis](durable-functions-timers.md) para lidar com a interação humana.
 
 > [!div class="nextstepaction"]
-> [Run the human interaction sample](durable-functions-phone-verification.md)
+> [Executar o exemplo de interação humana](durable-functions-phone-verification.md)

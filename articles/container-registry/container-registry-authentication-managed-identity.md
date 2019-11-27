@@ -1,6 +1,6 @@
 ---
 title: Autenticar com a identidade gerida
-description: Provide access to images in your private container registry by using a user-assigned or system-assigned managed Azure identity.
+description: Forneça acesso a imagens em seu registro de contêiner privado usando uma identidade do Azure gerenciada atribuída pelo usuário ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
@@ -10,52 +10,52 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456490"
 ---
-# <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use an Azure managed identity to authenticate to an Azure container registry 
+# <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Usar uma identidade gerenciada do Azure para autenticar em um registro de contêiner do Azure 
 
-Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate to an Azure container registry from another Azure resource, without needing to provide or manage registry credentials. For example, set up a user-assigned or system-assigned managed identity on a Linux VM to access container images from your container registry, as easily as you use a public registry.
+Use uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) para autenticar em um registro de contêiner do Azure de outro recurso do Azure, sem a necessidade de fornecer ou gerenciar credenciais de registro. Por exemplo, configure uma identidade gerenciada atribuída pelo usuário ou pelo sistema em uma VM do Linux para acessar as imagens de contêiner do registro de contêiner, tão facilmente quanto usar um registro público.
 
-For this article, you learn more about managed identities and how to:
+Para este artigo, você aprende mais sobre identidades gerenciadas e como:
 
 > [!div class="checklist"]
-> * Enable a user-assigned or system-assigned identity on an Azure VM
-> * Grant the identity access to an Azure container registry
-> * Use the managed identity to access the registry and pull a container image 
+> * Habilitar uma identidade atribuída pelo usuário ou atribuída pelo sistema em uma VM do Azure
+> * Conceder o acesso de identidade a um registro de contêiner do Azure
+> * Usar a identidade gerenciada para acessar o registro e efetuar pull de uma imagem de contêiner 
 
-To create the Azure resources, this article requires that you run the Azure CLI version 2.0.55 or later. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
+Para criar os recursos do Azure, este artigo requer que você execute o CLI do Azure versão 2.0.55 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
-To set up a container registry and push a container image to it, you must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+Para configurar um registro de contêiner e enviar uma imagem de contêiner para ele, você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [MacOS][docker-mac], [Windows][docker-windows]ou [Linux][docker-linux] .
 
-## <a name="why-use-a-managed-identity"></a>Why use a managed identity?
+## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerenciada?
 
-A managed identity for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure [certain Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), including virtual machines, with a managed identity. Then, use the identity to access other Azure resources, without passing credentials in code or scripts.
+Uma identidade gerenciada para recursos do Azure fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Você pode configurar [determinados recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), incluindo máquinas virtuais, com uma identidade gerenciada. Em seguida, use a identidade para acessar outros recursos do Azure, sem passar credenciais em código ou scripts.
 
-Managed identities are of two types:
+Identidades gerenciadas são de dois tipos:
 
-* *User-assigned identities*, which you can assign to multiple resources and persist for as long as your want. User-assigned identities are currently in preview.
+* *Identidades atribuídas pelo usuário*, que você pode atribuir a vários recursos e manter o tempo que desejar. Atualmente, as identidades atribuídas ao usuário estão em versão prévia.
 
-* A *system-managed identity*, which is unique to a specific resource like a single virtual machine and lasts for the lifetime of that resource.
+* Uma *identidade gerenciada pelo sistema*, que é exclusiva de um recurso específico, como uma única máquina virtual, e dura o tempo de vida desse recurso.
 
-After you set up an Azure resource with a managed identity, give the identity the access you want to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to one or more resources.
+Depois de configurar um recurso do Azure com uma identidade gerenciada, conceda à identidade o acesso que você deseja para outro recurso, assim como qualquer entidade de segurança. Por exemplo, atribua uma identidade gerenciada a uma função com pull, push e pull ou outras permissões a um registro privado no Azure. (Para obter uma lista completa de funções de registro, consulte [funções e permissões do registro de contêiner do Azure](container-registry-roles.md).) Você pode conceder acesso de identidade a um ou mais recursos.
 
-Then, use the identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), without any credentials in your code. To use the identity to access an Azure container registry from a virtual machine, you authenticate with Azure Resource Manager. Choose how to authenticate using the managed identity, depending on your scenario:
+Em seguida, use a identidade para autenticar em qualquer [serviço que ofereça suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sem nenhuma credencial em seu código. Para usar a identidade para acessar um registro de contêiner do Azure de uma máquina virtual, você autentica com Azure Resource Manager. Escolha como autenticar usando a identidade gerenciada, dependendo do seu cenário:
 
-* [Acquire an Azure AD access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programmatically using HTTP or REST calls
+* [Adquirir um token de acesso do Azure ad](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programaticamente usando chamadas http ou REST
 
-* Use the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)
+* Usar os [SDKs do Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)
 
-* [Sign into Azure CLI or PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) with the identity. 
+* [Entre no CLI do Azure ou no PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) com a identidade. 
 
-## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
+## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-If you don't already have an Azure container registry, create a registry and push a sample container image to it. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
+Se você ainda não tiver um registro de contêiner do Azure, crie um registro e envie por push uma imagem de contêiner de exemplo para ele. Para obter as etapas, consulte [início rápido: criar um registro de contêiner privado usando o CLI do Azure](container-registry-get-started-azure-cli.md).
 
-This article assumes you have the `aci-helloworld:v1` container image stored in your registry. The examples use a registry name of *myContainerRegistry*. Replace with your own registry and image names in later steps.
+Este artigo pressupõe que você tenha o `aci-helloworld:v1` a imagem de contêiner armazenada no registro. Os exemplos usam um nome de registro de *myContainerRegistry*. Substitua pelos seus próprios nomes de registro e imagem em etapas posteriores.
 
-## <a name="create-a-docker-enabled-vm"></a>Create a Docker-enabled VM
+## <a name="create-a-docker-enabled-vm"></a>Criar uma VM habilitada para Docker
 
-Create a Docker-enabled Ubuntu virtual machine. You also need to install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) on the virtual machine. If you already have an Azure virtual machine, skip this step to create the virtual machine.
+Crie uma máquina virtual Ubuntu habilitada para Docker. Você também precisa instalar o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na máquina virtual. Se você já tiver uma máquina virtual do Azure, ignore esta etapa para criar a máquina virtual.
 
-Deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM* in an existing resource group named *myResourceGroup*:
+Implante uma máquina virtual do Ubuntu do Azure padrão com [AZ VM Create][az-vm-create]. O exemplo a seguir cria uma VM chamada *myDockerVM* em um grupo de recursos existente chamado *MyResource*Group:
 
 ```azurecli
 az vm create \
@@ -66,23 +66,23 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Demora alguns minutos até que a VM seja criada. When the command completes, take note of the `publicIpAddress` displayed by the Azure CLI. Use this address to make SSH connections to the VM.
+Demora alguns minutos até que a VM seja criada. Quando o comando for concluído, anote as `publicIpAddress` exibidas pela CLI do Azure. Use esse endereço para fazer conexões SSH com a VM.
 
-### <a name="install-docker-on-the-vm"></a>Install Docker on the VM
+### <a name="install-docker-on-the-vm"></a>Instalar o Docker na VM
 
-After the VM is running, make an SSH connection to the VM. Replace *publicIpAddress* with the public IP address of your VM.
+Depois que a VM estiver em execução, faça uma conexão SSH com a VM. Substitua *publicIpAddress* pelo endereço IP público da sua VM.
 
 ```bash
 ssh azureuser@publicIpAddress
 ```
 
-Run the following command to install Docker on the VM:
+Execute o seguinte comando para instalar o Docker na VM:
 
 ```bash
 sudo apt install docker.io -y
 ```
 
-After installation, run the following command to verify that Docker is running properly on the VM:
+Após a instalação, execute o seguinte comando para verificar se o Docker está sendo executado corretamente na VM:
 
 ```bash
 sudo docker run -it hello-world
@@ -98,21 +98,21 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For this article, ensure that you install version 2.0.55 or later.
+Siga as etapas em [instalar CLI do Azure com a apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) para instalar o CLI do Azure em sua máquina virtual do Ubuntu. Para este artigo, certifique-se de instalar a versão 2.0.55 ou posterior.
 
-Exit the SSH session.
+Saia da sessão SSH.
 
-## <a name="example-1-access-with-a-user-assigned-identity"></a>Example 1: Access with a user-assigned identity
+## <a name="example-1-access-with-a-user-assigned-identity"></a>Exemplo 1: acesso com uma identidade atribuída pelo usuário
 
-### <a name="create-an-identity"></a>Create an identity
+### <a name="create-an-identity"></a>Criar uma identidade
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
+Crie uma identidade em sua assinatura usando o comando [AZ Identity Create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) . Você pode usar o mesmo grupo de recursos que usou anteriormente para criar o registro de contêiner ou a máquina virtual, ou outro.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-To configure the identity in the following steps, use the [az identity show][az-identity-show] command to store the identity's resource ID and service principal ID in variables.
+Para configurar a identidade nas etapas a seguir, use o comando [AZ Identity show][az-identity-show] para armazenar a ID de recurso da identidade e a ID da entidade de serviço em variáveis.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -122,109 +122,109 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-Because you need the identity's ID in a later step when you sign in to the CLI from your virtual machine, show the value:
+Como você precisa da ID da identidade em uma etapa posterior quando entrar na CLI de sua máquina virtual, mostre o valor:
 
 ```bash
 echo $userID
 ```
 
-The ID is of the form:
+A ID está no formato:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
 ```
 
-### <a name="configure-the-vm-with-the-identity"></a>Configure the VM with the identity
+### <a name="configure-the-vm-with-the-identity"></a>Configurar a VM com a identidade
 
-The following [az vm identity assign][az-vm-identity-assign] command configures your Docker VM with the user-assigned identity:
+O comando [AZ VM Identity Assign][az-vm-identity-assign] a seguir configura a VM do Docker com a identidade atribuída pelo usuário:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myDockerVM --identities $userID
 ```
 
-### <a name="grant-identity-access-to-the-container-registry"></a>Grant identity access to the container registry
+### <a name="grant-identity-access-to-the-container-registry"></a>Conceder acesso de identidade ao registro de contêiner
 
-Now configure the identity to access your container registry. First use the [az acr show][az-acr-show] command to get the resource ID of the registry:
+Agora, configure a identidade para acessar o registro de contêiner. Primeiro, use o comando [AZ ACR show][az-acr-show] para obter a ID de recurso do registro:
 
 ```azurecli
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the registry. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the ACRPush role.
+Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a função AcrPull ao registro. Essa função fornece [permissões de pull](container-registry-roles.md) para o registro. Para fornecer as permissões pull e Push, atribua a função ACRPush.
 
 ```azurecli
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
 ```
 
-### <a name="use-the-identity-to-access-the-registry"></a>Use the identity to access the registry
+### <a name="use-the-identity-to-access-the-registry"></a>Usar a identidade para acessar o registro
 
-SSH into the Docker virtual machine that's configured with the identity. Run the following Azure CLI commands, using the Azure CLI installed on the VM.
+SSH na máquina virtual do Docker configurada com a identidade. Execute os seguintes comandos de CLI do Azure, usando o CLI do Azure instalado na VM.
 
-First, authenticate to the Azure CLI with [az login][az-login], using the identity you configured on the VM. For `<userID>`, substitute the ID of the identity you retrieved in a previous step. 
+Primeiro, autentique-se no CLI do Azure com [AZ login][az-login], usando a identidade configurada na VM. Para `<userID>`, substitua a ID da identidade que você recuperou em uma etapa anterior. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Then, authenticate to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
+Em seguida, autentique no registro com [AZ ACR login][az-acr-login]. Quando você usa esse comando, a CLI usa o token Active Directory criado quando você executou `az login` para autenticar a sessão diretamente com o registro de contêiner. (Dependendo da configuração da VM, talvez seja necessário executar esse comando e comandos do Docker com o `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
+Você deverá ver uma mensagem de `Login succeeded`. Em seguida, você pode executar `docker` comandos sem fornecer credenciais. Por exemplo, execute [Docker pull][docker-pull] para efetuar pull da imagem de `aci-helloworld:v1`, especificando o nome do servidor de logon do registro. O nome do servidor de logon consiste em seu nome de registro de contêiner (todas as letras minúsculas) seguido por `.azurecr.io`, por exemplo, `mycontainerregistry.azurecr.io`.
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## <a name="example-2-access-with-a-system-assigned-identity"></a>Example 2: Access with a system-assigned identity
+## <a name="example-2-access-with-a-system-assigned-identity"></a>Exemplo 2: acesso com uma identidade atribuída pelo sistema
 
-### <a name="configure-the-vm-with-a-system-managed-identity"></a>Configure the VM with a system-managed identity
+### <a name="configure-the-vm-with-a-system-managed-identity"></a>Configurar a VM com uma identidade gerenciada pelo sistema
 
-The following [az vm identity assign][az-vm-identity-assign] command configures your Docker VM with a system-assigned identity:
+O comando [AZ VM Identity Assign][az-vm-identity-assign] a seguir configura sua VM do Docker com uma identidade atribuída pelo sistema:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myDockerVM 
 ```
 
-Use the [az vm show][az-vm-show] command to set a variable to the value of `principalId` (the service principal ID) of the VM's identity, to use in later steps.
+Use o comando [AZ VM show][az-vm-show] para definir uma variável para o valor de `principalId` (a ID da entidade de serviço) da identidade da VM, a ser usada em etapas posteriores.
 
 ```azurecli-interactive
 spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query identity.principalId --out tsv)
 ```
 
-### <a name="grant-identity-access-to-the-container-registry"></a>Grant identity access to the container registry
+### <a name="grant-identity-access-to-the-container-registry"></a>Conceder acesso de identidade ao registro de contêiner
 
-Now configure the identity to access your container registry. First use the [az acr show][az-acr-show] command to get the resource ID of the registry:
+Agora, configure a identidade para acessar o registro de contêiner. Primeiro, use o comando [AZ ACR show][az-acr-show] para obter a ID de recurso do registro:
 
 ```azurecli
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the identity. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the ACRPush role.
+Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a função AcrPull à identidade. Essa função fornece [permissões de pull](container-registry-roles.md) para o registro. Para fornecer as permissões pull e Push, atribua a função ACRPush.
 
 ```azurecli
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
 ```
 
-### <a name="use-the-identity-to-access-the-registry"></a>Use the identity to access the registry
+### <a name="use-the-identity-to-access-the-registry"></a>Usar a identidade para acessar o registro
 
-SSH into the Docker virtual machine that's configured with the identity. Run the following Azure CLI commands, using the Azure CLI installed on the VM.
+SSH na máquina virtual do Docker configurada com a identidade. Execute os seguintes comandos de CLI do Azure, usando o CLI do Azure instalado na VM.
 
-First, authenticate the Azure CLI with [az login][az-login], using the system-assigned identity on the VM.
+Primeiro, autentique o CLI do Azure com [AZ login][az-login], usando a identidade atribuída pelo sistema na VM.
 
 ```azurecli
 az login --identity
 ```
 
-Then, authenticate to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
+Em seguida, autentique no registro com [AZ ACR login][az-acr-login]. Quando você usa esse comando, a CLI usa o token Active Directory criado quando você executou `az login` para autenticar a sessão diretamente com o registro de contêiner. (Dependendo da configuração da VM, talvez seja necessário executar esse comando e comandos do Docker com o `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
+Você deverá ver uma mensagem de `Login succeeded`. Em seguida, você pode executar `docker` comandos sem fornecer credenciais. Por exemplo, execute [Docker pull][docker-pull] para efetuar pull da imagem de `aci-helloworld:v1`, especificando o nome do servidor de logon do registro. O nome do servidor de logon consiste em seu nome de registro de contêiner (todas as letras minúsculas) seguido por `.azurecr.io`, por exemplo, `mycontainerregistry.azurecr.io`.
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
@@ -232,14 +232,14 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 
 ## <a name="next-steps"></a>Passos seguintes
 
-In this article, you learned about using managed identities with Azure Container Registry and how to:
+Neste artigo, você aprendeu sobre o uso de identidades gerenciadas com o registro de contêiner do Azure e como:
 
 > [!div class="checklist"]
-> * Enable a user-assigned or system-assigned identity in an Azure VM
-> * Grant the identity access to an Azure container registry
-> * Use the managed identity to access the registry and pull a container image
+> * Habilitar uma identidade atribuída pelo usuário ou pelo sistema em uma VM do Azure
+> * Conceder o acesso de identidade a um registro de contêiner do Azure
+> * Usar a identidade gerenciada para acessar o registro e efetuar pull de uma imagem de contêiner
 
-* Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
+* Saiba mais sobre [identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/).
 
 
 <!-- LINKS - external -->

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a Basic Load Balancer - Azure CLI'
+title: 'Início rápido: criar um Load Balancer básico-CLI do Azure'
 titleSuffix: Azure Load Balancer
-description: Este início rápido mostra como criar um balanceador de carga público com a CLI do Azure
+description: Este guia de início rápido mostra como criar um balanceador de carga público com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -23,15 +23,15 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214851"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Create a load balancer to load balance VMs using Azure CLI
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: criar um balanceador de carga para balancear a carga de VMs usando CLI do Azure
 
-This quickstart shows you how to create an Azure Load Balancer to load balance internet traffic between virtual machines in Azure. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as mesmas.
+Este guia de início rápido mostra como criar um Azure Load Balancer para balancear a carga do tráfego de Internet entre máquinas virtuais no Azure. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as mesmas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -106,7 +106,7 @@ Uma regra de balanceador de carga define a configuração de IP de front-end do 
 
 Antes de implementar algumas VMs e testar o balanceador de carga, crie os recursos de rede virtual de apoio.
 
-### <a name="create-a-virtual-network"></a>Criar rede virtual
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Crie uma rede virtual com o nome *myVnet*, com uma sub-rede de nome *mySubnet* em *myResourceGroup*, através de [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
@@ -146,7 +146,7 @@ Crie uma regra do grupo de segurança de rede para permitir ligações de entrad
 ```
 ### <a name="create-nics"></a>Criar NICs
 
-Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
+Crie duas interfaces de rede com [AZ Network NIC Create](/cli/azure/network/nic#az-network-nic-create) e associe-as com o endereço IP público e o grupo de segurança de rede. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

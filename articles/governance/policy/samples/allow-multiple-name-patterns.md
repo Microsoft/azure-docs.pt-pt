@@ -1,6 +1,6 @@
 ---
-title: Sample - multiple name patterns
-description: This sample policy definition requires that a resource matches one of the provided digit or number name patterns.
+title: Exemplo – vários padrões de nome
+description: Esta definição de política de exemplo requer que um recurso corresponda a um dos padrões de nome de dígito ou número fornecidos.
 ms.date: 01/23/2019
 ms.topic: sample
 ms.openlocfilehash: 227b03d0719fcf1a8851213d96b057c9b439a99d
@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463474"
 ---
-# <a name="sample---allow-multiple-name-patterns"></a>Sample - Allow multiple name patterns
+# <a name="sample---allow-multiple-name-patterns"></a>Exemplo – permitir vários padrões de nome
 
 Permita que um dos muitos padrões de nomes seja utilizado para recursos. Especifica os padrões de nome permitidos na regra de política.
 
@@ -24,9 +24,9 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
+[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>Implementar com o Powershell
+## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -45,7 +45,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -65,4 +65,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

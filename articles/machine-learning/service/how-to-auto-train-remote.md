@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a criar um modelo usando o ML automatizado com Am
 
 O tutorial "[treinar um modelo de classificação com o Machine Learning automatizado](tutorial-auto-train-models.md)" ensina a usar um computador local para treinar um modelo com ml automatizado. O fluxo de trabalho ao treinar localmente também se aplica a também destinos remotos. No entanto, com computação remota, automatizadas iterações de experimentação do ML são executadas assincronamente. Esta funcionalidade permite-lhe cancelar uma iteração específica, ver o estado da execução ou continuar a trabalhar em outras células no bloco de notas do Jupyter. Para treinar remotamente, você primeiro cria um destino de computação remota, como AmlCompute. Em seguida, configure o recurso remoto e submeter o seu código.
 
-Este artigo mostra as etapas adicionais necessárias para executar um experimento de ML automatizado em um destino de AmlCompute remoto. O objeto de área de trabalho, `ws`, partir do tutorial é usado em todo o código aqui.
+Este artigo mostra as etapas adicionais necessárias para executar um experimento de ML automatizado em um destino de AmlCompute remoto. O objeto de espaço de trabalho, `ws`, do tutorial é usado em todo o código aqui.
 
 ```python
 ws = Workspace.from_config()
@@ -62,11 +62,11 @@ compute_target.wait_for_completion(
     show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Agora, pode utilizar o `compute_target` objeto como o destino de computação remota.
+Agora você pode usar o objeto `compute_target` como o destino de computação remota.
 
 As restrições de nome de cluster incluem:
 + Tem de ser menor do que 64 carateres.
-+ Não é possível incluir qualquer um dos seguintes carateres: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\", < > /?. `
++ Não é possível incluir nenhum dos seguintes caracteres: `\` ~! @ # $% ^ & * () = + _ [] {} \\\\ |; : \' \\", < >/?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Acessar dados usando a função TabularDataset
 
@@ -126,7 +126,7 @@ run_config.environment.python.conda_dependencies = dependencies
 Consulte este exemplo de [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) para obter um exemplo adicional desse padrão de design.
 
 ## <a name="configure-experiment"></a>Configurar experimentação
-Especifique as definições para `AutoMLConfig`.  (Consulte um [uma lista completa dos parâmetros](how-to-configure-auto-train.md#configure-experiment) e os respetivos valores possíveis.)
+Especifique as configurações para `AutoMLConfig`.  (Consulte uma [lista completa de parâmetros](how-to-configure-auto-train.md#configure-experiment) e seus valores possíveis.)
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -229,5 +229,5 @@ O [Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-t
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais [como configurar as definições para treinamento automática](how-to-configure-auto-train.md).
+* Saiba [como definir as configurações para o treinamento automático](how-to-configure-auto-train.md).
 * Consulte [como](how-to-machine-learning-interpretability-automl.md) habilitar recursos de interpretação de modelo em experimentos de ml automatizados.

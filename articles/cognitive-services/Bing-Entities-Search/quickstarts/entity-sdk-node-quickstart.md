@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Send a search request with the SDK for Node.js - Bing Entity Search'
+title: 'Início rápido: Enviar uma solicitação de pesquisa com o SDK para node. js-Pesquisa de Entidade do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for entities with the Bing Entity Search SDK for Node.js
+description: Use este guia de início rápido para pesquisar entidades com o SDK do Pesquisa de Entidade do Bing para node. js
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,43 +17,43 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74323835"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Quickstart: Send a search request with the Bing Entity Search SDK for Node.js
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Início rápido: Enviar uma solicitação de pesquisa com o SDK do Pesquisa de Entidade do Bing para node. js
 
-Use this quickstart to begin searching for entities with the Bing Entity Search SDK for Node.js. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
+Use este guia de início rápido para começar a procurar entidades com o SDK do Pesquisa de Entidade do Bing para node. js. Embora Pesquisa de Entidade do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* The [Bing Entity Search SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-entitysearch)
+* O [SDK do pesquisa de entidade do Bing para node. js](https://www.npmjs.com/package/azure-cognitiveservices-entitysearch)
 
-To install the Bing Entity Search SDK:
+Para instalar o SDK do Pesquisa de Entidade do Bing:
 
-1. Run `npm install ms-rest-azure` in your development environment.
-2. Run `npm install azure-cognitiveservices-entitysearch` in your development environment.
+1. Execute `npm install ms-rest-azure` em seu ambiente de desenvolvimento.
+2. Execute `npm install azure-cognitiveservices-entitysearch` em seu ambiente de desenvolvimento.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Create a new JavaScript file in your favorite IDE or editor, and add the following requirements. 
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito e adicione os requisitos a seguir. 
     
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
     ```
 
-2. Create an instance of `CognitiveServicesCredentials` using your subscription key. Then create an instance of the search client with it.
+2. Crie uma instância do `CognitiveServicesCredentials` usando sua chave de assinatura. Em seguida, crie uma instância do cliente de pesquisa com ele.
 
     ```javascript
     let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
     let entitySearchApiClient = new EntitySearchAPIClient(credentials);
     ```
 
-## <a name="send-a-request-and-receive-a-response"></a>Send a request and receive a response
+## <a name="send-a-request-and-receive-a-response"></a>Enviar uma solicitação e receber uma resposta
 
-1. Send an entities search request with `entitiesOperations.search()`. After receiving a response, print out the `queryContext`, number of returned results, and the description of the first result.
+1. Envie uma solicitação de pesquisa de entidades com `entitiesOperations.search()`. Depois de receber uma resposta, imprima a `queryContext`, o número de resultados retornados e a descrição do primeiro resultado.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
@@ -74,4 +74,4 @@ To install the Bing Entity Search SDK:
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )

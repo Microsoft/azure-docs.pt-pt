@@ -52,7 +52,7 @@ Esse script usa os comandos a seguir para excluir um repositório de configuraç
 
 | Comando | Notas |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Exclui um recurso de repositório de configuração de aplicativo. |
+| [excluir o AZ appconfig](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Exclui um recurso de repositório de configuração de aplicativo. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

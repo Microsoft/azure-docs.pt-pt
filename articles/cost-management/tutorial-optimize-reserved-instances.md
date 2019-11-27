@@ -112,7 +112,7 @@ Por exemplo, se comprar uma reserva de uma VM do tipo DS1\_v2 nos EUA Leste e a 
 
 No entanto, se for executada apenas 50% do tempo, o ponto de rentabilidade situar-se-á nos 10 meses e a poupança será apenas de $49,74 anualmente. Poderá não beneficiar ao comprar a reserva desse tipo de instância neste exemplo. Veja a imagem seguinte:
 
-![Example of the break-even point for Azure VMs](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Exemplo do ponto de rentabilidade para VMs do Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Ver os custos de RIs
 
@@ -127,11 +127,11 @@ Os relatórios de Análise de Custo Real e Análise ao Longo do Tempo mostram o 
 
 Navegue para **Custos** > **Análise de Custo** > no portal do Cloudyn e, em seguida, selecione **Análise de Custo Real** ou **Custo Efetivo ao Longo do Tempo**. A seguir, defina os filtros. Por exemplo, pode filtrar apenas o serviço e o grupo de VMs do Azure por Tipo de Recurso e Modelo de Preço. Veja a imagem seguinte:
 
-![Example of the actual cost of reserved instances](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Exemplo do custo real de instâncias reservadas](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 Pode filtrar por um serviço, **VM do Azure** neste exemplo e agrupar por **Modelo de Preço** e **Tipo de Recurso**, conforme mostrado na imagem seguinte:
 
-![Example of actual cost report groups and filters grouped by price model and resource type](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Exemplo de grupos de relatório de custo real e filtros, agrupados por tipo de modelo e o recurso de preço](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 Também pode analisar o tipo de pagamentos que fez, como tarifas únicas, tarifas de utilização e tarifas de licença.
 
@@ -145,7 +145,7 @@ No relatório de Custo Real, viu um pico da compra de uma RI em 16 de novembro, 
 
 Para vê-la, navegue até **Custos** > **Análise de Custo** > e, em seguida, selecione **Análise de Custo Amortizado** ou **Custo Amortizado ao Longo do Tempo**.
 
-![Example report showing amortized reserved instance cost](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Relatório de exemplo que mostra amortizado reservado custo de instância](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>Otimizar os custos de RIs do AWS
 
@@ -166,25 +166,25 @@ No menu de relatórios na parte superior do portal, clique em **Otimizador** > *
 
 A imagem seguinte mostra as recomendações de compra do relatório.
 
-![Example showing buying recommendations in the EC2 Buying Recommendations report](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Mostrar de exemplo, as recomendações do relatório de recomendações de compra de EC2 de compra](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 Neste exemplo, a conta Cloudyn\_A tem 32 recomendações de compra de instâncias reservadas. Se seguir as recomendações de compra, pode poupar potencialmente até $137.770 anualmente. Tenha em atenção que as recomendações de compra fornecidas pelo Cloudyn partem do princípio de que a utilização de cargas de trabalho em execução irá permanecer consistente.
 
 Para ver detalhes que explicam por que motivo cada compra é recomendada, clique o símbolo de adição ( **+** ) em **Justificações** . Eis um exemplo para a primeira recomendação na lista.
 
-![Example showing purchase justification details](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Detalhes de justificação de compra do exemplo que mostra](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 O exemplo anterior mostra que executar a carga de trabalho a pedido iria custar $90.456 anualmente. No entanto, se comprasse a reserva seguinte com antecedência, a mesma carga de trabalho custaria $56.592 de custos e pouparia $33.864 anualmente.
 
 Clique no símbolo de adição junto a **Impacto da Compra de RI de EC2** para ver o seu ponto de rentabilidade ao longo de um ano, aproximadamente, quando o seu investimento de compra é realizado. Cerca de oito meses após efetuar a compra, o custo acumulado a pedido começa a exceder o custo acumulado de RI no exemplo seguinte:
 
-![Example showing purchase impact details](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Detalhes de impacto de compra do exemplo que mostra](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Começa a poupar dinheiro nesse momento.
 
 Pode rever as **Instâncias ao Longo do Tempo** para verificar a exatidão da recomendação de compra sugerida. Neste exemplo, pode ver que seis instâncias eram utilizadas em média para a carga de trabalho durante o último período de 30 dias.
 
-![Example showing historical usage of instances over time](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Exemplo que mostra o histórico de utilização de instâncias ao longo do tempo](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Modificar as reservas não utilizadas
 
@@ -196,23 +196,23 @@ No menu de relatórios na parte superior do portal, clique em **Otimizador** > *
 
 As imagens seguintes mostram o relatório com as instâncias reservadas não utilizadas.
 
-![Example showing summarized information about unused reservations](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Informações sobre as reservas não utilizadas de resumido que mostra de exemplo](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Clique no símbolo de adição em **Detalhes** para ver os detalhes de uma reserva específica.
 
-![Example showing unused reservations details](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Exemplo que mostra os detalhes de reservas não utilizadas](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 No exemplo anterior, existe um total de 77 reservas não utilizadas em várias zonas de disponibilidade. A primeira reserva tem 51 instâncias não utilizadas. Ao procurar mais abaixo na lista, existem modificações potenciais de instâncias de reserva que pode fazer, utilizando o tipo de instância **m3.2xlarge** na zona de disponibilidade **us-east-1c**.
 
 Clique em **Modificar** para que a primeira reserva na lista abra a página **Modificar RI**, que mostra os dados da reserva.
 
-![Example showing reservations that you can modify](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Exemplo que mostra as reservas que pode ser modificado](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 São apresentadas as instâncias de reserva que pode modificar. Na imagem de exemplo seguinte, existem 51 reservas não utilizadas que pode modificar, mas são necessárias 54 entre as duas reservas. Se modificar as reservas não utilizadas para utilizá-las todas, quatro instâncias irão continuar a ser executadas a pedido. Neste exemplo, divida as reservas não utilizadas, em que a primeira reserva irá utilizar 30 e a segunda reserva irá utilizar 21.
 
 Clique no símbolo de adição da primeira entrada de reserva e defina a **Quantidade de reserva** para **30**. Para a segunda entrada, defina a quantidade de reserva para **21** e, em seguida, clique em **Aplicar**.
 
-![Example showing changes to the reservation quantity](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Exemplo que mostra as alterações para a quantidade de reserva](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Todas as instâncias não utilizadas para a reserva são utilizadas totalmente, e 51 instâncias deixam de estar em execução a pedido. Neste exemplo, pode poupar bastante dinheiro à sua organização, ao reduzir a utilização a pedido e ao utilizar as reservas que já foram pagas.
 

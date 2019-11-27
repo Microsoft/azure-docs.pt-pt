@@ -1,6 +1,6 @@
 ---
-title: Quickstart - View the access a user has to Azure resources
-description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using role-based access control (RBAC) and the Azure portal.
+title: Início rápido-exibir o acesso que um usuário tem aos recursos do Azure
+description: Neste guia de início rápido, saiba como exibir o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e o portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -21,37 +21,37 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74419613"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Quickstart: View the access a user has to Azure resources
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Início rápido: exibir o acesso que um usuário tem aos recursos do Azure
 
-You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the access a user or another security principal has to Azure resources. However, sometimes you just need to quickly view the access for a single user or another security principal. The easiest way to do this is to use the **Check access** feature in the Azure portal.
+Você pode usar a folha **controle de acesso (iam)** no [controle de acesso baseado em função (RBAC)](overview.md) para exibir o acesso que um usuário ou outra entidade de segurança tem aos recursos do Azure. No entanto, às vezes você só precisa exibir rapidamente o acesso para um único usuário ou outra entidade de segurança. A maneira mais fácil de fazer isso é usar o recurso **verificar acesso** no portal do Azure.
 
-## <a name="view-role-assignments"></a>View role assignments
+## <a name="view-role-assignments"></a>Exibir atribuições de função
 
- The way that you view the access for a user is to list their roles assignments. Follow these steps to view the role assignments for a single user, group, service principal, or managed identity at the subscription scope.
+ A maneira de exibir o acesso de um usuário é listar suas atribuições de funções. Siga estas etapas para exibir as atribuições de função para um único usuário, grupo, entidade de serviço ou identidade gerenciada no escopo da assinatura.
 
-1. In the Azure portal, click **All services** and then **Subscriptions**.
+1. No portal do Azure, clique em **todos os serviços** e em **assinaturas**.
 
-1. Click your subscription.
+1. Clique em sua assinatura.
 
 1. Clique em **Controlo de acesso (IAM)** .
 
-1. Click the **Check access** tab.
+1. Clique na guia **verificar acesso** .
 
-    ![Access control - Check access tab](./media/check-access/access-control-check-access.png)
+    ![Controle de acesso – guia acesso de verificação](./media/check-access/access-control-check-access.png)
 
-1. In the **Find** list, select the type of security principal you want to check access for.
+1. Na lista **Localizar** , selecione o tipo de entidade de segurança para a qual você deseja verificar o acesso.
 
-1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
+1. Na caixa de pesquisa, insira uma cadeia de caracteres para pesquisar o diretório em busca de nomes de exibição, endereços de email ou identificadores de objeto.
 
-    ![Check access select list](./media/check-access/check-access-select.png)
+    ![Marcar lista de seleção de acesso](./media/check-access/check-access-select.png)
 
-1. Click the security principal to open the **assignments** pane.
+1. Clique na entidade de segurança para abrir o painel **atribuições** .
 
-    ![assignments pane](./media/check-access/check-access-assignments.png)
+    ![painel atribuições](./media/check-access/check-access-assignments.png)
 
-    On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
+    Nesse painel, você pode ver as funções atribuídas à entidade de segurança selecionada e ao escopo. Se houver quaisquer atribuições de negação neste escopo ou herdadas para esse escopo, elas serão listadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+> [Tutorial: conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)

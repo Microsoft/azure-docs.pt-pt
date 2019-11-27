@@ -1,6 +1,6 @@
 ---
 title: Resolver erros comuns
-description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
+description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
@@ -10,61 +10,61 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406616"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>Troubleshoot errors using Azure Blueprints
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar erros usando plantas do Azure
 
-You may run into errors when creating or assigning blueprints. This article describes various errors that may occur and how to resolve them.
+Você pode encontrar erros ao criar ou atribuir plantas. Este artigo descreve vários erros que podem ocorrer e como resolvê-los.
 
-## <a name="finding-error-details"></a>Finding error details
+## <a name="finding-error-details"></a>Localizando detalhes do erro
 
-Many errors will be the result of assigning a blueprint to a scope. When an assignment fails, the blueprint provides details about the failed deployment. This information indicates the issue so that it can be fixed and the next deployment succeeds.
+Muitos erros serão o resultado da atribuição de um plano gráfico a um escopo. Quando uma atribuição falha, o plano gráfico fornece detalhes sobre a implantação com falha. Essas informações indicam o problema para que ele possa ser corrigido e a próxima implantação seja realizada com sucesso.
 
-1. Select **All services** in the left pane. Search for and select **Blueprints**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Select **Assigned blueprints** from the page on the left and use the search box to filter the blueprint assignments to find the failed assignment. You can also sort the table of assignments by the **Provisioning State** column to see all failed assignments grouped together.
+1. Selecione **plantas atribuídas** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de plano gráfico para localizar a atribuição com falha. Você também pode classificar a tabela de atribuições pela coluna **estado de provisionamento** para ver todas as atribuições com falha agrupadas.
 
-1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment details**.
+1. Clique no plano gráfico com o status com _falha_ ou clique com o botão direito do mouse e selecione **Exibir detalhes da atribuição**.
 
-1. A red banner warning that the assignment has failed is at the top of the blueprint assignment page. Click anywhere on the banner to get more details.
+1. Uma faixa vermelha avisando que a atribuição falhou está na parte superior da página de atribuição do Blueprint. Clique em qualquer lugar na faixa para obter mais detalhes.
 
-It's common for the error to be caused by an artifact and not the blueprint as a whole. If an artifact creates a Key Vault and Azure Policy prevents Key Vault creation, the entire assignment will fail.
+É comum que o erro seja causado por um artefato e não pelo plano gráfico como um todo. Se um artefato criar um Key Vault e Azure Policy impedir a criação de Key Vault, toda a atribuição falhará.
 
-## <a name="general-errors"></a>General errors
+## <a name="general-errors"></a>Erros gerais
 
-### <a name="policy-violation"></a>Scenario: Policy Violation
-
-#### <a name="issue"></a>Problema
-
-The template deployment failed because of policy violation.
-
-#### <a name="cause"></a>Causa
-
-A policy may conflict with the deployment for a number of reasons:
-
-- The resource being created is restricted by policy (commonly SKU or location restrictions)
-- The deployment is setting fields that are configured by policy (common with tags)
-
-#### <a name="resolution"></a>Resolução
-
-Change the blueprint so it doesn't conflict with the policies in the error details. If this change isn't possible, an alternative option is to have the scope of the policy assignment changed so the blueprint is no longer in conflict with the policy.
-
-### <a name="escape-function-parameter"></a>Scenario: Blueprint parameter is a function
+### <a name="policy-violation"></a>Cenário: violação de política
 
 #### <a name="issue"></a>Problema
 
-Blueprint parameters that are functions are processed before being passed to artifacts.
+A implantação do modelo falhou devido a uma violação de política.
 
 #### <a name="cause"></a>Causa
 
-Passing a blueprint parameter that uses a function, such as `[resourceGroup().tags.myTag]`, to an artifact results in the processed outcome of the function being set on the artifact instead of the dynamic function.
+Uma política pode entrar em conflito com a implantação por vários motivos:
+
+- O recurso que está sendo criado é restrito pela política (geralmente as restrições de SKU ou local)
+- A implantação está definindo campos configurados pela política (comum com marcas)
 
 #### <a name="resolution"></a>Resolução
 
-To pass a function through as a parameter, escape the entire string with `[` such that the blueprint parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to treat the value as a string when processing the blueprint. Blueprints then places the function on the artifact allowing it to be dynamic as expected. For more information, see [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/template-expressions.md).
+Altere o plano gráfico para que ele não entre em conflito com as políticas nos detalhes do erro. Se essa alteração não for possível, uma opção alternativa será ter o escopo da atribuição de política alterado para que o plano gráfico não esteja mais em conflito com a política.
+
+### <a name="escape-function-parameter"></a>Cenário: o parâmetro Blueprint é uma função
+
+#### <a name="issue"></a>Problema
+
+Os parâmetros de plano gráfico que são funções são processados antes de serem passados para artefatos.
+
+#### <a name="cause"></a>Causa
+
+Passar um parâmetro Blueprint que usa uma função, como `[resourceGroup().tags.myTag]`, para um artefato resulta no resultado processado da função que está sendo definida no artefato em vez da função dinâmica.
+
+#### <a name="resolution"></a>Resolução
+
+Para passar uma função por meio de como um parâmetro, escape toda a cadeia de caracteres com `[` de modo que o parâmetro Blueprint seja semelhante a `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
-- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
+- Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
 - Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-- If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+- Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

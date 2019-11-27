@@ -195,7 +195,7 @@ Antes de continuar, conclua a [criação de um aplicativo ASP.NET Core com a con
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+4. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 5. Selecione **Configuration Explorer**e atualize os valores das seguintes chaves:
 

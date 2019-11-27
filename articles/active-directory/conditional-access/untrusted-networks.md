@@ -1,6 +1,6 @@
 ---
-title: Require MFA from untrusted networks - Azure Active Directory
-description: Learn how to configure a Conditional Access policy in Azure Active Directory (Azure AD) to for access attempts from untrusted networks.
+title: Exigir MFA de redes não confiáveis-Azure Active Directory
+description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para para tentativas de acesso de redes não confiáveis.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,55 +18,55 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379997"
 ---
-# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>How to: Require MFA for access from untrusted networks with Conditional Access   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
 
-Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. Your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. A common best practice for access from untrusted networks is to require multi-factor authentication (MFA).
+O Azure Active Directory (AD do Azure) habilita o logon único para dispositivos, aplicativos e serviços de qualquer lugar. Os usuários podem acessar seus aplicativos de nuvem não apenas da rede da sua organização, mas também de qualquer local de Internet não confiável. Uma prática recomendada comum para o acesso de redes não confiáveis é exigir a MFA (autenticação multifator).
 
-This article gives you the information you need to configure a Conditional Access policy that requires MFA for access from untrusted networks. 
+Este artigo fornece as informações necessárias para configurar uma política de acesso condicional que requer MFA para acesso de redes não confiáveis. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-This article assumes that you are familiar with: 
+Este artigo pressupõe que você esteja familiarizado com: 
 
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+- Os [conceitos básicos](overview.md) do acesso condicional do Azure AD 
+- As [práticas recomendadas](best-practices.md) para configurar políticas de acesso condicional no portal do Azure
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-To master the balance between security and productivity, it might be sufficient for you to only require a password for sign-ins from your organization's network. However, for access from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. 
+Para dominar o equilíbrio entre segurança e produtividade, pode ser suficiente para que você precise apenas de uma senha para entradas da rede da sua organização. No entanto, para acesso de um local de rede não confiável, há um risco maior de que as entradas não são executadas por usuários legítimos. Para resolver essa preocupação, você pode bloquear o acesso de redes não confiáveis. Como alternativa, você também pode exigir a MFA (autenticação multifator) para obter uma garantia adicional de que uma tentativa foi feita pelo proprietário legítimo da conta. 
 
-With Azure AD Conditional Access, you can address this requirement with a single policy that grants access: 
+Com o acesso condicional do Azure AD, você pode atender a esse requisito com uma única política que concede acesso: 
 
-- To selected cloud apps
-- For selected users and groups  
-- Requiring multi-factor authentication 
-- When access is originated from: 
-   - A location that is not trusted
+- Para aplicativos de nuvem selecionados
+- Para usuários e grupos selecionados  
+- Exigindo a autenticação multifator 
+- Quando o acesso é originado em: 
+   - Um local que não é confiável
 
 ## <a name="implementation"></a>Implementação
 
-The challenge of this scenario is to translate *access from an untrusted network location* into a Conditional Access condition. In a Conditional Access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which are logical groupings of IP address ranges, countries and regions.  
+O desafio desse cenário é converter o *acesso de um local de rede não confiável* em uma condição de acesso condicional. Em uma política de acesso condicional, você pode configurar a [condição de locais](location-condition.md) para tratar de cenários relacionados a locais de rede. A condição locais permite que você selecione locais nomeados, que são agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
 
-Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.15.
-You can configure a named location by:
+Normalmente, sua organização possui um ou mais intervalos de endereços, por exemplo, 199.30.16.0-199.30.16.15.
+Você pode configurar um local nomeado por:
 
-- Specifying this range (199.30.16.0/28) 
-- Assigning a descriptive name such as **Corporate Network** 
+- Especificando esse intervalo (199.30.16.0/28) 
+- Atribuindo um nome descritivo, como **rede corporativa** 
 
-Instead of trying to define what all locations are that are not trusted, you can:
+Em vez de tentar definir quais locais não são confiáveis, você pode:
 
-- Include any location 
+- Incluir qualquer local 
 
    ![Acesso Condicional](./media/untrusted-networks/02.png)
 
-- Exclude all trusted locations 
+- Excluir todos os locais confiáveis 
 
    ![Acesso Condicional](./media/untrusted-networks/01.png)
 
-## <a name="policy-deployment"></a>Policy deployment
+## <a name="policy-deployment"></a>Implantação de política
 
-With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
+Com a abordagem descrita neste artigo, agora você pode configurar uma política de acesso condicional para locais não confiáveis. Para garantir que sua política funcione conforme o esperado, a melhor prática recomendada é testá-la antes de distribuí-la para produção. O ideal é usar um locatário de teste para verificar se a nova política funciona como esperado. Para obter mais informações, consulte [como implantar uma nova política](best-practices.md#how-should-you-deploy-a-new-policy). 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)

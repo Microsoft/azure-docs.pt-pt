@@ -12,7 +12,7 @@ ms.locfileid: "74277540"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Instalar pacotes a partir de um bloco de notas
 
-Embora seja possível configurar o [ambiente para o bloco de notas no nível de projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), pode querer instalar pacotes diretamente dentro de um bloco de notas individual.
+Embora você possa configurar o [ambiente para o seu notebook no nível do projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), convém instalar pacotes diretamente em um notebook individual.
 
 Pacotes instalados do bloco de notas aplicam-se apenas para a atual sessão do servidor. Instalações de pacotes não são mantidas depois do servidor está a ser encerrado.
 
@@ -26,7 +26,7 @@ Pacotes em Python podem ser instalados através do pip ou conda utilizando os co
 !conda install <package_name> -y
 ```
 
-Se a saída do comando indica que o requisito é satisfeito já, em seguida, blocos de notas do Azure pode incluir o pacote por predefinição. O pacote também pode ser instalado através de um [o passo de configuração do ambiente de projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
+Se a saída do comando indica que o requisito é satisfeito já, em seguida, blocos de notas do Azure pode incluir o pacote por predefinição. O pacote também pode ser instalado por meio de uma [etapa de configuração do ambiente de projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
 
 ## <a name="r"></a>R
 
@@ -46,7 +46,7 @@ install_github('<user>/<repo>')
 
 ## <a name="f"></a>F#
 
-Pacotes no F# pode ser instalada a partir [nuget.org](https://www.nuget.org) chamando a dependência de Paket manager a partir de dentro das células de código. Primeiro, carregue o Gestor de Paket:
+Os pacotes F# no podem ser instalados de [NuGet.org](https://www.nuget.org) chamando o Gerenciador de dependências do paket de dentro de células de código. Primeiro, carregue o Gestor de Paket:
 
 ```fsharp
 #load "Paket.fsx"
@@ -73,5 +73,5 @@ open MathNet.Numerics
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)

@@ -12,34 +12,34 @@ ms.locfileid: "74277510"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
-1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. (Para obter detalhes, consulte [início rápido - início de sessão para blocos de notas do Azure](quickstart-sign-in-azure-notebooks.md)).
+1. Vá para [Azure notebooks](https://notebooks.azure.com) e entre. (Para obter detalhes, consulte [início rápido-entrar no Azure notebooks](quickstart-sign-in-azure-notebooks.md)).
 
-1. Na sua página de perfil público, selecione **meus projetos** na parte superior da página:
+1. Na página de seu perfil público, selecione **meus projetos** na parte superior da página:
 
     ![Meu link de projetos na parte superior da janela do browser](media/quickstarts/my-projects-link.png)
 
-1. Sobre o **meus projetos** página, selecione **+ novo projeto** (atalho de teclado: n); o botão poderá aparecer apenas como **+** se a janela do browser estreita:
+1. Na página **meus projetos** , selecione **+ novo projeto** (atalho de teclado: n); o botão pode aparecer somente como **+** se a janela do navegador for estreita:
 
     ![Comando de novo projeto na página meus projetos](media/quickstarts/new-project-command.png)
 
-1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
+1. No pop-up **criar novo projeto** que aparece, insira ou defina os seguintes detalhes e, em seguida, selecione **criar**:
 
-   - **Nome do projeto**: Hello World no Python
-   - **ID do projeto**: hello-world-python
-   - **Projeto público**: (limpo)
-   - **Criar um README.md**: (limpo)
+   - **Nome do projeto**: Olá, mundo em Python
+   - **ID do projeto**: Olá-mundo-Python
+   - **Projeto público**: (desmarcado)
+   - **Criar um README.MD**: (desmarcado)
 
      ![Novo projeto pop-up com detalhes preenchidas](media/quickstarts/new-project-popup.png)
 
-1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+** ), em seguida, selecionar **bloco de notas**:
+1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicione um bloco de anotações ao projeto selecionando a lista suspensa **+ novo** (que pode aparecer apenas **+** ) e, em seguida, selecionando o **bloco de anotações**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. Na **criar novo bloco de notas** pop-up apresentado, introduza um nome de ficheiro para o bloco de notas, tal como *HelloWorldInPython.ipynb* ( *.ipynb* significa que o bloco de notas do IronPython (Jupyter) ) e selecione **Python 3.6** para o idioma (também conhecido como o *kernel*):
+1. No pop-up **criar novo bloco de anotações** que aparece, insira um nome de arquivo para o bloco de anotações, como *HelloWorldInPython. ipynb* ( *. ipynb* significa o notebook IronPython (Jupyter)) e selecione **Python 3,6** para o idioma (também conhecido como *kernel*):
 
     ![O pop-up de criar um novo Notebook](media/quickstarts/new-notebook-popup.png)
 
-1. Selecione **New** para concluir a criação de bloco de notas, o que, em seguida, aparece na lista de ficheiros do seu projeto:
+1. Selecione **novo** para concluir a criação do bloco de anotações, que aparece na lista de arquivos do seu projeto:
 
     ![Novo bloco de notas que aparecem na lista de ficheiros do projeto](media/quickstarts/new-notebook-created.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "74277510"
 
     ![Vista de um novo bloco de notas em blocos de notas do Azure](media/quickstarts/create-notebook-first-open.png)
 
-1. Por predefinição, o bloco de notas tem uma célula de código vazio. Para alterar o tipo de célula para **Markdown**, utilize a célula tipo pendente para selecionar **Markdown**:
+1. Por predefinição, o bloco de notas tem uma célula de código vazio. Para alterar o tipo de célula para **redução**, use a lista suspensa tipo de célula para selecionar **redução**:
 
     ![Alterar o tipo de célula num novo notebook](media/quickstarts/create-notebook-cell-type.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "74277510"
     # Hello World in Python
     ```
 
-1. Uma vez que está a editar o Markdown, o texto é apresentado como um cabeçalho com "#". Para compor o Markdown em HTML, selecione o **executar** botão. Blocos de notas do Azure, em seguida, cria automaticamente uma nova célula de código posteriormente:
+1. Uma vez que está a editar o Markdown, o texto é apresentado como um cabeçalho com "#". Para renderizar a redução em HTML, selecione o botão **executar** . Blocos de notas do Azure, em seguida, cria automaticamente uma nova célula de código posteriormente:
 
     ![Botão de execução para uma célula e composto de Markdown](media/quickstarts/run-cell-markdown-render.png)
 
@@ -87,13 +87,13 @@ ms.locfileid: "74277510"
 
 ## <a name="share-the-notebook"></a>Partilhar o bloco de notas
 
-Para partilhar o seu bloco de notas, mude novamente para a página do projeto, se necessário, clique com o botão direito do ficheiros de bloco de notas, selecione **copiar ligação** (atalho de teclado: y) e cole o link para uma mensagem apropriada (e-mail, mensagens Instantâneas, etc.).
+Para compartilhar seu bloco de anotações, volte para a página do projeto, se necessário, clique com o botão direito do mouse no arquivo do bloco de anotações, selecione **Copiar link** (atalho do teclado: y) e cole esse link em uma mensagem apropriada (email, mensagens instantâneas, etc.).
 
-Na página do projeto, também pode utilizar o **partilha** código de incorporação de menu para obter uma ligação, crie uma mensagem de e-mail com a ligação ou obter o HTML e Markdown:
+Na página do projeto, você também pode usar o menu **compartilhar** para obter um link, criar uma mensagem de email com o link ou obter HTML e fazer a redução do código de inserção:
 
 ![Comando de partilha do projeto](media/quickstarts/share-project-command.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar uma execução de um bloco de anotações Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)

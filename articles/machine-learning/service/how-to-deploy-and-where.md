@@ -194,7 +194,7 @@ O script contém duas funções que carregam e executam o modelo:
 
 * `init()`: normalmente, essa função carrega o modelo em um objeto global. Essa função é executada apenas uma vez, quando o contêiner do Docker para o serviço Web é iniciado.
 
-* `run(input_data)`: Esta função utiliza o modelo para prever um valor com base nos dados de entrada. As entradas e saídas da execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com dados binários brutos. Você pode transformar os dados antes de enviá-los para o modelo ou antes de retorná-los para o cliente.
+* `run(input_data)`: essa função usa o modelo para prever um valor com base nos dados de entrada. As entradas e saídas da execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com dados binários brutos. Você pode transformar os dados antes de enviá-los para o modelo ou antes de retorná-los para o cliente.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Localizar arquivos de modelo em seu script de entrada
 
@@ -1069,8 +1069,8 @@ docker kill mycontainer
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para eliminar um serviço web implementado, utilize `service.delete()`.
-Para eliminar um modelo registado, utilize `model.delete()`.
+Para excluir um serviço Web implantado, use `service.delete()`.
+Para excluir um modelo registrado, use `model.delete()`.
 
 Para obter mais informações, consulte a documentação de [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) e [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
@@ -1078,7 +1078,7 @@ Para obter mais informações, consulte a documentação de [WebService. Delete 
 
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Proteger Azure Machine Learning serviços Web com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de Azure Machine Learning implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

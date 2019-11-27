@@ -1,6 +1,6 @@
 ---
-title: Remover um ponto de final de CDN do Azure | Documentos da Microsoft
-description: Saiba como remover todo o conteúdo em cache a partir de um ponto de final de CDN do Azure.
+title: Limpar um ponto de extremidade da CDN do Azure | Microsoft Docs
+description: Saiba como limpar todo o conteúdo armazenado em cache de um ponto de extremidade da CDN do Azure.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593535"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546207"
 ---
-# <a name="purge-an-azure-cdn-endpoint"></a>Remover um ponto de final de CDN do Azure
+# <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
 ## <a name="overview"></a>Descrição geral
-Nós de extremidade da CDN do Azure colocará em cache ativos até que expire time-to-live (TTL) o elemento.  Depois de TTL o elemento expira, quando um cliente solicita o elemento do nó de extremidade, o nó de extremidade irá obter uma nova cópia atualizada do recurso para atender à solicitação do cliente e store atualizar a cache.
+Os nós de borda da CDN do Azure armazenarão ativos em cache até o tempo de vida (TTL) do ativo expirar.  Depois que a TTL do ativo expira, quando um cliente solicita o ativo do nó de borda, o nó de borda recupera uma nova cópia atualizada do ativo para atender à solicitação do cliente e armazenar a atualização do cache.
 
-A melhor prática para se certificar de que os utilizadores obtêm sempre a cópia mais recente dos seus bens é para a versão seus ativos de cada atualização e publique-os como novos URLs.  CDN imediatamente recuperará os novos recursos das próximas solicitações de cliente.  Por vezes, pode pretender remover o conteúdo em cache de todos os nós de extremidade e forçá-los todos para obter os novos recursos atualizados.  Isto pode dever-se a atualizações à sua aplicação web ou a rapidamente os recursos de atualização que contêm informações incorretas.
+A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é fazer a versão de seus ativos para cada atualização e publicá-los como novas URLs.  A CDN recuperará imediatamente os novos ativos para as próximas solicitações de cliente.  Às vezes, você pode desejar limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados.  Isso pode ser devido a atualizações em seu aplicativo Web ou para atualizar ativos rapidamente que contenham informações incorretas.
 
 > [!TIP]
-> Tenha em atenção que apenas remover limpa o conteúdo em cache em servidores de borda do CDN.  Todas as caches downstream, tais como servidores de proxy e as caches do navegador local, ainda podem manter uma cópia em cache do arquivo.  É importante lembrar-se ao definir um arquivo time-to-live.  Pode forçar um cliente jusante solicitar a versão mais recente do seu arquivo ao dar a ele um nome exclusivo sempre que efetua a atualização ou ao tirar partido da [colocação em cache de cadeia de caracteres de consulta](cdn-query-string.md).  
+> Observe que a limpeza apenas limpa o conteúdo armazenado em cache nos servidores de borda da CDN.  Todos os caches downstream, como servidores proxy e caches do navegador local, ainda podem manter uma cópia armazenada em cache do arquivo.  É importante lembrar-se disso quando você definir a vida útil de um arquivo.  Você pode forçar um cliente downstream a solicitar a versão mais recente do arquivo, dando a ele um nome exclusivo sempre que atualizá-lo ou tirando proveito do [cache de cadeia de caracteres de consulta](cdn-query-string.md).  
 > 
 > 
 
-Este tutorial orienta-o através da remoção de recursos de todos os nós de extremidade de um ponto de extremidade.
+Este tutorial orienta você durante a limpeza de ativos de todos os nós de borda de um ponto de extremidade.
 
 ## <a name="walkthrough"></a>Instruções
-1. Na [Portal do Azure](https://portal.azure.com), navegue até ao perfil CDN que contém o ponto final que pretende remover.
-2. No painel de perfil da CDN, clique no botão de remoção.
+1. No [portal do Azure](https://portal.azure.com), navegue até o perfil CDN que contém o ponto de extremidade que você deseja limpar.
+2. Na folha perfil CDN, clique no botão limpar.
    
-    ![Painel do perfil CDN](./media/cdn-purge-endpoint/cdn-profile-blade.png)
+    ![Folha do perfil CDN](./media/cdn-purge-endpoint/cdn-profile-blade.png)
    
-    É aberto o painel de remoção.
+    A folha limpar é aberta.
    
-    ![Painel de remoção da CDN](./media/cdn-purge-endpoint/cdn-purge-blade.png)
-3. No painel de remoção, selecione o endereço do serviço que pretende remover no menu pendente do URL.
+    ![Folha de limpeza da CDN](./media/cdn-purge-endpoint/cdn-purge-blade.png)
+3. Na folha limpar, selecione o endereço do serviço que você deseja limpar na lista suspensa URL.
    
-    ![Remover o formulário](./media/cdn-purge-endpoint/cdn-purge-form.png)
+    ![Limpar formulário](./media/cdn-purge-endpoint/cdn-purge-form.png)
    
    > [!NOTE]
-   > Também pode obter o painel de remoção clicando a **remover** botão no painel de ponto final da CDN.  Nesse caso, o **URL** campo será preenchido previamente com o endereço do serviço de ponto de extremidade específico.
+   > Você também pode acessar a folha de limpeza clicando no botão **limpar** na folha ponto de extremidade da CDN.  Nesse caso, o campo **URL** será preenchido previamente com o endereço do serviço desse ponto de extremidade específico.
    > 
    > 
-4. Selecione quais recursos de que pretende remover a partir de nós de extremidade.  Se quiser limpar todos os recursos, clique nas **remover todos** caixa de verificação.  Caso contrário, escreva o caminho de cada ativo a limpar no **caminho** caixa de texto. Abaixo formatos são suportadas no caminho.
-    1. **Remoção de URL única**: Remover recurso individual, especificando o URL completo, com ou sem a extensão de ficheiro, por exemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Remoção de carateres universais**: Asterisco (\*) pode ser utilizada como um caráter universal. Remover todas as pastas, subpastas e arquivos num ponto final com `/*` o caminho ou a remoção de todos os ficheiros numa pasta específica, especificando a pasta e subpastas seguido `/*`, por exemplo,`/pictures/*`.  Tenha em atenção que remoção de carateres universais não é suportada pelo Azure CDN da Akamai atualmente. 
-    3. **Remoção de domínio de raiz**: Remover a raiz do ponto de extremidade com "/" no caminho.
+4. Selecione quais ativos você deseja limpar dos nós de borda.  Se você quiser limpar todos os ativos, clique na caixa de seleção **limpar tudo** .  Caso contrário, digite o caminho de cada ativo que você deseja limpar na caixa de texto **caminho** . Os formatos a seguir têm suporte no caminho.
+    1. **Limpeza de URL única**: Limpe o ativo individual ESPECIFICANDO a URL completa, com ou sem a extensão de arquivo, por exemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Limpeza de curinga**: asterisco (\*) pode ser usado como um curinga. Limpe todas as pastas, subpastas e arquivos em um ponto de extremidade com `/*` no caminho ou limpe todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida por `/*`, por exemplo,`/pictures/*`.  Observe que a limpeza de curinga não tem suporte da CDN do Azure do Akamai no momento. 
+    3. **Limpeza de domínio raiz**: Limpe a raiz do ponto de extremidade com "/" no caminho.
    
    > [!TIP]
-   > Tem de ser especificados para a remoção de caminhos e tem de ser um URL relativo que se ajustem o seguinte [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Remover todos** e **remoção de carateres universais** não suportado pelo **CDN do Azure da Akamai** atualmente.
-   > > Remoção de URL única `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Cadeia de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   > > Remoção de carateres universais `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
+   > Os caminhos devem ser especificados para limpeza e devem ser uma URL relativa que se encaixe na [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference)a seguir. **Limpar tudo** e a **limpeza de curinga** não tem suporte **da CDN do Azure do Akamai** no momento.
+   > > `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";` de limpeza de URL única  
+   > > Cadeia de caracteres de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   > > `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`de limpeza de curinga. 
    > 
-   > Obter mais **caminho** caixas de texto serão apresentado depois de introduzir texto para permitir a criação de uma lista de vários recursos.  Pode eliminar os recursos da lista ao clicar no botão de reticências (...).
+   > Mais caixas de texto de **caminho** serão exibidas depois que você inserir o Text para permitir que você crie uma lista de vários ativos.  Você pode excluir ativos da lista clicando no botão de reticências (...).
    > 
-5. Clique nas **remover** botão.
+5. Clique no botão **limpar** .
    
-    ![Remover botão](./media/cdn-purge-endpoint/cdn-purge-button.png)
+    ![Botão limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Os pedidos de remoção demoram cerca de 2 minutos para processar com **CDN do Azure da Microsoft** e **CDN do Azure da Verizon** (standard e premium) e cerca de 10 segundos com **da CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 simultâneas remover pedidos num determinado momento ao nível do perfil. 
+> As solicitações de limpeza levam cerca de 10 minutos para serem processadas com a **CDN do Azure da Microsoft**, aproximadamente 2 minutos com a **CDN do Azure da Verizon** (Standard e Premium) e aproximadamente 10 segundos com a **CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas em um determinado momento no nível do perfil. 
 > 
 > 
 
 ## <a name="see-also"></a>Consulte também
 * [Pré-carregar recursos num ponto final da CDN do Azure](cdn-preload-endpoint.md)
-* [Referência da API de REST do CDN do Azure - remover ou pré-carregar um ponto final](/rest/api/cdn/endpoints)
+* [Referência da API REST da CDN do Azure-limpar ou pré-carregar um ponto de extremidade](/rest/api/cdn/endpoints)
 

@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803446"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533004"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 
-Há duas representações de aplicativos no Azure AD: 
+Há duas representações de aplicativos no Azure AD:
+
 * [Objetos de aplicativo](app-objects-and-service-principals.md#application-object) -embora haja [exceções](#notes-and-exceptions), os objetos de aplicativo podem ser considerados a definição de um aplicativo.
 * [Entidades de serviço](app-objects-and-service-principals.md#service-principal-object) – podem ser consideradas uma instância de um aplicativo. As entidades de serviço geralmente fazem referência a um objeto de aplicativo e um objeto de aplicativo pode ser referenciado por várias entidades de serviço entre os diretórios.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>O que são objetos de aplicativo e de onde eles vêm?
+
 Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.md#application-object) no portal do Azure por meio da experiência de [registros do aplicativo](https://aka.ms/appregistrations) . Os objetos de aplicativo descrevem o aplicativo para o Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo com base em suas configurações. O objeto de aplicativo só existirá em seu diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos seguintes (bem como informações adicionais não mencionadas aqui):
+
 * Nome, logotipo e Publicador
 * Redirecionar URIs
 * Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
@@ -45,13 +48,15 @@ Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.
 * Configuração e metadados de proxy
 
 Os objetos de aplicativo podem ser criados por meio de vários caminhos, incluindo:
+
 * Registros de aplicativo no portal do Azure
 * Criando um novo aplicativo usando o Visual Studio e Configurando-o para usar a autenticação do Azure AD
 * Quando um administrador adiciona um aplicativo da Galeria de aplicativos (que também criará uma entidade de serviço)
-* Usando a API Microsoft Graph, o Azure AD API do Graph ou o PowerShell para criar um novo aplicativo
+* Usando a API Microsoft Graph ou o PowerShell para criar um novo aplicativo
 * Muitos outros incluindo várias experiências de desenvolvedor no Azure e em experiências do Gerenciador de API entre os centros de desenvolvedores
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>O que são as entidades de serviço e de onde elas vêm?
+
 Você pode gerenciar [entidades de serviço](app-objects-and-service-principals.md#service-principal-object) no portal do Azure por meio da experiência de [aplicativos empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) . As entidades de serviço são o que governa um aplicativo se conectando ao Azure AD e pode ser considerado a instância do aplicativo em seu diretório. Para qualquer aplicativo específico, ele pode ter no máximo um objeto de aplicativo (que é registrado em um diretório "Home") e um ou mais objetos de entidade de serviço que representam instâncias do aplicativo em todos os diretórios nos quais ele atua. 
 
 A entidade de serviço pode incluir:
@@ -122,7 +127,7 @@ Os aplicativos são adicionados ao Azure AD para aproveitar um ou mais dos servi
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicativos à minha instância do Azure AD?
 
-Embora haja algumas tarefas que somente os administradores globais podem fazer (como adicionar aplicativos da Galeria de aplicativos e configurar um aplicativo para usar o proxy de aplicativo) por padrão, todos os usuários em seu diretório têm direitos para registrar objetos de aplicativo que Eles estão desenvolvendo e se deparam com quais aplicativos eles compartilham/fornecem acesso a seus dados organizacionais por meio de consentimento. Se uma pessoa for o primeiro usuário em seu diretório para entrar em um aplicativo e conceder consentimento, isso criará uma entidade de serviço em seu locatário; caso contrário, as informações de concessão de consentimento serão armazenadas na entidade de serviço existente.
+Embora existam algumas tarefas que somente os administradores globais podem fazer (como adicionar aplicativos da Galeria de aplicativos e configurar um aplicativo para usar o proxy de aplicativo) por padrão, todos os usuários em seu diretório têm direitos para registrar objetos de aplicativo que estão desenvolvendo e a critério sobre quais aplicativos eles compartilham/fornecem acesso aos seus dados organizacionais por meio de consentimento. Se uma pessoa for o primeiro usuário em seu diretório para entrar em um aplicativo e conceder consentimento, isso criará uma entidade de serviço em seu locatário; caso contrário, as informações de concessão de consentimento serão armazenadas na entidade de serviço existente.
 
 Permitir que os usuários se registrem e consentissem em aplicativos podem inicialmente se parecer com a relação, mas tenha em mente o seguinte:
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 1d147dcee31fa4b84b28ab62e8cd41aebc134a9b
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043952"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538832"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
 
@@ -30,7 +30,7 @@ A resposta do serviço inclui as seguintes informações:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Linguagem
+- Idioma
 
 ## <a name="profanity"></a>Profanidade
 
@@ -109,33 +109,33 @@ O exemplo a seguir mostra uma resposta de exemplo:
   "Phone":[ 
     { 
       "CountryCode":"US",
-      "Text":"6657789887",
+      "Text":"4255550111",
       "Index":56
     },
     { 
       "CountryCode":"US",
-      "Text":"870 608 4000",
+      "Text":"425 555 0111",
       "Index":212
     },
     { 
       "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
+      "Text":"+123 456 7890",
       "Index":208
     },
     { 
       "CountryCode":"UK",
-      "Text":"0344 800 2400",
+      "Text":"0234 567 8901",
       "Index":228
     },
     { 
       "CountryCode":"UK",
-      "Text":"0800 820 3300",
+      "Text":"0456 789 0123",
       "Index":245
     }
   ],
   "Address":[ 
     { 
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Text":"1234 Main Boulevard, Panapolis WA 96555",
       "Index":89
     }
   ],

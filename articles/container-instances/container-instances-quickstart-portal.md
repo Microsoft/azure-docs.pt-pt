@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido – implantar o contêiner do Docker em instâncias de contêiner do Azure-portal
+title: Guia de início rápido – implantar o contêiner do Docker na instância do contêiner-Portal
 description: Neste guia de início rápido, você usa o portal do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
 services: container-instances
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bf3bea07fa2fcb67a467d4087ea9e2ccbfd95206
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325805"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533533"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: implantar uma instância de contêiner no Azure usando o portal do Azure
 
 Use as instâncias de contêiner do Azure para executar contêineres do Docker sem servidor no Azure com simplicidade e velocidade. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisar de uma plataforma de orquestração de contêiner completa, como o serviço kubernetes do Azure.
 
@@ -44,13 +44,13 @@ Na página **noções básicas** , insira os valores a seguir nas caixas de text
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Para este guia de início rápido, você usa a configuração de **tipo de imagem** padrão **pública** para `aci-helloworld` implantar a imagem pública da Microsoft. Esta imagem do Linux empacota um pequeno aplicativo Web escrito em node. js que serve a uma página HTML estática.
+Para este guia de início rápido, use a configuração de **tipo de imagem** padrão **pública** para implantar a imagem pública do Microsoft `aci-helloworld`. Esta imagem do Linux empacota um pequeno aplicativo Web escrito em node. js que serve a uma página HTML estática.
 
 Na página **rede** , especifique um **rótulo de nome DNS** para seu contêiner. O nome deve ser exclusivo na região do Azure em que você cria a instância de contêiner. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
 ![Configurar uma nova instância do contentor no portal do Azure][aci-portal-04]
 
-Deixe as outras configurações em seus padrões e selecione revisar **+ criar**.
+Deixe as outras configurações em seus padrões e selecione **revisar + criar**.
 
 Quando a validação estiver concluída, é apresentado um resumo das definições de contentor. Selecione **criar** para enviar sua solicitação de implantação de contêiner.
 
@@ -58,7 +58,7 @@ Quando a validação estiver concluída, é apresentado um resumo das definiçõ
 
 Quando inicia a implementação, é apresentado uma notificação que indica que a implementação está em curso. É apresentada outra notificação quando o grupo de contentores tiver sido implementado.
 
-Abra a visão geral do grupo de contêineres navegando até **grupos de recursos** > MyResource > Group MyContainer. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
+Abra a visão geral do grupo de contêineres navegando até **grupos de recursos** > **myresource** Group > **MyContainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
 
 ![Descrição geral do grupo de contentores no portal do Azure][aci-portal-06]
 
@@ -86,9 +86,9 @@ Selecione **Sim** quando caixa de diálogo de confirmação for apresentada.
 
 ![Eliminar confirmação da instância do contentor no portal do Azure][aci-portal-10]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou uma instância de contêiner do Azure a partir de uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
+Neste guia de início rápido, você criou uma instância de contêiner do Azure a partir de uma imagem pública da Microsoft. Se quiser criar uma imagem de contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)

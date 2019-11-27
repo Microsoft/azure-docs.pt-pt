@@ -46,7 +46,7 @@ Embora seja recomendável tentar o serviço de fala usando as instruções na pr
 > O período de avaliação começará imediatamente depois que as etapas a seguir forem concluídas.
 
 1. Vá para [experimentar o serviço cognitiva](https://azure.microsoft.com/try/cognitive-services/).
-1. Selecione o **APIs de voz** separador.
+1. Selecione a guia **APIs de fala** .
 1. Escolha **obter chave de API**.
 
 Você verá as opções de cobrança. Escolha a opção gratuito e, em seguida, leia e aprove o contrato de usuário. Você verá as chaves que pode usar para experimentar o serviço de fala por um período limitado.
@@ -64,15 +64,15 @@ Quando você tiver uma conta Microsoft, vá para a [página de inscrição do Az
 
 Para adicionar um recurso de serviço de voz (escalão gratuito ou pago) à sua conta do Azure:
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com a sua conta Microsoft.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando seu conta Microsoft.
 
-1. Selecione **criar um recurso** na parte superior esquerda do portal. Se você não vir **criar um recurso**, você sempre poderá encontrá-lo selecionando o menu recolhido no canto superior esquerdo:
+1. Selecione **criar um recurso** na parte superior esquerda do Portal. Se você não vir **criar um recurso**, você sempre poderá encontrá-lo selecionando o menu recolhido no canto superior esquerdo:
 
    ![botão de navegação recolhido](media/index/collapsed-nav.png)
 
 1. Na **nova** janela, digite "fala" na caixa de pesquisa e pressione Enter.
 
-1. Nos resultados da pesquisa, selecione **voz**.
+1. Nos resultados da pesquisa, selecione **fala**.
 
    ![resultados da pesquisa de fala](media/index/speech-search.png)
 
@@ -96,8 +96,8 @@ Para mudar de uma subscrição para outro, por exemplo, quando a avaliação gra
 
 ## <a name="about-regions"></a>Sobre regiões
 
-- Se o aplicativo usar um [SDK de voz](speech-sdk.md), indique o código de região, como `westus`, ao criar uma configuração de voz.
-- Se seu aplicativo usa um do serviço de voz [REST APIs](rest-apis.md), a região é a parte do ponto final do URI a utilizar quando são efetuados pedidos.
+- Se seu aplicativo usar um [SDK de fala](speech-sdk.md), você fornecerá o código de região, como `westus`, ao criar uma configuração de fala.
+- Se seu aplicativo usa uma das [APIs REST](rest-apis.md)do serviço de fala, a região faz parte do URI do ponto de extremidade que você usa ao fazer solicitações.
 - Criado para uma região de chaves são válidas apenas nessa região. A tentar usá-los com outras regiões irá resultar em erros de autenticação.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -105,5 +105,5 @@ Para mudar de uma subscrição para outro, por exemplo, quando a avaliação gra
 Execute um dos nossos inícios rápidos de 10 minutos ou consulte as nossas amostras SDK:
 
 > [!div class="nextstepaction"]
-> [Início rápido: Reconhecer voz em c#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [amostras do SDK de voz](speech-sdk.md#get-the-samples)
+> [Início rápido: reconhecer a C# fala em exemplos do SDK do](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+> [Speech](speech-sdk.md#get-the-samples)

@@ -99,5 +99,5 @@ Quando tiver concluído todas essas etapas, a aplicação deve estar em execuç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como o Proxy de aplicações do Azure AD fornece início de sessão único?](application-proxy-single-sign-on.md)
-- [Resolver problemas de Proxy de aplicações](application-proxy-troubleshoot.md)
+- [Como o Azure Proxy de Aplicativo do AD fornece logon único?](application-proxy-single-sign-on.md)
+- [Solucionar problemas de proxy de aplicativo](application-proxy-troubleshoot.md)

@@ -76,9 +76,9 @@ Embora os pipelines ML possam treinar modelos, eles também podem preparar dados
 Use as seções abaixo para configurar esses destinos de computação:
 
 * [Computador local](#local)
-* [Computação do Azure Machine Learning](#amlcompute)
+* [Computação Azure Machine Learning](#amlcompute)
 * [Máquinas virtuais remotas](#vm)
-* [O Azure HDInsight](#hdinsight)
+* [Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Computador local
@@ -91,7 +91,7 @@ Use as seções abaixo para configurar esses destinos de computação:
 
 Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
-### <a id="amlcompute"></a>Computação do Azure Machine Learning
+### <a id="amlcompute"></a>Computação Azure Machine Learning
 
 Azure Machine Learning computação é uma infraestrutura de computação gerenciada que permite ao usuário criar facilmente uma computação de vários nós ou um único nó. A computação é criada dentro de sua região de espaço de trabalho como um recurso que pode ser compartilhado com outros usuários em seu espaço de trabalho. A computação é dimensionada automaticamente quando um trabalho é enviado e pode ser colocada em uma rede virtual do Azure. A computação é executada em um ambiente em contêiner e empacota suas dependências de modelo em um [contêiner do Docker](https://www.docker.com/why-docker).
 
@@ -186,7 +186,7 @@ Use o Máquina Virtual de Ciência de Dados do Azure (DSVM) como a VM do Azure e
 
 Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
-### <a id="hdinsight"></a>O Azure HDInsight 
+### <a id="hdinsight"></a>Azure HDInsight 
 
 O Azure HDInsight é uma plataforma popular para análise de Big Data. A plataforma fornece Apache Spark, que pode ser usada para treinar seu modelo.
 
@@ -346,8 +346,8 @@ Siga as etapas descritas anteriormente para exibir a lista de destinos de comput
     > [!NOTE]
     > A Microsoft recomenda que você use chaves SSH, que são mais seguras do que senhas. As senhas são vulneráveis a ataques de força bruta. As chaves SSH dependem de assinaturas criptográficas. Para obter informações sobre como criar chaves SSH para uso com máquinas virtuais do Azure, consulte os seguintes documentos:
     >
-    > * [Criar e utilizar chaves SSH no Linux ou macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Criar e utilizar chaves SSH no Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Criar e usar chaves SSH no Linux ou macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [Criar e usar chaves SSH no Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Selecione __anexar__. 
 1. Exiba o status da operação de anexação selecionando o destino de computação na lista.
@@ -504,8 +504,8 @@ Quando você inicia uma execução de treinamento onde o diretório de origem é
 ## <a name="notebook-examples"></a>Exemplos de notebook
 
 Consulte estes blocos de anotações para obter exemplos de treinamento com vários destinos de computação:
-* [procedimentos-to-use-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutoriais/img-classificação-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [como usar-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [TUTORIAIS/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

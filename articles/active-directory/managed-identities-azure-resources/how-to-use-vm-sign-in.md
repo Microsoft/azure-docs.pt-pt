@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d6d128677d2e82f4750a7771885474bf284fb1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184223"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547393"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrar 
 
@@ -41,7 +41,7 @@ Se você planeja usar os exemplos de Azure PowerShell ou CLI do Azure neste arti
 
 ## <a name="overview"></a>Descrição geral
 
-Identidades gerenciadas para recursos do Azure fornece um [objeto de entidade de serviço](../develop/developer-glossary.md#service-principal-object) , que é [criado na habilitação de identidades gerenciadas para recursos do Azure](overview.md#how-does-it-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e usada como uma identidade por clientes de linha de comando/script para entrada e acesso a recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisaria:  
+Identidades gerenciadas para recursos do Azure fornece um [objeto de entidade de serviço](../develop/developer-glossary.md#service-principal-object) , que é [criado na habilitação de identidades gerenciadas para recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e usada como uma identidade por clientes de linha de comando/script para entrada e acesso a recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisaria:  
 
    - ser registrado e consentido com o Azure AD como um aplicativo cliente confidencial/Web
    - entre em sua entidade de serviço, usando as credenciais do aplicativo (que provavelmente são inseridas no script)

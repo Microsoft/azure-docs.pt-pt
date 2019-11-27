@@ -1,28 +1,23 @@
 ---
-title: Tutorial – implantar um grupo de vários contêineres em instâncias de contêiner do Azure-YAML
+title: Tutorial – implantar grupo de vários contêineres-YAML
 description: Neste tutorial, você aprenderá a implantar um grupo de contêineres com vários contêineres em instâncias de contêiner do Azure usando um arquivo YAML com o CLI do Azure.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178564"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533595"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implantar um grupo de vários contêineres usando um arquivo YAML
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: implantar um grupo de vários contêineres usando um arquivo YAML
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 >
 
-As instâncias de contêiner do Azure dão suporte à implantação de vários contêineres em um único host usando um [grupo](container-instances-container-groups.md)de contêineres. Um grupo de contêineres é útil ao criar um aplicativo sidecar para registro em log, monitoramento ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
+As instâncias de contêiner do Azure dão suporte à implantação de vários contêineres em um único host usando um [grupo de contêineres](container-instances-container-groups.md). Um grupo de contêineres é útil ao criar um aplicativo sidecar para registro em log, monitoramento ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
 
 Neste tutorial, você seguirá as etapas para executar uma configuração simples de sidecar de dois contêineres implantando um [arquivo YAML](container-instances-reference-yaml.md) usando o CLI do Azure. Um arquivo YAML fornece um formato conciso para especificar as configurações de instância. Saiba como:
 
@@ -85,7 +80,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para usar um registro de imagem de contêiner privado, `imageRegistryCredentials` adicione a propriedade ao grupo de contêineres, com valores modificados para o seu ambiente:
+Para usar um registro de imagem de contêiner privado, adicione a propriedade `imageRegistryCredentials` ao grupo de contêineres, com valores modificados para o seu ambiente:
 
 ```YAML
   imageRegistryCredentials:
@@ -118,7 +113,7 @@ Para exibir o estado da implantação, use o seguinte comando [AZ container show
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Se você quiser exibir o aplicativo em execução, navegue até seu endereço IP no navegador. Por exemplo, o IP está `52.168.26.124` neste exemplo de saída:
+Se você quiser exibir o aplicativo em execução, navegue até seu endereço IP no navegador. Por exemplo, o IP é `52.168.26.124` neste exemplo de saída:
 
 ```bash
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -126,9 +121,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-container-logs"></a>Ver registos do contentor
+## <a name="view-container-logs"></a>Ver registos de contentor
 
-Exiba a saída de log de um contêiner usando o comando [AZ container logs][az-container-logs] . O `--container-name` argumento especifica o contêiner do qual efetuar pull de logs. Neste exemplo, o `aci-tutorial-app` contêiner é especificado.
+Exiba a saída de log de um contêiner usando o comando [AZ container logs][az-container-logs] . O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, o contêiner `aci-tutorial-app` é especificado.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -143,7 +138,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver os logs do contêiner sidecar, execute um comando semelhante especificando o `aci-tutorial-sidecar` contêiner.
+Para ver os logs do contêiner sidecar, execute um comando semelhante especificando o contêiner de `aci-tutorial-sidecar`.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -169,7 +164,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como você pode ver, o sidecar está periodicamente fazendo uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo para garantir que ele esteja em execução. Este exemplo de sidecar poderia ser expandido para disparar um alerta se ele recebeu um código de resposta `200 OK`http diferente de.
+Como você pode ver, o sidecar está periodicamente fazendo uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo para garantir que ele esteja em execução. Este exemplo de sidecar poderia ser expandido para disparar um alerta se ele recebeu um código de resposta HTTP diferente de `200 OK`.
 
 ## <a name="next-steps"></a>Passos seguintes
 

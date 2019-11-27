@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Boomi.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Prontoi | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Prontoi.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -23,186 +23,186 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231956"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Prontoi
 
-In this tutorial, you'll learn how to integrate Boomi with Azure Active Directory (Azure AD). When you integrate Boomi with Azure AD, you can:
+Neste tutorial, você aprenderá a integrar o Prontoi com o Azure Active Directory (Azure AD). Ao integrar o "pronto" ao Azure AD, você pode:
 
-* Control in Azure AD who has access to Boomi.
-* Enable your users to be automatically signed-in to Boomi with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Controle no Azure AD quem tem acesso ao "pronto".
+* Habilite seus usuários para entrarem automaticamente no Prontoi com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To get started, you need the following items:
+Para começar, você precisa dos seguintes itens:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Boomi single sign-on (SSO) enabled subscription.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Boomi supports **IDP** initiated SSO
+* Prontoi dá suporte ao SSO iniciado pelo **IDP**
 
-## <a name="adding-boomi-from-the-gallery"></a>Adding Boomi from the gallery
+## <a name="adding-boomi-from-the-gallery"></a>Adicionando o "Prontoi da Galeria"
 
-To configure the integration of Boomi into Azure AD, you need to add Boomi from the gallery to your list of managed SaaS apps.
+Para configurar a integração do entanto com o Azure AD, você precisa adicionar o "Prontoi" da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Boomi** in the search box.
-1. Select **Boomi** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **prontoi** na caixa de pesquisa.
+1. Selecione **prontoi** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-boomi"></a>Configure and test Azure AD single sign-on for Boomi
+## <a name="configure-and-test-azure-ad-single-sign-on-for-boomi"></a>Configurar e testar o logon único do Azure AD para o Prontoi
 
-Configure and test Azure AD SSO with Boomi using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Boomi.
+Configure e teste o SSO do Azure AD com o "pronto" usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado em "pronto".
 
-To configure and test Azure AD SSO with Boomi, complete the following building blocks:
+Para configurar e testar o SSO do Azure AD com o Prontoi, conclua os seguintes blocos de construção:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Boomi SSO](#configure-boomi-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Boomi test user](#create-boomi-test-user)** - to have a counterpart of B.Simon in Boomi that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar](#configure-boomi-sso)** o "SSO" para definir as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do prontoi](#create-boomi-test-user)** – para ter um equivalente de B. Simon em pronto, que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Boomi** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo de **prontoi** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. Na página **Configurar logon único com SAML** , insira os valores para os seguintes campos:
 
-    a. In the **Identifier** text box, type a URL: `https://platform.boomi.com/`
+    a. Na caixa de texto **identificador** , digite uma URL: `https://platform.boomi.com/`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE]
-    > The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Boomi Client support team](https://boomi.com/company/contact/) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > O valor da URL de resposta não é real. Atualize o valor com a URL de resposta real. Contate a [equipe de suporte ao cliente](https://boomi.com/company/contact/) do entanto para obter esse valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. Boomi application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. O aplicativo de prontoi espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![imagem](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
-1. In addition to above, Boomi application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. Além de acima, o aplicativo Prontoi espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
-    | Nome |  Source Attribute|
+    | Nome |  Atributo de origem|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![The Certificate download link](common/certificatebase64.png)
+    ![O link de download de certificado](common/certificatebase64.png)
 
-1. On the **Set up Boomi** section, copy the appropriate URL(s) based on your requirement.
+1. Na seção **Configurar o pronto para** copiar, copie as URLs apropriadas com base em seu requisito.
 
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Boomi.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao "pronto".
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Boomi**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **prontoi**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![The Add User link](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-boomi-sso"></a>Configure Boomi SSO
+## <a name="configure-boomi-sso"></a>Configurar o SSO do pronto para
 
-1. In a different web browser window, sign in to your Boomi company site as an administrator.
+1. Em uma janela diferente do navegador da Web, entre no site da sua empresa pronto para ser um administrador.
 
-1. Navigate to **Company Name** and go to **Set up**.
+1. Navegue até **nome da empresa** e vá para **Configurar**.
 
-1. Click the **SSO Options** tab and perform below steps.
+1. Clique na guia **Opções de SSO** e execute as etapas a seguir.
 
-    ![Configure Single Sign-On On App Side](./media/boomi-tutorial/tutorial_boomi_11.png)
+    ![Configurar o logon único no lado do aplicativo](./media/boomi-tutorial/tutorial_boomi_11.png)
 
-    a. Check **Enable SAML Single Sign-On** checkbox.
+    a. Marque a caixa de seleção **habilitar logon único do SAML** .
 
-    b. Click **Import** to upload the downloaded certificate from Azure AD to **Identity Provider Certificate**.
+    b. Clique em **importar** para carregar o certificado baixado do Azure ad para o **certificado do provedor de identidade**.
 
-    c. In the **Identity Provider Login URL** textbox, put the value of **Login URL** from Azure AD application configuration window.
+    c. Na caixa de texto **URL de logon do provedor de identidade** , coloque o valor da URL de **logon** da janela de configuração de aplicativo do Azure AD.
 
-    d. As **Federation Id Location**, select **Federation Id is in FEDERATION_ID Attribute element** radio button.
+    d. Como **local da ID da Federação**, selecione a **ID da Federação está no botão de opção FEDERATION_ID elemento de atributo** .
 
-    e. Click **Save** button.
+    e. Clique no botão **salvar** .
 
-### <a name="create-boomi-test-user"></a>Create Boomi test user
+### <a name="create-boomi-test-user"></a>Criar usuário de teste do Prontoi
 
-In order to enable Azure AD users to sign in to Boomi, they must be provisioned into Boomi. In the case of Boomi, provisioning is a manual task.
+Para permitir que os usuários do AD do Azure entrem no entanto, eles devem ser provisionados no "pronto". No caso do "pronto", o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>To provision a user account, perform the following steps:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-1. Sign in to your Boomi company site as an administrator.
+1. Entre no site da empresa pronto para participar como administrador.
 
-1. After logging in, navigate to **User Management** and go to **Users**.
+1. Depois de fazer logon, navegue até **Gerenciamento de usuários** e vá para **usuários**.
 
     ![Utilizadores](./media/boomi-tutorial/tutorial_boomi_001.png "Utilizadores")
 
-1. Click **+**  icon and the **Add/Maintain User Roles** dialog opens.
+1. Clique no ícone **+** e a caixa de diálogo **Adicionar/manter funções de usuário** será aberta.
 
     ![Utilizadores](./media/boomi-tutorial/tutorial_boomi_002.png "Utilizadores")
 
     ![Utilizadores](./media/boomi-tutorial/tutorial_boomi_003.png "Utilizadores")
 
-    a. In the **User e-mail address** textbox, type the email of user like B.Simon@contoso.com.
+    a. Na caixa de texto **endereço de email do usuário** , digite o email do usuário, como B.Simon@contoso.com.
 
-    b. In the **First name** textbox, type the First name of user like B.
+    b. Na caixa de texto **nome** , digite o nome do usuário, como B.
 
-    c. In the **Last name** textbox, type the Last name of user like Simon.
+    c. Na caixa de texto **sobrenome** , digite o sobrenome do usuário, como Simon.
 
-    d. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account.
+    d. Insira a ID da **Federação**do usuário. Cada usuário deve ter uma ID de Federação que identifique exclusivamente o usuário na conta.
 
-    e. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give them normal Atmosphere access as well as single sign-on access.
+    e. Atribua a função de **usuário padrão** ao usuário. Não atribua a função de administrador, pois isso daria acesso normal à atmosfera, bem como ao acesso de logon único.
 
     f. Clique em **OK**.
 
     > [!NOTE]
-    > The user will not receive a welcome notification email containing a password that can be used to log in to the AtomSphere account because their password is managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision Azure AD user accounts.
+    > O usuário não receberá um email de notificação de boas-vindas contendo uma senha que pode ser usada para fazer logon na conta do AtomSphere porque sua senha é gerenciada por meio do provedor de identidade. Você pode usar qualquer outra ferramenta de criação de conta de usuário pronto para uso ou APIs fornecidas por "pronto para" para provisionar contas de usuário do Azure AD.
 
-## <a name="test-sso"></a>Test SSO
+## <a name="test-sso"></a>Testar SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-When you click the Boomi tile in the Access Panel, you should be automatically signed in to the Boomi for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco "pronto" no painel de acesso, você deve entrar automaticamente no pronto para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Boomi with Azure AD](https://aad.portal.azure.com/)
+- [Experimente o "pronto para usar" com o Azure AD](https://aad.portal.azure.com/)

@@ -58,7 +58,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    |Localização| Selecione **E.U.A. Leste** |
    |Nome da Sub-rede| Público|
    |Intervalo de Endereços da Sub-rede| 10.0.0.0/24|
-   |Proteção contra DDoS| Básica|
+   |Proteção contra DDoS| Básico|
    |Pontos finais de serviço| Desativado|
    |Firewall| Desativado|
 

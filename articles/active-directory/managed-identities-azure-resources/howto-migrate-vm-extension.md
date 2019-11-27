@@ -166,7 +166,7 @@ No Windows e em determinadas versões do Linux, se a extensão for interrompida,
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Onde: 
+Em que: 
 - O nome e o tipo da extensão para o Windows é: `ManagedIdentityExtensionForWindows`
 - O nome e o tipo da extensão para Linux é: `ManagedIdentityExtensionForLinux`
 

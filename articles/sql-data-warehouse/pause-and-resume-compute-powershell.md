@@ -11,16 +11,16 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2ad83e51a11e08373f2132e861ec1c8f3ac20458
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 148f3f99aac5ce01bd88f1efaecb5821ae94f50a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686008"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539171"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: pausar e retomar a computação no Azure SQL Data Warehouse com Azure PowerShell
 
-Use o PowerShell para pausar a computação no Azure SQL Data Warehouse para economizar custos. [Retome a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para usar o data warehouse.
+Use Azure PowerShell para pausar a computação no Azure SQL Data Warehouse para economizar custos. [Retome a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para usar o data warehouse.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -56,7 +56,7 @@ Localize o nome da base de dados, nome do servidor e grupo de recursos para o ar
 
 Siga estes passos para encontrar as informações de localização para o seu armazém de dados.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
 3. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. O armazém de dados é aberto.
 

@@ -1,6 +1,6 @@
 ---
-title: Reprovision devices in Azure IoT Hub Device Provisioning Service
-description: Learn how to reprovision devices with your device provisioning service instance, and why you might need to do this.
+title: Reprovisionar dispositivos no serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Saiba como reprovisionar dispositivos com a instância do serviço de provisionamento de dispositivos e por que talvez seja necessário fazer isso.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -14,86 +14,86 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229712"
 ---
-# <a name="how-to-reprovision-devices"></a>How to reprovision devices
+# <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
-During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. The reasons for this move may include the following scenarios:
+Durante o ciclo de vida de uma solução de IoT, é comum mover os dispositivos entre os hubs IoT. Os motivos para essa movimentação podem incluir os seguintes cenários:
 
-* **Geolocation**: As a device moves between locations, network latency is improved by having the device migrated to an IoT hub closer to each location.
+* **Geolocalização**: à medida que um dispositivo é movido entre locais, a latência de rede é aprimorada com o dispositivo migrado para um hub IOT mais próximo de cada local.
 
-* **Multi-tenancy**: A device could be used within the same IoT solution but, reassigned or leased to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
+* **Multilocação**: um dispositivo pode ser usado na mesma solução de IOT, mas reatribuído ou concedido a um novo cliente ou site do cliente. Esse novo cliente pode ser atendido usando um hub IoT diferente.
 
-* **Solution change**: A device could be moved into a new or updated IoT solution. This reassignment may require that the device communicate with a new IoT hub that is connected to other backend components. 
+* **Alteração da solução**: um dispositivo pode ser movido para uma solução de IOT nova ou atualizada. Essa reatribuição pode exigir que o dispositivo se comunique com um novo hub IoT conectado a outros componentes de back-end. 
 
-* **Quarantine**: Similar to a solution change. A device that is malfunctioning, compromised, or out-of-date may be reassigned to an IoT hub where all it can do is update and get back in compliance. Once the device is functioning properly, it is then migrated back to its main hub.
+* **Quarentena**: semelhante a uma alteração de solução. Um dispositivo que está com problemas de funcionamento, comprometido ou desatualizado pode ser reatribuído a um hub IoT, onde tudo o que ele pode fazer é atualizar e obter novamente a conformidade. Depois que o dispositivo estiver funcionando corretamente, ele será migrado de volta para seu Hub principal.
 
-For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
+Para obter mais uma visão geral mais detalhada do reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md).
 
 
-## <a name="configure-the-enrollment-allocation-policy"></a>Configure the enrollment allocation policy
+## <a name="configure-the-enrollment-allocation-policy"></a>Configurar a política de alocação de registro
 
-The allocation policy determines how the devices associated with the enrollment will be allocated, or assigned, to an IoT hub once reprovisioned.
+A política de alocação determina como os dispositivos associados ao registro serão alocados, ou atribuídos, a um hub IoT após o reprovisionamento.
 
-The following steps configure the allocation policy for a device's enrollment:
+As etapas a seguir configuram a política de alocação para o registro de um dispositivo:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até a instância do serviço de provisionamento de dispositivos.
 
-2. Click **Manage enrollments**, and click the enrollment group or individual enrollment that you want to configure for reprovisioning. 
+2. Clique em **gerenciar registros**e clique no grupo de registro ou no registro individual que você deseja configurar para o reprovisionamento. 
 
-3. Under **Select how you want to assign devices to hubs**, select one of the following allocation policies:
+3. Em **selecionar como você deseja atribuir dispositivos a hubs**, selecione uma das seguintes políticas de alocação:
 
-    * **Lowest latency**: This policy assigns devices to the linked IoT Hub that will result in the lowest latency communications between device and IoT Hub. This option enables the device to communicate with the closest IoT hub based on location. 
+    * **Menor latência**: essa política atribui dispositivos ao Hub IOT vinculado que resultará na comunicação de latência mais baixa entre o dispositivo e o Hub IOT. Essa opção permite que o dispositivo se comunique com o Hub IoT mais próximo com base no local. 
     
-    * **Evenly weighted distribution**: This policy distributes devices across the linked IoT Hubs based on the allocation weight assigned to each linked IoT hub. This policy allows you to load balance devices across a group of linked hubs based on the allocation weights set on those hubs. If you are provisioning devices to only one IoT Hub, we recommend this setting. Esta é a predefinição. 
+    * **Distribuição uniformemente ponderada**: essa política distribui dispositivos entre os hubs IOT vinculados com base no peso de alocação atribuído a cada Hub IOT vinculado. Essa política permite balancear a carga de dispositivos em um grupo de hubs vinculados com base nos pesos de alocação definidos nesses hubs. Se você estiver Provisionando dispositivos para apenas um hub IoT, recomendamos essa configuração. Esta é a predefinição. 
     
-    * **Static configuration**: This policy requires a desired IoT Hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single specific IoT hub that you want to assign devices to.
+    * **Configuração estática**: essa política requer que um hub IOT desejado seja listado na entrada de registro de um dispositivo a ser provisionado. Essa política permite designar um único Hub IoT específico ao qual você deseja atribuir dispositivos.
 
-4. Under **Select the IoT hubs this group can be assigned to**, select the linked IoT hubs that you want included with your allocation policy. Optionally, add a new linked Iot hub using the **Link a new IoT Hub** button.
+4. Em **selecionar os hubs IOT aos quais este grupo pode ser atribuído**, selecione os hubs IOT vinculados que você deseja incluir com sua política de alocação. Opcionalmente, adicione um novo hub IOT vinculado usando o botão **vincular um novo hub IOT** .
 
-    With the **Lowest latency** allocation policy, the hubs you select will be included in the latency evaluation to determine the closest hub for device assignment.
+    Com a diretiva de alocação de **latência mais baixa** , os hubs selecionados serão incluídos na avaliação de latência para determinar o Hub mais próximo para a atribuição de dispositivo.
 
-    With the **Evenly weighted distribution** allocation policy, devices will be load balanced across the hubs you select based on their configured allocation weights and their current device load.
+    Com a política de alocação de **distribuição uniformemente ponderada** , os dispositivos terão balanceamento de carga entre os hubs selecionados com base em seus pesos de alocação configurados e sua carga de dispositivo atual.
 
-    With the **Static configuration** allocation policy, select the IoT hub you want devices assigned to.
+    Com a política de alocação de **configuração estática** , selecione o Hub IOT ao qual você deseja que os dispositivos sejam atribuídos.
 
-4. Click **Save**, or proceed to the next section to set the reprovisioning policy.
+4. Clique em **salvar**ou vá para a próxima seção para definir a política de reprovisionamento.
 
-    ![Select enrollment allocation policy](./media/how-to-reprovision/enrollment-allocation-policy.png)
-
-
-
-## <a name="set-the-reprovisioning-policy"></a>Set the reprovisioning policy
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-2. Click **Manage enrollments**, and click the enrollment group or individual enrollment that you want to configure for reprovisioning.
-
-3. Under **Select how you want device data to be handled on re-provision to a different IoT hub**, choose one of the following reprovisioning policies:
-
-    * **Re-provision and migrate data**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
-
-    * **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub. During migration, the device's status will be reported as **Assigning**.
-
-4. Click **Save** to enable the reprovisioning of the device based on your changes.
-
-    ![Select enrollment allocation policy](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Selecionar política de alocação de registro](./media/how-to-reprovision/enrollment-allocation-policy.png)
 
 
 
-## <a name="send-a-provisioning-request-from-the-device"></a>Send a provisioning request from the device
+## <a name="set-the-reprovisioning-policy"></a>Definir a política de reprovisionamento
 
-In order for devices to be reprovisioned based on the configuration changes made in the preceding sections, these devices must request reprovisioning. 
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até a instância do serviço de provisionamento de dispositivos.
 
-How often a device submits a provisioning request depends on the scenario. However, it is advised to program your devices to send a provisioning request to a provisioning service instance on reboot, and support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand. Provisioning could also be triggered by setting a [desired property](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
+2. Clique em **gerenciar registros**e clique no grupo de registro ou no registro individual que você deseja configurar para o reprovisionamento.
 
-The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests, and if device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
+3. Em **selecionar como você deseja que os dados do dispositivo sejam manipulados ao reprovisionar para um hub IOT diferente**, escolha uma das políticas de reprovisionamento a seguir:
 
-For example code of sending provisioning requests from a device during a boot sequence, see [Auto-provisioning a simulated device](quick-create-simulated-device.md).
+    * **Reprovisionar e migrar dados**: essa política entra em ação quando os dispositivos associados à entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver alterando os hubs IoT, o registro do dispositivo com o Hub IoT inicial será removido. Todas as informações de estado do dispositivo do Hub IoT inicial serão migradas para o novo hub IoT. Durante a migração, o status do dispositivo será relatado como **atribuição**
+
+    * **Reprovisionar e redefinir para a configuração inicial**: essa política executa uma ação quando os dispositivos associados à entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver alterando os hubs IoT, o registro do dispositivo com o Hub IoT inicial será removido. Os dados de configuração inicial que a instância do serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos para o novo hub IoT. Durante a migração, o status do dispositivo será relatado como **atribuição**.
+
+4. Clique em **salvar** para habilitar o reprovisionamento do dispositivo com base em suas alterações.
+
+    ![Selecionar política de alocação de registro](./media/how-to-reprovision/reprovisioning-policy.png)
+
+
+
+## <a name="send-a-provisioning-request-from-the-device"></a>Enviar uma solicitação de provisionamento do dispositivo
+
+Para que os dispositivos sejam reprovisionados com base nas alterações de configuração feitas nas seções anteriores, esses dispositivos devem solicitar o reprovisionamento. 
+
+A frequência com que um dispositivo envia uma solicitação de provisionamento depende do cenário. No entanto, é aconselhável programar seus dispositivos para enviar uma solicitação de provisionamento para uma instância de serviço de provisionamento na reinicialização e dar suporte a um [método](../iot-hub/iot-hub-devguide-direct-methods.md) para disparar o provisionamento manualmente sob demanda. O provisionamento também pode ser disparado com a definição de uma [propriedade desejada](../iot-hub/iot-hub-devguide-device-twins.md#desired-property-example). 
+
+A política de reprovisionamento em uma entrada de registro determina como a instância do serviço de provisionamento de dispositivos manipula essas solicitações de provisionamento e se os dados de estado do dispositivo devem ser migrados durante o reprovisionamento. As mesmas políticas estão disponíveis para registros individuais e grupos de registro:
+
+Por exemplo, o código de envio de solicitações de provisionamento de um dispositivo durante uma sequência de inicialização, consulte [Provisionando automaticamente um dispositivo simulado](quick-create-simulated-device.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+- Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
+- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

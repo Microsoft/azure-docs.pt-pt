@@ -108,5 +108,5 @@ Você também pode baixar a extensão para o Chrome e Firefox nos links diretos 
 -   [Extensão do painel de acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>Passos seguintes
-[Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)
+[Fornecer logon único para seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)
 

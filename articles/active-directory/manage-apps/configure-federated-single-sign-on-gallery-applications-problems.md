@@ -46,13 +46,13 @@ Para saber os padrões pré-configurados para o aplicativo:
 
 2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Digite **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
 
 4. clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
 
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
 
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -90,13 +90,13 @@ Para baixar os metadados do aplicativo ou o certificado do Azure AD, siga estas 
 
 2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Digite **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
 
 4. clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
 
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
 
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
 6. Selecione o aplicativo que você configurou o logon único.
 

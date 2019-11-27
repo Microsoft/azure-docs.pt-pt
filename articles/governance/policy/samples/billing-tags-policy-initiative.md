@@ -1,6 +1,6 @@
 ---
-title: Sample - Billing tags policy initiative
-description: This sample policy initiative (policy set) requires specified tag values defined in parameters for cost center and product name.
+title: Exemplo-iniciativa de política de marcas de cobrança
+description: Esta iniciativa de política de exemplo (conjunto de políticas) requer valores de marca especificados definidos em parâmetros para o centro de custo e o nome do produto.
 ms.date: 01/23/2019
 ms.topic: sample
 ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
@@ -10,7 +10,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463385"
 ---
-# <a name="sample---billing-tags-policy-initiative"></a>Sample - Billing tags policy initiative
+# <a name="sample---billing-tags-policy-initiative"></a>Exemplo-iniciativa de política de marcas de cobrança
 
 Este conjunto de políticas exige valores de etiqueta especificados para o nome do produto e o centro de custos. Utiliza políticas incorporadas para aplicar e impor etiquetas necessárias. O utilizador especifica os valores necessários para as etiquetas.
 
@@ -20,9 +20,9 @@ Este conjunto de políticas exige valores de etiqueta especificados para o nome 
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-You can deploy this template with [PowerShell](#deploy-with-powershell).
+Você pode implantar esse modelo com o [PowerShell](#deploy-with-powershell).
 
-## <a name="deploy-with-powershell"></a>Implementar com o Powershell
+## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -62,4 +62,4 @@ foreach ($r in $resources) {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

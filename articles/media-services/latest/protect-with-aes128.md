@@ -57,7 +57,7 @@ O seguinte é necessário para concluir o tutorial.
 
 * Reveja o artigo [Descrição Geral da Proteção de Conteúdo](content-protection-overview.md).
 * Instale o Visual Studio Code ou o Visual Studio.
-* [Criar uma conta de Media Services](create-account-cli-quickstart.md).
+* [Crie uma conta dos serviços de mídia](create-account-cli-quickstart.md).
 * Obtenha as credenciais necessárias para usar as APIs dos serviços de mídia seguindo as [APIs de acesso](access-api-cli-how-to.md).
 
 ## <a name="download-code"></a>Transferir código
@@ -170,4 +170,4 @@ Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Proteger com o DRM](protect-with-drm.md)
+> [Proteger com DRM](protect-with-drm.md)

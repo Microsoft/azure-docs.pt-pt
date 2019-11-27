@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Search for videos using the REST API and Java - Bing Video Search'
+title: 'Início rápido: pesquisar vídeos usando a API REST e Pesquisa de Vídeo do Bing Java'
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send video search requests to the Bing Video Search REST API using Java.
+description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo para a API REST do Pesquisa de Vídeo do Bing usando Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,13 +17,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74378652"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Quickstart: Search for videos using the Bing Video Search REST API and Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Início rápido: pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Java
 
-Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Java application sends an HTTP video search query to the API, and displays the response. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) with additional error handling, features, and code annotations.
+Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com tratamento de erros adicional, recursos e anotações de código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+* O [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
@@ -45,7 +45,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     import com.google.gson.JsonParser;
     ```
 
-2. Create a new class named `SearchResults` to store the headers and JSON response from the API.
+2. Crie uma nova classe chamada `SearchResults` para armazenar os cabeçalhos e a resposta JSON da API.
 
     ```java
     // Container class for search results encapsulates relevant headers and JSON data
@@ -59,7 +59,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     }
     ```
 
-3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and a search term. It will return a `SearchResults` object. 
+3. Crie um novo método chamado `SearchVideos()` com variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura e um termo de pesquisa. Retornará um objeto `SearchResults`. 
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -70,11 +70,11 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     }
     ```
 
-## <a name="construct-and-send-the-search-request"></a>Construct and send the search request
+## <a name="construct-and-send-the-search-request"></a>Construir e enviar a solicitação de pesquisa
 
-1. In `SearchVideos()`, perform the following steps:
+1. No `SearchVideos()`, execute as seguintes etapas:
 
-    1. construct the URL for your request by combining your API host, path, and encoding your search query. Then use `openConnection()` to create a connection, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+    1. Construa a URL para sua solicitação combinando seu host de API, caminho e codificando sua consulta de pesquisa. Em seguida, use `openConnection()` para criar uma conexão e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
         ```java
         URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
@@ -82,14 +82,14 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
         ```
 
-    2. Get the response from the API and store the JSON string.
+    2. Obtenha a resposta da API e armazene a cadeia de caracteres JSON.
 
         ```java
         InputStream stream = connection.getInputStream();
         String response = new Scanner(stream).useDelimiter("\\A").next();
         ```
 
-    3. Use `getHeaderFields();` to extract the HTTP headers from the response, and store the Bing-related ones in the `results` object. Then close the stream and return the result.
+    3. Use `getHeaderFields();` para extrair os cabeçalhos HTTP da resposta e armazenar os relacionados ao Bing no objeto `results`. Em seguida, feche o fluxo e retorne o resultado.
 
         ```java
         // extract Bing-related HTTP headers
@@ -106,7 +106,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-1. Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then use `GsonBuilder()` and `toJson()` to create the formatted string. 
+1. Crie um método chamado `prettify()` para formatar a resposta retornada da API de vídeo do Bing. Use a `JsonParser` da biblioteca Gson para pegar uma cadeia de caracteres JSON e convertê-la em um objeto. Em seguida, use `GsonBuilder()` e `toJson()` para criar a cadeia de caracteres formatada. 
 
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -118,9 +118,9 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     }
     ```
 
-## <a name="send-the-request-and-print-the-response"></a>Send the request and print the response
+## <a name="send-the-request-and-print-the-response"></a>Enviar a solicitação e imprimir a resposta
 
-1. In the main method of your application, call `SearchVideos` with your search term. you can then print the HTTP headers stored in the response, as well as the JSON string returned by the API.
+1. No método principal do seu aplicativo, chame `SearchVideos` com o termo de pesquisa. Você pode imprimir os cabeçalhos HTTP armazenados na resposta, bem como a cadeia de caracteres JSON retornada pela API.
 
     ```java
     public static void main (String[] args) {
@@ -246,8 +246,8 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](../tutorial-bing-video-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consulte também 
 
- [What is the Bing Video Search API?](../overview.md)
+ [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)

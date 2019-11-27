@@ -22,7 +22,7 @@ Ele inclui suporte para monitoramento de desempenho e dependências de aplicativ
 
 - **Gráficos de desempenho de tendência predefinidos**: Exibir métricas de desempenho de núcleo do sistema operacional da VM convidada.
 
-- **Mapa de dependência**: apresenta os componentes interconectados com a VM a partir de vários grupos de recursos e subscrições.  
+- **Mapa de dependências**: exibe os componentes interconectados com a VM de vários grupos de recursos e assinaturas.  
 
 >[!NOTE]
 >Recentemente, [anunciamos alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
@@ -38,7 +38,7 @@ Azure Monitor para VMs pode fornecer desempenho previsível e disponibilidade de
 
 ## <a name="data-usage"></a>Utilização de dados
 
-Ao implementar o Azure Monitor para as VMs, os dados recolhidos pelas suas VMs são ingeridos e armazenados no Azure Monitor. Os dados de desempenho e dependência coletados são armazenados em um espaço de trabalho Log Analytics. Com base nos preços publicados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), do Azure Monitor para VMs é cobrado por:
+Ao implementar o Azure Monitor para as VMs, os dados recolhidos pelas suas VMs são ingeridos e armazenados no Azure Monitor. Os dados de desempenho e dependência coletados são armazenados em um espaço de trabalho Log Analytics. Com base no preço que é publicado na [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/), Azure monitor para VMs é cobrado por:
 
 - Os dados ingeridos e armazenados.
 - As regras de alerta que são criadas.
@@ -48,4 +48,4 @@ O tamanho do log varia de acordo com os comprimentos de cadeia de caracteres de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para compreender os requisitos e métodos que o ajudam a monitorizar as máquinas virtuais, consulte [implementar o Azure Monitor para VMs](vminsights-enable-overview.md).
+Para entender os requisitos e métodos que ajudam a monitorar suas máquinas virtuais, examine [implantar Azure monitor para VMs](vminsights-enable-overview.md).

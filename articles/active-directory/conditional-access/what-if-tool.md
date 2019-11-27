@@ -1,6 +1,6 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
-description: Learn how you can understand the impact of your Conditional Access policies on your environment.
+title: A ferramenta de What If de acesso condicional-Azure Active Directory
+description: Saiba como você pode entender o impacto de suas políticas de acesso condicional em seu ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,92 +18,92 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379985"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
+O [acesso condicional](../active-directory-conditional-access-azure-portal.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
 
-This article explains how you can use this tool to test your Conditional Access policies.
+Este artigo explica como você pode usar essa ferramenta para testar suas políticas de acesso condicional.
 
 ## <a name="what-it-is"></a>O que é
 
-The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Em vez de testar as suas políticas ao executar vários inícios de sessão manualmente, esta ferramenta permite avaliar um início de sessão simulado de um utilizador. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+A **ferramenta de política de What If de acesso condicional** permite que você entenda o impacto de suas políticas de acesso condicional em seu ambiente. Em vez de testar as suas políticas ao executar vários inícios de sessão manualmente, esta ferramenta permite avaliar um início de sessão simulado de um utilizador. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação. O relatório não lista apenas as políticas de acesso condicional aplicadas, mas também [as políticas clássicas](policy-migration.md#classic-policies) , se existirem.    
 
-The **What If** tool provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.    
+A ferramenta de **What If** fornece uma maneira de determinar rapidamente as políticas que se aplicam a um usuário específico. Você pode usar as informações, por exemplo, se precisar solucionar um problema.    
 
 ## <a name="how-it-works"></a>Como funciona
 
-In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
+Na **ferramenta de What If de acesso condicional**, primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
 
-- The user you want to test 
-- The cloud apps the user would attempt to access
-- The conditions under which access to the configures cloud apps is performed
+- O usuário que você deseja testar 
+- Os aplicativos de nuvem que o usuário tentaria acessar
+- As condições sob as quais o acesso ao configura os aplicativos de nuvem são executadas
      
-As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
+Como uma próxima etapa, você pode iniciar uma execução de simulação que avalia suas configurações. Somente as políticas habilitadas fazem parte de uma execução de avaliação.
 
-When the evaluation has finished, the tool generates a report of the affected policies.
+Quando a avaliação for concluída, a ferramenta gerará um relatório das políticas afetadas.
 
-## <a name="running-the-tool"></a>Running the tool
+## <a name="running-the-tool"></a>Executando a ferramenta
 
-You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+Você pode encontrar a ferramenta **What If** na página **[acesso condicional-políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal do Azure.
 
-To start the tool, in the toolbar on top of the list of policies, click **What If**.
+Para iniciar a ferramenta, na barra de ferramentas na parte superior da lista de políticas, clique em **What If**.
 
 ![What If](./media/what-if-tool/01.png)
 
-Before you can run an evaluation, you must configure the settings.
+Para poder executar uma avaliação, você deve definir as configurações.
 
 ## <a name="settings"></a>Definições
 
-This section provides you with information about the settings of simulation run.
+Esta seção fornece informações sobre as configurações de execução de simulação.
 
 ![What If](./media/what-if-tool/02.png)
 
 ### <a name="user"></a>Utilizador
 
-You can only select one user. This is the only required field.
+Você só pode selecionar um usuário. Esse é o único campo obrigatório.
 
-### <a name="cloud-apps"></a>Cloud apps
+### <a name="cloud-apps"></a>Aplicativos de nuvem
 
-The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
+O padrão para essa configuração é **todos os aplicativos de nuvem**. A configuração padrão executa uma avaliação de todas as políticas disponíveis em seu ambiente. Você pode restringir o escopo às políticas que afetam aplicativos de nuvem específicos.
 
 ### <a name="ip-address"></a>Endereço IP
 
-The IP address is a single IPv4 address to mimic the [location condition](location-condition.md). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
+O endereço IP é um único endereço IPv4 para imitar a [condição de local](location-condition.md). O endereço representa o endereço voltado para a Internet do dispositivo usado pelo usuário para entrar. Você pode verificar o endereço IP de um dispositivo, por exemplo, navegando até [o que é meu endereço IP](https://whatismyipaddress.com).    
 
-### <a name="device-platforms"></a>Device platforms
+### <a name="device-platforms"></a>Plataformas de dispositivo
 
-This setting mimics the [device platforms condition](conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)** . 
+Essa configuração imita a [condição de plataformas de dispositivo](conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo sem suporte)** . 
 
-### <a name="client-apps"></a>Client apps
+### <a name="client-apps"></a>Aplicativos cliente
 
-This setting mimics the [client apps condition](conditions.md#client-apps).
-By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)** . You can narrow this setting down by selecting:
+Essa configuração imita a [condição de aplicativos cliente](conditions.md#client-apps).
+Por padrão, essa configuração faz com que uma avaliação de todas as políticas tenha **aplicativos móveis e de navegador e clientes de área de trabalho** individualmente ou ambos selecionados. Ele também detecta políticas que impõem o **Exchange ActiveSync (EAS)** . Você pode restringir essa configuração selecionando:
 
-- **Browser** to evaluate all policies having at least **Browser** selected. 
-- **Mobile apps and desktop clients** to evaluate all policies having at least **Mobile apps and desktop clients** selected. 
+- **Navegador** para avaliar todas as políticas que têm pelo menos o **navegador** selecionado. 
+- **Aplicativos móveis e clientes de desktop** para avaliar todas as políticas que têm pelo menos **aplicativos móveis e clientes de desktop** selecionados. 
 
-### <a name="sign-in-risk"></a>Sign-in risk
+### <a name="sign-in-risk"></a>Risco de entrada
 
-This setting mimics the [sign-in risk condition](conditions.md#sign-in-risk).   
+Essa configuração imita a [condição de risco de entrada](conditions.md#sign-in-risk).   
 
-## <a name="evaluation"></a>Evaluation 
+## <a name="evaluation"></a>Período 
 
-You start an evaluation by clicking **What If**. The evaluation result provides you with a report that consists of: 
+Você inicia uma avaliação clicando em **What If**. O resultado da avaliação fornece um relatório que consiste em: 
 
 ![What If](./media/what-if-tool/03.png)
 
-- An indicator whether classic policies exist in your environment
-- Policies that apply to your user
-- Policies that don't apply to your user
+- Um indicador de se existem políticas clássicas em seu ambiente
+- Políticas que se aplicam ao usuário
+- Políticas que não se aplicam ao usuário
 
-If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
+Se houver [políticas clássicas](policy-migration.md#classic-policies) para os aplicativos de nuvem selecionados, um indicador será apresentado a você. Ao clicar no indicador, você será redirecionado para a página políticas clássicas. Na página políticas clássicas, você pode migrar uma política clássica ou apenas desabilitá-la. Você pode retornar ao resultado da avaliação fechando esta página.
 
-On the list of policies that apply to your selected user, you can also find a list of [grant controls](controls.md#grant-controls) and [session](controls.md#session-controls) controls your user must satisfy.
+Na lista de políticas que se aplicam ao usuário selecionado, você também pode encontrar uma lista de [controles de concessão](controls.md#grant-controls) e de [sessão](controls.md#session-controls) que seu usuário deve atender.
 
-On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
+Na lista de políticas que não se aplicam ao usuário, você também pode encontrar os motivos pelos quais essas políticas não se aplicam. Para cada política listada, o motivo representa a primeira condição que não foi satisfeita. Um possível motivo para uma política que não é aplicada é uma política desabilitada porque elas não são mais avaliadas.   
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md). 
-- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](policy-migration.md)  
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
+- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md). 
+- Se você quiser migrar políticas clássicas, consulte [migrar políticas clássicas no portal do Azure](policy-migration.md)  

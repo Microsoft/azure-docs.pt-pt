@@ -1,19 +1,14 @@
 ---
-title: Usar políticas de reinicialização com tarefas em contêineres em instâncias de contêiner do Azure
+title: Reinicie a política para tarefas de execução única
 description: Saiba como usar as instâncias de contêiner do Azure para executar tarefas que são executadas até a conclusão, como nos trabalhos de processamento de compilação, teste ou imagem.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325682"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533462"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinicialização
 
@@ -25,7 +20,7 @@ Os exemplos apresentados neste artigo usam o CLI do Azure. Você deve ter CLI do
 
 ## <a name="container-restart-policy"></a>Política de reinicialização de contêiner
 
-Ao criar um [grupo](container-instances-container-groups.md) de contêineres em instâncias de contêiner do Azure, você pode especificar uma das três configurações de política de reinicialização.
+Ao criar um [grupo de contêineres](container-instances-container-groups.md) em instâncias de contêiner do Azure, você pode especificar uma das três configurações de política de reinicialização.
 
 | Política de reinício   | Descrição |
 | ---------------- | :---------- |
@@ -35,7 +30,7 @@ Ao criar um [grupo](container-instances-container-groups.md) de contêineres em 
 
 ## <a name="specify-a-restart-policy"></a>Especificar uma política de reinicialização
 
-A maneira de especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com os cmdlets CLI do Azure, Azure PowerShell ou no portal do Azure. Na CLI do Azure, especifique o `--restart-policy` parâmetro ao chamar [AZ container Create][az-container-create].
+A maneira de especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com os cmdlets CLI do Azure, Azure PowerShell ou no portal do Azure. Na CLI do Azure, especifique o parâmetro `--restart-policy` ao chamar [AZ container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -47,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Exemplo de execução até a conclusão
 
-Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de `OnFailure` reinicialização. Esse contêiner de exemplo executa um script Python que, por padrão, analisa o texto do [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)de Shakespeare, grava as 10 palavras mais comuns em stdout e, em seguida, sai.
+Para ver a política de reinicialização em ação, crie uma instância de contêiner a partir da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de reinicialização de `OnFailure`. Esse contêiner de exemplo executa um script Python que, por padrão, analisa o texto do [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)de Shakespeare, grava as 10 palavras mais comuns em stdout e, em seguida, sai.
 
 Execute o contêiner de exemplo com o seguinte comando [AZ container Create][az-container-create] :
 
@@ -59,7 +54,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-As instâncias de contêiner do Azure iniciam o contêiner e, em seguida, são interrompidas quando seu aplicativo (ou script, neste caso) é encerrado. Quando as instâncias de contêiner do Azure param um contêiner `Never` cuja `OnFailure`política de reinicialização é ou, o status do contêiner é definido como encerrado. Você pode verificar o status de um contêiner com o comando [AZ container show][az-container-show] :
+As instâncias de contêiner do Azure iniciam o contêiner e, em seguida, são interrompidas quando seu aplicativo (ou script, neste caso) é encerrado. Quando as instâncias de contêiner do Azure para um contêiner cuja política de reinicialização é `Never` ou `OnFailure`, o status do contêiner é definido como **encerrado**. Você pode verificar o status de um contêiner com o comando [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -94,7 +89,7 @@ Saída:
 
 Este exemplo mostra a saída que o script enviou para STDOUT. As tarefas em contêineres, no entanto, podem gravar sua saída no armazenamento persistente para recuperação posterior. Por exemplo, para um [compartilhamento de arquivos do Azure](container-instances-mounting-azure-files-volume.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem tirar proveito de [variáveis de ambiente](container-instances-environment-variables.md) personalizadas ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
 

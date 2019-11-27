@@ -41,7 +41,7 @@ Este tutorial mostrar-lhe como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver o Visual Studio instalado, obtenha o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).<br/>Lembre-se de lembrar os valores que você usou para o nome do grupo de recursos e o nome da conta dos serviços de mídia.
+- [Crie uma conta dos serviços de mídia](create-account-cli-how-to.md).<br/>Lembre-se de lembrar os valores que você usou para o nome do grupo de recursos e o nome da conta dos serviços de mídia.
 - Siga as etapas em [acessar a API dos serviços de mídia do Azure com o CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 
 ## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo
