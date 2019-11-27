@@ -63,7 +63,7 @@ Uma rede virtual define o espaço de endereço no qual você cria uma ou mais su
 
 ### <a name="subnet-delegated"></a>Sub-rede (delegada)
 
-Sub-redes segmentar a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que coloca nos mesmos. Você cria uma ou várias sub-redes em uma rede virtual.
+As sub-redes segmentam a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que você coloca neles. Você cria uma ou várias sub-redes em uma rede virtual.
 
 A sub-rede que você usa para grupos de contêineres pode conter apenas grupos de contêineres. Quando você implanta um grupo de contêineres em uma sub-rede pela primeira vez, o Azure Delega essa sub-rede para as instâncias de contêiner do Azure. Depois de delegada, a sub-rede pode ser usada somente para grupos de contêineres. Se você tentar implantar recursos que não sejam grupos de contêineres em uma sub-rede delegada, a operação falhará.
 

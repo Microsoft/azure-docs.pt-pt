@@ -31,14 +31,14 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 > [!IMPORTANT]
 > Para obter diretrizes e considerações sobre o dimensionamento, consulte [dimensionar um banco de dados individual](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>Escalão de serviços básicos
+### <a name="basic-service-tier"></a>Escalão de serviço Basic
 
 | **Tamanho da computação** | **Básica** |
 | :--- | --: |
 | Máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
 | Opções de armazenamento máximo (GB) | 2 |
-| Armazenamento em OLTP na memória máx. (GB) |N/D |
+| Armazenamento em OLTP na memória máx. (GB) |N/A |
 | Máximo de trabalhos simultâneos (solicitações) | 30 |
 | Sessões simultâneas máx. | 300 |
 |||
@@ -56,7 +56,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |
+| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |
 | Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
 | Sessões simultâneas máx. |600 | 900 | 1200 | 2400 |
 ||||||
@@ -74,12 +74,12 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |N/D |
+| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |N/A |
 | Máximo de trabalhos simultâneos (solicitações)| 400 | 800 | 1600 | 3200 |6000 |
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Escalão de serviços Premium
+### <a name="premium-service-tier"></a>Escalão de serviço Premium
 
 | **Tamanho da computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|

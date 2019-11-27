@@ -42,7 +42,7 @@ Com Azure Machine Learning, você pode criar imagens do Docker de modelos de apr
     >
     > Para obter mais informações sobre como definir essas variáveis, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prepare-for-deployment"></a>Preparar para a implementação
+## <a name="prepare-for-deployment"></a>Preparar para implementar
 
 Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os itens básicos necessários para uma implantação:
 
@@ -232,7 +232,7 @@ Neste ponto, o aplicativo de funções começa a carregar a imagem.
 > [!IMPORTANT]
 > Pode levar vários minutos para que a imagem seja carregada. Você pode monitorar o progresso usando o portal do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como configurar seu aplicativo de funções na documentação do [Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-imag) .
 * Saiba mais sobre o armazenamento de BLOBs que dispara [associações de armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).

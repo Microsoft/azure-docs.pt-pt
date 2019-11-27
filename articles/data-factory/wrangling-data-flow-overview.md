@@ -42,7 +42,7 @@ Examine visualmente seus dados de forma livre de código para remover exceções
 
 | Conector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave da Conta |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave de conta |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | CSV | Principal de Serviço |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | CSV | Chave de conta, entidade de serviço |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
@@ -62,6 +62,6 @@ Para obter mais informações sobre as transformações com suporte, consulte [f
 
 Atualmente, o fluxo de dados Wrangling só dá suporte à gravação em um coletor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [criar um fluxo de dados do Wrangling](wrangling-data-flow-tutorial.md).

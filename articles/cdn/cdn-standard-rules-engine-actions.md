@@ -40,7 +40,7 @@ Definir se ausente | Quando essa opção for selecionada e a regra corresponder,
 
 Dias | Horas | Minutos | Segundos
 -----|-------|---------|--------
-Int | Int | Int | Int 
+Inteiro | Inteiro | Inteiro | Inteiro 
 
 ### <a name="cache-key-query-string"></a>Cadeia de consulta de chave de cache
 
@@ -63,9 +63,9 @@ Use esta ação para modificar os cabeçalhos que estão presentes nas solicita�
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | Cadeia
-Substituir | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | Cadeia
-Eliminar | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da solicitação. | Cadeia
+Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | String
+Gravado | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | String
+Eliminar | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da solicitação. | String
 
 ### <a name="modify-response-header"></a>Modificar cabeçalho de resposta
 
@@ -75,9 +75,9 @@ Use essa ação para modificar os cabeçalhos que estão presentes nas respostas
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** será anexado ao valor existente. | Cadeia
-Substituir | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** substituirá o valor existente. | Cadeia
-Eliminar | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da resposta. | Cadeia
+Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** será anexado ao valor existente. | String
+Gravado | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** substituirá o valor existente. | String
+Eliminar | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da resposta. | String
 
 ### <a name="url-redirect"></a>Redirecionamento de URL
 
@@ -105,10 +105,10 @@ Use essa ação para reescrever o caminho de uma solicitação que é roteada pa
 Campo | Descrição 
 ------|------------
 Padrão de origem | Defina o padrão de origem no caminho da URL a ser substituído. Atualmente, o padrão de origem usa uma correspondência baseada em prefixo. Para corresponder a todos os caminhos de URL, use uma barra ( **/** ) como o valor de padrão de origem.
-Destination | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
+Destino | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
 Preservar caminho sem correspondência | Se definido como **Sim**, o caminho restante após o padrão de origem será acrescentado ao novo caminho de destino. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da CDN do Azure](cdn-overview.md)
 - [Referência do mecanismo de regras padrão](cdn-standard-rules-engine-reference.md)

@@ -43,7 +43,7 @@ As cotas para aplicativos livres ou compartilhados são:
 | **CPU (curta)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de 5 minutos. Essa cota é redefinida a cada cinco minutos. |
 | **CPU (dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
 | **Memória** | A quantidade total de memória permitida para este aplicativo. |
-| **Largura de Banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
+| **Larga** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
 | **WPD** | A quantidade total de armazenamento permitido. |
 
 A única cota aplicável a aplicativos hospedados em *Basic*, *Standard*e *Premium* é FileSystem.

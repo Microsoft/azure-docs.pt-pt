@@ -36,7 +36,7 @@ Por exemplo, ter o `list` verbo significa que você pode exibir uma lista de tod
 
 Você pode configurar a função de cluster Customer-admin-cluster somente durante a criação do cluster, fornecendo o sinalizador `--customer-admin-group-id`. Para saber como configurar Azure Active Directory e o grupo de administradores, confira [integração Azure Active Directory para o Azure Red Hat OpenShift](howto-aad-app-configuration.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Configure a função de cluster Customer-admin-cluster:
 > [!div class="nextstepaction"]

@@ -111,6 +111,6 @@ Erros de previsão de entidade indicam que a entidade prevista não corresponde 
 > [!div class="mx-imgBorder"]
 > ![paleta de entidades para entidade aprendida por máquina](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use o [painel](luis-how-to-use-dashboard.md) e [examine o ponto de extremidade declarações](luis-how-to-review-endpoint-utterances.md) para melhorar a qualidade de previsão de seu aplicativo.

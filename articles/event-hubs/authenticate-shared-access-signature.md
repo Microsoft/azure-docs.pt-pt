@@ -20,7 +20,7 @@ A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tip
 
 - O intervalo em que a SAS é válida, incluindo a hora de início e a hora de expiração.
 - As permissões concedidas pela SAS. Por exemplo, uma SAS para um namespace de hubs de eventos pode conceder a permissão Listen, mas não a permissão Send.
-- Apenas clientes apresentam credenciais válidas podem enviar dados para um hub de eventos.
+- Somente clientes que apresentam credenciais válidas podem enviar dados para um hub de eventos.
 - Um cliente não pode representar outro cliente.
 - Um cliente Rouge pode ser impedido de enviar dados para um hub de eventos.
 
@@ -179,11 +179,11 @@ private static string createToken(string resourceUri, string keyName, string key
 ```
 
 ## <a name="authenticating-event-hubs-publishers-with-sas"></a>Autenticando Publicadores de hubs de eventos com SAS 
-Um publicador de eventos define um ponto final virtual para um hub de eventos. O Publicador só pode ser usado para enviar mensagens a um hub de eventos e não receber mensagens.
+Um editor de eventos define um ponto de extremidade virtual para um hub de eventos. O Publicador só pode ser usado para enviar mensagens a um hub de eventos e não receber mensagens.
 
-Normalmente, um hub de eventos emprega um publicador por cliente. Todas as mensagens enviadas a qualquer um dos editores de um hub de eventos são colocados em fila nesse hub de eventos. Os editores habilitam o controle de acesso refinado.
+Normalmente, um hub de eventos emprega um Publicador por cliente. Todas as mensagens enviadas a qualquer um dos publicadores de um hub de eventos são enfileiradas dentro desse Hub de eventos. Os editores habilitam o controle de acesso refinado.
 
-Cada cliente dos Hubs de eventos é atribuído um token exclusivo, que é carregado para o cliente. Os tokens são produzidos de modo que cada token exclusivo conceda acesso a um Publicador exclusivo diferente. Um cliente que contém um token só pode enviar para um Publicador e nenhum outro editor. Se vários clientes compartilham o mesmo token, cada um deles compartilha o Publicador.
+Cada cliente de hubs de eventos recebe um token exclusivo, que é carregado para o cliente. Os tokens são produzidos de modo que cada token exclusivo conceda acesso a um Publicador exclusivo diferente. Um cliente que contém um token só pode enviar para um Publicador e nenhum outro editor. Se vários clientes compartilham o mesmo token, cada um deles compartilha o Publicador.
 
 Todos os tokens são atribuídos com chaves SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave, o que impede os clientes de fabricar tokens. Os clientes operam nos mesmos tokens até que expirem.
 
@@ -207,22 +207,22 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser bloqueado de enviar para esse hub de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode estar na lista negra de enviar para esse Hub de eventos.
 > 
 > É sempre recomendável fornecer escopos específicos e granulares.
 
 > [!IMPORTANT]
-> Depois dos tokens foram criados, cada cliente é aprovisionada com seu próprio token exclusivo.
+> Depois que os tokens forem criados, cada cliente será provisionado com seu próprio token exclusivo.
 >
-> Quando o cliente envia dados para um hub de eventos, ele marca sua solicitação com o token. Para impedir que um invasor a interceptação e roubar o token, a comunicação entre o cliente e o hub de eventos tem de ocorrer por um canal criptografado.
+> Quando o cliente envia dados para um hub de eventos, ele marca sua solicitação com o token. Para impedir que um invasor intercepte e roube o token, a comunicação entre o cliente e o Hub de eventos deve ocorrer em um canal criptografado.
 > 
-> Se um token for roubado por um atacante, o invasor pode representar o cliente cujo token tenha sido roubado. A lista de bloqueios de um Publicador torna o cliente inutilizável até receber um novo token que usa um Publicador diferente.
+> Se um token for roubado por um invasor, o invasor poderá representar o cliente cujo token foi roubado. A lista de bloqueios de um Publicador torna o cliente inutilizável até receber um novo token que usa um Publicador diferente.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticando consumidores de hubs de eventos com SAS 
 Para autenticar aplicativos de back-end que consomem dos dados gerados por produtores de hubs de eventos, a autenticação de token dos hubs de eventos exige que seus clientes tenham os direitos **gerenciar** ou os privilégios de **escuta** atribuídos ao namespace de seus hubs de eventos ou à instância ou ao tópico do hub de eventos. Os dados são consumidos dos hubs de eventos usando grupos de consumidores. Embora a política SAS forneça o escopo granular, esse escopo é definido somente no nível da entidade e não no nível do consumidor. Isso significa que os privilégios definidos no nível do namespace ou na instância ou no nível do tópico do hub de eventos serão aplicados aos grupos de consumidores dessa entidade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Autorizar usando SAS](authenticate-shared-access-signature.md)

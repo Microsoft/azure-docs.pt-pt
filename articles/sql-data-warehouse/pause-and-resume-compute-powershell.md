@@ -56,7 +56,7 @@ Localize o nome da base de dados, nome do servidor e grupo de recursos para o ar
 
 Siga estes passos para encontrar as informações de localização para o seu armazém de dados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
 3. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. O armazém de dados é aberto.
 

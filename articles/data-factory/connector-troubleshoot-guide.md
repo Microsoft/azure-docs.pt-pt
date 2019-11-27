@@ -72,7 +72,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
     - Se você usar **Upsert** como comportamento de gravação e definir outra chave exclusiva para o contêiner, esse erro significa que os dados de origem têm linhas/objetos com IDs diferentes, mas o mesmo valor para a chave exclusiva definida.
 
-- **Resolução**. 
+- **Resolução**: 
 
     - Para cause1, defina **Upsert** como comportamento de gravação.
     - Para a causa 2, verifique se cada documento tem um valor diferente para a chave exclusiva definida.
@@ -136,7 +136,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
     2. Se você usar Azure Key Vault para armazenar o conteúdo da chave privada ou usar a maneira programática de criar o serviço vinculado do SFTP, esse erro significa que o conteúdo da chave privada está incorreto, provavelmente ele não é codificado em base64.
     3. Conteúdo de chave privada ou credencial inválida.
 
-- **Resolução**. 
+- **Resolução**: 
 
     - Para #1 de causa, execute os comandos a seguir para converter a chave no formato de chave tradicional e, em seguida, use-a na interface do usuário de criação do ADF.
 
@@ -404,11 +404,11 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Recomendação**: pode ser causada por uma falha transitória, tente novamente. Se o problema persistir, entre em contato com o suporte do armazenamento do Azure e forneça a ID da solicitação na mensagem de erro.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 
-*  [Blogue do Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory solicitações de recursos](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

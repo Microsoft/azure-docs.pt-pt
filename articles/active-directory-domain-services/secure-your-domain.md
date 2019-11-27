@@ -75,7 +75,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 
 Leva alguns minutos para que as configurações de segurança sejam aplicadas ao domínio gerenciado AD DS do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o processo de sincronização, confira [como os objetos e as credenciais são sincronizados em um domínio gerenciado do Azure AD DS][synchronization].
 

@@ -136,7 +136,7 @@ A indexação de habilidades cognitiva leva mais tempo para ser concluída do qu
 
 No portal do Azure, você também pode monitorar o log de atividades de notificações para obter um link de status de **notificação do Azure pesquisa cognitiva** clicável. A execução pode levar vários minutos para ser concluída.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você enriqueceu seus dados usando serviços cognitivas e projetou os resultados em uma loja de conhecimento, você pode usar Gerenciador de Armazenamento ou Power BI para explorar seu conjunto de dados aprimorado.
 

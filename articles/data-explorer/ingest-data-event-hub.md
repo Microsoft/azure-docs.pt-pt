@@ -35,7 +35,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
@@ -51,7 +51,7 @@ Neste artigo, você gera dados de exemplo e os envia para um hub de eventos. O p
 
 1. Selecione a subscrição em que quer criar o hub de eventos e crie um grupo de recursos chamado *test-hub-rg*.
 
-    ![Criar um grupo de recursos:](media/ingest-data-event-hub/create-resource-group.png)
+    ![Criar um grupo de recursos](media/ingest-data-event-hub/create-resource-group.png)
 
 1. Preencha o formulário com as seguintes informações.
 
@@ -129,7 +129,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
+    | Tabelas | *TestTable* | A tabela que criou em **TestDatabase**. |
     | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOHSV, SCSV, TSV, TSVE e TXT. Opções de compactação com suporte: GZip |
     | Mapeamento de colunas | *TestMapping* | O [mapeamento](/azure/kusto/management/mappings) que você criou em **TestDatabase**, que mapeia os dados JSON de entrada para os nomes de coluna e tipos de dados de **TestTable**. Necessário para JSON, JSON MULTILINHA ou AVRO, e opcional para outros formatos.|
     | | |

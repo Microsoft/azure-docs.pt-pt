@@ -23,7 +23,7 @@ O volume *gitRepo* monta um diretório e clona o repositório git especificado n
 
 Ao montar um volume *gitRepo* , você pode definir três propriedades para configurar o volume:
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
 | `repository` | Sim | A URL completa, incluindo `http://` ou `https://`, do repositório git a ser clonado.|
 | `directory` | Não | Diretório no qual o repositório deve ser clonado. O caminho não deve conter ou começar com "`..`".  Se você especificar "`.`", o repositório será clonado no diretório do volume. Caso contrário, o repositório git será clonado em um subdiretório do nome fornecido dentro do diretório do volume. |

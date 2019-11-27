@@ -50,6 +50,6 @@ Uma solução de exemplo, criada com base no Hub de dados, que impulsiona a inte
 
 Visite o [blog](https://aka.ms/AzureFarmBeats) e os [fóruns](https://aka.ms/FarmBeatsMSDN) do Azure FarmBeats para saber mais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar o Azure FarmBeats, visite o [Azure Marketplace](https://aka.ms/FarmBeatsMarketplace) para iniciar o processo de implantação.

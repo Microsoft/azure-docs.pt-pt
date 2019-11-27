@@ -32,17 +32,17 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Norte da Europa
 - Europa Ocidental
 - França Central
-- Leste do Japão
-- Reino Unido Sul
+- Este do Japão
+- Sul do Reino Unido
 - Centro dos EUA
-- E.U.A Leste
+- Este dos EUA
 - Este dos EUA 2
-- EUA Oeste 2
+- E.U.A. Oeste 2
 
 Para contas de armazenamento de arquivo (compartilhamentos de arquivos Premium) e contas de BlockBlobStorage (BLOBs de blocos Premium), o ZRS está geralmente disponível nas seguintes regiões:
 
 - Europa Ocidental
-- E.U.A Leste
+- Este dos EUA
 
 A Microsoft continua a habilitar o ZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre novas regiões.
 
@@ -163,7 +163,7 @@ Para atualizar para o ZRS usando a CLI, chame o seguinte comando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
 - [Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)

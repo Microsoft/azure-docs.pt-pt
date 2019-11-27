@@ -17,7 +17,7 @@ ms.locfileid: "74546881"
 
 Introdução à biblioteca de cliente Azure Key Vault para Python. Siga as etapas abaixo para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
 
-O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Use a biblioteca de cliente Key Vault para Python para:
+O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Use a biblioteca de cliente Key Vault para Python para:
 
 - Aumente a segurança e o controle sobre chaves e senhas.
 - Crie e importe chaves de criptografia em minutos.
@@ -236,7 +236,7 @@ client.delete_secret(secretName);
 print(" done.");
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, você criou um cofre de chaves, armazenou um segredo e recuperou esse segredo. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
 

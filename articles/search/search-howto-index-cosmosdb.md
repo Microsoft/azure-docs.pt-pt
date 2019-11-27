@@ -58,7 +58,7 @@ Certifique-se de que seu banco de dados do Cosmos DB contenha dado. O [Assistent
 
 ### <a name="2---start-import-data-wizard"></a>2-iniciar o assistente de importação de dados
 
-Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço pesquisa cognitiva do Azure ou se estiver se conectando ao cosmos DB API do SQL, você pode clicar em **Adicionar Azure pesquisa cognitiva** na seção **configurações** da sua conta do cosmos DB à esquerda painel de navegação.
+Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço pesquisa cognitiva do Azure ou, se estiver se conectando ao cosmos DB API do SQL, você pode clicar em **Adicionar Azure pesquisa cognitiva** na seção **configurações** do painel de navegação esquerdo da sua conta do cosmos DB.
 
    ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente de importação de dados")
 
@@ -251,14 +251,14 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados do Azure Pesquisa Cognitiva
 | Tipo de dados JSON | Tipos de campo de índice de destino compatíveis |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
-| Números que se parecem com números inteiros |Edm.Int32, Edm.Int64, Edm.String |
+| Bool |EDM. Boolean, EDM. String |
+| Números que se parecem com números inteiros |EDM. Int32, EDM. Int64, EDM. String |
 | Números que se parecem com pontos flutuantes |EDM. Double, EDM. String |
-| Cadeia |Edm.String |
+| String |Edm.String |
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
-| Cadeias de caracteres parecidas com datas |Edm.DateTimeOffset, Edm.String |
+| Cadeias de caracteres parecidas com datas |EDM. DateTimeOffset, EDM. String |
 | Objetos geojson, por exemplo {"tipo": "ponto", "coordenadas": [Long, Lat]} |Edm.GeographyPoint |
-| Outros objetos JSON |N/D |
+| Outros objetos JSON |N/A |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-configurar e executar o indexador
 

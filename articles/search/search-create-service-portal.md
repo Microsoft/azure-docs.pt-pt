@@ -33,7 +33,7 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 ## <a name="find-azure-cognitive-search"></a>Localizar Pesquisa Cognitiva do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de adição ("+ criar recurso") no canto superior esquerdo.
 3. Use a barra de pesquisa para localizar "Azure Pesquisa Cognitiva" ou navegue até o recurso por meio **da Web** > **Azure pesquisa cognitiva**.
 
