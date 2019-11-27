@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: f84c6f56201b2fb6dbc9972472f6b6bf8046de12
-  ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+  ms.openlocfilehash: 15a89528ce53eabe7ed70ca66a514b71ef5e5307
+  ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/22/2019
-  ms.locfileid: "74383545"
+  ms.lasthandoff: 11/27/2019
+  ms.locfileid: "74554944"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -185,7 +185,7 @@ additionalContent:
       - text: .NET
         url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Ir
-        url: https://godoc.org/github.com/azure/azure-sdk-for-go/services/cognitiveservices
+        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
       - text: Java
         url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
       - text: Node.js

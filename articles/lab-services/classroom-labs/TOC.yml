@@ -72,8 +72,6 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Ativar a virtualização aninhada numa VM de modelo
           href: how-to-enable-nested-virtualization-template-vm.md
-        - name: Criar um ambiente com várias VMs dentro de uma VM de modelo
-          href: how-to-enable-multi-vm-environment.md
     - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
       items:
         - name: Aceder a laboratórios de sala de aula
