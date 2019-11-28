@@ -4,19 +4,19 @@ description: Saiba como ler e compreender a utilização e faturação de um Con
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 2259c9f05b157226c30a0e32e791ba540fa5af99
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1e7e698bede44ddb3fe701c50f69164b03fe13d8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338319"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223776"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termos na sua folha de preços do Contrato de Cliente da Microsoft
 

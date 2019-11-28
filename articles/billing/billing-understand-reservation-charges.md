@@ -5,19 +5,19 @@ documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: d7a1a451bf40a09b1bd9b9d823e0778d335a690b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: a12b410909d174a4a6428c98792250df78d55e31
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701795"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223082"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Como um desconto de reserva é aplicado às Bases de Dados SQL do Azure
 

@@ -4,16 +4,16 @@ description: Saiba como pode economizar custos para o Imposto de Selo do Plano I
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 5161f18499c082b7064eec2be612557ba09eec97
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5aafc2288b9e6b7ef217ec386211af7c3739c08b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806371"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223660"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
 

@@ -1,15 +1,15 @@
 ---
 author: amberbhargava
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: 42e52ac964ec78e12be64d1bda63d7d04ff9beca
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0cdcc26ca0ae64455f8a27b13c2e4bc87e0ecb68
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850459"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222666"
 ---
 Verifique o tipo de contrato para determinar se tem acesso a uma conta de faturação de um Contrato de Parceiro da Microsoft.
  

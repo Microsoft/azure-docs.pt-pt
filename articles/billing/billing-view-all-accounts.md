@@ -7,19 +7,19 @@ author: amberbhargava
 manager: amberb
 editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 6df787dbc06f7ee56ba9a26c8382396bf3b6e74a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: ec3236ffba409c390a12e46dd29263b18857c647
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719600"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222720"
 ---
 # <a name="view-billing-accounts-in-azure-portal"></a>Ver contas de faturação no portal do Azure  
 

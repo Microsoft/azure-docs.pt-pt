@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/07/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 567beb9de0c0a8039d774270bdf61a7db437091e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d5fe93f1d3297fbdfb879a515c502025b49eab1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888397"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224001"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Introdução ao Azure EA Portal
 

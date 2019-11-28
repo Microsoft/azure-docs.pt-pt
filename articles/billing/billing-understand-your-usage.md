@@ -4,19 +4,19 @@ description: Saiba como ler e compreender a utilização e os custos detalhados
 author: bandersmsft
 manager: micflan
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 824c6b5de16889d43a952eacd5a0ce21388787d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68954331"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222956"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no ficheiro de utilização e de custos do Azure
 

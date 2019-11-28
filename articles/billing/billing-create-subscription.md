@@ -6,19 +6,19 @@ documentationcenter: ''
 author: amberb
 manager: amberb
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: acb41de8344d1467e86c38c7c99e8ad4ab517ead
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375832"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226378"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
 

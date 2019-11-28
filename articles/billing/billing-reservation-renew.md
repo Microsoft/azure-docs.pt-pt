@@ -4,16 +4,16 @@ description: Saiba como pode renovar automaticamente reservas do Azure para cont
 services: billing
 author: bandersmsft
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5ff0fab9b273a1efc05fefaf19ac5f6fe3867527
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 7fd74ded4afea56a4ae1baf18895e0b6661b8f58
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718786"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225987"
 ---
 # <a name="automatically-renew-reservations"></a>Renovar reservas automaticamente
 

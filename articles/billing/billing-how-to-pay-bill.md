@@ -2,25 +2,22 @@
 title: Pagar a sua fatura do Microsoft Azure | Microsoft Docs
 description: Descreve como pagar uma fatura no portal do Azure
 keywords: faturação, vencido, saldo, pagar agora,
-services: billing
-documentationcenter: ''
 author: jureid
 manager: jureid
-editor: ''
 tags: billing, past due, pay now, bill, invoice, pay
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 4df0939137a529dd35f8f61ff90ee6da43ec5d61
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68c9838fc374bd3bd8a4d25f3d6f1c4bdace8e95
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709666"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226193"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar a sua fatura do Microsoft Azure
 
@@ -50,7 +47,7 @@ Tem de ser proprietário, contribuidor, leitor ou gestor de faturas de um perfil
 1. No novo painel, clique em **Selecionar um método de pagamento** para escolher um cartão de crédito existente ou adicionar um novo.<!-- screenshot of select payment method link -->
 1. Depois de selecionar o método de pagamento, clique em **Pagar agora**.
 
-O estado da fatura será atualizado para pago no painel das faturas. 
+O estado da fatura será atualizado para pago no painel das faturas.
 
 <!-- pay now from invoice blade -->
 

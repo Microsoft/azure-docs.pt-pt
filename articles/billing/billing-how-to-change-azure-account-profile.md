@@ -5,7 +5,7 @@ author: genlin
 manager: dcscontentpm
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e52d1f80f4e4028bd3d450c245ec02b65bcce69c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: fc19db150dac4801f16728c06cc343c7d394aaa2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121648"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226225"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Alterar as informações de perfil da sua conta do Azure
 

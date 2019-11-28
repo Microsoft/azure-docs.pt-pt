@@ -5,19 +5,19 @@ documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 3e379581440019a794388d3e01c4f230c9617a58
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 21199a3f444fb6b6262e5f1b4884356dac42c3bb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718589"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225614"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Ver reservas do Azure no portal do Azure
 

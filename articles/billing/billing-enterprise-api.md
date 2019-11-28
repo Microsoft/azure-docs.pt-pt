@@ -8,19 +8,19 @@ manager: mumami
 editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: f5d549006961f3108bf7155610dfb3a9ea78422a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 513dac3a1cdcefa7a49116ea02af5410265af3ec
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719784"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226256"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que os clientes Enterprise do Azure extraiam programaticamente dados de consumo e de faturação para as ferramentas de análise de dados preferidas. Os clientes Enterprise assinaram um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer alocações monetárias negociadas e aceder a preços personalizados para os recursos do Azure.
@@ -31,20 +31,20 @@ As APIs de Relatórios permitem que os clientes Enterprise do Azure extraiam pro
 
 |Chave do Cabeçalho do Pedido | Valor|
 |-|-|
-|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador eyr....09| 
+|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador eyr....09|
 
 ## <a name="consumption-apis"></a>APIs de Consumo
-Um ponto final do Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descritas abaixo. Devem facilitar a introspecção da API e a capacidade de gerar SDKs cliente com o [AutoRest](https://github.com/Azure/AutoRest) ou o [Swagger CodeGen](https://swagger.io/swagger-codegen/). A partir de 1 de maio de 2014, os dados estão disponíveis através desta API. 
+Um ponto final do Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descritas abaixo. Devem facilitar a introspecção da API e a capacidade de gerar SDKs cliente com o [AutoRest](https://github.com/Azure/AutoRest) ou o [Swagger CodeGen](https://swagger.io/swagger-codegen/). A partir de 1 de maio de 2014, os dados estão disponíveis através desta API.
 
 * **Saldo e Resumo** – a [API de Saldo e Resumo ](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferece um resumo mensal das informações sobre os saldos, as novas compras, os encargos dos serviços do Azure Marketplace, os ajustes e os encargos de utilização excedida.
 
-* **Detalhes de Utilização** – a [API de Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) oferece uma discriminação diária das quantidades consumidas e dos encargos estimados de uma Inscrição. O resultado também inclui informações sobre as instâncias, os medidores e os departamentos. A API pode ser consultada por Período de faturação ou por uma data de início e de fim especificada. 
+* **Detalhes de Utilização** – a [API de Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) oferece uma discriminação diária das quantidades consumidas e dos encargos estimados de uma Inscrição. O resultado também inclui informações sobre as instâncias, os medidores e os departamentos. A API pode ser consultada por Período de faturação ou por uma data de início e de fim especificada.
 
 * **Encargo da Loja do Marketplace** – a [API de Encargo da Loja do Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) devolve a discriminação dos encargos do Marketplace com base na utilização por dia para o Período de Faturação especificado ou para as datas de início e de fim (os honorários pontuais não são incluídos).
 
 * **Folha de Preços** – a [API da Folha de Preços](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a tarifa aplicável de cada Medidor para a Inscrição e o Período de Faturação indicados.
 
-* **Detalhes da Instância Reservada** – a [API de utilização da Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devolve a utilização das compras da Instância Reservada. A [API de encargos da Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) mostra as transações de faturação realizadas. 
+* **Detalhes da Instância Reservada** – a [API de utilização da Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devolve a utilização das compras da Instância Reservada. A [API de encargos da Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) mostra as transações de faturação realizadas.
 
 ## <a name="data-freshness"></a>Atualização de Dados
 Serão devolvidas Etags na resposta de todas as APIs acima. Uma alteração na ETag indica que os dados foram atualizados.  Nas chamadas subsequentes para a mesma API com os mesmos parâmetros, transmita a Etag capturada com a chave “If-None-Match” no cabeçalho do pedido HTTP. O código de estado da resposta será “NotModified” se os dados não tiverem sido atualizados. Não serão devolvidos dados. A API devolverá o conjunto de dados total para o período necessário sempre que se verificar uma alteração da Etag.
@@ -60,13 +60,4 @@ Serão devolvidas Etags na resposta de todas as APIs acima. Uma alteração na E
 |401| Não autorizado| Chave de API não encontrada, Inválida, Expirada, etc.|
 |404| Indisponível| Ponto final do relatório não encontrado|
 |400| Pedido Incorreto| Parâmetros inválidos – intervalos de datas, números de EA, etc.|
-|500| Erro do Servidor| Erro inesperado ao processar o pedido| 
-
-
-
-
-
-
-
-
-
+|500| Erro do Servidor| Erro inesperado ao processar o pedido|

@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/07/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 6bd70a58552a0217cff82cad10b11783aec64347
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2e9611995a233f9890aebb90fc3b8deaeed8efc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888409"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226316"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição Azure Enterprise
 
@@ -278,7 +278,7 @@ O Azure Marketplace não está disponível para inscrições MPSA.
 
 ## <a name="advanced-report-download"></a>Transferência de relatórios avançados
 
-Para reporte em intervalos de datas ou contas específicas, pode ser utilizada a transferência de relatórios avançados. A partir de 30 de agosto de 2016, o formato do ficheiro de saída foi alterado de .xlsx para .csv, de forma a acomodar conjuntos de registos maiores.
+Para relatórios em intervalos de datas ou contas específicas, pode utilizar a transferência de relatórios avançados. A partir de 30 de agosto de 2016, o formato do ficheiro de saída foi alterado de .xlsx para .csv, de forma a acomodar conjuntos de registos maiores.
 
 1. Selecione **Transferência de Relatórios Avançados**.
 1. Selecione o **Intervalo de Datas Adequado**.

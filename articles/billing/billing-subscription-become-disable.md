@@ -5,19 +5,19 @@ keywords: subscrição do azure desativada
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 484a7344185efa17731f5c35c7c4dec109608b67
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e4f0185224ad2996e78c4165da8a682782d50260
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68933087"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225880"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma subscrição do Azure desativada
 

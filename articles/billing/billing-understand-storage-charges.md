@@ -2,16 +2,16 @@
 title: Compreender como o desconto de reserva é aplicado ao Armazenamento do Microsoft Azure | Microsoft Docs
 description: Saiba como o desconto de capacidade reservada do Armazenamento do Microsoft Azure é aplicado ao blob de blocos e aos recursos do Azure Data Lake Storage Gen2.
 author: tamram
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
-ms.openlocfilehash: ebef727cfa291744b3c97299da2a1340f34f5d72
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4dd224036989b4ce78ee382b539e99c12015128e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73746264"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225737"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Compreender como o desconto de reserva é aplicado ao Armazenamento do Microsoft Azure
 

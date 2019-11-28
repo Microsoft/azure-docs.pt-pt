@@ -4,19 +4,19 @@ description: Saiba como ler e compreender os custos descritos na sua fatura.
 author: jureid
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2019
 ms.author: banders
-ms.openlocfilehash: 579a052f8bde780ac33de85c5a08d9b3e79d3096
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9994ef6da379d0063930912a4d198b81623ddbe8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515762"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223702"
 ---
 # <a name="understand-charges-on-your-microsoft-partner-agreement-invoice"></a>Compreender os custos na fatura do Contrato de Parceiro da Microsoft
 

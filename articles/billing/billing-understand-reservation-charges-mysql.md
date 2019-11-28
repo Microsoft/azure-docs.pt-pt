@@ -3,18 +3,18 @@ title: Como um desconto de reserva é aplicado à Base de Dados do Azure para My
 description: Como um desconto de reserva é aplicado à Base de Dados do Azure para MySQL
 author: kummanish
 ms.author: manishku
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
-ms.openlocfilehash: 905a0c77919e448a7c3387ca8fa35a8150780534
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7be3a7913559947be1291db35ac3531f152dfae9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608157"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223301"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Como um desconto de reserva é aplicado à Base de Dados do Azure para MySQL
 
@@ -22,7 +22,7 @@ Depois de comprar uma capacidade reservada da Base de Dados do Azure para MySQL,
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
-Um desconto de reserva é ***use-it-or-lose-it*** (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.</br>
+Um desconto de reserva funciona numa base ***use-it-or-lose-it*** (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.</br>
 
 Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não forem encontrados recursos correspondentes no âmbito especificado, as horas reservadas perdem-se.
 

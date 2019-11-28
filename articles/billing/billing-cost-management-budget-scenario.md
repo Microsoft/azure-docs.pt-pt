@@ -7,20 +7,19 @@ author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
-ms.assetid: db93f546-6b56-4b51-960d-1a5bf0274fc8
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: bc35ba74acb2ce807597230fee0685606a93a775
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: c70d7091db0e21f4102a8f90dbbd776360d6fb4d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958369"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226458"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 

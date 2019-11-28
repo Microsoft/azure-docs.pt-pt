@@ -5,19 +5,19 @@ documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: e5cad667c2c97514a258578ab09f7c3628738635
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 76fc2d782571818d14a3008c10a0c3fae07a2b7d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701975"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225727"
 ---
 # <a name="azure-software-plan-discount"></a>Desconto de plano de software do Azure
 

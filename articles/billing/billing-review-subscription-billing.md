@@ -7,19 +7,19 @@ author: lleonard-msft
 manager: ''
 editor: ''
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 05ce5fd560168c1f60b7c559539f4a368ba83ca8
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4dc7771862bc922702c5cc321fb3c566212d799a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754282"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225913"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Analisar a faturação da subscrição com as APIs REST
 

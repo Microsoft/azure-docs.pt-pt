@@ -4,19 +4,19 @@ description: Saiba como ler e compreender a utilização e faturação da subscr
 author: bandersmsft
 manager: dougeby
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ceeacf216b1d3258aa73d86c613d28e00e9480bb
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 9486d56a723bb311c05ab7aa776060dfa9561aae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718624"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223035"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Compreender a fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare-a ao ficheiro de utilização diária detalhada e aos relatórios de gestão de custos no portal do Azure.

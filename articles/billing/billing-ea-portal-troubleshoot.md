@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/04/2019
 ms.topic: troubleshooting
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 1b0be54eea063399cc9ed2c3005808d5189e2663
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 13f5aa80a12a0c28e1780bcfa18156da53990ba7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888345"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223953"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao Azure EA Portal
 

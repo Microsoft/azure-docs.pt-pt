@@ -1,13 +1,10 @@
 ---
 title: Reativar uma subscrição do Microsoft Azure for Students desativada | Microsoft Docs
 description: Explica por que motivo a sua subscrição do Microsoft Azure for Students está desativada e como pode reativá-la.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +12,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cfabb3ad7ad150b38b8c90488710731ad29b80a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60615902"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226402"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que motivo a minha subscrição do Microsoft Azure for Students está desativada e como posso reativá-la?
 
@@ -34,7 +31,7 @@ Pode verificar o crédito restante no [portal do Microsoft Azure Sponsorship](ht
 
 1. Inicie sessão com as credenciais da conta do Microsoft Azure for Students.
 2. A página de saldo fornece informações sobre o crédito utilizado e restante. Pode encontrar a data de validade do crédito abaixo do gráfico de crédito.  
-   
+
     ![Captura de ecrã a mostrar as informações de crédito da subscrição do Microsoft Azure for Students](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
 3. Para verificar a utilização dos serviços que estão a consumir o seu crédito do Azure, selecione **Utilização** no painel de navegação esquerdo e selecione a sua subscrição do Microsoft Azure for Students.
