@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172657"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407029"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ Os datacenters do Azure na Austrália têm uma notificação de segurança adici
 2. Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparação para envio** foi executada com êxito.
 3. Desligue o dispositivo e remova os cabos.
 4. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-5. Envie um e-mail para a Quantium Solutions para solicitar a recolha. Mencione o número de referência do serviço especificado na portal do Azure. Utilize o seguinte modelo de e-mail: – *Solicitação de guia de remessa reversa com código TAU*. Confirme que inclui os seguintes detalhes no e-mail: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. A Quantium Solutions Australia enviará por e-mail uma guia de remessa de devolução.
-7. Imprima a guia de devolução e cole-a na embalagem de envio.
-8. Entregue o pacote à transportadora.
-
-Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions através do e-mail Azure@quantiumsolutions.com ou por telefone.
-
-Para questões relativas à encomenda por telefone:
-
-- Envie, primeiro, um e-mail para recolha.
-- Forneça o nome da encomenda por telefone.
+5. Marque uma recolha online através da [Ligação da DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 

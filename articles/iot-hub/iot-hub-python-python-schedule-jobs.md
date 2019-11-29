@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: f1fbfcaa80a3d1781878fe3d6eb14558a3b298a5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c424c18538a4e428c0e713bb814c2febe28d2d04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999488"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555578"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
 
@@ -29,7 +29,7 @@ Conceitualmente, um trabalho encapsula uma dessas ações e rastreia o progresso
 
 Saiba mais sobre cada um desses recursos nestes artigos:
 
-* Dispositivos e propriedades do dispositivo: [Introdução ao dispositivo gêmeos](iot-hub-python-twin-getstarted.md) e [tutorial: Como usar as propriedades de dispositivo.](tutorial-device-twins.md)
+* Dispositivo e propriedades: [introdução ao dispositivo gêmeos](iot-hub-python-twin-getstarted.md) e [tutorial: como usar as propriedades de dispositivo.](tutorial-device-twins.md)
 
 * Métodos diretos: [Guia do desenvolvedor do Hub IOT – métodos diretos](iot-hub-devguide-direct-methods.md) e [tutorial: métodos diretos](quickstart-control-device-python.md)
 
@@ -75,13 +75,9 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > Os pacotes Pip para Azure-iothub-Service-Client estão atualmente disponíveis somente para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
-   >
-
 2. Usando um editor de texto, crie um novo arquivo **simDevice.py** em seu diretório de trabalho.
 
-3. Adicione as seguintes `import` instruções e variáveis ao início do arquivo **simDevice.py** . Substitua `deviceConnectionString` pela cadeia de conexão do dispositivo que você criou acima:
+3. Adicione as seguintes instruções de `import` e variáveis no início do arquivo **simDevice.py** . Substitua `deviceConnectionString` pela cadeia de conexão do dispositivo que você criou acima:
 
     ```python
     import threading
@@ -117,7 +113,7 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
             print (patch)
     ```
 
-6. Adicione o código a seguir para registrar o manipulador para o método **lockDoor** . Inclua também a `main` rotina:
+6. Adicione o código a seguir para registrar o manipulador para o método **lockDoor** . Inclua também a rotina de `main`:
 
     ```python
     def iothub_jobs_sample_run():
@@ -189,12 +185,12 @@ Nesta seção, você cria um aplicativo de console do Python que inicia um **loc
     ```
 
    > [!NOTE]
-   > Os pacotes Pip para Azure-iothub-Service-Client e Azure-iothub-Device-Client estão atualmente disponíveis apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   > O pacote Pip para Azure-iothub-Service-Client está disponível no momento apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) .
    >
 
 2. Usando um editor de texto, crie um novo arquivo **scheduleJobService.py** em seu diretório de trabalho.
 
-3. Adicione as seguintes `import` instruções e variáveis ao início do arquivo **scheduleJobService.py** . Substitua o `{IoTHubConnectionString}` espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua o `{deviceId}` espaço reservado pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub):
+3. Adicione as seguintes instruções de `import` e variáveis no início do arquivo **scheduleJobService.py** . Substitua o espaço reservado `{IoTHubConnectionString}` pela cadeia de conexão do Hub IoT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua o espaço reservado `{deviceId}` pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub):
 
     ```python
     import sys
@@ -263,7 +259,7 @@ Nesta seção, você cria um aplicativo de console do Python que inicia um **loc
             print ( "Device twin updated." )
     ```
 
-6. Adicione o código a seguir para agendar os trabalhos e atualizar o status do trabalho. Inclua também a `main` rotina:
+6. Adicione o código a seguir para agendar os trabalhos e atualizar o status do trabalho. Inclua também a rotina de `main`:
 
     ```python
     def iothub_jobs_sample_run():
@@ -342,7 +338,7 @@ Pode agora executar as aplicações.
 
     ![Exemplo de trabalho do Hub IoT 2--saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades de FileUp do dispositivo.
 

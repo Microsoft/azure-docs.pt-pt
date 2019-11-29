@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991781"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560102"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
 
@@ -32,12 +32,12 @@ Este tutorial contém os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se de um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para efetuar as seguintes tarefas:
-    1. Criar um barramento de serviço **espaço de nomes**.
-    2. Obter o **cadeia de ligação**.
-    3. Criar uma **tópico** no espaço de nomes.
-    4. Crie **uma assinatura** para o tópico no espaço de nomes.
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios do assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+    1. Crie um **namespace**do barramento de serviço.
+    2. Obter a **cadeia de conexão**.
+    3. Crie um **tópico** no namespace.
+    4. Crie **uma assinatura** para o tópico no namespace.
 3. [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
 4. [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
  
@@ -75,16 +75,10 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
     static ITopicClient topicClient;
     ``` 
 
-3. Substitua os conteúdos predefinidos de `Main()` com a seguinte linha de código:
+3. Substitua o método `Main()` pelo seguinte método **async** `Main` que envia mensagens de forma assíncrona usando o método SendMessagesAsync que será adicionado na próxima etapa. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Diretamente depois `Main()`, adicione o seguinte método `MainAsync()` assíncrono que chama o método de envio de mensagens:
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -101,8 +95,7 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
         await topicClient.CloseAsync();
     }
     ```
-
-5. Imediatamente depois do método `MainAsync()`, adicione o seguinte método `SendMessagesAsync()` que realiza o trabalho de enviar o número de mensagens especificado pelo `numberOfMessagesToSend` (atualmente definido para 10):
+5. Imediatamente depois do método `Main`, adicione o seguinte método `SendMessagesAsync()` que realiza o trabalho de enviar o número de mensagens especificado pelo `numberOfMessagesToSend` (atualmente definido para 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -146,25 +139,20 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -200,7 +188,7 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
 
 ## <a name="receive-messages-from-the-subscription"></a>Receber mensagens da subscrição
 
-Para receber as mensagens que enviar, crie outra aplicação de consola .NET Core e instale o **Microsoft.Azure.ServiceBus** pacote NuGet, semelhante à aplicação do remetente anterior.
+Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Core e instale o pacote NuGet **Microsoft. Azure. ServiceBus** , semelhante ao aplicativo remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Escrever código para receber mensagens da subscrição
 
@@ -222,17 +210,11 @@ Para receber as mensagens que enviar, crie outra aplicação de consola .NET Cor
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Substitua os conteúdos predefinidos de `Main()` com a seguinte linha de código:
+3. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método `RegisterOnMessageHandlerAndReceiveMessages()` que será adicionado na próxima etapa. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. Diretamente depois `Main()`, adicione o seguinte método `MainAsync()` assíncrono que chama o método `RegisterOnMessageHandlerAndReceiveMessages()`:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -244,11 +226,10 @@ Para receber as mensagens que enviar, crie outra aplicação de consola .NET Cor
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. Imediatamente depois do método `MainAsync()`, adicione o seguinte método que regista o processador de mensagens e recebe as mensagens enviadas pela aplicação remetente:
+   ```
+5. Imediatamente depois do método `Main()`, adicione o seguinte método que regista o processador de mensagens e recebe as mensagens enviadas pela aplicação remetente:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -322,25 +303,20 @@ Para receber as mensagens que enviar, crie outra aplicação de consola .NET Cor
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -395,9 +371,9 @@ Para receber as mensagens que enviar, crie outra aplicação de consola .NET Cor
 Parabéns! Através da biblioteca .NET Standard, criou um tópico e uma subscrição, enviou 10 mensagens e recebeu essas mensagens.
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [repositório do GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) do Service Bus que demonstram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

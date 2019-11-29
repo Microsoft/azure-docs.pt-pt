@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d1a1a610c5cb198bd4df47033f4b8359b3d93007
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: cabe30c08d13f0ebeb8e0ce784ea29a0b5d61bec
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452547"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560959"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: desenvolver um C# módulo IOT Edge para dispositivos Linux
 
@@ -23,7 +23,7 @@ Use Visual Studio Code para desenvolver C# código e implantá-lo em um disposit
 Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:    
 
 > [!div class="checklist"]
-> * Utilize o Visual Studio Code para criar um módulo do IoT Edge que baseia-se o SDK 2.1 do .NET Core.
+> * Use Visual Studio Code para criar um módulo IoT Edge baseado no SDK do .NET Core 2,1.
 > * Utilize o Visual Studio Code e o Docker para criar uma imagem do Docker e publicá-la no seu registo.
 > * Implemente o módulo no seu dispositivo IoT Edge.
 > * Veja os dados gerados.
@@ -71,7 +71,7 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
 
 1. No Visual Studio Code, selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 
-2. Na paleta de comandos, introduza e execute o comando **Azure: Iniciar Sessão** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
+2. Na paleta de comandos, introduza e execute o comando **Azure: Iniciar sessão** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 
 3. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Siga as instruções na paleta de comandos para criar a sua solução.
 
@@ -260,7 +260,7 @@ Atualmente, Visual Studio Code pode desenvolver C# módulos para dispositivos Li
        }
     ```
 
-    ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-csharp-module/module-twin.png)
+    ![Adicionar o módulo de distribuição ao modelo de implantação](./media/tutorial-csharp-module/module-twin.png)
 
 11. Salve o arquivo Deployment. Template. JSON.
 
@@ -336,7 +336,9 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
+Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Para obter exemplos de módulos de IoT Edge, incluindo o módulo de temperatura simulada, consulte [exemplos de módulo IOT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules). 
+
+Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
 > [Funções](tutorial-deploy-function.md)

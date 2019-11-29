@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133253"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560069"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
 
@@ -38,7 +38,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instale o Git](https://git-scm.com/)
+1. [Instalar o Git](https://git-scm.com/)
 2. [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
 4. [Instalar o CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -92,20 +92,6 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-
-1. Faça logon para CLI do Azure e defina sua assinatura ativa.
-
-    ```azurecli
-    # Login to Azure CLI
-    az login
-
-    # List all subscriptions
-    az account list -o table
-
-    # Set active subscription
-    az account set --subscription <target subscription ID>
-    ```
-
 1. Atribua nomes ao seu grupo de recursos e ao seu serviço. Certifique-se de substituir os espaços reservados abaixo pelo nome do grupo de recursos e pelo nome do serviço que você provisionou anteriormente neste tutorial.
 
     ```azurecli

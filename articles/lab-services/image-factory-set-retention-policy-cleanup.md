@@ -1,6 +1,6 @@
 ---
-title: Criar uma fábrica de imagem no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como criar uma fábrica de imagem personalizada no Azure DevTest Labs.
+title: Configurar a política de retenção no Azure DevTest Labs | Microsoft Docs
+description: Saiba como configurar uma política de retenção, limpar a fábrica e desativar imagens antigas do DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,68 +12,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622582"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560176"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada no Azure DevTest Labs
-Este artigo aborda a definição de uma política de retenção, limpar a fábrica e extinção imagens antigas de todos os outros laboratórios de Dev/Test na organização. 
+# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagens Personalizada no Azure DevTest Labs
+Este artigo aborda a definição de uma política de retenção, a limpeza da fábrica e a desativação de imagens antigas de todos os outros DevTest Labs da organização. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Certifique-se de que seguiu estes artigos antes de avançar:
+Certifique-se de ter seguido esses artigos antes de continuar:
 
-- [Criar uma fábrica de imagem](image-factory-create.md)
-- [Executar uma fábrica de imagem a partir do Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Guardar imagens personalizadas e distribuir a vários laboratórios](image-factory-save-distribute-custom-images.md)
+- [Criar uma fábrica de imagens](image-factory-create.md)
+- [Executar uma fábrica de imagens do Azure DevOps](image-factory-set-up-devops-lab.md)
+- [Salvar imagens personalizadas e distribuí-las para vários laboratórios](image-factory-save-distribute-custom-images.md)
 
-Os itens seguintes já deverá estar no local:
+Os itens a seguir já devem estar em vigor:
 
-- Um laboratório para a fábrica de imagem no Azure DevTest Labs
-- Azure DevTest Labs em que a fábrica de distribuir imagens de ouro de destino de uma ou mais
-- Um projeto de DevOps do Azure utilizados para automatizar a fábrica de imagem.
-- Localização do código de origem que contém os scripts e a configuração (no nosso exemplo, no mesmo projeto de DevOps utilizado acima)
-- Uma definição de compilação para orquestrar as tarefas do Azure Powershell
+- Um laboratório para a fábrica de imagens no Azure DevTest Labs
+- Um ou mais Azure DevTest Labs de destino onde a fábrica distribuirá imagens Golden
+- Um projeto DevOps do Azure usado para automatizar a fábrica de imagens.
+- Local do código-fonte que contém os scripts e a configuração (em nosso exemplo, no mesmo projeto DevOps usado acima)
+- Uma definição de compilação para orquestrar as tarefas do Azure PowerShell
  
-## <a name="setting-the-retention-policy"></a>Definir a política de retenção
-Antes de configurar os passos de limpeza, defina o número de imagens históricas que pretende manter nos laboratórios DevTest. Quando tiver seguido os [execute uma fábrica de imagem a partir do Azure DevOps](image-factory-set-up-devops-lab.md) artigo, configurou criar várias variáveis. Um deles estava **ImageRetention**. Definir esta variável como `1`, que significa que o DevTest Labs não irá manter um histórico de imagens personalizadas. Apenas as imagens distribuídas mais recente estará disponíveis. Se alterar esta variável para `2`, a versão mais recente distribuída a imagem, além dos anteriores serão mantidos. Pode definir este valor para definir o número de imagens de históricos que deseja manter no seu DevTest Labs.
+## <a name="setting-the-retention-policy"></a>Configurando a política de retenção
+Antes de configurar as etapas de limpeza, defina quantas imagens históricas você deseja reter nos laboratórios de DevTest. Quando você seguiu o artigo [executar uma fábrica de imagem do Azure DevOps](image-factory-set-up-devops-lab.md) , configurou várias variáveis de compilação. Um deles foi **ImageRetention**. Você define essa variável como `1`, o que significa que os laboratórios de DevTest não manterão um histórico das imagens personalizadas. Somente as imagens distribuídas mais recentes estarão disponíveis. Se você alterar essa variável para `2`, a imagem distribuída mais recente mais as anteriores serão mantidas. Você pode definir esse valor para definir o número de imagens históricas que deseja manter em seus laboratórios de DevTest.
 
-## <a name="cleaning-up-the-factory"></a>A limpar a fábrica
-O primeiro passo para limpar a fábrica é remover as VMs de imagem dourada da fábrica de imagem. Existe um script para executar esta tarefa exatamente como nossos scripts anteriores. A primeira etapa é adicionar outro **do Azure Powershell** tarefas para a definição de compilação, conforme mostrado na imagem seguinte:
+## <a name="cleaning-up-the-factory"></a>Limpando a fábrica
+A primeira etapa na limpeza da fábrica é remover as VMs de imagem Golden da fábrica de imagens. Há um script para realizar essa tarefa, assim como nossos scripts anteriores. A primeira etapa é adicionar outra tarefa **do Azure PowerShell** à definição de compilação, conforme mostrado na imagem a seguir:
 
-![Passo do PowerShell](./media/set-retention-policy-cleanup/powershell-step.png)
+![Etapa do PowerShell](./media/set-retention-policy-cleanup/powershell-step.png)
 
-Assim que tiver a nova tarefa na lista, selecione o item e preencha todos os detalhes, conforme mostrado na imagem seguinte:
+Quando você tiver a nova tarefa na lista, selecione o item e preencha todos os detalhes, conforme mostrado na imagem a seguir:
 
-![Tarefa de PowerShell do antiga imagens de limpeza](./media/set-retention-policy-cleanup/configure-powershell-task.png)
+![Tarefa limpar imagens antigas do PowerShell](./media/set-retention-policy-cleanup/configure-powershell-task.png)
 
 Os parâmetros de script são: `-DevTestLabName $(devTestLabName)`.
 
-## <a name="retire-old-images"></a>Extinguir imagens antigas 
-Esta tarefa remove quaisquer imagens antigas, mantendo a apenas um histórico que corresponda a **ImageRetention** criar variável. Adicionar adicional **do Azure Powershell** tarefa à nossa definição de compilação de compilação. Assim que for adicionado, selecione a tarefa e preencha os detalhes, conforme mostrado na imagem seguinte: 
+## <a name="retire-old-images"></a>Desativar imagens antigas 
+Essa tarefa remove todas as imagens antigas, mantendo apenas um histórico correspondente à variável de Build **ImageRetention** . Adicione uma tarefa de compilação **do Azure PowerShell** adicional à nossa definição de compilação. Depois de adicionado, selecione a tarefa e preencha os detalhes, conforme mostrado na imagem a seguir: 
 
-![Extinguir a tarefa de PowerShell do antiga imagens](./media/set-retention-policy-cleanup/retire-old-image-task.png)
+![Tarefa desativar o PowerShell de imagens antigas](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
 Os parâmetros de script são: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
-## <a name="queue-the-build"></a>A compilação de fila
-Agora que concluiu a definição de compilação, enfileirar uma nova compilação para se certificar de que tudo está funcionando. Após a compilação for concluída com êxito os novas imagens personalizadas são apresentados no laboratório de destino e se verificar o laboratório de fábrica de imagem, verá sem VMs aprovisionadas. Além disso se colocar em fila mais compilações, verá as tarefas de limpeza abandonar o out antigas imagens personalizadas laboratórios DevTest de acordo com o valor de retenção definido nas variáveis de compilação.
+## <a name="queue-the-build"></a>Enfileirar a compilação
+Agora que você concluiu a definição de compilação, enfileirar uma nova compilação para certificar-se de que tudo está funcionando. Depois que a compilação for concluída com êxito, as novas imagens personalizadas aparecerão no laboratório de destino e, se você verificar o laboratório da fábrica de imagens, você não verá nenhuma VM provisionada. Além disso, se você enfileirar outras compilações, verá que as tarefas de limpeza desativam imagens personalizadas antigas dos laboratórios de DevTest de acordo com o valor de retenção definido nas variáveis de compilação.
 
 > [!NOTE]
-> Se tiver executado o pipeline de compilação no final do último artigo da série, elimine manualmente as máquinas virtuais que foram criadas no laboratório de fábrica de imagem antes de enfileirar uma nova compilação.  O passo de limpeza manual só é necessário enquanto definir tudo e certifique-se de que ele funciona.
+> Se você tiver executado o pipeline de compilação no final do último artigo da série, exclua manualmente as máquinas virtuais que foram criadas no laboratório da fábrica de imagens antes de enfileirar uma nova compilação.  A etapa de limpeza manual só é necessária enquanto configuramos tudo e verificamos se ela funciona.
 
 
 
 ## <a name="summary"></a>Resumo
-Agora tem uma fábrica de imagem em execução que pode gerar e distribuir imagens personalizadas para seus laboratórios a pedido. Neste ponto, é apenas uma questão de suas imagens a obter corretamente configurada e identificar os laboratórios de destino. Conforme mencionado no artigo anterior, o **Labs.json** arquivo localizado no seu **configuração** pasta especifica quais imagens devem ser efetuadas em cada um dos laboratórios de destino. À medida que adiciona outros laboratórios Dev/Test para a sua organização, basta adicionar uma entrada no Labs.json para o novo laboratório.
+Agora você tem uma fábrica de imagens em execução que pode gerar e distribuir imagens personalizadas para seus laboratórios sob demanda. Neste ponto, é apenas uma questão de fazer suas imagens serem configuradas corretamente e identificar os laboratórios de destino. Conforme mencionado no artigo anterior, o arquivo **Labs. JSON** localizado em sua pasta de **configuração** especifica quais imagens devem ser disponibilizadas em cada um dos laboratórios de destino. Ao adicionar outros laboratórios de DevTest à sua organização, basta adicionar uma entrada no Labs. JSON para o novo laboratório.
 
-Adicionar uma nova imagem à sua fábrica também é simple. Quando quiser incluir uma nova imagem na sua fábrica abre o [portal do Azure](https://portal.azure.com), navegue para a fábrica de DevTest Labs, selecione o botão para adicionar uma VM e selecione a imagem do marketplace pretendido e artefactos. Em vez de selecionar o **criar** botão para fazer a nova VM, selecione **modelo de exibição do Azure Resource Manager**"e guardar o modelo como um ficheiro. JSON em algum lugar dentro do **GoldenImages** pasta no seu repositório. Da próxima vez que executar sua fábrica de imagem, irá criar a sua imagem personalizada.
+A adição de uma nova imagem à sua fábrica também é simples. Quando desejar incluir uma nova imagem em sua fábrica, abra o [portal do Azure](https://portal.azure.com), navegue até o Factory DevTest Labs, selecione o botão para adicionar uma VM e escolha a imagem do Marketplace desejada e os artefatos. Em vez de selecionar o botão **criar** para criar a nova VM, selecione **exibir modelo de Azure Resource Manager**"e salve o modelo como um arquivo. JSON em algum lugar dentro da pasta **GoldenImages** em seu repositório. Na próxima vez em que você executar o seu alocador de imagem, ele criará sua imagem personalizada.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-1. [Agendar sua compilação/liberação](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar periodicamente a fábrica de imagem. Ele atualiza as imagens de gerado por fábrica de mensagens em fila em intervalos regulares.
-2. Faça mais imagens de ouro da sua fábrica. Também pode considerar [criar artefactos](devtest-lab-artifact-author.md) partes adicionais de suas tarefas de configuração VM do script e incluir os artefactos de suas imagens de fábrica.
-4. Criar uma [separar compilação/liberação](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o **DistributeImages** separadamente do script. Pode executar este script quando efetuar alterações ao Labs.json e obter imagens copiadas para laboratórios de destino sem ter de recriar todas as imagens novamente.
+## <a name="next-steps"></a>Passos seguintes
+1. [Agende sua compilação/versão](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar a fábrica de imagens periodicamente. Ele atualiza suas imagens geradas de fábrica regularmente.
+2. Faça mais imagens Golden para sua fábrica. Você também pode considerar a [criação de artefatos](devtest-lab-artifact-author.md) para partes adicionais de script de suas tarefas de configuração de VM e incluir os artefatos em suas imagens de fábrica.
+4. Crie um [Build/versão separado](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o script **DistributeImages** separadamente. Você pode executar esse script ao fazer alterações no Labs. JSON e obter imagens copiadas para os laboratórios de destino sem precisar recriar todas as imagens novamente.
 

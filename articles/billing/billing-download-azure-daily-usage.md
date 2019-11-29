@@ -1,23 +1,23 @@
 ---
 title: Ver e transferir a utilização e os custos do Azure
 description: Descreve como transferir ou ver os custos e a utilização diária do Azure.
-keywords: utilização de faturação, custos de utilização, transferência da utilização, ver utilização, fatura do azure, utilização do azure
+keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: e7d1947b2194c04bb5269887b73e2f4fa13df6e7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dcf4e3b9d85909c8f1d149c9d1940a6755b431a1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375720"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224015"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a utilização e os custos do Azure
 

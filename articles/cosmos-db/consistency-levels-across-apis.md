@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6779e434339935b64440d7cf617c8946338e36e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c72c65c9d27810ce4ec2df0062dc41d83ed37a6b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756986"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559108"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Ao usar a API do API do Cassandra ou do Azure Cosmos DB para o MongoDB, os aplic
 
 ## <a id="cassandra-mapping"></a>Mapeamento entre os níveis de consistência do Apache Cassandra e Azure Cosmos DB
 
-Ao contrário do AzureCosmos DB, o Apache Cassandra não fornece nativamente garantias de consistência definidas com precisão.  Em vez disso, o Apache Cassandra fornece um nível de consistência de gravação e um nível de consistência de leitura para habilitar a alta disponibilidade, consistência e compensações de latência. Ao usar o API do Cassandra do Azure Cosmos DB: 
+Ao contrário de Azure Cosmos DB, o Apache Cassandra não fornece nativamente garantias de consistência definidas com precisão.  Em vez disso, o Apache Cassandra fornece um nível de consistência de gravação e um nível de consistência de leitura para habilitar a alta disponibilidade, consistência e compensações de latência. Ao usar o API do Cassandra do Azure Cosmos DB: 
 
 * O nível de consistência de gravação do Apache Cassandra é mapeado para o nível de consistência padrão configurado em sua conta do Azure Cosmos. 
 
@@ -33,7 +33,7 @@ Ao contrário do AzureCosmos DB, o Apache Cassandra não fornece nativamente gar
 
 A tabela a seguir ilustra como os níveis de consistência Cassandra nativos são mapeados para os níveis de consistência do Azure Cosmos DB ao usar o API do Cassandra:  
 
-[mapeamento de modelo de consistência do Cassandra![](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[mapeamento de modelo de consistência do Cassandra ![](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Mapeamento entre os níveis de consistência do MongoDB e do Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Ao usar a API do Azure Cosmos DB para MongoDB:
 
 A tabela a seguir ilustra como as preocupações nativas de gravação/leitura do MongoDB são mapeadas para os níveis de consistência do Azure Cosmos ao usar a API do Azure Cosmos DB para MongoDB:
 
-[mapeamento de modelo de consistência do MongoDB![](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[mapeamento de modelo de consistência do MongoDB ![](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

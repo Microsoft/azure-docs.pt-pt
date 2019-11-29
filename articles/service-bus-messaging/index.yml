@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 10/22/2019
-  ms.openlocfilehash: 9ec9d8a5c5bd063dc8e15afbc156fbb42f85b7b8
-  ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+  ms.openlocfilehash: 972eaafddaaf34d72c613f177dd495624b125cd0
+  ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/23/2019
-  ms.locfileid: "72783874"
+  ms.lasthandoff: 11/27/2019
+  ms.locfileid: "74560031"
 landingContent:
 - title: Sobre as Mensagens do Service Bus
   linkLists:
@@ -33,6 +33,10 @@ landingContent:
       url: service-bus-azure-and-service-bus-queues-compared-contrasted.md
     - text: Filas, tópicos e subscrições
       url: service-bus-queues-topics-subscriptions.md
+  - linkListType: architecture
+    links:
+    - text: Arquitetura de Referência para Filas e Eventos
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
 - title: Criar uma fila do Service Bus
   linkLists:
   - linkListType: quickstart

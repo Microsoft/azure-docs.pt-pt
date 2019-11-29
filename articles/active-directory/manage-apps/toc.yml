@@ -72,8 +72,14 @@
       items:
         - name: Planear uma implementação de aprovisionamento automático de utilizadores
           href: plan-auto-user-provisioning.md
+        - name: Aprovisionamento automático de aplicações com SCIM ativado
+          href: use-scim-to-provision-users-and-groups.md
         - name: Aprovisionamento manual vs. automático
           href: application-provisioning-config-how-to.md
+    - name: Aprovisionamento de HR de Cloud
+      items:
+        - name: Planear uma implementação de aprovisionamento de utilizadores de HR de cloud
+          href: plan-cloud-hr-provision.md
     - name: Proxy de Aplicações para aplicações no local
       items:
         - name: Proxy da aplicação

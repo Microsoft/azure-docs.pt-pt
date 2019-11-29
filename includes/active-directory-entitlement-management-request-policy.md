@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: fb72ed337219f58481c094d68342dbf6f26493c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260833"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566337"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -106,6 +106,14 @@ Na seção aprovação, você especifica se uma aprovação é necessária quand
 - A aprovação de cada aprovador selecionado não é necessária para a aprovação de um ou dois estágios.
 - A decisão de aprovação se baseia em qualquer aprovador que examine a solicitação primeiro.
 
+Para ver uma demonstração de como adicionar aprovadores a uma política de solicitação, Assista ao vídeo a seguir:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+Para ver uma demonstração de como adicionar uma aprovação de vários estágios a uma política de solicitação, Assista ao vídeo a seguir:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
 Siga estas etapas para especificar as configurações de aprovação para solicitações para o pacote de acesso:
 
 1. Para exigir aprovação para solicitações dos usuários selecionados, defina a opção **exigir aprovação** para **Sim**. Ou, para que as solicitações sejam aprovadas automaticamente, defina a alternância para **não**.
@@ -115,7 +123,6 @@ Siga estas etapas para especificar as configurações de aprovação para solici
 1. Agora, determine se as solicitações exigirão a aprovação de um ou dois estágios. Defina o **número de estágios** de alternância para **1** para aprovação de estágio único ou defina a alternância como **2** para aprovação de dois estágios.
 
     ![Pacotes de acesso-solicitações-configurações de aprovação](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 
 Use as etapas a seguir para adicionar aprovadores depois de selecionar Quantos estágios você precisa: 
 

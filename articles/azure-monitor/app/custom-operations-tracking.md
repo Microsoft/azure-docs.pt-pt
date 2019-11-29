@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 06/30/2017
+ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: f05c8724fe87888c93230b4ca77a7a82fe9357c2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3e316527992b4a478b82bef61fb6da608e218ba5
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677474"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554930"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com Application Insights SDK do .NET
 
@@ -30,7 +30,7 @@ Este documento fornece orientação sobre como controlar operações personaliza
 ## <a name="overview"></a>Visão geral
 Uma operação é uma parte lógica do trabalho executada por um aplicativo. Ele tem um nome, uma hora de início, uma duração, um resultado e um contexto de execução, como nome de usuário, propriedades e resultado. Se A operação A foi iniciada pela operação B, A operação B é definida como um pai para um. Uma operação pode ter apenas um pai, mas pode ter muitas operações filhas. Para obter mais informações sobre a correlação de operações e telemetria, consulte [correlação de telemetria do aplicativo Azure insights](correlation.md).
 
-No SDK Application Insights .NET, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) e [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
+No SDK Application Insights .NET, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) e [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Acompanhamento de operações de entrada 
 O SDK do Application Insights Web coleta automaticamente solicitações HTTP para aplicativos ASP.NET executados em um pipeline do IIS e todos os aplicativos ASP.NET Core. Há soluções com suporte da Comunidade para outras plataformas e estruturas. No entanto, se o aplicativo não tiver suporte de nenhuma das soluções padrão ou com suporte da Comunidade, você poderá instrumentá-lo manualmente.
@@ -130,7 +130,7 @@ Embora haja um [contexto de rastreamento do W3C](https://www.w3.org/TR/trace-con
 Application Insights rastreia chamadas de mensagens do barramento de serviço com o novo [cliente do ServiceBus Microsoft Azure para .net](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versão 3.0.0 e superior.
 Se você usar o [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você concluiu: todas as chamadas do barramento de serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Consulte o [rastreamento de cliente do barramento de serviço com o Microsoft Application insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) se você processar mensagens manualmente.
 
-Se você usar o pacote [WindowsAzure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) , leia mais-os exemplos a seguir demonstram como rastrear (e correlacionar) chamadas para o barramento de serviço como a fila do barramento de serviço usa o protocolo AMQP e Application insights não rastreia a fila automaticamente das.
+Se você usar o pacote [WindowsAzure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) , leia mais-os exemplos a seguir demonstram como rastrear (e correlacionar) chamadas para o barramento de serviço como a fila do barramento de serviço usa o protocolo AMQP e Application insights não rastreia automaticamente as operações de fila.
 Os identificadores de correlação são passados nas propriedades da mensagem.
 
 #### <a name="enqueue"></a>Enfileirar
@@ -346,7 +346,7 @@ Quando você instrumenta a exclusão de mensagens, certifique-se de definir os i
 - Inicie o `Activity`.
 - Acompanhe as operações de remover da fila, processar e excluir usando `Start/StopOperation` auxiliares. Faça isso no mesmo fluxo de controle assíncrono (contexto de execução). Dessa forma, eles são correlacionados corretamente.
 - Pare o `Activity`.
-- Use `Start/StopOperation` ou chame a telemetria de `Track` manualmente.
+- Use `Start/StopOperation`ou chame a telemetria de `Track` manualmente.
 
 ### <a name="dependency-types"></a>Tipos de dependência
 

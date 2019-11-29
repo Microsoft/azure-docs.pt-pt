@@ -11,15 +11,15 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2018
+ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00b4647815d8330152ca2dd0b5e137e337e80210
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101989"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561103"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -75,7 +75,7 @@ Também pode trazer a sua licença (BYOL). Neste cenário, apenas paga a VM sem 
 
 Para trazer sua própria licença, você pode converter uma VM SQL de pagamento por uso existente ou pode implantar uma imagem com o prefixo **{BYOL}** . Para obter mais informações sobre como alternar o modelo de licenciamento entre pagamento por uso e BYOL, consulte [como alterar o modelo de licenciamento para uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
 
-| Version | Sistema operativo | Edição |
+| Versão | Sistema operativo | Edição |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
@@ -94,7 +94,7 @@ Para obter mais informações sobre como implantar VMs SQL Server usando o Power
 ### <a name="connect-to-the-vm"></a>Ligar à VM
 Depois de criar a VM do SQL Server, ligue-se à mesma a partir de aplicações ou ferramentas, tais como o SQL Server Management Studio (SSMS). Para instruções, veja [Ligar a uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-sql-connect.md).
 
-### <a name="migrate-your-data"></a>Migrar os dados
+### <a name="migrate-your-data"></a>Migrar os seus dados
 Se tiver uma base de dados existente, deverá movê-la para a VM do SQL recentemente aprovisionada. Para obter uma lista de opções de migração e orientações, consulte o artigo [Migrar uma Base de Dados para o SQL Server numa VM do Azure](virtual-machines-windows-migrate-sql.md).
 
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Criar e gerenciar recursos do SQL Azure com o portal do Azure
@@ -134,7 +134,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 ### <a name="storage"></a>Armazenamento
 * [Introdução ao Armazenamento do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Funcionamento em Rede
 * [Descrição Geral da Rede Virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP do Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
@@ -152,3 +152,8 @@ Introdução ao SQL Server em máquinas virtuais do Azure:
 Obtenha respostas às perguntas mais comuns sobre as VMs do SQL:
 
 * [FAQ do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Exibir arquiteturas de referência para executar aplicativos de N camadas no SQL Server no IaaS
+
+* [Aplicativo de N camadas do Windows no Azure com SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Executar um aplicativo de N camadas em várias regiões do Azure para alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

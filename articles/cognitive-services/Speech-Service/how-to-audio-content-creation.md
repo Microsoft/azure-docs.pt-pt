@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579638"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554997"
 ---
-# <a name="audio-content-creation"></a>Criação de conteúdo de áudio
+# <a name="audio-content-creation"></a>Criação de Conteúdo de Áudio
 
 A [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation) é uma ferramenta online que permite que você personalize e ajuste a saída de conversão de texto em fala da Microsoft para seus aplicativos e produtos. Você pode usar essa ferramenta para ajustar as vozes pública e personalizada para expressões naturais mais precisas e gerenciar sua saída na nuvem.
 
@@ -43,7 +43,7 @@ Este diagrama mostra as etapas necessárias para ajustar e exportar saídas de f
 
 Siga estas etapas para criar um recurso de fala e conectá-lo com o Speech Studio.
 
-1. Siga estas instruções para [se inscrever em uma conta do Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
+1. Siga estas instruções para [se inscrever em uma conta do Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
 2. Entrar na [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
 3. Selecione um projeto existente ou clique em **criar novo**.
 4. Você pode modificar sua assinatura a qualquer momento com a opção **configurações** , localizada na barra de navegação superior.
@@ -104,7 +104,7 @@ Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajust
 | WAV | riff-16kHz-16 bits-mono-PCM | riff-24kHz-16 bits-mono-PCM |
 | MP | Audio-16kHz-128kbitrate-mono-mp3 | Audio-24kHz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 

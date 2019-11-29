@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881523"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554975"
 ---
 # <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
@@ -43,7 +43,7 @@ Este diagrama realça as partes que compõem o [portal de fala personalizada](ht
 
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
-Uma assinatura de serviços de fala é necessária para que você possa usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma assinatura padrão dos serviços de fala: [Crie uma assinatura de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Uma assinatura de serviços de fala é necessária para que você possa usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma assinatura padrão dos serviços de fala: [criar uma assinatura de fala](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Certifique-se de criar assinaturas padrão (S0), não há suporte para assinaturas de avaliação gratuita (F0).
@@ -59,7 +59,7 @@ Depois de criar uma conta do Azure e uma assinatura de serviços de fala, você 
 
 Conteúdo como dados, modelos, testes e pontos de extremidade são organizados em **projetos** no portal de [fala personalizada](https://speech.microsoft.com/customspeech). Cada projeto é específico de um domínio e país/idioma. Por exemplo, você pode criar um projeto para centros de chamadas que usam o inglês no Estados Unidos.
 
-Para criar seu primeiro projeto, selecione a fala de **fala para texto/Personalizada**e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você deverá ver quatro guias: **Dados**, **teste**, **treinamento**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
+Para criar seu primeiro projeto, selecione a fala de **fala para texto/Personalizada**e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você deverá ver quatro guias: **dados**, **teste**, **treinamento**e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
 ## <a name="next-steps"></a>Passos seguintes
 

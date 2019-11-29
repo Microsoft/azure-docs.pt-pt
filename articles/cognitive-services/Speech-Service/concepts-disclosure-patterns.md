@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836984"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559013"
 ---
-# <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
+# <a name="disclosure-design-patterns"></a>Padrões de conceção de divulgação
 Agora que você&#39;já determinou o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética&#39;, é um bom momento para explorar os possíveis padrões de design.
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Há um espectro de padrões de design de divulgação que você pode aplicar à sua experiência de voz sintética. Se o resultado da sua avaliação de divulgação foi ' alta divulgação ', recomendamos a [**divulgação explícita**](#explicit-disclosure), o que significa comunicar as origens da voz sintética imediatamente. A [**divulgação implícita**](#implicit-disclosure) inclui indicações e padrões de interação que beneficiam experiências de voz se os níveis de divulgação necessários são altos ou baixos.
 ![espectro de padrões de divulgação](media/responsible-ai/disclosure-patterns/affordances.png)
 
@@ -167,7 +167,7 @@ A consistência é a chave para alcançar a divulgação implicitamente durante 
 
 ![Consistência de indicações implícitas](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>Sugestões de &amp; de indicações implícitas
+### <a name="implicit-cues--feedback"></a>Sugestões de & de indicações implícitas
 
 O anthropomorphism pode manifestar de maneiras diferentes, desde a representação visual real do agente até a voz, sons, padrões de luz, formas saltadoras ou até mesmo a vibração de um dispositivo. Ao definir sua pessoa, utilize indicações implícitas e padrões de comentários em vez de visar um avatar muito humano. Essa é uma maneira de minimizar a necessidade de divulgação mais explícita.
 

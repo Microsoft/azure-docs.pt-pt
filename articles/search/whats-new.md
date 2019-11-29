@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f35fcc2604866c2ff5a330b65ae844be0eed9476
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 247378461a99d42f21a67a2c0aebc7019727f3a0
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422388"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555147"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -46,7 +46,7 @@ As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são 
 
 Julho de 24 2019
 
-+ Geralmente disponível na [nuvem do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
++ Geralmente disponível na [nuvem do Azure governamental](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 
 ## <a name="service-updates"></a>Atualizações de serviço
 

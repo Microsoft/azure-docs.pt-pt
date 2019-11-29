@@ -8,19 +8,19 @@ manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 998aedc8cb799d0064a2704dc819d483ced9e99e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60369884"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225654"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para uma subscrição do Office 365 com a sua conta do Azure
 Se for subscritor do Azure, pode usar a sua conta do Azure para se inscrever para uma subscrição do Office 365. Se fizer parte de uma organização que tem uma subscrição do Azure, pode criar subscrições do Office 365 para utilizadores no seu Azure Active Directory existente (AAD). Inscreva-se no Office 365 com uma conta que tenha permissões de Administrador Global ou de Administrador de Faturação no seu inquilino do Azure Active Directory. Para obter mais informações, veja [Verificar as minhas permissões de conta no AAD](#RoleInAzureAD) e [Atribuir funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -55,7 +55,7 @@ Depois de se inscrever, a subscrição do Office 365 é adicionada à mesma inst
 
 ## <a id="RoleInAzureAD"></a>Verificar as permissões da minha conta no AAD
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique em Todos os serviços e, em seguida, procure Active Directory Domain Services.
+2. Clique em **Todos os serviços** e, em seguida, procure **Active Directory**.
 
     ![Captura de ecrã do Active Directory Domain Services no portal do Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Clique em **Utilizadores e grupos** > **Todos os utilizadores**.

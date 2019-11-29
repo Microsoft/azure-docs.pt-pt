@@ -1,14 +1,14 @@
 ---
-title: Exemplo de esquema NIST SP 800-53 R4 - Descrição geral
+title: Descrição geral do exemplo de esquema NIST SP 800-53 R4
 description: Descrição geral do exemplo de esquema NIST SP 800-53 R4. Este exemplo de esquema ajuda os clientes a avaliar controlos NIST SP 800-53 R4 específicos.
 ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 0057fa1ba0a71465ed9b8add865f807c6665c921
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e7a0acf2b43136aedd8c2281f0e87bb1499a81ae
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184362"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546587"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Descrição geral do exemplo de esquema NIST SP 800-53 R4
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84cb2b465735532ff44e35ab7a2fe4e9bb224e61
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f282fce8070d440bdd3a518b4444eb0e67110961
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150010"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559073"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmitir dados de monitoramento do Azure para um hub de eventos
 O Azure Monitor fornece uma solução completa de monitoramento de pilha completa para aplicativos e serviços no Azure, em outras nuvens e no local. Além de usar Azure Monitor para analisar os dados e aproveitá-los para diferentes cenários de monitoramento, talvez seja necessário enviá-los para outras ferramentas de monitoramento em seu ambiente. O método mais eficaz para transmitir dados de monitoramento para ferramentas externas na maioria dos casos é usar os [hubs de eventos do Azure](/azure/event-hubs/). Este artigo fornece uma breve descrição de como você pode transmitir dados de monitoramento de fontes diferentes para um hub de eventos e links para orientações detalhadas.
@@ -40,7 +40,7 @@ Antes de configurar o streaming para qualquer fonte de dados, você precisa [cri
 | [Subscrição do Azure](data-sources.md#azure-subscription) | Registo de Atividades do Azure | Crie um perfil de log para exportar eventos do log de atividades para os hubs de eventos.  Consulte [Exportar log de atividades do Azure para armazenamento ou hubs de eventos do Azure](activity-log-export.md) para obter detalhes. |
 | [Recursos do Azure](data-sources.md#azure-resources) | Métricas de plataforma<br>Registos de diagnósticos |Os dois tipos de dados são enviados para um hub de eventos usando uma configuração de diagnóstico de recurso. Consulte [transmitir logs de diagnóstico do Azure para um hub de eventos](resource-logs-stream-event-hubs.md) para obter detalhes. |
 | [Sistema operacional (convidado)](data-sources.md#operating-system-guest) | Máquinas virtuais do Azure | Instale a [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) em máquinas virtuais Windows e Linux no Azure. Consulte [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](diagnostics-extension-stream-event-hubs.md) para obter detalhes sobre VMs do Windows e [usar a extensão de diagnóstico do Linux para monitorar métricas e logs](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) para obter detalhes sobre as VMs do Linux. |
-| [Código do aplicativo](data-sources.md#application-code) | Application Insights | Application Insights não fornece um método direto para transmitir dados para os hubs de eventos. Você pode [Configurar a exportação contínua](../../azure-monitor/app/export-telemetry.md) dos dados de Application insights para uma conta de armazenamento e, em seguida, usar um aplicativo lógico para enviar os dados para um hub de eventos, conforme descrito em [streaming manual com aplicativo lógico](#manual-streaming-with-logic-app). |
+| [Código do aplicativo](data-sources.md#application-code) | Estatísticas das Aplicações | Application Insights não fornece um método direto para transmitir dados para os hubs de eventos. Você pode [Configurar a exportação contínua](../../azure-monitor/app/export-telemetry.md) dos dados de Application insights para uma conta de armazenamento e, em seguida, usar um aplicativo lógico para enviar os dados para um hub de eventos, conforme descrito em [streaming manual com aplicativo lógico](#manual-streaming-with-logic-app). |
 
 ## <a name="manual-streaming-with-logic-app"></a>Streaming manual com aplicativo lógico
 Para dados que você não pode transmitir diretamente para um hub de eventos, você pode gravar no armazenamento do Azure e, em seguida, usar um aplicativo lógico disparado por tempo que [extrai dados do armazenamento de BLOBs](../../connectors/connectors-create-api-azureblobstorage.md#add-action) e [envia-os por push como uma mensagem para o Hub de eventos](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
@@ -57,10 +57,10 @@ O roteamento dos dados de monitoramento para um hub de eventos com o Azure Monit
 | SumoLogic | As instruções para configurar o SumoLogic para consumir dados de um hub de eventos estão disponíveis em [coletar logs para o aplicativo de auditoria do Azure do hub de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
 | ArcSight | O conector inteligente do hub de eventos ArcSight do Azure está disponível como parte da [coleção de conectores inteligentes do ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Syslog server | Se você quiser transmitir dados Azure Monitor diretamente para um servidor syslog, poderá usar uma [solução baseada em uma função do Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | As instruções para a coleta de LogRhythm para coletar logs de um hub de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+| LogRhythm | As instruções para configurar o LogRhythm para coletar logs de um hub de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Arquivar o log de atividades em uma conta de armazenamento](../../azure-monitor/platform/archive-activity-log.md)
 * [Leia a visão geral do log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md)
 * [Configurar um alerta com base em um evento do log de atividades](../../azure-monitor/platform/alerts-log-webhook.md)

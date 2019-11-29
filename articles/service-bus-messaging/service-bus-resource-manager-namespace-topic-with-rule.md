@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dc61fb8e066c6189b5607a6e1cd479cb812466f7
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832069"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561556"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Criar um namespace do barramento de serviço com tópico, assinatura e regra usando um modelo de Azure Resource Manager
 
@@ -179,8 +179,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte o tópico a seguir que mostra como criar um filtro de assinatura: [criar um namespace do barramento de serviço com tópico, assinatura e regra usando um modelo de Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
-
 Saiba como gerenciar esses recursos exibindo estes artigos:
 
 * [Gerenciar o barramento de serviço do Azure](service-bus-management-libraries.md)

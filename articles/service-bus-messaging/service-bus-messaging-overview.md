@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: e2460ab760811a3db39058eac74d519ca09046c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889821"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561589"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
-O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial totalmente gerido. O barramento de serviço pode desassociar aplicativos e serviços. O barramento de serviço oferece uma plataforma confiável e segura para dados assíncronos e transferência de estado.
+O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial totalmente gerido. O barramento de serviço pode desassociar aplicativos e serviços. O barramento de serviço oferece uma plataforma confiável e segura para transferência assíncrona de dados e estado.
 
 Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem está em formato binário e pode conter JSON, XML ou apenas texto. Para obter mais informações, consulte [Integration Services](https://azure.com/integration).
 
@@ -39,7 +39,7 @@ Um namespace é um contêiner para todos os componentes de mensagens. Várias fi
 
 As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que o aplicativo receptor esteja disponível para receber e processá-las.
 
-![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
 As mensagens nas filas são ordenadas e com carimbo de data/hora na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo de *pull* , apenas entregando mensagens quando solicitado.
 

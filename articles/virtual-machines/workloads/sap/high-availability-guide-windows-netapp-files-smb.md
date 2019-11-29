@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: 5de28055a1b573b3326b717614f481b0e1158f1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d7c2bfbe3f277bbaf652191977434ea5fe4dbffd
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064676"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555303"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure no Windows com Azure NetApp Files (SMB) para aplicativos SAP
 
@@ -78,12 +78,12 @@ Leia as seguintes notas e documentos SAP primeiro:
 * O SAP Note [662452](https://launchpad.support.sap.com/#/notes/662452) tem recomendação (desativando a geração de nome 8,3) para resolver erros/desempenho do sistema de arquivos insatisfatórios durante acessos a dados.
 * [Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias do SAP ASCS/SCS no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
 * [Arquitetura e cenários de alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-* [Adicionar porta de investigação na configuração do cluster ASCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share#create-a-new-sap-service-and-sap-instance-resources)
-* [Instalação de uma instância do (A) SCS em um cluster de failover](https:\www.sap.com\documents\2017\07\f453332f-c97c-0010-82c7-eda71af511fa.html) 
+* [Adicionar porta de investigação na configuração do cluster ASCS](sap-high-availability-installation-wsfc-file-share.md)
+* [Instalação de uma instância do (A) SCS em um cluster de failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Criar um volume SMB para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [Aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A SAP desenvolveu uma nova abordagem e uma alternativa para os discos compartilhados do cluster, para o clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows. Em vez de usar discos compartilhados de cluster, é possível usar um compartilhamento de arquivos SMB para implantar arquivos de host global do SAP. Azure NetApp Files dá suporte a SMBv3 (junto com NFS) com ACL de NTFS usando Active Directory. O Azure NetApp Files é automaticamente altamente disponível (pois é um serviço de PaaS). Esses recursos tornam Azure NetApp Files ótima opção para hospedar o compartilhamento de arquivos SMB para SAP global.  
 Há suporte para os [serviços de domínio Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) e [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) . Você pode usar os controladores de domínio Active Directory existentes com Azure NetApp Files. Os controladores de domínio podem estar no Azure como máquinas virtuais ou localmente por meio de ExpressRoute ou VPN S2S. Neste artigo, usaremos o controlador de domínio em uma VM do Azure.  

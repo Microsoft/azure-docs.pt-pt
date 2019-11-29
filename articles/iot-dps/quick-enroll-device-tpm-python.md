@@ -9,18 +9,21 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ac65758f69fc827e36f734f9dee3117d519dca6a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9774ba9ba94bdaf4f9219a65be2a223ff00ff489
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423113"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554022"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Início rápido: registrar dispositivo TPM no serviço de provisionamento de dispositivos no Hub IoT usando o SDK do serviço de provisionamento do Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-Estes passos explicam como criar através de programação uma inscrição individual para um dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o [SDK do Serviço de Aprovisionamento](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) com ajuda de uma aplicação Python de exemplo. Embora o SDK do serviço Python funcione em computadores Windows e Linux, este artigo utiliza um computador de desenvolvimento Windows para percorrer o processo de inscrição.
+Estas etapas mostram como criar programaticamente um registro individual para um dispositivo TPM no serviço de provisionamento de dispositivos no Hub IoT do Azure, usando o [SDK do serviço de provisionamento de Python do v1](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) com a ajuda de um aplicativo Python de exemplo. Embora o SDK do serviço Python funcione em computadores Windows e Linux, este artigo utiliza um computador de desenvolvimento Windows para percorrer o processo de inscrição.
+
+> [!IMPORTANT]
+> Este artigo se aplica somente ao SDK do Python v1 preterido. Os clientes de dispositivo e serviço para o serviço de provisionamento de dispositivos no Hub IOT ainda não estão disponíveis na v2. No momento, a equipe está trabalhando atualmente para trazer a paridade de v2 para recursos.
 
 Antes de avançar, certifique-se de que [configura o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 
@@ -33,7 +36,7 @@ Antes de avançar, certifique-se de que [configura o Serviço de Aprovisionament
 
 1. Selecione uma das seguintes opções:
 
-    - Crie e compile o **SDK do Azure IoT Python**. Siga [estas instruções](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) para criar os pacotes Python. Se estiver a utilizar o SO Windows, instale também o [pacote redistribuível Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145), para permitir a utilização de DLLs nativas de Python.
+    - Crie e compile o **SDK do Azure IoT Python**. Siga [estas instruções](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) para criar os pacotes Python. Se estiver a utilizar o SO Windows, instale também o [pacote redistribuível Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads), para permitir a utilização de DLLs nativas de Python.
 
     - [Instale ou atualize o *pip*, o sistema de gestão de pacotes Python](https://pip.pypa.io/en/stable/installing/) e instale o pacote através do seguinte comando:
 

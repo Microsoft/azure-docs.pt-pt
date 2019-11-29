@@ -1,6 +1,6 @@
 ---
 title: Gerenciar problemas do Endpoint Protection com a central de segurança do Azure | Microsoft Docs
-description: Saiba como gerenciar problemas do Endpoint Protection na central de segurança do Azure.
+description: Saiba mais sobre o monitoramento da central de segurança de sua proteção de ponto de extremidade e como corrigir quaisquer problemas que surjam.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202079"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558616"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas do Endpoint Protection com a central de segurança do Azure
-A central de segurança do Azure monitora o status da proteção antimalware e relata isso na folha problemas do Endpoint Protection. A central de segurança realça problemas, como ameaças detectadas e proteção insuficiente, que podem tornar suas VMs (máquinas virtuais) e computadores vulneráveis a ameaças antimalware. Usando as informações em **problemas do Endpoint Protection**, você pode identificar um plano para resolver quaisquer problemas identificados.
+A central de segurança do Azure monitora o status da proteção antimalware e relata isso na página problemas do Endpoint Protection. A central de segurança realça problemas, como ameaças detectadas e proteção insuficiente, que podem tornar suas VMs (máquinas virtuais) e computadores vulneráveis a ameaças antimalware. Usando as informações em **problemas do Endpoint Protection**, você pode identificar um plano para resolver quaisquer problemas identificados.
 
 A central de segurança relata os seguintes problemas de proteção de ponto de extremidade:
 
@@ -30,7 +30,7 @@ A central de segurança relata os seguintes problemas de proteção de ponto de 
 - Integridade do Endpoint Protection:
 
   - Assinatura desatualizada – uma solução antimalware está instalada nessas VMs e computadores, mas a solução não tem as assinaturas antimalware mais recentes.
-  - Sem proteção em tempo real – uma solução antimalware é instalada nessas VMs e computadores, mas não está configurada para proteção em tempo real.   O serviço pode estar desabilitado ou a central de segurança pode não conseguir obter o status porque a solução não tem suporte. Consulte [integração de parceiros](security-center-services.md#endpoint-supported) para obter uma lista de soluções com suporte.
+  - Sem proteção em tempo real – uma solução antimalware é instalada nessas VMs e computadores, mas não está configurada para proteção em tempo real. O serviço pode estar desabilitado ou a central de segurança pode não conseguir obter o status porque a solução não tem suporte. Consulte [integração de parceiros](security-center-services.md#endpoint-supported) para obter uma lista de soluções com suporte.
   - Sem relatórios – uma solução antimalware está instalada, mas não está relatando dados.
   - Desconhecido – uma solução antimalware está instalada, mas seu status é desconhecido ou está relatando um erro desconhecido.
 
@@ -40,7 +40,7 @@ A central de segurança relata os seguintes problemas de proteção de ponto de 
     >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-Problemas do Endpoint Protection são apresentados como uma recomendação na central de segurança.  Se o seu ambiente estiver vulnerável a ameaças Antimalware, essa recomendação será exibida em **recomendações** e em **computação**. Para ver o **painel de problemas do Endpoint Protection**, você precisa seguir o fluxo de trabalho de computação.
+Problemas do Endpoint Protection são apresentados como uma recomendação na central de segurança. Se o seu ambiente estiver vulnerável a ameaças Antimalware, essa recomendação será exibida em **recomendações** e em **computação**. Para ver o **painel de problemas do Endpoint Protection**, você precisa seguir o fluxo de trabalho de computação.
 
 Neste exemplo, usaremos a **computação**.  Veremos como instalar o antimalware em VMs do Azure e em computadores não Azure.
 

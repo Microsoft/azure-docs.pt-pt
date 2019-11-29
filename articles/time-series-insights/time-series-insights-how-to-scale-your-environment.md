@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bc6c33762fa572e971fff9dee8988a100e50b07c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006808"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561167"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar seu ambiente de Time Series Insights
 
@@ -34,13 +34,13 @@ No entanto, a alteração da SKU do tipo de preço não é permitida. Por exempl
 
 1. Na portal do Azure, localize e selecione seu ambiente de Time Series Insights.
 
-1. No menu de seu ambiente de Time Series Insights, selecione **Configurar**.
+1. No menu de seu ambiente de Time Series Insights, selecione **configuração de armazenamento**.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![configurar sua capacidade de Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Ajuste o controle deslizante **capacidade** para selecionar a capacidade que atende aos requisitos para suas taxas de entrada e capacidade de armazenamento. Observe a **taxa de entrada**, a **capacidade de armazenamento**e a atualização de **custo estimado** dinamicamente para mostrar o impacto da alteração.
 
-   [Controle deslizante de ![](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![configurar seu ambiente usando o controle deslizante capacidade](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante.
 

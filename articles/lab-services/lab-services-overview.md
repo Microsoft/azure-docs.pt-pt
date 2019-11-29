@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/13/2018
+ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 115320a8b4ee7afc6e420dcfa96612b91ea6d1a0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4258bec3ceacd52f9679f48d8357be558ee0e27f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790775"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561637"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introdução ao Azure Lab Services
 Há dois serviços no Azure que permitem que você configure ambientes de laboratório na nuvem. 

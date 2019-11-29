@@ -1,6 +1,6 @@
 ---
-title: Compreender e resolver erros de WebHCat no HDInsight - Azure
-description: Saiba como a about comuns erros devolvidos pelo WebHCat no HDInsight e como resolvê-los.
+title: Entender e resolver erros do WebHCat no HDInsight – Azure
+description: Saiba mais sobre os erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,79 +8,79 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cfbd42a67f9c9d6c66df3787b53575dc9e918e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067976"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555003"
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compreender e resolver erros recebidos de WebHCat no HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender e resolver erros recebidos do WebHCat no HDInsight
 
-Saiba mais sobre erros recebidos quando utiliza o WebHCat com o HDInsight e como resolvê-los. WebHCat é utilizada internamente pelo lado do cliente de ferramentas como o Azure PowerShell e ferramentas do Data Lake para Visual Studio.
+Saiba mais sobre os erros recebidos ao usar o WebHCat com o HDInsight e como resolvê-los. O WebHCat é usado internamente pelas ferramentas do lado do cliente, como Azure PowerShell e as ferramentas de Data Lake para o Visual Studio.
 
-## <a name="what-is-webhcat"></a>O que é o WebHCat
+## <a name="what-is-webhcat"></a>O que é WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma tabela e a camada de gestão de armazenamento para o Apache Hadoop. WebHCat é habilitado por padrão nos clusters do HDInsight e é utilizado por várias ferramentas para submeter tarefas, obter o estado da tarefa, etc. sem iniciar sessão para o cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma tabela e uma camada de gerenciamento de armazenamento para Apache Hadoop. O WebHCat é habilitado por padrão em clusters HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho etc. sem fazer logon no cluster.
 
-## <a name="modifying-configuration"></a>Modificar configuração
+## <a name="modifying-configuration"></a>Modificando configuração
 
 > [!IMPORTANT]  
-> Vários dos erros listados neste documento ocorrerem porque foi excedido um máximo configurado. Quando o passo de resolução menciona que é possível alterar um valor, tem de utilizar um dos seguintes procedimentos para efetuar a alteração:
+> Vários dos erros listados neste documento ocorrem porque um máximo configurado foi excedido. Quando a etapa de resolução menciona que você pode alterar um valor, você deve usar um dos seguintes para executar a alteração:
 
-* Para **Windows** clusters: Utilize uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md).
+* Para clusters do **Windows** : Use uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md).
 
-* Para **Linux** clusters: Utilize o Apache Ambari (web ou REST API) para modificar o valor. Para obter mais informações, consulte [gerir o HDInsight com o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* Para clusters do **Linux** : Use o Apache Ambari (Web ou API REST) para modificar o valor. Para obter mais informações, consulte [gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 
-### <a name="default-configuration"></a>Configuração predefinida
+### <a name="default-configuration"></a>Configuração padrão
 
-Se os seguintes valores predefinidos são excedidos, pode degradar o desempenho de WebHCat ou causar erros:
+Se os valores padrão a seguir forem excedidos, isso poderá prejudicar o desempenho do WebHCat ou causar erros:
 
 | Definição | O que faz | Valor predefinido |
 | --- | --- | --- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |O número máximo de tarefas que podem estar ativas em simultâneo (em execução ou pendente) |10,000 |
-| [templeton.exec.max-procs][max-procs] |O número máximo de pedidos que podem ser fornecidos em simultâneo |20 |
-| [mapreduce.jobhistory.max-age-ms][max-age-ms] |O número de dias que o histórico de tarefas é mantido |7 dias |
+| [yarn. scheduler. Capacity. Maximum-Applications][maximum-applications] |O número máximo de trabalhos que podem estar ativos simultaneamente (pendente ou em execução) |10,000 |
+| [Templeton. exec. Max-procs][max-procs] |O número máximo de solicitações que podem ser atendidas simultaneamente |20 |
+| [MapReduce. jobhistory. Max-age-MS][max-age-ms] |O número de dias que o histórico de trabalho é retido |7 dias |
 
-## <a name="too-many-requests"></a>Demasiados pedidos
+## <a name="too-many-requests"></a>Número excessivo de solicitações
 
-**Código de estado HTTP**: 429
-
-| Causa | Resolução |
-| --- | --- |
-| Excedeu os máximos pedidos simultâneos servidos pelo WebHCat por minuto (predefinição de 20) |Reduza a carga de trabalho para se certificar de que não submeta mais do que o número máximo de pedidos simultâneos ou aumentar o limite de pedido simultâneo modificando `templeton.exec.max-procs`. Para obter mais informações, consulte [Modifying configuração](#modifying-configuration) |
-
-## <a name="server-unavailable"></a>Servidor indisponível
-
-**Código de estado HTTP**: 503
+**Código de status http**: 429
 
 | Causa | Resolução |
 | --- | --- |
-| Este código de estado geralmente ocorre durante a ativação pós-falha entre o nó principal primário e secundário para o cluster |Aguardar dois minutos, em seguida, repita a operação |
+| Você excedeu o máximo de solicitações simultâneas atendidas por WebHCat por minuto (padrão 20) |Reduza sua carga de trabalho para garantir que você não envie mais do que o número máximo de solicitações simultâneas ou aumente o limite de solicitações simultâneas modificando `templeton.exec.max-procs`. Para obter mais informações, consulte [modificando a configuração](#modifying-configuration) |
 
-## <a name="bad-request-content-could-not-find-job"></a>Pedido incorreto conteúdo: Não foi possível encontrar a tarefa
+## <a name="server-unavailable"></a>Servidor não disponível
 
-**Código de estado HTTP**: 400
-
-| Causa | Resolução |
-| --- | --- |
-| Detalhes da tarefa foram limpos pelo histórico da tarefa de limpeza |O período de retenção predefinido para o histórico de tarefas é de 7 dias. O período de retenção predefinido pode ser alterado ao modificar `mapreduce.jobhistory.max-age-ms`. Para obter mais informações, consulte [Modifying configuração](#modifying-configuration) |
-| Tarefa tiver sido terminada devido a uma ativação pós-falha |Repita a submissão da tarefa para até dois minutos |
-| Foi utilizado um ID de tarefa inválida |Verifique se o ID da tarefa está correto |
-
-## <a name="bad-gateway"></a>Gateway inválido
-
-**Código de estado HTTP**: 502
+**Código de status http**: 503
 
 | Causa | Resolução |
 | --- | --- |
-| Coleta de lixo interno que está a ocorrer dentro do processo de WebHCat |Aguarde pela coleta de lixo seja concluída ou reinicie o serviço de WebHCat |
-| Tempo limite à espera de uma resposta do serviço ResourceManager. Este erro pode ocorrer quando o número de aplicativos ativos fica o máximo configurado (predefinição 10 000) |Aguarde tarefas para concluir ou aumentar o limite de trabalhos simultâneos modificando atualmente em execução `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte a [Modifying configuração](#modifying-configuration) secção. |
-| Tentar obter todas as tarefas através do [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) chamada ao `Fields` está definido como `*` |Não obtêm *todos os* detalhes da tarefa. Em alternativa utilize `jobid` para obter detalhes de tarefas apenas maiores do que determinados ID da tarefa. Ou, não utilize `Fields` |
-| O serviço de WebHCat está inativo durante a ativação pós-falha de nó principal |Aguardar dois minutos e repita a operação |
-| Há mais de 500 tarefas pendentes, submetidas através de WebHCat |Aguarde até que atualmente pendentes tarefas foram concluídas antes de submeter mais tarefas |
+| Esse código de status geralmente ocorre durante o failover entre o cabeçalho primário e o secundário para o cluster |Aguarde dois minutos e repita a operação |
 
-[maximum-applications]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
+## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de solicitação inválida: não foi possível encontrar o trabalho
+
+**Código de status http**: 400
+
+| Causa | Resolução |
+| --- | --- |
+| Os detalhes do trabalho foram limpos pelo limpador de histórico de trabalhos |O período de retenção padrão para o histórico de trabalhos é de 7 dias. O período de retenção padrão pode ser alterado modificando `mapreduce.jobhistory.max-age-ms`. Para obter mais informações, consulte [modificando a configuração](#modifying-configuration) |
+| O trabalho foi encerrado devido a um failover |Repita o envio do trabalho por até dois minutos |
+| Uma ID de trabalho inválida foi usada |Verifique se a ID do trabalho está correta |
+
+## <a name="bad-gateway"></a>Gateway inadequado
+
+**Código de status http**: 502
+
+| Causa | Resolução |
+| --- | --- |
+| A coleta de lixo interna está ocorrendo no processo WebHCat |Aguarde a conclusão da coleta de lixo ou reinicie o serviço WebHCat |
+| Tempo limite atingido ao aguardar uma resposta do serviço ResourceManager. Esse erro pode ocorrer quando o número de aplicativos ativos atinge o máximo configurado (padrão 10.000) |Aguarde até que os trabalhos em execução no momento sejam concluídos ou aumente o limite de trabalho simultâneo modificando `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte a seção [modificando a configuração](#modifying-configuration) . |
+| Tentar recuperar todos os trabalhos por meio da chamada [Get/Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) enquanto `Fields` está definido como `*` |Não recupere *todos os* detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes de trabalhos somente maiores que determinada ID de trabalho. Ou, não use `Fields` |
+| O serviço WebHCat está inoperante durante o failover do cabeçalho |Aguarde dois minutos e tente a operação novamente |
+| Há mais de 500 trabalhos pendentes enviados por meio do WebHCat |Aguarde até que os trabalhos pendentes no momento sejam concluídos antes de enviar mais trabalhos |
+
+[maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration
 [max-age-ms]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml

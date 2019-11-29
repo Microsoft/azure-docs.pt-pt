@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802677"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555553"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Gerenciar o acesso aos recursos do Azure para usuários convidados externos usando o RBAC
 
@@ -65,13 +65,13 @@ Para obter mais informações sobre o processo de convite, consulte [Azure Activ
 
 No RBAC, para conceder acesso, você atribui uma função. Para conceder acesso a um usuário convidado, siga [as mesmas etapas](role-assignments-portal.md#add-a-role-assignment) que você faria para um usuário membro, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para conceder acesso a um usuário convidado em escopos diferentes.
 
-1. No portal do Azure, clique em **All services** (Todos os serviços).
+1. No portal do Azure, clique em **Todos os serviços**.
 
 1.  Selecione o conjunto de recursos ao qual o acesso se aplica, também conhecido como o escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)** .
 
     A captura de tela a seguir mostra um exemplo da folha controle de acesso (IAM) para um grupo de recursos. Se você fizer alterações de controle de acesso aqui, elas se aplicarão apenas ao grupo de recursos.
 
@@ -79,7 +79,7 @@ No RBAC, para conceder acesso, você atribui uma função. Para conceder acesso 
 
 1. Clique na guia **atribuições de função** para exibir todas as atribuições de função neste escopo.
 
-1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
+1. Clique em **adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
     Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desabilitada.
 
@@ -101,17 +101,17 @@ No RBAC, para conceder acesso, você atribui uma função. Para conceder acesso 
 
 Se o usuário convidado ainda não estiver em seu diretório, você poderá convidar o usuário diretamente do painel Adicionar atribuição de função.
 
-1. No portal do Azure, clique em **All services** (Todos os serviços).
+1. No portal do Azure, clique em **Todos os serviços**.
 
 1.  Selecione o conjunto de recursos ao qual o acesso se aplica, também conhecido como o escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique em **controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)** .
 
 1. Clique na guia **atribuições de função** para exibir todas as atribuições de função neste escopo.
 
-1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
+1. Clique em **adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
     ![Adicionar menu](./media/role-assignments-external-users/add-menu.png)
 
@@ -203,7 +203,7 @@ Se um usuário convidado tiver recebido acesso a um diretório, mas não vir os 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure](../active-directory/b2b/add-users-administrator.md)
+- [Adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../active-directory/b2b/add-users-administrator.md)
 - [Propriedades de um usuário de colaboração B2B Azure Active Directory](../active-directory/b2b/user-properties.md)
 - [Os elementos do convite de colaboração B2B email-Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
-- [Adicionando um usuário convidado como um coadministrador](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)
+- [Adicionar um usuário convidado como um coadministrador](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

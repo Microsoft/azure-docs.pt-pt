@@ -7,13 +7,13 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/22/2019
+ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076252"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561761"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usar Apache Hive como uma ferramenta ETL (extração, transformação e carregamento)
 
@@ -25,7 +25,7 @@ A figura a seguir mostra uma visão geral do caso de uso e do modelo para a auto
 
 ![Apache Hive como arquitetura de ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-O Hadoop é normalmente usado em processos de ETL que importam um grande número de arquivos de texto (como CSVs) ou um número menor, mas frequentemente alterando os arquivos de texto, ou ambos.  O hive é uma ótima ferramenta a ser usada para preparar os dados antes de carregá-los no destino de dados.  O hive permite que você crie um esquema no CSV e use uma linguagem semelhante ao SQL para gerar programas MapReduce que interagem com os dados. 
+O Hadoop é normalmente usado em processos de ETL que importam um grande número de arquivos de texto (como CSVs) ou um número menor, mas frequentemente alterando os arquivos de texto, ou ambos.  O hive é uma ótima ferramenta a ser usada para preparar os dados antes de carregá-los no destino de dados.  O hive permite que você crie um esquema no CSV e use uma linguagem semelhante ao SQL para gerar programas MapReduce que interagem com os dados.
 
 As etapas típicas para usar o hive para executar ETL são as seguintes:
 
@@ -38,14 +38,14 @@ As etapas típicas para usar o hive para executar ETL são as seguintes:
     DROP TABLE IF EXISTS hvac;
 
     --create the hvac table on comma-separated sensor data stored in Azure Storage blobs
-    
+
     CREATE EXTERNAL TABLE hvac(`date` STRING, time STRING, targettemp BIGINT,
-        actualtemp BIGINT, 
-        system BIGINT, 
-        systemage BIGINT, 
+        actualtemp BIGINT,
+        system BIGINT,
+        systemage BIGINT,
         buildingid BIGINT)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-    STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
 5. Transforme os dados e carregue-os no destino.  Há várias maneiras de usar o hive durante a transformação e o carregamento:
@@ -73,7 +73,7 @@ Você pode usar o hive para dados de saída para uma variedade de destinos, incl
 * Excel.
 * Armazenamento de tabelas e BLOBs do Azure.
 * Aplicativos ou serviços que exigem que os dados sejam processados em formatos específicos ou como arquivos que contêm tipos específicos de estrutura de informações.
-* Um repositório de documentos JSON como <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Um repositório de documentos JSON como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Considerações
 
@@ -87,7 +87,7 @@ Se o destino dos dados não for um banco de dado, você poderá gerar um arquivo
 
 Se você precisar executar várias operações nos dados como parte do processo de ETL, considere como gerenciá-las. Se as operações forem controladas por um programa externo, em vez de um fluxo de trabalho dentro da solução, você precisará decidir se algumas operações podem ser executadas em paralelo e detectar quando cada trabalho é concluído. Usar um mecanismo de fluxo de trabalho como Oozie no Hadoop pode ser mais fácil do que tentar orquestrar uma sequência de operações usando scripts externos ou programas personalizados. Para obter mais informações sobre Oozie, consulte [fluxo de trabalho e orquestração de trabalhos](https://msdn.microsoft.com/library/dn749829.aspx).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [ETL em escala](apache-hadoop-etl-at-scale.md)
 * [Colocar um pipeline de dados em operação](../hdinsight-operationalize-data-pipeline.md)

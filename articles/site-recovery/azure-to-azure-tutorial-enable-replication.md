@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 11/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 502f71365d78bd8fd949d17fe8907817394586b2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961503"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561493"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -25,7 +25,7 @@ Este tutorial mostra como configurar a recuperação de desastre para VMs do Azu
 > * Criar um cofre dos Serviços de Recuperação
 > * Verificar as definições dos recursos de destino
 > * Configurar a conectividade de rede de saída para VMs
-> * Ativar a replicação para uma VM
+> * Ativar replicação para uma VM
 
 > [!NOTE]
 > Este artigo fornece instruções para implantar a recuperação de desastre com as configurações mais simples. Se você quiser saber mais sobre as configurações personalizadas, examine os artigos na [seção como](azure-to-azure-how-to-enable-replication.md).
@@ -92,7 +92,7 @@ Se você estiver usando o NSG, poderá criar uma marca de serviço de armazename
 Verifique se as VMs que você deseja replicar têm os certificados raiz mais recentes. Se não for, a VM não poderá ser registrada em Site Recovery, devido a restrições de segurança.
 
 - Para VMs do Windows, instale todas as atualizações mais recentes do Windows na VM, para que todos os certificados de raiz fidedigna fiquem na máquina. Num ambiente desligado, siga o padrão do Windows Update e os processos de atualização de certificados da sua organização.
-- Para VMs do Linux, siga a documentação de orientação fornecida pelo distribuidor do Linux, para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados na VM.
+- Para VMs do Linux, siga as orientações fornecidas pelo distribuidor do Linux, para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados na VM.
 
 ## <a name="set-permissions-on-the-account"></a>Definir permissões na conta
 
@@ -106,7 +106,7 @@ O Azure Site Recovery fornece três funções incorporadas para controlar as ope
 
 Saiba mais sobre as [funções internas do RBAC do Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication-for-a-vm"></a>Ativar a replicação para uma VM
+## <a name="enable-replication-for-a-vm"></a>Ativar replicação para uma VM
 
 ### <a name="select-the-source"></a>Selecionar a origem
 
@@ -143,7 +143,7 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
     **Localização de destino** | A região de destino usada para recuperação de desastre.<br/><br/> Recomendamos que a localização de destino corresponda à localização do cofre do Site Recovery.
     **Grupo de recursos de destino** | O grupo de recursos na região de destino que contém as VMs do Azure após o failover.<br/><br/> Por predefinição, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". O local do grupo de recursos de destino pode ser qualquer região, exceto a região em que as máquinas virtuais de origem estão hospedadas.
     **Rede virtual de destino** | A rede na região de destino em que as VMs estão localizadas após o failover.<br/><br/> Por predefinição, o Site Recovery cria uma nova rede virtual (e sub-redes) na região de destino com um sufixo "asr".
-    **Contas de armazenamento em cache** | Site Recovery usa uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para esta conta antes da replicação para a localização de destino.<br/><br/> Se você estiver usando uma conta de armazenamento de cache habilitada para firewall, certifique-se de habilitar **permitir serviços confiáveis da Microsoft**. [Saiba mais.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Contas de armazenamento em cache** | Site Recovery usa uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para esta conta antes da replicação para a localização de destino.<br/><br/> Se você estiver usando uma conta de armazenamento de cache habilitada para firewall, certifique-se de habilitar **permitir serviços confiáveis da Microsoft**. [Saiba mais.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) Além disso, certifique-se de permitir o acesso a pelo menos uma sub-rede da vnet de origem.
     **Contas de armazenamento de destino (a VM de origem usa discos não gerenciados)** | Por padrão, Site Recovery cria uma nova conta de armazenamento na região de destino para espelhar a conta de armazenamento da VM de origem.<br/><br/> Habilite **permitir serviços confiáveis da Microsoft** se você estiver usando uma conta de armazenamento de cache habilitada para firewall.
     **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)** | Por padrão, Site Recovery cria discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) que o disco gerenciado da VM de origem. Você só pode personalizar o tipo de disco 
     **Conjuntos de disponibilidade de destino** | Por padrão, Azure Site Recovery cria um novo conjunto de disponibilidade na região de destino com o sufixo "ASR" para a parte das VMs de um conjunto de disponibilidade na região de origem. Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.

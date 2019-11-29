@@ -2,17 +2,17 @@
 title: Funções de modelo – implantação
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: a255cea128241465788f21013eb0522a29f5bd9e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/27/2019
+ms.openlocfilehash: 67540a78e349285be032f696a9ef4b9ba3c7e242
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230241"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561459"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos de Azure Resource Manager 
 
-O Gerenciador de recursos fornece as seguintes funções para obter valores de seções do modelo e valores relacionados à implantação:
+O Gerenciador de recursos fornece as seguintes funções para obter valores relacionados à implantação atual:
 
 * [planta](#deployment)
 * [ambiente](#environment)
@@ -21,7 +21,7 @@ O Gerenciador de recursos fornece as seguintes funções para obter valores de s
 
 Para obter valores de recursos, grupos de recursos ou assinaturas, consulte funções de [recurso](resource-group-template-functions-resource.md).
 
-## <a name="deployment"></a>deployment
+## <a name="deployment"></a>implementação
 
 `deployment()`
 
@@ -141,7 +141,7 @@ Retorna informações sobre o ambiente do Azure usado para implantação.
 
 ### <a name="return-value"></a>Valor de retorno
 
-Essa função retorna propriedades para o ambiente atual do Azure.
+Essa função retorna propriedades para o ambiente atual do Azure. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem retornar Propriedades ligeiramente diferentes.
 
 ```json
 {
@@ -239,7 +239,7 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a ser retornado. |
 
@@ -324,15 +324,15 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia | Opção 1 |
-| intOutput | Int | 1 |
-| objectOutput | Objeto | {"One": "a", "Two": "b"} |
+| stringOutput | String | Opção 1 |
+| intOutput | Inteiro | 1 |
+| ObjectOutput | Object | {"One": "a", "Two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Cadeia | Opção 1 |
+| crossOutput | String | Opção 1 |
 
 Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
 
@@ -344,9 +344,9 @@ Retorna o valor da variável. O nome de variável especificado deve ser definido
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| variableName |Sim |Cadeia |O nome da variável a ser retornada. |
+| variableName |Sim |String |O nome da variável a ser retornada. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -416,14 +416,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | Cadeia | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | Cadeia | myVariable |
-| exampleOutput4 |  Objeto | {"Property1": "value1", "Property2": "value2"} |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Object | {"Property1": "value1", "Property2": "value2"} |
 
 Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Proteção de rede adaptável na central de segurança do Azure | Microsoft Docs
-description: " Saiba como habilitar o fortalecimento de rede adaptável na central de segurança do Azure. "
+description: Saiba como proteger, com base em padrões de tráfego reais, suas regras de NSG (grupos de segurança de rede) e melhorar ainda mais sua postura de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255239"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559282"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança do Azure.
@@ -47,7 +47,7 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
 
      ![recursos não íntegros](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Na guia **recursos não íntegros** , selecione uma VM para exibir os alertas e as regras de proteção recomendadas a serem aplicadas.
+2. Na guia **recursos não íntegros** , selecione uma VM para exibir seus alertas e as regras de proteção recomendadas a serem aplicadas.
 
     ![protegendo alertas](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
@@ -83,7 +83,7 @@ Algumas diretrizes importantes para modificar uma regra de proteção de rede ad
 * Você não pode alterar as regras "permitir" para se tornarem regras "Deny". 
 
   > [!NOTE]
-  > Criar e modificar regras "Deny" é feito diretamente no NSG para obter mais detalhes, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Criar e modificar regras "Deny" é feito diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * Uma regra **negar todo o tráfego** é o único tipo de regra "negar" que seria listado aqui e não pode ser modificado. Você pode, no entanto, excluí-lo (consulte [excluir uma regra](#delete-rule)).
   > [!NOTE]
@@ -93,14 +93,14 @@ Algumas diretrizes importantes para modificar uma regra de proteção de rede ad
 
 1. Para modificar alguns dos parâmetros de uma regra, na guia **regras** , clique nos três pontos (...) no final da linha da regra e clique em **Editar**.
 
-   ![editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. Na janela **Editar regra** , atualize os detalhes que você deseja alterar e clique em **salvar**.
 
    > [!NOTE]
    > Depois de clicar em **salvar**, você alterou a regra com êxito. *No entanto, você não o aplicou ao NSG.* Para aplicá-lo, você deve selecionar a regra na lista e clicar em **impor** (conforme explicado na próxima etapa).
 
-   ![editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Para aplicar a regra atualizada, na lista, selecione a regra atualizada e clique em **impor**.
 
@@ -111,7 +111,7 @@ Algumas diretrizes importantes para modificar uma regra de proteção de rede ad
 Você pode adicionar uma regra "permitir" que não foi recomendada pela central de segurança.
 
 > [!NOTE]
-> Somente as regras "permitir" podem ser adicionadas aqui. Se você quiser adicionar regras "Deny", poderá fazer isso diretamente no NSG. Para obter mais detalhes, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Somente as regras "permitir" podem ser adicionadas aqui. Se você quiser adicionar regras "Deny", poderá fazer isso diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *Para adicionar uma regra de proteção de rede adaptável:*
 

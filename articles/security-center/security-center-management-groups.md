@@ -1,6 +1,6 @@
 ---
 title: Obter visibilidade em todo o locatário para a central de segurança do Azure | Microsoft Docs
-description: Saiba mais sobre como obter visibilidade em todo o locatário na central de segurança do Azure.
+description: Este artigo explica como gerenciar sua postura de segurança em escala aplicando políticas a todas as assinaturas vinculadas ao seu locatário de Azure Active Directory.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582917"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559353"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obter visibilidade em todo o locatário para a central de segurança do Azure
-Este artigo ajuda você a começar realizando várias ações que maximizam os benefícios fornecidos pela central de segurança do Azure. A execução dessas ações permite que você tenha visibilidade em todas as assinaturas do Azure vinculadas ao seu locatário Azure Active Directory e gerencie efetivamente a postura de segurança da sua organização em escala aplicando políticas de segurança em vários assinaturas de maneira agregada.
-
+Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +39,7 @@ Para obter uma visão geral detalhada dos grupos de gerenciamento, consulte o ar
 Você pode organizar as assinaturas em grupos de gerenciamento e aplicar suas políticas de governança aos grupos de gerenciamento. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Embora os grupos de gerenciamento não sejam necessários para integrar a central de segurança, é altamente recomendável que você crie pelo menos um grupo de gerenciamento para que o grupo de gerenciamento raiz seja criado. Depois que o grupo for criado, todas as assinaturas no seu locatário do Azure AD serão vinculadas a ele. Para obter instruções sobre o PowerShell e mais informações, consulte [criar grupos de gerenciamento para gerenciamento de recursos e da organização](../azure-resource-manager/management-groups-create.md).
 
  
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **grupos de gerenciamento**.
 3. Na página principal, selecione **novo grupo de gerenciamento.** 
 
@@ -49,11 +48,11 @@ Você pode organizar as assinaturas em grupos de gerenciamento e aplicar suas po
     - A **ID do grupo de gerenciamento** é o identificador exclusivo do diretório que é usado para enviar comandos nesse grupo de gerenciamento. Esse identificador não é editável após a criação, pois é usado em todo o sistema do Azure para identificar esse grupo. 
     - O campo nome de exibição é o nome que é exibido dentro do portal do Azure. Um nome de exibição separado é um campo opcional ao criar o grupo de gerenciamento e pode ser alterado a qualquer momento.  
 
-      ![Criar](./media/security-center-management-groups/create_context_menu.png)  
+      ![Create](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selecione **Guardar**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Exibir grupos de gerenciamento no portal do Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Para exibir grupos de gerenciamento, selecione **todos os serviços** no menu principal do Azure.
 3. Em **geral**, selecione **grupos de gerenciamento**.
 
@@ -94,7 +93,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribua funções RBAC a usuários por meio do portal do Azure: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Para exibir grupos de gerenciamento, selecione **todos os serviços** no menu principal do Azure e, em seguida, selecione **grupos de gerenciamento**.
 1.  Selecione um grupo de gerenciamento e clique em **detalhes**.
 
@@ -141,7 +140,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 ### <a name="open-or-refresh-security-center"></a>Abrir ou atualizar a central de segurança
 Depois de ter acesso elevado, abra ou atualize a central de segurança do Azure para verificar se você tem visibilidade em todas as assinaturas em seu locatário do Azure AD. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Certifique-se de selecionar todas as assinaturas no seletor de assinatura que você deseja exibir na central de segurança.
 
     ![Captura de tela do seletor de assinatura](./media/security-center-management-groups/subscription-selector.png)

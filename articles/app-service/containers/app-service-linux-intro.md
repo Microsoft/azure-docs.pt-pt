@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819678"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559027"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -67,7 +67,12 @@ Com base em uma limitação atual, para o mesmo grupo de recursos, você não po
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registrar o `stdout` e `stderr` do contêiner, você precisa habilitar o **log de contêiner do Docker** em **logs do serviço de aplicativo**. A configuração entra em vigor imediatamente. O serviço de aplicativo detecta a alteração e reinicia o contêiner automaticamente.
+> [!NOTE]
+> Há um novo recurso de registro em log integrado com o [monitoramento do Azure (versão prévia)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+>
+>
+
+Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registrar o `stdout` e `stderr` do contêiner, você precisa habilitar o **log do aplicativo** nos **logs do serviço de aplicativo**. A configuração entra em vigor imediatamente. O serviço de aplicativo detecta a alteração e reinicia o contêiner automaticamente.
 
 Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 

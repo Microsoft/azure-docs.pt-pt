@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 44abf23ce632aa1ac630eab3313ffd675eef1a0b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693094"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559163"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: criar e consultar uma SQL Data Warehouse do Azure com Azure PowerShell
 
@@ -120,7 +120,7 @@ New-AzSqlDatabase `
 
 Os parâmetros necessários são:
 
-* **RequestedServiceObjectiveName**: a quantidade de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) que você está solicitando. Aumentar essa quantidade aumenta o custo de computação. Para obter uma lista de valores com suporte, consulte [limites de memória e simultaneidade] memória-Concurrency-limits.md).
+* **RequestedServiceObjectiveName**: a quantidade de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) que você está solicitando. Aumentar essa quantidade aumenta o custo de computação. Para obter uma lista de valores com suporte, consulte [limites de memória e simultaneidade](memory-concurrency-limits.md).
 * **DatabaseName**: o nome do SQL data warehouse que você está criando.
 * **ServerName**: o nome do servidor que você está usando para a criação.
 * **ResourceGroupName**: grupo de recursos que você está usando. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.

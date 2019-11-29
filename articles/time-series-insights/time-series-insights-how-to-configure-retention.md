@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012600"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561220"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
@@ -34,11 +34,11 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 ## <a name="configure-data-retention"></a>Configurar a retenção de dados
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize seu ambiente de Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
-1. No título **configurações** , selecione **Configurar**.
+1. No título **configurações** , selecione **configuração de armazenamento**.
 
     [![selecionar configurações e, em seguida, configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
@@ -50,7 +50,7 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
     [retenção de dados ![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
-1. Aceite a caixa de seleção indicando que você analisou a documentação e entendeu os riscos potenciais de perda de dados. Selecione **salvar** para configurar as alterações.
+1. Examine a documentação para entender os possíveis riscos de perda de dados. Selecione **salvar** para configurar as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

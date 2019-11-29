@@ -4,16 +4,16 @@ description: Neste artigo, você aprenderá a criar e gerenciar políticas de ba
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173425"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554893"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos serviços de recuperação do Azure usando a API REST
 
-As etapas para criar uma política de backup para um cofre dos serviços de recuperação do Azure são descritas no [documento da API REST da política](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Vamos usar este documento como uma referência para criar uma política para o backup de VM do Azure.
+As etapas para criar uma política de backup para um cofre dos serviços de recuperação do Azure são descritas no [documento da API REST da política](/rest/api/backup/protectionpolicies/createorupdate). Vamos usar este documento como uma referência para criar uma política para o backup de VM do Azure.
 
 ## <a name="backup-policy-essentials"></a>Conceitos básicos da política de backup
 
@@ -44,12 +44,12 @@ O `{policyName}` e `{vaultName}` são fornecidos no URI. Informações adicionai
 
 Por exemplo, para criar uma política para o backup de VM do Azure, veja a seguir os componentes do corpo da solicitação.
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Nome  |Obrigatório  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|propriedades     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
-|etiquetas     |         | Objeto        |  Etiquetas de recursos       |
+|propriedades     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|etiquetas     |         | Object        |  Etiquetas de recursos       |
 
-Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
+Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### <a name="example-request-body"></a>Corpo da solicitação de exemplo
 
@@ -146,7 +146,7 @@ A política diz:
 > [!IMPORTANT]
 > Os formatos de hora para agendamento e retenção dão suporte apenas a DateTime. Eles não dão suporte apenas ao formato de hora.
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>Respostas
 
 A criação/atualização da política de backup é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
@@ -154,7 +154,7 @@ Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     |    [PolicyResource de proteção](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [PolicyResource de proteção](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 aceito     |         |     Aceitar    |
 
 ### <a name="example-responses"></a>Respostas de exemplo

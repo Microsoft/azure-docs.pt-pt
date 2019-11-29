@@ -1,14 +1,14 @@
 ---
 title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição de Azure Policy.
-ms.date: 03/06/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463513"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555170"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
@@ -16,7 +16,9 @@ Azure Resource Manager propriedades são normalmente definidas como cadeias de c
 
 - O tipo de um [parâmetro de definição](../concepts/definition-structure.md#parameters), para fornecer várias opções
 - Parte de uma [regra de política](../concepts/definition-structure.md#policy-rule) usando as condições **em** ou **notIn**
-- Parte de uma regra de política que avalia o [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) para avaliar cenários específicos, como **nenhum**, **qualquer**ou **todos**
+- Parte de uma regra de política que avalia o [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) a ser avaliado:
+  - Cenários como **nenhum**, **qualquer**ou **todos**
+  - Cenários complexos com **contagem**
 - No [efeito de acréscimo](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
 
 Este artigo aborda cada uso por Azure Policy e fornece várias definições de exemplo.
@@ -138,10 +140,10 @@ O **tipo** de condição esperado `equals` é _String_. Como **allowedLocations*
 
 ### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
 
-Aliases com **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: nenhum, qualquer e tudo.
+Os aliases que têm **\[\*\]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** torna possível avaliar cada elemento da matriz. Há três cenários padrão pelos quais a avaliação por item é útil em: nenhum, qualquer e tudo. Para cenários complexos, use [Count](../concepts/definition-structure.md#count).
 
 O mecanismo de política aciona o **efeito** em **seguida** somente quando a regra **If** é avaliada como true.
-Esse fato é importante entender no contexto da maneira que **[\*]** avalia cada elemento individual da matriz.
+Esse fato é importante entender no contexto da maneira **\[\*\]** avalia cada elemento individual da matriz.
 
 A regra de política de exemplo para a tabela de cenário abaixo:
 
@@ -194,10 +196,10 @@ Os resultados a seguir são o resultado da combinação da condição e a regra 
 
 ## <a name="the-append-effect-and-arrays"></a>As matrizes e o efeito de acréscimo
 
-O [efeito de acréscimo](../concepts/effects.md#append) comporta-se de maneira diferente dependendo de se o **Details. Field** é um alias **[\*]** ou não.
+O [efeito de acréscimo](../concepts/effects.md#append) comporta-se de forma diferente dependendo de se o **Details. field** é um **\[\*alias \]** ou não.
 
-- Quando não é um alias **[\*]** , Append substitui toda a matriz pela propriedade **Value**
-- Quando um alias **[\*]** , Append adiciona a propriedade **Value** à matriz existente ou cria a nova matriz
+- Quando não é um **\[\*\]** alias, Append substitui toda a matriz pela propriedade **Value**
+- Quando um **\[\*alias \]** , Append adiciona a propriedade **Value** à matriz existente ou cria a nova matriz
 
 Para obter mais informações, consulte os [exemplos de acréscimo](../concepts/effects.md#append-examples).
 

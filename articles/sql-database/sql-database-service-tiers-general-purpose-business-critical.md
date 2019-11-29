@@ -1,5 +1,5 @@
 ---
-title: Finalidade Ggeneral e comercialmente crítica
+title: Uso geral e crítico para os negócios
 description: O artigo discute as camadas de serviço de uso geral e crítico para os negócios no modelo de compra baseado em vCore.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: 85b610969f9e5e85d014f89b90cfd862731aaf0c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5e3cc12351313b8fb1dedf795031202070ac7cf7
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821079"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558994"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Camadas de serviço do banco de dados SQL do Azure
 
@@ -32,31 +32,31 @@ Este artigo discute as diferenças entre as considerações de camadas de servi�
 
 A tabela a seguir descreve as principais diferenças entre as camadas de serviço para a geração mais recente (Gen5). Observe que as características da camada de serviço podem ser diferentes em Banco de Dados Individual e Instância Gerenciada.
 
-| | Tipo de recurso | Fins Gerais |  Hyperscale | Crítico para a Empresa |
+| | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para a Empresa |
 |:---:|:---:|:---:|:---:|:---:|
 | **Melhor para** | |  Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | A maioria das cargas de trabalho de negócios. Dimensionamento automático do tamanho de armazenamento de até 100 TB, dimensionamento vertical e horizontal de computação de fluxo, restauração rápida de banco de dados. | Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
-|  **Disponível no tipo de recurso:** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados individual | Banco de dados individual/pool elástico/instância gerenciada |
+|  **Disponível no tipo de recurso:** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados única | Banco de dados individual/pool elástico/instância gerenciada |
 | **Tamanho da computação**|Banco de dados individual/pool elástico | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
-| | Instância gerida | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| | Pools de instâncias gerenciadas | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | N/D |
-| **Tipo de armazenamento** | Todos | Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache de SSD local (por instância) | Armazenamento SSD local extremamente rápido (por instância) |
+| | Instância gerida | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| | Pools de instâncias gerenciadas | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | N/A |
+| **Tipo de armazenamento** | Tudo | Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache de SSD local (por instância) | Armazenamento SSD local extremamente rápido (por instância) |
 | **Tamanho do banco de dados** | Banco de dados individual/pool elástico | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| | Instância gerida  | 32 GB A 8 TB | N/D | 32 GB A 4 TB |
+| | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
 | **Tamanho do armazenamento** | Banco de dados individual/pool elástico | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| | Instância gerida  | 32 GB A 8 TB | N/D | 32 GB A 4 TB |
+| | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
 | **Tamanho do TempDB** | Banco de dados individual/pool elástico | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instância gerida  | [24 GB por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | Até 4 TB- [limitado pelo tamanho do armazenamento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-| **Taxa de transferência de gravação de log** | Base de dados individual | [1,875 MB/s por vCore (máximo de 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instância gerida | [3 MB/s por vCore (máximo de 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por VCORE (máx. 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-|**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Únicos**|Todos|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
-|**OLTP na memória** | | N/D | N/D | Disponível |
+| | Instância gerida  | [24 GB por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | Até 4 TB- [limitado pelo tamanho do armazenamento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| **Taxa de transferência de gravação de log** | Base de dados única | [1,875 MB/s por vCore (máximo de 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
+| | Instância gerida | [3 MB/s por vCore (máximo de 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [4 MB/s por VCORE (máx. 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+|**Disponibilidade**|Tudo| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Únicos**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
+|**OLTP na memória** | | N/A | N/A | Disponível |
 |**Réplicas somente leitura**| | 0  | 0 - 4 | 1 (interno, incluído no preço) |
-|**Preço/cobrança** | Base de dados individual | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
-|| Instância Gerida | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | N/D | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | 
+|**Preço/cobrança** | Base de dados única | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
+|| Instância Gerida | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | N/A | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | 
 |**Modelos de desconto**| | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Benefício híbrido do Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
-Para obter mais informações, consulte as diferenças detalhadas entre as camadas de serviço [em um banco de dados único (VCORE)](sql-database-vcore-resource-limits-single-databases.md), [pools de banco de dados único (VCORE](sql-database-dtu-resource-limits-single-databases.md)), banco de dados [individual (DTU](sql-database-dtu-resource-limits-single-databases.md)), [pools de banco de dados único (DTU)](sql-database-dtu-resource-limits-single-databases.md)e [instância gerenciada](sql-database-managed-instance-resource-limits.md) Pages.
+Para obter mais informações, consulte as diferenças detalhadas entre as camadas de serviço em [um banco de dados único (VCORE)](sql-database-vcore-resource-limits-single-databases.md), [pools de banco de dados único (VCORE](sql-database-dtu-resource-limits-single-databases.md)), banco de dados [único (DTU](sql-database-dtu-resource-limits-single-databases.md)), [pools de banco de dados único (DTU)](sql-database-dtu-resource-limits-single-databases.md)e páginas de [instância gerenciada](sql-database-managed-instance-resource-limits.md) .
 
 > [!NOTE]
 > Para obter informações sobre a camada de serviço de hiperescala no modelo de compra baseado em vCore, consulte [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [recursos e modelos de compra do banco de dados SQL do Azure](sql-database-purchase-models.md).
@@ -73,7 +73,7 @@ Os fatores a seguir afetam a quantidade de armazenamento usada para arquivos de 
   - Para armazenamento nas camadas de serviço padrão ou de uso geral, aumente ou diminua o tamanho em incrementos de 10 GB.
   - Para armazenamento nas camadas de serviço Premium ou comercialmente crítico, aumente ou diminua o tamanho em incrementos de 250 GB.
 - Na camada de serviço de uso geral, `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço vCore.
-- Na camada de serviço comercialmente crítica, `tempdb` compartilha o SSD anexado com os arquivos MDF e LDF, e o custo de armazenamento de `tempdb` é incluído no preço vCore.
+- Na camada de serviço comercialmente crítica, `tempdb` compartilha o SSD anexado com os arquivos MDF e LDF, e o custo de armazenamento `tempdb` está incluído no preço vCore.
 
 > [!IMPORTANT]
 > Você é cobrado pelo armazenamento total alocado para arquivos MDF e LDF.

@@ -1,26 +1,22 @@
 ---
-title: E-mail de saldo em dívida do Azure | Microsoft Docs
+title: E-mail de saldo em dívida do Azure
 description: Descreve como fazer o pagamento se a subscrição do Azure tiver um saldo em dívida
-services: ''
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: billing
-ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c042f5cee3d0a1e874729911a2162e48c1630a72
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300290"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226432"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver saldo em dívida na subscrição do Azure
 

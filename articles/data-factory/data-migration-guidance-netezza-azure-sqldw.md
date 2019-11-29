@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 2844b48b3d832e8d9ec659ba657879d683016aee
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 762e7d4a7356c11171355b5325e77569e9acb1e2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217663"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555090"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usar Azure Data Factory para migrar dados de um servidor Netezza local para o Azure 
 
@@ -62,7 +62,7 @@ Como alternativa, se você não quiser que os dados sejam transferidos pela Inte
 
 A próxima seção discute como obter maior segurança.
 
-## <a name="solution-architecture"></a>Arquitetura da solução
+## <a name="solution-architecture"></a>Arquitetura de soluções
 
 Esta seção aborda duas maneiras de migrar seus dados.
 
@@ -156,7 +156,7 @@ Se ele não puder ser carregado no Azure dentro de duas horas, e a capacidade do
 
 Continue monitorando o uso de CPU e de memória no computador IR auto-hospedado e esteja pronto para escalar verticalmente o computador ou escalar horizontalmente para vários computadores quando você vir que a CPU e a memória são totalmente usadas. 
 
-Quando você encontrar erros de limitação, conforme relatado por Azure Data Factory atividade de cópia, reduza a configuração de simultaneidade ou de `parallelCopies` no Azure Data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e dos dados mercado. 
+Quando você encontrar erros de limitação, conforme relatado por Azure Data Factory atividade de cópia, reduza a configuração de simultaneidade ou de `parallelCopies` no Azure Data Factory ou considere aumentar a largura de banda ou os limites de IOPS (operações por segundo) da rede e dos armazenamentos de dados. 
 
 
 ### <a name="estimate-your-pricing"></a>Estime seus preços 
@@ -190,7 +190,7 @@ Com base nas suposições anteriores, aqui está o preço estimado:
 
 Para obter mais informações, consulte os seguintes artigos e guias:
 
-- [Migre dados de uma data warehouse relacional local para o Azure usando Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [Migre dados de uma data warehouse relacional local para o Azure usando Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Conector do Netezza](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [Conector ODBC](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Conector do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
@@ -205,6 +205,6 @@ Para obter mais informações, consulte os seguintes artigos e guias:
 - [Copiar dados incrementalmente de várias tabelas](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
 - [Página de preços do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Copiar arquivos de vários contêineres usando Azure Data Factory](solution-template-copy-files-multiple-containers.md)

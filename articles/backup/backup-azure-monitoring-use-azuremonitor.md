@@ -4,12 +4,12 @@ description: Monitore as cargas de trabalho de backup do Azure e crie alertas pe
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 66417071190fa45a746ce0b80a9de12968198bda
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278280"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554868"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
@@ -37,7 +37,7 @@ Na seção monitoramento, selecione **configurações de diagnóstico** e especi
 
 ![A configuração de diagnóstico do cofre dos serviços de recuperação, direcionando Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-Você pode direcionar um espaço de trabalho Log Analytics de outra assinatura. Para monitorar cofres entre assinaturas em um único local, selecione o mesmo espaço de trabalho Log Analytics para vários cofres de serviços de recuperação. Para canalizar todas as informações relacionadas ao backup do Azure para o espaço de trabalho Log Analytics, escolha **recurso específico** na alternância que aparece e selecione os eventos a seguir- **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Veja [Este artigo](https://aka.ms/AA6jkus) para obter mais detalhes sobre como definir as configurações de diagnóstico de la.
+Você pode direcionar um espaço de trabalho Log Analytics de outra assinatura. Para monitorar cofres entre assinaturas em um único local, selecione o mesmo espaço de trabalho Log Analytics para vários cofres de serviços de recuperação. Para canalizar todas as informações relacionadas ao backup do Azure para o espaço de trabalho Log Analytics, escolha **recurso específico** na alternância que aparece e selecione os eventos a seguir- **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Veja [Este artigo](backup-azure-diagnostic-events.md) para obter mais detalhes sobre como definir as configurações de diagnóstico de la.
 
 > [!IMPORTANT]
 > Depois de concluir a configuração, você deve aguardar 24 horas para que o envio de dados inicial seja concluído. Após esse envio de dados inicial, todos os eventos serão enviados por push, conforme descrito posteriormente neste artigo, na [seção frequência](#diagnostic-data-update-frequency).

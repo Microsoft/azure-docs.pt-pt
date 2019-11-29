@@ -1,6 +1,6 @@
 ---
 title: Gerenciar dados do usuário na central de segurança do Azure | Microsoft Docs
-description: " Saiba como gerenciar dados do usuário na central de segurança do Azure. "
+description: Saiba como gerenciar os dados do usuário na central de segurança do Azure. O gerenciamento de dados do usuário inclui a capacidade de acessar, excluir ou exportar dados.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 0d05650ff349cb9e9750b0cefe0de217a986b32a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 20d269c1614c82c8783d0e65149961c118c16a95
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254606"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559220"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados do usuário na central de segurança do Azure
 Este artigo fornece informações sobre como você pode gerenciar os dados do usuário na central de segurança do Azure. O gerenciamento de dados do usuário inclui a capacidade de acessar, excluir ou exportar dados.

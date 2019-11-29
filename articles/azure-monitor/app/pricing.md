@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007743"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559098"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos de Application Insights
 
@@ -24,7 +24,7 @@ O Application Insights foi projetado para obter tudo o que você precisa para mo
 
 Se você tiver dúvidas sobre como o preço funciona para Application Insights, poderá postar uma pergunta em nosso [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
 
-## <a name="pricing-model"></a>Modelo preços
+## <a name="pricing-model"></a>Modelo de determinação de preço
 
 O preço do [aplicativo Azure insights][start] é um modelo **pago conforme o uso** com base no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. Cada recurso de Application Insights é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado que é recebido por Application Insights do seu aplicativo. Não há nenhum encargo de volume de dados para usar o [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
 
@@ -52,7 +52,7 @@ Application Insights facilita a compreensão do que os custos provavelmente ser�
 
 ![Escolha os preços](./media/pricing/pricing-001.png)
 
-A. Examine o volume de dados do mês. Isso inclui todos os dados que são recebidos e retidos (após qualquer [amostragem](../../azure-monitor/app/sampling.md)) do servidor e dos aplicativos cliente e dos testes de disponibilidade.  
+R. Examine o volume de dados do mês. Isso inclui todos os dados que são recebidos e retidos (após qualquer [amostragem](../../azure-monitor/app/sampling.md)) do servidor e dos aplicativos cliente e dos testes de disponibilidade.  
 B. Um encargo separado é feito para [testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md). (Isso não inclui testes de disponibilidade simples, que estão incluídos no encargo de volume de dados.)  
 C. Exibir tendências de volume de dados para o mês passado.  
 D. Habilitar [amostragem](../../azure-monitor/app/sampling.md)de ingestão de dados.   
@@ -69,7 +69,7 @@ Application Insights encargos são adicionados à sua fatura do Azure. Você pod
 ### <a name="using-data-volume-metrics"></a>Usando métricas de volume de dados
 <a id="understanding-ingested-data-volume"></a>
 
-Para saber mais sobre seus volumes de dados, selecionando **métricas** para o recurso Application insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em log**, selecione **volume de ponto de dados**. Clique em **aplicar divisão**e selecione Agrupar por **tipo de Telemetryitem**.
+Para saber mais sobre seus volumes de dados, selecionando **métricas** para o recurso Application insights, adicione um novo gráfico. Para a métrica do gráfico, em **métricas baseadas em log**, selecione **volume de ponto de dados**. Clique em **aplicar divisão**e selecione agrupar por **`Telemetryitem` tipo**.
 
 ![Usar métricas para examinar o volume de dados](./media/pricing/10-billing.png)
 
@@ -157,9 +157,9 @@ Você pode usar o limite de volume diário para limitar os dados coletados. No e
 
 Em vez de usar o limite de volume diário, use a [amostragem](../../azure-monitor/app/sampling.md) para ajustar o volume de dados para o nível desejado. Em seguida, use o limite diário apenas como um "último recurso", caso seu aplicativo comece a enviar volumes de telemetria muito mais altos.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diário a ser definido
 
-Examine Application Insights uso e custos estimados para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
+Examine Application Insights uso e custos estimados para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Isso deve ser considerado com cuidado, pois você não poderá monitorar seus recursos depois que o limite for atingido. 
 
 ### <a name="set-the-daily-cap"></a>Definir o limite diário
 
@@ -203,7 +203,7 @@ Para alterar a retenção, de seu Application Insights recurso, vá para a pági
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio de Azure Resource Manager e deve ser usada com extrema atenção. 
+A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio de Azure Resource Manager e deve ser usada com extrema atenção. A hora de redefinição diária para o limite do volume de dados pode ser configurada usando Azure Resource Manager para definir o parâmetro `dailyQuotaResetTime`. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Cobranças de transferência de dados usando Application Insights
 
@@ -259,7 +259,7 @@ Como essa camada é aplicável somente a clientes com uma assinatura do Operatio
 |:---------------------------------------|:----------------:|
 | 1 aplicativo usando 3 Azure App instâncias de serviço e um servidor virtual | 4 |
 | 3 aplicativos em execução em 2 VMs; os recursos de Application Insights para esses aplicativos estão na mesma assinatura e na camada por nó | 2 | 
-| 4 aplicativos cujos recursos do Application insights estão na mesma assinatura; cada aplicativo que executa duas instâncias durante 16 horas de pico e 4 instâncias durante 8 horas de pico | 13.33 | 
+| 4 aplicativos cujos recursos do Application insights estão na mesma assinatura; cada aplicativo que executa duas instâncias durante 16 horas de pico e 4 instâncias durante 8 horas de pico | 13,33 | 
 | Serviços de nuvem com uma função de trabalho e uma função Web, cada uma executando 2 instâncias | 4 | 
 | Um cluster de Service Fabric do Azure de 5 nós executando microserviços 50; cada microserviço executando 3 instâncias | 5|
 

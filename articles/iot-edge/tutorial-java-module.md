@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8f5b34d3195ec6807f6eea6388e24d283f403c0c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: fbf03dd6d585f1357f8f3cebf08de25e437286ac
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457498"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560991"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutorial: desenvolver um módulo de IoT Edge Java para dispositivos Linux
 
@@ -74,7 +74,7 @@ Crie um modelo de solução Java que pode personalizar com o seu próprio códig
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
    | Indicar um nome para a solução | Insira um nome descritivo para sua solução ou aceite o **EdgeSolution**padrão. |
    | Selecionar modelo de módulo | Escolha o **módulo Java**. |
-   | Forneça o valor para groupId | Insira um valor de ID de grupo ou aceite o **com. edgemodule**padrão. |
+   | Forneça o valor para GroupId | Insira um valor de ID de grupo ou aceite o **com. edgemodule**padrão. |
    | Indicar um nome para o módulo | Nomeie seu módulo **JavaModule**. |
    | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente com base no nome que você forneceu na última etapa. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br>O repositório de imagem final é semelhante a \<nome do registro\>. azurecr.io/javamodule. |
  
@@ -217,7 +217,7 @@ Atualmente, Visual Studio Code pode desenvolver módulos Java para dispositivos 
      }
    ```
 
-   ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-java-module/module-twin.png)
+   ![Adicionar o módulo de distribuição ao modelo de implantação](./media/tutorial-java-module/module-twin.png)
 
 10. Salve o arquivo Deployment. Template. JSON.
 
@@ -289,7 +289,9 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
+Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Para obter exemplos de módulos de IoT Edge, incluindo o módulo de temperatura simulada, consulte [exemplos de módulo IOT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules). 
+
+Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
 > [Funções](tutorial-deploy-function.md)

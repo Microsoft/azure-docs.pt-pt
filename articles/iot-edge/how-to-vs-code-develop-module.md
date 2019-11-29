@@ -8,16 +8,16 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 5b37ea92869468001581c9299b1633869671886a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457073"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561019"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code para desenvolver e depurar módulos para Azure IoT Edge
 
-Pode transformar sua lógica de negócio em módulos do Azure IoT Edge. Este artigo mostra como usar Visual Studio Code como a ferramenta principal para desenvolver e depurar módulos.
+Você pode transformar sua lógica de negócios em módulos para Azure IoT Edge. Este artigo mostra como usar Visual Studio Code como a ferramenta principal para desenvolver e depurar módulos.
 
 Há duas maneiras de depurar módulos gravados em C#, Node. js ou Java no Visual Studio Code: você pode anexar um processo em um contêiner de módulo ou iniciar o código do módulo no modo de depuração. Para depurar módulos escritos em Python ou C, você só pode anexar a um processo em contêineres do Linux AMD64.
 
@@ -59,7 +59,7 @@ Para criar e implantar a imagem do módulo, você precisa do Docker para criar a
 - [Registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) ou [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
-    > Pode utilizar um registo do Docker local para o protótipo e fins de testes em vez de um registo de cloud.
+    > Você pode usar um registro do Docker local para fins de protótipo e teste em vez de um registro de nuvem.
 
 A menos que você esteja desenvolvendo seu módulo em C, também precisará da [ferramenta de desenvolvimento do Azure IOT EdgeHub](https://pypi.org/project/iotedgehubdev/) baseada em Python para configurar seu ambiente de desenvolvimento local para depurar, executar e testar sua solução de IOT Edge. Se você ainda não tiver feito isso, instale o [Python (2.7/3.6/3.7) e o Pip](https://www.python.org/) e, em seguida, instale o **iotedgehubdev** executando esse comando em seu terminal.
 
@@ -91,7 +91,7 @@ As etapas a seguir mostram como criar um módulo IoT Edge em sua linguagem de de
 
 1. Insira um nome para o módulo. Escolha um nome que seja exclusivo no registro de contêiner.
 
-1. Forneça o nome do repositório de imagens do módulo. Visual Studio Code preenche automaticamente o nome do módulo com **localhost: 5000/< o nome do módulo\>** . Substitua-o com as suas próprias informações de registo. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se utilizar o Azure Container Registry, em seguida, utilize o servidor de início de sessão a partir das definições do seu registo. O servidor de logon é semelhante a  **_\<nome do registro\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a **\<*nome do registro*\>. azurecr.Io/ _\<o nome do módulo\>_** .
+1. Forneça o nome do repositório de imagens do módulo. Visual Studio Code preenche automaticamente o nome do módulo com **localhost: 5000/< o nome do módulo\>** . Substitua-o por suas próprias informações de registro. Se você usar um registro do Docker local para teste, o **localhost** será bem. Se você usar o registro de contêiner do Azure, use o servidor de logon das configurações do registro. O servidor de logon é semelhante a  **_\<nome do registro\>_ . azurecr.Io**. Substitua apenas a parte **localhost: 5000** da cadeia de caracteres para que o resultado final seja semelhante a **\<*nome do registro*\>. azurecr.Io/ _\<o nome do módulo\>_** .
 
    ![Fornecer repositório de imagens do Docker](./media/how-to-develop-csharp-module/repository.png)
 
@@ -110,11 +110,13 @@ Há quatro itens na solução:
 
 - Um arquivo. **Template. JSON de implantação** lista o novo módulo junto com um módulo **SimulatedTemperatureSensor** de exemplo que simula os dados que você pode usar para teste. Para obter mais informações sobre como os manifestos de implantação funcionam, consulte [saiba como usar manifestos de implantação para implantar módulos e estabelecer rotas](module-composition.md).
 
+Para ver como o módulo de temperatura simulada funciona, exiba o [código-fonte SimulatedTemperatureSensor. csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
 ## <a name="add-additional-modules"></a>Adicionar módulos adicionais
 
 Para adicionar mais módulos à sua solução, execute o comando **Azure IOT Edge: adicionar IOT Edge módulo** na paleta de comandos. Você também pode clicar com o botão direito do mouse na pasta **modules** ou no arquivo `deployment.template.json` na exibição do Visual Studio Code Explorer e, em seguida, selecionar **Adicionar IOT Edge módulo**.
 
-## <a name="develop-your-module"></a>Desenvolver o seu módulo
+## <a name="develop-your-module"></a>Desenvolver seu módulo
 
 O código de módulo padrão que vem com a solução está localizado no seguinte local:
 
@@ -125,7 +127,7 @@ O código de módulo padrão que vem com a solução está localizado no seguint
 - Java: **modules > *&lt;o nome do módulo&gt;* > src > main > java > com > edgemodulemodules > app. java**
 - C: **os módulos > *&lt;nome do módulo&gt;* > Main. c**
 
-O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo é criado para simplesmente pegar a entrada de uma fonte (nesse caso, o módulo SimulatedTemperatureSensor que simula dados) e redirecioná-lo ao Hub IoT.
+O módulo e o arquivo Deployment. Template. JSON são configurados para que você possa criar a solução, enviá-la por push para o registro de contêiner e implantá-la em um dispositivo para iniciar o teste sem tocar em nenhum código. O módulo é criado para simplesmente pegar a entrada de uma fonte (nesse caso, o módulo SimulatedTemperatureSensor que simula dados) e redirecioná-lo ao Hub IoT.
 
 Quando você estiver pronto para personalizar o modelo com seu próprio código, use os [SDKs do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos que atendam às principais necessidades de soluções de IOT, como segurança, gerenciamento de dispositivos e confiabilidade.
 

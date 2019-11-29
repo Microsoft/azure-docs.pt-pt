@@ -1,5 +1,5 @@
 ---
-title: Isolamento da carga de trabalho
+title: Isolamento das cargas de trabalho
 description: Diretrizes para definir o isolamento de carga de trabalho com grupos de carga de trabalho no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a31498ec5459604d89fa72a6f2a003dbc1189eed
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685364"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555410"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL Data Warehouse o isolamento do grupo de carga de trabalho (versão prévia)
 
@@ -28,7 +28,7 @@ Grupos de cargas de trabalho são contêineres para um conjunto de solicitaçõe
 
 As seções a seguir destacarão como os grupos de cargas de trabalho fornecem a capacidade de definir isolamento, contenção, solicitar definição de recursos e aderir às regras de execução.
 
-## <a name="workload-isolation"></a>Isolamento da carga de trabalho
+## <a name="workload-isolation"></a>Isolamento das cargas de trabalho
 
 O isolamento da carga de trabalho significa que os recursos são reservados, exclusivamente, para um grupo de cargas de trabalho.  O isolamento da carga de trabalho é obtido com a configuração do parâmetro MIN_PERCENTAGE_RESOURCE como maior que zero na sintaxe [Criar grupo de carga de trabalho](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Para cargas de trabalho de execução contínua que precisam aderir a SLAs rígidos, o isolamento garante que os recursos estejam sempre disponíveis para o grupo de carga de trabalho. 
 
@@ -88,5 +88,5 @@ O acesso aos recursos no pool compartilhado é alocado de acordo com a [importâ
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Início rápido: configurar o isolamento de carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
-- [CRIAR GRUPO DE CARGA DE TRABALHO](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CRIAR GRUPO DE CARGA DE TRABALHO](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Converter classes de recursos em grupos de cargas de trabalho](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).

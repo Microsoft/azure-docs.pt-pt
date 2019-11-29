@@ -1,6 +1,6 @@
 ---
 title: O que é o Centro de Segurança do Azure? | Microsoft Docs
-description: Saiba mais sobre o Centro de Segurança do Azure, as suas capacidades principais e como funciona.
+description: Esta página descreve os principais benefícios da central de segurança – descobrindo seu estado de segurança e melhorando-o com a cobertura de recursos locais e de nuvem.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202107"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558623"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -37,11 +37,11 @@ A central de segurança do Azure aborda os três desafios de segurança mais urg
 
 Para ajudá-lo a se proteger contra esses desafios, a central de segurança fornece as ferramentas para:
 
--   **Fortaleça a postura de segurança**: A central de segurança avalia seu ambiente e permite que você compreenda o status de seus recursos e se eles são seguros.
+-   **Fortaleça a postura de segurança**: a central de segurança avalia seu ambiente e permite que você compreenda o status de seus recursos e se eles são seguros.
 
--   **Proteger contra ameaças**: A central de segurança avalia suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de detecção de ameaças.
+-   **Proteger contra ameaças**: a central de segurança avalia suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de detecção de ameaças.
 
--   **Fique seguro mais rápido**: Na central de segurança, tudo é feito na velocidade da nuvem. Como é integrado nativamente, a implantação da central de segurança é fácil, fornecendo a você o provisionamento automático e a proteção com os serviços do Azure.
+-   **Fique seguro mais rápido**: na central de segurança, tudo é feito na velocidade da nuvem. Como é integrado nativamente, a implantação da central de segurança é fácil, fornecendo a você o provisionamento automático e a proteção com os serviços do Azure.
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -87,7 +87,7 @@ A central de segurança facilita a mitigação de alertas de segurança mais uma
 
 O coração do valor da central de segurança do Azure está em suas recomendações. As recomendações são adaptadas para as questões de segurança específicas encontradas em suas cargas de trabalho, e a central de segurança faz com que o administrador de segurança trabalhe para você, não apenas encontrando suas vulnerabilidades, mas fornece instruções específicas sobre como eliminá-las.
 
-![Recomendações do Centro de Segurança](media/security-center-intro/sc-recommendations.png)
+![Recomendações da central de segurança](media/security-center-intro/sc-recommendations.png)
 
 Dessa forma, a central de segurança permite não apenas definir políticas de segurança, mas aplicar padrões de configuração seguros em seus recursos.
 
@@ -145,5 +145,5 @@ Coleta de log extensiva – os logs do Windows e do Linux são todos utilizados 
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - O escalão de preço Gratuito do Centro de Segurança está ativado com a sua subscrição do Azure. Para tirar partido da gestão de segurança avançada e das capacidades de deteção de ameaças, tem de atualizar para o escalão de preço Standard. A camada Standard pode ser tentada gratuitamente. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.
-- Se você estiver pronto para habilitar a central de segurança Standard agora [, o início rápido: Integrar sua assinatura do Azure à central de segurança](security-center-get-started.md) Standard orienta você pelas etapas.
+- Se está pronto para ativar o Centro de Segurança Standard agora, o [Início rápido: Incluir a sua subscrição do Azure no Centro de Segurança Standard](security-center-get-started.md) acompanha-o ao longo dos passos.
 

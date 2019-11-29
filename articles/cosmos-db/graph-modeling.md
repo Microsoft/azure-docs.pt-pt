@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 94df90db4a715d2540dfc5ec0aa521d76d22f757
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 2bd8c07b384872f3107b5938380cea4c8eb0abae
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624218"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559116"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo para Azure Cosmos DB API Gremlin
 
@@ -35,25 +35,25 @@ Uma solução de banco de dados de grafo pode ser aplicada de forma ideal se as 
 * Há **relações muitos para muitos** entre entidades.
 * Há **requisitos de gravação e leitura em ambas as entidades e relações**. 
 
-Se os critérios acima forem atendidos, é provável que uma abordagem de banco de dados de grafo forneça vantagens para a **complexidade da consulta**, escalabilidade do **modelo**e **desempenho de consulta**.
+Se os critérios acima forem atendidos, é provável que uma abordagem de banco de dados de grafo forneça vantagens para a **complexidade da consulta**, **escalabilidade do modelo**e desempenho de **consulta**.
 
 A próxima etapa é determinar se o grafo será usado para fins analíticos ou transacionais. Se o grafo se destinar a ser usado para grandes cargas de trabalho de processamento de dados e computação, seria importante explorar o [conector Cosmos DB Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector) e o uso da [biblioteca GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Como usar objetos de grafo
 
-O [gráfico de propriedades do Apache Tinkerpop padrão](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dois tipos de vértices de objetos e **bordas**. 
+O [gráfico de propriedades do Apache Tinkerpop padrão](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dois tipos de **vértices** de objetos e **bordas**. 
 
 A seguir estão as práticas recomendadas para as propriedades nos objetos de grafo:
 
-| Objeto | Propriedade | Type | Notas |
+| Object | Propriedade | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Deles | id | Cadeia | Imposto exclusivamente por partição. Se um valor não for fornecido na inserção, e o GUID gerado automaticamente será armazenado. |
-| Deles | label | Cadeia | Essa propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, um valor padrão "Vertex" será usado. |
-| Deles | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada vértice. |
+| Deles | ID | String | Imposto exclusivamente por partição. Se um valor não for fornecido na inserção, um GUID gerado automaticamente será armazenado. |
+| Deles | label | String | Essa propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, um valor padrão "Vertex" será usado. |
+| Deles | propriedades | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada vértice. |
 | Deles | chave de partição | Cadeia de caracteres, booliano, numérico | Esta propriedade define onde o vértice e suas bordas de saída serão armazenados. Leia mais sobre [particionamento de grafo](graph-partitioning.md). |
-| Microsoft Edge | id | Cadeia | Imposto exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de serem recuperadas de forma exclusiva por uma ID. |
-| Microsoft Edge | label | Cadeia | Essa propriedade é usada para definir o tipo de relação que dois vértices têm. |
-| Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada borda. |
+| Microsoft Edge | ID | String | Imposto exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de serem recuperadas de forma exclusiva por uma ID. |
+| Microsoft Edge | label | String | Essa propriedade é usada para definir o tipo de relação que dois vértices têm. |
+| Microsoft Edge | propriedades | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada borda. |
 
 > [!NOTE]
 > As bordas não exigem um valor de chave de partição, já que seu valor é atribuído automaticamente com base no seu vértice de origem. Saiba mais no artigo [particionamento de grafo](graph-partitioning.md) .
@@ -71,11 +71,11 @@ A primeira etapa para um modelo de dados de grafo é mapear cada entidade identi
 
 Uma armadilha comum é mapear as propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, em que a mesma entidade é representada de duas maneiras diferentes:
 
-* **Propriedades baseadas em vértice**: Nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar na latência adicional, na complexidade da consulta e no custo de computação. Esse modelo também pode apresentar desafios no particionamento.
+* **Propriedades baseadas em vértice**: nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar na latência adicional, na complexidade da consulta e no custo de computação. Esse modelo também pode apresentar desafios no particionamento.
 
 ![Modelo de entidade com vértices para propriedades.](./media/graph-modeling/graph-modeling-1.png)
 
-* **Vértices de propriedade inserida**: Essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Essa abordagem fornece redução da complexidade do modelo, o que levará a consultas mais simples e a percorridas mais eficientes.
+* **Vértices inseridos na propriedade**: essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Essa abordagem fornece redução da complexidade do modelo, o que levará a consultas mais simples e a percorridas mais eficientes.
 
 ![Modelo de entidade com vértices para propriedades.](./media/graph-modeling/graph-modeling-2.png)
 
@@ -90,11 +90,11 @@ No entanto, há cenários em que a referência a uma propriedade pode fornecer v
 
 Depois que os vértices são modelados, as bordas podem ser adicionadas para denotar as relações entre eles. O primeiro aspecto que precisa ser avaliado é a **direção da relação**. 
 
-Os objetos de borda têm uma direção padrão seguida por uma passagem ao usar a `out()` função ou. `outE()` Usar essa direção natural resulta em uma operação eficiente, pois todos os vértices são armazenados com suas bordas de saída. 
+Os objetos de borda têm uma direção padrão seguida por uma passagem ao usar a função `out()` ou `outE()`. Usar essa direção natural resulta em uma operação eficiente, pois todos os vértices são armazenados com suas bordas de saída. 
 
-No entanto, percorrer a direção oposta de uma borda, usando a `in()` função, resultará sempre em uma consulta entre partições. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Se houver a necessidade de percorrer constantemente o uso da `in()` função, é recomendável adicionar bordas em ambas as direções.
+No entanto, percorrer a direção oposta de uma borda, usando a função `in()`, resultará sempre em uma consulta entre partições. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Se houver a necessidade de percorrer constantemente o uso da função `in()`, é recomendável adicionar bordas em ambas as direções.
 
-Você pode determinar a direção da borda usando os `.to()` predicados ou `.from()` para `.addE()` a etapa Gremlin. Ou usando a [biblioteca de executores em massa para a API Gremlin](bulk-executor-graph-dotnet.md).
+Você pode determinar a direção da borda usando os predicados `.to()` ou `.from()` para a etapa de Gremlin `.addE()`. Ou usando a [biblioteca de executores em massa para a API Gremlin](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Os objetos de borda têm uma direção por padrão.

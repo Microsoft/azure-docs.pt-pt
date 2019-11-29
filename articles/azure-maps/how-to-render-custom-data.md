@@ -1,6 +1,6 @@
 ---
 title: Como renderizar dados personalizados em um mapa de rasterização no Azure Maps | Microsoft Docs
-description: Renderizar dados personalizados em um mapa de rasterização no Azure Maps.
+description: Neste artigo, você aprenderá a renderizar dados personalizados em um mapa de varredura usando o serviço de imagem estática do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915765"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559983"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
 
@@ -35,7 +35,7 @@ Para concluir os procedimentos deste artigo, primeiro você precisa criar uma co
 > [!Note]
 > O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S0 ou S1.
 
-A camada S0 da conta do Azure Maps dá suporte a apenas uma `pins` única instância do parâmetro. Ele permite renderizar até cinco anotações, especificadas na solicitação de URL, com uma imagem personalizada.
+A camada S0 da conta do Azure Maps dá suporte a apenas uma única instância do parâmetro `pins`. Ele permite renderizar até cinco anotações, especificadas na solicitação de URL, com uma imagem personalizada.
 
 Para renderizar anotações com rótulos e uma imagem personalizada, conclua estas etapas:
 
@@ -48,7 +48,7 @@ Para renderizar anotações com rótulos e uma imagem personalizada, conclua est
 3. Selecione o método HTTP GET na guia Construtor e insira a URL a seguir para criar uma solicitação GET.
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
     Esta é a imagem resultante:
 
@@ -68,7 +68,7 @@ Você também pode obter o caminho e fixar as informações de localização usa
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. Na guia **params** , insira os seguintes pares de chave/valor, que são usados para a URL de solicitação post. Substitua o `subscription-key` valor pela sua chave de assinatura do Azure Maps.
+2. Na guia **params** , insira os seguintes pares de chave/valor, que são usados para a URL de solicitação post. Substitua o valor `subscription-key` pela sua chave de assinatura do Azure Maps.
     
     ![Params de chave/valor no postmaster](./media/how-to-render-custom-data/postman-key-vals.png)
 
@@ -154,7 +154,7 @@ Você também pode obter o caminho e fixar as informações de localização usa
    }
    ```
 
-7. Use o `udId` valor recebido da API de carregamento de dados para renderizar recursos no mapa. Para fazer isso, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método HTTP GET na guia Construtor e insira essa URL para fazer uma solicitação GET:
+7. Use o valor `udId` recebido da API de carregamento de dados para renderizar recursos no mapa. Para fazer isso, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método HTTP GET na guia Construtor e insira essa URL para fazer uma solicitação GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -205,7 +205,7 @@ Siga estas etapas para renderizar um círculo e anotações com rótulos persona
 
     ![Renderizar um círculo com anotações personalizadas](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 
 * Explore a documentação da [API de obtenção de imagem do mapa do Azure Maps](https://docs.microsoft.com/rest/api/maps/render/getmapimage) .

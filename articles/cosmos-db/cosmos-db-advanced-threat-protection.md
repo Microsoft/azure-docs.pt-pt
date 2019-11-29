@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57303c41d90f6205c284c7de67bb8643aa3cd368
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888055"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555036"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
 
@@ -101,5 +101,5 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](monitor-cosmos-db.md#diagnostic-settings)
 * Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

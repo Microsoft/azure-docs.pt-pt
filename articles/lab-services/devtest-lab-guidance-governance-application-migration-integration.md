@@ -1,6 +1,6 @@
 ---
-title: Governação da infraestrutura do Azure DevTest Labs
-description: Este artigo fornece orientações de governação da infraestrutura do Azure DevTest Labs.
+title: Migração e integração de aplicativos no Azure DevTest Labs
+description: Este artigo fornece diretrizes para governança de Azure DevTest Labs infraestrutura no contexto de migração e integração de aplicativos.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,127 +10,127 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193004"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560637"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governação da infraestrutura do Azure DevTest Labs - integração e migração de aplicativos
-Assim que o seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecida, precisa pensar sobre as seguintes perguntas:
+# <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança de Azure DevTest Labs infraestrutura – migração de aplicativos e integração
+Depois que o ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar nas seguintes perguntas:
 
-- Como utilizar o ambiente na sua equipa de projeto?
-- Como pode garantir que siga qualquer políticas organizacionais necessárias e manter a agilidade para acrescentar valor à sua aplicação?
+- Como você utiliza o ambiente dentro de sua equipe de projeto?
+- Como garantir que você siga as políticas organizacionais necessárias e mantenha a agilidade para agregar valor ao seu aplicativo?
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Imagens do Azure Marketplace versus imagens personalizadas
 
 ### <a name="question"></a>Pergunta
-Quando devo utilizar uma imagem do Marketplace do Azure vs. minha própria imagem personalizada do organizacional?
+Quando devo usar uma imagem do Azure Marketplace versus minha própria imagem organizacional personalizada?
 
 ### <a name="answer"></a>Resposta
-O Azure Marketplace deve ser utilizado por predefinição, a menos que tem preocupações específicas ou requisitos organizacionais. Alguns exemplos comuns incluem;
+O Azure Marketplace deve ser usado por padrão, a menos que você tenha preocupações específicas ou requisitos organizacionais. Alguns exemplos comuns incluem;
 
-- Configuração do software complexo que precisa de uma aplicação para ser incluído como parte da imagem base.
-- Instalação e configuração de um aplicativo podem demorar várias horas, o que não são um uso eficiente de tempo de computação para ser adicionado a uma imagem do Azure Marketplace.
-- Os desenvolvedores e testadores necessitam de acesso a uma máquina virtual rapidamente e desejam minimizar o tempo de configuração de uma nova máquina virtual.
-- Conformidade ou regulamentação condições (por exemplo, as políticas de segurança) que devem ser cumpridos para todas as máquinas.
+- Configuração de software complexo que exige que um aplicativo seja incluído como parte da imagem base.
+- A instalação e a configuração de um aplicativo podem levar muitas horas, o que não é um uso eficiente do tempo de computação a ser adicionado em uma imagem do Azure Marketplace.
+- Os desenvolvedores e testadores precisam acessar uma máquina virtual rapidamente e desejam minimizar o tempo de configuração de uma nova máquina virtual.
+- Condições de conformidade ou regulatórias (por exemplo, políticas de segurança) que devem estar em vigor para todos os computadores.
 
-Utilizar imagens personalizadas não deve ser considerado apenas superficialmente. Eles introduzem a complexidade extra, pois agora tem que gerir ficheiros VHD para tais subjacentes imagens base. Também tem de corrigir regularmente as imagens bases com atualizações de software. Estas atualizações incluem novas atualizações de sistema operativo (SO) e quaisquer atualizações ou alterações de configuração necessárias para o pacote de software propriamente dito.
+O uso de imagens personalizadas não deve ser considerado levemente. Elas apresentam complexidade extra, pois agora você precisa gerenciar arquivos VHD para essas imagens base subjacentes. Você também precisa corrigir rotineiramente essas imagens base com atualizações de software. Essas atualizações incluem novas atualizações de sistema operacional (SO) e todas as atualizações ou alterações de configuração necessárias para o próprio pacote de software.
 
-## <a name="formula-vs-custom-image"></a>Fórmula versus a imagem personalizada
+## <a name="formula-vs-custom-image"></a>Fórmula versus imagem personalizada
 
 ### <a name="question"></a>Pergunta
-Quando devo utilizar uma fórmula versus a imagem personalizada?
+Quando devo usar uma fórmula versus uma imagem personalizada?
 
 ### <a name="answer"></a>Resposta
-Normalmente, o fator decisivo neste cenário, o custo é e reutilizar.
+Normalmente, o fator decisivo nesse cenário é o custo e a reutilização.
 
-Se tiver um cenário em que muitos utilizadores/laboratórios requerem uma imagem com muita software parte superior da imagem base, poderia reduzir os custos através da criação de uma imagem personalizada. Isso significa que a imagem é criada uma vez. Ele reduz o tempo de configuração de máquina virtual e o custo incorrido porque a máquina virtual em execução quando ocorre a configuração.
+Se você tiver um cenário em que muitos usuários/laboratórios exigem uma imagem com muitos softwares sobre a imagem base, você pode reduzir o custo criando uma imagem personalizada. Isso significa que a imagem é criada uma vez. Ele reduz o tempo de configuração da máquina virtual e o custo incorrido devido à máquina virtual em execução quando a instalação ocorre.
 
-No entanto, um fator adicional a observar é a frequência das alterações ao seu pacote de software. Se executar o diária baseia-se e exigir que o software seja em máquinas de virtuais dos seus utilizadores, considere a utilização de uma fórmula em vez de uma imagem personalizada.
+No entanto, um fator adicional a ser observado é a frequência das alterações no pacote de software. Se você executar compilações diárias e exigir que o software esteja nas máquinas virtuais de seus usuários, considere usar uma fórmula em vez de uma imagem personalizada.
 
-## <a name="use-custom-organizational-images"></a>Utilizar imagens personalizadas de organizacionais
+## <a name="use-custom-organizational-images"></a>Usar imagens organizacionais personalizadas
 
 ### <a name="question"></a>Pergunta
-Como posso configurar um processo repetível facilmente para trazer as minhas imagens organizacionais personalizadas num ambiente de laboratórios DevTest?
+Como posso configurar um processo facilmente reproduzível para trazer minhas imagens organizacionais personalizadas em um ambiente do DevTest Labs?
 
 ### <a name="answer"></a>Resposta
-Ver [este vídeo no padrão de fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Este cenário é um cenário avançado e os scripts fornecidos são apenas os scripts de exemplo. Se forem necessárias quaisquer alterações, precisa gerenciar e manter os scripts utilizados no seu ambiente.
+Consulte [este vídeo no padrão de fábrica de imagens](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Esse cenário é um cenário avançado, e os scripts fornecidos são apenas scripts de exemplo. Se forem necessárias alterações, você precisará gerenciar e manter os scripts usados em seu ambiente.
 
-Com o DevTest Labs para criar um pipeline de imagem personalizada em Pipelines do Azure:
+Usando o DevTest Labs para criar um pipeline de imagem personalizada no Azure Pipelines:
 
-- [Introdução: Prepare-se as VMs em minutos por configurar uma fábrica de imagem no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Imagem Factory – parte 2! Configurar o laboratório de fábrica e Pipelines do Azure para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Imagem Factory – parte 3: Guardar imagens personalizadas e distribuir a vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Vídeo: Fábrica de imagem personalizada do Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [Introdução: Obtenha VMs prontas em minutos Configurando uma fábrica de imagens no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
+- [Fábrica de imagens – parte 2! Instalação Azure Pipelines e laboratório de fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Fábrica de imagens – parte 3: salvar imagens personalizadas e distribuí-las para vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
+- [Vídeo: fábrica de imagens personalizada com Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
-## <a name="patterns-to-set-up-network-configuration"></a>Padrões para definir a configuração de rede
+## <a name="patterns-to-set-up-network-configuration"></a>Padrões para configurar a configuração de rede
 
 ### <a name="question"></a>Pergunta
-Como posso Certifique-se de que o desenvolvimento e teste de máquinas virtuais são não é possível aceder à internet pública? Existem quaisquer padrões recomendados para definir a configuração de rede?
+Como fazer garantir que as máquinas virtuais de desenvolvimento e teste não sejam capazes de alcançar a Internet pública? Há padrões recomendados para definir a configuração de rede?
 
 ### <a name="answer"></a>Resposta
-Sim. Existem dois aspetos a considerar – o tráfego de entrada e saído.
+Sim. Há dois aspectos a serem considerados – tráfego de entrada e de saída.
 
-**Tráfego de entrada** – se a máquina virtual não tem um endereço IP público, em seguida, ele não pode ser acessado pela internet. Uma abordagem comum é garantir que está definida uma política de nível de assinatura, que nenhum utilizador é capaz de criar um endereço IP público.
+**Tráfego de entrada** – se a máquina virtual não tiver um endereço IP público, ela não poderá ser acessada pela Internet. Uma abordagem comum é garantir que uma política de nível de assinatura esteja definida, de modo que nenhum usuário seja capaz de criar um endereço IP público.
 
-**Tráfego de saída** -se de que pretende impedir que as máquinas virtuais aceder diretamente à internet pública e forçar o tráfego através de uma firewall empresarial, em seguida, pode encaminhar o tráfego no local através de express route ou VPN, através da utilização forçada encaminhamento.
+**Tráfego de saída** – se você quiser impedir que máquinas virtuais passem diretamente para a Internet pública e forçar o tráfego por meio de um firewall corporativo, poderá rotear o tráfego local por meio de rota expressa ou VPN usando o roteamento forçado.
 
 > [!NOTE]
-> Se tiver um servidor proxy que bloqueia o tráfego sem as definições de proxy, não se esqueça de adicionar exceções para a conta de armazenamento de artefactos do laboratório.
+> Se você tiver um servidor proxy que bloqueia o tráfego sem configurações de proxy, não se esqueça de adicionar exceções à conta de armazenamento do artefato do laboratório,.
 
-Também pode usar grupos de segurança de rede para máquinas virtuais ou sub-redes. Este passo adiciona uma camada adicional de proteção para permitir / bloquear o tráfego.
+Você também pode usar grupos de segurança de rede para máquinas virtuais ou sub-redes. Esta etapa adiciona uma camada adicional de proteção para permitir/bloquear o tráfego.
 
 ## <a name="new-vs-existing-virtual-network"></a>Novo vs. rede virtual existente
 
 ### <a name="question"></a>Pergunta
-Quando devo criar uma nova rede virtual para meu ambiente de DevTest Labs vs. utilizar uma rede virtual existente?
+Quando devo criar uma nova rede virtual para meu ambiente do DevTest Labs versus usar uma rede virtual existente?
 
 ### <a name="answer"></a>Resposta
-Se as suas VMs precisam interagir com a infraestrutura existente, em seguida, deve considerar utilizar uma rede virtual existente no seu ambiente do DevTest Labs. Além disso, se utilizar o ExpressRoute, pode querer minimizar a quantidade de VNets / sub-redes, de modo a que não fragmentados seu espaço de endereços IP que é atribuído para utilização nas subscrições. Também deve considerar a utilização o VNet peering padrão aqui (modelo de Hub-and-Spoke). Esta abordagem permite comunicação de vnet/sub-rede em várias subscrições dentro de uma determinada região, embora o peering entre regiões é uma funcionalidade de cópia de segurança-trazer no sistema de rede do Azure.
+Se suas VMs precisarem interagir com a infraestrutura existente, você deve considerar o uso de uma rede virtual existente dentro do ambiente do DevTest Labs. Além disso, se você usar o ExpressRoute, talvez queira minimizar a quantidade de VNets/sub-redes para não fragmentar o espaço de endereço IP que é atribuído para uso nas assinaturas. Você também deve considerar o uso do padrão de emparelhamento VNet aqui (modelo hub-spoke). Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas em uma determinada região, embora o emparelhamento entre regiões seja um recurso ativo na rede do Azure.
 
-Caso contrário, cada ambiente de DevTest Labs poderia ter sua própria rede virtual. No entanto, tenha em atenção que existem [limites](../azure-subscription-service-limits.md) no número de redes virtuais por subscrição. O período predefinido é 50, apesar deste limite pode ser gerado a 100.
+Caso contrário, cada ambiente do DevTest Labs poderia ter sua própria rede virtual. No entanto, observe que há [limites](../azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser gerado para 100.
 
-## <a name="shared-public-or-private-ip"></a>IP partilhado, pública ou privada
+## <a name="shared-public-or-private-ip"></a>IP compartilhado, público ou privado
 
 ### <a name="question"></a>Pergunta
-Quando devo utilizar um IP partilhado versus o IP público versus privado IP?
+Quando devo usar um IP compartilhado vs. IP público vs. IP privado?
 
 ### <a name="answer"></a>Resposta
-Se utilizar um site-site VPN ou Expressroute, considere a utilização de IPs privados para que as suas máquinas são acessíveis por meio de sua rede interna e acessível pela internet pública.
+Se você usar uma VPN site a site ou uma rota expressa, considere usar IPs privados para que seus computadores possam ser acessados por meio de sua rede interna e inacessíveis via Internet pública.
 
 > [!NOTE]
-> Os proprietários de laboratório podem alterar esta política de sub-rede para se certificar de que ninguém acidental cria endereços IP públicos para as suas VMs. O proprietário da subscrição deve criar uma política de subscrição para impedir que os IPs públicos que está sendo criado.
+> Os proprietários de laboratório podem alterar essa política de sub-rede para garantir que ninguém crie acidentalmente endereços IP públicos para suas VMs. O proprietário da assinatura deve criar uma política de assinatura impedindo que IPs públicos sejam criados.
 
-Quando utilizar IPs públicos partilhado, as máquinas virtuais num laboratório de partilhar um endereço IP público. Essa abordagem pode ser útil quando precisa evitar que viola os limites em endereços IP públicos de uma determinada subscrição.
+Ao usar IPs públicos compartilhados, as máquinas virtuais em um laboratório compartilham um endereço IP público. Essa abordagem pode ser útil quando você precisa evitar a violação dos limites em endereços IP públicos para uma determinada assinatura.
 
-## <a name="limits-of-number-of-virtual-machines-per-user-or-lab"></a>Limites do número de máquinas virtuais por utilizador ou de laboratório
-
-### <a name="question"></a>Pergunta
-Existe uma regra em termos de número de máquinas virtuais que deve ser definida por utilizador ou por laboratório?
-
-### <a name="answer"></a>Resposta
-Ao considerar o número de máquinas virtuais por utilizador ou por laboratório, existem três preocupações principais:
-
-- O **custo global** que a equipe pode gastar em recursos no laboratório. É fácil criar várias máquinas. Para controlar os custos, é um mecanismo para limitar o número de VMs por utilizador e/ou por laboratório
-- O número total de máquinas virtuais num laboratório é afetado pela [quotas de nível de subscrição](../azure-subscription-service-limits.md) disponíveis. É um dos limites superiores 800 grupos de recursos por subscrição. DevTest Labs atualmente cria um novo grupo de recursos para cada VM (a menos que são utilizados os IPs públicos partilhado). Se existirem 10 laboratórios numa subscrição, laboratórios poderiam caber aproximadamente 79 máquinas de virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios propriamente ditos) = 79 máquinas virtuais por laboratório.
-- Se o laboratório estiver ligado a no local através de Express Route (por exemplo), existem **definidos espaços de endereços IP disponíveis** para VNet/subrede. Para garantir que as VMs no laboratório não não possível criar (erro: não é possível obter o endereço IP), os proprietários de laboratório, podem especificar as máximas VMs por laboratório alinhado com o espaço de endereço IP disponível.
-
-## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
+## <a name="limits-of-number-of-virtual-machines-per-user-or-lab"></a>Limites de número de máquinas virtuais por usuário ou laboratório
 
 ### <a name="question"></a>Pergunta
-Como posso utilizar modelos do Resource Manager no meu ambiente de laboratórios DevTest?
+Há uma regra em termos de quantas máquinas virtuais devo definir por usuário ou por laboratório?
 
 ### <a name="answer"></a>Resposta
-Implementar modelos do Resource Manager num ambiente de DevTest Labs, utilizando os passos mencionados na [funcionalidade de ambientes no DevTest labs](devtest-lab-test-env.md) artigo. Basicamente, verifique os modelos do Resource Manager para um repositório de Git (repositórios do Azure ou GitHub) e adicione um [repositório privado para seus modelos](devtest-lab-test-env.md) ao laboratório.
+Ao considerar o número de máquinas virtuais por usuário ou por laboratório, há três preocupações principais:
 
-Este cenário não pode ser útil se estiver a utilizar o DevTest Labs para máquinas de desenvolvimento do host, mas pode ser útil se estiver criando um ambiente de teste, que é representativo da produção.
+- O **custo geral** que a equipe pode gastar em recursos no laboratório. É fácil criar vários computadores. Para controlar os custos, um mecanismo é limitar o número de VMs por usuário e/ou por laboratório
+- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é de 800 grupos de recursos por assinatura. Atualmente, o DevTest Labs cria um novo grupo de recursos para cada VM (a menos que IPs públicos compartilhados sejam usados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderão se ajustar a aproximadamente 79 máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios em si) = 79 máquinas virtuais por laboratório.
+- Se o laboratório estiver conectado ao local via rota expressa (por exemplo,), há espaços de **endereço IP definidos disponíveis** para a VNet/sub-rede. Para garantir que as VMs no laboratório não sejam criadas (erro: não é possível obter o endereço IP), os proprietários do laboratório podem especificar o máximo de VMs por laboratório alinhado com o espaço de endereço IP disponível.
 
-Também vale a pena observar que o número de máquinas virtuais por laboratório ou por opção do usuário apenas limita o número de máquinas criadas de forma nativa no laboratório em si e não por qualquer ambientes (modelos do Resource Manager).
+## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Gestor de Recursos
 
-## <a name="next-steps"></a>Passos Seguintes
-Ver [utilizar ambientes no DevTest Labs](devtest-lab-test-env.md).
+### <a name="question"></a>Pergunta
+Como posso usar modelos do Resource Manager em meu ambiente do DevTest Labs?
+
+### <a name="answer"></a>Resposta
+Você implanta seus modelos do Resource Manager em um ambiente do DevTest Labs usando as etapas mencionadas no artigo [ambientes do DevTest Labs](devtest-lab-test-env.md) . Basicamente, você verifica os modelos do Resource Manager em um repositório git (Azure Repos ou GitHub) e adiciona um [repositório privado para seus modelos](devtest-lab-test-env.md) ao laboratório.
+
+Esse cenário pode não ser útil se você estiver usando o DevTest Labs para hospedar máquinas de desenvolvimento, mas pode ser útil se você estiver criando um ambiente de preparo, que é representativo da produção.
+
+Também vale a pena observar que o número de máquinas virtuais por laboratório ou opção por usuário limita apenas o número de máquinas criadas nativamente no laboratório em si e não por nenhum ambiente (modelos do Resource Manager).
+
+## <a name="next-steps"></a>Passos seguintes
+Confira [usar ambientes no DevTest Labs](devtest-lab-test-env.md).

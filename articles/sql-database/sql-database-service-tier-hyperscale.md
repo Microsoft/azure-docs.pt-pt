@@ -11,18 +11,18 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: cb37bd0c83956b9858639a78d4995e14811498e5
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123697"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559332"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
 O banco de dados SQL do Azure é baseado em SQL Server Mecanismo de Banco de Dados arquitetura ajustada para o ambiente de nuvem a fim de garantir 99,99% de disponibilidade mesmo nos casos de falhas de infraestrutura. Há três modelos de arquitetura que são usados no banco de dados SQL do Azure:
 - Uso Geral/Standard 
--  Hyperscale
+-  Hiperescala
 -  Comercialmente Crítico/Premium
 
 A camada de serviço de hiperescala no banco de dados SQL do Azure é a mais nova camada de serviço no modelo de compra baseado em vCore. Essa camada de serviço é um nível de desempenho de computação e armazenamento altamente escalonável que aproveita a arquitetura do Azure para escalar horizontalmente os recursos de armazenamento e computação para um banco de dados SQL do Azure, muito além dos limites disponíveis para os Uso Geral e os negócios Camadas de serviço críticas.
@@ -170,27 +170,27 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Sudeste da Austrália
 - Sul do Brasil
 - Canadá Central
-- EUA Central
+- Centro dos E.U.A.
 - Leste da China 2
 - Norte da China 2
-- Ásia Oriental
-- EUA Leste
+- Este Asiático
+- Este dos E.U.A.
 - Leste dos EUA 2
 - França Central
-- Leste do Japão
+- Este do Japão
 - Oeste do Japão
 - Coreia do Sul Central
-- Coreia do Sul
-- EUA Centro-Norte
+- Sul da Coreia do Sul
+- E.U.A. Centro-Norte
 - Europa do Norte
 - Norte da África do Sul
-- EUA Centro-Sul
-- Sudeste asiático
-- Reino Unido Sul
-- Reino Unido Oeste
-- Europa ocidental
-- EUA Oeste
-- EUA Oeste 2
+- E.U.A. Centro-Sul
+- Sudeste Asiático
+- Sul do Reino Unido
+- Oeste do Reino Unido
+- Europa Ocidental
+- Oeste dos E.U.A.
+- E.U.A. Oeste 2
 
 Se desejar criar um banco de dados de hiperescala em uma região que não esteja listada como com suporte, você poderá enviar uma solicitação de integração via portal do Azure. Estamos trabalhando para expandir a lista de regiões com suporte; portanto, verifique novamente a lista de regiões mais recente.
 
@@ -251,6 +251,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |
 |Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
+| Reduzir banco de dados | Atualmente, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE com bancos de dados de hiperescala do SQL do Azure. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

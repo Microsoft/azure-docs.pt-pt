@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012645"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561316"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e mitigar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -42,13 +42,13 @@ Você pode evitar a latência e a limitação configurando corretamente seu ambi
 
 Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência causados pelo seu ambiente.
 
-1. No portal do Azure, selecione **alertas**.
+1. Na portal do Azure, selecione seu ambiente de Time Series Insights. Em seguida, selecione **alertas**.
 
-   [Alertas de ![](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![adicionar um alerta ao seu ambiente de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
-   [![adicionar alerta](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![adicionar painel de alerta](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
 1. Em seguida, configure as condições exatas para a lógica de sinal.
 
@@ -70,7 +70,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência causa
 
 1. Depois de configurar a lógica de sinal desejada, examine visualmente a regra de alerta escolhida.
 
-   [Entrada de ![](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [exibição de latência ![e gráfico](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 

@@ -1,33 +1,33 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279463"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555184"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
-Definições de política de recursos são utilizadas pelo Azure Policy para estabelecer as convenções de recursos. Cada definição descreve o que afetar a tomar quando um recurso está em conformidade e de conformidade de recursos.
-Ao definir as convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas determinados tipos de máquinas virtuais são permitidos. Em alternativa, pode exigir que todos os recursos tenham uma etiqueta específica. As políticas são herdadas por todos os recursos subordinados. Se uma política é aplicada a um grupo de recursos, é aplicável a todos os recursos nesse grupo de recursos.
+As definições de política de recurso são usadas pelo Azure Policy para estabelecer convenções para recursos. Cada definição descreve a conformidade de recursos e o efeito a ser tomada quando um recurso não está em conformidade.
+Ao definir as convenções, você pode controlar os custos e gerenciar seus recursos com mais facilidade. Por exemplo, você pode especificar que apenas determinados tipos de máquinas virtuais são permitidos. Ou, você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos nesse grupo de recursos.
 
 O esquema de definição de política é encontrado aqui: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
-Utilizar o JSON para criar uma definição de política. A definição de política contém elementos para:
+Use JSON para criar uma definição de política. A definição de política contém elementos para:
 
-- mode
+- moda
 - parâmetros
-- Nome a apresentar
+- nome de exibição
 - descrição
 - regra de política
-  - avaliação de lógica
-  - em vigor
+  - avaliação lógica
+  - funciona
 
-Por exemplo, o JSON seguinte mostra uma política que limita a onde os recursos são implementados:
+Por exemplo, o JSON a seguir mostra uma política que limita o local em que os recursos são implantados:
 
 ```json
 {
@@ -69,7 +69,7 @@ O **modo** é configurado dependendo de se a política tem como alvo uma proprie
 
 ### <a name="resource-manager-modes"></a>Modos do Resource Manager
 
-O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos suportados são:
+O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos com suporte são:
 
 - `all`: avaliar grupos de recursos e todos os tipos de recursos
 - `indexed`: apenas avaliar os tipos de recursos que dão suporte a marcas e local
@@ -92,11 +92,11 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos durante 
 
 ## <a name="parameters"></a>Parâmetros
 
-Parâmetros ajudam a simplificar a gestão de políticas ao reduzir o número de definições de política. Considere os parâmetros como os campos em um formulário – `name`, `address`, `city``state`. Esses parâmetros são sempre os mesmos, no entanto alterar seus valores com base em individuais a preencher o formulário.
-Parâmetros funcionam da mesma forma, na criação de políticas. Ao incluir parâmetros na definição de política, pode reutilizar essa política para diferentes cenários com valores diferentes.
+Os parâmetros ajudam a simplificar o gerenciamento de políticas, reduzindo o número de definições de política. Considere os parâmetros como os campos em um formulário – `name`, `address`, `city``state`. Esses parâmetros sempre permanecem os mesmos, mas seus valores mudam com base no preenchimento individual do formulário.
+Os parâmetros funcionam da mesma maneira durante a criação de políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para cenários diferentes usando valores diferentes.
 
 > [!NOTE]
-> Os parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro deve incluir a propriedade **DefaultValue** . Isto impede que existente atribuições da política ou iniciativa indiretamente que estão sendo feitas inválido.
+> Os parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro deve incluir a propriedade **DefaultValue** . Isso impede que as atribuições existentes da política ou da iniciativa sejam indiretamente inválidas.
 
 ### <a name="parameter-properties"></a>Propriedades do parâmetro
 
@@ -163,22 +163,22 @@ Na propriedade `metadata`, você pode usar **strongtype** para fornecer uma list
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Localização da definição
+## <a name="definition-location"></a>Local de definição
 
-Ao criar uma política ou iniciativa, é necessário especificar a localização da definição. A localização da definição tem de ser um grupo de gestão ou de uma subscrição. Esta localização determina o âmbito para o qual pode ser atribuída a política ou iniciativa. Recursos tem de ser membros diretos dos ou elementos subordinados na hierarquia da localização da definição de destino para a atribuição.
+Ao criar uma iniciativa ou política, é necessário especificar o local de definição. O local de definição deve ser um grupo de gerenciamento ou uma assinatura. Esse local determina o escopo ao qual a iniciativa ou a política pode ser atribuída. Os recursos devem ser membros diretos de ou filhos dentro da hierarquia do local de definição para o destino da atribuição.
 
-Se a localização da definição é r:
+Se o local de definição for um:
 
 - Os recursos somente de **assinatura** dentro dessa assinatura podem ser atribuídos à política.
-- Recursos somente de **grupo de gerenciamento** dentro de grupos de gerenciamento filho e assinaturas filho podem ser atribuídos à política. Se planeia aplicar a definição de política para várias subscrições, a localização tem de ser um grupo de gestão que contém nessas subscrições.
+- Recursos somente de **grupo de gerenciamento** dentro de grupos de gerenciamento filho e assinaturas filho podem ser atribuídos à política. Se você planeja aplicar a definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contém essas assinaturas.
 
-## <a name="display-name-and-description"></a>Nome a apresentar e descrição
+## <a name="display-name-and-description"></a>Nome de exibição e descrição
 
 Use **DisplayName** e **Description** para identificar a definição de política e fornecer contexto para quando ela for usada. **DisplayName** tem um comprimento máximo de _128_ caracteres e a **Descrição** é de um comprimento máximo de _512_ caracteres.
 
-## <a name="policy-rule"></a>regra de política
+## <a name="policy-rule"></a>Regra de política
 
-A regra de política consiste em **If** e **then** Blocks. No bloco **If** , você define uma ou mais condições que especificam quando a política é imposta. Pode aplicar operadores lógicos para estas condições para definir exatamente o cenário para uma política.
+A regra de política consiste em **If** e **then** Blocks. No bloco **If** , você define uma ou mais condições que especificam quando a política é imposta. Você pode aplicar operadores lógicos a essas condições para definir precisamente o cenário de uma política.
 
 No bloco **then** , você define o efeito que ocorre quando as condições **se** são atendidas.
 
@@ -195,7 +195,7 @@ No bloco **then** , você define o efeito que ocorre quando as condições **se*
 
 ### <a name="logical-operators"></a>Operadores lógicos
 
-Operadores lógicos suportados são:
+Os operadores lógicos com suporte são:
 
 - `"not": {condition  or operator}`
 - `"allOf": [{condition or operator},{condition or operator}]`
@@ -203,7 +203,7 @@ Operadores lógicos suportados são:
 
 A sintaxe **not** inverte o resultado da condição. A sintaxe **allOf** (semelhante à operação **and** lógica) requer que todas as condições sejam verdadeiras. A sintaxe **anyOf** (semelhante à operação **or** lógica) requer que uma ou mais condições sejam verdadeiras.
 
-Pode aninhar operadores lógicos. O exemplo a seguir mostra uma operação **not** que está aninhada em uma operação **allOf** .
+Você pode aninhar operadores lógicos. O exemplo a seguir mostra uma operação **not** que está aninhada em uma operação **allOf** .
 
 ```json
 "if": {
@@ -223,7 +223,7 @@ Pode aninhar operadores lógicos. O exemplo a seguir mostra uma operação **not
 
 ### <a name="conditions"></a>Condições
 
-Uma condição avalia se um **campo** ou o acessador de **valor** atende a determinados critérios. As condições suportadas são:
+Uma condição avalia se um **campo** ou o acessador de **valor** atende a determinados critérios. As condições com suporte são:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -253,13 +253,13 @@ Ao usar as condições **Match** e não **match** , forneça `#` para correspond
 
 ### <a name="fields"></a>Campos
 
-Condições são formadas com campos. Um campo corresponde a propriedades no payload de pedido de recurso e descreve o estado do recurso.
+As condições são formadas usando campos. Um campo corresponde às propriedades na carga de solicitação do recurso e descreve o estado do recurso.
 
-São suportados os seguintes campos:
+Os campos a seguir têm suporte:
 
 - `name`
 - `fullName`
-  - Devolve o nome completo do recurso. O nome completo de um recurso é o nome de recurso anexado por nenhum nome de recurso principal (por exemplo "myServer/myDatabase").
+  - Retorna o nome completo do recurso. O nome completo de um recurso é o nome do recurso que foi anexado por qualquer nome de recurso pai (por exemplo, "meuservidor/MyDatabase").
 - `kind`
 - `type`
 - `location`
@@ -394,6 +394,146 @@ Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-gr
 
 Com a regra de política revisada, `if()` verifica o comprimento do **nome** antes de tentar obter uma `substring()` em um valor com menos de três caracteres. Se o **nome** for muito curto, o valor "não iniciando com ABC" será retornado em vez disso e comparado com **ABC**. Um recurso com um nome curto que não começa com **ABC** ainda falha na regra de política, mas não causa mais um erro durante a avaliação.
 
+### <a name="count"></a>Contagem
+
+As condições que contam com quantos membros de uma matriz no conteúdo do recurso atendem a uma expressão de condição podem ser formadas usando a expressão de **contagem** . Os cenários comuns verificam se ' pelo menos um de ', ' exatamente um de ', ' todos os ' ou ' nenhum de ' os membros da matriz atendem à condição. a **contagem** avalia cada membro da matriz para uma expressão de condição e soma os resultados _verdadeiros_ , que são então comparados com o operador de expressão.
+
+A estrutura da expressão de **contagem** é:
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+As propriedades a seguir são usadas com **Count**:
+
+- **Count. Field** (obrigatório): contém o caminho para a matriz e deve ser um alias de matriz. Se a matriz estiver ausente, a expressão será avaliada como _falsa_ sem considerar a expressão de condição.
+- **Count. Where** (opcional): a expressão de condição para avaliar individualmente cada [\[\*\]](#understanding-the--alias) membro da matriz de alias de **Count. Field**. Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro dessa propriedade.
+  Os [operadores lógicos](#logical-operators) podem ser usados dentro dessa propriedade para criar requisitos complexos de avaliação.
+- **condição de\<\>** (obrigatório): o valor é comparado com o número de itens que atendeu à **contagem.** expressão de condição WHERE. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
+
+#### <a name="count-examples"></a>Exemplos de contagem
+
+Exemplo 1: verificar se uma matriz está vazia
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Exemplo 2: verificar apenas um membro de matriz para atender à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Exemplo 3: verificar pelo menos um membro de matriz para atender à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Exemplo 4: verificar se todos os membros da matriz de objetos atendem à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+Exemplo 5: verificar se todos os membros da matriz de cadeia de caracteres atendem à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exemplo 6: usar o **campo** dentro do **valor** para verificar se todos os membros da matriz atendem à expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Exemplo 7: Verifique se pelo menos um membro da matriz corresponde a várias propriedades na expressão de condição
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Efeito
 
 O Azure Policy dá suporte aos seguintes tipos de efeito:
@@ -414,14 +554,14 @@ Para obter detalhes completos sobre cada efeito, ordem de avaliação, proprieda
 
 Todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso em uma regra de política, exceto as funções e funções definidas pelo usuário a seguir:
 
-- copyIndex()
-- deployment()
-- list*
+- copyIndex ()
+- implantação ()
+- lista
 - newGuid ()
 - pickZones()
 - provedores ()
-- reference()
-- resourceId()
+- referência ()
+- ResourceId ()
 - variáveis ()
 
 As funções a seguir estão disponíveis para uso em uma regra de política, mas diferem do uso em um modelo de Azure Resource Manager:
@@ -454,9 +594,9 @@ Este exemplo de regra de política usa a função de recurso `resourceGroup` par
 
 ## <a name="aliases"></a>Aliases
 
-Utilize aliases de propriedade para aceder às propriedades específicas para um tipo de recurso. Aliases permitem-lhe restringir quais valores ou condições são permitidas para uma propriedade num recurso. Cada alias mapeia para caminhos em diferentes versões de API para um tipo de recurso específico. Durante a avaliação da política, o mecanismo da diretiva obtém o caminho de propriedade para essa versão de API.
+Você usa aliases de propriedade para acessar propriedades específicas de um tipo de recurso. Os aliases permitem restringir quais valores ou condições são permitidos para uma propriedade em um recurso. Cada alias é mapeado para caminhos em versões de API diferentes para um determinado tipo de recurso. Durante a avaliação da política, o mecanismo de política Obtém o caminho da propriedade para essa versão de API.
 
-A lista de aliases está sempre a aumentar. Para localizar os aliases são atualmente suportadas pelo Azure Policy, utilize um dos seguintes métodos:
+A lista de aliases está sempre crescendo. Para saber quais aliases têm suporte no momento por Azure Policy, use um dos seguintes métodos:
 
 - Azure PowerShell
 
@@ -482,22 +622,23 @@ A lista de aliases está sempre a aumentar. Para localizar os aliases são atual
   az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
-- REST API / ARMClient
+- API REST/ARMClient
 
   ```http
   GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
   ```
 
-### <a name="understanding-the--alias"></a>Noções básicas sobre o alias [*]
+### <a name="understanding-the--alias"></a>Compreendendo o alias [*]
 
-Vários dos aliases que estão disponíveis têm uma versão que aparece como um nome ' normal ' e outro que tem **[\*]** anexado a ele. Por exemplo:
+Vários dos aliases que estão disponíveis têm uma versão que aparece como um nome ' normal ' e outro que tem **\[\*\]** anexado a ele. Por exemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 O alias ' normal ' representa o campo como um único valor. Esse campo é para cenários de comparação de correspondência exata quando o conjunto inteiro de valores deve ser exatamente o mesmo definido, nem mais nem menos.
 
-O alias **[\*]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Usando **ipRules [\*]** , um exemplo seria validar se cada _ação_ é _Deny_, mas não se preocupa com quantas regras existem ou qual é o _valor_ de IP. Esta regra de exemplo verifica se há correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
+O alias **\[\*\]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Para cenários mais complexos, use a expressão de condição de [contagem](#count) . Usando o **ipRules\[\*\]** , um exemplo seria validar que cada _ação_ seja _negada_, mas não se preocupe com quantas regras existem ou qual é o _valor_ de IP.
+Esta regra de exemplo verifica se há correspondências de **ipRules\[\*\]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
 
 ```json
 "policyRule": {
@@ -519,13 +660,15 @@ O alias **[\*]** torna possível comparar com o valor de cada elemento na matriz
 }
 ```
 
+
+
 Para obter mais informações, consulte [avaliando o alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniciativas
 
-Iniciativas permitem-lhe agrupar várias definições de política relacionada para simplificar a gestão e as atribuições de como trabalhar com um grupo como um único item. Por exemplo, pode agrupar as definições de política de etiquetagem relacionados numa única iniciativa. Em vez de atribuir cada política individualmente, aplicar a iniciativa.
+As iniciativas permitem agrupar várias definições de políticas relacionadas para simplificar as atribuições e o gerenciamento, pois você trabalha com um grupo como um único item. Por exemplo, você pode agrupar definições de política de marcação relacionadas em uma única iniciativa. Em vez de atribuir cada política individualmente, você aplica a iniciativa.
 
-O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas: `costCenter` e `productName`. Ele usa duas políticas incorporadas para aplicar o valor da etiqueta predefinida.
+O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas: `costCenter` e `productName`. Ele usa duas políticas internas para aplicar o valor de marca padrão.
 
 ```json
 {

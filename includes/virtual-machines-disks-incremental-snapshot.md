@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 846fd92bce3056dc119f38ac253a0a937e8c56a4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74309824"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566330"
 ---
 Instantâneos incrementais (visualização) são backups pontuais para discos gerenciados que, quando tirados, consistem apenas em todas as alterações desde o último instantâneo. Quando você tenta baixar ou, de outra forma, usa um instantâneo incremental, o VHD completo é usado. Essa nova funcionalidade para instantâneos de disco gerenciado pode potencialmente permitir que eles sejam mais econômicos, já que você não precisa mais armazenar todo o disco com cada instantâneo individual, a menos que você escolha. Assim como instantâneos regulares, instantâneos incrementais podem ser usados para criar um disco gerenciado completo ou para criar um instantâneo normal.
 
@@ -25,7 +25,7 @@ Se você ainda não se inscreveu para a versão prévia e gostaria de começar a
 
 ## <a name="restrictions"></a>Restrições
 
-- Os instantâneos incrementais atualmente só estão disponíveis no EUA Central ocidental e Europa Setentrional.
+- Os instantâneos incrementais atualmente só estão disponíveis no leste dos EUA, EUA Central, Canadá central, Oeste EUA Central e Europa Setentrional.
 - Não é possível criar instantâneos incrementais no momento depois de alterar o tamanho de um disco.
 - Os instantâneos incrementais atualmente não podem ser movidos entre assinaturas.
 - No momento, você pode gerar apenas URIs SAS de até cinco instantâneos de uma família de instantâneos específica em um determinado momento.
@@ -154,7 +154,7 @@ Você também pode usar modelos de Azure Resource Manager para criar um instant�
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 1. Se você ainda não se inscreveu para a versão prévia e gostaria de começar a usar instantâneos incrementais, envie-nos um email para AzureDisks@microsoft.com para obter acesso à visualização pública. 
 

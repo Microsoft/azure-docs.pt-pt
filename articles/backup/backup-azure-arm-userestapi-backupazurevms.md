@@ -4,12 +4,12 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173451"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554916"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o backup do Azure via API REST
 
@@ -35,7 +35,7 @@ O URI de POSTAgem tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupNam
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Respostas
 
 A operação ' refresh ' é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
@@ -151,18 +151,18 @@ X-Powered-By: ASP.NET
 
 A resposta contém a lista de todas as VMs do Azure desprotegidas e cada `{value}` contém todas as informações exigidas pelo serviço de recuperação do Azure para configurar o backup. Para configurar o backup, observe o campo `{name}` e o campo `{virtualMachineId}` na seção `{properties}`. Construa duas variáveis com base nesses valores de campo, conforme mencionado abaixo.
 
-- containerName = "iaasvmcontainer;"+`{name}`
-- protectedItemName = "vm;"+ `{name}`
+- ContainerName = "iaasvmcontainer;" +`{name}`
+- protectedItemName = "VM;" + `{name}`
 - `{virtualMachineId}` é usado posteriormente no [corpo da solicitação](#example-request-body)
 
 No exemplo, os valores acima são convertidos em:
 
-- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
-- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
+- ContainerName = "iaasvmcontainer; iaasvmcontainerv2; testRG; testVM"
+- protectedItemName = "VM; iaasvmcontainerv2; testRG; testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Habilitando a proteção para a VM do Azure
 
-Depois que a VM relevante for "armazenada em cache" e "identificada", selecione a política a ser protegida. Para saber mais sobre as políticas existentes no cofre, confira [API de política de lista](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) fazendo referência ao nome da política. Para criar políticas, consulte o [tutorial criar política](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" é selecionado no exemplo abaixo.
+Depois que a VM relevante for "armazenada em cache" e "identificada", selecione a política a ser protegida. Para saber mais sobre as políticas existentes no cofre, confira [API de política de lista](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) fazendo referência ao nome da política. Para criar políticas, consulte o [tutorial criar política](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" é selecionado no exemplo abaixo.
 
 Habilitar a proteção é uma operação *Put* assíncrona que cria um ' item protegido '.
 
@@ -202,7 +202,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para criar
 
 O `{sourceResourceId}` é o `{virtualMachineId}` mencionado acima da [resposta da lista de itens protegíveis](#example-responses-1).
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Respostas
 
 A criação de um item protegido é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
@@ -313,7 +313,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para dispa
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Respostas
 
 Disparar um backup sob demanda é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 

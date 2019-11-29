@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173696"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554113"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -80,6 +80,30 @@ Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar u
 Se você solicitar acesso a um pacote do Access que tenha várias políticas aplicáveis, você poderá ser solicitado a selecionar uma política. Por exemplo, um Gerenciador de pacotes do Access pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política pode permitir o acesso por 60 dias e exigir aprovação. A segunda política pode permitir o acesso por 2 dias e não requer aprovação. Se você encontrar esse cenário, deverá selecionar a política que deseja usar.
 
 ![Meu Portal de acesso-solicitar acesso-várias políticas](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>Reenviar uma solicitação
+
+Quando você solicitar acesso a um pacote do Access, sua solicitação poderá ser negada ou sua solicitação poderá expirar se os aprovadores não responderem no tempo. Se você precisar de acesso, poderá tentar novamente e reenviar sua solicitação. O procedimento a seguir explica como reenviar uma solicitação de acesso:
+
+**Função de pré-requisito:** Solicitante
+
+1. Entre no portal **meu acesso** .
+
+1. Clique em **histórico de solicitações** no menu de navegação à esquerda.
+
+1. Localize o pacote de acesso para o qual você está Reenviando uma solicitação.
+
+1. Clique na marca de seleção para selecionar o pacote de acesso.
+
+1. Clique no link **exibição** azul à direita do pacote de acesso selecionado.
+    
+    ![Selecionar o pacote de acesso e o link de exibição](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    Um painel será aberto à direita com o histórico de solicitações do pacote de acesso.
+    
+    ![Selecionar botão reenviar](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Clique no botão **reenviar** na parte inferior do painel.
 
 ## <a name="cancel-a-request"></a>Cancelar uma solicitação
 

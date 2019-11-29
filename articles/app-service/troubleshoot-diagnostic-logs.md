@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958022"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558555"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar o log de diagnóstico para aplicativos no serviço Azure App
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplicativo do serviço de aplicativo](overview.md). Neste artigo, você aprende a habilitar o log de diagnósticos e a adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
 Este artigo usa o [portal do Azure](https://portal.azure.com) e CLI do Azure para trabalhar com logs de diagnóstico. Para obter informações sobre como trabalhar com logs de diagnóstico usando o Visual Studio, consulte [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -66,11 +66,11 @@ Selecione o **nível**ou o nível de detalhes para o log. A tabela a seguir most
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desativado** | Nenhum |
+|**Desativado** | Nenhuma |
 |**Ao** | Erro, crítico |
 |**Alerta** | Aviso, erro, crítico|
 |**Divulgação** | Informações, aviso, erro, crítico|
-|**Verbose** | Rastreamento, depuração, informações, aviso, erro, crítico (todas as categorias) |
+|**Extensa** | Rastreamento, depuração, informações, aviso, erro, crítico (todas as categorias) |
 
 Quando terminar, selecione **salvar**.
 
@@ -189,7 +189,7 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Suporte do Windows | Apoio Técnico para Linux | Descrição |
+| Tipo de log | Suporte do Windows | Suporte para Linux (Docker) | Descrição |
 |-|-|-|
 | AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Logs do servidor Web |

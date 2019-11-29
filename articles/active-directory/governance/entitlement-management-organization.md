@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174135"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561926"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -33,7 +33,7 @@ Uma organização conectada é um diretório ou domínio externo do Azure AD com
 
 Por exemplo, suponha que você trabalhe no Banco Woodgrove e queira colaborar com duas organizações externas: Instituto de design gráfico e contoso. Você foi informado por seu contato no design gráfico Institute que eles usam o Azure AD e que os usuários do Instituto de design gráfico têm um nome principal de usuário que termina com `graphicdesigninstitute.com`. E você foi informado por seu contato na contoso que eles ainda não usam o Azure AD, mas que os usuários da Contoso têm um nome principal de usuário que termina com `contoso.com`.
 
-Você pode configurar duas organizações conectadas, uma para o Instituto de design gráfico com o domínio `graphicdesigninstitute.com`e outra para a contoso com o domínio `contoso.com`. Se você adicionar essas duas organizações conectadas a uma política, os usuários de cada organização que têm um nome principal de usuário que corresponde à política poderão solicitar pacotes de acesso. Além disso, como o Instituto de design gráfico foi identificado como usando o Azure AD, se o Instituto de design gráfico, em seguida, tiver subdomínios, como `graphicdesigninstitute.example`, os usuários com esse nome de entidade de usuário também poderão solicitar pacotes de acesso usando o mesma política.
+Você pode configurar duas organizações conectadas, uma para o Instituto de design gráfico com o domínio `graphicdesigninstitute.com`e outra para a contoso com o domínio `contoso.com`. Se você adicionar essas duas organizações conectadas a uma política, os usuários de cada organização que têm um nome principal de usuário que corresponde à política poderão solicitar pacotes de acesso. Além disso, como o Instituto de design gráfico foi identificado como usando o Azure AD, se o Instituto de design gráfico tiver subdomínios, como `graphicdesigninstitute.example`, os usuários com esse nome de entidade de usuário também poderão solicitar pacotes de acesso usando a mesma política.
 
 ![Exemplo de organização conectada](./media/entitlement-management-organization/connected-organization-example.png)
 
@@ -42,6 +42,10 @@ Como os usuários do diretório ou domínio do Azure AD serão autenticados depe
 - Azure AD
 - [Federação direta](../b2b/direct-federation.md)
 - [Senha de uso único](../b2b/one-time-passcode.md) (domínio)
+
+Para ver uma demonstração de como adicionar uma organização conectada, Assista ao vídeo a seguir:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## <a name="add-a-connected-organization"></a>Adicionar uma organização associada
 

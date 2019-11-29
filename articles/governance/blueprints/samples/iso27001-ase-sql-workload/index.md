@@ -1,14 +1,14 @@
 ---
-title: Exemplo de esquema de carga de trabalho ASE/SQL ISO 27001 - Descrição geral
+title: Descrição geral do exemplo de esquema de carga de trabalho ASE/SQL ISO 27001
 description: Descrição geral e arquitetura do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001.
 ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 5f8fd9d92bb5afb2c396f20f4850c80e34ff8542
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 749304f332bc5c65a9a1cd18aae3131f024b4f53
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184414"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546746"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Descrição geral do exemplo de esquema de carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001
 

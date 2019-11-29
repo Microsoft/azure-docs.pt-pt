@@ -1,14 +1,14 @@
 ---
-title: Exemplo de esquema CIS Microsoft Azure Foundations Benchmark - Descrição geral
+title: Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark
 description: Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
 ms.date: 08/09/2019
 ms.topic: sample
-ms.openlocfilehash: 89b7396b39ed6d308240316bbb5e718922d5e156
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 414c6d5a38821767dd43e62aa9f42edd8633dbe2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032411"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544567"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark
 

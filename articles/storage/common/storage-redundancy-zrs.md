@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544618"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555476"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -22,9 +22,9 @@ ms.locfileid: "74544618"
 
 ## <a name="support-coverage-and-regional-availability"></a>Cobertura de suporte e disponibilidade regional
 
-O ZRS atualmente dá suporte aos tipos de conta de armazenamento de uso geral V2 e de armazenamento de FileStorage padrão. Para obter mais informações sobre tipos de conta de armazenamento, consulte [visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+Atualmente, o ZRS dá suporte a tipos de conta de armazenamento padrão v2, FileStorage e BlockBlobStorage de uso geral. Para obter mais informações sobre tipos de conta de armazenamento, consulte [visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
-O ZRS está disponível para BLOBs de blocos, blobs de páginas que não são de disco, compartilhamentos de arquivos padrão, tabelas e filas.
+As contas ZRS de uso geral v2 dão suporte a blobs de blocos, blobs de páginas que não são de disco, compartilhamentos de arquivos padrão, tabelas e filas.
 
 Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes regiões:
 

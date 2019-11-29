@@ -3,16 +3,16 @@ title: O que é o Azure Reservations?
 description: Saiba mais sobre o Azure Reservations e os respetivos preços para poupar nos custos das suas máquinas virtuais, de bases de dados SQL, do Azure Cosmos DB e de outros recursos.
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: df15bcc0e4a3ef7629abf7b62f8ff36caf732150
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580099"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420142"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -36,6 +36,12 @@ Planos de serviço:
 - **VCore reservado de Base de Dados SQL** – apenas os custos de computação são incluídos na reserva. A licença é faturada separadamente.
 - **SQL Data Warehouse** – a reserva abrange a utilização de cDWUs. Não abrange os custos de armazenamento ou rede associados à utilização do SQL Data Warehouse.
 - **Imposto de selo do Serviço de Aplicações** – a reserva abrange a utilização de selos. Não se aplica às funções de trabalho, pelo que todos os outros recursos associados ao selo serão cobrados separadamente.
+- Base de Dados do Azure para MySQL
+- Base de Dados do Azure para PostgreSQL
+- Azure Database for MariaDB
+- Azure Data Explorer
+- Managed Disks SSD Premium
+
 
 Para máquinas virtuais do Windows e Bases de Dados SQL, pode abranger os custos de licenciamento com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

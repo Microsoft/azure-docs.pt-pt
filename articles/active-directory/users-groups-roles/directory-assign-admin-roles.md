@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
-ms.translationtype: HT
+ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547531"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554120"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -185,7 +185,7 @@ Essa função está disponível para atribuição somente como um administrador 
 
 Os usuários nessa função podem ler informações básicas do diretório. Essa função deve ser usada para:
 * Conceder a um conjunto específico de usuários convidados acesso de leitura em vez de concedê-lo a todos os usuários convidados.
-* Conceder a um conjunto específico de usuários não administradores acesso ao portal do Azure quando "restringir o acesso ao portal do AD do Azure somente aos administradores" estiver definido como "Sim".
+* Conceder a um conjunto específico de usuários não administradores acesso ao portal do Azure quando "restringir o acesso ao portal do AD do Azure somente para administradores" está definido como "Sim".
 * Conceder acesso às entidades de serviço ao diretório em que Directory. Read. All não é uma opção.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Contas de sincronização de diretório](#directory-synchronization-accounts-permissions)
@@ -238,7 +238,7 @@ Os usuários nessa função podem ler configurações e informações administra
 >- [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
 >- [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox do cliente. Você não encontrará a guia **solicitações de lockbox do cliente** em **suporte** no painel esquerdo do centro de administração do M365.
 >- [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará **Rótulos de sensibilidade**, **Rótulos de retenção**e guias de análise de **rótulo** no painel esquerdo da central de segurança do M365.
->- [Office centro de conformidade e segurança](https://protection.microsoft.com) -o leitor global não pode ler logs de auditoria SCC ou fazer pesquisa de conteúdo.
+>- [Office centro de conformidade e segurança](https://sip.protection.office.com/homepage) -o leitor global não pode ler logs de auditoria SCC ou fazer pesquisa de conteúdo.
 >- [Centro de administração do teams](https://admin.teams.microsoft.com) – o leitor global não pode ler o **ciclo de vida das equipes**, **relatórios de & de análise**, gerenciamento de dispositivo de **telefone IP** e **Catálogo**
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) não oferece suporte à função de leitor global.
 >- [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – o leitor global tem suporte apenas [para relatórios centrais](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando sua organização do Azure ad não está na [plataforma de rotulamento unificada](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -248,7 +248,7 @@ Os usuários nessa função podem ler configurações e informações administra
 
 ### <a name="group-administratorgroup-administrator"></a>[Administrador de grupo](#group-administrator)
 
-Os usuários nessa função podem criar/gerenciar grupos e suas configurações, como políticas de nomenclatura e expiração. É importante entender que a atribuição de um usuário a essa função oferece a eles a capacidade de gerenciar todos os grupos no locatário em várias cargas de trabalho, como equipes, SharePoint, Yammer, além do Outlook. Além disso, o usuário poderá gerenciar as configurações de vários grupos em vários portais de administrador, como o centro de administração da Microsoft, o portal do Azure, bem como a carga de trabalho específica, como equipes e centros de administração do SharePoint.
+Os usuários nessa função podem criar/gerenciar grupos e suas configurações, como políticas de nomenclatura e expiração. É importante entender que a atribuição de um usuário a essa função oferece a eles a capacidade de gerenciar todos os grupos no locatário em várias cargas de trabalho, como equipes, SharePoint, Yammer, além do Outlook. Além disso, o usuário poderá gerenciar as configurações de vários grupos em vários portais de administrador, como o centro de administração da Microsoft, portal do Azure, bem como a carga de trabalho específica, como equipes e centros de administração do SharePoint.
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Convite do convidado](#guest-inviter-permissions)
 

@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 09/06/2019
-  ms.openlocfilehash: b03b1b385a2d30376d6e9a0359b4ead95236d709
-  ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+  ms.openlocfilehash: 3eddc555eeae064e4d82220728f35f14dc17d1ee
+  ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/19/2019
-  ms.locfileid: "74169243"
+  ms.lasthandoff: 11/27/2019
+  ms.locfileid: "74561857"
 landingContent:
 - title: Sobre o Event Grid
   linkLists:
@@ -81,6 +81,10 @@ landingContent:
       url: event-domains.md
     - text: Recuperação após desastre geográfica
       url: geo-disaster-recovery.md
+  - linkListType: architecture
+    links:
+    - text: Arquitetura de Referência para Filas e Eventos
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
 - title: Personalizações
   linkLists:
   - linkListType: quickstart

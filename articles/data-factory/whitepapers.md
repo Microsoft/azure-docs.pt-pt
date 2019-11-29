@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: e24d7507cf567103d62321c08491bdaaa7a46e5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9421a4bbc5f05e8473d25aa63f31e9a8e23e3c98
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217111"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555201"
 ---
 # <a name="azure-data-factory-whitepapers"></a>White papers do Azure Data Factory 
 
@@ -27,7 +27,7 @@ Os White papers permitem que você explore Azure Data Factory em um nível mais 
 | **Artigos** | **Descrição** |
 | --- | --- |
 |[Azure Data Factory — integração de dados na nuvem](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-data-integration-in-the-cloud/Azure_Data_Factory_Data_Integration_in_the_Cloud.pdf) | Este documento descreve como Azure Data Factory pode permitir que você crie um data warehouse moderno, habilite a análise avançada para gerar aplicativos SaaS inteligentes e obter seus pacotes do SQL Server Integration Services para o Azure.|
-|[Migração de dados de data warehouse relacionais locais para o Azure usando Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf) | Este documento aborda a complexidade de migrar dezenas de TB de dados de data warehouse relacionais locais existentes (por exemplo, Netezza, Oracle, Teradata, SQL Server) para o Azure (por exemplo, armazenamento de BLOBs ou Azure Data Lake Storage) usando Azure Data Factory. Os desafios e as práticas recomendadas são ilustrados em relação à resiliência, desempenho, escalabilidade, gerenciamento e segurança para a jornada de ingestão de Big Data para o Azure por Azure Data Factory. |
+|[Migração de dados de data warehouse relacionais locais para o Azure usando Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/) | Este documento aborda a complexidade de migrar dezenas de TB de dados de data warehouse relacionais locais existentes (por exemplo, Netezza, Oracle, Teradata, SQL Server) para o Azure (por exemplo, armazenamento de BLOBs ou Azure Data Lake Storage) usando Azure Data Factory. Os desafios e as práticas recomendadas são ilustrados em relação à resiliência, desempenho, escalabilidade, gerenciamento e segurança para a jornada de ingestão de Big Data para o Azure por Azure Data Factory. |
 |[Integração de dados SAP usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) | Este documento resume o suporte atual do Azure Data Factory na integração de dados do SAP, incluindo o cenário de destino, opções do conector SAP e comparação para diferentes requisitos e introdução sobre cada conector SAP no Data Factory. | 
 |[Azure Data Factory: SSIS na nuvem](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-ssis-in-the-cloud/Azure_Data_Factory_SSIS_in_the_Cloud.pdf)| Este documento explica por que você desejaria migrar suas cargas de trabalho do SSIS existentes para Azure Data Factory e resolver considerações e preocupações comuns. Em seguida, orientaremos você pelos detalhes técnicos da criação de um Azure-SSIS IR e, em seguida, mostraremos como carregar, executar e monitorar seus pacotes por meio de Azure Data Factory usando as ferramentas com as quais você provavelmente está familiarizado com o SQL Server Management Studio (SSMS). |
 |[Azure data Factory – passando parâmetros](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)| Este artigo explica como passar parâmetros entre um pipeline e uma atividade, bem como entre as atividades. |
