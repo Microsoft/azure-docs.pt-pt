@@ -1,6 +1,6 @@
 ---
-title: Sistemas operativos, mecanismos de contentor - Azure IoT Edge suportados | Documentos da Microsoft
-description: Saiba quais sistemas operacionais podem executar o daemon de Azure IoT Edge e tempo de execução e mecanismos de contentor suportados para os seus dispositivos de produção
+title: Sistemas operacionais com suporte, mecanismos de contêiner-Azure IoT Edge
+description: Saiba quais sistemas operacionais podem executar o daemon de Azure IoT Edge e o tempo de execução e os mecanismos de contêiner com suporte para seus dispositivos de produção
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,28 +8,28 @@ ms.date: 08/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0fe4a13a33b6d93266d68e632864e0b61a7eaf29
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0d6b5e826720cf51d38b3bc3c2b87d274a2ea816
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452519"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665887"
 ---
-# <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
+# <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge sistemas com suporte
 
 Este artigo fornece detalhes sobre quais sistemas e componentes têm suporte pelo IoT Edge, seja oficialmente ou em versão prévia. 
 
 Se você tiver problemas ao usar o serviço de Azure IoT Edge, há várias maneiras de buscar o suporte. Experimente um dos seguintes canais para obter suporte:
 
-**Relatando bugs** – a maior parte do desenvolvimento que entra no Azure IOT Edge produto ocorre no IOT Edge projeto de software livre. Os bugs podem ser relatados na [página problemas](https://github.com/azure/iotedge/issues) do projeto. Correções rapidamente se tornam do projeto para atualizações de produtos.
+**Relatando bugs** – a maior parte do desenvolvimento que entra no Azure IOT Edge produto ocorre no IOT Edge projeto de software livre. Os bugs podem ser relatados na [página problemas](https://github.com/azure/iotedge/issues) do projeto. As correções fazem seu caminho rapidamente do projeto no para as atualizações do produto.
 
 **Equipe de suporte ao cliente da Microsoft** – os usuários que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipe de suporte ao cliente da Microsoft criando um tíquete de suporte diretamente do [portal do Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
 **Solicitações de recursos** – o produto Azure IOT Edge rastreia solicitações de recursos por meio da [página de voz do usuário](https://feedback.azure.com/forums/907045-azure-iot-edge)do produto.
 
-## <a name="container-engines"></a>Mecanismos de contentor
+## <a name="container-engines"></a>Mecanismos de contêiner
 
-Azure IoT Edge módulos são implementados como contêineres, portanto IoT Edge precisa de um mecanismo de contêiner para iniciá-los. A Microsoft fornece um mecanismo de contentor, o mecanismo moby, para cumprir este requisito. Esse mecanismo de contêiner é baseado no projeto de código-fonte aberto do Moby. Docker CE e o Docker EE são outros mecanismos de contentores populares. Eles também são baseados no projeto de código-fonte aberto do Moby e são compatíveis com Azure IoT Edge. A Microsoft fornece o melhor esforço para sistemas que usam esses mecanismos de contêiner; no entanto, a Microsoft não pode enviar correções para problemas neles. Por esse motivo, a Microsoft recomenda a utilização de mecanismo de moby em sistemas de produção.
+Azure IoT Edge módulos são implementados como contêineres, portanto IoT Edge precisa de um mecanismo de contêiner para iniciá-los. A Microsoft fornece um mecanismo de contêiner, Moby, para atender a esse requisito. Esse mecanismo de contêiner é baseado no projeto de código-fonte aberto do Moby. O Docker CE e o Docker EE são outros mecanismos de contêiner populares. Eles também são baseados no projeto de código-fonte aberto do Moby e são compatíveis com Azure IoT Edge. A Microsoft fornece o melhor esforço para sistemas que usam esses mecanismos de contêiner; no entanto, a Microsoft não pode enviar correções para problemas neles. Por esse motivo, a Microsoft recomenda usar o Moby em sistemas de produção.
 
 <br>
 <center>
@@ -38,13 +38,13 @@ Azure IoT Edge módulos são implementados como contêineres, portanto IoT Edge 
 de ![Moby como tempo de execução do contêiner </center>
 
 ## <a name="operating-systems"></a>Sistemas operativos
-Azure IoT Edge é executado na maioria dos sistemas operacionais que podem executar contêineres; no entanto, não há suporte igualmente para todos esses sistemas. Sistemas operativos são agrupados em camadas que representam o nível de suporte, os usuários podem esperar.
+Azure IoT Edge é executado na maioria dos sistemas operacionais que podem executar contêineres; no entanto, não há suporte igualmente para todos esses sistemas. Os sistemas operacionais são agrupados em camadas que representam o nível de suporte que os usuários podem esperar.
 * Há suporte para sistemas da camada 1. Para sistemas da camada 1, a Microsoft:
     * tem este sistema operacional em testes automatizados
-    * Fornece os pacotes de instalação das mesmas
+    * fornece pacotes de instalação para eles
 * Os sistemas de camada 2 são compatíveis com Azure IoT Edge e podem ser usados relativamente facilmente. Para sistemas de camada 2:
     * A Microsoft fez testes ad hoc nas plataformas ou sabe que um parceiro executou Azure IoT Edge com êxito na plataforma
-    * Pacotes de instalação para outras plataformas podem funcionar nessas plataformas
+    * Os pacotes de instalação para outras plataformas podem funcionar nessas plataformas
     
 A família do sistema operacional do host deve sempre corresponder à família do sistema operacional convidado usado dentro do contêiner de um módulo. Em outras palavras, você só pode usar contêineres do Linux em contêineres do Linux e do Windows no Windows. Ao usar o Windows, somente os contêineres isolados de processo têm suporte, não contêineres isolados do Hyper-V.  
 
@@ -96,7 +96,7 @@ Os sistemas listados na tabela a seguir são considerados compatíveis com Azure
 sudo apt-get install libssl1.0.2
 ```
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas Virtuais
 Azure IoT Edge pode ser executado em máquinas virtuais. Usar uma máquina virtual como um dispositivo IoT Edge é comum quando os clientes desejam aumentar a infraestrutura existente com o Edge Intelligence. A família do sistema operacional da VM host deve corresponder à família do sistema operacional convidado usado dentro do contêiner de um módulo. Esse requisito é o mesmo que quando Azure IoT Edge é executado diretamente em um dispositivo. Azure IoT Edge é independente da tecnologia de virtualização subjacente e funciona em VMs com plataforma, como Hyper-V e vSphere.
 
 <br>

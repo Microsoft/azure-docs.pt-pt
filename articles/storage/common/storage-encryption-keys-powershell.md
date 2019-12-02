@@ -1,26 +1,26 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do PowerShell
+title: Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o PowerShell-armazenamento do Azure
 description: Saiba como usar o PowerShell para configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249276"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666227"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do PowerShell
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando o PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o PowerShell.
+Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o PowerShell. Para saber como criar um cofre de chaves usando CLI do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o PowerShell](../../key-vault/quick-create-powershell.md).
 
 > [!IMPORTANT]
 > O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o PowerShell ou o CLI do Azure.
@@ -96,5 +96,5 @@ Ao criar uma nova versão de uma chave, você precisará atualizar a conta de ar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
+- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

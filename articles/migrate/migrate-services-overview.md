@@ -4,15 +4,15 @@ description: Saiba mais sobre a avaliação e a migração do servidor com o ser
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a64e7366281f15c94d6551c1f7be27f461737634
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 04e6eddb86d34089db0243ff102d5ebd5ee77e43
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185797"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666125"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -49,7 +49,7 @@ Além das ferramentas nativas do Azure, as migrações para Azure integram-se co
 [Tecnologia de coaluguel](https://www.corenttech.com/AzureMigrate/) | Avaliar e migrar servidores
 [Dispositivo 42](https://docs.device42.com/) | Avaliar servidores
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar o VDI
-[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrar servidores
+[Rack](https://www.rackwareinc.com/cloud-migration) | Migrar servidores
 [O turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Avaliar servidores
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Avaliar servidores e bancos de dados
 
@@ -130,9 +130,9 @@ As migrações para Azure integram-se com o Assistente de Migração de serviço
 
 ## <a name="offline-data-migration"></a>Migração de dados offline
 
-Você pode usar os produtos Azure Data Box para mover grandes quantidades de dados offline para o Azure. [Obter mais informações](https://docs.microsoft.com/azure/databox/)
+Você pode usar os produtos Azure Data Box para mover grandes quantidades de dados offline para o Azure. [Saiba mais](https://docs.microsoft.com/azure/databox/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Experimente nossos tutoriais para avaliar [VMs do VMware](tutorial-assess-vmware.md) e VMs do [Hyper-V](tutorial-assess-hyper-v.md).
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.

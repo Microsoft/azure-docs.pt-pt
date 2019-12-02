@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 56283c1e07ec55c753701e86ff8c7c00078cffa2
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172758"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664107"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: configurar o LDAP seguro para um domínio gerenciado Azure Active Directory Domain Services
 
@@ -208,7 +208,7 @@ Vamos criar uma regra para permitir o acesso LDAP seguro de entrada pela porta T
 
 1. No portal do Azure, selecione *grupos de recursos* na navegação do lado esquerdo.
 1. Escolha o grupo de recursos, como *MyResource*Group e, em seguida, selecione o grupo de segurança de rede, como *aaads-NSG*.
-1. A lista de regras de segurança de entrada e saída existentes é exibida. No lado esquerdo das janelas do grupo de segurança de rede, escolha **segurança > regras de segurança de entrada**.
+1. A lista de regras de segurança de entrada e saída existentes é exibida. No lado esquerdo das janelas do grupo de segurança de rede, escolha **configurações > regras de segurança de entrada**.
 1. Selecione **Adicionar**e crie uma regra para permitir a porta TCP *636*. Para maior segurança, escolha a origem como *endereços IP* e, em seguida, especifique seu próprio endereço IP válido ou intervalo para sua organização.
 
     | Definição                           | Valor        |
@@ -243,7 +243,7 @@ O exemplo de entrada DNS a seguir, com seu provedor DNS externo ou no arquivo ho
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testar consultas para o domínio gerenciado
 
-Para se conectar e associar-se ao domínio gerenciado AD DS do Azure e Pesquisar por LDAP, use também o *LDP. exe* . Essa ferramenta está incluída no pacote do Ferramentas de Administração de Servidor Remoto (RSAT). Para obter mais informações, consulte [install ferramentas de administração de servidor remoto][rsat].
+Para se conectar e associar-se ao domínio gerenciado AD DS do Azure e Pesquisar por LDAP, use a ferramenta *LDP. exe* . Essa ferramenta está incluída no pacote do Ferramentas de Administração de Servidor Remoto (RSAT). Para obter mais informações, consulte [install ferramentas de administração de servidor remoto][rsat].
 
 1. Abra o *LDP. exe* e conecte-se ao domínio gerenciado. Selecione **conexão**e, em seguida, escolha **conectar...** .
 1. Insira o nome de domínio DNS seguro do domínio gerenciado criado na etapa anterior, como *LDAPS.contoso.com*. Para usar o LDAP seguro, defina **porta** como *636*e marque a caixa para **SSL**.

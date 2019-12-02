@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cd26ed446ce676bcec85d8e413d3ec37ac236869
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521998"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665078"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Exportar alertas de segurança e recomendações (versão prévia)
 
@@ -73,6 +73,29 @@ Para exportar para Log Analytics espaço de trabalho, você deve ter a camada gr
 Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations* , respectivamente. O nome da solução de Log Analytics que contém essas tabelas depende se você está na camada gratuita ou Standard (consulte [preços](security-center-pricing.md)): segurança ou SecurityCenterFree.
 
 ![A tabela * SecurityAlert * no Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Exibir alertas de segurança e recomendações exportadas no Azure Monitor
+
+Em alguns casos, você pode optar por exibir os alertas de segurança exportados e/ou as recomendações em [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+
+O Azure Monitor fornece uma experiência de alerta unificada para uma variedade de alertas do Azure, incluindo log de diagnóstico, alertas de métrica e alertas personalizados com base em consultas de espaço de trabalho Log Analytics.
+
+Para exibir alertas e recomendações da central de segurança no Azure Monitor, configure uma regra de alerta com base em consultas Log Analytics (alerta de log):
+
+1. Na página **alertas** do Azure monitor, clique em **nova regra de alerta**.
+
+    ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
+
+1. Na página Criar regra, configure sua nova regra (da mesma maneira que você configurou uma [regra de alerta de log no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+
+    * Para **recurso**, selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
+
+    * Para **condição**, selecione **pesquisa de logs personalizada**. Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
+    
+    * Opcionalmente, configure o [grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) que você gostaria de disparar. Os grupos de ações podem disparar envio de email, tíquetes de ITSM, WebHooks e muito mais.
+    ![Azure Monitor regra de alerta](./media/continuous-export/azure-monitor-alert-rule.png)
+
+Agora, você verá novos alertas ou recomendações da central de segurança do Azure (dependendo da sua configuração) em alertas de Azure Monitor, com o disparo automático de um grupo de ação (se fornecido).
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Exportação única por vez manual de alertas de segurança
 

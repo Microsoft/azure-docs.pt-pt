@@ -3,12 +3,12 @@ title: Referência C# do Azure Functions Developer
 description: Entenda como desenvolver Azure Functions usando C#o.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 20bbf31bc92e49106a94e7a85d3b1541aaa2a34b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230612"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665581"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência C# do Azure Functions Developer
 
@@ -149,7 +149,7 @@ O arquivo *Function. JSON* gerado inclui uma propriedade `configurationSource` q
 }
 ```
 
-## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft. NET. Sdk. Functions
 
 A geração de arquivo *Function. JSON* é executada pelo pacote NuGet [Microsoft\.NET\.SDK\.funções](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -366,7 +366,7 @@ public static class IBinderExample
 }
 ```
 
-[Blobattribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define a associação de entrada ou saída de [blob de armazenamento](functions-bindings-storage-blob.md) , e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de associação de saída com suporte.
+[Blobattribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define a associação de entrada ou saída de [blob de armazenamento](functions-bindings-storage-blob.md) , e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de associação de saída com suporte.
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 

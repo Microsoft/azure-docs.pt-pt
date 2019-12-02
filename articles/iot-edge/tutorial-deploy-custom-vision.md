@@ -1,6 +1,6 @@
 ---
-title: Tutorial implementar classificador de visão personalizada a um dispositivo - Azure IoT Edge | Documentos da Microsoft
-description: Neste tutorial, saiba como fazer com que um modelo de imagem digitalizada executado como um contêiner com visão personalizada e IoT Edge.
+title: 'Tutorial: imagens & Serviço de Visão Personalizada-Azure IoT Edge'
+description: Neste tutorial, saiba como fazer com que um modelo de pesquisa Visual computacional seja executado como um contêiner usando Visão Personalizada e IoT Edge.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3418c57493e19580f0d3dbd9ea979b0322d930b8
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2303b4f4b639d015e9322e167ffbd956446c5061
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457302"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665955"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -102,7 +102,7 @@ A criação de um classificador de imagens precisa de um conjunto de imagens de 
 
 5. Selecione **Upload 10 files** (Até 10 ficheiros). 
 
-   ![Carregar ficheiros de hemlock etiquetado de visão personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Carregar arquivos marcados do Hemlock para Visão Personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. Quando as imagens estiverem carregadas, selecione **Done** (Concluído).
 
@@ -120,7 +120,7 @@ A criação de um classificador de imagens precisa de um conjunto de imagens de 
 
 1. Depois de preparar o classificador, selecione **Export** (Exportar), na página Performance (Desempenho) do mesmo. 
 
-   ![Exportar o seu classificador de preparação de imagem](./media/tutorial-deploy-custom-vision/export.png)
+   ![Exportar seu classificador de imagem treinado](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Selecione **DockerFile** para a plataforma. 
 

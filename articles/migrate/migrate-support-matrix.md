@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: raynew
-ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13a4fbb119ae9aceb8731e53f7123375a6e5c106
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747993"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666278"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -45,18 +45,18 @@ O suporte a ferramentas específicas é resumido na tabela.
 **Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
 Avaliação do servidor de migrações para Azure | Avalie [VMs VMware](tutorial-prepare-vmware.md), [VMs Hyper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
-Migração de servidor de migrações para Azure | ND | Migre [VMs VMware](tutorial-migrate-vmware.md), [VMs Hyper-V](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | ND | Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. 
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | ND
+Migração de servidor de migrações para Azure | N/D | Migre [VMs VMware](tutorial-migrate-vmware.md), [VMs Hyper-V](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | N/D | Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | N/D
 [Tecnologia de coaluguel](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. |  Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.
-[Dispositivo 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.| ND
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar os bancos de dados SQL Server locais. | ND
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avalie o Virtual Desktop Infrastructure (VDI) | ND
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | ND
-[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 
-[O turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | ND
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados SQL Server. | ND
+[Dispositivo 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.| N/D
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar os bancos de dados SQL Server locais. | N/D
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | N/D | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avalie o Virtual Desktop Infrastructure (VDI) | N/D
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | N/D
+[Rack](https://www.rackwareinc.com/cloud-migration) | N/D | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 
+[O turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | N/D
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados SQL Server. | N/D
 [Assistente de Migração webapp](https://appmigration.microsoft.com/) | Avaliar aplicativos Web | Migre aplicativos Web.
 
 
@@ -77,7 +77,7 @@ Você pode criar um projeto de migrações para Azure em uma série de geografia
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Government | Gov (US) - Virginia
+Azure Government | Gov dos E.U.A. Virginia
 Ásia-Pacífico | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil

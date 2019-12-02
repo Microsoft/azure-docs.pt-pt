@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229426"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666380"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregação de esquema e dados no Análise de Tráfego
 
@@ -122,8 +122,8 @@ Listados abaixo estão os campos no esquema e o que eles significam
 | NSGRuleType_s | * Padrão definido pelo usuário * |   O tipo de regra NSG usada pelo fluxo |
 | MACAddress_s | Endereço MAC | Endereço MAC da NIC na qual o fluxo foi capturado |
 | Subscription_s | A assinatura da rede virtual/interface de rede/máquina virtual do Azure é populada neste campo | Aplicável somente para Flowtype = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow e tipos de fluxo de UnknownPrivate (tipos de fluxo em que apenas um lado é o Azure) |
-| Subscription1_s | ID da subscrição | ID de assinatura da rede virtual/interface de rede/máquina virtual à qual o IP de origem no fluxo pertence |
-| Subscription2_s | ID da subscrição | ID de assinatura da rede virtual/interface de rede/máquina virtual à qual o IP de destino no fluxo pertence |
+| Subscription1_s | ID de Subscrição | ID de assinatura da rede virtual/interface de rede/máquina virtual à qual o IP de origem no fluxo pertence |
+| Subscription2_s | ID de Subscrição | ID de assinatura da rede virtual/interface de rede/máquina virtual à qual o IP de destino no fluxo pertence |
 | Region_s | Região do Azure da rede virtual/interface de rede/máquina virtual à qual o IP no fluxo pertence | Aplicável somente para Flowtype = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow e tipos de fluxo de UnknownPrivate (tipos de fluxo em que apenas um lado é o Azure) |
 | Region1_s | Região do Azure | Região do Azure da rede virtual/interface de rede/máquina virtual à qual o IP de origem no fluxo pertence |
 | Region2_s | Região do Azure | Região do Azure da rede virtual à qual o IP de destino no fluxo pertence |
@@ -142,8 +142,8 @@ Listados abaixo estão os campos no esquema e o que eles significam
 | LoadBalancer2_s | \<SubscriptionId >/\<ResourceGroupName >/\<LoadBalancerName > | Balanceador de carga associado ao IP de destino no fluxo |
 | LocalNetworkGateway1_s | \<SubscriptionId >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | Gateway de rede local associado ao IP de origem no fluxo |
 | LocalNetworkGateway2_s | \<SubscriptionId >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | Gateway de rede local associado ao IP de destino no fluxo |
-| ConnectionType_s | Os valores possíveis são VNetPeering, VpnGateway e ExpressRoute |    Tipo de ligação |
-| ConnectionName_s | a assinatura \<>/\<ResourceGroupName >/\<ConnectionName > | Nome da Ligação |
+| ConnectionType_s | Os valores possíveis são VNetPeering, VpnGateway e ExpressRoute |    Tipo de conexão |
+| ConnectionName_s | a assinatura \<>/\<ResourceGroupName >/\<ConnectionName > | Nome da conexão. Para flowtype P2S, isso será formatado como <gateway name>_<VPN Client IP> |
 | ConnectingVNets_s | Lista separada por espaços de nomes de rede virtual | No caso de topologia hub e spoke, as redes virtuais de Hub serão preenchidas aqui |
 | Country_s | Código do país de duas letras (ISO 3166-1 Alpha-2) | Preenchido para o tipo de fluxo ExternalPublic. Todos os endereços IP no campo PublicIPs_s compartilharão o mesmo código de país |
 | AzureRegion_s | Locais de região do Azure | Preenchido para o tipo de fluxo AzurePublic. Todos os endereços IP no campo PublicIPs_s compartilharão a região do Azure |
@@ -176,5 +176,5 @@ Listados abaixo estão os campos no esquema e o que eles significam
 1. Desconhecido – não é possível mapear um dos endereços IP nos fluxos com a topologia do cliente no Azure, bem como no local (site).
 1. Alguns nomes de campo são anexados com \_s ou \_d. Elas não significam origem e destino, mas indicam a cadeia de caracteres de tipos de dados e decimal respectivamente.
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Próximos Passos
 Para obter respostas para perguntas frequentes, consulte [perguntas frequentes sobre análise de tráfego](traffic-analytics-faq.md) para ver detalhes sobre a funcionalidade, consulte [documentação da análise de tráfego](traffic-analytics.md)

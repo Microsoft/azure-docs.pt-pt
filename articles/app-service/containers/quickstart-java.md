@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3b011d3d7dc881d44fdcafb29efacf9548866d7a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3f50c94dafd01c6493f4765270c53c7903360c44
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747724"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665173"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início rápido: criar um aplicativo Java no serviço de Azure App no Linux
 
@@ -53,7 +53,11 @@ O processo de implantação para Azure App serviço usa credenciais de conta do 
 az login
 ```
 
-Em seguida, você pode configurar a implantação, executar o comando do Maven `mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config` no prompt de comando e usar as configurações padrão pressionando **Enter** até obter o prompt **Confirm (Y/N)** e, em seguida, pressionar **' Y '** e a configuração for concluída.
+Em seguida, você pode configurar a implantação, executar o comando Maven no prompt de comando e usar as configurações padrão pressionando **Enter** até obter o prompt **confirmar (Y/N)** e pressionar **' Y '** e a configuração for concluída. 
+```cmd
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+```
+Um processo de exemplo é semelhante A:
 
 ```cmd
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
@@ -95,7 +99,7 @@ Confirm (Y/N)? : Y
 
 Navegue até `pom.xml` novamente para ver se a configuração do plug-in está atualizada, você pode modificar outras configurações do serviço de aplicativo diretamente em seu arquivo POM, se necessário, algumas comuns estão listadas abaixo:
 
- Propriedade | Necessário | Descrição | Versão
+ Propriedade | Obrigatório | Descrição | Versão
 ---|---|---|---
 `<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores com suporte são: `v1`, `v2`. | 1.5.2
 `<resourceGroup>` | true | Grupo de recursos do Azure para seu aplicativo Web. | 0.1.0 +
@@ -104,6 +108,9 @@ Navegue até `pom.xml` novamente para ver se a configuração do plug-in está a
 [`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | O tipo de preço para seu aplicativo Web. O valor padrão é **P1V2**.| 0.1.0 +
 [`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | A configuração do ambiente de tempo de execução, você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0 +
 [`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | A configuração de implantação, você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0 +
+
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=config)
 
 ## <a name="deploy-the-app"></a>Implementar a aplicação
 
@@ -119,9 +126,12 @@ Uma vez concluída a implementação, navegue para a aplicação implementada co
 
 **Parabéns!** Implementou a sua primeira aplicação Java no Serviço de Aplicações no Linux.
 
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de recursos. Se achar que não vai precisar destes recursos no futuro, execute o seguinte comando no Cloud Shell para eliminar o grupo de recursos:
+Nos passos anteriores, criou os recursos do Azure num grupo de recursos. Se você não espera precisar desses recursos no futuro, exclua o grupo de recursos do portal ou execute o seguinte comando no Cloud Shell:
 
 ```azurecli-interactive
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
@@ -142,3 +152,6 @@ Este comando pode demorar alguns minutos a ser executado.
 
 > [!div class="nextstepaction"]
 > [Outros recursos do Azure para desenvolvedores de Java](/java/azure/)
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre os plug-ins do Maven para o Azure](https://github.com/microsoft/azure-maven-plugins)

@@ -1,6 +1,6 @@
 ---
-title: Tutorial implementar uma função do Azure para um dispositivo - Azure IoT Edge | Documentos da Microsoft
-description: Neste tutorial, vai desenvolver do Azure funcionar como um módulo do IoT Edge, em seguida, implementá-la para um dispositivo de limite.
+title: 'Tutorial: implantar o Azure Functions como módulos-Azure IoT Edge'
+description: Neste tutorial, você desenvolverá uma função do Azure como um módulo IoT Edge e a implantará em um dispositivo de borda.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1db64c2cc68dc9c47d4f2cf5f63eb0667907d737
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8edd6028e73690829129168d912b312247d8b880
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456712"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664119"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: implantar o Azure Functions como módulos IoT Edge
 
 Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial explica-lhe como criar e implementar uma função do Azure que filtra dados de sensores no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:
 
@@ -100,7 +100,7 @@ Vamos adicionar um código adicional para que o módulo processe as mensagens na
 
 1. Em Visual Studio Code, abra **modules** > **CSharpFunction** > **CSharpFunction.cs**.
 
-1. Substitua o conteúdo do arquivo **CSharpFunction.cs** pelo código a seguir. Esse código recebe telemetria sobre o ambiente e temperatura da máquina e apenas encaminha a mensagem para o IoT Hub, se a temperatura de máquina for superior a um limiar definido.
+1. Substitua o conteúdo do arquivo **CSharpFunction.cs** pelo código a seguir. Esse código recebe a telemetria sobre temperatura ambiente e máquina e apenas encaminha a mensagem para o Hub IoT se a temperatura da máquina estiver acima de um limite definido.
 
    ```csharp
    using System;
@@ -219,7 +219,7 @@ Pode utilizar o portal do Azure para implementar o seu módulo de função num d
 
 3. Procure a pasta de solução que contém a **CSharpFunction**. Abra a pasta config, selecione o arquivo **Deployment. JSON** e escolha Selecionar o **manifesto de implantação do Edge**.
 
-4. Atualize a secção **Dispositivos do Hub IoT do Azure**. Você deve ver o novo **CSharpFunction** em execução junto com o módulo **SimulatedTemperatureSensor** e o **$edgeAgent** e **$edgeHub**. Pode demorar alguns momentos para que os novos módulos sejam apresentados. Dispositivo IoT Edge tem-se para obter novas informações de implementação do IoT Hub, iniciar novos contentores e, em seguida, voltar a comunicar o estado para o IoT Hub. 
+4. Atualize a secção **Dispositivos do Hub IoT do Azure**. Você deve ver o novo **CSharpFunction** em execução junto com o módulo **SimulatedTemperatureSensor** e o **$edgeAgent** e **$edgeHub**. Pode levar alguns minutos para que os novos módulos sejam exibidos. Seu dispositivo de IoT Edge precisa recuperar suas novas informações de implantação do Hub IoT, iniciar os novos contêineres e reportar o status de volta para o Hub IoT. 
 
    ![Ver os módulos implementados no VS Code](./media/tutorial-deploy-function/view-modules.png)
 

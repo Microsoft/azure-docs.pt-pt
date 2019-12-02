@@ -1,26 +1,26 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do portal do Azure
-description: Saiba como usar o portal do Azure para configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
+title: Configurar chaves gerenciadas pelo cliente com o Azure Key Vault usando o armazenamento portal do Azure do Azure
+description: Saiba como usar o portal do Azure para configurar chaves gerenciadas pelo cliente com Azure Key Vault para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 74ca6f15baeeb9fe8adad4bda80e313a4b4cf03a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: b72f30a636d0177edb8b3254d14be941b2d4e6bc
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376232"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665917"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do portal do Azure
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando o portal do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o [portal do Azure](https://portal.azure.com/). Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../../key-vault/quick-create-portal.md). 
+Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o [portal do Azure](https://portal.azure.com/). Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../../key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
 > O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o PowerShell ou o CLI do Azure.

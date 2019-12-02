@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885013"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665362"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -23,7 +23,7 @@ Aproveitando o poder do [grafo de recursos do Azure](https://docs.microsoft.com/
 > [!IMPORTANT]
 > A análise de alterações está atualmente em visualização. Esta versão de visualização é fornecida sem um contrato de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A análise de alterações detecta vários tipos de alterações, da camada de infraestrutura até a implantação do aplicativo. É um provedor de recursos do Azure de nível de assinatura que verifica as alterações de recursos na assinatura. A análise de alterações fornece dados para várias ferramentas de diagnóstico para ajudar os usuários a entender quais alterações podem ter causado problemas.
 
@@ -52,7 +52,7 @@ A análise de alterações captura o estado de implantação e configuração de
 As alterações nas dependências de recursos também podem causar problemas em um aplicativo Web. Por exemplo, se um aplicativo Web chamar um cache Redis, a SKU do cache Redis poderá afetar o desempenho do aplicativo Web. Para detectar alterações nas dependências, a análise de alterações verifica o registro DNS do aplicativo Web. Dessa forma, ele identifica as alterações em todos os componentes de aplicativo que podem causar problemas.
 Atualmente, há suporte para as seguintes dependências:
 - Aplicações Web
-- Storage do Azure
+- Armazenamento do Azure
 - SQL do Azure
 
 ### <a name="enablement"></a>Habilitação
@@ -73,7 +73,7 @@ Selecione o grupo de recursos e os recursos para começar a exibir as alteraçõ
 Você pode ver informações e recursos de dependências relacionados que hospedam seu aplicativo. Essa exibição foi projetada para ser centrada no aplicativo para que os desenvolvedores solucionem problemas.
 
 Os recursos com suporte no momento incluem:
-- Virtual Machines
+- Máquinas Virtuais
 - Conjunto de dimensionamento de máquinas virtuais
 - Recursos de rede do Azure
 - Aplicativo Web com alterações de variáveis de ambiente e acompanhamento de arquivo no convidado
@@ -102,7 +102,7 @@ Em Azure Monitor, a análise de alterações também é incorporada à experiên
 
    ![Captura de tela de opções de "falhas do aplicativo"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Ative a **análise de alterações** e selecione **salvar**. A ferramenta exibe todos os aplicativos Web em um plano de serviços de aplicativo. Você pode usar a opção de nível de plano para ativar a análise de alterações para todos os aplicativos Web em um plano.
+1. Ative a **análise de alterações** e selecione **salvar**. A ferramenta exibe todos os aplicativos Web em um plano do serviço de aplicativo. Você pode usar a opção de nível de plano para ativar a análise de alterações para todos os aplicativos Web em um plano.
 
     ![Captura de tela da interface do usuário "Habilitar análise de alteração"](./media/change-analysis/change-analysis-on.png)
 

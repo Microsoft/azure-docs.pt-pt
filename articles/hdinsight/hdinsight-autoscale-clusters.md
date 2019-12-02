@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561753"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666040"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
 > [!Important]
-> O recurso de dimensionamento automático só funciona para clusters Spark, Hive e MapReduce criados depois de 8 de maio de 2019. 
+> O recurso de dimensionamento automático só funciona para clusters Spark, Hive, LLAP e HBase criados depois de 8 de maio de 2019. 
 
 O recurso de dimensionamento automático do cluster do Azure HDInsight dimensiona automaticamente o número de nós de trabalho em um cluster para cima e para baixo. Outros tipos de nós no cluster não podem ser dimensionados no momento.  Durante a criação de um novo cluster HDInsight, um número mínimo e máximo de nós de trabalho podem ser definidos. O dimensionamento automático monitora os requisitos de recursos da carga de análise e dimensiona o número de nós de trabalho para cima ou para baixo. Não há encargos adicionais para esse recurso.
 

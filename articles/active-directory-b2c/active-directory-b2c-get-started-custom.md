@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 411710280a631d341adeb55bc4b587a613ee3c4c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643626"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664068"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ ms.locfileid: "73643626"
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Use o filtro **diretório + assinatura** no menu superior para selecionar o diretório que contém seu locatário Azure ad B2C.
 1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
-1. Na página Visão geral, selecione **Identity Experience Framework**.
+1. Na página Visão geral, selecione **estrutura de experiência de identidade** no painel **políticas** .
 
 ### <a name="create-the-signing-key"></a>Criar a chave de assinatura
 
@@ -67,7 +67,7 @@ Adicione o [segredo](active-directory-b2c-setup-fb-app.md) do aplicativo do Face
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrar aplicativos da estrutura de experiência de identidade
 
-Azure AD B2C exige que você registre dois aplicativos que ele usa para inscrever-se e conectar usuários com contas locais: *IdentityExperienceFramework*, uma API Web e *ProxyIdentityExperienceFramework*, um aplicativo nativo com permissão delegada para o Aplicativo IdentityExperienceFramework. Os usuários podem se inscrever com um endereço de email ou nome de usuário e uma senha para acessar seus aplicativos registrados no locatário, que cria uma "conta local". As contas locais existem somente em seu locatário Azure AD B2C.
+Azure AD B2C exige que você registre dois aplicativos que ele usa para inscrever-se e conectar usuários com contas locais: *IdentityExperienceFramework*, uma API Web e *ProxyIdentityExperienceFramework*, um aplicativo nativo com permissão delegada para o aplicativo IdentityExperienceFramework. Os usuários podem se inscrever com um endereço de email ou nome de usuário e uma senha para acessar seus aplicativos registrados no locatário, que cria uma "conta local". As contas locais existem somente em seu locatário Azure AD B2C.
 
 Você precisa registrar esses dois aplicativos em seu locatário do Azure AD B2C apenas uma vez.
 

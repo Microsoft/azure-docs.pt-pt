@@ -1,30 +1,36 @@
 ---
-title: Criptografia de armazenamento do Azure para dados em repouso | Microsoft Docs
+title: Criptografia de armazenamento do Azure para dados em repouso
 description: O armazenamento do Azure protege seus dados criptografando-os automaticamente antes de mantê-los para a nuvem. Você pode contar com chaves gerenciadas pela Microsoft para a criptografia da sua conta de armazenamento ou pode gerenciar a criptografia com suas próprias chaves.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 10/02/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cfac7fdbbdbf06ae74385fbc33e61d11cb99ff87
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 63fa30b4cf4c5887e8fb44b357eb22e55fe230e7
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066316"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666142"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia de armazenamento do Azure para dados em repouso
 
-O armazenamento do Azure criptografa automaticamente seus dados ao mantê-los para a nuvem. A criptografia protege seus dados e para ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Os dados no armazenamento do Azure são criptografados e descriptografados de forma transparente usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure é semelhante à criptografia BitLocker no Windows.
+O armazenamento do Azure criptografa automaticamente os dados quando eles são persistidos para a nuvem. A criptografia de armazenamento do Azure protege seus dados e para ajudá-lo a atender aos compromissos de segurança e conformidade da organização.
 
-A criptografia de armazenamento do Azure está habilitada para todas as novas contas de armazenamento e não pode ser desabilitada. Como os dados são protegidos por padrão, você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia de armazenamento do Azure.
+## <a name="about-azure-storage-encryption"></a>Sobre a criptografia de armazenamento do Azure
+
+Os dados no armazenamento do Azure são criptografados e descriptografados de forma transparente usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure é semelhante à criptografia BitLocker no Windows.
+
+A criptografia de armazenamento do Azure está habilitada para todas as novas contas de armazenamento, incluindo as contas do Resource Manager e do armazenamento clássico. A criptografia de armazenamento do Azure não pode ser desabilitada. Como os dados são protegidos por padrão, você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia de armazenamento do Azure.
 
 As contas de armazenamento são criptografadas independentemente de seu nível de desempenho (Standard ou Premium) ou modelo de implantação (Azure Resource Manager ou clássico). Todas as opções de redundância de armazenamento do Azure dão suporte à criptografia e todas as cópias de uma conta de armazenamento são criptografadas. Todos os recursos de armazenamento do Azure são criptografados, incluindo BLOBs, discos, arquivos, filas e tabelas. Todos os metadados de objeto também são criptografados.
 
 A criptografia não afeta o desempenho do armazenamento do Azure. Não há nenhum custo adicional para a criptografia de armazenamento do Azure.
+
+Todos os blobs de blocos, BLOB de acréscimo ou BLOB de páginas que foram gravados no armazenamento do Azure após 20 de outubro de 2017 são criptografados. Os BLOBs criados antes dessa data continuam a ser criptografados por um processo em segundo plano. Para forçar a criptografia de um blob que foi criado antes de 20 de outubro de 2017, você pode reescrever o blob. Para saber como verificar o status de criptografia de um blob, consulte [verificar o status de criptografia de um blob](../blobs/storage-blob-encryption-status.md).
 
 Para obter mais informações sobre os módulos de criptografia subjacentes à criptografia de armazenamento do Azure, consulte [API de criptografia: próxima geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
@@ -32,7 +38,7 @@ Para obter mais informações sobre os módulos de criptografia subjacentes à c
 
 Você pode contar com chaves gerenciadas pela Microsoft para a criptografia da sua conta de armazenamento ou pode gerenciar a criptografia com suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, terá duas opções:
 
-- Você pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os dados na conta de armazenamento. Uma chave gerenciada pelo cliente é usada para criptografar todos os dados em todos os serviços em sua conta de armazenamento.
+- Você pode especificar uma *chave gerenciada pelo cliente* com Azure Key Vault a ser usada para criptografar e descriptografar todos os dados na conta de armazenamento. Uma chave gerenciada pelo cliente é usada para criptografar todos os dados em todos os serviços em sua conta de armazenamento.
 - Você pode especificar uma *chave fornecida pelo cliente* em operações de armazenamento de BLOBs. Um cliente que faz uma solicitação de leitura ou gravação no armazenamento de blob pode incluir uma chave de criptografia na solicitação de controle granular sobre como os dados de blob são criptografados e descriptografados.
 
 A tabela a seguir compara as principais opções de gerenciamento de criptografia do armazenamento do Azure.
@@ -40,10 +46,10 @@ A tabela a seguir compara as principais opções de gerenciamento de criptografi
 |                                        |    Chaves gerenciadas pela Microsoft                             |    Chaves gerenciadas pelo cliente                                                                                                                        |    Chaves fornecidas pelo cliente                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operações de criptografia/descriptografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Serviços de armazenamento do Azure com suporte    |    Todos                                                |    Armazenamento de BLOBs, arquivos do Azure                                                                                                               |    Armazenamento de blobs                                                                  |
+|    Serviços de armazenamento do Azure com suporte    |    Tudo                                                |    Armazenamento de BLOBs, arquivos do Azure                                                                                                               |    Armazenamento de blobs                                                                  |
 |    Armazenamento de chaves                         |    Repositório de chaves da Microsoft    |    Azure Key Vault                                                                                                                              |    Azure Key Vault ou qualquer outro repositório de chaves                                                                 |
 |    Responsabilidade de rotação de chave         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
-|    Utilização de chaves                           |    Microsoft                                          |    Portal do Azure, API REST do provedor de recursos de armazenamento, bibliotecas de gerenciamento de armazenamento do Azure, PowerShell, CLI        |    API REST do armazenamento do Azure (armazenamento de BLOB), bibliotecas de cliente de armazenamento do Azure    |
+|    Uso da chave                           |    Microsoft                                          |    Portal do Azure, API REST do provedor de recursos de armazenamento, bibliotecas de gerenciamento de armazenamento do Azure, PowerShell, CLI        |    API REST do armazenamento do Azure (armazenamento de BLOB), bibliotecas de cliente de armazenamento do Azure    |
 |    Acesso à chave                          |    Somente Microsoft                                     |    Microsoft, cliente                                                                                                                    |    Somente cliente                                                                 |
 
 As seções a seguir descrevem cada uma das opções de gerenciamento de chaves mais detalhadamente.
@@ -54,9 +60,9 @@ Por padrão, sua conta de armazenamento usa chaves de criptografia gerenciadas p
 
 ![Exibir conta criptografada com chaves gerenciadas pela Microsoft](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-## <a name="customer-managed-keys"></a>Chaves gerenciadas pelo cliente
+## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com Azure Key Vault
 
-Você pode optar por gerenciar a criptografia de armazenamento do Azure no nível da conta de armazenamento com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de armazenamento, essa chave é usada para criptografar e descriptografar todos os dados na conta de armazenamento, incluindo dados de BLOB, fila, arquivo e tabela.  Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Você pode gerenciar a criptografia de armazenamento do Azure no nível da conta de armazenamento com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de armazenamento, essa chave é usada para criptografar e descriptografar todos os dados na conta de armazenamento, incluindo dados de BLOB, fila, arquivo e tabela. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
 Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -72,26 +78,52 @@ A lista a seguir explica as etapas numeradas no diagrama:
 4. O armazenamento do Azure encapsula a chave de criptografia da conta com a chave do cliente em Azure Key Vault.
 5. Para operações de leitura/gravação, o armazenamento do Azure envia solicitações para Azure Key Vault encapsular e desencapsular a chave de criptografia da conta para executar operações de criptografia e descriptografia.
 
-Para revogar o acesso às chaves gerenciadas pelo cliente na conta de armazenamento, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia é inacessível pelo armazenamento do Azure.
+### <a name="enable-customer-managed-keys-for-a-storage-account"></a>Habilitar chaves gerenciadas pelo cliente para uma conta de armazenamento
 
-As chaves gerenciadas pelo cliente também estão disponíveis para o Azure Managed disks como uma visualização pública, as chaves gerenciadas pelo cliente funcionam de maneira um pouco diferente para os discos gerenciados do que o restante do armazenamento. Para obter detalhes, consulte nosso [artigo sobre o assunto](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
+Quando você habilita a criptografia com chaves gerenciadas pelo cliente para uma conta de armazenamento, o armazenamento do Azure encapsula a chave de criptografia da conta com a chave do cliente no cofre de chaves associado. A habilitação de chaves gerenciadas pelo cliente não afeta o desempenho e a conta é criptografada com a nova chave imediatamente, sem nenhum atraso de tempo.
 
-Para saber como usar chaves gerenciadas pelo cliente com o armazenamento do Azure, consulte um destes artigos:
+Uma nova conta de armazenamento é sempre criptografada usando chaves gerenciadas pela Microsoft. Não é possível habilitar chaves gerenciadas pelo cliente no momento em que a conta é criada. As chaves gerenciadas pelo cliente são armazenadas em Azure Key Vault, e o cofre de chaves deve ser provisionado com políticas de acesso que concedem permissões de chave para a identidade gerenciada associada à conta de armazenamento. A identidade gerenciada está disponível somente depois que a conta de armazenamento é criada.
 
-- [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no portal do Azure](storage-encryption-keys-portal.md)
-- [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no PowerShell](storage-encryption-keys-powershell.md)
-- [Usar chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure de CLI do Azure](storage-encryption-keys-cli.md)
+Para saber como usar as chaves gerenciadas pelo cliente com o Azure Key Vault para a criptografia de armazenamento do Azure, consulte um destes artigos:
+
+- [Configurar chaves gerenciadas pelo cliente com o Key Vault para a criptografia de armazenamento do Azure do portal do Azure](storage-encryption-keys-portal.md)
+- [Configurar chaves gerenciadas pelo cliente com o Key Vault para a criptografia de armazenamento do Azure do PowerShell](storage-encryption-keys-powershell.md)
+- [Configurar chaves gerenciadas pelo cliente com o Key Vault para criptografia de armazenamento do Azure do CLI do Azure](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura chaves gerenciadas pelo cliente no portal do Azure, uma identidade gerenciada é automaticamente atribuída à sua conta de armazenamento nos bastidores. Se, posteriormente, você mover a assinatura, o grupo de recursos ou a conta de armazenamento de um diretório do Azure AD para outro, a identidade gerenciada associada à conta de armazenamento não será transferida para o novo locatário, portanto, as chaves gerenciadas pelo cliente poderão deixar de funcionar. Para obter mais informações, consulte **transferindo uma assinatura entre diretórios do Azure ad** em [perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+
+### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves gerenciadas pelo cliente no Azure Key Vault
+
+Para habilitar chaves gerenciadas pelo cliente em uma conta de armazenamento, você deve usar um Azure Key Vault para armazenar suas chaves. Você deve habilitar a **exclusão reversível** e **não limpar** as propriedades no cofre de chaves.
+
+O cofre de chaves deve estar localizado na mesma assinatura que a conta de armazenamento. O armazenamento do Azure usa identidades gerenciadas para recursos do Azure para autenticar no cofre de chaves para operações de criptografia e descriptografia. Atualmente, as identidades gerenciadas não dão suporte a cenários entre diretórios.
+
+### <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
+
+Você pode girar uma chave gerenciada pelo cliente em Azure Key Vault de acordo com suas políticas de conformidade. Quando a chave é girada, você deve atualizar a conta de armazenamento para usar o novo URI de chave. Para saber como atualizar a conta de armazenamento para usar uma nova versão da chave no portal do Azure, consulte a seção intitulada **atualizar a versão da chave** em [Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando o portal do Azure](storage-encryption-keys-portal.md).
+
+A rotação da chave não aciona a nova criptografia dos dados na conta de armazenamento. Não há nenhuma ação adicional necessária do usuário.
+
+### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
+
+Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, consulte [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia é inacessível pelo armazenamento do Azure.
+
+### <a name="customer-managed-keys-for-azure-managed-disks-preview"></a>Chaves gerenciadas pelo cliente para Azure Managed disks (versão prévia)
+
+As chaves gerenciadas pelo cliente também estão disponíveis para gerenciar a criptografia de Azure Managed disks (versão prévia). Chaves gerenciadas pelo cliente se comportam de maneira diferente para discos gerenciados do que para recursos de armazenamento do Azure Para obter mais informações, consulte [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) para Windows ou [criptografia no lado do servidor de Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) para Linux.
 
 ## <a name="customer-provided-keys-preview"></a>Chaves fornecidas pelo cliente (versão prévia)
 
 Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia em uma solicitação individual. Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs. As chaves fornecidas pelo cliente (versão prévia) podem ser armazenadas em Azure Key Vault ou em outro repositório de chaves.
 
+Para obter um exemplo que mostra como especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs, consulte [especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .net](../blobs/storage-blob-customer-provided-key.md). 
+
 ### <a name="encrypting-read-and-write-operations"></a>Criptografando operações de leitura e gravação
 
-Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o armazenamento do Azure executa criptografia e descriptografia de forma transparente ao ler e gravar dados de BLOB. Um hash SHA-256 da chave de criptografia é gravado junto com o conteúdo de um blob e é usado para verificar se todas as operações subsequentes no blob usam a mesma chave de criptografia. O armazenamento do Azure não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave é descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
+Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o armazenamento do Azure executa criptografia e descriptografia de forma transparente ao ler e gravar dados de BLOB. O armazenamento do Azure grava um hash SHA-256 da chave de criptografia ao lado do conteúdo do blob. O hash é usado para verificar se todas as operações subsequentes no blob usam a mesma chave de criptografia. 
+
+O armazenamento do Azure não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave é descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
 
 Quando um cliente cria ou atualiza um BLOB usando uma chave fornecida pelo cliente, as solicitações de leitura e gravação subsequentes para esse blob também devem fornecer a chave. Se a chave não for fornecida em uma solicitação para um blob que já foi criptografado com uma chave fornecida pelo cliente, a solicitação falhará com o código de erro 409 (conflito).
 
@@ -139,58 +171,6 @@ Para girar uma chave de criptografia passada na solicitação, baixe o blob e ca
 > O portal do Azure não pode ser usado para ler ou gravar em um contêiner ou BLOB que é criptografado com uma chave fornecida na solicitação.
 >
 > Certifique-se de proteger a chave de criptografia que você fornece em uma solicitação de armazenamento de BLOBs em um repositório de chaves seguro, como Azure Key Vault. Se você tentar uma operação de gravação em um contêiner ou BLOB sem a chave de criptografia, a operação falhará e você perderá o acesso ao objeto.
-
-### <a name="example-use-a-customer-provided-key-to-upload-a-blob-in-net"></a>Exemplo: usar uma chave fornecida pelo cliente para carregar um blob no .NET
-
-O exemplo a seguir cria uma chave fornecida pelo cliente e usa essa chave para carregar um blob. O código carrega um bloco e, em seguida, confirma a lista de blocos para gravar o blob no armazenamento do Azure. A chave é fornecida no objeto [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) definindo a propriedade [CustomerProvidedKey](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.customerprovidedkey) .
-
-A chave é criada com a classe [AesCryptoServiceProvider](/dotnet/api/system.security.cryptography.aescryptoserviceprovider) . Para criar uma instância dessa classe em seu código, adicione uma instrução `using` que referencie o namespace `System.Security.Cryptography`:
-
-```csharp
-public static void UploadBlobWithClientKey(CloudBlobContainer container)
-{
-    // Create a new key using the Advanced Encryption Standard (AES) algorithm.
-    AesCryptoServiceProvider keyAes = new AesCryptoServiceProvider();
-
-    // Specify the key as an option on the request.
-    BlobCustomerProvidedKey customerProvidedKey = new BlobCustomerProvidedKey(keyAes.Key);
-    var options = new BlobRequestOptions
-    {
-        CustomerProvidedKey = customerProvidedKey
-    };
-
-    string blobName = "sample-blob-" + Guid.NewGuid();
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
-
-    try
-    {
-        // Create an array of random bytes.
-        byte[] buffer = new byte[1024];
-        Random rnd = new Random();
-        rnd.NextBytes(buffer);
-
-        using (MemoryStream sourceStream = new MemoryStream(buffer))
-        {
-            // Write the array of random bytes to a block.
-            int blockNumber = 1;
-            string blockId = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("BlockId{0}",
-                blockNumber.ToString("0000000"))));
-
-            // Write the block to Azure Storage.
-            blockBlob.PutBlock(blockId, sourceStream, null, null, options, null);
-
-            // Commit the block list to write the blob.
-            blockBlob.PutBlockList(new List<string>() { blockId }, null, options, null);
-        }
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-}
-```
 
 ## <a name="azure-storage-encryption-versus-disk-encryption"></a>Criptografia de armazenamento do Azure versus criptografia de disco
 

@@ -4,7 +4,7 @@ description: Com este roteiro de aprendizagem, comece a usar o suporte a IPv6 pa
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
+keywords: IPv6, Azure Load Balancer, pilha dupla, IP público, IPv6 nativo, móvel, IOT
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077014"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666210"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para Azure Load Balancer
 
 
 >[!NOTE] 
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de Carga Standard, veja [Descrição geral do Balanceador de Carga Standard](load-balancer-standard-overview.md).
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer visão geral](load-balancer-standard-overview.md).
 
 Os balanceadores de carga voltados para a Internet da SKU básica podem ser implantados com um endereço IPv6. Além da conectividade IPv4, isso permite os seguintes recursos:
 
@@ -46,7 +46,7 @@ O suporte nativo a IPv6 para VMs implantadas por meio do Azure Resource Manager 
 3. Conexões IPv6 nativas iniciadas de entrada e de saída
 4. Protocolos com suporte como TCP, UDP e HTTP (S) permitem uma gama completa de arquiteturas de serviço
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 Essa funcionalidade permite os seguintes benefícios principais:
 
@@ -78,7 +78,6 @@ Limitações
 * **Não há suporte**para a alteração do parâmetro LoadDistributionMethod para IPv6 no momento.
 * **Não há suporte para**IPS IPv4 reservados (em que IPAllocationMethod = static) no momento.
 * Não há suporte para NAT64 (tradução de IPv6 para IPv4).
-* Atualmente, os balanceadores de carga SKU Standard não dão suporte a endereços IPv6.
 
 ## <a name="next-steps"></a>Passos seguintes
 

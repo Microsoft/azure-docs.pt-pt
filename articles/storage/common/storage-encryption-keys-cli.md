@@ -1,26 +1,26 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure de CLI do Azure
-description: Saiba como usar CLI do Azure para configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
+title: Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o armazenamento CLI do Azure do Azure
+description: Saiba como usar CLI do Azure para configurar chaves gerenciadas pelo cliente com Azure Key Vault para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 18209816b5b73f58a8112efca0363b31dd47bd91
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: df65267924cfbfdc856b81928c4b6d7029f61184
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374278"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665972"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure de CLI do Azure
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando CLI do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando CLI do Azure.
+Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando CLI do Azure. Para saber como criar um cofre de chaves usando CLI do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando CLI do Azure](../../key-vault/quick-create-cli.md).
 
 > [!IMPORTANT]
 > O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o PowerShell ou o CLI do Azure.

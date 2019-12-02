@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
-ms.openlocfilehash: 3076065d23d4701711c0ecb60349e77ee5c9b7c8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f846d75833b3a796e24fd23c5f841ea24a8d1876
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184474"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665916"
 ---
-O armazenamento do Azure suporta a encriptação em repouso com chaves geridas pela Microsoft ou com chaves geridas pelo cliente. Chaves geridas pelo cliente permitem-lhe criar, girar, desativar e revogar os controlos de acesso.
+O armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente no nível da conta de armazenamento.
 
-Utilize o Azure Key Vault para gerir as chaves e auditar a utilização de chave. Pode criar suas próprias chaves e armazená-las num cofre de chaves, ou pode utilizar as APIs de Cofre de chaves do Azure para gerar chaves. A conta de armazenamento e o Cofre de chaves têm de estar na mesma região, mas podem estar em diferentes subscrições. Para obter mais informações sobre o Azure Key Vault, consulte [o que é o Azure Key Vault?](../articles/key-vault/key-vault-overview.md)
+As chaves gerenciadas pelo cliente devem ser armazenadas em um Azure Key Vault. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre criptografia de armazenamento do Azure e gerenciamento de chaves, consulte [criptografia de armazenamento do Azure para dados em repouso](../articles/storage/common/storage-service-encryption.md). Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../articles/key-vault/key-vault-overview.md)

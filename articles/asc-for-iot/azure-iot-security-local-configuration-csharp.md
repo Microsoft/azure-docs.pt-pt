@@ -1,6 +1,6 @@
 ---
-title: Noções básicas sobre a central de segurança do Azure para C# o arquivo de configuração local do agente para | Microsoft Docs
-description: Saiba mais sobre a central de segurança do Azure para o C#arquivo de configuração local do agente para.
+title: Entendendo a central de segurança do Azure para o arquivo de C# configuração local do agente de segurança IOT para | Microsoft Docs
+description: Saiba mais sobre a central de segurança do Azure para serviço de segurança de IoT, arquivo de C#configuração local do agente de segurança para.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cc7b9f0b6e537ca3bdcbb82a357b2f2b9451fab0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600634"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664203"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Noções básicas sobre o arquivo deC# configuração local (agente)
 
@@ -39,25 +39,25 @@ Os arquivos de configuração contêm a configuração padrão. A configuração
 
 ## <a name="configuration-file-location"></a>Local do arquivo de configuração
 Para Linux:
-- Os arquivos de configuração do sistema operacional `/var/ASCIoTAgent`estão localizados em.
+- Os arquivos de configuração do sistema operacional estão localizados em `/var/ASCIoTAgent`.
 
 Para Windows:
 - Os arquivos de configuração do sistema operacional estão localizados no diretório do agente de segurança. 
 
 ### <a name="generalconfig-configurations"></a>Configurações gerais. config
 
-| Nome da Configuração | Valores possíveis | Detalhes | 
+| Nome da configuração | Valores possíveis | Detalhes | 
 |:-----------|:---------------|:--------|
-| agentId | GUID | Identificador exclusivo do agente |
-| readRemoteConfigurationTimeout | TimeSpan | Período de tempo para buscar a configuração remota do Hub IoT. Se o agente não puder buscar a configuração dentro do tempo especificado, a operação atingirá o tempo limite.|
-| schedulerInterval | TimeSpan | Intervalo do Agendador interno. |
-| producerInterval | TimeSpan | Intervalo do trabalhador do produtor de eventos. |
-| consumerInterval | TimeSpan | Intervalo de trabalho do consumidor de eventos. |
+| agentId | VOLUME | Identificador exclusivo do agente |
+| readRemoteConfigurationTimeout | Período | Período de tempo para buscar a configuração remota do Hub IoT. Se o agente não puder buscar a configuração dentro do tempo especificado, a operação atingirá o tempo limite.|
+| schedulerInterval | Período | Intervalo do Agendador interno. |
+| producerInterval | Período | Intervalo do trabalhador do produtor de eventos. |
+| consumerInterval | Período | Intervalo de trabalho do consumidor de eventos. |
 | highPriorityQueueSizePercentage | 0 < número < 1 | A parte do cache total dedicado para mensagens de alta prioridade. |
-| logLevel | "Off", "fatal", "erro", "aviso", "informações", "depurar"  | Mensagens de log iguais e superiores a essa gravidade são registradas no console de depuração (syslog no Linux). |
+| LogLevel | "Off", "fatal", "erro", "aviso", "informações", "depurar"  | Mensagens de log iguais e superiores a essa gravidade são registradas no console de depuração (syslog no Linux). |
 | fileLogLevel |  "Off", "fatal", "erro", "aviso", "informações", "depurar"| As mensagens de log são iguais e superiores a essa gravidade são registradas em arquivo (syslog no Linux). |
 | diagnosticVerbosityLevel | "None", "Some", "All", | Nível de detalhamento dos eventos de diagnóstico. Nenhum – eventos de diagnóstico não são enviados, apenas alguns eventos de diagnóstico com alta importância são enviados, todos os logs também são enviados como eventos de diagnóstico. |
-| logFilePath | Caminho para o ficheiro | Se fileLogLevel > desativado, os logs serão gravados nesse arquivo. |
+| logFilePath | Caminho para o arquivo | Se fileLogLevel > desativado, os logs serão gravados nesse arquivo. |
 | defaultEventPriority | "Alta", "baixa", "desativado" | Prioridade de evento padrão. |
 
 ### <a name="generalconfig-example"></a>Exemplo de. config geral
@@ -82,15 +82,15 @@ Para Windows:
 
 | Nome da configuração | Valores possíveis | Detalhes | 
 |:-----------|:---------------|:--------|
-| moduleName | Cadeia de caracteres | Nome da identidade do módulo de segurança. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
-| deviceId | Cadeia de caracteres | ID do dispositivo (como registrado no Hub IoT do Azure). || schedulerInterval | Cadeia de TimeSpan | Intervalo do Agendador interno. |
-| gatewayHostname | Cadeia de caracteres | Nome do host do Hub IOT do Azure. Geralmente < meu Hub >. Azure-devices.net |
+| moduleName | string | Nome da identidade do módulo de segurança. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
+| deviceId | string | ID do dispositivo (como registrado no Hub IoT do Azure). || schedulerInterval | Cadeia de TimeSpan | Intervalo do Agendador interno. |
+| gatewayHostname | string | Nome do host do Hub IOT do Azure. Geralmente < meu Hub >. Azure-devices.net |
 | filePath | Cadeia de caracteres-caminho para o arquivo | Caminho para o arquivo que contém o segredo de autenticação.|
-| type | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
-| identity | "DPS", "módulo", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, módulo se a autenticação for feita usando credenciais de módulo ou dispositivo se a autenticação for feita usando as credenciais do dispositivo.
+| tipo | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
+| identidade | "DPS", "módulo", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, módulo se a autenticação for feita usando credenciais de módulo ou dispositivo se a autenticação for feita usando as credenciais do dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se o certificado estiver armazenado em um arquivo, armazenará se o certificado estiver localizado em um repositório de certificados. |
-| idScope | cadeia | Escopo da ID do DPS |
-| registrationId | cadeia  | ID de registro do dispositivo DPS. |
+| idScope | string | Escopo da ID do DPS |
+| registrationId | string  | ID de registro do dispositivo DPS. |
 |
 
 ### <a name="authenticationconfig-example"></a>Exemplo de Authentication. config
@@ -110,7 +110,7 @@ Para Windows:
 ```
 ### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
 
-| Nome da Configuração | Valores possíveis | Detalhes | 
+| Nome da configuração | Valores possíveis | Detalhes | 
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "MQTT" | Tipo de transporte do Hub IoT. |
 |

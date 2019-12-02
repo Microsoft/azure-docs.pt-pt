@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0d8bc302434ea973dd4d94156c65ee6965dd1dc1
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560069"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666257"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
 
@@ -72,13 +72,17 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
 
 1. Vá para a página **visão geral** do serviço e selecione **servidor de configuração**.
 
-1. Na seção **repositório padrão** , defina **URI** como "https\://github.com/Azure-Samples/piggymetrics", defina **rótulo** como "configuração" e selecione **aplicar** para salvar as alterações.
+1. Na seção **repositório padrão** , defina **URI** como "https\://github.com/Azure-Samples/piggymetrics".
+
+1. Defina o **rótulo** como "config".
+
+1. Selecione **aplicar** para salvar as alterações.
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microatendimento
 
-1. Abra um [Cloudshell do Azure](https://shell.azure.com) e clone o repositório do aplicativo de exemplo para seu computador local.  Aqui, primeiro criamos um diretório temporário chamado `source-code` antes de clonar o aplicativo.
+1. Abra um [Azure cloud Shell](https://shell.azure.com) e clone o repositório do aplicativo de exemplo em seu computador local.  Aqui, primeiro criamos um diretório temporário chamado `source-code` antes de clonar o aplicativo.
 
     ```azurecli
     mkdir source-code
@@ -123,7 +127,7 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
 
 1. Selecione o aplicativo `gateway` para mostrar a página **visão geral** .
 
-1. Selecione **atribuir domínio** para atribuir um ponto de extremidade público ao gateway. Isso pode demorar alguns minutos.
+1. Selecione **atribuir domínio** para atribuir um ponto de extremidade público ao gateway. Isso pode levar alguns minutos.
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

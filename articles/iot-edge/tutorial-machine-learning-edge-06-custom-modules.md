@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar e implantar módulos personalizados – Machine Learning em Azure IoT Edge'
+title: 'Tutorial: treinar & implantar modelo-Azure IoT Edge & Machine Learning'
 description: 'Tutorial: criar e implantar módulos de IoT Edge que processam dados de dispositivos folha por meio de um modelo de aprendizado de máquina e, em seguida, enviam as informações ao Hub IoT.'
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 371c897f0b4858a642322ff35a6008edbe9a651d
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106558"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664221"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: criar e implantar módulos de IoT Edge personalizados
 
@@ -22,7 +22,7 @@ ms.locfileid: "74106558"
 
 Neste artigo, criamos três módulos IoT Edge que recebem mensagens de dispositivos folha, executam os dados por meio de seu modelo de aprendizado de máquina e encaminham insights ao Hub IoT.
 
-IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de IoT Edge como um agente de mensagem mantém os módulos independentes entre si. Módulos só precisam de especificar as entradas em que aceite mensagens e as saídas para que eles escrevem mensagens.
+IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de IoT Edge como um agente de mensagem mantém os módulos independentes entre si. Os módulos só precisam especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens.
 
 Queremos que o dispositivo IoT Edge realize quatro coisas para nós:
 
@@ -693,7 +693,7 @@ Não queremos rotear os novos dados de previsão para o nosso local de armazenam
 
 6. Selecione **Guardar**.
 
-### <a name="configure-file-upload"></a>Configurar o carregamento de ficheiros
+### <a name="configure-file-upload"></a>Configurar carregamento de ficheiro
 
 Configure o recurso de upload de arquivo do Hub IoT para habilitar o módulo gravador de arquivo para carregar arquivos no armazenamento.
 
@@ -714,7 +714,7 @@ Configure o recurso de upload de arquivo do Hub IoT para habilitar o módulo gra
 
 Agora que fizemos as alterações de configuração, estamos prontos para criar as imagens e publicá-las no registro de contêiner do Azure. O processo de compilação usa o arquivo Deployment. Template. JSON para determinar quais módulos precisam ser compilados. As configurações para cada módulo, incluindo a versão, são encontradas no arquivo module. JSON na pasta do módulo. O processo de compilação primeiro executa um Build do Docker no Dockerfiles correspondente à configuração atual encontrada no arquivo module. JSON para criar uma imagem. Em seguida, ele publica a imagem no registro do arquivo module. JSON com uma marca de versão correspondente à do arquivo module. JSON. Por fim, ele produz um manifesto de implantação específico da configuração (por exemplo, Deployment. AMD64. JSON), que iremos implantar no dispositivo IoT Edge. O dispositivo IoT Edge lê as informações do manifesto de implantação e, com base nas instruções, baixará os módulos, configurará as rotas e definirá as propriedades desejadas. Esse método de implantação tem dois efeitos colaterais que você deve estar ciente:
 
-* **Retardo de implantação:** como o tempo de execução de IOT Edge deve reconhecer a alteração para suas propriedades desejadas antes de começar a reconfigurar, pode levar algum tempo depois de implantar seus módulos até que o tempo de execução os pegue e comece a atualizar o IOT Edge Vice.
+* **Atraso de implantação:** como o tempo de execução de IOT Edge deve reconhecer a alteração para suas propriedades desejadas antes de começar a reconfigurar, pode levar algum tempo depois de implantar seus módulos até que o tempo de execução os pegue e comece a atualizar o dispositivo de IOT Edge.
 
 * **Versões de módulo importantes:** se você publicar uma nova versão do contêiner de um módulo no registro de contêiner usando as mesmas marcas de versão do módulo anterior, o tempo de execução não baixará a nova versão do módulo. Ele faz uma comparação da marca de versão da imagem local e da imagem desejada do manifesto de implantação. Se essas versões corresponderem, o tempo de execução não executará nenhuma ação. Portanto, é importante incrementar a versão do seu módulo cada vez que você desejar implantar novas alterações. Aumente a versão alterando a propriedade **version** na propriedade **tag** no arquivo module. JSON para o módulo que você está alterando. Em seguida, compile e publique o módulo.
 

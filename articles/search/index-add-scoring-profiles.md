@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113617"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666312"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de Pontuação a um índice de Pesquisa Cognitiva do Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113617"
  Para dar uma ideia de como um perfil de Pontuação se parece, o exemplo a seguir mostra um perfil simples chamado ' geo '. Essa delas aumenta os itens que têm o termo de pesquisa no campo **hotelname** . Ele também usa a função `distance` para favorecer itens que estão dentro de dez quilômetros do local atual. Se alguém Pesquisar no termo "Estalagem" e "Estalagem" for parte do nome do Hotel, os documentos que incluírem Hotéis com "Estalagem" dentro de um raio de 10 KM do local atual aparecerão mais altos nos resultados da pesquisa.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Este exemplo mostra o esquema de um índice com dois perfis de Pontuação (`boostGenre`, `newAndHighlyRated`). Qualquer consulta em relação a esse índice que inclua um dos perfis como um parâmetro de consulta usará o perfil para pontuar o conjunto de resultados.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -157,7 +157,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 }  
 ```  
 
-## <a name="workflow"></a>Fluxo de trabalho  
+## <a name="workflow"></a>Fluxo de Trabalho  
  Para implementar o comportamento de Pontuação personalizado, adicione um perfil de pontuação ao esquema que define o índice. Você pode ter até 100 perfis de pontuação em um índice (consulte [limites de serviço](search-limits-quotas-capacity.md)), mas você só pode especificar um perfil no tempo em qualquer consulta específica.  
 
  Comece com o [modelo](#bkmk_template) fornecido neste tópico.  
@@ -234,14 +234,14 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 |Atributo|Descrição|  
 |---------------|-----------------|  
-|`Name`|Necessário. Este é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura de um campo. Ele deve começar com uma letra, não pode conter pontos, dois-pontos ou @ símbolos e não pode começar com a frase ' azureSearch ' (diferencia maiúsculas de minúsculas).|  
-|`Text`|Contém a propriedade pesos.|  
-|`Weights`|Opcional. Um par de nome-valor que especifica um nome de campo e peso relativo. O peso relativo deve ser um inteiro positivo ou um número de ponto flutuante. O valor máximo é Int32. MaxValue.<br /><br /> Você pode especificar o nome do campo sem um peso correspondente. Os pesos são usados para indicar a importância de um campo em relação a outro.|  
-|`Functions`|Opcional. Uma função de Pontuação só pode ser aplicada a campos que são filtráveis.|  
-|`Type`|Necessário para funções de pontuação. Indica o tipo de função a ser usado. Os valores válidos incluem magnitude, atualização, distância e marca. Você pode incluir mais de uma função em cada perfil de pontuação. O nome da função deve estar em letras minúsculas.|  
-|`Boost`|Necessário para funções de pontuação. Um número positivo usado como multiplicador para pontuação bruta. Ele não pode ser igual a 1.|  
-|`Fieldname`|Necessário para funções de pontuação. Uma função de Pontuação só pode ser aplicada a campos que fazem parte da coleção de campos do índice e que são filtráveis. Além disso, cada tipo de função introduz restrições adicionais (a atualização é usada com campos DateTime, magnitude com campos inteiros ou duplos e distância com campos de localização). Você só pode especificar um único campo por definição de função. Por exemplo, para usar a magnitude duas vezes no mesmo perfil, você precisaria incluir duas magnitudes de definições, uma para cada campo.|  
-|`Interpolation`|Necessário para funções de pontuação. Define a inclinação para a qual o aumento da Pontuação aumenta desde o início do intervalo até o fim do intervalo. Os valores válidos incluem linear (padrão), constante, quadrática e logarítmica. Consulte [definir interpolações](#bkmk_interpolation) para obter detalhes.|  
+|`name`|Necessário. Este é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura de um campo. Ele deve começar com uma letra, não pode conter pontos, dois-pontos ou @ símbolos e não pode começar com a frase ' azureSearch ' (diferencia maiúsculas de minúsculas).|  
+|`text`|Contém a propriedade pesos.|  
+|`weights`|Opcional. Contém pares de nome-valor que especificam um nome de campo e um peso relativo. O peso relativo deve ser um inteiro positivo ou um número de ponto flutuante.<br /><br /> Os pesos são usados para indicar a importância de um campo pesquisável em relação a outro.|  
+|`functions`|Opcional. Uma função de Pontuação só pode ser aplicada a campos que são filtráveis.|  
+|`type`|Necessário para funções de pontuação. Indica o tipo de função a ser usado. Os valores válidos incluem magnitude, atualização, distância e marca. Você pode incluir mais de uma função em cada perfil de pontuação. O nome da função deve estar em letras minúsculas.|  
+|`boost`|Necessário para funções de pontuação. Um número positivo usado como multiplicador para pontuação bruta. Ele não pode ser igual a 1.|  
+|`fieldname`|Necessário para funções de pontuação. Uma função de Pontuação só pode ser aplicada a campos que fazem parte da coleção de campos do índice e que são filtráveis. Além disso, cada tipo de função introduz restrições adicionais (a atualização é usada com campos DateTime, magnitude com campos inteiros ou duplos e distância com campos de localização). Você só pode especificar um único campo por definição de função. Por exemplo, para usar a magnitude duas vezes no mesmo perfil, você precisaria incluir duas magnitudes de definições, uma para cada campo.|  
+|`interpolation`|Necessário para funções de pontuação. Define a inclinação para a qual o aumento da Pontuação aumenta desde o início do intervalo até o fim do intervalo. Os valores válidos incluem linear (padrão), constante, quadrática e logarítmica. Consulte [definir interpolações](#bkmk_interpolation) para obter detalhes.|  
 |`magnitude`|A função de Pontuação de magnitude é usada para alterar as classificações com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns disso são:<br /><br /> -   **classificações de estrelas:** altere a pontuação com base no valor do campo "classificação por estrelas". Quando dois itens forem relevantes, o item com a classificação mais alta será exibido primeiro.<br />Margem de -    **:** quando dois documentos são relevantes, um varejista pode desejar aumentar os documentos que têm margens mais altas primeiro.<br />-   **contagens de cliques:** para aplicativos que acompanham ações de cliques em produtos ou páginas, você pode usar a magnitude para impulsionar itens que tendem a obter o máximo de tráfego.<br />-   **contagens de download:** para aplicativos que acompanham downloads, a função de magnitude permite que você aumente os itens que têm mais downloads.|  
 |`magnitude` &#124; `boostingRangeStart`|Define o valor inicial do intervalo em que a magnitude é pontuada. O valor deve ser um número inteiro ou de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 1. Para obter margens acima de 50%, isso seria 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Define o valor final do intervalo em que a magnitude é classificada. O valor deve ser um número inteiro ou de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 4.|  
@@ -261,10 +261,10 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 |||  
 |-|-|  
-|`Linear`|Para itens que estão dentro do intervalo máximo e mínimo, o aumento aplicado ao item será feito em um valor decrescente constantemente. Linear é a interpolação padrão para um perfil de pontuação.|  
-|`Constant`|Para itens que estão dentro do intervalo inicial e final, um aumento constante será aplicado aos resultados da classificação.|  
-|`Quadratic`|Em comparação com uma interpolação linear que tem um aumento que diminui constantemente, o quadrática inicialmente diminuirá em um ritmo menor e, em seguida, à medida que se aproximar do intervalo de término, ele diminui em um intervalo muito maior. Essa opção de interpolação não é permitida em funções de Pontuação de marca.|  
-|`Logarithmic`|Em comparação com uma interpolação linear que tem um aumento que diminui constantemente, o logaritmo inicialmente diminuirá no ritmo mais alto e, em seguida, à medida que ele se aproximar do intervalo de término, ele diminui em um intervalo muito menor. Essa opção de interpolação não é permitida em funções de Pontuação de marca.|  
+|`linear`|Para itens que estão dentro do intervalo máximo e mínimo, o aumento aplicado ao item será feito em um valor decrescente constantemente. Linear é a interpolação padrão para um perfil de pontuação.|  
+|`constant`|Para itens que estão dentro do intervalo inicial e final, um aumento constante será aplicado aos resultados da classificação.|  
+|`quadratic`|Em comparação com uma interpolação linear que tem um aumento que diminui constantemente, o quadrática inicialmente diminuirá em um ritmo menor e, em seguida, à medida que se aproximar do intervalo de término, ele diminui em um intervalo muito maior. Essa opção de interpolação não é permitida em funções de Pontuação de marca.|  
+|`logarithmic`|Em comparação com uma interpolação linear que tem um aumento que diminui constantemente, o logaritmo inicialmente diminuirá no ritmo mais alto e, em seguida, à medida que ele se aproximar do intervalo de término, ele diminui em um intervalo muito menor. Essa opção de interpolação não é permitida em funções de Pontuação de marca.|  
 
  ![Constantes, lineares, quadráticas, log10 linhas no grafo](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -280,11 +280,11 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |1 dia|P1D|  
 |2 dias e 12 horas|"P2DT12H"|  
 |15 minutos|"PT15M"|  
-|30 dias, 5 horas, 10 minutos e 6,334 segundos|"P30DT5H10M6.334S"|  
+|30 dias, 5 horas, 10 minutos e 6,334 segundos|"P30DT5H10M 6,334 S"|  
 
  Para obter mais exemplos, consulte [esquema XML: tipos de w3.org (site da Web)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Ver também  
    [REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/)  
  [Criar índice &#40;pesquisa cognitiva API&#41; REST do Azure](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [SDK do .NET Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

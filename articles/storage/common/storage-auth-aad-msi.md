@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea1d286d00564587a9692dac1b04c5bbb04742cc
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561481"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666171"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure
 
@@ -103,19 +103,7 @@ A biblioteca de cliente de identidade do Azure lê valores de três variáveis d
 
 Para obter mais informações, consulte [criar identidade para o aplicativo do Azure no portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="install-client-library-packages"></a>Instalar pacotes de biblioteca de cliente
-
-Os exemplos neste artigo usam a versão mais recente da biblioteca de cliente de armazenamento do Azure para armazenamento de BLOBs. Para instalar o pacote, execute o seguinte comando no console do Gerenciador de pacotes NuGet:
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-Os exemplos neste artigo também usam a versão mais recente da [biblioteca de cliente de identidade do Azure para .net](https://www.nuget.org/packages/Azure.Identity/) para autenticar com as credenciais do Azure AD. Para instalar o pacote, execute o seguinte comando no console do Gerenciador de pacotes NuGet:
-
-```powershell
-Install-Package Azure.Identity
-```
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código .NET: criar um blob de blocos
 

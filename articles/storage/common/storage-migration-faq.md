@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090823"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666431"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração de armazenamento do Azure
 
@@ -47,7 +47,7 @@ Não há nenhuma opção para fazer backup de uma conta de armazenamento inteira
 
 1.  Instale a ferramenta de linha de comando [AzCopy](storage-use-azcopy.md) . Essa ferramenta ajuda a mover o arquivo VHD entre contas de armazenamento.
 
-2.  Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela do prompt de comando e, em seguida, navegue até a pasta de instalação do AzCopy em seu computador. Por predefinição, o AzCopy é instalado para **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela do prompt de comando e, em seguida, navegue até a pasta de instalação do AzCopy em seu computador. Por padrão, o AzCopy é instalado em **% ProgramFiles (x86)% \ Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Execute o comando a seguir para mover o contêiner. Você deve substituir o texto pelos valores reais.   
      
@@ -55,10 +55,10 @@ Não há nenhuma opção para fazer backup de uma conta de armazenamento inteira
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Forneça o URI para a conta de armazenamento de origem (até o contêiner).  
-    - `/Dest`: Forneça o URI para a conta de armazenamento de destino (até o contêiner).  
-    - `/SourceKey`: Forneça a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
-    - `/DestKey`: Forneça a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
+    - `/Source`: forneça o URI para a conta de armazenamento de origem (até o contêiner).  
+    - `/Dest`: forneça o URI para a conta de armazenamento de destino (até o contêiner).  
+    - `/SourceKey`: forneça a chave primária para a conta de armazenamento de origem. Você pode copiar essa chave do portal do Azure selecionando a conta de armazenamento.  
+    - `/DestKey`: forneça a chave primária para a conta de armazenamento de destino. Você pode copiar essa chave do portal selecionando a conta de armazenamento.
 
 Depois de executar esse comando, os arquivos de contêiner são movidos para a conta de armazenamento de destino.
 
@@ -167,7 +167,7 @@ Use AzCopy para baixar os dados. Para obter mais informações, consulte [transf
 
 **Como fazer alterar o local secundário para a região da Europa para uma conta de armazenamento?**
 
-Ao criar uma conta de armazenamento, você seleciona a região primária da conta. A seleção da região secundária é baseada na região primária e não pode ser alterada. Para obter mais informações, [consulte armazenamento com redundância geográfica (GRS): Replicação entre regiões para o armazenamento](storage-redundancy.md)do Azure.
+Ao criar uma conta de armazenamento, você seleciona a região primária da conta. A seleção da região secundária é baseada na região primária e não pode ser alterada. Para obter mais informações, consulte [armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy.md).
 
 **Onde posso obter mais informações sobre o Azure Criptografia do Serviço de Armazenamento (SSE)?**  
   
@@ -237,7 +237,7 @@ Se você tiver máquinas virtuais, deverá executar etapas adicionais antes de m
 
 **Como fazer mudar de uma conta de armazenamento clássica para uma conta de armazenamento de Azure Resource Manager?**
 
-Você pode usar o cmdlet **move-AzStorageAccount** . Esse cmdlet tem várias etapas (validar, preparar, confirmar). Você pode validar a movimentação antes de fazer isso.
+Você pode usar o cmdlet **move-AzureStorageAccount** . Esse cmdlet tem várias etapas (validar, preparar, confirmar). Você pode validar a movimentação antes de fazer isso.
 
 Se você tiver máquinas virtuais, deverá executar etapas adicionais antes de migrar os dados da conta de armazenamento. Para obter mais informações, consulte [migrar recursos de IaaS do clássico para o Azure Resource Manager usando Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -267,9 +267,9 @@ Para conceder a outras pessoas acesso aos recursos de armazenamento:
 
 -   Se você acessar o AzCopy na linha de comando Armazenamento do Microsoft Azure, digite **AzCopy**. A linha de comando é instalada junto com AzCopy.
 
--   Se você instalou a versão de 32 bits, ela está localizada aqui: **% ProgramFiles (x86)\\% Microsoft\\SDKs\\Azure AzCopy**.
+-   Se você instalou a versão de 32 bits, ela está localizada aqui: **% ProgramFiles (x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
 
--   Se você instalou a versão de 64 bits, ela está localizada aqui: **% ProgramFiles\\% Microsoft\\SDKs\\Azure AzCopy**.
+-   Se você instalou a versão de 64 bits, ela está localizada aqui: **% ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
 **Para uma conta de armazenamento replicada (como armazenamento com redundância de zona, armazenamento com redundância geográfica ou armazenamento com redundância geográfica com acesso de leitura), como fazer para acessar dados armazenados na região secundária?**
 
@@ -277,13 +277,13 @@ Para conceder a outras pessoas acesso aos recursos de armazenamento:
 
 -   Se você estiver usando o armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer momento. Use um dos seguintes métodos:  
       
-    - **AzCopy**: Acrescente **-Secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
+    - **AzCopy**: acrescente **-Secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Token SAS**: Use um token SAS para acessar dados do ponto de extremidade. Para obter mais informações, consulte [usando assinaturas de acesso compartilhado](storage-sas-overview.md).
 
-**Como fazer usar um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como fazer com que "https:\//mystorageaccountname.blob.Core.Windows.net/images/Image.gif" apareça como "https:\//www.contoso.com/images/Image.gif"?**
+**Como fazer usar um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como fazer com que "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" apareça como "https:\//www.contoso.com/images/image.gif"?**
 
 No momento, não há suporte para SSL em contas de armazenamento com domínios personalizados.
 Mas você pode usar domínios personalizados não HTTPS. Para obter mais informações, consulte [configurar um nome de domínio personalizado para o ponto de extremidade do armazenamento de BLOBs](../blobs/storage-custom-domain-name.md).
@@ -300,4 +300,4 @@ Se você quiser apenas baixar dados sem precisar usar Gerenciador de Armazenamen
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.
+Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.
