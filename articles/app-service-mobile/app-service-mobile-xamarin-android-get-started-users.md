@@ -1,25 +1,17 @@
 ---
-title: Introdução à autenticação para aplicativos móveis no Xamarin Android
-description: Saiba como usar aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: panarasi
-editor: ''
+title: Introdução à autenticação no Xamarin Android
+description: Saiba como usar aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: e0baf64c3490dd5b7edd8c3f7d209c135c546ed5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 60c46c32c8650bf72c0032cf0ec03895905bae1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388433"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668363"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicionar autenticação ao seu aplicativo Xamarin. Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388433"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="overview"></a>Visão geral
 Este tópico mostra como autenticar usuários de um aplicativo móvel do seu aplicativo cliente. Neste tutorial, você adicionará autenticação ao projeto de início rápido usando um provedor de identidade com suporte dos aplicativos móveis do Azure. Depois de ser autenticado e autorizado com êxito no aplicativo móvel, o valor da ID de usuário é exibido.
@@ -108,7 +100,7 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **entra
 2. No método **OnCreate** , exclua ou comente a seguinte linha de código:
    
         OnRefreshItemsSelected ();
-3. No arquivo Activity_To_Do. axml, adicione a seguinte definição de botão de *LoginUser* antes do botão *AddItem* existente:
+3. No arquivo Activity_To_Do. axml, adicione a seguinte definição de botão *LoginUser* antes do botão *AddItem* existente:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -119,7 +111,7 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **entra
 4. Adicione o seguinte elemento ao arquivo de recursos Strings. xml:
    
         <string name="login_button_text">Sign in</string>
-5. Abra o arquivo AndroidManifest. xml e adicione o seguinte código dentro do elemento XML `<application>`:
+5. Abra o arquivo AndroidManifest. xml e adicione o seguinte código dentro do elemento `<application>` XML:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>

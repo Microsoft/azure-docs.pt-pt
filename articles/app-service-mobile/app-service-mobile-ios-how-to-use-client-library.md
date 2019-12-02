@@ -1,24 +1,17 @@
 ---
-title: Como usar o SDK do iOS para aplicativos móveis do Azure
+title: Usar o SDK do iOS
 description: Como usar o SDK do iOS para aplicativos móveis do Azure
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9860ab6b16c6639581d0bcd1783d43f420f88d74
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435390"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668431"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como usar a biblioteca de cliente do iOS para aplicativos móveis do Azure
 
@@ -27,7 +20,7 @@ ms.locfileid: "72435390"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="overview"></a>Visão geral
 Este guia ensina a executar cenários comuns usando o SDK do [Ios dos aplicativos móveis do Azure][1]mais recentes. Se você for novo nos aplicativos móveis do Azure, primeiro conclua os [Início Rápido de aplicativos móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto do Xcode do IOS criado previamente. Neste guia, nos concentramos no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o SDK do servidor HOWTO.
@@ -49,7 +42,7 @@ Este guia pressupõe que você criou um back-end com uma tabela. Este guia press
 
 ## <a name="create-client"></a>Como: criar cliente
 
-Para acessar um back-end de aplicativos móveis do Azure em seu projeto, crie um `MSClient`. Substitua `AppUrl` pela URL do aplicativo. Você pode deixar `gatewayURLString` e `applicationKey` vazio. Se você configurar um gateway para autenticação, preencha `gatewayURLString` com a URL do gateway.
+Para acessar um back-end de aplicativos móveis do Azure em seu projeto, crie um `MSClient`. Substitua `AppUrl` pela URL do aplicativo. Você pode deixar `gatewayURLString` e `applicationKey` vazio. Se você configurar um gateway para autenticação, popule `gatewayURLString` com a URL do gateway.
 
 **Objective-C**:
 
@@ -251,7 +244,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ## <a name="paging"></a>Como: configurar o tamanho da página
 
-Com os aplicativos móveis do Azure, o tamanho da página controla o número de registros que são recebidos por vez das tabelas de back-end. Uma chamada para dados `pull` resultaria em lote de dados, com base nesse tamanho de página, até que não haja mais registros para efetuar pull.
+Com os aplicativos móveis do Azure, o tamanho da página controla o número de registros que são recebidos por vez das tabelas de back-end. Uma chamada para dados de `pull` resultaria em lote de dados, com base nesse tamanho de página, até que não haja mais registros para efetuar pull.
 
 É possível configurar um tamanho de página usando **MSPullSettings** , conforme mostrado abaixo. O tamanho de página padrão é 50 e o exemplo a seguir o altera para 3.
 
@@ -441,7 +434,7 @@ No mínimo, o atributo `id` deve ser definido ao fazer exclusões.
 
 Com uma API personalizada, você pode expor qualquer funcionalidade de back-end. Ele não precisa ser mapeado para uma operação de tabela. Além de ter mais controle sobre as mensagens, você pode até mesmo ler/definir cabeçalhos e alterar o formato do corpo da resposta.
 
-Para chamar uma API personalizada, chame `MSClient.invokeAPI`. O conteúdo de solicitação e resposta é tratado como JSON. Para usar outros tipos de mídia, [use a outra sobrecarga de `invokeAPI`][5].  Para fazer uma solicitação `GET` em vez de uma solicitação `POST`, defina o parâmetro `HTTPMethod` como `"GET"` e o parâmetro `body` para `nil` (já que as solicitações GET não têm corpos de mensagens). Se a API personalizada der suporte a outros verbos HTTP, altere `HTTPMethod` adequadamente.
+Para chamar uma API personalizada, chame `MSClient.invokeAPI`. O conteúdo de solicitação e resposta é tratado como JSON. Para usar outros tipos de mídia, [use a outra sobrecarga de `invokeAPI`][5].  Para fazer uma solicitação de `GET` em vez de uma solicitação de `POST`, defina o parâmetro `HTTPMethod` como `"GET"` e `body` de parâmetro para `nil` (já que as solicitações GET não têm corpos de mensagens). Se a API personalizada der suporte a outros verbos HTTP, altere `HTTPMethod` adequadamente.
 
 **Objective-C**:
 
@@ -522,7 +515,7 @@ Todas as marcas são removidas da solicitação de segurança.  Para adicionar m
 
 Quando você chama um back-end móvel do serviço de Azure App, o bloco de conclusão contém um parâmetro `NSError`. Quando ocorre um erro, esse parâmetro é não nulo. Em seu código, você deve verificar esse parâmetro e tratar o erro conforme necessário, conforme demonstrado nos trechos de código anteriores.
 
-O arquivo [`<WindowsAzureMobileServices/MSError.h>`][6] define as constantes `MSErrorResponseKey`, `MSErrorRequestKey` e `MSErrorServerItemKey`. Para obter mais dados relacionados ao erro:
+O arquivo [`<WindowsAzureMobileServices/MSError.h>`][6] define as constantes `MSErrorResponseKey`, `MSErrorRequestKey`e `MSErrorServerItemKey`. Para obter mais dados relacionados ao erro:
 
 **Objective-C**:
 
@@ -639,7 +632,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 ## <a name="facebook-sdk"></a>Como autenticar usuários com o SDK do Facebook para iOS
 
-Você pode usar o SDK do Facebook para iOS para conectar usuários ao seu aplicativo usando o Facebook.  O uso de uma autenticação de fluxo de cliente é preferível ao uso do método `loginWithProvider:completion:`.  A autenticação de fluxo de cliente fornece uma aparência de UX mais nativa e permite personalização adicional.
+Você pode usar o SDK do Facebook para iOS para conectar usuários ao seu aplicativo usando o Facebook.  Usar uma autenticação de fluxo de cliente é preferível ao uso do método `loginWithProvider:completion:`.  A autenticação de fluxo de cliente fornece uma aparência de UX mais nativa e permite personalização adicional.
 
 1. Configure seu back-end de aplicativo móvel para entrada no Facebook seguindo o tutorial [como configurar o serviço de aplicativo para logon no Facebook][9] .
 2. Instale o SDK do Facebook para iOS seguindo a documentação [do SDK do Facebook para IOS-introdução][10] . Em vez de criar um aplicativo, você pode adicionar a plataforma iOS ao seu registro existente.
@@ -804,7 +797,7 @@ Você pode usar o SDK de entrada do Google para iOS para conectar usuários ao s
 
 1. Configure seu back-end do aplicativo móvel para entrar no Google seguindo o tutorial [como configurar o serviço de aplicativo para o logon do Google](../app-service/configure-authentication-provider-google.md) .
 2. Instale o SDK do Google para iOS seguindo a documentação [de entrada do Google para IOS-iniciar integração](https://developers.google.com/identity/sign-in/ios/start-integrating) . Você pode ignorar a seção "autenticar com um servidor back-end".
-3. Adicione o seguinte ao método `signIn:didSignInForUser:withError:` do seu representante, de acordo com o idioma que você está usando.
+3. Adicione o seguinte ao método de `signIn:didSignInForUser:withError:` do seu representante, de acordo com o idioma que você está usando.
 
     **Objective-C**:
     ```objc
@@ -827,7 +820,7 @@ Você pode usar o SDK de entrada do Google para iOS para conectar usuários ao s
     }
     ```
 
-4. Certifique-se também de adicionar o seguinte a `application:didFinishLaunchingWithOptions:` no seu representante de aplicativo, substituindo "SERVER_CLIENT_ID" pela mesma ID que você usou para configurar o serviço de aplicativo na etapa 1.
+4. Certifique-se de também adicionar o seguinte a `application:didFinishLaunchingWithOptions:` no seu representante de aplicativo, substituindo "SERVER_CLIENT_ID" pela mesma ID que você usou para configurar o serviço de aplicativo na etapa 1.
 
     **Objective-C**:
 
@@ -841,7 +834,7 @@ Você pode usar o SDK de entrada do Google para iOS para conectar usuários ao s
     GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
     ```
 
-5. Adicione o código a seguir ao seu aplicativo em um UIViewController que implementa o protocolo `GIDSignInUIDelegate`, de acordo com o idioma que você está usando.  Você é desconectado antes de ser conectado novamente e, embora não precise inserir suas credenciais novamente, você verá uma caixa de diálogo de consentimento.  Só chame esse método quando o token de sessão tiver expirado.
+5. Adicione o código a seguir ao seu aplicativo em um UIViewController que implementa o protocolo de `GIDSignInUIDelegate`, de acordo com o idioma que você está usando.  Você é desconectado antes de ser conectado novamente e, embora não precise inserir suas credenciais novamente, você verá uma caixa de diálogo de consentimento.  Só chame esse método quando o token de sessão tiver expirado.
 
    **Objective-C**:
 

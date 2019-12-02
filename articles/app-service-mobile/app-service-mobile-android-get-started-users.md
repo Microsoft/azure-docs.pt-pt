@@ -1,25 +1,17 @@
 ---
-title: Adicionar autenticação no Android com aplicativos móveis | Microsoft Docs
-description: Saiba como usar o recurso aplicativos móveis do serviço de Azure App para autenticar usuários de seu aplicativo Android por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft.
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
-editor: ''
+title: Adicionar autenticação no Android
+description: Saiba como usar o serviço de Azure App para autenticar usuários de seu aplicativo Android com provedores de identidade, como Google, Facebook, Twitter e Microsoft.
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: b520f6129e7d7fa1a4800143d5987d3eba625e98
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f68b4f8477d5b21a7107270370af387a7e88756e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388959"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668939"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação ao seu aplicativo Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

@@ -1,25 +1,17 @@
 ---
-title: Adicionar autenticação no iOS com aplicativos móveis do Azure
-description: Saiba como usar os aplicativos móveis do Azure para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
+title: Adicionar autenticação no iOS
+description: Saiba como usar os aplicativos móveis do Azure para autenticar usuários de seu aplicativo iOS por meio de provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 800d86750f091404ee7f940d7cf8f6631e3fbbeb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 925894cab00537cb9aeb03ca05c9699bb4bf6a84
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388703"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668460"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicionar autenticação ao seu aplicativo iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388703"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Neste tutorial, você adicionará autenticação ao projeto de [início rápido do IOS] usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial de [início rápido do IOS] , que você deve concluir primeiro.
 
@@ -86,13 +78,13 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
 
     Substitua o **urlScheme** por um nome exclusivo para seu aplicativo.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL especificado no campo **URLs de redirecionamento externas permitidas** no portal do Azure. O urlScheme é usado pelo retorno de chamada de autenticação para voltar ao aplicativo após a conclusão da solicitação de autenticação.
 
-2. Substitua `[self refresh]` em `viewDidLoad` em *QSTodoListViewController. m* pelo seguinte código:
+2. Substitua `[self refresh]` em `viewDidLoad` no *QSTodoListViewController. m* pelo seguinte código:
 
     ```Objective-C
     [self loginAndGetData];
     ```
 
-3. Abra o arquivo `QSAppDelegate.h` e adicione o seguinte código:
+3. Abra o ficheiro `QSAppDelegate.h` e adicione-o ao seguinte código:
 
     ```Objective-C
     #import "QSTodoService.h"
@@ -100,7 +92,7 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     @property (strong, nonatomic) QSTodoService *qsTodoService;
     ```
 
-4. Abra o arquivo `QSAppDelegate.m` e adicione o seguinte código:
+4. Abra o ficheiro `QSAppDelegate.m` e adicione-o ao seguinte código:
 
     ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
@@ -115,9 +107,9 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
     }
     ```
 
-   Adicione este código diretamente antes que a linha seja lida `#pragma mark - Core Data stack`.  Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
+   Adicione esse código diretamente antes da `#pragma mark - Core Data stack`de leitura de linha.  Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
 
-5. Abra o arquivo `AppName-Info.plist` (substituindo AppName pelo nome do seu aplicativo) e adicione o seguinte código:
+5. Abra o arquivo de `AppName-Info.plist` (substituindo AppName pelo nome do seu aplicativo) e adicione o seguinte código:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -172,7 +164,7 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
 
     Substitua o **urlScheme** por um nome exclusivo para seu aplicativo.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL especificado no campo **URLs de redirecionamento externas permitidas** no portal do Azure. O urlScheme é usado pelo retorno de chamada de autenticação para voltar ao aplicativo após a conclusão da solicitação de autenticação.
 
-2. Remova as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` no final de `viewDidLoad()` em *ToDoTableViewController. Swift*. Adicione uma chamada para `loginAndGetData()` em seu lugar:
+2. Remova as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` ao final de `viewDidLoad()` em *ToDoTableViewController. Swift*. Adicione uma chamada para `loginAndGetData()` em seu lugar:
 
     ```swift
     loginAndGetData()
@@ -195,7 +187,7 @@ No Xcode, pressione **executar** para iniciar o aplicativo. Uma exceção é ger
 
     Substitua o _AppName_ pelo valor urlScheme que você usou na etapa 1.
 
-4. Abra o arquivo `AppName-Info.plist` (substituindo AppName pelo nome do seu aplicativo) e adicione o seguinte código:
+4. Abra o arquivo de `AppName-Info.plist` (substituindo AppName pelo nome do seu aplicativo) e adicione o seguinte código:
 
     ```xml
     <key>CFBundleURLTypes</key>

@@ -1,25 +1,17 @@
 ---
-title: Adicionar notificações por push ao seu aplicativo Android com aplicativos móveis | Microsoft Docs
+title: Adicionar notificações por push ao seu aplicativo Android
 description: Saiba como usar aplicativos móveis para enviar notificações por push para seu aplicativo Android.
-services: app-service\mobile
-documentationcenter: android
-manager: crdun
-editor: ''
-author: elamalani
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 539859ba73c8a26d6f7e8f25b9e7453d987a52bd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ce4ebe9e8874e779b8da16e9c30fcfc3ca46754e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389018"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668600"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações por push ao seu aplicativo Android
 
@@ -30,7 +22,7 @@ ms.locfileid: "72389018"
 >
 > Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
 
@@ -63,7 +55,7 @@ Você precisa do seguinte:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à aplicação
+## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à sua aplicação
 
 Nesta seção, você atualizará seu aplicativo cliente Android para lidar com notificações por push.
 

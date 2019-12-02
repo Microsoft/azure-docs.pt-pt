@@ -1,32 +1,24 @@
 ---
-title: Sincronização de dados offline em aplicativos móveis do Azure | Microsoft Docs
+title: Sincronização de dados offline
 description: Referência conceitual e visão geral do recurso de sincronização de dados offline para aplicativos móveis do Azure
-documentationcenter: windows
 author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: dcab966aed125e43fff49299a46a2e8bbb938d66
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9238ebd06a4aa532d20a2a98499963a75780f025
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388598"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668422"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de Dados Offline em Aplicações Móveis do Azure
 
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="what-is-offline-data-sync"></a>O que é a sincronização de dados offline?
 A sincronização de dados offline é um recurso de cliente e SDK de servidor de aplicativos móveis do Azure que facilita para os desenvolvedores criar aplicativos que são funcionais sem uma conexão de rede.
@@ -54,7 +46,7 @@ Os tutoriais a seguir mostram como adicionar sincronização offline aos seus cl
 ## <a name="what-is-a-sync-table"></a>O que é uma tabela de sincronização?
 Para acessar o ponto de extremidade "/Tables", os SDKs do cliente móvel do Azure fornecem interfaces como `IMobileServiceTable` (SDK do cliente .NET) ou `MSTable` (cliente iOS). Essas APIs se conectam diretamente ao back-end do aplicativo móvel do Azure e falham se o dispositivo cliente não tiver uma conexão de rede.
 
-Para dar suporte ao uso offline, seu aplicativo deve usar as APIs de *tabela de sincronização* , como `IMobileServiceSyncTable` (SDK de cliente .net) ou `MSSyncTable` (cliente Ios). Todas as mesmas operações CRUD (criar, ler, atualizar, excluir) funcionam com as APIs de tabela de sincronização, exceto que agora elas lidam ou gravam em um *repositório local*. Antes que qualquer operação de tabela de sincronização possa ser executada, o repositório local deve ser inicializado.
+Para dar suporte ao uso offline, seu aplicativo deve usar as APIs de *tabela de sincronização* , como `IMobileServiceSyncTable` (SDK do cliente .net) ou `MSSyncTable` (cliente Ios). Todas as mesmas operações CRUD (criar, ler, atualizar, excluir) funcionam com as APIs de tabela de sincronização, exceto que agora elas lidam ou gravam em um *repositório local*. Antes que qualquer operação de tabela de sincronização possa ser executada, o repositório local deve ser inicializado.
 
 ## <a name="what-is-a-local-store"></a>O que é um armazenamento local?
 Um repositório local é a camada de persistência de dados no dispositivo cliente. Os SDKs de cliente dos aplicativos móveis do Azure fornecem uma implementação de armazenamento local padrão. No Windows, Xamarin e Android, ele se baseia no SQLite. No iOS, ele se baseia nos dados principais.
@@ -74,9 +66,9 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 * **Push**: Push é uma operação no contexto de sincronização e envia todas as alterações de cud desde o último envio por push. Observe que não é possível enviar apenas as alterações de uma tabela individual, pois, caso contrário, as operações podem ser enviadas fora de ordem. O push executa uma série de chamadas REST para o back-end do aplicativo móvel do Azure que, por sua vez, modifica o banco de dados do servidor.
 * **Pull**: pull é executado em uma base por tabela e pode ser personalizado com uma consulta para recuperar apenas um subconjunto dos dados do servidor. Os SDKs do cliente móvel do Azure inserem os dados resultantes no repositório local.
 * **Pushes implícitos**: se um pull for executado em uma tabela que tenha atualizações locais pendentes, o pull primeiro executará um `push()` no contexto de sincronização. Esse Push ajuda a minimizar os conflitos entre as alterações que já estão na fila e os novos dados do servidor.
-* **Sincronização incremental**: o primeiro parâmetro para a operação de pull é um *nome de consulta* que é usado somente no cliente. Se você usar um nome de consulta não nulo, o SDK do Azure Mobile executará uma *sincronização incremental*. Cada vez que uma operação de pull retorna um conjunto de resultados, o carimbo de data/hora `updatedAt` mais recente desse conjunto de resultados é armazenado nas tabelas do sistema local do SDK. As operações de pull subsequentes recuperam somente registros após esse carimbo de data/hora.
+* **Sincronização incremental**: o primeiro parâmetro para a operação de pull é um *nome de consulta* que é usado somente no cliente. Se você usar um nome de consulta não nulo, o SDK do Azure Mobile executará uma *sincronização incremental*. Cada vez que uma operação de pull retorna um conjunto de resultados, o carimbo de data/hora mais recente `updatedAt` desse conjunto de resultados é armazenado nas tabelas do sistema local do SDK. As operações de pull subsequentes recuperam somente registros após esse carimbo de data/hora.
 
-  Para usar a sincronização incremental, o servidor deve retornar valores significativos de `updatedAt` e também deve dar suporte à classificação por esse campo. No entanto, como o SDK adiciona sua própria classificação no campo updatedAt, você não pode usar uma consulta pull que tenha sua própria cláusula `orderBy`.
+  Para usar a sincronização incremental, o servidor deve retornar valores de `updatedAt` significativos e também deve dar suporte à classificação por esse campo. No entanto, como o SDK adiciona sua própria classificação no campo updatedAt, você não pode usar uma consulta pull que tenha sua própria cláusula `orderBy`.
 
   O nome da consulta pode ser qualquer cadeia de caracteres que você escolher, mas deve ser exclusivo para cada consulta lógica em seu aplicativo.
   Caso contrário, operações de pull diferentes podem substituir o mesmo carimbo de data/hora de sincronização incremental e suas consultas podem retornar resultados incorretos.

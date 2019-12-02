@@ -1,25 +1,17 @@
 ---
-title: Adicionar notificações por push ao seu aplicativo de Plataforma Universal do Windows (UWP) | Microsoft Docs
+title: Adicionar notificações por push ao seu aplicativo UWP
 description: Saiba como usar os aplicativos móveis de serviço Azure App e os hubs de notificação do Azure para enviar notificações por push para seu aplicativo de Plataforma Universal do Windows (UWP).
-services: app-service\mobile,notification-hubs
-documentationcenter: windows
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 80723bc8e7685c66117e71d87cbf64710ab4507a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e2178322c7006a6ddd2ca6daffca066f04fff68c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388636"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668719"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Adicionar notificações por push ao seu aplicativo do Windows
 
@@ -30,7 +22,7 @@ ms.locfileid: "72388636"
 >
 > Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Windows](app-service-mobile-windows-store-dotnet-get-started.md) para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
 

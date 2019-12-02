@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ab8c8a582b90976ada20b1e970c9e9648d14b2a9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c8ac3b2ada99634f8f35c211f2dd7695f9174ce9
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596443"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667981"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Entrada de página única usando o fluxo implícito do OAuth 2,0 no Azure Active Directory B2C
 
@@ -53,15 +53,15 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 |vários| Sim | Nome do seu locatário de Azure AD B2C|
-|regras| Sim| O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
+|regras| Sim| O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | response_type | Sim | Deve incluir `id_token` para entrar no OpenID Connect. Ele também pode incluir o tipo de resposta `token`. Se você usar `token`, seu aplicativo poderá receber imediatamente um token de acesso do ponto de extremidade de autorização, sem fazer uma segunda solicitação para o ponto de extremidade de autorização.  Se você usar o tipo de resposta `token`, o parâmetro `scope` deverá conter um escopo que indica para qual recurso emitir o token. |
 | redirect_uri | Não | O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL. |
 | response_mode | Não | Especifica o método a ser usado para enviar o token resultante de volta para seu aplicativo.  Para fluxos implícitos, use `fragment`. |
-| scope | Sim | Uma lista de escopos separados por espaços. Um único valor de escopo indica ao Azure AD as permissões que estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. O escopo de `offline_access` é opcional para aplicativos Web. Ele indica que seu aplicativo precisa de um token de atualização para acesso de longa duração aos recursos. |
+| scope | Sim | Uma lista de escopos separados por espaços. Um único valor de escopo indica ao Azure AD as permissões que estão sendo solicitadas. O escopo de `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. O escopo de `offline_access` é opcional para aplicativos Web. Ele indica que seu aplicativo precisa de um token de atualização para acesso de longa duração aos recursos. |
 | state | Não | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo que você queira usar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para evitar ataques de solicitação entre sites forjado. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página em que eles estavam. |
 | momentos | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
-| Aviso | Não | O tipo de interação do usuário que é necessário. Atualmente, o único valor válido é `login`. Esse parâmetro força o usuário a inserir suas credenciais nessa solicitação. O logon único não entra em vigor. |
+| aviso | Não | O tipo de interação do usuário que é necessário. Atualmente, o único valor válido é `login`. Esse parâmetro força o usuário a inserir suas credenciais nessa solicitação. O logon único não entra em vigor. |
 
 Neste ponto, o usuário será solicitado a concluir o fluxo de trabalho da política. O usuário pode precisar inserir seu nome de usuário e senha, entrar com uma identidade social, inscrever-se no diretório ou qualquer outro número de etapas. As ações do usuário dependem de como o fluxo do usuário é definido.
 
@@ -87,7 +87,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | O período de tempo que o token de acesso é válido (em segundos). |
 | scope | Os escopos para os quais o token é válido. Você também pode usar escopos para armazenar tokens em cache para uso posterior. |
 | id_token | O token de ID que o aplicativo solicitou. Você pode usar o token de ID para verificar a identidade do usuário e iniciar uma sessão com o usuário. Para obter mais informações sobre tokens de ID e seu conteúdo, consulte a [referência de token de Azure ad B2C](active-directory-b2c-reference-tokens.md). |
-| state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
+| state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de `state` na solicitação e na resposta são idênticos. |
 
 ### <a name="error-response"></a>Resposta de erro
 As respostas de erro também podem ser enviadas para o URI de redirecionamento para que o aplicativo possa tratá-las adequadamente:
@@ -103,7 +103,7 @@ error=access_denied
 | --------- | ----------- |
 | erro | Um código usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específica que pode ajudá-lo a identificar a causa raiz de um erro de autenticação. |
-| state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos.|
+| state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de `state` na solicitação e na resposta são idênticos.|
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 
@@ -130,7 +130,7 @@ Depois de adquirir o documento de metadados do ponto de extremidade de metadados
 
 Depois de validar a assinatura do token de ID, várias declarações exigem verificação. Por exemplo:
 
-* Valide a declaração `nonce` para evitar ataques de reprodução de token. Seu valor deve ser o que você especificou na solicitação de entrada.
+* Valide a declaração de `nonce` para evitar ataques de reprodução de token. Seu valor deve ser o que você especificou na solicitação de entrada.
 * Valide a declaração de `aud` para garantir que o token de ID foi emitido para seu aplicativo. Seu valor deve ser a ID do aplicativo do seu aplicativo.
 * Valide as declarações de `iat` e `exp` para garantir que o token de ID não tenha expirado.
 
@@ -166,7 +166,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
 |vários| Obrigatório | Nome do seu locatário de Azure AD B2C|
-regras| Obrigatório| O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
+regras| Obrigatório| O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
 | client_id |Obrigatório |A ID do aplicativo atribuída ao seu aplicativo no [portal do Azure](https://portal.azure.com). |
 | response_type |Obrigatório |Deve incluir `id_token` para entrar no OpenID Connect.  Ele também pode incluir o tipo de resposta `token`. Se você usar `token` aqui, seu aplicativo poderá receber imediatamente um token de acesso do ponto de extremidade de autorização, sem fazer uma segunda solicitação para o ponto de extremidade de autorização. Se você usar o tipo de resposta `token`, o parâmetro `scope` deverá conter um escopo que indica para qual recurso emitir o token. |
 | redirect_uri |Recomendado |O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL. |
@@ -174,7 +174,7 @@ regras| Obrigatório| O fluxo do usuário a ser executado. Especifique o nome de
 | response_mode |Recomendado |Especifica o método usado para enviar o token resultante de volta para seu aplicativo. Para o fluxo implícito, use `fragment`. Dois outros modos podem ser especificados, `query` e `form_post`, mas não funcionam no fluxo implícito. |
 | state |Recomendado |Um valor incluído na solicitação que é retornado na resposta do token.  Pode ser uma cadeia de caracteres de qualquer conteúdo que você queira usar.  Normalmente, um valor exclusivo gerado aleatoriamente é usado, para evitar ataques de solicitação entre sites forjado.  O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página ou a exibição em que o usuário estava. |
 | momentos |Obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que está incluído no token de ID resultante como uma declaração.  O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que identifica a origem da solicitação. |
-| Aviso |Obrigatório |Para atualizar e obter tokens em um iframe oculto, use `prompt=none` para garantir que o iframe não fique preso na página de entrada e retorne imediatamente. |
+| aviso |Obrigatório |Para atualizar e obter tokens em um iframe oculto, use `prompt=none` para garantir que o iframe não fique preso na página de entrada e retorne imediatamente. |
 | login_hint |Obrigatório |Para atualizar e obter tokens em um iframe oculto, inclua o nome de usuário dessa dica para distinguir entre várias sessões que o usuário pode ter em um determinado momento. Você pode extrair o nome de usuário de uma entrada anterior usando a declaração de `preferred_username` (o escopo de `profile` é necessário para receber a declaração de `preferred_username`). |
 | domain_hint |Obrigatório |Pode ser `consumers` ou `organizations`.  Para atualizar e obter tokens em um iframe oculto, inclua o valor `domain_hint` na solicitação.  Extraia a declaração de `tid` do token de ID de uma entrada anterior para determinar qual valor usar (o escopo de `profile` é necessário para receber a declaração de `tid`). Se o valor de declaração de `tid` for `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`.  Caso contrário, use `domain_hint=organizations`. |
 
@@ -196,7 +196,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |O token solicitado pelo aplicativo. |
 | token_type |O tipo de token sempre será portador. |
-| state |Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
+| state |Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de `state` na solicitação e na resposta são idênticos. |
 | expires_in |Por quanto tempo o token de acesso é válido (em segundos). |
 | scope |Os escopos para os quais o token de acesso é válido. |
 
@@ -217,7 +217,7 @@ error=user_authentication_required
 Se você receber esse erro na solicitação de iframe, o usuário deverá fazer logon interativamente novamente para recuperar um novo token.
 
 ## <a name="refresh-tokens"></a>Tokens de atualização
-Tokens de ID e tokens de acesso expiram após um curto período de tempo. Seu aplicativo deve estar preparado para atualizar esses tokens periodicamente.  Para atualizar qualquer tipo de token, execute a mesma solicitação de iframe oculta que usamos em um exemplo anterior, usando o parâmetro `prompt=none` para controlar as etapas do Azure AD.  Para receber um novo valor de `id_token`, certifique-se de usar `response_type=id_token` e `scope=openid` e um parâmetro de `nonce`.
+Tokens de ID e tokens de acesso expiram após um curto período de tempo. Seu aplicativo deve estar preparado para atualizar esses tokens periodicamente.  Para atualizar qualquer tipo de token, execute a mesma solicitação de iframe oculta que usamos em um exemplo anterior, usando o parâmetro `prompt=none` para controlar as etapas do Azure AD.  Para receber um novo valor de `id_token`, certifique-se de usar `response_type=id_token` e `scope=openid`e um parâmetro de `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
 Quando você quiser desconectar o usuário do aplicativo, redirecione o usuário para o Azure AD para sair. Se você não redirecionar o usuário, ele poderá ser capaz de autenticar novamente em seu aplicativo sem inserir suas credenciais novamente porque eles têm uma sessão de logon único válida com o Azure AD.
@@ -233,7 +233,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que você deseja usar para desconectar o usuário do seu aplicativo. |
 | post_logout_redirect_uri | Não | A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, Azure AD B2C mostrará ao usuário uma mensagem genérica. |
-| state | Não | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
+| state | Não | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de `state` na solicitação e na resposta são idênticos. |
 
 
 > [!NOTE]
@@ -249,5 +249,5 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 Este exemplo no GitHub destina-se a ajudá-lo a começar a usar Azure AD B2C em um aplicativo Web simples criado no [Hello. js][github-hello-js] e usando a autenticação de estilo pop-up.
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
 [github-hello-js]: https://github.com/MrSwitch/hello.js

@@ -1,25 +1,17 @@
 ---
-title: Trabalhando com a biblioteca de cliente gerenciada de aplicativos móveis do serviço de aplicativo | Microsoft Docs
+title: Trabalhar com a biblioteca de cliente gerenciado
 description: Saiba como usar a biblioteca de cliente .NET para aplicativos móveis do Azure App Service com aplicativos Windows e Xamarin.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1a56c6eed8b6a78587ea272c44f01d16e8a2b88d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388708"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668470"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como utilizar o cliente gerido para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -29,7 +21,7 @@ ms.locfileid: "72388708"
 >
 > Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este guia mostra como executar cenários comuns usando a biblioteca de cliente gerenciado para aplicativos móveis do Azure App Service para aplicativos Windows e Xamarin. Se você for novo em aplicativos móveis, considere primeiro concluir o tutorial de [início rápido dos aplicativos móveis do Azure][1] . Neste guia, nos concentramos no SDK gerenciado do lado do cliente. Para saber mais sobre os SDKs do lado do servidor para aplicativos móveis, consulte a documentação do [SDK do servidor .net][2] ou o [SDK do servidor node. js][3].
 
 ## <a name="reference-documentation"></a>Documentação de referência
@@ -42,7 +34,7 @@ A plataforma .NET dá suporte às seguintes plataformas:
 * Versões do Xamarin Android para API 19 a 24 (KitKat até nougat)
 * Versões do Xamarin iOS para iOS versões 8,0 e posteriores
 * Plataforma Universal do Windows
-* Windows Phone 8.1
+* Windows Phone 8,1
 * Windows Phone 8,0, exceto para aplicativos do Silverlight
 
 A autenticação "fluxo de servidor" usa uma WebView para a interface do usuário apresentada.  Se o dispositivo não puder apresentar uma interface do usuário do WebView, serão necessários outros métodos de autenticação.  Esse SDK, portanto, não é adequado para o tipo de inspeção ou para dispositivos de forma restrita.
@@ -335,7 +327,7 @@ Os aplicativos móveis dão suporte a valores de cadeia de caracteres personaliz
 * Os registros são mais fáceis de Mesclar de tabelas ou bancos de dados diferentes.
 * Os valores de IDs podem se integrar melhor com a lógica de um aplicativo.
 
-Quando um valor de ID de cadeia de caracteres não é definido em um registro inserido, o back-end do aplicativo móvel gera um valor exclusivo para a ID. Você pode usar o método [Guid.NewGuid] para gerar seus próprios valores de ID, seja no cliente ou no back-end.
+Quando um valor de ID de cadeia de caracteres não é definido em um registro inserido, o back-end do aplicativo móvel gera um valor exclusivo para a ID. Você pode usar o método [GUID. NewGuid] para gerar seus próprios valores de ID, seja no cliente ou no back-end.
 
 ```csharp
 JObject jo = new JObject();
@@ -832,7 +824,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de [MobileServiceAuthenticationProvider] para o valor de seu provedor.
 
-Em um fluxo de servidor, Azure App serviço gerencia o fluxo de autenticação OAuth exibindo a página de entrada do provedor selecionado.  Depois que o provedor de identidade retornar, Azure App serviço gerará um token de autenticação do serviço de aplicativo. O método [LoginAsync] retorna um [MobileServiceUser], que fornece o [userid] do usuário autenticado e o [MobileServiceAuthenticationToken], como um token Web JSON (JWT). Este token pode ser colocado em cache e reutilizado até expirar. Para obter mais informações, consulte [Caching The Authentication token](#caching).
+Em um fluxo de servidor, Azure App serviço gerencia o fluxo de autenticação OAuth exibindo a página de entrada do provedor selecionado.  Depois que o provedor de identidade retornar, Azure App serviço gerará um token de autenticação do serviço de aplicativo. O método [LoginAsync] retorna um [MobileServiceUser], que fornece o [ID] do usuário autenticado e o [MobileServiceAuthenticationToken], como um token Web JSON (JWT). Este token pode ser colocado em cache e reutilizado até expirar. Para obter mais informações, consulte [Caching The Authentication token](#caching).
 
 ### <a name="caching"></a>Armazenando em cache o token de autenticação
 Em alguns casos, a chamada para o método login pode ser evitada após a primeira autenticação bem-sucedida, armazenando o token de autenticação do provedor.  Os aplicativos Microsoft Store e UWP podem usar [PasswordVault] para armazenar em cache o token de autenticação atual após uma entrada bem-sucedida, da seguinte maneira:
@@ -870,7 +862,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Os aplicativos xamarin usam as APIs do [Xamarin.Auth] para armazenar credenciais com segurança em um objeto de **conta** . Para obter um exemplo de como usar essas APIs, consulte o arquivo de código [AuthStore.cs] no [exemplo de compartilhamento de fotos do ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
+Os aplicativos xamarin usam as APIs do [xamarin. auth] para armazenar credenciais com segurança em um objeto de **conta** . Para obter um exemplo de como usar essas APIs, consulte o arquivo de código [AuthStore.cs] no [exemplo de compartilhamento de fotos do ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
 
 Ao usar a autenticação gerenciada pelo cliente, você também pode armazenar em cache o token de acesso obtido do seu provedor, como o Facebook ou o Twitter. Esse token pode ser fornecido para solicitar um novo token de autenticação do back-end, da seguinte maneira:
 
@@ -904,7 +896,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Se você estiver enviando por push para o WNS, deverá [obter um SID de pacote Microsoft Store](#package-sid).  Para obter mais informações sobre as aplicações do Windows, incluindo como registar a registos de modelo, consulte [Adicionar notificações push à aplicação].
+Se você estiver enviando por push para o WNS, deverá [obter um SID de pacote Microsoft Store](#package-sid).  Para obter mais informações sobre aplicativos do Windows, incluindo como se registrar para registros de modelo, consulte [Adicionar notificações push à aplicação].
 
 Não há suporte para a solicitação de marcas do cliente.  As solicitações de marca são silenciosamente descartadas do registro.
 Se você quiser registrar seu dispositivo com marcas, crie uma API personalizada que use a API de hubs de notificação para executar o registro em seu nome.  Chame a API personalizada em vez do método `RegisterNativeAsync()`.
@@ -1071,11 +1063,11 @@ public class MyHandler : DelegatingHandler
 [Selecionar]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Saltar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[ID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Posição]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
-[Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
+[GUID. NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Centro de desenvolvimento do Windows]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
@@ -1089,6 +1081,6 @@ public class MyHandler : DelegatingHandler
 [Documentação do OData v3]: https://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: https://www.telerik.com/fiddler
 [Json.NET]: https://www.newtonsoft.com/json
-[Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
+[Xamarin. auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments

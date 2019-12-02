@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847263"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668153"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -35,7 +35,7 @@ A nova SKU v2 inclui os seguintes aprimoramentos:
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O Standard_v2 e o WAF_v2 SKU estão disponíveis nas seguintes regiões: Norte EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França central, Oeste do Reino Unido, leste do Japão, oeste do Japão, leste da Austrália , Sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Ásia Oriental, Coreia central, Coreia do Sul, sul da Índia, Sul do Reino Unido, Índia central, Índia ocidental, sul da Índia.
+O Standard_v2 e o WAF_v2 SKU estão disponíveis nas seguintes regiões: Norte EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, EUA Central, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França central, Oeste do Reino Unido, leste do Japão, oeste do Japão, leste da Austrália , Sudeste da Austrália, sul do Brasil, centro do Canadá, leste do Canadá, Ásia Oriental, Coreia central, sul da Coreia, Sul do Reino Unido, Índia central, Índia ocidental, sul da Índia.
 
 ## <a name="pricing"></a>Preços
 
@@ -157,7 +157,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Afinidade de sessão                                  | &#x2713; | &#x2713; |
 | Páginas de erros personalizadas                                | &#x2713; | &#x2713; |
 | Suporte do WebSocket                                 | &#x2713; | &#x2713; |
-| Suporte HTTP/2                                    | &#x2713; | &#x2713; |
+| suporte HTTP/2                                    | &#x2713; | &#x2713; |
 | Drenagem de ligação                               | &#x2713; | &#x2713; |
 
 > [!NOTE]

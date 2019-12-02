@@ -1,25 +1,17 @@
 ---
-title: Como usar o SDK do JavaScript para aplicativos móveis do Azure
+title: Usar o SDK do JavaScript
 description: Como usar o v para aplicativos móveis do Azure
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 8a22de6b3e518bb3c9392d7fd64411969b32f33f
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f70523b5b27a4f3db86bacf39469e233e43f807
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388723"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668836"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como usar a biblioteca de cliente JavaScript para aplicativos móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +19,7 @@ ms.locfileid: "72388723"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="overview"></a>Visão geral
 Este guia ensina a executar cenários comuns usando o SDK do [SDK do JavaScript para aplicativos móveis do Azure]. Se você for novo nos aplicativos móveis do Azure, primeiro conclua os [Início Rápido de aplicativos móveis do Azure] para criar um back-end e criar uma tabela. Neste guia, nos concentramos em usar o back-end móvel em aplicativos Web HTML/JavaScript.
@@ -92,7 +84,7 @@ Executar localmente pode causar problemas porque, por padrão, a autenticação 
              "https://localhost:3000"
          ],
 
-    Substitua as URLs na matriz pelas URLs do seu serviço, que neste exemplo é `http://localhost:3000` para o serviço de exemplo node. js local. Você também pode usar `http://localhost:4400` para o serviço de Ripple ou alguma outra URL, dependendo de como seu aplicativo está configurado.
+    Substitua as URLs na matriz pelas URLs do seu serviço, que neste exemplo é `http://localhost:3000` para o serviço de exemplo node. js local. Você também pode usar `http://localhost:4400` para o serviço do Ripple ou alguma outra URL, dependendo de como seu aplicativo está configurado.
 8. Na parte superior da página, clique em **leitura/gravação**e, em seguida, clique em **colocar** para salvar as atualizações.
 
 Você também precisa adicionar as mesmas URLs de loopback às configurações da lista branca do CORS:

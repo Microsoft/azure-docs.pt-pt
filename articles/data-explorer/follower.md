@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 61cfcfc41a1d9caeaded475511dd69ebc48756e2
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462020"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667356"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usar o banco de dados de acompanhamento para anexar bancos de dados no Azure Data Explorer
 
@@ -38,11 +38,12 @@ Há vários métodos que você pode usar para anexar um banco de dados. Neste ar
 
 ### <a name="attach-a-database-using-c"></a>Anexar um banco de dados usandoC#
 
-**NuGets necessário**
+#### <a name="needed-nugets"></a>NuGets necessário
 
 * Instale [Microsoft. Azure. Management. Kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Instale [Microsoft. REST. ClientRuntime. Azure. Authentication para autenticação](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
+#### <a name="code-example"></a>Exemplo de código
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -74,6 +75,54 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 };
 
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
+```
+
+### <a name="attach-a-database-using-python"></a>Anexar um banco de dados usando o Python
+
+#### <a name="needed-modules"></a>Módulos necessários
+
+```
+pip install azure-common
+pip install azure-mgmt-kusto
+```
+
+#### <a name="code-example"></a>Exemplo de código
+
+```python
+from azure.mgmt.kusto import KustoManagementClient
+from azure.mgmt.kusto.models import AttachedDatabaseConfiguration
+from azure.common.credentials import ServicePrincipalCredentials
+import datetime
+
+#Directory (tenant) ID
+tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Application ID
+client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Client Secret
+client_secret = "xxxxxxxxxxxxxx"
+follower_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+leader_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+kusto_management_client = KustoManagementClient(credentials, follower_subscription_id)
+
+follower_resource_group_name = "followerResouceGroup"
+leader_resouce_group_name = "leaderResouceGroup"
+follower_cluster_name = "follower"
+leader_cluster_name = "leader"
+attached_database_Configuration_name = "adc"
+database_name  = "db" # Can be specific database name or * for all databases
+default_principals_modification_kind  = "Union"
+location = "North Central US"
+cluster_resource_id = "/subscriptions/" + leader_subscription_id + "/resourceGroups/" + leader_resouce_group_name + "/providers/Microsoft.Kusto/Clusters/" + leader_cluster_name
+
+attached_database_configuration_properties = AttachedDatabaseConfiguration(cluster_resource_id = cluster_resource_id, database_name = database_name, default_principals_modification_kind = default_principals_modification_kind, location = location)
+
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Anexar um banco de dados usando um modelo de Azure Resource Manager
@@ -247,6 +296,78 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
+## <a name="detach-the-follower-database-using-python"></a>Desanexar o banco de dados de acompanhamento usando Python
+
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Desanexar o banco de dados de acompanhamento anexado do cluster de acompanhamento
+
+O cluster de acompanhamento pode desanexar qualquer banco de dados anexado da seguinte maneira:
+
+```python
+from azure.mgmt.kusto import KustoManagementClient
+from azure.common.credentials import ServicePrincipalCredentials
+import datetime
+
+#Directory (tenant) ID
+tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Application ID
+client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Client Secret
+client_secret = "xxxxxxxxxxxxxx"
+follower_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+kusto_management_client = KustoManagementClient(credentials, follower_subscription_id)
+
+follower_resource_group_name = "followerResouceGroup"
+follower_cluster_name = "follower"
+attached_database_configurationName = "adc"
+
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
+```
+
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Desanexar o banco de dados de acompanhamento anexado do cluster de líderes
+
+O cluster líder pode desanexar qualquer banco de dados anexado da seguinte maneira:
+
+```python
+
+from azure.mgmt.kusto import KustoManagementClient
+from azure.mgmt.kusto.models import FollowerDatabaseDefinition
+from azure.common.credentials import ServicePrincipalCredentials
+import datetime
+
+#Directory (tenant) ID
+tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Application ID
+client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+#Client Secret
+client_secret = "xxxxxxxxxxxxxx"
+follower_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+leader_subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
+kusto_management_client = KustoManagementClient(credentials, follower_subscription_id)
+
+follower_resource_group_name = "followerResourceGroup"
+leader_resource_group_name = "leaderResourceGroup"
+follower_cluster_name = "follower"
+leader_cluster_name = "leader"
+attached_database_configuration_name = "adc"
+location = "North Central US"
+cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
+
+
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
+```
+
 ## <a name="manage-principals-permissions-and-caching-policy"></a>Gerenciar entidades, permissões e política de cache
 
 ### <a name="manage-principals"></a>Gerenciar entidades de segurança
@@ -277,6 +398,6 @@ O administrador de banco de dados de acompanhamento pode modificar a [política 
 * Não é possível excluir um cluster que tenha um banco de dados anexado a um cluster diferente antes de desanexá-lo.
 * Não é possível parar um cluster que tenha bancos de dados de acompanhamento ou de líder anexados. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a configuração do cluster de acompanhamento, consulte [comandos de controle para gerenciar um cluster de acompanhamento](/azure/kusto/management/cluster-follower).

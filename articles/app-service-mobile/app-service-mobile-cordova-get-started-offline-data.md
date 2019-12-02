@@ -1,25 +1,17 @@
 ---
-title: Habilitar sincronização offline para seu aplicativo móvel do Azure (Cordova) | Microsoft Docs
-description: Saiba como usar o aplicativo móvel do serviço de aplicativo para armazenar em cache e sincronizar dados offline em seu aplicativo Cordova
-documentationcenter: cordova
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
+title: Habilitar sincronização offline (Cordova)
+description: Saiba como usar o aplicativo móvel do serviço de aplicativo para armazenar em cache e sincronizar dados offline em seu aplicativo Cordova.
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: c5fcc98bf3da79d1978da6e67535a5a93a8fe321
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: aae78285b5ed13031275b4969befa2e1d67bf5b7
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388854"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668531"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel do Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -29,7 +21,7 @@ ms.locfileid: "72388854"
 >
 > Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este tutorial apresenta o recurso de sincronização offline dos aplicativos móveis do Azure para Cordova. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel&mdash;exibir, adicionar ou modificar dados&mdash;mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local.  Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
 
 Este tutorial se baseia na solução de início rápido do Cordova para aplicativos móveis que você cria ao concluir o tutorial [Início rápido de Apache Cordova]. Neste tutorial, você atualiza a solução de início rápido para adicionar recursos offline de aplicativos móveis do Azure.  Também destacamos o código específico offline no aplicativo.

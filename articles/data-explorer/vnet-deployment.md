@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838220"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668576"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implantar Data Explorer do Azure em sua rede virtual (versão prévia)
 
@@ -48,7 +48,7 @@ O tamanho da sub-rede usada para hospedar um cluster de Data Explorer do Azure n
 
 O número total de endereços IP:
 
-| Utilizar | Número de endereços |
+| Usar | Número de endereços |
 | --- | --- |
 | Serviço de mecanismo | 1 por instância |
 | Serviço de gerenciamento de dados | 2 |
@@ -64,6 +64,9 @@ O número total de endereços IP:
 Os [pontos de extremidade de serviço do Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) permitem que você proteja seus recursos multilocatários do Azure para sua rede virtual.
 A implantação do cluster Data Explorer do Azure em sua sub-rede permite que você configure conexões de dados com o [Hub de eventos](/azure/event-hubs/event-hubs-about) ou a [grade de eventos](/azure/event-grid/overview) ao restringir os recursos subjacentes para a sub-rede do Azure data Explorer.
 
+> [!NOTE]
+> Ao usar a instalação do EventGrid com o [armazenamento](/azure/storage/common/storage-introduction) e o [Hub de eventos], a conta de armazenamento usada na assinatura pode ser bloqueada com pontos de extremidade de serviço para a sub-rede do Azure data Explorer, enquanto permite serviços confiáveis da plataforma Azure na [configuração do firewall](/azure/storage/common/storage-network-security), mas o Hub de eventos não pode habilitar o ponto de extremidade de serviço, pois ele não dá suporte a serviços confiáveis da [plataforma Azure](/azure/event-hubs/event-hubs-service-endpoints)
+
 ## <a name="dependencies-for-vnet-deployment"></a>Dependências para implantação de VNet
 
 ### <a name="network-security-groups-configuration"></a>Configuração de grupos de segurança de rede
@@ -76,7 +79,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | --- | --- | --- | --- |
 | Gestão  |[ADX Management Addresses](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Sub-rede ADX: 443  | TCP  |
 | Monitorização do estado de funcionamento  | [Endereços de monitoramento de integridade do ADX](#health-monitoring-addresses)  | Sub-rede ADX: 443  | TCP  |
-| ADX comunicação interna  | Sub-rede ADX: todas as portas  | Sub-rede ADX: todas as portas  | Todos  |
+| ADX comunicação interna  | Sub-rede ADX: todas as portas  | Sub-rede ADX: todas as portas  | Tudo  |
 | Permitir entrada do Azure Load Balancer (investigação de integridade)  | AzureLoadBalancer  | Sub-rede ADX: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Configuração de NSG de saída
@@ -90,7 +93,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Download de configuração do Azure Monitor  | Sub-rede ADX  | [Endereços do ponto de extremidade de configuração do Azure monitor](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (se aplicável) | Sub-rede ADX | AzureActiveDirectory: 443 | TCP |
 | Autoridade de certificação | Sub-rede ADX | Internet: 80 | TCP |
-| Comunicação interna  | Sub-rede ADX  | Sub-rede ADX: todas as portas  | Todos  |
+| Comunicação interna  | Sub-rede ADX  | Sub-rede ADX: todas as portas  | Tudo  |
 | Portas que são usadas para plug-ins `sql\_request` e `http\_request`  | Sub-rede ADX  | Internet: personalizado  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Endereços IP relevantes
@@ -106,32 +109,32 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | BrazilSouth | 191.233.25.183 |
 | Canadá Central | 40.82.188.208 |
 | Leste do Canadá | 40.80.255.12 |
-| Índia Central | 40.81.249.251 |
-| EUA Central | 40.67.188.68 |
+| Centro da Índia | 40.81.249.251 |
+| Centro dos E.U.A. | 40.67.188.68 |
 | EUA Central EUAP | 40.89.56.69 |
-| Ásia Oriental | 20.189.74.103 |
-| EUA Leste | 52.224.146.56 |
+| Este Asiático | 20.189.74.103 |
+| Este dos E.U.A. | 52.224.146.56 |
 | E.U.A. Leste 2 | 52.232.230.201 |
 | EUAP dos EUA 2 leste | 52.253.226.110 |
 | França Central | 40.66.57.91 |
 | Sul de França | 40.82.236.24 |
-| Leste do Japão | 20.43.89.90 |
+| Este do Japão | 20.43.89.90 |
 | Oeste do Japão | 40.81.184.86 |
 | Coreia do Sul Central | 40.82.156.149 |
-| Coreia do Sul | 40.80.234.9 |
-| EUA Centro-Norte | 40.81.45.254 |
+| Sul da Coreia do Sul | 40.80.234.9 |
+| E.U.A. Centro-Norte | 40.81.45.254 |
 | Europa do Norte | 52.142.91.221 |
 | Norte da África do Sul | 102.133.129.138 |
 | Oeste da África do Sul | 102.133.0.97 |
-| EUA Centro-Sul | 20.45.3.60 |
+| E.U.A. Centro-Sul | 20.45.3.60 |
 | Sudeste Asiático | 40.119.203.252 |
 | Sul da Índia | 40.81.72.110 |
 | Sul do Reino Unido | 40.81.154.254 |
-| Reino Unido Oeste | 40.81.122.39 |
-| EUA Centro-Oeste | 52.159.55.120 |
+| Oeste do Reino Unido | 40.81.122.39 |
+| E.U.A. Centro-Oeste | 52.159.55.120 |
 | Europa Ocidental | 51.145.176.215 |
 | Oeste da Índia | 40.81.88.112 |
-| EUA Oeste | 13.64.38.225 |
+| Oeste dos E.U.A. | 13.64.38.225 |
 | E.U.A. Oeste 2 | 40.90.219.23 |
 
 #### <a name="health-monitoring-addresses"></a>Endereços de monitoramento de integridade
@@ -145,33 +148,33 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Sul do Brasil | 23.98.145.105 |
 | Canadá Central | 168.61.212.201 |
 | Leste do Canadá | 168.61.212.201 |
-| Índia Central | 23.99.5.162 |
-| EUA Central | 168.61.212.201 |
+| Centro da Índia | 23.99.5.162 |
+| Centro dos E.U.A. | 168.61.212.201 |
 | EUA Central EUAP | 168.61.212.201 |
-| Ásia Oriental | 168.63.212.33 |
-| EUA Leste | 137.116.81.189 |
-| EUA Leste 2 | 137.116.81.189 |
+| Este Asiático | 168.63.212.33 |
+| Este dos E.U.A. | 137.116.81.189 |
+| Este dos E.U.A. 2 | 137.116.81.189 |
 | Leste dos EUA 2 EUAP | 137.116.81.189 |
 | França Central | 23.97.212.5 |
 | Sul de França | 23.97.212.5 |
-| Leste do Japão | 138.91.19.129 |
+| Este do Japão | 138.91.19.129 |
 | Oeste do Japão | 138.91.19.129 |
 | Coreia do Sul Central | 138.91.19.129 |
-| Coreia do Sul | 138.91.19.129 |
-| EUA Centro-Norte | 23.96.212.108 |
+| Sul da Coreia do Sul | 138.91.19.129 |
+| E.U.A. Centro-Norte | 23.96.212.108 |
 | Europa do Norte | 191.235.212.69 
 | Norte da África do Sul | 104.211.224.189 |
 | Oeste da África do Sul | 104.211.224.189 |
-| EUA Centro-Sul | 23.98.145.105 |
+| E.U.A. Centro-Sul | 23.98.145.105 |
 | Sul da Índia | 23.99.5.162 |
 | Sudeste Asiático | 168.63.173.234 |
 | Sul do Reino Unido | 23.97.212.5 |
-| Reino Unido Oeste | 23.97.212.5 |
-| EUA Centro-Oeste | 168.61.212.201 |
+| Oeste do Reino Unido | 23.97.212.5 |
+| E.U.A. Centro-Oeste | 168.61.212.201 |
 | Europa Ocidental | 23.97.212.5 |
 | Oeste da Índia | 23.99.5.162 |
-| EUA Oeste | 23.99.5.162 |
-| EUA Oeste 2 | 23.99.5.162 | 
+| Oeste dos E.U.A. | 23.99.5.162 |
+| E.U.A. Oeste 2 | 23.99.5.162 | 
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Endereços de ponto de extremidade de configuração Azure Monitor
 
@@ -206,7 +209,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Sudeste da Ásia | 52.148.86.165 |
 | Sul do Reino Unido | 52.174.4.112 |
 | Oeste do Reino Unido | 52.169.237.246 |
-| EUA Centro-Oeste | 52.161.31.69 |
+| E.U.A. Centro-Oeste | 52.161.31.69 |
 | Europa Ocidental | 52.174.4.112 |
 | Índia ocidental | 13.71.25.187 |
 | Oeste dos EUA | 40.78.70.148 |

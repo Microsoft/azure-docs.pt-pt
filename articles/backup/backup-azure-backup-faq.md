@@ -3,12 +3,12 @@ title: Respostas para perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173235"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668084"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure-perguntas frequentes
 
@@ -116,9 +116,9 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 **Fonte de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados cujo backup está sendo feito do backup de uma VM de volume único.
-Base de dados do SQL Server |Tamanho do tamanho de um banco de dados SQL de backup.
+Banco de dados SQL Server |Tamanho do tamanho de um banco de dados SQL de backup.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint cujo backup está sendo feito.
-Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange cujo backup está sendo feito.
+Trocar |Soma de todos os bancos de dados do Exchange em um servidor Exchange cujo backup está sendo feito.
 BMR/estado do sistema |Cada cópia individual do BMR ou do estado do sistema do computador cujo backup está sendo feito.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup usando um cofre dos serviços de recuperação?
@@ -176,7 +176,7 @@ A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mund
 
 Pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que faz backup para o Azure.
 
-- Saiba mais sobre [backup e retenção](./backup-overview.md#backup-and-retention).
+- Saiba mais sobre [backup e retenção](./backup-support-matrix.md).
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quantas vezes posso recuperar dados dos quais foi feito backup no Azure?
 

@@ -1,25 +1,17 @@
 ---
-title: Adicionar notificações por push ao seu aplicativo Xamarin. Forms | Microsoft Docs
+title: Adicionar notificações por push ao seu aplicativo Xamarin. Forms
 description: Saiba como usar os serviços do Azure para enviar notificações por push de várias plataformas para seus aplicativos Xamarin. Forms.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: ce5750a5071ee0dfc257498f83f41b6d59c99a8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f8aab2c5e942944f6251eef0aaaec204ce5ad076
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388525"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668781"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicionar notificações por push ao seu aplicativo Xamarin. Forms
 
@@ -30,7 +22,7 @@ ms.locfileid: "72388525"
 >
 > Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Neste tutorial, você adicionará notificações por push a todos os projetos que resultaram do [início rápido do Xamarin. Forms](app-service-mobile-xamarin-forms-get-started.md). Isso significa que uma notificação por push é enviada para todos os clientes de plataforma cruzada toda vez que um registro é inserido.
 

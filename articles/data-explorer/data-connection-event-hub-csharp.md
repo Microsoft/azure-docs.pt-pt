@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 741232bb7ed6ecf3d20711c1f6248f8e6d6215e8
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cf2a274b4f48b31739d6abba5cf87fa2a10d4ca1
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031685"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667683"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>Criar uma conexão de dados do hub de eventos para o Azure Data Explorer usandoC#
 
@@ -20,21 +20,17 @@ ms.locfileid: "72031685"
 > * [Portal](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Modelo do Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) de hubs de eventos, hubs IoT e Blobs gravados em contêineres de BLOB. Neste artigo, você cria uma conexão de dados do hub de eventos para o Azure C#data Explorer usando o.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
-
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-
 * Criar [um cluster e um banco de dados](create-cluster-database-csharp.md)
-
 * Criar [mapeamento de tabela e coluna](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Definir [políticas de banco de dados e tabela](database-table-policies-csharp.md) (opcional)
-
 * Crie um [Hub de eventos com dados para ingestão](ingest-data-event-hub.md#create-an-event-hub). 
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
@@ -80,19 +76,19 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 |**Definição** | **Valor sugerido** | **Descrição do campo**|
 |---|---|---|
-| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Sua ID de locatário. Também conhecida como ID de diretório.|
+| TenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Sua ID de locatário. Também conhecida como ID de diretório.|
 | subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID da assinatura que você usa para a criação de recursos.|
 | clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
 | clientSecret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário.|
 | resourceGroupName | *testrg* | O nome do grupo de recursos que contém o cluster.|
 | clusterName | *mykustocluster* | O nome do cluster.|
-| databaseName | *mykustodatabase* | O nome do banco de dados de destino no cluster.|
+| NomeDoBancoDeDados | *mykustodatabase* | O nome do banco de dados de destino no cluster.|
 | dataconnectionname | *myeventhubconnect* | O nome desejado da sua conexão de dados.|
 | tableName | *StormEvents* | O nome da tabela de destino no banco de dados de destino.|
 | mappingRuleName | *StormEvents_CSV_Mapping* | O nome do mapeamento de coluna relacionado à tabela de destino.|
 | Formato de DataFormat | *CSV* | O formato de dados da mensagem.|
 | eventHubResourceId | *ID do recurso* | A ID de recurso do hub de eventos que contém os dados para ingestão. |
 | consumerGroup | *$Default* | O grupo de consumidores do hub de eventos.|
-| location | *EUA Central* | O local do recurso de conexão de dados.|
+| localização | *EUA Central* | O local do recurso de conexão de dados.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](../../includes/data-explorer-data-connection-clean-resources-csharp.md)]

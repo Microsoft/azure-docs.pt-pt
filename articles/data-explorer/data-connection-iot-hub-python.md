@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 1e6cd94e18382b3e66fc6a9c284539bc178e199c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7e1d9021abbbe507f3bf287291d5638c77f6e0cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031646"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667371"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Criar uma conexão de dados do Hub IoT para o Azure Data Explorer usando Python (versão prévia)
 
@@ -20,19 +20,16 @@ ms.locfileid: "72031646"
 > * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Modelo do Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) de hubs de eventos, hubs IoT e Blobs gravados em contêineres de BLOB. Neste artigo, você cria uma conexão de dados do Hub IoT para o Azure Data Explorer usando o Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-
 * Criar [um cluster e um banco de dados](create-cluster-database-csharp.md)
-
 * Criar [mapeamento de tabela e coluna](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Definir [políticas de banco de dados e tabela](database-table-policies-csharp.md) (opcional)
-
 * Crie um [Hub IOT com uma política de acesso compartilhado configurada](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
@@ -99,6 +96,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | iot_hub_resource_id | *ID do recurso* | A ID de recurso do Hub IoT que contém os dados para ingestão.|
 | shared_access_policy_name | *iothubforread* | O nome da política de acesso compartilhado que define as permissões para dispositivos e serviços para se conectar ao Hub IoT. |
 | consumer_group | *$Default* | O grupo de consumidores do hub de eventos.|
-| location | *EUA Central* | O local do recurso de conexão de dados.|
+| localização | *EUA Central* | O local do recurso de conexão de dados.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

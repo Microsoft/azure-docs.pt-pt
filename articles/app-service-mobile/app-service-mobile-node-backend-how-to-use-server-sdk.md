@@ -1,25 +1,17 @@
 ---
-title: Como trabalhar com o SDK do servidor back-end do node. js para aplicativos móveis | Microsoft Docs
+title: Trabalhar com o SDK do servidor back-end do node. js
 description: Saiba como trabalhar com o SDK do servidor back-end do node. js para aplicativos móveis do serviço Azure App.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: elamalani
-editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: a3883d233bd621607ec724e0c85734b508195340
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fe5ced96a74bfbfbacf3ce1874d64711f6db7449
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388666"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668768"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do node. js de aplicativos móveis
 
@@ -378,16 +370,16 @@ A maioria das configurações no arquivo azureMobile. js tem uma configuração 
 | Configuração do aplicativo | configuração do azureMobile. js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |nome |Nome do aplicativo |string |
-| **MS_MobileLoggingLevel** |logging.level |Nível mínimo de log das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, insimples |
-| **MS_DebugMode** |verificação |Habilita ou desabilita o modo de depuração |VERDADEIRO, FALSO |
-| **MS_TableSchema** |data.schema |Nome de esquema padrão para tabelas SQL |Cadeia de caracteres (padrão: dbo) |
-| **MS_DynamicSchema** |data.dynamicSchema |Habilita ou desabilita o modo de depuração |VERDADEIRO, FALSO |
-| **MS_DisableVersionHeader** |versão (definida como indefinida) |Desabilita o cabeçalho X-ZUMO-Server-Version |VERDADEIRO, FALSO |
-| **MS_SkipVersionCheck** |skipversioncheck |Desabilita a verificação de versão da API do cliente |VERDADEIRO, FALSO |
+| **MS_MobileLoggingLevel** |log. Level |Nível mínimo de log das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, insimples |
+| **MS_DebugMode** |verificação |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
+| **MS_TableSchema** |Data. Schema |Nome de esquema padrão para tabelas SQL |Cadeia de caracteres (padrão: dbo) |
+| **MS_DynamicSchema** |Data. dynamicSchema |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
+| **MS_DisableVersionHeader** |versão (definida como indefinida) |Desabilita o cabeçalho X-ZUMO-Server-Version |verdadeiro, falso |
+| **MS_SkipVersionCheck** |skipversioncheck |Desabilita a verificação de versão da API do cliente |verdadeiro, falso |
 
 Para definir uma configuração de aplicativo:
 
-1. Iniciar sessão no [portal do Azure].
+1. Inicie sessão no [portal do Azure].
 1. Selecione **todos os recursos** ou **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo móvel.
 1. O painel **configurações** é aberto por padrão. Se não estiver, selecione **configurações**.
 1. No menu **geral** , selecione **configurações do aplicativo**.
@@ -404,7 +396,7 @@ Alterar a maioria das configurações de aplicativo requer uma reinicialização
 
 O uso do banco de dados SQL do Azure como um repositório é idêntico em todos os tipos de aplicativos de serviço Azure App. Se você ainda não tiver feito isso, siga estas etapas para criar um back-end de aplicativos móveis:
 
-1. Iniciar sessão no [portal do Azure].
+1. Inicie sessão no [portal do Azure].
 1. No canto superior esquerdo da janela, selecione o botão **+ novo** > **Web + celular** > **aplicativo móvel**e forneça um nome para o back-end dos seus aplicativos móveis.
 1. Na caixa **grupo de recursos** , digite o mesmo nome que o seu aplicativo.
 1. O plano do serviço de aplicativo padrão é selecionado. Se você quiser alterar o plano do serviço de aplicativo:

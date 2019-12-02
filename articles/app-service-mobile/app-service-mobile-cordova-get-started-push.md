@@ -1,25 +1,17 @@
 ---
-title: Adicionar notificações por push a um aplicativo Apache Cordova com o recurso aplicativos móveis do Azure App Service | Microsoft Docs
+title: Adicionar notificações por push a um aplicativo Apache Cordova
 description: Saiba como usar aplicativos móveis para enviar notificações por push para seu aplicativo Apache Cordova.
-services: app-service\mobile
-documentationcenter: javascript
-manager: crdun
-editor: ''
-author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 7a7e64b32a084075fe96cbd4ab7a0d28fc0f8e19
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6ec214c0f1a4f8333bf88790de8d2936fce39002
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388860"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668917"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Adicionar notificações por push ao seu aplicativo Apache Cordova
 
@@ -28,7 +20,7 @@ ms.locfileid: "72388860"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 ## <a name="overview"></a>Visão geral
 
@@ -95,7 +87,7 @@ Execute o seguinte comando:
 
 3. Selecione a seta ao lado da origem da instalação.
 
-4. No **SENDER_ID**, se você já tiver uma ID de projeto numérica para o projeto do console do desenvolvedor do Google, poderá adicioná-la aqui. Caso contrário, insira um valor de espaço reservado, como 777777. Se você estiver direcionando para o Android, poderá atualizar esse valor no arquivo config. xml mais tarde.
+4. Em **SENDER_ID**, se você já tiver uma ID de projeto numérica para o projeto do console do desenvolvedor do Google, poderá adicioná-la aqui. Caso contrário, insira um valor de espaço reservado, como 777777. Se você estiver direcionando para o Android, poderá atualizar esse valor no arquivo config. xml mais tarde.
 
     >[!NOTE]
     >A partir da versão 2.0.0, o Google-Services. JSON precisa ser instalado na pasta raiz do seu projeto para configurar a ID do remetente. Para obter mais informações, consulte a [documentação de instalação.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
@@ -106,7 +98,7 @@ O plug-in de push agora está instalado.
 
 #### <a name="install-the-device-plugin"></a>Instalar o plug-in do dispositivo
 
-Siga o mesmo procedimento usado para instalar o plug-in de push. Adicione o plug-in do dispositivo da lista de plug-ins principais. (Para encontrá-lo, selecione **Plugins** > **núcleo**.) Você precisa desse plug-in para obter o nome da plataforma.
+Siga o mesmo procedimento usado para instalar o plug-in de push. Adicione o plug-in do dispositivo da lista de plug-ins principais. (Para encontrá-lo, selecione **Plugins** > **Core**.) Você precisa desse plug-in para obter o nome da plataforma.
 
 #### <a name="register-your-device-when-the-application-starts"></a>Registrar seu dispositivo quando o aplicativo for iniciado 
 
@@ -182,7 +174,7 @@ Inicialmente, incluímos alguns códigos mínimos para o Android. Posteriormente
     pushRegistration.on('error', handleError);
     }
     ```
-3. Android No código anterior, substitua `Your_Project_ID` pela ID do projeto numérico para seu aplicativo no console do [desenvolvedor do Google][18].
+3. Android No código anterior, substitua `Your_Project_ID` pela ID numérica do projeto do seu aplicativo no console do [desenvolvedor do Google][18].
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>Adicional Configurar e executar o aplicativo no Android
 
@@ -222,8 +214,8 @@ pushRegistration = PushNotification.init({
 
 Antes de implantar seu aplicativo em seu dispositivo Android, você precisa habilitar a depuração de USB. Execute as seguintes etapas no seu telefone Android:
 
-1. Vá para **configurações** > **sobre o telefone**. Em seguida, toque no **número de Build** até que o modo de desenvolvedor seja habilitado (cerca de sete vezes).
-2. De volta **às configurações** > **Opções do desenvolvedor**, habilite a depuração de **USB**. Em seguida, conecte seu telefone Android ao seu PC de desenvolvimento com um cabo USB.
+1. Vá para **configurações** > **sobre telefone**. Em seguida, toque no **número de Build** até que o modo de desenvolvedor seja habilitado (cerca de sete vezes).
+2. De volta **às configurações** > **Opções do desenvolvedor**, habilite a **depuração de USB**. Em seguida, conecte seu telefone Android ao seu PC de desenvolvimento com um cabo USB.
 
 Testamos isso usando um dispositivo Google Nexus 5X executando Android 6,0 (marshmallow). No entanto, as técnicas são comuns em qualquer versão moderna do Android.
 
@@ -231,7 +223,7 @@ Testamos isso usando um dispositivo Google Nexus 5X executando Android 6,0 (mars
 
 O plug-in de push depende do Android Google Play Services para notificações por push.
 
-1. No Visual Studio, selecione **ferramentas** > **Android** > **SDK do Android Manager**. Em seguida, expanda a pasta **extras** . Verifique as caixas apropriadas para garantir que cada um dos SDKs a seguir esteja instalado:
+1. No Visual Studio, selecione **ferramentas** > **Android** > o **Gerenciador de SDK do Android**. Em seguida, expanda a pasta **extras** . Verifique as caixas apropriadas para garantir que cada um dos SDKs a seguir esteja instalado:
 
    * Android 2,3 ou superior
    * Repositório do Google revisão 27 ou superior
