@@ -1,26 +1,17 @@
 ---
-title: ASP.NET Core com o banco de dados SQL no serviço de Azure App do Linux | Microsoft Docs
-description: Saiba como obter um aplicativo ASP.NET Core funcionando no serviço Azure App no Linux, com conexão a um banco de dados SQL.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Tutorial: ASP.NET Core do Linux com o banco de BD SQL'
+description: Saiba como obter um aplicativo ASP.NET Core do Linux controlado por dados que funciona no serviço Azure App, com conexão a um banco de dados SQL.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 67ea11b2e1457bf4a788f54664ed54ff7ca9c8d9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532714"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688923"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Criar um aplicativo de banco de dados ASP.NET Core e SQL no serviço Azure App no Linux
 
@@ -100,7 +91,7 @@ Para a Base de Dados SQL, este tutorial utiliza a [Base de Dados SQL do Azure](/
 
 No Cloud Shell, crie um servidor lógico de Base de Dados SQL com o comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Substitua o espaço reservado *> nome do \<server* por um nome de banco de dados SQL exclusivo. Este nome é utilizado como parte do ponto final da Base de Dados SQL, `<server-name>.database.windows.net`, por isso, o nome tem de ser exclusivo em todos os servidores lógicos no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres. Além disso, substitua *\<db-username >* e *\<db-password >* com um nome de usuário e senha de sua escolha. 
+Substitua o espaço reservado *> nome do servidor de\<* por um nome de banco de dados SQL exclusivo. Este nome é utilizado como parte do ponto final da Base de Dados SQL, `<server-name>.database.windows.net`, por isso, o nome tem de ser exclusivo em todos os servidores lógicos no Azure. O nome só pode conter letras minúsculas, números, o caráter hífen (-) e tem de ter entre três e 50 carateres. Além disso, substitua *\<DB-username >* e *\<db-password >* com um nome de usuário e senha de sua escolha. 
 
 
 ```azurecli-interactive
@@ -145,7 +136,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Criar uma cadeia de ligação
 
-Substitua a seguinte cadeia de caracteres com o *nome de \<server >* , *\<db-username >* e *\<db-password >* usados anteriormente.
+Substitua a cadeia de caracteres a seguir com o *\<Server-name >* , *\<db-username >* e *\<DB-password >* você usou anteriormente.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -171,7 +162,7 @@ Neste passo, implemente a aplicação .NET Core ligada à Base de Dados SQL do S
 
 ### <a name="configure-connection-string"></a>Configurar cadeia de conexão
 
-Para definir cadeias de ligação para a sua aplicação do Azure, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando a seguir, substitua o *> de \<app*, bem como o parâmetro de *> de cadeia de caracteres \<connection* com a cadeia de conexão que você criou anteriormente.
+Para definir cadeias de ligação para a sua aplicação do Azure, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando a seguir, substitua *\<> do nome do aplicativo*, bem como o parâmetro *\<cadeia de conexão >* com a cadeia de conexão que você criou anteriormente.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
@@ -185,7 +176,7 @@ Para ver como a cadeia de conexão é referenciada em seu código, consulte [con
 
 Em seguida, configure a definição da aplicação `ASPNETCORE_ENVIRONMENT` como _Produção_. Essa configuração permite que você saiba se está executando o no Azure, porque você usa o SQLite para seu ambiente de desenvolvimento local e o banco de dados SQL para seu ambiente do Azure.
 
-O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` em seu aplicativo do Azure. Substitua o espaço reservado *> nome do \<app* .
+O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` em seu aplicativo do Azure. Substitua o espaço reservado *> nome do aplicativo\<* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"

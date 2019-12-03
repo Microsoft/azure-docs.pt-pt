@@ -1,28 +1,21 @@
 ---
-title: Configurações personalizadas para ambientes do serviço de aplicativo – Azure
-description: Definições de configuração personalizadas para ambientes do serviço de aplicativo
-services: app-service
-documentationcenter: ''
+title: Configurar definições personalizadas
+description: Defina as configurações que se aplicam a todo o ambiente de serviço de Azure App. Saiba como fazer isso com modelos de Azure Resource Manager.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470704"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687335"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para ambientes do serviço de aplicativo
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Como os ambientes do serviço de aplicativo (ASEs) são isolados para um único cliente, há certas definições de configuração que podem ser aplicadas exclusivamente a ambientes do serviço de aplicativo. Este artigo documenta as várias personalizações específicas que estão disponíveis para ambientes do serviço de aplicativo.
 
 Se você não tiver um Ambiente do Serviço de Aplicativo, consulte [como criar um ambiente do serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).

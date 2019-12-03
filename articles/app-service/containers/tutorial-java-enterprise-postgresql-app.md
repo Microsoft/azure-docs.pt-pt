@@ -1,24 +1,20 @@
 ---
-title: Compilar um aplicativo Web empresarial Java no serviço Linux-Azure App | Microsoft Docs
-description: Saiba como obter um aplicativo empresarial Java trabalhando no Wildfly no serviço de Azure App no Linux.
+title: 'Tutorial: aplicativo empresarial Java no Linux'
+description: Saiba como obter um aplicativo empresarial Java trabalhando em Wildfly no serviço de Azure App no Linux, com conexão a um banco de dados PostgreSQL no Azure.
 author: JasonFreeberg
-manager: routlaw
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 84f22d52e9a92707a26a4e64f194e82cca87757d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498489"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687444"
 ---
-# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web Java EE e postgres no Azure
+# <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Java EE e postgres no Azure
 
 Este tutorial mostra como criar um aplicativo Web Java Enterprise Edition (EE) no serviço Azure App e conectá-lo a um banco de dados Postgres. Quando tiver terminado, você terá um aplicativo [WildFly](https://www.wildfly.org/about/) armazenando dados no [banco de dado do Azure para postgres](https://azure.microsoft.com/services/postgresql/) em execução no [serviço de aplicativo do Azure no Linux](app-service-linux-intro.md).
 
@@ -52,7 +48,7 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Atualize o plug-in Maven Azure com o nome e o grupo de recursos desejados do seu serviço de aplicativo. Você não precisa criar o plano ou instância do serviço de aplicativo com antecedência. O plug-in do Maven criará o grupo de recursos e o serviço de aplicativo se ele ainda não existir.
 
-Você pode rolar para baixo até `<plugins>` a seção de *pom. xml*, linha 200, para fazer as alterações.
+Você pode rolar para baixo até a seção `<plugins>` de *pom. xml*, linha 200, para fazer as alterações.
 
 ```xml
 <!-- Azure App Service Maven plugin for deployment -->
@@ -68,7 +64,7 @@ Você pode rolar para baixo até `<plugins>` a seção de *pom. xml*, linha 200,
 </plugin>  
 ```
 
-Substitua `YOUR_APP_NAME` e`YOUR_RESOURCE_GROUP` pelos nomes de seu serviço de aplicativo e grupo de recursos.
+Substitua `YOUR_APP_NAME` e `YOUR_RESOURCE_GROUP` pelos nomes do seu serviço de aplicativo e do grupo de recursos.
 
 ## <a name="build-and-deploy-the-application"></a>Criar e implementar a aplicação
 
@@ -130,7 +126,7 @@ Agora vamos fazer algumas alterações no aplicativo Java para habilitá-lo a us
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>Adicionar credenciais do postgres ao POM
 
-No *pom. xml*, substitua os valores de espaço reservado em maiúsculas pelo nome do servidor Postgres, nome de logon do administrador e senha. Esses campos estão dentro do plug-in do Azure Maven. (Certifique-se de `YOUR_SERVER_NAME`substituir `YOUR_PG_USERNAME`, e `YOUR_PG_PASSWORD` nas `<value>` marcas... Não dentro das `<name>` marcas!)
+No *pom. xml*, substitua os valores de espaço reservado em maiúsculas pelo nome do servidor Postgres, nome de logon do administrador e senha. Esses campos estão dentro do plug-in do Azure Maven. (Certifique-se de substituir `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`e `YOUR_PG_PASSWORD` nas marcas de `<value>`... Não dentro das marcas de `<name>`!)
 
 ```xml
 <plugin>
@@ -167,22 +163,22 @@ Antes de implantar nosso aplicativo reconfigurado, devemos atualizar o servidor 
 
 Para configurar o servidor, precisaremos dos quatro arquivos no diretório *wildfly_config/* :
 
-- **postgresql-42.2.5.jar**: Esse arquivo JAR é o driver JDBC para Postgres. Para obter mais informações, consulte o [site oficial](https://jdbc.postgresql.org/index.html).
-- **postgres-module.xml**: Esse arquivo XML declara um nome para o módulo postgres (org. Postgres). Ele também especifica os recursos e as dependências necessárias para o módulo a ser usado.
-- **jboss_cli_commands. CLI**: Este arquivo contém comandos de configuração que serão executados para o pela CLI do JBoss. Os comandos adicionam o módulo postgres ao servidor de aplicativos do WildFly, fornecem as credenciais, declaram um nome JNDI, definem o tempo limite, etc. Se você não estiver familiarizado com a CLI do JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**: Por fim, esse script de shell será executado sempre que sua instância do serviço de aplicativo for iniciada. O script executa apenas uma função: canalizando os comandos em *jboss_cli_commands. CLI* para a CLI do JBoss.
+- **PostgreSQL-42.2.5. jar**: esse arquivo JAR é o driver JDBC para Postgres. Para obter mais informações, consulte o [site oficial](https://jdbc.postgresql.org/index.html).
+- **postgres-Module. xml**: esse arquivo XML declara um nome para o módulo postgres (org. Postgres). Ele também especifica os recursos e as dependências necessárias para o módulo a ser usado.
+- **jboss_cli_commands. CLI**: este arquivo contém comandos de configuração que serão executados para o pela CLI do JBoss. Os comandos adicionam o módulo postgres ao servidor de aplicativos do WildFly, fornecem as credenciais, declaram um nome JNDI, definem o tempo limite, etc. Se você não estiver familiarizado com a CLI do JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script. sh**: por fim, esse script de shell será executado sempre que sua instância do serviço de aplicativo for iniciada. O script executa apenas uma função: canalizando os comandos em *jboss_cli_commands. CLI* para a CLI do JBoss.
 
 É altamente recomendável ler o conteúdo desses arquivos, especialmente *jboss_cli_commands. CLI*.
 
 ### <a name="ftp-the-configuration-files"></a>Arquivos de configuração do FTP
 
-Precisaremos fazer o FTP do conteúdo de *wildfly_config/* para nossa instância do serviço de aplicativo. Para obter suas credenciais de FTP, clique no botão **obter perfil de publicação** na folha serviço de aplicativo na portal do Azure. O nome de usuário e a senha do FTP estarão no documento XML baixado. Para obter mais informações sobre o perfil de publicação, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+Precisaremos de FTP o conteúdo de *wildfly_config/* para nossa instância do serviço de aplicativo. Para obter suas credenciais de FTP, clique no botão **obter perfil de publicação** na folha serviço de aplicativo na portal do Azure. O nome de usuário e a senha do FTP estarão no documento XML baixado. Para obter mais informações sobre o perfil de publicação, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Usando uma ferramenta de FTP de sua escolha, transfira os quatro arquivos em *wildfly_config/* para */Home/site/Deployments/Tools/* . (Observe que você não deve transferir o diretório, apenas os próprios arquivos.)
 
 ### <a name="finalize-app-service"></a>Finalizar serviço de aplicativo
 
-Na folha serviço de aplicativo, navegue até o painel "configurações do aplicativo". Em "tempo de execução", defina o campo "arquivo de inicialização" como */Home/site/Deployments/Tools/startup_script.sh*. Isso garantirá que o script do shell seja executado depois que a instância do serviço de aplicativo for criada, mas antes do início do servidor WildFly.
+Na folha serviço de aplicativo, navegue até o painel "configurações do aplicativo". Em "tempo de execução", defina o campo "arquivo de inicialização" como */home/site/deployments/tools/startup_script. sh*. Isso garantirá que o script do shell seja executado depois que a instância do serviço de aplicativo for criada, mas antes do início do servidor WildFly.
 
 Por fim, reinicie o serviço de aplicativo. O botão está no painel "visão geral".
 
@@ -204,7 +200,7 @@ Se você não precisar desses recursos para outro tutorial (consulte as próxima
 az group delete --name <your-resource-group>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -218,7 +214,7 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
 
 Ou então, confira outros recursos:
 

@@ -1,25 +1,17 @@
 ---
-title: Exemplo do Script do Azure PowerShell - Crie uma aplicação Web e implemente o código a partir do GitHub | Microsoft Docs
-description: Exemplo do Script do Azure PowerShell - Crie uma aplicação Web e implemente o código a partir do GitHub
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: implantar código do GitHub'
+description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como implantar o código do GitHub.
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9f6785b84d66ac2728c8fcd72b40eaf20b56372f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 22b6a50b76c7d2e29f4705823db904e2c35f2717
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087800"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684854"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>Criar uma aplicação Web e implementar código a partir do GitHub
 
@@ -52,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso num grupo de recursos. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

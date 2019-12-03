@@ -1,22 +1,16 @@
 ---
-title: PHP (Laravel) com MySQL no serviço Linux-Azure App | Microsoft Docs
-description: Saiba como fazer com que um aplicativo PHP funcione no serviço de Azure App no Linux, com conexão a um banco de dados MySQL no Azure. Laravel é usado no tutorial.
-services: app-service\web
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: aplicativo PHP do Linux com MySQL'
+description: Saiba como obter um aplicativo node. js do Linux trabalhando no serviço Azure App, com conexão a um banco de dados MySQL no Azure. Laravel é usado neste tutorial.
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4fade03d798096e250cb5b56fbb2003ea4b58e1b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481321"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687420"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilar um aplicativo PHP e MySQL no serviço de Azure App no Linux
 
@@ -44,7 +38,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/)
+* [Instalar o Git](https://git-scm.com/)
 * [Instalar o PHP 5.6.4 ou superior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
 * Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
@@ -182,7 +176,7 @@ Quando o servidor MySQL tiver sido criado, a CLI do Azure mostra informações s
 }
 ```
 
-### <a name="configure-server-firewall"></a>Configurar firewall do servidor
+### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
 
 Crie uma regra de firewall para o servidor MySQL permitir ligações ao cliente com o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
 
@@ -458,7 +452,7 @@ public function up()
 
 O código anterior adiciona uma coluna booleana na tabela `tasks`, com o nome `complete`.
 
-Substitua o método `down` pelo código seguinte na ação de reversão:
+Substitua o método `down` pelo código abaixo na ação de reversão:
 
 ```php
 public function down()
@@ -569,7 +563,7 @@ Quando o `git push` for concluído, navegue até o aplicativo do Azure e teste a
 
 Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizações ao esquema de dados não afetam os dados já existentes.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

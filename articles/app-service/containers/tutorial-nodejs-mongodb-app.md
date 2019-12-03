@@ -1,26 +1,17 @@
 ---
-title: Node. js (MEAN. js) com MongoDB no serviço Linux-Azure App | Microsoft Docs
-description: Saiba como colocar uma aplicação Node.js a funcionar no Serviço de Aplicações do Azure no Linux, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB. O MEAN. js é usado no tutorial.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Tutorial: aplicativo do node. js do Linux com o MongoDB'
+description: Saiba como obter um aplicativo node. js do Linux trabalhando no serviço Azure App, com conexão a um banco de dados MongoDB no Azure (Cosmos DB). O MEAN. js é usado no tutorial.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cf145e04ca0e0ddf336521e72f6dc230dc8fc86b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ca73c7e610b8bd818355f30b9d08bceffeddfc73
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024946"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688893"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Criar um aplicativo node. js e MongoDB no serviço Azure App no Linux
 
@@ -48,9 +39,9 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-1. [Instale o Git](https://git-scm.com/)
+1. [Instalar o Git](https://git-scm.com/)
 2. [Instalar o Node.js v6.0 ou posterior e NPM](https://nodejs.org/)
-3. [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+3. [Instalar o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
 4. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
@@ -123,7 +114,7 @@ Para parar o Node.js em qualquer altura, prima `Ctrl+C` no terminal.
 
 Nesta etapa, você cria uma conta de banco de dados usando a API do Azure Cosmos DB para MongoDB. Quando a aplicação for implementada no Azure, utiliza esta base de dados na cloud.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
@@ -253,7 +244,7 @@ Nesta etapa, você implanta seu aplicativo node. js para Azure App serviço.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Configure uma variável de ambiente
+### <a name="configure-an-environment-variable"></a>Configurar uma variável de ambiente
 
 Por predefinição, o projeto do MEAN.js mantém o _config/env/local-production.js_ fora do repositório do Git. Portanto, para seu aplicativo do Azure, você usa as configurações do aplicativo para definir sua cadeia de conexão do MongoDB.
 
@@ -390,7 +381,7 @@ Exatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apr
 
 Abra _módulos/artigos/cliente/vistas/administrador/list-articles.client.view.html_.
 
-No interior do elemento `<div class="list-group">` e imediatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apresentar `comment` juntamente com o resto dos dados do artigo:
+No interior do elemento `comment` e imediatamente acima da etiqueta de fecho `<div class="list-group">`, adicione a seguinte linha para apresentar `</a>` juntamente com o resto dos dados do artigo:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
@@ -451,7 +442,7 @@ Quando o `git push` estiver concluído, navegue até seu aplicativo do Azure e e
 
 Se tiver adicionado quaisquer artigos anteriormente, ainda pode vê-los. Os dados existentes no Cosmos DB não se perdem. Além disso, atualiza o esquema de dados e mantém os dados existentes intactos.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
