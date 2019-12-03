@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 3613639b43db1cd5310a7ea5d7fa18f34e22ed44
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276716"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671570"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar a inferência de lote em grandes quantidades de dados usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -255,7 +255,7 @@ batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
 batch_env.docker.enabled = True
-batch_env.docker.base_image = DEFAULT_CPU_IMAGE
+batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 batch_env.spark.precache_packages = False
 ```
 
@@ -292,7 +292,7 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Criar o passo de pipeline
+### <a name="create-the-pipeline-step"></a>Criar a etapa de pipeline
 
 Crie a etapa de pipeline usando o script, a configuração de ambiente e os parâmetros. Especifique o destino de computação que você já anexou ao seu espaço de trabalho como o destino de execução para o script. Use `ParallelRunStep` para criar a etapa pipeline de inferência de lote, que usa todos os seguintes parâmetros:
 - `name`: o nome da etapa, com as seguintes restrições de nomenclatura: Unique, 3-32 caracteres e Regex ^\[a-z\]([-a-Z0-9] * [a-Z0-9])? $.

@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 65d092b36ed0e339a77bb423f24079caae38ab84
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e7d79b15b6f55d925713e4ef7e49df391e087162
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821980"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687697"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -148,10 +148,13 @@ Se você optar por gravar logs de auditoria em logs de Azure Monitor:
 
 Se você optar por gravar logs de auditoria no Hub de eventos:
 
-- Para consumir dados de logs de auditoria do hub de eventos, você precisará configurar um fluxo para consumir eventos e gravá-los em um destino. Para obter mais informações, consulte a [documentação dos hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
-- Os logs de auditoria no Hub de eventos são capturados no corpo de eventos do [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar [Ferramentas do Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas semelhantes que processam esse formato.
+- Para consumir dados de logs de auditoria do hub de eventos, você precisará configurar um fluxo para consumir eventos e gravá-los em um destino. Para obter mais informações, consulte a [documentação dos hubs de eventos do Azure](../event-hubs/index.yml).
+- Os logs de auditoria no Hub de eventos são capturados no corpo de eventos do [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar [Ferramentas do Avro](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processam esse formato.
 
 Se você optar por gravar logs de auditoria em uma conta de armazenamento do Azure, há vários métodos que podem ser usados para exibir os logs:
+
+> [!NOTE] 
+> A auditoria em réplica somente leitura é habilitada automaticamente. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, convenções de nomenclatura e formato de log, consulte o [formato de log de auditoria do banco de dados SQL](sql-database-audit-log-format.md). 
 
 - Os logs de auditoria são agregados na conta que você escolheu durante a instalação. Você pode explorar os logs de auditoria usando uma ferramenta como o [Gerenciador de armazenamento do Azure](https://storageexplorer.com/). No armazenamento do Azure, os logs de auditoria são salvos como uma coleção de arquivos de blob dentro de um contêiner chamado **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, convenções de nomenclatura e formato de log, consulte o [formato de log de auditoria do banco de dados SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -220,7 +223,7 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
 3. Volte para a página de configuração de auditoria, alterne a chave de acesso de armazenamento de secundária para primária e clique em **OK**. Em seguida, clique em **salvar** na parte superior da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regenere a chave de acesso secundária (em preparação para o ciclo de atualização da próxima chave).
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação Adicional
 
 - Para obter detalhes sobre o formato de log, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
 

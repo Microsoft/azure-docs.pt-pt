@@ -3,12 +3,12 @@ title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149180"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689150"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Azure Resource Manager
 
@@ -16,7 +16,7 @@ Este artigo descreve como definir valores de saída em seu modelo de Azure Resou
 
 ## <a name="define-output-values"></a>Definir valores de saída
 
-O exemplo seguinte mostra como devolver o ID de recurso para um endereço IP público:
+O exemplo a seguir mostra como retornar a ID de recurso para um endereço IP público:
 
 ```json
 "outputs": {
@@ -51,7 +51,7 @@ Para recuperar o valor de saída de um modelo vinculado, use a função de [refe
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
 
-Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propriedade não pode incluir um traço.
+Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não pode incluir um traço.
 
 O exemplo a seguir mostra como definir o endereço IP em um balanceador de carga recuperando um valor de um modelo vinculado.
 
@@ -61,7 +61,7 @@ O exemplo a seguir mostra como definir o endereço IP em um balanceador de carga
 }
 ```
 
-Não é possível utilizar o `reference` função na secção de saídas de um [modelo aninhado](resource-group-linked-templates.md#nested-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
+Você não pode usar a função `reference` na seção de saídas de um [modelo aninhado](resource-group-linked-templates.md#nested-template). Para retornar os valores de um recurso implantado em um modelo aninhado, converta o modelo aninhado em um modelo vinculado.
 
 ## <a name="get-output-values"></a>Obter valores de saída
 
@@ -94,11 +94,10 @@ Os exemplos a seguir demonstram cenários para o uso de saídas.
 
 |Modelo  |Descrição  |
 |---------|---------|
-|[Copie as variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexo e produz esses valores. Não implemente todos os recursos. |
-|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e devolve o ID de recurso. |
-|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída, ao criar o Balanceador de carga. |
+|[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexas e gera esses valores. Não implanta nenhum recurso. |
+|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e gera a ID do recurso. |
+|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Links para o modelo anterior. Usa a ID do recurso na saída ao criar o balanceador de carga. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre as propriedades disponíveis para saídas, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
-* Para obter recomendações sobre como criar saídas, consulte [Best Practices-Outputs](template-best-practices.md#outputs).

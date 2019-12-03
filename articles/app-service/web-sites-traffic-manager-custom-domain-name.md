@@ -1,25 +1,16 @@
 ---
-title: Configurar nomes DNS para aplicativos que usam o serviço de Azure App do Traffic Manager
-description: Use um nome de domínio personalizado para um aplicativo Web no serviço Azure App que inclua o Gerenciador de tráfego para balanceamento de carga.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: Configurar nomes DNS com o Gerenciador de tráfego
+description: Saiba como configurar um domínio personalizado para um aplicativo de serviço de Azure App que se integre ao Gerenciador de tráfego para balanceamento de carga.
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e6a59d519ae8bb515ab16632bd39509682959f50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9139b83f1f2920da47b4a0d440f622626d41c938
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074021"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689284"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurando um nome de domínio personalizado para um aplicativo Web no serviço Azure App usando o Gerenciador de tráfego
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -57,7 +48,7 @@ Para associar seu domínio personalizado a um aplicativo Web no serviço Azure A
 Embora as especificidades de cada provedor de domínio variem, você mapeia de seu nome *de* domínio personalizado (como **contoso.com**) *para* o nome de domínio do Traffic Manager (**contoso.trafficmanager.net**) que é integrado ao seu aplicativo Web.
 
 > [!NOTE]
-> Se um registro já estiver em uso e você precisar ligar preventivamente seus aplicativos a ele, você poderá criar um registro CNAME adicional. Por exemplo, para ligar preemptivamente **o\.contoso.com da www** ao seu aplicativo Web, crie um registro CNAME de **awverify. www** para **contoso.trafficmanager.net**. Em seguida, você pode adicionar\."www contoso.com" ao seu aplicativo Web sem alterar o registro CNAME "www". Para obter mais informações, consulte [criar registros DNS para um aplicativo Web em um domínio personalizado][CREATEDNS].
+> Se um registro já estiver em uso e você precisar ligar preventivamente seus aplicativos a ele, você poderá criar um registro CNAME adicional. Por exemplo, para ligar preemptivamente a **contoso.com www\.** ao seu aplicativo Web, crie um registro CNAME de **awverify. www** para **contoso.trafficmanager.net**. Em seguida, você pode adicionar "www\.contoso.com" ao seu aplicativo Web sem alterar o registro CNAME "www". Para obter mais informações, consulte [criar registros DNS para um aplicativo Web em um domínio personalizado][CREATEDNS].
 
 Depois de terminar de adicionar ou modificar os registros DNS no seu provedor de domínio, salve as alterações.
 
@@ -66,8 +57,8 @@ Depois de terminar de adicionar ou modificar os registros DNS no seu provedor de
 ## <a name="enable-traffic-manager"></a>Habilitar o Gerenciador de tráfego
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte o [Centro para Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/).
+## <a name="next-steps"></a>Passos seguintes
+Para mais informações, consulte o [Centro de Programadores de Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 <!-- URL List -->
 

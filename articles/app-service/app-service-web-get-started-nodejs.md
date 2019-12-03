@@ -1,27 +1,18 @@
 ---
-title: Criar aplicativo Web node. js-serviço de Azure App | Microsoft Docs
-description: Implemente em minutos o seu primeiro Node.js Hello World nas aplicações Web do serviço de aplicações do Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início rápido: criar um aplicativo Web node. js'
+description: Implante seu primeiro Olá, Mundo node. js para Azure App serviço em minutos. Você implanta usando Visual Studio Code, que é uma das várias maneiras de implantar no serviço de aplicativo.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 09/30/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91494cc9c1e3a1fc159702bdbb7f68a4423b604c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471472"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671367"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure 
 
@@ -39,7 +30,7 @@ Você também precisará instalar a [extensão de serviço Azure app](vscode:ext
 
 Depois que a extensão for instalada, faça logon em sua conta do Azure. Na barra de atividades, selecione no logotipo do Azure para mostrar o Gerenciador do **serviço de aplicativo do Azure** . Selecione **entrar no Azure...** e siga as instruções.
 
-![Entrar no Azure](containers/media/quickstart-nodejs/sign-in.png)
+![entrar no Azure](containers/media/quickstart-nodejs/sign-in.png)
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 

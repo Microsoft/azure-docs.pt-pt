@@ -1,19 +1,16 @@
 ---
-title: Configurar o armazenamento usando os arquivos do Azure
-description: Como configurar e se conectar a arquivos do Azure no contêiner do Windows no serviço de aplicativo.
+title: Adicionar armazenamento personalizado (contêiner do Windows)
+description: Saiba como anexar um compartilhamento de rede personalizado em um contêiner do Windows personalizado no serviço Azure App. Compartilhar arquivos entre aplicativos, gerenciar conteúdo estático remotamente e acessar localmente, etc.
 author: msangapu-msft
-manager: gwallace
-ms.service: app-service
-ms.workload: web
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: 2c12bf45c033fea185d976f1e9d644183407b5ac
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297211"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670999"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurar arquivos do Azure em um contêiner do Windows no serviço de aplicativo
 
@@ -21,7 +18,7 @@ ms.locfileid: "68297211"
 > Este artigo se aplica a contêineres personalizados do Windows. Para implantar o serviço de aplicativo no _Linux_, consulte [fornecer conteúdo do armazenamento do Azure](./containers/how-to-serve-content-from-azure-storage.md).
 >
 
-Este guia mostra como acessar o armazenamento do Azure em contêineres do Windows. Somente compartilhamentos de [arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) e compartilhamentos de [arquivos Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) têm suporte. Você usa compartilhamentos de arquivos do Azure nestas instruções. Os benefícios incluem conteúdo protegido, portabilidade de conteúdo, acesso a vários aplicativos e vários métodos de transferência.
+Este guia mostra como acessar o armazenamento do Azure em contêineres do Windows. Somente [compartilhamentos de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) e [compartilhamentos de arquivos Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) têm suporte. Você usa compartilhamentos de arquivos do Azure nestas instruções. Os benefícios incluem conteúdo protegido, portabilidade de conteúdo, acesso a vários aplicativos e vários métodos de transferência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +33,7 @@ Este guia mostra como acessar o armazenamento do Azure em contêineres do Window
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Vincular o armazenamento ao seu aplicativo Web (versão prévia)
 
- Para montar um compartilhamento de arquivos do Azure em um diretório em seu aplicativo do serviço de aplicativo [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) , use o comando. O tipo de armazenamento deve ser AzureFiles.
+ Para montar um compartilhamento de arquivos do Azure em um diretório em seu aplicativo do serviço de aplicativo, use o comando [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) . O tipo de armazenamento deve ser AzureFiles.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory of form c:<directory name> >
@@ -53,6 +50,6 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Migre um aplicativo ASP.net para Azure app serviço usando um contêiner do Windows (versão prévia)](app-service-web-tutorial-windows-containers-custom-fonts.md).

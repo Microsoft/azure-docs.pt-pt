@@ -3,12 +3,12 @@ title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: fde0e82ff2dcf048643524b5a2d076d66a4f5a50
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 88e75b92ca09f3c6671fe4399c4672240f863f66
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463947"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689266"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -106,7 +106,7 @@ az role definition list --name "<roleName>" | grep name
 > [!TIP]
 > É recomendável atribuir a [função de exclusão de atribuição de registro de serviços gerenciados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) ao integrar um cliente, para que os usuários em seu locatário possam [remover o acesso à delegação](#remove-access-to-a-delegation) posteriormente, se necessário. Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
 
-## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo Azure Resource Manager
+## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Azure Resource Manager
 
 Para carregar seu cliente, você precisará criar um modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) para sua oferta com as informações a seguir. Os valores **mspOfferName** e **mspOfferDescription** são visíveis para o cliente ao exibir detalhes da oferta na [página provedores de serviço](view-manage-service-providers.md) do portal do Azure.
 
@@ -247,7 +247,7 @@ No locatário do provedor de serviços:
 3. Confirme que você pode ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!IMPORTANT]
-> Para ver a assinatura delegada em [meus clientes](view-manage-customers.md), os usuários no locatário do provedor de serviços devem ter recebido a função [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou outra função interna que inclui acesso de leitor) quando a assinatura foi integrada ao Azure gerenciamento de recursos delegado.
+> Para ver a assinatura delegada em [meus clientes](view-manage-customers.md), os usuários no locatário do provedor de serviços devem ter recebido a função [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou outra função interna que inclui acesso de leitor) quando a assinatura foi integrada para o gerenciamento de recursos delegado do Azure.
 
 No locatário do cliente:
 
@@ -335,10 +335,10 @@ az managedservices assignment list
 
 # Delete the registration assignment
 
-az managedservices assignment delete –assignment <id or full resourceId>
+az managedservices assignment delete --assignment <id or full resourceId>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **meus clientes** na portal do Azure.

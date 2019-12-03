@@ -1,28 +1,20 @@
 ---
-title: Visão geral da arquitetura de rede dos ambientes do serviço de aplicativo-Azure
-description: Visão geral da arquitetura de ambientes de serviço ofApp de topologia de rede.
-services: app-service
-documentationcenter: ''
+title: Arquitetura de rede v1
+description: Visão geral da arquitetura da topologia de rede dos ambientes do serviço de aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070073"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687356"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Descrição Geral da Arquitetura de Rede de Ambientes de Serviço de Aplicações
-## <a name="introduction"></a>Introdução
 Os ambientes do serviço de aplicativo são sempre criados dentro de uma sub-rede de uma [rede virtual][virtualnetwork] -os aplicativos em execução em um ambiente do serviço de aplicativo podem se comunicar com pontos de extremidade privados localizados na mesma topologia de rede virtual.  Como os clientes podem bloquear partes de sua infraestrutura de rede virtual, é importante entender os tipos de fluxos de comunicação de rede que ocorrem com um Ambiente do Serviço de Aplicativo.
 
 ## <a name="general-network-flow"></a>Fluxo de rede geral
@@ -72,7 +64,7 @@ No diagrama acima:
 ## <a name="calls-between-app-service-environments"></a>Chamadas entre ambientes do serviço de aplicativo
 Um cenário mais complexo pode ocorrer se você implantar vários ambientes de serviço de aplicativo na mesma rede virtual e fizer chamadas de saída de um Ambiente do Serviço de Aplicativo para outro Ambiente do Serviço de Aplicativo.  Esses tipos de chamadas entre Ambiente do Serviço de Aplicativo também serão tratados como chamadas de "Internet".
 
-O diagrama a seguir mostra um exemplo de uma arquitetura em camadas com aplicativos em um Ambiente do Serviço de Aplicativo (por exemplo, Aplicativos Web de "porta de frente") chamando aplicativos em um segundo Ambiente do Serviço de Aplicativo (por exemplo, aplicativos de API de back-end internos que não devem ser acessados pela Internet). 
+O diagrama a seguir mostra um exemplo de uma arquitetura em camadas com aplicativos em um Ambiente do Serviço de Aplicativo (por exemplo, aplicativos Web de "porta frontal") chamando aplicativos em um segundo Ambiente do Serviço de Aplicativo (por exemplo, aplicativos de API de back-end internos que não devem ser acessados pela Internet). 
 
 ![Chamadas entre ambientes do serviço de aplicativo][CallsBetweenAppServiceEnvironments] 
 

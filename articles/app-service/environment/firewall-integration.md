@@ -1,24 +1,18 @@
 ---
-title: Bloqueando Ambiente do Serviço de Aplicativo tráfego de saída-Azure
-description: Descreve como integrar com o Firewall do Azure para proteger o tráfego de saída
-services: app-service
-documentationcenter: na
+title: Bloquear tráfego de saída
+description: Saiba como integrar com o Firewall do Azure para proteger o tráfego de saída de dentro de um ambiente do serviço de aplicativo.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405660"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687219"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -111,7 +105,7 @@ As informações a seguir só serão necessárias se você quiser configurar um 
 | Ponto Final |
 |----------|
 | SQL do Azure |
-| Storage do Azure |
+| Armazenamento do Azure |
 | Hub de Eventos do Azure |
 
 #### <a name="ip-address-dependencies"></a>Dependências de endereço IP

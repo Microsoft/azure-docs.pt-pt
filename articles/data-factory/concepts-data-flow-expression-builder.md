@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2019
-ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184695"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672256"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 
@@ -104,7 +104,13 @@ Se você colocar um comentário na parte superior da expressão, ele será exibi
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Observe que para incluir literais de cadeia de caracteres em sua saída de carimbo de data/hora, você precisa encapsular a conversão dentro de um toString ()
+Observe que, para incluir literais de cadeia de caracteres em sua saída de carimbo de data/hora, você precisa encapsular a conversão dentro de ```toString()```.
+
+Aqui está como converter segundos de época em uma data ou carimbo de hora:
+
+```toTimestamp(1574127407*1000l)```
+
+Observe o "l" à direita no final da expressão acima. Isso significa conversão para tempo como sintaxe em linha.
 
 ## <a name="handling-column-names-with-special-characters"></a>Manipulando nomes de coluna com caracteres especiais
 

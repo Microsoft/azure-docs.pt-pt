@@ -1,24 +1,15 @@
 ---
-title: Cadência de aplicação de patch do sistema operacional e tempo de execução – serviço de Azure App | Microsoft Docs
-description: Descreve como Azure App serviço atualiza o sistema operacional e os tempos de execução e como você pode obter comunicados de atualização.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Cadência da aplicação de patch do sistema operacional e tempo de execução
+description: Saiba como Azure App serviço atualiza o sistema operacional e os tempos de execução, os tempos de execução e o nível de patch que seus aplicativos têm e como você pode obter comunicados de atualização.
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074137"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688577"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch de sistema operacional e tempo de execução no serviço Azure App
 
@@ -40,7 +31,7 @@ Para obter informações detalhadas sobre como as atualizações são aplicadas,
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Como o Azure lida com vulnerabilidades significativas?
 
-Quando vulnerabilidades severas exigem aplicação de patch imediata, como vulnerabilidades de [dia zero](https://wikipedia.org/wiki/Zero-day_(computing)), as atualizações de alta prioridade são tratadas caso a caso.
+Quando vulnerabilidades severas exigem aplicação de patch imediata, como [vulnerabilidades de dia zero](https://wikipedia.org/wiki/Zero-day_(computing)), as atualizações de alta prioridade são tratadas caso a caso.
 
 Mantenha-se atualizado com comunicados de segurança críticos no Azure visitando o [blog de segurança do Azure](https://azure.microsoft.com/blog/topics/security/). 
 
@@ -64,7 +55,7 @@ As atualizações de patch para .NET, PHP, SDK Java ou a versão Tomcat/Jetty s�
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e secundárias
 
-Quando uma nova versão principal ou secundária é adicionada, ela é instalada lado a lado com as versões existentes. Você pode atualizar manualmente seu aplicativo para a nova versão. Se você configurou a versão de tempo de execução em um arquivo `web.config` de `package.json`configuração (como e), precisará atualizar com o mesmo método. Se você usou uma configuração do serviço de aplicativo para configurar sua versão de tempo de execução, poderá alterá-la na [portal do Azure](https://portal.azure.com) ou executando um comando [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), conforme mostrado nos exemplos a seguir:
+Quando uma nova versão principal ou secundária é adicionada, ela é instalada lado a lado com as versões existentes. Você pode atualizar manualmente seu aplicativo para a nova versão. Se você configurou a versão de tempo de execução em um arquivo de configuração (como `web.config` e `package.json`), precisará atualizar com o mesmo método. Se você usou uma configuração do serviço de aplicativo para configurar sua versão de tempo de execução, poderá alterá-la na [portal do Azure](https://portal.azure.com) ou executando um comando [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), conforme mostrado nos exemplos a seguir:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -84,7 +75,7 @@ Embora as informações críticas do sistema operacional sejam bloqueadas do ace
 
 A tabela a seguir mostra como as versões do Windows e do tempo de execução de linguagem que estão executando seus aplicativos:
 
-| Information | Onde encontrá-lo | 
+| Proteção das | Onde encontrá-lo | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em informações do sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
@@ -94,11 +85,11 @@ A tabela a seguir mostra como as versões do Windows e do tempo de execução de
 | Versão de Python | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br> `python --version` |  
 
 > [!NOTE]  
-> Acesso ao local `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`do registro, em que as informações sobre patches de ["KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) são armazenadas, são bloqueadas.
+> Acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches de "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) são armazenadas, são bloqueadas.
 >
 >
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Central de confiabilidade: Segurança](https://www.microsoft.com/en-us/trustcenter/security)  
+[Central de confiabilidade: segurança](https://www.microsoft.com/en-us/trustcenter/security)  
 [ASP.NET Core de 64 bits no serviço Azure App](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

@@ -7,16 +7,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73644595"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688198"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Use a ingestão de um clique para ingerir dados no Azure Data Explorer
 
-Este artigo mostra como usar a ingestão de um clique para ingestão rápida de uma nova tabela em formatos JSON ou CSV do armazenamento para o Azure Data Explorer. Depois que os dados são ingeridos, você pode editar a tabela e executar consultas usando a interface do usuário da Web.
+Este artigo mostra como usar a ingestão de um clique para ingestão rápida de uma nova tabela em formatos JSON ou CSV do armazenamento ou do arquivo local em uma tabela existente ou em uma nova tabela no Azure Data Explorer. Use o assistente intuitivo e, em alguns minutos, seus dados são ingeridos, você pode editar a tabela e executar consultas usando a interface do usuário da Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

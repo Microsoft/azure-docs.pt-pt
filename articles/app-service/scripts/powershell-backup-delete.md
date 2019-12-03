@@ -1,25 +1,19 @@
 ---
-title: Exemplo de Script do Azure PowerShell - Eliminar uma cópia de segurança agendada para uma aplicação Web | Microsoft Docs
-description: Exemplo de Script do Azure PowerShell - Eliminar uma cópia de segurança agendada para uma aplicação Web
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: excluir um backup de aplicativo'
+description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como excluir um backup de aplicativo.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9b9a6ecc93489c6690e0128ef9129c480f506b31
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b8d3175b4266e132d94f6f2dde163cb60fb11396
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098417"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685805"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Excluir um backup de uma Web usando Azure PowerShell
 
@@ -50,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
 | [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Remove a cópia de segurança especificada de uma aplicação Web. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

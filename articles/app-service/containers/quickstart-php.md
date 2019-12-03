@@ -1,25 +1,16 @@
 ---
-title: Criar aplicativo PHP no serviço Linux-Azure App | Microsoft Docs
-description: Implemente em minutos a sua primeira aplicação PHP Hello World no Serviço de Aplicações no Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início rápido: criar um aplicativo PHP no Linux'
+description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo PHP em um contêiner do Linux no serviço de aplicativo.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 414d34065b78db0f76683752b93d5ed89ebcdf75
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071188"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687549"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Criar um aplicativo PHP no serviço de aplicativo no Linux
 
@@ -39,7 +30,7 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>.
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 * <a href="https://php.net" target="_blank">Instalar o PHP</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
@@ -79,7 +70,7 @@ Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Navegue até o site para ver seu aplicativo criado recentemente com a imagem interna. Substitua o nome do  _aplicativo>pelonomedoaplicativo&lt;_ .
+Navegue até o site para ver seu aplicativo criado recentemente com a imagem interna. Substitua _&lt;nome do aplicativo >_ pelo nome do aplicativo.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -165,10 +156,10 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo PHP com MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: aplicativo PHP com MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurar aplicativo PHP](configure-language-php.md)

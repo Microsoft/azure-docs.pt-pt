@@ -1,26 +1,17 @@
 ---
-title: Implantar conteúdo usando o serviço FTP/S-Azure App | Microsoft Docs
-description: Saiba como implantar seu aplicativo para Azure App serviço usando FTP ou FTPS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Implantar conteúdo usando FTP/S
+description: Saiba como implantar seu aplicativo para Azure App serviço usando FTP ou FTPS. Melhorar a segurança do site desabilitando o FTP não criptografado.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098087"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671713"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no serviço de Azure App usando FTP/S
 
@@ -32,7 +23,7 @@ O ponto de extremidade de FTP/S para seu aplicativo já está ativo. Nenhuma con
 
 Na [portal do Azure](https://portal.azure.com), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)do aplicativo.
 
-Para abrir o painel de FTP, clique em **central** > de implantação**painel**de**FTP** > .
+Para abrir o painel de FTP, clique em **central de implantação** > **painel**de > **FTP** .
 
 ![Abrir painel de FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -72,7 +63,7 @@ No painel de FTP, clique em **copiar** para copiar o ponto de extremidade de FTP
 
 Para aumentar a segurança, você deve permitir somente o FTP sobre SSL. Você também pode desabilitar FTP e FTPS se não usar a implantação de FTP.
 
-Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione**configurações gerais** de **configuração** > no painel de navegação esquerdo.
+Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione **configuração** > **configurações gerais** no painel de navegação esquerdo.
 
 Para desabilitar o FTP não criptografado, selecione **FTPS somente** no **estado do FTP**. Para desabilitar totalmente o FTP e a FTPS, selecione **desabilitado**. Quando terminar, clique em **Guardar**. Se estiver usando **apenas FTPS**, você deve impor o TLS 1,2 ou superior navegando até a folha **configurações de TLS/SSL** do seu aplicativo Web. O TLS 1,0 e o 1,1 não têm suporte **apenas com FTPS**.
 
@@ -89,7 +80,7 @@ Para a implantação de FTP usando [Azure PowerShell](/cli/azure), consulte [car
 ## <a name="troubleshoot-ftp-deployment"></a>Solucionar problemas de implantação de FTP
 
 - [Como posso solucionar problemas de implantação de FTP?](#how-can-i-troubleshoot-ftp-deployment)
-- [I'm not able to FTP and publish my code. Como posso resolver o problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Não consigo fazer o FTP e publicar meu código. Como posso resolver o problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Como posso me conectar ao FTP no serviço Azure App por meio do modo passivo?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Como posso solucionar problemas de implantação de FTP?
@@ -105,13 +96,13 @@ Para determinar um problema de implantação ou tempo de execução, consulte [i
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Não consigo fazer o FTP e publicar meu código. Como posso resolver o problema?
 Verifique se você inseriu o nome de host e [as credenciais](#open-ftp-dashboard)corretos. Verifique também se as seguintes portas FTP em seu computador não estão bloqueadas por um firewall:
 
-- Porta de conexão de controle FTP: 21
+- Porta de ligação de controlo de FTP: 21
 - Porta de conexão de dados FTP: 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Como posso me conectar ao FTP no serviço Azure App por meio do modo passivo?
 Azure App serviço dá suporte à conexão por meio do modo ativo e passivo. O modo passivo é preferencial porque as máquinas de implantação geralmente estão atrás de um firewall (no sistema operacional ou como parte de uma rede doméstica ou de negócios). Consulte um [exemplo da documentação do winscp](https://winscp.net/docs/ui_login_connection). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para cenários de implantação mais avançados, tente [implantar no Azure com o Git](deploy-local-git.md). A implantação baseada em git para o Azure habilita o controle de versão, a restauração de pacote, o MSBuild e muito mais.
 

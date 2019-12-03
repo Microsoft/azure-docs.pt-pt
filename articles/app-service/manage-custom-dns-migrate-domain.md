@@ -1,25 +1,17 @@
 ---
-title: Migrar um nome DNS ativo-serviço de Azure App | Microsoft Docs
+title: Migrar um nome DNS ativo
 description: Saiba como migrar um nome de domínio DNS personalizado que já está atribuído a um site ativo para Azure App serviço sem nenhum tempo de inatividade.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470359"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672364"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para Azure App serviço
 
@@ -119,7 +111,7 @@ De volta à página de registros DNS do seu provedor de domínio, selecione o re
 
 Para o `contoso.com` exemplo de domínio raiz, remapeie o registro a ou CNAME como os exemplos na tabela a seguir: 
 
-| Exemplo de FQDN | Tipo de registo | Anfitrião | Valor |
+| Exemplo de FQDN | Tipo de registo | Host | Valor |
 | - | - | - | - |
 | contoso.com (raiz) | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;AppName >. azurewebsites. net_ |

@@ -1,25 +1,18 @@
 ---
-title: Criar aplicativo Web node. js-serviço de Azure App | Microsoft Docs
-description: Implemente em minutos o seu primeiro Node.js Hello World nas aplicações Web do serviço de aplicações do Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início rápido: criar um aplicativo Web node. js'
+description: Implante seu primeiro Olá, Mundo node. js para Azure App serviço em minutos. Você implanta usando um pacote ZIP, que é uma das várias maneiras de implantar no serviço de aplicativo.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d81dae25b793144bfe044f8434a6df181dbcd1b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: a231f2b4-2625-4d
+ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067393"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671413"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -107,13 +100,13 @@ Defina o tempo de execução do nó como 10.14.1. Para ver todos os runtimes sup
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
-Navegue para a sua aplicação Web recentemente criada. Substitua `<app_name>` com um nome de aplicação único.
+Navegue para a sua aplicação Web recentemente criada. Substitua `<app_name>` por um nome de aplicativo exclusivo.
 
 ```
 http://<app_name>.azurewebsites.net
 ```
 
-A aplicação Web deve ter o seguinte aspeto: ![Página de aplicativo Web vazia](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+Aqui está a aparência de seu novo aplicativo Web: ![página de aplicativo Web vazia](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 ## <a name="deploy-zip-file"></a>Implementar o ficheiro ZIP
 
@@ -193,7 +186,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Node.js com MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

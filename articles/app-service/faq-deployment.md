@@ -1,26 +1,20 @@
 ---
 title: Perguntas frequentes sobre implantação-serviço de Azure App | Microsoft Docs
 description: Obtenha respostas para perguntas frequentes sobre a implantação do recurso de aplicativos Web do serviço de Azure App.
-services: app-service\web
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121212"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671690"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação para aplicativos Web no Azure
 
@@ -39,7 +33,7 @@ Para obter mais informações, consulte [implantar seu aplicativo no serviço de
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Vejo uma mensagem de erro quando tento implantar do Visual Studio. Como fazer resolver esse erro?
 
-Se você vir a seguinte mensagem, talvez esteja usando uma versão mais antiga do SDK: "Erro durante a implantação do recurso ' YourResourceName ' no grupo de recursos ' Seugruporecursos ': MissingRegistrationForLocation: A assinatura não está registrada para o tipo de recurso ' componentes ' no local ' EUA Central '. Registre-se novamente para esse provedor para ter acesso a esse local. " 
+Se você vir a seguinte mensagem, talvez esteja usando uma versão mais antiga do SDK: "erro durante a implantação do recurso ' YourResourceName ' no grupo de recursos ' Seugruporecursos ': MissingRegistrationForLocation: a assinatura não está registrada para o tipo de recurso ' componentes ' no local ' EUA Central '. Registre-se novamente para esse provedor para ter acesso a esse local. " 
 
 Para resolver esse erro, atualize para o [SDK mais recente](https://azure.microsoft.com/downloads/). Se você vir essa mensagem e tiver o SDK mais recente, envie uma solicitação de suporte.
 
@@ -74,7 +68,7 @@ Para resolver problemas de FTP:
 
 1. Verifique se você está inserindo o nome de host e as credenciais corretas. Para obter informações detalhadas sobre diferentes tipos de credenciais e como usá-las, consulte [credenciais de implantação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Verifique se as portas de FTP não estão bloqueadas por um firewall. As portas devem ter essas configurações:
-    * Porta de conexão de controle FTP: 21
+    * Porta de ligação de controlo de FTP: 21
     * Porta de conexão de dados FTP: 989, 10001-10300
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Como fazer publicar meu código no serviço de aplicativo?

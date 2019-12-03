@@ -1,26 +1,17 @@
 ---
-title: Autenticar e autorizar o serviço de Azure App de ponta a ponta | Microsoft Docs
+title: 'Tutorial: Authn/autho de ponta a ponta'
 description: Saiba como utilizar a autenticação e autorização do Serviço de Aplicações para proteger as suas aplicações do Serviço de Aplicações, incluindo o acesso a APIs remotas.
 keywords: serviço de aplicações, serviço de aplicações do azure, authN, authZ, proteger, segurança, do azure, multicamadas, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961964"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672059"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure
 
@@ -55,7 +46,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/).
+* [Instalar o Git](https://git-scm.com/).
 * [Instale o .NET Core](https://www.microsoft.com/net/core/).
 
 ## <a name="create-local-net-core-app"></a>Criar uma aplicação .NET Core local
@@ -281,7 +272,7 @@ Inicie sessão no [Azure Resource Explorer](https://resources.azure.com). Na par
 
 ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-No navegador esquerdo, clique em **assinaturas** >  **_\<sua assinatura >_**  > **resourceGroups** > **MyAuthResourceGroup** > **Providers** > **Microsoft. Web** > **sites** >  **_\<nome do aplicativo front-end >_**  > **config** > **authsettings**.
+No navegador esquerdo, clique em **assinaturas** >  **_\<sua assinatura >_**  > **resourceGroups** > **myAuthResourceGroup** > **provedores** > **Microsoft. Web** > **sites** >  **_\<front-end-app-Name >_**  > **config** > **authsettings**.
 
 Na vista **authsettings**, clique em **Editar**. Defina `additionalLoginParams` para a cadeia de caracteres JSON a seguir, usando a ID do cliente que você copiou. 
 

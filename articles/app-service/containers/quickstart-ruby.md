@@ -1,26 +1,17 @@
 ---
-title: Criar um aplicativo Web Ruby no serviço Linux-Azure App | Microsoft Docs
-description: Saiba como criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux.
+title: 'Início rápido: criar um aplicativo Ruby do Linux'
+description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo Ruby em um contêiner do Linux no serviço de aplicativo.
 keywords: serviço de aplicações do azure, linux, oss, ruby, rails
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cfcea4c4450ea806b36d1d46c17c6676f7d92893
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 17c81ab71352f57731d9b36138c88c34421e374c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071073"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689019"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
@@ -125,12 +116,12 @@ http://<app-name>.azurewebsites.net
 ![aplicação Web atualizada](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> Enquanto o aplicativo estiver reiniciando, você poderá observar o código `Error 503 Server unavailable` de status HTTP no navegador ou a `Hey, Ruby developers!` página padrão. Pode levar alguns minutos para o aplicativo reiniciar completamente.
+> Enquanto o aplicativo está sendo reiniciado, você pode observar o código de status HTTP `Error 503 Server unavailable` no navegador ou a `Hey, Ruby developers!` página padrão. Pode levar alguns minutos para o aplicativo reiniciar completamente.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Ruby on Rails com postgres](tutorial-ruby-postgres-app.md)

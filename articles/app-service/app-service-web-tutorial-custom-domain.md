@@ -1,27 +1,18 @@
 ---
-title: Mapear o nome DNS personalizado existente-serviço de Azure App | Microsoft Docs
+title: 'Tutorial: mapear o nome DNS personalizado existente'
 description: Saiba como adicionar um nome de domínio DNS personalizado já existente a uma aplicação Web, ao back-end de uma aplicação móvel ou a uma aplicação API no Serviço de Aplicações do Azure.
 keywords: serviço de aplicações, serviço de aplicações do azure, mapeamento de domínios, domínio existente, nome de anfitrião
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: erikre
-editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 37bb1193056894ea824f4aa1723fb327f54bccae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835863"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672080"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: mapear um nome DNS personalizado existente para o serviço Azure App
 
@@ -199,7 +190,7 @@ Para mapear um registo A para uma aplicação, o Serviço de Aplicações requer
 
 No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a tabela seguinte (`@` representa, normalmente, o domínio de raiz).
 
-| Tipo de registo | Anfitrião | Valor |
+| Tipo de registo | Host | Valor |
 | - | - | - |
 | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
@@ -207,7 +198,7 @@ No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a t
 > [!NOTE]
 > Para adicionar um subdomínio (como `www.contoso.com`) usando um registro A em vez de um [registro CNAME](#map-a-cname-record)recomendado, o registro a e o registro txt devem ser semelhantes à seguinte tabela:
 >
-> | Tipo de registo | Anfitrião | Valor |
+> | Tipo de registo | Host | Valor |
 > | - | - | - |
 > | A | `www` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
@@ -364,7 +355,7 @@ Set-AzWebApp `
 
 Para obter mais informações, veja [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -378,4 +369,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para aprender a vincular um certificado SSL personalizado a uma aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Proteger um nome DNS personalizado com uma associação SSL no serviço Azure App](configure-ssl-bindings.md)
+> [Proteger um nome DNS personalizado com um enlace SSL no Serviço de Aplicações do Azure](configure-ssl-bindings.md)

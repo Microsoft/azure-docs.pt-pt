@@ -1,27 +1,18 @@
 ---
-title: Corrija 502 gateway inválidos, 503 erros de serviço indisponível-Azure App serviço | Microsoft Docs
+title: Corrigir erros HTTP 502 e HTTP 503
 description: Solucione os erros 502 de gateway inadequado e 503 do serviço indisponível em seu aplicativo hospedado no serviço de Azure App.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 tags: top-support-issue
 keywords: 502 gateway inadequado, 503 Serviço indisponível, erro 503, erro 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fdbd77db349eed62af2eb8cf539ef749217a187a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066690"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688334"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar problemas de erros de HTTP de "502 gateway inadequado" e "serviço 503 não disponível" no serviço Azure App
 "502 gateway inadequado" e "serviço 503 indisponível" são erros comuns em seu aplicativo hospedado no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda a solucionar esses erros.
@@ -49,7 +40,7 @@ O [serviço de aplicativo](overview.md) oferece várias opções em cada etapa.
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Observar e monitorar o comportamento do aplicativo
+### <a name="1-observe-and-monitor-application-behavior"></a>1. observar e monitorar o comportamento do aplicativo
 #### <a name="track-service-health"></a>Acompanhar a integridade do serviço
 Microsoft Azure publicizes cada vez que houver uma interrupção de serviço ou degradação de desempenho. Você pode acompanhar a integridade do serviço no [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [acompanhar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
@@ -58,7 +49,7 @@ Essa opção permite que você descubra se o aplicativo está tendo problemas. N
 
 Algumas das métricas que você pode querer monitorar para seu aplicativo são
 
-* Média do conjunto de trabalho de memória
+* Conjunto de trabalho de memória média
 * Tempo médio de resposta
 * Tempo de CPU
 * Conjunto de trabalho de memória
@@ -66,14 +57,14 @@ Algumas das métricas que você pode querer monitorar para seu aplicativo são
 
 ![monitorar o aplicativo para resolver erros HTTP de 502 gateway inadequado e serviço 503 indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Monitorar aplicativos no serviço Azure App](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2. Recolher dados
+### <a name="2-collect-data"></a>2. coletar dados
 #### <a name="use-the-diagnostics-tool"></a>Usar a ferramenta de diagnóstico
 O serviço de aplicativo fornece uma experiência inteligente e interativa para ajudá-lo a solucionar problemas de seu aplicativo sem nenhuma configuração necessária. Quando você tiver problemas com seu aplicativo, a ferramenta de diagnóstico indicará o que há de errado para orientá-lo sobre as informações certas para solucionar problemas e resolver o problema com mais facilidade e rapidez.
 
@@ -82,7 +73,7 @@ Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo
 #### <a name="use-the-kudu-debug-console"></a>Usar o console de depuração do kudu
 O serviço de aplicativo vem com um console de depuração que você pode usar para depurar, explorar, carregar arquivos, bem como pontos de extremidade JSON para obter informações sobre o seu ambiente. Isso é chamado de *console do kudu* ou do *painel do SCM* para seu aplicativo.
 
-Você pode acessar esse painel acessando o link **https://&lt;Your app Name >. SCM. azurewebsites. net/** .
+Você pode acessar esse painel indo para o link **https://&lt;o nome do aplicativo >. SCM. azurewebsites. net/** .
 
 Algumas das coisas que o kudu fornece são:
 
@@ -97,7 +88,7 @@ Para obter mais informações sobre os recursos disponíveis no kudu, consulte [
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Atenuar o problema
+### <a name="3-mitigate-the-issue"></a>3. atenue o problema
 #### <a name="scale-the-app"></a>Dimensionar o aplicativo
 No Azure App Service, para aumentar o desempenho e a taxa de transferência, você pode ajustar a escala na qual você está executando seu aplicativo. Escalar verticalmente um aplicativo envolve duas ações relacionadas: alterar o plano do serviço de aplicativo para um tipo de preço mais alto e definir determinadas configurações depois que você tiver alternado para o tipo de preço mais alto.
 

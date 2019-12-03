@@ -1,28 +1,20 @@
 ---
-title: Arquitetura de segurança em camadas com ambientes de serviço de aplicativo – Azure
-description: Implementação de uma arquitetura de segurança em camadas com ambientes de serviço de aplicativo.
-services: app-service
-documentationcenter: ''
+title: Segurança em camadas v1
+description: Saiba como implementar uma arquitetura de segurança em camadas em seu ambiente do serviço de aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070135"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688788"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementando uma arquitetura de segurança em camadas com ambientes de serviço de aplicativo
-## <a name="overview"></a>Descrição geral
 Como os ambientes do serviço de aplicativo fornecem um ambiente de tempo de execução isolado implantado em uma rede virtual, os desenvolvedores podem criar uma arquitetura de segurança em camadas, fornecendo diferentes níveis de acesso à rede para cada camada de aplicativo físico.
 
 Um desejo comum é ocultar os back-ends de API do acesso geral à Internet e permitir que as APIs sejam chamadas por aplicativos Web upstream.  Os [NSGs (grupos de segurança de rede)][NetworkSecurityGroups] podem ser usados em sub-redes que contêm ambientes de serviço de aplicativo para restringir o acesso público a aplicativos de API.

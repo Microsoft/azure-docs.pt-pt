@@ -1,26 +1,20 @@
 ---
-title: Perguntas frequentes sobre tecnologias de software livre – serviço de Azure App | Microsoft Docs
-description: Obtenha respostas para perguntas frequentes sobre tecnologias de software livre no recurso aplicativos Web do serviço Azure App.
-services: app-service\web
-documentationcenter: ''
+title: Perguntas frequentes sobre tecnologias de código aberto
+description: Obtenha respostas para perguntas frequentes sobre tecnologias de software livre no Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169688"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672434"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de software livre para aplicativos Web no Azure
 
@@ -36,7 +30,7 @@ Para ativar o registro em log do PHP:
 2. No menu superior, selecione **console de depuração** > **cmd**.
 3. Selecione a pasta do **site** .
 4. Selecione a pasta **wwwroot** .
-5. Selecione o ícone **+** e, em seguida, selecione **novo arquivo**.
+5. Selecione o ícone de **+** e, em seguida, selecione **novo arquivo**.
 6. Defina o nome do arquivo para **. User. ini**.
 7. Selecione o ícone de lápis ao lado de **. User. ini**.
 8. No arquivo, adicione este código: `log_errors=on`
@@ -86,14 +80,14 @@ Para alterar a versão do aplicativo node. js, você pode usar uma das seguintes
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Vejo a mensagem "erro ao estabelecer uma conexão de banco de dados" em meu aplicativo WordPress que está hospedado no serviço de aplicativo. Como fazer solucionar problemas disso?
 
-Se você vir esse erro em seu aplicativo do Azure WordPress, para habilitar o php_errors. log e o Debug. log, conclua as etapas detalhadas em [Habilitar logs de erros do WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Se você vir esse erro em seu aplicativo do Azure WordPress, para habilitar php_errors. log e Debug. log, conclua as etapas detalhadas em [Habilitar logs de erros do WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 Quando os logs estiverem habilitados, reproduza o erro e, em seguida, verifique os logs para ver se você está ficando sem conexões:
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
 
-Se você vir esse erro nos arquivos debug. log ou php_errors. log, seu aplicativo estará excedendo o número de conexões. Se você estiver hospedando no ClearDB, verifique o número de conexões que estão disponíveis no seu [plano de serviço](https://www.cleardb.com/pricing.view).
+Se você vir esse erro em seus arquivos debug. log ou php_errors. log, seu aplicativo estará excedendo o número de conexões. Se você estiver hospedando no ClearDB, verifique o número de conexões que estão disponíveis no seu [plano de serviço](https://www.cleardb.com/pricing.view).
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Como fazer depurar um aplicativo node. js hospedado no serviço de aplicativo?
 
@@ -144,7 +138,7 @@ Para resolver o erro:
 
 1. Remova o arquivo sqljdbc*. jar da sua pasta app/lib.
 2. Se você estiver usando o Tomcat personalizado ou o servidor Web Tomcat do Azure Marketplace, copie esse arquivo. jar para a pasta lib do Tomcat.
-3. Se você estiver habilitando o Java do portal do Azure (selecione **java 1,8** > **servidor Tomcat**), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath ao arquivo Web. config:
+3. Se você estiver habilitando Java do portal do Azure (selecione **java 1,8** > **servidor Tomcat**), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath ao arquivo Web. config:
 
     ```xml
     <httpPlatform>
@@ -177,7 +171,7 @@ Outra solução alternativa é escrever um WebJob que é executado em um agendam
 
 Para implantações de Marketplace e personalizadas, o arquivo de log está na pasta D:\home\site\wwwroot\bin\jetty-Distribution-9.1.2.v20140210\logs. Observe que o local da pasta depende da versão do Jetty que você está usando. Por exemplo, o caminho fornecido aqui é para Jetty 9.1.2. Procure jetty_*YYYY_MM_DD*. stderrout. log.
 
-Para implantações de configuração de aplicativo do portal, o arquivo de log está em D:\home\LogFiles. Procure por jetty_*YYYY_MM_DD*. stderrout. log
+Para implantações de configuração de aplicativo do portal, o arquivo de log está em D:\home\LogFiles. Procure jetty_*YYYY_MM_DD*. stderrout. log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>Posso enviar email do meu aplicativo Web do Azure?
 

@@ -1,24 +1,18 @@
 ---
-title: Criar um balanceador de carga interno com o Ambiente do Serviço de Aplicativo-Azure
-description: Detalhes sobre como criar e utilizar um Ambiente de Serviço de Aplicações do Azure isolado da Internet
-services: app-service
-documentationcenter: na
+title: Criar um ASE ILB com ARM
+description: Saiba como criar um ambiente de serviço de aplicativo com um ILB ASE (balanceador de carga interno) usando modelos de Azure Resource Manager. Isole totalmente seus aplicativos da Internet.
 author: ccompy
-manager: stefsch
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470565"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687216"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e usar um Load Balancer interno Ambiente do Serviço de Aplicativo 
 
@@ -29,7 +23,7 @@ A Ambiente do Serviço de Aplicativo do Azure é uma implantação do serviço d
 
 Este artigo mostra como criar um ASE de ILB. Para obter uma visão geral do ASE, consulte [introdução aos ambientes do serviço de aplicativo][Intro]. Para saber como criar um ASE externo, consulte [criar um ase externo][MakeExternalASE].
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Visão geral 
 
 Pode implementar um ASE com um ponto final acessível pela Internet ou com um endereço IP na sua VNet. Para definir o endereço IP para um endereço VNet, o ASE tem de ser implementado com um ILB. Ao implantar seu ASE com um ILB, você deve fornecer o nome do seu ASE. O nome do seu ASE é usado no sufixo de domínio para os aplicativos em seu ASE.  O sufixo de domínio para seu ASE ILB é &lt;nome do ASE&gt;. appserviceenvironment.net. Os aplicativos que são feitos em um ASE ILB não são colocados no DNS público. 
 
@@ -120,7 +114,7 @@ O nome do site SCM leva-o para a consola Kudu, denominada **Portal avançado**, 
 
 Os sistemas CI baseados na Internet, como o GitHub e o Azure DevOps, continuarão a funcionar com um ASE de ILB se o agente de compilação for acessível pela Internet e estiver na mesma rede que o ASE de ILB. Por isso, no caso do Azure DevOps, se o agente de compilação for criado na mesma VNET que o ASE de ILB (pode ser outra sub-rede), conseguirá obter o código do git do Azure DevOps e implementar no ASE de ILB. Se não quiser criar o seu próprio agente de compilação, terá de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
-Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e no painel do portal da aplicação (**Descrição geral** > **Informações Básicas** e também **Propriedades**). Se você tiver um ASE ILB com o sufixo de domínio *&lt;nome do ase&gt;. appserviceenvironment.net*e um aplicativo chamado *myTest*, use *myTest.&lt;nome do ase&gt;. appserviceenvironment.net* para FTP e  *mytest.scm.contoso.net* para implantação na Web.
+Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e no painel do portal da aplicação (**Descrição geral** > **Informações Básicas** e também **Propriedades**). Se você tiver um ASE ILB com o sufixo de domínio *&lt;nome do ase&gt;. appserviceenvironment.net*e um aplicativo chamado *myTest*, use *myTest.&lt;nome do ase&gt;. appserviceenvironment.net* para FTP e *myTest.SCM.contoso.net* para implantação da Web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configurar um ASE ILB com um dispositivo WAF ##
 

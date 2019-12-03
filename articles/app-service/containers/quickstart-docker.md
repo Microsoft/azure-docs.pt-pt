@@ -1,19 +1,18 @@
 ---
-title: Implantar um aplicativo Docker no serviço Linux-Azure App
-description: Como implantar uma imagem do Docker nos serviços Azure App para Linux
-author: msangapu
+title: 'Início rápido: executar um contêiner personalizado do Linux'
+description: Introdução aos contêineres do Linux no serviço de Azure App implantando seu primeiro contêiner personalizado usando registros de contêiner do Azure.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392115"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688949"
 ---
-# <a name="deploy-to-azure-using-docker"></a>Implantar no Azure usando o Docker
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Implantar um contêiner personalizado do Linux no serviço Azure App
 
 O serviço de aplicativo no Linux fornece pilhas de aplicativos predefinidas no Linux com suporte para linguagens como .NET, PHP, Node. js e outros. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este guia de início rápido mostra como implantar uma imagem de um ACR ( [registro de contêiner do Azure](/azure/container-registry) ) para o serviço de aplicativo.
 
@@ -27,7 +26,7 @@ O serviço de aplicativo no Linux fornece pilhas de aplicativos predefinidas no 
 
 ## <a name="create-an-image"></a>Criar uma imagem
 
-Para concluir este guia de início rápido, você precisará de uma imagem de aplicativo Web adequada armazenada em um [registro de contêiner do Azure](/azure/container-registry). Siga as instruções em [início rápido: Crie um registro de contêiner privado usando o](/azure/container-registry/container-registry-get-started-portal)portal do Azure, mas use `mcr.microsoft.com/azuredocs/go` a imagem em vez `hello-world` da imagem.
+Para concluir este guia de início rápido, você precisará de uma imagem de aplicativo Web adequada armazenada em um [registro de contêiner do Azure](/azure/container-registry). Siga as instruções em [início rápido: criar um registro de contêiner privado usando o portal do Azure](/azure/container-registry/container-registry-get-started-portal), mas use a imagem de `mcr.microsoft.com/azuredocs/go` em vez da imagem de `hello-world`.
 
 > [!IMPORTANT]
 > Certifique-se de definir a opção de **usuário administrador** para **habilitar** ao criar o registro de contêiner. Você também pode defini-lo na seção **chaves de acesso** da página do registro na portal do Azure. Essa configuração é necessária para o acesso ao serviço de aplicativo.
@@ -62,7 +61,7 @@ Localize a imagem no nó **registros** no Gerenciador do **Docker** e expanda-a 
 
 A partir daqui, siga os prompts para escolher uma assinatura, um nome de aplicativo exclusivo globalmente, um grupo de recursos e um plano do serviço de aplicativo. Escolha o **básico B1** para o tipo de preço e uma região.
 
-Após a implantação, seu aplicativo estará disponível `http://<app name>.azurewebsites.net`em.
+Após a implantação, seu aplicativo estará disponível em `http://<app name>.azurewebsites.net`.
 
 Um **grupo de recursos** é uma coleção nomeada de todos os recursos do seu aplicativo no Azure. Por exemplo, um grupo de recursos pode conter uma referência a um site, um banco de dados e uma função do Azure.
 
@@ -75,7 +74,7 @@ O painel **saída** será aberto durante a implantação para indicar o status d
 > [!div class="nextstepaction"]
 > [Ocorreu um problema](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, você concluiu com êxito este guia de início rápido!
 

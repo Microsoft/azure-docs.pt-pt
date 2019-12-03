@@ -1,27 +1,20 @@
 ---
-title: Criar um aplicativo Web Java no Windows-serviço de Azure App
-description: Neste guia de início rápido, você implanta sua primeira Olá, Mundo Java no serviço Azure App no Windows em minutos.
+title: 'Início rápido: criar um aplicativo Java no Windows'
+description: Implante seu primeiro Olá, Mundo Java para Azure App serviço no Windows em minutos. O plug-in do Maven para o serviço de aplicativo torna conveniente implantar aplicativos Java.
 keywords: Azure, serviço de aplicativo, aplicativo Web, Windows, Java, Maven, início rápido
-services: app-service\web
-documentationcenter: ''
 author: msangapu-msft
-manager: jeconnoc
-editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d119ffdcb952405f17e0df152c817df9a8a63110
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c511ed3f432c8e54a820c01839269712271774bd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833633"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672165"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início rápido: criar um aplicativo Java no serviço de Azure App no Windows
 

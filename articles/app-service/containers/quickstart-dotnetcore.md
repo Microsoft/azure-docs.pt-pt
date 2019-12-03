@@ -1,26 +1,18 @@
 ---
-title: Criar ASP.NET Core aplicativo no serviço Linux-Azure App | Microsoft Docs
-description: Implemente a sua primeira aplicação Hello World .NET Core no Serviço de Aplicações no Linux em minutos.
+title: 'Início rápido: executar um aplicativo de ASP.NET Core do Linux'
+description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo ASP.NET Core em um contêiner do Linux no serviço de aplicativo.
 keywords: serviço de aplicações do azure, aplicação web, dotnet, núcleos, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43771392adcbf49c9103ee7ebc4b3febbac11b05
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ea9449a89bcfbdb1378f0cceb31a07a288661bf7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071220"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687564"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Criar um aplicativo ASP.NET Core no serviço de aplicativo no Linux
 
@@ -94,7 +86,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Navegue até seu aplicativo criado recentemente. Substitua o nome do  _aplicativo>pelonomedoaplicativo&lt;_ .
+Navegue até seu aplicativo criado recentemente. Substitua _&lt;nome do aplicativo >_ pelo nome do aplicativo.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -131,7 +123,7 @@ remote:   ...
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 
@@ -184,7 +176,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core aplicativo com o banco de dados SQL](tutorial-dotnetcore-sqldb-app.md)

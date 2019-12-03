@@ -1,32 +1,22 @@
 ---
-title: Configurar aplicativos Python – serviço de Azure App
-description: Este tutorial descreve as opções para a criação e a configuração de aplicações Python para o Serviço de Aplicações do Azure no Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Configurar aplicativos Python do Linux
+description: Saiba como configurar um contêiner Python pré-compilado para seu aplicativo. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 8563e0ac060e5cce6853472dfb1c51c6c2c36a4d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071094"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670485"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar um aplicativo Linux Python para o Azure App Service
 
 Este artigo descreve como [Azure app serviço](app-service-linux-intro.md) executa aplicativos Python e como você pode personalizar o comportamento do serviço de aplicativo quando necessário. Os aplicativos Python devem ser implantados com todos os módulos [Pip](https://pypi.org/project/pip/) necessários.
 
-O mecanismo de implantação do serviço de aplicativo ativa automaticamente um ambiente virtual `pip install -r requirements.txt` e é executado para você quando você implanta um [repositório git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)ou um [pacote zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) com processos de compilação ativados.
+O mecanismo de implantação do serviço de aplicativo ativa automaticamente um ambiente virtual e executa `pip install -r requirements.txt` para você quando você implanta um [repositório git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)ou um [pacote zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) com processos de compilação ativados.
 
 Este guia fornece os principais conceitos e instruções para desenvolvedores de Python que usam um contêiner do Linux interno no serviço de aplicativo. Se você nunca usou Azure App serviço, deverá seguir o tutorial de [início rápido do Python](quickstart-python.md) e [Python com PostgreSQL](tutorial-python-postgresql-app.md) primeiro.
 
@@ -48,7 +38,7 @@ Para mostrar todas as versões do Python com suporte, execute o seguinte comando
 az webapp list-runtimes --linux | grep PYTHON
 ```
 
-Você pode executar uma versão sem suporte do Python criando sua própria imagem de contêiner em vez disso. Para obter mais informações, consulte [usar uma imagem personalizada](tutorial-custom-docker-image.md)do Docker.
+Você pode executar uma versão sem suporte do Python criando sua própria imagem de contêiner em vez disso. Para obter mais informações, consulte [usar uma imagem personalizada do Docker](tutorial-custom-docker-image.md).
 
 ## <a name="set-python-version"></a>Definir versão do Python
 
@@ -119,7 +109,7 @@ Pode controlar o comportamento de arranque do contentor ao fornecer um comando d
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Por exemplo, se você tiver um aplicativo Flask cujo módulo principal é *Hello.py* e o objeto de aplicativo Flask nesse arquivo for nomeado `myapp`,  *\<o > de comando personalizado* será o seguinte:
+Por exemplo, se você tiver um aplicativo Flask cujo módulo principal é *Hello.py* e o objeto de aplicativo Flask nesse arquivo é denominado `myapp`, *\<> de comando personalizado* é o seguinte:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -131,9 +121,9 @@ Se o seu módulo principal estiver numa subpasta, como `website`, especifique es
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Você também pode adicionar argumentos adicionais para Gunicorn a  *\<> de comando personalizado*, como. `--workers=4` Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Você também pode adicionar argumentos adicionais para Gunicorn para *\<> de comando personalizado*, como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-Para usar um servidor não Gunicorn, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), você pode substituir  *\<> de comando personalizado* por algo semelhante a este:
+Para usar um servidor não Gunicorn, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), você pode substituir *\<> de comando personalizado* por algo parecido com este:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -144,7 +134,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Variáveis de ambiente de acesso
 
-No serviço de aplicativo, você pode [definir configurações de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão [. Environ padrão do sistema operacional](https://docs.python.org/3/library/os.html#os.environ) . Por exemplo, para acessar uma configuração de aplicativo `WEBSITE_SITE_NAME`chamada, use o seguinte código:
+No serviço de aplicativo, você pode [definir configurações de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão [. Environ padrão do sistema operacional](https://docs.python.org/3/library/os.html#os.environ) . Por exemplo, para acessar uma configuração de aplicativo chamada `WEBSITE_SITE_NAME`, use o seguinte código:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -152,14 +142,14 @@ os.environ['WEBSITE_SITE_NAME']
 
 ## <a name="detect-https-session"></a>Detectar sessão HTTPS
 
-No serviço de aplicativo, a [terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede, portanto, todas as solicitações HTTPS atingem seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar verificar se as solicitações do usuário estão criptografadas ou não, `X-Forwarded-Proto` Inspecione o cabeçalho.
+No serviço de aplicativo, a [terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede, portanto, todas as solicitações HTTPS atingem seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar verificar se as solicitações do usuário estão criptografadas ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
 # Do something when HTTPS is used
 ```
 
-Estruturas da Web populares permitem que você acesse as `X-Forwarded-*` informações em seu padrão de aplicativo padrão. Em [CodeIgniter](https://codeigniter.com/), o [is_https ()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) verifica o valor de `X_FORWARDED_PROTO` por padrão.
+Estruturas da Web populares permitem que você acesse as informações de `X-Forwarded-*` em seu padrão de aplicativo padrão. No [CodeIgniter](https://codeigniter.com/), o [is_https ()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) verifica o valor de `X_FORWARDED_PROTO` por padrão.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
@@ -181,13 +171,13 @@ Estruturas da Web populares permitem que você acesse as `X-Forwarded-*` informa
 - Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#customize-startup-command).
 - [Acessar o fluxo de log](#access-diagnostic-logs).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Python com PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: aplicativo Python com PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implantar do repositório de contêiner privado](tutorial-custom-docker-image.md)
+> [Tutorial: implantar do repositório de contêiner privado](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Perguntas frequentes sobre o serviço de aplicativo Linux](app-service-linux-faq.md)

@@ -1,26 +1,18 @@
 ---
-title: Práticas recomendadas de implantação-serviço de Azure App | Microsoft Docs
-description: Saiba mais sobre os principais componentes da implantação no serviço Azure App.
+title: Melhores práticas de implementação
+description: Saiba mais sobre os principais mecanismos de implantação no serviço Azure App. Encontre recomendações específicas de idioma e outras advertências.
 keywords: serviço de aplicativo do Azure, aplicativo Web, implantar, implantação, pipelines, compilação
-services: app-service
-documentationcenter: ''
 author: jasonfreeberg
-manager: ''
-editor: ''
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.custom: ''
-ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199484"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670092"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 

@@ -1,26 +1,18 @@
 ---
-title: FAQ do serviço de aplicativo no Linux – Azure | Microsoft Docs
-description: Perguntas frequentes sobre o serviço Azure App no Linux.
+title: Perguntas frequentes de execução de contêineres internos
+description: Encontre respostas para as perguntas frequentes sobre os contêineres internos do Linux no serviço Azure App.
 keywords: serviço de aplicativo do Azure, aplicativo Web, perguntas frequentes, Linux, OSS, aplicativo Web para contêineres, vários contêineres, multirecipiente
-services: app-service
-documentationCenter: ''
 author: msangapu-msft
-manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066909"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687601"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o serviço Azure App no Linux
 
@@ -32,18 +24,18 @@ Se você tiver uma pergunta, comente sobre este artigo.
 
 **Quero bifurcar os contêineres internos do Docker que a plataforma fornece. Onde posso encontrar esses arquivos?**
 
-Você pode encontrar todos os arquivos do Docker no [GitHub](https://github.com/azure-app-service). Você pode encontrar todos os contêineres do Docker no [Hub](https://hub.docker.com/u/appsvc/)do Docker.
+Você pode encontrar todos os arquivos do Docker no [GitHub](https://github.com/azure-app-service). Você pode encontrar todos os contêineres do Docker no [Hub do Docker](https://hub.docker.com/u/appsvc/).
 
 <a id="#startup-file"></a>
 
 **Quais são os valores esperados para a seção arquivo de inicialização quando configuro a pilha de tempo de execução?**
 
-| Pilha           | Valor esperado                                                                         |
+| Sobreposta           | Valor esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
 | Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar my-app.jar --server.port=80`) |
 | Tomcat, Wildfly | o local de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | o arquivo de configuração PM2 ou o arquivo de script                                |
-| .Net Core       | o nome da DLL compilada como`dotnet <myapp>.dll`                                 |
+| .Net Core       | o nome da DLL compilada como `dotnet <myapp>.dll`                                 |
 | Ruby            | o script Ruby com o qual você deseja inicializar seu aplicativo                     |
 
 Esses comandos ou scripts são executados depois que o contêiner interno do Docker é iniciado, mas antes do código do aplicativo ser iniciado.
@@ -84,21 +76,21 @@ Sim, você precisa definir uma configuração de aplicativo chamada `WEBSITE_WEB
 
 Se a implantação do git falhar em seu aplicativo Web do Linux, escolha uma das seguintes opções para implantar o código do aplicativo:
 
-- Use o recurso entrega contínua (versão prévia): Você pode armazenar o código-fonte do aplicativo em um repositório Git do Azure DevOps ou no repositório GitHub para usar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para o aplicativo Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Usar o recurso entrega contínua (versão prévia): você pode armazenar o código-fonte do aplicativo em um repositório Git do Azure DevOps ou repositório GitHub para usar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para o aplicativo Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Usar a [API de implantação de zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para usar essa API, use [SSH em seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta onde você deseja implantar seu código. Execute o seguinte código:
+- Usar a [API de implantação de zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, use [SSH em seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta em que você deseja implantar seu código. Execute o seguinte código:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Se você receber um erro informando que o `curl` comando não foi encontrado, certifique-se de instalar a ondulação usando `curl` `apt-get install curl` antes de executar o comando anterior.
+   Se você receber um erro informando que o comando `curl` não foi encontrado, certifique-se de instalar a ondulação usando `apt-get install curl` antes de executar o comando `curl` anterior.
 
 ## <a name="language-support"></a>Suporte de idiomas
 
 **Desejo usar o Web Sockets no meu aplicativo node. js, configurações especiais ou definições a serem definidas?**
 
-Sim, desabilitar `perMessageDeflate` no seu código node. js do lado do servidor. Por exemplo, se você estiver usando socket.io, use o seguinte código:
+Sim, desabilite `perMessageDeflate` no seu código node. js do lado do servidor. Por exemplo, se você estiver usando socket.io, use o seguinte código:
 
 ```nodejs
 const io = require('socket.io')(server,{
@@ -114,23 +106,23 @@ Sim.
 
 Sim, durante uma implantação do git, o kudu deve detectar que você está implantando um aplicativo PHP (graças à presença de um arquivo Composer. Lock) e o kudu irá disparar uma instalação do Composer.
 
-## <a name="custom-containers"></a>Contêineres personalizados
+## <a name="custom-containers"></a>Personalizar contentores
 
-**Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento `/home/` SMB no diretório.**
+**Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB no diretório `/home/`.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for **especificada** ou definida como *true*, `/home/` o diretório **será compartilhado** entre as instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir `WEBSITES_ENABLE_APP_SERVICE_STORAGE` explicitamente como *false* desabilitará a montagem.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração não for **especificada** ou definida como *true*, o diretório `/home/` **será compartilhado** entre instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir explicitamente `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como *false* desabilitará a montagem.
 
 **Meu contêiner personalizado leva muito tempo para ser iniciado e a plataforma reinicia o contêiner antes de concluir a inicialização.**
 
-Você pode configurar a quantidade de tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a `WEBSITES_CONTAINER_START_TIME_LIMIT` configuração do aplicativo para o valor desejado. O valor padrão é 230 segundos e o valor máximo é 1800 segundos.
+Você pode configurar a quantidade de tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a configuração do aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` como o valor desejado. O valor padrão é 230 segundos e o valor máximo é 1800 segundos.
 
 **Qual é o formato da URL do servidor de registro particular?**
 
-Forneça a URL completa do registro, `http://` incluindo `https://`ou.
+Forneça a URL completa do registro, incluindo `http://` ou `https://`.
 
 **Qual é o formato do nome da imagem na opção de registro particular?**
 
-Adicione o nome completo da imagem, incluindo a URL particular do registro (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam uma porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ `az` ferramenta de linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome completo da imagem, incluindo a URL particular do registro (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam uma porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ferramenta de linha de comando`az`](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Posso expor mais de uma porta em minha imagem de contêiner personalizada?**
 
@@ -177,7 +169,7 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 
 Aqui estão as regras para determinar qual contêiner está acessível-na ordem de precedência:
 
-- Configuração `WEBSITES_WEB_CONTAINER_NAME` de aplicativo definida como o nome do contêiner
+- Configuração de aplicativo `WEBSITES_WEB_CONTAINER_NAME` definida como o nome do contêiner
 - O primeiro contêiner para definir a porta 80 ou 8080
 - Se nenhuma das opções acima for verdadeira, o primeiro contêiner definido no arquivo estará acessível (exposto)
 
@@ -197,7 +189,7 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 
 Você pode enviar sua ideia no [Fórum de comentários de aplicativos Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" ao título da sua ideia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o serviço Azure App no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

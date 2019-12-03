@@ -1,25 +1,16 @@
 ---
-title: Configurar a autenticação da conta da Microsoft-serviço de Azure App
-description: Saiba como configurar a autenticação de conta da Microsoft para seu aplicativo do serviço de aplicativo.
-author: mattchenderson
-services: app-service
-documentationcenter: ''
-manager: syntaxc4
-editor: ''
+title: Configurar a autenticação da Microsoft
+description: Saiba como configurar a autenticação da conta da Microsoft como um provedor de identidade para seu aplicativo do serviço de aplicativo.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/08/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 70af534e6bcd0039dbc602a5ebc3fc35fb145e79
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176942"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671929"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon da conta da Microsoft
 

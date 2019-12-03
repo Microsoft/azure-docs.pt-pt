@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681538"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671579"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -120,6 +120,14 @@ Por exemplo, se você tiver uma lista de arquivos de dados de julho de 2019 que 
 ```DateFiles/*_201907*.txt```
 
 Usando o curinga, seu pipeline conterá apenas uma atividade de fluxo de dados. Isso terá um desempenho melhor do que uma pesquisa no repositório de BLOB que, em seguida, itera em todos os arquivos correspondentes usando um ForEach com uma atividade executar fluxo de dados dentro do.
+
+### <a name="optimizing-for-cosmosdb"></a>Otimizando para CosmosDB
+
+Definir as propriedades de taxa de transferência e de lote em coletores CosmosDB só entrará em vigor durante a execução desse fluxo de dados de uma atividade de fluxo de dados de pipeline. As configurações originais da coleção serão respeitadas pelo CosmosDB após a execução do fluxo de dados.
+
+* Tamanho do lote: Calcule o tamanho da linha aproximada dos dados e verifique se o tamanho do lote de rowgroup * é menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
+* Defino: defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
+*   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partitiongs Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280663"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689337"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Cenários de usuário de exemplo para o API de Análise de Texto
 
@@ -29,7 +29,7 @@ Desenhe informações de resultados de pesquisa de clientes e funcionários proc
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analisar as chamadas de cliente de entrada gravadas
 
-Extraia informações de chamadas de serviços de clientes usando Conversão de Texto em Fala, Análise de Sentimento e Extração de Frases-chave. Exiba os resultados no painel Power BI ou em um portal para entender melhor os clientes, destaque as tendências do serviço de atendimento ao cliente e conduza o envolvimento do cliente. Envie solicitações de API como um lote para relatórios ou em tempo real para intervenção. Consulte o [código de exemplo](https://github.com/rlagh2/callcenteranalytics).
+Extraia informações de chamadas de serviços de clientes usando Conversão de Texto em Fala, Análise de Sentimento e Extração de Frases-chave. Exiba os resultados no painel Power BI ou em um portal para entender melhor os clientes, destaque as tendências do serviço de atendimento ao cliente e conduza o envolvimento do cliente. Envie solicitações de API como um lote para relatórios ou em tempo real para intervenção. Consulte o código de exemplo [no GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Uma imagem que descreve como automatizar a obtenção de informações de chamadas de atendimento ao cliente usando análise de sentimentos](media/use-cases/azure-inbound.svg)
 

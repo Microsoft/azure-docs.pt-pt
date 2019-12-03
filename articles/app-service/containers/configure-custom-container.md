@@ -1,24 +1,14 @@
 ---
-title: Configurar o contêiner personalizado – serviço de Azure App | Microsoft Docs
-description: Saiba como configurar aplicativos node. js para trabalhar no serviço Azure App
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+title: Configurar um contêiner personalizado do Linux
+description: Saiba como configurar um contêiner personalizado do Linux no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
-ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668972"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671871"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contêiner personalizado do Linux para o serviço Azure App
 
@@ -149,9 +139,9 @@ As listas a seguir mostram opções de configuração com e sem suporte Docker C
 - command
 - entrypoint
 - environment
-- image
+- imagem
 - ports
-- restart
+- reiniciar
 - services
 - volumes
 

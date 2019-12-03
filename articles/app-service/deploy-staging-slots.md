@@ -1,31 +1,21 @@
 ---
-title: Configurar ambientes de preparo para aplicativos Web no serviço Azure App | Microsoft Docs
-description: Saiba como usar a publicação em etapas para aplicativos Web no serviço Azure App.
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: Configurar ambientes de preparo
+description: Saiba como implantar aplicativos em um slot que não seja de produção e o AutoSwap para produção. Aumente a confiabilidade e elimine o tempo de inatividade do aplicativo de implantações.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382275"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671762"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no serviço Azure App
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando no **Standard**, **Premium**ou **isolado** Camada do plano do serviço de aplicativo. Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Elementos de configuração e conteúdo do aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
+Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium**ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Elementos de configuração e conteúdo do aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
 
 Implantar seu aplicativo em um slot de não produção tem os seguintes benefícios:
 

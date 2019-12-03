@@ -1,5 +1,5 @@
 ---
-title: Apache Hadoop & armazenamento seguro do transr-Azure HDInsight
+title: Apache Hadoop & armazenamento tranfser seguro-Azure HDInsight
 description: Saiba como criar clusters do HDInsight com contas de armazenamento do Azure com transferência segura ativada.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: b8a5d48e977009cf592f271760232a3b0138c8c5
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: ed8e20509c4a3f941d6f215dfc476c87e9a813a7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044954"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687787"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar Apache Hadoop cluster com contas de armazenamento de transferência segura no Azure HDInsight
 
@@ -24,7 +24,7 @@ A funcionalidade [Transferência segura necessária](../storage/common/storage-r
 Antes de começar este artigo, você deve ter:
 
 * **Subscrição do Azure**: para criar uma conta de avaliação gratuita de um mês, aceda a [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Conta de Armazenamento do Azure com transferência segura ativada**. Para obter instruções, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) e [Requer transferência segura](../storage/common/storage-require-secure-transfer.md).
+* **Conta de Armazenamento do Azure com transferência segura ativada**. Para obter instruções, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) e [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). Habilitar a transferência de armazenamento seguro depois de criar um cluster requer etapas adicionais não abordadas neste artigo.
 * **Contentor de blobs na conta de armazenamento**.
 
 ## <a name="create-cluster"></a>Criar cluster

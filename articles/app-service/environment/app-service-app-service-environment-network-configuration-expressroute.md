@@ -1,25 +1,18 @@
 ---
-title: Detalhes de configuração de rede do Azure ExpressRoute – serviço de aplicativo
-description: Detalhes de configuração de rede para Ambiente do Serviço de Aplicativo para PowerApps em redes virtuais conectadas a um circuito do Azure ExpressRoute.
-services: app-service
-documentationcenter: ''
+title: Configurar o Azure ExpressRoute v1
+description: Configuração de rede para Ambiente do Serviço de Aplicativo do PowerApps com o Azure ExpressRoute. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: b10bd15538ecca7934a397ca63db1150a0bfc32c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070027"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688749"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para Ambiente do Serviço de Aplicativo do PowerApps com o Azure ExpressRoute
 
@@ -58,7 +51,7 @@ Ambiente do Serviço de Aplicativo requer que as seguintes configurações de co
 
 * O acesso à rede de entrada para as portas necessárias para Ambiente do Serviço de Aplicativo deve ser permitido. Para obter detalhes, consulte [como controlar o tráfego de entrada para ambiente do serviço de aplicativo][requiredports].
 
-Para atender aos requisitos de DNS, verifique se uma infraestrutura DNS válida está configurada e mantida para a rede virtual. Se a configuração de DNS for alterada depois que Ambiente do Serviço de Aplicativo for criado, os desenvolvedores poderão forçar Ambiente do Serviço de Aplicativo a selecionar a nova configuração de DNS. Você pode disparar uma reinicialização do ambiente sem interrupção usando o ícone de reinicialização em gerenciamento de Ambiente do Serviço de Aplicativo no [portal do Azure][NewPortal]. A reinicialização faz com que o ambiente pegue a nova configuração de DNS.
+Para atender aos requisitos de DNS, verifique se uma infraestrutura DNS válida está configurada e mantida para a rede virtual. Se a configuração de DNS for alterada depois que Ambiente do Serviço de Aplicativo for criado, os desenvolvedores poderão forçar Ambiente do Serviço de Aplicativo a selecionar a nova configuração de DNS. Você pode disparar uma reinicialização do ambiente sem interrupção usando o ícone de **reinicialização** em gerenciamento de Ambiente do Serviço de Aplicativo no [portal do Azure][NewPortal]. A reinicialização faz com que o ambiente pegue a nova configuração de DNS.
 
 Para atender aos requisitos de acesso à rede de entrada, configure um [NSG (grupo de segurança de rede)][NetworkSecurityGroups] na sub-rede ambiente do serviço de aplicativo. O NSG permite o acesso necessário [para controlar o tráfego de entrada para ambiente do serviço de aplicativo][requiredports].
 
@@ -86,7 +79,7 @@ O efeito combinado dessa configuração é que a UDR no nível da sub-rede tem p
 
 Para obter informações básicas sobre rotas definidas pelo usuário, consulte [Roteamento de tráfego de rede virtual][UDROverview].  
 
-Para saber como criar e configurar rotas definidas pelo usuário, consulte rotear o [tráfego de rede com uma tabela de rotas usando o PowerShell][UDRHowTo].
+Para saber como criar e configurar rotas definidas pelo usuário, consulte [rotear o tráfego de rede com uma tabela de rotas usando o PowerShell][UDRHowTo].
 
 ## <a name="udr-configuration"></a>Configuração do UDR
 
@@ -94,20 +87,20 @@ Esta seção mostra um exemplo de configuração de UDR para Ambiente do Serviç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o Azure PowerShell na [página de downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior.  > Em **ferramentas de linha de comando** **Windows PowerShell**, selecione **instalar** para instalar os cmdlets mais recentes do PowerShell.
+* Instale o Azure PowerShell na [página de downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior. Em **ferramentas de linha de comando** > **Windows PowerShell**, selecione **instalar** para instalar os cmdlets mais recentes do PowerShell.
 
 * Crie uma sub-rede exclusiva para uso exclusivo por Ambiente do Serviço de Aplicativo. A sub-rede exclusiva garante que o UDRs aplicado à sub-rede Abra o tráfego de saída somente para Ambiente do Serviço de Aplicativo.
 
 > [!IMPORTANT]
 > Só implante Ambiente do Serviço de Aplicativo depois de concluir as etapas de configuração. As etapas garantem que a conectividade de rede de saída esteja disponível antes de tentar implantar Ambiente do Serviço de Aplicativo.
 
-### <a name="step-1-create-a-route-table"></a>Passo 1: Criar uma tabela de rotas
+### <a name="step-1-create-a-route-table"></a>Etapa 1: criar uma tabela de rotas
 
 Crie uma tabela de rotas denominada **DirectInternetRouteTable** na região oeste dos EUA do Azure, conforme mostrado neste trecho:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Passo 2: Criar rotas na tabela
+### <a name="step-2-create-routes-in-the-table"></a>Etapa 2: criar rotas na tabela
 
 Adicione rotas à tabela de rotas para habilitar o acesso de saída à Internet.  
 
@@ -126,26 +119,26 @@ Como alternativa, Baixe uma lista atual e abrangente de intervalos CIDR em uso p
 > Um único UDR tem um limite superior padrão de 100 rotas. Você precisa "resumir" os intervalos de endereços IP do Azure para se ajustarem no limite de rota de 100. As rotas definidas pelo UDR precisam ser mais específicas do que as rotas anunciadas pela conexão do ExpressRoute.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>Passo 3: Associar a tabela à sub-rede
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Etapa 3: associar a tabela à sub-rede
 
 Associe a tabela de rotas à sub-rede em que você pretende implantar Ambiente do Serviço de Aplicativo. Esse comando associa a tabela **DirectInternetRouteTable** à sub-rede **ASESubnet** que conterá ambiente do serviço de aplicativo.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>Passo 4: Testar e confirmar a rota
+### <a name="step-4-test-and-confirm-the-route"></a>Etapa 4: testar e confirmar a rota
 
 Depois que a tabela de rotas estiver associada à sub-rede, teste e confirme a rota.
 
 Implante uma máquina virtual na sub-rede e confirme estas condições:
 
-* O tráfego de saída para os pontos de extremidade do Azure e não Azure descritos neste artigo não flui para baixo no circuito do ExpressRoute. Se o tráfego de saída da sub-rede for forçado em túnel local, a criação de Ambiente do Serviço de Aplicativo sempre falhará.
+* O tráfego de saída para os pontos de extremidade do Azure e não Azure descritos neste artigo **não flui para** baixo no circuito do ExpressRoute. Se o tráfego de saída da sub-rede for forçado em túnel local, a criação de Ambiente do Serviço de Aplicativo sempre falhará.
 * As pesquisas de DNS para os pontos de extremidade descritos neste artigo são resolvidas corretamente. 
 
 Depois de concluir as etapas de configuração e confirmar a rota, exclua a máquina virtual. A sub-rede precisa ser "vazia" quando Ambiente do Serviço de Aplicativo é criada.
 
 Agora você está pronto para implantar Ambiente do Serviço de Aplicativo!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar o Ambiente do Serviço de Aplicativo para PowerApps, consulte [introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment].
 

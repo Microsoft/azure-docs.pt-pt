@@ -1,25 +1,16 @@
 ---
-title: ASP.NET Core com o serviço de Azure App de banco de dados SQL | Microsoft Docs
+title: 'Tutorial: ASP.NET Core com o banco de dados SQL'
 description: Saiba como colocar uma aplicação .NET Core a funcionar no Serviço de Aplicações do Azure, com ligação a uma Base de Dados SQL.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a52a842bbd8ba9d8b22cdcf6792ec7e45a06e964
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7f444ad9b32ca5da923ce5ac711c9947971c4d1e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471139"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672002"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: criar um aplicativo de banco de dados ASP.NET Core e SQL no serviço Azure App
 
@@ -47,7 +38,7 @@ Saiba como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/).
+* [Instalar o Git](https://git-scm.com/)
 * [Instale o .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Criar uma aplicação .NET Core local

@@ -1,30 +1,23 @@
 ---
-title: Como dimensionar um aplicativo em um Ambiente do Serviço de Aplicativo-Azure
-description: Dimensionando um aplicativo em um Ambiente do Serviço de Aplicativo
-services: app-service
-documentationcenter: ''
+title: Dimensionar um aplicativo no ASE v1
+description: Dimensionando um aplicativo em um Ambiente do Serviço de Aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
-manager: stefsch
-editor: jimbe
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 711dc4d59785418d6637eb144b644948ed495e2c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069734"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688668"
 ---
-# <a name="scaling-apps-in-an-app-service-environment"></a>Dimensionar aplicações num Ambiente do Serviço de Aplicações
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Dimensionando aplicativos em um Ambiente do Serviço de Aplicativo v1
 No Azure App serviço, normalmente há três coisas que você pode dimensionar:
 
-* plano de preços
+* Plano de preços
 * tamanho do trabalhador 
 * número de instâncias.
 
@@ -39,7 +32,7 @@ A alteração de qualquer item é feita por meio da interface do usuário apropr
 
 ![][1]
 
-Você não pode escalar verticalmente o ASP além do número de recursos de computação disponíveis no pool de trabalho no qual seu ASP está.  Se precisar de recursos de computação nesse pool de trabalho, você precisará obter o administrador do ASE para adicioná-los.  Para obter informações sobre como reconfigurar seu ASE, leia as informações aqui: [Como configurar um ambiente do serviço de aplicativo][HowtoConfigureASE].  Talvez você também queira aproveitar os recursos de dimensionamento automático do ASE para adicionar capacidade com base na agenda ou métricas.  Para obter mais detalhes sobre a configuração de dimensionamento automático para o próprio ambiente do ASE, consulte [como configurar o dimensionamento automático para um ambiente do serviço de aplicativo][ASEAutoscale].
+Você não pode escalar verticalmente o ASP além do número de recursos de computação disponíveis no pool de trabalho no qual seu ASP está.  Se precisar de recursos de computação nesse pool de trabalho, você precisará obter o administrador do ASE para adicioná-los.  Para obter informações sobre como reconfigurar seu ASE, leia as informações aqui: [como configurar um ambiente do serviço de aplicativo][HowtoConfigureASE].  Talvez você também queira aproveitar os recursos de dimensionamento automático do ASE para adicionar capacidade com base na agenda ou métricas.  Para obter mais detalhes sobre a configuração de dimensionamento automático para o próprio ambiente do ASE, consulte [como configurar o dimensionamento automático para um ambiente do serviço de aplicativo][ASEAutoscale].
 
 Você pode criar vários planos do serviço de aplicativo usando recursos de computação de diferentes pools de trabalho ou pode usar o mesmo pool de trabalho.  Por exemplo, se você tiver (10) recursos de computação disponíveis no pool de trabalho 1, poderá optar por criar um plano do serviço de aplicativo usando (6) recursos de computação e um segundo plano do serviço de aplicativo que usa (4) recursos de computação.
 

@@ -1,25 +1,18 @@
 ---
-title: Criar aplicativo de vários contêineres usando o serviço de Azure App de Docker Compose
-description: Implemente a sua primeira aplicação com vários contentores na Aplicação Web para Contentores do Azure em minutos
+title: 'Início rápido: criar um aplicativo de vários contêineres'
+description: Introdução aos aplicativos de vários contêineres no serviço de Azure App implantando seu primeiro aplicativo de vários contêineres.
 keywords: serviço de aplicativo do Azure, aplicativo Web, Linux, Docker, compor, multirecipiente, vários contêineres, aplicativo Web para contêineres, vários contêineres, contêiner, WordPress, BD do Azure para MySQL, banco de dados de produção com contêineres
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071129"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687534"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar um aplicativo de vários contêineres (versão prévia) usando uma configuração de Docker Compose
 
@@ -101,7 +94,7 @@ Quando o plano do Serviço de Aplicações tiver sido criado, a CLI do Azure mos
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
-No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir  _\<app_name >_ por um nome de aplicativo exclusivo (os `a-z`caracteres válidos são `-`, `0-9`e).
+No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _\<app_name >_ por um nome de aplicativo exclusivo (os caracteres válidos são `a-z`, `0-9`e `-`).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -134,10 +127,10 @@ Navegue para a aplicação implementada em (`http://<app_name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)
+> [Tutorial: aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurar um contêiner personalizado](configure-custom-container.md)

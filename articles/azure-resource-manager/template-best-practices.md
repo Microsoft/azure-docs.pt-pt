@@ -1,14 +1,14 @@
 ---
-title: Melhores práticas de modelos
+title: Melhores práticas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos de Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d4cf4364b2e835db3d53fa64682a99710ceb2b29
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150309"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689104"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
 
@@ -276,23 +276,6 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    > Para garantir que os segredos sejam criptografados quando forem passados como parâmetros para VMs e extensões, use a propriedade **protectedSettings** das extensões relevantes.
    > 
    > 
-
-## <a name="outputs"></a>Saídas
-
-Se você usar um modelo para criar endereços IP públicos, inclua uma [seção Outputs](template-outputs.md) que retorne os detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="next-steps"></a>Passos seguintes
 

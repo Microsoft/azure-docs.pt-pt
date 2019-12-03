@@ -1,25 +1,18 @@
 ---
-title: Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1-Azure
-description: Saiba como criar aplicativos Web e planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo v1
-services: app-service
-documentationcenter: ''
+title: Criar um aplicativo Web no ASE v1
+description: Saiba como criar aplicativos Web em um Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8fb121999176e43f07283e970d7336a7c569eaca
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069851"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688704"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
 
@@ -27,7 +20,7 @@ ms.locfileid: "70069851"
 > Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em uma infraestrutura mais potente. Para saber mais sobre a nova versão, comece com a [introdução ao ambiente do serviço de aplicativo](intro.md).
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este tutorial mostra como criar aplicativos Web e planos do serviço de aplicativo em um [ambiente do serviço de aplicativo v1](app-service-app-service-environment-intro.md) (ase). 
 
 > [!NOTE]
@@ -85,7 +78,7 @@ As instruções a seguir mostram como criar um plano do serviço de aplicativo e
 ### <a name="selecting-a-worker-pool"></a>Selecionando um pool de trabalho
 Normalmente, no serviço Azure App e fora de um Ambiente do Serviço de Aplicativo, há três tamanhos de computação que estão disponíveis com a seleção de um plano de preço dedicado.  De maneira semelhante, para um ASE, você pode definir até três pools de trabalho e especificar o tamanho de computação que é usado para esse pool de trabalho.  O que isso significa para locatários do ASE é que, em vez de selecionar um plano de preços com tamanho de computação para seu plano do serviço de aplicativo, você seleciona o que é chamado de *pool de trabalho*.  
 
-A interface do usuário de seleção do pool de trabalho mostra o tamanho de computação usado para esse pool de trabalho abaixo do nome.  A quantidade disponível refere-se a quantas instâncias de computação estão disponíveis para uso nesse pool.  O pool total pode ter, na verdade, mais instâncias do que esse número, mas esse valor se refere simplesmente a quantas não estão em uso.  Se você precisar ajustar seu Ambiente do Serviço de Aplicativo para adicionar mais recursos de computação, consulte Configurando [seu ambiente do serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
+A interface do usuário de seleção do pool de trabalho mostra o tamanho de computação usado para esse pool de trabalho abaixo do nome.  A quantidade disponível refere-se a quantas instâncias de computação estão disponíveis para uso nesse pool.  O pool total pode ter, na verdade, mais instâncias do que esse número, mas esse valor se refere simplesmente a quantas não estão em uso.  Se você precisar ajustar seu Ambiente do Serviço de Aplicativo para adicionar mais recursos de computação, consulte [configurando seu ambiente do serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
 
 ![][4]
 

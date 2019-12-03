@@ -1,24 +1,17 @@
 ---
-title: Como usar o SDK de trabalhos Web-Azure
-description: Saiba mais sobre como escrever código para o SDK de trabalhos Web. Crie trabalhos de processamento em segundo plano controlados por eventos que acessam dados nos serviços do Azure e serviços de terceiros.
-services: app-service\web, storage
-documentationcenter: .net
+title: Como usar o SDK de trabalhos Web
+description: Saiba mais sobre como escrever código para o SDK de trabalhos Web. Crie trabalhos de processamento em segundo plano controlados por eventos que acessam dados no Azure e em serviços de terceiros.
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815749"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684007"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para processamento em segundo plano controlado por eventos
 
@@ -286,7 +279,7 @@ Esses tipos de gatilho e de associação estão incluídos na versão 2. *x* do 
 
 * Armazenamento de blobs
 * Armazenamento de filas
-* Table Storage
+* Armazenamento de tabela
 
 Para usar outros tipos de gatilho e de associação, instale o pacote NuGet que os contém e chame um método `Use<binding>` no objeto `JobHostConfiguration`. Por exemplo, se você quiser usar um gatilho de temporizador, instale `Microsoft.Azure.WebJobs.Extensions` e chame `UseTimers` no método `Main`, como mostrado aqui:
 
@@ -302,7 +295,7 @@ static void Main()
 
 Para usar a associação de arquivos, instale `Microsoft.Azure.WebJobs.Extensions` e chame `UseFiles`.
 
-### <a name="executioncontext"></a>executionContext
+### <a name="executioncontext"></a>ExecutionContext
 
 O webjobs permite que você se associe a um [`ExecutionContext`]. Com essa associação, você pode acessar o [`ExecutionContext`] como um parâmetro em sua assinatura de função. Por exemplo, o código a seguir usa o objeto de contexto para acessar a ID de invocação, que pode ser usada para correlacionar todos os logs produzidos por uma determinada invocação de função.  
 
@@ -752,13 +745,13 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 }
 ```
 
-### <a name="singletonmodelistener"></a>SingletonMode.Listener
+### <a name="singletonmodelistener"></a>Singletonmode. Listener
 
 Alguns gatilhos têm suporte interno para gerenciamento de simultaneidade:
 
 * **QueueTrigger**. Defina `JobHostConfiguration.Queues.BatchSize` como `1`.
 * **ServiceBusTrigger**. Defina `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` como `1`.
-* **FileTrigger**. Defina `FileProcessor.MaxDegreeOfParallelism` como `1`.
+* **Gatilho de filetrigger**. Defina `FileProcessor.MaxDegreeOfParallelism` como `1`.
 
 Você pode usar essas configurações para garantir que sua função seja executada como um singleton em uma única instância. Para garantir que apenas uma única instância da função esteja em execução quando o aplicativo Web é dimensionado para várias instâncias, aplique um bloqueio singleton no nível do ouvinte na função (`[Singleton(Mode = SingletonMode.Listener)]`). Os bloqueios de ouvinte são adquiridos quando o JobHost é iniciado. Se três instâncias escaladas horizontalmente começarem ao mesmo tempo, apenas uma das instâncias adquirirá o bloqueio e apenas um ouvinte será iniciado.
 
@@ -782,7 +775,7 @@ public class WorkItem
 }
 ```
 
-### <a name="singletonscopehost"></a>SingletonScope.Host
+### <a name="singletonscopehost"></a>SingletonScope. host
 
 O escopo padrão de um bloqueio é `SingletonScope.Function`, o que significa que o escopo de bloqueio (o caminho de concessão de BLOB) está vinculado ao nome da função totalmente qualificada. Para bloquear entre funções, especifique `SingletonScope.Host` e use um nome de ID de escopo que seja o mesmo em todas as funções que você não deseja executar simultaneamente. No exemplo a seguir, apenas uma instância de `AddItem` ou `RemoveItem` é executada por vez:
 
@@ -838,11 +831,11 @@ Cada log criado por uma instância de `ILogger` tem um `Category` e `Level`assoc
 |------------|---|
 |Rastreio       | 0 |
 |Depurar       | 1 |
-|Informações | 2 |
+|Proteção das | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
-|Crítica    | 5 |
-|Nenhum        | 6 |
+|Crítico    | 5 |
+|Nenhuma        | 6 |
 
 Você pode filtrar de forma independente cada categoria para um determinado [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel). Por exemplo, talvez você queira ver todos os logs para o processamento do gatilho de BLOB, mas apenas `Error` e superior para todo o resto.
 
@@ -1011,9 +1004,9 @@ config.LoggerFactory = new LoggerFactory()
 
 Este artigo fornece trechos de código que mostram como lidar com cenários comuns para trabalhar com o SDK de trabalhos Web. Para obter exemplos completos, consulte [Azure-webjobs-SDK-Samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 
-[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[ExecutionContext]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [TelemetryClient]: /dotnet/api/microsoft.applicationinsights.telemetryclient
-[`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [ITelemetryInitializer]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
-[`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[TelemetryConfiguration]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

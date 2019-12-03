@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Cortar uma imagem com o SDK do Pesquisa Visual do Bing'
+title: 'Tutorial: cortar uma imagem com o SDK do Pesquisa Visual do Bing'
 description: Use o SDK do Pesquisa Visual do Bing para obter informações de ares específicas em uma imagem.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/26/2019
-ms.author: rosh
-ms.openlocfilehash: a6b625325e2adfe441d8abd2012f100780b659b4
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 7adca44f1710431ad1095cbd0da897d4c7c7f325
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910037"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689340"
 ---
-# <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Cortar uma imagem com o SDK do Pesquisa Visual do Bing paraC#
+# <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: cortar uma imagem com o SDK do Pesquisa Visual do Bing paraC#
 
 O SDK do Pesquisa Visual do Bing permite cortar uma imagem antes de localizar imagens online semelhantes. Esse aplicativo corta uma única pessoa de uma imagem que contém várias pessoas e, em seguida, retorna os resultados da pesquisa que contêm imagens semelhantes encontradas online.
 
@@ -49,7 +49,7 @@ Este aplicativo corta uma área desta imagem da equipe de liderança sênior da 
 
 ![Equipa de Liderança Sénior da Microsoft](./media/MS_SrLeaders.jpg)
 
-Essa imagem é cortada com a criação `ImageInfo` de um objeto na área de corte e o `ImageInfo` carregamento do objeto `VisualSearchRequest`em um. O `ImageInfo` objeto também inclui a URL da imagem:
+Essa imagem é cortada com a criação de um objeto de `ImageInfo` da área de corte e o carregamento do objeto de `ImageInfo` em um `VisualSearchRequest`. O objeto `ImageInfo` também inclui a URL da imagem:
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
@@ -61,7 +61,7 @@ VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: ima
 
 ## <a name="search-for-images-similar-to-the-crop-area"></a>Pesquisar imagens semelhantes à área de corte
 
-A variável `VisualSearchRequest` contém informações sobre a área de corte da imagem e sua URL. O `VisualSearchMethodAsync()` método obtém os resultados:
+A variável `VisualSearchRequest` contém informações sobre a área de corte da imagem e sua URL. O método `VisualSearchMethodAsync()` Obtém os resultados:
 
 ```csharp
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
@@ -69,9 +69,9 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ```
 
-## <a name="get-the-url-data-from-imagemoduleaction"></a>Obter os dados de URL de`ImageModuleAction`
+## <a name="get-the-url-data-from-imagemoduleaction"></a>Obter os dados da URL do `ImageModuleAction`
 
-Os resultados de `ImageTag` pesquisa visual do Bing são objetos. Cada etiqueta contém uma lista de objetos `ImageAction`. Cada `ImageAction` contém um `Data` campo, que é uma lista de valores que dependem do tipo de ação.
+Pesquisa Visual do Bing resultados são `ImageTag` objetos. Cada etiqueta contém uma lista de objetos `ImageAction`. Cada `ImageAction` contém um campo `Data`, que é uma lista de valores que dependem do tipo de ação.
 
 Você pode imprimir os vários tipos com o seguinte código:
 
@@ -81,20 +81,20 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 A aplicação concluída devolve:
 
-|ActionType  |URL  | |
+|actionType  |URL  | |
 |---------|---------|---------|
 |PagesIncluding WebSearchURL     |         |
 |MoreSizes WebSearchURL     |         |  
 |VisualSearch WebSearchURL    |         |
 |ImageById WebSearchURL     |         |  
 |RelatedSearches WebSearchURL     |         |
-|Entidade-> WebSearchUrl     | https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3A%2F%2Fwww.Bing.com%2fsearch%3Fq%3dSatya%2bNadella&p=DevEx,5380.1        |
-|TopicResults -> WebSearchUrl    |  https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3A%2F%2Fwww.Bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1        |
-|ImageResults-> WebSearchUrl    |  https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&cid=03DCF882D7386A442137F49BD6596BEF&RD=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3A%2F%2Fwww.Bing.com%2fimages%2fsearch%3Fq%3dSatya%2bNadella&p=DevEx,5384.1        |
+|Entidade-> WebSearchUrl     | \:https//www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5380.1        |
+|TopicResults-> WebSearchUrl    |  \:https//www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1        |
+|ImageResults-> WebSearchUrl    |  \:https//www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5384.1        |
 
-Como mostrado acima, o `Entity` ActionType contém uma consulta de pesquisa do Bing que retorna informações sobre uma pessoa, lugar ou coisa reconhecível. Os tipos `TopicResults` e `ImageResults` contêm consultas de imagens relacionadas. Os URLs na lista ligam aos resultados da pesquisa do Bing.
+Como mostrado acima, o ActionType `Entity` contém uma consulta de pesquisa do Bing que retorna informações sobre uma pessoa, lugar ou coisa reconhecível. Os tipos `TopicResults` e `ImageResults` contêm consultas de imagens relacionadas. Os URLs na lista ligam aos resultados da pesquisa do Bing.
 
-## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Obter URLs para `PagesIncluding`imagens `ActionType`
+## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Obter URLs para `PagesIncluding` `ActionType` imagens
 
 Obter os URLs da imagem atual requer uma conversão que lê um `ActionType` como `ImageModuleAction`, que contém um elemento `Data` com uma lista de valores. Cada valor é o URL de uma imagem. O seguinte converte o `PagesIncluding` tipo de ação para `ImageModuleAction` e lê os valores:
 
@@ -108,9 +108,9 @@ Obter os URLs da imagem atual requer uma conversão que lê um `ActionType` como
     }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 > [O que é o API da Pesquisa Visual do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

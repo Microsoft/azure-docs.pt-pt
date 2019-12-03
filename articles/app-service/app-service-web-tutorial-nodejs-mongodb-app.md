@@ -1,28 +1,19 @@
 ---
-title: Node. js (MEAN. js) com o serviço MongoDB-Azure App | Microsoft Docs
-description: Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB. O MEAN. js é usado no tutorial.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: erikre
-editor: ''
+title: 'Tutorial: aplicativo node. js com o MongoDB'
+description: Saiba como obter um aplicativo node. js funcionando no Azure, com conexão a um banco de dados MongoDB no Azure (Cosmos DB). O MEAN. js é usado no tutorial.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b9b10542b861b49e83ff9704912a569cdca7616
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7d0a1d89b0547b1cd982b2717ac7548bec848a77
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024928"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671319"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar um aplicativo node. js e MongoDB no Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: criar um aplicativo node. js e MongoDB no Azure
 
 > [!NOTE]
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implantar o serviço de aplicativo no _Linux_, consulte [compilar um aplicativo node. js e MongoDB no serviço de Azure app no Linux](./containers/tutorial-nodejs-mongodb-app.md).
@@ -51,7 +42,7 @@ Para concluir este tutorial:
 1. [Instalar o Git](https://git-scm.com/)
 2. [Instale o Node.js e o NPM](https://nodejs.org/)
 3. [Instalar Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Instalar o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
 5. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
@@ -464,13 +455,13 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Quando o `git push` for concluído, navegue até seu aplicativo do Azure e experimente a nova funcionalidade.
+Quando o `git push` estiver concluído, navegue até seu aplicativo do Azure e experimente a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 Se tiver adicionado quaisquer artigos anteriormente, ainda pode vê-los. Os dados existentes no Cosmos DB não se perdem. Além disso, atualiza o esquema de dados e mantém os dados existentes intactos.
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico 
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo 
 
 Enquanto executa a aplicação Node.js no Serviço de Aplicações do Azure, pode obter os registos de consola direcionados para o seu terminal. Dessa forma, pode obter as mesmas mensagens de diagnóstico para ajudar a depurar erros de aplicações.
 

@@ -1,88 +1,82 @@
 ---
-title: Configurar o runtime PHP - serviço de aplicações do Azure
-description: Saiba como configurar a instalação do PHP predefinida ou adicionar uma instalação personalizada do PHP para o serviço de aplicações do Azure.
-services: app-service
-documentationcenter: php
-author: msangapu
-manager: cfowler
+title: Configurar o tempo de execução do PHP
+description: Saiba como configurar a instalação padrão do PHP ou adicionar uma instalação personalizada do PHP para Azure App serviço.
+author: msangapu-msft
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408892"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688253"
 ---
-# <a name="configure-php-in-azure-app-service"></a>Configurar o PHP no serviço de aplicações do Azure
+# <a name="configure-php-in-azure-app-service"></a>Configurar PHP no serviço Azure App
 
 ## <a name="introduction"></a>Introdução
 
-Este guia mostra-lhe como configurar o runtime PHP integrado para aplicações web, móveis back-ends e aplicações API no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714), forneça um runtime PHP personalizado e ativar extensões. Para utilizar o serviço de aplicações, inscreva-se para o [avaliação gratuita]. Para obter o máximo partido neste guia, deve primeiro criar uma aplicação PHP no serviço de aplicações.
+Este guia mostra como configurar o tempo de execução do PHP interno para aplicativos Web, back-ends móveis e aplicativos de API no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714), fornecer um tempo de execução do PHP personalizado e habilitar extensões. Para usar o serviço de aplicativo, Inscreva-se para a [avaliação gratuita]. Para obter o máximo deste guia, primeiro você deve criar um aplicativo PHP no serviço de aplicativo.
 
-## <a name="how-to-change-the-built-in-php-version"></a>Como: Alterar a versão PHP incorporada
+## <a name="how-to-change-the-built-in-php-version"></a>Como: alterar a versão interna do PHP
 
-Por predefinição, 5.6 do PHP está instalado e imediatamente disponível para utilização quando criar uma aplicação de serviço de aplicações. A melhor forma de ver as extensões ativadas, sua configuração padrão e a revisão da versão disponível é implantar um script que chama o [phpinfo()] função.
+Por padrão, o PHP 5,6 é instalado e imediatamente disponível para uso quando você cria um aplicativo do serviço de aplicativo. A melhor maneira de ver a revisão de versão disponível, sua configuração padrão e as extensões habilitadas é implantar um script que chama a função [phpinfo ()] .
 
-Versões do PHP 7.0 e PHP 7.2 também estão disponíveis, mas não ativado por predefinição. Para atualizar a versão do PHP, siga um dos seguintes métodos:
+As versões PHP 7,0 e PHP 7,2 também estão disponíveis, mas não são habilitadas por padrão. Para atualizar a versão do PHP, siga um destes métodos:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Navegue para a sua aplicação no [portal do Azure](https://portal.azure.com) e desloque-se para o **configuração** página.
+1. Navegue até seu aplicativo na [portal do Azure](https://portal.azure.com) e role até a página de **configuração** .
 
-2. Partir **Configuration**, selecione **definições gerais** e escolha a nova versão PHP.
+2. Em **configuração**, selecione **configurações gerais** e escolha a nova versão do php.
 
-3. Clique no **salvar** botão na parte superior a **definições gerais** painel.
+3. Clique no botão **salvar** na parte superior da folha **configurações gerais** .
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Aberto do Azure PowerShell e inicie sessão na sua conta:
+1. Abra Azure PowerShell e faça logon em sua conta:
 
         PS C:\> Connect-AzAccount
-2. Defina a versão PHP para a aplicação.
+2. Defina a versão do PHP para o aplicativo.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. A versão do PHP está agora definida. Pode confirmar estas definições:
+3. A versão do PHP agora está definida. Você pode confirmar essas configurações:
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-cli"></a>CLI do Azure 
 
-Para utilizar a Interface de linha de comandos do Azure, terá [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no seu computador.
+Para usar a interface de linha de comando do Azure, você deve [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) em seu computador.
 
-1. Abrir Terminal e inicie sessão na sua conta.
+1. Abra o terminal e faça logon na sua conta.
 
         az login
 
-1. Verifique a lista de runtimes suportados.
+1. Verifique para ver a lista de tempos de execução com suporte.
 
         az webapp list-runtimes | grep php
 
-2. Defina a versão PHP para a aplicação.
+2. Defina a versão do PHP para o aplicativo.
 
         az webapp config set --php-version {5.6 | 7.0 | 7.1 | 7.2} --name {app-name} --resource-group {resource-group-name}
 
-3. A versão do PHP está agora definida. Pode confirmar estas definições:
+3. A versão do PHP agora está definida. Você pode confirmar essas configurações:
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Como: Alterar as configurações internas do PHP
+## <a name="how-to-change-the-built-in-php-configurations"></a>Como alterar as configurações internas do PHP
 
-Para qualquer tempo de execução do PHP incorporado, pode alterar qualquer uma das opções de configuração ao seguir estes passos. (Para obter informações sobre as diretivas de PHP. ini, consulte [lista de diretivas de PHP. ini].)
+Para qualquer tempo de execução interno do PHP, você pode alterar qualquer uma das opções de configuração seguindo estas etapas. (Para obter informações sobre diretivas php. ini, consulte [lista de diretivas php. ini].)
 
-### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>A alteração do PHP\_INI\_utilizador, o PHP\_INI\_PERDIR, PHP\_INI\_todas as definições de configuração
+### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>Alterando o PHP\_INI\_usuário, PHP\_INI\_PERDIR, PHP\_INI\_todas as definições de configuração
 
-1. Adicionar uma [. user.ini] ficheiro para o seu diretório de raiz.
-1. Adicionar definições de configuração para o `.user.ini` de ficheiros com a mesma sintaxe que usaria num `php.ini` ficheiro. Por exemplo, se quiser ativar a `display_errors` definição e defina `upload_max_filesize` definição para 10M, sua `.user.ini` ficheiros iria conter este texto:
+1. Adicione um arquivo [. User. ini] ao seu diretório raiz.
+1. Adicione definições de configuração ao arquivo de `.user.ini` usando a mesma sintaxe que você usaria em um arquivo de `php.ini`. Por exemplo, se você quisesse ativar a configuração de `display_errors` e definir `upload_max_filesize` configuração como 10 milhões, seu arquivo de `.user.ini` conteria esse texto:
 
         ; Example Settings
         display_errors=On
@@ -90,100 +84,100 @@ Para qualquer tempo de execução do PHP incorporado, pode alterar qualquer uma 
 
         ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
         ; log_errors=On
-2. Implemente a sua aplicação.
-3. Reinicie a aplicação. (Reinício é necessário porque a frequência com que PHP lê `.user.ini` arquivos é regida pelo `user_ini.cache_ttl` definição, que é uma configuração de nível de sistema e é de 300 segundos (5 minutos) por predefinição. Reiniciar a aplicação força o PHP para ler as novas configurações no `.user.ini` ficheiro.)
+2. Implante seu aplicativo.
+3. Reinicie a aplicação. (A reinicialização é necessária porque a frequência com a qual o PHP lê `.user.ini` arquivos é governada pela configuração de `user_ini.cache_ttl`, que é uma configuração de nível de sistema e é de 300 segundos (5 minutos) por padrão. Reiniciar o aplicativo força o PHP a ler as novas configurações no arquivo de `.user.ini`.)
 
-Como alternativa à utilização uma `.user.ini` ficheiro, pode utilizar o [ini_set()] função em scripts para definir as opções de configuração que não são diretivas de nível de sistema.
+Como alternativa ao uso de um arquivo de `.user.ini`, você pode usar a função [ini_set ()] em scripts para definir opções de configuração que não são diretivas de nível de sistema.
 
-### <a name="changing-phpinisystem-configuration-settings"></a>A alteração do PHP\_INI\_as configurações do sistema
+### <a name="changing-php_ini_system-configuration-settings"></a>Alteração do PHP\_INI\_definições de configuração do sistema
 
-1. Adicionar uma definição de aplicação à sua aplicação com a chave `PHP_INI_SCAN_DIR` e valor `d:\home\site\ini`
-1. Criar uma `settings.ini` de ficheiros utilizando a consola Kudu (http://&lt;nome do site&gt;. scm.azurewebsite.net) no `d:\home\site\ini` diretório.
-1. Adicionar definições de configuração para o `settings.ini` de ficheiros com a mesma sintaxe que usaria num `php.ini` ficheiro. Por exemplo, se quisesse apontar o `curl.cainfo` definição de um `*.crt` de ficheiros e definir a definição de 'wincache.maxfilesize' para 512K, sua `settings.ini` ficheiros iria conter este texto:
+1. Adicione uma configuração de aplicativo ao seu aplicativo com a chave `PHP_INI_SCAN_DIR` e o valor `d:\home\site\ini`
+1. Crie um arquivo de `settings.ini` usando o console do kudu (http://&lt;site-Name&gt;. scm.azurewebsite.net) no diretório `d:\home\site\ini`.
+1. Adicione definições de configuração ao arquivo de `settings.ini` usando a mesma sintaxe que você usaria em um arquivo de `php.ini`. Por exemplo, se você quisesse apontar a configuração de `curl.cainfo` para um arquivo de `*.crt` e definir a configuração ' WinCache. MaxFileSize ' como 512K, seu arquivo de `settings.ini` conteria esse texto:
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
         wincache.maxfilesize=512
-1. Recarregar as alterações, reinicie a aplicação.
+1. Para recarregar as alterações, reinicie o aplicativo.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Como: Ativar extensões no runtime PHP predefinido
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Como habilitar extensões no tempo de execução padrão do PHP
 
-Conforme observado na seção anterior, a melhor forma de ver a versão PHP predefinido, a configuração predefinida e as extensões ativadas é implantar um script que chama [phpinfo()]. Para ativar extensões adicionais, seguindo estes passos:
+Conforme observado na seção anterior, a melhor maneira de ver a versão padrão do PHP, sua configuração padrão e as extensões habilitadas é implantar um script que chama [phpinfo ()]. Para habilitar extensões adicionais, seguindo estas etapas:
 
-### <a name="configure-via-ini-settings"></a>Configurar através das definições de ini
+### <a name="configure-via-ini-settings"></a>Configurar por meio de configurações ini
 
-1. Adicionar uma `ext` diretório para o `d:\home\site` diretório.
-1. Colocar `.dll` extensão de arquivos no `ext` diretório (por exemplo, `php_xdebug.dll`). Certifique-se de que as extensões são compatíveis com a versão predefinida do PHP e são VC9 e compatível com o não thread-safe (ualizar).
-1. Adicionar uma definição de aplicação à sua aplicação com a chave `PHP_INI_SCAN_DIR` e valor `d:\home\site\ini`
-1. Criar uma `ini` de ficheiros `d:\home\site\ini` chamado `extensions.ini`.
-1. Adicionar definições de configuração para o `extensions.ini` de ficheiros com a mesma sintaxe que usaria num `php.ini` ficheiro. Por exemplo, se quiser ativar extensões MongoDB e XDebug, sua `extensions.ini` ficheiros iria conter este texto:
+1. Adicione um diretório de `ext` ao diretório `d:\home\site`.
+1. Coloque `.dll` arquivos de extensão no diretório `ext` (por exemplo, `php_xdebug.dll`). Verifique se as extensões são compatíveis com a versão padrão do PHP e se são compatíveis com VC9 e não-thread-safe (NTS).
+1. Adicione uma configuração de aplicativo ao seu aplicativo com a chave `PHP_INI_SCAN_DIR` e o valor `d:\home\site\ini`
+1. Crie um arquivo de `ini` no `d:\home\site\ini` chamado `extensions.ini`.
+1. Adicione definições de configuração ao arquivo de `extensions.ini` usando a mesma sintaxe que você usaria em um arquivo de `php.ini`. Por exemplo, se você quisesse habilitar as extensões MongoDB e XDebug, seu arquivo de `extensions.ini` conteria este texto:
 
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll
         zend_extension=d:\home\site\ext\php_xdebug.dll
-1. Reinicie a aplicação para carregar as alterações.
+1. Reinicie o aplicativo para carregar as alterações.
 
-### <a name="configure-via-app-setting"></a>Configurar através de definição de aplicação
+### <a name="configure-via-app-setting"></a>Configurar por meio de configuração de aplicativo
 
-1. Adicionar um `bin` diretório para o diretório de raiz.
-2. Colocar `.dll` extensão de arquivos no `bin` diretório (por exemplo, `php_xdebug.dll`). Certifique-se de que as extensões são compatíveis com a versão predefinida do PHP e são VC9 e compatível com o não thread-safe (ualizar).
-3. Implemente a sua aplicação.
-4. Navegue para a sua aplicação no portal do Azure e clique no **Configuration** localizada abaixo **definições** secção.
-5. Do **Configuration** painel, selecione **configurações de aplicativo**.
-6. Na **as configurações do aplicativo** secção, clique em **+ nova definição de aplicação** e crie um **PHP_EXTENSIONS** chave. O valor para esta chave seria um caminho relativo à raiz do Web site: **bin\your-ext-ficheiro**.
-7. Clique nas **atualização** botão na parte inferior, em seguida, clique em **guardar** acima a **as definições da aplicação** separador.
+1. Adicione um diretório de `bin` ao diretório raiz.
+2. Coloque `.dll` arquivos de extensão no diretório `bin` (por exemplo, `php_xdebug.dll`). Verifique se as extensões são compatíveis com a versão padrão do PHP e se são compatíveis com VC9 e não-thread-safe (NTS).
+3. Implante seu aplicativo.
+4. Navegue até seu aplicativo no portal do Azure e clique na seção **configuração** localizada abaixo de **configurações** .
+5. Na folha **configuração** , selecione **configurações do aplicativo**.
+6. Na seção **configurações do aplicativo** , clique em **+ nova configuração de aplicativo** e crie uma chave de **PHP_EXTENSIONS** . O valor dessa chave seria um caminho relativo à raiz do site: **bin\your-ext-File**.
+7. Clique no botão **Atualizar** na parte inferior e, em seguida, clique em **salvar** acima da guia **configurações do aplicativo** .
 
-As extensões de Zend também são suportadas ao utilizar um **PHP_ZENDEXTENSIONS** chave. Para ativar várias extensões, inclua uma lista separada por vírgulas de `.dll` ficheiros para o valor de definição de aplicação.
+As extensões Zend também têm suporte usando uma chave de **PHP_ZENDEXTENSIONS** . Para habilitar várias extensões, inclua uma lista separada por vírgulas de arquivos de `.dll` para o valor de configuração do aplicativo.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Como: Utilizar um runtime PHP personalizado
+## <a name="how-to-use-a-custom-php-runtime"></a>Como: usar um tempo de execução do PHP personalizado
 
-Em vez do runtime PHP predefinido, o serviço de aplicações pode utilizar um tempo de execução do PHP por si para executar scripts PHP. O tempo de execução que fornecer pode ser configurado por um `php.ini` arquivo que também fornecer. Para utilizar um runtime PHP personalizado com o serviço de aplicações, siga estes passos.
+Em vez do tempo de execução padrão do PHP, o serviço de aplicativo pode usar um tempo de execução do PHP que você fornece para executar scripts PHP. O tempo de execução que você fornece pode ser configurado por um arquivo `php.ini` que você também fornece. Para usar um tempo de execução do PHP personalizado com o serviço de aplicativo, siga estas etapas.
 
-1. Obter um não-thread-safe, VC9 ou VC11 versão compatível do PHP para Windows. Versões recentes do PHP para Windows podem ser encontradas aqui: [ https://windows.php.net/download/ ]. Versões mais antigas podem ser encontradas no arquivo morto aqui: [ https://windows.php.net/downloads/releases/archives/ ].
-2. Modificar o `php.ini` ficheiro para o runtime. As definições de configuração que são as diretivas de sistema de nível-só são ignoradas pelo serviço de aplicações. (Para obter informações sobre as diretivas de sistema de nível-só, consulte [lista de diretivas de PHP. ini]).
-3. Opcionalmente, adicionar extensões ao seu tempo de execução do PHP e ativá-los no `php.ini` ficheiro.
-4. Adicionar uma `bin` diretório para o seu diretório de raiz e put o diretório que contém o runtime PHP no mesmo (por exemplo, `bin\php`).
-5. Implemente a sua aplicação.
-6. Navegue para a sua aplicação no portal do Azure e clique nas **configuração** painel.
-8. Partir do **Configuration** painel, selecione **mapeamentos de caminho**. 
-9. Clique em **+ novo manipulador** e adicione `*.php` para a extensão de campo e adicione o caminho para o `php-cgi.exe` executável no **processador de scripts**. Se colocar o runtime PHP no `bin` é o caminho de diretório na raiz da sua aplicação, `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-10. Na parte inferior, clique em **atualização** para acabar de adicionar o mapeamento do processador.
+1. Obtenha uma versão compatível com não thread-safe, VC9 ou VC11 do PHP para Windows. Versões recentes do PHP para Windows podem ser encontradas aqui: [https://windows.php.net/download/]. Versões mais antigas podem ser encontradas no arquivo morto aqui: [https://windows.php.net/downloads/releases/archives/].
+2. Modifique o arquivo de `php.ini` para o tempo de execução. Quaisquer definições de configuração que são diretivas somente de nível de sistema são ignoradas pelo serviço de aplicativo. (Para obter informações sobre diretivas somente de nível de sistema, consulte [lista de diretivas php. ini]).
+3. Opcionalmente, adicione extensões ao tempo de execução do PHP e habilite-as no arquivo de `php.ini`.
+4. Adicione um diretório `bin` ao seu diretório raiz e coloque o diretório que contém o tempo de execução do PHP nele (por exemplo, `bin\php`).
+5. Implante seu aplicativo.
+6. Navegue até seu aplicativo no portal do Azure e clique na folha **configuração** .
+8. Na folha **configuração** , selecione **mapeamentos de caminho**. 
+9. Clique em **+ novo manipulador** e adicione `*.php` ao campo extensão e adicione o caminho para o `php-cgi.exe` executável no **processador de script**. Se você colocar o tempo de execução do PHP no diretório `bin` na raiz do seu aplicativo, o caminho será `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Na parte inferior, clique em **Atualizar** para concluir a adição do mapeamento do manipulador.
 11. Clique em **Guardar** para guardar as alterações.
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Como: Ativar a automatização do compositor no Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Como habilitar a automação do Composer no Azure
 
-Por predefinição, o serviço de aplicações não faz nada com Composer. JSON, se tiver um no seu projeto PHP. Se usar [implementação de Git](deploy-local-git.md), pode ativar Composer. JSON processamento durante `git push` ao ativar a extensão de compositor.
+Por padrão, o serviço de aplicativo não faz nada com o Composer. JSON, se você tiver um em seu projeto PHP. Se você usar a [implantação do git](deploy-local-git.md), poderá habilitar o processamento do Composer. JSON durante a `git push` habilitando a extensão do compositor.
 
 > [!NOTE]
-> Pode [voto para compositor suporte de primeira classe no serviço de aplicações aqui](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)!
+> Você pode [votar no suporte do Composer de primeira classe no serviço de aplicativo aqui](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)!
 >
 
-1. No painel da sua aplicação PHP no [portal do Azure](https://portal.azure.com), clique em **ferramentas** > **extensões**.
+1. Na folha do aplicativo PHP na [portal do Azure](https://portal.azure.com), clique em **ferramentas** > **extensões**.
 
-    ![Painel de definições do portal do Azure para ativar a automatização do compositor no Azure](./media/web-sites-php-configure/composer-extension-settings.png)
-2. Clique em **Add**, em seguida, clique em **compositor**.
+    ![portal do Azure folha configurações para habilitar a automação do Composer no Azure](./media/web-sites-php-configure/composer-extension-settings.png)
+2. Clique em **Adicionar**e em **Composer**.
 
-    ![Adicionar a extensão de compositor para ativar a automatização do compositor no Azure](./media/web-sites-php-configure/composer-extension-add.png)
+    ![Adicionar extensão do Composer para habilitar a automação do Composer no Azure](./media/web-sites-php-configure/composer-extension-add.png)
 3. Clique em **OK** para aceitar os termos legais. Clique em **OK** novamente para adicionar a extensão.
 
-    O **extensões instaladas** painel mostra a extensão de compositor.
-    ![Aceitar termos legais para ativar a automatização do compositor no Azure](./media/web-sites-php-configure/composer-extension-view.png)
-4. Agora, numa janela de terminal no seu computador local, efetuar `git add`, `git commit`, e `git push` à sua aplicação. Tenha em atenção que o compositor está a instalar dependências definidas nas Composer. JSON.
+    A folha **extensões instaladas** mostra a extensão do Composer.
+    ![aceitar termos legais para habilitar a automação do Composer no Azure](./media/web-sites-php-configure/composer-extension-view.png)
+4. Agora, em uma janela de terminal em seu computador local, execute `git add`, `git commit`e `git push` ao seu aplicativo. Observe que o Composer está instalando dependências definidas em Composer. JSON.
 
-    ![Implementação de Git com a automatização do compositor no Azure](./media/web-sites-php-configure/composer-extension-success.png)
+    ![Implantação do git com a automação do Composer no Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte a [Centro de programadores PHP](https://azure.microsoft.com/develop/php/).
+Para obter mais informações, consulte a [central de desenvolvedores do PHP](https://azure.microsoft.com/develop/php/).
 
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
+[phpinfo ()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Lista de diretivas de PHP. ini]: https://www.php.net/manual/en/ini.list.php
-[. user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
+[Lista de diretivas php. ini]: https://www.php.net/manual/en/ini.list.php
+[. User. ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set ()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

@@ -1,24 +1,17 @@
 ---
-title: Introdução ao SDK de trabalhos Web – Azure
+title: Introdução ao SDK de trabalhos Web
 description: Introdução ao SDK de trabalhos Web para processamento em segundo plano orientado por eventos. Saiba como acessar dados em serviços do Azure e serviços de terceiros.
-services: app-service\web, storage
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390076"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684185"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para processamento em segundo plano controlado por eventos
 
@@ -44,7 +37,7 @@ Este artigo mostra como implantar trabalhos Web como um aplicativo de console do
 
 ## <a name="webjobs-nuget-packages"></a>Pacotes NuGet de trabalhos Web
 
-1. Instale a versão mais recente de 3. x estável do pacote NuGet `Microsoft.Azure.WebJobs.Extensions`, que inclui `Microsoft.Azure.WebJobs`.
+1. Instale a última versão estável 3. x do pacote NuGet `Microsoft.Azure.WebJobs.Extensions`, que inclui `Microsoft.Azure.WebJobs`.
 
      Este é o comando do **console do Gerenciador de pacotes** para a versão 3.0.2:
 
@@ -80,13 +73,13 @@ O host é o contêiner de tempo de execução para funções que escutam funçõ
     }
     ```
 
-No ASP.NET Core, as configurações de host são definidas por meio da chamada de métodos na instância [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) . Para obter mais informações, consulte [host genérico .net](/aspnet/core/fundamentals/host/generic-host). O método de extensão `ConfigureWebJobs` Inicializa o host de trabalhos Web. No `ConfigureWebJobs`, você inicializa extensões de trabalhos Web específicas e define as propriedades dessas extensões.  
+No ASP.NET Core, as configurações de host são definidas por meio da chamada de métodos na instância de [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) . Para obter mais informações, consulte [host genérico .net](/aspnet/core/fundamentals/host/generic-host). O método de extensão `ConfigureWebJobs` Inicializa o host de trabalhos Web. No `ConfigureWebJobs`, você inicializa extensões de trabalhos Web específicas e define as propriedades dessas extensões.  
 
 ## <a name="enable-console-logging"></a>Habilitar o log do console
 
 Nesta seção, você configura o log de console que usa a [estrutura de log de ASP.NET Core](/aspnet/core/fundamentals/logging).
 
-1. Instale a versão estável mais recente do pacote NuGet `Microsoft.Extensions.Logging.Console`, que inclui `Microsoft.Extensions.Logging`.
+1. Instale a versão estável mais recente do pacote `Microsoft.Extensions.Logging.Console` NuGet, que inclui `Microsoft.Extensions.Logging`.
 
    Aqui está o comando **Package Manager Console** para a versão 2.2.0:
 
@@ -182,7 +175,7 @@ A partir da versão 3. x, você deve instalar explicitamente a extensão de asso
    }
    ```
 
-   O atributo `QueueTrigger` informa ao tempo de execução para chamar essa função quando uma nova mensagem é gravada em uma fila de armazenamento do Azure chamada `queue`. O conteúdo da mensagem da fila é fornecido para o código do método no parâmetro `message`. O corpo do método é o local em que você processa os dados do gatilho. Neste exemplo, o código apenas registra a mensagem.
+   O atributo `QueueTrigger` informa o tempo de execução para chamar essa função quando uma nova mensagem é gravada em uma fila de armazenamento do Azure chamada `queue`. O conteúdo da mensagem da fila é fornecido para o código do método no parâmetro `message`. O corpo do método é o local em que você processa os dados do gatilho. Neste exemplo, o código apenas registra a mensagem.
 
    O parâmetro `message` não precisa ser uma cadeia de caracteres. Você também pode associar a um objeto JSON, a uma matriz de bytes ou a um objeto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) . [Consulte uso do gatilho de fila](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Cada tipo de associação (como filas, BLOBs ou tabelas) tem um conjunto diferente de tipos de parâmetros aos quais você pode associar.
 
@@ -311,7 +304,7 @@ Nesta seção, você executa as seguintes tarefas para configurar o log de Appli
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Criar aplicativo do serviço de aplicativo e instância de Application Insights
 
-1. Se você ainda não tiver um aplicativo do serviço de aplicativo que possa usar, [crie um](app-service-web-get-started-dotnet-framework.md). Ao criar seu aplicativo, você também pode criar um recurso de Application Insights conectado. Quando você fizer isso, o `APPINSIGHTS_INSTRUMENTATIONKEY` será definido para você em seu aplicativo.
+1. Se você ainda não tiver um aplicativo do serviço de aplicativo que possa usar, [crie um](app-service-web-get-started-dotnet-framework.md). Ao criar seu aplicativo, você também pode criar um recurso de Application Insights conectado. Quando você faz isso, o `APPINSIGHTS_INSTRUMENTATIONKEY` é definido para você em seu aplicativo.
 
 1. Se você ainda não tiver um recurso Application Insights que possa usar, [crie um](../azure-monitor/app/create-new-resource.md ). Defina o **tipo de aplicativo** como **geral**e ignore as seções a seguir para **copiar a chave de instrumentação**.
 
@@ -359,7 +352,7 @@ Nesta seção, você executa as seguintes tarefas para configurar o log de Appli
 Para aproveitar o log de [Application insights](../azure-monitor/app/app-insights-overview.md) , atualize seu código de registro para fazer o seguinte:
 
 * Adicionar um provedor de log de Application Insights com [filtragem](webjobs-sdk-how-to.md#log-filtering)padrão; todas as informações e os logs de nível superior vão para o console e Application Insights quando você estiver executando localmente.
-* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) em um bloco `using` para garantir que a saída do log seja liberada quando o host for encerrado.
+* Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) em um bloco de `using` para garantir que a saída do log seja liberada quando o host for encerrado.
 
 1. Instale a última versão estável 3. x do pacote NuGet para o provedor de log de Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
@@ -457,7 +450,7 @@ Durante a implantação, você cria uma instância do serviço de aplicativo par
 
 As associações de entrada simplificam o código que lê os dados. Para este exemplo, a mensagem da fila será um nome de BLOB e você usará o nome do blob para localizar e ler um blob no armazenamento do Azure.
 
-1. No *functions.cs*, substitua o método `ProcessQueueMessage` pelo seguinte código:
+1. No *functions.cs*, substitua o método `ProcessQueueMessage` pelo código a seguir:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -469,7 +462,7 @@ As associações de entrada simplificam o código que lê os dados. Para este ex
    }
    ```
 
-   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ela é resolvida para um valor diferente em tempo de execução.  Em tempo de execução, ele tem o conteúdo da mensagem da fila.
+   Nesse código, `queueTrigger` é uma [expressão de associação](../azure-functions/functions-bindings-expressions-patterns.md), o que significa que ele é resolvido para um valor diferente em tempo de execução.  Em tempo de execução, ele tem o conteúdo da mensagem da fila.
 
 1. Adicionar um `using`:
 

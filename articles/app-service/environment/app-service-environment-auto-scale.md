@@ -1,25 +1,18 @@
 ---
-title: Dimensionamento automático e Ambiente do Serviço de Aplicativo v1 – Azure
-description: Dimensionamento automático e Ambiente do Serviço de Aplicativo
-services: app-service
-documentationcenter: ''
+title: Dimensionamento automático v1
+description: Dimensionamento automático e Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070091"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687287"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e Ambiente do Serviço de Aplicativo v1
 
@@ -27,7 +20,7 @@ ms.locfileid: "70070091"
 > Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em uma infraestrutura mais potente. Para saber mais sobre a nova versão, comece com a [introdução ao ambiente do serviço de aplicativo](intro.md).
 > 
 
-Os ambientes de serviçoAzure app dão suporte ao dimensionamento automático. Você pode dimensionar automaticamente os pools de trabalho individuais com base nas métricas ou no agendamento.
+Os ambientes de serviço Azure App dão suporte ao *dimensionamento*automático. Você pode dimensionar automaticamente os pools de trabalho individuais com base nas métricas ou no agendamento.
 
 ![Opções de dimensionamento automático para um pool de trabalho.][intro]
 
@@ -81,31 +74,31 @@ Frank está muito familiarizado com o aplicativo. Eles sabem que o horário de p
 
 | **Perfil de dimensionamento automático – dias da semana – plano do serviço de aplicativo** | **Perfil de dimensionamento automático – fins de semana – plano do serviço de aplicativo** |
 | --- | --- |
-| **Nomes** Perfil de dia da semana |**Nomes** Perfil de fim de semana |
+| **Nome:** Perfil de dia da semana |**Nome:** Perfil de fim de semana |
 | **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
-| **Criar** Dias da semana |**Criar** Fim |
-| **Escreva** Periodicidade |**Escreva** Periodicidade |
+| **Perfil:** Dias da semana |**Perfil:** Fim |
+| **Tipo:** Recurrence |**Tipo:** Recurrence |
 | **Intervalo de destino:** 5 a 20 instâncias |**Intervalo de destino:** 3 a 10 instâncias |
-| **Dias** Segunda-feira, terça-feira, quarta-feira, sexta-feira |**Dias** Sábado, domingo |
-| **Hora de início:** 9:00 AM |**Hora de início:** 9:00 AM |
+| **Dias:** Segunda-feira, terça-feira, quarta-feira, sexta-feira |**Dias:** Sábado, domingo |
+| **Hora de início:** 9:00 am |**Hora de início:** 9:00 am |
 | **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
 |  | |
 | **Regra de dimensionamento automático (escalar verticalmente)** |**Regra de dimensionamento automático (escalar verticalmente)** |
-| **Kit** Produção (Ambiente do Serviço de Aplicativo) |**Kit** Produção (Ambiente do Serviço de Aplicativo) |
-| **Medidas** CPUS |**Medidas** CPUS |
-| **Operacional** Maior que 60% |**Operacional** Maior que 80% |
-| **Permanência** 5 Minutos |**Permanência** 10 Minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
-| **Action** Aumentar contagem em 2 |**Action** Aumentar contagem em 1 |
+| **Recurso:** Produção (Ambiente do Serviço de Aplicativo) |**Recurso:** Produção (Ambiente do Serviço de Aplicativo) |
+| **Métrica:** CPUs |**Métrica:** CPUs |
+| **Operação:** Maior que 60% |**Operação:** Maior que 80% |
+| **Duração:** 5 minutos |**Duração:** 10 minutos |
+| **Agregação de tempo:** Cerca |**Agregação de tempo:** Cerca |
+| **Ação:** Aumentar contagem em 2 |**Ação:** Aumentar contagem em 1 |
 | **Resfriamento (minutos):** 15 |**Resfriamento (minutos):** 20 |
 |  | |
 | **Regra de dimensionamento automático (reduzir verticalmente)** |**Regra de dimensionamento automático (reduzir verticalmente)** |
-| **Kit** Produção (Ambiente do Serviço de Aplicativo) |**Kit** Produção (Ambiente do Serviço de Aplicativo) |
-| **Medidas** CPUS |**Medidas** CPUS |
-| **Operacional** Menos de 30% |**Operacional** Menos de 20% |
-| **Permanência** 10 minutos |**Permanência** 15 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
-| **Action** Diminuir contagem em 1 |**Action** Diminuir contagem em 1 |
+| **Recurso:** Produção (Ambiente do Serviço de Aplicativo) |**Recurso:** Produção (Ambiente do Serviço de Aplicativo) |
+| **Métrica:** CPUs |**Métrica:** CPUs |
+| **Operação:** Menos de 30% |**Operação:** Menos de 20% |
+| **Duração:** 10 minutos |**Duração:** 15 minutos |
+| **Agregação de tempo:** Cerca |**Agregação de tempo:** Cerca |
+| **Ação:** Diminuir contagem em 1 |**Ação:** Diminuir contagem em 1 |
 | **Resfriamento (minutos):** 20 |**Resfriamento (minutos):** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>Taxa de inflação do plano do serviço de aplicativo
@@ -152,31 +145,31 @@ Com essas informações, Frank pode definir o seguinte perfil e regras de dimens
 
 | **Perfil de dimensionamento automático – dias da semana** | **Perfil de dimensionamento automático – fins de semana** |
 | --- | --- |
-| **Nomes** Perfil de dia da semana |**Nomes** Perfil de fim de semana |
+| **Nome:** Perfil de dia da semana |**Nome:** Perfil de fim de semana |
 | **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
-| **Criar** Dias da semana |**Criar** Fim |
-| **Escreva** Periodicidade |**Escreva** Periodicidade |
+| **Perfil:** Dias da semana |**Perfil:** Fim |
+| **Tipo:** Recurrence |**Tipo:** Recurrence |
 | **Intervalo de destino:** 13 a 25 instâncias |**Intervalo de destino:** 6 a 15 instâncias |
-| **Dias** Segunda-feira, terça-feira, quarta-feira, sexta-feira |**Dias** Sábado, domingo |
-| **Hora de início:** 7:00 AM |**Hora de início:** 9:00 AM |
+| **Dias:** Segunda-feira, terça-feira, quarta-feira, sexta-feira |**Dias:** Sábado, domingo |
+| **Hora de início:** 7:00 am |**Hora de início:** 9:00 am |
 | **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
 |  | |
 | **Regra de dimensionamento automático (escalar verticalmente)** |**Regra de dimensionamento automático (escalar verticalmente)** |
-| **Kit** Pool de trabalho 1 |**Kit** Pool de trabalho 1 |
-| **Medidas** WorkersAvailable |**Medidas** WorkersAvailable |
-| **Operacional** Menos de 8 |**Operacional** Menos de 3 |
-| **Permanência** 20 minutos |**Permanência** 30 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
-| **Action** Aumentar contagem em 8 |**Action** Aumentar contagem em 3 |
+| **Recurso:** Pool de trabalho 1 |**Recurso:** Pool de trabalho 1 |
+| **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
+| **Operação:** Menos de 8 |**Operação:** Menos de 3 |
+| **Duração:** 20 minutos |**Duração:** 30 minutos |
+| **Agregação de tempo:** Cerca |**Agregação de tempo:** Cerca |
+| **Ação:** Aumentar contagem em 8 |**Ação:** Aumentar contagem em 3 |
 | **Resfriamento (minutos):** 180 |**Resfriamento (minutos):** 180 |
 |  | |
 | **Regra de dimensionamento automático (reduzir verticalmente)** |**Regra de dimensionamento automático (reduzir verticalmente)** |
-| **Kit** Pool de trabalho 1 |**Kit** Pool de trabalho 1 |
-| **Medidas** WorkersAvailable |**Medidas** WorkersAvailable |
-| **Operacional** Maior que 8 |**Operacional** Maior que 3 |
-| **Permanência** 20 minutos |**Permanência** 15 minutos |
-| **Agregação de tempo:** Average |**Agregação de tempo:** Average |
-| **Action** Diminuir contagem por 2 |**Action** Diminuir contagem em 3 |
+| **Recurso:** Pool de trabalho 1 |**Recurso:** Pool de trabalho 1 |
+| **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
+| **Operação:** Maior que 8 |**Operação:** Maior que 3 |
+| **Duração:** 20 minutos |**Duração:** 15 minutos |
+| **Agregação de tempo:** Cerca |**Agregação de tempo:** Cerca |
+| **Ação:** Diminuir contagem por 2 |**Ação:** Diminuir contagem em 3 |
 | **Resfriamento (minutos):** 120 |**Resfriamento (minutos):** 120 |
 
 O intervalo de destino definido no perfil é calculado pelas instâncias mínimas definidas no perfil para o plano do serviço de aplicativo + buffer.
@@ -197,31 +190,31 @@ Para esse cenário, Frank sabe que a taxa de erro aumenta depois que front-ends 
 
 | **Perfil de dimensionamento automático – front-ends** |
 | --- |
-| **Nomes** Dimensionamento automático – front-ends |
+| **Nome:** Dimensionamento automático – front-ends |
 | **Dimensionar por:** Regras de agendamento e desempenho |
-| **Criar** Todos os dias |
-| **Escreva** Periodicidade |
+| **Perfil:** Todos os dias |
+| **Tipo:** Recurrence |
 | **Intervalo de destino:** 3 a 10 instâncias |
-| **Dias** Todos os dias |
-| **Hora de início:** 9:00 AM |
+| **Dias:** Todos os dias |
+| **Hora de início:** 9:00 am |
 | **Fuso horário:** UTC-08 |
 |  |
 | **Regra de dimensionamento automático (escalar verticalmente)** |
-| **Kit** Pool de front-end |
-| **Medidas** CPUS |
-| **Operacional** Maior que 60% |
-| **Permanência** 20 minutos |
-| **Agregação de tempo:** Average |
-| **Action** Aumentar contagem em 3 |
+| **Recurso:** Pool de front-end |
+| **Métrica:** CPUs |
+| **Operação:** Maior que 60% |
+| **Duração:** 20 minutos |
+| **Agregação de tempo:** Cerca |
+| **Ação:** Aumentar contagem em 3 |
 | **Resfriamento (minutos):** 120 |
 |  |
 | **Regra de dimensionamento automático (reduzir verticalmente)** |
-| **Kit** Pool de trabalho 1 |
-| **Medidas** CPUS |
-| **Operacional** Menos de 30% |
-| **Permanência** 20 minutos |
-| **Agregação de tempo:** Average |
-| **Action** Diminuir contagem em 3 |
+| **Recurso:** Pool de trabalho 1 |
+| **Métrica:** CPUs |
+| **Operação:** Menos de 30% |
+| **Duração:** 20 minutos |
+| **Agregação de tempo:** Cerca |
+| **Ação:** Diminuir contagem em 3 |
 | **Resfriamento (minutos):** 120 |
 
 <!-- IMAGES -->

@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/16/2019
-ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 12/02/2019
+ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677511"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689219"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -30,9 +30,12 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
    | Definições        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Exclusivo Global | Nome que identifica o aplicativo que você está monitorando. |
+   | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
    | **Localização** | Este dos E.U.A. | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
+
+> [!NOTE]
+> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) , pois ele simplifica a sintaxe necessária.
 
 Insira os valores apropriados nos campos obrigatórios e, em seguida, selecione **revisar + criar**.
 

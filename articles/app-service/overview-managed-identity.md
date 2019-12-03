@@ -1,22 +1,17 @@
 ---
-title: Visão geral de identidades gerenciadas-serviço de Azure App | Microsoft Docs
-description: Guia de referência conceitual e de configuração para identidades gerenciadas no serviço Azure App e Azure Functions
-services: app-service
+title: Identidades gerenciadas
+description: Saiba como as identidades gerenciadas funcionam em Azure App serviço e Azure Functions, como configurar uma identidade gerenciada e gerar um token para um recurso de back-end.
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847310"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688623"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o serviço de aplicativo e Azure Functions
 

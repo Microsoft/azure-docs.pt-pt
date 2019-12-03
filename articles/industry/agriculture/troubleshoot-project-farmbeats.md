@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131973"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672587"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -39,7 +39,17 @@ Para obter ajuda adicional, escreva para nós em farmbeatssupport@microsoft.com,
 3. Caso não haja **mensagens de entrada**, entre em contato com o parceiro do dispositivo.  
 4. Caso haja mensagens de **entrada**, entre em contato com farmbeatssupport@microsoft.com com os logs de Hub de dados e acelerador e a telemetria capturada.
 
-Consulte a [seção logs](#collect-logs-manually) do documento para entender como baixar logs.    
+Consulte a [seção logs](#collect-logs-manually) do documento para entender como baixar logs.  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>Não tem a cadeia de conexão do Eventhub
+
+**Ação corretiva**: visite o Swagger do Datahub e siga estas etapas:
+1. Navegue até API de parceiro
+2. Clique em GET-> experimentar-> executar
+3. Anote a ID de parceiro do parceiro do sensor no qual você está interessado
+4. Volte para a API de parceiro e clique em GET/{id}
+5. Especifique a ID da etapa 3 e clique em executar
+6. A resposta da API deve ter a cadeia de conexão do EventHub
 
 ### <a name="device-appears-offline"></a>O dispositivo aparece offline
 

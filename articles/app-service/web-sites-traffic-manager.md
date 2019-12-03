@@ -1,26 +1,16 @@
 ---
-title: Controlar o tráfego com o serviço de Azure App do Gerenciador de tráfego
-description: Este artigo fornece informações resumidas sobre o Gerenciador de tráfego do Azure, pois ele se relaciona com Azure App serviço.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: erikre
-editor: mollybos
+title: Controlar o tráfego com o Gerenciador de tráfego
+description: Encontre as práticas recomendadas para configurar o Gerenciador de tráfego do Azure ao integrá-lo com o serviço Azure App.
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 200effab70b369d69b4e89b1901578ecfe1a1b87
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483383"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684092"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controlando o tráfego do serviço de Azure App com o Gerenciador de tráfego do Azure
 > [!NOTE]

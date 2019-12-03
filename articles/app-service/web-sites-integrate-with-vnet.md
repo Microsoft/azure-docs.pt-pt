@@ -1,24 +1,18 @@
 ---
-title: Integrar o aplicativo com o serviço de Azure App de rede virtual do Azure
-description: Mostra como conectar um aplicativo no serviço Azure App a uma rede virtual do Azure nova ou existente
-services: app-service
-documentationcenter: ''
+title: Integrar o aplicativo à rede virtual do Azure
+description: Saiba como Azure App serviço se integra à rede virtual do Azure e como conectar um aplicativo a uma rede virtual.
 author: ccompy
-manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034720"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688295"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). As [redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não seja da Internet.  
@@ -59,7 +53,7 @@ O recurso de integração VNet:
 Há algumas coisas para as quais a integração VNet não oferece suporte, incluindo:
 
 * montando uma unidade
-* A integração do AD 
+* Integração do AD 
 * A NetBios
 
 ## <a name="regional-vnet-integration"></a>Integração de VNet regional 
@@ -112,7 +106,7 @@ A integração VNet regional requer que sua sub-rede de integração seja delega
 Para desconectar seu aplicativo da VNet, selecione **Desconectar**. Isso reiniciará seu aplicativo Web. 
 
 
-#### <a name="web-app-for-containers"></a>Aplicações Web para Contentores
+#### <a name="web-app-for-containers"></a>Aplicação Web para Contentores
 
 Se você usar o serviço de aplicativo no Linux com as imagens internas, o recurso de integração VNet regional funcionará sem alterações adicionais. Se você usar Aplicativo Web para Contêineres, precisará modificar a imagem do Docker para usar a integração VNet. Na imagem do Docker, use a variável de ambiente PORT como a porta de escuta do servidor Web principal, em vez de usar um número de porta codificado. A variável de ambiente PORT é definida automaticamente pela plataforma do serviço de aplicativo no momento da inicialização do contêiner. Se você estiver usando SSH, o daemon SSH deverá ser configurado para escutar no número da porta especificado pela variável de ambiente SSH_PORT ao usar a integração VNet regional.
 

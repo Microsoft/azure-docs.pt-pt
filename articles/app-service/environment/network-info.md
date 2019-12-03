@@ -1,28 +1,22 @@
 ---
-title: Considerações de rede com o Ambiente do Serviço de Aplicativo-Azure
-description: Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE
-services: app-service
-documentationcenter: na
+title: Considerações de redes
+description: Saiba mais sobre o tráfego de rede do ASE e como definir os grupos de segurança de rede e as rotas definidas pelo usuário com seu ASE.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470652"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687132"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um Ambiente do Serviço de Aplicativo #
 
-## <a name="overview"></a>Descrição geral ##
+## <a name="overview"></a>Visão geral ##
 
  O Azure [ambiente do serviço de aplicativo][Intro] é uma implantação do serviço de Azure app em uma sub-rede em sua VNet (rede virtual) do Azure. Há dois tipos de implantação para um ambiente do serviço de aplicativo (ASE):
 
@@ -59,7 +53,7 @@ Quando você escala ou reduz verticalmente, novas funções do tamanho apropriad
 
 Apenas para que o ASE opere, o ASE exige que as seguintes portas sejam abertas:
 
-| Utilizar | A partir de | Para |
+| Usar | A partir de | a |
 |-----|------|----|
 | Gestão | Endereços de gerenciamento do serviço de aplicativo | Sub-rede ASE: 454, 455 |
 |  Comunicação interna do ASE | Sub-rede do ASE: todas as portas | Sub-rede do ASE: todas as portas
@@ -75,7 +69,7 @@ Para a comunicação entre o balanceador de carga do Azure e a sub-rede do ASE, 
 
 As outras portas com as quais você precisa se preocupar são as portas do aplicativo:
 
-| Utilizar | Portas |
+| Usar | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -120,7 +114,7 @@ Além das dependências funcionais do ASE, há alguns itens extras relacionados 
 -   Kudu
 -   Extensões
 -   Explorador de Processos
--   Consola
+-   Console
 
 Quando você usa um ASE ILB, o site do SCM não é acessível de fora da VNet. Alguns recursos não funcionarão no portal do aplicativo, pois eles exigem acesso ao site do SCM de um aplicativo. Você pode se conectar ao site do SCM diretamente em vez de usar o Portal. 
 
@@ -172,7 +166,7 @@ As entradas necessárias em um NSG para que um ASE funcione, são permitir o tr�
 
 A porta DNS não precisa ser adicionada, pois o tráfego para DNS não é afetado pelas regras NSG. Essas portas não incluem as portas que seus aplicativos exigem para uso bem-sucedido. As portas de acesso do aplicativo normal são:
 
-| Utilizar | Portas |
+| Usar | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |

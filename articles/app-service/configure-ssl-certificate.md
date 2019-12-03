@@ -1,24 +1,17 @@
 ---
-title: Adicionar e gerenciar certificados SSL-serviço de Azure App | Microsoft Docs
-description: Saiba como comprar um certificado do serviço de aplicativo e associá-lo ao seu aplicativo do serviço de aplicativo
-services: app-service
-author: cephalin
-manager: gwallace
+title: Adicionar e gerenciar certificados SSL
+description: Crie um certificado gratuito, importe um certificado do serviço de aplicativo, importe um certificado Key Vault ou compre um certificado do serviço de aplicativo no serviço Azure App.
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907132"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670741"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no serviço Azure App
 
@@ -197,7 +190,7 @@ Use a tabela a seguir para ajudá-lo a selecionar o certificado.
 | Definição | Descrição |
 |-|-|
 | Subscrição | A assinatura à qual o Key Vault pertence. |
-| Cofre de Chaves | O cofre com o certificado que você deseja importar. |
+| Key Vault | O cofre com o certificado que você deseja importar. |
 | Certificado | Selecione na lista de certificados do PKCS12 no cofre. Todos os certificados de PKCS12 no cofre são listados com suas impressões digitais, mas nem todos têm suporte no serviço de aplicativo. |
 
 Quando a operação for concluída, você verá o certificado na lista **certificados de chave privada** . Se a importação falhar com um erro, o certificado não atenderá aos [requisitos do serviço de aplicativo](#private-certificate-requirements).

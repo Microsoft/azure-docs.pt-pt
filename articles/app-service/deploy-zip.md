@@ -1,25 +1,16 @@
 ---
-title: Implantar código com um serviço de Azure App de arquivos ZIP ou WAR | Microsoft Docs
+title: Implantar código com um arquivo ZIP ou WAR
 description: Saiba como implantar seu aplicativo no serviço de Azure App com um arquivo ZIP (ou um arquivo WAR para desenvolvedores de Java).
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801158"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670232"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implantar seu aplicativo no serviço de Azure App com um arquivo ZIP ou WAR
 
@@ -70,11 +61,11 @@ O ponto de extremidade acima não funciona para os serviços de aplicativos do L
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Implantar arquivo ZIP com CLI do Azure
 
-Verifique se sua versão do CLI do Azure é 2.0.21 ou posterior. Para ver qual versão você tem, execute `az --version` o comando na janela do seu terminal.
+Verifique se sua versão do CLI do Azure é 2.0.21 ou posterior. Para ver qual versão você tem, execute `az --version` comando na janela do seu terminal.
 
 Implante o arquivo ZIP carregado em seu aplicativo Web usando o comando [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) .  
 
-O exemplo a seguir implanta o arquivo ZIP que você carregou. Ao usar uma instalação local do CLI do Azure, especifique o caminho para o arquivo ZIP local para `--src`o.
+O exemplo a seguir implanta o arquivo ZIP que você carregou. Ao usar uma instalação local do CLI do Azure, especifique o caminho para o arquivo ZIP local para `--src`.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
@@ -82,7 +73,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação.
 
-Por padrão, o mecanismo de implantação assume que um arquivo ZIP está pronto para ser executado no estado em que se encontra e não executa nenhuma automação de compilação. Para habilitar a mesma automação de compilação que em uma [implantação do git](deploy-local-git.md), `SCM_DO_BUILD_DURING_DEPLOYMENT` defina a configuração do aplicativo executando o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Por padrão, o mecanismo de implantação assume que um arquivo ZIP está pronto para ser executado no estado em que se encontra e não executa nenhuma automação de compilação. Para habilitar a mesma automação de compilação que em uma [implantação do git](deploy-local-git.md), defina a configuração do aplicativo `SCM_DO_BUILD_DURING_DEPLOYMENT` executando o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -96,7 +87,7 @@ Para obter mais informações, consulte a [documentação do kudu](https://githu
 
 ## <a name="deploy-war-file"></a>Implantar arquivo WAR
 
-Para implantar um arquivo WAR no serviço de aplicativo, envie uma solicitação POST `https://<app_name>.scm.azurewebsites.net/api/wardeploy`para. O pedido POST tem de conter o ficheiro .war no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP.
+Para implantar um arquivo WAR no serviço de aplicativo, envie uma solicitação POST para `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. O pedido POST tem de conter o ficheiro .war no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP.
 
 Para a autenticação básica HTTP, você precisa de suas credenciais de implantação do serviço de aplicativo. Para ver como definir suas credenciais de implantação, consulte [definir e redefinir credenciais de nível de usuário](deploy-configure-credentials.md#userscope).
 
@@ -118,11 +109,11 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para cenários de implantação mais avançados, tente [implantar no Azure com o Git](deploy-local-git.md). A implantação baseada em git para o Azure habilita o controle de versão, a restauração de pacote, o MSBuild e muito mais.
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Kudu Implantando a partir de um arquivo zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: implantando a partir de um arquivo zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App credenciais de implantação do serviço](deploy-ftp.md)

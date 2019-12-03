@@ -1,27 +1,18 @@
 ---
-title: Solucionar problemas de degradação de desempenho-serviço de Azure App | Microsoft Docs
-description: Este artigo ajuda a solucionar problemas de desempenho de aplicativo lento no serviço Azure App.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Solucionar problemas de degradação do desempenho
+description: Descubra como solucionar problemas de desempenho de aplicativo lento no serviço Azure App, incluindo monitoramento de comportamento do aplicativo, coleta de dados e mitigação do problema.
 tags: top-support-issue
 keywords: desempenho do aplicativo Web, aplicativo lento, lento do aplicativo
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066530"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688303"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo lento no serviço Azure App
 Este artigo ajuda a solucionar problemas de desempenho de aplicativo lento no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -50,7 +41,7 @@ O [serviço de aplicativo](overview.md) oferece várias opções em cada etapa.
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Observar e monitorar o comportamento do aplicativo
+### <a name="1-observe-and-monitor-application-behavior"></a>1. observar e monitorar o comportamento do aplicativo
 #### <a name="track-service-health"></a>Acompanhar a integridade do serviço
 Microsoft Azure publicizes cada vez que houver uma interrupção de serviço ou degradação de desempenho. Você pode acompanhar a integridade do serviço no [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [acompanhar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
@@ -59,7 +50,7 @@ Essa opção permite que você descubra se o aplicativo está tendo problemas. N
 
 Algumas das métricas que você pode querer monitorar para seu aplicativo são
 
-* Média do conjunto de trabalho de memória
+* Conjunto de trabalho de memória média
 * Tempo médio de resposta
 * Tempo de CPU
 * Conjunto de trabalho de memória
@@ -67,7 +58,7 @@ Algumas das métricas que você pode querer monitorar para seu aplicativo são
 
 ![monitorar o desempenho do aplicativo](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Monitorar aplicativos no serviço Azure App](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -91,11 +82,11 @@ Cada aplicativo do serviço de aplicativo fornece um ponto de extremidade de ger
 - Editores de código-fonte como o [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gerenciamento para recursos conectados, como um banco de dados MySQL conectado a um aplicativo.
 
-O [aplicativo Azure](https://azure.microsoft.com/services/application-insights/) insights é uma extensão de site de monitoramento de desempenho que também está disponível. Para usar Application Insights, recompile seu código com um SDK. Você também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho do seu aplicativo com mais detalhes. Para obter mais informações, consulte [monitorar o desempenho em aplicativos Web](../azure-monitor/app/web-monitor-performance.md).
+O [aplicativo Azure insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site de monitoramento de desempenho que também está disponível. Para usar Application Insights, recompile seu código com um SDK. Você também pode instalar uma extensão que fornece acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho do seu aplicativo com mais detalhes. Para obter mais informações, consulte [monitorar o desempenho em aplicativos Web](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2. Recolher dados
+### <a name="2-collect-data"></a>2. coletar dados
 O serviço de aplicativo fornece a funcionalidade de diagnóstico para registrar informações do servidor Web e do aplicativo Web. As informações são separadas no diagnóstico do servidor Web e no Application Diagnostics.
 
 #### <a name="enable-web-server-diagnostics"></a>Habilitar o diagnóstico do servidor Web
@@ -123,7 +114,7 @@ A criação de perfil remota é útil se o uso da CPU do processo for alto e o p
 Para obter mais informações, consulte [suporte de criação de perfil remota no serviço de Azure app](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 ##### <a name="set-up-diagnostic-traces-manually"></a>Configurar rastreamentos de diagnóstico manualmente
-Se você tiver acesso ao código-fonte do aplicativo Web, o Application Diagnostics permitirá que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.net podem usar `System.Diagnostics.Trace` a classe para registrar informações no log do Application Diagnostics. No entanto, você precisa alterar o código e reimplantar seu aplicativo. Esse método é recomendado se seu aplicativo estiver em execução em um ambiente de teste.
+Se você tiver acesso ao código-fonte do aplicativo Web, o Application Diagnostics permitirá que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe `System.Diagnostics.Trace` para registrar informações no log do Application Diagnostics. No entanto, você precisa alterar o código e reimplantar seu aplicativo. Esse método é recomendado se seu aplicativo estiver em execução em um ambiente de teste.
 
 Para obter instruções detalhadas sobre como configurar seu aplicativo para registro em log, consulte [habilitar o log de diagnóstico para aplicativos no serviço Azure app](troubleshoot-diagnostic-logs.md).
 
@@ -135,7 +126,7 @@ Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo
 #### <a name="use-the-kudu-debug-console"></a>Usar o console de depuração do kudu
 O serviço de aplicativo vem com um console de depuração que você pode usar para depurar, explorar, carregar arquivos, bem como pontos de extremidade JSON para obter informações sobre o seu ambiente. Esse console é chamado de *console do kudu* ou do *painel do SCM* para seu aplicativo.
 
-Você pode acessar esse painel acessando o link **https://&lt;Your app Name >. SCM. azurewebsites. net/** .
+Você pode acessar esse painel indo para o link **https://&lt;o nome do aplicativo >. SCM. azurewebsites. net/** .
 
 Algumas das coisas que o kudu fornece são:
 
@@ -150,7 +141,7 @@ Para obter mais informações sobre os recursos disponíveis no kudu, consulte [
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Atenuar o problema
+### <a name="3-mitigate-the-issue"></a>3. atenue o problema
 #### <a name="scale-the-app"></a>Dimensionar o aplicativo
 No Azure App Service, para aumentar o desempenho e a taxa de transferência, você pode ajustar a escala na qual você está executando seu aplicativo. Escalar verticalmente um aplicativo envolve duas ações relacionadas: alterar o plano do serviço de aplicativo para um tipo de preço mais alto e definir determinadas configurações depois que você tiver alternado para o tipo de preço mais alto.
 

@@ -1,20 +1,18 @@
 ---
-title: Recomendações de segurança para o serviço Azure App
-description: Recomendações de segurança para o serviço de Azure App. Implementar essas recomendações ajudará você a atender suas obrigações de segurança, conforme descrito em nosso modelo de responsabilidade compartilhada, e melhorará a segurança geral para suas soluções de aplicativo Web.
-services: app-service
+title: Recomendações de segurança
+description: Implemente as recomendações de segurança para ajudar a atender suas obrigações de segurança, conforme indicado em nosso modelo de responsabilidade compartilhada. Melhore a segurança do seu aplicativo.
 author: barclayn
 manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 71d564dac43328371e9d34684f2d13a26616a99d
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609769"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684116"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendações de segurança para o serviço de aplicativo
 
@@ -26,7 +24,7 @@ Este artigo contém recomendações de segurança para Azure App serviço. Imple
 |-|-|----|
 | Mantenha-se atualizado | Use as versões mais recentes das plataformas com suporte, linguagens de programação, protocolos e estruturas. |
 
-## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
+## <a name="identity-and-access-management"></a>Gestão de identidades e acesso
 
 | Recomendação | Comentários |
 |-|----|
@@ -43,9 +41,9 @@ Este artigo contém recomendações de segurança para Azure App serviço. Imple
 | Criptografar a comunicação com os recursos do Azure | Quando seu aplicativo se conecta aos recursos do Azure, como o [banco de dados SQL](https://azure.microsoft.com/services/sql-database/) ou o [armazenamento do Azure](/azure/storage/), a conexão permanece no Azure. Como a conexão passa pela rede compartilhada no Azure, você sempre deve criptografar toda a comunicação. |
 | Exigir a versão mais recente do TLS possível | Desde 2018 novos aplicativos de serviço Azure App usam o TLS 1,2. As versões mais recentes do TLS incluem aprimoramentos de segurança em relação às versões de protocolo mais antigas. |
 | Usar FTPS | O serviço de aplicativo dá suporte a FTP e FTPS para implantar seus arquivos. Use FTPS em vez de FTP quando possível. Quando um ou ambos os protocolos não estão em uso, você deve [desabilitá-los](deploy-ftp.md#enforce-ftps). |
-| Proteger os dados das aplicações | Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API ou chaves privadas em seu código ou arquivos de configuração. A abordagem comumente aceita é acessá-las como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão padrão no idioma de sua escolha. No Azure App Service, você pode definir variáveis de ambiente por meio de [configurações de aplicativo](web-sites-configure.md) e cadeias de [conexão](web-sites-configure.md). As configurações do aplicativo e as cadeias de conexão são armazenadas criptografadas no Azure. As configurações do aplicativo são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente. Como alternativa, você pode integrar seu aplicativo de serviço Azure App com [Azure Key Vault](/azure/key-vault/) para o gerenciamento avançado de segredos. Ao [acessar o Key Vault com uma identidade gerenciada](../key-vault/tutorial-web-application-keyvault.md), seu aplicativo do serviço de aplicativo pode acessar com segurança os segredos de que você precisa. |
+| Proteger os dados das aplicações | Não armazene segredos do aplicativo, como credenciais de banco de dados, tokens de API ou chaves privadas em seu código ou arquivos de configuração. A abordagem comumente aceita é acessá-las como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão padrão no idioma de sua escolha. No Azure App Service, você pode definir variáveis de ambiente por meio de [configurações de aplicativo](web-sites-configure.md) e [cadeias de conexão](web-sites-configure.md). As configurações do aplicativo e as cadeias de conexão são armazenadas criptografadas no Azure. As configurações do aplicativo são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente. Como alternativa, você pode integrar seu aplicativo de serviço Azure App com [Azure Key Vault](/azure/key-vault/) para o gerenciamento avançado de segredos. Ao [acessar o Key Vault com uma identidade gerenciada](../key-vault/tutorial-web-application-keyvault.md), seu aplicativo do serviço de aplicativo pode acessar com segurança os segredos de que você precisa. |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funcionamento em Rede
 
 | Recomendação | Comentários |
 |-|-|
@@ -60,6 +58,6 @@ Este artigo contém recomendações de segurança para Azure App serviço. Imple
 |-|-|
 |Usar a camada Standard da central de segurança do Azure | A [central de segurança do Azure](../security-center/security-center-app-services.md) é integrada nativamente ao serviço de Azure app. Ele pode executar avaliações e fornecer recomendações de segurança. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Verifique com seu provedor de aplicativos para ver se há requisitos de segurança adicionais. Para obter mais informações sobre como desenvolver aplicativos seguros, consulte a [documentação de desenvolvimento seguro](../security/fundamentals/abstract-develop-secure-apps.md).

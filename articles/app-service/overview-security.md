@@ -1,25 +1,16 @@
 ---
-title: Visão geral de segurança-serviço de Azure App | Microsoft Docs
+title: Segurança
 description: Saiba mais sobre como o serviço de aplicativo ajuda a proteger seu aplicativo e como você pode bloquear ainda mais seu aplicativo contra ameaças.
 keywords: serviço de aplicativo do Azure, aplicativo Web, aplicativo móvel, aplicativo de API, aplicativo de funções, segurança, seguro, seguro, conformidade, compatível, certificado, certificados, HTTPS, FTPS, TLS, confiança, criptografia, criptografar, criptografar, restrição de IP, autenticação, autorização, Authn, autho, MSI, identidade de serviço gerenciado, identidade gerenciada, segredos, segredo, aplicação de patch, patch, patches, versão, isolamento, isolamento de rede, DDoS, MITM
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470094"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688564"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no serviço de Azure App
 
@@ -40,7 +31,7 @@ As seções a seguir mostram como proteger ainda mais seu aplicativo de serviço
 
 ## <a name="https-and-certificates"></a>HTTPS e certificados
 
-O serviço de aplicativo permite que você proteja seus aplicativos com [https](https://wikipedia.org/wiki/HTTPS). Quando seu aplicativo é criado, seu nome de domínio padrão (\<app_name >. azurewebsites. net) já está acessível usando HTTPS. Se você [configurar um domínio personalizado para seu aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores cliente possam fazer conexões HTTPS seguras com seu domínio personalizado. Há vários tipos de certificados com suporte pelo serviço de aplicativo:
+O serviço de aplicativo permite que você proteja seus aplicativos com [https](https://wikipedia.org/wiki/HTTPS). Quando seu aplicativo for criado, seu nome de domínio padrão (\<app_name >. azurewebsites. net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para seu aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores cliente possam fazer conexões HTTPS seguras com seu domínio personalizado. Há vários tipos de certificados com suporte pelo serviço de aplicativo:
 
 - Serviço de Aplicativo Gratuito certificado gerenciado
 - Certificado do serviço de aplicativo

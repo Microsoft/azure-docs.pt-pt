@@ -1,29 +1,21 @@
 ---
-title: Conectar-se com segurança aos recursos de back-end do ambiente do serviço de aplicativo-Azure
-description: Saiba mais sobre como se conectar com segurança a recursos de back-end de um Ambiente do Serviço de Aplicativo.
-services: app-service
-documentationcenter: ''
+title: Conectar ao back-end v1
+description: Saiba mais sobre como se conectar com segurança a recursos de back-end de um Ambiente do Serviço de Aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069967"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687300"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Conectar-se com segurança aos recursos de back-end de um ambiente do serviço de aplicativo
-## <a name="overview"></a>Descrição geral
-Como uma Ambiente do Serviço de Aplicativo é sempre criada em uma rede virtual Azure Resource Manager **ou** em uma [rede virtual][virtualnetwork]do modelo de implantação clássico, as conexões de saída de um ambiente do serviço de aplicativo para outros recursos de back-end pode fluir exclusivamente pela rede virtual.  Com uma alteração recente feita em junho de 2016, o ASEs também pode ser implantado em redes virtuais que usam intervalos de endereços públicos ou espaços de endereço RFC1918 (ou seja, endereços privados).  
+Como uma Ambiente do Serviço de Aplicativo é sempre **criada em uma** rede virtual Azure Resource Manager **ou** em uma [rede virtual][virtualnetwork]do modelo de implantação clássico, as conexões de saída de um ambiente do serviço de aplicativo a outros recursos de back-end podem fluir exclusivamente pela rede virtual.  Com uma alteração recente feita em junho de 2016, o ASEs também pode ser implantado em redes virtuais que usam intervalos de endereços públicos ou espaços de endereço RFC1918 (ou seja, endereços privados).  
 
 Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada.  O ponto de extremidade pode ser ACLd para permitir o acesso somente de outros recursos na mesma rede virtual.  
 
@@ -87,7 +79,7 @@ O resultado final é um conjunto de regras de segurança que bloqueiam o acesso 
 ## <a name="getting-started"></a>Introdução
 Para começar a usar os ambientes do serviço de aplicativo, consulte [introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
-Para obter detalhes sobre como controlar o tráfego de entrada para seu Ambiente do Serviço de Aplicativo, consulte controlando o [tráfego de entrada para um ambiente do serviço de aplicativo][ControlInboundASE]
+Para obter detalhes sobre como controlar o tráfego de entrada para seu Ambiente do Serviço de Aplicativo, consulte [controlando o tráfego de entrada para um ambiente do serviço de aplicativo][ControlInboundASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

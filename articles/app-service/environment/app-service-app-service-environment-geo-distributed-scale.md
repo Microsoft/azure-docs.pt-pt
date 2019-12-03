@@ -1,28 +1,21 @@
 ---
-title: Escala distribuída geográfica com ambientes do serviço de aplicativo – Azure
+title: Escala distribuída geográfica
 description: Saiba como dimensionar horizontalmente os aplicativos usando a distribuição geográfica com os ambientes do Gerenciador de tráfego e do serviço de aplicativo.
-services: app-service
-documentationcenter: ''
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: eaefebc569f5bf5461ff7c4407fa77a0c62d4fe8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7ab04e23b838f2dfd39b73476db7492947d62e6e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070225"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688805"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,7 +38,7 @@ O restante deste tópico percorre as etapas envolvidas na configuração de uma 
 ## <a name="planning-the-topology"></a>Planejando a topologia
 Antes de criar uma superfície de aplicativo distribuído, ele ajuda a ter algumas informações com antecedência.
 
-* **Domínio personalizado para o aplicativo:**  Qual é o nome de domínio personalizado que os clientes usarão para acessar o aplicativo?  Para o aplicativo de exemplo, o nome de domínio personalizado é`www.scalableasedemo.com`
+* **Domínio personalizado para o aplicativo:**  Qual é o nome de domínio personalizado que os clientes usarão para acessar o aplicativo?  Para o aplicativo de exemplo, o nome de domínio personalizado é `www.scalableasedemo.com`
 * **Domínio do Gerenciador de tráfego:**  Um nome de domínio precisa ser escolhido ao criar um [perfil do Gerenciador de tráfego do Azure][AzureTrafficManagerProfile].  Esse nome será combinado com o sufixo *trafficmanager.net* para registrar uma entrada de domínio que é gerenciada pelo Gerenciador de tráfego.  Para o aplicativo de exemplo, o nome escolhido é *Scalable-ase-demo*.  Como resultado, o nome de domínio completo que é gerenciado pelo Gerenciador de tráfego é *Scalable-ase-demo.trafficmanager.net*.
 * **Estratégia para dimensionar a superfície do aplicativo:**  A superfície do aplicativo será distribuída entre vários ambientes de serviço de aplicativo em uma única região?  Várias regiões?  Uma combinação e uma correspondência de ambas as abordagens?  A decisão deve ser baseada em expectativas de onde o tráfego do cliente será originado, assim como o restante da infra-estrutura de back-end de suporte de um aplicativo pode ser dimensionada.  Por exemplo, com um aplicativo de 100% sem monitoração de estado, um aplicativo pode ser amplamente dimensionado usando uma combinação de vários ambientes de serviço de aplicativo por região do Azure, multiplicado por ambientes de serviço de aplicativo implantados em várias regiões do Azure.  Com mais de 15 regiões públicas do Azure disponíveis para escolher, os clientes podem realmente criar uma superfície de aplicativo de hiperescala em todo o mundo.  Para o aplicativo de exemplo usado neste artigo, três ambientes de serviço de aplicativo foram criados em uma única região do Azure (EUA Central do Sul).
 * **Convenção de nomenclatura para os ambientes do serviço de aplicativo:**  Cada Ambiente do Serviço de Aplicativo requer um nome exclusivo.  Além de um ou dois ambientes de serviço de aplicativo, é útil ter uma Convenção de nomenclatura para ajudar a identificar cada Ambiente do Serviço de Aplicativo.  Para o aplicativo de exemplo, foi usada uma Convenção de nomenclatura simples.  Os nomes dos três ambientes de serviço de aplicativo são *fe1ase*, *fe2ase*e *fe3ase*.
@@ -66,7 +59,7 @@ A primeira etapa é criar um perfil do Gerenciador de tráfego do Azure.  O cód
 
 Observe como o parâmetro *RelativeDnsName* foi definido como *Scalable-ase-demo*.  É assim que o nome de domínio *Scalable-ase-demo.trafficmanager.net* é criado e associado a um perfil do Gerenciador de tráfego.
 
-O parâmetro *TrafficRoutingMethod* define a política de balanceamento de carga que o Gerenciador de tráfego usará para determinar como espalhar a carga do cliente em todos os pontos de extremidade disponíveis.  Neste exemplo, o método ponderado foi escolhido.  Isso fará com que as solicitações do cliente sejam distribuídas em todos os pontos de extremidade do aplicativo registrado com base nos pesos relativos associados a cada ponto de extremidades. 
+O parâmetro *TrafficRoutingMethod* define a política de balanceamento de carga que o Gerenciador de tráfego usará para determinar como espalhar a carga do cliente em todos os pontos de extremidade disponíveis.  Neste exemplo, o método *ponderado* foi escolhido.  Isso fará com que as solicitações do cliente sejam distribuídas em todos os pontos de extremidade do aplicativo registrado com base nos pesos relativos associados a cada ponto de extremidades. 
 
 Com o perfil criado, cada instância de aplicativo é adicionada ao perfil como um ponto de extremidade do Azure nativo.  O código a seguir busca uma referência a cada aplicativo Web de front-end e, em seguida, adiciona cada aplicativo como um ponto de extremidade do Gerenciador de tráfego por meio do parâmetro *TargetResourceId* .
 
@@ -86,7 +79,7 @@ Observe como há uma chamada para *Add-AzureTrafficManagerEndpointConfig* para c
 Todos os três pontos de extremidade usam o mesmo valor (10) para o parâmetro *Weight* .  Isso resulta na difusão do Gerenciador de tráfego de solicitações de clientes entre todas as três instâncias de aplicativo de maneira relativamente uniforme. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Apontando o domínio personalizado do aplicativo no domínio do Traffic Manager
-A etapa final necessária é apontar o domínio personalizado do aplicativo no domínio do Traffic Manager.  Para o aplicativo de exemplo, `www.scalableasedemo.com` `scalable-ase-demo.trafficmanager.net`isso significa apontar para.  Essa etapa precisa ser concluída com o registrador de domínio que gerencia o domínio personalizado.  
+A etapa final necessária é apontar o domínio personalizado do aplicativo no domínio do Traffic Manager.  Para o aplicativo de exemplo, isso significa apontar `www.scalableasedemo.com` em `scalable-ase-demo.trafficmanager.net`.  Essa etapa precisa ser concluída com o registrador de domínio que gerencia o domínio personalizado.  
 
 Usando as ferramentas de gerenciamento de domínio do registrador, é necessário criar registros CNAME que apontam o domínio personalizado no domínio do Traffic Manager.  A figura abaixo mostra um exemplo de como essa configuração de CNAME é semelhante a:
 
@@ -94,16 +87,16 @@ Usando as ferramentas de gerenciamento de domínio do registrador, é necessári
 
 Embora não seja abordado neste tópico, lembre-se de que cada instância de aplicativo individual precisa ter o domínio personalizado registrado com ele também.  Caso contrário, se uma solicitação a fizer em uma instância de aplicativo e o aplicativo não tiver o domínio personalizado registrado com o aplicativo, a solicitação falhará.  
 
-Neste exemplo, o domínio personalizado é `www.scalableasedemo.com`, e cada instância do aplicativo tem o domínio personalizado associado a ele.
+Neste exemplo, o domínio personalizado é `www.scalableasedemo.com`e cada instância do aplicativo tem o domínio personalizado associado a ele.
 
 ![Domínio Personalizado][CustomDomain] 
 
 Para uma recapitulação do registro de um domínio personalizado com aplicativos de serviço Azure App, consulte o seguinte artigo sobre como [registrar domínios personalizados][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Experimentando a topologia distribuída
-O resultado final do Gerenciador de tráfego e da configuração de DNS é que `www.scalableasedemo.com` as solicitações para fluirão através da seguinte sequência:
+O resultado final do Gerenciador de tráfego e da configuração de DNS é que as solicitações para `www.scalableasedemo.com` fluirão através da seguinte sequência:
 
-1. Um navegador ou dispositivo fará uma pesquisa de DNS para`www.scalableasedemo.com`
+1. Um navegador ou dispositivo fará uma pesquisa de DNS para `www.scalableasedemo.com`
 2. A entrada CNAME no registrador de domínio faz com que a pesquisa de DNS seja redirecionada para o Gerenciador de tráfego do Azure.
 3. Uma pesquisa DNS é feita para *Scalable-ase-demo.trafficmanager.net* em um dos servidores DNS do Gerenciador de tráfego do Azure.
 4. Com base na política de balanceamento de carga (o parâmetro *TrafficRoutingMethod* usado anteriormente ao criar o perfil do Gerenciador de tráfego), o Gerenciador de tráfego selecionará um dos pontos de extremidade configurados e retornará o FQDN desse ponto para o navegador ou dispositivo.

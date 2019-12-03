@@ -1,25 +1,16 @@
 ---
-title: Funcionalidade do sistema operacional no serviço de aplicativo – Azure
-description: Saiba mais sobre a funcionalidade do sistema operacional disponível para aplicativos Web, back-ends de aplicativo móvel e aplicativos de API no serviço Azure App
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: Funcionalidade do sistema operativo
+description: Saiba mais sobre a funcionalidade do sistema operacional no serviço de Azure App no Windows. Descubra os tipos de acesso de arquivo, rede e registro que seu aplicativo obtém.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066772"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671613"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no serviço de Azure App
 Este artigo descreve a funcionalidade comum do sistema operacional de linha de base que está disponível para todos os aplicativos do Windows em execução no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso de arquivo, rede e registro e logs e eventos de diagnóstico. 
@@ -31,7 +22,7 @@ Este artigo descreve a funcionalidade comum do sistema operacional de linha de b
 <a id="tiers"></a>
 
 ## <a name="app-service-plan-tiers"></a>Camadas do plano do serviço de aplicativo
-O serviço de aplicativo executa aplicativos de cliente em um ambiente de hospedagem multilocatário. Os aplicativos implantados nas camadas **gratuita** e **compartilhada** são executados em processos de trabalho em máquinas virtuais compartilhadas, enquanto os aplicativos implantados nas camadas **Standard** e **Premium** são executados em máquinas virtuais dedicadas especificamente para os aplicativos associados com um único cliente.
+O serviço de aplicativo executa aplicativos de cliente em um ambiente de hospedagem multilocatário. Os aplicativos implantados nas camadas **gratuita** e **compartilhada** são executados em processos de trabalho em máquinas virtuais compartilhadas, enquanto os aplicativos implantados nas camadas **Standard** e **Premium** são executados em máquinas virtuais dedicadas especificamente para os aplicativos associados a um único cliente.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -64,7 +55,7 @@ Em seu núcleo, o serviço de aplicativo é um serviço em execução sobre a in
 
 - O aplicativo pode gerar um erro indicando que não há espaço suficiente no disco.
 - Você pode ver erros de disco ao navegar até o console do kudu.
-- A implantação do Azure DevOps ou do Visual Studio pode `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`falhar com.
+- A implantação do Azure DevOps ou do Visual Studio pode falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Seu aplicativo pode sofrer um desempenho lento.
 
 <a id="NetworkDrives"></a>
@@ -85,7 +76,7 @@ Nas unidades locais conectadas à máquina virtual que executa um aplicativo, o 
 
 Dois exemplos de como o serviço de aplicativo usa o armazenamento local temporário são o diretório para arquivos ASP.NET temporários e o diretório para arquivos compactados do IIS. O sistema de compilação ASP.NET usa o diretório "Temporary ASP.NET Files" como um local de cache de compilação temporário. O IIS usa o diretório "arquivos compactados temporários do IIS" para armazenar a saída de resposta compactada. Esses dois tipos de uso de arquivo (bem como outros) são remapeados no serviço de aplicativo para o armazenamento local temporário por aplicativo. Esse remapeamento garante que a funcionalidade continue conforme o esperado.
 
-Cada aplicativo no serviço de aplicativo é executado como uma identidade de processo de trabalho de baixo privilégio aleatória exclusiva chamada "identidade do pool de aplicativos" [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities), descrita mais adiante aqui:. O código do aplicativo usa essa identidade para acesso básico somente leitura à unidade do sistema operacional (o D:\ unidade). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco amplo, os mesmos diretórios e arquivos podem ser acessados quando você provisiona uma função de trabalho em um serviço hospedado do Azure e lê o conteúdo da unidade. 
+Cada aplicativo no serviço de aplicativo é executado como uma identidade de processo de trabalho de baixo privilégio aleatória exclusiva chamada "identidade do pool de aplicativos", descrita mais adiante aqui: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). O código do aplicativo usa essa identidade para acesso básico somente leitura à unidade do sistema operacional (o D:\ unidade). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco amplo, os mesmos diretórios e arquivos podem ser acessados quando você provisiona uma função de trabalho em um serviço hospedado do Azure e lê o conteúdo da unidade. 
 
 <a name="multipleinstances"></a>
 
@@ -124,7 +115,7 @@ As áreas de log e rastreamento de diagnóstico que não estão disponíveis par
 <a id="RegistryAccess"></a>
 
 ## <a name="registry-access"></a>Acesso ao registro
-Os aplicativos têm acesso somente leitura a muito (embora não todos) do registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do registro que permitem acesso somente leitura ao grupo de usuários local são acessíveis por aplicativos. Uma área do registro que atualmente não tem suporte para acesso de leitura ou gravação é o hive hKey\_Current\_User.
+Os aplicativos têm acesso somente leitura a muito (embora não todos) do registro da máquina virtual em que estão sendo executados. Na prática, isso significa que as chaves do registro que permitem acesso somente leitura ao grupo de usuários local são acessíveis por aplicativos. Uma área do registro que atualmente não tem suporte para acesso de leitura ou gravação é o HKEY\_hive de\_usuário atual.
 
 O acesso de gravação ao registro é bloqueado, incluindo o acesso a qualquer chave de registro por usuário. Da perspectiva do aplicativo, o acesso de gravação ao registro nunca deve ser confiado no ambiente do Azure, pois os aplicativos podem (e fazem) ser migrados entre diferentes máquinas virtuais. O único armazenamento gravável persistente que pode ser dependente por um aplicativo é a estrutura de diretório de conteúdo por aplicativo armazenada nos compartilhamentos UNC do serviço de aplicativo. 
 

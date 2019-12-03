@@ -1,25 +1,19 @@
 ---
-title: Exemplo do Script do Azure PowerShell - Fazer cópia de segurança de uma aplicação Web | Microsoft Docs
-description: Exemplo do Script do Azure PowerShell - Fazer cópia de segurança de uma aplicação Web
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: fazer backup de um aplicativo'
+description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como fazer backup de um aplicativo.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c1c43e8523a46971e99b2d91b9c121de3dc57681
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5b9906abaa253c667c883a2e0e8ecd6e4cc9d496
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087957"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685753"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Fazer backup de um aplicativo Web usando o PowerShell
 

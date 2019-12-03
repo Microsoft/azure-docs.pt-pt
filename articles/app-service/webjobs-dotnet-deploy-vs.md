@@ -1,21 +1,19 @@
 ---
-title: Desenvolver e implantar trabalhos Web usando o Visual Studio – Azure
-description: Saiba como desenvolver e implantar Azure WebJobs para Azure App serviço usando o Visual Studio.
+title: Desenvolver e implantar trabalhos Web usando o VS
+description: Saiba como desenvolver Azure WebJobs no Visual Studio e implantá-los no serviço Azure App, incluindo a criação de uma tarefa agendada.
 author: ggailey777
-manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
 ms.topic: conceptual
 ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303567"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684175"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implantar trabalhos Web usando o Visual Studio-serviço de Azure App
 
@@ -164,7 +162,7 @@ Os campos nessa caixa de diálogo correspondem aos campos na caixa de diálogo *
 > 
 > 
 
-### <a id="publishsettings"></a>webjob-publish-settings.json
+### <a id="publishsettings"></a>webjob-Publish-Settings. JSON
 Quando você configura um aplicativo de console para a implantação de trabalhos Web, o Visual Studio instala o pacote NuGet [Microsoft. Web. webjobs. publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e armazena informações de agendamento em um arquivo *webjob-Publish-Settings. JSON* na pasta Project *Properties* do projeto webjobs. Aqui está um exemplo desse arquivo:
 
         {
@@ -179,7 +177,7 @@ Quando você configura um aplicativo de console para a implantação de trabalho
 
 Você pode editar esse arquivo diretamente e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser exibido lá.  
 
-### <a id="webjobslist"></a>webjobs-list.json
+### <a id="webjobslist"></a>trabalhos Web-List. JSON
 Quando você vincula um projeto habilitado para trabalhos Web a um projeto da Web, o Visual Studio armazena o nome do projeto webjobs em um arquivo *webjobs-lista. JSON* na pasta *Propriedades* do projeto Web. A lista pode conter vários projetos de trabalhos Web, conforme mostrado no exemplo a seguir:
 
         {
@@ -233,10 +231,10 @@ As configurações a seguir são suportadas pelos trabalhos Web:
 
 | **Definição** | **Tipo**  | **Descrição** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Todos | Permite que o trabalho seja executado no local sem ser copiado primeiro para uma pasta temporária. Para saber mais, consulte [diretório de trabalho de trabalhos](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
+| `is_in_place` | Tudo | Permite que o trabalho seja executado no local sem ser copiado primeiro para uma pasta temporária. Para saber mais, consulte [diretório de trabalho de trabalhos](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
 | `is_singleton` | Contínuo | Só execute os trabalhos Web em uma única instância quando expandido. Para saber mais, consulte [definir um trabalho contínuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Ativou | Execute o WebJob em uma agenda baseada em CRON. PARA saber mais, consulte o [artigo de referência do gatilho de temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Todos | Permite o controle do comportamento de desligamento. Para saber mais, confira [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Tudo | Permite o controle do comportamento de desligamento. Para saber mais, confira [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

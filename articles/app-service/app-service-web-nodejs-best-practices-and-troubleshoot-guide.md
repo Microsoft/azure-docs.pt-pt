@@ -1,26 +1,19 @@
 ---
-title: Práticas recomendadas e solução de problemas para o Node. js-serviço de Azure App
-description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos de nó no serviço Azure App.
-services: app-service\web
-documentationcenter: nodejs
+title: Práticas recomendadas e solução de problemas do node. js
+description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos node. js em execução no serviço Azure App.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024233"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672051"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de práticas recomendadas e solução de problemas para aplicativos de nó em janelas de serviço Azure App
 
@@ -36,7 +29,7 @@ Esse [arquivo de esquema](https://github.com/Azure/iisnode/blob/master/src/confi
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-Essa configuração controla o número de processos de nó que são iniciados por aplicativo do IIS. O valor predefinido é 1. Você pode iniciar quantos node. EXEs forem sua contagem de vCPU de VM alterando o valor para 0. O valor recomendado é 0 para a maioria dos aplicativos, para que você possa usar todos os vCPUs em seu computador. O Node. exe é de thread único, portanto, um node. exe consome um máximo de 1 vCPU. Para obter o desempenho máximo do seu aplicativo de nó, você deseja usar todos os vCPUs.
+Essa configuração controla o número de processos de nó que são iniciados por aplicativo do IIS. O valor padrão é 1. Você pode iniciar quantos node. EXEs forem sua contagem de vCPU de VM alterando o valor para 0. O valor recomendado é 0 para a maioria dos aplicativos, para que você possa usar todos os vCPUs em seu computador. O Node. exe é de thread único, portanto, um node. exe consome um máximo de 1 vCPU. Para obter o desempenho máximo do seu aplicativo de nó, você deseja usar todos os vCPUs.
 
 ### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
@@ -94,7 +87,7 @@ Uma lista de arquivos separados por ponto e vírgula que são observados para al
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-O valor predefinido é false. Se habilitada, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_controle de\_PIPE) e enviar uma mensagem de "reciclagem". Isso faz com que w3wp seja reciclado normalmente.
+O valor padrão é false. Se habilitada, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_controle de\_PIPE) e enviar uma mensagem de "reciclagem". Isso faz com que w3wp seja reciclado normalmente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -106,7 +99,7 @@ O valor padrão é 0, o que significa que esse recurso está desabilitado. Quand
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-O valor predefinido é false. Se definido como true, iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP, ele enviará o valor do cabeçalho `iisnode-debug` será uma URL. Partes individuais de informações de diagnóstico podem ser obtidas examinando o fragmento de URL, no entanto, uma visualização está disponível abrindo a URL em um navegador.
+O valor padrão é false. Se definido como true, iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP, ele enviará o valor do cabeçalho `iisnode-debug` será uma URL. Partes individuais de informações de diagnóstico podem ser obtidas examinando o fragmento de URL, no entanto, uma visualização está disponível abrindo a URL em um navegador.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -114,7 +107,7 @@ Essa configuração controla o registro em log de stdout e stderr por iisnode. I
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-O valor predefinido é false. Quando definido como true, iisnode exibe o código de status HTTP e o código de erro do Win32 em seu navegador. O código Win32 é útil na depuração de determinados tipos de problemas.
+O valor padrão é false. Quando definido como true, iisnode exibe o código de status HTTP e o código de erro do Win32 em seu navegador. O código Win32 é útil na depuração de determinados tipos de problemas.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar no site de produção ao vivo)
 
@@ -284,5 +277,5 @@ Siga estes links para saber mais sobre os aplicativos node. js no serviço Azure
 * [Como depurar uma aplicação Web Node.js no Serviço de Aplicações do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicações Web do Serviço de Aplicações do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro para Programadores do Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro de Programadores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar a Consola de Depuração do Kudu Super Secreta](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

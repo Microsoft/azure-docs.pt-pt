@@ -1,55 +1,48 @@
 ---
-title: Preparar a alteração de endereço IP de SSL - serviço de aplicações do Azure
-description: Se o seu endereço SSL IP vai ser alterado, saiba o que fazer para que a sua aplicação continua a funcionar após a alteração.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
+title: Preparar para alterar o endereço IP SSL
+description: Se o seu endereço IP SSL for alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6c8c86ff6212acc31e961d6ae62836ca2b7b7380
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61268913"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672394"
 ---
-# <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de SSL
+# <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço IP SSL
 
-Se tiver recebido uma notificação de que está a alterar o endereço IP de SSL da sua aplicação de serviço de aplicações do Azure, siga as instruções neste artigo para liberar o endereço SSL IP existente e atribuir um novo.
+Se você recebeu uma notificação de que o endereço IP SSL do seu aplicativo de serviço de Azure App está sendo alterado, siga as instruções neste artigo para liberar o endereço IP SSL existente e atribuir um novo.
 
-## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>Libertar endereços IP de SSL e atribuir novas etiquetas
+## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>Liberar endereços IP de SSL e atribuir novos itens
 
 1.  Abra o [Portal do Azure](https://portal.azure.com).
 
-2.  No menu de navegação esquerdo, selecione **dos serviços de aplicações**.
+2.  No menu de navegação à esquerda, selecione **serviços de aplicativos**.
 
-3.  Selecione a sua aplicação de serviço de aplicações na lista.
+3.  Selecione o aplicativo do serviço de aplicativo na lista.
 
-4.  Sob o **configurações** cabeçalho, clique em **definições de SSL** na navegação à esquerda.
+4.  No cabeçalho **configurações** , clique em **configurações de SSL** no painel de navegação esquerdo.
 
-1. Na secção de enlaces de SSL, selecione o registo de nome de anfitrião. No editor de que se abre, selecione **SNI SSL** sobre o **tipo de SSL** menu pendente e clique em **Adicionar enlace**. Quando vir a mensagem de êxito da operação, foi lançado o endereço IP existente.
+1. Na seção associações SSL, selecione o registro de nome de host. No editor que é aberto, escolha **SSL de SNI** no menu suspenso **tipo de SSL** e clique em **Adicionar Associação**. Quando você vir a mensagem de êxito da operação, o endereço IP existente foi liberado.
 
-6.  Na **enlaces SSL** secção, selecione novamente o mesmo registo de nome de anfitrião com o certificado. No editor de que se abre, dessa vez escolha **SSL baseados no IP** sobre o **tipo de SSL** menu pendente e clique em **Adicionar enlace de**. Quando vir a mensagem de êxito da operação, adquirir um novo endereço IP.
+6.  Na seção **associações SSL** , selecione novamente o mesmo registro de nome de host com o certificado. No editor que é aberto, desta vez escolha **SSL baseado em IP** no menu suspenso **tipo de SSL** e clique em **Adicionar Associação**. Quando você vir a mensagem de êxito da operação, você adquiriu um novo endereço IP.
 
-7.  Se um registo (registo DNS que aponte diretamente para o seu endereço IP) estiver configurado no seu Portal de registo de domínio (terceiros fornecedor DNS ou o DNS do Azure), substitua o endereço IP existente pelo gerados recentemente. Pode encontrar o novo endereço IP ao seguir as instruções na secção seguinte.
+7.  Se um registro A (registro DNS que aponta diretamente para seu endereço IP) estiver configurado em seu portal de registro de domínio (provedor de DNS de terceiros ou DNS do Azure), substitua o endereço IP existente pelo novo gerado. Você pode encontrar o novo endereço IP seguindo as instruções na próxima seção.
 
-## <a name="find-the-new-ssl-ip-address-in-the-azure-portal"></a>Encontrar o novo endereço IP de SSL no Portal do Azure
+## <a name="find-the-new-ssl-ip-address-in-the-azure-portal"></a>Localizar o novo endereço IP SSL no portal do Azure
 
-1.  Aguarde alguns minutos e, em seguida, abra a [portal do Azure](https://portal.azure.com).
+1.  Aguarde alguns minutos e, em seguida, abra o [portal do Azure](https://portal.azure.com).
 
-2.  No menu de navegação esquerdo, selecione **dos serviços de aplicações**.
+2.  No menu de navegação à esquerda, selecione **serviços de aplicativos**.
 
-3.  Selecione a sua aplicação de serviço de aplicações na lista.
+3.  Selecione o aplicativo do serviço de aplicativo na lista.
 
-4.  Sob o **configurações** cabeçalho, clique em **propriedades** na navegação à esquerda e localize a seção rotulada **endereço Virtual IP**.
+4.  No cabeçalho **configurações** , clique em **Propriedades** no painel de navegação esquerdo e localize a seção chamada **endereço IP virtual**.
 
-5. Copie o endereço IP e reconfigurar o seu registo de domínio ou o mecanismo IP.
+5. Copie o endereço IP e reconfigure o registro de domínio ou o mecanismo de IP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre os endereços IP no serviço de aplicações do Azure, consulte [endereços IP de SSL e de SSL no serviço de aplicações do Azure](overview-inbound-outbound-ips.md).
+Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre endereços IP no serviço Azure App, consulte [endereços IP SSL e SSL no serviço Azure app](overview-inbound-outbound-ips.md).

@@ -1,25 +1,19 @@
 ---
-title: Solucionar problemas de domínio e certificados SSL-serviço de Azure App | Microsoft Docs
-description: Solucionar problemas de domínio e certificado SSL no serviço Azure App
-services: app-service\web
-documentationcenter: ''
+title: Solucionar problemas de domínio e certificados SSL
+description: Encontre soluções para os problemas comuns que você pode encontrar ao configurar um domínio ou certificado SSL no serviço Azure App.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470141"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688348"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e certificado SSL no serviço Azure App
 
@@ -94,7 +88,7 @@ Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
     **Solução**: se o certificado for marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
-    1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Vá para **certificados do serviço de aplicativo**e selecione o certificado.
     3. Selecione **configuração de certificado** > **etapa 2: verificar** > **verificação de domínio**. Esta etapa envia um aviso por email ao provedor de certificados do Azure para resolver o problema.
 
@@ -196,7 +190,7 @@ O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48
 
 Você pode forçar uma sincronização do certificado:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
 2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
 3. Quando a sincronização for concluída, você verá a seguinte notificação: "atualização bem-sucedida de todos os recursos com o certificado mais recente".
 
@@ -235,17 +229,17 @@ Não é possível comprar um domínio do serviço de aplicativo no portal do Azu
 
 Esse problema ocorre por um dos seguintes motivos:
 
-- Não há nenhum cartão de crédito na assinatura do Azure ou o cartão de crédito é inválido.
+- Não existem cartões de crédito na subscrição do Azure ou o cartão de crédito é inválido.
 
     **Solução**: Adicione um cartão de crédito válido à sua assinatura.
 
-- Você não é o proprietário da assinatura, portanto, você não tem permissão para comprar um domínio.
+- Não é o proprietário da subscrição, pelo que não tem permissão para comprar um domínio.
 
     **Solução**: [atribua a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contate o administrador da assinatura para obter permissão para comprar um domínio.
-- Você atingiu o limite para a compra de domínios em sua assinatura. O limite atual é 20.
+- Atingiu o limite de compra de domínios da subscrição. O limite atual é 20.
 
     **Solução**: para solicitar um aumento do limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O tipo de assinatura do Azure não oferece suporte à compra de um domínio do serviço de aplicativo.
+- O tipo de subscrição do Azure não suporta a compra de um domínio do Serviço de Aplicações.
 
     **Solução**: Atualize sua assinatura do Azure para outro tipo de assinatura, como uma assinatura paga conforme o uso.
 
@@ -266,7 +260,7 @@ Esse problema ocorre por um dos seguintes motivos:
 
     **Solução**: Verifique se o CNAME ou registro a está configurado corretamente. Para mapear um domínio personalizado para um aplicativo, crie um registro CNAME ou um registro A. Se você quiser usar um domínio raiz, deverá usar os registros A e TXT:
 
-    |Tipo de registo|Anfitrião|Aponte para|
+    |Tipo de registo|Host|Aponte para|
     |------|------|-----|
     |A|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|

@@ -1,25 +1,19 @@
 ---
-title: Perguntas frequentes sobre configuração-serviço de Azure App | Microsoft Docs
-description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento do recurso de aplicativos Web do serviço de Azure App.
-services: app-service\web
-documentationcenter: ''
+title: Perguntas frequentes sobre configuração
+description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para Azure App serviço.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470524"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672509"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gerenciamento para aplicativos Web no Azure
 

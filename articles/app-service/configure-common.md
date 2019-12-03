@@ -1,26 +1,17 @@
 ---
-title: Configurar aplicativos no portal-serviço de Azure App
-description: Saiba como definir configurações comuns para um aplicativo do serviço de aplicativo no portal do Azure.
+title: Configurar aplicativos no portal
+description: Saiba como definir configurações comuns para um aplicativo do serviço de aplicativo no portal do Azure. Configurações do aplicativo, cadeias de conexão, plataforma, pilha de idiomas, contêiner, etc.
 keywords: serviço de aplicativo do Azure, aplicativo Web, configurações de aplicativo, variáveis de ambiente
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470934"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671952"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -34,7 +25,7 @@ Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No 
 
 ![Configurações do aplicativo](./media/configure-common/open-ui.png)
 
-Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` em *Web. config* ou *appSettings. JSON*, mas os valores no serviço de aplicativo substituem aqueles em *Web. config* ou *appSettings. JSON* . Você pode manter as configurações de desenvolvimento (por exemplo, a senha local do MySQL) em *Web. config* ou *appSettings. JSON*, mas os segredos de produção (por exemplo, a senha do banco de dados MySQL do Azure) são seguros no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
+Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` em *Web. config* ou *appSettings. JSON*, mas os valores no serviço de aplicativo substituem aqueles em *Web. config* ou *appSettings. JSON*. Você pode manter as configurações de desenvolvimento (por exemplo, a senha local do MySQL) em *Web. config* ou *appSettings. JSON*, mas os segredos de produção (por exemplo, a senha do banco de dados MySQL do Azure) são seguros no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
 Outras pilhas de idiomas, da mesma forma, obtêm as configurações do aplicativo como variáveis de ambiente no tempo de execução. Para obter as etapas específicas da pilha de idiomas, consulte:
 
@@ -251,7 +242,7 @@ Consulte [configurar um contêiner personalizado do Linux para o serviço Azure 
 
 - [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure]
-- [Proteger um nome DNS personalizado com uma associação SSL no serviço Azure App](configure-ssl-bindings.md)
+- [Proteger um nome DNS personalizado com um enlace SSL no Serviço de Aplicações do Azure](configure-ssl-bindings.md)
 - [Habilitar logs de diagnóstico](troubleshoot-diagnostic-logs.md)
 - [Dimensionar um aplicativo no serviço Azure App]
 - [Noções básicas de monitoramento no serviço Azure App]

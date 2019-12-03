@@ -1,33 +1,24 @@
 ---
-title: Criar um aplicativo Python no serviço Linux-Azure App | Microsoft Docs
-description: Implemente em minutos a sua primeira aplicação Hello World Python no Serviço de Aplicações do Azure no Linux.
-services: app-service\web
-documentationcenter: ''
+title: 'Início rápido: criar um aplicativo do Linux Python'
+description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo Python em um contêiner do Linux no serviço de aplicativo.
 author: msangapu-msft
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7905b086ac390243f2fe02697f68c9b1c05ca28e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024939"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688983"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 
 Neste guia de início rápido, você implanta um aplicativo Python simples [no serviço de aplicativo no Linux](app-service-linux-intro.md), que fornece um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática. Use a interface de linha de comando do Azure (o [CLI do Azure](/cli/azure/install-azure-cli)) por meio do Azure cloud shell interativo baseado em navegador, para que você possa seguir as etapas usar um computador Mac, Linux ou Windows.
 
-![Aplicação Web de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
+![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -118,7 +109,7 @@ http://<app_name>.azurewebsites.net
 
 O código de exemplo do Python está em execução no serviço de aplicativo no Linux com uma imagem interna.
 
-![Aplicação Web de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
+![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
 **Parabéns!** Implementou a sua primeira aplicação Python no Serviço de Aplicações no Linux.
 

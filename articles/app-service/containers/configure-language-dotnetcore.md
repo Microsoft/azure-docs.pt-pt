@@ -1,24 +1,15 @@
 ---
-title: Configurar aplicativos ASP.NET Core-Azure App serviço | Microsoft Docs
-description: Saiba como configurar ASP.NET Core aplicativos para trabalharem no serviço Azure App
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configurar aplicativos de ASP.NET Core do Linux
+description: Saiba como configurar um contêiner de ASP.NET Core predefinido para seu aplicativo. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
-ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990267"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670456"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurar um aplicativo de ASP.NET Core do Linux para Azure App Service
 
@@ -81,7 +72,7 @@ Se você definir uma configuração de aplicativo com o mesmo nome no serviço d
 
 ## <a name="get-detailed-exceptions-page"></a>Página obter exceções detalhadas
 
-Quando seu aplicativo ASP.NET gera uma exceção no depurador do Visual Studio, o navegador exibe uma página de exceção detalhada, mas no serviço de aplicativo essa página é substituída por um erro genérico **HTTP 500** ou **ocorreu um erro ao processar sua solicitação.** Mensagem. Para exibir a página de exceção detalhada no serviço de aplicativo, `ASPNETCORE_ENVIRONMENT` adicione a configuração do aplicativo ao seu aplicativo executando o comando a seguir no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Quando seu aplicativo ASP.NET gera uma exceção no depurador do Visual Studio, o navegador exibe uma página de exceção detalhada, mas no serviço de aplicativo essa página é substituída por um erro genérico **HTTP 500** ou **ocorreu um erro ao processar sua solicitação.** Mensagem. Para exibir a página de exceção detalhada no serviço de aplicativo, adicione a configuração de aplicativo `ASPNETCORE_ENVIRONMENT` ao seu aplicativo executando o comando a seguir no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -91,9 +82,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 No serviço de aplicativo, a [terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede, portanto, todas as solicitações HTTPS atingem seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar saber se as solicitações do usuário estão criptografadas ou não, configure o middleware de cabeçalhos encaminhados em *Startup.cs*:
 
-- Configure o middleware com [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os `X-Forwarded-For` cabeçalhos `X-Forwarded-Proto` e em `Startup.ConfigureServices`.
+- Configure o middleware com [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os cabeçalhos de `X-Forwarded-For` e de `X-Forwarded-Proto` no `Startup.ConfigureServices`.
 - Adicione intervalos de endereços IP privados às redes conhecidas, para que o middleware possa confiar no balanceador de carga do serviço de aplicativo.
-- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) no `Startup.Configure` antes de chamar outros middleware.
+- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) em `Startup.Configure` antes de chamar outros middleware.
 
 Colocando todos os três elementos juntos, seu código é semelhante ao exemplo a seguir:
 
@@ -141,7 +132,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Usando configurações do aplicativo
 
-No <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>, adicione uma configuração de aplicativo ao aplicativo do serviço de aplicativo executando o comando da CLI a seguir. *Substitua\<app-Name >* ,  *\<Resource-Group-Name >* e  *\<Project-Name >* pelos valores apropriados.
+No <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>, adicione uma configuração de aplicativo ao aplicativo do serviço de aplicativo executando o comando da CLI a seguir. Substitua *\<> de nome de aplicativo*, *\<> de nome de grupo de recursos*e *\<> de nome de projeto* pelos valores apropriados.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"

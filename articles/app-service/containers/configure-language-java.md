@@ -1,24 +1,21 @@
 ---
-title: Configurar aplicativos Java do Linux – serviço de Azure App | Microsoft Docs
-description: Saiba como configurar aplicativos Java em execução no serviço Azure App no Linux.
+title: Configurar aplicativos Java do Linux
+description: Saiba como configurar um contêiner Java predefinido para seu aplicativo. Este artigo mostra as tarefas de configuração mais comuns.
 keywords: serviço de aplicativo do Azure, aplicativo Web, Linux, OSS, Java, Java EE, JEE, Java
-services: app-service
 author: bmitchell287
 manager: barbkess
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9625870132d088bf1de6df06f05f0cac41a1e7fa
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: a3e0bbb414dd1f47e70de6b7a25a84a2b27c0dc7
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144226"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671862"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -45,7 +42,7 @@ Relatórios de desempenho, visualizações de tráfego e verificação de integr
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
+### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -55,7 +52,7 @@ Para obter mais informações, consulte [Stream logs in Cloud Shell](../troubles
 
 Habilite o [log do aplicativo](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) por meio do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicativo para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no armazenamento de BLOBs do Azure. O registro em log na instância do sistema de arquivos do serviço de aplicativo local é desabilitado 12 horas após sua configuração. Se você precisar de mais retenção, configure o aplicativo para gravar a saída em um contêiner de armazenamento de BLOBs. Seus logs de aplicativo Java e Tomcat podem ser encontrados no diretório */Home/LogFiles/Application/*
 
-Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para revisão no aplicativo Azure insights usando as instruções de configuração do log Framework em [explorar logs de rastreamento de Java no Application insights ](/azure/application-insights/app-insights-java-trace-logs).
+Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para análise em aplicativo Azure insights usando as instruções de configuração da estrutura de registro em [explorar logs de rastreamento do Java no Application insights](/azure/application-insights/app-insights-java-trace-logs).
 
 ### <a name="troubleshooting-tools"></a>Ferramentas de solução de problemas
 
@@ -314,9 +311,9 @@ Essas instruções se aplicam a todas as conexões de banco de dados. Você prec
 
 | Base de Dados   | Nome da classe do driver                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Transferir](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (selecione "plataforma independente") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferir](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Para configurar o Tomcat para usar Java Database Connectivity (JDBC) ou a API de persistência Java (JPA), primeiro Personalize a variável de ambiente `CATALINA_OPTS` que é lida no pelo Tomcat na inicialização. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do serviço de aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -618,7 +615,7 @@ As etapas a seguir explicam os requisitos para conectar seu serviço de aplicati
 
 6. Use o CLI do Azure para adicionar configurações ao serviço de aplicativo que contêm suas informações de conexão de banco de dados. Substitua `<resource group>` e `<webapp name>` pelos valores que seu serviço de aplicativo usa. Substitua `<database server name>`, `<database name>`, `<admin name>`e `<admin password>` pelas informações de conexão do banco de dados. Você pode obter as informações do serviço de aplicativo e do banco de dados do portal do Azure.
 
-    **PostgreSQL:**
+    **PostgreSQL**
 
     ```bash
     az webapp config appsettings set \
@@ -630,7 +627,7 @@ As etapas a seguir explicam os requisitos para conectar seu serviço de aplicati
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL:**
+    **MySQL**
 
     ```bash
     az webapp config appsettings set \

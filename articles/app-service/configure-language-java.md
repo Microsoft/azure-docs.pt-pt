@@ -1,25 +1,20 @@
 ---
-title: Configurar aplicativos Java do Windows – serviço de Azure App | Microsoft Docs
-description: Saiba como configurar aplicativos Java para serem executados nas instâncias padrão do Windows no serviço Azure App.
+title: Configurar aplicativos Java do Windows
+description: Saiba como configurar aplicativos Java para serem executados em instâncias de VM do Windows no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 keywords: serviço de aplicativo do Azure, aplicativo Web, Windows, OSS, Java
-services: app-service
 author: jasonfreeberg
-manager: jeconnock
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad9ee8a21390126f20da4037a438a2655b8b5d47
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dec5d1c7c7664bf72d92e5aca4333ba64db26d02
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012262"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671913"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -41,7 +36,7 @@ Não implante seu. War usando FTP. A ferramenta de FTP foi projetada para carreg
 
 Relatórios de desempenho, visualizações de tráfego e verificação de integridade estão disponíveis para cada aplicativo por meio do portal do Azure. Para obter mais informações, consulte [visão geral do diagnóstico de serviço Azure app](overview-diagnostics.md).
 
-### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
+### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -51,7 +46,7 @@ Para obter mais informações, consulte [Stream logs in Cloud Shell](troubleshoo
 
 Habilite o [log do aplicativo](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) por meio do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicativo para gravar a saída do console padrão do aplicativo e os fluxos de erro do console padrão no sistema de arquivos local ou no armazenamento de BLOBs do Azure. O registro em log na instância do sistema de arquivos do serviço de aplicativo local é desabilitado 12 horas após sua configuração. Se você precisar de mais retenção, configure o aplicativo para gravar a saída em um contêiner de armazenamento de BLOBs. Seus logs de aplicativo Java e Tomcat podem ser encontrados no diretório */LogFiles/Application/*
 
-Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para revisão no aplicativo Azure insights usando as instruções de configuração do log Framework em [explorar logs de rastreamento de Java no Application insights ](/azure/application-insights/app-insights-java-trace-logs).
+Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para análise em aplicativo Azure insights usando as instruções de configuração da estrutura de registro em [explorar logs de rastreamento do Java no Application insights](/azure/application-insights/app-insights-java-trace-logs).
 
 
 ## <a name="customization-and-tuning"></a>Personalização e ajuste
@@ -216,9 +211,9 @@ Essas instruções se aplicam a todas as conexões de banco de dados. Você prec
 
 | Base de Dados   | Nome da classe do driver                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Transferir](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (selecione "plataforma independente") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferir](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Para configurar o Tomcat para usar Java Database Connectivity (JDBC) ou a API de persistência Java (JPA), primeiro Personalize a variável de ambiente `CATALINA_OPTS` que é lida no pelo Tomcat na inicialização. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do serviço de aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -318,7 +313,7 @@ Os desenvolvedores podem baixar a edição de produção do azul Zulu Enterprise
 
 O suporte ao produto para o [azul Zulu com suporte do Azure](https://www.azul.com/downloads/azure-only/zulu/) está disponível por meio da Microsoft ao desenvolver para o azure ou [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) com um [plano de suporte qualificado do Azure](https://azure.microsoft.com/support/plans/).
 
-### <a name="runtime-support"></a>Suporte de tempo de execução
+### <a name="runtime-support"></a>Suporte a tempo de execução
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-supportability/how-to-create-azure-support-request) com o azul Zulu JDKs por meio do suporte do Azure se eles tiverem um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 

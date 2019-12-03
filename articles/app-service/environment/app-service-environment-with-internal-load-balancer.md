@@ -1,25 +1,18 @@
 ---
-title: Criar e usar o balanceador de carga interno com o ambiente do serviço de aplicativo-Azure | Microsoft Docs
-description: Criando e usando um ASE com um ILB
-services: app-service
-documentationcenter: ''
+title: Criar um ASE v1 ILB
+description: Criando e usando um ASE com um ILB. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069903"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688731"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Usando um Load Balancer interno com um Ambiente do Serviço de Aplicativo
 
@@ -29,7 +22,7 @@ ms.locfileid: "70069903"
 
 O recurso do Ambiente do Serviço de Aplicativo (ASE) é uma opção de serviço Premium do serviço de Azure App que fornece um recurso de configuração avançada que não está disponível nos carimbos multilocatários. Essencialmente, o recurso ASE implanta o serviço de Azure App em sua VNet (rede virtual) do Azure. Para obter uma compreensão maior dos recursos oferecidos pelos ambientes do serviço de aplicativo, leia a documentação [o que é uma ambiente do serviço de aplicativo][WhatisASE] . Se você não souber os benefícios de operar em uma VNet, leia as [perguntas frequentes sobre a rede virtual do Azure][virtualnetwork]. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Um ASE pode ser implantado com um ponto de extremidade acessível pela Internet ou com um endereço IP em sua VNet. Para definir o endereço IP para um endereço de VNet, você precisa implantar seu ASE com um Load Balancer interno (ILB). Quando o ASE é configurado com um ILB, você fornece:
 
 * seu próprio domínio ou subdomínio. Para facilitar, este documento pressupõe subdomínio, mas você pode configurá-lo de qualquer forma. 
@@ -65,7 +58,7 @@ Criar um ASE ILB não é muito diferente de criar um ASE normalmente. Para obter
 
 No painel rede virtual, há uma opção de configuração de VNet que permite selecionar entre um VIP externo ou um VIP interno. O padrão é External. Se você o tiver definido como externo, seu ASE usará um VIP acessível pela Internet. Se você selecionar interno, seu ASE será configurado com um ILB em um endereço IP em sua VNet. 
 
-Depois de selecionar interno, a capacidade de adicionar mais endereços IP ao ASE é removida e, em vez disso, você deve fornecer o subdomínio do ASE. Em um ASE com um VIP externo, o nome do ASE é usado no subdomínio para aplicativos criados nesse ASE. Se seu ASE for chamado de ***ContosoTest*** e seu aplicativo nesse ase for chamadode myTest, o subdomínio será do formato ***ContosoTest.p.azurewebsites.net*** e a URL desse aplicativo será ***myTest.ContosoTest.p.azurewebsites.net***. Se você definir o tipo de VIP como interno, o nome do ASE não será usado no subdomínio para o ASE. Você especifica o subdomínio explicitamente. Se o subdomínio for ***contoso.Corp.net*** e você tiver feito um aplicativo nesse ase chamadoReporting, a URL desse aplicativo será ***timereporting.contoso.Corp.net***.
+Depois de selecionar interno, a capacidade de adicionar mais endereços IP ao ASE é removida e, em vez disso, você deve fornecer o subdomínio do ASE. Em um ASE com um VIP externo, o nome do ASE é usado no subdomínio para aplicativos criados nesse ASE. Se seu ASE for chamado de ***ContosoTest*** e seu aplicativo nesse ase for chamado de ***myTest***, o subdomínio será do formato ***ContosoTest.p.azurewebsites.net*** e a URL desse aplicativo será ***myTest.ContosoTest.p.azurewebsites.net***. Se você definir o tipo de VIP como interno, o nome do ASE não será usado no subdomínio para o ASE. Você especifica o subdomínio explicitamente. Se o subdomínio for ***contoso.Corp.net*** e você tiver feito um aplicativo nesse ase chamado ***Reporting***, a URL desse aplicativo será ***timereporting.contoso.Corp.net***.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplicativos em um ASE ILB
 Criar um aplicativo em um ASE ILB é o mesmo que criar um aplicativo em um ASE normalmente. 
@@ -100,25 +93,25 @@ Se você quiser experimentar o fluxo com seus próprios certificados e testar o 
 4. Crie um aplicativo Web no ASE após a criação. 
 5. Crie uma VM se você não tiver uma nessa VNET (não na mesma sub-rede que a interrupção do ASE ou das coisas).
 6. Defina o DNS para seu subdomínio. Você pode usar um curinga com seu subdomínio em seu DNS ou se desejar fazer alguns testes simples, editar o arquivo de hosts em sua VM para definir o nome do aplicativo Web como endereço IP VIP. Se seu ASE tivesse o nome de subdomínio. ilbase.com e você tornou o aplicativo Web mytestapp para que ele fosse endereçado em mytestapp.ilbase.com, defina-o em seu arquivo hosts. (No Windows, o arquivo de hosts está em C:\WINDOWS\system32\drivers\etc.\)
-7. Use um navegador nessa VM e vá para ( https://mytestapp.ilbase.com ou qualquer que seja o nome do seu aplicativo Web com seu subdomínio).
+7. Use um navegador nessa VM e acesse https://mytestapp.ilbase.com (ou qualquer nome do seu aplicativo Web com seu subdomínio).
 8. Utilize um browser nessa VM e aceda a https://mytestapp.ilbase.com. Você deve aceitar a falta de segurança se estiver usando um certificado autoassinado. 
 
 O endereço IP para seu ILB é listado em suas propriedades como o endereço IP virtual.
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Utilizando um ILB de ASE
+## <a name="using-an-ilb-ase"></a>Usando um ASE ILB
 #### <a name="network-security-groups"></a>Grupos de Segurança de Rede
 Um ASE ILB habilita o isolamento de rede para seus aplicativos. Os aplicativos não estão acessíveis ou até mesmo conhecidos pela Internet. Essa abordagem é excelente para hospedar sites de intranet, como aplicativos de linha de negócios. Quando você precisar restringir o acesso ainda mais, ainda poderá usar NSGs (grupos de segurança de rede) para controlar o acesso no nível da rede. 
 
-Se você quiser usar o NSGs para restringir ainda mais o acesso, certifique-se de não interromper a comunicação que o ASE precisa para operar. Embora o acesso HTTP/HTTPS seja apenas por meio do ILB usado pelo ASE, o ASE ainda depende dos recursos fora da VNet. Para ver qual acesso à rede ainda é necessário, consulte controlando o [tráfego de entrada para um ambiente do serviço de aplicativo][ControlInbound] e [detalhes de configuração de rede para ambientes do serviço de aplicativo com o ExpressRoute][ExpressRoute]. 
+Se você quiser usar o NSGs para restringir ainda mais o acesso, certifique-se de não interromper a comunicação que o ASE precisa para operar. Embora o acesso HTTP/HTTPS seja apenas por meio do ILB usado pelo ASE, o ASE ainda depende dos recursos fora da VNet. Para ver qual acesso à rede ainda é necessário, consulte [controlando o tráfego de entrada para um ambiente do serviço de aplicativo][ControlInbound] e [detalhes de configuração de rede para ambientes do serviço de aplicativo com o ExpressRoute][ExpressRoute]. 
 
 Para configurar seu NSGs, você deve saber o endereço IP que é usado pelo Azure para gerenciar seu ASE. Esse endereço IP também é o endereço IP de saída do ASE se ele fizer solicitações da Internet. O endereço IP de saída para seu ASE permanece estático durante a vida útil do seu ASE. Se você excluir e recriar seu ASE, receberá um novo endereço IP. Para localizar o endereço IP, acesse **configurações-> Propriedades** e localize o **endereço IP de saída**. 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>Gerenciamento geral do ASE ILB
-O gerenciamento de um ASE ILB é basicamente o mesmo que gerenciar um ASE normalmente. Você deve escalar verticalmente seus pools de trabalho para hospedar mais instâncias ASP e escalar verticalmente seus servidores front-end para lidar com quantidades maiores de tráfego HTTP/HTTPS. Para obter informações gerais sobre como gerenciar a configuração de um ASE, consulte Configurando [um ambiente do serviço de aplicativo][ASEConfig]. 
+O gerenciamento de um ASE ILB é basicamente o mesmo que gerenciar um ASE normalmente. Você deve escalar verticalmente seus pools de trabalho para hospedar mais instâncias ASP e escalar verticalmente seus servidores front-end para lidar com quantidades maiores de tráfego HTTP/HTTPS. Para obter informações gerais sobre como gerenciar a configuração de um ASE, consulte [Configurando um ambiente do serviço de aplicativo][ASEConfig]. 
 
 Os itens de gerenciamento adicionais são gerenciamento de certificados e gerenciamento de DNS. Você deve obter e carregar o certificado usado para HTTPS após a criação do ASE ILB e substituí-lo antes de expirar. Como o Azure possui o domínio base, ele pode fornecer certificados para ASEs com um VIP externo. Como o subdomínio usado por um ASE ILB pode ser qualquer coisa, você deve fornecer seu próprio certificado para HTTPS. 
 

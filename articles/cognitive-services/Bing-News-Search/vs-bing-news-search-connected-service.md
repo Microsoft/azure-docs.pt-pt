@@ -3,19 +3,19 @@ title: Conectar-se a API de Pesquisa de Notícias do Bing com os serviços conec
 titleSuffix: Azure Cognitive Services
 description: Ao utilizar a Pesquisa de Notícias do Bing, pode ativar aplicações e serviços para tirar partido do poder de um motor de busca sem anúncios e direcionado para a Web.
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.author: ghogen
-ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 11/29/2019
+ms.author: aahi
+ms.openlocfilehash: 9cac13f8fb42959e79cafedcc7057d1cb7c2f7d5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111508"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689387"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutorial: conectar-se a API de Pesquisa de Notícias do Bing com os serviços conectados no Visual Studio eC#
 
@@ -34,7 +34,7 @@ Este artigo fornece detalhes para utilizar a funcionalidade de Serviço Ligado d
 
 1. Crie um novo projeto Web ASP.NET Core com o nome MyWebApplication. Utilize o modelo de projeto **Aplicação Web (Model-View-Controller)** , com todas as predefinições. É importante atribuir o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto. 
 
-1. No **Explorador de Soluções**, escolha **Adicionar** > **Serviço Ligado**.
+1. No **Solution Explorer** (Explorador de Soluções), selecione **Add** (Adicionar)  > **Connected Service** (Serviço Ligado).
    É apresentada a página Connected Service (Serviço Ligado), com os serviços que pode adicionar ao seu projeto.
 
    ![Captura de ecrã do item de menu Adicionar Serviço Ligado](../media/vs-common/Connected-Service-Menu.PNG)

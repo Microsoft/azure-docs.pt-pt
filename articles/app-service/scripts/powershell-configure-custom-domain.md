@@ -1,25 +1,19 @@
 ---
-title: Exemplo do Script do Azure PowerShell - Atribuir um domínio personalizado para uma aplicação Web | Microsoft Docs
-description: Exemplo do Script do Azure PowerShell - Atribuir um domínio personalizado para uma aplicação Web
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: atribuir um domínio personalizado'
+description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como atribuir um domínio personalizado a um aplicativo.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3ca13355271e28c21a6daab2af02fb46d0b7b87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f7de667292ed89caa2895f6db3f7d8d6abf15f85
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087886"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685593"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>Atribuir um domínio personalizado a um aplicativo Web usando o PowerShell
 
@@ -53,7 +47,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | Modifica um plano do Serviço de Aplicações para alterar o escalão de preço. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação web. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

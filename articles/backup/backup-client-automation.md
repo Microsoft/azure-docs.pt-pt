@@ -2,19 +2,19 @@
 title: Usar o PowerShell para fazer backup do Windows Server no Azure
 description: Neste artigo, saiba como usar o PowerShell para configurar o backup do Azure no Windows Server ou um cliente do Windows e gerenciar o backup e a recuperação.
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.openlocfilehash: 6285b7fc6493090ab0bead5f00124a6eaa02dc7e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 12/2/2019
+ms.openlocfilehash: 54cfbb4a550ff14705d8d02b0589ee023cf9c225
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172452"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689196"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
 Este artigo mostra como usar o PowerShell para configurar o backup do Azure no Windows Server ou um cliente do Windows e gerenciar o backup e a recuperação.
 
-## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
+## <a name="install-azure-powershell"></a>Instalar Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -114,12 +114,12 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Predefinição |
 | --- | --- | --- |
 | /q |Instalação silenciosa |- |
-| /p:"location" |Caminho para a pasta de instalação do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent |
-| /s:"location" |Caminho para a pasta de cache do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent\Scratch |
-| /m |Aceitar para Microsoft Update |- |
+| /p: "local" |Caminho para a pasta de instalação do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent |
+| /s: "local" |Caminho para a pasta de cache do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent\Scratch |
+| opção |Aceitar para Microsoft Update |- |
 | /nu |Não verificar se há atualizações após a conclusão da instalação |- |
 | /d |Desinstala o agente de Serviços de Recuperação do Microsoft Azure |- |
-| /ph |Endereço do host do proxy |- |
+| /pH |Endereço do host do proxy |- |
 | /po |Número da porta do host proxy |- |
 | /pu |Nome de usuário do host proxy |- |
 | /pw |Senha do proxy |- |
@@ -569,7 +569,7 @@ Esta seção irá orientá-lo pelas etapas para automatizar a recuperação de d
 
 1. Escolha o volume de origem
 2. Escolha um ponto de backup para restaurar
-3. Escolher um item para restaurar
+3. Especificar um item a ser restaurado
 4. Disparar o processo de restauração
 
 ### <a name="picking-the-source-volume"></a>Escolhendo o volume de origem
@@ -593,95 +593,61 @@ ServerName : myserver.microsoft.com
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Escolhendo um ponto de backup do qual restaurar
 
-Você recupera uma lista de pontos de backup executando o cmdlet [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) com os parâmetros apropriados. Em nosso exemplo, escolheremos o ponto de backup mais recente para o volume de origem *D:* e o utilizaremos para recuperar um arquivo específico.
+Você recupera uma lista de pontos de backup executando o cmdlet [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) com os parâmetros apropriados. Em nosso exemplo, escolheremos o ponto de backup mais recente para o volume de origem *C:* e o utilizaremos para recuperar um arquivo específico.
 
 ```powershell
-$Rps = Get-OBRecoverableItem -Source $Source[1]
+$Rps = Get-OBRecoverableItem $Source[0]
+$Rps
 ```
 
 ```Output
-IsDir : False
-ItemNameFriendly : D:\
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : D:\
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize :
+
+IsDir                : False
+ItemNameFriendly     : C:\
+ItemNameGuid         : \\?\Volume{297cbf7a-0000-0000-0000-401f00000000}\
+LocalMountPoint      : C:\
+MountPointName       : C:\
+Name                 : C:\
+PointInTime          : 10/17/2019 7:52:13 PM
+ServerName           : myserver.microsoft.com
+ItemSize             :
 ItemLastModifiedTime :
 
-IsDir : False
-ItemNameFriendly : D:\
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : D:\
-PointInTime : 17-Jun-15 6:31:31 AM
-ServerName : myserver.microsoft.com
-ItemSize :
+IsDir                : False
+ItemNameFriendly     : C:\
+ItemNameGuid         : \\?\Volume{297cbf7a-0000-0000-0000-401f00000000}\
+LocalMountPoint      : C:\
+MountPointName       : C:\
+Name                 : C:\
+PointInTime          : 10/16/2019 7:00:19 PM
+ServerName           : myserver.microsoft.com
+ItemSize             :
 ItemLastModifiedTime :
 ```
 
 O objeto `$Rps` é uma matriz de pontos de backup. O primeiro elemento é o ponto mais recente e o enésimo elemento é o ponto mais antigo. Para escolher o ponto mais recente, usaremos `$Rps[0]`.
 
-### <a name="choosing-an-item-to-restore"></a>Escolhendo um item para restaurar
+### <a name="specifying-an-item-to-restore"></a>Especificando um item a ser restaurado
 
-Para identificar a pasta ou o arquivo exato a ser restaurado, use recursivamente o cmdlet [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) . Dessa forma, a hierarquia de pastas pode ser procurada somente usando o `Get-OBRecoverableItem`.
-
-Neste exemplo, se quisermos restaurar o arquivo *Finances. xls* , podemos fazer referência a isso usando o objeto `$FilesFolders[1]`.
+Para restaurar um arquivo específico, especifique o nome do arquivo relativo ao volume raiz. Por exemplo, para recuperar C:\Test\Cat.job, execute o comando a seguir. 
 
 ```powershell
-$FilesFolders = Get-OBRecoverableItem $Rps[0]
-$FilesFolders
+$Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
+$Item
 ```
 
 ```Output
-IsDir : True
-ItemNameFriendly : D:\MyData\
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : MyData
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize :
-ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
-```
-
-```powershell
-$FilesFolders = Get-OBRecoverableItem $FilesFolders[0]
-$FilesFolders
-```
-
-```Output
-IsDir : False
-ItemNameFriendly : D:\MyData\screenshot.oxps
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : screenshot.oxps
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize : 228313
-ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
-
-IsDir : False
-ItemNameFriendly : D:\MyData\finances.xls
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : finances.xls
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize : 96256
+IsDir                : False
+ItemNameFriendly     : C:\Test\cat.jpg
+ItemNameGuid         :
+LocalMountPoint      : C:\
+MountPointName       : C:\
+Name                 : cat.jpg
+PointInTime          : 10/17/2019 7:52:13 PM
+ServerName           : myserver.microsoft.com
+ItemSize             :
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
-```
 
-Você também pode procurar por itens a serem restaurados usando o cmdlet ```Get-OBRecoverableItem```. Em nosso exemplo, para procurar *finanças. xls* , podemos obter um identificador no arquivo executando este comando:
-
-```powershell
-$Item = Get-OBRecoverableItem -RecoveryPoint $Rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
 ### <a name="triggering-the-restore-process"></a>Disparando o processo de restauração

@@ -1,6 +1,6 @@
 ---
-title: Novidades Notas - Azure Active Directory de versão | Documentos da Microsoft
-description: Saiba o que há de novo no Azure Active Directory, como as notas de versão mais recente, problemas, correções de erros conhecidos de funcionalidade preterida e futuras alterações.
+title: Novidades Notas de versão-Azure Active Directory | Microsoft Docs
+description: Saiba o que há de novo no Azure Active Directory, como as notas de versão mais recentes, problemas conhecidos, correções de bugs, funcionalidade preterida e alterações futuras.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,26 +16,26 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6c6e680de6253f5e822ba282df2e2397093d003
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 793b9d1b33c244354841402babbd9177ce7ed19b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271001"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687718"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
 >Seja notificado sobre quando revisitar esta página para obter as atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` em seu ícone do leitor de feed de RSS da ![](./media/whats-new/feed-icon-16x16.png) leitor de feeds.
 
-O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
+O Azure AD recebe melhorias em uma base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
-- Versões mais recentes
+- As versões mais recentes
 - Problemas conhecidos
 - Correções de erros
-- Funcionalidades preteridas
-- Planos para que as alterações
+- Funcionalidade preterida
+- Planos de alterações
 
-Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente. Se você estiver procurando itens com mais de seis meses, poderá encontrá-los no [arquivo morto para as novidades no Azure Active Directory](whats-new-archive.md).
+Esta página é atualizada mensalmente, portanto, reveja-a regularmente. Se você estiver procurando itens com mais de seis meses, poderá encontrá-los no [arquivo morto para as novidades no Azure Active Directory](whats-new-archive.md).
 
 ---
 
@@ -195,7 +195,7 @@ Agora você pode acessar todos os recursos de segurança do Azure AD disponívei
 O novo menu de **segurança** inclui:
 
 - Acesso Condicional
-- Identity Protection
+- Proteção de Identidade
 - Centro de Segurança
 - Pontuação segura de identidade
 - Métodos de autenticação
@@ -551,13 +551,13 @@ Para obter mais informações sobre como configurar Azure Monitor, consulte [log
 
 Em 25 de setembro de 2019, vamos desligar a experiência de informações de segurança antiga e não avançada para registrar e gerenciar informações de segurança do usuário e ativar apenas a nova [versão aprimorada](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). Isso significa que os usuários não poderão mais usar a experiência antiga.
 
-Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa [documentação de administração](https://aka.ms/securityinfodocs) e nossa [documentação de usuário](https://aka.ms/securityinfoguide).
+Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa [documentação de administração](https://aka.ms/securityinfodocs) e a [documentação do usuário](https://aka.ms/securityinfoguide).
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Para ativar essa nova experiência, você deve:
 
 1. Entre no portal do Azure como um administrador global ou administrador de usuários.
 
-2. Vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**.
+2. Vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**.
 
 3. No, os **usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança – área avançada** , selecionar **selecionado**e, em seguida, escolher um grupo de usuários ou escolher **tudo** para ativar esse recurso para todos os usuários no locatário.
 
@@ -616,7 +616,7 @@ Novas alterações de interface do usuário estão chegando ao design do **Adici
 **Categoria de serviço:** FATO  
 **Funcionalidade do produto:** Proteção de & de segurança de identidade
 
-Estamos removendo o endereço IP do servidor MFA do [endereço IP do Office 365 e do serviço Web URL](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). Se, no momento, você confiar nessas páginas para atualizar as configurações do firewall, deverá ter certeza de que também está incluindo a lista de endereços IP documentados na seção **requisitos do firewall do Azure servidor de autenticação multifator** de [introdução com o artigo Servidor de Autenticação Multifator do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) .
+Estamos removendo o endereço IP do servidor MFA do [endereço IP do Office 365 e do serviço Web URL](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). Se, no momento, você confiar nessas páginas para atualizar as configurações do firewall, deverá ter certeza de que também está incluindo a lista de endereços IP documentados na seção **requisitos do firewall do azure servidor de autenticação multifator** no artigo [introdução ao servidor de autenticação multifator do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) .
 
 ---
 
@@ -628,7 +628,7 @@ Estamos removendo o endereço IP do servidor MFA do [endereço IP do Office 365 
 
 Em 26 de julho de 2019, alteramos a maneira como fornecemos tokens somente de aplicativo por meio da [concessão de credenciais de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Anteriormente, os aplicativos podiam obter tokens para chamar outros aplicativos, independentemente se o aplicativo cliente estava no locatário. Atualizamos esse comportamento para que recursos de locatário único, às vezes chamados de APIs da Web, só possam ser chamados por aplicativos cliente que existem no locatário do recurso.
 
-Se seu aplicativo não estiver localizado no locatário de recursos, você receberá uma mensagem de erro dizendo, `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` para corrigir esse problema, deverá criar a entidade de serviço de aplicativo cliente no locatário, usando o [ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) ou [por meio do PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), que garante que seu locatário tenha dado a permissão do aplicativo para operar dentro do locatário.
+Se seu aplicativo não estiver localizado no locatário de recursos, você receberá uma mensagem de erro que diz, `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` para corrigir esse problema, você deve criar a entidade de serviço de aplicativo cliente no locatário, usando o [ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) ou [por meio do PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), que garante que seu locatário tenha dado a permissão do aplicativo para operar dentro do locatário.
 
 Para obter mais informações, consulte [o que há de novo para autenticação?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant).
 
@@ -693,7 +693,7 @@ Para obter mais informações sobre como proteger melhor sua organização usand
 **Categoria de serviço:** Azure AD Domain Services  
 **Funcionalidade do produto:** Azure AD Domain Services
 
-Se estiver cansado de gerenciar listas longas de endereços IP e intervalos, você poderá usar a nova marca de serviço de rede **AzureActiveDirectoryDomainServices** em seu grupo de segurança de rede do Azure para ajudar a proteger o tráfego de entrada para seu Azure AD Domain Services virtual sub-rede.
+Se estiver cansado de gerenciar listas longas de endereços IP e intervalos, você poderá usar a nova marca de serviço de rede **AzureActiveDirectoryDomainServices** em seu grupo de segurança de rede do Azure para ajudar a proteger o tráfego de entrada para sua sub-rede Azure AD Domain Services rede virtual.
 
 Para obter mais informações sobre essa nova marca de serviço, consulte [grupos de segurança de rede para Azure AD Domain Services](../../active-directory-domain-services/network-considerations.md#network-security-groups-and-required-ports).
 
@@ -863,7 +863,7 @@ Para obter mais informações, consulte a [documentação de referência de API 
 
 Em junho de 2019, adicionamos esses 22 novos aplicativos com suporte à Federação para a Galeria de aplicativos:
 
-[Kit de ferramentas de SAML do Azure ad](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai (大塚商会)](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial), [anágua](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial), [cliente de VPN do Azure](https://portal.azure.com/), [despesa](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial) [, auxiliar auxiliar,](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial) [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial), [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial), [Mercedes-Benz no carro](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Console de infraestrutura de nuvem da Oracle](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [autenticação SAML CyberArk](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise os](https://proptimise.co.uk/software/), [vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial), Oracle Access Manager para Oracle Merchandising de varejo, Oracle Access Manager para Oracle E-Business Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
+[Kit de ferramentas de SAML do Azure ad](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai (大塚商会)](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial), [anágua](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial), [cliente de VPN do Azure](https://portal.azure.com/), [despesa](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial) [, auxiliar auxiliar,](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial) [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial), [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial), [Mercedes-Benz no carro](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [console de infraestrutura de nuvem da Oracle](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [autenticação SAML CyberArk](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible edu](https://www.scrible.com/sign-in/#/create-account) [, PandaDoc, Perceptyx](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial) [, Proptimise](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [os](https://proptimise.co.uk/software/), vtiger [CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial), Oracle Access Manager para Oracle Merchandising de varejo, Oracle Access Manager para Oracle E-Business Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
 
 Para obter mais informações sobre os aplicativos, consulte [integração de aplicativos SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre como listar seu aplicativo na Galeria de aplicativos do Azure AD, consulte [listar seu aplicativo na Galeria de aplicativos Azure Active Directory](https://aka.ms/azureadapprequest).
 
@@ -1033,7 +1033,7 @@ Para obter mais informações, consulte a [documentação de referência da API 
 
 Em maio de 2019, adicionamos esses 21 novos aplicativos com suporte à Federação para a Galeria de aplicativos:
 
-[Freedcamp](https://docs.microsoft.com/azure/active-directory/saas-apps/freedcamp-tutorial), [links reais](https://docs.microsoft.com/azure/active-directory/saas-apps/real-links-tutorial), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [Sign-simples](https://docs.microsoft.com/azure/active-directory/saas-apps/simple-sign-tutorial), [braze](https://docs.microsoft.com/azure/active-directory/saas-apps/braze-tutorial), [displayer](https://docs.microsoft.com/azure/active-directory/saas-apps/displayr-tutorial), [Templafy](https://docs.microsoft.com/azure/active-directory/saas-apps/templafy-tutorial), [envolvimento de vendas do marketo](https://toutapp.com/login), [ACLP](https://docs.microsoft.com/azure/active-directory/saas-apps/aclp-tutorial), [subsistemas](https://docs.microsoft.com/azure/active-directory/saas-apps/outsystems-tutorial), [Meta4 Global HR](https://docs.microsoft.com/azure/active-directory/saas-apps/meta4-global-hr-tutorial), [Quantum Local de trabalho](https://docs.microsoft.com/azure/active-directory/saas-apps/quantum-workplace-tutorial), [Cobalt](https://docs.microsoft.com/azure/active-directory/saas-apps/cobalt-tutorial), [WebMethods API](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [RedFlag](https://pocketstop.com/redflag/), [Whatfix](https://docs.microsoft.com/azure/active-directory/saas-apps/whatfix-tutorial), [controle](https://docs.microsoft.com/azure/active-directory/saas-apps/control-tutorial), [JOBHUB](https://docs.microsoft.com/azure/active-directory/saas-apps/jobhub-tutorial), [NEOGOV](https://docs.microsoft.com/azure/active-directory/saas-apps/neogov-tutorial), [alimento](https://docs.microsoft.com/azure/active-directory/saas-apps/foodee-tutorial), [MyVR](https://docs.microsoft.com/azure/active-directory/saas-apps/myvr-tutorial)
+[Freedcamp](https://docs.microsoft.com/azure/active-directory/saas-apps/freedcamp-tutorial), [real links](https://docs.microsoft.com/azure/active-directory/saas-apps/real-links-tutorial), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [Sign-simples](https://docs.microsoft.com/azure/active-directory/saas-apps/simple-sign-tutorial), [braze](https://docs.microsoft.com/azure/active-directory/saas-apps/braze-tutorial), [displayer](https://docs.microsoft.com/azure/active-directory/saas-apps/displayr-tutorial), [Templafy](https://docs.microsoft.com/azure/active-directory/saas-apps/templafy-tutorial), [marketo Sales entrave](https://toutapp.com/login), [ACLP](https://docs.microsoft.com/azure/active-directory/saas-apps/aclp-tutorial), [outsubsystems](https://docs.microsoft.com/azure/active-directory/saas-apps/outsystems-tutorial), [Meta4 Global HR](https://docs.microsoft.com/azure/active-directory/saas-apps/meta4-global-hr-tutorial), [Quantum Workplace](https://docs.microsoft.com/azure/active-directory/saas-apps/quantum-workplace-tutorial), [Cobalt](https://docs.microsoft.com/azure/active-directory/saas-apps/cobalt-tutorial), [WebMethods API Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [RedFlag](https://pocketstop.com/redflag/), [Whatfix](https://docs.microsoft.com/azure/active-directory/saas-apps/whatfix-tutorial), [Control](https://docs.microsoft.com/azure/active-directory/saas-apps/control-tutorial), [JOBHUB](https://docs.microsoft.com/azure/active-directory/saas-apps/jobhub-tutorial), [NEOGOV](https://docs.microsoft.com/azure/active-directory/saas-apps/neogov-tutorial), [alimento](https://docs.microsoft.com/azure/active-directory/saas-apps/foodee-tutorial), [MyVR](https://docs.microsoft.com/azure/active-directory/saas-apps/myvr-tutorial)
 
 Para obter mais informações sobre os aplicativos, consulte [integração de aplicativos SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre como listar seu aplicativo na Galeria de aplicativos do Azure AD, consulte [listar seu aplicativo na Galeria de aplicativos Azure Active Directory](https://aka.ms/azureadapprequest).
 
@@ -1047,7 +1047,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 Fizemos melhorias nas experiências relacionadas a grupos no portal do Azure AD. Esses aprimoramentos permitem que os administradores gerenciem melhor listas de grupos, listas de membros e forneçam opções de criação adicionais.
 
-Melhoramentos incluem:
+Os aprimoramentos incluem:
 
 - Filtragem básica por tipo de associação e tipo de grupo.
 

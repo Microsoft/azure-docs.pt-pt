@@ -1,24 +1,16 @@
 ---
-title: Fazer backup do serviço de Azure App de aplicativos
-description: Saiba como criar backups de seus aplicativos no serviço Azure App.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: Efetuar cópia de segurança de uma aplicação
+description: Saiba como criar backups de seus aplicativos no serviço Azure App. Execute backups manuais ou agendados. Personalize os backups incluindo o banco de dados anexado.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886072"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671645"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 O recurso de backup e restauração no [serviço Azure app](overview.md) permite que você crie facilmente backups de aplicativos manualmente ou em um agendamento. Você pode configurar os backups a serem mantidos até um período indefinido de tempo. Você pode restaurar o aplicativo para um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -149,7 +141,7 @@ Execute backups da mesma maneira que faria normalmente, [manual](#create-a-manua
 > [!NOTE]
 > Restaure backups parciais do seu site da mesma maneira que você [restauraria um backup regular](web-sites-restore.md). O processo de restauração faz a coisa certa.
 > 
-> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista de bloqueios ou em qualquer arquivo na lista de bloqueios é deixado como está.
+> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista negra ou em qualquer arquivo na lista de bloqueios é deixado como está.
 > 
 
 
@@ -176,5 +168,5 @@ Para obter exemplos, consulte:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter informações sobre como restaurar um aplicativo de um backup, consulte [restaurar um aplicativo no Azure](web-sites-restore.md). 

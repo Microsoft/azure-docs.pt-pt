@@ -1,25 +1,17 @@
 ---
-title: Implantação contínua – serviço de Azure App | Microsoft Docs
-description: Saiba como ativar a implementação contínua para o Serviço de Aplicações do Azure.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Configurar a implementação contínua
+description: Saiba como habilitar o CI/CD para Azure App serviço do GitHub, BitBucket, Azure Repos ou outros repositórios. Selecione o pipeline de compilação que atenda às suas necessidades.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 98f82914af8216789a04d3cfd2972f83c16b3fa0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 692b07c82c329a93d79ad3a87beec5dbe1c595d3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070670"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669990"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no serviço Azure App
 
@@ -39,7 +31,7 @@ Para bitbucket ou GitHub, autorize o serviço de Azure App a se conectar ao repo
    
 1. Na página do aplicativo, selecione **central de implantação** no menu à esquerda.
    
-1. Na página **centro de implantação** , selecione **GitHub** ou **bitbucket**e, em seguida, selecione autorizar. 
+1. Na página **centro de implantação** , selecione **GitHub** ou **bitbucket**e, em seguida, selecione **autorizar**. 
    
    ![Selecione serviço de controle do código-fonte, em seguida, selecione autorizar.](media/app-service-continuous-deployment/github-choose-source.png)
    
@@ -49,7 +41,7 @@ Para bitbucket ou GitHub, autorize o serviço de Azure App a se conectar ao repo
 
 Depois de autorizar um serviço de controle do código-fonte, configure seu aplicativo para implantação contínua por meio do [servidor de Build do serviço de aplicativo kudu](#option-1-use-the-app-service-build-service)interno ou por meio de [Azure pipelines](#option-2-use-azure-pipelines). 
 
-### <a name="option-1-use-the-app-service-build-service"></a>Opção 1: Usar o serviço de compilação do serviço de aplicativo
+### <a name="option-1-use-the-app-service-build-service"></a>Opção 1: usar o serviço de compilação do serviço de aplicativo
 
 Você pode usar o servidor de Build do serviço de aplicativo kudu interno para implantar continuamente do GitHub, do bitbucket ou do Azure Repos. 
 
@@ -71,7 +63,7 @@ Você pode usar o servidor de Build do serviço de aplicativo kudu interno para 
    - Para o GitHub, clique na lista suspensa e selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente.
      
      > [!NOTE]
-     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações** > **aplicativo aplicativos** > **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**.
+     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório GitHub e vá para **configurações** > **aplicativos** > **aplicativos OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**.
      
    - Para bitbucket, selecione a **equipe**do bitbucket, o **repositório**e a **ramificação** que você deseja implantar continuamente.
      
@@ -90,7 +82,7 @@ Você pode usar o servidor de Build do serviço de aplicativo kudu interno para 
    
    ![Acompanhar confirmações e implantações na central de implantação](media/app-service-continuous-deployment/github-finished.png)
 
-### <a name="option-2-use-azure-pipelines"></a>Opção 2: Utilize o Azure Pipelines 
+### <a name="option-2-use-azure-pipelines"></a>Opção 2: usar Azure Pipelines 
 
 Se sua conta tiver as permissões necessárias, você poderá configurar Azure Pipelines para implantar continuamente de repositórios GitHub ou Azure Repos. Para obter mais informações sobre a implantação por meio do Azure Pipelines, consulte [implantar um aplicativo Web em serviços Azure apps](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
 
@@ -115,7 +107,7 @@ Para configurar Azure Pipelines (versão prévia):
    - Para o GitHub, clique na lista suspensa e selecione a **organização**, o **repositório**e a **ramificação** que você deseja implantar continuamente.
      
      > [!NOTE]
-     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório do GitHub e vá para **configurações** > **aplicativo aplicativos** > **OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**.
+     > Se você não vir nenhum repositório, talvez seja necessário autorizar o serviço Azure App no GitHub. Navegue até o repositório GitHub e vá para **configurações** > **aplicativos** > **aplicativos OAuth autorizados**. Selecione **Azure app serviço**e, em seguida, selecione **conceder**.
      
    - Para Azure Repos, selecione a organização, o **projeto**, o **repositório**e a **ramificação** do **Azure DevOps**que você deseja implantar continuamente ou configure uma nova organização do Azure DevOps.
      
@@ -141,7 +133,7 @@ Para configurar Azure Pipelines (versão prévia):
 
 ## <a name="disable-continuous-deployment"></a>Desabilitar implantação contínua
 
-Para desabilitar a implantação contínua, selecione desconectar na parte superior da página do **centro de implantação** do seu aplicativo.
+Para desabilitar a implantação contínua, selecione **Desconectar** na parte superior da página do **centro de implantação** do seu aplicativo.
 
 ![Desabilitar implantação contínua](media/app-service-continuous-deployment/disable.png)
 

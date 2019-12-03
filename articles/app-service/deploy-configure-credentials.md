@@ -1,24 +1,16 @@
 ---
-title: Configurar credenciais de implantação-serviço de Azure App | Microsoft Docs
-description: Saiba como usar as credenciais de implantação do serviço Azure App.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnoc
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configurar credenciais de implantação
+description: Saiba quais tipos de credenciais de implantação estão no serviço Azure App e como configurá-las e usá-las.
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: fc9445b64baae0e625b62356fee381329b01e8fd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098486"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669972"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar credenciais de implantação para o serviço Azure App
 [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a dois tipos de credenciais para implantação do [git local](deploy-local-git.md) e [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são as mesmas que suas credenciais de assinatura do Azure.
@@ -33,7 +25,7 @@ Você pode configurar suas credenciais no nível do usuário na página de [recu
 
 ### <a name="in-the-cloud-shell"></a>No Cloud Shell
 
-Para configurar o usuário de implantação no [Cloud Shell](https://shell.azure.com), execute o comando [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Substitua \<username > e \<password > por um usuário de implantação e senha. 
+Para configurar o usuário de implantação no [Cloud Shell](https://shell.azure.com), execute o comando [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Substitua \<nome de usuário > e \<senha > com um nome de usuário de implantação e senha. 
 
 - O nome de usuário deve ser exclusivo no Azure e, para Pushes git locais, não deve conter o símbolo ' @ '. 
 - A senha deve ter pelo menos oito caracteres de comprimento, com dois dos três elementos a seguir: letras, números e símbolos. 
@@ -48,11 +40,11 @@ A saída JSON mostra a senha como `null`. Se obtiver o erro `'Conflict'. Details
 
 No portal do Azure, você deve ter pelo menos um aplicativo para poder acessar a página de credenciais de implantação. Para configurar suas credenciais de nível de usuário:
 
-1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **Serviços** >  >  >  >  **\<de aplicativos any_app >** painel de FTP do centro de implantação.
+1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **serviços de aplicativos** >  **\<Any_app >**  > **central de implantação** > **painel**de > de **FTP** .
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Ou, se você já tiver configurado a implantação do git, selecione **Serviços** >  >  >  **&lt;de aplicativos any_app >** **FTP/credenciais**da central de implantação.
+    Ou, se você já tiver configurado a implantação do git, selecione **serviços de aplicativos** >  **&lt;any_app >**  > **central de implantação** > **FTP/credenciais**.
 
     ![](./media/app-service-deployment-credentials/access-with-git.png)
 
@@ -71,19 +63,19 @@ Se a implantação do git estiver configurada, a página mostrará um **nome de 
 
 ## <a name="use-user-level-credentials-with-ftpftps"></a>Usar credenciais de nível de usuário com FTP/FTPS
 
-A autenticação em um ponto de extremidade de FTP/FTPS usando credenciais de nível de usuário exige um nome de usuário no seguinte formato:`<app-name>\<user-name>`
+A autenticação em um ponto de extremidade de FTP/FTPS usando credenciais de nível de usuário exige um nome de usuário no seguinte formato: `<app-name>\<user-name>`
 
 Como as credenciais de nível de usuário são vinculadas ao usuário e não a um recurso específico, o nome de usuários deve estar nesse formato para direcionar a ação de entrada para o ponto de extremidade do aplicativo certo.
 
 ## <a name="appscope"></a>Obter e redefinir credenciais de nível de aplicativo
 Para obter as credenciais de nível de aplicativo:
 
-1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **Serviços** >  >  >  **&lt;de aplicativos any_app >** **FTP/credenciais**da central de implantação.
+1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **serviços de aplicativos** >  **&lt;Any_app >**  > **central de implantação** > **FTP/credenciais**.
 
 2. Selecione **credenciais do aplicativo**e selecione o link **copiar** para copiar o nome de usuário ou a senha.
 
 Para redefinir as credenciais de nível de aplicativo, selecione **Redefinir credenciais** na mesma caixa de diálogo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Descubra como usar essas credenciais para implantar seu aplicativo do [git local](deploy-local-git.md) ou usando [FTP/S](deploy-ftp.md).

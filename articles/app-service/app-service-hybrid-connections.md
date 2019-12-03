@@ -1,25 +1,18 @@
 ---
-title: Conexões híbridas – serviço de Azure App | Microsoft Docs
-description: Como criar e usar Conexões Híbridas para acessar recursos em redes diferentes
-services: app-service
-documentationcenter: ''
+title: Ligações híbridas
+description: Saiba como criar e usar conexões híbridas no serviço de Azure App para acessar recursos em redes diferentes.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff2dac5d27cfffb92922038c1d1c67cd5118557a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffc5ee32541cfbbda2ae54fd229c1436f133d730
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082386"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671517"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Serviço de Azure App Conexões Híbridas #
 
@@ -106,8 +99,8 @@ Os Conexões Híbridas do serviço de aplicativo estão disponíveis apenas nas 
 
 | Plano de preços | Número de Conexões Híbridas utilizáveis no plano |
 |----|----|
-| Básico | 5 |
-| Standard | 25 |
+| Basic | 5 |
+| Padrão | 25 |
 | Premium | 200 |
 | Isolado | 200 |
 
@@ -172,7 +165,7 @@ Para permitir que alguém fora de sua assinatura hospede uma instância HCM para
 
 ![Adicionar uma conexão híbrida manualmente][11]
 
-### <a name="upgrade"></a>Atualizar ###
+### <a name="upgrade"></a>Atualização ###
 
 Há atualizações periódicas para a Gerenciador de Conexões Híbridas corrigir problemas ou fornecer melhorias. Quando as atualizações forem liberadas, um pop-up será exibido na interface do usuário da HCM. A aplicação da atualização aplicará as alterações e reiniciará a HCM. 
 

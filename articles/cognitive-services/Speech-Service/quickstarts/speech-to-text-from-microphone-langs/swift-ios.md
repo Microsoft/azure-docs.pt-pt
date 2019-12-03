@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 661dd94caa2a1998b26ec1270688c0729011c15a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5bc7ce5cee6235125cf65f492d9294af5214a760
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503627"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672610"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Início rápido: reconhecer a fala no Swift no iOS usando o SDK de fala
 
@@ -36,7 +36,7 @@ Antes de começar, você precisará de:
 
 Este tutorial não funcionará com uma versão do SDK anterior à 1.6.0.
 
-O SDK de fala dos serviços cognitivas para iOS é distribuído como um pacote de estrutura. Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/) ou baixado do https://aka.ms/csspeech/macosbinary e vinculado manualmente. Este artigo usa um CocoaPod.
+O SDK de fala dos serviços cognitivas para iOS é distribuído como um pacote de estrutura. Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/) ou baixado do https://aka.ms/csspeech/iosbinary e vinculado manualmente. Este artigo usa um CocoaPod.
 
 ## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
 
