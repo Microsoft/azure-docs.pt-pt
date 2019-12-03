@@ -1,17 +1,17 @@
 ---
-title: 'Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure'
-description: Implante um aplicativo de exemplo na nuvem Spring do Azure usando o portal do Azure.
+title: Início rápido – iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
+description: Neste guia de início rápido, implante um aplicativo de exemplo para a nuvem Spring do Azure usando o portal do Azure.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 0d8bc302434ea973dd4d94156c65ee6965dd1dc1
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666257"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708852"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
 

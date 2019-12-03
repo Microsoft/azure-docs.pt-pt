@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139287"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703143"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce de Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -39,7 +39,7 @@ ms.locfileid: "70139287"
 A atividade de MapReduce do HDInsight em um [pipeline](data-factory-create-pipelines.md) de data Factory executa programas MapReduce em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster do HDInsight baseado em Windows/Linux [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
 
 > [!NOTE] 
-> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo.  
+> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo.  
 
 ## <a name="introduction"></a>Introdução
 Um pipeline em um data factory do Azure processa dados em serviços de armazenamento vinculados usando serviços de computação vinculados. Ele contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve como usar a atividade de MapReduce do HDInsight.
@@ -112,7 +112,7 @@ Na definição de JSON para a atividade do HDInsight:
    Você pode usar a atividade de MapReduce do HDInsight para executar qualquer arquivo JAR do MapReduce em um cluster HDInsight. Na definição de JSON de exemplo a seguir de um pipeline, a atividade do HDInsight é configurada para executar um arquivo JAR Mahout.
 
 ## <a name="sample-on-github"></a>Exemplo no GitHub
-Você pode baixar um exemplo para usar a atividade de MapReduce do HDInsight em: [Data Factory exemplos no GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+Você pode baixar um exemplo para usar a atividade de MapReduce do HDInsight em: [Data Factory exemplos no GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Executando o programa de contagem de palavras
 O pipeline neste exemplo executa o programa de mapeamento/redução de contagem de palavras em seu cluster do Azure HDInsight.   
@@ -183,12 +183,12 @@ O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapRe
 
 | Propriedade | Notas |
 |:--- |:--- |
-| type |O tipo deve ser definido como **HDInsightMapReduce**. |
+| tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |O nome da classe é: **WordCount** |
 | jarFilePath |Caminho para o arquivo JAR que contém a classe. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço vinculado do armazenamento do Azure que contém o arquivo jar. Esse serviço vinculado refere-se ao armazenamento associado ao cluster HDInsight. |
-| arguments |O programa WordCount usa dois argumentos, uma entrada e uma saída. O arquivo de entrada é o arquivo DaVinci. txt. |
-| frequency/interval |Os valores para essas propriedades correspondem ao conjunto de resultados de saída. |
+| argumentos |O programa WordCount usa dois argumentos, uma entrada e uma saída. O arquivo de entrada é o arquivo DaVinci. txt. |
+| frequência/intervalo |Os valores para essas propriedades correspondem ao conjunto de resultados de saída. |
 | linkedServiceName |refere-se ao serviço vinculado do HDInsight que você criou anteriormente. |
 
 ```JSON
@@ -245,10 +245,10 @@ Pode utilizar a atividade MapReduce para executar programas do Spark no seu clus
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 * [Atividade do hive](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas do Spark](data-factory-spark.md)
-* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 
