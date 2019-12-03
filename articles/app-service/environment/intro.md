@@ -1,35 +1,29 @@
 ---
-title: Introdução aos ambientes do serviço de aplicativo – Azure
-description: Breve descrição geral dos Ambientes de Serviço de Aplicações do Azure
-services: app-service
-documentationcenter: na
+title: Introdução
+description: Saiba como os ambientes de serviço Azure App ajudam a dimensionar, proteger e otimizar seus aplicativos em um ambiente totalmente isolado e dedicado.
 author: ccompy
-manager: stefsch
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5a7374af71b262a72b680ac215f6960f961b3a15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 35b667056698fdb2563ad9b1be9af19bcc98c1cc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470625"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688616"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
  
-## <a name="overview"></a>Descrição geral ##
+## <a name="overview"></a>Visão geral ##
 
 O Ambiente de Serviço de Aplicações do Azure é uma funcionalidade do Serviço de Aplicações do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança as aplicações do Serviço de Aplicações em grande escala. Esta capacidade pode alojar:
 
 * Aplicações Web do Windows
 * Aplicações Web do Linux 
 * Contentores do Docker
-* Aplicações móveis
+* Aplicações Móveis
 * Funções
 
 Os ambientes de Serviço de Aplicações (ASEs) são adequados para cargas de trabalho de aplicações que exigem:

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 8b5d87d62f1db5e7d472af4cc2153d8841be6241
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1dd0f90a9844bb3afbd15e1f8c804d3a7c6b7fff
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826549"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687681"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 
@@ -39,7 +39,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opções de armazenamento máximo por pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -54,7 +54,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Armazenamento incluído por pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Opções de armazenamento máximo por pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -69,7 +69,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Opções de armazenamento máximo por pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -89,7 +89,7 @@ Para pools elásticos do banco de dados SQL, as tabelas a seguir mostram os recu
 | Máximo de trabalhadores simultâneos por conjunto (pedidos) | 200 | 400 | 800 | 1600 | 2400 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Mínimo de eDTUs por base de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 |
-| Máximo de eDTUs por base de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Máximo de eDTUs por base de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Armazenamento máximo por base de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 

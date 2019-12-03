@@ -1,26 +1,17 @@
 ---
-title: Exemplo de script Azure PowerShell-dimensionar o aplicativo em todo o mundo com o Gerenciador de tráfego | Microsoft Docs
-description: Exemplo do Script do Azure PowerShell – Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: dimensionar com o Gerenciador de tráfego'
+description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como dimensionar um aplicativo em todo o mundo com o Gerenciador de tráfego.
 tags: azure-service-management
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 02f1d063f8dfcc21e076296676700a5cb11be55c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6ffcf22b640d6393ed48d803f6f52bac5334d4b7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098273"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684331"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
 
@@ -54,7 +45,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
 | [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Cria um ponto final num Perfil do Gestor de Tráfego. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

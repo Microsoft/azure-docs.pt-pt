@@ -1,20 +1,16 @@
 ---
-title: Controles de segurança para o serviço Azure App
-description: Uma lista de verificação de controles de segurança para avaliar Azure App serviço
-services: app-service
-documentationcenter: ''
+title: Controlos de segurança
+description: Encontre uma lista de verificação de controles de segurança para avaliar Azure App serviço para sua organização.
 author: msmbaldwin
-manager: rkarlin
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a1889def8d177c312618f12b3fa0480cc4b849b3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046855"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671440"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controles de segurança para o serviço Azure App
 
@@ -52,11 +48,11 @@ Este artigo documenta os controles de segurança incorporados ao serviço Azure 
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | O conteúdo do arquivo do site é armazenado no armazenamento do Azure, que criptografa automaticamente o conteúdo em repouso. <br><br>Os segredos fornecidos pelo cliente são criptografados em repouso. Os segredos são criptografados em repouso enquanto estão armazenados nos bancos de dados de configuração do serviço de aplicativo.<br><br>Os discos anexados localmente podem, opcionalmente, ser usados como armazenamento temporário por sites (D:\Local e% TMP%). Os discos anexados localmente não são criptografados em repouso. | [Criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | Os clientes podem optar por armazenar os segredos do aplicativo no Key Vault e recuperá-los em tempo de execução. | [Usar referências de Key Vault para o serviço de aplicativo e Azure Functions (visualização)](app-service-key-vault-references.md)
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Os clientes podem configurar sites para exigir e usar HTTPS para tráfego de entrada.  | [Como tornar um serviço Azure app somente HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (postagem de blog)
 | Chamadas de API criptografadas| Sim | As chamadas de gerenciamento para configurar o serviço de aplicativo ocorrem por meio de chamadas [Azure Resource Manager](../azure-resource-manager/index.yml) por HTTPS. |
 
-## <a name="configuration-management"></a>Gestão da configuração
+## <a name="configuration-management"></a>Gestão de configurações
 
 | Controle de segurança | Sim/Não | Notas | Documentação
 |---|---|--|

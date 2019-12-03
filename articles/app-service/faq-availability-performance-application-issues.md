@@ -1,26 +1,20 @@
 ---
-title: Perguntas frequentes sobre desempenho de aplicativos – serviço de Azure App | Microsoft Docs
-description: Obtenha respostas para perguntas frequentes sobre problemas de disponibilidade, desempenho e aplicativos no recurso de aplicativos Web do serviço de Azure App.
-services: app-service\web
-documentationcenter: ''
+title: Perguntas frequentes sobre desempenho do aplicativo
+description: Obtenha respostas para perguntas frequentes sobre problemas de disponibilidade, desempenho e aplicativos no serviço Azure App.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122076"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671697"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de desempenho do aplicativo para aplicativos Web no Azure
 
@@ -53,10 +47,10 @@ Você pode usar os cmdlets do PowerShell para gerenciar e manter aplicativos Web
 Para exibir os logs de eventos de seu aplicativo Web:
 
 1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. No menu, selecione **console** > de depuração**cmd**.
+2. No menu, selecione **console de depuração** > **cmd**.
 3. Selecione a pasta **LogFiles** .
 4. Para exibir os logs de eventos, selecione o ícone de lápis ao lado de **EventLog. xml**.
-5. Para baixar os logs, execute o cmdlet `Save-AzureWebSiteLog -Name webappname`do PowerShell.
+5. Para baixar os logs, execute o cmdlet do PowerShell `Save-AzureWebSiteLog -Name webappname`.
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Como fazer capturar um despejo de memória do modo de usuário do meu aplicativo Web?
 
@@ -65,7 +59,7 @@ Para capturar um despejo de memória de modo de usuário de seu aplicativo Web:
 1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selecione o menu **Process Explorer** .
 3. Clique com o botão direito do mouse no processo **w3wp. exe** ou no processo WebJob.
-4. Selecione **baixar memória** > despejo de despejo**completo**.
+4. Selecione **baixar despejo de memória** > **despejo completo**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como fazer exibir informações de nível de processo para meu aplicativo Web?
 
@@ -87,7 +81,7 @@ Três condições podem causar esse erro:
 * O aplicativo Web foi interrompido no Portal.
 * O aplicativo Web atingiu um limite de cota de recursos que pode ser aplicado a um plano de serviço de escala livre ou compartilhado.
 
-Para ver o que está causando o erro e resolver o problema, siga as etapas em [aplicativos Web: "Erro 403 – este aplicativo Web está parado"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Para ver o que está causando o erro e resolver o problema, siga as etapas em [aplicativos Web: "erro 403 – este aplicativo Web está parado"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Onde posso saber mais sobre cotas e limites para vários planos do serviço de aplicativo?
 
@@ -147,8 +141,8 @@ Para ativar o rastreamento de solicitação com falha:
     </tracing>
     ```
 13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), acesse seu site.
-15. Selecione **ferramentas** > kuduir > para.
-18. No menu, selecione **console** > de depuração**cmd**.
+15. Selecione **ferramentas** > **kudu** > **go**.
+18. No menu, selecione **console de depuração** > **cmd**.
 19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
 20. Para ver o arquivo XML, selecione o ícone de lápis.
 
@@ -170,7 +164,7 @@ O webjobs foi projetado para processamento em segundo plano. Você pode fazer ta
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Os aplicativos ASP.NET Core hospedados no serviço de aplicativo às vezes param de responder. Como fazer corrigir esse problema?
 
-Um problema conhecido com uma versão anterior do [Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) pode fazer com que um aplicativo ASP.NET Core 1,0 hospedado no serviço de aplicativo pare de responder intermitentemente. Você também poderá ver esta mensagem: "O aplicativo CGI especificado encontrou um erro e o servidor encerrou o processo."
+Um problema conhecido com uma versão anterior do [Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) pode fazer com que um aplicativo ASP.NET Core 1,0 hospedado no serviço de aplicativo pare de responder intermitentemente. Você também pode ver esta mensagem: "o aplicativo CGI especificado encontrou um erro e o servidor encerrou o processo."
 
 Esse problema é corrigido na versão Kestrel do 1.0.2. Esta versão está incluída na atualização do ASP.NET Core 1.0.3. Para resolver esse problema, certifique-se de atualizar suas dependências de aplicativo para usar o Kestrel 1.0.2. Como alternativa, você pode usar uma das duas soluções alternativas descritas na postagem do blog [ASP.NET Core 1,0 problemas de desempenho lentos nos aplicativos Web do serviço de aplicativo](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 
@@ -179,7 +173,7 @@ Esse problema é corrigido na versão Kestrel do 1.0.2. Esta versão está inclu
 
 Se você usar o recurso de cache local do serviço de aplicativo, a estrutura de pastas das pastas de arquivos de log e de dados para sua instância do serviço de aplicativo será afetada. Quando o cache local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam o padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada subpasta corresponde a uma instância de VM na qual o aplicativo Web está em execução ou foi executado.
 
-Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração `WEBSITE_LOCAL_CACHE_OPTION` do aplicativo será `Always`definida como.
+Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração do aplicativo `WEBSITE_LOCAL_CACHE_OPTION` será definida como `Always`.
 
 Se você não estiver usando o cache local e estiver enfrentando esse problema, envie uma solicitação de suporte.
 

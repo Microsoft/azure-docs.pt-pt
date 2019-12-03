@@ -1,24 +1,17 @@
 ---
-title: Proteger um nome DNS personalizado com um serviço de Azure App de associação SSL | Microsoft Docs
-description: Saiba como comprar um certificado do serviço de aplicativo e associá-lo ao seu aplicativo do serviço de aplicativo
-services: app-service
-author: cephalin
-manager: gwallace
+title: Proteger um DNS personalizado com uma associação SSL
+description: Proteja o acesso HTTPS ao seu domínio personalizado criando uma associação TLS/SSL com um certificado. Melhore a segurança de seu site impondo HTTPS ou TLS 1,2.
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 259a4d33ba6e8c072f8df906da4784119b299822
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b967e4cfad2444e39c7df8cfddcc2154bd48367d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501219"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670684"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Proteger um nome DNS personalizado com uma associação SSL no serviço Azure App
 

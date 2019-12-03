@@ -1,25 +1,19 @@
 ---
-title: Exemplo do Script do Azure PowerShell - Criar uma cópia de segurança agendada para uma aplicação Web | Microsoft Docs
-description: Exemplo do Script do Azure PowerShell - Criar uma cópia de segurança agendada para uma aplicação Web
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: criar um backup agendado'
+description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como criar um backup agendado para um aplicativo.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b0223d093cc82becf66a903ea80c03c8435ea84c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b20627dbeae722e31b042cf58ba4029ac8225555
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098389"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685784"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Criar um backup agendado para um aplicativo Web usando o PowerShell
 
@@ -53,7 +47,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Gera um token SAS para um contentor de armazenamento do Azure. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
-| [Edit-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | Edita a configuração de cópia de segurança para a aplicação Web. |
+| [Editar-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | Edita a configuração de cópia de segurança para a aplicação Web. |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
 | [Get-AzWebAppBackupConfiguration](/powershell/module/az.websites/get-azwebappbackupconfiguration) | Obtém a configuração de cópia de segurança para a aplicação Web. |
 

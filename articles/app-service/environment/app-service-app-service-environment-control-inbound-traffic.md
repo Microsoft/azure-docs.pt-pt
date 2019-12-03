@@ -1,29 +1,22 @@
 ---
-title: Controlar o tráfego de entrada para o ambiente do serviço de aplicativo-Azure
-description: Saiba mais sobre como configurar regras de segurança de rede para controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo.
-services: app-service
-documentationcenter: ''
+title: Controlar o tráfego de entrada v1
+description: Saiba como controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
-manager: erikre
-editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070411"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687396"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo
-## <a name="overview"></a>Descrição geral
-Um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual Azure Resource Manager **ou** em uma [rede virtual][virtualnetwork]do modelo de implantação clássico.  Uma nova rede virtual e uma nova sub-rede podem ser definidas no momento em que um Ambiente do Serviço de Aplicativo é criado.  Como alternativa, um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual pré-existente e uma sub-rede já existente.  Com uma alteração feita em junho de 2016, o ASEs também pode ser implantado em redes virtuais que usam intervalos de endereços públicos ou espaços de endereço RFC1918 (ou seja, endereços privados).  Para obter mais detalhes sobre a criação de um Ambiente do Serviço de Aplicativo consulte [como criar um ambiente do serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
+## <a name="overview"></a>Visão geral
+Um Ambiente do Serviço de Aplicativo pode ser **criado em uma** rede virtual Azure Resource Manager **ou** em uma [rede virtual][virtualnetwork]do modelo de implantação clássico.  Uma nova rede virtual e uma nova sub-rede podem ser definidas no momento em que um Ambiente do Serviço de Aplicativo é criado.  Como alternativa, um Ambiente do Serviço de Aplicativo pode ser criado em uma rede virtual pré-existente e uma sub-rede já existente.  Com uma alteração feita em junho de 2016, o ASEs também pode ser implantado em redes virtuais que usam intervalos de endereços públicos ou espaços de endereço RFC1918 (ou seja, endereços privados).  Para obter mais detalhes sobre a criação de um Ambiente do Serviço de Aplicativo consulte [como criar um ambiente do serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
 
 Um Ambiente do Serviço de Aplicativo sempre deve ser criado em uma sub-rede porque uma sub-rede fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada por trás de dispositivos e serviços de upstream, de modo que o tráfego HTTP e HTTPS seja aceito somente de upstream específico Endereços IP.
 
@@ -38,16 +31,16 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A seguir está uma lista de portas usadas por um Ambiente do Serviço de Aplicativo. Todas as portas são **TCP**, a menos que indicado de outra forma claramente:
 
-* 454:  **Porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via SSL.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 455:  **Porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via SSL.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 80:  Porta padrão para tráfego HTTP de entrada para aplicativos em execução nos planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
-* 443: Porta padrão para tráfego SSL de entrada para aplicativos em execução nos planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
-* 21:  Canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
-* 990:  Canal de controle para FTPS.  Essa porta pode ser bloqueada com segurança se a FTPS não estiver sendo usada.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
-* 10001-10020: Canais de dados para FTP.  Assim como no canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
-* 4016: Usado para depuração remota com o Visual Studio 2012.  Essa porta poderá ser bloqueada com segurança se o recurso não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
-* 4018: Usado para depuração remota com Visual Studio 2013.  Essa porta poderá ser bloqueada com segurança se o recurso não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
-* 4020: Usado para depuração remota com o Visual Studio 2015.  Essa porta poderá ser bloqueada com segurança se o recurso não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
+* 454: **porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via SSL.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 455: **porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via SSL.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 80: porta padrão para tráfego HTTP de entrada para aplicativos em execução nos planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
+* 443: porta padrão para tráfego SSL de entrada para aplicativos em execução nos planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
+* 21: canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
+* 990: canal de controle para FTPS.  Essa porta pode ser bloqueada com segurança se a FTPS não estiver sendo usada.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
+* 10001-10020: canais de dados para FTP.  Assim como no canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
+* 4016: usado para depuração remota com o Visual Studio 2012.  Essa porta poderá ser bloqueada com segurança se o recurso não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
+* 4018: usado para depuração remota com Visual Studio 2013.  Essa porta poderá ser bloqueada com segurança se o recurso não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
+* 4020: usado para depuração remota com o Visual Studio 2015.  Essa porta poderá ser bloqueada com segurança se o recurso não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta está associada ao endereço ILB do ASE.
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Conectividade de saída e requisitos de DNS
 Para que um Ambiente do Serviço de Aplicativo funcione corretamente, ele também requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usados por um ASE está na seção "conectividade de rede necessária" do artigo [configuração de rede para ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
@@ -59,7 +52,7 @@ Também é recomendável que todos os servidores DNS personalizados na vnet seja
 ## <a name="creating-a-network-security-group"></a>Criando um grupo de segurança de rede
 Para obter detalhes completos sobre como os grupos de segurança de rede funcionam, consulte as [informações][NetworkSecurityGroups]a seguir.  O exemplo de gerenciamento de serviços do Azure abaixo aborda os destaques de grupos de segurança de rede, com foco na configuração e aplicação de um grupo de segurança de rede a uma sub-rede que contém um Ambiente do Serviço de Aplicativo.
 
-**Nota:** Os grupos de segurança de rede podem ser configurados graficamente usando o [portal do Azure](https://portal.azure.com) ou por meio de Azure PowerShell.
+**Observação:** Os grupos de segurança de rede podem ser configurados graficamente usando o [portal do Azure](https://portal.azure.com) ou por meio de Azure PowerShell.
 
 Os grupos de segurança de rede são criados primeiro como uma entidade autônoma associada a uma assinatura. Como os grupos de segurança de rede são criados em uma região do Azure, verifique se o grupo de segurança de rede foi criado na mesma região que o Ambiente do Serviço de Aplicativo.
 
@@ -95,7 +88,7 @@ Se a depuração remota com o Visual Studio for usada, as regras a seguir demons
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2015" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4020' -Protocol TCP
 
 ## <a name="assigning-a-network-security-group-to-a-subnet"></a>Atribuindo um grupo de segurança de rede a uma sub-rede
-Um grupo de segurança de rede tem uma regra de segurança padrão que nega o acesso a todo o tráfego externo.  O resultado da combinação das regras de segurança de rede descritas acima e da regra de segurança padrão bloqueando o tráfego de entrada é que somente o tráfego de intervalos de endereços de origem associados a uma ação *permitir* poderá enviar tráfego para aplicativos em execução em um Ambiente do Serviço de Aplicativo.
+Um grupo de segurança de rede tem uma regra de segurança padrão que nega o acesso a todo o tráfego externo.  O resultado da combinação das regras de segurança de rede descritas acima e da regra de segurança padrão bloqueando o tráfego de entrada é que somente o tráfego dos intervalos de endereços de origem associados a uma ação de *permitir* poderá enviar tráfego para aplicativos em execução em um ambiente do serviço de aplicativo.
 
 Depois que um grupo de segurança de rede é populado com regras de segurança, ele precisa ser atribuído à sub-rede que contém o Ambiente do Serviço de Aplicativo.  O comando de atribuição referencia o nome da rede virtual onde reside a Ambiente do Serviço de Aplicativo, bem como o nome da sub-rede em que o Ambiente do Serviço de Aplicativo foi criado.  
 
@@ -110,7 +103,7 @@ Para fins de integridade, o exemplo a seguir mostra como remover e, portanto, as
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>Considerações especiais para IP-SSL explícito
-Se um aplicativo estiver configurado com um endereço IP-SSL explícito (aplicável *somente* a ases que têm um VIP público), em vez de usar o endereço IP padrão do ambiente do serviço de aplicativo, o tráfego HTTP e HTTPS fluirá para a sub-rede em um conjunto diferente de portas Além das portas 80 e 443.
+Se um aplicativo estiver configurado com um endereço IP-SSL explícito (aplicável *somente* a ases que têm um VIP público), em vez de usar o endereço IP padrão do ambiente do serviço de aplicativo, o tráfego HTTP e HTTPS fluirá para a sub-rede em um conjunto diferente de portas que não sejam as portas 80 e 443.
 
 O par individual de portas usadas por cada endereço IP-SSL pode ser encontrado na interface do usuário do portal na folha UX de detalhes do Ambiente do Serviço de Aplicativo.  Selecione "todas as configurações"--> "endereços IP".  A folha "endereços IP" mostra uma tabela de todos os endereços IP-SSL configurados explicitamente para o Ambiente do Serviço de Aplicativo, juntamente com o par de portas especiais usado para rotear o tráfego HTTP e HTTPS associado a cada endereço IP-SSL.  É esse par de portas que precisa ser usado para os parâmetros DestinationPortRange ao configurar regras em um grupo de segurança de rede.
 

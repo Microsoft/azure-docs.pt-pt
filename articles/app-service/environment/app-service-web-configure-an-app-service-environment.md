@@ -1,25 +1,18 @@
 ---
-title: Como configurar um Ambiente do Serviço de Aplicativo v1-Azure
-description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1
-services: app-service
-documentationcenter: ''
+title: Configurar ASE v1
+description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069939"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687265"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurando um Ambiente do Serviço de Aplicativo v1
 
@@ -27,7 +20,7 @@ ms.locfileid: "70069939"
 > Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em uma infraestrutura mais potente. Para saber mais sobre a nova versão, comece com a [introdução ao ambiente do serviço de aplicativo](intro.md).
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Em um alto nível, uma Ambiente do Serviço de Aplicativo do Azure consiste em vários componentes principais:
 
 * Recursos de computação em execução no serviço hospedado Ambiente do Serviço de Aplicativo
@@ -36,7 +29,7 @@ Em um alto nível, uma Ambiente do Serviço de Aplicativo do Azure consiste em v
 * Uma rede virtual (VNet) do Azure clássica (v1) ou do Resource Manager (v2) 
 * Uma sub-rede com o Ambiente do Serviço de Aplicativo serviço hospedado em execução
 
-### <a name="compute-resources"></a>Calcular recursos
+### <a name="compute-resources"></a>Recursos de computação
 Você usa os recursos de computação para seus quatro pools de recursos.  Cada Ambiente do Serviço de Aplicativo (ASE) tem um conjunto de front-ends e três possíveis pools de trabalho. Você não precisa usar todos os três pools de trabalho, se desejar, você pode usar apenas um ou dois.
 
 Os hosts nos pools de recursos (front-ends e trabalhos) não são diretamente acessíveis aos locatários. Você não pode usar protocolo RDP (RDP) para se conectar a eles, alterar o provisionamento ou agir como um administrador neles.
@@ -44,14 +37,14 @@ Os hosts nos pools de recursos (front-ends e trabalhos) não são diretamente ac
 Você pode definir a quantidade e o tamanho do pool de recursos. Em um ASE, você tem quatro opções de tamanho, que são rotuladas P1 a P4. Para obter detalhes sobre esses tamanhos e seus preços, consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 Alterar a quantidade ou o tamanho é chamado de operação de escala.  Somente uma operação de escala pode estar em andamento por vez.
 
-**Front-ends**: Os front-ends são os pontos de extremidade HTTP/HTTPS para seus aplicativos que são mantidos em seu ASE. Você não executa cargas de trabalho em front-ends.
+**Front-ends**: os front-ends são os pontos de extremidade http/https para seus aplicativos que são mantidos em seu ASE. Você não executa cargas de trabalho em front-ends.
 
 * Um ASE começa com dois P2s, o que é suficiente para cargas de trabalho de desenvolvimento/teste e cargas de trabalho de produção de nível baixo. É altamente recomendável P3s para cargas de trabalho de produção moderadas a pesadas.
 * Para cargas de trabalho de produção moderadas a pesadas, recomendamos que você tenha pelo menos quatro P3s para garantir que haja front-ends suficientes em execução quando a manutenção agendada ocorrer. As atividades de manutenção agendadas desativarão um front-end por vez. Isso reduz a capacidade de front-end disponível geral durante as atividades de manutenção.
 * Os front-ends podem levar até uma hora para provisionar. 
 * Para ajuste fino da escala, você deve monitorar a porcentagem de CPU, a porcentagem de memória e as métricas de solicitações ativas para o pool de front-end. Se as porcentagens de CPU ou de memória estiverem acima de 70% ao executar P3s, adicione mais front-ends. Se o valor das solicitações ativas for a média de 15.000 a 20.000 solicitações por front-end, você também deverá adicionar mais front-ends. A meta geral é manter as porcentagens de CPU e memória abaixo de 70% e solicitações ativas, calculando a média de 15.000 solicitações por front-end quando você estiver executando o P3s.  
 
-**Trabalhadores**: Os trabalhos são onde seus aplicativos realmente são executados. Ao escalar verticalmente seus planos do serviço de aplicativo, o usa trabalhadores no pool de trabalho associado.
+**Trabalhadores**: os trabalhos são onde seus aplicativos realmente são executados. Ao escalar verticalmente seus planos do serviço de aplicativo, o usa trabalhadores no pool de trabalho associado.
 
 * Você não pode adicionar trabalhos instantaneamente. Pode levar até uma hora para provisionar.
 * O dimensionamento do tamanho de um recurso de computação para qualquer pool levará < 1 hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você dimensionou o tamanho de computação de um pool de trabalho com 10 instâncias, pode levar até 10 horas para ser concluída.
@@ -68,7 +61,7 @@ Se seus aplicativos exigirem um tamanho de recurso de computação maior, você 
 * Reatribua os planos do serviço de aplicativo que estão hospedando os aplicativos que precisam de um tamanho maior para o pool de trabalho recém configurado. Essa é uma operação rápida que deve levar menos de um minuto para ser concluída.  
 * Reduza o primeiro pool de trabalho se você não precisar mais dessas instâncias não utilizadas. Esta operação leva alguns minutos para ser concluída.
 
-**Dimensionamento**automático: Uma das ferramentas que podem ajudá-lo a gerenciar seu consumo de recursos de computação é o dimensionamento automático. Você pode usar o dimensionamento automático para front-end ou pools de trabalho. Você pode fazer coisas como aumentar suas instâncias de qualquer tipo de pool na manhã e reduzi-las à noite. Ou talvez você possa adicionar instâncias quando o número de trabalhadores que estão disponíveis em um pool de trabalho cair abaixo de um determinado limite.
+**Dimensionamento**automático: uma das ferramentas que podem ajudá-lo a gerenciar o consumo de recursos de computação é o dimensionamento automático. Você pode usar o dimensionamento automático para front-end ou pools de trabalho. Você pode fazer coisas como aumentar suas instâncias de qualquer tipo de pool na manhã e reduzi-las à noite. Ou talvez você possa adicionar instâncias quando o número de trabalhadores que estão disponíveis em um pool de trabalho cair abaixo de um determinado limite.
 
 Se você quiser definir as regras de dimensionamento automático em relação às métricas do pool de recursos de computação, tenha em mente o tempo necessário para o provisionamento. Para obter mais detalhes sobre o dimensionamento automático de ambientes do serviço de aplicativo, consulte [como configurar a autoescala em um ambiente do serviço de aplicativo][ASEAutoscale].
 
@@ -132,13 +125,13 @@ Em um ASE, todos os planos do serviço de aplicativo são planos de serviço de 
 ### <a name="settings"></a>Definições
 Na folha do ASE, há uma seção de **configurações** que contém vários recursos importantes:
 
-**Propriedades das configurações** > : A folha **configurações** será aberta automaticamente quando você abrir sua folha ASE. Na parte superior, há **Propriedades**. Há vários itens aqui que são redundantes para o que você vê no **Essentials**, mas o que é muito útil é o **endereço IP virtual**, bem como os **endereços IP de saída**.
+**Configurações** > **Propriedades**: a folha **configurações** é aberta automaticamente quando você abre a folha do ase. Na parte superior, há **Propriedades**. Há vários itens aqui que são redundantes para o que você vê no **Essentials**, mas o que é muito útil é o **endereço IP virtual**, bem como os **endereços IP de saída**.
 
 ![Folha de configurações e propriedades][4]
 
-Configurações > **endereços IP**: Ao criar um aplicativo de protocolo SSL IP (SSL) em seu ASE, você precisa de um endereço de IP SSL. Para obter um, seu ASE precisa de IP SSL endereços que ele possui, que pode ser alocado. Quando um ASE é criado, ele tem um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há um encargo para endereços IP SSL adicionais, conforme mostrado em [preços do serviço de aplicativo][AppServicePricing] (na seção sobre conexões SSL). O preço adicional é o preço de IP SSL.
+**Configurações** > **endereços IP**: quando você cria um aplicativo de protocolo SSL IP (SSL) em seu ASE, você precisa de um endereço IP SSL. Para obter um, seu ASE precisa de IP SSL endereços que ele possui, que pode ser alocado. Quando um ASE é criado, ele tem um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há um encargo para endereços IP SSL adicionais, conforme mostrado em [preços do serviço de aplicativo][AppServicePricing] (na seção sobre conexões SSL). O preço adicional é o preço de IP SSL.
 
-**Configurações** > do**pool**defront-endpoolsdetrabalho: /  Cada uma dessas folhas de pool de recursos oferece a capacidade de ver informações apenas sobre esse pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
+**Configurações** > **pool de Front-end** / **pools de trabalho**: cada uma dessas folhas de pool de recursos oferece a capacidade de ver informações apenas sobre esse pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
 
 A folha base de cada pool de recursos fornece um gráfico com métricas para esse pool de recursos. Assim como nos gráficos da folha do ASE, você pode entrar no gráfico e configurar alertas conforme desejado. A definição de um alerta da folha ASE para um pool de recursos específico faz a mesma coisa que fazer no pool de recursos. Na folha **configurações** do pool de trabalho, você tem acesso a todos os aplicativos ou planos do serviço de aplicativo em execução neste pool de trabalho.
 
@@ -161,7 +154,7 @@ Para usar a operação de dimensionamento na folha do ASE, arraste o controle de
 
 ![Expandir interface do usuário][6]
 
-Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **configurações** > pool de**front-end** / pools de**trabalho** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações** > **scale out** ou **configurações** > **escalar verticalmente**. A folha **scale out** permite que você controle a quantidade de instâncias. **Escalar verticalmente** permite que você controle o tamanho do recurso.  
+Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, vá para **configurações** > **pool de Front-end** / **pools de trabalho** , conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações** > **Scale Out** ou **configurações** > **escalar verticalmente**. A folha **scale out** permite que você controle a quantidade de instâncias. **Escalar verticalmente** permite que você controle o tamanho do recurso.  
 
 ![Interface do usuário de configurações de escala][7]
 

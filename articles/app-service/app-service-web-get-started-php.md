@@ -1,25 +1,16 @@
 ---
-title: Criar aplicativo Web PHP-serviço de Azure App | Microsoft Docs
-description: Implemente em minutos a sua primeira aplicação PHP Hello World nas aplicações Web do serviço de aplicações do Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Início rápido: criar um aplicativo Web PHP'
+description: Implante seu primeiro Olá, Mundo PHP para Azure App serviço em minutos. Você implanta usando o Git, que é uma das várias maneiras de implantar no serviço de aplicativo.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fb6451ce5e1e00bffc9195410125eb61b34555e4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471429"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672087"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar uma aplicação Web PHP no Azure
 
@@ -39,7 +30,7 @@ Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Depoi
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>.
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 * <a href="https://php.net/manual/install.php" target="_blank">Instalar o PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Transferir o exemplo localmente

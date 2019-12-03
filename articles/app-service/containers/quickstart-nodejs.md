@@ -1,18 +1,17 @@
 ---
-title: Criar um aplicativo Web node. js-serviço de Azure App
-description: Como implantar um aplicativo node. js no serviço Azure App
-author: msangapu
+title: 'Início rápido: criar um aplicativo node. js do Linux'
+description: Introdução aos aplicativos do Linux no serviço de Azure App implantando seu primeiro aplicativo node. js em um contêiner do Linux no serviço de aplicativo.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439200"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688978"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Criar um aplicativo node. js no Azure
 
@@ -30,11 +29,11 @@ Você também precisará instalar a [extensão de serviço Azure app](vscode:ext
 
 Depois que a extensão for instalada, faça logon em sua conta do Azure. Na barra de atividades, selecione o logotipo do Azure para mostrar o Gerenciador do **serviço de aplicativo do Azure** . Selecione **entrar no Azure...** e siga as instruções.
 
-![Entrar no Azure](./media/quickstart-nodejs/sign-in.png)
+![entrar no Azure](./media/quickstart-nodejs/sign-in.png)
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-Se você vir o erro **"não é possível encontrar a assinatura com o nome [ID da assinatura]"** , pode ser porque você está atrás de um proxy e não consegue acessar a API do Azure. Configure as variáveis de ambiente `HTTP_PROXY` e `HTTPS_PROXY` com as informações de proxy em seu terminal usando `export`.
+Se você vir o erro **"não é possível encontrar a assinatura com o nome [ID da assinatura]"** , pode ser porque você está atrás de um proxy e não consegue acessar a API do Azure. Configure `HTTP_PROXY` e `HTTPS_PROXY` variáveis de ambiente com suas informações de proxy em seu terminal usando `export`.
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
@@ -61,13 +60,13 @@ Em seguida, crie um aplicativo node. js que pode ser implantado na nuvem. Este g
 
 ### <a name="scaffold-a-new-application-with-the-express-generator"></a>Scaffold um novo aplicativo com o Express Generator
 
-[Express](https://www.expressjs.com) é uma estrutura popular para compilar e executar aplicativos node. js. Você pode scaffold (criar) um novo aplicativo expresso usando a ferramenta do [gerador Express](https://expressjs.com/en/starter/generator.html) . O gerador expresso é fornecido como um módulo NPM e pode ser executado diretamente (sem instalação) usando a ferramenta de linha de comando NPM `npx`.
+[Express](https://www.expressjs.com) é uma estrutura popular para compilar e executar aplicativos node. js. Você pode scaffold (criar) um novo aplicativo expresso usando a ferramenta do [gerador Express](https://expressjs.com/en/starter/generator.html) . O gerador Express é fornecido como um módulo NPM e pode ser executado diretamente (sem instalação) usando a ferramenta de linha de comando NPM `npx`.
 
 ```bash
 npx express-generator myExpressApp --view pug --git
 ```
 
-Os parâmetros `--view pug --git` dizem ao gerador para usar o mecanismo de modelo [Pug](https://pugjs.org/api/getting-started.html) (anteriormente conhecido como `jade`) e criar um arquivo `.gitignore`.
+Os parâmetros de `--view pug --git` dizem ao gerador para usar o mecanismo de modelo [Pug](https://pugjs.org/api/getting-started.html) (anteriormente conhecido como `jade`) e para criar um arquivo de `.gitignore`.
 
 Para instalar todas as dependências do aplicativo, vá para a nova pasta e execute `npm install`.
 
@@ -84,7 +83,7 @@ Em seguida, verifique se o aplicativo é executado. No terminal, inicie o aplica
 npm start
 ```
 
-Agora, abra o navegador e navegue até [http://localhost:3000](http://localhost:3000), em que você verá algo assim:
+Agora, abra o navegador e navegue até [http://localhost:3000](http://localhost:3000), onde você verá algo assim:
 
 ![Executando aplicativo expresso](./media/quickstart-nodejs/express.png)
 
@@ -120,7 +119,7 @@ No Gerenciador do **serviço de aplicativo do Azure** , selecione o ícone de se
 
     O canal de notificação mostra os recursos do Azure que estão sendo criados para seu aplicativo.
 
-1. Selecione **Sim** quando solicitado a atualizar sua configuração para executar o `npm install` no servidor de destino. Em seguida, seu aplicativo é implantado.
+1. Selecione **Sim** quando solicitado a atualizar sua configuração para executar `npm install` no servidor de destino. Em seguida, seu aplicativo é implantado.
 
     ![Implantação configurada](./media/quickstart-nodejs/server-build.png)
 

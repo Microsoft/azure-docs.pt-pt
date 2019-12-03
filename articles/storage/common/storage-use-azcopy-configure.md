@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7097faa64319a46b1efc91233e30ea992d064246
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595135"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687641"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -62,10 +62,10 @@ Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy 
 
 ### <a name="optimize-throughput"></a>Otimizar taxa de transferência
 
-Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados de produtividade. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
+Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados da taxa de transferência. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
 
 ```azcopy
-azcopy cap-mbps 10
+azcopy --cap-mbps 10
 ```
 
 A taxa de transferência pode diminuir ao transferir arquivos pequenos. Você pode aumentar a taxa de transferência definindo a variável de ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
@@ -97,7 +97,7 @@ Expresse esse valor em gigabytes (GB).
 
 O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os logs para investigar e solucionar problemas em potencial. 
 
-Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
+Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
 Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE$\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
 
@@ -106,7 +106,7 @@ Por padrão, os arquivos de log e de plano estão localizados no diretório `%US
 
 ### <a name="review-the-logs-for-errors"></a>Examinar os logs em busca de erros
 
-O comando a seguir obterá todos os erros com o status `UPLOADFAILED` do log `04dc9ca9-158f-7945-5933-564021086c79`:
+O comando a seguir obterá todos os erros com `UPLOADFAILED` status do log de `04dc9ca9-158f-7945-5933-564021086c79`:
 
 **Windows (PowerShell)**
 
@@ -179,14 +179,14 @@ Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor esti
 
 ## <a name="change-the-default-log-level"></a>Alterar o nível de log padrão
 
-Por padrão, o nível de log AzCopy é definido como `INFO`. Se você quiser reduzir o detalhamento de log para economizar espaço em disco, substitua essa configuração usando a opção ``--log-level``. 
+Por padrão, o nível de log AzCopy é definido como `INFO`. Se você quiser reduzir o detalhamento do log para economizar espaço em disco, substitua essa configuração usando a opção ``--log-level``. 
 
-Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
+Os níveis de log disponíveis são: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`e `FATAL`.
 
 ## <a name="remove-plan-and-log-files"></a>Remover arquivos de plano e de log
 
 Se você quiser remover todos os arquivos de plano e de log do computador local para economizar espaço em disco, use o comando `azcopy jobs clean`.
 
-Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>`. Substitua o espaço reservado `<job-id>` neste exemplo pela ID do trabalho.
+Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>`. Substitua o espaço reservado `<job-id>` neste exemplo pela ID do trabalho do trabalho.
 
 

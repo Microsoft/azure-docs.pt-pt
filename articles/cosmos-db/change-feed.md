@@ -1,19 +1,19 @@
 ---
 title: Trabalhando com o suporte do feed de alterações no Azure Cosmos DB
 description: Use Azure Cosmos DB suporte do feed de alterações para controlar alterações em documentos e executar processamento baseado em eventos, como gatilhos e manter os sistemas de cache e análise atualizados.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757016"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689096"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed em Azure Cosmos DB-visão geral
 
@@ -33,12 +33,12 @@ O feed de alterações no Azure Cosmos DB permite que você crie soluções efic
 
 Atualmente, há suporte para esse recurso nas seguintes APIs de Azure Cosmos DB e SDKs de cliente.
 
-| **Drivers de cliente** | **CLI do Azure** | **API DO SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API Gremlin**|**API de Tabela** |
+| **Drivers de cliente** | **CLI do Azure** | **API DO SQL** | **API do Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Sim | Não | Não | Sim | Não |
-|Java|N/D|Sim|Não|Não|Sim|Não|
-|Python|N/D|Sim|Não|Não|Sim|Não|
-|Node/JS|N/D|Sim|Não|Não|Sim|Não|
+| .NET | N/D | Sim | Sim | Sim | Sim | Não |
+|Java|N/D|Sim|Sim|Sim|Sim|Não|
+|Python|N/D|Sim|Sim|Sim|Sim|Não|
+|Node/JS|N/D|Sim|Sim|Sim|Sim|Não|
 
 ## <a name="change-feed-and-different-operations"></a>O feed de alterações e operações diferentes
 
@@ -56,9 +56,9 @@ Em uma conta do Azure Cosmos de várias regiões, se uma região de gravação f
 
 Se uma propriedade TTL (vida útil) for definida em um item como-1, o feed de alterações persistirá de forma contínua. Se os dados não forem excluídos, eles permanecerão no feed de alterações.  
 
-### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Change feed e _etag, _lsn ou _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>O feed de alterações e _etag, _lsn ou _ts
 
-O formato _etag é interno e você não deve se depender dele, pois ele pode mudar a qualquer momento. _ts é uma modificação ou um carimbo de data/hora de criação. Você pode usar _ts para comparação cronológica. _lsn é uma ID de lote que é adicionada somente para o feed de alterações; representa a ID da transação. Muitos itens podem ter o mesmo _lsn. ETag em FeedResponse é diferente do _etag que você vê no item. _etag é um identificador interno e é usado para controle de simultaneidade diz sobre a versão do item, enquanto ETag é usado para sequenciar o feed.
+O formato de _etag é interno e você não deve se depender dele, pois ele pode mudar a qualquer momento. _ts é uma modificação ou um carimbo de data/hora de criação. Você pode usar _ts para comparação cronológica. _lsn é uma ID de lote que é adicionada somente para o feed de alterações; representa a ID da transação. Muitos itens podem ter o mesmo _lsn. ETag em FeedResponse é diferente do _etag que você vê no item. _etag é um identificador interno e é usado para controle de simultaneidade diz sobre a versão do item, enquanto ETag é usado para sequenciar o feed.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Cenários e casos de uso do feed de alterações
 
@@ -84,7 +84,7 @@ Por exemplo, com o feed de alterações, você pode executar as seguintes tarefa
 
 A seguir estão alguns dos cenários que você pode implementar facilmente com o feed de alterações:
 
-* Em seus aplicativos móveis ou Web sem [servidor](https://azure.microsoft.com/solutions/serverless/) , você pode acompanhar eventos como todas as alterações no perfil, nas preferências ou no local de seu cliente e disparar determinadas ações, por exemplo, enviar notificações por push para seus dispositivos usando o [Azure Funções](change-feed-functions.md)do.
+* Em seus aplicativos móveis ou Web sem [servidor](https://azure.microsoft.com/solutions/serverless/) , você pode acompanhar eventos como todas as alterações no perfil, nas preferências ou no local de seu cliente e disparar determinadas ações, por exemplo, enviar notificações por push para seus dispositivos usando [Azure Functions](change-feed-functions.md).
 
 * Se você estiver usando Azure Cosmos DB para criar um jogo, você pode, por exemplo, usar o feed de alterações para implementar placares em tempo real com base em pontuações de jogos concluídos.
 
@@ -119,6 +119,12 @@ O feed de alterações está disponível para cada chave de partição lógica d
 * As alterações estão disponíveis em paralelo para todas as chaves de partição lógica de um contêiner Cosmos do Azure. Esse recurso permite que as alterações de contêineres grandes sejam processadas em paralelo por vários consumidores.
 
 * Os aplicativos podem solicitar vários feeds de alteração no mesmo contêiner simultaneamente. ChangeFeedOptions. StartTime pode ser usado para fornecer um ponto de partida inicial. Por exemplo, para localizar o token de continuação correspondente a uma determinada hora do relógio. O ContinuationToken, se especificado, vence os valores de StartTime e StartFromBeginning. A precisão de ChangeFeedOptions. StartTime é de aproximadamente 5 segundos. 
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Alterar feed em APIs para Cassandra e MongoDB
+
+A funcionalidade do feed de alterações é inserida como fluxo de alteração na API do MongoDB e consulta com predicado em API do Cassandra. Para saber mais sobre os detalhes de implementação para a API do MongoDB, consulte os [fluxos de alteração na API de Azure Cosmos DB para MongoDB](mongodb-change-streams.md).
+
+O Apache Cassandra nativo fornece a captura de dados de alteração (CDC), um mecanismo para sinalizar tabelas específicas para arquivamento, bem como rejeitar gravações para essas tabelas assim que um tamanho configurável no disco para o log CDC for atingido. O recurso de feed de alterações na API Azure Cosmos DB para Cassandra aprimora a capacidade de consultar as alterações com o predicado por meio de CQL. Para saber mais sobre os detalhes da implementação, consulte [o feed de alterações na API de Azure Cosmos DB para Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
