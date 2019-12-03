@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228418"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702087"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: prever o preço do automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Na [parte dois](tutorial-designer-automobile-price-deploy.md) do tutorial, você
 
 Azure Machine Learning pipelines organizam várias etapas dependentes de aprendizado de máquina e processamento de dados em um único recurso. Os pipelines ajudam você a organizar, gerenciar e reutilizar fluxos de trabalho de aprendizado de máquina complexos entre projetos e usuários. Para criar um pipeline de Azure Machine Learning, você precisa de um espaço de trabalho do Azure Machine Learning. Nesta seção, você aprenderá a criar esses dois recursos.
 
-### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
+### <a name="create-a-new-workspace"></a>Criar um novo espaço de trabalho
 
 Se você tiver um espaço de trabalho Azure Machine Learning com uma Enterprise Edition, [pule para a próxima seção](#create-the-pipeline).
 
@@ -55,7 +55,7 @@ Se você tiver um espaço de trabalho Azure Machine Learning com uma Enterprise 
 
 1. Selecione **Designer**.
 
-    ![Captura de tela do espaço de trabalho Visual mostrando como acessar o designer](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Captura de tela do espaço de trabalho Visual mostrando como acessar o designer](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Selecione **módulos pré-criados fáceis de usar**.
 
@@ -127,7 +127,7 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse co
 
 1. No painel Propriedades, selecione **parâmetros** > **Comentário** e insira *excluir perdas normalizadas*.
 
-### <a name="clean-missing-data"></a>Apagar dados em falta
+### <a name="clean-missing-data"></a>Limpar dados ausentes
 
 O conjunto de seus conjuntos de seus valores ainda faltam depois que você remover a coluna de **perdas normalizadas** . Você pode remover os dados ausentes restantes usando o módulo **limpar dados ausentes** .
 
@@ -170,7 +170,7 @@ Divida seus dados em dois conjuntos separados para treinar o modelo e testá-los
 
 1. Na caixa de **Comentário** do painel Propriedades, digite *dividir o conjunto de os em conjunto de treinamento (0,7) e conjunto de teste (0,3)* .
 
-### <a name="train-the-model"></a>Dar formação sobre o modelo
+### <a name="train-the-model"></a>Formar o modelo
 
 Treine o modelo fornecendo a ele um conjunto de dados que inclui o preço. O modelo examina os dados e procura correlações entre os recursos de um carro e seu preço para construir um modelo.
 
@@ -252,13 +252,13 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor me
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na parte um deste tutorial, você concluiu as seguintes tarefas:
 
 * Criar um pipeline
 * Preparar os dados
-* Dar formação sobre o modelo
+* Formar o modelo
 * Pontuar e avaliar o modelo
 
 Na parte dois, você aprenderá a implantar seu modelo como um ponto de extremidade em tempo real.

@@ -10,14 +10,14 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1320448b88fa3851196a3dfcb3107921721d364d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133081"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707670"
 ---
-# <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
+# <a name="what-is-automated-machine-learning"></a>O que é o Machine Learning automatizado?
 
 O Machine Learning automatizado, também conhecido como ML automatizado, é o processo de automatização das tarefas iterativas demoradas do desenvolvimento de modelos de aprendizado de máquina. Ele permite que cientistas de dados, analistas e desenvolvedores criem modelos de ML com alta escala, eficiência e produtividade, tudo ao mesmo tempo em que sustenta a qualidade do modelo. O ML automatizado se baseia em uma inovação da [divisão do Microsoft Research](https://arxiv.org/abs/1705.05355).
 
@@ -98,7 +98,7 @@ O pré-processamento avançado adicional e os personalização também estão di
 
 + Azure Machine Learning Studio: selecionando as **configurações Exibir personalização** na seção **execução de configuração** [com estas etapas](how-to-create-portal-experiments.md).
 
-+ SDK do Python: especificando `"feauturization": auto' / 'off' / FeaturizationConfig` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ SDK do Python: especificando `"feauturization": auto' / 'off' / FeaturizationConfig` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Previsão da série temporal

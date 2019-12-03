@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554120"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707035"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -246,7 +246,7 @@ Os usuários nessa função podem ler configurações e informações administra
 > No momento, esses recursos estão em desenvolvimento.
 >
 
-### <a name="group-administratorgroup-administrator"></a>[Administrador de grupo](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[Administrador de grupo](#group-administrator-permissions)
 
 Os usuários nessa função podem criar/gerenciar grupos e suas configurações, como políticas de nomenclatura e expiração. É importante entender que a atribuição de um usuário a essa função oferece a eles a capacidade de gerenciar todos os grupos no locatário em várias cargas de trabalho, como equipes, SharePoint, Yammer, além do Outlook. Além disso, o usuário poderá gerenciar as configurações de vários grupos em vários portais de administrador, como o centro de administração da Microsoft, portal do Azure, bem como a carga de trabalho específica, como equipes e centros de administração do SharePoint.
 
@@ -279,7 +279,9 @@ Essa função anteriormente era chamada de "administrador de senha" no [portal d
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Administrador do Intune](#intune-service-administrator-permissions)
 
-Os usuários com essa função têm permissões globais no Microsoft Intune online, quando o serviço está presente. Além disso, essa função contém a capacidade de gerenciar usuários e dispositivos para associar a política, bem como criar e gerenciar grupos. Mais informações no [RBAC (controle de administração baseada em função) com Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+Os usuários com essa função têm permissões globais no Microsoft Intune online, quando o serviço está presente. Além disso, essa função contém a capacidade de gerenciar usuários e dispositivos para associar a política, bem como criar e gerenciar grupos. Mais informações em [RBAC (controle de administração baseada em função) com Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+Essa função pode criar e gerenciar todos os grupos de segurança. No entanto, o administrador do Intune não tem direitos de administrador sobre grupos do Office. Isso significa que o administrador não pode atualizar os proprietários ou associações de todos os grupos do Office no locatário. No entanto, ele pode gerenciar o grupo do Office que ele cria, que vem como parte de seus privilégios de usuário final. Portanto, qualquer grupo do Office (não grupo de segurança) que ele cria deve ser contado em sua cota de 250.
 
 > [!NOTE]
 > Na API Microsoft Graph, no Azure AD API do Graph e no Azure AD PowerShell, essa função é identificada como "administrador de serviços do Intune". É o "administrador do Intune" no [portal do Azure](https://portal.azure.com).
@@ -1081,8 +1083,8 @@ Pode ler tudo o que um administrador global pode, mas não editar nada.
 | Microsoft. office365. usageReports/Entities/ler | Leia os relatórios de uso do Office 365. |
 | Microsoft. office365. webportal/myentities/Standard/Read   | Ler propriedades padrão em todos os recursos no Microsoft. office365. webportal. |
 
-### <a name="group-administrator"></a>Administrador de grupo
-Pode gerenciar todos os aspectos de grupos e configurações de grupo, como políticas de nomenclatura e expiração
+### <a name="group-administrator-permissions"></a>Permissões de administrador de grupo
+Pode gerenciar todos os aspectos de grupos e configurações de grupo, como políticas de nomenclatura e expiração.
 
 | **Ações** | **Descrição** |
 | --- | --- |

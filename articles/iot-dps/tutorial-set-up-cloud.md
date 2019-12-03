@@ -1,6 +1,6 @@
 ---
-title: Configurar a nuvem para o serviço de provisionamento de dispositivos no Hub IoT do Azure no portal
-description: Tutorial-configurar os recursos de nuvem para o provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o serviço de provisionamento de dispositivos no Hub IOT
+title: Tutorial-configurar a nuvem para o serviço de provisionamento de dispositivos no Hub IoT do Azure no portal
+description: Este tutorial mostra como você pode configurar os recursos de nuvem para o provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o serviço de provisionamento de dispositivos no Hub IOT
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: bdfe851532383e5a051f43cc4b20772f8053dbfc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ad7ccf9dd91d635cfaab30a51e1b145a98117079
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228319"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702491"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: configurar recursos de nuvem para o provisionamento de dispositivos com o serviço de provisionamento de dispositivos no Hub IoT
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Criar uma instância do Serviço Aprovisionamento de Dispositivos e obter o âmbito do ID
 

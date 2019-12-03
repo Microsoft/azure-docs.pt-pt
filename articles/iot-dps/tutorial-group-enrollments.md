@@ -1,6 +1,6 @@
 ---
-title: Provisionar o dispositivo X. 509 simulado no Hub IoT do Azure usando Java e grupos de registro
-description: Tutorial-criar e provisionar um dispositivo X. 509 simulado usando o dispositivo Java e o SDK do serviço e grupos de registro para o serviço de provisionamento de dispositivos no Hub IoT
+title: Tutorial-provisionar o dispositivo X. 509 simulado para o Hub IoT do Azure usando Java e grupos de registro
+description: Neste tutorial, criar e provisionar um dispositivo X. 509 simulado usando o dispositivo Java e o SDK do serviço e grupos de registro para o serviço de provisionamento de dispositivos no Hub IoT
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: a903997c6548aad3638ba5785d23ee7642d403fc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 28cb37ad4fcd41818c3dfc18925ec65b04dddd00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228323"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702447"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: criar e provisionar um dispositivo X. 509 simulado usando o dispositivo Java e o SDK do serviço e os registros de grupo para o serviço de provisionamento de dispositivos no Hub IoT
 
@@ -252,7 +252,7 @@ Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra a folha **gerenciar registros** para seu serviço e clique na guia registros **individuais** . Selecione a *ID de registro* do dispositivo que você registrou neste início rápido e clique no botão **excluir** na parte superior. 
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Manual de Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: desenvolver módulo para dispositivos Linux-Azure IoT Edge'
+title: Tutorial-desenvolver módulo para dispositivos Linux usando Azure IoT Edge
 description: Este tutorial explica como configurar seu computador de desenvolvimento e recursos de nuvem para desenvolver IoT Edge módulos usando contêineres do Linux para dispositivos Linux
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 01ca118348b3a084c97182338bf656da83d52cb4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4291c5dcea27699de72b72c52a832a7dc86b97b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114053"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701892"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: desenvolver módulos IoT Edge para dispositivos Linux
 
@@ -131,8 +131,8 @@ Na paleta de comandos do Visual Studio Code, procure e selecione **Azure IOT Edg
    | Campo | Valor |
    | ----- | ----- |
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
-   | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução ou aceite a predefinição **EdgeSolution**. |
-   | Selecionar modelo de módulo | Escolher  **C# módulo**. |
+   | Indicar um nome para a solução | Insira um nome descritivo para sua solução ou aceite o **EdgeSolution**padrão. |
+   | Selecionar modelo de módulo | Escolha  **C# módulo**. |
    | Indicar um nome para o módulo | Aceite o **SampleModule**padrão. |
    | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente com base no nome que você forneceu na última etapa. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagem final é semelhante a \<nome do registro\>. azurecr.io/samplemodule. |
  
@@ -168,7 +168,7 @@ Atualmente, Visual Studio Code pode desenvolver C# módulos para dispositivos Li
 
 2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão. 
 
-### <a name="review-the-sample-code"></a>Reveja o código de exemplo
+### <a name="review-the-sample-code"></a>Examine o código de exemplo
 
 O modelo de solução que você criou inclui um código de exemplo para um módulo IoT Edge. Esse módulo de exemplo simplesmente recebe mensagens e as passa. A funcionalidade de pipeline demonstra um conceito importante em IoT Edge, que é como os módulos se comunicam entre si.
 
@@ -202,7 +202,7 @@ O código C# de exemplo que vem com o modelo de projeto usa a [classe ModuleClie
 
    ![Examinar rotas em Deployment. Template. JSON](./media/tutorial-develop-for-linux/deployment-routes.png)
 
-## <a name="build-and-push-your-solution"></a>Criar e emitir sua solução
+## <a name="build-and-push-your-solution"></a>Crie e envie por push sua solução
 
 Você examinou o código do módulo e o modelo de implantação para entender alguns dos principais conceitos de implantação. Agora, você está pronto para criar a imagem de contêiner SampleModule e enviá-la por push para o registro de contêiner. Com a extensão de ferramentas de IoT para Visual Studio Code, essa etapa também gera o manifesto de implantação com base nas informações no arquivo de modelo e nas informações do módulo dos arquivos de solução. 
 
@@ -330,5 +330,5 @@ Neste tutorial, você configura Visual Studio Code em seu computador de desenvol
 > [C](tutorial-c-module.md)
 > [C#](tutorial-csharp-module.md)
 > [Java](tutorial-java-module.md)
-> [Node.js](tutorial-node-module.md)
+> [node. js](tutorial-node-module.md)
 > [Python](tutorial-python-module.md)

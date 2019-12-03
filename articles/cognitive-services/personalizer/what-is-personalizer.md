@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467187"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707957"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
-O personalizador do Azure é um serviço de API baseado em nuvem que permite que você escolha a melhor experiência para mostrar aos usuários, aprendendo com o comportamento em tempo real coletivo.
+O personalizador do Azure é um serviço de API baseado em nuvem que permite que seu aplicativo escolha a melhor experiência para mostrar aos seus usuários, aprendendo com seu comportamento em tempo real coletivo.
 
 * Forneça informações sobre seus usuários e conteúdo e receba a ação principal para mostrar os usuários. 
 * Não é necessário limpar e rotular dados antes de usar o personalizador.
@@ -60,8 +60,8 @@ O personalizador não é um serviço para persistir e gerenciar informações de
 
 O serviço de personalização tem duas APIs:
 
-* Envie informações (_recursos_) sobre seus usuários e o conteúdo (_ações_) para personalizar. O personalizador responde com a ação superior.
-* Envie comentários para o personalizador sobre o quão bem a classificação funcionou como uma [Pontuação de recompensa](concept-rewards.md). 
+* *Classificação*: Use a API de classificação para determinar qual _ação_ mostrar, no _contexto_atual. As ações são enviadas como uma matriz de objetos JSON, com uma ID e informações (_recursos_) sobre cada um; o contexto é enviado como outro objeto JSON. A API retorna a ActionID que seu aplicativo deve renderizar para o usuário.
+* *Recompensa*: depois que o usuário interage com seu aplicativo, você mede o quão bem a personalização funcionou como um número entre 0 e 1 e a envia como uma [Pontuação de recompensa](concept-rewards.md). 
 
 ![Sequência básica de eventos para personalização](media/what-is-personalizer/personalization-intro.png)
 

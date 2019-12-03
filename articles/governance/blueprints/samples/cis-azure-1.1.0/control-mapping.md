@@ -1,14 +1,14 @@
 ---
 title: Controles de exemplo de plano de referência do CIS Microsoft Azure Foundations
 description: Mapeamento de recomendação do exemplo de plano de referência do CIS Microsoft Azure Foundations para Azure Policy.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544533"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707415"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
 
@@ -40,6 +40,12 @@ Este projeto atribui definições de [Azure Policy](../../../policy/overview.md)
 - Contas externas com permissões de proprietário devem ser removidas da sua assinatura
 - Contas externas com permissões de leitura devem ser removidas da sua assinatura
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 garantir que nenhuma função de proprietário de assinatura personalizada seja criada
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a monitorar as funções de proprietário de assinatura personalizadas que podem precisar ser removidas.
+
+- Funções de proprietário de assinatura personalizadas não devem existir
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2,1 garantir que o tipo de preço Standard esteja selecionado
 
@@ -243,11 +249,35 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 - Impor a conexão SSL deve ser habilitada para servidores de banco de dados MySQL
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4,12 Verifique se o parâmetro de servidor ' log_checkpoints ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+
+Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os pontos de verificação de log dos servidores de banco de dados PostgreSQL sejam verificados.
+
+- Os pontos de verificação de log devem ser habilitados para servidores de banco de dados PostgreSQL
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4,13 Verifique se ' impor conexão SSL ' está definido como ' habilitado ' para o servidor de banco de dados PostgreSQL
 
 Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL imponham conexões SSL.
 
 - Impor a conexão SSL deve ser habilitada para servidores de banco de dados PostgreSQL
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4,14 Verifique se o parâmetro de servidor ' log_connections ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+
+Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL façam conexões de log.
+
+- As conexões de log devem ser habilitadas para servidores de banco de dados PostgreSQL
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4,15 Verifique se o parâmetro de servidor ' log_disconnections ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+
+Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL desconectem as desconexões.
+
+- As desconexões devem ser registradas em log para servidores de banco de dados PostgreSQL.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4,16 Verifique se o parâmetro de servidor ' log_duration ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
+
+Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os servidores de banco de dados PostgreSQL registrem a duração das instruções concluídas.
+
+- A duração do log deve ser habilitada para servidores de banco de dados PostgreSQL
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4,17 Verifique se o parâmetro de servidor ' connection_throttling ' está definido como ' ON ' para o servidor de banco de dados PostgreSQL
 
@@ -350,6 +380,71 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os aplicativos Web sejam acessíveis somente em conexões seguras.
 
 - O aplicativo Web só deve ser acessível via HTTPS
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9,3 garantir que o aplicativo Web esteja usando a versão mais recente da criptografia TLS
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do TLS.
+
+- A versão mais recente do TLS deve ser usada em seu aplicativo de API
+- A versão mais recente do TLS deve ser usada no seu Aplicativo de funções
+- A versão mais recente do TLS deve ser usada em seu aplicativo Web
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9,4 garantir que o aplicativo Web tenha ' certificados de cliente (certificados de cliente de entrada) ' definido como ' ativado '
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que somente clientes com certificados válidos sejam capazes de acessar um aplicativo Web.
+
+- Verifique se o aplicativo de API tem ' certificados de cliente (certificados de cliente de entrada) ' definido como ' on '
+- Garantir que o aplicativo de funções tenha ' certificados de cliente (certificados de cliente de entrada) ' definido como ' ativado '
+- Verifique se o aplicativo WEB tem ' certificados de cliente (certificados de cliente de entrada) ' definido como ' ativado '
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9,5 Verifique se o registro com o Azure Active Directory está habilitado no serviço de aplicativo
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando uma identidade gerenciada.
+
+- Verifique se o registro com Azure Active Directory está habilitado no aplicativo de API
+- Verifique se o registro com Azure Active Directory está habilitado no Aplicativo de funções
+- Verifique se o registro com Azure Active Directory está habilitado no aplicativo WEB
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9,6 Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte do aplicativo Web
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do .NET Framework.
+
+- Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte do aplicativo de API
+- Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte da Aplicativo de funções
+- Verifique se a versão ' .NET Framework ' é a mais recente, se usada como parte do aplicativo Web
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9,7 Verifique se a ' versão do PHP ' é a mais recente, se usada para executar o aplicativo Web
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do php.
+
+- Verifique se a ' versão do PHP ' é a mais recente, se usada como parte do aplicativo de API
+- Verifique se a ' versão do PHP ' é a mais recente, se usada como parte do aplicativo de funções
+- Verifique se a ' versão do PHP ' é a mais recente, se usada como parte do aplicativo WEB
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9,8 Verifique se a ' versão do Python ' é a mais recente, se usada para executar o aplicativo Web
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do Python.
+
+- Verifique se a ' versão do Python ' é a mais recente, se usada como parte do aplicativo de API
+- Verifique se a ' versão do Python ' é a mais recente, se usada como parte do aplicativo de funções
+- Verifique se a ' versão do Python ' é a mais recente, se usada como parte do aplicativo Web
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9,9 Verifique se a ' versão Java ' é a mais recente, se usada para executar o aplicativo Web
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do Java.
+
+- Verifique se a ' versão Java ' é a mais recente, se usada como parte do aplicativo de API
+- Verifique se a ' versão Java ' é a mais recente, se usada como parte do aplicativo criptografada
+- Verifique se a ' versão Java ' é a mais recente, se usada como parte do aplicativo Web
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo Web
+
+Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que ajudam a garantir que os aplicativos Web estejam usando a versão mais recente do http.
+
+- Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo de API
+- Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo de funções
+- Verifique se a ' versão HTTP ' é a mais recente, se usada para executar o aplicativo Web
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

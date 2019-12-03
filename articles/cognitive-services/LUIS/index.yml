@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: O serviço Language Understanding (LUIS) permite que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras. O LUIS utiliza a aprendizagem automática para permitir aos programadores criar aplicações que possam receber as entradas de utilizador numa linguagem natural e extrair o significado das mesmas.
-  ms.openlocfilehash: 14386a08b92814b16fb007e4dd01cb4bb5238c0a
-  ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+  ms.openlocfilehash: 43f40e042fdbecbfc571fb719a0a42ded6c70909
+  ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/22/2019
-  ms.locfileid: "74406143"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74706694"
 landingContent:
 - title: Acerca do Language Understanding (LUIS)
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
     - text: 'Portal: Criar uma nova aplicação do LUIS'
       url: get-started-portal-build-app.md
     - text: Utilizar o SDK de C#
-      url: sdk-python-quickstart-authoring-app.md
+      url: sdk-csharp-quickstart-authoring-app.md
     - text: Utilizar o SDK de Python
       url: sdk-python-quickstart-authoring-app.md
   - linkListType: how-to-guide
@@ -86,7 +86,7 @@ landingContent:
     - text: 'Portal: Implementar uma aplicação no ponto final de predição'
       url: get-started-portal-deploy-app.md
     - text: Utilizar o SDK de C#
-      url: sdk-python-quickstart-authoring-app.md#train-the-app
+      url: sdk-csharp-quickstart-authoring-app.md#train-the-app
     - text: Utilizar o SDK de Python
       url: sdk-python-quickstart-authoring-app.md#train-the-app
   - linkListType: how-to-guide

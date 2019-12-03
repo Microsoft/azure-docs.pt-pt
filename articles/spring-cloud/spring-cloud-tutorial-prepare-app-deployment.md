@@ -1,17 +1,17 @@
 ---
-title: Preparar um aplicativo Spring para implantação no Azure Spring Cloud | Microsoft Docs
-description: Neste guia de início rápido, você prepara um aplicativo Spring Java para implantação.
+title: Tutorial-preparar um aplicativo Spring para implantação no Azure Spring Cloud
+description: Neste tutorial, você prepara um aplicativo Spring Java para implantação.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3c567c54f887afe9ac112970a682b9466515d949
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721246"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708733"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Tutorial: preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
 
@@ -32,7 +32,7 @@ Versão do Spring boot | Versão da Spring Cloud
 2.0. x | Finchley. RELEASE
 2.1. x | Greenwich. RELEASE
 
-Verifique se o arquivo `pom.xml` tem as dependências Spring boot e Spring Cloud com base em sua versão.
+Verifique se o arquivo de `pom.xml` tem as dependências Spring boot e Spring Cloud com base em sua versão.
 
 ### <a name="version-20"></a>Versão 2,0:
 
@@ -176,4 +176,3 @@ Neste tutorial, você aprendeu a configurar seu aplicativo Java Spring para impl
 
 > [!div class="nextstepaction"]
 > [Saiba como configurar o servidor de configuração](spring-cloud-tutorial-config-server.md).
-

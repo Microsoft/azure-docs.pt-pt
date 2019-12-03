@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f47f112991a4fe2e5b245920db98e5ae7617161a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474572"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704937"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrar o DNS em um domínio Azure AD Domain Services gerenciado
 
@@ -52,7 +52,7 @@ Para criar e modificar registros DNS no Azure AD DS, você precisa instalar as f
 1. No painel *painel* da janela **Gerenciador do servidor** , selecione **adicionar funções e recursos**.
 1. Na página **antes de começar** do *Assistente para adicionar funções e recursos*, selecione **Avançar**.
 1. Para o *tipo de instalação*, deixe a opção de instalação baseada em **função ou recurso** marcada e selecione **Avançar**.
-1. Na página **seleção de servidor** , escolha a VM atual no pool de servidores, como *MyVM.contoso.com*, e selecione **Avançar**.
+1. Na página **seleção de servidor** , escolha a VM atual no pool de servidores, como *MyVM.aadds.contoso.com*, e selecione **Avançar**.
 1. Na página **funções de servidor** , clique em **Avançar**.
 1. Na página **recursos** , expanda o nó **ferramentas de administração de servidor remoto** e, em seguida, expanda o nó **ferramentas de administração de função** . Selecione o recurso **ferramentas de servidor DNS** na lista de ferramentas de administração de função.
 
@@ -69,7 +69,7 @@ Com as ferramentas do servidor DNS instaladas, você pode administrar os registr
 > Para administrar o DNS em um domínio gerenciado AD DS do Azure, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
 
 1. Na tela iniciar, selecione **Ferramentas administrativas**. Uma lista de ferramentas de gerenciamento disponíveis é mostrada, incluindo o **DNS** instalado na seção anterior. Selecione **DNS** para iniciar o console de gerenciamento do DNS.
-1. Na caixa de diálogo **conectar ao servidor DNS** , selecione **o seguinte computador**e, em seguida, insira o nome de domínio DNS do domínio gerenciado, como *contoso.com*:
+1. Na caixa de diálogo **conectar ao servidor DNS** , selecione **o seguinte computador**e, em seguida, insira o nome de domínio DNS do domínio gerenciado, como *aadds.contoso.com*:
 
     ![Conectar-se ao domínio gerenciado AD DS do Azure no console DNS](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 

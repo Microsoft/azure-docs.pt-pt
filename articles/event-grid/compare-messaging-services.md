@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7a2b15ffdcc1a611c2cb165b4f2657ad7276e05b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790293"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706344"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os serviços de mensagens do Azure – grade de eventos, hubs de eventos e barramento de serviço
 
@@ -98,7 +98,7 @@ Noutros casos, pode utilizá-los ao mesmo tempo para formar um pipeline de event
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
-
+- [Opções de mensagens assíncronas no Azure](/azure/architecture/guide/technology-choices/messaging.md)
 - [Eventos, pontos de dados e mensagens-escolhendo o serviço de mensagens do Azure correto para seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Filas de armazenamento e filas do barramento de serviço – comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Para começar a utilizar o Event Grid, veja [Criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

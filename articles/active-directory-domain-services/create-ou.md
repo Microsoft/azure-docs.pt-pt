@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d651849f5c8d930d99e87931eed5b823e90113c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474760"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705351"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma UO (unidade organizacional) em um domínio gerenciado Azure AD Domain Services
 
@@ -66,11 +66,11 @@ Para criar uma UO personalizada, use as ferramentas administrativas Active Direc
 1. Entre na sua VM de gerenciamento. Para obter as etapas sobre como se conectar usando o portal do Azure, consulte [conectar-se a uma VM do Windows Server][connect-windows-server-vm].
 1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 1. Para criar e gerenciar UOs, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
-1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *contoso.com*. Uma lista de UOs e recursos existentes é mostrada:
+1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*. Uma lista de UOs e recursos existentes é mostrada:
 
     ![Selecione seu domínio gerenciado do Azure AD DS no Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. O painel **tarefas** é mostrado no lado direito da centro administrativo do Active Directory. No domínio, como *contoso.com*, selecione **novo > unidade organizacional**.
+1. O painel **tarefas** é mostrado no lado direito da centro administrativo do Active Directory. No domínio, como *aadds.contoso.com*, selecione **novo > unidade organizacional**.
 
     ![Selecione a opção para criar uma nova UO no Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

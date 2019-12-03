@@ -1,5 +1,5 @@
 ---
-title: Acessar o armazenamento de BLOBs usando o Key Vault-Azure Databricks
+title: Tutorial-armazenamento de blobs de acesso usando o Key Vault usando Azure Databricks
 description: Este tutorial descreve como acessar o armazenamento de BLOBs do Azure de Azure Databricks usando segredos armazenados em um cofre de chaves.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539073"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706150"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault
 

@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270154"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706245"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
 
@@ -129,7 +129,7 @@ Em seguida, você precisará decidir quais sensores deseja usar para a relocaliz
 |             | Inportações | Externas |
 |-------------|---------|----------|
 | GPS         | Desativado | Ativado |
-| Wi-Fi        | Ativado | Ativado (opcional) |
+| Fio        | Ativado | Ativado (opcional) |
 | Beacons BLE | Em (opcional com advertências, veja abaixo) | Desativado |
 
 
@@ -495,7 +495,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-As âncoras espaciais do Azure rastrearão apenas os beacons Bluetooth que estão na lista. Os beacons mal-intencionados programados para ter UUIDs listados em branco ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
+As âncoras espaciais do Azure rastrearão apenas os beacons Bluetooth que estão na lista. Os beacons mal-intencionados programados para ter UUIDs relacionados à permissão ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
 
 ## <a name="querying-with-sensor-data"></a>Consultando com dados de sensor
 
@@ -655,7 +655,7 @@ A tabela a seguir estima o espaço de pesquisa esperado para cada tipo de sensor
 | Sensores      | Raio do espaço de pesquisa (aproximadamente) | Detalhes |
 |-------------|:-------:|---------|
 | GPS         | 20 m-30 m | Determinado pela incerteza de GPS entre outros fatores. Os números relatados são estimados para a precisão de GPS mediana de telefones celulares com um-GPS, que é 7 metros. |
-| Wi-Fi        | 50 m-100 m | Determinado pelo intervalo dos pontos de acesso sem fio. Depende da frequência, força do transmissor, obstruções físicas, interferência e assim por diante. |
+| Fio        | 50 m-100 m | Determinado pelo intervalo dos pontos de acesso sem fio. Depende da frequência, força do transmissor, obstruções físicas, interferência e assim por diante. |
 | Beacons BLE |  70 m | Determinado pelo intervalo do Beacon. Depende da frequência, da força de transmissão, das obstruções físicas, da interferência e assim por diante. |
 
 ## <a name="per-platform-support"></a>Suporte por plataforma
@@ -666,10 +666,10 @@ A tabela a seguir resume os dados do sensor coletados em cada uma das plataforma
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | N/A | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
-| Wi-Fi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Suportado. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
+| Fio        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Suportado. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
 | Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use a relocalização de alta utilização em um aplicativo.
 

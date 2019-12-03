@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186429"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707649"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -26,10 +26,10 @@ Este artigo resume e explica as diferenças na sintaxe e no comportamento entre 
 
 Há algumas limitações de PaaS que são introduzidas em Instância Gerenciada e algumas alterações de comportamento em comparação com SQL Server. As diferenças são divididas nas seguintes categorias:<a name="Differences"></a>
 
-- A [disponibilidade](#availability) inclui as diferenças em [Always on](#always-on-availability) e [backups](#backup).
+- A [disponibilidade](#availability) inclui as diferenças em [Always on grupos de disponibilidade](#always-on-availability-groups) e [backups](#backup).
 - A [segurança](#security) inclui as diferenças de [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), [logons e usuários](#logins-and-users)e a [chave de serviço e a chave mestra de serviço](#service-key-and-service-master-key).
 - A [configuração](#configuration) inclui as diferenças na [extensão do pool de buffers](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels), [espelhamento de banco de dados](#database-mirroring), opções de banco de [dados](#database-options), [SQL Server Agent](#sql-server-agent)e [Opções de tabela](#tables).
-- As [funcionalidades](#functionalities) incluem [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [eventos estendidos](#extended-events), [bibliotecas externas](#external-libraries), [FileStream e filetable](#filestream-and-filetable), [texto completo Pesquisa semântica](#full-text-semantic-search), [servidores vinculados](#linked-servers), [polybase](#polybase), [replicação](#replication), [restauração](#restore-statement), [Service Broker](#service-broker), [procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-and-triggers).
+- As [funcionalidades](#functionalities) incluem [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [eventos estendidos](#extended-events), [bibliotecas externas](#external-libraries), [FileStream e filetable](#filestream-and-filetable), [pesquisa semântica de texto completo](#full-text-semantic-search), [servidores vinculados](#linked-servers), [polybase](#polybase), [replicação](#replication), [restauração](#restore-statement), [Service Broker](#service-broker), [procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-and-triggers).
 - [Configurações de ambiente](#Environment) , como VNets e configurações de sub-rede.
 
 A maioria desses recursos são restrições de arquitetura e representam recursos de serviço.
@@ -38,7 +38,7 @@ Esta página também explica os [problemas temporários conhecidos](#Issues) que
 
 ## <a name="availability"></a>Disponibilidade
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Always On grupos de disponibilidade
 
 A [alta disponibilidade](sql-database-high-availability.md) é incorporada à instância gerenciada e não pode ser controlada por usuários. As instruções a seguir não têm suporte:
 
@@ -48,7 +48,7 @@ A [alta disponibilidade](sql-database-high-availability.md) é incorporada à in
 - [REMOVER GRUPO DE DISPONIBILIDADE](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [set HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da instrução [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 As instâncias gerenciadas têm backups automáticos, para que os usuários possam criar bancos de dados `COPY_ONLY` backups completos. Não há suporte para backups diferenciais, de log e de instantâneo de arquivo.
 
@@ -95,7 +95,7 @@ As principais diferenças na sintaxe de `CREATE AUDIT` para a auditoria para o a
 - É fornecida uma nova sintaxe `TO URL` que você pode usar para especificar a URL do contêiner de armazenamento de BLOBs do Azure em que os arquivos de `.xel` são colocados.
 - Não há suporte para a sintaxe `TO FILE` porque uma instância gerenciada não pode acessar compartilhamentos de arquivos do Windows.
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 
 - [CRIAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTERAR AUDITORIA DO SERVIDOR](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -163,7 +163,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
     - Exporte um banco de dados da instância gerenciada e importe para SQL Server (versão 2012 ou posterior).
       - Nessa configuração, todos os usuários do Azure AD são criados como entidades de segurança do banco de dados SQL (usuários) sem logons. O tipo de usuário é listado como SQL (visível como SQL_USER em sys. database_principals). Suas permissões e funções permanecem no SQL Server metadados do banco de dados e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
 
-- Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento de instância gerenciada, os membros das funções de servidor, como `securityadmin` ou `sysadmin`ou outros logons com a permissão ALTER ANY LOGIN no nível do servidor podem criar um servidor do Azure AD entidades (logons) no banco de dados mestre para instância gerenciada.
+- Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento de instância gerenciada, os membros das funções de servidor, como `securityadmin` ou `sysadmin`ou outros logons com a permissão ALTER ANY LOGIN no nível do servidor podem criar entidades de segurança do Azure AD Server (logons) no banco de dados mestre para a instância gerenciada.
 - Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando Create para criar logons para uma conta do Azure AD.
 - O logon do Azure AD deve ser um membro de um Azure AD no mesmo diretório usado para a instância gerenciada do banco de dados SQL do Azure.
 - As entidades de segurança do servidor do Azure AD (logons) são visíveis no Pesquisador de objetos, começando com SQL Server Management Studio 18,0 Preview 5.
@@ -272,7 +272,7 @@ As seguintes opções não podem ser modificadas:
 
 Para obter mais informações, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>Agente do SQL Server
+### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Não há suporte para habilitar e desabilitar SQL Server Agent atualmente na instância gerenciada. O SQL Agent está sempre em execução.
 - SQL Server Agent configurações são somente leitura. Não há suporte para o procedimento `sp_set_agent_properties` na instância gerenciada. 
@@ -389,7 +389,7 @@ Os servidores vinculados em instâncias gerenciadas dão suporte a um número li
 - Os servidores vinculados não dão suporte a transações graváveis distribuídas (MS DTC).
 - Os destinos que não têm suporte são arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de BLOBs do Azure usando `BULK INSERT` ou `OPENROWSET` como uma alternativa para a importação de arquivos.
 
-Operações
+Operations
 
 - Não há suporte para transações de gravação entre instâncias.
 - `sp_dropserver` tem suporte para remover um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
@@ -453,7 +453,7 @@ Se a replicação estiver habilitada em um banco de dados em um [grupo de failov
 - Sintaxe sem suporte:
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- Origem: 
+- Fonte: 
   - `FROM URL` (armazenamento de BLOBs do Azure) é a única opção com suporte.
   - Não há suporte para `FROM DISK`/dispositivo `TAPE`/backup.
   - Não há suporte para conjuntos de backup.
@@ -526,10 +526,10 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 - O número de vCores e tipos de instâncias que você pode implantar em uma região têm algumas [restrições e limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Há algumas [regras de segurança que devem ser aplicadas na sub-rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-### <a name="vnet"></a>VNET
+### <a name="vnet"></a>VIRTUAL
 - A VNet pode ser implantada usando modelo de recurso-modelo clássico para VNet sem suporte.
 - Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
-- Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e instâncias gerenciadas (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não podem acessar instâncias gerenciadas em regiões diferentes se seus VNets estiverem conectados usando [global emparelhamento](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
+- Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e instâncias gerenciadas (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não poderão acessar instâncias gerenciadas em regiões diferentes se seus VNets estiverem conectados usando o [emparelhamento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
 
 ### <a name="tempdb"></a>TEMPDB
 
@@ -569,7 +569,7 @@ A instrução de `RESTORE` contínua, o processo de migração do serviço de mi
 
 **Data:** Setembro de 2019
 
-[Resource governor](/sql/relational-databases/resource-governor/resource-governor) recurso que permite limitar os recursos atribuídos à carga de trabalho do usuário pode classificar incorretamente alguma carga de trabalho do usuário após o failover ou a alteração da camada de serviço iniciada pelo usuário (por exemplo, a alteração da instância máxima vCore ou máxima tamanho do armazenamento).
+[Resource governor](/sql/relational-databases/resource-governor/resource-governor) recurso que permite limitar os recursos atribuídos à carga de trabalho do usuário pode classificar incorretamente alguma carga de trabalho do usuário após o failover ou a alteração da camada de serviço iniciada pelo usuário (por exemplo, a alteração do tamanho máximo do armazenamento de instância vCore ou máximo).
 
 **Solução alternativa**: execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do trabalho do SQL Agent que executa a tarefa SQL quando a instância for iniciada se você estiver usando [resource governor](/sql/relational-databases/resource-governor/resource-governor).
 

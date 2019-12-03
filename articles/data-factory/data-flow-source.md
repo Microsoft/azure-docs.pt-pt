@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217738"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702044"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
@@ -30,7 +30,7 @@ O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, 
 * Armazenamento de BLOBs do Azure (JSON, Avro, texto, parquet)
 * Azure Data Lake Storage Gen1 (JSON, Avro, texto, parquet)
 * Azure Data Lake Storage Gen2 (JSON, Avro, texto, parquet)
-* Azure SQL Data Warehouse
+* Armazém de Dados SQL do Azure
 * Base de Dados SQL do Azure
 * Azure CosmosDB
 
@@ -156,7 +156,7 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 
 ### <a name="import-schema"></a>Importar esquema
 
-Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão "importar esquema" na guia projeção desses tipos de fontes.
+Conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas, não exigem que definições de esquema existam no DataSet. Portanto, você poderá clicar no botão **importar esquema** na guia **projeção** para esses tipos de fontes.
 
 ## <a name="cosmosdb-specific-settings"></a>Configurações específicas do CosmosDB
 

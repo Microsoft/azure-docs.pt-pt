@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8826dd51766ee0d1059ab73046e7e078f27a8e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990655"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703328"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -90,10 +90,10 @@ public IDictionary<string, string> Execute(
 
 O método usa quatro parâmetros:
 
-- **linkedServices**. Essa propriedade é uma lista enumerável de serviços vinculados do repositório de dados referenciados por conjuntos de dados de entrada/saída para a atividade.
+- **linkservices**. Essa propriedade é uma lista enumerável de serviços vinculados do repositório de dados referenciados por conjuntos de dados de entrada/saída para a atividade.
 - **conjuntos**de os. Esta propriedade é uma lista enumerável de conjuntos de dados de entrada/saída para a atividade. Você pode usar esse parâmetro para obter os locais e esquemas definidos pelos conjuntos de dados de entrada e saída.
 - **atividade**. Essa propriedade representa a atividade atual. Ele pode ser usado para acessar propriedades estendidas associadas à atividade personalizada. Consulte [acessar propriedades estendidas](#access-extended-properties) para obter detalhes.
-- **logger**. Esse objeto permite escrever comentários de depuração que são exibidos no log do usuário para o pipeline.
+- **agente de log**. Esse objeto permite escrever comentários de depuração que são exibidos no log do usuário para o pipeline.
 
 O método retorna um dicionário que pode ser usado para encadear atividades personalizadas em conjunto no futuro. Este recurso ainda não está implementado, portanto, retorne um dicionário vazio do método.
 
@@ -550,11 +550,11 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída
 
    | Slicer | Hora de início | Ficheiro de saída |
    |:--- |:--- |:--- |
-   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
-   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
-   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
-   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
-   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00. txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01. txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16 -02. txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16 -03. txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16 -04. txt |
 
     Lembre-se de que todos os arquivos em uma pasta de entrada fazem parte de uma fatia com os horários de início mencionados acima. Quando essa fatia é processada, a atividade personalizada examina cada arquivo e produz uma linha no arquivo de saída com o número de ocorrências do termo de pesquisa ("Microsoft"). Se houver três arquivos na pasta de entrada, haverá três linhas no arquivo de saída para cada fatia por hora: 2016-11-16-00. txt, 2016-11-16:01:00:00. txt, etc.
 3. Para implantar o **OutputDataset**, clique em **implantar** na barra de comandos.
@@ -722,7 +722,7 @@ A solução de problemas consiste em algumas técnicas básicas:
 Se você atualizar o código para a atividade personalizada, compile-o e carregue o arquivo zip que contém novos binários para o armazenamento de BLOBs.
 
 ## <a name="appdomain-isolation"></a>Isolamento de AppDomain
-Consulte [exemplo de AppDomain cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) que mostra como criar uma atividade personalizada que não está restrita às versões de assembly usadas pelo iniciador de data Factory (exemplo: WindowsAzure. Storage v 4.3.0, Newtonsoft. JSON v 6.0. x, etc.).
+Consulte [exemplo de AppDomain cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) que mostra como criar uma atividade personalizada que não está restrita às versões de assembly usadas pelo iniciador de data Factory (exemplo: WindowsAzure. Storage v 4.3.0, Newtonsoft. JSON v 6.0. x, etc.).
 
 ## <a name="access-extended-properties"></a>Acessar propriedades estendidas
 Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado no exemplo a seguir:
@@ -1022,7 +1022,7 @@ namespace DataFactoryAPITestApp
 O exemplo de [ambiente Azure data Factory local](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) no GitHub inclui uma ferramenta que permite que você depure atividades personalizadas do .net no Visual Studio.
 
 ## <a name="sample-custom-activities-on-github"></a>Atividades personalizadas de exemplo no GitHub
-| Sample | Qual atividade personalizada faz |
+| Exemplo | Qual atividade personalizada faz |
 | --- | --- |
 | [Downloader de dados http](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Baixa dados de um ponto de extremidade HTTP para o armazenamento de C# BLOBs do Azure usando atividade personalizada no data Factory. |
 | [Exemplo de Análise de Sentimento do Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo do Azure Machine Learning Studio e análise de sentimentos, pontuação, previsão, etc. |

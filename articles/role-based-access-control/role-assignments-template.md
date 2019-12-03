@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager | Microsoft Docs
-description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos usando o controle de acesso baseado em função (RBAC) e modelos de Azure Resource Manager.
+title: Adicionar atribuições de função usando o Azure RBAC e modelos de Azure Resource Manager
+description: Saiba como conceder acesso aos recursos do Azure para usuários, grupos, entidades de serviço ou identidades gerenciadas usando o RBAC (controle de acesso baseado em função) do Azure e modelos de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383998"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707812"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
+# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adicionar atribuições de função usando o Azure RBAC e modelos de Azure Resource Manager
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como você pode gerenciar o acesso usando RBAC e modelos.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] além de usar Azure PowerShell ou a CLI do Azure, você pode atribuir funções usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
 
 ## <a name="get-object-ids"></a>Obter IDs de objeto
 
@@ -52,7 +52,7 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-### <a name="application"></a>Aplicação
+### <a name="application"></a>Candidatura
 
 Para obter a ID de uma entidade de serviço (identidade usada por um aplicativo), você pode usar os comandos de lista [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [AZ ad SP](/cli/azure/ad/sp#az-ad-sp-list) . Para uma entidade de serviço, use a ID de objeto e **não** a ID do aplicativo.
 
@@ -64,9 +64,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Criar uma atribuição de função em um escopo de grupo de recursos (sem parâmetros)
+## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC, para conceder acesso, crie uma atribuição de função. O modelo a seguir mostra uma maneira básica de criar uma atribuição de função. Alguns valores são especificados no modelo. O modelo a seguir demonstra:
+No RBAC, para conceder acesso, você adiciona uma atribuição de função.
+
+### <a name="resource-group-without-parameters"></a>Grupo de recursos (sem parâmetros)
+
+O modelo a seguir mostra uma maneira básica de adicionar uma atribuição de função. Alguns valores são especificados no modelo. O modelo a seguir demonstra:
 
 -  Como atribuir a função [leitor](built-in-roles.md#reader) a um usuário, grupo ou aplicativo em um escopo de grupo de recursos
 
@@ -107,7 +111,7 @@ Veja a seguir um exemplo de atribuição de função de leitor para um usuário 
 
 ![Atribuição de função no escopo do grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Criar uma atribuição de função em um grupo de recursos ou escopo de assinatura
+### <a name="resource-group-or-subscription"></a>Grupo de recursos ou assinatura
 
 O modelo anterior não é muito flexível. O modelo a seguir usa parâmetros e pode ser usado em escopos diferentes. O modelo a seguir demonstra:
 
@@ -191,9 +195,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>Criar uma atribuição de função em um escopo de recurso
+### <a name="resource"></a>Recurso
 
-Se você precisar criar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Você fornece o namespace do provedor de recursos e o tipo de recurso do recurso ao qual atribuir a função. Você também inclui o nome do recurso no nome da atribuição de função.
+Se você precisar adicionar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Você fornece o namespace do provedor de recursos e o tipo de recurso do recurso ao qual atribuir a função. Você também inclui o nome do recurso no nome da atribuição de função.
 
 Para o tipo e o nome da atribuição de função, use o seguinte formato:
 
@@ -287,7 +291,7 @@ Veja a seguir um exemplo de atribuição de função de colaborador para um usu�
 
 ![Atribuição de função no escopo de recurso](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Criar uma atribuição de função para uma nova entidade de serviço
+### <a name="new-service-principal"></a>Nova entidade de serviço
 
 Se você criar uma nova entidade de serviço e tentar atribuir imediatamente uma função a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma nova identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade de serviço no mesmo modelo de Azure Resource Manager, a atribuição de função poderá falhar. O motivo dessa falha é provavelmente um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve definir a propriedade `principalType` como `ServicePrincipal` ao criar a atribuição de função.
 

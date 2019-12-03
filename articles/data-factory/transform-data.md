@@ -11,12 +11,12 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 40157228e3bb2ab7625d703a25dd1e820ca1bc07
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092015"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703590"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "74092015"
 > * [Python do databricks](transform-data-databricks-python.md)
 > * [Personalizado do .NET](transform-data-using-dotnet-custom-activity.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo explica as atividades de transformação de dados no Azure Data Factory que você pode usar para transformar e processar seus dados brutos em previsões e ideias em escala. Uma atividade de transformação é executada em um ambiente de computação, como o Azure Databricks ou o Azure HDInsight. Ele fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
 
 O Data Factory dá suporte às seguintes atividades de transformação de dados que podem ser adicionadas aos [pipelines](concepts-pipelines-activities.md) individualmente ou encadeadas com outra atividade.
@@ -96,7 +96,7 @@ A atividade Azure Databricks Python em um pipeline Data Factory executa um arqui
 ### <a name="custom-activity"></a>Atividade personalizada
 Se você precisar transformar dados de uma maneira que não seja suportada pelo Data Factory, poderá criar uma atividade personalizada com sua própria lógica de processamento de dados e usar a atividade no pipeline. Você pode configurar a atividade personalizada do .NET para ser executada usando um serviço de lote do Azure ou um cluster do Azure HDInsight. Consulte o artigo [usar atividades personalizadas](transform-data-using-dotnet-custom-activity.md) para obter detalhes. 
 
-Pode criar uma atividade personalizada para executar scripts R no seu cluster do HDInsight com R instalado. Veja [Run R Script using Azure Data Factory (Executar Script R com o Azure Data Factory)](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+Pode criar uma atividade personalizada para executar scripts R no seu cluster do HDInsight com R instalado. Veja [Run R Script using Azure Data Factory (Executar Script R com o Azure Data Factory)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
 
 ### <a name="compute-environments"></a>Ambientes de computação
 Você cria um serviço vinculado para o ambiente de computação e, em seguida, usa o serviço vinculado ao definir uma atividade de transformação. Há dois tipos de ambientes de computação com suporte pelo Data Factory. 

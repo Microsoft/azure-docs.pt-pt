@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667508"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703371"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -222,10 +222,10 @@ O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. 
     }
 }
 ```
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Atividade do hive](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Invocar programas do Spark](data-factory-spark.md)
-* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

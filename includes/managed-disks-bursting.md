@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c2ce39c40ad535b4a66349fcbb4529333218555a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512668"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705512"
 ---
-O SSDs Premium dá suporte à intermitência em qualquer tamanho de disco < = 512 GiB (P20 ou abaixo). Esses tamanhos de disco dão suporte à intermitência em uma base de melhor esforço e utilizam um sistema de crédito para gerenciar a intermitência. Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego de disco está abaixo do destino de desempenho provisionado para seu tamanho de disco e consome créditos quando o tráfego ultrapassa o destino. O tráfego de disco é rastreado em IOPS e largura de banda no destino provisionado.
+A intermitência de disco é atualmente um recurso de visualização para SSDs Premium. A intermitência tem suporte em qualquer tamanho de disco SSD Premium < = 512 GiB (P20 ou abaixo). Esses tamanhos de disco dão suporte à intermitência em uma base de melhor esforço e utilizam um sistema de crédito para gerenciar a intermitência. Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego de disco está abaixo do destino de desempenho provisionado para seu tamanho de disco e consome créditos quando o tráfego ultrapassa o destino. O tráfego de disco é rastreado em IOPS e largura de banda no destino provisionado.
 
 A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se oferecerem suporte a intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos:
 

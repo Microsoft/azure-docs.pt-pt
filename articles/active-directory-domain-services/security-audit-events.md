@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569831"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704281"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services (versão prévia)
 
@@ -51,10 +51,10 @@ As seguintes categorias de evento de auditoria estão disponíveis:
 |:---|:---|
 |Segurança de logon da conta|4767, 4774, 4775, 4776, 4777|
 |Segurança de gerenciamento de conta|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Segurança de acompanhamento de detalhes|Nenhum|
+|Segurança de acompanhamento de detalhes|Nenhuma|
 |Segurança de acesso DS|5136, 5137, 5138, 5139, 5141|
 |Segurança de logoff de logon|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Segurança de acesso a objeto|Nenhum|
+|Segurança de acesso a objeto|Nenhuma|
 |Segurança de alteração de política|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Segurança de uso de privilégios|4985|
 |Segurança do sistema|4612, 4621|
@@ -70,8 +70,8 @@ A tabela a seguir descreve os cenários para cada tipo de recurso de destino.
 
 | Recurso de destino | Cenário |
 |:---|:---|
-|Storage do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
-|Azure Event Hubs| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM). Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Armazenamento do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Hubs de Eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM). Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
 |Espaço de trabalho Log Analytics do Azure| Esse destino deve ser usado quando a principal necessidade é analisar e revisar as auditorias seguras do portal do Azure diretamente. Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um espaço de trabalho log Analytics no portal do Azure.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoria de segurança usando o portal do Azure
@@ -82,7 +82,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o por
 > As auditorias de segurança do Azure AD DS não são retroativas. Não é possível recuperar eventos do passado, ou para repetir eventos do passado. O Azure AD DS só pode enviar eventos que ocorrem depois que ele é habilitado.
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
-1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha seu domínio gerenciado, como *contoso.com*.
+1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha seu domínio gerenciado, como *aadds.contoso.com*.
 1. Na janela AD DS do Azure, selecione **configurações de diagnóstico (versão prévia)** no lado esquerdo.
 1. Nenhum diagnóstico é configurado por padrão. Para começar, selecione **Adicionar configuração de diagnóstico**.
 

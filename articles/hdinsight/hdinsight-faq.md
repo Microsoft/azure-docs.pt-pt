@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052503"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706267"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -90,7 +90,7 @@ Sim. Para instalar componentes adicionais ou personalizar a configuração do cl
 
 No entanto, Suporte da Microsoft equipes podem oferecer suporte apenas para as seguintes situações:
 
-- Problemas ou erros que ocorrem durante o carregamento do script. Todos os erros que ocorrem durante a execução de scripts personalizados estão fora do escopo de um tíquete de suporte.
+- Problemas ou erros que ocorrem durante o carregamento do script. Os erros que ocorram durante a execução dos scripts personalizados estão fora do âmbito do pedido de suporte.
 
 - Aplicativos adicionais que fazem parte do processo de criação de cluster. 
 
@@ -180,6 +180,11 @@ Sim, você pode implantar uma máquina virtual adicional na mesma sub-rede que u
 - Nós de borda: você pode adicionar outro nó de borda ao cluster, conforme descrito em [usar nós de borda vazios em clusters de Apache Hadoop no HDInsight](hdinsight-apps-use-edge-node.md).
 
 - Nós autônomos: você pode adicionar uma máquina virtual autônoma à mesma sub-rede e acessar o cluster dessa máquina virtual usando o ponto de extremidade privado `https://<CLUSTERNAME>-int.azurehdinsight.net`. Para obter mais informações, consulte [controlando o tráfego de rede](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Devo armazenar dados no disco local de um nó de borda?
+
+Não, não é uma boa ideia armazenar dados em um disco local. Se o nó falhar, todos os dados armazenados localmente serão perdidos. É recomendável armazenar dados no Azure Data Lake Storage Gen2 ou no armazenamento de BLOBs do Azure ou montando um compartilhamento de arquivos do Azure para armazenar os dados.
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>Posso adicionar um cluster HDInsight existente a outra rede virtual?
 

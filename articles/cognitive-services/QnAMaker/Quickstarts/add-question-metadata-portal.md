@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 92735d8982fb1364d5ebfe0494f5ee51f4302469
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: bf88928ca24a1205ec7a1ddd2fd20af0d0e91468
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794011"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422665"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Início rápido: Adicionar perguntas e respostas com o QnA Maker Portal
 
@@ -173,7 +173,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Obter resposta com o postmaster](get-answer-from-kb-using-postman.md)
+> [Obter resposta com o postmaster ou a ondulação](get-answer-from-knowledge-base-using-url-tool.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure'
-description: 'Tutorial: configurar o dispositivo para provisionar por meio do serviço de provisionamento de dispositivos no Hub IoT durante o processo de fabricação do dispositivo'
+title: Tutorial – configurar o dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Este tutorial mostra como você pode configurar o dispositivo para provisionar por meio do serviço de provisionamento de dispositivos no Hub IoT durante o processo de fabricação do dispositivo
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bdda46a89fc2bcf8b16b2ce771c6540c9ceaa3e0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112767"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701970"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: configurar um dispositivo para provisionar usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
@@ -23,7 +23,7 @@ No tutorial anterior, aprendeu a configurar o Serviço Aprovisionamento de Dispo
 > [!div class="checklist"]
 > * Compilar o SDK de Cliente dos Serviços Aprovisionamento de Dispositivos para plataformas específicas
 > * Extrair os artefactos de segurança
-> * Configurar o software de registo de dispositivos
+> * Criar o software de registo de dispositivos
 
 Este tutorial espera que tenha criado a instância do Serviço de Aprovisionamento de Dispositivos e um hub IoT com as instruções no tutorial [Configurar recursos na cloud](tutorial-set-up-cloud.md) anterior.
 
@@ -134,7 +134,7 @@ Consoante tenha criado o SDK para utilizar um atestado para um dispositivo simul
 
 Estes artefactos de segurança são necessários durante a inscrição do seu dispositivo no Serviço Aprovisionamento de Dispositivos. O Serviço Aprovisionamento aguarda que o dispositivo seja arrancado e se ligue ao mesmo num momento posterior. Da primeira vez que o dispositivo for arrancado, a lógica do SDK de Cliente interage com o seu chip (ou simulador) para extrair os artefactos de segurança do dispositivo e verifica o registo no Serviço Aprovisionamento de Dispositivos. 
 
-## <a name="create-the-device-registration-software"></a>Configurar o software de registo de dispositivos
+## <a name="create-the-device-registration-software"></a>Criar o software de registo de dispositivos
 
 O último passo consiste em escrever uma aplicação de registo que utiliza o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para registar o dispositivo no serviço Hub IoT. 
 
@@ -204,12 +204,11 @@ Neste momento, os serviços Aprovisionamento de Dispositivos e Hub IoT poderão 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Compilar o SDK de Cliente do Serviço de Aprovisionamento de Dispositivos para plataformas específicas
+> * Compilar o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para plataformas específicas
 > * Extrair os artefactos de segurança
-> * Configurar o software de registo de dispositivos
+> * Criar o software de registo de dispositivos
 
 Avance para o próximo tutorial para saber como aprovisionar o dispositivo no seu hub IoT ao inscrevê-lo no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionamento automático.
 
 > [!div class="nextstepaction"]
 > [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md) (Aprovisionar o dispositivo no seu hub IoT)
-

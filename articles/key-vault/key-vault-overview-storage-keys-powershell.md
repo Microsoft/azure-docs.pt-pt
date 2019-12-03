@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 225d9b715c56e4813a8e26d881c876e7bd498155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204212"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707105"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -42,11 +42,11 @@ Um locatário do Azure AD fornece a cada aplicativo registrado uma [entidade de 
 
 Key Vault é um aplicativo da Microsoft que é previamente registrado em todos os locatários do Azure AD. Key Vault é registrado sob a mesma ID de aplicativo em cada nuvem do Azure.
 
-| locatários | Nuvem | ID da aplicação |
+| Locatários | Nuvem | ID da aplicação |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +74,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Definir variáveis
 
-Primeiro, defina as variáveis a serem usadas pelos cmdlets do PowerShell nas etapas a seguir. Certifique-se de atualizar <YourResourceGroupName>os <YourStorageAccountName>espaços reservados <YourKeyVaultName> ,, e, e defina $keyVaultSpAppId `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` como (conforme especificado na [ID do aplicativo da entidade de serviço](#service-principal-application-id), acima).
+Primeiro, defina as variáveis a serem usadas pelos cmdlets do PowerShell nas etapas a seguir. Certifique-se de atualizar os espaços reservados <YourResourceGroupName>, <YourStorageAccountName>e <YourKeyVaultName> e defina $keyVaultSpAppId como `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (conforme especificado na [ID do aplicativo da entidade de serviço](#service-principal-application-id), acima).
 
 Também usaremos os cmdlets Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) para obter sua ID de usuário e o contexto de sua conta de armazenamento do Azure.
 
@@ -133,7 +133,7 @@ Observe que as permissões para contas de armazenamento não estão disponíveis
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adicionar uma conta de armazenamento gerenciado à sua instância do Key Vault
 
-Use o cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para criar uma conta de armazenamento gerenciado na instância do Key Vault. A `-DisableAutoRegenerateKey` opção especifica não gerar novamente as chaves da conta de armazenamento.
+Use o cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para criar uma conta de armazenamento gerenciado na instância do Key Vault. A opção `-DisableAutoRegenerateKey` especifica não gerar novamente as chaves da conta de armazenamento.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -185,18 +185,18 @@ Tags                :
 
 ## <a name="shared-access-signature-tokens"></a>Tokens de assinatura de acesso compartilhado
 
-Você também pode solicitar Key Vault para gerar tokens de assinatura de acesso compartilhado. Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Você pode conceder aos clientes acesso aos recursos em sua conta de armazenamento sem compartilhar suas chaves de conta. Uma assinatura de acesso compartilhado fornece uma maneira segura de compartilhar seus recursos de armazenamento sem comprometer suas chaves de conta.
+Você também pode solicitar Key Vault para gerar tokens de assinatura de acesso compartilhado. Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos em sua conta de armazenamento. Você pode conceder aos clientes acesso aos recursos em sua conta de armazenamento sem compartilhar suas chaves de conta. Uma assinatura de acesso compartilhado fornece uma maneira segura de compartilhar seus recursos de armazenamento sem comprometer suas chaves de conta.
 
 Os comandos nesta seção concluem as seguintes ações:
 
 - Defina uma definição de assinatura de acesso compartilhado de conta. 
 - Crie um token de assinatura de acesso compartilhado de conta para serviços BLOB, arquivo, tabela e fila. O token é criado para os tipos de recursos Service, container e Object. O token é criado com todas as permissões, via HTTPS e com as datas de início e término especificadas.
-- Defina uma definição de assinatura de acesso compartilhado de armazenamento gerenciado Key Vault no cofre. A definição tem o URI do modelo do token de assinatura de acesso compartilhado que foi criado. A definição tem o tipo `account` de assinatura de acesso compartilhado e é válida por N dias.
+- Defina uma definição de assinatura de acesso compartilhado de armazenamento gerenciado Key Vault no cofre. A definição tem o URI do modelo do token de assinatura de acesso compartilhado que foi criado. A definição tem o tipo de assinatura de acesso compartilhado `account` e é válida por N dias.
 - Verifique se a assinatura de acesso compartilhado foi salva em seu cofre de chaves como um segredo.
 - 
 ### <a name="set-variables"></a>Definir variáveis
 
-Primeiro, defina as variáveis a serem usadas pelos cmdlets do PowerShell nas etapas a seguir. Certifique-se de atualizar <YourStorageAccountName> os <YourKeyVaultName> espaços reservados e.
+Primeiro, defina as variáveis a serem usadas pelos cmdlets do PowerShell nas etapas a seguir. Certifique-se de atualizar os espaços reservados <YourStorageAccountName> e <YourKeyVaultName>.
 
 Também usaremos os cmdlets do Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) para obter o contexto da sua conta de armazenamento do Azure.
 
@@ -225,7 +225,7 @@ O valor de $sasToken será semelhante a este.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso compartilhado
 
-Use o cmdlet Azure PowerShell [set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) para criar uma definição de assinatura de acesso compartilhado.  Você pode fornecer o nome de sua escolha para o `-Name` parâmetro.
+Use o cmdlet Azure PowerShell [set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) para criar uma definição de assinatura de acesso compartilhado.  Você pode fornecer o nome de sua escolha para o parâmetro `-Name`.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
@@ -238,7 +238,7 @@ Você pode verificar se a definição da assinatura de acesso compartilhado foi 
 Primeiro, localize a definição de assinatura de acesso compartilhado no cofre de chaves.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+Get-AzKeyVaultSecret -VaultName <YourKeyVaultName>
 ```
 
 O segredo correspondente à sua definição de SAS terá essas propriedades:
@@ -251,7 +251,7 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-Agora você pode usar o cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e a propriedade `Name` Secret para exibir o conteúdo desse segredo.
+Agora você pode usar o cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e a propriedade Secret `Name` para exibir o conteúdo desse segredo.
 
 ```azurepowershell-interactive
 $secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>

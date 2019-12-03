@@ -3,14 +3,14 @@ title: 'Criar um kubernetes dev Space: Visual Studio Code & node. js'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 32ff7554ca599b7d50a4c815083b97eda8b4e57e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 64d4f7560325429fc2a36be066c6c475d4d60e90
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327305"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708589"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Criar um kubernetes dev Space: Visual Studio Code e node. js com Azure Dev Spaces
 
@@ -40,9 +40,10 @@ az login
 Pode ver as suas subscrições ao executar: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Localize a subscrição que tem `isDefault: true` na saída do JSON.
+
+Localize a assinatura que tem *true* para *IsDefault*.
 Se esta não for a subscrição que pretende utilizar, pode alterar a subscrição predefinida:
 
 ```cmd
@@ -86,7 +87,7 @@ Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes
 
 Nesta secção, vai criar uma aplicação Web em Node.js e executá-la num contentor no Kubernetes.
 
-### <a name="create-a-nodejs-web-app"></a>Criar uma aplicação Web em Node.js
+### <a name="create-a-nodejs-web-app"></a>Criar uma Aplicação Web em Node.js
 Transfira o código do GitHub ao navegar para https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub para o seu ambiente local. O código para este guia está em `samples/nodejs/getting-started/webfrontend`.
 
 ## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Preparar o código para o desenvolvimento do Docker e do kubernetes

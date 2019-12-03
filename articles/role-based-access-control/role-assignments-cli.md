@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o acesso aos recursos do Azure usando RBAC e CLI do Azure | Microsoft Docs
-description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos usando o RBAC (controle de acesso baseado em função) e CLI do Azure. Isto inclui como listar, conceder e remover acesso.
+title: Adicionar ou remover atribuições de função usando o Azure RBAC e CLI do Azure
+description: Saiba como conceder acesso aos recursos do Azure para usuários, grupos, entidades de serviço ou identidades gerenciadas usando o RBAC (controle de acesso baseado em função) do Azure e o CLI do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,264 +11,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 795a97f84bebf6c0e7c1692e82df2f7ce11e0bbd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0351721283df68fde910ae16b16d567954c3e6fb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384087"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707899"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerenciar o acesso aos recursos do Azure usando RBAC e CLI do Azure
+# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Adicionar ou remover atribuições de função usando o Azure RBAC e CLI do Azure
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Este artigo descreve como gerenciar o acesso para usuários, grupos e aplicativos usando o RBAC e o CLI do Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] este artigo descreve como atribuir funções usando CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para gerenciar o acesso, você precisa de um dos seguintes:
+Para adicionar ou remover atribuições de função, você deve ter:
 
-* [Bash em Azure Cloud Shell](/azure/cloud-shell/overview)
-* [CLI do Azure](/cli/azure)
-
-## <a name="list-roles"></a>Listar funções
-
-Para listar todas as definições de função disponíveis, use a [lista de definições de função AZ](/cli/azure/role/definition#az-role-definition-list):
-
-```azurecli
-az role definition list
-```
-
-O exemplo a seguir lista o nome e a descrição de todas as definições de função disponíveis:
-
-```azurecli
-az role definition list --output json | jq '.[] | {"roleName":.roleName, "description":.description}'
-```
-
-```Output
-{
-  "roleName": "API Management Service Contributor",
-  "description": "Can manage service and the APIs"
-}
-{
-  "roleName": "API Management Service Operator Role",
-  "description": "Can manage service but not the APIs"
-}
-{
-  "roleName": "API Management Service Reader Role",
-  "description": "Read-only access to service and APIs"
-}
-
-...
-```
-
-O exemplo a seguir lista todas as definições de função internas:
-
-```azurecli
-az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
-```
-
-```Output
-{
-  "roleName": "API Management Service Contributor",
-  "description": "Can manage service and the APIs",
-  "roleType": "BuiltInRole"
-}
-{
-  "roleName": "API Management Service Operator Role",
-  "description": "Can manage service but not the APIs",
-  "roleType": "BuiltInRole"
-}
-{
-  "roleName": "API Management Service Reader Role",
-  "description": "Read-only access to service and APIs",
-  "roleType": "BuiltInRole"
-}
-
-...
-```
-
-## <a name="list-a-role-definition"></a>Listar uma definição de função
-
-Para listar uma definição de função, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list):
-
-```azurecli
-az role definition list --name <role_name>
-```
-
-O exemplo a seguir lista a definição da função *colaborador* :
-
-```azurecli
-az role definition list --name "Contributor"
-```
-
-```Output
-[
-  {
-    "additionalProperties": {},
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Lets you manage everything except access to resources.",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "permissions": [
-      {
-        "actions": [
-          "*"
-        ],
-        "additionalProperties": {},
-        "dataActions": [],
-        "notActions": [
-          "Microsoft.Authorization/*/Delete",
-          "Microsoft.Authorization/*/Write",
-          "Microsoft.Authorization/elevateAccess/Action"
-        ],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Contributor",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-  }
-]
-```
-
-### <a name="list-actions-of-a-role"></a>Listar ações de uma função
-
-O exemplo a seguir lista apenas as ações *e as não ações da* função *colaborador* :
-
-```azurecli
-az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
-```
-
-```Output
-{
-  "actions": [
-    "*"
-  ],
-  "notActions": [
-    "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
-  ]
-}
-```
-
-O exemplo a seguir lista apenas as ações da função *colaborador da máquina virtual* :
-
-```azurecli
-az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
-```
-
-```Output
-[
-  "Microsoft.Authorization/*/read",
-  "Microsoft.Compute/availabilitySets/*",
-  "Microsoft.Compute/locations/*",
-  "Microsoft.Compute/virtualMachines/*",
-  "Microsoft.Compute/virtualMachineScaleSets/*",
-  "Microsoft.Insights/alertRules/*",
-  "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
-  "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
-
-  ...
-
-  "Microsoft.Storage/storageAccounts/listKeys/action",
-  "Microsoft.Storage/storageAccounts/read"
-]
-```
-
-## <a name="list-access"></a>Listar o acesso
-
-No RBAC, para listar o acesso, você lista as atribuições de função.
-
-### <a name="list-role-assignments-for-a-user"></a>Listar atribuições de funções para um utilizador
-
-Para listar as atribuições de função para um usuário específico, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list):
-
-```azurecli
-az role assignment list --assignee <assignee>
-```
-
-Por padrão, somente atribuições de escopo direcionadas à assinatura serão exibidas. Para exibir atribuições com escopo definido por recurso ou grupo, use `--all` e para exibir atribuições herdadas, use `--include-inherited`.
-
-O exemplo a seguir lista as atribuições de função atribuídas diretamente ao usuário do *patlong\@contoso.com* :
-
-```azurecli
-az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
-```
-
-```Output
-{
-  "principalName": "patlong@contoso.com",
-  "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
-}
-{
-  "principalName": "patlong@contoso.com",
-  "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
-}
-```
-
-### <a name="list-role-assignments-at-a-resource-group-scope"></a>Listar atribuições de função em um escopo de grupo de recursos
-
-Para listar as atribuições de função que existem em um escopo de grupo de recursos, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list):
-
-```azurecli
-az role assignment list --resource-group <resource_group>
-```
-
-O exemplo a seguir lista as atribuições de função para o grupo de recursos *Pharma-Sales* :
-
-```azurecli
-az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
-```
-
-```Output
-{
-  "principalName": "patlong@contoso.com",
-  "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
-}
-{
-  "principalName": "patlong@contoso.com",
-  "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
-}
-
-...
-```
-
-### <a name="list-role-assignments-at-a-subscription-scope"></a>Listar atribuições de função em um escopo de assinatura
-
-Para listar todas as atribuições de função em um escopo de assinatura, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list). Para obter a ID da assinatura, você pode encontrá-la na folha **assinaturas** no portal do Azure ou pode usar a lista de [contas AZ](/cli/azure/account#az-account-list).
-
-```azurecli
-az role assignment list --subscription <subscription_name_or_id>
-```
-
-```Example
-az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
-```
-
-### <a name="list-role-assignments-at-a-management-group-scope"></a>Listar atribuições de função em um escopo do grupo de gerenciamento
-
-Para listar todas as atribuições de função em um escopo do grupo de gerenciamento, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list). Para obter a ID do grupo de gerenciamento, você pode encontrá-la na folha **grupos de gerenciamento** no portal do Azure ou pode usar [AZ Account Management-grupo List](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
-
-```azurecli
-az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>
-```
-
-```Example
-az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
-```
+- permissões de `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
+- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
 
 ## <a name="get-object-ids"></a>Obter IDs de objeto
 
-Para listar, adicionar ou remover atribuições de função, talvez seja necessário especificar a ID exclusiva de um objeto. A ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure ou CLI do Azure.
+Para adicionar ou remover atribuições de função, talvez seja necessário especificar a ID exclusiva de um objeto. A ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure ou CLI do Azure.
 
 ### <a name="user"></a>Utilizador
 
@@ -286,7 +52,7 @@ Para obter a ID de objeto para um grupo do Azure AD, você pode usar [AZ ad Grou
 az ad group show --group "{name}" --query objectId --output tsv
 ```
 
-### <a name="application"></a>Aplicação
+### <a name="application"></a>Candidatura
 
 Para obter a ID de objeto para uma entidade de serviço do Azure AD (identidade usada por um aplicativo), você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list). Para uma entidade de serviço, use a ID de objeto e **não** a ID do aplicativo.
 
@@ -294,13 +60,13 @@ Para obter a ID de objeto para uma entidade de serviço do Azure AD (identidade 
 az ad sp list --display-name "{name}" --query [].objectId --output tsv
 ```
 
-## <a name="grant-access"></a>Conceder acesso
+## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
-No RBAC, para conceder acesso, crie uma atribuição de função.
+No RBAC, para conceder acesso, você adiciona uma atribuição de função.
 
-### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Criar uma atribuição de função para um usuário em um escopo de grupo de recursos
+### <a name="user-at-a-resource-group-scope"></a>Usuário em um escopo de grupo de recursos
 
-Para conceder acesso a um usuário em um escopo de grupo de recursos, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create).
+Para adicionar uma atribuição de função para um usuário em um escopo de grupo de recursos, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -312,7 +78,7 @@ O exemplo a seguir atribui a função *colaborador de máquina virtual* a *patlo
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Criar uma atribuição de função usando a ID de função exclusiva
+### <a name="using-the-unique-role-id"></a>Usando a ID de função exclusiva
 
 Há algumas ocasiões em que um nome de função pode ser alterado, por exemplo:
 
@@ -325,7 +91,7 @@ Há algumas ocasiões em que um nome de função pode ser alterado, por exemplo:
 
 Mesmo que uma função seja renomeada, a ID da função não será alterada. Se você estiver usando scripts ou automação para criar atribuições de função, é uma prática recomendada usar a ID de função exclusiva em vez do nome da função. Portanto, se uma função for renomeada, os scripts provavelmente funcionarão.
 
-Para criar uma atribuição de função usando a ID de função exclusiva em vez do nome da função, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create).
+Para adicionar uma atribuição de função usando a ID de função exclusiva em vez do nome da função, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
@@ -337,9 +103,9 @@ O exemplo a seguir atribui a função [colaborador da máquina virtual](built-in
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
-### <a name="create-a-role-assignment-for-a-group"></a>Criar uma atribuição de função para um grupo
+### <a name="group-at-a-subscription-scope"></a>Agrupar em um escopo de assinatura
 
-Para conceder acesso a um grupo, use [criar atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-create). Para obter informações sobre como obter a ID de objeto do grupo, consulte [obter IDs de objeto](#get-object-ids).
+Para adicionar uma atribuição de função a um grupo, use [criar atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-create). Para obter informações sobre como obter a ID de objeto do grupo, consulte [obter IDs de objeto](#get-object-ids).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
@@ -351,15 +117,19 @@ O exemplo a seguir atribui a função *leitor* ao grupo de *equipe Ana Mack* com
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
+### <a name="group-at-a-resource-scope"></a>Agrupar em um escopo de recurso
+
+Para adicionar uma atribuição de função a um grupo, use [criar atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-create). Para obter informações sobre como obter a ID de objeto do grupo, consulte [obter IDs de objeto](#get-object-ids).
+
 O exemplo a seguir atribui a função *colaborador de máquina virtual* ao grupo de *equipe Ana Mack* com ID 22222222-2222-2222-2222-222222222222 em um escopo de recurso para uma rede virtual denominada *Pharma-Sales-Project-Network*.
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
-### <a name="create-a-role-assignment-for-an-application-at-a-resource-group-scope"></a>Criar uma atribuição de função para um aplicativo em um escopo de grupo de recursos
+### <a name="application-at-a-resource-group-scope"></a>Aplicativo em um escopo de grupo de recursos
 
-Para conceder acesso a um aplicativo, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create). Para obter informações sobre como obter a ID de objeto do aplicativo, consulte [obter IDs de objeto](#get-object-ids).
+Para adicionar uma atribuição de função para um aplicativo, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create). Para obter informações sobre como obter a ID de objeto do aplicativo, consulte [obter IDs de objeto](#get-object-ids).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group>
@@ -371,9 +141,9 @@ O exemplo a seguir atribui a função *colaborador da máquina virtual* a um apl
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-subscription-scope"></a>Criar uma atribuição de função para um usuário em um escopo de assinatura
+### <a name="user-at-a-subscription-scope"></a>Usuário em um escopo de assinatura
 
-Para conceder acesso a um usuário em um escopo de assinatura, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create). Para obter a ID da assinatura, você pode encontrá-la na folha **assinaturas** no portal do Azure ou pode usar a lista de [contas AZ](/cli/azure/account#az-account-list).
+Para adicionar uma atribuição de função para um usuário em um escopo de assinatura, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create). Para obter a ID da assinatura, você pode encontrá-la na folha **assinaturas** no portal do Azure ou pode usar a lista de [contas AZ](/cli/azure/account#az-account-list).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --subscription <subscription_name_or_id>
@@ -385,9 +155,9 @@ O exemplo a seguir atribui a função *leitor* ao usuário *annm\@example.com* e
 az role assignment create --role "Reader" --assignee annm@example.com --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Criar uma atribuição de função para um usuário em um escopo de grupo de gerenciamento
+### <a name="user-at-a-management-group-scope"></a>Usuário em um escopo do grupo de gerenciamento
 
-Para conceder acesso a um usuário em um escopo do grupo de gerenciamento, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create). Para obter a ID do grupo de gerenciamento, você pode encontrá-la na folha **grupos de gerenciamento** no portal do Azure ou pode usar [AZ Account Management-grupo List](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
+Para adicionar uma atribuição de função para um usuário em um escopo de grupo de gerenciamento, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create). Para obter a ID do grupo de gerenciamento, você pode encontrá-la na folha **grupos de gerenciamento** no portal do Azure ou pode usar [AZ Account Management-grupo List](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -399,11 +169,11 @@ O exemplo a seguir atribui a função de *leitor de cobrança* ao *Alain\@exampl
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-### <a name="create-a-role-assignment-for-a-new-service-principal"></a>Criar uma atribuição de função para uma nova entidade de serviço
+### <a name="new-service-principal"></a>Nova entidade de serviço
 
 Se você criar uma nova entidade de serviço e tentar atribuir imediatamente uma função a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você usar um script para criar uma nova identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade de serviço, a atribuição de função poderá falhar. O motivo dessa falha é provavelmente um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve especificar o tipo de entidade de segurança ao criar a atribuição de função.
 
-Para criar uma atribuição de função, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create), especifique um valor para `--assignee-object-id`e, em seguida, defina `--assignee-principal-type` como `ServicePrincipal`.
+Para adicionar uma atribuição de função, use [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create), especifique um valor para `--assignee-object-id`e, em seguida, defina `--assignee-principal-type` como `ServicePrincipal`.
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
@@ -415,7 +185,7 @@ O exemplo a seguir atribui a função *colaborador de máquina virtual* à ident
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
 ```
 
-## <a name="remove-access"></a>Remover o acesso
+## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
 
 No RBAC, para remover o acesso, você remove uma atribuição de função usando [AZ role Assignment Delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
@@ -443,5 +213,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: criar uma função personalizada para recursos do Azure usando CLI do Azure](tutorial-custom-role-cli.md)
+- [Listar atribuições de função usando o RBAC e CLI do Azure do Azure](role-assignments-list-cli.md)
 - [Usar o CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/cli-azure-resource-manager.md)

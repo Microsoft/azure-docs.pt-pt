@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d14b4a821f91486c396d5dae516d3a545c02321
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49f08721c0459e6bc74d440d63090fd8bad55a36
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682862"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703611"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia com o Visual Studio
 > [!div class="op_single_selector"]
@@ -78,7 +78,7 @@ Veja a seguir os passos que deve executar como parte deste tutorial:
 1. Inicie o **Visual Studio 2015**. Clique em **Ficheiro**, aponte para **Novo** e, em seguida, clique em **Projeto**. A caixa de diálogo **Novo Projeto** deve aparecer.  
 2. Na caixa de diálogo **Novo Projeto**, selecione o modelo **DataFactory** e clique em **Projeto do Data Factory Vazio**.  
    
-    ![Caixa de diálogo Novo Projeto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
+    ![Caixa de diálogo Novo projeto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. Especifique o nome do projeto e a localização e o nome da solução e, em seguida, prima **OK**.
    
     ![Explorador de Soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
@@ -171,7 +171,7 @@ Aqui, é utilizado o termo “tabelas” em vez de “conjuntos de dados”. Uma
     | folderPath | Especifica o **contentor** de blobs e a **pasta** que contém os blobs de entrada. Neste tutorial, adftutorial é o contentor de blobs e a pasta é a pasta raiz. | 
     | fileName | Esta propriedade é opcional. Se omitir esta propriedade, são escolhidos todos os ficheiros em folderPath. Neste tutorial, **emp.txt** é especificado para fileName, pelo que apenas esse ficheiro é escolhido para processamento. |
     | formato -> tipo |O ficheiro de entrada está em formato de texto, pelo que utilizamos **TextFormat**. |
-    | columnDelimiter | As colunas do ficheiro de entrada são delimitadas pelo caráter de **vírgula (`,`)**. |
+    | columnDelimiter | As colunas do ficheiro de entrada são delimitadas pelo caráter de **vírgula (`,`)** . |
     | frequência/intervalo | A frequência está definida como **Hora** e o intervalo como **1**, o que significa que os setores de entrada estão disponíveis **à hora**. Por outras palavras, o serviço do Data Factory procura dados de entrada a cada hora na pasta raiz do contentor de blobs (**adftutorial**) que especificou. Procura os dados entre as horas de início e fim do pipeline e não antes ou depois.  |
     | externo | Esta propriedade está definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Os dados de entrada deste tutorial estão no ficheiro empt.txt, que não é gerado por este pipeline, pelo que vamos definir esta propriedade como verdadeira. |
 
@@ -221,7 +221,7 @@ Neste passo, vai criar um conjunto de dados de saída com o nome **OutputDataset
 
     Existem três colunas – **ID**, **FirstName**, e **LastName** – na tabela emp da base de dados. O ID é uma coluna de identidade, por isso terá de especificar apenas **FirstName** e **LastName** aqui.
 
-    Para obter mais informações sobre estas propriedades JSON, veja o artigo [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) (Conector do SQL do Azure).
+    Para obter mais informações sobre estas propriedades JSON, veja [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) (Conector do SQL do Azure).
 
 ## <a name="create-pipeline"></a>Criar pipeline
 Neste passo, vai criar um pipeline com uma **atividade de cópia** que utiliza **InputDataset** como entrada e **OutputDataset** como saída.
@@ -288,7 +288,7 @@ Atualmente, é o conjunto de dados de saída que controla a agenda. Neste tutori
      
      No exemplo anterior existem 24 setores de dados, uma vez que estes são produzidos de hora a hora.
 
-     Para obter descrições das propriedades JSON na definição de um pipeline, veja o artigo [create pipelines](data-factory-create-pipelines.md) (criar pipelines). Para obter descrições das propriedades JSON na definição de uma atividade de cópia, veja [data movement activities](data-factory-data-movement-activities.md) (atividades de movimento de dados). Para obter descrições das propriedades JSON que BlobSource suporta, veja o artigo [Azure Blob connector](data-factory-azure-blob-connector.md) (Conector de Blobs do Azure). Para obter descrições das propriedades JSON que SqlSink suporta, veja o artigo [Azure SQL Database connector](data-factory-azure-sql-connector.md) (Conector da Base de Dados SQL do Azure).
+     Para obter descrições das propriedades JSON na definição de um pipeline, veja o artigo [create pipelines](data-factory-create-pipelines.md) (criar pipelines). Para obter descrições das propriedades JSON na definição de uma atividade de cópia, veja [data movement activities](data-factory-data-movement-activities.md) (atividades de movimento de dados). Para obter descrições das propriedades JSON que BlobSource suporta, veja o artigo [Azure Blob connector](data-factory-azure-blob-connector.md) (Conector de Blobs do Azure). Para obter descrições das propriedades JSON que SqlSink suporta, veja o artigo [Azure SQL Database connector](data-factory-azure-sql-connector.md) (Conector da base de dados SQL do Azure).
 
 ## <a name="publishdeploy-data-factory-entities"></a>Publicar/implementar entidades do Data Factory
 Neste passo, vai publicar as entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) que criou anteriormente. Também vai especificar o nome da nova fábrica de dados a ser criada para conter estas entidades.  
@@ -364,11 +364,11 @@ Navegue para a home page da sua fábrica de dados:
 5. Siga as instruções em [Monitorizar conjuntos de dados e pipeline](data-factory-monitor-manage-pipelines.md) para monitorizar o pipeline e os conjuntos de dados que criou neste tutorial. Atualmente, o Visual Studio não suporta a monitorização de pipelines do Data Factory. 
 
 ## <a name="summary"></a>Resumo
-Neste tutorial, vai criar um Azure Data Factory para copiar dados de um blob do Azure para uma base de dados SQL do Azure. Utilizou o Visual Studio para criar a fábrica de dados, serviços ligados, conjuntos de dados e um pipeline. Eis os passos de alto nível que realizou neste tutorial:  
+Neste tutorial, irá criar um Azure Data Factory para copiar dados de um blob do Azure para uma base de dados SQL do Azure. Utilizou o Visual Studio para criar a fábrica de dados, serviços ligados, conjuntos de dados e um pipeline. Eis os passos de alto nível que realizou neste tutorial:  
 
-1. Criar uma **fábrica de dados** do Azure.
+1. Criou uma **fábrica de dados** do Azure.
 2. Criou **serviços ligados**:
-   1. Um serviço ligado do **Storagedo Azure** para ligar a sua Conta de armazenamento do Azure que contém dados de entrada.     
+   1. Um serviço ligado do  **Storagedo Azure** para ligar a sua Conta de armazenamento do Azure que contém dados de entrada.     
    2. Um serviço ligado do **SQL do Azure** para ligar a sua base de dados SQL do Azure que contém dados de saída. 
 3. Criou **conjuntos de dados** que descrevem dados de entrada e saída para pipelines.
 4. Criou um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como sink. 
@@ -508,7 +508,7 @@ Para publicar entidades num projeto do Azure Data Factory com o ficheiro de conf
 Aquando da implementação, os valores do ficheiro de configuração são utilizados para definir valores para as propriedades dos ficheiros JSON antes de as entidades serem implementadas no serviço do Azure Data Factory.   
 
 ## <a name="use-azure-key-vault"></a>Utilizar o Azure Key Vault
-Não é aconselhável e frequentemente contra a política de segurança entregar dados confidenciais, como cadeias de ligação para o repositório de código. Consulte a amostra [Publicação Segura do ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) no GitHub para saber mais sobre o armazenamento e utilização de informações confidenciais no Azure Key Vault ao publicar entidades do Data Factory. A extensão Publicação Segura para o Visual Studio permite que os segredos sejam armazenados no Key Vault e sejam especificadas apenas referências aos mesmos nas configurações de serviços/implementações ligados. Estas referências são convertidas ao publicar entidades do Data Factory no Azure. Estes ficheiros podem então ser consolidados para o repositório de origem, sem expor quaisquer segredos.
+Não é aconselhável e frequentemente contra a política de segurança entregar dados confidenciais, como cadeias de ligação para o repositório de código. Consulte a amostra [Publicação Segura do ADF](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) no GitHub para saber mais sobre o armazenamento e utilização de informações confidenciais no Azure Key Vault ao publicar entidades do Data Factory. A extensão Publicação Segura para o Visual Studio permite que os segredos sejam armazenados no Key Vault e sejam especificadas apenas referências aos mesmos nas configurações de serviços/implementações ligados. Estas referências são convertidas ao publicar entidades do Data Factory no Azure. Estes ficheiros podem então ser consolidados para o repositório de origem, sem expor quaisquer segredos.
 
 
 ## <a name="next-steps"></a>Passos seguintes

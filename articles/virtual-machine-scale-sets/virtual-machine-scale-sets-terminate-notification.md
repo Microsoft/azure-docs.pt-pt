@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264675"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705928"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure (versão prévia)
 As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução de visualização adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
@@ -67,7 +67,7 @@ Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensio
 >As notificações de término em instâncias do conjunto de dimensionamento só podem ser habilitadas com a versão de API 2019-03-01 e superior
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Ao criar um novo conjunto de dimensionamento, você pode habilitar notificações de encerramento no conjunto de dimensionamento usando o cmdlet [New-AzVmssVM](/powershell/module/az.compute/new-azvmss) .
+Ao criar um novo conjunto de dimensionamento, você pode habilitar notificações de encerramento no conjunto de dimensionamento usando o cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) .
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 O exemplo acima cria um novo conjunto de dimensionamento com notificações de término habilitadas com um tempo limite padrão de 5 minutos. Ao criar um novo conjunto de dimensionamento, o parâmetro *TerminateScheduledEvents* não requer um valor. Para alterar o valor de tempo limite, especifique o tempo limite desejado por meio do parâmetro *TerminateScheduledEventNotBeforeTimeoutInMinutes* .
 
-Use o cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) para habilitar notificações de encerramento em um conjunto de dimensionamento existente.
+Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para habilitar notificações de encerramento em um conjunto de dimensionamento existente.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -152,13 +152,13 @@ Verifique se cada VM no conjunto de dimensionamento está apenas aprovando o Eve
 
 Você também pode consultar scripts de exemplos para consultar e responder a eventos usando o [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) e o [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
-## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
+## <a name="tips-and-best-practices"></a>Sugestões e melhores práticas
 -   Encerrar notificações somente em operações ' excluir ' – todas as operações de exclusão (exclusão manual ou redução iniciada pelo dimensionamento automático) gerarão eventos de término se o conjunto de dimensionamento tiver *scheduledEventsProfile* habilitado. Outras operações, como reinicializar, refazer imagem, reimplantar e parar/desalocar, não geram eventos Terminate. As notificações de término não podem ser habilitadas para VMs de baixa prioridade.
 -   Nenhuma espera obrigatória para tempo limite – você pode iniciar a operação de término a qualquer momento depois que o evento tiver sido recebido e antes de o tempo de falta *antes* do evento ser expirado.
 -   Exclusão obrigatória no tempo limite – a visualização não fornece qualquer recurso de estender o valor de tempo limite após a geração de um evento. Quando o tempo limite expirar, o evento de encerramento pendente será processado e a VM será excluída.
 -   Valor de tempo limite modificável – você pode modificar o valor de tempo limite a qualquer momento antes que uma instância seja excluída, modificando a propriedade *notBeforeTimeout* no modelo do conjunto de dimensionamento e atualizando as instâncias de VM para o modelo mais recente.
--   Aprove todas as exclusões pendentes – se houver uma exclusão pendente em VM_1 que não esteja aprovada e você tiver aprovado outro evento Terminate em VM_2, VM_2 não será excluído até que o evento Terminate para VM_1 seja aprovado ou seu tempo limite tenha decorrido. Depois de aprovar o evento Terminate para VM_1, então ambos os VM_1 e VM_2 são excluídos.
--   Aprovar todas as exclusões simultâneas – estendendo o exemplo acima, se VM_1 e VM_2 tiverem o mesmo tempo não *antes* , ambos os eventos de término deverão ser aprovados ou nenhuma VM será excluída antes de o tempo limite expirar.
+-   Aprovar todas as exclusões pendentes – se houver uma exclusão pendente em VM_1 que não está aprovada e você tiver aprovado outro evento de encerramento em VM_2, VM_2 não será excluído até que o evento de encerramento para VM_1 seja aprovado ou seu tempo limite tenha decorrido. Depois de aprovar o evento Terminate para VM_1, os VM_1 e VM_2 são excluídos.
+-   Aprovar todas as exclusões simultâneas – estendendo o exemplo acima, se VM_1 e VM_2 tiverem o mesmo tempo *antes* , então ambos os eventos de término deverão ser aprovados ou nenhuma VM será excluída antes que o tempo limite expire.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Falha ao habilitar scheduledEventsProfile

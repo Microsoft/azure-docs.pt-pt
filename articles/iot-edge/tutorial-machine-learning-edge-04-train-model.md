@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: treinar e implantar um modelo-Machine Learning no Azure IoT Edge'
-description: 'Tutorial: treinar um modelo de aprendizado de máquina usando Azure Machine Learning e, em seguida, empacotar o modelo como uma imagem de contêiner que pode ser implantada como um módulo Azure IoT Edge.'
+description: Neste tutorial, você treinará um modelo de aprendizado de máquina usando Azure Machine Learning e, em seguida, empacotará o modelo como uma imagem de contêiner que pode ser implantada como um módulo Azure IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8cb3d0329c41256823a66fc3276711c43da61cdd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9c0613d319c0c82fa61d75ed016d68d38dfcea8d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112480"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701831"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: treinar e implantar um modelo de Azure Machine Learning
 

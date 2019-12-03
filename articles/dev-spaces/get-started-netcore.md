@@ -3,14 +3,14 @@ title: 'Criar um kubernetes dev Space: Visual Studio Code & .NET Core'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 2d863fbb5cb14d3a5e61d7b493bca45f21c597db
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa7b4b4dcd1883c7619faa6fcfe014f4fc8c036f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325807"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708583"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Criar um kubernetes dev Space: Visual Studio Code e .NET Core com Azure Dev Spaces
 
@@ -40,9 +40,10 @@ az login
 Pode ver as suas subscrições ao executar: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Localize a subscrição que tem `isDefault: true` na saída do JSON.
+
+Localize a assinatura que tem *true* para *IsDefault*.
 Se esta não for a subscrição que pretende utilizar, pode alterar a subscrição predefinida:
 
 ```cmd

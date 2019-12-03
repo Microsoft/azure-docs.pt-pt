@@ -1,17 +1,17 @@
 ---
-title: Configurar a instância do servidor de configuração no Azure Spring Cloud | Microsoft Docs
+title: Tutorial-configurar a instância do servidor de configuração no Azure Spring Cloud
 description: Neste tutorial, você aprenderá a configurar uma instância do servidor de configuração do Spring Cloud para sua nuvem do Azure Spring na portal do Azure
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 7589a3a750e2fe04736bb3c8fc072c7a2c0a7358
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147549"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708805"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: configurar uma instância de servidor de configuração do Spring Cloud para seu serviço
 
@@ -53,7 +53,7 @@ Todas as propriedades configuráveis que são usadas para configurar o repositó
 > [!NOTE]
 > Usar um hífen (-) para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, você pode usar o *rótulo padrão*, mas não *defaultlabel*.
 
-| Propriedade        | Necessário | Funcionalidade                                                      |
+| Propriedade        | Obrigatório | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Sim    | O URI do repositório git que é usado como o back-end do servidor de configuração começa com *http://* , *https://* , *git@* ou *SSH://* . |
 | `default-label` | Não     | O rótulo padrão do repositório git deve ser o nome da *ramificação*, o *nome da marca*ou a ID da *confirmação* do repositório. |
@@ -68,7 +68,7 @@ Todas as propriedades configuráveis usadas para configurar o repositório git p
 > [!NOTE]
 > Usar um hífen (-) para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, você pode usar o *rótulo padrão*, mas não *defaultlabel*.
 
-| Propriedade                   | Necessário | Funcionalidade                                                      |
+| Propriedade                   | Obrigatório | Funcionalidade                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Sim    | O URI do repositório git usado como o back-end do servidor de configuração deve ser iniciado com *http://* , *https://* , *git@* ou *SSH://* . |
 | `default-label`            | Não     | O rótulo padrão do repositório git deve ser o nome da *ramificação*, o *nome da marca*ou a ID da *confirmação* do repositório. |
@@ -87,7 +87,7 @@ Todas as propriedades configuráveis usadas para configurar o repositório git p
 > [!NOTE]
 > Usar um hífen (-) para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, use o *rótulo padrão*, não *defaultlabel*.
 
-| Propriedade        | Necessário | Funcionalidade                                                      |
+| Propriedade        | Obrigatório | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Sim    | O URI do repositório git que é usado como o back-end do servidor de configuração deve ser iniciado com *http://* , *https://* , *git@* ou *SSH://* . |
 | `default-label` | Não     | O rótulo padrão do repositório git deve ser o nome da *ramificação*, o *nome da marca*ou a ID da *confirmação* do repositório. |
@@ -105,7 +105,7 @@ Todas as propriedades configuráveis usadas para configurar repositórios git co
 > [!NOTE]
 > Usar um hífen (-) para separar palavras é a única Convenção de nomenclatura com suporte no momento. Por exemplo, use o *rótulo padrão*, não *defaultlabel*.
 
-| Propriedade                           | Necessário         | Funcionalidade                                                      |
+| Propriedade                           | Obrigatório         | Funcionalidade                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Não             | Um mapa que consiste nas configurações de um repositório Git com um determinado nome. |
 | `repos."uri"`                      | Sim no `repos` | O URI do repositório git que é usado como o back-end do servidor de configuração deve ser iniciado com *http://* , *https://* , *git@* ou *SSH://* . |
@@ -124,7 +124,7 @@ Todas as propriedades configuráveis usadas para configurar repositórios git co
 
 Agora que os arquivos de configuração foram salvos em um repositório, você precisa conectar o Azure Spring Cloud a ele.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Acesse sua página de **visão geral** do Azure Spring Cloud.
 

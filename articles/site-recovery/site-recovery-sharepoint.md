@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622414"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706369"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastre usando Azure Site Recovery
 
 Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O Microsoft SharePoint é um aplicativo poderoso que pode ajudar um grupo ou departamento a organizar, colaborar e compartilhar informações. O SharePoint pode fornecer portais de intranet, gerenciamento de documentos e arquivos, colaboração, redes sociais, extranets, sites, pesquisa empresarial e business intelligence. Ele também tem recursos de integração do sistema, integração de processos e automação de fluxo de trabalho. Normalmente, as organizações consideram isso como um aplicativo de camada 1 sensível ao tempo de inatividade e à perda de dados.
 
@@ -65,7 +65,7 @@ Site Recovery é independente de aplicativo e deve funcionar com qualquer versã
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
-**Azure** | ND | Sim
+**Azure** | N/D | Sim
 
 
 ### <a name="things-to-keep-in-mind"></a>Coisas para ter em mente
@@ -82,7 +82,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para iniciar a replica
 
 * Para obter orientação sobre como proteger Active Directory e DNS, consulte [proteger o Active Directory e](site-recovery-active-directory.md) o documento DNS.
 
-* Para obter orientação sobre como proteger a camada de banco de dados em execução no SQL Server, consulte [proteger SQL Server](site-recovery-active-directory.md) documento.
+* Para obter orientação sobre como proteger a camada de banco de dados em execução no SQL Server, consulte [proteger SQL Server](site-recovery-sql.md) documento.
 
 ## <a name="networking-configuration"></a>Configuração de rede
 

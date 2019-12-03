@@ -1,17 +1,17 @@
 ---
-title: 'Início rápido: iniciar um aplicativo usando o Maven – Azure Spring Cloud'
-description: Iniciar um aplicativo de exemplo usando o Maven
+title: Início rápido – iniciar um aplicativo usando o Maven com o Azure Spring Cloud
+description: Neste guia de início rápido, inicie um aplicativo de exemplo usando o Maven
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 1a719b878f3e5fbade3adf453ac7d0604ea85077
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ea840d1e133c213c907e596e5eb0a651820291c9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384085"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708870"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o plug-in do Maven
 
@@ -35,7 +35,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instale o Git](https://git-scm.com/).
+1. [Instalar o Git](https://git-scm.com/).
 2. [Instale o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Instale o Maven 3,0 ou posterior](https://maven.apache.org/download.cgi).
 4. [Inscreva-se para uma assinatura gratuita do Azure](https://azure.microsoft.com/free/).
@@ -106,7 +106,7 @@ Leva cerca de 5 minutos para que o serviço seja implantado. Depois que o servi�
 
 1. Após a conclusão da implantação, você pode acessar o PiggyMetrics usando a URL fornecida na saída do comando anterior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você implantou um aplicativo Spring Cloud de um repositório Maven. Para saber mais sobre o Azure Spring Cloud, continue no tutorial sobre como preparar seu aplicativo para implantação.
 

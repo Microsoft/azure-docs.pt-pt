@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898256"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705415"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure Active Directory Domain Services
 
@@ -29,7 +29,7 @@ Este artigo mostra como exibir o status de integridade do AD DS do Azure e enten
 O status de integridade de um domínio gerenciado do Azure AD DS é exibido usando o portal do Azure. As informações sobre o último backup e a sincronização com o Azure AD podem ser vistas, junto com todos os alertas que indicam um problema com a integridade do domínio gerenciado. Para exibir o status de integridade de um domínio gerenciado AD DS do Azure, conclua as seguintes etapas:
 
 1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
-1. Selecione seu domínio gerenciado AD DS do Azure, como *contoso.com*.
+1. Selecione seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
 1. No lado esquerdo da janela de recursos do AD DS do Azure, selecione **integridade**. A captura de tela de exemplo a seguir mostra um domínio gerenciado AD DS do Azure íntegro e o status do último backup e a sincronização do AD do Azure:
 
     ![Visão geral da página de integridade no portal do Azure mostrando o status de Azure Active Directory Domain Services](./media/check-health/health-page.png)
@@ -38,12 +38,12 @@ O carimbo de data/hora *último avaliado* da página de integridade mostra quand
 
 O status no canto superior direito indica a integridade geral do domínio gerenciado do Azure AD DS. O status considera todos os alertas existentes em seu domínio. A tabela a seguir detalha os indicadores de status disponíveis:
 
-| State | Ícone | Explicação |
+| Estado | cone | Explicação |
 | --- | :----: | --- |
 | A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerenciado do AD DS do Azure está sendo executado corretamente e não tem nenhum alerta crítico ou de aviso. O domínio pode ter alertas informativos. |
 | Requer atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não há alertas críticos no domínio gerenciado AD DS do Azure, mas há um ou mais alertas de aviso que devem ser resolvidos. |
 | Requer atenção (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Há um ou mais alertas críticos no domínio gerenciado AD DS do Azure que devem ser resolvidos. Você também pode ter alertas de aviso e/ou informativos. |
-| A implementar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio AD DS do Azure está sendo implantado. |
+| Implantar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio AD DS do Azure está sendo implantado. |
 
 ## <a name="understand-monitors-and-alerts"></a>Entender monitores e alertas
 
@@ -53,7 +53,7 @@ O status de integridade de um domínio gerenciado AD DS do Azure mostra dois tip
 
 Monitores são áreas de um domínio gerenciado AD DS do Azure que são verificados regularmente. Se houver alertas ativos para o domínio gerenciado AD DS do Azure, ele poderá fazer com que um dos monitores relate um problema. O Azure AD Domain Services atualmente monitora as seguintes áreas:
 
-* Criar cópia de segurança
+* Backup
 * Sincronização com o Azure AD
 
 #### <a name="backup-monitor"></a>Monitor de backup

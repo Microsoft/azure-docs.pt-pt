@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473344"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706235"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -27,7 +27,7 @@ O provisionamento automático de usuário do Azure Active Directory (AD do Azure
 
 Consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Aprenda
 
 O provisionamento de usuário cria uma base para o controle de identidade contínuo e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -43,7 +43,7 @@ Os principais benefícios de habilitar o provisionamento automático de usuário
 
 * **Reduza o custo**. O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licenças
 
 O Azure AD fornece integração de autoatendimento de qualquer aplicativo usando modelos fornecidos no menu da Galeria de aplicativos. Para obter uma lista completa dos requisitos de licença, consulte a [página de licenciamento do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -98,7 +98,7 @@ Neste exemplo, os usuários e grupos são criados em um banco de dados de RH con
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Provisionamento automático de usuário para empresas somente em nuvem
 
-Neste exemplo, a criação de usuário ocorre no Azure AD e o serviço de provisionamento do Azure AD gerencia o provisionamento automático de usuário para os aplicativos de destino (SaaS):
+Neste exemplo, a criação de usuário ocorre no Azure AD e o serviço de provisionamento do Azure AD gerencia o provisionamento automático de usuário para os aplicativos de destino (SaaS).
 
 ![Imagem 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -112,16 +112,17 @@ Neste exemplo, a criação de usuário ocorre no Azure AD e o serviço de provis
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Provisionamento automático de usuário para aplicativos de RH na nuvem 
 
-Neste exemplo, os usuários e ou grupos são criados em um aplicativo de RH de nuvem como o workday.
+Neste exemplo, os usuários e ou grupos são criados em um aplicativo de RH de nuvem como o workday e o SuccessFactors. O serviço de provisionamento do Azure AD e o agente de provisionamento do Azure AD Connect provisiona os dados do usuário do locatário do aplicativo de RH na nuvem para o AD. Depois que as contas são atualizadas no AD, elas são sincronizadas com o Azure AD por meio do Azure AD Connect, e os endereços de email e os atributos de nome de usuário podem ser gravados no locatário do aplicativo de RH na nuvem.
 
 ![Imagem 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. Contas criadas no sistema de RH de nuvem
-1. Os dados fluem para o AD local por meio do serviço de provisionamento do Azure AD e do agente de provisionamento.
-1. Azure AD Connect sincroniza dados com o Azure AD
-1. O atributo de email e de nome de usuário pode ser gravado no aplicativo de RH de nuvem.
-
-Para obter mais informações sobre a arquitetura e a implantação da solução, consulte [tutorial: configurar o WORKDAY para o provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+1.  A **equipe de RH** executa as transações no locatário do aplicativo de RH na nuvem.
+2.  O **serviço de provisionamento do Azure ad** executa os ciclos agendados do locatário do aplicativo de RH na nuvem e identifica as alterações que precisam ser processadas para sincronização com o AD.
+3.  O **serviço de provisionamento do Azure ad** invoca o agente de provisionamento do Azure ad Connect com uma carga de solicitação que contém as operações criar/atualizar/habilitar/desabilitar conta do AD.
+4.  **Azure ad Connect agente de provisionamento** usa uma conta de serviço para gerenciar os dados da conta do AD.
+5.  **Azure ad Connect** executa a sincronização Delta para efetuar pull de atualizações no AD.
+6.  As atualizações do **ad** são sincronizadas com o Azure AD. 
+7.  O **serviço de provisionamento do Azure ad** write-backs o atributo de email e o nome de usuário do Azure ad para o locatário do aplicativo de RH na nuvem.
 
 ## <a name="plan-the-deployment-project"></a>Planejar o projeto de implantação
 

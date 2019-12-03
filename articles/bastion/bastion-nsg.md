@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528014"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707552"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 
@@ -58,7 +58,7 @@ Se você criar e aplicar um NSG ao ***AzureBastionSubnet***, certifique-se de te
 * **Log de diagnóstico e outros:** Saída em 443 para AzureCloud. Ainda não há suporte para marcas regionais nessa marcação de serviço.
 * **VM de destino:** Saída de 3389 e 22 para VirtualNetwork
 
-Um exemplo de regra NSG está disponível para referência neste [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Um exemplo de regra NSG está disponível para referência neste [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Passos seguintes
 

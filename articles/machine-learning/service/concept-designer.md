@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196199"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707695"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer de Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ O designer fornece uma tela Visual para criar, testar e implantar modelos de apr
     + Publicar um **pipeline de inferência de lote** para fazer previsões sobre novos dados usando um modelo treinado anteriormente.
 + [Implante](#deploy) um **pipeline de inferência em tempo real** para um ponto de extremidade em tempo real para fazer previsões sobre novos dados em tempo real.
 
-![Diagrama de fluxo de trabalho para treinamento, inferência de lote e inferência em tempo real no designer](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Diagrama de fluxo de trabalho para treinamento, inferência de lote e inferência em tempo real no designer](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -80,22 +80,22 @@ Um módulo é um algoritmo que pode utilizar nos seus dados. O designer tem vár
 
 Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando você seleciona um módulo na tela, os parâmetros do módulo são exibidos no painel Propriedades à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo. Você pode definir os recursos de computação para módulos individuais no designer. 
 
-![Propriedades do módulo](media/ui-concept-visual-interface/properties.png)
+![Propriedades do módulo](media/concept-designer/properties.png)
 
 Para obter ajuda para navegar pela biblioteca de algoritmos de aprendizado de máquina disponíveis, consulte [visão geral de referência do módulo & do algoritmo](../algorithm-module-reference/module-reference.md)
 
 ## <a name="compute"></a>Recursos de computação
 
-Use os recursos de computação do seu espaço de trabalho para executar seu pipeline e hospedar seus modelos implantados como pontos de extremidade em tempo real ou pontos de extremidade de pipeline (para inferência de lote). Os destinos de computação suportados são:
+Use os recursos de computação do seu espaço de trabalho para executar seu pipeline e hospedar seus modelos implantados como pontos de extremidade em tempo real ou pontos de extremidade de pipeline (para inferência de lote). Os destinos de computação com suporte são:
 
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
-| Computação do Machine Learning do Azure | ✓ | |
+| Computação Azure Machine Learning | ✓ | |
 | Serviço Kubernetes do Azure | | ✓ |
 
 Os destinos de computação são anexados ao seu [espaço de trabalho](concept-workspace.md)do Machine Learning. Você gerencia seus destinos de computação em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para executar inferência em tempo real, você deve implantar um pipeline como um **ponto de extremidade em tempo real**. O ponto de extremidade em tempo real cria uma interface entre um aplicativo externo e seu modelo de pontuação. Uma chamada para um ponto de extremidade em tempo real retorna resultados de previsão para o aplicativo em tempo real. Para fazer uma chamada para um ponto de extremidade em tempo real, você passa a chave de API que foi criada quando você implantou o ponto de extremidade. O ponto de extremidade é baseado em REST, uma opção de arquitetura popular para projetos de programação da Web.
 
@@ -107,7 +107,7 @@ Para saber como implantar seu modelo, consulte [tutorial: implantar um modelo de
 
 Você também pode publicar um pipeline para um **ponto de extremidade de pipeline**. Semelhante a um ponto de extremidade em tempo real, um ponto de extremidade de pipeline permite que você envie novas execuções de pipeline de aplicativos externos usando chamadas REST. No entanto, você não pode enviar ou receber dados em tempo real usando um ponto de extremidade de pipeline.
 
-Os pipelines publicados são flexíveis, eles podem ser usados para treinar ou treinar modelos, executar inferência de lote, processar novos dados e muito mais. Você pode publicar vários pipelines em um único ponto de extremidade de pipeline e especificar qual versão de pipeline executar.
+Os pipelines publicados são flexíveis, eles podem ser usados para treinar ou treinar modelos, [executar inferência de lote](how-to-run-batch-predictions-designer.md), processar novos dados e muito mais. Você pode publicar vários pipelines em um único ponto de extremidade de pipeline e especificar qual versão de pipeline executar.
 
 Um pipeline publicado é executado nos recursos de computação que você define no rascunho do pipeline para cada módulo.
 
@@ -122,7 +122,7 @@ Como resultado dessas atualizações, alguns conceitos e termos da interface vis
 
 | Conceito no designer | Anteriormente na interface visual |
 | ---- |:----:|
-| Rascunho do pipeline | Experimentação |
+| Rascunho do pipeline | Testes |
 | Ponto de extremidade em tempo real | Serviço Web |
 
 ### <a name="migrating-to-the-designer"></a>Migrando para o designer
@@ -132,7 +132,7 @@ Você pode converter experimentos de interface visual existentes e serviços Web
 [!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com [o tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 * Use um dos exemplos e modifique para a suíte de suas necessidades:

@@ -1,6 +1,6 @@
 ---
-title: Crie um banco de dados Cosmos do Azure no portal do Azure.
-description: Crie um banco de dados, contêiner e itens do Azure Cosmos usando o portal do Azure.
+title: Início rápido-criar um banco de dados Cosmos do Azure no portal do Azure
+description: Este guia de início rápido mostra como criar um banco de dados, contêiner e itens do Azure Cosmos usando o portal do Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/01/2019
-ms.openlocfilehash: b42a442564812f4386eb94b9bd7b7c9aff9e9f29
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0f7102081d5ccd29507917068893b484902a4fb3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220735"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708192"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início rápido: criar uma conta do Azure Cosmos, um banco de dados, um contêiner e itens do portal do Azure
 
@@ -101,7 +101,7 @@ Adicione dados ao novo banco de dado usando Data Explorer.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a criar uma conta de Azure Cosmos DB, criar um banco de dados e um contêiner usando o Data Explorer. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Realizar operações de ETL com o Azure Databricks'
-description: Saiba como extrair dados de Data Lake Storage Gen2 para Azure Databricks, transformar os dados e, em seguida, carregar os dados na SQL Data Warehouse do Azure.
+title: Tutorial – executar operações de ETL usando Azure Databricks
+description: Neste tutorial, saiba como extrair dados de Data Lake Storage Gen2 para Azure Databricks, transformar os dados e, em seguida, carregar os dados no Azure SQL Data Warehouse.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 8ceb9e940584ae4c41484fe31ce5cb1832bb3400
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605702"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707461"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: extrair, transformar e carregar dados usando Azure Databricks
 
@@ -65,7 +65,7 @@ Conclua estas tarefas antes de iniciar este tutorial:
 
    * Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
 
-* Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Reúna as informações de que você precisa
 

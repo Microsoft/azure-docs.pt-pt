@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209721"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706836"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -186,12 +186,12 @@ O back-end da solução opera no dispositivo usando as seguintes operações at�
     | --- | --- |
     tipo de $content | application/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
+    fonte de $iothub-mensagem | twinChangeEvents |
+    codificação de $content | UTF-8 |
     deviceId | ID do dispositivo |
     hubName | Nome do Hub IoT |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) carimbo de data/hora da operação |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-mensagem-esquema | deviceLifecycleNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
     As propriedades do sistema de mensagens são prefixadas com o símbolo de `$`.
@@ -285,7 +285,7 @@ Marcas, propriedades desejadas e propriedades relatadas são objetos JSON com as
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo
 
-O Hub IoT impõe uma limitação de tamanho de 8 KB em cada um dos respectivos valores totais de `tags`, `properties/desired`e `properties/reported`, excluindo elementos somente leitura.
+O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported`. Esses totais são exclusivos de elementos somente leitura.
 
 O tamanho é calculado pela contagem de todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1) e espaços que estão fora das constantes de cadeia de caracteres.
 

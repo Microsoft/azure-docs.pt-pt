@@ -1,6 +1,6 @@
 ---
-title: Criar funções personalizadas para recursos do Azure com a API REST - Azure | Documentos da Microsoft
-description: Saiba como criar funções personalizadas com controlo de acesso baseado em funções (RBAC) para recursos do Azure com a API REST. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
+title: Criar funções personalizadas ou atualizadas para recursos do Azure usando a API REST – Azure | Microsoft Docs
+description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando a API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,112 +15,112 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596684"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702973"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar funções personalizadas para recursos do Azure com a API REST
+# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando a API REST
 
-Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com a API REST.
+Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando a API REST.
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
-Para listar todas as funções personalizadas num diretório, utilize o [definições de funções – lista](/rest/api/authorization/roledefinitions/list) REST API.
+Para listar todas as funções personalizadas em um diretório, use as [definições de função-lista](/rest/api/authorization/roledefinitions/list) de API REST.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. Substitua *{filtro}* com o tipo de função.
+1. Substitua *{Filter}* pelo tipo de função.
 
-    | Filtro | Descrição |
+    | Filtrar | Descrição |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrar com base no tipo CustomRole |
 
-## <a name="list-custom-roles-at-a-scope"></a>Lista de funções personalizadas com um âmbito
+## <a name="list-custom-roles-at-a-scope"></a>Listar funções personalizadas em um escopo
 
-Para listar as funções personalizadas a um âmbito, utilize o [definições de funções – lista](/rest/api/authorization/roledefinitions/list) REST API.
+Para listar funções personalizadas em um escopo, use as [definições de função-lista](/rest/api/authorization/roledefinitions/list) de API REST.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{filtro}* com o tipo de função.
+1. Substitua *{Filter}* pelo tipo de função.
 
-    | Filtro | Descrição |
+    | Filtrar | Descrição |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrar com base no tipo CustomRole |
 
 ## <a name="list-a-custom-role-definition-by-name"></a>Listar uma definição de função personalizada por nome
 
-Para obter informações sobre uma função personalizada pelo respetivo nome de exibição, utilize o [obter definições de funções –](/rest/api/authorization/roledefinitions/get) REST API.
+Para obter informações sobre uma função personalizada por seu nome de exibição, use as [definições de função-obter](/rest/api/authorization/roledefinitions/get) API REST.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{filtro}* com o nome a apresentar para a função.
+1. Substitua *{Filter}* pelo nome de exibição da função.
 
-    | Filtro | Descrição |
+    | Filtrar | Descrição |
     | --- | --- |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use o formulário com codificação URL do nome a apresentar exata da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use a forma codificada da URL do nome de exibição exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ## <a name="list-a-custom-role-definition-by-id"></a>Listar uma definição de função personalizada por ID
 
-Para obter informações sobre uma função personalizada pelo respetivo Identificador exclusivo, utilize o [obter definições de funções –](/rest/api/authorization/roledefinitions/get) REST API.
+Para obter informações sobre uma função personalizada por seu identificador exclusivo, use as [definições de função-obter](/rest/api/authorization/roledefinitions/get) API REST.
 
-1. Utilize o [definições de funções – lista](/rest/api/authorization/roledefinitions/list) API REST para obter o identificador GUID para a função.
+1. Use a API REST de [definições de função-List](/rest/api/authorization/roledefinitions/list) para obter o identificador de GUID para a função.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{roleDefinitionId}* com o identificador GUID de definição de função.
+1. Substitua *{roleDefinitionId}* pelo identificador GUID da definição de função.
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Para criar uma função personalizada, utilize o [definições de funções – criar ou atualizar](/rest/api/authorization/roledefinitions/createorupdate) REST API. Para chamar esta API, tem de ser assinado com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `assignableScopes`. Das funções incorporadas, apenas [proprietário](built-in-roles.md#owner) e [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) inclui esta permissão.
+Para criar uma função personalizada, use as [definições de função – criar ou atualizar](/rest/api/authorization/roledefinitions/createorupdate) a API REST. Para chamar essa API, você deve estar conectado com um usuário que recebe uma função que tem a permissão `Microsoft.Authorization/roleDefinitions/write` em todos os `assignableScopes`. Das funções internas, somente o [proprietário](built-in-roles.md#owner) e o [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) incluem essa permissão.
 
-1. Reveja a lista de [operações de fornecedor de recursos](resource-provider-operations.md) que estão disponíveis para criar as permissões para a sua função personalizada.
+1. Examine a lista de [operações do provedor de recursos](resource-provider-operations.md) que estão disponíveis para criar as permissões para sua função personalizada.
 
-1. Utilize uma ferramenta GUID para gerar um identificador exclusivo que será utilizado para o identificador de função personalizada. O identificador tem o formato: `00000000-0000-0000-0000-000000000000`
+1. Use uma ferramenta GUID para gerar um identificador exclusivo que será usado para o identificador de função personalizado. O identificador tem o formato: `00000000-0000-0000-0000-000000000000`
 
-1. Começar com o seguinte pedido e o corpo:
+1. Comece com a seguinte solicitação e corpo:
 
     ```http
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
@@ -150,27 +150,27 @@ Para criar uma função personalizada, utilize o [definições de funções – 
     }
     ```
 
-1. No URI, substitua *{âmbito}* com o primeiro `assignableScopes` da função personalizada.
+1. Dentro do URI, substitua *{Scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{roleDefinitionId}* com o identificador GUID de função personalizada.
+1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
-1. Dentro do corpo do pedido, na `assignableScopes` propriedade, substitua *{roleDefinitionId}* com o identificador GUID.
+1. No corpo da solicitação, na propriedade `assignableScopes`, substitua *{roleDefinitionId}* pelo identificador GUID.
 
-1. Substitua *{subscriptionId}* com o identificador de subscrição.
+1. Substitua *{SubscriptionId}* pelo seu identificador de assinatura.
 
-1. Na `actions` propriedade, adicionar as operações que permite que a função a ser executada.
+1. Na propriedade `actions`, adicione as operações que a função permite que sejam executadas.
 
-1. Na `notActions` propriedade, adicionar as operações que são excluídas da permitidos `actions`.
+1. Na propriedade `notActions`, adicione as operações que são excluídas do `actions`permitido.
 
-1. Na `roleName` e `description` propriedades, especifique um nome de função exclusivo e uma descrição. Para obter mais informações sobre as propriedades, consulte [funções personalizadas](custom-roles.md).
+1. Nas propriedades `roleName` e `description`, especifique um nome de função exclusivo e uma descrição. Para obter mais informações sobre as propriedades, consulte [funções personalizadas](custom-roles.md).
 
-    O código a seguir mostra um exemplo de um corpo de pedido:
+    Veja a seguir um exemplo de um corpo de solicitação:
 
     ```json
     {
@@ -205,27 +205,27 @@ Para criar uma função personalizada, utilize o [definições de funções – 
 
 ## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 
-Para atualizar uma função personalizada, utilize o [definições de funções – criar ou atualizar](/rest/api/authorization/roledefinitions/createorupdate) REST API. Para chamar esta API, tem de ser assinado com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `assignableScopes`. Das funções incorporadas, apenas [proprietário](built-in-roles.md#owner) e [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) inclui esta permissão.
+Para atualizar uma função personalizada, use as [definições de função-criar ou atualizar](/rest/api/authorization/roledefinitions/createorupdate) a API REST. Para chamar essa API, você deve estar conectado com um usuário que recebe uma função que tem a permissão `Microsoft.Authorization/roleDefinitions/write` em todos os `assignableScopes`. Das funções internas, somente o [proprietário](built-in-roles.md#owner) e o [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) incluem essa permissão.
 
-1. Utilize o [definições de funções – lista](/rest/api/authorization/roledefinitions/list) ou [obter definições de funções –](/rest/api/authorization/roledefinitions/get) API de REST para obter informações sobre a função personalizada. Para obter mais informações, consulte quanto mais cedo [lista de funções personalizadas](#list-custom-roles) secção.
+1. Use as definições de [função-lista](/rest/api/authorization/roledefinitions/list) ou [definições de função-obter](/rest/api/authorization/roledefinitions/get) API REST para obter informações sobre a função personalizada. Para obter mais informações, consulte a seção [listar funções personalizadas](#list-custom-roles) anteriores.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. No URI, substitua *{âmbito}* com o primeiro `assignableScopes` da função personalizada.
+1. Dentro do URI, substitua *{Scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{roleDefinitionId}* com o identificador GUID de função personalizada.
+1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
-1. Com base nas informações sobre a função personalizada, crie um corpo de pedido com o seguinte formato:
+1. Com base nas informações sobre a função personalizada, crie um corpo de solicitação com o seguinte formato:
 
     ```json
     {
@@ -251,9 +251,9 @@ Para atualizar uma função personalizada, utilize o [definições de funções 
     }
     ```
 
-1. Atualize o corpo do pedido com as alterações que deseja tornar-se para a função personalizada.
+1. Atualize o corpo da solicitação com as alterações que você deseja fazer na função personalizada.
 
-    O código a seguir mostra um exemplo de um corpo de pedido com uma nova ação de definições de diagnóstico, adicionada:
+    Veja a seguir um exemplo de um corpo de solicitação com uma nova ação de configurações de diagnóstico adicionada:
 
     ```json
     {
@@ -289,28 +289,28 @@ Para atualizar uma função personalizada, utilize o [definições de funções 
 
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-Para eliminar uma função personalizada, utilize o [definições de funções – eliminar](/rest/api/authorization/roledefinitions/delete) REST API. Para chamar esta API, tem de ser assinado com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinitions/delete` permissão em todos os `assignableScopes`. Das funções incorporadas, apenas [proprietário](built-in-roles.md#owner) e [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) inclui esta permissão.
+Para excluir uma função personalizada, use as [definições de função-excluir](/rest/api/authorization/roledefinitions/delete) API REST. Para chamar essa API, você deve estar conectado com um usuário que recebe uma função que tem a permissão `Microsoft.Authorization/roleDefinitions/delete` em todos os `assignableScopes`. Das funções internas, somente o [proprietário](built-in-roles.md#owner) e o [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) incluem essa permissão.
 
-1. Utilize o [definições de funções – lista](/rest/api/authorization/roledefinitions/list) ou [obter definições de funções –](/rest/api/authorization/roledefinitions/get) API REST para obter o identificador GUID de função personalizada. Para obter mais informações, consulte quanto mais cedo [lista de funções personalizadas](#list-custom-roles) secção.
+1. Use as definições de [função-lista](/rest/api/authorization/roledefinitions/list) ou [definições de função-obtenha](/rest/api/authorization/roledefinitions/get) a API REST para obter o identificador GUID da função personalizada. Para obter mais informações, consulte a seção [listar funções personalizadas](#list-custom-roles) anteriores.
 
-1. Começar com o pedido seguinte:
+1. Comece com a seguinte solicitação:
 
     ```http
     DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. No URI, substitua *{âmbito}* com o âmbito de que pretende eliminar a função personalizada.
+1. Dentro do URI, substitua *{Scope}* pelo escopo do qual você deseja excluir a função personalizada.
 
-    | Scope | Tipo |
+    | Âmbito | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-1. Substitua *{roleDefinitionId}* com o identificador GUID de função personalizada.
+1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
-- [Gerir o acesso aos recursos do Azure através do RBAC e a API REST](role-assignments-rest.md)
+- [Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST](role-assignments-rest.md)
 - [Referência à API REST do Azure](/rest/api/azure/)

@@ -1,6 +1,6 @@
 ---
-title: Conectar um dispositivo de visualização de Plug and Play IoT ao Azure IoT Central | Microsoft Docs
-description: Use um modelo de funcionalidade de dispositivo para gerar o código do dispositivo. Em seguida, execute o código do dispositivo, consulte o dispositivo conectar-se ao seu aplicativo IoT Central e use as exibições geradas automaticamente.
+title: Tutorial-conectar um dispositivo de visualização de Plug and Play IoT ao Azure IoT Central
+description: Este tutorial mostra como usar um modelo de capacidade de dispositivo para gerar o código do dispositivo. Em seguida, execute o código do dispositivo, consulte o dispositivo conectar-se ao seu aplicativo IoT Central e use as exibições geradas automaticamente.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/08/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: be03684f89382f198c13540bbdfb3de5bf8513a6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404557"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702867"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: usar um modelo de capacidade de dispositivo para criar um dispositivo de Plug and Play de IoT e conectá-lo ao seu aplicativo IoT Central
 
@@ -192,7 +192,7 @@ Depois que o código do dispositivo se conectar ao seu IoT Central, você poder�
 
     ![Página modelos de dispositivo](./media/tutorial-connect-pnp-device/device-template.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a conectar um dispositivo de Plug and Play IoT que foi gerado de um DCM no repositório de modelo público.
 

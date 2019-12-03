@@ -1,6 +1,6 @@
 ---
-title: Criar funções personalizadas para recursos do Azure com a CLI do Azure | Documentos da Microsoft
-description: Saiba como criar funções personalizadas com controlo de acesso baseado em funções (RBAC) para recursos do Azure com a CLI do Azure. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
+title: Criar ou atualizar funções personalizadas para recursos do Azure usando CLI do Azure | Microsoft Docs
+description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando CLI do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,29 +14,29 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b2ffde66468ae7cb2818010ac374126d2973be
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118778"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703127"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Criar funções personalizadas para recursos do Azure com a CLI do Azure
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando CLI do Azure
 
-Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com a CLI do Azure.
+Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando CLI do Azure.
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure](tutorial-custom-role-cli.md).
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada para recursos do Azure usando CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar funções personalizadas, terá de:
+Para criar funções personalizadas, você precisa de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
-- [Azure Cloud Shell](../cloud-shell/overview.md) ou [da CLI do Azure](/cli/azure/install-azure-cli)
+- [Azure cloud Shell](../cloud-shell/overview.md) ou [CLI do Azure](/cli/azure/install-azure-cli)
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
-Para listar as funções personalizadas que estão disponíveis para atribuição, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list). Os exemplos a seguir listam todas as funções personalizadas na subscrição atual.
+Para listar as funções personalizadas que estão disponíveis para atribuição, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list). Os exemplos a seguir listam todas as funções personalizadas na assinatura atual.
 
 ```azurecli
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
@@ -65,13 +65,13 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ## <a name="list-a-custom-role-definition"></a>Listar uma definição de função personalizada
 
-Para listar uma definição de função personalizada, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list). Este é o mesmo comando que utilizaria para uma função incorporada.
+Para listar uma definição de função personalizada, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list). Esse é o mesmo comando que você usaria para uma função interna.
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-As listas de exemplo a seguir a *operador de Máquina Virtual* definição de função:
+O exemplo a seguir lista a definição da função *operador de máquina virtual* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -113,7 +113,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-O exemplo seguinte lista apenas as ações do *operador de Máquina Virtual* função:
+O exemplo a seguir lista apenas as ações da função *operador de máquina virtual* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
@@ -137,15 +137,15 @@ az role definition list --name "Virtual Machine Operator" --output json | jq '.[
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Para criar uma função personalizada, utilize [criação da definição de função de az](/cli/azure/role/definition#az-role-definition-create). A definição de função pode ser uma descrição de JSON ou um caminho para um ficheiro que contém uma descrição de JSON.
+Para criar uma função personalizada, use [AZ role Definition Create](/cli/azure/role/definition#az-role-definition-create). A definição de função pode ser uma descrição JSON ou um caminho para um arquivo que contém uma descrição JSON.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
 ```
 
-O exemplo seguinte cria uma função personalizada com o nome *operador de Máquina Virtual*. Esta função personalizada atribui o acesso a todas as operações de leitura de *Microsoft. Compute*, *Microsoft. Storage*, e *Network* fornecedores e atribui acesso a recursos para iniciar, reiniciar e monitorizar máquinas virtuais. Esta função personalizada pode ser utilizada em duas subscrições. Este exemplo utiliza um ficheiro JSON como entrada.
+O exemplo a seguir cria uma função personalizada chamada *operador de máquina virtual*. Essa função personalizada atribui acesso a todas as operações de leitura dos provedores de recursos *Microsoft. Compute*, *Microsoft. Storage*e *Microsoft. Network* e atribui acesso para iniciar, reiniciar e monitorar máquinas virtuais. Essa função personalizada pode ser usada em duas assinaturas. Este exemplo usa um arquivo JSON como uma entrada.
 
-vmoperator.json
+vmoperator. JSON
 
 ```json
 {
@@ -180,15 +180,15 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 
-Para atualizar uma função personalizada, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list) para obter a definição de função. Segundo, efetue as alterações pretendidas para a definição de função. Por último, utilize [atualização da definição de função az](/cli/azure/role/definition#az-role-definition-update) para guardar a definição de função atualizada.
+Para atualizar uma função personalizada, primeiro use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list) para recuperar a definição de função. Em segundo lugar, faça as alterações desejadas na definição da função. Por fim, use [AZ role Definition Update](/cli/azure/role/definition#az-role-definition-update) para salvar a definição de função atualizada.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
 ```
 
-O exemplo seguinte adiciona o *Microsoft.Insights/diagnosticSettings/* operação para o *ações* do *operador de Máquina Virtual* função personalizada.
+O exemplo a seguir adiciona a operação *Microsoft. insights/diagnosticSettings/* às *ações* da função personalizada *operador de máquina virtual* .
 
-vmoperator.json
+vmoperator. JSON
 
 ```json
 {
@@ -224,20 +224,20 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-Para eliminar uma função personalizada, utilize [eliminar definição de função de az](/cli/azure/role/definition#az-role-definition-delete). Para especificar a função para eliminar, utilize o nome da função ou o ID de função. Para determinar o ID de função, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list).
+Para excluir uma função personalizada, use [AZ role Definition Delete](/cli/azure/role/definition#az-role-definition-delete). Para especificar a função a ser excluída, use o nome da função ou a ID da função. Para determinar a ID da função, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition delete --name <role_name or role_id>
 ```
 
-O exemplo seguinte elimina a *operador de Máquina Virtual* função personalizada.
+O exemplo a seguir exclui a função personalizada *operador de máquina virtual* .
 
 ```azurecli
 az role definition delete --name "Virtual Machine Operator"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure](tutorial-custom-role-cli.md)
+- [Tutorial: criar uma função personalizada para recursos do Azure usando CLI do Azure](tutorial-custom-role-cli.md)
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
-- [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)

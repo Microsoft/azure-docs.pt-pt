@@ -1,5 +1,5 @@
 ---
-title: Tutorial de C# desenvolvimento de módulo para Linux-Azure IOT Edge | Microsoft Docs
+title: Tutorial-desenvolver C# módulo para Linux usando o Azure IOT Edge
 description: Este tutorial mostra como criar um módulo de IoT Edge com C# código e implantá-lo em um dispositivo de IOT Edge do Linux.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cabe30c08d13f0ebeb8e0ce784ea29a0b5d61bec
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 371500a43bf868a154fb813f2b0bbbd4170b7887
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560959"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707044"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: desenvolver um C# módulo IOT Edge para dispositivos Linux
 

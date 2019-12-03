@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208634"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703699"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: criar e configurar uma instância de Azure Active Directory Domain Services
 
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Entender os requisitos de DNS para um domínio gerenciado
 > * Criar uma instância do Azure AD DS
-> * Ativar a sincronização de hash de palavra-passe
+> * Ativar a sincronização de palavras-passe de hash
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -72,7 +72,7 @@ Ao criar uma instância de AD DS do Azure, você especifica um nome DNS. Há alg
 >
 > Você pode usar o nome DNS raiz para seu domínio gerenciado AD DS do Azure, mas talvez precise criar alguns registros DNS adicionais para outros serviços em seu ambiente. Por exemplo, se você executar um servidor Webque hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
 >
-> Nesses tutoriais e artigos de instruções, o domínio personalizado do *contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
+> Nesses tutoriais e artigos de instruções, o domínio personalizado do *aadds.contoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio, que pode incluir um prefixo exclusivo.
 >
 > Para obter mais informações, consulte [selecionar um prefixo de nomenclatura para o domínio][naming-prefix].
 
@@ -89,7 +89,7 @@ Preencha os campos na janela *noções básicas* do portal do Azure para criar u
 1. Insira um **nome de domínio DNS** para seu domínio gerenciado, levando em consideração os pontos anteriores.
 1. Escolha o **local** do Azure no qual o domínio gerenciado deve ser criado. Se você escolher uma região com suporte a Zonas de Disponibilidade, os recursos de AD DS do Azure serão distribuídos entre zonas para redundância adicional.
 
-    As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas.
+    As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas.
 
     Não há nada a ser configurado para o Azure AD DS ser distribuído entre zonas. A plataforma Azure manipula automaticamente a distribuição de zona de recursos. Para obter mais informações e ver a disponibilidade da região, consulte [o que são zonas de disponibilidade no Azure?][availability-zones]
 
@@ -117,7 +117,7 @@ Na página **Resumo** do assistente, examine as definições de configuração d
     ![Notificação na portal do Azure da implantação em andamento](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. A página será carregada com atualizações no processo de implantação, incluindo a criação de novos recursos em seu diretório.
-1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *contoso.com*. A guia **visão geral** mostra que o domínio gerenciado está sendo *implantado*no momento. Você não pode configurar o domínio gerenciado até que ele seja totalmente provisionado.
+1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *aadds.contoso.com*. A guia **visão geral** mostra que o domínio gerenciado está sendo *implantado*no momento. Você não pode configurar o domínio gerenciado até que ele seja totalmente provisionado.
 
     ![Status dos serviços de domínio durante o estado de provisionamento](./media/tutorial-create-instance/provisioning-in-progress.png)
 
@@ -171,7 +171,7 @@ Para alterar a senha de um usuário somente em nuvem, o usuário deve concluir a
 
 Levará alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS e entrar com êxito em computadores ingressados no domínio gerenciado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

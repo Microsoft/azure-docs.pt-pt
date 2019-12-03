@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827231"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703664"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de ingresso no domínio com um Azure AD Domain Services domínio gerenciado
 
@@ -32,7 +32,7 @@ Se a VM não conseguir localizar o domínio gerenciado AD DS do Azure, normalmen
 
 1. Verifique se a VM está conectada à mesma rede virtual, ou emparelhada, que está habilitada para o Azure AD DS. Caso contrário, a VM não poderá localizar e se conectar ao domínio para ingressar.
     * Se a VM não estiver conectada à mesma rede virtual, confirme se o emparelhamento de rede virtual ou a conexão VPN está *ativa* ou *conectada* para permitir que o tráfego flua corretamente.
-1. Tente executar o ping no domínio usando o nome de domínio do domínio gerenciado AD DS do Azure, como `ping contoso.com`.
+1. Tente executar o ping no domínio usando o nome de domínio do domínio gerenciado AD DS do Azure, como `ping aadds.contoso.com`.
     * Se a resposta de ping falhar, tente executar ping nos endereços IP para o domínio exibido na página Visão geral no portal para seu domínio gerenciado AD DS do Azure, como `ping 10.0.0.4`.
     * Se você puder executar o ping com êxito no endereço IP, mas não no domínio, o DNS poderá estar configurado incorretamente. Verifique se você configurou os servidores DNS de domínio gerenciado AD DS do Azure para a rede virtual.
 1. Tente liberar o cache do resolvedor de DNS na máquina virtual, como `ipconfig /flushdns`.

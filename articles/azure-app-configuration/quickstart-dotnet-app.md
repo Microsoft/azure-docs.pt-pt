@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185064"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707442"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo .NET Framework com a configuração Azure App
 
@@ -112,7 +112,7 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo de console .NET Framework. O valor `AppSettings` de `ConfiguratoinManager` não será alterado depois que o aplicativo for iniciado. A biblioteca do provedor de configuração do .NET Standard de configuração do aplicativo, no entanto, também pode ser usada em um aplicativo .NET Framework. Para saber como habilitar seu aplicativo .NET Framework para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
+Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo de console .NET Framework. O valor `AppSettings` de `ConfigurationManager` não será alterado depois que o aplicativo for iniciado. A biblioteca do provedor de configuração do .NET Standard de configuração do aplicativo, no entanto, também pode ser usada em um aplicativo .NET Framework. Para saber como habilitar seu aplicativo .NET Framework para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Habilitar configuração dinâmica](./enable-dynamic-configuration-dotnet.md)

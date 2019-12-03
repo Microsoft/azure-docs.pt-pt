@@ -1,17 +1,17 @@
 ---
-title: Como associar o cache do Azure para Redis ao seu aplicativo Azure Spring Cloud | Microsoft Docs
-description: Saiba como associar o cache do Azure para Redis ao seu aplicativo Azure Spring Cloud
+title: Tutorial-como associar o cache do Azure para Redis ao seu aplicativo Azure Spring Cloud
+description: Este tutorial mostra como associar o cache do Azure para Redis ao seu aplicativo Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a901e4194909df85f53799d5937515e42ea87a69
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1653db3619fd569238872ca1fcfd6d0c439e84c9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607576"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708789"
 ---
 # <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-cache-for-redis"></a>Tutorial: associar os serviços do Azure ao seu aplicativo Azure Spring Cloud: cache do Azure para Redis
 
@@ -27,7 +27,7 @@ Se você não tiver uma instância do Azure Spring Cloud implantada, siga as eta
 
 ## <a name="bind-azure-cache-for-redis"></a>Associar o cache do Azure para Redis
 
-1. Adicione a seguinte dependência na `pom.xml` do seu projeto
+1. Adicione a seguinte dependência no `pom.xml` do seu projeto
 
     ```xml
     <dependency>
@@ -35,7 +35,7 @@ Se você não tiver uma instância do Azure Spring Cloud implantada, siga as eta
         <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
     </dependency>
     ```
-1. Remover propriedades `spring.redis.*`, se houver, no arquivo `application.properties`
+1. Remover propriedades de `spring.redis.*`, se houver, no arquivo `application.properties`
 
 1. Atualize a implantação atual usando `az spring-cloud app update` ou crie uma nova implantação usando `az spring-cloud app deployment create`.
 

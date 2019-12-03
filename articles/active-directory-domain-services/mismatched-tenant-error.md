@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 8b1c3184ada743fddb78e1a3d0ce8d67f1f1a94f
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693331"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704552"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório incompatíveis para domínios gerenciados Azure AD Domain Services existentes
 
@@ -26,7 +26,7 @@ Este artigo explica por que o erro ocorre e como resolvê-lo.
 
 ## <a name="what-causes-this-error"></a>O que causa esse erro?
 
-Um erro de diretório incompatível ocorre quando um domínio gerenciado do Azure AD DS e uma rede virtual pertencem a dois locatários diferentes do Azure AD. Por exemplo, você pode ter um domínio gerenciado AD DS do Azure chamado *contoso.com* que é executado no locatário do Azure ad da contoso. No entanto, a rede virtual do Azure para o domínio gerenciado faz parte do locatário do Azure AD da Fabrikam.
+Um erro de diretório incompatível ocorre quando um domínio gerenciado do Azure AD DS e uma rede virtual pertencem a dois locatários diferentes do Azure AD. Por exemplo, você pode ter um domínio gerenciado AD DS do Azure chamado *aadds.contoso.com* que é executado no locatário do Azure ad da contoso. No entanto, a rede virtual do Azure para o domínio gerenciado faz parte do locatário do Azure AD da Fabrikam.
 
 O Azure usa o RBAC (controle de acesso baseado em função) para limitar o acesso aos recursos. Quando você habilita o Azure AD DS em um locatário do Azure AD, os hashes de credenciais são sincronizados com o domínio gerenciado. Esta operação exige que você seja um administrador de locatários para o diretório do Azure AD e o acesso às credenciais deve ser controlado. Para implantar recursos em uma rede virtual do Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual na qual você implanta o Azure AD DS.
 

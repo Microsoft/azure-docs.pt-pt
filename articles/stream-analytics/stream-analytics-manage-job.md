@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar um trabalho de Stream Analytics usando portal do Azure
+title: Tutorial – criar e gerenciar um trabalho de Stream Analytics usando portal do Azure
 description: Este tutorial fornece uma demonstração ponto a ponto de como utilizar o Azure Stream Analytics para analisar chamadas fraudulentas num fluxo de chamadas telefónica.
 services: stream-analytics
 author: mamccrea
@@ -9,14 +9,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 128859a00402c3381edfa65918a7135c9fd775de
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925282"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707388"
 ---
-# <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analisar dados de chamada telefônica com Stream Analytics e Visualizar resultados no painel Power BI
+# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: analisar dados de chamada telefônica com Stream Analytics e Visualizar resultados no painel Power BI
 
 Este tutorial ensina como analisar dados de chamadas telefónicas com o Azure Stream Analytics. Os dados de chamada telefônica, gerados por um aplicativo cliente, contêm algumas chamadas fraudulentas, que serão filtradas pelo trabalho de Stream Analytics.
 

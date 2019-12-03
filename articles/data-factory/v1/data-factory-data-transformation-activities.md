@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3af01ef76421e95f74a65fe597cafff5fa9ef39e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682617"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703381"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "73682617"
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [Personalizado do .NET](data-factory-use-custom-activities.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [atividades de transformação de dados em data Factory](../transform-data.md).
 
@@ -73,7 +73,7 @@ Data Lake Analytics atividade U-SQL executa um script U-SQL em um cluster Azure 
 ## <a name="net-custom-activity"></a>Atividade personalizada do .NET
 Se você precisar transformar dados de uma maneira que não seja suportada pelo Data Factory, poderá criar uma atividade personalizada com sua própria lógica de processamento de dados e usar a atividade no pipeline. Você pode configurar a atividade personalizada do .NET para ser executada usando um serviço de lote do Azure ou um cluster do Azure HDInsight. Consulte o artigo [usar atividades personalizadas](data-factory-use-custom-activities.md) para obter detalhes. 
 
-Pode criar uma atividade personalizada para executar scripts R no seu cluster do HDInsight com R instalado. Veja [Run R Script using Azure Data Factory (Executar Script R com o Azure Data Factory)](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+Pode criar uma atividade personalizada para executar scripts R no seu cluster do HDInsight com R instalado. Veja [Run R Script using Azure Data Factory (Executar Script R com o Azure Data Factory)](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
 
 ## <a name="compute-environments"></a>Ambientes de computação
 Você cria um serviço vinculado para o ambiente de computação e, em seguida, usa o serviço vinculado ao definir uma atividade de transformação. Há dois tipos de ambientes de computação com suporte pelo Data Factory. 

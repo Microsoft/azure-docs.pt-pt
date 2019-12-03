@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 31a1c7cd72d57b9c680452d5e84f8fe78f47cebb
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693319"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704280"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Entender os Estados de integridade e resolver domínios suspensos no Azure Active Directory Domain Services
 
@@ -35,7 +35,7 @@ Um domínio gerenciado do Azure AD DS pode estar em um dos seguintes Estados:
 * [Executado](#running-state)
 * [Precisa de atenção](#needs-attention-state)
 * [Suspenso](#suspended-state)
-* [Excluí](#deleted-state)
+* [Eliminado](#deleted-state)
 
 ## <a name="running-state"></a>Estado de execução
 
@@ -72,7 +72,7 @@ Quando um domínio gerenciado do Azure AD DS está no estado *precisa de atenç�
 Um domínio gerenciado do Azure AD DS entra no estado **suspenso** por um dos seguintes motivos:
 
 * Um ou mais alertas críticos não foram resolvidos em 15 dias.
-    * Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso a recursos que são necessários para o Azure AD DS. Por exemplo, o alerta [AADDS104: O erro][alert-nsg] de rede não foi resolvido por mais de 15 dias no domínio gerenciado.
+    * Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso a recursos que são necessários para o Azure AD DS. Por exemplo, o alerta [AADDS104: erro de rede][alert-nsg] não foi resolvido por mais de 15 dias no domínio gerenciado.
 * Há um problema de cobrança com a assinatura do Azure ou a assinatura do Azure expirou.
 
 Os domínios gerenciados são suspensos quando a plataforma Azure não pode gerenciar, monitorar, aplicar patch ou fazer backup do domínio. Um domínio gerenciado permanece em um estado *suspenso* por 15 dias. Para manter o acesso ao domínio gerenciado, resolva alertas críticos imediatamente.
@@ -96,7 +96,7 @@ Você verá um [alerta][resolve-alerts] na página do Azure AD DS Health no port
 Para restaurar a integridade de um domínio gerenciado AD DS do Azure que está no estado *suspenso* , conclua as seguintes etapas:
 
 1. Na portal do Azure, procure e selecione serviços de **domínio**.
-1. Escolha o domínio gerenciado AD DS do Azure na lista, como *contoso.com*, e selecione **integridade**.
+1. Escolha o domínio gerenciado AD DS do Azure na lista, como *aadds.contoso.com*, e selecione **integridade**.
 1. Selecione o alerta, como *AADDS503* ou *AADDS504*, dependendo da causa da suspensão.
 1. Escolha o link de resolução fornecido no alerta e siga as etapas para resolvê-lo.
 

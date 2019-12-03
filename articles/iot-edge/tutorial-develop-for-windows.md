@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: desenvolver módulo para dispositivos Windows-Azure IoT Edge'
+title: Tutorial-desenvolver módulo para dispositivos Windows usando Azure IoT Edge
 description: Este tutorial explica como configurar seu computador de desenvolvimento e recursos de nuvem para desenvolver IoT Edge módulos usando contêineres do Windows para dispositivos Windows
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 67a80178c5cd800ea08d9f5493efd0f37422fe36
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113979"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707077"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: desenvolver módulos IoT Edge para dispositivos Windows
 
@@ -176,7 +176,7 @@ O tempo de execução de IoT Edge precisa de suas credenciais de registro para e
 
 1. Salve as alterações no arquivo. env.
 
-### <a name="review-the-sample-code"></a>Reveja o código de exemplo
+### <a name="review-the-sample-code"></a>Examine o código de exemplo
 
 O modelo de solução que você criou inclui um código de exemplo para um módulo IoT Edge. Esse módulo de exemplo simplesmente recebe mensagens e as passa. A funcionalidade de pipeline demonstra um conceito importante em IoT Edge, que é como os módulos se comunicam entre si.
 
@@ -211,7 +211,7 @@ O código C# de exemplo que vem com o modelo de projeto usa a [classe ModuleClie
    ![Examinar rotas em Deployment. Template. JSON](./media/tutorial-develop-for-windows/deployment-routes.png)
 
 
-## <a name="build-and-push-your-solution"></a>Criar e emitir sua solução
+## <a name="build-and-push-your-solution"></a>Crie e envie por push sua solução
 
 Você examinou o código do módulo e o modelo de implantação para entender alguns dos principais conceitos de implantação. Agora, você está pronto para criar a imagem de contêiner IotEdgeModule1 e enviá-la por push para o registro de contêiner. Com a extensão de ferramentas de IoT para Visual Studio, essa etapa também gera o manifesto de implantação com base nas informações no arquivo de modelo e nas informações do módulo dos arquivos da solução. 
 
@@ -338,5 +338,5 @@ Os comandos nesta seção são para seu dispositivo IoT Edge, não para seu comp
 Neste tutorial, você configura o Visual Studio 2019 em seu computador de desenvolvimento e implantou seu primeiro módulo IoT Edge a partir dele. Agora que você conhece os conceitos básicos, tente adicionar funcionalidade a um módulo para que ele possa analisar os dados que passam por ele. Escolha seu idioma preferencial: 
 
 > [!div class="nextstepaction"] 
-> [C](tutorial-c-module-windows.md)
-> [C#](tutorial-csharp-module-windows.md)
+> 
+>  de [C](tutorial-c-module-windows.md)[C#](tutorial-csharp-module-windows.md)

@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646137"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708655"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínuas para o Azure SQL Data Warehouse
 
@@ -25,12 +25,8 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 
 - Percorrer o [tutorial de integração de controle do código-fonte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
 
-- Criar um [agente auto-hospedado](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) que tenha o bits de visualização do SSDT (16,3 Preview 2 e superior) instalado para SQL data warehouse (versão prévia)
-
 - Configurar e conectar-se ao Azure DevOps
 
-  > [!NOTE]
-  > No momento, o SSDT está em visualização, no qual você precisará aproveitar um agente auto-hospedado. Os agentes hospedados pela Microsoft serão atualizados nos próximos meses.
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Integração contínua com o Visual Studio Build
 
@@ -49,13 +45,13 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 Neste ponto, você tem um ambiente simples em que qualquer check-in em sua Branch mestre do repositório de controle do código-fonte deve disparar automaticamente uma compilação bem-sucedida do Visual Studio do seu projeto de banco de dados. Valide se a automação está funcionando de ponta a ponta fazendo uma alteração no projeto de banco de dados local e fazendo o check-in dessa alteração para sua ramificação mestre.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do banco de dados SQL do Azure
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação SQL Data Warehouse (ou banco de dados) do Azure
 
-1. Adicione uma nova tarefa usando a [tarefa de implantação do banco de dados SQL do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado a partir do processo de compilação anterior é implantado no data warehouse de destino.
+1. Adicione uma nova tarefa usando a [tarefa de implantação do banco de dados SQL do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado a partir do processo de compilação anterior é implantado no data warehouse de destino. Você também pode usar a [tarefa de implantação do DataWarehouse do SQL do Azure](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
 
       ![Tarefa de implantação](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 
-2. Ao usar um agente auto-hospedado, certifique-se de definir sua variável de ambiente para usar o SqlPackage. exe correto para SQL Data Warehouse. O caminho deve ser semelhante a este:
+2. Se você estiver usando um agente auto-hospedado, certifique-se de definir sua variável de ambiente para usar o SqlPackage. exe correto para SQL Data Warehouse. O caminho deve ser semelhante a este:
 
       ![Variável de ambiente](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável de ambiente")
 

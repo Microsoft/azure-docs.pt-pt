@@ -1,5 +1,5 @@
 ---
-title: Executar Azure Functions em trabalhos do Azure Stream Analytics
+title: Tutorial – executar Azure Functions em trabalhos do Azure Stream Analytics
 description: Neste tutorial, irá aprender a configurar Funções do Azure como um sink de saída para tarefas do Stream Analytics.
 services: stream-analytics
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 1ea454f82232fdae17544efc2f0bdfd4601c497e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 189f38c075c5faa91295633d1e4cbde1f7e573a2
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934206"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707297"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: executar Azure Functions de trabalhos de Azure Stream Analytics 
 

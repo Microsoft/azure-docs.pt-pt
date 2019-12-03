@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240890"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707211"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o serviço kubernetes do Azure
 
@@ -41,7 +41,7 @@ O AKS não é uma solução de cluster completamente gerenciada. Alguns componen
 Os serviços são *gerenciados* no sentido de que a Microsoft e a equipe AKs implantam, operam e são responsáveis pela disponibilidade e funcionalidade do serviço. Os clientes não podem alterar esses componentes gerenciados. A Microsoft limita a personalização para garantir uma experiência de usuário consistente e escalonável. Para obter uma solução totalmente personalizável, consulte [AKs Engine](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> Os nós de trabalho do AKS aparecem no portal do Azure como recursos comuns de IaaS do Azure. Mas essas máquinas virtuais são implantadas em um grupo de recursos do Azure personalizado (\\prefixado com MC *). É possível alterar os nós de trabalho do AKS. Por exemplo, você pode usar Secure Shell (SSH) para alterar nós de trabalho do AKS da maneira como altera as máquinas virtuais normais (não é possível, no entanto, alterar a imagem do sistema operacional base, e as alterações podem não persistir por uma atualização ou reinicialização) e você pode anexar outros recursos do Azure ao AKS nós de trabalho. Mas quando você faz alterações *fora do gerenciamento de banda e da personalização,* o cluster AKs pode se tornar incompatível. Evite alterar os nós de trabalho, a menos que Suporte da Microsoft o Direcione para fazer alterações.
+> Os nós de trabalho do AKS aparecem no portal do Azure como recursos comuns de IaaS do Azure. Mas essas máquinas virtuais são implantadas em um grupo de recursos do Azure personalizado (prefixado com o MC\\*). É possível alterar os nós de trabalho do AKS. Por exemplo, você pode usar Secure Shell (SSH) para alterar nós de trabalho do AKS da maneira como altera as máquinas virtuais normais (não é possível, no entanto, alterar a imagem do sistema operacional base, e as alterações podem não persistir por uma atualização ou reinicialização) e você pode anexar outros recursos do Azure ao AKS nós de trabalho. Mas quando você faz alterações *fora do gerenciamento de banda e da personalização,* o cluster AKs pode se tornar incompatível. Evite alterar os nós de trabalho, a menos que Suporte da Microsoft o Direcione para fazer alterações.
 
 ## <a name="shared-responsibility"></a>Responsabilidade partilhada
 
@@ -95,7 +95,7 @@ A Microsoft e os clientes compartilham responsabilidade para nós de trabalho ku
   * Docker ou daemon do Moby
 
 > [!NOTE]
-> Em um nó de trabalho, se um componente de plano de controle não estiver operacional, a equipe AKS poderá precisar reinicializar componentes individuais ou o nó de trabalho inteiro. Essas operações de reinicialização são automatizadas e fornecem correção automática para problemas comuns. Essas reinicializações ocorrem apenas no nível do _nó_ e não no cluster, a menos que sejam uma manutenção ou interrupção de emergência.
+> Em um nó de trabalho, se um componente de plano de controle não estiver operacional, a equipe AKS poderá precisar reinicializar componentes individuais ou o nó de trabalho inteiro. Essas operações de reinicialização são automatizadas e fornecem correção automática para problemas comuns. Essas reinicializações ocorrem apenas no nível do _nó_ e não no cluster, a menos que haja uma manutenção ou interrupção de emergência.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilidades do cliente para nós de trabalho do AKS
 

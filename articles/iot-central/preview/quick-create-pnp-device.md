@@ -1,6 +1,6 @@
 ---
-title: Adicionar um dispositivo simulado ao Azure IoT Central | Microsoft Docs
-description: Crie um modelo de dispositivo e adicione um dispositivo simulado ao seu aplicativo IoT Central.
+title: Início rápido-adicionar um dispositivo simulado ao Azure IoT Central
+description: Este guia de início rápido mostra como criar um modelo de dispositivo e adicionar um dispositivo simulado ao seu aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 8b6720af6328242a1fe297e60c9d413d0b83f3d2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893824"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706702"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Início rápido: adicionar um dispositivo simulado ao seu aplicativo de IoT Central (recursos de visualização)
 
@@ -72,8 +72,8 @@ Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de 
 
     | Nome a Apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Date   |
-    | Nome do cliente     | Nenhum          | String |
+    | Data da Última Assistência | Nenhuma          | Date   |
+    | Nome do cliente     | Nenhuma          | String |
 
 1. Selecione **salvar** para salvar as alterações:
 
@@ -150,7 +150,7 @@ Para adicionar um dispositivo simulado ao seu aplicativo, use o modelo de dispos
 
 1. Para adicionar um dispositivo de sensor de ambiente simulado, selecione **+ novo**. Use a **ID de dispositivo** sugerida ou insira sua própria **ID de dispositivo**em minúsculas. Você também pode inserir um nome para o novo dispositivo. Alterne a alternância **simulada** para **ativado** e, em seguida, selecione **criar**.
 
-    ![Dispositivo simulado](./media/quick-create-pnp-device/simulated-device.png)
+    ![Dispositivo de simulação](./media/quick-create-pnp-device/simulated-device.png)
 
 Agora você pode interagir com as exibições que foram criadas pelo construtor para o modelo de dispositivo usando dados simulados.
 

@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: naF
 ms.topic: conceptual
 ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 264c60c719ffdd94664ae3a85fc67894d14f394d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 904165c4a221e1db30f9aa1ce1f2ce7b21cf04ed
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484449"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703840"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -145,7 +145,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **URL do GitHub Enterprise** | A URL raiz da empresa do GitHub. Por exemplo: https://github.mydomain.com. Necessário somente se **usar o GitHub Enterprise** estiver selecionado | `<your GitHub enterprise url>` |                                                           
 | **Conta do GitHub** | O nome da sua conta do GitHub. Esse nome pode ser encontrado em https:\/nome do/github.com/{Account}/{Repository Name}. Navegar até esta página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um repositório existente que já esteja em sua conta. | `<your repository name>` |
-| **Branch de colaboração** | Sua ramificação de colaboração do GitHub que é usada para publicação. Por padrão, seu mestre. Altere essa configuração caso você queira publicar recursos de outra ramificação. | `<your collaboration branch>` |
+| **Branch de colaboração** | Sua ramificação de colaboração do GitHub que é usada para publicação. Por padrão, é o mestre. Altere essa configuração caso você queira publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz na sua ramificação de colaboração do GitHub. |`<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se os recursos existentes do data factory devem ser importados da tela de criação do UX em um repositório do GitHub. Selecione a caixa para importar seus recursos de data factory para o repositório git associado no formato JSON. Essa ação exporta cada recurso individualmente (ou seja, os serviços vinculados e os conjuntos de valores são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionado (padrão) |
 | **Branch para importar recurso para** | Especifica em qual ramificação os recursos de data factory (pipelines, conjuntos de valores, serviços vinculados etc.) são importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar existente |  |
@@ -170,7 +170,7 @@ Depois que o painel configurações do repositório for exibido, selecione **rem
 
 Depois de remover a associação com o repositório atual, você pode definir as configurações do git para usar um repositório diferente e, em seguida, importar recursos existentes do Data Factory para o novo repositório. 
 
-## <a name="version-control"></a>Controle de versão
+## <a name="version-control"></a>Controlo de versões
 
 Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem que os desenvolvedores colaborem no código e controlem as alterações feitas na base de código. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
@@ -236,7 +236,7 @@ Normalmente, você não quer que todos os membros da equipe tenham permissões p
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Usando senhas de Azure Key Vault
 
-é recomendável usar Azure Key Vault para armazenar quaisquer cadeias de conexão ou senhas para Data Factory serviços vinculados. Por motivos de segurança, não armazenamos nenhuma informação secreta no git, portanto, quaisquer alterações nos serviços vinculados são publicadas imediatamente no serviço de Azure Data Factory.
+É recomendável usar Azure Key Vault para armazenar quaisquer cadeias de conexão ou senhas para Data Factory serviços vinculados. Por motivos de segurança, não armazenamos nenhuma informação secreta no git, portanto, quaisquer alterações nos serviços vinculados são publicadas imediatamente no serviço de Azure Data Factory.
 
 Usar Key Vault também facilita a integração e a implantação contínua, pois você não precisará fornecer esses segredos durante a implantação do modelo do Resource Manager.
 
@@ -256,7 +256,7 @@ Selecione **comentários** para comentar sobre recursos ou notificar a Microsoft
 
 ![Comentários](media/author-visually/provide-feedback.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como monitorar e gerenciar pipelines, confira [monitorar e gerenciar pipelines programaticamente](monitor-programmatically.md).
 * Para implementar a integração e a implantação contínuas, consulte [integração e entrega contínuas (CI/CD) em Azure data Factory](continuous-integration-deployment.md).

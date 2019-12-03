@@ -1,6 +1,6 @@
 ---
-title: Monitorizar os seus dispositivos no Azure IoT Central | Microsoft Docs
-description: Como operador, utilize a aplicação Azure IoT Central para monitorizar os seus dispositivos.
+title: Início rápido-monitorar seus dispositivos no Azure IoT Central
+description: Como um operador, use seu aplicativo de IoT Central do Azure para monitorar seus dispositivos neste guia de início rápido.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: de83315f38766bc1e2f37ac82452bb023930f241
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6bc4b76dc00330e39526aec8bc5651b9abb590b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893775"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706731"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices-preview-features"></a>Início rápido: usar o Azure IoT Central para monitorar seus dispositivos (recursos de visualização)
 

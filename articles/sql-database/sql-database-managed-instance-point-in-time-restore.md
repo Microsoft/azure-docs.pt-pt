@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: ad96d0a04b03e070a7108832370749377d723826
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821750"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707653"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados SQL em uma instância gerenciada para um ponto anterior no tempo
 
@@ -58,7 +58,7 @@ Restaure um banco de dados existente para a mesma instância usando o portal do 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Vá para a instância gerenciada e selecione o banco de dados que você deseja restaurar.
 3. Selecione **restaurar** na página do banco de dados:
 
@@ -230,7 +230,7 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 Conecte-se diretamente à instância gerenciada e inicie SQL Server Management Studio. Em seguida, execute a seguinte consulta Transact-SQL (T-SQL). A consulta irá alterar o nome do banco de dados restaurado para o do banco de dados removido que você pretende substituir.
 
 ```sql
-ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
+ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
 Use um dos seguintes métodos para se conectar ao banco de dados na instância gerenciada:

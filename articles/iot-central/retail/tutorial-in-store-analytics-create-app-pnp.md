@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um aplicativo de análise no repositório no Azure IoT Central'
+title: Tutorial-criar um aplicativo de análise no repositório no Azure IoT Central
 description: Este tutorial mostra como criar um aplicativo de varejo de análise no repositório no IoT Central. Você o criará, personalizará e adicionará dispositivos de sensor.
 services: iot-central
 ms.service: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112895"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702030"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: criar um aplicativo de análise no repositório no Azure IoT Central
 
@@ -186,7 +186,7 @@ Para o tipo de telemetria `humidity`, faça as seguintes alterações:
 
 1. Altere a opção **tipo semântico** de *nenhum* para *umidade*.  Opcionalmente, defina valores de esquema para o tipo de telemetria umidade na exibição de esquema expandida. As configurações de esquema permitem que você crie requisitos de validação detalhados para os dados que seus sensores acompanham. Por exemplo, você pode definir valores mínimo e máximo de intervalo operacional para uma determinada interface.
 
-1. Selecione **guardar** para guardar as alterações.
+1. Selecione **salvar** para salvar as alterações.
 
     ![Personalização do modelo de dispositivo RuuviTag do Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template-customize.png)
 

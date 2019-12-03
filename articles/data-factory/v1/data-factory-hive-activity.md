@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666998"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703360"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -72,7 +72,7 @@ A atividade do hive do HDInsight em um [pipeline](data-factory-create-pipelines.
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | nome |Nome da atividade |Sim |
 | descrição |Texto que descreve para que a atividade é usada |Não |
@@ -241,10 +241,10 @@ Para usar o script Hive com parâmetros, faça o seguinte
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-  ## <a name="see-also"></a>Veja também
+  ## <a name="see-also"></a>Consulte também
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas do Spark](data-factory-spark.md)
-* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

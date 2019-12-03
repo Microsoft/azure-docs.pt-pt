@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844409"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706079"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contêineres não particionados para contêineres particionados
 
@@ -24,7 +24,7 @@ Os contêineres não particionados são herdados e você deve migrar seus contê
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrar o contêiner usando a chave de partição definida pelo sistema
 
-Para dar suporte à migração, o Azure Cosmos DB fornece uma chave de partição `/_partitionkey` definida pelo sistema chamada em todos os contêineres que não têm uma chave de partição. Você não pode alterar a definição de chave de partição depois que os contêineres são migrados. Por exemplo, a definição de um contêiner que é migrado para um contêiner particionado será a seguinte:
+Para dar suporte à migração, o Azure Cosmos DB fornece uma chave de partição definida pelo sistema chamada `/_partitionkey` em todos os contêineres que não têm uma chave de partição. Você não pode alterar a definição de chave de partição depois que os contêineres são migrados. Por exemplo, a definição de um contêiner que é migrado para um contêiner particionado será a seguinte:
 
 ```json
 {
@@ -38,7 +38,7 @@ Para dar suporte à migração, o Azure Cosmos DB fornece uma chave de partiçã
 }
 ```
 
-Depois que o contêiner é migrado, você pode criar documentos preenchendo a `_partitionKey` Propriedade junto com as outras propriedades do documento. A `_partitionKey` propriedade representa a chave de partição de seus documentos.
+Depois que o contêiner é migrado, você pode criar documentos preenchendo a propriedade `_partitionKey` junto com as outras propriedades do documento. A propriedade `_partitionKey` representa a chave de partição de seus documentos.
 
 A escolha da chave de partição correta é importante para utilizar a taxa de transferência provisionada de forma ideal. Para obter mais informações, consulte [o artigo como escolher uma chave de partição](partitioning-overview.md) .
 
@@ -91,11 +91,11 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Para obter o exemplo completo, consulte o repositório GitHub de [exemplos do .net](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) .
+Para obter o exemplo completo, consulte o repositório GitHub de [exemplos do .net][1] .
                       
 ## <a name="migrate-the-documents"></a>Migrar os documentos
 
-Embora a definição de contêiner seja aprimorada com uma propriedade de chave de partição, os documentos dentro do contêiner não são migrados automaticamente. Isso significa que o caminho da propriedade `/_partitionKey` de chave de partição do sistema não é adicionado automaticamente aos documentos existentes. Você precisa reparticionar os documentos existentes lendo os documentos que foram criados sem uma chave de partição e regravá-los novamente `_partitionKey` com a propriedade nos documentos.
+Embora a definição de contêiner seja aprimorada com uma propriedade de chave de partição, os documentos dentro do contêiner não são migrados automaticamente. Isso significa que a propriedade de chave de partição do sistema `/_partitionKey` caminho não é adicionado automaticamente aos documentos existentes. Você precisa reparticionar os documentos existentes lendo os documentos que foram criados sem uma chave de partição e regravá-los novamente com a propriedade `_partitionKey` nos documentos.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Acessar documentos que não têm uma chave de partição
 
@@ -110,7 +110,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Para obter o exemplo completo sobre como reparticionar os documentos, consulte o repositório GitHub de [exemplos do .net](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) . 
+Para obter o exemplo completo sobre como reparticionar os documentos, consulte o repositório GitHub de [exemplos do .net][1] . 
 
 ## <a name="compatibility-with-sdks"></a>Compatibilidade com SDKs
 
@@ -122,5 +122,7 @@ Se um contêiner migrado for consumido pela versão mais recente/V3 do SDK e voc
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-* [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md)
+* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com a conta do Azure Cosmos](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

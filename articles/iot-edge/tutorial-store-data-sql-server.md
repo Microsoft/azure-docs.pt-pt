@@ -1,6 +1,6 @@
 ---
-title: Tutorial de armazenamento dados com o módulo SQL - Azure IoT Edge | Documentos da Microsoft
-description: Saiba como armazenar dados localmente no seu dispositivo IoT Edge com um módulo do SQL Server
+title: Tutorial – armazenar dados com o módulo SQL usando Azure IoT Edge
+description: Este tutorial mostra como armazenar dados localmente em seu dispositivo IoT Edge com um módulo SQL Server
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,18 +9,18 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a3133100621cee2e786c4001df02f2316b1e4ec
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457063"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701902"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
 Implante um módulo SQL Server para armazenar dados em um dispositivo Linux que executa o Azure IoT Edge.
 
-Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. O Azure IoT Edge tem capacidades de armazenamento básico em cache as mensagens se um dispositivo ficar offline e, em seguida, reencaminhe-os quando a ligação for restabelecida. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Seus dispositivos IoT Edge podem usar bancos de dados locais para executar uma computação mais complexa sem precisar manter uma conexão com o Hub IoT. 
+Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. Azure IoT Edge tem recursos de armazenamento básico para armazenar mensagens em cache se um dispositivo ficar offline e, em seguida, encaminhá-las quando a conexão for restabelecida. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Seus dispositivos IoT Edge podem usar bancos de dados locais para executar uma computação mais complexa sem precisar manter uma conexão com o Hub IoT. 
 
 Este artigo fornece instruções para implementar uma base de dados do SQL Server num dispositivo IoT Edge. As Funções do Azure, em execução no dispositivo IoT Edge, estruturam os dados recebidos e, em seguida, envia-os para a base de dados. Os passos neste artigo também podem ser aplicados a outras bases de dados que funcionam em contentores, como o MySQL ou o PostgreSQL.
 
@@ -244,7 +244,7 @@ Nas secções anteriores, criou uma solução com um módulo e, em seguida, adic
 
 2. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
 
-Quando você informa Visual Studio Code para criar sua solução, ela primeiro pega as informações no modelo de implantação e gera um arquivo Deployment. JSON em uma nova pasta chamada **config**. Em seguida, ele executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos Compile seu código, o módulo de colocar num contentor e, em seguida, enviar o código para o registo de contentor que especificou quando a solução é inicializado. 
+Quando você informa Visual Studio Code para criar sua solução, ela primeiro pega as informações no modelo de implantação e gera um arquivo Deployment. JSON em uma nova pasta chamada **config**. Em seguida, ele executa dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, colocamos em contêineres o módulo e, em seguida, enviamos o código para o registro de contêiner que você especificou quando inicializou a solução. 
 
 Você pode verificar se o módulo SqlFunction foi enviado com êxito para o registro de contêiner. Na portal do Azure, navegue até o registro de contêiner. Selecione **repositórios** e pesquise **SqlFunction**. Os outros dois módulos, SimulatedTemperatureSensor e SQL, não serão enviados para o registro de contêiner porque você já está apontando para seus repositórios nos registros da Microsoft.
 
@@ -262,7 +262,7 @@ Pode definir módulos num dispositivo através do Hub IoT, mas também pode aced
 
 Se a implementação for bem-sucedida, é apresentada uma mensagem de confirmação no resultado do VS Code. 
 
-Atualize o estado do seu dispositivo na secção de dispositivos de Hub IoT do Azure do VS Code. Os novos módulos são listados e começarão a ser relatados como sendo executados nos próximos minutos, já que os contêineres são instalados e iniciados. Também pode verificar se todos os módulos estão em execução no seu dispositivo. No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. 
+Atualize o status do seu dispositivo na seção dispositivos do Hub IoT do Azure de VS Code. Os novos módulos são listados e começarão a ser relatados como sendo executados nos próximos minutos, já que os contêineres são instalados e iniciados. Também pode verificar se todos os módulos estão em execução no seu dispositivo. No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. 
 
    ```cmd/sh
    iotedge list
@@ -272,9 +272,9 @@ Atualize o estado do seu dispositivo na secção de dispositivos de Hub IoT do A
 
 Ao aplicar o manifesto de implementação ao seu dispositivo, obtém três módulos em execução. O módulo SimulatedTemperatureSensor gera dados de ambiente simulados. O módulo sqlFunction utiliza os dados e formata-os para uma base de dados. Esta secção orienta-o na configuração da base de dados do SQL Server para armazenar os dados de temperatura. 
 
-Execute os seguintes comandos no seu dispositivo IoT Edge. Esses comandos se conectam ao módulo do **SQL** em execução no seu dispositivo e criam um banco de dados e uma tabela para manter a data de temperatura que está sendo enviada a ele. 
+Execute os comandos a seguir em seu dispositivo IoT Edge. Esses comandos se conectam ao módulo do **SQL** em execução no seu dispositivo e criam um banco de dados e uma tabela para manter a data de temperatura que está sendo enviada a ele. 
 
-1. Uma ferramenta da linha de comandos no seu dispositivo IoT Edge, ligar à base de dados. 
+1. Em uma ferramenta de linha de comando em seu dispositivo IoT Edge, conecte-se ao banco de dados. 
       ```bash
       sudo docker exec -it sql bash
       ```
@@ -312,7 +312,7 @@ A partir da ferramenta de comandos SQL, execute o seguinte comando para ver os d
    GO
    ```
 
-   ![Ver conteúdos da base de dados local](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Exibir conteúdo do banco de dados local](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

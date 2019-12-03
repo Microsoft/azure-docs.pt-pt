@@ -1,19 +1,19 @@
 ---
-title: 'Início rápido: iniciar seu aplicativo Spring Cloud a partir do código-fonte'
-description: Saiba como iniciar seu aplicativo de nuvem Spring do Azure diretamente do seu código-fonte
+title: Início rápido – iniciar seu aplicativo Spring Cloud a partir do código-fonte
+description: Neste guia de início rápido, saiba como iniciar seu aplicativo de nuvem Spring do Azure diretamente do seu código-fonte
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721281"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708878"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>Iniciar seu aplicativo Spring Cloud a partir do código-fonte
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Início rápido: iniciar seu aplicativo Spring Cloud a partir do código-fonte
 
 O Azure Spring Cloud permite que você execute facilmente aplicativos de microserviço baseados na Spring Cloud no Azure.
 
@@ -35,7 +35,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Antes de começar, verifique se sua assinatura do Azure tem as dependências necessárias:
 
-1. [Instale o Git](https://git-scm.com/).
+1. [Instalar o Git](https://git-scm.com/)
 2. [Instalar o JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
 4. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -110,7 +110,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 O Azure Spring Cloud usa o [kpack](https://github.com/pivotal/kpack) para criar seu projeto.  Você pode usar CLI do Azure para carregar seu código-fonte, criar seu projeto usando kpack e implantá-lo no aplicativo de destino.
 
 > [!WARNING]
-> O projeto deve produzir apenas um arquivo JAR com uma entrada `main-class` no `MANIFEST.MF` no `target` (para implantações Maven ou `build/libs` (para implantações gradle).  Vários arquivos JAR com entradas `main-class` farão com que a implantação falhe.
+> O projeto deve produzir apenas um arquivo JAR com uma entrada `main-class` na `MANIFEST.MF` no `target` (para implantações do Maven ou `build/libs` (para implantações gradle).  Vários arquivos JAR com entradas de `main-class` farão com que a implantação falhe.
 
 Para projetos do único módulo Maven/gradle:
 

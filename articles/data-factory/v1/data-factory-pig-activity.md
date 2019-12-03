@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a6861a22f853bb0b48eb7c9832adb251bc3467ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682401"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703198"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -82,7 +82,7 @@ A atividade Pig do HDInsight em um [pipeline](data-factory-create-pipelines.md) 
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | nome |Nome da atividade |Sim |
 | descrição |Texto que descreve para que a atividade é usada |Não |
@@ -219,9 +219,9 @@ Para usar o script Pig com parâmetros, faça o seguinte:
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Atividade do hive](data-factory-hive-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas do Spark](data-factory-spark.md)
-* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

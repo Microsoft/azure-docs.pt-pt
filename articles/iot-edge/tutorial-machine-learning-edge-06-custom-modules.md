@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: treinar & implantar modelo-Azure IoT Edge & Machine Learning'
-description: 'Tutorial: criar e implantar módulos de IoT Edge que processam dados de dispositivos folha por meio de um modelo de aprendizado de máquina e, em seguida, enviam as informações ao Hub IoT.'
+title: 'Tutorial: criar e implantar módulos personalizados – Machine Learning em Azure IoT Edge'
+description: Este tutorial mostra como criar e implantar IoT Edge módulos que processam dados de dispositivos folha por meio de um modelo de aprendizado de máquina e, em seguida, enviam as informações ao Hub IoT.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 371c897f0b4858a642322ff35a6008edbe9a651d
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664221"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701835"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: criar e implantar módulos de IoT Edge personalizados
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 525ea421eb0fa0131fa91078b0619b8463f6fbb0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e6645a131766b7ec055ba1c8bb639f054f50c80b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546250"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704391"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Quando o portal do Azure mostra que o domínio gerenciado do Azure AD DS conclui
 
 Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado AD DS do Azure, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *contoso.com*.
+1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *aadds.contoso.com*.
 1. Selecione **sincronização** no menu do lado esquerdo.
 1. Para adicionar um grupo, escolha **+ Selecionar grupos** na parte superior e, em seguida, escolha os grupos a serem adicionados.
 1. Para remover um grupo do escopo de sincronização, selecione-o na lista de grupos sincronizados no momento e escolha **remover grupos**.
@@ -82,7 +82,7 @@ Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do A
 
 Para desabilitar a sincronização com escopo baseado em grupo para um domínio gerenciado do Azure AD DS, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *contoso.com*.
+1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *aadds.contoso.com*.
 1. Selecione **sincronização** no menu do lado esquerdo.
 1. Defina o escopo de sincronização de **escopo** para **todos**e selecione **salvar escopo de sincronização**.
 
@@ -194,11 +194,11 @@ Use o PowerShell para concluir este conjunto de etapas. Consulte as instruções
 
 1. Agora, crie o domínio gerenciado AD DS do Azure e habilite a sincronização com escopo baseado em grupo. Inclua *"filteredSync" = "Enabled"* no parâmetro *-Properties* .
 
-    Defina sua ID de assinatura do Azure e forneça um nome para o domínio gerenciado, como *contoso.com*. Você pode obter sua ID de assinatura usando o cmdlet [Get-AzSubscription][Get-AzSubscription] . Defina o nome do grupo de recursos, o nome da rede virtual e a região para os valores usados nas etapas anteriores para criar os recursos de suporte do Azure:
+    Defina sua ID de assinatura do Azure e forneça um nome para o domínio gerenciado, como *aadds.contoso.com*. Você pode obter sua ID de assinatura usando o cmdlet [Get-AzSubscription][Get-AzSubscription] . Defina o nome do grupo de recursos, o nome da rede virtual e a região para os valores usados nas etapas anteriores para criar os recursos de suporte do Azure:
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
+   $ManagedDomainName = "aadds.contoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"

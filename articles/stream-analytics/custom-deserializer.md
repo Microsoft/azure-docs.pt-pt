@@ -1,5 +1,5 @@
 ---
-title: Desserializadores do .NET personalizados para trabalhos de Azure Stream Analytics nuvem
+title: Tutorial-desserializadores personalizados do .NET para Azure Stream Analytics trabalhos de nuvem
 description: Este tutorial demonstra como criar um desserializador do .NET personalizado para um Azure Stream Analytics trabalho de nuvem usando o Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 56d0927bff928929ca55433a812dfe6c1405a738
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991919"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702444"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: desserializadores .NET personalizados para Azure Stream Analytics
 
@@ -137,4 +137,3 @@ Neste tutorial, você aprendeu a implementar um desserializador .NET personaliza
 
 > [!div class="nextstepaction"]
 > [Criar desserializadores .NET diferentes para trabalhos de Azure Stream Analytics](custom-deserializer-examples.md)
-

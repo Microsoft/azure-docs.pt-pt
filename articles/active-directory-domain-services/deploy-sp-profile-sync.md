@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 90d728ceee0b9a4ed5e5e33805de9358aca6530c
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: a24ff1d5f94a50dc30819e6ab86318592da72e45
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996336"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705215"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurar Azure Active Directory Domain Services para dar suporte à sincronização de perfil de usuário para o SharePoint Server
 
@@ -45,7 +45,7 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
 Em um domínio gerenciado do Azure AD DS, um grupo de segurança chamado **contas de serviço do AAD DC** existe como parte da UO (unidade organizacional) *dos usuários* . Os membros desse grupo de segurança delegam os seguintes privilégios:
 
 - Privilégio de **replicar alterações de diretório** no DSE raiz.
-- Privilégio de **replicar alterações de diretório** no contexto de nomenclatura`cn=configuration` de *configuração* (contêiner).
+- Privilégio de **replicar alterações de diretório** no contexto de nomenclatura de *configuração* (`cn=configuration` contêiner).
 
 O grupo de segurança **contas de serviço do AAD DC** também é um membro do grupo interno **acesso compatível com anterior ao Windows 2000**.
 
@@ -62,14 +62,14 @@ Em sua VM de gerenciamento de AD DS do Azure, conclua as seguintes etapas:
 
 1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 1. Para gerenciar a associação de grupo, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
-1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *contoso.com*. Uma lista de UOs e recursos existentes é mostrada.
+1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*. Uma lista de UOs e recursos existentes é mostrada.
 1. Selecione a UO **usuários** e, em seguida, escolha o grupo de segurança *contas de serviço do AAD DC* .
 1. Selecione **Membros**e, em seguida, escolha **Adicionar...** .
 1. Insira o nome da conta de serviço do SharePoint e, em seguida, selecione **OK**. No exemplo a seguir, a conta de serviço do SharePoint é chamada de *admin*:
 
     ![Adicionar a conta de serviço do SharePoint ao grupo de segurança contas de serviço de DC do AAD](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [conceder permissões de Active Directory Domain Services para a sincronização de perfil no SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
 

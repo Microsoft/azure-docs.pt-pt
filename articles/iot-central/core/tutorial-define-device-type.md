@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: definir um novo tipo de dispositivo no Azure IoT Central'
+title: Tutorial – definir um novo tipo de dispositivo no Azure IoT Central
 description: Este tutorial mostra-lhe como definir, enquanto construtor, um novo tipo de dispositivo na aplicação do Azure IoT Central. Você define a telemetria, o estado, as propriedades e as configurações do seu tipo.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3d79e710f2c71d96179ab8774ee89c90cb462ca4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d986ddcf4b8eccfbd4ac1819f96157b5dfe6fe91
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112346"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705893"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na aplicação do Azure IoT Central
 
@@ -112,7 +112,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
      | Nome do Campo           | temperatura   |
      | Unidades                | F             |
      | Mín.                  | 60            |
-     | Máx.                  | 110           |
+     | Máx                  | 110           |
      | Casas decimais       | 0             |
 
      Também pode escolher uma cor para a apresentação de telemetria. Para salvar a definição de telemetria, selecione **salvar**:
@@ -193,7 +193,7 @@ Você pode usar o estado para definir e visualizar o estado do dispositivo ou se
      | Valor                | 1                 |
      | Etiqueta de apresentação        | Em funcionamento         |
      | Valor                | 0                 |
-     | Etiqueta de apresentação        | Parado           |
+     | Etiqueta de apresentação        | Parada           |
 
      Para salvar a definição de medida de estado, selecione **salvar**:
 

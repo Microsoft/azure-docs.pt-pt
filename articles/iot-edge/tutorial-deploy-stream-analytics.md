@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Stream Analytics na borda-Azure IoT Edge'
+title: Tutorial-Stream Analytics na borda usando Azure IoT Edge
 description: Neste tutorial, você implanta Azure Stream Analytics como um módulo para um dispositivo IoT Edge
 author: kgremban
 ms.author: kgremban
@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7fbbe32efcedd4fa2635db1cc21f7ce98557515b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b4c4415819ba614bb584f1bc5cb0acfe136c174c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452542"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707072"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: implantar Azure Stream Analytics como um módulo IoT Edge
 
@@ -57,7 +57,7 @@ Nesta seção, você cria um trabalho de Azure Stream Analytics que executará a
 * Consultar os dados de telemetria para obter valores fora de um intervalo definido.
 * Tome medidas no dispositivo IoT Edge com base nos resultados da consulta. 
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Create a storage account
 
 Quando cria um trabalho do Azure Stream Analytics para ser executado num dispositivo IoT Edge, o trabalho tem de ser armazenado de forma a poder ser chamado a partir do dispositivo. Pode utilizar uma conta de armazenamento do Azure já existente ou criar uma nova agora. 
 
@@ -244,7 +244,7 @@ Agora você pode acessar o dispositivo IoT Edge para conferir a interação entr
 
    Você pode observar a temperatura do computador gradualmente aumentar até atingir 70 graus por 30 segundos. Em seguida, o módulo do Stream Analytics aciona uma reposição e a temperatura da máquina baixa novamente para 21. 
 
-   ![Repor a saída do comando sobre os registos do módulo](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Redefinir a saída do comando nos logs de módulo](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072346"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707207"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -27,7 +27,7 @@ Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar me
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ver registos de atividades
+> * Ver registos de atividade
 > * Ver registos de diagnóstico
 > * Ver métricas da API 
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
@@ -39,8 +39,8 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -61,7 +61,7 @@ Para aceder a métricas:
 
 1. Selecione **Métricas** no menu junto à parte inferior da página.
 
-    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    ![métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
 1. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **solicitações**. 
 1. O gráfico mostra o número total de chamadas à API.
@@ -116,11 +116,11 @@ Para ver registos de atividades:
 1. Selecione a instância de serviço APIM.
 2. Clique em **Registo de atividades**.
 
-    ![registo de atividade](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+    ![registo de atividades](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
 
 3. Selecione o âmbito de filtragem pretendido e clique em **Aplicar**.
 
-## <a name="diagnostic-logs"></a>Registos de Diagnóstico
+## <a name="diagnostic-logs"></a>Registos de diagnóstico
 
 Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso.
 
@@ -180,53 +180,53 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 }  
 ```
 
-| Property  | Tipo | Descrição |
+| Propriedade  | Tipo | Descrição |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
-| time | date-time | Carimbo de data/hora da receção do pedido HTTP por parte do gateway |
-| operationName | Cadeia de caracteres | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
-| category | Cadeia de caracteres | Valor constante “GatewayLogs” |
-| durationMs | integer | Número de milissegundos a partir do momento em que o gateway recebeu o pedido até ao momento em que a resposta é enviada integralmente |
-| callerIpAddress | Cadeia de caracteres | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
-| correlationId | Cadeia de caracteres | Identificador de pedido http exclusivo atribuído pela Gestão de API |
-| location | Cadeia de caracteres | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
-| httpStatusCodeCategory | Cadeia de caracteres | Categoria do código de status de resposta http: Êxito (301 ou menos ou 304 ou 307), não autorizado (401, 403, 429), errado (400, entre 500 e 600), outros |
-| resourceId | Cadeia de caracteres | ID da assinatura/SUBSCRIPTIONS/\<do recurso de gerenciamento de API > grupo de recursos/RESOURCEGROUPS/\<>/PROVIDERS/Microsoft. > De APIMANAGEMENT/\<serviço/nome |
-| properties | object | Propriedades do pedido atual |
-| method | Cadeia de caracteres | Método HTTP do pedido a receber |
-| url | Cadeia de caracteres | URL do pedido a receber |
-| clientProtocol | Cadeia de caracteres | Versão do protocolo HTTP do pedido a receber |
+| hora | date-time | Carimbo de data/hora de quando o gateway começa a processar a solicitação |
+| operationName | string | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
+| categoria | string | Valor constante “GatewayLogs” |
+| durationMs | número inteiro | Número de milissegundos do gateway de momento recebido a solicitação até que a resposta do momento seja enviada por completo. Inclui clienTime, CacheTime e back-EndTime. |
+| callerIpAddress | string | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
+| correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
+| localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
+| httpStatusCodeCategory | string | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
+| resourceId | string | ID do recurso de gerenciamento de API/SUBSCRIPTIONS/\<assinatura >/RESOURCEGROUPS/\<grupo de recursos >/PROVIDERS/MICROSOFT. Nome do APIMANAGEMENT/serviço/\< |
+| propriedades | objeto | Propriedades do pedido atual |
+| método | string | Método HTTP do pedido a receber |
+| url | string | URL do pedido a receber |
+| clientProtocol | string | Versão do protocolo HTTP do pedido a receber |
 | responseCode | número inteiro | Código de estado da resposta  HTTP enviada para um cliente |
-| backendMethod | Cadeia de caracteres | Método HTTP do pedido enviado para um back-end |
-| backendUrl | Cadeia de caracteres | URLdo pedido enviado para um back-end |
-| backendResponseCode | integer | Código da resposta HTTP recebido a partir de um back-end |
-| backendProtocol | Cadeia de caracteres | Versão do protocolo HTTP do pedido enviado para um back-end | 
+| backendMethod | string | Método HTTP do pedido enviado para um back-end |
+| backendUrl | string | URLdo pedido enviado para um back-end |
+| backendResponseCode | número inteiro | Código da resposta HTTP recebido a partir de um back-end |
+| backendProtocol | string | Versão do protocolo HTTP do pedido enviado para um back-end | 
 | requestSize | número inteiro | Número de bytes recebidos de um cliente durante o processamento do pedido | 
 | responseSize | número inteiro | Número de bytes enviados para um cliente durante o processamento do pedido | 
-| cache | Cadeia de caracteres | Estado do envolvimento da cache da Gestão de API no processamento do pedido (ou seja, hit, miss, none) | 
-| cacheTime | integer | Número de milissegundos despendidos na E/S de cache da Gestão de API global (ligar, enviar e receber bytes) | 
-| backendTime | integer | Número de milissegundos despendidos na E/S de back-end global (ligar, enviar e receber bytes) | 
-| clientTime | integer | Número de milissegundos despendidos na E/S de cliente global (ligar, enviar e receber bytes) | 
-| apiId | Cadeia de caracteres | Identificador da entidade de API do pedido atual | 
-| operationId | Cadeia de caracteres | Identificador da entidade de operação do pedido atual | 
-| productId | Cadeia de caracteres | Identificador da entidade de produto do pedido atual | 
-| userId | Cadeia de caracteres | Identificador da entidade de utilizador do pedido atual | 
-| apimSubscriptionId | Cadeia de caracteres | Identificador da entidade de subscrição do pedido atual | 
-| backendId | Cadeia de caracteres | Identificador da entidade de back-end do pedido atual | 
-| LastError | object | Último erro de processamento de pedido | 
-| elapsed | integer | Número de milissegundos decorridos desde que o Gateway recebeu o pedido até ao momento em que o erro ocorreu | 
-| source | Cadeia de caracteres | Nome da política ou processador interno provocou o erro | 
-| scope | Cadeia de caracteres | Âmbito do documento da política que contém a política que provocou o erro | 
-| section | Cadeia de caracteres | Secção do documento da política que contém a política que provocou o erro | 
-| reason | Cadeia de caracteres | Motivo do erro | 
-| message | Cadeia de caracteres | Mensagem de erro | 
+| cache | string | Estado do envolvimento da cache da Gestão de API no processamento do pedido (ou seja, hit, miss, none) | 
+| cacheTime | número inteiro | Número de milissegundos despendidos na E/S de cache da Gestão de API global (ligar, enviar e receber bytes) | 
+| backendTime | número inteiro | Número de milissegundos despendidos na E/S de back-end global (ligar, enviar e receber bytes) | 
+| clientTime | número inteiro | Número de milissegundos despendidos na E/S de cliente global (ligar, enviar e receber bytes) | 
+| apiId | string | Identificador da entidade de API do pedido atual | 
+| operationId | string | Identificador da entidade de operação do pedido atual | 
+| productId | string | Identificador da entidade de produto do pedido atual | 
+| userId | string | Identificador da entidade de utilizador do pedido atual | 
+| apimSubscriptionId | string | Identificador da entidade de subscrição do pedido atual | 
+| backendId | string | Identificador da entidade de back-end do pedido atual | 
+| LastError | objeto | Último erro de processamento de pedido | 
+| elapsed | número inteiro | Número de milissegundos decorridos entre o momento em que o Gateway recebeu a solicitação e o momento em que o erro ocorreu | 
+| source | string | Nome da política ou processador interno provocou o erro | 
+| scope | string | Âmbito do documento da política que contém a política que provocou o erro | 
+| section | string | Secção do documento da política que contém a política que provocou o erro | 
+| reason | string | Motivo do erro | 
+| message | string | Mensagem de erro | 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Ver registos de atividades
+> * Ver registos de atividade
 > * Ver registos de diagnóstico
 > * Ver métricas da API
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas

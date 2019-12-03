@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: usar o rastreamento distribuído com o Azure Spring Cloud | Microsoft Docs'
-description: Saiba como usar o rastreamento distribuído da Spring Cloud por meio do Aplicativo Azure insights
+title: Tutorial – usar o rastreamento distribuído com o Azure Spring Cloud
+description: Este tutorial mostra como usar o rastreamento distribuído da Spring Cloud por meio do Aplicativo Azure insights
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607554"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708764"
 ---
 # <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Tutorial: usando o rastreamento distribuído com o Azure Spring Cloud
 
@@ -39,7 +39,7 @@ Habilite o remetente zipkin para enviar à Web adicionando a seguinte linha ao a
 spring.zipkin.sender.type = web
 ```
 
-Você poderá ignorar a próxima etapa se tiver seguido nosso [guia para preparando um aplicativo de nuvem do Azure Spring](spring-cloud-tutorial-prepare-app-deployment.md). Caso contrário, vá para seu ambiente de desenvolvimento local e edite seu arquivo `pom.xml` para incluir a dependência Sleuth Spring Cloud:
+Você poderá ignorar a próxima etapa se tiver seguido nosso [guia para preparando um aplicativo de nuvem do Azure Spring](spring-cloud-tutorial-prepare-app-deployment.md). Caso contrário, vá para o ambiente de desenvolvimento local e edite seu arquivo de `pom.xml` para incluir a dependência do Spring Cloud Sleuth:
 
 ```xml
 <dependencyManagement>
@@ -64,7 +64,7 @@ Você poderá ignorar a próxima etapa se tiver seguido nosso [guia para prepara
 * Crie e implante novamente para o serviço de nuvem Spring do Azure para refletir essas alterações. 
 
 ## <a name="modify-the-sample-rate"></a>Modificar a taxa de amostra
-Você pode alterar a taxa na qual a telemetria é coletada modificando a taxa de amostra. Por exemplo, se você quiser fazer amostragem da metade com frequência, vá para o arquivo `application.properties` e altere a seguinte linha:
+Você pode alterar a taxa na qual a telemetria é coletada modificando a taxa de amostra. Por exemplo, se você quiser fazer amostragem da metade com frequência, vá para o arquivo de `application.properties` e altere a seguinte linha:
 
 ```xml
 spring.sleuth.sampler.probability=0.5
@@ -85,7 +85,7 @@ Se você já tiver um aplicativo criado e implantado, poderá modificar a taxa d
 
 Retorne à página de rastreamento distribuído e selecione **exibir mapa do aplicativo**. Examine a representação visual do seu aplicativo e as configurações de monitoramento. Para saber como usar o mapa do aplicativo, consulte [Este artigo](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Procurar
 
 Use a função de pesquisa para consultar outros itens de telemetria específicos. Na página **rastreamento distribuído** , selecione **Pesquisar**. Para obter mais informações sobre como usar a função de pesquisa, consulte [Este artigo](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
 

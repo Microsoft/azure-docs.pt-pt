@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: imagens & Serviço de Visão Personalizada-Azure IoT Edge'
+title: Tutorial – implantar o classificador Visão Personalizada em um dispositivo usando Azure IoT Edge
 description: Neste tutorial, saiba como fazer com que um modelo de pesquisa Visual computacional seja executado como um contêiner usando Visão Personalizada e IoT Edge.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2303b4f4b639d015e9322e167ffbd956446c5061
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 41a2fac48980cf376c833b022b833cfcf1e99821
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665955"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701879"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 

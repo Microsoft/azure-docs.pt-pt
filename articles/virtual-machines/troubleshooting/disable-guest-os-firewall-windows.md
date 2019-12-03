@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030597"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705556"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
@@ -27,13 +27,13 @@ Este artigo fornece uma referência para situações em que você suspeita que o
 
 ## <a name="solution"></a>Solução
 
-O processo descrito neste artigo destina-se a ser usado como uma solução alternativa para que você possa se concentrar na correção de seu problema real, que é como configurar corretamente as regras de firewall. It\rquote s uma prática recomendada da Microsoft para que o componente Firewall do Windows esteja habilitado. A maneira como você configura as regras de firewall \cf3 depende do nível de acesso para a VM that\rquote s necessária.
+O processo descrito neste artigo destina-se a ser usado como uma solução alternativa para que você possa se concentrar na correção de seu problema real, que é como configurar corretamente as regras de firewall. É uma prática recomendada da Microsoft ter o componente Firewall do Windows habilitado. A maneira como você configura as regras de firewall depende do nível de acesso à VM necessária.
 
 ### <a name="online-solutions"></a>Soluções online 
 
 Se a VM estiver online e puder ser acessada em outra VM na mesma rede virtual, você poderá fazer essas atenuações usando a outra VM.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: Extensão de script personalizado ou recurso de executar comando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigação 1: extensão de script personalizado ou recurso de executar comando
 
 Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de script personalizado](../extensions/custom-script-windows.md) ou o recurso [executar comandos](../windows/run-command.md) (somente VMs do Gerenciador de recursos) para executar remotamente os scripts a seguir.
 
@@ -58,7 +58,7 @@ Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de
 
 1.  Conecte-se a uma VM que está localizada na mesma rede virtual que a VM que você não pode acessar usando a conexão RDP.
 
-2.  Abra uma janela de consola do PowerShell.
+2.  Abra uma janela de console do PowerShell.
 
 3.  Execute os seguintes comandos:
 
@@ -72,7 +72,7 @@ Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de
 > [!Note]
 > Se o firewall for definido por meio de um objeto Política de Grupo, esse método poderá não funcionar porque esse comando altera apenas as entradas do Registro local. Se uma política estiver em vigor, ela substituirá essa alteração. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Atenuação 3: comandos PSTools
 
 1.  Na VM de solução de problemas, baixe o [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
@@ -86,11 +86,11 @@ Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Atenuação 4: Registro remoto 
+#### <a name="mitigation-4-remote-registry"></a>Atenuação 4: registro remoto 
 
 Siga estas etapas para usar o [registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na VM de solução de problemas, inicie o editor do registro e vá para o **arquivo** > **conectar o registro de rede**.
+1.  Na VM de solução de problemas, inicie o editor do registro e vá para **arquivo** > **conectar o registro de rede**.
 
 2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
 
@@ -118,9 +118,9 @@ Siga estas etapas para usar o [registro remoto](https://support.microsoft.com/he
 
 Se você tiver uma situação em que não consiga acessar a VM por qualquer método, a extensão de script personalizado falhará e você terá que trabalhar no modo OFFLINE trabalhando diretamente pelo disco do sistema. Para tal, siga estes passos:
 
-1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Anexe o disco do sistema a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
+2.  Inicie uma conexão Área de Trabalho Remota com a VM de recuperação.
 
 3.  Verifique se o disco está sinalizado como online no console de gerenciamento de disco. Observe a letra da unidade atribuída ao disco do sistema anexado.
 
@@ -130,7 +130,7 @@ Se você tiver uma situação em que não consiga acessar a VM por qualquer mét
 
 6.  Para este procedimento de solução de problemas, estamos montando os hives como BROKENSYSTEM e BROKENSOFTWARE.
 
-7.  Realce a chave HKEY_LOCAL_MACHINE e, em seguida, selecione Arquivo > Carregar Hive no menu.
+7.  Realce a chave de HKEY_LOCAL_MACHINE e, em seguida, selecione Arquivo > Carregar Hive no menu.
 
 8.  Localize o arquivo \windows\system32\config\SYSTEM no disco do sistema anexado.
 
@@ -160,6 +160,6 @@ Se você tiver uma situação em que não consiga acessar a VM por qualquer mét
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Desanexar o disco do sistema e voltar a criar a VM](troubleshoot-recovery-disks-portal-windows.md).
+10. [Desanexe o disco do sistema e recrie a VM](troubleshoot-recovery-disks-portal-windows.md).
 
-11. Verifique se o problema está resolvido.
+11. Verifique se o problema foi resolvido.

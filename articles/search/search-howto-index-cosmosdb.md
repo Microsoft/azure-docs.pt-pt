@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f1e1ae76c44e66c04baaad110b87264279dfdaf1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 33c26ff15095928d6050a77794b74480e364bfb6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530986"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707763"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados de Cosmos DB usando um indexador no Azure Pesquisa Cognitiva 
 
@@ -246,7 +246,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 > [!NOTE]
 > Para coleções particionadas, a chave de documento padrão é Azure Cosmos DB `_rid` Propriedade, que o Azure Pesquisa Cognitiva automaticamente renomear como `rid` porque os nomes de campo não podem começar com um caractere de sublinhado. Além disso, Azure Cosmos DB valores de `_rid` contêm caracteres inválidos nas chaves de Pesquisa Cognitiva do Azure. Por esse motivo, os valores de `_rid` são codificados em base64.
 > 
-> Para coleções do MongoDB, o Azure Pesquisa Cognitiva renomeia automaticamente a propriedade `_id` como `doc_id`.  
+> Para coleções do MongoDB, o Azure Pesquisa Cognitiva renomeia automaticamente a propriedade `_id` como `id`.  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados do Azure Pesquisa Cognitiva
 | Tipo de dados JSON | Tipos de campo de índice de destino compatíveis |

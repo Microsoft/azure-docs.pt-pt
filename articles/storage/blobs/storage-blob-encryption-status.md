@@ -9,12 +9,12 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 28a387b77c9a4db4be151dffc853617c426c6927
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666562"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707584"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Verificar o status de criptografia de um blob
 
@@ -72,7 +72,7 @@ Para determinar quando o blob foi criado, verifique o valor da propriedade **cri
 
 ---
 
-### <a name="force-encryption-of-a-blob"></a>Forçar a criptografia de um blob
+## <a name="force-encryption-of-a-blob"></a>Forçar a criptografia de um blob
 
 Se um blob criado antes de 20 de outubro de 2017 ainda não tiver sido criptografado pelo processo em segundo plano, você poderá forçar a criptografia a ocorrer imediatamente baixando e recarregando o blob. Uma maneira simples de fazer isso é com o AzCopy.
 

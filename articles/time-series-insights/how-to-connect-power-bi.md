@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114737"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705981"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizar dados de Time Series Insights no Power BI
 
@@ -32,7 +32,10 @@ Lembre-se de inscrever-se para uma [assinatura gratuita do Azure](https://azure.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Baixe e instale a versão mais recente do [Power bi desktop](https://powerbi.microsoft.com/downloads/)
-* Ter ou criar uma instância do [Azure Time Series insights GA](time-series-insights-get-started.md) ou [Azure Time Series insights instância de visualização](time-series-insights-update-how-to-manage.md)
+* Ter ou criar uma [instância de visualização de Azure Time Series insights](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> Há suporte para o conector de Power BI no Time Series Insights visualização dos ambientes pré- *pago* configurados para **armazenamento quente**.
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Conectar dados de Time Series Insights para Power BI
 
@@ -65,12 +68,12 @@ Para começar:
 
        [![conectar](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Se você não tiver configurado sua instância de Time Series Insights para armazenamento quente, receberá um aviso.
+   1. Se você não tiver configurado sua instância de Time Series Insights para **armazenamento quente**, receberá um aviso.
 
        [![conectar](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Você pode configurar sua instância existente para armazenamento quente na portal do Azure.
+       > Você pode configurar sua instância existente para **armazenamento quente** na portal do Azure.
 
 1. Selecione **copiar consulta para a área de transferência**.
 1. Agora, inicie o Power BI Desktop.
@@ -136,7 +139,7 @@ Como uma visão geral:
 
 Você deve ver as alterações desejadas aplicadas.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Leia sobre os [conceitos do conector de Power bi](https://docs.microsoft.com/power-bi/desktop-query-overview) para Azure Time Series insights.
 

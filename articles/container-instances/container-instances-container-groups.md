@@ -4,12 +4,12 @@ description: Saiba mais sobre grupos de contêineres em instâncias de contêine
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482119"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706315"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em instâncias de contêiner do Azure
 
@@ -48,15 +48,15 @@ As instâncias de contêiner do Azure alocam recursos como CPUs, memória e, opc
 
 ### <a name="resource-usage-by-instances"></a>Uso de recursos por instâncias
 
-Cada instância de contêiner é alocada aos recursos especificados em sua solicitação de recurso. No entanto, o uso de recursos por uma instância de contêiner em um grupo depende de como você configura sua propriedade de [limite de recurso][resource-limits] opcional.
+Cada instância de contêiner é alocada aos recursos especificados em sua solicitação de recurso. No entanto, o uso de recursos por uma instância de contêiner em um grupo depende de como você configura sua propriedade de [limite de recurso][resource-limits] opcional. O limite de recursos deve ser menor que a propriedade obrigatória de [solicitação de recursos][resource-requests] .
 
 * Se você não especificar um limite de recurso, o uso máximo de recursos da instância será o mesmo que sua solicitação de recurso.
 
 * Se você especificar um limite de recurso para uma instância, poderá ajustar o uso de recursos da instância para sua carga de trabalho, reduzindo ou aumentando o uso relativo à solicitação de recurso. O limite máximo de recursos que você pode definir é o total de recursos alocados para o grupo.
     
-    Por exemplo, em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
+Por exemplo, em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
 
-    Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
+Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
 
 Para obter mais informações, consulte a propriedade [ResourceRequirements][resource-requirements] na API REST dos grupos de contêineres.
 
@@ -66,13 +66,13 @@ Para obter mais informações, consulte a propriedade [ResourceRequirements][res
 
 * Para obter o **máximo** de recursos em um grupo de contêineres, consulte [disponibilidade de recursos][region-availability] para instâncias de contêiner do Azure na região de implantação.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funcionamento em Rede
 
 Grupos de contêineres compartilham um endereço IP e um namespace de porta nesse endereço IP. Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e no contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. Os contêineres dentro de um grupo podem alcançar uns aos outros por meio de localhost nas portas que foram expostas, mesmo se essas portas não estiverem expostas externamente no endereço IP do grupo.
 
 Opcionalmente, implante grupos de contêineres em uma [rede virtual do Azure][virtual-network] (versão prévia) para permitir que os contêineres se comuniquem com segurança com outros recursos na rede virtual.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 Você pode especificar volumes externos para montar dentro de um grupo de contêineres. Você pode mapear esses volumes em caminhos específicos dentro dos contêineres individuais em um grupo.
 

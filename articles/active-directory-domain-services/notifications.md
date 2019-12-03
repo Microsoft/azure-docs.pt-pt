@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546263"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704497"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurar notificações por email para problemas no Azure Active Directory Domain Services
 
@@ -58,7 +58,7 @@ Você também pode optar por ter todos os *administradores globais* do diretóri
 Para examinar os destinatários de notificação por email existentes ou Adicionar destinatários adicionais, conclua as seguintes etapas:
 
 1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
-1. Selecione seu domínio gerenciado AD DS do Azure, como *contoso.com*.
+1. Selecione seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
 1. No lado esquerdo da janela de recursos do AD DS do Azure, selecione **configurações de notificação**. Os destinatários existentes para notificações por email são mostrados.
 1. Para adicionar um destinatário de email, insira o endereço de email na tabela destinatários adicionais.
 1. Quando terminar, selecione **salvar** na navegação superior.

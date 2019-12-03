@@ -4,12 +4,12 @@ description: Saiba como implementar temporizadores duráveis na extensão de Dur
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c477a81801c1345d5be5f5f45419bb4776c875e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 463d5e6c253643c82935c82c7dee5996c8e44b5f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231271"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706109"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores em Durable Functions (Azure Functions)
 
@@ -56,7 +56,6 @@ const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
         yield context.df.createTimer(deadline.toDate());
         yield context.df.callActivity("SendBillingEvent");
