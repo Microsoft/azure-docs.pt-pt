@@ -205,7 +205,7 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Resolução de problemas
       items:
-        - name: Exceções
+        - name: Guia de resolução de problemas
           href: service-bus-messaging-exceptions.md
 - name: Referência
   items:

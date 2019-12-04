@@ -1,5 +1,5 @@
 - name: Documentação da API de Pesquisa de Imagens do Bing
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: Descrição geral
   expanded: true
   items:

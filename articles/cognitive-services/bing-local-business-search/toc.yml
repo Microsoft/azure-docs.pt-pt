@@ -1,5 +1,5 @@
 - name: Documentação da API de Pesquisa de Comércio Local do Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
   expanded: true
   items: null
 - name: Descrição geral

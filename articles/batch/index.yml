@@ -10,12 +10,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 09/23/2019
-  ms.openlocfilehash: d7bc942451968e4c1f87aa6ea6a64cd8ce5c03ae
-  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.openlocfilehash: 6d994673332d9dc4a5ebc77e7468e0a200d8e271
+  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72527983"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74786083"
 landingContent:
 - title: Acerca do Azure Batch
   linkLists:
@@ -77,6 +77,8 @@ landingContent:
       url: batch-pool-vm-sizes.md
     - text: Quotas e limites
       url: batch-quota-limit.md
+    - text: Melhores práticas
+      url: best-practices.md
 - title: Referência da API
   linkLists:
   - linkListType: reference

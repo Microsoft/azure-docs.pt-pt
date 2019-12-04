@@ -1,5 +1,5 @@
 - name: Documentação da Sugestão Automática do Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Descrição geral
   items:
     - name: O que é a Sugestão Automática do Bing?

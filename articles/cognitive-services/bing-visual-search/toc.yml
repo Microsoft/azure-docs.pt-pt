@@ -1,5 +1,5 @@
 - name: Documentação da Pesquisa Visual do Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Descrição geral
   items:
     - name: O que é a API de Pesquisa Visual do Bing?

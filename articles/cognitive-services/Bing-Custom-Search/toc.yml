@@ -1,5 +1,5 @@
 - name: Documentação da Pesquisa Personalizada do Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Descrição geral
   expanded: true
   items:
