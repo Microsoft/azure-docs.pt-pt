@@ -1,6 +1,6 @@
 ---
-title: Início rápido - criar uma base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
-description: Guia de início rápido para criar e gerir a base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure (interface de linha de comandos).
+title: 'Início rápido: criar servidor-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único'
+description: Guia de início rápido para criar um banco de dados do Azure para PostgreSQL-servidor único usando CLI do Azure (interface de linha de comando).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: d8e5ddf0820c789150f264aa4f7d6bd291adb3af
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 54e31f206057207a9ed396c8980c6a3986d5ece4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443137"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766927"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Início rápido: Criar uma base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Início rápido: criar um banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 
 > [!TIP]
-> Considere utilizar a mais simples [az postgres se](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando da CLI do Azure (atualmente em pré-visualização). Experimente o [guia de introdução](./quickstart-create-server-up-azure-cli.md).
+> Considere o uso do comando mais simples [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) CLI do Azure (atualmente em visualização). Experimente o [início rápido](./quickstart-create-server-up-azure-cli.md).
 
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução mostra-lhe como criar uma Base de Dados do Azure para o servidor PostgreSQL num [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com a CLI do Azure.
 
@@ -28,12 +28,12 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-Se estiver a executar a CLI localmente, terá de iniciar sessão na sua conta com o [início de sessão az](/cli/azure/authenticate-azure-cli?view=interactive-log-in) comando. Tenha em atenção a **ID** propriedade da saída do comando para o nome da subscrição correspondente.
+Se você estiver executando a CLI localmente, precisará entrar em sua conta usando o comando [AZ login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) . Observe a propriedade **ID** da saída do comando para o nome da assinatura correspondente.
 ```azurecli-interactive
 az login
 ```
 
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](/cli/azure/account). Substitua o **ID** propriedade a partir do **início de sessão az** de saída para a sua subscrição para o marcador de posição de ID de subscrição.
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](/cli/azure/account). Substitua a propriedade **ID** da saída de **logon AZ** para sua assinatura no espaço reservado da ID de assinatura.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
@@ -52,21 +52,21 @@ Crie uma [Base de Dados do Azure para o servidor PostgreSQL](overview.md) com o 
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-name | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+nome | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | myResourceGroup | Indique o nome do grupo de recursos do Azure.
 nome de SKU | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}\_{geração de computação}\_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
 backup-retention | 7 | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35. 
-geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
-location | westus | A localização do Azure para o servidor.
-ssl-enforcement | Enabled | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
+geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, Desativado.
+localização | westus | A localização do Azure para o servidor.
+ssl-enforcement | Ativado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, Desativado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é 5120 MB no mínimo e aumenta em incrementos de 1024 MB. Consulte o documento que contém os [escalões de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
-version | 9.6 | A versão principal do PostgreSQL.
+versão | 9.6 | A versão principal do PostgreSQL.
 admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.
-admin-password | *palavra-passe segura* | A palavra-passe do utilizador administrador. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números e carateres não alfanuméricos.
+admin-password | *palavra-passe segura* | A palavra-passe do utilizador administrador. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
 
 
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_1` é mapeado para básico, fins 5 e 1 vCore. Esta opção é o menor SKU disponível.
++ `--sku-name B_Gen5_1` mapeia para básico, Gen 5 e 1 vCore. Essa opção é a menor SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -78,7 +78,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 ```
 
 > [!NOTE]
-> Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
+> Considere o uso do tipo de preço básico se a computação leve e e/s forem adequadas para sua carga de trabalho. Observe que os servidores criados no tipo de preço básico não podem ser escalados posteriormente para Uso Geral ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
 > 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
@@ -146,7 +146,7 @@ Se o seu computador cliente tiver o PostgreSQL instalado, pode utilizar uma inst
    ```
 
    > [!TIP]
-   > Se preferir usar um caminho de URL para se ligar ao Postgres, o URL de codificar o @ com o nome de utilizador de início de sessão `%40`. Por exemplo deve ser a cadeia de ligação do psql,
+   > Se você preferir usar um caminho de URL para se conectar ao Postgres, codifique a URL do @ Sign no nome de usuário com `%40`. Por exemplo, a cadeia de conexão para PSQL seria,
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```
@@ -178,15 +178,15 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
 
    ![Separador “Ligação”](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
-    parâmetro pgAdmin |Value|Descrição
+    parâmetro pgAdmin |Valor|Descrição
     ---|---|---
-    Nome/endereço do anfitrião | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado ( **\*.postgres.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
-    Port | 5432 | A porta a utilizar quando se liga à Base de Dados do Azure para o servidor PostgreSQL. 
+    Nome/endereço do anfitrião | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado ( **\*. Postgres.Database.Azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
+    Porta | 5432 | A porta a utilizar quando se liga à Base de Dados do Azure para o servidor PostgreSQL. 
     Base de dados de manutenção | *postgres* | O nome predefinido da base de dados gerado pelo sistema.
-    Nome de utilizador | Nome de início de sessão de administrador do servidor | O nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para o servidor PostgreSQL anteriormente. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é *nome de utilizador\@servername*.
+    Nome de utilizador | Nome de início de sessão de administrador do servidor | O nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para o servidor PostgreSQL anteriormente. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é *username\@ServerName*.
     Palavra-passe | A sua palavra-passe de administrador | A palavra-passe que escolheu quando criou o servidor anteriormente neste Início Rápido.
-    Role | Deixar em branco | Não é necessário indicar um nome de função neste momento. Deixe o campo em branco.
-    Modo SSL | *Requerer* | Pode definir o modo SSL no separador SSL de pgAdmin. Por predefinição, todos os servidores da Base de Dados do Azure para PostgreSQL são criados com a imposição de SSL ativada. Para desativar a imposição de SSL, veja [Impor SSL](./concepts-ssl-connection-security.md).
+    Função | Deixar em branco | Não é necessário indicar um nome de função neste momento. Deixe o campo em branco.
+    Modo SSL | *Requerer* | Você pode definir o modo SSL na guia SSL do pgAdmin. Por padrão, todos os servidores do banco de dados do Azure para PostgreSQL são criados com a imposição de SSL ativada. Para desativar a imposição de SSL, veja [Impor SSL](./concepts-ssl-connection-security.md).
     
 5. Selecione **Guardar**.
 
@@ -225,7 +225,7 @@ Se quiser eliminar o único servidor criado recentemente, pode executar o comand
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)
 

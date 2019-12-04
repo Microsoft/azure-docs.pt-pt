@@ -1,6 +1,6 @@
 ---
-title: Utilize C# para ligar à base de dados do Azure para PostgreSQL - servidor único
-description: Este início rápido proporciona um C# exemplo de código de (.NET) que pode utilizar para se ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
+title: Conectar- C# se ao banco de dados do Azure para PostgreSQL-servidor único
+description: Este guia de início C# rápido fornece um exemplo de código (.net) que você pode usar para se conectar e consultar dados de um servidor único para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 546626b1bf655ce6755e0a34ae8d8a85bcf6990f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4ac462873d34faa5ffa9d1e1bd873734be88e442
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067365"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767981"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilizar .NET (C#) para se ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL-servidor único:C#usar .net () para se conectar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação C#. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com C# e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -297,6 +297,6 @@ namespace Driver
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

@@ -1,5 +1,5 @@
 ---
-title: Ligar-se à Base de Dados do Azure para MySQL através de Ruby
+title: Conectar usando Ruby-banco de dados do Azure para MySQL
 description: Este guia de início rápido proporciona vários exemplos de código Ruby que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,19 +7,19 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 5dbb2226e33928d9d79358a84192b57c44841de4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525956"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770650"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Utilizar Ruby para se ligar e consultar dados
+# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar Ruby para se ligar e consultar dados
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação [Ruby](https://www.ruby-lang.org) e o gem [mysql2](https://rubygems.org/gems/mysql2) a partir de plataformas Windows, Ubuntu Linux e Mac. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Ruby e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -64,7 +64,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 3. Em seguida, escreva o comando do Ruby seguido do nome do ficheiro, como `ruby createtable.rb`, para executar a aplicação.
 4. No SO Windows, se a aplicação Ruby não estiver na variável de ambiente do caminho, poderá ter de utilizar o caminho completo para iniciá-la, como, por exemplo, `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
-## <a name="connect-and-create-a-table"></a>Ligar-se e criar uma tabela
+## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
 Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE**, seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código utiliza um método [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() para ligar à Base de Dados do Azure para MySQL. Em seguida, chama várias vezes o método [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) para executar os comandos DROP, CREATE TABLE e INSERT INTO. Em seguida, chama o método [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) para fechar a ligação antes de terminar.
@@ -221,6 +221,6 @@ ensure
 end
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./concepts-migrate-import-export.md)

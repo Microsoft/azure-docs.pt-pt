@@ -1,6 +1,6 @@
 ---
-title: Utilizar o PHP para ligar à base de dados do Azure para PostgreSQL - servidor único
-description: Este início rápido fornece um exemplo de código PHP que pode utilizar para ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
+title: Conectar-se ao PHP-banco de dados do Azure para PostgreSQL-servidor único
+description: Este guia de início rápido fornece um exemplo de código do PHP que você pode usar para se conectar e consultar dados do Azure Database para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: c6320eabd4d5808e8cfe1d39ec4a72bbbce42f77
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6e453201eb499f65ee7f3b8c17cbf0e5127182b0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067366"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766383"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilizar o PHP para se ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL-servidor único: Use PHP para se conectar e consultar dados
 Este início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação [PHP](https://secure.php.net/manual/intro-whatis.php). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com PHP e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,13 +34,13 @@ Instale o PHP no seu próprio servidor ou crie uma [aplicação Web](../app-serv
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 - Transfira a [versão 7.1.4 do PHP (x64) não segura para threads](https://secure.php.net/downloads.php) 
-- Instale o PHP e consulte o [manual do PHP](https://secure.php.net/manual/install.unix.php) para mais configurações
+- Instale o PHP e veja o [manual do PHP](https://secure.php.net/manual/install.unix.php) para mais configurações
 - O código utiliza a classe **pgsql** (php_pgsql.so). Instale-o ao executar `sudo apt-get install php-pgsql`.
 - Ative a extensão **pgsql** ao editar o ficheiro de configuração `/etc/php/7.0/mods-available/pgsql.ini`. O ficheiro de configuração deve conter uma linha com o texto `extension=php_pgsql.so`. Se não for apresentado, adicione o texto e guarde o ficheiro. Se o texto estiver presente, mas comentado com um prefixo de ponto e vírgula, remova os comentários do texto ao remover o ponto e vírgula.
 
 ### <a name="macos"></a>MacOS
 - Transfira a [versão 7.1.4 do PHP](https://secure.php.net/downloads.php)
-- Instale o PHP e consulte o [manual do PHP](https://secure.php.net/manual/install.macosx.php) para mais configurações
+- Instale o PHP e veja o [manual do PHP](https://secure.php.net/manual/install.macosx.php) para mais configurações
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
@@ -51,7 +51,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-php/1-connection-string.png)
 
-## <a name="connect-and-create-a-table"></a>Ligar-se e criar uma tabela
+## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
 Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE**, seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código chama o método [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) para ligar à Base de Dados do Azure para PostgreSQL. Em seguida, chama o método [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) várias vezes para executar vários comandos e [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) para verificar os detalhes, se tiver ocorrido um erro. Em seguida, chama o método [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) para fechar a ligação.
@@ -215,6 +215,6 @@ Substitua os parâmetros `$host`, `$database`, `$user` e `$password` pelos seus 
 ?>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

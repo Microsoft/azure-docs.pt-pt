@@ -1,5 +1,5 @@
 ---
-title: Usar o Java para se conectar ao banco de dados do Azure para MySQL
+title: Conectar-se usando Java-banco de dados do Azure para MySQL
 description: Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados de um banco de dado do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,20 +7,20 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/08/2019
-ms.openlocfilehash: 9df95a754d4bd423ddd7f57c634b86bd33e906ca
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.date: 12/02/2019
+ms.openlocfilehash: 5f463434261dd782bb180f55986cc0f05c71cbe9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155513"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770752"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Início rápido: Usar o Java para se conectar e consultar dados no Azure Database para MySQL
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Início rápido: usar o Java para se conectar e consultar dados no Azure Database para MySQL
 
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando um aplicativo Java e o driver JDBC [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
+1. Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
    - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
    - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar uma base de dados do Azure para o servidor MySQL - CLI do Azure'
+title: 'Início rápido: criar um servidor-CLI do Azure-banco de dados do Azure para MySQL'
 description: Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure.
 author: ajlam
 ms.author: andrela
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160393"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773522"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Início rápido: Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure
+# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Início rápido: criar um servidor de banco de dados do Azure para MySQL usando o CLI do Azure
 
 > [!TIP]
-> Considere utilizar a mais simples [az mysql se](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) comando da CLI do Azure (atualmente em pré-visualização). Experimente o [guia de introdução](./quickstart-create-server-up-azure-cli.md).
+> Considere usar o comando [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) mais simples do CLI do Azure (atualmente em visualização). Experimente o [início rápido](./quickstart-create-server-up-azure-cli.md).
 
 Este guia de introdução descreve como utilizar a CLI do Azure para criar uma Base de Dados do Azure para o servidor MySQL num grupo de recursos do Azure em cerca de cinco minutos. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
 
@@ -47,21 +47,21 @@ Crie uma Base de Dados do Azure para o servidor MySQL com o comando **[az mysql 
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-name | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+nome | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | myResourceGroup | Indique o nome do grupo de recursos do Azure.
 nome de SKU | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}\_{geração de computação}\_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
 backup-retention | 7 | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35. 
-geo-redundant-backup | Desactivado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
-location | euaoeste | A localização do Azure para o servidor.
-ssl-enforcement | Enabled | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
+geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, Desativado.
+localização | westus | A localização do Azure para o servidor.
+ssl-enforcement | Ativado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, Desativado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é 5120 MB no mínimo e aumenta em incrementos de 1024 MB. Consulte o documento que contém os [escalões de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
-version | 5.7 | A versão principal do MySQL.
+versão | 5.7 | A versão principal do MySQL.
 admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.
-admin-password | *palavra-passe segura* | A palavra-passe do utilizador administrador. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números e carateres não alfanuméricos.
+admin-password | *palavra-passe segura* | A palavra-passe do utilizador administrador. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
 
 
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_1` é mapeado para básico, fins 5 e 1 vCore. Esta opção é o menor SKU disponível.
++ `--sku-name B_Gen5_1` mapeia para básico, Gen 5 e 1 vCore. Essa opção é a menor SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -74,7 +74,7 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver  --l
 ```
 
 > [!NOTE]
-> Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/mysql/) para obter mais informações.
+> Considere o uso do tipo de preço básico se a computação leve e e/s forem adequadas para sua carga de trabalho. Observe que os servidores criados no tipo de preço básico não podem ser escalados posteriormente para Uso Geral ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/mysql/) para obter mais informações.
 > 
 
 ## <a name="configure-firewall-rule"></a>Configurar a regra de firewall
@@ -208,8 +208,8 @@ mysql>
 |---|---|---|
 |   Nome da Ligação | A Minha Ligação | Especifique uma etiqueta para esta ligação (pode ser qualquer nome) |
 | Método de Ligação | escolha Standard (TCP/IP) | Utilizar o protocolo TCP/IP para ligar à Base de Dados do Azure para MySQL> |
-| Nome do Anfitrião | mydemoserver.mysql.database.azure.com | O nome de servidor que apontou anteriormente. |
-| Port | 3306 | É utilizada a porta predefinida para MySQL. |
+| Nome de anfitrião | mydemoserver.mysql.database.azure.com | O nome de servidor que apontou anteriormente. |
+| Porta | 3306 | É utilizada a porta predefinida para MySQL. |
 | Nome de utilizador | myadmin@mydemoserver | O início de sessão de administrador do servidor que apontou anteriormente. |
 | Palavra-passe | **** | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
 
@@ -228,7 +228,7 @@ Se apenas quiser eliminar o único servidor recém-criado, pode executar o coman
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md) (Conceber uma Base de Dados MySQL com a CLI do Azure)
