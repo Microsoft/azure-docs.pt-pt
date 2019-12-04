@@ -45,7 +45,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">Configurar um perímetro geográfico</a>
-          - html: <a href="/azure-maps/tutorial-iot-hub-maps">Análise espacial</a>
+          - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">Análise espacial</a>
           - html: <a href=/azure/azure-maps/tutorial-ev-routing">Itinerário para veículos elétricos (EV) com o Azure Notebooks (Python)</a>
   - title: Referência
     items:

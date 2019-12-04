@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374233"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209453"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Veja como funciona: Azure AD B2C executa o código no navegador do cliente e usa
 
 Crie conteúdo HTML com o nome da marca do produto no título.
 
-1. Copie o trecho de código HTML a seguir. Ele é um HTML5 bem formado com um elemento vazio chamado *\<dIV ID = "API" \> @ no__t-3/div @ no__t-4* localizado nas marcas *\<body @ no__t-7* . Esse elemento indica onde Azure AD B2C conteúdo deve ser inserido.
+1. Copie o trecho de código HTML a seguir. Ele é um HTML5 bem formado com um elemento vazio chamado *\<div id = "API"\>\</div\>* localizado dentro das marcas\<do *corpo*\>. Esse elemento indica onde Azure AD B2C conteúdo deve ser inserido.
 
    ```html
    <!DOCTYPE html>
@@ -56,15 +56,15 @@ Crie conteúdo HTML com o nome da marca do produto no título.
 > [!NOTE]
 > Os elementos de formulário HTML serão removidos devido a restrições de segurança se você usar login.microsoftonline.com. Use b2clogin.com se você quiser usar elementos de formulário HTML em seu conteúdo HTML personalizado. Consulte [usar b2clogin.com](b2clogin.md) para obter outros benefícios.
 
-## <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de BLOBs do Azure
+## <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs do Azure
 
 >[!NOTE]
 > Neste artigo, usamos o armazenamento de BLOBs do Azure para hospedar nosso conteúdo. Você pode optar por hospedar o conteúdo em um servidor Web, mas deve [habilitar o CORS em seu servidor Web](https://enable-cors.org/server.html).
 
 Para hospedar esse conteúdo HTML no armazenamento de BLOBs, execute as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu **Hub** , selecione **novo** > **armazenamento** > **conta de armazenamento**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. No menu **Hub** , selecione **novo** **armazenamento** de >  > **conta de armazenamento**.
 1. Selecione uma **assinatura** para sua conta de armazenamento.
 1. Crie um **grupo de recursos** ou selecione um existente.
 1. Insira um **nome** exclusivo para sua conta de armazenamento.
@@ -93,7 +93,7 @@ Para criar um contêiner público no armazenamento de BLOBs, execute as seguinte
 1. Selecione **Upload**.
 1. Selecione o blob **Customize-UI. html** que você carregou.
 1. À direita da caixa de texto **URL** , selecione o ícone **copiar para área de transferência** para copiar a URL para a área de transferência.
-1. No navegador da Web, navegue até a URL que você copiou para verificar se o blob que você carregou está acessível. Se ele estiver inacessível, por exemplo, se você encontrar um erro `ResourceNotFound`, verifique se o tipo de acesso do contêiner está definido como **blob**.
+1. No navegador da Web, navegue até a URL que você copiou para verificar se o blob que você carregou está acessível. Se ele estiver inacessível, por exemplo, se você encontrar um erro de `ResourceNotFound`, verifique se o tipo de acesso do contêiner está definido como **blob**.
 
 ## <a name="configure-cors"></a>Configurar o CORS
 
@@ -182,11 +182,11 @@ A pasta sample_templates/Wingtip contém os seguintes arquivos HTML:
 Aqui estão as etapas sobre como usar o exemplo:
 
 1. Clone o repositório em seu computador local. Escolha uma pasta de modelo em sample_templates. Você pode usar `wingtip` ou `contoso`.
-1. Carregue todos os arquivos nas pastas `css`, `fonts` e `images` para o armazenamento de BLOB, conforme descrito nas seções anteriores.
+1. Carregue todos os arquivos nas pastas `css`, `fonts`e `images` no armazenamento de BLOBs, conforme descrito nas seções anteriores.
 1. Em seguida, abra cada arquivo \*. html na raiz de `wingtip` ou `contoso` (o que você selecionou na primeira etapa) e substitua todas as instâncias de "http://localhost" pelas URLs do CSS, imagens e arquivos de fontes carregados na etapa 2.
 1. Salve os arquivos \*. html e carregue-os no armazenamento de BLOBs.
 1. Agora, modifique o arquivo de extensões conforme mencionado anteriormente em [Modificar o arquivo de extensões](#modify-the-extensions-file).
-1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e os arquivos de \*. html.
+1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e os arquivos \*. html.
 
 ### <a name="content-definition-ids"></a>IDs de definição de conteúdo
 
@@ -207,4 +207,4 @@ Na seção modificar sua política personalizada de inscrição ou entrada, voc�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre os elementos da interface do usuário que podem ser personalizados, consulte o [Guia de referência para personalização da interface do usuário para políticas internas](active-directory-b2c-reference-ui-customization.md).
+Para obter mais informações sobre elementos de interface do usuário que podem ser personalizados, consulte o [Guia de referência para a personalização da interface do usuário para fluxos de usuários](active-directory-b2c-reference-ui-customization.md).
