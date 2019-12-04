@@ -1,46 +1,43 @@
 ---
-title: Migrar aplicações para o esquema mais recente - Azure Logic Apps | Documentos da Microsoft
-description: Como migrar as logic apps para a versão mais recente do esquema
+title: Migrar aplicativos para o esquema mais recente
+description: Como migrar seus aplicativos lógicos para a versão mais recente do esquema
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc967c90f28b29a63a1f26d0aae86b6d769c1ccf
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447163"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786933"
 ---
-# <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrar logic apps para a versão mais recente do esquema
+# <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrar aplicativos lógicos para a versão mais recente do esquema
 
-Para mover as logic apps existentes para o esquema mais recente, siga estes passos: 
+Para mover seus aplicativos lógicos existentes para o esquema mais recente, siga estas etapas: 
 
-1. Na [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer do aplicativo lógico.
 
-2. No menu da sua aplicação lógica, escolha **descrição geral**. Na barra de ferramentas, escolha **atualizar esquema**.
+2. No menu do aplicativo lógico, escolha **visão geral**. Na barra de ferramentas, escolha **Atualizar esquema**.
 
    > [!NOTE]
-   > Quando escolhe **atualizar esquema**, Azure Logic Apps automaticamente executa os passos de migração e fornece o código de saída para. Pode utilizar esta saída para atualizar a definição da aplicação lógica. No entanto, certifique-se de seguir as melhores práticas, tal como descrito a seguir **melhores práticas** secção.
+   > Quando você escolhe **Atualizar esquema**, os aplicativos lógicos do Azure executam automaticamente as etapas de migração e fornecem a saída de código para você. Você pode usar essa saída para atualizar a definição do aplicativo lógico. No entanto, certifique-se de seguir as práticas recomendadas, conforme descrito na seção **práticas recomendadas** a seguir.
 
    ![Atualizar esquema](./media/connectors-schema-migration/update-schema.png)
 
-   A página atualizar esquema aparece e apresenta uma ligação para um documento que descreve os aperfeiçoamentos no novo esquema.
+   A página Atualizar esquema é exibida e mostra um link para um documento que descreve as melhorias no novo esquema.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Aqui estão algumas das melhores práticas para migrar as logic apps para a versão mais recente do esquema:
+Aqui estão algumas práticas recomendadas para migrar seus aplicativos lógicos para a versão mais recente do esquema:
 
-* Copie o script migrado para uma nova aplicação lógica. Não substitua a versão antiga até concluir o teste e confirme que a sua aplicação migrada funciona conforme esperado.
+* Copie o script migrado para um novo aplicativo lógico. Não substitua a versão antiga até concluir o teste e confirme se o aplicativo migrado funciona conforme o esperado.
 
-* Teste a aplicação lógica **antes de** colocar em produção.
+* Teste seu aplicativo lógico **antes** de colocá-lo em produção.
 
-* Depois de concluir a migração, comece a atualizar as logic apps para utilizar o [APIs geridas](../connectors/apis-list.md) sempre que possível. Por exemplo, começar a utilizar o Dropbox v2 em todos os lugares que usar o DropBox v1.
+* Depois de concluir a migração, comece a atualizar seus aplicativos lógicos para usar as [APIs gerenciadas](../connectors/apis-list.md) sempre que possível. Por exemplo, comece a usar o Dropbox V2 em todos os lugares em que você usa o DropBox v1.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [migrar manualmente as Logic apps](../logic-apps/logic-apps-schema-2015-08-01.md)
+* Saiba como [migrar manualmente seus aplicativos lógicos](../logic-apps/logic-apps-schema-2015-08-01.md)

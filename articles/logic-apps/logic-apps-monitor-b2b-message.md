@@ -1,20 +1,19 @@
 ---
-title: Monitorar mensagens B2B com o Azure Monitor-aplicativos lógicos do Azure
+title: Monitorar mensagens B2B com Azure Monitor
 description: Configurar o log de diagnóstico para mensagens AS2, X12 e EDIFACT nos aplicativos lógicos do Azure usando Azure Monitor
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: cd96376f764ec3075b916bf2207ec6ee3dd3fcbd
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680191"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791934"
 ---
 # <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Configurar o log de diagnóstico para mensagens B2B em aplicativos lógicos do Azure usando Azure Monitor
 
@@ -49,9 +48,9 @@ Quando terminar, escolha **Adicionar configuração de diagnóstico**.
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | A assinatura do Azure associada à sua conta de integração | 
-   | **Grupo de recursos** | <*Azure-Resource-Group-name* > | O grupo de recursos do Azure para sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-Resource-Group-name*> | O grupo de recursos do Azure para sua conta de integração | 
    | **Tipo de recurso** | **Contas de integração** | O tipo para o recurso do Azure no qual você deseja ativar o registro em log | 
-   | **Recurso** | <*Integration-nome da conta* > | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
+   | **Recurso** | <*Integration-nome da conta*> | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
    ||||  
 
    Por exemplo:
@@ -91,9 +90,9 @@ Quando terminar, escolha **Adicionar configuração de diagnóstico**.
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | A assinatura do Azure associada à sua conta de integração | 
-   | **Grupo de recursos** | <*Azure-Resource-Group-name* > | O grupo de recursos do Azure para sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-Resource-Group-name*> | O grupo de recursos do Azure para sua conta de integração | 
    | **Tipo de recurso** | **Contas de integração** | O tipo para o recurso do Azure no qual você deseja ativar o registro em log | 
-   | **Recurso** | <*Integration-nome da conta* > | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
+   | **Recurso** | <*Integration-nome da conta*> | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
    ||||  
 
    Por exemplo:

@@ -1,29 +1,30 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 752c43604349a2361a8f5b26cd6d0bce7b516bc0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: a7290e46a0c5e228689dd1f1a0dc7f9a1182ad60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184520"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789645"
 ---
-### <a name="prerequisites"></a>Pré-requisitos
-* R [MailChimp](https://www.MailChimp.com/) conta 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar a sua conta do MailChimp numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta do MailChimp. Felizmente, pode fazer isso facilmente de na sua aplicação lógica no Portal do Azure. 
+* Uma conta do [MailChimp](https://www.MailChimp.com/) 
 
-Eis os passos para autorizar a aplicação lógica para ligar à sua conta do MailChimp:
+Antes de poder usar sua conta do MailChimp em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do MailChimp. Felizmente, você pode fazer isso facilmente de dentro de seu aplicativo lógico no portal do Azure. 
 
-1. Para criar uma ligação ao MailChimp, no Estruturador da aplicação lógica, selecione **APIs geridas da Microsoft mostram** na lista pendente, em seguida, introduza *MailChimp* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
-   ![Passo 1 da MailChimp](./media/connectors-create-api-mailchimp/mailchimp-1.png)
-2. Se ainda não criou quaisquer ligações a MailChimp antes, obter-lhe-á pedido para fornecer suas credenciais do MailChimp. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e acedam a dados da sua conta do MailChimp:  
-   ![Passo 2 da MailChimp](./media/connectors-create-api-mailchimp/mailchimp-2.png)
-3. Forneça o seu nome de utilizador do MailChimp e a palavra-passe para autorizar a aplicação lógica:  
-   ![Passo 3 da MailChimp](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
-4. Observe que a ligação foi criada e agora está livre para continuar com os outros passos na sua aplicação lógica:  
-   ![Passo 4 da MailChimp](./media/connectors-create-api-mailchimp/mailchimp-4.png)
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do MailChimp:
+
+1. Para criar uma conexão com o MailChimp, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e, em seguida, digite *MailChimp* na caixa de pesquisa. Selecione o gatilho ou a ação que você deseja usar:  
+   ![etapa 1 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-1.png)
+2. Se você não tiver criado nenhuma conexão com o MailChimp antes, você receberá uma solicitação para fornecer suas credenciais do MailChimp. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar e acessar os dados da sua conta do MailChimp:  
+   ![Etapa 2 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-2.png)
+3. Forneça seu nome de usuário e senha do MailChimp para autorizar seu aplicativo lógico:  
+   ![Etapa 3 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
+4. Observe que a conexão foi criada e você agora está livre para prosseguir com as outras etapas em seu aplicativo lógico:  
+   ![Etapa 4 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-4.png)
 

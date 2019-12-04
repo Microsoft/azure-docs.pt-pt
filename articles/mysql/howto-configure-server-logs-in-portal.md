@@ -1,17 +1,17 @@
 ---
-title: Configurar e acessar logs de consulta lentos no banco de dados do Azure para MySQL no portal do Azure
+title: Acessar logs de consulta lentos-portal do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar e acessar os logs lentos no banco de dados do Azure para MySQL no portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 7eeeb729973e484e9acb26f3ac8cc42693f72eea
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 12/02/2019
+ms.openlocfilehash: 52d219a94676e0f1ce4ceac31b0b50c9d36665ba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841601"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770582"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e acessar logs de consulta lentos no portal do Azure
 
@@ -23,9 +23,9 @@ As etapas neste artigo exigem que você tenha o [banco de dados do Azure para se
 ## <a name="configure-logging"></a>Configurar registro em log
 Configure o acesso ao log de consultas lentas do MySQL. 
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione a sua base de dados do Azure para o servidor MySQL.
+2. Selecione o servidor do banco de dados do Azure para MySQL.
 
 3. Na seção **monitoramento** na barra lateral, selecione **logs do servidor**. 
    ![captura de tela de opções de logs do servidor](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
@@ -45,7 +45,7 @@ Após o início do log, você pode exibir uma lista de logs de consultas lentas 
 
 1. Abra o portal do Azure.
 
-2. Selecione a sua base de dados do Azure para o servidor MySQL.
+2. Selecione o servidor do banco de dados do Azure para MySQL.
 
 3. Na seção **monitoramento** na barra lateral, selecione **logs do servidor**. A página mostra uma lista de seus arquivos de log.
 

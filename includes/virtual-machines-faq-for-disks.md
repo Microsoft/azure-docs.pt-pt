@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008581"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796054"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos de SSD Premium do Azure.
 
@@ -137,7 +137,9 @@ Para discos gerenciados, você não pode renomeá-los. No entanto, você pode re
 
 **Posso usar o particionamento GPT em um disco do Azure?**
 
-O particionamento GPT pode ser usado somente em discos de dados, não em discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
+As imagens de geração 1 só podem usar o particionamento GPT em discos de dados, não OS discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
+
+As [imagens de geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) podem usar o particionamento GPT no disco do sistema operacional, bem como os discos de dados.
 
 **Quais tipos de disco dão suporte a instantâneos?**
 
@@ -149,7 +151,7 @@ Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses
 A reserva de disco é a opção de comprar um ano de armazenamento em disco com antecedência, reduzindo o custo total.
 
 **Quais opções a reserva de disco do Azure oferece?**
-A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, você pode optar por pagar com um único pagamento antecipado ou pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks.
+A reserva de disco do Azure fornece a opção de comprar o SSDs Premium nas SKUs especificadas de p30 (1 TiB) até P80 (32 TiB) por um termo de um ano. Não há nenhuma limitação na quantidade mínima de discos necessários para comprar uma reserva de disco. Além disso, pode optar por pagar através de um pagamento único à cabeça ou de pagamentos mensais. Não há nenhum custo transacional adicional aplicado para SSD Premium Managed Disks.
 
 As reservas são feitas na forma de discos, não na capacidade. Em outras palavras, ao reservar um disco P80 (32 TiB), você obtém um único disco P80, não é possível divvy essa reserva específica em dois discos menores P70 (16 TiB). É claro que você pode reservar tantos discos quanto desejar, incluindo dois discos P70 (16 TiB) separados.
 
@@ -263,7 +265,7 @@ Não, os discos SSDs padrão só estão disponíveis como Managed Disks.
 **SSD Standard discos dão suporte a "SLA de VM de instância única"?**
 Não, o SSDs padrão não tem SLA de VM de instância única. Use SSD Premium discos para o SLA de VM de instância única.
 
-## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrar para os Managed Disks
 
 **Há algum impacto na migração no desempenho do Managed Disks?**
 

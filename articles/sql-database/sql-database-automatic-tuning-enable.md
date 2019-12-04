@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821901"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767777"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitar o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
@@ -92,7 +92,7 @@ Para configurar opções de ajuste automático individuais via T-SQL, conecte-se
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Definir a opção de ajuste individual como ON substituirá qualquer configuração que o banco de dados herdou e habilitará a opção de ajuste. Configurá-lo como OFF, também substituirá qualquer configuração herdada pelo banco de dados e desabilitará a opção de ajuste. A opção de ajuste automático, para a qual o padrão é especificado, herdará a configuração da configuração de ajuste automático no nível do banco de dados.  
+Definir a opção de ajuste individual como ON substituirá qualquer configuração que o banco de dados herdou e habilitará a opção de ajuste. Configurá-lo como OFF, também substituirá qualquer configuração herdada pelo banco de dados e desabilitará a opção de ajuste. A opção de ajuste automático, para a qual o padrão é especificado, herdará a configuração de ajuste automático das configurações de nível de servidor.  
 
 > [!IMPORTANT]
 > No caso da [replicação geográfica ativa](sql-database-auto-failover-group.md), o ajuste automático precisa ser configurado somente no banco de dados primário. Automaticamente as ações de ajuste aplicadas, como a criação ou exclusão de índice de exemplo, serão replicadas automaticamente para o secundário somente leitura. A tentativa de habilitar o ajuste automático por meio do T-SQL no secundário somente leitura resultará em uma falha, pois não há suporte para uma configuração de ajuste diferente no secundário somente leitura.

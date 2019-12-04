@@ -1,20 +1,19 @@
 ---
-title: Recuperação de desastre para contas de integração – aplicativos lógicos do Azure
+title: Recuperação de desastre para contas de integração
 description: Configurar a recuperação de desastre entre regiões para contas de integração em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 5ab0b14a190461d4dfba74e277f3d2ec30d9981a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680400"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793129"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurar a recuperação de desastre entre regiões para contas de integração em aplicativos lógicos do Azure
 
@@ -113,7 +112,7 @@ Para habilitar a recuperação de desastre para mensagens de entrada, selecione 
 
    ![Adicionar ou atualizar números de controle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Para conectar uma ação a uma conta de integração da região secundária, selecione **alterar conexão**  > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**. 
+7. Para conectar uma ação a uma conta de integração da região secundária, selecione **alterar conexão** > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**. 
 
    ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -168,7 +167,7 @@ Para habilitar a recuperação de desastre para mensagens de entrada, selecione 
 
    ![Adicionar ou atualizar números de controle](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
-8. Para conectar uma ação a uma conta de integração da região secundária, selecione **alterar conexão**  > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**.
+8. Para conectar uma ação a uma conta de integração da região secundária, selecione **alterar conexão** > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**.
 
    ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -220,7 +219,7 @@ A continuidade dos negócios para documentos que usam o protocolo AS2 é baseada
 
    ![Adição ou atualização de MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
-7. Para conectar uma ação a uma conta de integração secundária, selecione **alterar conexão**  > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**.
+7. Para conectar uma ação a uma conta de integração secundária, selecione **alterar conexão** > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**.
 
    ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 

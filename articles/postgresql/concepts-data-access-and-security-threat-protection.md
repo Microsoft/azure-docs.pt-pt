@@ -1,21 +1,21 @@
 ---
-title: Conceitos de proteção avançada contra ameaças-banco de dados do Azure para PostgreSQL-servidor único
+title: Proteção avançada contra ameaças-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como usar a proteção avançada contra ameaças para detectar atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
-author: bolzmj
-ms.author: mbolz
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 61c0e666458018d4e03d5560e417d28d0efadb27
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950083"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768746"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças no banco de dados do Azure para PostgreSQL-servidor único
 
-O Advanced Threat Protection da Base de Dados do Azure para PostgreSQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares de acesso ou exploração das bases de dados.
+A Proteção Avançada Contra Ameaças para Base de Dados do Azure para PostgreSQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar as suas bases de dados.
 
 > [!NOTE]
 > A proteção avançada contra ameaças está em visualização pública.
@@ -23,7 +23,7 @@ O Advanced Threat Protection da Base de Dados do Azure para PostgreSQL deteta at
 A proteção contra ameaças faz parte da oferta de proteção de ameaças avançada (ATP), que é um pacote unificado para recursos avançados de segurança. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do [portal do Azure](https://portal.azure.com) ou usando a [API REST](/rest/api/postgresql/serversecurityalertpolicies). O recurso está disponível para servidores Uso Geral e com otimização de memória.
 
 > [!NOTE]
-> O recurso proteção avançada contra ameaças **não** está disponível nas seguintes regiões do Azure governamental e do soberanas Cloud: US Gov Texas, US Gov Arizona, US Gov Iowa, US, gov Virgínia, US DoD Leste, US DoD Central, Alemanha central, Norte da Alemanha, Leste da China, Leste da China 2. Visite os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
+> O recurso proteção avançada contra ameaças **não** está disponível nas seguintes regiões do Azure governamental e do soberanas cloud: US gov Texas, US gov Arizona, US gov Iowa, US, gov virgínia, US DoD Leste, US DoD central, Alemanha Central, Norte da Alemanha, Leste da China, leste da China 2. Visite os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 
 ## <a name="what-is-advanced-threat-protection"></a>O que é a proteção avançada contra ameaças?
 
@@ -31,13 +31,13 @@ A proteção avançada contra ameaças para o banco de dados do Azure para Postg
 
 ![Conceito de proteção avançada contra ameaças](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Alertas do Advanced Threat Protection 
+## <a name="advanced-threat-protection-alerts"></a>Alertas de proteção avançada contra ameaças 
 A proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados e pode disparar os seguintes alertas:
-- **Acesso de local incomum**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no banco de dados do Azure para o servidor PostgreSQL de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso de data center incomuns do Azure**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no servidor de um data center do Azure incomum que foi visto nesse servidor durante o período recente. Em alguns casos, o alerta detecta uma ação legítima (seu novo aplicativo no Azure, Power BI, editor de consultas do banco de dados do Azure para PostgreSQL). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
-- **Acesso de entidade de segurança não familiar**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no servidor usando uma entidade de segurança incomum (usuário do banco de dados do Azure para PostgreSQL). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso de um aplicativo potencialmente prejudicial**: Esse alerta é disparado quando um aplicativo potencialmente prejudicial é usado para acessar o banco de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
-- **Banco de dados do Azure de força bruta para credenciais do PostgreSQL**: Esse alerta é disparado quando há um grande número anormal de logons com falha com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
+- **Acesso de local incomum**: esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no banco de dados do Azure para o servidor PostgreSQL de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso de data center incomuns do Azure**: esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no servidor de um data center do Azure incomum que foi visto nesse servidor durante o período recente. Em alguns casos, o alerta detecta uma ação legítima (seu novo aplicativo no Azure, Power BI, editor de consultas do banco de dados do Azure para PostgreSQL). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
+- **Acesso a partir de uma entidade de segurança desconhecida**: esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no servidor usando uma entidade de segurança incomum (banco de dados do Azure para o usuário PostgreSQL). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso de uma localização potencialmente prejudicial**: este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
+- **Força bruta do banco de dados do Azure para PostgreSQL credenciais**: esse alerta é disparado quando há um grande número anormal de logons com falha com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
 ## <a name="next-steps"></a>Passos seguintes
 

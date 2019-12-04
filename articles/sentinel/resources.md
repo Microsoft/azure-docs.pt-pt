@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 04c4192293cbfa96eefcc1c84083dd54042ebe8f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484077"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762722"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com o Azure Sentinel
 
@@ -40,8 +40,8 @@ As operações com suporte a seguir podem ser auditadas.
 |----|----|
 |Criar ou atualizar pasta de trabalho  |Microsoft. insights/pastas de trabalho|
 |Excluir pasta de trabalho    |Microsoft. insights/pastas de trabalho|
-|Definir fluxo de trabalho   |Microsoft.Logic/workflows|
-|Excluir fluxo de trabalho    |Microsoft.Logic/workflows|
+|Definir fluxo de trabalho   |Microsoft. Logic/workflows|
+|Excluir fluxo de trabalho    |Microsoft. Logic/workflows|
 |Criar pesquisa salva    |Microsoft. OperationalInsights/Workspaces/savedSearches|
 |Excluir pesquisa salva    |Microsoft. OperationalInsights/Workspaces/savedSearches|
 |Definir painel  |Microsoft. Portal/dashboards|

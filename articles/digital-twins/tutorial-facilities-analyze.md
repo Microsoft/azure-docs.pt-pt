@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383067"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790328"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos do Azure digital gêmeos usando o Time Series Insights
 
@@ -48,7 +48,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 ### <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
@@ -82,7 +82,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
     > [!TIP]
     > Verifique se você está criando uma política SAS para sua instância do hub de eventos em vez de seu namespace.
 
-1. Abra a política **ManageSend** criada e copie os valores de **Connection string--primary key** (Cadeia de ligação -- chave primária) e **Connection string--secondary key** (Cadeia de ligação -- chave secundária) para um ficheiro temporário. Você precisará desses valores para criar um ponto de extremidade para o Hub de eventos na próxima seção.
+1. Abra a política **ManageSend** que você criou e copie os valores da **cadeia de conexão — chave primária** e **cadeia de conexão — chave secundária** para um arquivo temporário. Você precisará desses valores para criar um ponto de extremidade para o Hub de eventos na próxima seção.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Criar um ponto de extremidade para o Hub de eventos
 
@@ -108,13 +108,13 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
       path: Name_of_your_Event_Hub
     ```
 
-1. Substitua os espaços reservados `Primary_connection_string_for_your_event_hub` pelo valor da **cadeia de conexão--chave primária** do hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte:
+1. Substitua os espaços reservados `Primary_connection_string_for_your_event_hub` pelo valor da **cadeia de conexão — chave primária** para o Hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte:
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Substitua os espaços reservados `Secondary_connection_string_for_your_event_hub` pelo valor da **cadeia de conexão--chave secundária** para o Hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte: 
+1. Substitua os espaços reservados `Secondary_connection_string_for_your_event_hub` pelo valor da **cadeia de conexão — chave secundária** para o Hub de eventos. Verifique se o formato dessa cadeia de conexão é o seguinte: 
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
@@ -145,7 +145,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
     [![seleções para criar uma instância de Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. Na guia **origem do evento** , insira um **nome**, selecione **Hub de eventos** como o **tipo de origem**e verifique se os outros valores foram selecionados corretamente. Selecione **ManageSend** para **nome da política de acesso do hub de eventos**e, em seguida, selecione o grupo de consumidores que você criou na seção anterior para o grupo de consumidores do hub de **eventos**. Selecione **Rever + criar**.
+1. Na guia **origem do evento** , insira um **nome**, selecione **Hub de eventos** como o **tipo de origem**e verifique se os outros valores foram selecionados corretamente para fazer referência ao Hub de eventos que você criou. Selecione **ManageSend** para **nome da política de acesso do hub de eventos**e, em seguida, selecione o grupo de consumidores que você criou na seção anterior para o grupo de consumidores do hub de **eventos**. Selecione **Rever + criar**.
 
     [![seleções para criar uma origem de evento](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
@@ -174,7 +174,7 @@ Se você quiser interromper a exploração do Azure digital gêmeos além desse 
 1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digital gêmeos e, em seguida, selecione **excluir**.
 
     > [!TIP]
-    > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
+    > Se você teve problemas ao excluir sua instância de gêmeos digital, uma atualização de serviço foi distribuída com a correção. Tente excluir a instância novamente.
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 

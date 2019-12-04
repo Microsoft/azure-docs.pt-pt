@@ -1,44 +1,44 @@
 ---
-title: Entender os resultados da verificação do agente do Windows no Azure Gerenciamento de Atualizações
-description: Saiba como resolver problemas com o agente de gestão de atualizações.
+title: Entender a integridade do Windows Hybrid Runbook Worker no Azure Gerenciamento de Atualizações
+description: Saiba como solucionar problemas com o Hybrid Runbook Worker no Windows que oferece suporte a Gerenciamento de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480790"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763662"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Entender os resultados da verificação do agente do Windows em Gerenciamento de Atualizações
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Windows Hybrid Runbook Worker no Gerenciamento de Atualizações
 
-Pode haver muitos motivos pelos quais seu computador não está mostrando **pronto** no gerenciamento de atualizações. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline).
+Pode haver muitos motivos pelos quais seu computador não está mostrando **pronto** no gerenciamento de atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Runbook Worker para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline).
 
 A lista a seguir são os três Estados de preparação em que um computador pode estar:
 
-* **Pronto** -o agente de atualização foi implantado e foi visto pela última vez há menos de 1 hora.
-* **Desconectado** – o agente de atualização é implantado e foi visto pela última vez há uma hora.
-* **Não configurado** -o agente de atualização não foi encontrado ou não concluiu a integração.
+* **Pronto** -a Hybrid runbook Worker é implantada e foi vista pela última vez há menos de 1 hora.
+* **Desconectado** -a Hybrid runbook Worker é implantada e foi vista pela última vez há uma hora.
+* **Não configurado** -a Hybrid runbook Worker não foi encontrada ou não terminou a integração.
 
 > [!NOTE]
 > Pode haver um pequeno atraso entre o que o portal do Azure mostra e o estado atual do computador.
 
-## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
+## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
 Para computadores do Azure, clicar no link **solucionar problemas** na coluna **prontidão do agente de atualização** no portal inicia a página **solucionar problemas do agente de atualização** . Para computadores não Azure, o link o leva a este artigo. Consulte as [instruções offline](#troubleshoot-offline) para solucionar problemas em um computador não Azure.
 
 ![Lista de gerenciamento de atualizações de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Para verificar a integridade de um agente, a VM deve estar em execução. Se a VM não estiver em execução, um botão **iniciar a VM** será exibido.
+> Para verificar a integridade do Hybrid Runbook Worker, a VM deve estar em execução. Se a VM não estiver em execução, um botão **iniciar a VM** será exibido.
 
-Na página **solucionar problemas do agente de atualização** , selecione **executar verificações** para iniciar a solução de problemas. A solução de problemas usa o [comando executar](../../virtual-machines/windows/run-command.md) para executar um script no computador para verificar as dependências do agente. Quando a solução de problemas for concluída, ela retornará o resultado das verificações.
+Na página **solucionar problemas do agente de atualização** , selecione **executar verificações** para iniciar a solução de problemas. A solução de problemas usa o [comando executar](../../virtual-machines/windows/run-command.md) para executar um script no computador para verificar as dependências. Quando a solução de problemas for concluída, ela retornará o resultado das verificações.
 
 ![Página solucionar problemas do agente de atualização](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Os resultados são mostrados na página quando estão prontos. As seções verif
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um destes sistemas operacionais:
+A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um dos seguintes sistemas operacionais:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
@@ -61,7 +61,7 @@ A verificação do sistema operacional verifica se o Hybrid Runbook Worker está
 
 A verificação de .NET Framework verifica se o sistema tem um mínimo de [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) instalado.
 
-### <a name="wmf-51"></a>WMF 5.1
+### <a name="wmf-51"></a>WMF 5,1
 
 A verificação do WMF verifica se o sistema tem a versão necessária do WMF (Windows Management Framework) – [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
@@ -71,17 +71,17 @@ Essa verificação determina se você está usando o TLS 1,2 para criptografar s
 
 ## <a name="connectivity-checks"></a>Verificações de conectividade
 
-### <a name="registration-endpoint"></a>Ponto final do registo
+### <a name="registration-endpoint"></a>Ponto de extremidade de registro
 
 Essa verificação determina se o agente pode se comunicar corretamente com o serviço do Agent.
 
-Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida comunicar com o ponto final do registo. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+As configurações de proxy e firewall devem permitir que o agente de Hybrid Runbook Worker se comunique com o ponto de extremidade de registro. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="operations-endpoint"></a>Ponto final de operações
+### <a name="operations-endpoint"></a>Ponto de extremidade de operações
 
 Essa verificação determina se o agente pode se comunicar corretamente com o serviço de dados de tempo de execução de trabalho.
 
-Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida para comunicar com o serviço de dados de tempo de execução de tarefa. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+As configurações de proxy e firewall devem permitir que o agente de Hybrid Runbook Worker se comunique com o serviço de dados de tempo de execução de trabalho. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Verificações de integridade do serviço de VM
 
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Passos seguintes
 
 Para solucionar mais problemas com os Hybrid runbook Workers, consulte [solucionar problemas de Hybrid runbook Workers](hybrid-runbook-worker.md).
-

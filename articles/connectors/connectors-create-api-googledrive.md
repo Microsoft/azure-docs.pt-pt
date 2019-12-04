@@ -1,43 +1,40 @@
 ---
-title: Ligar para o Google Drive - Azure Logic Apps | Documentos da Microsoft
-description: Criar e gerenciar arquivos com APIs do Google Drive REST e o Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
+title: Conectar-se ao Google Drive
+description: Criar e gerenciar arquivos com APIs REST do Google Drive e aplicativos lógicos do Azure
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 43bd5248f1bb80c71a85935c585deac6152be78b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6310c3b7e5b84915fa336708bc702e94317ad04c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105094"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789710"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Começar com o conector do Google Drive
-Ligue-se ao Google Drive para criar ficheiros, obter linhas e muito mais. Com o Google Drive, pode: 
+# <a name="get-started-with-the-google-drive-connector"></a>Introdução ao conector do Google Drive
 
-* Crie o seu fluxo de negócios com base nos dados, que obtém a partir da sua pesquisa. 
-* Utilize ações para imagens de pesquisar, procurar as notícias e muito mais. Estas ações obtém uma resposta e, em seguida, disponibilizá-a saída para outras ações. Por exemplo, pode procurar por um vídeo e, em seguida, use o Twitter para lançar que vídeo num feed do Twitter.
+Conecte-se ao Google Drive para criar arquivos, obter linhas e muito mais. Com o Google Drive, você pode: 
 
-Pode começar a utilizar ao criar uma aplicação lógica agora, veja [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Crie seu fluxo de negócios com base nos dados obtidos de sua pesquisa. 
+* Use ações para pesquisar imagens, pesquisar as notícias e muito mais. Essas ações obtêm uma resposta e tornam a saída disponível para outras ações. Por exemplo, você pode pesquisar um vídeo e, em seguida, usar o Twitter para postar esse vídeo em um feed do Twitter.
 
-## <a name="create-the-connection-to-google-drive"></a>Criar a ligação para o Google Drive
-Ao adicionar este conector às suas aplicações lógicas, tem de autorizar aplicações lógicas para se ligar ao seu Google Drive.
+Você pode começar criando um aplicativo lógico agora, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="create-the-connection-to-google-drive"></a>Criar a conexão com o Google Drive
+
+Ao adicionar esse conector aos seus aplicativos lógicos, você deve autorizar que os aplicativos lógicos se conectem ao Google Drive.
 
 > [!INCLUDE [Steps to create a connection to googledrive](../../includes/connectors-create-api-googledrive.md)]
-> 
-> 
 
-Depois de criar a ligação, introduza as propriedades do Google Drive, como o nome de ficheiro ou caminho da pasta. 
+Depois de criar a conexão, insira as propriedades do Google Drive, como o caminho da pasta ou o nome do arquivo. 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/googledrive/).
+Exiba todos os gatilhos e ações definidos no Swagger e também veja os limites nos [detalhes do conector](/connectors/googledrive/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte para o [lista APIs](apis-list.md).
+
+Volte para a [lista de APIs](apis-list.md).

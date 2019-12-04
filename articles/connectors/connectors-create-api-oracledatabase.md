@@ -1,134 +1,130 @@
 ---
-title: Ligar à base de dados do Oracle - Azure Logic Apps | Documentos da Microsoft
-description: Inserir e gerir os registos com APIs de REST de base de dados Oracle e o Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/29/2017
-ms.topic: article
-ms.service: logic-apps
+title: Conectar-se ao Oracle Database
+description: Inserir e gerenciar registros com Oracle Database APIs REST e aplicativos lógicos do Azure
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453616"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789431"
 ---
-# <a name="get-started-with-the-oracle-database-connector"></a>Começar com o conector da base de dados Oracle
+# <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector de Oracle Database
 
-Utilizar o conector da base de dados Oracle, vai criar organizacionais fluxos de trabalho que utilizam dados na base de dados existente. Este conector pode ligar a uma base de dados do Oracle no local ou uma máquina virtual do Azure com a base de dados Oracle instalado. Com este conector, pode:
+Usando o conector de Oracle Database, você cria fluxos de trabalho organizacionais que usam dados em seu banco de dado existente. Esse conector pode se conectar a um Oracle Database local ou a uma máquina virtual do Azure com Oracle Database instalado. Com esse conector, você pode:
 
-* Crie o seu fluxo de trabalho ao adicionar um novo cliente para uma base de dados de clientes, ou atualizando um pedido num banco de dados de pedidos.
-* Utilize ações para obter uma linha de dados, inserir uma nova linha e até mesmo eliminar. Por exemplo, quando é criado um registo no Dynamics CRM Online (um acionador), em seguida, insira uma linha numa base de dados do Oracle (uma ação). 
+* Crie seu fluxo de trabalho adicionando um novo cliente a um banco de dados de clientes ou atualizando um pedido em um banco de dados de pedidos.
+* Use ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em uma Oracle Database (uma ação). 
 
-Este artigo mostra-lhe como utilizar o conector da base de dados Oracle numa aplicação lógica.
+Este artigo mostra como usar o conector de Oracle Database em um aplicativo lógico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Versões suportadas do Oracle: 
+* Versões do Oracle com suporte: 
     * Oracle 9 e posterior
-    * Software de cliente Oracle 8.1.7 e posterior
+    * Software cliente Oracle 8.1.7 e posterior
 
-* Instale o gateway de dados no local. [Ligar a dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md) lista os passos. O gateway é necessário para ligar a uma base de dados do Oracle no local ou uma VM do Azure com o Oracle DB instalado. 
+* Instale o gateway de dados local. [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md) lista as etapas. O gateway é necessário para se conectar a um Oracle Database local ou a uma VM do Azure com o Oracle DB instalado. 
 
     > [!NOTE]
-    > O gateway de dados no local atua como uma ponte e fornece uma transferência de dados segura entre dados no local (dados que não esteja na cloud) e as aplicações lógicas. O mesmo gateway pode ser utilizado com vários serviços e várias origens de dados. Assim, apenas terá de instalar o gateway de uma vez.
+    > O gateway de dados local atua como uma ponte e fornece uma transferência de dados segura entre dados locais (dados que não estão na nuvem) e seus aplicativos lógicos. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Portanto, você pode precisar instalar o gateway apenas uma vez.
 
-* Instale o cliente Oracle no computador onde instalou o gateway de dados no local. Certifique-se de que instalar o 64-bit Oracle Data Provider for .NET da Oracle:  
+* Instale o cliente Oracle no computador em que você instalou o gateway de dados local. Certifique-se de instalar o Provedor de Dados do Oracle de 64 bits para .NET da Oracle:  
 
-  [64-bit ODAC 12C Release 4 (12.1.0.2.4) para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [64-bit ODAC 12c Release 4 (12.1.0.2.4) para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Se o cliente Oracle não estiver instalado, ocorrerá um erro ao tentar criar ou utilizar a ligação. Consulte os erros comuns neste artigo.
+    > Se o cliente Oracle não estiver instalado, ocorrerá um erro quando você tentar criar ou usar a conexão. Consulte os erros comuns neste artigo.
 
 
 ## <a name="add-the-connector"></a>Adicionar o conector
 
 > [!IMPORTANT]
-> Este conector não tem qualquer gatilhos. Ele tem apenas as ações. Por isso, quando criar a sua aplicação lógica, adicione outro acionador para iniciar a sua aplicação lógica, como **Schedule - Recurrence**, ou **pedido / resposta – resposta**. 
+> Este conector não tem nenhum gatilho. Ele tem apenas ações. Portanto, quando você cria seu aplicativo lógico, adicione outro gatilho para iniciar seu aplicativo lógico, como **Schedule-recorrência**ou **solicitação/resposta-resposta**. 
 
-1. Na [portal do Azure](https://portal.azure.com), criar uma aplicação lógica em branco.
+1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco.
 
-2. No início da sua aplicação lógica, selecione o **pedido / resposta - pedido** acionador: 
+2. No início do aplicativo lógico, selecione o gatilho **solicitação/resposta-solicitação** : 
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Selecione **Guardar**. Quando guarda, um URL do pedido é gerado automaticamente. 
+3. Selecione **Guardar**. Quando você salva, uma URL de solicitação é gerada automaticamente. 
 
-4. Selecione **novo passo**e selecione **adicionar uma ação**. Escreva `oracle` para ver as ações disponíveis: 
+4. Selecione **nova etapa**e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > Isso também é a forma mais rápida para ver os acionadores e ações disponíveis para qualquer conector. Digite, como parte do nome do conector, `oracle`. O estruturador apresenta uma lista de acionadores e ações. 
+    > Essa também é a maneira mais rápida de ver os gatilhos e as ações disponíveis para qualquer conector. Digite parte do nome do conector, como `oracle`. O designer lista os gatilhos e as ações. 
 
-5. Selecione uma das ações, como **base de dados do Oracle - obter linha**. Selecione **ligar através do gateway de dados no local**. Introduza o nome do servidor Oracle, o método de autenticação, nome de utilizador, palavra-passe e selecione o gateway:
+5. Selecione uma das ações, como **Oracle Database-obter linha**. Selecione **conectar por meio do gateway de dados local**. Insira o nome do servidor Oracle, o método de autenticação, o nome de usuário, a senha e selecione o gateway:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
-6. Depois de ligado, selecione uma tabela na lista e introduza o ID de linha à tabela. Precisa saber o identificador para a tabela. Se não souber, contacte o administrador do Oracle DB e obtenha o resultado do `select * from yourTableName`. Isto dá-lhe as informações de identificação que precisa para continuar.
+6. Uma vez conectado, selecione uma tabela na lista e insira a ID da linha em sua tabela. Você precisa saber o identificador para a tabela. Se você não souber, entre em contato com o administrador do Oracle DB e obtenha a saída de `select * from yourTableName`. Isso fornece as informações de identificação necessárias para continuar.
 
-    No exemplo a seguir, os dados da tarefa estão a ser devolvidos de uma base de dados de recursos humanos: 
+    No exemplo a seguir, os dados de trabalho estão sendo retornados de um banco de dado de recursos humanos: 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Neste passo, pode usar qualquer um dos outros conectores para criar seu fluxo de trabalho. Se pretender testar a obtenção de dados do Oracle, em seguida, envie para si próprio um e-mail com os dados do Oracle através de um dos conectores de e-mail do envio, do Office 365 ou Gmail. Utilize os tokens dinâmicos da tabela do Oracle para criar o `Subject` e `Body` da mensagem de e-mail:
+7. Nesta próxima etapa, você pode usar qualquer um dos outros conectores para criar seu fluxo de trabalho. Se você quiser testar a obtenção de dados do Oracle, envie um email com os dados da Oracle usando um dos conectores de envio de email, como o Office 365 ou o gmail. Use os tokens dinâmicos da tabela do Oracle para criar o `Subject` e `Body` do seu email:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Guarde** sua aplicação lógica e, em seguida, selecione **executar**. Feche o designer e ver o histórico de execuções para que o estado. Se falhar, selecione a linha de mensagem com falha. O designer abre e mostra quais passo falhou e também mostra as informações de erro. Se tiver êxito, deverá receber um e-mail com as informações que adicionou.
+8. **Salve** seu aplicativo lógico e, em seguida, selecione **executar**. Feche o designer e examine o histórico de execuções para o status. Se falhar, selecione a linha de mensagem com falha. O designer é aberto e mostra a você qual etapa falhou e também mostra as informações do erro. Se tiver sucesso, você deverá receber um email com as informações adicionadas.
 
 
-### <a name="workflow-ideas"></a>Idéias de fluxo de trabalho
+### <a name="workflow-ideas"></a>Ideias de fluxo de trabalho
 
-* Pretende monitorizar a hashtag #oracle e colocar os tweets numa base de dados para que possam ser consultados e utilizados dentro de outros aplicativos. Numa aplicação lógica, adicione a `Twitter - When a new tweet is posted` acionar e introduza o **#oracle** hashtag. Em seguida, adicione o `Oracle Database - Insert row` ação e selecionar a tabela:
+* Você deseja monitorar a hashtag de #oracle e colocar os tweets em um banco de dados para que eles possam ser consultados e usados em outros aplicativos. Em um aplicativo lógico, adicione o gatilho de `Twitter - When a new tweet is posted` e insira a hashtag de **#oracle** . Em seguida, adicione a ação de `Oracle Database - Insert row` e selecione a tabela:
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
-* As mensagens são enviadas para uma fila do Service Bus. Pretende obter estas mensagens e colocá-los numa base de dados. Numa aplicação lógica, adicione o `Service Bus - when a message is received in a queue` acionar e selecione a fila. Em seguida, adicione o `Oracle Database - Insert row` ação e selecionar a tabela:
+* As mensagens são enviadas para uma fila do barramento de serviço. Você deseja obter essas mensagens e colocá-las em um banco de dados. Em um aplicativo lógico, adicione o gatilho `Service Bus - when a message is received in a queue` e selecione a fila. Em seguida, adicione a ação de `Oracle Database - Insert row` e selecione a tabela:
 
     ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>Erros comuns
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: Não é possível aceder ao Gateway
+#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: não é possível acessar o gateway
 
-**Motivo**: O gateway de dados no local não é possível estabelecer uma ligação para a cloud. 
+**Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
 
-**Atenuação**: Certificar-se de que o gateway está em execução na máquina no local onde a instalou e que possa estabelecer ligação à internet.  Recomendamos que não instale o gateway num computador que possa ser desativado ou modo de suspensão. Também pode reiniciar o serviço de gateway de dados no local (PBIEgwService).
+**Mitigação**: Verifique se o gateway está em execução no computador local onde você o instalou e se ele pode se conectar à Internet.  Recomendamos não instalar o gateway em um computador que possa ser desligado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: O fornecedor utilizado foi preterido: "System.Data.OracleClient requer Oracle versão do software de cliente 8.1.7 ou superior.". Ver [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o fornecedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: ' System. Data. OracleClient requer o software cliente Oracle versão 8.1.7 ou superior. '. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
-**Motivo**: O SDK do cliente Oracle não está instalado no computador onde está a executar o gateway de dados no local.  
+**Causa**: o SDK do cliente Oracle não está instalado no computador em que o gateway de dados local está em execução.  
 
-**Resolução**: Transfira e instale o SDK do cliente Oracle no mesmo computador que o gateway de dados no local.
+**Resolução**: Baixe e instale o SDK do cliente Oracle no mesmo computador que o gateway de dados local.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: A tabela "[Tablename]" não define quaisquer colunas de chave
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: a tabela ' [TableName] ' não define nenhuma coluna de chave
 
-**Motivo**: A tabela não tem nenhuma chave primária.  
+**Causa**: a tabela não tem nenhuma chave primária.  
 
-**Resolução**: O conector da base de dados Oracle requer que uma tabela com uma coluna de chave primária ser usado.
+**Resolução**: o conector de Oracle Database requer que uma tabela com uma coluna de chave primária seja usada.
 
-#### <a name="currently-not-supported"></a>Atualmente não suportado
+#### <a name="currently-not-supported"></a>Atualmente sem suporte
 
 * Vistas 
-* Qualquer tabela com as chaves compostas
-* Tipos de objetos aninhados em tabelas
+* Qualquer tabela com chaves compostas
+* Tipos de objeto aninhados em tabelas
  
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/oracle/). 
+Exiba todos os gatilhos e ações definidos no Swagger e também veja os limites nos [detalhes do conector](/connectors/oracle/). 
 
-## <a name="get-some-help"></a>Obter ajuda
+## <a name="get-some-help"></a>Obtenha ajuda
 
-O [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um excelente local para fazer perguntas, responder a perguntas e ver o que os outros utilizadores do Logic Apps estão a fazer. 
+O [Fórum de aplicativos lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um ótimo lugar para fazer perguntas, responder a perguntas e ver o que os outros usuários de aplicativos lógicos estão fazendo. 
 
-Pode ajudar a melhorar o Logic Apps e conectores de voto e submeter as suas ideias em [ https://aka.ms/logicapps-wish ](https://aka.ms/logicapps-wish). 
+Você pode ajudar a melhorar os aplicativos lógicos e conectores votando e enviando suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)e explore os conectores disponíveis no Logic Apps, no [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos seguintes
+[Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)e explore os conectores disponíveis nos aplicativos lógicos na [lista de APIs](apis-list.md).

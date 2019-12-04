@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847200"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766094"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização de Azure AD Connect: atributos sincronizados com Azure Active Directory
 Este tópico lista os atributos que são sincronizados pelo Azure AD Connect sincronização.  
@@ -52,7 +52,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X |UPN é a ID de logon do usuário. Muitas vezes, o mesmo que o valor de [email]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | Assistant |X |X | | |
@@ -175,7 +175,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | authOrig |X |X |X | |
@@ -209,7 +209,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | hideDLMembership | | |X | |
 | HomePhone |X |X | | |
 | detalhes |X |X |X | |
-| Iniciais |X |X | | |
+| iniciais |X |X | | |
 | ipPhone |X |X | | |
 | debug |X |X | | |
 | mescla |X |X |X | |
@@ -257,7 +257,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Equipes e Skype for Business Online
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | & |X |X | | |
@@ -305,7 +305,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | Hong |X | |X |Nome comum ou alias. Geralmente, o prefixo do valor [mail]. |
@@ -320,7 +320,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X | | |Esse UPN é a ID de logon do usuário. Muitas vezes, o mesmo que o valor de [email]. |
 
 ## <a name="intune"></a>Intune
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | & |X |X | | |
@@ -338,7 +338,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Muitas vezes, o mesmo que o valor de [email]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | & |X |X | | |
@@ -377,7 +377,7 @@ Esse grupo é um conjunto de atributos usados como os atributos mínimos necess�
 
 Esse grupo é um conjunto de atributos que podem ser usados se o diretório do Azure AD não for usado para dar suporte ao Office 365, Dynamics ou Intune. Ele tem um pequeno conjunto de atributos de núcleo.
 
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | Hong |X | |X | |
@@ -422,7 +422,7 @@ Esses atributos para o **usuário** são além dos outros aplicativos que você 
 ## <a name="exchange-hybrid-writeback"></a>Write-back híbrido do Exchange
 Esses atributos são gravados de volta do Azure AD para o local Active Directory quando você seleciona para habilitar o **Exchange híbrido**. Dependendo da versão do Exchange, menos atributos podem ser sincronizados.
 
-| Nome do atributo (AD local) | Nome do atributo (interface do usuário do Connect) | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo (AD local) | Nome do atributo (interface do usuário do Connect) | Utilizador | Contacte-nos | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-external-Directory-Object-ID |X | | |Derivado de cloudAnchor no Azure AD. Esse atributo é novo no Exchange 2016 e no Windows Server 2016 AD. |
 | msExchArchiveStatus| Ms-Exch-ArchiveStatus |X | | |Arquivo online: permite que os clientes arquivem emails. |
@@ -430,7 +430,7 @@ Esses atributos são gravados de volta do Azure AD para o local Active Directory
 | msExchSafeRecipientsHash| Ms-Exch-SafeRecipientsHash  |X | | |Filtragem: grava novamente a filtragem local e os dados do remetente bloqueado e seguro online de clientes. |
 | msExchSafeSendersHash| Ms-Exch-SafeSendersHash  |X | | |Filtragem: grava novamente a filtragem local e os dados do remetente bloqueado e seguro online de clientes. |
 | msExchUCVoiceMailSettings| Ms-Exch-UCVoiceMailSettings |X | | |Habilitar o UM (Unificação de mensagens)-correio online de voz: usado pela integração do Microsoft Lync Server para indicar ao Lync Server local que o usuário tem o correio de voz em serviços online. |
-| msExchUserHoldPolicies| MS-exc-hUserHoldPolicies |X | | |Suspensão de litígio: permite que os serviços de nuvem determinem quais usuários estão em espera de litígio. |
+| msExchUserHoldPolicies| Ms-Exch-UserHoldPolicies |X | | |Suspensão de litígio: permite que os serviços de nuvem determinem quais usuários estão em espera de litígio. |
 | proxyAddresses| proxyAddresses |X |X |X |Somente o endereço X500 do Exchange Online é inserido. |
 | publicDelegates| Ms-Exch-Public-delegates  |X | | |Permite que uma caixa de correio do Exchange Online receba direitos SendOnBehalfTo para usuários com caixa de correio do Exchange local. Requer Azure AD Connect Build 1.1.552.0 ou After. |
 

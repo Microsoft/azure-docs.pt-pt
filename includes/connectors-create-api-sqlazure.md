@@ -1,19 +1,15 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
-services: logic-apps
-author: ecfan
 ms.service: logic-apps
-ms.topic: include
+author: ecfan
 ms.author: estfan
-ms.custom: include file
+ms.topic: include
 ms.date: 11/08/2019
-ms.openlocfilehash: 0be29f6f541aa58e57eb665ebaf29e35f42865e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ea0ae1b1527aa1f527c8ac8fbcd3b4e4f6b6fe2f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826329"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789206"
 ---
 * Se você estiver usando o banco de dados SQL do Azure, siga as etapas em [conectar ao banco de dados SQL do Azure](#connect-azure-sql-db).
 

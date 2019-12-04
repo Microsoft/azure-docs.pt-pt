@@ -1,91 +1,91 @@
 ---
-title: Ligar ao OneDrive - Azure Logic Apps | Documentos da Microsoft
-description: Carregar e gerir ficheiros com as APIs REST do OneDrive e o Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
-ms.topic: article
-ms.service: logic-apps
+title: Conectar-se ao OneDrive
+description: Carregar e gerenciar arquivos com as APIs REST do OneDrive e os aplicativos lógicos do Azure
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 840a010f8606387a250552d884621a96d0031f90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106232"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789674"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>Começar com o conector do OneDrive
-Ligar ao OneDrive para gerir os seus ficheiros, incluindo o carregamento, obter, eliminar ficheiros e muito mais. 
+# <a name="get-started-with-the-onedrive-connector"></a>Introdução ao conector do OneDrive
 
-Com o OneDrive,: 
+Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. Com o OneDrive, você pode executar estas tarefas:
 
-* Criar o seu fluxo de trabalho ao armazenamento de ficheiros no OneDrive ou atualizar os ficheiros existentes no OneDrive. 
-* Utilize os acionadores para iniciar o seu fluxo de trabalho quando um ficheiro é criado ou atualizado no seu OneDrive.
-* Utilize ações para criar um ficheiro, eliminar um ficheiro e muito mais. Por exemplo, quando um novo e-mail do Office 365 é recebido com um anexo (um acionador), crie um novo ficheiro no OneDrive (uma ação).
+* Crie seu fluxo de trabalho armazenando arquivos no OneDrive ou atualize os arquivos existentes no OneDrive. 
+* Use gatilhos para iniciar o fluxo de trabalho quando um arquivo for criado ou atualizado no OneDrive.
+* Use ações para criar um arquivo, excluir um arquivo e muito mais. Por exemplo, quando um novo email do Office 365 é recebido com um anexo (um gatilho), crie um novo arquivo no OneDrive (uma ação).
 
-Este artigo mostra-lhe como utilizar o conector do OneDrive numa aplicação lógica e também lista os acionadores e ações.
+Este artigo mostra como usar o conector do OneDrive em um aplicativo lógico e também lista os gatilhos e as ações.
 
-Para saber mais sobre o Logic Apps, veja [o que são as aplicações lógicas](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para saber mais sobre os aplicativos lógicos, consulte [o que são aplicativos lógicos](../logic-apps/logic-apps-overview.md) e [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="connect-to-onedrive"></a>Ligar ao OneDrive
-Antes da aplicação lógica pode aceder a qualquer serviço, primeiro tem de criar uma *ligação* ao serviço. Uma ligação fornece conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar ao OneDrive, primeiro tem de um OneDrive *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que deseja se conectar. Então, com o OneDrive, introduza as credenciais para a sua conta do OneDrive para criar a ligação.
+## <a name="connect-to-onedrive"></a>Conectar-se ao OneDrive
+
+Antes que seu aplicativo lógico possa acessar qualquer serviço, você primeiro cria uma *conexão* com o serviço. Uma conexão fornece conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao OneDrive, você precisa primeiro de uma *conexão*do onedrive. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual você deseja se conectar. Portanto, com o OneDrive, insira as credenciais para sua conta do OneDrive para criar a conexão.
 
 ### <a name="create-the-connection"></a>Criar a ligação
-> [!INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
-> 
-> 
 
-## <a name="use-a-trigger"></a>Utilizar um acionador
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. Acionadores "consultam" o serviço num intervalo e a frequência que pretenda. [Saiba mais sobre os acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+[!INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
-1. Na aplicação lógica, escreva "onedrive" para obter uma lista dos acionadores:  
-   
-    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. Selecione **quando um ficheiro é modificado**. Se já existir uma ligação, em seguida, selecione o botão de mostrar Seletor para selecionar uma pasta.
-   
-    ![](./media/connectors-create-api-onedrive/sample-folder.png)
-   
-    Se lhe for pedido para iniciar sessão, em seguida, introduza o início de sessão nos detalhes para criar a ligação. [Criar a ligação](connectors-create-api-onedrive.md#create-the-connection) neste artigo lista os passos. 
-   
-   > [!NOTE]
-   > Neste exemplo, a aplicação lógica executa quando um ficheiro na pasta escolhida é atualizado. Para ver os resultados deste acionador, adicione outra ação que envia um e-mail. Por exemplo, adicionar o Office 365 Outlook *enviar um e-mail* ação que envia um e-mail quando um ficheiro é atualizado. 
+## <a name="use-a-trigger"></a>Usar um gatilho
 
-3. Selecione o **edite** botão e defina a **frequência** e **intervalo** valores. Por exemplo, se pretender que o acionador para consultar a cada 15 minutos, em seguida, defina o **frequência** ao **minuto**e defina o **intervalo** para **15**. 
-   
-    ![](./media/connectors-create-api-onedrive/trigger-properties.png)
-4. **Guardar** as alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Dispara a "sondagem" do serviço em um intervalo e uma frequência que você deseja. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-## <a name="use-an-action"></a>Utilize uma ação
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. No aplicativo lógico, digite "onedrive" para obter uma lista dos gatilhos:  
 
-1. Selecione o sinal. Verá várias opções: **Adicionar uma ação**, **adicionar uma condição**, ou uma da **mais** opções.
-   
-    ![](./media/connectors-create-api-onedrive/add-action.png)
-2. Escolher **adicionar uma ação**.
+   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+
+2. Selecione **quando um arquivo é modificado**. Se já existir uma conexão, selecione o botão Mostrar seletor para selecionar uma pasta.
+
+   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+
+   Se você for solicitado a entrar, insira os detalhes de entrada para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste artigo lista as etapas.
+
+   Neste exemplo, o aplicativo lógico é executado quando um arquivo na pasta escolhida é atualizado. Para ver os resultados desse gatilho, adicione outra ação que lhe envie um email. Por exemplo, adicione a ação *enviar um email* do Outlook do Office 365 que envia emails para você quando um arquivo é atualizado.
+
+3. Selecione o botão **Editar** e defina os valores de **frequência** e **intervalo** . Por exemplo, se você quiser que o gatilho seja sondado a cada 15 minutos, defina a **frequência** como **minuto**e defina o **intervalo** como **15**. 
+
+   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+
+4. **Salve** suas alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+
+## <a name="use-an-action"></a>Usar uma ação
+
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+
+1. Selecione o sinal de adição. Você verá várias opções: **Adicionar uma ação**, **Adicionar uma condição**ou uma das **mais** opções.
+
+   ![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Escolha **Adicionar uma ação**.
+
 3. Na caixa de texto, digite "onedrive" para obter uma lista de todas as ações disponíveis.
-   
-    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
-4. No nosso exemplo, escolha **OneDrive - criar ficheiro**. Se já existir uma ligação, em seguida, selecione o **caminho da pasta** para colocar o ficheiro, introduza o **nome do ficheiro**e selecione o **conteúdo do ficheiro** pretende:  
-   
-    ![](./media/connectors-create-api-onedrive/sample-action.png)
-   
-    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-onedrive.md#create-the-connection) este artigo descreve essas propriedades. 
-   
-   > [!NOTE]
-   > Neste exemplo, vamos criar um novo ficheiro numa pasta do OneDrive. Pode utilizar a saída de outro acionador para criar o ficheiro do OneDrive. Por exemplo, adicionar o Office 365 Outlook *quando chega um novo e-mail* acionador. Em seguida, adicione o OneDrive *criar ficheiro* ação que usa os anexos e o tipo de conteúdo campos dentro de um ForEach para criar o novo ficheiro no OneDrive. 
-   > 
-   > ![](./media/connectors-create-api-onedrive/foreach-action.png)
 
-5. **Guardar** as alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
+   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
+4. Em nosso exemplo, escolha **onedrive – criar arquivo**. Se já existir uma conexão, selecione o **caminho da pasta** para colocar o arquivo, insira o **nome do arquivo**e escolha o **conteúdo do arquivo** desejado:  
+
+   ![](./media/connectors-create-api-onedrive/sample-action.png)
+
+   Se as informações de conexão forem solicitadas, insira os detalhes para [criar a conexão, conforme descrito](#create-the-connection) neste tópico.
+
+   Neste exemplo, você cria um novo arquivo em uma pasta do OneDrive. Você pode usar a saída de outro gatilho para criar o arquivo do OneDrive. Por exemplo, adicione o Outlook do Office 365 *quando um novo email chegar ao* gatilho. Em seguida, adicione a ação *criar arquivo* do onedrive que usa os campos anexos e tipo de conteúdo em um foreach para criar o novo arquivo no onedrive.
+
+   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Salve** suas alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/onedriveconnector/).
+Exiba todos os gatilhos e ações definidos no Swagger e também veja os limites nos [detalhes do conector](/connectors/onedriveconnector/).
 
-## <a name="more-connectors"></a>Mais conectores
-Volte para o [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos seguintes
+
+* [Conectores para Azure Logic Apps](apis-list.md)

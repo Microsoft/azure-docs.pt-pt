@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819350"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784600"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou v 2.0) para rastreamento, você pode fazer com que seus logs de rastreamento sejam enviados automaticamente para Application Insights onde você pode explorar e Pesquisar neles.
@@ -22,27 +22,41 @@ Se você estiver usando Logback ou Log4J (v 1.2 ou v 2.0) para rastreamento, voc
 
 ## <a name="using-the-application-insights-java-agent"></a>Usando o agente Java Application Insights
 
-Você pode configurar o Application Insights agente Java para capturar os logs automaticamente, habilitando o recurso no arquivo de `AI-Agent.xml`:
+Por padrão, o Application Insights agente Java captura automaticamente o log executado no nível `WARN` e acima.
+
+Você pode alterar o limite de log que é capturado usando o arquivo de `AI-Agent.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-Como alternativa, você pode seguir as instruções abaixo.
+Você pode desabilitar a captura de log do agente Java usando o arquivo de `AI-Agent.xml`:
 
-## <a name="install-the-java-sdk"></a>Instalar o SDK do Java
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Como alternativa (em oposição ao uso do agente Java), você pode seguir as instruções abaixo
+
+### <a name="install-the-java-sdk"></a>Instalar o SDK do Java
 
 Siga as instruções para instalar [Application insights SDK para Java][java], caso ainda não tenha feito isso.
 
-## <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de log ao seu projeto
+### <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de log ao seu projeto
 *Escolha a forma adequada para o seu projeto.*
 
 #### <a name="if-youre-using-maven"></a>Se estiver a utilizar Maven...
@@ -120,10 +134,10 @@ Siga as diretrizes para instalar manualmente Application Insights SDK do Java, b
 | --- | --- | --- |
 | Logback |[Jar do appender Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-Logging-logback |
 | Log4J v 2.0 |[Jar do appender Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-Logging-log4j2 |
-| Log4J v 1.2 |[Jar do appender do Log4J v 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-Logging-log4j1_2 |
+| Log4J v 1.2 |[Jar do appender do Log4J v 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-log-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o acrescentador à sua estrutura de log
+### <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o acrescentador à sua estrutura de log
 Para começar a obter rastreamentos, mescle o trecho de código relevante para o arquivo de configuração Log4J ou Logback: 
 
 *Logback*

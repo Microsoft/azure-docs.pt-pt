@@ -1,21 +1,19 @@
 ---
-title: Integração corporativa B2B – aplicativos lógicos do Azure
+title: Integração empresarial B2B
 description: Saiba mais sobre como criar fluxos de trabalho B2B automatizados para a integração corporativa usando os aplicativos lógicos do Azure e Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 08/01/2019
-ms.openlocfilehash: 54d665d6a4fd9aa0216d9eccf821f5af539a3636
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 141f1a7fc8f966132cb3570fd9d9cfa911127eed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71087571"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792449"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluções de integração corporativa B2B com aplicativos lógicos do Azure e Enterprise Integration Pack
 

@@ -1,23 +1,18 @@
 ---
-title: Automatizar fluxos de trabalho de tarefas no Visual Studio – aplicativos lógicos do Azure
+title: Automatizar fluxos de trabalho de tarefas no Visual Studio
 description: Criar, agendar e executar fluxos de trabalho recorrentes para integração corporativa usando o aplicativo lógico do Azure e o Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: e7ce31f489ae274eddb02c1bfb7e57eb486f5851
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 49269cf2171269063de4a3cf5de1f22ebc545005
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796960"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790818"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: criar tarefas, processos e fluxos de trabalho automatizados com os aplicativos lógicos do Azure-Visual Studio
 
@@ -44,7 +39,7 @@ Neste guia de início rápido, você cria o mesmo aplicativo lógico com o Visua
 
   * [Microsoft Azure SDK para .net (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
-  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
+  * [O Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * As ferramentas mais recentes dos aplicativos lógicos do Azure para a extensão do Visual Studio para a versão que você deseja:
 
@@ -117,7 +112,7 @@ Quando você tiver seu projeto de grupo de recursos do Azure, crie seu aplicativ
    | Definição | Valor de exemplo | Descrição |
    | ------- | ------------- | ----------- |
    | Conta de usuário | Fabrikam <br> sophia-owen@fabrikam.com | A conta que você usou quando entrou no Visual Studio |
-   | **Subscrição** | "Pay As You Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
+   | **Subscrição** | "Pay-As-You-Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
    | **Grupo de Recursos** | MyLogicApp-RG <br> (E.U.A. Oeste) | O grupo de recursos do Azure e o local para armazenar e implantar os recursos do aplicativo lógico |
    | **Localização** | **Mesmo que o grupo de recursos** | O tipo de local e o local específico para implantar seu aplicativo lógico. O tipo de local é uma região do Azure ou um [ambiente de serviço de integração (ISE)](connect-virtual-network-vnet-isolated-environment.md)existente. <p>Para este guia de início rápido, mantenha o tipo de local definido como **região** e o local definido como o **mesmo que o grupo de recursos**. <p>**Observação**: depois de criar seu projeto de grupo de recursos, você pode [alterar o tipo de local e o local](manage-logic-apps-with-visual-studio.md#change-location), mas o tipo de local diferente afeta seu aplicativo lógico de várias maneiras. |
    ||||

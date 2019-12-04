@@ -1,20 +1,19 @@
 ---
-title: Monitorar aplicativos lógicos com o Azure Monitor-aplicativos lógicos do Azure
+title: Monitorar aplicativos lógicos com Azure Monitor
 description: Obtenha informações e depuração de dados para solucionar problemas e diagnosticar execuções de aplicativo lógico com logs de Azure Monitor
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/29/2019
-ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 305b50c86a468354f049fcc57fcb79b537e8dfed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138689"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791890"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Obter informações e depurar dados para aplicativos lógicos usando logs de Azure Monitor
 
@@ -31,7 +30,7 @@ Antes de começar, você precisa de um espaço de trabalho Log Analytics. Saiba 
 
 ## <a name="turn-on-logging-for-new-logic-apps"></a>Ativar o registro em log para novos aplicativos lógicos
 
-1. Em [portal do Azure](https://portal.azure.com), crie seu aplicativo lógico. No menu principal do Azure, selecione **criar um recurso** > **aplicativo lógico**de**integração** > .
+1. Em [portal do Azure](https://portal.azure.com), crie seu aplicativo lógico. No menu principal do Azure, selecione **criar um recurso** > **integração** > **aplicativo lógico**.
 
    ![Criar novo aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/create-new-logic-app.png)
 
@@ -65,7 +64,7 @@ Se você já configurou os logs de Azure Monitor quando criou seu aplicativo ló
 
    ![Selecione seu espaço de trabalho Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. No painel Visão geral, em introdução **ao log Analytics** > **configurar soluções de monitoramento**, selecione **Exibir soluções**.
+1. No painel Visão geral, em introdução **ao Log Analytics** > **configurar soluções de monitoramento**, selecione **Exibir soluções**.
 
    ![Selecione "Exibir soluções"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -95,7 +94,7 @@ Se você já configurou os logs de Azure Monitor quando criou seu aplicativo ló
 
 Depois que o aplicativo lógico for executado, você poderá exibir o status e a contagem dessas execuções no bloco **Gerenciamento de aplicativos lógicos** .
 
-1. Acesse o espaço de trabalho log Analytics e selecione **Resumo** > do espaço de trabalho**Gerenciamento de aplicativos lógicos**.
+1. Vá para o espaço de trabalho Log Analytics e selecione **Resumo do espaço de trabalho** > gerenciamento de **aplicativos lógicos**.
 
    ![Status e contagem de execução do aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary.png)
 
@@ -111,23 +110,23 @@ Depois que o aplicativo lógico for executado, você poderá exibir o status e a
 
    Esta página tem opções avançadas: 
 
-   * Coluna de **Propriedades rastreadas** : Para um aplicativo lógico em que você configura as propriedades rastreadas, que são agrupadas por ações, você pode exibir essas propriedades dessa coluna. Para exibir essas propriedades rastreadas, selecione **Exibir**. Para pesquisar as propriedades rastreadas, use o filtro de coluna.
+   * Coluna **Propriedades rastreadas** : para um aplicativo lógico em que você configura as propriedades rastreadas, que são agrupadas por ações, você pode exibir essas propriedades desta coluna. Para exibir essas propriedades rastreadas, selecione **Exibir**. Para pesquisar as propriedades rastreadas, use o filtro de coluna.
 
       ![Exibir propriedades rastreadas para um aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
       Todas as propriedades rastreadas adicionadas recentemente podem levar 10-15 minutos antes de aparecerem pela primeira vez. Saiba [como adicionar propriedades rastreadas ao seu aplicativo lógico](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Reenviar**: Você pode reenviar uma ou mais execuções de aplicativos lógicos que falharam, tiveram êxito ou ainda estão em execução. Marque as caixas de seleção das execuções que você deseja reenviar e, em seguida, selecione reenviar.
+   * **Reenviar**: você pode reenviar uma ou mais execuções de aplicativos lógicos que falharam, tiveram êxito ou ainda estão em execução. Marque as caixas de seleção das execuções que você deseja reenviar e, em seguida, selecione **reenviar**.
 
      ![Reenviar execuções de aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Para filtrar os resultados, você pode executar a filtragem do lado do cliente e do servidor.
 
-   * **Filtro do lado do cliente**: Para cada coluna, selecione os filtros desejados, por exemplo:
+   * **Filtro do lado do cliente**: para cada coluna, selecione os filtros desejados, por exemplo:
 
      ![Filtros de coluna de exemplo](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Filtro no lado do servidor**: Para selecionar uma janela de tempo específica ou para limitar o número de execuções que aparecem, use o controle de escopo na parte superior da página. Por padrão, somente os registros 1.000 aparecem por vez.
+   * **Filtro no lado do servidor**: para selecionar uma janela de tempo específica ou para limitar o número de execuções que aparecem, use o controle de escopo na parte superior da página. Por padrão, somente os registros 1.000 aparecem por vez.
 
      ![Alterar a janela de tempo](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
 
@@ -149,6 +148,6 @@ Depois que o aplicativo lógico for executado, você poderá exibir o status e a
 
      ![Log Analytics-exibição de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar mensagens B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

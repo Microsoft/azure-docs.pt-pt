@@ -1,19 +1,19 @@
 ---
-title: Tutorial sobre monitorização e otimização na base de dados do Azure para PostgreSQL - servidor único
-description: Este tutorial explica-monitoramento e ajuste na base de dados do Azure para PostgreSQL - único servidor.
+title: 'Tutorial: monitorar e ajustar-banco de dados do Azure para PostgreSQL-servidor único'
+description: Este tutorial percorre o monitoramento e o ajuste no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073093"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774742"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitorizar e otimizar a base de dados do Azure para PostgreSQL - servidor único
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: monitorar e ajustar o banco de dados do Azure para PostgreSQL-servidor único
 
 A Base de Dados do Azure para PostgreSQL possui recursos que o ajudam a compreender e a melhorar o desempenho do servidor. Neste tutorial, vai aprender a:
 > [!div class="checklist"]
@@ -92,5 +92,5 @@ A funcionalidade [Recomendações de Desempenho](concepts-performance-recommenda
 ### <a name="permissions"></a>Permissões
 As permissões **Proprietário** ou **Contribuidor** necessárias para executar a análise que utiliza a funcionalidade Recomendações de Desempenho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.

@@ -1,17 +1,17 @@
 ---
-title: Migrar seu banco de dados MariaDB usando despejo e restauração no banco de dados do Azure para MariaDB
+title: Migrar com despejo e restauração-banco de dados do Azure para MariaDB
 description: Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados em seu Azure Database para MariaDB, usando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 05626535a2ab2d8da29b8c817ebfe84c257c76aa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.date: 12/02/2019
+ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776010"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar seu banco de dados MariaDB para o banco de dados do Azure para MariaDB usando despejo e restauração
 Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no banco de dados do Azure para MariaDB
@@ -34,23 +34,23 @@ Você pode usar os utilitários do MySQL, como mysqldump e mysqlpump, para despe
 
 - Use despejos de banco de dados quando estiver migrando todo o banco de dados. Essa recomendação é mantida ao mover uma grande quantidade de dados ou quando você deseja minimizar a interrupção do serviço para sites ou aplicativos dinâmicos. 
 -  Confirme que todas as tabelas na base de dados utilizam o motor de armazenamento InnoDB ao carregar os dados no Azure Database for MariaDB. O banco de dados do Azure para MariaDB dá suporte apenas ao mecanismo de armazenamento InnoDB e, portanto, não oferece suporte a mecanismos de armazenamento alternativos. Se as tabelas estiverem configuradas com outros mecanismos de armazenamento, converta-as no formato de mecanismo InnoDB antes de migrar para o banco de dados do Azure para MariaDB.
-   Por exemplo, se você tiver um WordPress ou WebApp usando as tabelas MyISAM, primeiro converta essas tabelas migrando para o formato InnoDB antes de restaurar para o banco de dados do Azure para MariaDB. Use a cláusula `ENGINE=InnoDB` para definir o mecanismo usado ao criar uma nova tabela e, em seguida, transfira os dados para a tabela compatível antes da restauração. 
+   Por exemplo, se você tiver um WordPress ou WebApp usando as tabelas MyISAM, primeiro converta essas tabelas migrando para o formato InnoDB antes de restaurar para o banco de dados do Azure para MariaDB. Use a cláusula `ENGINE=InnoDB` para definir o mecanismo usado ao criar uma nova tabela e, em seguida, transferir os dados para a tabela compatível antes da restauração. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- Para evitar problemas de compatibilidade, confirme que utiliza a mesma versão do MariaDB nos sistemas de origem e de destino ao capturar as bases de dados. Por exemplo, se o servidor MariaDB existente for da versão 10,2, você deverá migrar para o banco de dados do Azure para MariaDB configurado para executar a versão 10,2. O `mysql_upgrade` comando não funciona em um banco de dados do Azure para o servidor MariaDB e não tem suporte. Se você precisar atualizar em versões do MariaDB, primeiro despeje ou exporte seu banco de dados de versão inferior para uma versão mais recente do MariaDB em seu próprio ambiente. Em seguida `mysql_upgrade`, execute, antes de tentar a migração em um banco de dados do Azure para MariaDB.
+- Para evitar problemas de compatibilidade, confirme que utiliza a mesma versão do MariaDB nos sistemas de origem e de destino ao capturar as bases de dados. Por exemplo, se o servidor MariaDB existente for da versão 10,2, você deverá migrar para o banco de dados do Azure para MariaDB configurado para executar a versão 10,2. O comando `mysql_upgrade` não funciona em um banco de dados do Azure para MariaDB Server e não tem suporte. Se você precisar atualizar em versões do MariaDB, primeiro despeje ou exporte seu banco de dados de versão inferior para uma versão mais recente do MariaDB em seu próprio ambiente. Em seguida, execute `mysql_upgrade`antes de tentar a migração em um banco de dados do Azure para MariaDB.
 
 ## <a name="performance-considerations"></a>Considerações de desempenho
 Para otimizar o desempenho, tome nota dessas considerações ao despejar grandes bancos de dados:
--   Use a `exclude-triggers` opção em mysqldump ao despejar bancos de dados. Exclua gatilhos de arquivos de despejo para evitar o acionamento de comandos de gatilho durante a restauração de dados. 
--   Use a `single-transaction` opção para definir o modo de isolamento da transação para leitura repetida e enviar uma instrução SQL de iniciar transação para o servidor antes de despejar dados. Despejar muitas tabelas em uma única transação faz com que algum armazenamento extra seja consumido durante a restauração. A `single-transaction` opção e a `lock-tables` opção são mutuamente exclusivas porque as tabelas de bloqueio fazem com que todas as transações pendentes sejam confirmadas implicitamente. Para despejar tabelas grandes, combine `single-transaction` a opção com `quick` a opção. 
+-   Use a opção `exclude-triggers` em mysqldump ao despejar bancos de dados. Exclua gatilhos de arquivos de despejo para evitar o acionamento de comandos de gatilho durante a restauração de dados. 
+-   Use a opção `single-transaction` para definir o modo de isolamento da transação para leitura REPETIda e enviar uma instrução SQL de iniciar transação para o servidor antes de despejar dados. Despejar muitas tabelas em uma única transação faz com que algum armazenamento extra seja consumido durante a restauração. A opção `single-transaction` e a opção `lock-tables` são mutuamente exclusivas porque as tabelas de bloqueio fazem com que todas as transações pendentes sejam confirmadas implicitamente. Para despejar tabelas grandes, combine a opção `single-transaction` com a opção `quick`. 
 -   Use a `extended-insert` sintaxe de várias linhas que inclui várias listas de valores. Isso resulta em um arquivo de despejo menor e acelera as inserções quando o arquivo é recarregado.
--  Use a `order-by-primary` opção em mysqldump ao despejar bancos de dados, para que eles sejam inseridos em script na ordem de chave primária.
--   Use a `disable-keys` opção em mysqldump ao despejar dados, para desabilitar as restrições de chave estrangeira antes do carregamento. A desabilitação das verificações de chave estrangeira fornece ganhos de desempenho. Habilite as restrições e verifique os dados após a carga para garantir a integridade referencial.
+-  Use a opção `order-by-primary` em mysqldump ao despejar bancos de dados, para que eles sejam inseridos no script na ordem de chave primária.
+-   Use a opção `disable-keys` no mysqldump ao despejar dados, para desabilitar as restrições de chave estrangeira antes do carregamento. A desabilitação das verificações de chave estrangeira fornece ganhos de desempenho. Habilite as restrições e verifique os dados após a carga para garantir a integridade referencial.
 -   Use tabelas particionadas quando apropriado.
 -   Carregar dados em paralelo. Evite muito paralelismo que faria com que você atingisse um limite de recursos e monitorasse os recursos usando as métricas disponíveis no portal do Azure. 
--   Use a `defer-table-indexes` opção em mysqlpump ao despejar bancos de dados, para que a criação do índice ocorra após o carregamento das tabelas.
+-   Use a opção `defer-table-indexes` em mysqlpump ao despejar bancos de dados, para que a criação do índice ocorra após o carregamento das tabelas.
 -   Copie os arquivos de backup para um repositório/BLOB do Azure e execute a restauração a partir daí, o que deve ser muito mais rápido do que executar a restauração pela Internet.
 
 ## <a name="create-a-backup-file"></a>Criar um arquivo de backup
@@ -66,7 +66,7 @@ Os parâmetros a serem fornecidos são:
 - [backupfile. SQL] o nome do arquivo para o backup do banco de dados 
 - [--aceitar] A opção mysqldump 
 
-Por exemplo, para fazer backup de um banco de dados denominado ' TestDB ' em seu servidor MariaDB com o nome de usuário ' testuser ' e sem senha para um arquivo testdb_backup. SQL, use o comando a seguir. O comando faz backup do `testdb` banco de dados em um `testdb_backup.sql`arquivo chamado, que contém todas as instruções SQL necessárias para recriar o banco de dados. 
+Por exemplo, para fazer backup de um banco de dados denominado ' TestDB ' em seu servidor MariaDB com o nome de usuário ' testuser ' e sem senha para um arquivo testdb_backup. SQL, use o comando a seguir. O comando faz backup do banco de dados `testdb` em um arquivo chamado `testdb_backup.sql`, que contém todas as instruções SQL necessárias para recriar o banco de dados. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -119,7 +119,7 @@ Importar seu banco de dados é semelhante à exportação. Execute as seguintes 
 5. Use o botão **procurar** para localizar o arquivo de banco de dados. 
 6. Clique no botão **ir** para exportar o backup, execute os comandos SQL e recrie o banco de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Conectar aplicativos ao banco de dados do Azure para MariaDB](./howto-connection-string.md).
  
 <!--

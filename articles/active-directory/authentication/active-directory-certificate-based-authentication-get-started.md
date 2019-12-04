@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382015"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785999"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificado no Azure Active Directory
 
@@ -36,13 +36,16 @@ Este tópico:
 
 Para configurar a autenticação baseada em certificado, as seguintes instruções devem ser verdadeiras:
 
-- A CBA (autenticação baseada em certificado) só tem suporte em ambientes federados para aplicativos de navegador ou clientes nativos que usam a ADAL (autenticação moderna). A única exceção é Exchange Active Sync (EAS) para o Exchange Online (EXO), que pode ser usado para contas federadas e gerenciadas.
+- A CBA (autenticação baseada em certificado) só tem suporte em ambientes federados para aplicativos de navegador, clientes nativos que usam a ADAL (autenticação moderna) ou bibliotecas MSAL. A única exceção é Exchange Active Sync (EAS) para o Exchange Online (EXO), que pode ser usado para contas federadas e gerenciadas.
 - A autoridade de certificação raiz e quaisquer autoridades de certificação intermediárias devem ser configuradas no Azure Active Directory.
 - Cada autoridade de certificação deve ter uma CRL (lista de certificados revogados) que pode ser referenciada por meio de uma URL voltada para a Internet.
 - Você deve ter pelo menos uma autoridade de certificação configurada em Azure Active Directory. Você pode encontrar etapas relacionadas na seção [configurar as autoridades de certificação](#step-2-configure-the-certificate-authorities) .
 - Para clientes do Exchange ActiveSync, o certificado do cliente deve ter o endereço de email roteável do usuário no Exchange Online no nome da entidade de segurança ou no valor do nome do RFC822 do campo nome alternativo da entidade. Azure Active Directory mapeia o valor de RFC822 para o atributo de endereço de proxy no diretório.
 - Seu dispositivo cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para o cliente.
+
+>[!IMPORTANT]
+>O tamanho máximo de uma CRL para Azure Active Directory ser baixado com êxito e o cache é 20 MB, e o tempo necessário para baixar a CRL não deve exceder 10 segundos.  Se Azure Active Directory não puder baixar uma CRL, as autenticações baseadas em certificado usando certificados emitidos pela autoridade de certificação correspondente falharão. As práticas recomendadas para garantir que os arquivos de CRL estejam dentro das restrições de tamanho são manter os tempos de vida dos certificados dentro dos limites razoáveis e limpar os certificados expirados. 
 
 ## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
 

@@ -1,17 +1,17 @@
 ---
-title: Logs de auditoria do banco de dados do Azure para MySQL
+title: Logs de auditoria-banco de dados do Azure para MySQL
 description: Descreve os logs de auditoria disponíveis no banco de dados do Azure para MySQL e os parâmetros disponíveis para habilitar os níveis de log.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434402"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773573"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Logs de auditoria no banco de dados do Azure para MySQL
 
@@ -22,18 +22,18 @@ No banco de dados do Azure para MySQL, o log de auditoria está disponível para
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 
-Por padrão, o log de auditoria é desabilitado. Para habilitá-lo, defina `audit_log_enabled` como ON.
+Por padrão, o log de auditoria é desabilitado. Para habilitá-lo, defina `audit_log_enabled` como ativado.
 
 Outros parâmetros que você pode ajustar incluem:
 
 - `audit_log_events`: controla os eventos a serem registrados. Consulte a tabela abaixo para ver eventos de auditoria específicos.
-- `audit_log_include_users`: usuários do MySQL a serem incluídos para registro em log. O valor padrão para esse parâmetro é vazio, o que incluirá todos os usuários para registro em log. Isso tem prioridade mais alta sobre `audit_log_exclude_users`. O comprimento máximo do parâmetro é de 512 caracteres.
+- `audit_log_include_users`: os usuários do MySQL a serem incluídos para registro em log. O valor padrão para esse parâmetro é vazio, o que incluirá todos os usuários para registro em log. Isso tem prioridade mais alta sobre `audit_log_exclude_users`. O comprimento máximo do parâmetro é de 512 caracteres.
 > [!Note]
 > `audit_log_include_users` tem prioridade mais alta sobre `audit_log_exclude_users`, por exemplo, se audit_log_include_users = `demouser` e audit_log_exclude_users = `demouser`, ele fará a auditoria dos logs porque `audit_log_include_users` tem prioridade mais alta.
-- `audit_log_exclude_users`: usuários do MySQL a serem excluídos do registro em log. O comprimento máximo do parâmetro é de 512 caracteres.
+- `audit_log_exclude_users`: os usuários do MySQL serão excluídos do registro em log. O comprimento máximo do parâmetro é de 512 caracteres.
 
 > [!Note]
-> Para `sql_text`, o log será truncado se exceder 2048 caracteres.
+> Por `sql_text`, o log será truncado se exceder 2048 caracteres.
 
 | **Evento** | **Descrição** |
 |---|---|
@@ -44,7 +44,7 @@ Outros parâmetros que você pode ajustar incluem:
 | `DDL` | Consultas como "remover banco de dados" |
 | `DCL` | Consultas como "conceder permissão" |
 | `ADMIN` | Consultas como "mostrar STATUS" |
-| `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN |
+| `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador |
 | `TABLE_ACCESS` | -Disponível somente para MySQL 5,7 <br> -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
@@ -73,7 +73,7 @@ As seções a seguir descrevem as saídas dos logs de auditoria do MySQL com bas
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (disponível somente para MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT``CHANGE USER` (disponível somente para MySQL 5,7) |
 | `connection_id_d` | ID de conexão exclusiva gerada pelo MySQL |
 | `host_s` | Vazio |
 | `ip_s` | Endereço IP do cliente que se conecta ao MySQL |
@@ -83,7 +83,7 @@ As seções a seguir descrevem as saídas dos logs de auditoria do MySQL com bas
 
 ### <a name="general"></a>Geral
 
-O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN.
+O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador.
 
 | **Propriedade** | **Descrição** |
 |---|---|
@@ -101,7 +101,7 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `general_log` |
-| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (disponível somente para MySQL 5,6) |
+| `event_subclass_s` | `LOG`, `ERROR``RESULT` (disponível somente para MySQL 5,6) |
 | `event_time` | Hora de início da consulta no carimbo de data/hora UTC |
 | `error_code_d` | Código de erro se a consulta falhar. `0` significa sem erro |
 | `thread_id_d` | ID do thread que executou a consulta |
@@ -129,7 +129,7 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` ou `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`ou `DELETE` |
 | `connection_id_d` | ID de conexão exclusiva gerada pelo MySQL |
 | `db_s` | Nome do banco de dados acessado |
 | `table_s` | Nome da tabela acessada |

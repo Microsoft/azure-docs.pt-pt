@@ -1,21 +1,18 @@
 ---
-title: Tratamento de exceção & cenário de log de erros-aplicativos lógicos do Azure
+title: Tratamento de exceção & cenário de log de erros
 description: Cenário e caso de uso real para tratamento de exceção avançada e log de erros em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: estfan
-ms.reviewer: LADocs
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680166"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792989"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: tratamento de exceção e log de erros para aplicativos lógicos
 
@@ -469,7 +466,7 @@ Chamamos a API de um aplicativo lógico usando a seguinte sintaxe:
  }
 ```
 
-A expressão no exemplo de código anterior verifica o status *Create_NewPatientRecord* de **Failed**.
+A expressão no exemplo de código anterior verifica o status de *Create_NewPatientRecord* de **falha**.
 
 ## <a name="summary"></a>Resumo
 

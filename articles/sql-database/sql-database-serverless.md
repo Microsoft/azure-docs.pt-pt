@@ -1,5 +1,5 @@
 ---
-title: Sem servidor
+title: Sem Servidor
 description: Este artigo descreve a nova camada de computação sem servidor e a compara com a camada de computação provisionada existente
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818263"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775588"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de Dados SQL do Azure sem servidor
 
@@ -66,7 +66,7 @@ A tabela a seguir resume as distinções entre a camada de computação sem serv
 | | **Computação sem servidor** | **Computação provisionada** |
 |:---|:---|:---|
 |**Padrão de uso do banco de dados**| Uso intermitente e imprevisível com menor utilização média de computação ao longo do tempo. |  Padrões de uso mais regulares com maior utilização média de computação ao longo do tempo ou a vários bancos de dados usando pools elásticos.|
-| **Esforço de gerenciamento de desempenho** |canto|Altos|
+| **Esforço de gerenciamento de desempenho** |Canto|Altos|
 |**Escala de computação**|Automático|Manual|
 |**Capacidade de resposta de computação**|Inferior após períodos inativos|Implantação|
 |**Granularidade da cobrança**|Por segundo|Por hora|
@@ -126,12 +126,12 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Funcionalidade|Gatilho de retomada|
 |---|---|
-|Autenticação e autorização|Iniciar sessão|
+|Autenticação e autorização|Início de Sessão|
 |Deteção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Deteção e classificação de dados|Adicionando, modificando, excluindo ou exibindo rótulos de sensibilidade|
 |Auditoria|Exibindo registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
 |Máscara de dados|Adicionando, modificando, excluindo ou exibindo regras de mascaramento de dados|
-|Encriptação de Dados Transparente|Estado de exibição ou status da Transparent Data Encryption|
+|Encriptação de dados transparente|Estado de exibição ou status da Transparent Data Encryption|
 |Repositório de dados de consulta (desempenho)|Modificando ou exibindo configurações do repositório de consultas|
 |Ajuste automática|Aplicativo e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
@@ -141,7 +141,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 O reinício retomado também é disparado durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.
 
-### <a name="connectivity"></a>Conectividade
+### <a name="connectivity"></a>Ligação
 
 Se um banco de dados sem servidor for pausado, o primeiro logon retomará o banco de dados e retornará um erro informando que o banco de dados está indisponível com o código de erro 40613. Depois que o banco de dados for retomado, o logon deverá ser repetido para estabelecer a conectividade. Os clientes de banco de dados com lógica de repetição de conexão não precisam ser modificados.
 
@@ -155,7 +155,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 1. Especifique o nome do objetivo de serviço. O objetivo do serviço prescreve a camada de serviço, a geração de hardware e o vCores máximo. A tabela a seguir mostra as opções de objetivo de serviço:
 
-   |Nome do objetivo de serviço|Camada de serviços|Geração de hardware|VCores máx.|
+   |Nome do objetivo de serviço|Escalão de serviço|Geração de hardware|VCores máx.|
    |---|---|---|---|
    |GP_S_Gen5_1|Fins Gerais|Gen5|1|
    |GP_S_Gen5_2|Fins Gerais|Gen5|2|

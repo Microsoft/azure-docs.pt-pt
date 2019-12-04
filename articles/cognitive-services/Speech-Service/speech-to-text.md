@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: 49bfa4a0dbf0adc498d545a2908c20f0ffa35b4b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075720"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774013"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
@@ -23,7 +23,7 @@ A conversão de fala em texto dos serviços de fala do Azure, também conhecida 
 
 Por padrão, o serviço de fala a texto usa o modelo de linguagem universal. Esse modelo foi treinado usando dados de propriedade da Microsoft e é implantado na nuvem. É ideal para cenários de conversação e de ditado. Se estiver usando a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor.
 
-Você pode facilmente capturar áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de fala e as APIs REST. O SDK de Voz suporta áudio de canal único WAV/PCM 16 bits, 16 kHz/8 kHz para reconhecimento de voz. São suportados formatos de áudio adicionais com o [ponto final REST de voz em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [serviço de transcrição em lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Você pode facilmente capturar áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de fala e as APIs REST. O SDK de Voz suporta áudio de canal único WAV/PCM 16 bits, 16 kHz/8 kHz para reconhecimento de voz. Formatos de áudio adicionais têm suporte usando o [ponto de extremidade REST de fala para texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [serviço de transcrição do lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Principais recursos
 
@@ -31,18 +31,20 @@ Aqui estão os recursos disponíveis por meio do SDK de fala e APIs REST:
 
 | Caso de utilização | SDK | REST |
 |--------- | --- | ---- |
-| Transcrever declarações curtos (< 15 segundos). Dá suporte apenas ao resultado final da transcrição. | Sim | Sim |
+| Transcrever declarações curtos (< 15 segundos). Dá suporte apenas a um resultado final de transcrição. | Sim | Sim\* |
 | Transcrição contínua de longa declarações e áudio de streaming (> 15 segundos). Dá suporte a resultados provisórios e finais de transcrição. | Sim | Não |
-| Derive tentativas de resultados de reconhecimento com [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Sim | Não\* |
-| Transcrição de lote de arquivos de áudio de forma assíncrona. | Não  | Sim\*\* |
-| Crie e gerencie modelos de fala. | Não | Sim\*\* |
-| Criar e gerenciar implantações de modelo personalizado. | Não  | Sim\*\* |
-| Crie testes de precisão para medir a precisão do modelo de linha de base versus modelos personalizados. | Não  | Sim\*\* |
-| Gerenciar assinaturas. | Não  | Sim\*\* |
+| Derive tentativas de resultados de reconhecimento com [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Sim | Nenhum\*\* |
+| Transcrição de lote de arquivos de áudio de forma assíncrona. | Não  | Sim\*\*\* |
+| Crie e gerencie modelos de fala. | Não | Sim\*\*\* |
+| Criar e gerenciar implantações de modelo personalizado. | Não  | Sim\*\*\* |
+| Crie testes de precisão para medir a precisão do modelo de linha de base versus modelos personalizados. | Não  | Sim\*\*\* |
+| Gerenciar assinaturas. | Não  | Sim\*\*\* |
 
-\*as _intenções e as entidades do Luis podem ser derivadas usando uma assinatura Luis separada. Com essa assinatura, o SDK pode chamar LUIS para você e fornecer resultados de entidade e de intenção. Com a API REST, você pode chamar o LUIS por conta própria para derivar tentativas e entidades com sua assinatura do LUIS._
+\*_usando a funcionalidade REST, você pode transferir até 60 segundos de áudio e receberá um resultado final de transcrição._
 
-\*\*_esses serviços estão disponíveis usando o ponto de extremidade Cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index)._
+\*\*_tentativas e entidades Luis podem ser derivadas usando uma assinatura Luis separada. Com essa assinatura, o SDK chama LUIS para você e fornece resultados de entidade e de intenção. Com a API REST, você chama o LUIS por conta própria para derivar tentativas e entidades com sua assinatura do LUIS._
+
+\*\*\*_esses serviços estão disponíveis usando o ponto de extremidade Cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index)._
 
 ## <a name="get-started-with-speech-to-text"></a>Introdução à conversão de fala em texto
 

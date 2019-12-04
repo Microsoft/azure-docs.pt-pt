@@ -1,24 +1,21 @@
 ---
-title: Criar modelos de aplicativo lógico para implantação-aplicativos lógicos do Azure
+title: Criar modelos de aplicativo lógico para implantação
 description: Saiba como criar modelos de Azure Resource Manager para automatizar a implantação em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845448"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793201"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
 
-Para ajudá-lo a automatizar a criação e a implantação de seu aplicativo lógico, este artigo descreve as maneiras como você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para seu aplicativo lógico. Para obter uma visão geral sobre a estrutura e a sintaxe de um modelo que inclui sua definição de fluxo de trabalho e outros [recursos necessários para a implantação, consulte Visão geral: Automatize a implantação de aplicativos lógicos com modelos](logic-apps-azure-resource-manager-templates-overview.md)de Azure Resource Manager.
+Para ajudá-lo a automatizar a criação e a implantação de seu aplicativo lógico, este artigo descreve as maneiras como você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para seu aplicativo lógico. Para obter uma visão geral sobre a estrutura e a sintaxe de um modelo que inclui sua definição de fluxo de trabalho e outros recursos necessários para a implantação, consulte [visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
 Os aplicativos lógicos do Azure fornecem um [aplicativo lógico predefinido Azure Resource Manager modelo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) que você pode reutilizar, não apenas para criar aplicativos lógicos, mas também para definir os recursos e parâmetros a serem usados para implantação. Você pode usar esse modelo para seus próprios cenários de negócios ou personalizar o modelo para atender às suas necessidades.
 
@@ -52,10 +49,10 @@ Por exemplo, suponha que você tenha um aplicativo lógico que recebe uma mensag
 
 Esses exemplos mostram como criar e implantar aplicativos lógicos usando modelos de Azure Resource Manager, Azure Pipelines no Azure DevOps e Azure PowerShell:
 
-* [Amostra: Conectar-se às filas do barramento de serviço do Azure de aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Conectar-se a contas de armazenamento do Azure de aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Configurar uma ação do aplicativo de funções para aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Conectar-se a uma conta de integração de aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Exemplo: conectar-se às filas do barramento de serviço do Azure de aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemplo: conectar-se a contas de armazenamento do Azure de aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemplo: configurar uma ação de aplicativo de funções para aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemplo: conectar-se a uma conta de integração de aplicativos lógicos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Instalar módulos do PowerShell
 
@@ -79,7 +76,7 @@ Ou, para instalar manualmente, siga as etapas no GitHub para [criador de modelo 
 
 Para que o módulo LogicAppTemplate funcione com qualquer token de acesso de assinatura e locatário do Azure, instale a [ferramenta de cliente Azure Resource Manager](https://github.com/projectkudu/ARMClient), que é uma ferramenta de linha de comando simples que chama a API de Azure Resource Manager.
 
-Quando você executa o `Get-LogicAppTemplate` comando com essa ferramenta, o comando obtém primeiro um token de acesso por meio da ferramenta ARMClient, canaliza o token para o script do PowerShell e cria o modelo como um arquivo JSON. Para obter mais informações sobre a ferramenta, consulte este [artigo sobre a ferramenta de cliente do Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
+Quando você executa o comando `Get-LogicAppTemplate` com essa ferramenta, o comando obtém primeiro um token de acesso por meio da ferramenta ARMClient, canaliza o token para o script do PowerShell e cria o modelo como um arquivo JSON. Para obter mais informações sobre a ferramenta, consulte este [artigo sobre a ferramenta de cliente do Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
 
 ### <a name="generate-template-with-powershell"></a>Gerar modelo com o PowerShell
 
@@ -89,7 +86,7 @@ Para gerar seu modelo depois de instalar o módulo LogicAppTemplate e [CLI do Az
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-Para seguir a recomendação de encanamento em um token da [ferramenta de cliente Azure Resource Manager](https://github.com/projectkudu/ARMClient), execute este comando, em `$SubscriptionId` que é a sua ID de assinatura do Azure:
+Para seguir a recomendação de encanamento em um token da [ferramenta de cliente Azure Resource Manager](https://github.com/projectkudu/ARMClient), execute este comando em vez disso, em que `$SubscriptionId` é sua ID de assinatura do Azure:
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -107,13 +104,13 @@ Para extração com referências de Azure Key Vault (somente estático), execute
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| Parâmetros | Requerido | Descrição |
+| Parâmetros | Obrigatório | Descrição |
 |------------|----------|-------------|
 | TemplateFile | Sim | O caminho do arquivo para o arquivo de modelo |
 | KeyVault | Não | Uma enumeração que descreve como lidar com possíveis valores de cofre de chaves. A predefinição é `None`. |
 ||||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implantar modelos de aplicativo lógico](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

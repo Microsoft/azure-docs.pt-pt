@@ -1,97 +1,97 @@
 ---
-title: Otimizar autovacuum numa base de dados do Azure para PostgreSQL - servidor único
-description: Este artigo descreve como pode otimizar autovacuum numa base de dados do Azure para PostgreSQL - servidor único
+title: Otimizar o autovácuo-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como você pode otimizar a vácuo autoaspira em um banco de dados do Azure para PostgreSQL-servidor único
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069105"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770191"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar autovacuum numa base de dados do Azure para PostgreSQL - servidor único
-Este artigo descreve como otimizar efetivamente autovacuum numa base de dados do Azure para o servidor PostgreSQL.
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo autoaspirar em um banco de dados do Azure para PostgreSQL-servidor único
+Este artigo descreve como otimizar com eficiência a vácuo autoaspiração em um servidor de banco de dados do Azure para PostgreSQL.
 
-## <a name="overview-of-autovacuum"></a>Descrição geral do autovacuum
-PostgreSQL utiliza o controlo de simultaneidade multiversion (MVCC) para permitir maior simultaneidade de base de dados. Cada atualização resulta num insert e delete e cada delete resulta em linhas que está sendo de forma recuperável marcado para eliminação. Marcação de forma recuperável identifica as tuplas Inativas que serão removidas mais tarde. Para executar estas tarefas, PostgreSQL executa uma tarefa de aspirador.
+## <a name="overview-of-autovacuum"></a>Visão geral do autovácuo
+O PostgreSQL usa o MVCC (controle de simultaneidade multiversão) para permitir uma maior simultaneidade de banco de dados. Cada atualização resulta em um Insert e Delete, e cada Delete resulta em linhas sendo marcadas de maneira flexível para exclusão. A marcação reversível identifica tuplas inativas que serão limpas posteriormente. Para executar essas tarefas, o PostgreSQL executa um trabalho de vácuo.
 
-Pode ser acionada uma tarefa de aspirador manual ou automaticamente. Cadeias de identificação de mensagens não mais existem quando a base de dados ocorre no heavy update ou operações de eliminação. As tuplas de mensagens não menos existem quando a base de dados está ocioso. Precisa com mais frequência vacuum quando a carga de base de dados é pesada, que torna a execução de trabalhos de aspirador *manualmente* inconveniente.
+Um trabalho de vácuo pode ser disparado manualmente ou automaticamente. Há mais tuplas inativas quando o banco de dados experimenta operações de atualização ou exclusão pesadas. Existem menos tuplas inativas quando o banco de dados está ocioso. Você precisa se aspirar com mais frequência quando a carga do banco de dados é pesada, o que torna a execução de trabalhos de vácuo *manualmente* inconvenientes.
 
-Autovacuum pode ser configurado e os benefícios da otimização. Experimente os valores predefinidos que acompanha o PostgreSQL garantir que o produto funciona em todos os tipos de dispositivos. Estes dispositivos incluem Raspberry Pis. Os valores de configuração ideal dependem de:
-- Total de recursos disponíveis, como o tamanho SKU e armazenamento.
-- Utilização de recursos.
-- Características de objeto individuais.
+A vácuo automática pode ser configurada e se beneficiar do ajuste. Os valores padrão fornecidos pelo PostgreSQL com o tentam garantir que o produto funcione em todos os tipos de dispositivos. Esses dispositivos incluem o Raspberry pis. Os valores de configuração ideais dependem do:
+- Total de recursos disponíveis, como SKU e tamanho do armazenamento.
+- Uso de recursos.
+- Características de objeto individual.
 
-## <a name="autovacuum-benefits"></a>Benefícios de Autovacuum
-Se não vacuum de tempos em tempos, as tuplas Inativas que acumularem podem resultar em:
-- Dados inchaços, tais como bases de dados maiores e tabelas.
-- Índices maiores inferior ao ideal.
-- E/s maior.
+## <a name="autovacuum-benefits"></a>Benefícios do autovácuo
+Se você não se aspirar de tempos em tempos, as tuplas inativas que se acumulam podem resultar em:
+- Inchar de dados, como tabelas e bancos de dados maiores.
+- Índices subideals maiores.
+- Aumento de e/s.
 
-## <a name="monitor-bloat-with-autovacuum-queries"></a>Inchaço do monitor com consultas autovacuum
-A seguinte consulta de exemplo foi concebida para identificar o número de tuplas de ativos e inativos numa tabela chamada XYZ:
+## <a name="monitor-bloat-with-autovacuum-queries"></a>Monitorar o inchar com consultas autovácuo
+A consulta de exemplo a seguir foi criada para identificar o número de tuplas ativas e ativas em uma tabela chamada XYZ:
  
     'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
 
-## <a name="autovacuum-configurations"></a>Configurações de Autovacuum
-Os parâmetros de configuração que controlam autovacuum baseiam-se em respostas para as duas questões-chave:
-- Quando ele é iniciado?
-- Quanto ele limpa depois de iniciar?
+## <a name="autovacuum-configurations"></a>Configurações de vácuo
+Os parâmetros de configuração que controlam a vácuo automática baseiam-se em respostas a duas perguntas principais:
+- Quando deveria começar?
+- Quanto ele deve ser limpo depois de começar?
 
-Aqui estão algumas configurações de autovacuum parâmetros que pode atualizar com base nas perguntas anterior, juntamente com algumas orientações.
+Aqui estão alguns parâmetros de configuração do autovácuo que você pode atualizar com base nas perguntas anteriores, juntamente com algumas diretrizes.
 
 Parâmetro|Descrição|Valor predefinido
 ---|---|---
-autovacuum_vacuum_threshold|Especifica o número mínimo de tuplas atualizadas ou eliminadas necessários para acionar uma operação de aspirador em qualquer uma tabela. A predefinição é 50 cadeias de identificação. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor. Para substituir a definição para tabelas individuais, altere os parâmetros de armazenamento de tabela.|50
-autovacuum_vacuum_scale_factor|Especifica uma fração do tamanho da tabela para adicionar a autovacuum_vacuum_threshold ao decidir se quer acionar uma operação de aspirador. A predefinição é 0,2, que é de 20 por cento do tamanho da tabela. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor. Para substituir a definição para tabelas individuais, altere os parâmetros de armazenamento de tabela.|5 por cento
-autovacuum_vacuum_cost_limit|Especifica o valor de limite de custo utilizado em operações de aspirador automática. Se for -1 é especificado, que é o padrão, é utilizado o valor de regular vacuum_cost_limit. Se existir mais do que uma função de trabalho, o valor é proporcionalmente distribuído entre os operadores de autovacuum em execução. A soma dos limites para cada função de trabalho não excede o valor da variável. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor. Para substituir a definição para tabelas individuais, altere os parâmetros de armazenamento de tabela.|-1
-autovacuum_vacuum_cost_delay|Especifica o valor de atraso de custo utilizado em operações de aspirador automática. Se não for especificado -1, é utilizado o valor de regular vacuum_cost_delay. O valor predefinido é 20 milissegundos. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor. Para substituir a definição para tabelas individuais, altere os parâmetros de armazenamento de tabela.|20 ms
-autovacuum_nap_time|Especifica que o atraso mínimo entre autovacuum é executado em qualquer determinada base de dados. Em cada rodada, o daemon examina o banco de dados e emite comandos ASPIRADOR e analisar, conforme necessário para tabelas no banco de dados. O atraso é medido em segundos, e a predefinição é (1 min) de um minuto. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor.|15 s
-autovacuum_max_workers|Especifica o número máximo de processos de autovacuum, que não seja o iniciador autovacuum, que podem ser executadas ao mesmo tempo. A predefinição é três. Defina este parâmetro só no início do servidor.|3
+autovacuum_vacuum_threshold|Especifica o número mínimo de tuplas atualizadas ou excluídas necessárias para disparar uma operação de vácuo em uma única tabela. O padrão é 50 tuplas. Defina esse parâmetro somente no arquivo PostgreSQL. conf ou na linha de comando do servidor. Para substituir a configuração de tabelas individuais, altere os parâmetros de armazenamento da tabela.|50
+autovacuum_vacuum_scale_factor|Especifica uma fração do tamanho da tabela a ser adicionada ao autovacuum_vacuum_threshold ao decidir se deseja disparar uma operação de vácuo. O padrão é 0,2, que é 20 por cento do tamanho da tabela. Defina esse parâmetro somente no arquivo PostgreSQL. conf ou na linha de comando do servidor. Para substituir a configuração de tabelas individuais, altere os parâmetros de armazenamento da tabela.|5 por cento
+autovacuum_vacuum_cost_limit|Especifica o valor de limite de custo usado em operações de vácuo automáticas. Se-1 for especificado, que é o padrão, o valor de vacuum_cost_limit regular será usado. Se houver mais de um trabalho, o valor será distribuído proporcionalmente entre os trabalhos do autovácuo em execução. A soma dos limites de cada trabalho não excede o valor dessa variável. Defina esse parâmetro somente no arquivo PostgreSQL. conf ou na linha de comando do servidor. Para substituir a configuração de tabelas individuais, altere os parâmetros de armazenamento da tabela.|-1
+autovacuum_vacuum_cost_delay|Especifica o valor de atraso de custo usado em operações de vácuo automáticas. Se-1 for especificado, o valor de vacuum_cost_delay regular será usado. O valor padrão é 20 milissegundos. Defina esse parâmetro somente no arquivo PostgreSQL. conf ou na linha de comando do servidor. Para substituir a configuração de tabelas individuais, altere os parâmetros de armazenamento da tabela.|20 ms
+autovacuum_nap_time|Especifica o atraso mínimo entre as execuções do autovácuo em um determinado banco de dados. Em cada rodada, o daemon examina o banco de dados e emite comandos de vácuo e de análise, conforme necessário, para tabelas nesse banco de dados. O atraso é medido em segundos e o padrão é um minuto (1 min). Defina esse parâmetro somente no arquivo PostgreSQL. conf ou na linha de comando do servidor.|15 s
+autovacuum_max_workers|Especifica o número máximo de processos de vácuo automáticas, além do iniciador autovácuo, que pode ser executado a qualquer momento. O padrão é três. Defina esse parâmetro somente na inicialização do servidor.|3
 
-Para substituir as definições para tabelas individuais, altere os parâmetros de armazenamento de tabela. 
+Para substituir as configurações de tabelas individuais, altere os parâmetros de armazenamento da tabela. 
 
-## <a name="autovacuum-cost"></a>Custo de Autovacuum
-Seguem-se a "custos" de execução de uma operação de aspirador:
+## <a name="autovacuum-cost"></a>Custo do autovácuo
+Aqui estão os "custos" da execução de uma operação de vácuo:
 
-- As páginas de dados que é executado o aspirador estão bloqueadas.
-- Computação e memória, são utilizados quando uma tarefa de aspirador está em execução.
+- As páginas de dados nas quais a vácuo é executada estão bloqueadas.
+- A computação e a memória são usadas quando um trabalho de vácuo está em execução.
 
-Como resultado, não execute aspirador tarefas ou com uma frequência excessiva ou demasiado com pouca frequência. Uma tarefa de aspirador tem de se adaptar à carga de trabalho. Teste todas as alterações de parâmetro autovacuum devido às compensações de cada um deles.
+Como resultado, não execute trabalhos de vácuo com muita frequência ou com pouca frequência. Um trabalho de vácuo precisa se adaptar à carga de trabalhos. Testar todas as alterações do parâmetro autovácuo devido às compensações de cada uma.
 
-## <a name="autovacuum-start-trigger"></a>Acionador de início de Autovacuum
-Autovacuum é acionado quando o número de tuplas Inativos exceder autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. Aqui, reltuples é uma constante.
+## <a name="autovacuum-start-trigger"></a>Gatilho de início do autovácuo
+A vácuo automática é disparada quando o número de tuplas inativas excede autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. Aqui, reltuples é uma constante.
 
-Limpeza de autovacuum deve manter-se a carga de base de dados. Caso contrário, poderá ficar sem armazenamento e lentidão geral nas consultas. Amortizado ao longo do tempo, a taxa a que uma operação de aspirador limpa as tuplas de mensagens não deve ser igual a taxa a que as tuplas de mensagens não são criadas.
+A limpeza do autovácuo deve acompanhar a carga do banco de dados. Caso contrário, você pode ficar sem armazenamento e experimentar uma lentidão geral em consultas. Amortizado ao longo do tempo, a taxa na qual uma operação de vácuo limpa as tuplas inativas deve ser igual à taxa em que as tuplas inativas são criadas.
 
-Bases de dados com muitas atualizações e eliminações têm mais tuplas Inativas e precisam de mais espaço. Em geral, bases de dados com muitos atualiza e elimina o benefício dos valores de autovacuum_vacuum_scale_factor e autovacuum_vacuum_threshold. Os valores de baixos impedem prolongada acumulação de cadeias de identificação Inativas. Pode utilizar valores mais altos para ambos os parâmetros com bancos de dados mais pequenos, como a necessidade de vacuuming é menos urgente. Vacuuming frequentes impacta a computação e memória.
+Os bancos de dados com muitas atualizações e exclusões têm mais tuplas inativas e precisam de mais espaço. Em geral, os bancos de dados com muitas atualizações e exclusões se beneficiam de valores baixos de autovacuum_vacuum_scale_factor e autovacuum_vacuum_threshold. Os valores baixos impedem a acumulação prolongada de tuplas inativas. Você pode usar valores mais altos para ambos os parâmetros com bancos de dados menores, pois a necessidade de aspiração é menos urgente. A aspiração frequente vem com o custo da computação e da memória.
 
-O fator de dimensionamento predefinido de 20 por cento funciona bem em tabelas com um baixo percentual de cadeias de identificação inativos. Ele não funciona bem em tabelas com uma alta porcentagem de tuplas Inativas. Por exemplo, numa tabela 20 GB, o fator de escala traduz-se 4 GB de tuplas Inativas. Numa tabela de 1 TB, é 200 GB de cadeias de identificação Inativas.
+O fator de escala padrão de 20 por cento funciona bem em tabelas com uma porcentagem baixa de tuplas inativas. Ele não funciona bem em tabelas com uma alta porcentagem de tuplas inativas. Por exemplo, em uma tabela de 20 GB, esse fator de escala é convertido em 4 GB de tuplas inativas. Em uma tabela de 1 TB, são 200 GB de tuplas mortas.
 
-Com o PostgreSQL, pode definir estes parâmetros no nível de instância ou nível de tabela. Hoje em dia, pode definir estes parâmetros no nível da tabela apenas na base de dados do Azure para PostgreSQL.
+Com o PostgreSQL, você pode definir esses parâmetros no nível de tabela ou de instância. Hoje, você pode definir esses parâmetros no nível de tabela somente no banco de dados do Azure para PostgreSQL.
 
-## <a name="estimate-the-cost-of-autovacuum"></a>Calcular o custo de autovacuum
-Autovacuum em execução é "dispendioso", e há parâmetros para controlar o tempo de execução de operações de aspirador. Os seguintes parâmetros de ajudar a estimar o custo da execução aspirador:
+## <a name="estimate-the-cost-of-autovacuum"></a>Estimar o custo do autovácuo
+A execução da autovácuo é "dispendiosa" e há parâmetros para controlar o tempo de execução de operações de vácuo. Os parâmetros a seguir ajudam a estimar o custo da execução do vácuo:
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-O processo de aspirador lê páginas físicas e verifica a existência de tuplas Inativas. Todas as páginas no shared_buffers é considerada como têm um custo de 1 (vacuum_cost_page_hit). Todas as outras páginas são consideradas como têm um custo de 20 (vacuum_cost_page_dirty), se existem tuplas inativas ou 10 (vacuum_cost_page_miss), se não existem cadeias de identificação de mensagens não existem. A operação de aspirador termina quando o processo excede o autovacuum_vacuum_cost_limit. 
+O processo de vácuo lê páginas físicas e verifica se há tuplas inativas. Cada página em shared_buffers é considerada um custo de 1 (vacuum_cost_page_hit). Todas as outras páginas são consideradas com um custo de 20 (vacuum_cost_page_dirty), se existirem tuplas inativas ou 10 (vacuum_cost_page_miss), se não existirem tuplas inativas. A operação de vácuo para quando o processo excede o autovacuum_vacuum_cost_limit. 
 
-Após ter sido atingido o limite, o processo permanecerá suspenso durante a duração especificada pelo parâmetro autovacuum_vacuum_cost_delay antes de iniciar novamente. Se não for atingido o limite, autovacuum começa depois do valor especificado pelo parâmetro autovacuum_nap_time.
+Depois que o limite é atingido, o processo é suspenso pela duração especificada pelo parâmetro autovacuum_vacuum_cost_delay antes de ser iniciado novamente. Se o limite não for atingido, a vácuo iniciará após o valor especificado pelo parâmetro autovacuum_nap_time.
 
-Em resumo, os parâmetros autovacuum_vacuum_cost_delay e autovacuum_vacuum_cost_limit controlam quanto limpeza de dados é permitida por unidade de tempo. Tenha em atenção que os valores predefinidos são demasiado baixos para a maioria dos escalões de preço. Os valores ideal para esses parâmetros são dependentes de escalão de preços e devem ser configurados em conformidade.
+Em resumo, os parâmetros autovacuum_vacuum_cost_delay e autovacuum_vacuum_cost_limit controlam a quantidade de dados permitida por unidade de tempo. Observe que os valores padrão são muito baixos para a maioria dos tipos de preço. Os valores ideais para esses parâmetros são dependentes do tipo de preço e devem ser configurados de acordo.
 
-O parâmetro autovacuum_max_workers determina o número máximo de processos de autovacuum que podem ser executadas em simultâneo.
+O parâmetro autovacuum_max_workers determina o número máximo de processos do autovácuo que podem ser executados simultaneamente.
 
-Com o PostgreSQL, pode definir estes parâmetros no nível de instância ou nível de tabela. Hoje em dia, pode definir estes parâmetros no nível da tabela apenas na base de dados do Azure para PostgreSQL.
+Com o PostgreSQL, você pode definir esses parâmetros no nível de tabela ou de instância. Hoje, você pode definir esses parâmetros no nível de tabela somente no banco de dados do Azure para PostgreSQL.
 
-## <a name="optimize-autovacuum-per-table"></a>Otimizar autovacuum por tabela
-Pode configurar todos os parâmetros de configuração anterior por tabela. Segue-se um exemplo:
+## <a name="optimize-autovacuum-per-table"></a>Otimizar autovácuo por tabela
+Você pode configurar todos os parâmetros de configuração anteriores por tabela. Segue-se um exemplo:
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -99,10 +99,10 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_limit = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 ```
 
-Autovacuum é um processo síncrono por tabela. A maior percentagem de tuplas Inativas que tem uma tabela, maior o "Custo" para autovacuum. Pode dividir as tabelas que têm uma taxa elevada de atualizações e eliminações por várias tabelas. A divisão de tabelas de ajuda para paralelizar autovacuum e reduzir o "Custo" para concluir autovacuum numa tabela. Também pode aumentar o número de trabalhadores paralelos autovacuum para garantir que os trabalhadores estão agendados livremente.
+O autovácuo é um processo síncrono por tabela. Quanto maior a porcentagem de tuplas inativas que uma tabela tem, maior o "custo" para a vácuo. Você pode dividir tabelas que têm uma alta taxa de atualizações e exclusões em várias tabelas. A divisão de tabelas ajuda a paralelizar o autovácuo e a reduzir o "custo" para concluir o vácuo automático em uma tabela. Você também pode aumentar o número de trabalhadores paralelos do autovácuo para garantir que os trabalhadores sejam livremente agendados.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre como utilizar e otimizar autovacuum, consulte a seguinte documentação de PostgreSQL:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre como usar e ajustar o autovácuo, confira a seguinte documentação do PostgreSQL:
 
  - [Capítulo 18, configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
- - [Capítulo 24, tarefas de manutenção de base de dados de rotina](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
+ - [Capítulo 24, tarefas rotineiras de manutenção de banco de dados](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

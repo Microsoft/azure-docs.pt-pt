@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889776"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775933"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure
 
@@ -125,8 +125,8 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 - Sudeste da Austrália
 - Centro dos EUA
 - Este dos EUA 2
-- EUA Centro-Oeste
-- EUA Oeste 2
+- E.U.A. Centro-Oeste
+- E.U.A. Oeste 2
 
 A versão prévia destina-se apenas ao uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estão disponíveis no momento.
 
@@ -139,7 +139,7 @@ Connect-AzAccount -SubscriptionId <subscription-id>
 Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-Pode levar de 1-2 dias para receber aprovação para a versão prévia. Para verificar se o registro foi aprovado, execute o seguinte comando:
+Pode levar de 5-7 dias para receber aprovação para a versão prévia. Para verificar se o registro foi aprovado, execute o seguinte comando:
 
 ```powershell
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
@@ -186,7 +186,7 @@ Se sua conta de armazenamento estiver configurada para RA-GRS, você terá acess
 
 Em circunstâncias extremas em que uma região é perdida devido a um desastre significativo, a Microsoft pode iniciar um failover regional. Nesse caso, nenhuma ação de sua parte é necessária. Até que o failover gerenciado pela Microsoft seja concluído, você não terá acesso de gravação à sua conta de armazenamento. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS. 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 * [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
 * [Conceber aplicações de elevada disponibilidade com o RA-GRS](storage-designing-ha-apps-with-ragrs.md)

@@ -1,44 +1,43 @@
 ---
-title: Ligar a vídeos do Office 365 - Azure Logic Apps | Documentos da Microsoft
-description: Gerir vídeos com APIs de REST do vídeos do Office 365 e Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/18/2016
-ms.topic: article
-ms.service: logic-apps
+title: Conectar-se ao vídeo do Office 365
+description: Gerenciar vídeos com APIs REST de vídeo do Office 365 e aplicativos lógicos do Azure
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 05/18/2016
 tags: connectors
-ms.openlocfilehash: c10a2aa097b63fd3751be01bbfeb6097080bbb9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf3c7c4faac3fcd4dd0c3f368fbe18a224ed591b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105824"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789494"
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Comece com o conector de vídeos do Office 365
-Ligar a vídeos do Office 365 para obter informações sobre um Office 365 vídeo, obter uma lista de vídeos e muito mais. Com vídeos do Office 365, pode:
+# <a name="get-started-with-the-office365-video-connector"></a>Introdução ao conector de vídeo do Office365
 
-* Crie o seu fluxo de negócios com base nos dados que obtém de vídeos do Office 365. 
-* Utilize as ações que verificar o estado do portal de vídeo, obter uma lista de todos os vídeos num canal e muito mais. Estas ações obtém uma resposta e, em seguida, disponibilizá-a saída para outras ações. Por exemplo, pode utilizar o conector de pesquisa do Bing para pesquisar vídeos do Office 365 e, em seguida, utilizar o conector de vídeos do Office 365 para obter informações sobre o que o vídeo. Se o vídeo cumpre os seus requisitos, que pode publicar este vídeo no Facebook. 
+Conecte-se ao vídeo do Office 365 para obter informações sobre um vídeo do Office 365, obter uma lista de vídeos e muito mais. Com o vídeo do Office 365, você pode:
 
-Pode começar a utilizar ao criar uma aplicação lógica agora, veja [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Crie seu fluxo de negócios com base nos dados obtidos do vídeo do Office 365. 
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Criar uma ligação para o conector de vídeos do Office 365
-Ao adicionar este conector às suas aplicações lógicas, tem início de sessão para a sua conta de vídeos do Office 365 e permitir que o logic apps para ligar à sua conta.
+* Use as ações que verificam o status do portal de vídeo, obtenha uma lista de todos os vídeos em um canal e muito mais. Essas ações obtêm uma resposta e tornam a saída disponível para outras ações. 
+
+Por exemplo, você pode usar o conector de Pesquisa do Bing para pesquisar vídeos do Office 365 e, em seguida, usar o conector de vídeo do Office 365 para obter informações sobre esse vídeo. Se o vídeo atender aos seus requisitos, você poderá postar este vídeo no Facebook.
+
+Você pode começar criando um aplicativo lógico agora, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="create-a-connection-to-office365-video-connector"></a>Criar uma conexão com o conector de vídeo do Office365
+
+Ao adicionar esse conector aos seus aplicativos lógicos, você deve entrar na sua conta de vídeo do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
-> 
-> 
 
-Depois de criar a ligação, introduza as propriedades de vídeo do Office 365, como o nome do inquilino ou canal ID. 
-
+Depois de criar a conexão, insira as propriedades de vídeo do Office 365, como o nome do locatário ou a ID do canal. 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/office365videoconnector/).
+Exiba todos os gatilhos e ações definidos no Swagger e também veja os limites nos [detalhes do conector](/connectors/office365videoconnector/).
 
-## <a name="more-connectors"></a>Mais conectores
-Volte para o [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos seguintes
+
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: a3a651286fec9328c6d1835f68a4651212b5bd8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e96f27a7a99bcb6600ab0c3d01b1fb509d4e554e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504215"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795816"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,6 +25,8 @@ Antes de começar, certifique-se de:
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=macos)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -80,6 +82,8 @@ Antes de começar, certifique-se de:
 
 1. Substitua a cadeia de caracteres `whatstheweatherlike.wav` pelo seu próprio nome de arquivo.
 
+> [!NOTE]
+> O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
 ## <a name="build-the-app"></a>Criar a aplicação
 

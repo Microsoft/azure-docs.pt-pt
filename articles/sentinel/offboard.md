@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464135"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777439"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>Remover o Azure Sentinel do seu locatário
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Remover o Azure Sentinel do seu espaço de trabalho
 
-Se você não quiser mais usar o Azure Sentinel, este artigo explica como removê-lo do seu locatário.
+Se você não quiser mais usar o Azure Sentinel, este artigo explica como removê-lo do seu espaço de trabalho.
 
 ## <a name="how-to-delete-azure-sentinel"></a>Como excluir o Azure Sentinel
 
@@ -81,7 +81,7 @@ Depois de remover o serviço, há um período de carência de 30 dias durante o 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, você aprendeu a remover o serviço do Azure Sentinel. Se você mudar de ideia e quiser instalá-la novamente:
 - Comece [a usar a integração do Azure Sentinel](quickstart-onboard.md).
 

@@ -1,20 +1,19 @@
 ---
-title: Processar mensagens em lote como um grupo – aplicativos lógicos do Azure
+title: Processar mensagens em lote como um grupo
 description: Enviar e receber mensagens como lotes em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, jonfan, LADocs
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: b56a50fceec8ac6be966c0c58a82e94e0c977143
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680427"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791569"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens em lote nos aplicativos lógicos do Azure
 
@@ -88,7 +87,7 @@ Antes que você possa enviar mensagens para um lote, esse lote deve primeiro exi
       Se você tiver uma conta do Gmail, selecione o conector do gmail. 
       Este exemplo usa o Outlook do Office 365. 
 
-   3. Selecione esta ação: **enviar um email <*provedor de email* >**
+   3. Selecione esta ação: **enviar um email <*provedor de email*>**
 
       Por exemplo:
 
@@ -163,7 +162,7 @@ Agora, crie um ou mais aplicativos lógicos do remetente do lote que enviam mens
       > 
       > Se você estiver usando o Visual Studio e não vir nenhum receptor de lote para selecionar, verifique se você implantou o receptor do lote no Azure. Se você ainda não fez isso, saiba como [implantar seu aplicativo lógico do receptor do lote no Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-   4. Selecione esta ação: **Batch_messages-<*seu receptor-Batch-* >**
+   4. Selecione esta ação: **Batch_messages-<*seu receptor do lote*>**
 
       ![Selecione esta ação: "Batch_messages-< your-Logic-app >"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
@@ -181,7 +180,7 @@ Agora, crie um ou mais aplicativos lógicos do remetente do lote que enviam mens
 
    2. Quando a lista de conteúdo dinâmico for exibida, escolha **expressão**. 
 
-   3. Insira a expressão `utcnow()` e, em seguida, escolha **OK**. 
+   3. Insira a expressão `utcnow()`e, em seguida, escolha **OK**. 
 
       ![Em "conteúdo da mensagem", escolha "expressão", digite "UtcNow ()" e escolha "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
@@ -199,7 +198,7 @@ Agora, crie um ou mais aplicativos lógicos do remetente do lote que enviam mens
 
    2. Na lista de conteúdo dinâmico, escolha **Expressão**.
    
-   3. Insira a expressão `rand(1,6)` e, em seguida, escolha **OK**.
+   3. Insira a expressão `rand(1,6)`e, em seguida, escolha **OK**.
 
       ![Configurar uma partição para o lote de destino](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 

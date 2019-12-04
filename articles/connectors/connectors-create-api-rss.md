@@ -1,22 +1,18 @@
 ---
-title: Conectar-se a RSS feeds de aplicativos lógicos do Azure | Microsoft Docs
+title: Conectar-se a RSS feeds de aplicativos lógicos do Azure
 description: Automatizar tarefas e fluxos de trabalho que monitoram e gerenciam RSS feeds usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 70b250074395977f70ac1b3eb0ce3ffdc96fced1
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050841"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789346"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gerenciar RSS feeds usando o aplicativo lógico do Azure
 
@@ -37,7 +33,7 @@ Você pode usar um gatilho RSS que obtém respostas de um RSS feed e disponibili
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar um RSS feed. Para começar com um gatilho de RSS, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de RSS, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de recorrência.
+* O aplicativo lógico no qual você deseja acessar um RSS feed. Para começar com um gatilho de RSS, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de RSS, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **recorrência** .
 
 ## <a name="connect-to-an-rss-feed"></a>Conectar-se a um RSS feed
 
@@ -62,6 +58,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

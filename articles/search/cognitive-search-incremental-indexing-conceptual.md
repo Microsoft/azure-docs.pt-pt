@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113595"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790926"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>O que é indexação incremental no Pesquisa Cognitiva do Azure?
 
@@ -47,7 +47,7 @@ Você precisará definir a propriedade `cache` no indexador para iniciar o benef
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -83,7 +83,7 @@ Os indexadores não só avançam e processam novos documentos, mas agora são ca
 
 ### <a name="invalidating-changes"></a>Invalidando alterações
 
-A invalidação de alterações é rara, mas tem um efeito significativo no estado de seu pipeline de enriquecimento. Uma alteração de invalidação é aquela em que o cache inteiro não é mais válido. Um exemplo de uma alteração de invalidação é aquele em que a fonte de dados é atualizada. Para cenários em que você sabe que a alteração não deve invalidar o cache, como girar a chave na conta de armazenamento, o parâmetro `ignoreResetRequirement` QueryString deve ser definido como `true` na operação de atualização do recurso específico para garantir que a operação seja Não rejeitado.
+A invalidação de alterações é rara, mas tem um efeito significativo no estado de seu pipeline de enriquecimento. Uma alteração de invalidação é aquela em que o cache inteiro não é mais válido. Um exemplo de uma alteração de invalidação é aquele em que a fonte de dados é atualizada. Para cenários quando você sabe que a alteração não deve invalidar o cache, como girar a chave na conta de armazenamento, o parâmetro `ignoreResetRequirement` QueryString deve ser definido como `true` na operação de atualização do recurso específico para garantir que a operação não seja rejeitada.
 
 Aqui está a lista completa de alterações que invalidarão seu cache:
 

@@ -1,27 +1,21 @@
 ---
-title: Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Docs
-description: Visão geral da ação de consulta para executar ações como a matriz de filtro.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: Adicionar a ação de consulta em aplicativos lógicos
+description: Visão geral da ação de consulta para executar ações como matriz de filtro
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973757"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787137"
 ---
 # <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
+
 Usando a ação de consulta, você pode trabalhar com lotes e matrizes para realizar fluxos de trabalho para:
 
 * Crie uma tarefa para todos os registros de alta prioridade de um banco de dados.
@@ -30,6 +24,7 @@ Usando a ação de consulta, você pode trabalhar com lotes e matrizes para real
 Para começar a usar a ação de consulta em um aplicativo lógico, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Usar a ação de consulta
+
 Uma ação é uma operação que é executada pelo fluxo de trabalho que é definido em um aplicativo lógico. 
 [Saiba mais sobre ações](../connectors/apis-list.md).  
 
@@ -55,7 +50,7 @@ Veja como você pode adicioná-lo em um aplicativo lógico:
 ## <a name="query-action"></a>Ação de consulta
 Aqui estão os detalhes da ação com a qual este conector dá suporte. O conector tem uma ação possível.
 
-| Action | Descrição |
+| Ação | Descrição |
 | --- | --- |
 | Filtrar matriz |Avalia uma condição para cada item em uma matriz e retorna os resultados |
 
@@ -66,17 +61,17 @@ A ação de consulta vem com uma ação possível. As tabelas a seguir descrevem
 Veja a seguir os campos de entrada para a ação, que faz uma solicitação de saída HTTP.
 Um * significa que é um campo obrigatório.
 
-| Display name | Nome da propriedade | Descrição |
+| Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Terem |from |A matriz a ser filtrada |
-| Problema |onde |A condição a ser avaliada para cada item |
+| Terem |De |A matriz a ser filtrada |
+| Problema |posição |A condição a ser avaliada para cada item |
 
 <br>
 
 ### <a name="output-details"></a>Detalhes da saída
 A seguir estão os detalhes de saída para a resposta HTTP.
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Data type | Descrição |
 | --- | --- | --- |
 | Matriz filtrada |array |Uma matriz que contém um objeto para cada resultado filtrado |
 

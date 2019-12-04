@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d1654556df455accb7f615442d3a97952c5e50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180423"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786440"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
 
@@ -33,10 +33,10 @@ Para aprovar solicitações, um revisor deve ser um administrador global, um adm
 
 Para habilitar o fluxo de trabalho de consentimento do administrador e escolher revisores:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um administrador global.
-2. Clique em **todos os serviços** na parte superior do menu de navegação à esquerda. A **extensão de Azure Active Directory** é aberta.
-3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione **o item de de Azure Active Directory** .
-4. No menu de navegação, clique em **aplicativos empresariais**. 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
+2. Clique em **todos os serviços** na parte superior do menu de navegação à esquerda. A **extensão de Azure Active Directory** é aberta.
+3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione **o item de Azure Active Directory** .
+4. No menu de navegação, clique em **aplicativos empresariais**. 
 5. Em **gerenciar**, selecione **configurações do usuário**.
 6. Em **solicitações de consentimento de administrador (versão prévia)** , **os usuários podem solicitar consentimento de administrador para aplicativos para os quais eles não conseguirem consentir** para **Sim**.
 
@@ -74,10 +74,10 @@ Depois que o fluxo de trabalho de consentimento do administrador estiver habilit
 
 Para examinar as solicitações de consentimento do administrador e executar a ação:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um dos revisores registrados do fluxo de trabalho de consentimento do administrador.
-2. Selecione **todos os serviços** na parte superior do menu de navegação à esquerda. A **extensão de Azure Active Directory** é aberta.
-3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione o item de de **Azure Active Directory** .
-4. No menu de navegação, clique em **aplicativos empresariais**.
+1. Entre no [portal do Azure](https://portal.azure.com) como um dos revisores registrados do fluxo de trabalho de consentimento do administrador.
+2. Selecione **todos os serviços** na parte superior do menu de navegação à esquerda. A **extensão de Azure Active Directory** é aberta.
+3. Na caixa de pesquisa de filtro, digite "**Azure Active Directory**" e selecione o item de **Azure Active Directory** .
+4. No menu de navegação, clique em **aplicativos empresariais**.
 5. Em **atividade**, selecione **solicitações de consentimento de administrador (versão prévia)** .
 
    > [!NOTE]
@@ -120,12 +120,12 @@ A tabela a seguir descreve os cenários e os valores de auditoria disponíveis p
 
 |Cenário  |Serviço de auditoria  |Categoria de Auditoria  |Atividade de auditoria  |Ator de auditoria  |Limitações do log de auditoria  |
 |---------|---------|---------|---------|---------|---------|
-|Administração habilitando o fluxo de trabalho de solicitação de consentimento        |Revisões de Acesso           |UserManagement           |Criar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário            |
-|Administrador desabilitando o fluxo de trabalho de solicitação de consentimento       |Revisões de Acesso           |UserManagement           |Excluir modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
-|Administração atualizando as configurações de fluxo de trabalho de consentimento        |Revisões de Acesso           |UserManagement           |Atualizar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
-|Usuário final criando uma solicitação de consentimento de administrador para um aplicativo       |Revisões de Acesso           |Política         |Criar solicitação           |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
-|Revisores aprovando uma solicitação de consentimento de administrador       |Revisões de Acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            |No momento, você não pode localizar o contexto do usuário ou a ID do aplicativo que recebeu o consentimento do administrador.           |
-|Revisores negando uma solicitação de consentimento de administrador       |Revisões de Acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            | No momento, você não pode localizar o contexto de usuário do ator que negou uma solicitação de consentimento de administrador          |
+|Administração habilitando o fluxo de trabalho de solicitação de consentimento        |Revisões de Acesso           |UserManagement           |Criar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário            |
+|Administrador desabilitando o fluxo de trabalho de solicitação de consentimento       |Revisões de Acesso           |UserManagement           |Excluir modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
+|Administração atualizando as configurações de fluxo de trabalho de consentimento        |Revisões de Acesso           |UserManagement           |Atualizar modelo de política de governança          |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
+|Usuário final criando uma solicitação de consentimento de administrador para um aplicativo       |Revisões de Acesso           |Política         |Criar solicitação           |Contexto do aplicativo            |No momento, não é possível localizar o contexto do usuário           |
+|Revisores aprovando uma solicitação de consentimento de administrador       |Revisões de Acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            |No momento, você não pode localizar o contexto do usuário ou a ID do aplicativo que recebeu o consentimento do administrador.           |
+|Revisores negando uma solicitação de consentimento de administrador       |Revisões de Acesso           |UserManagement           |Aprovar todas as solicitações no fluxo de negócios          |Contexto do aplicativo            | No momento, você não pode localizar o contexto de usuário do ator que negou uma solicitação de consentimento de administrador          |
 
 ## <a name="faq"></a>FAQ 
 

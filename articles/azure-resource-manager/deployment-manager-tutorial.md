@@ -1,16 +1,16 @@
 ---
-title: Utilizar o Gestor de Implementações do Azure com modelos do Resource Manager | Microsoft Docs
-description: Utilize modelos do Resource Manager com o Gestor de Implementações do Azure para implementar recursos do Azure.
+title: Usar o Deployment Manager do Azure para implantar modelos
+description: Saiba como usar modelos do Resource Manager com o Azure Deployment Manager para implantar recursos do Azure.
 author: mumian
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: f8091aedcf1f03ef83dbab3b27e9af6b2912d25a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307030"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789982"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização pública)
 
@@ -186,7 +186,7 @@ Mais à frente no tutorial, vai implementar um lançamento. Para implementar aç
 
 Tem de criar uma identidade gerida atribuída pelo utilizador e configurar o controlo de acesso para a sua subscrição.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Crie uma [identidade gerida atribuída pelo utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. No portal, selecione **Subscrições**, no menu do lado esquerdo, e selecione a sua subscrição.
 4. Selecione **controle de acesso (iam)** e, em seguida, selecione **Adicionar atribuição de função**.

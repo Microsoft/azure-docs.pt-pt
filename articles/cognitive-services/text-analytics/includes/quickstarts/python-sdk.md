@@ -4,17 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 3623d18e53881768ea6409c970065de231d233c3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6d4076563ac803c72f3749399bed6aaa235a0343
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750226"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795936"
 ---
 <a name="HOLTop"></a>
 
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) |  | [(PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [amostras](https://github.com/Azure-Samples/samples-cognitive-services-python-sdk/) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics)
+[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) |  | [(PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -147,7 +147,7 @@ Document ID: 2
         Offset: 88, Length: 7,  Score: 0.9998779296875
 ```
 
-## <a name="key-phrase-extraction"></a>Extração de expressões-chave
+## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
 Usando o cliente criado anteriormente, chame a função [key_phrases ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e as frases-chave contidas nele.
 

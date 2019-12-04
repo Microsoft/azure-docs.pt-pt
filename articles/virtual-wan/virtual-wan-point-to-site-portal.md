@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 0319e3aec71d37b49a094861fdcbb3b96b6def67
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0572a919675ab363c55938f8731c691cd8129826
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585437"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767658"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: criar uma conexão VPN de usuário usando a WAN virtual do Azure
 
@@ -134,7 +134,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 1. Transfira e instale o cliente OpenVPN a partir do site oficial.
 2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia Configurações de VPN do usuário em portal do Azure ou New-AzureRmVpnClientConfiguration no PowerShell.
 3. Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
-4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
+4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui [como exportar um certificado para obter a chave pública codificada.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site)
 5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui como extrair a chave privada.
 6. Não altere os outros campos. Utilize a configuração preenchida na entrada de cliente para ligar à VPN.
 7. Copie o ficheiro vpnconfig.ovpn para a pasta C:\Program Files\OpenVPN\config.
@@ -145,7 +145,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 1. Selecione os ficheiros de configuração do cliente VPN que correspondem à arquitetura do computador Windows. Para uma arquitetura de processador de 64 bits, escolha o pacote do instalador "VpnClientSetupAmd64". Para uma arquitetura de processador de 32 bits, escolha o pacote do instalador "VpnClientSetupX86".
 2. Faça duplo clique no pacote para instalá-lo. Se vir um pop-up SmartScreen, clique em Mais informações e, em seguida, em Executar mesmo assim.
 3. No computador cliente, navegue para Definições de Rede e clique em VPN. A ligação VPN mostra o nome da rede virtual à qual se liga.
-4. Antes de tentar ligar, certifique-se de que instalou um certificado de cliente no computador cliente. Se utilizar o tipo de autenticação de certificados nativa do Azure, é preciso um certificado de cliente para a autenticação. Para obter mais informações sobre a geração de certificados, veja Gerar Certificados. Para obter informações sobre como instalar um certificado de cliente, veja Instalar um certificado de cliente.
+4. Antes de tentar ligar, certifique-se de que instalou um certificado de cliente no computador cliente. Se utilizar o tipo de autenticação de certificados nativa do Azure, é preciso um certificado de cliente para a autenticação. Para obter mais informações sobre como gerar certificados, consulte [Generate Certificates](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site). Para obter informações sobre como instalar um certificado de cliente, veja Instalar um certificado de cliente.
 
 ## <a name="viewwan"></a>Exibir sua WAN virtual
 

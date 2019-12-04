@@ -1,64 +1,63 @@
 ---
-title: Definições de mensagem AS2 - Azure Logic Apps
-description: Guia de referência para AS2 enviar e receber as definições no Azure Logic Apps com o Enterprise Integration Pack
+title: Definições de mensagem AS2
+description: Guia de referência para configurações de envio e recebimento do AS2 em aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
-ms.openlocfilehash: ead92094b9af1dff56ff68e1ff58a3a4cdd9dca5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63769455"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793040"
 ---
-# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Referência para as definições de mensagem AS2 no Azure Logic Apps com o Enterprise Integration Pack
+# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Referência para configurações de mensagem AS2 em aplicativos lógicos do Azure com Enterprise Integration Pack
 
-Esta referência descreve as propriedades que podem ser definidos para especificar a forma como um contrato de AS2 processa mensagens enviadas e recebidas entre parceiros comerciais. Configure estas propriedades com base no seu contrato com o parceiro que troca mensagens com.
+Esta referência descreve as propriedades que você pode definir para especificar como um contrato AS2 lida com as mensagens enviadas e recebidas entre parceiros comerciais. Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você.
 
 <a name="AS2-incoming-messages"></a>
 
-## <a name="as2-receive-settings"></a>Definições de receção de AS2
+## <a name="as2-receive-settings"></a>Configurações de recebimento AS2
 
-![Selecione "Receber definições"](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
+![Selecione "configurações de recebimento"](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
-| **Substituir propriedades da mensagem** | Não | Substitui as propriedades em mensagens de entrada com as suas definições de propriedade. |
-| **Deve ser assinada a mensagem** | Não | Especifica se todas as mensagens de entrada devem ser assinadas digitalmente. Se precisar de iniciar sessão, do **certificado** , selecione um convidado parceiro pública certificado existente para validar a assinatura as mensagens. Se não tiver um certificado, saiba mais sobre [adicionando certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Mensagem deve ser encriptada** | Não | Especifica se todas as mensagens de entrada tem de estar encriptadas. Mensagens criptografadas não são rejeitadas. Se necessitar de encriptação, do **certificado** , selecione um anfitrião parceiro privada certificado existente para desencriptar mensagens de entrada. Se não tiver um certificado, saiba mais sobre [adicionando certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Mensagem deve ser comprimida** | Não | Especifica se a todas as mensagens de entrada devem ser comprimidas. Mensagens de compressão não são rejeitadas. |
-| **Não permitir duplicados de ID da mensagem** | Não | Especifica se pretende permitir que as mensagens com IDs duplicados. Se desabilitar os IDs duplicados, selecione o número de dias entre verificações. Também pode escolher se pretende suspender duplicados. |
-| **MDN Text** | Não | Especifica a padrão disposição notificação de mensagem (MDN) que pretende que sejam enviada para o remetente da mensagem. |
-| **Enviar MDN** | Não | Especifica se pretende enviar MDNs síncronos para as mensagens recebidas.  |
-| **Enviar MDN assinado** | Não | Especifica se pretende enviar MDNs assinados para as mensagens recebidas. Se precisar de iniciar sessão, do **algoritmo MIC** , selecione o algoritmo a utilizar para assinar mensagens. |
-| **Enviar MDN assíncrono** | Não | Especifica se pretende enviar MDNs no modo assíncrono. Se selecionar MDNs assíncronas, do **URL** caixa, especifique o URL para onde enviar os MDNs. |
+| **Substituir Propriedades da mensagem** | Não | Substitui as propriedades nas mensagens de entrada pelas configurações de propriedade. |
+| **A mensagem deve ser assinada** | Não | Especifica se todas as mensagens de entrada devem ser assinadas digitalmente. Se você precisar de assinatura, na lista de **certificados** , selecione um certificado público de parceiro convidado existente para validar a assinatura nas mensagens. Se você não tiver um certificado, saiba mais sobre como [adicionar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **A mensagem deve ser criptografada** | Não | Especifica se todas as mensagens de entrada devem ser criptografadas. Mensagens não criptografadas são rejeitadas. Se você precisar de criptografia, na lista de **certificados** , selecione um certificado privado de parceiro de host existente para descriptografar mensagens de entrada. Se você não tiver um certificado, saiba mais sobre como [adicionar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **A mensagem deve ser compactada** | Não | Especifica se todas as mensagens de entrada devem ser compactadas. Mensagens não compactadas são rejeitadas. |
+| **Não permitir duplicatas de ID de mensagem** | Não | Especifica se as mensagens com IDs duplicadas devem ser permitidas. Se você não permitir IDs duplicadas, selecione o número de dias entre as verificações. Você também pode escolher se deseja suspender duplicatas. |
+| **Texto MDN** | Não | Especifica a MDN (notificação de disposição de mensagem) padrão que você deseja que seja enviada ao remetente da mensagem. |
+| **Enviar MDN** | Não | Especifica se o MDNs síncrono deve ser enviado para mensagens recebidas.  |
+| **Enviar MDN assinada** | Não | Especifica se é para enviar MDNs assinadas para mensagens recebidas. Se você precisar de assinatura, na lista de **algoritmos do MIC** , selecione o algoritmo a ser usado para assinar mensagens. |
+| **Enviar MDN assíncrona** | Não | Especifica se é para enviar MDNs de forma assíncrona. Se você selecionar MDNs assíncronas, na caixa **URL** , ESPECIFIQUE a URL para onde enviar o mDNS. |
 ||||
 
 <a name="AS2-outgoing-messages"></a>
 
-## <a name="as2-send-settings"></a>Definições de envio de AS2
+## <a name="as2-send-settings"></a>Configurações de envio AS2
 
-![Selecione "Definições de envio"](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
+![Selecione "configurações de envio"](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
-| **Ativar a assinatura da mensagem** | Não | Especifica se todas as mensagens de saída devem ser assinadas digitalmente. Se precisar de iniciar sessão, selecione estes valores: <p>-From a **algoritmo de assinatura** , selecione o algoritmo a utilizar para assinar mensagens. <br>-From a **certificado** , selecione um anfitrião parceiro privada certificado existente para a assinatura de mensagens. Se não tiver um certificado, saiba mais sobre [adicionando certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Ativar a encriptação de mensagens** | Não | Especifica se todas as mensagens de saída têm de ser encriptadas. Se necessitar de encriptação, selecione estes valores: <p>-From a **algoritmo de encriptação** , selecione o algoritmo de certificado público de parceiro convidado para utilizar para encriptar mensagens. <br>-From a **certificado** , selecione um convidado parceiro privada certificado existente para encriptação de mensagens de saída. Se não tiver um certificado, saiba mais sobre [adicionando certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Ativar compressão de mensagens** | Não | Especifica se a todas as mensagens de saída devem ser comprimidas. |
-| **Desdobrar cabeçalhos HTTP** | Não | Coloca o HTTP `content-type` cabeçalho numa única linha. |
-| **Transmitir o nome de ficheiro no cabeçalho MIME** | Não | Especifica se pretende incluir o nome de ficheiro no cabeçalho de MIME. |
-| **Pedir MDN** | Não | Especifica se pretende receber notificações de disposição de mensagem (MDNs) para todas as mensagens de saída. |
-| **Pedir MDN assinado** | Não | Especifica se pretende receber MDNs assinados para todas as mensagens de saída. Se precisar de iniciar sessão, do **algoritmo MIC** , selecione o algoritmo a utilizar para assinar mensagens. |
-| **Pedir MDN assíncrono** | Não | Especifica se pretende receber MDNs de forma assíncrona. Se selecionar MDNs assíncronas, do **URL** caixa, especifique o URL para onde enviar os MDNs. |
-| **Enable NRR** | Não | Especifica se exige não-repúdio receção (NRR). Este atributo de comunicação fornece uma evidência que os dados foram recebidos conforme abordado. |
-| **Formato do algoritmo SHA2** | Não | Especifica o formato do algoritmo MIC a utilizar para a assinatura nos cabeçalhos de saída nas mensagens AS2 ou MDN |
+| **Habilitar assinatura de mensagem** | Não | Especifica se todas as mensagens de saída devem ser assinadas digitalmente. Se você precisar de assinatura, selecione estes valores: <p>-Na lista **algoritmo de assinatura** , selecione o algoritmo a ser usado para assinar mensagens. <br>-Na lista de **certificados** , selecione um certificado privado de parceiro de host existente para assinar mensagens. Se você não tiver um certificado, saiba mais sobre como [adicionar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Habilitar criptografia de mensagem** | Não | Especifica se todas as mensagens de saída devem ser criptografadas. Se você precisar de criptografia, selecione estes valores: <p>-Na lista **algoritmo de criptografia** , selecione o algoritmo de certificado público do parceiro convidado a ser usado para criptografar mensagens. <br>-Na lista de **certificados** , selecione um certificado privado de parceiro convidado existente para criptografar mensagens de saída. Se você não tiver um certificado, saiba mais sobre como [adicionar certificados](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Habilitar compactação de mensagem** | Não | Especifica se todas as mensagens de saída devem ser compactadas. |
+| **Desdobrar cabeçalhos HTTP** | Não | Coloca o cabeçalho de `content-type` HTTP em uma única linha. |
+| **Nome do arquivo de transmissão no cabeçalho MIME** | Não | Especifica se o nome do arquivo deve ser incluído no cabeçalho MIME. |
+| **Solicitar MDN** | Não | Especifica se as notificações de disposição de mensagem (MDNs) devem ser recebidas para todas as mensagens de saída. |
+| **Solicitar MDN assinada** | Não | Especifica se deve receber MDNs assinadas para todas as mensagens de saída. Se você precisar de assinatura, na lista de **algoritmos do MIC** , selecione o algoritmo a ser usado para assinar mensagens. |
+| **Solicitar MDN assíncrona** | Não | Especifica se é para receber MDNs de forma assíncrona. Se você selecionar MDNs assíncronas, na caixa **URL** , ESPECIFIQUE a URL para onde enviar o mDNS. |
+| **Habilitar NRR** | Não | Especifica se é necessário exigir recibo de não repúdio (NRR). Esse atributo de comunicação fornece evidências de que os dados foram recebidos como resolvidos. |
+| **Formato de algoritmo SHA2** | Não | Especifica o formato do algoritmo MIC a ser usado para assinar os cabeçalhos das mensagens AS2 de saída ou MDN |
 ||||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Trocar mensagens AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)

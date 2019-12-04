@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 31e45906dfeafcd2af1651347dde9dc6d3c6fb7c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274068"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769222"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -34,7 +34,7 @@ Este artigo descreve como você pode melhorar, monitorar e manter a segurança d
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner (visualização)
 Para monitorar o registro de contêiner do Azure, verifique se você está na camada Standard da central de segurança (consulte [preços](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
 
-Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança, consulte a lista de recomendações na [proteção da máquina virtual](security-center-virtual-machine-protection.md##compute-and-app-recs).
+Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança, consulte a lista de recomendações [aqui](recommendations-compute-and-apps.md).
 
 ## <a name="environment-hardening"></a>Proteção do ambiente
 
@@ -66,7 +66,7 @@ Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes complet
 1.  Abra a página de **aplicativos & de computação** da central de segurança.
 2.  Clique na guia **contêineres** . A postura de seus clusters AKS, registros de ACR e VMs que executam o Docker é exibida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a segurança de contêiner na central de segurança do Azure, consulte:
 * Detalhes da [integração com o serviço kubernetes do Azure](azure-kubernetes-service-integration.md)

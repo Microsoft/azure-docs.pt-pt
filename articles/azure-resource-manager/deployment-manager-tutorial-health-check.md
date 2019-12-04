@@ -1,16 +1,16 @@
 ---
-title: Usar o Deployment Manager do Azure com modelos
-description: Utilize modelos do Resource Manager com o Gestor de Implementações do Azure para implementar recursos do Azure.
+title: Usar a verificação de integridade do Azure Deployment Manager
+description: Use a verificação de integridade para implantar com segurança recursos do Azure com o Azure Deployment Manager.
 author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 355a40db7714ddae39c4171aaa0ebe4b5e5f777e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149892"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784685"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: usar a verificação de integridade no Azure Deployment Manager (visualização pública)
 

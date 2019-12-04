@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607400"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791152"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -309,7 +309,7 @@ Se você vir uma dessas mensagens, isso significa que a imagem não tem as atual
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desabilitar a configuração de política de grupo do modo de licenciamento Área de Trabalho Remota
 
-Verifique a configuração da política de grupo abrindo o editor de Política de Grupo na VM e navegando até **Modelos Administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** ** > host da sessão da área de trabalho remota** > **licenciamento** > **defina o modo de licenciamento área de trabalho remota**. Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
+Verifique a configuração da política de grupo abrindo o editor de Política de Grupo na VM e navegando até **Modelos Administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** ** > host da sessão da área de trabalho remota** **licenciamento** > **definir o modo de licenciamento > ** . Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
 
 >[!NOTE]
 >Se você definir a política de grupo por meio de seu domínio, desabilite essa configuração em políticas direcionadas a essas VMs de várias sessões do Windows 10 Enterprise.
@@ -333,7 +333,7 @@ Se o seu número de versão diz "1809", instale [a atualização do KB4516077](h
 
 ### <a name="version-1903"></a>Versão 1903
 
-Se o seu número de versão diz "1903", instale [a atualização do KB4517211](https://support.microsoft.com/help/4517211).
+Reimplante o sistema operacional do host com a versão mais recente da imagem do Windows 10, versão 1903 da galeria do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

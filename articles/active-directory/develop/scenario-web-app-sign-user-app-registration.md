@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482054"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766077"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -68,27 +68,27 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2**.
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **https://localhost:44326/** .
 1. Selecione **Registar** para criar a aplicação.
-1. Selecione o menu **autenticação** . 
+1. Selecione o menu **autenticação** .
 1. Na seção **Configurações avançadas** | **concessão implícita** , selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
 1. Selecione **Guardar**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. Quando a **página registrar um aplicativo** for exibida, insira um nome de exibição para o aplicativo. Por exemplo, digite **Java-webapp**. 
+1. Quando a **página registrar um aplicativo** for exibida, insira um nome de exibição para o aplicativo. Por exemplo, digite **Java-webapp**.
 1. Selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** e, em seguida, selecione **aplicativo Web/API** para o **tipo de aplicativo**.
 1. Selecione **registrar** para registrar o aplicativo.
-1. No menu à esquerda, selecione **autenticação**. Em **URIs de redirecionamento**, selecione **Web**. 
+1. No menu à esquerda, selecione **autenticação**. Em **URIs de redirecionamento**, selecione **Web**.
 
 1. Insira dois URIs de redirecionamento: um para a página de entrada e outro para a página do grafo. Para ambos, use o mesmo host e número da porta, seguido por **/msal4jsample/Secure/AAD** para a página de entrada e **msal4jsample/Graph/me** para a página de informações do usuário.
- 
+
    Por padrão, o exemplo usa:
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. Na seção **Configurações avançadas** , defina **URL de logoff** para **http://localhost:8080/msal4jsample/sign_out** . Em seguida, selecione **Guardar**.
+  Em seguida, selecione **Guardar**.
 
-1. Selecione **certificados & segredos** no menu. 
+1. Selecione **certificados & segredos** no menu.
 1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
 
    1. Insira uma descrição de chave.
@@ -104,7 +104,6 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **http://localhost:5000/getAToken** .
 1. Selecione **Registar** para criar a aplicação.
 1. Na página **visão geral** do aplicativo, localize o valor da **ID do aplicativo (cliente)** e registre-o para mais tarde. Você precisará dela para configurar o arquivo de configuração do Visual Studio para este projeto.
-1. Selecione a seção **autenticação** . Em **Configurações avançadas**, defina **URL de logoff** como **http://localhost:5000/logout** . Em seguida, selecione **Guardar**.
 1. No menu à esquerda, selecione **certificados & segredos**.
 1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
 
@@ -124,7 +123,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 >
 > Você pode criar um aplicativo que conecte usuários com suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, crie um aplicativo multilocatário. Os tipos de conta com suporte são contas em qualquer diretório organizacional. Em seguida, altere a propriedade `signInAudience` no manifesto do aplicativo do portal do Azure. Para obter mais informações, consulte a [etapa 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial de ASP.NET Core. Você pode generalizar essa etapa para aplicativos Web em qualquer idioma.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configuração de código do aplicativo](scenario-web-app-sign-user-app-configuration.md)

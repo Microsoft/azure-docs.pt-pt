@@ -1,20 +1,17 @@
 ---
-title: Limites e configuração – aplicativos lógicos do Azure
+title: Limites e configuração
 description: Limites de serviço, como duração, taxa de transferência e capacidade, além de valores de configuração, como endereços IP para permitir, para aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 13bced5cb692366f46032d51c3b635533110d781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547533"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791970"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -71,7 +68,7 @@ Para alterar o limite padrão de duração da execução e retenção de armazen
 
    > [!NOTE]
    > Para aplicativos lógicos em vários locatários do Azure, o limite padrão de 90 dias é o mesmo que o limite máximo. Você só pode diminuir esse valor.
-   > Para aplicativos lógicos em um ambiente de serviço de integração, você pode decreause ou aumentar o limite padrão de 90 dias.
+   > Para aplicativos lógicos em um ambiente de serviço de integração, você pode diminuir ou aumentar o limite padrão de 90 dias.
 
 <a name="looping-debatching-limits"></a>
 

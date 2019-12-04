@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: provisionar um banco de dados do Azure para servidor MySQL usando Azure Resource Manager modelo'
+title: 'Tutorial: criar um banco de dados do Azure para MySQL-modelo de Azure Resource Manager'
 description: Este tutorial explica como provisionar e automatizar implantações do servidor de banco de dados do Azure para MySQL usando Azure Resource Manager modelo.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 69025dd70ffe88c1592cf656e956b3e78a97a5e7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163898"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771105"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: provisionar um banco de dados do Azure para servidor MySQL usando Azure Resource Manager modelo
 
@@ -79,7 +79,7 @@ Nessa solicitação, os valores que precisam ser personalizados são:
 +   `name`-especifique o nome do seu servidor MySQL (sem nome de domínio).
 +   `location`-especifique uma região de data center do Azure válida para o servidor MySQL. Por exemplo, westus2.
 +   `properties/version`-especifique a versão do MySQL Server a ser implantada. Por exemplo, 5,6 ou 5,7.
-+   `properties/administratorLogin`-especifique o logon de administrador do MySQL para o servidor. O nome de entrada do administrador não pode ser azure_superuser, admin, administrador, raiz, convidado ou público.
++   `properties/administratorLogin`-especifique o logon de administrador do MySQL para o servidor. O nome de entrada do administrador não pode ser azure_superuser, administrador, administrador, raiz, convidado ou público.
 +   `properties/administratorLoginPassword`-especifique a senha para o usuário administrador do MySQL especificado acima.
 +   `properties/sslEnforcement`-especifique habilitado/desabilitado para habilitar/desabilitar sslEnforcement.
 +   `storageProfile/storageMB`-especifique o tamanho máximo de armazenamento provisionado necessário para o servidor em megabytes. Por exemplo, 5120.
@@ -88,11 +88,11 @@ Nessa solicitação, os valores que precisam ser personalizados são:
 +   `sku/tier`-especifique a camada básica, GeneralPurpose ou MemoryOptimized para implantação.
 +   `sku/capacity`-especifique a capacidade vCore. Os valores possíveis incluem 2, 4, 8, 16, 32 ou 64.
 +   `sku/family`-especifique Gen5 para escolher a geração de hardware para a implantação do servidor.
-+   `sku/name`-especifique TierPrefix_family_capacity. Por exemplo, B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Consulte a documentação [tipos de preço](./concepts-pricing-tiers.md) para entender os valores válidos por região e por camada.
++   `sku/name`-especifique TierPrefix_family_capacity. Por exemplo B_Gen5_1, GP_Gen5_16 MO_Gen5_32. Consulte a documentação [tipos de preço](./concepts-pricing-tiers.md) para entender os valores válidos por região e por camada.
 +   `resources/properties/virtualNetworkSubnetId`-especifique o identificador do Azure da sub-rede na VNet em que o servidor MySQL do Azure deve ser colocado. 
 +   `tags(optional)`-especificar marcas opcionais são pares chave-valor que você usaria para categorizar os recursos de cobrança, etc.
 
-Se você pretende criar um modelo de Azure Resource Manager para automatizar as implantações do banco de dados do Azure para MySQL para sua organização, a recomendação seria iniciar do [modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de exemplo na Galeria de início rápido do GitHub do Azure Primeiro, e crie sobre ele. 
+Se você pretende criar um modelo de Azure Resource Manager para automatizar as implantações do banco de dados do Azure para MySQL para sua organização, a recomendação seria iniciar do [modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de exemplo na galeria do Azure QuickStart GitHub primeiro e se basear nele. 
 
 Se você for novo no Azure Resource Manager modelos e quiser experimentá-lo, poderá começar seguindo estas etapas:
 +   Clone ou baixe o [modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de exemplo da Galeria de início rápido do Azure.  

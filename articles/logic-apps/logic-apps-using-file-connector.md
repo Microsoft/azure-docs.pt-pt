@@ -1,20 +1,19 @@
 ---
-title: Conectar-se a sistemas de arquivos locais-aplicativos lógicos do Azure
+title: Conectar-se a sistemas de arquivos locais
 description: Automatizar tarefas e fluxos de trabalho que se conectam a sistemas de arquivos locais com o conector do sistema de arquivos por meio do gateway de dados local em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1b5cf27c49a003042086cd9452f288c7f348d343
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: bc2067dbde1e99619fb6e384be4e70f606c8518d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799698"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792783"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar-se a sistemas de arquivos locais com aplicativos lógicos do Azure
 
@@ -68,10 +67,10 @@ Este artigo mostra como você pode se conectar a um sistema de arquivos local, c
 
    | Propriedade | Obrigatório | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome da Ligação** | Sim | <*nome da conexão* > | O nome que você deseja para sua conexão |
+   | **Nome da Ligação** | Sim | <*nome da conexão*> | O nome que você deseja para sua conexão |
    | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta raiz do seu sistema de arquivos, por exemplo, se você instalou o gateway de dados local, como uma pasta de locais no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos para todas as ações relacionadas a arquivos. |
    | **Tipo de autenticação** | Não | > *de <de tipo de autenticação* | O tipo de autenticação que o sistema de arquivos usa, por exemplo, **Windows** |
-   | **Nome de Utilizador** | Sim | <>de *domínio*\\<*nome de usuário*> | O nome de usuário para o computador em que você tem o sistema de arquivos |
+   | **Nome de Utilizador** | Sim | <>de *domínio* \\<*nome de usuário*> | O nome de usuário para o computador em que você tem o sistema de arquivos |
    | **Palavra-passe** | Sim | <*sua senha*> | A senha do computador em que você tem o sistema de arquivos |
    | **Gateway** | Sim | <*installed-gateway-name*> | O nome do gateway instalado anteriormente |
    |||||

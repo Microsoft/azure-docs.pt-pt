@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e4045345f8dce54067aebf559bb2554b65f13b3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503697"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795756"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de:
+Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=android)
+> * Verifique se você tem acesso a um microfone para captura de áudio
 
 ## <a name="create-a-user-interface"></a>Criar uma interface do usuário
 

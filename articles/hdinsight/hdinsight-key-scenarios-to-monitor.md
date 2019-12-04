@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: c6e60474f74a23add429bf13ca7744afb8e8e1a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104404"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777613"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -30,10 +30,10 @@ Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, 
 | Cor | Descrição |
 | --- | --- |
 | Vermelho | Pelo menos um componente mestre no host está inoperante. Focalize para ver uma dica de ferramenta que lista os componentes afetados. |
-| Laranja | Pelo menos um componente secundário no host está inoperante. Focalize para ver uma dica de ferramenta que lista os componentes afetados. |
+| Orange | Pelo menos um componente secundário no host está inoperante. Focalize para ver uma dica de ferramenta que lista os componentes afetados. |
 | Amarelo | O servidor Ambari não recebeu uma pulsação do host por mais de 3 minutos. |
 | Verde | Estado de execução normal. |
-
+ 
 Você também verá colunas que mostram o número de núcleos e a quantidade de RAM para cada host, além do uso do disco e da média de carga.
 
 ![Visão geral da guia hosts Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -52,7 +52,7 @@ O YARN divide as duas responsabilidades do JobTracker, do gerenciamento de recur
 
 O Gerenciador de recursos é um *Agendador puro*e apenas arbitra os recursos disponíveis entre todos os aplicativos concorrentes. O Gerenciador de recursos garante que todos os recursos estejam sempre em uso, otimizando para várias constantes, como SLAs, garantias de capacidade e assim por diante. O aplicativo negocia os recursos do Gerenciador de recursos e trabalha com os NodeManager para executar e monitorar os contêineres e o consumo de recursos.
 
-Quando vários locatários compartilham um cluster grande, há competição para os recursos do cluster. O CapacityScheduler é um Agendador conectável que auxilia no compartilhamento de recursos ao enfileirar solicitações. O CapacityScheduler também dá suporte a *filas hierárquicas* para garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que as filas de outros aplicativos tenham permissão para usar recursos gratuitos.
+Quando vários locatários compartilham um cluster grande, há a competição pelos recursos do cluster. O CapacityScheduler é um Agendador conectável que auxilia no compartilhamento de recursos ao enfileirar solicitações. O CapacityScheduler também dá suporte a *filas hierárquicas* para garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que as filas de outros aplicativos tenham permissão para usar recursos gratuitos.
 
 O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para exibir informações sobre suas filas, entre na interface do usuário da Web do amAmbari e selecione **Gerenciador de filas do yarn** no menu superior.
 
@@ -72,11 +72,11 @@ Na interface do usuário do Resource Manager, selecione **Agendador** no menu à
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
-O afunilamento de desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento geralmente ocorre devido ao *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de e/s aguardando para serem processadas até que o IOs atual seja processado. Os blocos são devidos à *limitação de armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite garante que um único cliente ou locatário possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para o armazenamento do Azure-para obter detalhes, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+O afunilamento de desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento é geralmente causado pelo *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de e/s aguardando para serem processadas até que o IOs atual seja processado. Os blocos são devido à *limitação de armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite garante que um único cliente ou locatário possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para o armazenamento do Azure-para obter detalhes, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
 Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), sua limitação provavelmente ocorrerá devido a limites de largura de banda. A limitação, nesse caso, pode ser identificada observando erros de limitação nos logs de tarefas. Para ADLS, consulte a seção limitação para o serviço apropriado nestes artigos:
+Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), sua limitação provavelmente será devido aos limites de largura de banda. A limitação, nesse caso, pode ser identificada observando erros de limitação nos logs de tarefas. Para ADLS, consulte a seção limitação para o serviço apropriado nestes artigos:
 
 * [Diretrizes de ajuste de desempenho para Apache Hive no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Diretrizes de ajuste de desempenho para MapReduce no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)

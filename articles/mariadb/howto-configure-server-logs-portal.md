@@ -1,19 +1,19 @@
 ---
-title: Configurar e acessar logs de servidor no banco de dados do Azure para MariaDB no portal do Azure
-description: Este artigo descreve como configurar e acessar os logs de servidor no banco de dados do Azure para MariaDB no portal do Azure.
+title: Acessar logs de consulta lentos-portal do Azure-banco de dados do Azure para MariaDB
+description: Este artigo descreve como configurar e acessar os logs de consulta lenta no banco de dados do Azure para MariaDB do portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: c7e95521e503ad2d92bf13ae7e410b71ed6dfcd3
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 12/02/2019
+ms.openlocfilehash: 69a01ec021ecbade235a693b1be502353420fde0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844693"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767471"
 ---
-# <a name="configure-and-access-server-logs-from-the-azure-portal"></a>Configurar e acessar os logs do servidor no portal do Azure
+# <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e acessar logs de consulta lentos no portal do Azure
 
 Você pode configurar, listar e baixar o [banco de dados do Azure para MariaDB logs de consulta lentos](concepts-server-logs.md) do portal do Azure.
 
@@ -23,7 +23,7 @@ As etapas neste artigo exigem que você tenha o [banco de dados do Azure para o 
 ## <a name="configure-logging"></a>Configurar registro em log
 Configure o acesso ao log de consultas lentas. 
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione o banco de dados do Azure para o servidor MariaDB.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 420a046ddf66270f52001d4ff4f3ad49895d4c11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208402"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784561"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -126,7 +126,21 @@ Para habilitar os padrões de segurança em seu diretório:
 1. Defina a alternância **habilitar padrões de segurança** para **Sim**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="disabling-security-defaults"></a>Desabilitando padrões de segurança
+
+As organizações que optam por implementar políticas de acesso condicional que substituem os padrões de segurança devem desabilitar os padrões de segurança. 
+
+![Mensagem de aviso desabilite os padrões de segurança para habilitar o acesso condicional](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+Para desabilitar os padrões de segurança em seu diretório:
+
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de segurança, administrador de acesso condicional ou administrador global.
+1. Navegue até **Azure Active Directory**  **Propriedades**de >de .
+1. Selecione **gerenciar padrões de segurança**.
+1. Defina a alternância **habilitar padrões de segurança** para **não**.
+1. Selecione **Guardar**.
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
 

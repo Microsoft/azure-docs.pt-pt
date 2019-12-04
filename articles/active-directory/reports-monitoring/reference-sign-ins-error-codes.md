@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014303"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786372"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de entrada 
 
@@ -181,7 +181,8 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |90051| Token de delegação inválido. Foi especificada uma ID de nuvem nacional inválida ({cloudid}).|
 |90072| A conta precisa ser adicionada primeiro como um usuário externo no locatário. Saia e entre novamente com uma conta diferente do Azure AD.|
 |90094| A concessão requer permissões de administrador. Peça ao seu administrador de locatários para fornecer consentimento para este aplicativo.|
-|500021|O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
+|500011| A entidade de recurso chamada <site address> não foi encontrada no locatário denominado <tenant ID>. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Poderá ter enviado o pedido de autenticação para o inquilino errado.|
+|500021| O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
 |500121| A autenticação falhou durante uma solicitação de autenticação forte.|
 |500133| A asserção não está dentro de seu intervalo de tempo válido. Verifique se o token de acesso não expirou antes de usá-lo para a asserção do usuário ou solicite um novo token.|
 |530021|O aplicativo não atende aos requisitos de aplicativo aprovados para acesso condicional.|

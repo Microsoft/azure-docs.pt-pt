@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 1f312e8a5034d238e4802e9323bc1b5ac5cdae21
-ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
+ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906231"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773556"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -32,9 +32,6 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 [Delegar uma sub-rede a Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
 ## <a name="considerations"></a>Considerações 
-
-> [!IMPORTANT] 
-> O acesso ao recurso NFSv 4.1 requer a lista de permissões.  Para solicitar a lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
 
 * Decidindo qual versão do NFS usar  
   O NFSv3 pode lidar com uma ampla variedade de casos de uso e é normalmente implantado na maioria dos aplicativos empresariais. Você deve validar qual versão (NFSv3 ou NFSv 4.1) seu aplicativo requer e criar seu volume usando a versão apropriada. Por exemplo, se você usar o [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), o bloqueio de arquivo com nfsv 4.1 será recomendado em relação a NFSv3. 

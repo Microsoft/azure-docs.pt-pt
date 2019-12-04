@@ -1,20 +1,17 @@
 ---
-title: Obter mais itens ou registros com paginação-aplicativos lógicos do Azure
+title: Obter mais itens ou registros com paginação
 description: Configurar paginação para exceder o limite de tamanho de página padrão para ações de conector nos aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679897"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792122"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obter mais dados, itens ou registros usando paginação em aplicativos lógicos do Azure
 

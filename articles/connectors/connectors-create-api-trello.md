@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao Trello de aplicativos lógicos do Azure | Microsoft Docs
+title: Conectar-se ao Trello de aplicativos lógicos do Azure
 description: Automatizar tarefas e fluxos de trabalho que monitoram e gerenciam listas, placas e cartões em seus projetos do Trello usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ae77488df6ce58d8cab61933f50d24edec35b1ab
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050724"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789142"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Monitorar e gerenciar o Trello com os aplicativos lógicos do Azure
 
@@ -40,7 +36,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Trello e disponibi
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar sua conta do Trello. Para começar com um gatilho Trello, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação Trello, inicie o aplicativo lógico com um gatilho, por exemplo, o gatilho recorrência.
+* O aplicativo lógico no qual você deseja acessar sua conta do Trello. Para começar com um gatilho Trello, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação Trello, inicie o aplicativo lógico com um gatilho, por exemplo, o gatilho **recorrência** .
 
 ## <a name="connect-to-trello"></a>Conectar-se ao Trello
 
@@ -57,7 +53,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Trello e disponibi
    Na lista ações, selecione a ação desejada.
 
    Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Se você for solicitado a entrar no Trello, autorize o acesso para seu aplicativo lógico e entre.
 
@@ -74,4 +70,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

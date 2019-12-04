@@ -1,43 +1,39 @@
 ---
-title: Ligar ao Office 365 utilizadores - Azure Logic Apps | Documentos da Microsoft
-description: Gerir perfis de utilizador com APIs de REST de utilizadores do Office 365 e Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
+title: Conectar-se aos usuários do Office 365
+description: Gerenciar perfis de usuário com APIs REST de usuários do Office 365 e aplicativos lógicos do Azure
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
-ms.service: logic-apps
-services: logic-apps
-ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 3865fbc4fbc39da0860218565b0a8956b2dad8ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105876"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789529"
 ---
-# <a name="get-started-with-the-office-365-users-connector"></a>Começar com o conector de utilizadores do Office 365
-Ligue-se para utilizadores do Office 365 para obter os perfis, procurar utilizadores e muito mais. Com utilizadores do Office 365, pode:
+# <a name="get-started-with-the-office-365-users-connector"></a>Introdução ao conector de usuários do Office 365
+Conecte-se aos usuários do Office 365 para obter perfis, Pesquisar usuários e muito mais. Com os usuários do Office 365, você pode:
 
-* Crie o seu fluxo de negócios com base nos dados que receber de utilizadores do Office 365. 
-* Ações de utilização que obtém subordinados diretos, obter o perfil de utilizador de um gestor e muito mais. Estas ações obtém uma resposta e, em seguida, disponibilizá-a saída para outras ações. Por exemplo, obter relatórios diretos de uma pessoa e, em seguida, utilizar essas informações e atualizar uma base de dados do SQL Azure. 
+* Crie seu fluxo de negócios com base nos dados obtidos de usuários do Office 365. 
+* Use ações que obtenham relatórios diretos, obtenha o perfil de usuário de um gerente e muito mais. Essas ações obtêm uma resposta e tornam a saída disponível para outras ações. Por exemplo, obtenha os subordinados diretos de uma pessoa e, em seguida, Pegue essas informações e atualize um banco de dados SQL Azure. 
 
-Pode começar a utilizar ao criar uma aplicação lógica agora, veja [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Você pode começar criando um aplicativo lógico agora, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-office-365-users"></a>Criar uma ligação para utilizadores do Office 365
-Ao adicionar este conector às suas aplicações lógicas, tem início de sessão para a sua conta de utilizadores do Office 365 e permitir que o logic apps para ligar à sua conta.
+## <a name="create-a-connection-to-office-365-users"></a>Criar uma conexão com os usuários do Office 365
+Ao adicionar esse conector aos seus aplicativos lógicos, você deve entrar em sua conta dos usuários do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
 > 
 
-Depois de criar a ligação, introduza as propriedades de utilizadores do Office 365, como o ID de utilizador. O **referência da REST API** este artigo descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades dos usuários do Office 365, como a ID de usuário. A **referência da API REST** neste artigo descreve essas propriedades.
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/officeusers/).
+Exiba todos os gatilhos e ações definidos no Swagger e também veja os limites nos [detalhes do conector](/connectors/officeusers/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte para o [lista APIs](apis-list.md).
+Volte para a [lista de APIs](apis-list.md).

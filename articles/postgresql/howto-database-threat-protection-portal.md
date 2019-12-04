@@ -1,66 +1,66 @@
 ---
-title: Servidor único do Advanced Threat Protection - base de dados do Azure para PostgreSQL-
-description: Proteção contra ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados.
-author: bolzmj
-ms.author: mbolz
+title: Usar a proteção avançada contra ameaças-banco de dados do Azure para PostgreSQL-servidor único
+description: A proteção contra ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067457"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776148"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL - servidor único
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL-servidor único
 
 A Proteção Avançada Contra Ameaças para Base de Dados do Azure para PostgreSQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar as suas bases de dados.
 
-Proteção avançada contra ameaças faz parte da oferta de segurança de dados avançada, que é um pacote unificado para os recursos de segurança avançada. Proteção avançada contra ameaças podem ser acessada e gerenciada através da [portal do Azure](https://portal.azure.com) e está atualmente em pré-visualização.
+A proteção avançada contra ameaças faz parte da oferta de segurança de dados avançada, que é um pacote unificado para recursos avançados de segurança. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do [portal do Azure](https://portal.azure.com) e está atualmente em versão prévia.
 
 > [!NOTE]
-> A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
+> O recurso proteção avançada contra ameaças **não** está disponível nas seguintes regiões do Azure governamental e do soberanas cloud: US gov Texas, US gov Arizona, US gov Iowa, US, gov virgínia, US DoD Leste, US DoD central, Alemanha Central, Norte da Alemanha, Leste da China, leste da China 2. Visite os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 >
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure em que a base de dados do Azure para PostgreSQL é implementada para os servidores de fins gerais e memória otimizada.
+> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL é implantado para servidores Uso Geral e com otimização de memória.
 
-## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças
-1. Iniciar o portal do Azure no [ https://portal.azure.com ](https://portal.azure.com).
-2. Navegue para a página de configuração da base de dados do Azure para o servidor PostgreSQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (pré-visualização)** .
-3. Sobre o **Advanced Threat Protection (pré-visualização)** página de configuração:
+## <a name="set-up-threat-detection"></a>Configurar a detecção de ameaças
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+2. Navegue até a página de configuração do servidor do banco de dados do Azure para PostgreSQL que você deseja proteger. Em configurações de segurança, selecione **proteção contra ameaças avançadas (versão prévia)** .
+3. Na página de configuração **proteção contra ameaças avançadas (versão prévia)** :
 
-   - Ative a proteção avançada contra ameaças no servidor.
-   - Na **definições de proteção de ameaças avançadas**, na **enviar alertas para** texto caixa, forneça a lista de e-mails para receber alertas de segurança após a deteção de atividades anómalas da base de dados.
+   - Habilite a proteção avançada contra ameaças no servidor.
+   - Em **Configurações avançadas de proteção contra ameaças**, na caixa de texto **enviar alertas para** , forneça a lista de emails para receber alertas de segurança após a detecção de atividades anormais do banco de dados.
   
-   ![Configurar a deteção de ameaças](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
+   ![Configurar a detecção de ameaças](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 
-## <a name="explore-anomalous-database-activities"></a>Explore a atividades anómalas da base de dados
+## <a name="explore-anomalous-database-activities"></a>Explorar atividades anormais de banco de dados
 
-Receber uma notificação por e-mail após a deteção de atividades anómalas da base de dados. O e-mail fornece informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anómalas, o nome de base de dados, nome do servidor, o nome da aplicação e a hora do evento. Além disso, o e-mail fornece informações sobre as causas possíveis e as ações recomendadas para investigar e mitigar a potencial ameaça à base de dados.
+Você recebe uma notificação por email após a detecção de atividades anormais do banco de dados. O email fornece informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anormais, o nome do banco de dados, o nome do servidor, o nome do aplicativo e a hora do evento. Além disso, o email fornece informações sobre possíveis causas e ações recomendadas para investigar e atenuar a ameaça em potencial para o banco de dados.
     
-1. Clique nas **ver alertas recentes** ligação no e-mail para iniciar o portal do Azure e mostrar a página de alertas do Centro de segurança do Azure, que fornece uma visão geral do Active Directory ameaças detetadas na base de dados SQL.
+1. Clique no link **exibir alertas recentes** no email para iniciar o portal do Azure e mostrar a página de alertas da central de segurança do Azure, que fornece uma visão geral das ameaças ativas detectadas no banco de dados SQL.
     
-    ![Relatório de atividade anómala](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+    ![Relatório de atividade anômala](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
 
-    Ameaças ativas de modo de exibição:
+    Exibir ameaças ativas:
 
-    ![ameaças ativas](./media/howto-database-threat-protection-portal/active-threats.png)
+    ![Ameaças ativas](./media/howto-database-threat-protection-portal/active-threats.png)
 
-2. Clique num alerta específico para obter detalhes adicionais e ações para esta ameaça a investigar e remediar ameaças futuras.
+2. Clique em um alerta específico para obter detalhes adicionais e ações para investigar essa ameaça e corrigir futuras ameaças.
     
     ![Alerta específico](./media/howto-database-threat-protection-portal/specific-alert.png)
 
-## <a name="explore-threat-detection-alerts"></a>Explore os alertas de deteção de ameaças
+## <a name="explore-threat-detection-alerts"></a>Explorar alertas de detecção de ameaças
 
-Proteção avançada contra ameaças integra seus alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/). 
+A proteção avançada contra ameaças integra seus alertas à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/). 
 
-Clique em **alertas de segurança** sob **PROTEÇÃO contra ameaças** para iniciar o Centro de segurança do Azure a alertas de página e obter uma visão geral do Active Directory SQL ameaças detetadas na base de dados.
+Clique em **alertas de segurança** em **proteção contra ameaças** para iniciar a página de alertas da central de segurança do Azure e obtenha uma visão geral das ameaças do SQL ativas detectadas no banco de dados.
 
-  ![Asc de proteção de ameaças](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![Proteção contra ameaças ASC](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para obter mais informações sobre os preços, consulte o [base de dados do Azure para a página de preços do PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/)  
+* Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Para obter mais informações sobre preços, consulte a [página de preços do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/)  

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404217"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785862"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
@@ -41,11 +41,14 @@ Habilitado por Azure AD Identity Protection-esse método usa a política de risc
 
 As contas de usuário na autenticação multifator do Azure têm os três Estados distintos a seguir:
 
+> [!IMPORTANT]
+> Habilitar o Azure MFA por meio de uma política de acesso condicional não alterará o estado do usuário. Os usuários que não são despertados parecem desabilitados. O acesso condicional não altera o estado. **As organizações não devem habilitar ou impor usuários se estiverem utilizando políticas de acesso condicional.**
+
 | Estado | Descrição | Aplicativos sem navegador afetados | Aplicativos de navegador afetados | Autenticação moderna afetada |
-|:---:|:---:|:---:|:--:|:--:|
-| Desativado |O estado padrão para um novo usuário não registrado no Azure MFA. |Não |Não |Não |
-| Ativado |O usuário foi inscrito no Azure MFA, mas não foi registrado. Eles receberão uma solicitação para registrar na próxima vez que entrarem. |Não.  Eles continuam funcionando até que o processo de registro seja concluído. | Sim. Depois que a sessão expira, o registro do Azure MFA é necessário.| Sim. Depois que o token de acesso expira, o registro do Azure MFA é necessário. |
-| Imposto |O usuário foi registrado e concluiu o processo de registro para o Azure MFA. |Sim. Os aplicativos exigem senhas de aplicativo. |Sim. O Azure MFA é necessário no logon. | Sim. O Azure MFA é necessário no logon. |
+|:---:| --- |:---:|:--:|:--:|
+| Desativado | O estado padrão para um novo usuário não registrado no Azure MFA. | Não | Não | Não |
+| Ativado | O usuário foi inscrito no Azure MFA, mas não foi registrado. Eles receberão uma solicitação para registrar na próxima vez que entrarem. | Não.  Eles continuam funcionando até que o processo de registro seja concluído. | Sim. Depois que a sessão expira, o registro do Azure MFA é necessário.| Sim. Depois que o token de acesso expira, o registro do Azure MFA é necessário. |
+| Imposto | O usuário foi registrado e concluiu o processo de registro para o Azure MFA. | Sim. Os aplicativos exigem senhas de aplicativo. | Sim. O Azure MFA é necessário no logon. | Sim. O Azure MFA é necessário no logon. |
 
 O estado de um usuário reflete se um administrador o registrou no Azure MFA e se ele concluiu o processo de registro.
 

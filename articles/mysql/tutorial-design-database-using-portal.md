@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Conceber uma base de dados do Azure para MySQL com o portal do Azure'
-description: Este tutorial explica como criar e gerir a base de dados do Azure para servidor MySQL e base de dados com o portal do Azure.
+title: 'Tutorial: criar um servidor-portal do Azure-banco de dados do Azure para MySQL'
+description: Este tutorial explica como criar e gerenciar o banco de dados do Azure para servidor MySQL e o banco de dados usando portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ee33af4992745aeaeb99551cc173c39e224a298b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515842"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771161"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MySQL com o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para base de dados MySQL com o portal do Azure
 A Base de Dados do Azure para MySQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
 
 Neste tutorial, irá utilizar o Portal do Azure para aprender a:
@@ -23,7 +23,7 @@ Neste tutorial, irá utilizar o Portal do Azure para aprender a:
 > * Criar uma Base de Dados do Azure para MySQL
 > * Configurar a firewall do servidor
 > * Utilize a ferramenta da linha de comandos mysql para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
@@ -51,16 +51,16 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     Grupo de recursos | *myresourcegroup* | Forneça um novo nome do grupo de recursos ou um existente.
     Selecionar origem | *Em branco* | Selecione *Em branco* para criar um novo servidor de raiz. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para MySQL existente).
     Início de sessão de administrador do servidor | myadmin | Uma conta de início de sessão para utilizar quando ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0-9) e carateres não alfanuméricos (!, $, #, % e assim por diante).
+    Palavra-passe | *A sua escolha* | Forneça uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
-    Version | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
-    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
+    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione a guia **uso geral** . *Gen 5*, *2 vCores*, *5 GB*e *7 dias* são os valores padrão para **geração de computação**, **vCore**, **armazenamento**e **período de retenção de backup**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Com o **aumento automático** ativado para o seu servidor aumenta o armazenamento, quando está prestes a atingir o limite alocado, sem afetar a carga de trabalho.
+   > Com o **aumento automático** habilitado, o servidor aumenta o armazenamento quando você está se aproximando do limite alocado, sem afetar sua carga de trabalho.
 
 3. Clique em **Criar**. Num ou dois minutos, uma nova Base de Dados do Azure para o servidor MySQL estará em execução na cloud. Pode clicar no botão **Notificações** na barra de ferramentas para monitorizar o processo de implementação.
 
@@ -69,7 +69,7 @@ As Bases de Dados do Azure para MySQL estão protegidas por uma firewall. Por pr
 
 1. Clique no servidor acabado de criar e clique em **Segurança da ligação**.
    
-   ![Segurança da Ligação](./media/tutorial-design-database-using-portal/1-Connection-security.png)
+   ![Segurança das ligações](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. Pode **Adicionar o Meu IP** ou configurar regras de firewall aqui. Não se esqueça de clicar em **Guardar** depois de criar a regras.
 Já pode ligar ao servidor através da ferramenta de linha de comandos mysql ou da ferramenta da GUI MySQL Workbench.
 
@@ -84,7 +84,7 @@ Obtenha o **Nome do servidor** completamente qualificado e o **Nome de início d
 2. Na página **Descrição geral**, aponte o **Nome do Servidor** e o **Nome do Início de Sessão de Administrador do Servidor**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
    ![4-2 propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Neste exemplo, é o nome do servidor *mydemoserver.mysql.database.azure.com*, e o início de sessão de administrador do servidor é *myadmin\@mydemoserver*.
+Neste exemplo, o nome do servidor é *mydemoserver.mysql.Database.Azure.com*e o logon de administrador do servidor é *myadmin\@mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Ligar ao servidor com o mysql
 Utilize a [ferramenta de linha de comandos do mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para estabelecer uma ligação à base de dados do Azure para o servidor MySQL. Pode executar a ferramenta de linha de comandos do mysql a partir do Azure Cloud Shell no navegador ou a partir do seu computador com as ferramentas do mysql instaladas localmente. Para iniciar o Azure Cloud Shell, clique no botão `Try It` num bloco de código neste artigo ou visite o portal do Azure e clique no ícone `>_` da barra de ferramentas superior à direita. 
@@ -153,21 +153,21 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
    
    ![10-2 formulário de restauro](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauro**: Selecione um ponto anterior no tempo que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
-   - **Restaurar para novo servidor**: Forneça um novo nome de servidor que pretende restaurar para.
-   - **Localização**: A região é igual ao servidor de origem e não pode ser alterada.
-   - **Escalão de preço**: O escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
+   - **Ponto de restauro**: selecione um momento específico em que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
+   - **Restaurar para novo servidor**: indique um novo nome de servidor para o qual pretende restaurar.
+   - **Localização**: a região é a mesma que o servidor de origem e não pode ser alterada.
+   - **Escalão de preço**: o escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
    
 3. Clique em **OK** para restaurar o servidor para [ e restaurar para um momento específico](./howto-restore-server-portal.md) antes da tabela ter sido eliminada. Restaurar um servidor cria uma nova cópia do servidor, a partir do momento específico que especificar. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, utilizou o portal do Azure para aprender a:
 
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para MySQL
 > * Configurar a firewall do servidor
 > * Utilize a ferramenta da linha de comandos mysql para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados

@@ -1,24 +1,20 @@
 ---
-title: Criar fluxos de trabalho automatizados baseados em agenda-aplicativos lógicos do Azure
+title: Crie fluxos de trabalho automatizados baseados em agenda
 description: Tutorial – criar um fluxo de trabalho automatizado, recorrente e com base em agendamento usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034635"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790295"
 ---
-# <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Crie fluxos de trabalho recorrentes, baseados em agendamento e automatizados usando aplicativos lógicos do Azure
+# <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: criar fluxos de trabalho recorrentes, baseados em agendamento e automatizados usando aplicativos lógicos do Azure
 
 Este tutorial mostra como criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) e automatizar um fluxo de trabalho recorrente que é executado em um agendamento. Especificamente, esse aplicativo lógico de exemplo é executado a cada dia da manhã e verifica o tempo de viagem, incluindo o tráfego, entre dois lugares. Se o tempo exceder um limite específico, a aplicação lógica envia um e-mail com o tempo de deslocação e o tempo adicional necessário para chegar ao destino.
 
@@ -58,16 +54,16 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    ![Fornecer informações sobre seu aplicativo lógico](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Value | Descrição |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Name** | LA-TravelTime | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-Viajatime". |
+   | **Nome** | LA-TravelTime | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-Viajatime". |
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome da sua assinatura do Azure |
    | **Grupo de recursos** | LA-TravelTime-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), que é usado para organizar os recursos relacionados. Este exemplo usa "LA-Viagenstime-RG". |
-   | **Location** | EUA Oeste | Região Tnão em que armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
+   | **Localização** | Oeste dos E.U.A. | Região Tnão em que armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione **notificações** > **vá para o recurso** para seu aplicativo lógico implantado.
+1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione **notificações** > **ir para o recurso** para seu aplicativo lógico implantado.
 
    ![Vá para o novo recurso de aplicativo lógico](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -93,10 +89,10 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Alterar o intervalo e a frequência do gatilho de recorrência](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Intervalo** | Sim | 1 | O número de intervalos de espera entre verificações |
-   | **Frequência** | Sim | Week (Semana) | A unidade de tempo a utilizar para a periodicidade |
+   | **Frequência** | Sim | Semana | A unidade de tempo a utilizar para a periodicidade |
    |||||
 
 1. Em **intervalo** e **frequência**, abra a lista **Adicionar novo parâmetro** e selecione essas propriedades para adicionar ao gatilho.
@@ -111,7 +107,7 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Indicar os detalhes da agenda e da periodicidade](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | Propriedade | Value | Descrição |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **On these days** (Nestes dias) | Monday,Tuesday,Wednesday,Thursday,Friday | Disponível apenas se **Frequency** (Frequência) estiver definida como "Week" |
    | **At these hours** (A estas horas) | 7,8,9 | Disponível apenas se **Frequency** estiver definida como "Week" ou “Day”. Selecionar as horas do dia para executar esta periodicidade. Este exemplo é executado nas marcas das 7, 8 e 9 horas. |
@@ -142,7 +138,7 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    ![Criar conexão com a API do Bing Maps](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome da Ligação** | Sim | BingMapsConnection | Indique um nome para a ligação. Este exemplo usa "BingMapsConnection". |
    | **Chave de API** | Sim | <*your-Bing-Maps-key*> | Introduza a chave do Mapas Bing que recebeu anteriormente. Se não tiver uma chave do Mapas Bing, saiba [como obtê-la](https://msdn.microsoft.com/library/ff428642.aspx). |
@@ -162,7 +158,7 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    ![Fornecer detalhes para a ação "obter rota"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Waypoint 1** | Sim | <*start-location*> | A origem do percurso |
    | **Waypoint 2** | Sim | <*end-location*> | O destino do percurso |
@@ -193,10 +189,10 @@ Por padrão, a ação **obter rota** anterior retorna o tempo de viagem atual co
 
 1. Indique os detalhes da variável, conforme descrito aqui:
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Name** | Sim | travelTime | O nome da variável. Este exemplo usa "viagem". |
-   | **Tipo** | Sim | Integer | O tipo de dados da variável |
+   | **Nome** | Sim | travelTime | O nome da variável. Este exemplo usa "viagem". |
+   | **Tipo** | Sim | Número inteiro | O tipo de dados da variável |
    | **Valor** | Não| Uma expressão que converte o tempo de deslocação atual de segundos em minutos (ver os passos nesta tabela). | O valor iniciar da variável |
    ||||
 

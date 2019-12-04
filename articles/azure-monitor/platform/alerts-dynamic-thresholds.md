@@ -1,6 +1,6 @@
 ---
-title: Criar alertas com limiares dinâmicos no Azure Monitor
-description: Criar alertas com limiares de dinâmica de machine learning
+title: Criando alertas com limites dinâmicos no Azure Monitor
+description: Criar alertas com limites dinâmicos baseados em Machine Learning
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,169 +8,186 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 750aded128804468ae557d7c016a50c5378d9217
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067624"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762522"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 
-Alerta de métrica com a detecção de limiares dinâmicos tira partido da avançada de machine learning (ML) para obter informações sobre comportamento de históricos dos métricas, identificar padrões e anomalias que indicam problemas de serviço possíveis. Fornece suporte de uma interface do Usuário simple e operações em escala, permitindo que os utilizadores configurar regras de alerta através da API do Azure Resource Manager, de forma totalmente automatizada.
+O alerta de métrica com a detecção de limites dinâmicos aproveita o ML (aprendizado de máquina avançado) para aprender o comportamento histórico de métricas, identificar padrões e anomalias que indicam possíveis problemas de serviço. Ele oferece suporte a uma interface do usuário simples e a operações em escala, permitindo que os usuários configurem regras de alerta por meio da API de Azure Resource Manager, de maneira totalmente automatizada.
 
-Depois de criar uma regra de alerta, será acionado apenas quando a métrica monitorizada não se comporta como esperado, com base nos respetivos limiares sob medidas.
+Depois que uma regra de alerta for criada, ela será acionada somente quando a métrica monitorada não se comportar conforme o esperado, com base em seus limites personalizados.
 
-Gostaríamos muito de ouvir os seus comentários, mantê-lo a chegar em <azurealertsfeedback@microsoft.com>.
+Adoraríamos ouvir seus comentários, mantê-los chegando em <azurealertsfeedback@microsoft.com>.
 
-## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Por que e quando está a utilizar o tipo de condição dinâmica recomendado?
+## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Por que e quando o está usando o tipo de condição dinâmica recomendado?
 
-1. **Alertar dimensionável** – limiares dinâmicos, podem criar regras de alertas adaptadas limiares para centenas de série de métrica ao mesmo tempo. Ainda, fornecendo a mesma facilidade de definir uma regra de alerta numa única métrica. Utilizar a interface do Usuário ou os resultados da API do Azure Resource Manager em menos regras de alerta para gerir. A abordagem dimensionável é especialmente útil ao lidar com dimensões de métrica ou ao aplicar a vários recursos, como todos os recursos de subscrição. Que se traduz num tempo significativo, poupando no gerenciamento e a criação de regras de alertas. [Saiba mais sobre como configurar alertas de métrica com limiares dinâmicos através de modelos](alerts-metric-create-templates.md).
+1. **Alertas escalonáveis** – as regras de alerta de limite dinâmico podem criar limites personalizados para centenas de séries métricas de cada vez, ainda fornecendo a mesma facilidade de definir uma regra de alerta em uma única métrica. Eles oferecem a você menos alertas para criar e gerenciar. Você pode usar portal do Azure ou a API Azure Resource Manager para criá-los. A abordagem escalonável é especialmente útil ao lidar com dimensões métricas ou ao se aplicar a vários recursos, como a todos os recursos de assinatura.  [Saiba mais sobre como configurar alertas de métrica com limites dinâmicos usando modelos](alerts-metric-create-templates.md).
 
-1. **Reconhecimento de padrões de métrica do smart** – utilizando a nossa tecnologia de ML exclusiva, temos a capacidade detetar padrões de métrica e adaptar-se a métrica alterações ao longo do tempo, o que, muitas vezes, pode incluir a sazonalidade (por hora / dia / semanais) automaticamente. Adaptar ao comportamento das métricas ao longo do tempo e os alertas com base em desvios em relação a seu padrão libera a responsabilidade de saber o limiar "right" para cada uma. O algoritmo de ML utilizado no limiares dinâmicos foi concebido para impedir que ruidosos (baixa de precisão simples) ou em limites de toda a (Lembre-se baixa) que não têm um padrão esperado.
+1. **Reconhecimento de padrão de métrica inteligente** – usando nossa tecnologia ml, podemos detectar automaticamente padrões de métricas e adaptar-se às alterações de métrica ao longo do tempo, o que pode incluir sazonalidade (por hora/dia/semana). Adaptar-se ao comportamento de métricas ao longo do tempo e o alerta com base em desvios de seu padrão alivia a carga de saber o limite "certo" para cada métrica. O algoritmo ML usado em limites dinâmicos foi projetado para evitar limites de ruído (baixa precisão) ou largo (recall) que não têm um padrão esperado.
 
-1. **Configuração intuitiva** – limiares dinâmicos permitem configurar alertas de métricas com os conceitos de alto nível, aliviando a necessidade de ter conhecimento do domínio amplo sobre a métrica.
+1. **Configuração intuitiva** – limites dinâmicos permite configurar alertas de métricas usando conceitos de alto nível, aliviando a necessidade de ter amplo conhecimento de domínio sobre a métrica.
 
-## <a name="how-to-configure-alerts-rules-with-dynamic-thresholds"></a>Como configurar regras de alertas com limiares dinâmicos?
+## <a name="how-to-configure-alerts-rules-with-dynamic-thresholds"></a>Como configurar regras de alertas com limites dinâmicos?
 
-Alertas com limiares dinâmicos podem ser configuradas através de alertas de métrica no Azure Monitor. [Saiba mais sobre como configurar alertas de métrica](alerts-metric.md).
+Alertas com limites dinâmicos podem ser configurados por meio de alertas de métrica no Azure Monitor. [Saiba mais sobre como configurar alertas de métricas](alerts-metric.md).
 
-## <a name="how-are-the-thresholds-calculated"></a>Como são calculados os limiares?
+## <a name="how-are-the-thresholds-calculated"></a>Como os limites são calculados?
 
-Limiares dinâmicos continuamente aprende os dados da série de métrica e tenta modelá-lo usando um conjunto de algoritmos e métodos. Detetar padrões nos dados, tais como a sazonalidade (por hora / dia / semanais) e é capaz de lidar com métricas ruidosos (por exemplo, CPU do computador ou memória), bem como as métricas com dispersão baixa (por exemplo, a taxa de disponibilidade e o erro).
+Os limites dinâmicos aprende continuamente os dados da série métrica e tenta modelar usando um conjunto de algoritmos e métodos. Ele detecta padrões nos dados, como sazonalidade (por hora/dia/semana), e é capaz de lidar com métricas ruidosas (como CPU ou memória do computador), bem como métricas com pouca dispersão (como disponibilidade e taxa de erros).
 
-Os limiares são selecionados de forma que um desvio destes limiares indica uma anomalia no comportamento da métrica.
+Os limites são selecionados de forma que um desvio desses limites indica uma anomalia no comportamento da métrica.
 
 > [!NOTE]
-> Deteção de padrão sazonal está definida para uma hora, dia ou intervalo de semana. Isso significa que os outros padrões como o padrão de bihourly ou semiweekly poderão não ser detetados.
+> A detecção de padrão sazonal é definida como um intervalo de hora, dia ou semana. Isso significa que outros padrões como padrão bihora ou semiweekly podem não ser detectados.
 
-## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que faz a definição de "Sensibilidade" na média de limiares dinâmicos?
+## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que significa a configuração ' sensibilidade ' em limites dinâmicos?
 
-Sensibilidade do limiar de alerta é um conceito de alto nível que controla a quantidade de desvio de comportamento da métrica necessário para acionar um alerta.
-Esta opção não exige o conhecimento do domínio sobre a métrica como limiar estático. As opções disponíveis são:
+A sensibilidade do limite de alerta é um conceito de alto nível que controla a quantidade de desvio do comportamento de métrica necessário para disparar um alerta.
+Essa opção não exige conhecimento do domínio sobre a métrica, como o limite estático. As opções disponíveis são:
 
-- Alta – os limiares será forte e próximo o padrão de série de métricas. Uma regra de alerta será acionada no desvio menor, resultando em mais alertas.
-- Médio – menos limiares forte e mais equilibradas, menos alertas que com alta sensibilidade (predefinição).
-- Baixa – os limiares será menos com mais de distância do padrão de série de métricas. Uma regra de alerta irá acionar apenas sobre os desvios de grandes dimensões, resultando em menos alertas.
+- Alta – os limites serão apertados e próximos ao padrão da série métrica. Uma regra de alerta será disparada no menor desvio, resultando em mais alertas.
+- Média – limites menos rígidos e mais equilibrados, menos alertas do que com alta sensibilidade (padrão).
+- Baixo – os limites serão soltos com mais distância do padrão da série métrica. Uma regra de alerta só será disparada em grandes desvios, resultando em menos alertas.
 
-## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quais são as opções de configuração de "operador no limiares dinâmicos?
+## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quais são as opções de configuração ' operator ' em limites dinâmicos?
 
-Limiares dinâmicos, pode criar a regra de alertas adaptadas limiares com base no comportamento da métrica para ambos os superior e os limites inferiores usando a mesma regra de alerta.
-Pode escolher o alerta das três condições a seguir:
+A regra de alertas de limites dinâmicos pode criar limites personalizados com base no comportamento da métrica para os limites superior e inferior usando a mesma regra de alerta.
+Você pode escolher o alerta a ser disparado em uma das três condições a seguir:
 
-- Superior ao limiar superior ou inferior ao limiar mais baixo (predefinição)
-- Superior ao limiar superior
-- Inferior ao limiar mais baixo.
+- Maior que o limite superior ou menor que o limite inferior (padrão)
+- Maior que o limite superior
+- Menor que o limite inferior.
 
-## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que as definições avançadas na média de limiares dinâmicos?
+## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que significam as configurações avançadas em limites dinâmicos?
 
-**Falhar períodos** -limiares dinâmicos também permite-lhe configurar o "Número de violações para acionar o alerta", um número mínimo de desvios necessários no âmbito de uma determinada janela de tempo para o sistema emitir um alerta (a janela de tempo predefinido é de quatro desvios em 20 minutos). O utilizador pode configurar a falhar períodos e escolha o que quer ser alertado em ao alterar o período de tempo e períodos de falha. Esta capacidade reduz o ruído de alertas gerado pelo picos transitórios. Por exemplo:
+**Períodos com falha** -os limites dinâmicos também permitem que você configure "violações de número para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos com falha e escolher o que será alertado alterando os períodos com falha e a janela de tempo. Essa capacidade reduz o ruído de alerta gerado por picos transitórios. Por exemplo:
 
-Para acionar um alerta quando o problema é contínuo para 20 minutos, o 4 vezes consecutivas num determinado agrupamento período de 5 minutos, utilize as seguintes definições:
+Para disparar um alerta quando o problema for contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos, use as seguintes configurações:
 
-![Definições de períodos para problema contínua a falhar para 20 minutos, 4 vezes consecutivas num determinado agrupamento período de 5 minutos](media/alerts-dynamic-thresholds/0008.png)
+![Configurações de períodos com falha para o problema contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos](media/alerts-dynamic-thresholds/0008.png)
 
-Para acionar um alerta quando ocorreu uma violação de um limiares dinâmicos em 20 minutos sem os últimos 30 minutos com o período de 5 minutos, utilize as seguintes definições:
+Para disparar um alerta quando houve uma violação de limites dinâmicos em 20 minutos dos últimos 30 minutos com o período de 5 minutos, use as seguintes configurações:
 
-![Definições de períodos para o problema a falhar para 20 minutos sem os últimos 30 minutos com o agrupamento de período de 5 minutos](media/alerts-dynamic-thresholds/0009.png)
+![Configurações de períodos com falha para o problema de 20 minutos dos últimos 30 minutos com agrupamento de período de 5 minutos](media/alerts-dynamic-thresholds/0009.png)
 
-**Ignorar dados antes de** -os utilizadores podem, opcionalmente, também, definir uma data de início a partir da qual o sistema deve começar a calcular os limiares de. Um caso de utilização típica pode ocorrer quando um recurso era uma em execução no modo de teste e agora é promovido para servir uma carga de trabalho de produção e, portanto, o comportamento de qualquer métrica durante a fase de teste deve ser ignorado.
+**Ignorar dados antes** -os usuários também podem definir, opcionalmente, uma data de início a partir da qual o sistema deve começar a calcular os limites. Um caso de uso típico pode ocorrer quando um recurso estava em execução em um modo de teste e agora é promovido para atender a uma carga de trabalho de produção e, portanto, o comportamento de qualquer métrica durante a fase de teste deve ser desconsiderado.
 
-## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Como descobrir por que motivo foi acionado um alerta de limiares dinâmicos?
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Como descobrir por que um alerta de limites dinâmicos foi disparado?
 
-Pode explorar acionadas instâncias de alerta na vista de alertas ao clicar na ligação no e-mail ou mensagem de texto ou browser para ver os alertas no portal do Azure. [Saiba mais sobre a vista de alertas](alerts-overview.md#alerts-experience).
+Você pode explorar as instâncias de alerta disparadas no modo de exibição de alertas clicando no link no email ou na mensagem de texto ou no navegador para ver a exibição de alertas no portal do Azure. [Saiba mais sobre a exibição de alertas](alerts-overview.md#alerts-experience).
 
-Apresenta a vista de alerta:
+A exibição de alerta exibe:
 
-- Todos os detalhes de métrica no momento em que o alerta de limiares dinâmicos disparado.
-- Um gráfico do período em que o alerta foi acionado, que inclui os limiares dinâmicos usado nesse ponto no tempo.
-- Capacidade para fornecer comentários sobre o alerta de limiares dinâmicos e os alertas experiência de exibição, o que poderia melhorar as deteções futuras.
+- Todos os detalhes de métrica no momento em que o alerta de limites dinâmicos foi acionado.
+- Um gráfico do período em que o alerta foi disparado, incluindo os limites dinâmicos usados nesse ponto no tempo.
+- Capacidade de fornecer comentários sobre o alerta de limites dinâmicos e a experiência de exibição de alertas, que pode melhorar as detecções futuras.
 
-## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Comportamento lento será alterado no acionador métrico um alerta?
+## <a name="will-slow-behavior-changes-in-the-metric-trigger-an-alert"></a>As alterações de comportamento serão lentas no gatilho de métrica de um alerta?
 
-Provavelmente não. Limiares dinâmicos são bons para detetar desvios significativos, em vez de lentamente evoluindo problemas.
+Provavelmente não. Os limites dinâmicos são bons para detectar desvios significativos em vez de problemas em evolução lentos.
 
-## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>A quantidade de dados é utilizado para visualização e, em seguida, calcular limiares?
+## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Qual a quantidade de dados usada para visualizar e calcular os limites?
 
-Os limiares que aparece no gráfico, antes da criação de uma regra de alerta em métrica, são calculados com base nos dados históricos suficientes para calcular a hora ou diariamente padrões sazonais (10 dias). Depois de criar uma regra de alerta, os limiares dinâmicos utilizará todos os dados históricos necessários que está disponível e serão continuamente aprender e adaptar-se com base nos dados de novo para tornar os limiares mais precisas. Isso significa que depois deste cálculo, o gráfico também apresentará padrões semanais.
+Quando e alerta é criado pela primeira vez, os limites que aparecem no gráfico são calculados com base em dados históricos suficientes para calcular a hora ou os padrões sazonais diários (10 dias). Depois que uma regra de alerta é criada, os limites dinâmicos usam todos os dados históricos necessários que estão disponíveis e irão aprender e se adaptar continuamente com base nos novos dados para tornar os limites mais precisos. Isso significa que, após esse cálculo, o gráfico também exibirá padrões semanais.
 
-## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para acionar um alerta?
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Qual é a quantidade de dados necessária para disparar um alerta?
 
-Se tiver um novo recurso ou dados de métricos em falta, limiares dinâmicos não aciona alertas antes de três dias de dados estão disponíveis para garantir que os limiares precisos.
+Se você tiver um novo recurso ou dados de métrica ausentes, os limites dinâmicos não dispararão alertas antes que três dias de dados estejam disponíveis para garantir limites precisos.
 
-## <a name="dynamic-thresholds-best-practices"></a>Práticas recomendadas de limiares dinâmicas
+## <a name="dynamic-thresholds-best-practices"></a>Práticas recomendadas de limites dinâmicos
 
-Limiares dinâmicos podem ser aplicados a qualquer plataforma ou de uma métrica personalizada no Azure Monitor e ele também foi otimizado para as métricas comuns de aplicação e infraestrutura.
-Os itens seguintes são as práticas recomendadas sobre como configurar alertas em alguns destas métricas com limiares dinâmicos.
+Limites dinâmicos podem ser aplicados a qualquer plataforma ou métrica personalizada em Azure Monitor e também foi ajustado para as métricas comuns de aplicativo e infraestrutura.
+Os itens a seguir são práticas recomendadas sobre como configurar alertas em algumas dessas métricas usando limites dinâmicos.
 
-### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Limiares dinâmicos em métricas de percentagem de CPU de máquinas virtuais
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Limites dinâmicos em métricas de porcentagem de CPU de máquina virtual
 
-1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. O modo de exibição de Monitor consolida todas as suas monitorização definições e dados numa vista.
+1. Em [portal do Azure](https://portal.azure.com), clique em **Monitor**. A exibição do monitor consolida todas as suas configurações e dados de monitoramento em uma exibição.
 
-2. Clique em **alertas** , em seguida, clique em **+ nova regra de alerta**.
+2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 
     > [!TIP]
-    > A maioria dos painéis de recursos também tem **alertas** no respetivo menu de recursos sob **monitorização**, poderia criar alertas a partir do mesmo.
+    > A maioria das folhas de recursos também tem **alertas** em seu menu de recursos, em **monitoramento**, você pode criar alertas a partir daí também.
 
-3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que quer receber o alerta. Uso **subscrição** e **tipo de recurso de "Máquinas virtuais"** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
+3. Clique em **Selecionar destino**, no painel de contexto que é carregado, selecione um recurso de destino que você deseja alertar. Use os menus suspensos de **assinatura** e **tipo de recurso de "máquinas virtuais"** para localizar o recurso que você deseja monitorar. Você também pode usar a barra de pesquisa para localizar o recurso.
 
-4. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
+4. Depois de selecionar um recurso de destino, clique em **Adicionar condição**.
 
-5. Selecione o **percentagem de CPU**.
+5. Selecione a **' porcentagem de CPU '** .
 
-6. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Ele não é recomendado para utilizar o tipo de agregação "Maximum" para este tipo de métrica, que é menos representativos de comportamento. Para o limiar 'Máximo' de estático do tipo agregação talvez mais apropriado.
+6. Opcionalmente, refine a métrica ajustando o **período** e a **agregação**. Não é recomendável usar o tipo de agregação ' Maximum ' para esse tipo de métrica, pois ele é menos representativo de comportamento. Para o limite estático de tipo de agregação ' Maximum ', talvez mais apropriado.
 
-7. Verá um gráfico para a métrica para as últimas 6 horas. Defina os parâmetros de alerta:
-    1. **Tipo de condição** -escolher a opção 'Dynamic'.
-    1. **Sensibilidade** -sensibilidade de escolha médio ou com pouco para reduzir o ruído de alerta.
-    1. **Operador** -escolher 'Maior que' a menos que o comportamento representa a utilização da aplicação.
-    1. **Frequência** -considere reduzir com base no impacto comercial do alerta.
-    1. **Falhar períodos** (opção avançada), a janela de back-olhada deve ser, pelo menos, 15 minutos. Se o período for definido para cinco minutos, por exemplo, em seguida, falhar períodos deve ser, pelo menos, três ou mais.
+7. Você verá um gráfico para a métrica das últimas 6 horas. Defina os parâmetros de alerta:
+    1. **Tipo de condição** – escolha a opção ' dinâmica '.
+    1. **Sensibilidade** – escolha a sensibilidade média/baixa para reduzir o ruído de alerta.
+    1. **Operador** -escolha ' maior que ', a menos que o comportamento represente o uso do aplicativo.
+    1. **Frequência** -considere reduzir com base no impacto nos negócios do alerta.
+    1. **Períodos com falha** (opção avançada)-a janela de pesquisa deve ser pelo menos 15 minutos. Por exemplo, se o período for definido como cinco minutos, os períodos com falha deverão ser pelo menos três ou mais.
 
-8. O gráfico de métricas irá apresentar os limiares calculados com base nos dados recentes.
+8. O gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
 9. Clique em **Concluído**.
 
-10. Preencha **detalhes do alerta** como **nome da regra de alerta**, **Descrição**, e **gravidade**.
+10. Preencha os **detalhes do alerta** , como **nome da regra de alerta**, **Descrição**e **severidade**.
 
-11. Adicione um grupo de ação para o alerta ao selecionar um grupo de ação existente ou criar um novo grupo de ação.
+11. Adicione um grupo de ações ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
 
-12. Clique em **feito** para guardar a regra de alerta de métrica.
+12. Clique em **concluído** para salvar a regra de alerta de métrica.
 
 > [!NOTE]
-> Alerta de métrica regras criadas através do portal são criadas no mesmo grupo de recursos como o recurso de destino.
+> As regras de alerta de métrica criadas por meio do portal são criadas no mesmo grupo de recursos que o recurso de destino.
 
-### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Limiares dinâmicos no tempo de execução do pedido de HTTP do Application Insights
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Limites dinâmicos em Application Insights tempo de execução da solicitação HTTP
 
-1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. O modo de exibição de Monitor consolida todas as suas monitorização definições e dados numa vista.
+1. Em [portal do Azure](https://portal.azure.com), clique em **Monitor**. A exibição do monitor consolida todas as suas configurações e dados de monitoramento em uma exibição.
 
-2. Clique em **alertas** , em seguida, clique em **+ nova regra de alerta**.
+2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 
     > [!TIP]
-    > A maioria dos painéis de recursos também tem **alertas** no respetivo menu de recursos sob **monitorização**, poderia criar alertas a partir do mesmo.
+    > A maioria das folhas de recursos também tem **alertas** em seu menu de recursos, em **monitoramento**, você pode criar alertas a partir daí também.
 
-3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que quer receber o alerta. Uso **subscrição** e **tipo de recurso de "Application Insights"** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
+3. Clique em **Selecionar destino**, no painel de contexto que é carregado, selecione um recurso de destino que você deseja alertar. Use os menus suspensos de **assinatura** e **tipo de recurso ' Application insights '** para localizar o recurso que você deseja monitorar. Você também pode usar a barra de pesquisa para localizar o recurso.
 
-4. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
+4. Depois de selecionar um recurso de destino, clique em **Adicionar condição**.
 
-5. Selecione o **'Tempo de execução do pedido HTTP'** .
+5. Selecione o **' tempo de execução da solicitação HTTP '** .
 
-6. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Ele não é recomendado para utilizar o tipo de agregação "Maximum" para este tipo de métrica, que é menos representativos de comportamento. Para o limiar 'Máximo' de estático do tipo agregação talvez mais apropriado.
+6. Opcionalmente, refine a métrica ajustando o **período** e a **agregação**. Não é recomendável usar o tipo de agregação ' Maximum ' para esse tipo de métrica, pois ele é menos representativo de comportamento. Para o limite estático de tipo de agregação ' Maximum ', talvez mais apropriado.
 
-7. Verá um gráfico para a métrica para as últimas 6 horas. Defina os parâmetros de alerta:
-    1. **Tipo de condição** -escolher a opção 'Dynamic'.
-    1. **Operador** -escolher 'maior do que"para reduzir alertas acionados no aprimoramento de duração.
-    1. **Frequência** -considere reduzir com base no impacto comercial do alerta.
+7. Você verá um gráfico para a métrica das últimas 6 horas. Defina os parâmetros de alerta:
+    1. **Tipo de condição** – escolha a opção ' dinâmica '.
+    1. **Operador** -escolha ' maior que ' para reduzir os alertas disparados na duração da melhoria.
+    1. **Frequência** -considere reduzir com base no impacto nos negócios do alerta.
 
-8. O gráfico de métricas irá apresentar os limiares calculados com base nos dados recentes.
+8. O gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
 9. Clique em **Concluído**.
 
-10. Preencha **detalhes do alerta** como **nome da regra de alerta**, **Descrição**, e **gravidade**.
+10. Preencha os **detalhes do alerta** , como **nome da regra de alerta**, **Descrição**e **severidade**.
 
-11. Adicione um grupo de ação para o alerta ao selecionar um grupo de ação existente ou criar um novo grupo de ação.
+11. Adicione um grupo de ações ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
 
-12. Clique em **feito** para guardar a regra de alerta de métrica.
+12. Clique em **concluído** para salvar a regra de alerta de métrica.
 
 > [!NOTE]
-> Alerta de métrica regras criadas através do portal são criadas no mesmo grupo de recursos como o recurso de destino.
+> As regras de alerta de métrica criadas por meio do portal são criadas no mesmo grupo de recursos que o recurso de destino.
+
+## <a name="interpreting-dynamic-threshold-charts"></a>Interpretando gráficos de limites dinâmicos
+
+A seguir está um gráfico mostrando uma métrica, seus limites de limite dinâmico e alguns alertas acionados quando o valor estava fora dos limites permitidos.
+
+![Saiba mais sobre como configurar alertas de métricas](media/alerts-dynamic-thresholds/threshold-picture-8bit.png)
+
+Use as informações a seguir para interpretar o gráfico anterior.
+
+- **Linha azul** – a métrica medida real ao longo do tempo.
+- **Área sombreada azul** – mostra o intervalo permitido para a métrica. Desde que os valores de métrica permaneçam dentro desse intervalo, nenhum alerta ocorrerá.
+- **Pontos azuis** -se você tiver clicado em parte do gráfico e passar o mouse sobre a linha azul, verá um ponto azul aparecendo no cursor mostrando um valor de métrica agregada individual.
+- **Pop-up com ponto azul** – mostra o valor medido da métrica (o ponto azul) e os valores superior e inferior do intervalo permitido.  
+- **Ponto vermelho com um círculo preto** – mostra o primeiro valor de métrica fora do intervalo permitido. Esse é o valor que dispara um alerta de métrica e o coloca em um estado ativo.
+- **Pontos vermelhos**-indicam valores mediis adicionais fora do intervalo permitido. Eles não irão disparar alertas de métrica adicionais, mas o alerta permanece no modo ativo.
+- **Área vermelha** – mostra a hora em que o valor da métrica estava fora do intervalo permitido. O alerta permanece no estado ativo, desde que os valores medidos subsequentes estejam fora do intervalo permitido, mas nenhum alerta novo será acionado.
+- **Fim da área vermelha** – quando a linha azul está de volta dentro dos valores permitidos, a área vermelha é interrompida e a linha de valor medido fica azul. O status do alerta de métrica acionado no momento do ponto vermelho com contorno preto é definido como resolvido. 

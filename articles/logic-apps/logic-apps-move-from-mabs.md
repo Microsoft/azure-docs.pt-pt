@@ -1,20 +1,19 @@
 ---
-title: Mover aplicativos dos serviços BizTalk para o aplicativo lógico do Azure | Microsoft Docs
+title: Mover aplicativos dos serviços BizTalk para o aplicativo lógico do Azure
 description: Migrar dos serviços BizTalk do Azure (MABS) para os aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273186"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791888"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrar dos serviços BizTalk para o aplicativo lógico do Azure
 
@@ -33,7 +32,7 @@ Os [aplicativos lógicos](../logic-apps/logic-apps-overview.md) substituem a int
 
 Esta tabela mapeia os recursos dos serviços BizTalk para aplicativos lógicos.
 
-| Serviços BizTalk   | Aplicações Lógicas            | Objetivo                      |
+| Serviços BizTalk   | Logic Apps            | Finalidade                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Conector          | Conector             | Enviar e receber dados   |
 | Bridge             | Aplicação Lógica             | Processador de pipeline           |
@@ -78,7 +77,7 @@ Além disso, uma ponte unidirecional XML adiciona estágios de decodificação e
 
 Nos serviços BizTalk, você pode receber diferentes tipos de mensagens XML e determinar o esquema de correspondência para a mensagem recebida. Esse trabalho é executado no estágio *tipos de mensagem* do pipeline de processamento de recebimento. Em seguida, o estágio de decodificação usa o tipo de mensagem detectada para decodificar a mensagem usando o esquema fornecido. Se o esquema for um esquema de arquivo simples, esse estágio converterá o arquivo simples de entrada em XML. 
 
-Os aplicativos lógicos fornecem recursos semelhantes. Você recebe um arquivo simples em protocolos diferentes usando gatilhos de conector diferentes (sistema de arquivos, FTP, HTTP e assim por diante) e usa a ação de decodificação de [arquivo simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md) para converter os dados de entrada em XML. Você pode mover os esquemas de arquivo simples existentes diretamente para os aplicativos lógicos sem nenhuma alteração e, em seguida, carregar esquemas para sua conta de integração.
+Os aplicativos lógicos fornecem recursos semelhantes. Você recebe um arquivo simples em protocolos diferentes usando gatilhos de conector diferentes (sistema de arquivos, FTP, HTTP e assim por diante) e usa a ação de [decodificação de arquivo simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md) para converter os dados de entrada em XML. Você pode mover os esquemas de arquivo simples existentes diretamente para os aplicativos lógicos sem nenhuma alteração e, em seguida, carregar esquemas para sua conta de integração.
 
 ### <a name="validation"></a>Validação
 
@@ -100,7 +99,7 @@ Os aplicativos lógicos fornecem recursos de lógica sofisticados, além de flux
 
 ### <a name="enrich"></a>Aprimora
 
-No processamento dos serviços BizTalk, o estágio enriquecer adiciona propriedades ao contexto da mensagem associado aos dados recebidos. Por exemplo, promover uma propriedade a ser usada para roteamento de uma pesquisa de banco de dados ou extrair um valor usando uma expressão XPath. Os aplicativos lógicos fornecem acesso a todas as saídas de dados contextuais de ações anteriores, tornando simples replicar o mesmo comportamento. Por exemplo, usando a `Get Row` ação de conexão do SQL, você retorna dados de um SQL Server um banco de dados e usa-os em uma ação de decisão para roteamento. Da mesma forma, as propriedades nas mensagens enfileiradas do barramento de serviço de entrada por um gatilho são endereçáveis, bem como XPath usando a expressão de linguagem de definição de fluxo de trabalho XPath.
+No processamento dos serviços BizTalk, o estágio enriquecer adiciona propriedades ao contexto da mensagem associado aos dados recebidos. Por exemplo, promover uma propriedade a ser usada para roteamento de uma pesquisa de banco de dados ou extrair um valor usando uma expressão XPath. Os aplicativos lógicos fornecem acesso a todas as saídas de dados contextuais de ações anteriores, tornando simples replicar o mesmo comportamento. Por exemplo, usando a ação de conexão do `Get Row` SQL, você retorna dados de um SQL Server banco de dados e usa-os em uma ação de decisão para roteamento. Da mesma forma, as propriedades nas mensagens enfileiradas do barramento de serviço de entrada por um gatilho são endereçáveis, bem como XPath usando a expressão de linguagem de definição de fluxo de trabalho XPath.
 
 ### <a name="run-custom-code"></a>Executar código personalizado
 
@@ -132,9 +131,9 @@ Nos serviços BizTalk, um portal dedicado fornecia recursos de controle para mon
 
 Para HA (alta disponibilidade) nos serviços BizTalk, você pode compartilhar a carga de processamento usando mais de uma instância em uma região específica. Os aplicativos lógicos fornecem HA em região sem custo adicional. 
 
-Nos serviços BizTalk, a recuperação de desastres fora de região para processamento B2B requer um processo de backup e restauração. Para a continuidade dos negócios, os aplicativos lógicos fornecem o [recurso de recuperação](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)de desastres ativo/passivo entre regiões, que permite sincronizar dados B2B entre contas de integração em regiões diferentes.
+Nos serviços BizTalk, a recuperação de desastres fora de região para processamento B2B requer um processo de backup e restauração. Para a continuidade dos negócios, os aplicativos lógicos fornecem o [recurso de recuperação de desastres](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)ativo/passivo entre regiões, que permite sincronizar dados B2B entre contas de integração em regiões diferentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que são aplicativos lógicos?](../logic-apps/logic-apps-overview.md)
 * [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou começar rapidamente com um [modelo compilado previamente](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  

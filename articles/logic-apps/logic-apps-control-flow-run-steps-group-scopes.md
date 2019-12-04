@@ -1,20 +1,17 @@
 ---
-title: Agrupar e executar ações por escopo – aplicativos lógicos do Azure
+title: Agrupar e executar ações por escopo
 description: Criar ações com escopo executadas com base no status do grupo nos aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680010"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791483"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo usando escopos em aplicativos lógicos do Azure
 
@@ -78,8 +75,8 @@ Você pode salvar seu aplicativo lógico a qualquer momento, portanto, salve seu
 
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** | <*iniciar* > | Insira a origem da rota. | 
-      | **Waypoint 2** | >*final* de < | Insira o destino de sua rota. | 
+      | **Waypoint 1** | <*iniciar*> | Insira a origem da rota. | 
+      | **Waypoint 2** | > *final* de < | Insira o destino de sua rota. | 
       | **Avoid** | Nenhuma | Insira os itens a serem evitados em sua rota, como rodovias, tarifas e assim por diante. Para obter os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimize** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com as informações de tráfego atuais e assim por diante. Este exemplo usa este valor: "timeWithTraffic" | 
       | **Distance unit** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Este exemplo usa este valor: "milhar" | 
@@ -150,7 +147,7 @@ Você pode salvar seu aplicativo lógico a qualquer momento, portanto, salve seu
   
        O campo **corpo** agora é semelhante a este exemplo:
 
-       ![Finished campo "corpo" ](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![campo "corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Guarde a aplicação lógica.

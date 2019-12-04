@@ -1,17 +1,17 @@
 ---
-title: Recomendações de desempenho no banco de dados do Azure para PostgreSQL-servidor único
+title: Recomendações de desempenho-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve o recurso de recomendação de desempenho no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764673"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768474"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendações de desempenho no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -39,7 +39,7 @@ As recomendações não são aplicadas automaticamente. Para aplicar a recomenda
 
 ## <a name="recommendation-types"></a>Tipos de recomendação
 
-Atualmente, há suporte para dois tipos de recomendações: *Criar índice* e *drop index*.
+Atualmente, há suporte para dois tipos de recomendações: *CREATE INDEX* e *drop index*.
 
 ### <a name="create-index-recommendations"></a>Criar recomendações de índice
 *Criar* recomendações de índice sugerem novos índices para acelerar a execução com mais frequência ou as consultas demoradas na carga de trabalho. Este tipo de recomendação requer que [repositório de consultas](concepts-query-store.md) seja habilitado. Repositório de Consultas coleta informações de consulta e fornece as estatísticas detalhadas de tempo de execução de consulta e frequência que a análise usa para fazer a recomendação.

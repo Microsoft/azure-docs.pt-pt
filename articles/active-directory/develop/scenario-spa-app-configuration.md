@@ -15,31 +15,29 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b4fba03f9edf8a3f4e42b23c6a1b5e06518863
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 5ec98a62aab0b8d87645f3f58dc28219abe4e4fc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891537"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766281"
 ---
-# <a name="single-page-application---code-configuration"></a>Aplicativo de página única-configuração de código
+# <a name="single-page-application-code-configuration"></a>Aplicativo de página única: configuração de código
 
 Saiba como configurar o código para seu aplicativo de página única (SPA).
 
-## <a name="msal-libraries-supporting-implicit-flow"></a>Bibliotecas MSAL que dão suporte ao fluxo implícito
+## <a name="msal-libraries-that-support-implicit-flow"></a>Bibliotecas MSAL que dão suporte ao fluxo implícito
 
-A plataforma de identidade da Microsoft fornece a biblioteca MSAL. js para dar suporte ao fluxo implícito usando as práticas seguras recomendadas do setor.  
-
-As bibliotecas que dão suporte ao fluxo implícito são:
+A plataforma de identidade da Microsoft fornece as seguintes bibliotecas de MSAL (biblioteca de autenticação da Microsoft) para dar suporte ao fluxo implícito usando práticas de segurança recomendadas pelo setor:  
 
 | Biblioteca MSAL | Descrição |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado usando estruturas JavaScript ou SPA, como angular, Vue. js, reajam. js, etc. |
-| ![MSAL angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper da biblioteca MSAL. js principal para simplificar o uso em aplicativos de página única criados com a estrutura angular. Esta biblioteca está em visualização e tem [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) com determinadas versões e navegadores angulares. |
+| ![MSAL. js](media/sample-v2-code/logo_js.png) <br/> [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue. js e reaja. js. |
+| ![angular MSAL](media/sample-v2-code/logo_angular.png) <br/> [MSAL angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper da biblioteca MSAL. js principal para simplificar o uso em aplicativos de página única que são criados por meio da estrutura angular. Esta biblioteca está em visualização e tem [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) com determinadas versões e navegadores angulares. |
 
 ## <a name="application-code-configuration"></a>Configuração de código do aplicativo
 
-Na biblioteca MSAL, as informações de registro do aplicativo são passadas como configuração durante a inicialização da biblioteca.
+Em uma biblioteca MSAL, as informações de registro do aplicativo são passadas como configuração durante a inicialização da biblioteca.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -55,7 +53,7 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
-Para obter mais detalhes sobre as opções configuráveis disponíveis, consulte [inicializando aplicativo com MSAL. js](msal-js-initializing-client-applications.md).
+Para obter mais informações sobre as opções configuráveis, consulte [inicializando aplicativo com MSAL. js](msal-js-initializing-client-applications.md).
 
 ### <a name="angular"></a>Angular
 
@@ -72,7 +70,7 @@ import { MsalModule } from '@azure/msal-angular';
   export class AppModule { }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Entrada e saída](scenario-spa-sign-in.md)

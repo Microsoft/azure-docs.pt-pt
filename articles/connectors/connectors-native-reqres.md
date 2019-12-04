@@ -1,23 +1,18 @@
 ---
-title: Receber e responder a chamadas HTTPS-aplicativos lógicos do Azure
+title: Receber e responder a chamadas HTTPS
 description: Manipular solicitações e eventos HTTPS em tempo real usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264361"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787000"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
 
@@ -108,7 +103,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
    }
    ```
 
-   Quando você insere um esquema JSON, o designer mostra um lembrete para incluir o cabeçalho `Content-Type` em sua solicitação e definir esse valor de cabeçalho como `application/json`. Para obter mais informações, consulte [manipular tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+   Quando você insere um esquema JSON, o designer mostra um lembrete para incluir o cabeçalho de `Content-Type` em sua solicitação e definir esse valor de cabeçalho como `application/json`. Para obter mais informações, consulte [manipular tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 
    ![Lembrete para incluir o cabeçalho "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -169,7 +164,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    Por exemplo, você pode responder à solicitação [adicionando uma ação de resposta](#add-response), que pode ser usada para retornar uma resposta personalizada e é descrita mais adiante neste tópico.
 
-   Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta `202 ACCEPTED` para o chamador.
+   Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta de `202 ACCEPTED` para o chamador.
 
 1. Quando tiver terminado, salve seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**. 
 
@@ -195,7 +190,7 @@ Veja mais informações sobre as saídas do gatilho de solicitação:
 
 Você pode usar a ação de resposta para responder com uma carga (dados) a uma solicitação HTTPS de entrada, mas somente em um aplicativo lógico que é disparado por uma solicitação HTTPS. Você pode adicionar a ação de resposta em qualquer ponto do fluxo de trabalho. Para obter mais informações sobre a definição de JSON subjacente para esse gatilho, consulte o [tipo de ação de resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta `202 ACCEPTED` para o chamador.
+Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta de `202 ACCEPTED` para o chamador.
 
 1. No designer do aplicativo lógico, na etapa em que você deseja adicionar uma ação de resposta, selecione **nova etapa**.
 
@@ -215,7 +210,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    Em alguns campos, clicar dentro de suas caixas abre a lista de conteúdo dinâmico. Em seguida, você pode selecionar tokens que representam as saídas disponíveis de etapas anteriores no fluxo de trabalho. As propriedades do esquema especificado no exemplo anterior agora aparecem na lista de conteúdo dinâmico.
 
-   Por exemplo, para a caixa **cabeçalhos** , inclua `Content-Type` como o nome da chave e defina o valor da chave como `application/json`, conforme mencionado anteriormente neste tópico. Para a caixa **corpo** , você pode selecionar a saída do corpo do gatilho na lista de conteúdo dinâmico.
+   Por exemplo, para a caixa **cabeçalhos** , inclua `Content-Type` como o nome da chave e defina o valor da chave como `application/json` conforme mencionado anteriormente neste tópico. Para a caixa **corpo** , você pode selecionar a saída do corpo do gatilho na lista de conteúdo dinâmico.
 
    ![Detalhes da ação de resposta](./media/connectors-native-reqres/response-details.png)
 

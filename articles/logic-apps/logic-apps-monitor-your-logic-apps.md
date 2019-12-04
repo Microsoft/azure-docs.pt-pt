@@ -1,20 +1,19 @@
 ---
-title: Verificar o status, configurar o registro em log e obter alertas-aplicativos lógicos do Azure
+title: Verificar o status, configurar o registro em log e obter alertas
 description: Monitorar status, registrar dados de diagnóstico e configurar alertas para aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
-ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ca1e2836ddfb38de640a5a90cf53e416b8923c04
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680306"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791911"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnóstico e ativar alertas para aplicativos lógicos do Azure
 
@@ -85,7 +84,7 @@ Antes de começar, você precisa ter um espaço de trabalho Log Analytics. Saiba
 
 3. Em **configurações de diagnóstico**, escolha **ativado**.
 
-   ![ativar logs de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
+   ![Ativar logs de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
 4. Agora, selecione o espaço de trabalho Log Analytics e a categoria de evento para registro em log, conforme mostrado:
 
@@ -179,7 +178,7 @@ Para monitorar métricas específicas ou limites excedidos para seu aplicativo l
 
 Para configurar alertas sem [logs de Azure monitor](../log-analytics/log-analytics-overview.md), siga estas etapas. Para critérios e ações de alertas mais avançados, [configure Azure monitor logs](#azure-diagnostics) também.
 
-1. No menu folha do aplicativo lógico, em **monitoramento**, escolha **diagnóstico**  > **regras de alerta**  > **adicionar alerta** , conforme mostrado aqui:
+1. No menu folha do aplicativo lógico, em **monitoramento**, escolha **diagnóstico** > **regras de alerta** > **adicionar alerta** , conforme mostrado aqui:
 
    ![Adicionar um alerta para seu aplicativo lógico](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 

@@ -1,20 +1,19 @@
 ---
-title: Criar consultas de acompanhamento para mensagens B2B-aplicativos lógicos do Azure
+title: Criar consultas de acompanhamento para mensagens B2B
 description: Criar consultas que acompanhem mensagens AS2, X12 e EDIFACT no Azure Log Analytics para aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 7d7bb53d24a113ea78b5bac3f9682fbb61ce2de9
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 36cf45aa0f7d46b62caa586d1939ec52e67b1a3e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680102"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792856"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Criar consultas de acompanhamento de mensagens B2B em logs de Azure Monitor para aplicativos lógicos do Azure
 
@@ -69,7 +68,7 @@ Para localizar mensagens com base em Propriedades ou valores específicos, você
 
 1. Em **adicionar filtros**, insira o nome do filtro que você deseja localizar. Se você encontrar o filtro, selecione esse filtro. No painel esquerdo, escolha **Adicionar** novamente.
 
-   Por exemplo, aqui está uma consulta diferente que pesquisa nos eventos **Type = = "AzureDiagnostics"** e localiza resultados com base no número de controle de intercâmbio selecionando o filtro **event_record_messageProperties_interchangeControlNumber_s** .
+   Por exemplo, aqui está uma consulta diferente que pesquisa nos eventos **Type = = "AzureDiagnostics"** e localiza resultados com base no número de controle de intercâmbio selecionando o filtro de **event_record_messageProperties_interchangeControlNumber_s** .
 
    ![Selecionar valor de filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filter-example.png)
 

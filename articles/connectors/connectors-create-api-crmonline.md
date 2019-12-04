@@ -1,22 +1,20 @@
 ---
-title: Conectar-se ao Dynamics 365 – aplicativos lógicos do Azure
+title: Conectar-se ao Dynamics 365
 description: Criar e gerenciar registros com APIs REST do Dynamics 365 (online) e aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-manager: carmonm
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051022"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789882"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com aplicativos lógicos do Azure
 
@@ -43,15 +41,15 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
 1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico em branco no designer de aplicativo lógico, se ainda não estiver aberto.
 
-1. Na caixa de pesquisa, insira "Dynamics 365" como seu filtro. Para este exemplo, na lista de gatilhos, selecione este gatilho: **Quando um registro é criado**
+1. Na caixa de pesquisa, insira "Dynamics 365" como seu filtro. Para este exemplo, na lista de gatilhos, selecione este gatilho: **quando um registro é criado**
 
-   ![Selecionar acionador](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
+   ![Selecionar gatilho](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
 1. Se você for solicitado a entrar no Dynamics 365, entre agora.
 
 1. Forneça estes detalhes do gatilho:
 
-   | Propriedade | Requerido | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, "contoso" |
    | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, "leads" | 
@@ -67,13 +65,13 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Em seu gatilho, escolha **nova etapa**.
 
-1. Na caixa de pesquisa, insira "Dynamics 365" como seu filtro. Na lista ações, selecione esta ação: **Criar um novo registro**
+1. Na caixa de pesquisa, insira "Dynamics 365" como seu filtro. Na lista ações, selecione esta ação: **criar um novo registro**
 
    ![Selecionar ação](./media/connectors-create-api-crmonline/select-action.png)
 
 1. Forneça estes detalhes de ação:
 
-   | Propriedade | Requerido | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da organização** | Sim | A instância do Dynamics 365 em que você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é "contoso" neste exemplo |
    | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, "tarefas" |
@@ -95,7 +93,7 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Para iniciar manualmente o aplicativo lógico, na barra de ferramentas do designer, escolha **executar**.
 
-   ![Executar aplicação lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Executar a aplicação lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. Agora, crie um registro de Lead no Dynamics 365 para que você possa disparar o fluxo de trabalho do aplicativo lógico.
 
@@ -104,7 +102,7 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 Para especificar como filtrar dados em uma ação do Dynamics 365, escolha **Mostrar opções avançadas** nessa ação. Em seguida, você pode adicionar uma consulta de filtro ou ordenar por.
 Por exemplo, você pode usar uma consulta de filtro para obter apenas as contas ativas e ordenar esses registros por nome de conta. Para essa tarefa, siga estas etapas:
 
-1. Em **consulta de filtro**, insira esta consulta de filtro OData:`statuscode eq 1`
+1. Em **consulta de filtro**, insira esta consulta de filtro OData: `statuscode eq 1`
 
 2. Em **ordenar por**, quando a lista de conteúdo dinâmico for exibida, selecione **nome da conta**. 
 
@@ -124,8 +122,8 @@ Esta tabela descreve alguns dos tipos de campo e os tipos de dados necessários 
 | Tipo de campo | Tipo de dados necessário | Descrição | 
 |------------|--------------------|-------------|
 | Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo de texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
-| Campos de inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha o tipo de inteiro. <p><p>*Campos de exemplo*: **Porcentagem concluída** e **duração** | 
-| Campos de data | Data e hora | Alguns campos exigem uma data com o formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **fim real**e **data de vencimento** | 
+| Campos de inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha o tipo de inteiro. <p><p>*Campos de exemplo*: **porcentagem concluída** e **duração** | 
+| Campos de data | Data e hora | Alguns campos exigem uma data com o formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **criado em**, **data de início**, **início real**, **fim real**e **data de conclusão** | 
 | Campos que exigem uma ID de registro e um tipo de pesquisa | Chave primária | Alguns campos que fazem referência a outro registro de entidade exigem uma ID de registro e um tipo de pesquisa. | 
 ||||
 
@@ -136,9 +134,9 @@ Expandindo esses tipos de campo, aqui estão campos de exemplo em gatilhos e aç
 | **Proprietário** | Deve ser uma ID de usuário válida ou ID de registro de equipe. |
 | **Tipo de proprietário** | Deve ser `systemusers` ou `teams`. |
 | **Cerne** | Deve ser uma ID de registro válida, como uma ID de conta ou ID de registro de contato. |
-| **Tipo referente a** | Deve ser um tipo de pesquisa, `accounts` como ou. `contacts` |
+| **Tipo referente a** | Deve ser um tipo de pesquisa, como `accounts` ou `contacts`. |
 | **Cliente** | Deve ser uma ID de registro válida, como uma ID de conta ou ID de registro de contato. |
-| **Tipo de cliente** | Deve ser o tipo de pesquisa, `accounts` como ou. `contacts` |
+| **Tipo de cliente** | Deve ser o tipo de pesquisa, como `accounts` ou `contacts`. |
 |||
 
 Neste exemplo, a ação chamada **criar um novo registro** cria um novo registro de tarefa:
@@ -164,7 +162,7 @@ Para localizar uma ID de registro, siga estas etapas:
    * Escolha **pop-out**. ![registro de popout](./media/connectors-create-api-crmonline/popout-record.png) 
    * Escolha **enviar um link por email** para que você possa copiar a URL completa para seu programa de email padrão.
 
-   A ID do registro aparece na URL entre os `%7b` caracteres `%7d` de codificação e:
+   A ID do registro aparece na URL entre o `%7b` e `%7d` caracteres de codificação:
 
    ![Localizar ID de registro](./media/connectors-create-api-crmonline/find-record-ID.png)
 
@@ -172,7 +170,7 @@ Para localizar uma ID de registro, siga estas etapas:
 
 Para localizar e revisar as etapas com falha em seu aplicativo lógico, você pode exibir o histórico de execuções, o status, as entradas, as saídas e assim por diante do aplicativo lógico.
 
-1. No portal do Azure, no menu principal do aplicativo lógico, selecione **visão geral**. Na seção **histórico** de execuções, que mostra todos os status de execução para seu aplicativo lógico, selecione uma execução com falha para obter mais informações.
+1. No portal do Azure, no menu principal do aplicativo lógico, selecione **visão geral**. Na seção **histórico de execuções** , que mostra todos os status de execução para seu aplicativo lógico, selecione uma execução com falha para obter mais informações.
 
    ![Status de execução do aplicativo lógico](./media/connectors-create-api-crmonline/run-history.png)
 
@@ -190,6 +188,6 @@ Para obter mais informações sobre como solucionar problemas de aplicativos ló
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/dynamicscrmonline/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

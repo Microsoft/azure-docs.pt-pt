@@ -1,17 +1,17 @@
 ---
-title: Gerenciar réplicas de leitura para o banco de dados do Azure para PostgreSQL-servidor único da portal do Azure
+title: Gerenciar réplicas de leitura-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como gerenciar réplicas de leitura banco de dados do Azure para PostgreSQL-servidor único do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995442"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770225"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
 
@@ -64,7 +64,7 @@ Para criar uma réplica de leitura, siga estas etapas:
 
 5. Selecione um local para a réplica. O local padrão é o mesmo que o do servidor mestre.
 
-    ![Selecione uma localização](./media/howto-read-replicas-portal/location-replica.png)
+    ![Selecionar um local](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
    > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
@@ -106,7 +106,7 @@ Para interromper a replicação entre um servidor mestre e uma réplica de leitu
    ![Confirmar para parar a replicação](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
 
-## <a name="delete-a-master-server"></a>Eliminar um servidor principal
+## <a name="delete-a-master-server"></a>Excluir um servidor mestre
 Para excluir um servidor mestre, use as mesmas etapas para excluir um servidor autônomo do banco de dados do Azure para PostgreSQL. 
 
 > [!IMPORTANT]
@@ -177,6 +177,6 @@ A métrica de **atraso de réplica** mostra o tempo desde a última transação 
  
 3. Para sua **agregação**, selecione **máximo**. 
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [réplicas de leitura no banco de dados do Azure para PostgreSQL](concepts-read-replicas.md).
 * Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure e na API REST](howto-read-replicas-cli.md).

@@ -1,36 +1,36 @@
 ---
-title: Conceitos de elevada disponibilidade no banco de dados do Azure para MySQL
-description: Este tópico fornece informações de elevada disponibilidade, ao utilizar a base de dados do Azure para MySQL
+title: Alta disponibilidade-banco de dados do Azure para MySQL
+description: Este tópico fornece informações de alta disponibilidade ao usar o banco de dados do Azure para MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 055727695bfa1ce8a6bb160a7e071c2a161afb3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 532cb62c371718a59adf2877517fcdb8f7047bcf
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837838"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770973"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de elevada disponibilidade no banco de dados do Azure para MySQL
-A base de dados do Azure para o serviço MySQL fornece um nível elevado de disponibilidade garantido. O contrato de nível de serviço com suporte financeiro (SLA) é 99,99% após disponibilidade geral. Praticamente nenhuma aplicação período de indisponibilidade quando utilizar este serviço.
+# <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de alta disponibilidade no banco de dados do Azure para MySQL
+O serviço banco de dados do Azure para MySQL fornece um alto nível de disponibilidade garantido. O SLA (contrato de nível de serviço) com suporte financeiro é de 99,99% na disponibilidade geral. Praticamente não há nenhum tempo de inatividade de aplicativo ao usar esse serviço.
 
 ## <a name="high-availability"></a>Elevada disponibilidade
-O modelo de elevada disponibilidade (HA) baseia-se a mecanismos internos de ativação pós-falha quando ocorre uma interrupção de nível de nó. Uma interrupção de nível de nó pode ocorrer devido a uma falha de hardware ou em resposta a uma implementação de serviço.
+O modelo de alta disponibilidade (HA) é baseado em mecanismos de failover internos quando ocorre uma interrupção no nível do nó. Uma interrupção no nível de nó pode ocorrer devido a uma falha de hardware ou em resposta a uma implantação de serviço.
 
-Durante todo o tempo, as alterações efetuadas numa base de dados do Azure para o servidor de base de dados MySQL ocorrerem no contexto de uma transação. As alterações são registradas de forma síncrona no armazenamento do Azure quando a transação será confirmada. Se ocorrer uma interrupção de nível de nó, o servidor de base de dados é automaticamente cria um novo nó e anexa o armazenamento de dados para o novo nó. Todas as ligações ativas são ignoradas e todas as transações em utilização não são confirmadas.
+Em todos os momentos, as alterações feitas em um servidor de banco de dados do Azure para MySQL ocorrem no contexto de uma transação. As alterações são gravadas de forma síncrona no armazenamento do Azure quando a transação é confirmada. Se ocorrer uma interrupção no nível do nó, o servidor de banco de dados criará automaticamente um novo nó e anexará o armazenamento de dados ao novo nó. Todas as conexões ativas são descartadas e todas as transações de em andamento não são confirmadas.
 
 ## <a name="application-retry-logic-is-essential"></a>A lógica de repetição do aplicativo é essencial
-É importante que MySQL as aplicações de base de dados são criadas para detetar e tente novamente remover ligações e falha transações. Quando o aplicativo repete, ligação da aplicação é redirecionada de forma transparente para a instância recém-criado, que assume para a instância com falha.
+É importante que os aplicativos de banco de dados MySQL sejam criados para detectar e tentar descartar conexões e transações com falha. Quando o aplicativo tenta novamente, a conexão do aplicativo é redirecionada de forma transparente para a instância recém-criada, que assume o controle da instância com falha.
 
-Internamente no Azure, um gateway é utilizado para redirecionar as ligações para a nova instância. Após uma interrupção, normalmente, todo o processo de ativação pós-falha se dezenas de segundos. Uma vez que o redirecionamento é tratado internamente pelo gateway, a cadeia de ligação externa permanece o mesmo para as aplicações cliente.
+Internamente no Azure, um gateway é usado para redirecionar as conexões para a nova instância. Após uma interrupção, todo o processo de failover normalmente leva dezenas de segundos. Como o redirecionamento é manipulado internamente pelo gateway, a cadeia de conexão externa permanece a mesma para os aplicativos cliente.
 
-## <a name="scaling-up-or-down"></a>Aumentar ou reduzir verticalmente
-Semelhante ao modelo de HA, quando uma base de dados do Azure para MySQL é aumentado vertical ou horizontalmente, é criada uma nova instância de servidor com o tamanho especificado. O armazenamento de dados existente é desligado da instância original e anexado à instância de novo.
+## <a name="scaling-up-or-down"></a>Aumentando ou reduzindo
+Semelhante ao modelo de alta disponibilidade, quando um banco de dados do Azure para MySQL é expandido ou reduzido, uma nova instância de servidor com o tamanho especificado é criada. O armazenamento de dados existente é desanexado da instância original e anexado à nova instância.
 
-Durante a operação de dimensionamento, ocorre uma interrupção para as ligações de base de dados. As aplicações de cliente estão ligado à Internet e abrir as transações não consolidadas serão canceladas. Assim que a aplicação de cliente a ligação, ou faz com que uma nova ligação, o gateway direciona a ligação à instância do tamanho recentemente. 
+Durante a operação de dimensionamento, ocorre uma interrupção nas conexões de banco de dados. Os aplicativos cliente são desconectados e as transações não confirmadas abertas são canceladas. Depois que o aplicativo cliente tentar novamente a conexão ou fizer uma nova conexão, o gateway direcionará a conexão para a instância de tamanho mais recente. 
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [tratamento de erros de conectividade transitório](concepts-connectivity.md)
-- Saiba como [replicar os seus dados com réplicas de leitura](howto-read-replicas-portal.md)
+## <a name="next-steps"></a>Passos seguintes
+- Saiba mais sobre como [lidar com erros de conectividade transitórios](concepts-connectivity.md)
+- Saiba como [replicar seus dados com réplicas de leitura](howto-read-replicas-portal.md)

@@ -1,18 +1,18 @@
 ---
-title: Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
+title: Backup e restauração-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como definir configurações de backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: c1706f72f894baa7d07c49880a82dc96ef03d7cf
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965808"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775709"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 

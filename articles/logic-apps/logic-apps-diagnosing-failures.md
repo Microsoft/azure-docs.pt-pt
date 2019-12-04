@@ -1,116 +1,112 @@
 ---
-title: Solucionar problemas e diagnosticar falhas - Azure Logic Apps | Documentos da Microsoft
-description: Saiba como resolver problemas e diagnosticar falhas de fluxo de trabalho no Azure Logic Apps
+title: Solucionar problemas e diagnosticar falhas
+description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999809"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790775"
 ---
-# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Resolução de problemas e diagnosticar falhas de fluxo de trabalho no Azure Logic Apps
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho no aplicativo lógico do Azure
 
-A aplicação lógica gera as informações que podem ajudá-lo a diagnosticar e depurar problemas na sua aplicação. Pode diagnosticar uma aplicação lógica ao rever cada passo no fluxo de trabalho através do portal do Azure. Ou pode adicionar alguns passos para um fluxo de trabalho para a depuração de tempo de execução.
+Seu aplicativo lógico gera informações que podem ajudá-lo a diagnosticar e depurar problemas em seu aplicativo. Você pode diagnosticar um aplicativo lógico examinando cada etapa no fluxo de trabalho por meio do portal do Azure. Ou você pode adicionar algumas etapas a um fluxo de trabalho para depuração em tempo de execução.
 
-## <a name="review-trigger-history"></a>Histórico de acionadores de revisão
+## <a name="review-trigger-history"></a>Examinar o histórico de gatilho
 
-Cada aplicação lógica começa com acionador. Se o acionador não dispara, verifique primeiro o histórico do acionador. Esse histórico apresenta uma lista de todas as tentativas de Acionador que fez a sua aplicação lógica e os detalhes sobre as entradas e saídas de cada tentativa de Acionador.
+Cada aplicativo lógico começa com o gatilho. Se o gatilho não for acionado, primeiro verifique o histórico do gatilho. Esse histórico lista todas as tentativas de gatilho que seu aplicativo lógico fez e detalhes sobre entradas e saídas para cada tentativa de gatilho.
 
-1. Para verificar se o acionador ativado, no menu da aplicação lógica, escolha **descrição geral**. Sob **histórico de Acionadores**, rever o estado do acionador.
+1. Para verificar se o gatilho foi acionado, no menu do aplicativo lógico, escolha **visão geral**. Em **histórico de gatilho**, examine o status do gatilho.
 
    > [!TIP]
    > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra-a.
 
-   ![Histórico de acionadores de revisão](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
+   ![Examinar o histórico de gatilho](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
    > [!TIP]
-   > * Se não encontrar os dados que esperava, experimente selecionar **atualizar** na barra de ferramentas.
-   > * Se a lista mostra disparar muitas tentativas e não é possível localizar a entrada do que mesmo, tente a filtrar a lista.
+   > * Se você não encontrar os dados esperados, tente selecionar **Atualizar** na barra de ferramentas.
+   > * Se a lista mostrar muitas tentativas de gatilho e você não conseguir encontrar a entrada desejada, tente filtrar a lista.
 
-   Aqui estão os Estados possíveis para uma tentativa de Acionador:
+   Estes são os status possíveis para uma tentativa de gatilho:
 
    | Estado | Descrição | 
    | ------ | ----------- | 
-   | **Foi efetuada com êxito** | O acionador selecionado o ponto final e encontrar dados disponíveis. Normalmente, um Estado de "Fired" também é apresentada juntamente com este estado. Se não, a definição de Acionador pode ter uma condição ou `SplitOn` comando que não foi cumprido. <p>Este estado pode aplicar a um acionador manual, o acionador de periodicidade ou o acionador de consulta. Um acionador pode ser executado com êxito, mas a execução propriamente dito ainda poderá falhar quando as ações geram erros de não processados. | 
-   | **Ignorado** | O acionador verificado o ponto final, mas foi encontrado nenhum dado. | 
-   | **Falhou** | Ocorreu um erro. Para rever as mensagens de erro gerado para um acionador com falha, selecione essa tentativa de Acionador e escolha **saídas**. Por exemplo, poderá encontrar entradas que não são válidas. | 
+   | **Foi** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status "disparado" também aparece junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou `SplitOn` comando que não foi atendido. <p>Esse status pode ser aplicado a um gatilho manual, gatilho de recorrência ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações geram erros sem tratamento. | 
+   | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados. | 
+   | **Falha ao** | Ocorreu um erro. Para examinar todas as mensagens de erro geradas para um gatilho com falha, selecione essa tentativa de disparo e escolha **saídas**. Por exemplo, você pode encontrar entradas que não são válidas. | 
    ||| 
 
-   Pode ter várias entradas de Acionador com o mesmo data e hora, o que acontece quando a aplicação lógica encontrar vários itens. 
-   Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica para executar o fluxo de trabalho. Por predefinição, cada instância é executado em paralelo de modo a que nenhum fluxo de trabalho tem de aguardar antes de iniciar uma execução.
+   Você pode ter várias entradas de gatilho com a mesma data e hora, o que acontece quando seu aplicativo lógico localiza vários itens. 
+   Cada vez que o gatilho é acionado, o mecanismo de aplicativos lógicos cria uma instância de aplicativo lógico para executar o fluxo de trabalho. Por padrão, cada instância é executada em paralelo para que nenhum fluxo de trabalho precise aguardar antes de iniciar uma execução.
 
    > [!TIP]
-   > Pode verificar novamente o acionador sem aguardar a próxima periodicidade. Na barra de ferramentas de descrição geral, escolha **executar o acionador**e selecione o acionador, que força uma verificação. Em alternativa, selecione **executar** na barra de ferramentas do estruturador de aplicações lógicas.
+   > Você pode verificar novamente o gatilho sem aguardar a próxima recorrência. Na barra de ferramentas visão geral, escolha **executar gatilho**e selecione o gatilho, que força uma verificação. Ou então, selecione **executar** na barra de ferramentas do designer de aplicativos lógicos.
 
-3. Para examinar os detalhes de uma tentativa de Acionador, em **histórico de Acionadores**, selecione essa tentativa de Acionador. 
+3. Para examinar os detalhes de uma tentativa de gatilho, em **histórico de gatilho**, selecione essa tentativa de disparo. 
 
-   ![Selecione uma tentativa de Acionador](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+   ![Selecione uma tentativa de gatilho](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-4. Reveja as entradas e saídas que gerou o acionador. Saídas de Acionador mostram os dados que vieram com o acionador. Essas saídas podem ajudar a determinar se todas as propriedades devolvido conforme esperado.
+4. Examine as entradas e as saídas geradas pelo gatilho. As saídas do gatilho mostram os dados provenientes do gatilho. Essas saídas podem ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
 
    > [!NOTE]
-   > Se encontrar qualquer conteúdo que não entenda, saiba como o Azure Logic Apps [lida com diferentes tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+   > Se você encontrar algum conteúdo que não entende, saiba como os aplicativos lógicos do Azure [lidam com diferentes tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 
-   ![Saídas de Acionador](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
+   ![Saídas de gatilho](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
 
 ## <a name="review-run-history"></a>Rever o histórico de execuções
 
-Cada acionador desencadeado inicia um fluxo de trabalho a executar. Pode rever o que aconteceu durante que executar, incluindo o estado de cada passo no fluxo de trabalho, bem como as entradas e saídas de cada passo.
+Cada gatilho acionado inicia uma execução de fluxo de trabalho. Você pode examinar o que aconteceu durante essa execução, incluindo o status de cada etapa no fluxo de trabalho, além das entradas e saídas de cada etapa.
 
-1. No menu da aplicação lógica, escolha **Descrição geral**. Sob **histórico de execuções**, reveja a execução do acionador desencadeado.
+1. No menu da aplicação lógica, escolha **Descrição geral**. Em **histórico de execuções**, examine a execução do gatilho acionado.
 
    > [!TIP]
    > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra-a.
 
-   ![Histórico de execuções de revisão](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
+   ![Revisar histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
    > [!TIP]
-   > * Se não encontrar os dados que esperava, experimente selecionar **atualizar** na barra de ferramentas.
-   > * Se a lista mostra várias execuções, e não é possível localizar a entrada que desejar, tente filtrar a lista.
+   > * Se você não encontrar os dados esperados, tente selecionar **Atualizar** na barra de ferramentas.
+   > * Se a lista mostrar muitas execuções e você não conseguir encontrar a entrada desejada, tente filtrar a lista.
 
-   Aqui estão os Estados possíveis para uma execução:
+   Estes são os status possíveis para uma execução:
 
    | Estado | Descrição | 
    | ------ | ----------- | 
-   | **Foi efetuada com êxito** | Todas as ações com êxito. <p>Se a quaisquer falhas ocorreram numa ação específica, uma ação seguinte no fluxo de trabalho processadas essa falha. | 
-   | **Falhou** | Pelo menos uma ação falhou e não existem ações posteriores no fluxo de trabalho foram configuradas para processar a falha. | 
-   | **Cancelada** | O fluxo de trabalho estava em execução, mas foi recebido um pedido de cancelamento. | 
-   | **Em execução** | O fluxo de trabalho está atualmente em execução. <p>Este estado pode acontecer para fluxos de trabalho otimizados, ou devido ao plano de preços atual. Para obter mais informações, consulte a [limites de ação na página de preços](https://azure.microsoft.com/pricing/details/logic-apps/). Se configurou [registo de diagnósticos](../logic-apps/logic-apps-monitor-your-logic-apps.md), também pode obter informações sobre quaisquer eventos de limitação que aconteça. | 
+   | **Foi** | Todas as ações foram bem-sucedidas. <p>Se ocorrerem falhas em uma ação específica, uma ação a seguir no fluxo de trabalho tratou dessa falha. | 
+   | **Falha ao** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho foi configurada para lidar com a falha. | 
+   | **Cancelar** | O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento. | 
+   | **Executado** | O fluxo de trabalho está em execução no momento. <p>Esse status pode ocorrer para fluxos de trabalho limitados ou devido ao plano de preços atual. Para obter mais informações, consulte os [limites de ação na página de preços](https://azure.microsoft.com/pricing/details/logic-apps/). Se você configurar o [log de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md), também poderá obter informações sobre os eventos de restrição que acontecerem. | 
    ||| 
 
-2. Reveja os detalhes para cada passo numa execução específica. Sob **histórico de execuções**, selecione a execução que pretende examinar.
+2. Examine os detalhes de cada etapa em uma execução específica. Em **histórico de execuções**, selecione a execução que você deseja examinar.
 
-   ![Histórico de execuções de revisão](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
+   ![Revisar histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
 
-   Se a execução propriamente dito foi concluída com êxito ou falha, a vista de detalhes da execução mostra cada passo e com êxito ou falhadas.
+   Se a execução foi bem-sucedida ou falhou, a exibição detalhes da execução mostra cada etapa e se ela teve êxito ou falhou.
 
    ![Ver detalhes da execução de uma aplicação lógica](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Para examinar as entradas, saídas e quaisquer mensagens de erro para um passo específico, escolha esse passo para que se expande de forma e mostra os detalhes. Por exemplo:
+3. Para examinar as entradas, as saídas e as mensagens de erro de uma etapa específica, escolha essa etapa para que a forma se expanda e mostre os detalhes. Por exemplo:
 
    ![Ver detalhes do passo](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
-## <a name="perform-runtime-debugging"></a>Efetuar a depuração de tempo de execução
+## <a name="perform-runtime-debugging"></a>Executar depuração de tempo de execução
 
-Para ajudar a depurar, pode adicionar os passos para um fluxo de trabalho, juntamente com a rever o acionador e histórico de execuções do diagnóstico. Por exemplo, pode adicionar passos que utilizam o [Testador de Webhook](https://webhook.site/) para que possa inspecionar os pedidos HTTP e determinar seu tamanho exato, forma e formato de serviço.
+Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um fluxo de trabalho, juntamente com a revisão do gatilho e do histórico de execuções. Por exemplo, você pode adicionar etapas que usam o serviço [testador de webhook](https://webhook.site/) para que você possa inspecionar solicitações HTTP e determinar o tamanho, a forma e o formato exatos.
 
-1. Visite [Testador de Webhook](https://webhook.site/) e copie o URL exclusivo criado
+1. Visite o [testador de webhook](https://webhook.site/) e copie a URL exclusiva criada
 
-2. Na sua aplicação lógica, adicione uma ação de HTTP POST com o conteúdo do corpo que pretende testar, por exemplo, uma expressão ou outro resultado de passo.
+2. Em seu aplicativo lógico, adicione uma ação HTTP POST com o conteúdo do corpo que você deseja testar, por exemplo, uma expressão ou outra saída de etapa.
 
-3. Cole o URL para o Testador de Webhook para a ação de HTTP POST.
+3. Cole a URL para o testador do webhook na ação HTTP POST.
 
-4. Para rever como um pedido é formado quando gerados a partir do motor do Logic Apps, executar a aplicação lógica e ver o Testador de Webhook para obter detalhes.
+4. Para examinar como uma solicitação é formada quando gerada a partir do mecanismo de aplicativos lógicos, execute o aplicativo lógico e veja o testador de webhook para obter detalhes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Monitorizar a sua aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+[Monitorar seu aplicativo lógico](../logic-apps/logic-apps-monitor-your-logic-apps.md)

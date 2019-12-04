@@ -1,17 +1,17 @@
 ---
-title: Monitoramento no banco de dados do Azure para MySQL
+title: Monitoramento-banco de dados do Azure para MySQL
 description: Este artigo descreve as métricas para monitoramento e alertas para o banco de dados do Azure para MySQL, incluindo CPU, armazenamento e estatísticas de conexão.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: df03f8ba0e522aacd305b6337e506f53e309660a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/02/2019
+ms.openlocfilehash: ec99db9406c5c83cdcbf322c45cea40c6643ee8f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384048"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770888"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no banco de dados do Azure para MySQL
 O monitoramento de dados sobre seus servidores ajuda você a solucionar problemas e otimizar sua carga de trabalho. O banco de dados do Azure para MySQL fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
@@ -22,7 +22,7 @@ Todas as métricas do Azure têm uma frequência de um minuto e cada métrica fo
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o banco de dados do Azure para MySQL:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Percentual de CPU|Percentagem|A porcentagem de CPU em uso.|
 |memory_percent|Porcentagem de memória|Percentagem|A porcentagem de memória em uso.|
@@ -46,13 +46,13 @@ Você pode habilitar a consulta lenta e o log de auditoria em seu servidor. Esse
 ## <a name="query-store"></a>Arquivo de Consultas
 [Repositório de consultas](concepts-query-store.md) é um recurso que controla o desempenho da consulta ao longo do tempo, incluindo estatísticas de tempo de execução de consulta e eventos de espera. O recurso persiste as informações de desempenho de tempo de execução de consulta no esquema **MySQL** . Você pode controlar a coleta e o armazenamento de dados por meio de vários botões de configuração.
 
-## <a name="query-performance-insight"></a>Query Performance Insight
+## <a name="query-performance-insight"></a>Estatísticas de Desempenho de Consultas
 [Análise de desempenho de consultas](concepts-query-performance-insight.md) trabalha em conjunto com repositório de consultas para fornecer visualizações acessíveis do portal do Azure. Esses gráficos permitem que você identifique as principais consultas que afetam o desempenho. Análise de Desempenho de Consultas é acessível na seção de **desempenho inteligente** da página do portal do banco de dados do Azure para o servidor MySQL.
 
 ## <a name="performance-recommendations"></a>Recomendações de Desempenho
 O recurso de [recomendações de desempenho](concepts-performance-recommendations.md) identifica oportunidades para melhorar o desempenho da carga de trabalho. As recomendações de desempenho fornecem recomendações para a criação de novos índices que têm o potencial de melhorar o desempenho de suas cargas de trabalho. Para produzir recomendações de índice, o recurso leva em consideração várias características de banco de dados, incluindo seu esquema e a carga de trabalho conforme relatado pelo Repositório de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
 
-## <a name="service-health"></a>Estado de funcionamento dos serviços
+## <a name="service-health"></a>Estado de funcionamento do serviço
 A [integridade do serviço do Azure](../service-health/overview.md) fornece uma exibição de todas as notificações de integridade do serviço em sua assinatura. Você pode configurar alertas de integridade do serviço para notificá-lo por meio de seus canais de comunicação preferenciais quando houver problemas ou alterações que possam afetar os serviços e as regiões do Azure que você usa.
 
 Você pode exibir eventos de manutenção agendados para o banco de dados do Azure para MySQL usando o tipo de evento de **manutenção planejada** . Para saber como criar **alertas de integridade do serviço**, visite o artigo [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md) .

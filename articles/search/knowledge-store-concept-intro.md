@@ -1,19 +1,19 @@
 ---
 title: Introdução à loja de conhecimento (visualização)
 titleSuffix: Azure Cognitive Search
-description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Pesquisa Cognitiva e em outros aplicativos. Esta funcionalidade está em pré-visualização pública.
+description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Pesquisa Cognitiva e em outros aplicativos. Este recurso está em visualização pública.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720091"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790021"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução às lojas de conhecimento no Azure Pesquisa Cognitiva
 
@@ -32,7 +32,7 @@ Para usar o repositório de conhecimento, adicione um elemento de `knowledgeStor
 
 ## <a name="benefits-of-knowledge-store"></a>Benefícios da loja de conhecimento
 
-Uma loja de conhecimento fornece estrutura, contexto e conteúdo real, obtidas de arquivos de dados não estruturados e semiestruturados, como BLOBs, arquivos de imagem que têm análise passou ou até mesmo dados estruturados que são remodelados em novos formulários. Em um [passo a](knowledge-store-howto.md)passo, você pode ver a primeira mão de como um documento JSON denso é particionado em subestruturações, reconstituído em novas estruturas e disponibilizado para processos downstream como aprendizado de máquina e ciência de dados cargas.
+Uma loja de conhecimento fornece estrutura, contexto e conteúdo real, obtidas de arquivos de dados não estruturados e semiestruturados, como BLOBs, arquivos de imagem que têm análise passou ou até mesmo dados estruturados que são remodelados em novos formulários. Em um [passo a](knowledge-store-howto.md)passo, você pode ver em primeira mão como um documento de JSON denso é particionado em subestruturações, reconstituído em novas estruturas e disponibilizado para processos downstream, como o aprendizado de máquina e cargas de trabalho de ciência de dados.
 
 Embora seja útil ver o que um pipeline de enriquecimento de ia pode produzir, o poder real da loja de conhecimento é a capacidade de remodelar os dados. Você pode começar com um habilidades básicas e iterar sobre ele para adicionar níveis cada vez maiores de estrutura, que você pode combinar em novas estruturas, consumíveis em outros aplicativos além do Azure Pesquisa Cognitiva.
 
@@ -61,7 +61,9 @@ Uma `knowledgeStore` consiste em uma conexão e projeções.
 
 + A conexão é para uma conta de armazenamento na mesma região que o Pesquisa Cognitiva do Azure. 
 
-+ As projeções são pares de tabelas-objetos. `Tables` definir a expressão física de documentos aprimorados no armazenamento de tabelas do Azure. `Objects` definir os objetos físicos no armazenamento de BLOBs do Azure.
++ As projeções podem ser de tabela, objetos JSON ou arquivos. `Tables` definir a expressão física de documentos aprimorados no armazenamento de tabelas do Azure. `Objects` definir os objetos JSON físicos no armazenamento de BLOBs do Azure. `Files` são binários como imagens que foram extraídas do documento que serão persistidas.
+
++ Projeções é uma coleção de objetos de projeção, cada objeto de projeção pode conter `tables`, `objects` e `files`. Os aprimoramentos projetados em uma única projeção são relacionados mesmo quando projetados entre tipos (tabelas, objetos ou arquivos). Projeções entre objetos de projeção não são relacionadas e são independentes. A mesma forma pode ser projetada aross vários objetos de projeção.
 
 ```json
 {
@@ -109,7 +111,10 @@ Uma `knowledgeStore` consiste em uma conexão e projeções.
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,18 +126,22 @@ Uma `knowledgeStore` consiste em uma conexão e projeções.
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+Este exemplo não contém nenhuma imagem, para um exemplo de como usar projeções de arquivo, consulte [trabalhando com projeções](knowledge-store-projection-overview.md).
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Fontes de dados para uma loja de conhecimento
 
 Se uma loja de conhecimento for uma saída de um pipeline de enriquecimento de ia, quais são as entradas? Os dados originais que você deseja extrair, enriquecer e eventualmente salvar em uma loja de conhecimento podem se originar de qualquer fonte de dados do Azure com suporte dos indexadores de pesquisa: 
 
-* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 
@@ -146,7 +155,7 @@ Os indexadores e habilidades você cria extrair e enriquecer ou transformar esse
 
 Somente duas APIs têm as extensões necessárias para criar um repositório de conhecimento (criar o conconhecedor e criar indexador). Outras APIs são usadas no estado em que se encontram.
 
-| Objeto | API REST | Descrição |
+| Object | API REST | Descrição |
 |--------|----------|-------------|
 | Fonte de dados | [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa do Azure que fornece dados de origem usados para criar documentos aprimorados.  |
 | qualificações | [Criar Qualificable (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) usadas em um pipeline de enriquecimento durante a indexação. Um qualificable tem uma definição de `knowledgeStore` como um elemento filho. |

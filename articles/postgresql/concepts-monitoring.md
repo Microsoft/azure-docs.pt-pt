@@ -1,17 +1,17 @@
 ---
-title: Monitorar e ajustar no banco de dados do Azure para PostgreSQL-servidor único
+title: Monitorar e ajustar-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve os recursos de monitoramento e ajuste no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 799b2b6ee6074472a951e69dec7e9a87056373b4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 283ffdd32dbb5b2c80106da98b846ab81aca9608
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384029"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768559"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o banco de dados do Azure para PostgreSQL-servidor único
 O monitoramento de dados sobre seus servidores ajuda você a solucionar problemas e otimizar sua carga de trabalho. O banco de dados do Azure para PostgreSQL fornece várias opções de monitoramento para fornecer informações sobre o comportamento do seu servidor.
@@ -22,7 +22,7 @@ O banco de dados do Azure para PostgreSQL fornece várias métricas que fornecem
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o banco de dados do Azure para PostgreSQL:
 
-|Métrica|Nome a apresentar de métrica|Unidade|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|Percentual de CPU|Percentagem|A porcentagem de CPU em uso.|
 |memory_percent|Porcentagem de memória|Percentagem|A porcentagem de memória em uso.|
@@ -47,13 +47,13 @@ Você pode habilitar o registro em log em seu servidor. Esses logs também estã
 ## <a name="query-store"></a>Arquivo de Consultas
 [Repositório de consultas](concepts-query-store.md) controla o desempenho da consulta ao longo do tempo, incluindo estatísticas de tempo de execução de consulta e eventos de espera. O recurso persiste as informações de desempenho de tempo de execução de consulta em um banco de dados do sistema chamado **azure_sys** no esquema de query_store. Você pode controlar a coleta e o armazenamento de dados por meio de vários botões de configuração.
 
-## <a name="query-performance-insight"></a>Query Performance Insight
+## <a name="query-performance-insight"></a>Estatísticas de Desempenho de Consultas
 [Análise de desempenho de consultas](concepts-query-performance-insight.md) trabalha em conjunto com repositório de consultas para fornecer visualizações acessíveis do portal do Azure. Esses gráficos permitem que você identifique as principais consultas que afetam o desempenho. Insight de desempenho de consulta acessível na seção **suporte + solução de problemas** da página do portal do banco de dados do Azure para o servidor PostgreSQL.
 
 ## <a name="performance-recommendations"></a>Recomendações de Desempenho
 O recurso de [recomendações de desempenho](concepts-performance-recommendations.md) identifica oportunidades para melhorar o desempenho da carga de trabalho. As recomendações de desempenho fornecem recomendações para a criação de novos índices que têm o potencial de melhorar o desempenho de suas cargas de trabalho. Para produzir recomendações de índice, o recurso leva em consideração várias características de banco de dados, incluindo seu esquema e a carga de trabalho conforme relatado pelo Repositório de Consultas. Depois de implementar qualquer recomendação de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações. 
 
-## <a name="service-health"></a>Estado de funcionamento dos serviços
+## <a name="service-health"></a>Estado de funcionamento do serviço
 A [integridade do serviço do Azure](../service-health/overview.md) fornece uma exibição de todas as notificações de integridade do serviço em sua assinatura. Você pode configurar alertas de integridade do serviço para notificá-lo por meio de seus canais de comunicação preferenciais quando houver problemas ou alterações que possam afetar os serviços e as regiões do Azure que você usa.
 
 Você pode exibir eventos de manutenção agendados para o banco de dados do Azure para PostgreSQL-servidor único usando o tipo de evento de **manutenção planejada** . Para saber como criar **alertas de integridade do serviço**, visite o artigo [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md) .

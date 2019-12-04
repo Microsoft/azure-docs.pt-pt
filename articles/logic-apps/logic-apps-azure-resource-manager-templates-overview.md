@@ -2,19 +2,16 @@
 title: Visão geral-automatizar a implantação para aplicativos lógicos do Azure
 description: Saiba mais sobre modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: bc61e39a02d16827521758ca8248488e46c109b5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838087"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792562"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
 
@@ -322,7 +319,7 @@ A definição de recurso do aplicativo lógico começa com o objeto `properties`
 
 Aqui estão os atributos que são específicos para sua definição de recurso de aplicativo lógico:
 
-| Atributo | Necessário | Tipo | Descrição |
+| Atributo | Obrigatório | Tipo | Descrição |
 |-----------|----------|------|-------------|
 | `state` | Sim | String | O estado do aplicativo lógico na implantação em que `Enabled` significa que seu aplicativo lógico está ativo e `Disabled` significa que seu aplicativo lógico está inativo. Por exemplo, se você não estiver pronto para o aplicativo lógico ficar ativo, mas desejar implantar uma versão de rascunho, poderá usar a opção `Disabled`. |
 | `integrationAccount` | Não | Object | Se seu aplicativo lógico usar uma conta de integração, que armazena artefatos para cenários B2B (entre empresas), esse objeto incluirá o atributo `id`, que especifica a ID da conta de integração. |

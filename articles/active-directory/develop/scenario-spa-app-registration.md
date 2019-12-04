@@ -1,6 +1,6 @@
 ---
-title: Aplicação de página única (registo da aplicação) - plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação de página única (registo da aplicação)
+title: Aplicativo de página única (registro de aplicativo)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo de página única (registro de aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,38 +15,38 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1faf4669dca2aaaf3f873e66f859473ccd99f10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ef23b08beeee4cd7e82a5fc33a01b4988ddffb6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074834"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764700"
 ---
-# <a name="single-page-application---app-registration"></a>Aplicação de página única - registo de aplicações
+# <a name="single-page-application-app-registration"></a>Aplicativo de página única: registro de aplicativo
 
-Esta página explica as especificações de registo de aplicação para uma aplicação de página única (SPA).
+Esta página explica as especificações de registro do aplicativo para um aplicativo de página única (SPA).
 
-Siga os passos para [registar uma nova aplicação com a plataforma de identidade do Microsoft](quickstart-register-app.md)e selecione as contas de suporte para a sua aplicação. O cenário SPA pode suportar a autenticação com contas na sua organização ou de qualquer organização e de contas Microsoft pessoais.
+Siga as etapas para [registrar um novo aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md)e selecione as contas com suporte para seu aplicativo. O cenário SPA pode dar suporte à autenticação com contas em sua organização ou em qualquer organização e contas pessoais da Microsoft.
 
-Em seguida, saiba os aspectos específicos do registo de aplicação que se aplicam a aplicativos de única página.
+Em seguida, Aprenda os aspectos específicos do registro de aplicativo que se aplicam a aplicativos de página única.
 
-## <a name="register-a-redirect-uri"></a>Registe-se de um URI de redirecionamento
+## <a name="register-a-redirect-uri"></a>Registrar um URI de redirecionamento
 
-O fluxo implícito envia os tokens num redirecionamento para o aplicativo de página única em execução num navegador da web. Portanto, é um requisito importante para registar um URI onde a sua aplicação pode receber os tokens de redirecionamento. Certifique-se que o redirecionamento que URI corresponde exatamente com o URI para a sua aplicação.
+O fluxo implícito envia os tokens em um redirecionamento para o aplicativo de página única em execução em um navegador da Web. Portanto, é importante registrar um URI de redirecionamento no qual seu aplicativo pode receber os tokens. Verifique se o URI de redirecionamento corresponde exatamente ao URI do seu aplicativo.
 
-No [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2083908), navegue para a aplicação registada, no **autenticação** página da aplicação, selecione o **Web** plataforma e introduza o valor do URI de redirecionamento da sua aplicação na **URI de redirecionamento** campo.
+No [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2083908), vá para o aplicativo registrado. Na página **autenticação** do aplicativo, selecione a plataforma **da Web** . Insira o valor do URI de redirecionamento para seu aplicativo no campo **URI de redirecionamento** .
 
-## <a name="enable-the-implicit-flow"></a>Ativar o fluxo implícito
+## <a name="enable-the-implicit-flow"></a>Habilitar o fluxo implícito
 
-No mesmo **autenticação** página, em **definições avançadas**, também tem de ativar o **concessão implícita**. Se seu aplicativo só está a efetuar o início de sessão de utilizadores e obter os tokens de ID, é suficiente permitir **tokens de ID** caixa de verificação.
+Na mesma página de **autenticação** , em **Configurações avançadas**, você também deve habilitar a **concessão implícita**. Se seu aplicativo estiver apenas entrando em usuários e obtendo tokens de ID, será suficiente marcar a caixa de seleção **tokens de ID** .
 
-Se o aplicativo também precisa de obter os tokens de acesso para chamar as APIs, certifique-se ativar a **tokens de acesso** também a caixa de verificação. Para obter mais informações, consulte [tokens de ID](./id-tokens.md) e [tokens de acesso](./access-tokens.md).
+Se seu aplicativo também precisar obter tokens de acesso para chamar APIs, certifique-se de marcar a caixa de seleção **tokens de acesso** também. Para obter mais informações, consulte [tokens de ID](./id-tokens.md) e [tokens de acesso](./access-tokens.md).
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Aplicativos de única página podem chamar APIs em nome do utilizador com sessão iniciada. Eles precisam solicitar permissões delegadas. Para obter detalhes, consulte [adicionar permissões para aceder a web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+Aplicativos de página única podem chamar APIs em nome do usuário conectado. Eles precisam solicitar permissões delegadas. Para obter detalhes, consulte [adicionar permissões para acessar APIs da Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Configuração de código da aplicação](scenario-spa-app-configuration.md)
+> [Configuração de código do aplicativo](scenario-spa-app-configuration.md)

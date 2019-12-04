@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0ba69715998f110d88015bdba2fbf340a6b64089
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491651"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795667"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de VPN (gateway de rede virtual) do Azure e um gateway de VPN de WAN virtual do Azure?
 
@@ -36,8 +36,6 @@ Para obter os passos de automatização, veja [Automatização dos parceiros da 
 Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como é que os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
-
-As soluções de conectividade definida pelo software gerem, normalmente, os respetivos dispositivos de ramo com um controlador ou um centro de aprovisionamento de dispositivos. O controlador pode utilizar APIs do Azure para automatizar a conectividade à WAN Virtual do Azure. Para mais informações, veja Automatização de parceiro de WAN Virtual.
 
 As soluções de conectividade definida pelo software gerem, normalmente, os respetivos dispositivos de ramo com um controlador ou um centro de aprovisionamento de dispositivos. O controlador pode utilizar APIs do Azure para automatizar a conectividade à WAN Virtual do Azure. A automação inclui o carregamento de informações de ramificação, o download da configuração do Azure, a configuração de túneis IPSec em hubs virtuais do Azure e a configuração automática do formulário de conectividade do dispositivo de ramificação para a WAN virtual do Azure. Quando você tem centenas de ramificações, é fácil conectar-se usando parceiros CPE da WAN virtual, pois a experiência de integração elimina a necessidade de configurar, configurar e gerenciar a conectividade IPsec em larga escala. Para mais informações, veja [Automatização de parceiro de WAN Virtual](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 

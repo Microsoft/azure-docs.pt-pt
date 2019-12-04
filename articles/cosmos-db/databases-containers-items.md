@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176927"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786950"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
 
@@ -22,7 +22,7 @@ A imagem a seguir mostra a hierarquia de entidades diferentes em uma conta de Az
 
 ![Entidades de conta do Azure Cosmos](./media/databases-containers-items/cosmos-entities.png)
 
-## <a name="azure-cosmos-databases"></a>Bancos de dados Cosmos do Azure
+## <a name="azure-cosmos-databases"></a>Bases de dados do Azure Cosmos
 
 Você pode criar um ou vários bancos de dados do Azure Cosmos em sua conta. Um banco de dados é análogo a um namespace. Um banco de dados é a unidade de gerenciamento para um conjunto de contêineres de Cosmos do Azure. A tabela a seguir mostra como um banco de dados Cosmos do Azure é mapeado para várias entidades específicas de API:
 
@@ -45,7 +45,7 @@ Você pode interagir com um banco de dados Cosmos do Azure com as APIs Cosmos do
 |Atualizar banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | N/D | N/D |
 
 
-## <a name="azure-cosmos-containers"></a>Contêineres de Cosmos do Azure
+## <a name="azure-cosmos-containers"></a>Contentores do Azure Cosmos
 
 Um contêiner Cosmos do Azure é a unidade de escalabilidade para taxa de transferência e armazenamento provisionados. Um contêiner é particionado horizontalmente e, em seguida, replicado em várias regiões. Os itens que você adiciona ao contêiner e a taxa de transferência que você provisiona sobre ele são automaticamente distribuídos em um conjunto de partições lógicas com base na chave de partição. Para saber mais sobre particionamento e chaves de partição, consulte [Particionar dados](partition-data.md). 
 
@@ -56,7 +56,7 @@ Ao criar um contêiner Cosmos do Azure, você configura a taxa de transferência
 * **Modo de produtividade provisionada compartilhada**: esses contêineres compartilham a taxa de transferência provisionada com os outros contêineres no mesmo banco de dados (excluindo contêineres que foram configurados com taxa de transferência provisionada dedicada). Em outras palavras, a taxa de transferência provisionada no banco de dados é compartilhada entre todos os contêineres de "produtividade compartilhada". Para saber mais, confira [como provisionar a taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. Para alternar do modo de taxa de transferência dedicada para o modo de taxa de transferência compartilhada (e vice-versa) depois que o contêiner for criado, você precisará criar um novo contêiner e migrar os dados para o novo contêiner. Você pode migrar os dados usando o Azure Cosmos DB recurso de feed de alterações.
+> Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. Para mudar do modo de débito dedicado para o modo de débito partilhado (e vice-versa) após o contentor ser criado, precisará de criar um novo contentor e migrar os dados para esse contentor. Você pode migrar os dados usando o Azure Cosmos DB recurso de feed de alterações.
 
 Um contêiner Cosmos do Azure pode ser dimensionado de forma elástica, independentemente de você criar contêineres usando modos de taxa de transferência provisionada ou compartilhadas.
 
@@ -82,7 +82,7 @@ Um contêiner Cosmos do Azure tem um conjunto de propriedades definidas pelo sis
 
 | Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo usuário | Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|ID de \_ | Gerado pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não |
+|\_RID | Gerado pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não |
 |ETag de \_ | Gerado pelo sistema | Marca de entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não |
 |\_TS | Gerado pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não |
 |\_Self | Gerado pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não |
@@ -110,7 +110,7 @@ Dependendo de qual API você usa, um item Cosmos do Azure pode representar um do
 
 | Entidade Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Item Cosmos do Azure | Documento | fila | Documento | Nó ou borda | Item |
+|Item Cosmos do Azure | Documento | Fila | Documento | Nó ou borda | Item |
 
 ### <a name="properties-of-an-item"></a>Propriedades de um item
 

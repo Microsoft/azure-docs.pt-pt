@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Conceber uma base de dados do Azure para MariaDB com o portal do Azure'
+title: 'Tutorial: criar um banco de dados do Azure para MariaDB-portal do Azure'
 description: Este tutorial explica como criar e gerir um servidor e uma base de dados do Azure Database for MariaDB com o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515672"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776713"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MariaDB base de dados com o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure Database for MariaDB com o portal do Azure
 
 O Azure Database for MariaDB é um serviço gerido que pode utilizar para executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. Ao utilizar o portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
 
@@ -24,7 +24,7 @@ Neste tutorial, irá utilizar o Portal do Azure para aprender a:
 > * Criar um Azure Database for MariaDB
 > * Configurar a firewall do servidor
 > * Utilizar a ferramenta de linha de comandos mysql para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
@@ -41,7 +41,7 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-2. Selecione **bases de dados** > **base de dados do Azure para MariaDB**. Também pode escrever **MariaDB** na caixa de pesquisa para encontrar o serviço.
+2. Selecione **bancos** **de dados > banco de dados do Azure para MariaDB**. Você também pode digitar **MariaDB** na caixa de pesquisa para localizar o serviço.
    
    ![Aceder ao MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
@@ -56,16 +56,16 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
     Grupo de recursos | **myresourcegroup** | Introduza um novo nome do grupo de recursos ou selecione um grupo já existente.
     Selecionar origem | **Em branco** | Selecione **Em branco** para criar um novo servidor. (Se estiver a criar um servidor a partir de uma cópia de segurança de área geográfica de um servidor do Azure Database for MariaDB Server existente, selecione **Cópia de segurança**).
     Início de sessão de administrador do servidor | **myadmin** | Uma conta de início de sessão a utilizar quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0-9) e carateres não alfanuméricos (!, $, #, % e assim por diante).
+    Palavra-passe | *a sua escolha* | Introduza uma nova palavra-passe para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 - 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Confirmar palavra-passe | *a sua escolha*| Confirme a palavra-passe da conta de administrador.
-    Location | *a região mais próxima dos seus utilizadores*| Selecione a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
-    Version | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
+    Localização | *a região mais próxima dos seus utilizadores*| Selecione a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
+    Versão | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
     Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço** > **Fins Gerais**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Com o **aumento automático** ativado para o seu servidor aumenta o armazenamento, quando está prestes a atingir o limite alocado, sem afetar a carga de trabalho.
+   > Com o **aumento automático** habilitado, o servidor aumenta o armazenamento quando você está se aproximando do limite alocado, sem afetar sua carga de trabalho.
 
 4. Selecione **Criar**. Em menos de dois minutos, um novo Azure Database for MariaDB Server estará em execução na cloud. Para monitorizar o processo de implementação, selecione **Notificações** na barra de ferramentas.
 
@@ -75,7 +75,7 @@ O Azure Database for MariaDB está protegido por uma firewall. Por predefiniçã
 
 1. Selecione o servidor acabado de criar e, em seguida, selecione **Segurança da ligação**.
    
-   ![Segurança da Ligação](./media/tutorial-design-database-using-portal/1-Connection-security.png)
+   ![Segurança das ligações](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. Pode selecionar **Adicionar o Meu IP** ou configurar regras de firewall aqui. Não se esqueça de selecionar **Guardar** depois de criar as regras.
 
 Já pode ligar ao servidor através da ferramenta de linha de comandos mysql ou do MySQL Workbench.
@@ -93,7 +93,7 @@ Obtenha os valores de **Nome do servidor** (completamente qualificado) e **Nome 
 
    ![Propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-No nosso exemplo, é o nome do servidor **mydemoserver.mariadb.database.azure.com** e o nome de início de sessão de administrador do servidor é **myadmin\@mydemoserver**.
+Em nosso exemplo, o nome do servidor é **mydemoserver.MariaDB.Database.Azure.com** e o nome de logon do administrador do servidor é **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Ligar ao servidor com o mysql
 
@@ -174,21 +174,21 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
    
    ![Formulário de restauro](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauro**: Selecione um ponto no tempo que pretende restaurar para, no período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
-   - **Restaurar para novo servidor**: Introduza um novo nome de servidor para restaurar para.
-   - **Localização**: A região é igual ao servidor de origem e não pode ser alterada.
-   - **Escalão de preço**: O escalão de preço é o mesmo que o servidor de origem e não pode ser alterado.
+   - **Ponto de restauro**: selecione um ponto anterior no tempo para o qual quer restaurar, no período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
+   - **Restaurar para novo servidor**: introduza um novo nome de servidor para o qual quer restaurar.
+   - **Localização**: a região é a mesma do servidor de origem e não pode ser alterada.
+   - **Escalão de preço**: o escalão de preço é o mesmo do servidor de origem e não pode ser alterado.
    
 3. Selecione **OK** para [restaurar o servidor para um ponto anterior no tempo](./howto-restore-server-portal.md) antes da tabela ter sido eliminada. Restaurar um servidor cria uma nova cópia do servidor no ponto anterior no tempo que selecionou. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, utilizou o portal do Azure para aprender a:
 
 > [!div class="checklist"]
 > * Criar um Azure Database for MariaDB
 > * Configurar a firewall do servidor
 > * Utilize a ferramenta da linha de comandos mysql para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados

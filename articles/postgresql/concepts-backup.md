@@ -1,17 +1,17 @@
 ---
-title: Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
+title: Backup e restauração-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba mais sobre backups automáticos e como restaurar seu banco de dados do Azure para servidor PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cbd434f2f9e1217a3a481a28988f4e1d855ba08b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: be6b9c30fe462b0754ae5e5c1a7eeac242af00f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209645"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769868"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -23,14 +23,14 @@ O banco de dados do Azure para PostgreSQL faz backups dos arquivos de data e do 
 
 ### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
-Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia para servidores com um armazenamento máximo com suporte de 4 TB. As cópias de segurança de instantâneos ocorrem pelo menos uma vez por dia para os servidores que suportem até 16 TB de armazenamento. Em ambos os casos, as cópias de segurança de registo de transações ocorrem a cada cinco minutos. O primeiro instantâneo do backup completo é agendado imediatamente após a criação de um servidor. O backup completo inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais antigo no tempo no qual um novo servidor pode ser restaurado é a hora em que o backup completo inicial é concluído. Como os instantâneos são instantanious, os servidores com suporte para até 16 TB de armazenamento podem ser restaurados até o momento da criação.
+Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia para servidores com um armazenamento máximo com suporte de 4 TB. As cópias de segurança de instantâneos ocorrem pelo menos uma vez por dia para os servidores que suportem até 16 TB de armazenamento. Em ambos os casos, as cópias de segurança de registo de transações ocorrem a cada cinco minutos. O primeiro instantâneo do backup completo é agendado imediatamente após a criação de um servidor. O backup completo inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais antigo no tempo no qual um novo servidor pode ser restaurado é a hora em que o backup completo inicial é concluído. Como os instantâneos são instantâneos, os servidores com suporte para até 16 TB de armazenamento podem ser restaurados até o momento da criação.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
 O banco de dados do Azure para PostgreSQL fornece a flexibilidade para escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e com otimização de memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são armazenados apenas na região em que o servidor está hospedado, mas também são replicados em um [Data Center emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece melhor proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada básica oferece apenas armazenamento de backup com redundância local.
 
 > [!IMPORTANT]
-> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
+> Configurar o armazenamento com redundância local ou com redundância geográfica para backup só é permitido durante a criação do servidor. Depois que o servidor for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 

@@ -1,54 +1,54 @@
 ---
-title: Configure os parâmetros de serviço na base de dados do Azure para PostgreSQL - servidor único
-description: Este artigo descreve como configurar os parâmetros de serviço na base de dados do Azure para PostgreSQL - único servidor com a linha de comandos da CLI do Azure.
+title: Configurar parâmetros-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como configurar parâmetros postgres no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4e029428a3709bacdbcd50a6ac3714e730377242
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274773"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763628"
 ---
-# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalizar parâmetros de configuração do servidor da base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
-Pode listar, mostrar e atualizar os parâmetros de configuração para um servidor PostgreSQL do Azure utilizando a Interface de linha de comandos (CLI do Azure). Um subconjunto de configurações de mecanismos é exposto ao nível do servidor e pode ser modificado. 
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalizar parâmetros de configuração do servidor para o banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
+Você pode listar, mostrar e atualizar parâmetros de configuração para um servidor PostgreSQL do Azure usando a interface de linha de comando (CLI do Azure). Um subconjunto de configurações de mecanismo é exposto em nível de servidor e pode ser modificado. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para seguir este guia de procedimentos, terá de:
-- Criar uma base de dados do Azure para o servidor PostgreSQL e base de dados seguindo [criar uma base de dados do Azure para PostgreSQL](quickstart-create-server-database-azure-cli.md)
-- Instale [CLI do Azure](/cli/azure/install-azure-cli) interface de linha de comandos em sua máquina ou utilize o [Azure Cloud Shell](../cloud-shell/overview.md) no portal do Azure utilizando o seu browser.
+Para percorrer este guia de instruções, você precisa de:
+- Crie um banco de dados do Azure para servidor PostgreSQL e o banco de dados seguindo [criar um banco de dados do Azure para PostgreSQL](quickstart-create-server-database-azure-cli.md)
+- Instale [CLI do Azure](/cli/azure/install-azure-cli) interface de linha de comando em seu computador ou use o [Azure cloud Shell](../cloud-shell/overview.md) no portal do Azure usando o navegador.
 
-## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Lista de parâmetros de configuração do servidor da base de dados do Azure para o servidor PostgreSQL
-Para listar todos os parâmetros modificáveis num servidor e os respetivos valores, execute o [lista de configuração do az postgres server](/cli/azure/postgres/server/configuration) comando.
+## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Listar parâmetros de configuração de servidor para o banco de dados do Azure para servidor PostgreSQL
+Para listar todos os parâmetros modificáveis em um servidor e seus valores, execute o comando [AZ postgres Server Configuration List](/cli/azure/postgres/server/configuration) .
 
-Pode listar os parâmetros de configuração de servidor para o servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup**.
+Você pode listar os parâmetros de configuração do servidor **mydemoserver.Postgres.Database.Azure.com** em grupo de recursos **MyResource**Group.
 ```azurecli-interactive
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes de parâmetro de configuração do servidor
-Para mostrar os detalhes sobre um parâmetro de configuração específica para um servidor, execute o [show do az postgres server configuration](/cli/azure/postgres/server/configuration) comando.
+## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
+Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o comando [AZ postgres Server Configuration show](/cli/azure/postgres/server/configuration) .
 
-Este exemplo mostra detalhes sobre o **log\_min\_mensagens** parâmetro de configuração de servidor para servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup.**
+Este exemplo mostra detalhes do parâmetro de configuração de servidor **log\_min\_messages** para o servidor **mydemoserver.Postgres.Database.Azure.com** em grupo de recursos **MyResource Group.**
 ```azurecli-interactive
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="modify-server-configuration-parameter-value"></a>Modificar o valor de parâmetro de configuração do servidor
-Também pode modificar o valor de um determinado servidor parâmetro de configuração, que atualiza o valor de configuração subjacente para o mecanismo de servidor PostgreSQL. Para atualizar a configuração, utilize o [az postgres server configuration set](/cli/azure/postgres/server/configuration) comando. 
+## <a name="modify-server-configuration-parameter-value"></a>Modificar valor do parâmetro de configuração do servidor
+Você também pode modificar o valor de um determinado parâmetro de configuração de servidor, que atualiza o valor de configuração subjacente para o mecanismo do servidor PostgreSQL. Para atualizar a configuração, use o comando [AZ postgres Server Configuration Set](/cli/azure/postgres/server/configuration) . 
 
-Para atualizar o **log\_min\_mensagens** parâmetro de configuração do servidor do server **mydemoserver.postgres.database.azure.com** no grupo de recursos  **myresourcegroup.**
+Para atualizar o **log\_min\_mensagens** parâmetro de configuração de servidor do servidor **mydemoserver.Postgres.Database.Azure.com** em grupo de recursos **MyResource Group.**
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver --value INFO
 ```
-Se pretender repor o valor de um parâmetro de configuração, simplesmente optar por omitir o opcional `--value` parâmetro e o serviço aplica-se o valor predefinido. No acima de exemplo, teria o seguinte aspeto:
+Se você quiser redefinir o valor de um parâmetro de configuração, basta optar por deixar o parâmetro `--value` opcional e o serviço aplicará o valor padrão. No exemplo acima, ele teria a seguinte aparência:
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
-Este comando repõe a **log\_min\_mensagens** configuração para o valor predefinido **aviso**. Para obter mais informações sobre a configuração do servidor e os valores permitidos, consulte a documentação do PostgreSQL no [configuração do servidor](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
+Esse comando redefine o **log\_min\_** a configuração de mensagens para o valor padrão **Warning**. Para obter mais informações sobre a configuração do servidor e os valores permitidos, consulte a documentação do PostgreSQL na [configuração do servidor](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba como reiniciar um servidor](howto-restart-server-cli.md)
-- Para configurar e aceder aos registos de servidor, consulte [os registos do servidor na base de dados do Azure para PostgreSQL](concepts-server-logs.md)
+- Para configurar e acessar logs de servidor, consulte [logs de servidor no banco de dados do Azure para PostgreSQL](concepts-server-logs.md)

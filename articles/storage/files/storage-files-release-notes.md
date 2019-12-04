@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/8/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 8328170d73d75e8e2eb1a84881375ce21c72a61b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227840"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771041"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente de Sincronização de Arquivos do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,6 +25,7 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Principais | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
+| V9 versão – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Com suporte-comprovante |
 | V8 versão – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportadas |
@@ -42,6 +43,94 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-9000"></a>Versão do agente 9.0.0.0
+As notas de versão a seguir são para a versão 9.0.0.0 do agente de Sincronização de Arquivos do Azure (lançado em 2 de dezembro de 2019).
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas corrigidos
+
+- Suporte à restauração de autoatendimento
+    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para saber mais, consulte  
+[Restauração de autoatendimento por meio de versões anteriores e VSS (serviço de cópias de sombra de volume)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
+ 
+- Suporte para tamanhos maiores de compartilhamento de arquivos 
+    - Sincronização de Arquivos do Azure agora dá suporte a até 64TiB e 100 milhões arquivos em um único namespace de sincronização.  
+ 
+- Suporte à eliminação de duplicação de dados no servidor 2019 
+    - A eliminação de duplicação de dados agora tem suporte com a camada de nuvem habilitada no Windows Server 2019. Para dar suporte à eliminação de duplicação de dados em volumes com camadas de nuvem, o Windows Update [KB4520062](https://support.microsoft.com/help/4520062) deve estar instalado. 
+ 
+- Tamanho de arquivo mínimo melhorado para um arquivo para a camada 
+    - O tamanho mínimo de arquivo para um arquivo para camada agora é baseado no tamanho do cluster do sistema de arquivos (duplo, o tamanho do cluster do sistema de arquivos). Por exemplo, por padrão, o tamanho do cluster do sistema de arquivos NTFS é 4 KB, o tamanho mínimo resultante de um arquivo para a camada é de 8 KB. 
+ 
+- Cmdlet de teste de conectividade de rede 
+    - Como parte da configuração de Sincronização de Arquivos do Azure, vários pontos de extremidade de serviço devem ser contatados. Cada um deles tem seu próprio nome DNS que precisa ser acessível ao servidor. Essas URLs também são específicas para a região em que um servidor está registrado. Depois que um servidor é registrado, o cmdlet de teste de conectividade (utilitário de registro do PowerShell e do servidor) pode ser usado para testar as comunicações com todas as URLs específicas desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com Sincronização de Arquivos do Azure e pode ser usado para ajustar as configurações de proxy e firewall.  
+ 
+        Para executar o teste de conectividade de rede, execute os seguintes comandos do PowerShell: 
+ 
+        Import – Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"  
+        Test-StorageSyncNetworkConnectivity
+ 
+- Remover aprimoramento do ponto de extremidade do servidor quando a disposição em camadas da nuvem estiver habilitada 
+    - Como antes, remover um ponto de extremidade do servidor não resulta na remoção de arquivos no compartilhamento de arquivos do Azure. No entanto, o comportamento de pontos de nova análise no servidor local foi alterado. Pontos de nova análise (ponteiros para arquivos que não são locais no servidor) agora são excluídos durante a remoção de um ponto de extremidade do servidor. Os arquivos totalmente armazenados em cache permanecerão no servidor. Essa melhoria foi feita para evitar [arquivos em camadas órfãos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) ao remover um ponto de extremidade do servidor. Se o ponto de extremidade do servidor for recriado, os pontos de nova análise para os arquivos em camadas serão recriados no servidor.  
+ 
+- Melhorias de desempenho e confiabilidade 
+    - Falhas de recuperação reduzidas. O tamanho de recall agora é ajustado automaticamente com base na largura de banda da rede. 
+    - Melhor desempenho de download ao adicionar um novo servidor a um grupo de sincronização. 
+    - Arquivos reduzidos não sincronizando devido a conflitos de restrição. 
+
+### <a name="evaluation-tool"></a>Ferramenta de avaliação
+Antes de implantar Sincronização de Arquivos do Azure, você deve avaliar se ele é compatível com seu sistema usando a ferramenta de avaliação de Sincronização de Arquivos do Azure. Essa ferramenta é um cmdlet Azure PowerShell que verifica possíveis problemas com o sistema de arquivos e o conjunto de pontos, como caracteres sem suporte ou uma versão do sistema operacional sem suporte. Para obter instruções de instalação e uso, consulte a seção [ferramenta de avaliação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) no guia de planejamento. 
+
+### <a name="agent-installation-and-server-configuration"></a>Instalação do agente e configuração do servidor
+Para obter mais informações sobre como instalar e configurar o agente de Sincronização de Arquivos do Azure com o Windows Server, consulte [planejando uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md) e [como implantar sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md).
+
+- O pacote de instalação do agente deve ser instalado com permissões elevadas (administrador).
+- Não há suporte para o agente na opção de implantação do nano Server.
+- O agente tem suporte apenas no Windows Server 2019, no Windows Server 2016 e no Windows Server 2012 R2.
+- O agente requer pelo menos 2 GiB de memória. Se o servidor estiver sendo executado em uma máquina virtual com memória dinâmica habilitada, a VM deverá ser configurada com uma MiB de memória mínima 2048.
+- O serviço FileSyncSvc (agente de sincronização de armazenamento) não oferece suporte a pontos de extremidade de servidor localizados em um volume que tenha o diretório SVI (informações de volume do sistema) compactado. Essa configuração resultará em resultados inesperados.
+
+### <a name="interoperability"></a>Interoperabilidade
+- O antivírus, a cópia de segurança e outras aplicações que acedam a ficheiros em camadas podem causar uma revogação indesejável, a menos que respeitem o atributo offline e ignorem a leitura do conteúdo desses ficheiros. Para obter mais informações, consulte [solucionar problemas sincronização de arquivos do Azure](storage-sync-files-troubleshoot.md).
+- As triagens de arquivo do File Server Resource Manager (FSRM) podem causar falhas de sincronização infinitas quando os arquivos são bloqueados devido à tela do arquivo.
+- Não há suporte para executar o Sysprep em um servidor com o agente de Sincronização de Arquivos do Azure instalado e isso pode levar a resultados inesperados. O agente de Sincronização de Arquivos do Azure deve ser instalado após a implantação da imagem do servidor e a conclusão da mini-instalação do Sysprep.
+
+### <a name="sync-limitations"></a>Limitações de sincronização
+Os itens seguintes não são sincronizados, mas o restante sistema continua a funcionar normalmente:
+- Arquivos com caracteres sem suporte. Consulte o [Guia de solução de problemas](storage-sync-files-troubleshoot.md#handling-unsupported-characters) para obter uma lista de caracteres sem suporte.
+- Arquivos ou diretórios que terminam com um ponto.
+- Caminhos com mais de 2048 carateres.
+- A parte da lista de controlo de acesso discricionário (DACL) de um descritor de segurança se for superior a 2 KB. (Este problema aplica-se apenas quando tem mais do que cerca de 40 registos de controlo de acesso (ACEs) num único item.)
+- A parte da lista de controlo de acesso do sistema (SACL) de um descritor de segurança utilizado para auditoria.
+- Atributos expandidos.
+- Fluxos de dados alternados.
+- Pontos de reanálise.
+- Ligações fixas.
+- A compressão (se estiver definida num ficheiro de servidor) não é mantida quando as alterações são sincronizadas nesse ficheiro a partir de outros pontos finais.
+- Qualquer ficheiro encriptado com EFS (ou outra encriptação do modo de utilizador) que impeça a leitura dos dados por parte do serviço.
+
+    > [!Note]  
+    > O Azure File Sync encripta sempre os dados em trânsito. Os dados são sempre encriptados quando estão inativos no Azure.
+ 
+### <a name="server-endpoint"></a>Ponto de extremidade do servidor
+- Só é possível criar um ponto final do servidor num volume NTFS. O ReFS, FAT, FAT32 e outros sistemas de ficheiros não são atualmente suportados pelo Azure File Sync.
+- Arquivos em camadas se tornarão inacessíveis se os arquivos não forem recuperados antes de excluir o ponto de extremidade do servidor. Para restaurar o acesso aos arquivos, recrie o ponto de extremidade do servidor. Se forem aprovados 30 dias desde que o ponto de extremidade do servidor foi excluído ou se o ponto de extremidade de nuvem foi excluído, os arquivos em camadas que não foram rechamados serão inutilizáveis. Para saber mais, consulte [arquivos em camadas não podem ser acessados no servidor após a exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+- Não há suporte para a disposição em camadas na nuvem no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a camada da nuvem ao criar o ponto de extremidade do servidor.
+- O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
+- Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
+- Não armazene um arquivo de paginação do sistema operacional ou aplicativo em um local de ponto de extremidade do servidor.
+- O nome do servidor no portal não será atualizado se o servidor for renomeado.
+
+### <a name="cloud-endpoint"></a>Ponto de extremidade de nuvem
+- Sincronização de Arquivos do Azure dá suporte diretamente para fazer alterações no compartilhamento de arquivos do Azure. No entanto, todas as alterações feitas no compartilhamento de arquivos do Azure primeiro precisam ser descobertas por um trabalho de detecção de Sincronização de Arquivos do Azure alteração. Um trabalho de detecção de alteração é iniciado para um ponto de extremidade de nuvem uma vez a cada 24 horas. Para sincronizar imediatamente os arquivos que são alterados no compartilhamento de arquivos do Azure, o cmdlet [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) do PowerShell pode ser usado para iniciar manualmente a detecção de alterações no compartilhamento de arquivos do Azure. Além disso, as alterações feitas em um compartilhamento de arquivos do Azure no protocolo REST não atualizarão a hora da última modificação do SMB e não serão vistas como uma alteração por sincronização.
+- O serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos ou assinatura diferente dentro do locatário existente do Azure AD. Se a conta de armazenamento for movida, você precisará conceder ao serviço de Sincronização de Arquivos híbrido acesso à conta de armazenamento (consulte [garantir que sincronização de arquivos do Azure tenha acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+
+    > [!Note]  
+    > Sincronização de Arquivos do Azure não dá suporte à movimentação da assinatura para um locatário do Azure AD diferente.
+
+### <a name="cloud-tiering"></a>Disposição em camadas na cloud
+- Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.
+- Ao copiar arquivos usando o Robocopy, use a opção/MIR para preservar os carimbos de data/hora do arquivo. Isso garantirá que os arquivos mais antigos estejam em camadas antes dos arquivos acessados recentemente.
 
 ## <a name="agent-version-8000"></a>Versão do agente 8.0.0.0
 As notas de versão a seguir são para a versão 8.0.0.0 do agente de Sincronização de Arquivos do Azure (lançado em 8 de outubro de 2019).

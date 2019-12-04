@@ -1,94 +1,91 @@
 ---
-title: Atrasar a próxima ação em fluxos de trabalho - Azure Logic Apps
-description: Aguardar a próxima ação em fluxos de trabalho de aplicação de lógica para utilizar para executar as ações de atraso ou atraso até no Azure Logic Apps
+title: Atrasar a próxima ação em fluxos de trabalho
+description: Aguarde para executar a próxima ação nos fluxos de trabalho do aplicativo lógico usando o atraso ou atraso até as ações nos aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
-tags: connectors
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+tags: connectors
+ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297645"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787341"
 ---
-# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Atraso a próxima ação a executar no Azure Logic Apps
+# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Atraso ao executar a próxima ação nos aplicativos lógicos do Azure
 
-Para ter a aplicação de lógica aguardar um período de tempo antes de executar a ação seguinte, é possível adicionar o incorporado **atraso – agendar** ação antes de uma ação no fluxo de trabalho da sua aplicação lógica. Em alternativa, pode adicionar o incorporado **atraso até – agendar** ação esperar até uma data e hora específicas antes de executar a ação seguinte. Para obter mais informações sobre as ações de agendamento incorporadas e os disparadores, consulte [agendamento e execução recorrente, automatizado, tarefas e fluxos de trabalho com o Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Para que seu aplicativo lógico Aguarde um período de tempo antes de executar a próxima ação, você pode adicionar a ação interna de **agendamento de atraso** antes de uma ação no fluxo de trabalho do aplicativo lógico. Ou então, você pode adicionar a ação interna **atraso até-agenda** para aguardar até uma data e hora específicas antes de executar a próxima ação. Para obter mais informações sobre as ações e os gatilhos de agendamento internos, consulte [agendar e executar tarefas automatizadas e automáticas e fluxos de trabalho com aplicativos lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-* **atraso**: Aguarde que o número de unidades de tempo, por exemplo, segundos, minutos, horas, dias, semanas ou meses, antes das execuções de ação seguintes especificado.
+* **Atraso**: Aguarde o número especificado de unidades de tempo, como segundos, minutos, horas, dias, semanas ou meses, antes da execução da próxima ação.
 
-* **Atraso até**: Aguarde até a data e hora especificadas antes das execuções de ação seguintes.
+* **Atraso até**: aguardar até a data e a hora especificadas antes da execução da próxima ação.
 
-Aqui estão algumas formas de exemplo para utilizar estas ações:
+Aqui estão alguns exemplos de maneiras de usar essas ações:
 
-* Aguarde até um dia da semana para enviar uma atualização de estado por e-mail.
+* Aguarde até que um dia da semana envie uma atualização de status por email.
 
-* Atrasar o seu fluxo de trabalho até que uma chamada HTTP é concluída antes de a retomar e recuperar dados.
+* Atrase o fluxo de trabalho até que uma chamada HTTP seja concluída antes de retomar e recuperar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição, pode [Inscreva-se uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma subscrição do Azure. Se você não tiver uma assinatura, poderá se [inscrever para uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre [aplicações lógicas](../logic-apps/logic-apps-overview.md). Antes de poder utilizar uma ação, a aplicação lógica em primeiro lugar tem de começar com um acionador. Pode usar qualquer acionador que pretende e adicionar outras ações antes de adicionar uma ação de atraso. Este tópico utiliza um acionador do Outlook do Office 365. Se estiver familiarizado com aplicações lógicas, saiba [como criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Antes de você poder usar uma ação, seu aplicativo lógico deve começar primeiro com um gatilho. Você pode usar qualquer gatilho que desejar e adicionar outras ações antes de adicionar uma ação de atraso. Este tópico usa um gatilho do Outlook do Office 365. Se você for novo em aplicativos lógicos, saiba [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-delay"></a>
 
-## <a name="add-the-delay-action"></a>Adicione a ação de atraso
+## <a name="add-the-delay-action"></a>Adicionar a ação de atraso
 
-1. No Estruturador da aplicação lógica, no passo em que pretende adicionar a ação de atraso, escolha **novo passo**.
+1. No designer de aplicativo lógico, na etapa em que você deseja adicionar a ação de atraso, escolha **nova etapa**.
 
-   Para adicionar a ação de atraso entre etapas, mova o ponteiro sobre a seta que liga-se os passos. Selecione o sinal de adição (+) que é apresentado e, em seguida, selecione **adicionar uma ação**.
+   Para adicionar a ação de atraso entre as etapas, mova o ponteiro sobre a seta que conecta as etapas. Escolha o sinal de adição (+) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, introduza "atraso" como o filtro. Na lista de ações, selecione a ação: **atraso**
+1. Na caixa de pesquisa, digite "Delay" como filtro. Na lista ações, selecione esta ação: **atraso**
 
-   ![Adicionar ação de "Atraso"](./media/connectors-native-delay/add-delay-action.png)
+   ![Adicionar ação de "atraso"](./media/connectors-native-delay/add-delay-action.png)
 
-1. Especifique a quantidade de tempo de espera antes das execuções de ação seguintes.
+1. Especifique a quantidade de tempo de espera antes da execução da próxima ação.
 
-   ![Definir período de tempo para o atraso](./media/connectors-native-delay/delay-time-intervals.png)
+   ![Definir a quantidade de tempo para o atraso](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
+   | Propriedade | Nome JSON | Obrigatório | Tipo | Descrição |
    |----------|-----------|----------|------|-------------|
-   | Count | count | Sim | Integer | O número de unidades de tempo de atraso |
-   | Unidade | Unidade | Sim | String | A unidade de tempo, por exemplo: `Second`, `Minute`, `Hour`, `Day`, `Week`, ou `Month` |
+   | Contagem | count | Sim | Número inteiro | O número de unidades de tempo a serem atrasadas |
+   | Unidade | unidade | Sim | String | A unidade de tempo, por exemplo: `Second`, `Minute`, `Hour`, `Day`, `Week`ou `Month` |
    ||||||
 
-1. Adicione outras ações que pretende executar no seu fluxo de trabalho.
+1. Adicione outras ações que você deseja executar em seu fluxo de trabalho.
 
-1. Quando tiver terminado, guarde a aplicação lógica.
+1. Quando tiver terminado, salve seu aplicativo lógico.
 
 <a name="add-delay-until"></a>
 
-## <a name="add-the-delay-until-action"></a>Adicionar o atraso-até a ação
+## <a name="add-the-delay-until-action"></a>Adicionar a ação atraso-até
 
-1. No Estruturador da aplicação lógica, no passo em que pretende adicionar a ação de atraso, escolha **novo passo**.
+1. No designer de aplicativo lógico, na etapa em que você deseja adicionar a ação de atraso, escolha **nova etapa**.
 
-   Para adicionar a ação de atraso entre etapas, mova o ponteiro sobre a seta que liga-se os passos. Selecione o sinal de adição (+) que é apresentado e, em seguida, selecione **adicionar uma ação**.
+   Para adicionar a ação de atraso entre as etapas, mova o ponteiro sobre a seta que conecta as etapas. Escolha o sinal de adição (+) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, introduza "atraso" como o filtro. Na lista de ações, selecione a ação: **Atraso até**
+1. Na caixa de pesquisa, digite "Delay" como filtro. Na lista ações, selecione esta ação: **atrasar até**
 
-   ![Adicionar ação "Atraso até"](./media/connectors-native-delay/add-delay-until-action.png)
+   ![Adicionar a ação "atrasar até"](./media/connectors-native-delay/add-delay-until-action.png)
 
-1. Forneça a data de fim e a hora para que deseja retomar o fluxo de trabalho.
+1. Forneça a data e a hora de término para quando você quiser retomar o fluxo de trabalho.
 
-   ![Especificar timestamp para quando o atraso de fim](./media/connectors-native-delay/delay-until-timestamp.png)
+   ![Especifique o carimbo de data/hora para quando terminar o atraso](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
+   | Propriedade | Nome JSON | Obrigatório | Tipo | Descrição |
    |----------|-----------|----------|------|-------------|
-   | Carimbo de data/hora | timestamp | Sim | String | A data de fim e a hora de retomar o fluxo de trabalho com este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, especificar "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de hora tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Sem um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Carimbo de data/hora | carimbo de data/hora | Sim | String | A data e a hora de término para retomar o fluxo de trabalho usando este formato: <p>AAAA-MM-DDThh: mm: ssZ <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00Z". <p>**Observação:** Esse formato de hora deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Sem um fuso horário, você deve adicionar a letra "Z" no final sem espaços. Esse "Z" refere-se ao [tempo náuticas](https://en.wikipedia.org/wiki/Nautical_time)equivalente. |
    ||||||
 
-1. Adicione outras ações que pretende executar no seu fluxo de trabalho.
+1. Adicione outras ações que você deseja executar em seu fluxo de trabalho.
 
-1. Quando tiver terminado, guarde a aplicação lógica.
+1. Quando tiver terminado, salve seu aplicativo lógico.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o acionador de periodicidade](../connectors/connectors-native-recurrence.md)
-* [Conectores para o Logic Apps](../connectors/apis-list.md)
+* [Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md)
+* [Conectores para aplicativos lógicos](../connectors/apis-list.md)

@@ -1,57 +1,57 @@
 ---
-title: Ligar o serviço Kubernetes do Azure (AKS) com base de dados do Azure para o PostgreSQL – servidor único
-description: Saiba mais sobre como ligar o serviço Kubernetes do Azure com a base de dados do Azure para o PostgreSQL – servidor único
+title: Conectar-se ao serviço kubernetes do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba mais sobre como conectar o AKS (serviço kubernetes do Azure) com o banco de dados do Azure para PostgreSQL-servidor único
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068945"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769885"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Ligar o serviço Kubernetes do Azure e base de dados do Azure para PostgreSQL - servidor único
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Conectando o serviço kubernetes do Azure e o banco de dados do Azure para PostgreSQL-servidor único
 
-O Azure Kubernetes Service (AKS) fornece um cluster de Kubernetes gerido, que pode utilizar no Azure. Seguem-se algumas opções a considerar ao utilizar o AKS e base de dados do Azure para PostgreSQL em conjunto para criar uma aplicação.
+O AKS (serviço kubernetes do Azure) fornece um cluster kubernetes gerenciado que você pode usar no Azure. Abaixo estão algumas opções a serem consideradas ao usar o AKS e o banco de dados do Azure para PostgreSQL em conjunto para criar um aplicativo.
 
 
 ## <a name="accelerated-networking"></a>Redes aceleradas
-Utilize o funcionamento de rede subjacentes as VMs aceleradas no cluster do AKS. Quando o funcionamento em rede acelerado está ativado numa VM, existe uma latência mais baixa, menor interferência e menor utilização da CPU na VM. Saber mais sobre como acelerada funciona de rede, as versões suportadas do sistema operacional e suportada para as instâncias de VM [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
+Use VMs subjacentes habilitadas para rede acelerada em seu cluster AKS. Quando a rede acelerada está habilitada em uma VM, há latência mais baixa, tremulação reduzida e utilização da CPU reduzida na VM. Saiba mais sobre como funciona a rede acelerada, as versões de sistema operacional com suporte e as instâncias de VM com suporte para [Linux](../virtual-network/create-vm-accelerated-networking-cli.md).
 
-A partir de Novembro de 2018, o AKS suporta redes aceleradas nessas instâncias VM suportadas. Funcionamento em rede acelerado é ativado por predefinição em novos clusters do AKS que usam essas VMs.
+De novembro de 2018, o AKS dá suporte à rede acelerada nessas instâncias de VM com suporte. A rede acelerada é habilitada por padrão em novos clusters AKS que usam essas VMs.
 
-Pode confirmar se o cluster do AKS tenha o accelerated networking:
-1. Aceda ao portal do Azure e selecione o cluster do AKS.
-2. Selecione o separador de propriedades.
+Você pode confirmar se o cluster do AKS tem rede acelerada:
+1. Vá para a portal do Azure e selecione o cluster AKS.
+2. Selecione a guia Propriedades.
 3. Copie o nome do **grupo de recursos de infraestrutura**.
-4. Use a barra de pesquisa de portal para localizar e abrir o grupo de recursos de infraestrutura.
-5. Selecione uma VM no grupo de recursos.
-6. Vá para a VM **redes** separador.
-7. Confirme se **Accelerated networking** está "ativado."
+4. Use a barra de pesquisa do portal para localizar e abrir o grupo de recursos de infraestrutura.
+5. Selecione uma VM nesse grupo de recursos.
+6. Vá para a guia **rede** da VM.
+7. Confirme se a **rede acelerada** está ' habilitada '.
 
-Ou através da CLI do Azure utilizando os dois comandos seguintes:
+Ou por meio do CLI do Azure usando os dois comandos a seguir:
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
 ```
-O resultado será o grupo de recursos gerada que AKS cria que contém a interface de rede. Assumem o nome "nodeResourceGroup" e utilizá-la no comando seguinte. **EnableAcceleratedNetworking** qualquer um será VERDADEIRO ou FALSO:
+A saída será o grupo de recursos gerado que o AKS cria contendo a interface de rede. Pegue o nome "nodeResourceGroup" e use-o no próximo comando. **EnableAcceleratedNetworking** será true ou false:
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## <a name="open-service-broker-for-azure"></a>Abrir o Open Service Broker para o Azure 
-[Abra o Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite-lhe aprovisionar serviços do Azure diretamente a partir de Kubernetes ou Cloud Foundry. É uma [API do Mediador de serviço aberta](https://www.openservicebrokerapi.org/) implementação para o Azure.
+## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
+[Abrir o Service Broker do Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite que você provisione os serviços do Azure diretamente do kubernetes ou do Cloud Foundry. É uma implementação de [API aberta Service Broker](https://www.openservicebrokerapi.org/) para o Azure.
 
-Com o OSBA, pode criar uma base de dados do Azure para o servidor PostgreSQL e vinculá-lo ao seu cluster do AKS com a linguagem nativa dos Kubernetes. Saiba mais sobre como utilizar OSBA e base de dados do Azure para PostgreSQL em conjunto no [página do OSBA GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
-
-
-## <a name="connection-pooling"></a>Agrupamento de ligações
-Um pooler ligação minimiza o custo e o tempo associado a criação e fecho de novas ligações à base de dados. O agrupamento é um conjunto de ligações que podem ser reutilizados. 
-
-Existem vários poolers de ligação que pode utilizar com o PostgreSQL. Um deles é [PgBouncer](https://pgbouncer.github.io/). O registo de contentor da Microsoft, fornecemos uma leve PgBouncer em contentores, que pode ser utilizado num sidecar para ligações de conjunto de AKS a base de dados do Azure para PostgreSQL. Visite o [página de hub do docker](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) para saber como aceder e utilizar esta imagem. 
+Com o OSBA, você pode criar um servidor de banco de dados do Azure para PostgreSQL e associá-lo ao cluster AKS usando o idioma nativo do kubernetes. Saiba mais sobre como usar o OSBA e o banco de dados do Azure para PostgreSQL juntos na [página do GitHub do OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
 
 
-## <a name="next-steps"></a>Passos Seguintes
--  [Criar um cluster do Azure Kubernetes Service](../aks/kubernetes-walkthrough.md)
+## <a name="connection-pooling"></a>Pooling de conexão
+Um pooler de conexões minimiza o custo e o tempo associados à criação e ao fechamento de novas conexões com o banco de dados. O pool é uma coleção de conexões que podem ser reutilizadas. 
+
+Há vários pools de conexão que você pode usar com PostgreSQL. Um deles é [PgBouncer](https://pgbouncer.github.io/). No registro de contêiner da Microsoft, fornecemos um PgBouncer em contêiner leve que pode ser usado em um sidecar para pool de conexões do AKS para o banco de dados do Azure para PostgreSQL. Visite a [página do Hub do Docker](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) para saber como acessar e usar essa imagem. 
+
+
+## <a name="next-steps"></a>Passos seguintes
+-  [Criar um cluster do serviço kubernetes do Azure](../aks/kubernetes-walkthrough.md)

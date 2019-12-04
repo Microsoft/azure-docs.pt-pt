@@ -1,17 +1,17 @@
 ---
-title: Log de auditoria usando pgAudit no banco de dados do Azure para PostgreSQL-servidor único
+title: Log de auditoria-banco de dados do Azure para PostgreSQL-servidor único
 description: Conceitos para o log de auditoria do pgAudit no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 49ad7334c418e29c821320608be729e060b4a8ae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331339"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764564"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -65,18 +65,18 @@ o pgAudit permite que você configure o log de auditoria de sessão ou objeto. O
 Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus parâmetros para iniciar o registro em log. A [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) fornece a definição de cada parâmetro. Teste os parâmetros primeiro e confirme que você está obtendo o comportamento esperado.
 
 > [!NOTE]
-> Definir `pgaudit.log_client` como ON irá redirecionar os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Esta definição deve, normalmente, ser deixada desativada.
+> Definir `pgaudit.log_client` como ON redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Esta definição deve, normalmente, ser deixada desativada.
 
 > [!NOTE]
 > `pgaudit.log_level` só é habilitado quando `pgaudit.log_client` está ativado. Além disso, no portal do Azure, atualmente há um bug com `pgaudit.log_level`: uma caixa de combinação é mostrada, indicando que vários níveis podem ser selecionados. No entanto, apenas um nível deve ser selecionado. 
 
 > [!NOTE]
-> No banco de dados do Azure para PostgreSQL, não é possível definir `pgaudit.log` usando um atalho de sinal de `-` (menos), conforme descrito na documentação do pgAudit. Todas as classes de instruções necessárias (LEITURA, ESCRITA, etc.) devem ser especificadas individualmente.
+> No banco de dados do Azure para PostgreSQL, `pgaudit.log` não pode ser definida usando um atalho de sinal de `-` (menos), conforme descrito na documentação do pgAudit. Todas as classes de instruções necessárias (LEITURA, ESCRITA, etc.) devem ser especificadas individualmente.
 
 ### <a name="audit-log-format"></a>Formato do log de auditoria
 Cada entrada de auditoria é indicada por `AUDIT:` próximo ao início da linha de log. O formato do restante da entrada é detalhado na [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o parâmetro postgres `log_line_prefix`. `log_line_prefix` é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração `log_line_prefix` a seguir fornece timestamp, username, Database Name e Process ID:
+Se você precisar de outros campos para atender aos seus requisitos de auditoria, use o parâmetro postgres `log_line_prefix`. `log_line_prefix` é uma cadeia de caracteres que é saída no início de cada linha de log do Postgres. Por exemplo, a configuração de `log_line_prefix` a seguir fornece carimbo de hora, nome de usuário, nome do banco de dados e ID do processo:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
@@ -85,7 +85,7 @@ t=%m u=%u db=%d pid=[%p]:
 Para saber mais sobre `log_line_prefix`, visite a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
 ### <a name="getting-started"></a>Introdução
-Para começar rapidamente, defina `pgaudit.log` como `WRITE` e abra os logs para examinar a saída. 
+Para começar rapidamente, defina `pgaudit.log` para `WRITE`e abra os logs para examinar a saída. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,20 +1,19 @@
 ---
-title: Mensagens X12 para integração B2B – aplicativos lógicos do Azure
+title: Mensagens X12 para integração B2B
 description: Trocar mensagens X12 no formato EDI para integração corporativa B2B em aplicativos lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: 8bc5c458240925af1fdd74ebc9b2d4c3db71fb05
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 77ec5434b83c4246dc448578dcf2902e19f42e95
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679987"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792311"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para integração de empresas B2B em aplicativos lógicos do Azure com o Enterprise Integration Pack
 

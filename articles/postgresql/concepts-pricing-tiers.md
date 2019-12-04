@@ -1,17 +1,17 @@
 ---
-title: Tipos de preço do banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve os tipos de preço do banco de dados do Azure para PostgreSQL-servidor único.
+title: Tipos de preço-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para PostgreSQL-servidor único.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 4f8bbf22d1081948cf6effd5fdbd8b6a6b7d5332
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f7e5d3e681c86d5ecb014f95d838e6d3d51e1c48
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903304"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768372"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Tipos de preço no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -21,7 +21,7 @@ Você pode criar um servidor de banco de dados do Azure para PostgreSQL em um do
 |:---|:----------|:--------------------|:---------------------|
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2GB | 5 GB | 10 GB |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção do backup do banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
@@ -40,7 +40,7 @@ Depois de criar um servidor, o número de vCores, a geração de hardware e o ti
 
 Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. Leste da China 1, Norte da China 1, US DoD Central e US DoD Leste utilizam CPUs lógicas Gen 4 baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz. Todas as outras regiões utilizam CPUs lógicas de Gen 5 baseadas em processadores Intel E5-2673 V4 (Broadwell) de 2,3 GHz.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Armazenamento
 
 O armazenamento que você provisiona é a quantidade de capacidade de armazenamento disponível para o servidor do banco de dados do Azure para PostgreSQL. O armazenamento é usado para os arquivos de banco de dados, arquivos temporários, logs de transações e logs do servidor PostgreSQL. A quantidade total de armazenamento que você provisiona também define a capacidade de e/s disponível para o servidor.
 
@@ -86,7 +86,7 @@ Por exemplo, se você tiver provisionado 1000 GB de armazenamento e a utilizaç�
 
 Lembre-se de que o armazenamento pode ser escalado verticalmente, não inativo.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 O serviço automaticamente faz backups de seu servidor. O período de retenção mínimo para backups é de sete dias. Você pode definir um período de retenção de até 35 dias. A retenção pode ser ajustada a qualquer momento durante o tempo de vida do servidor. Você pode escolher entre backups localmente redundantes e com redundância geográfica. Os backups com redundância geográfica também são armazenados na [região emparelhada geograficamente](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) da região em que o servidor é criado. Essa redundância fornece um nível de proteção em caso de desastre. Você também pode obter a capacidade de restaurar o servidor para qualquer outra região do Azure na qual o serviço esteja disponível com backups com redundância geográfica. Não é possível alterar entre as duas opções de armazenamento de backup depois que o servidor é criado.
 

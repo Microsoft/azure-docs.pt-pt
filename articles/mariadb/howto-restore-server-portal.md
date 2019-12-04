@@ -1,17 +1,17 @@
 ---
-title: Como restaurar um servidor no banco de dados do Azure para MariaDB
+title: Backup e restauração-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como restaurar um servidor no banco de dados do Azure para MariaDB usando o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: d70afd6b2720a9e351cbc2926462a217cb89c056
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 952bfe9a669b833b20a9bccf2813fb6a5eec4826
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965154"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769324"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 

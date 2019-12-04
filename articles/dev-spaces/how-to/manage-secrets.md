@@ -1,22 +1,22 @@
 ---
 title: Como gerenciar segredos ao trabalhar com um espaço de desenvolvimento do Azure
 services: azure-dev-spaces
-ms.date: 05/11/2018
+ms.date: 12/03/2019
 ms.topic: conceptual
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres
-ms.openlocfilehash: 49f53683b2499e790414d139dcb0bc0833005647
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b184f72dfbbfe093443ab8a9b79bafbece3a3d51
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279997"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790183"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerenciar segredos ao trabalhar com um espaço de desenvolvimento do Azure
 
 Seus serviços podem exigir determinadas senhas, cadeias de conexão e outros segredos, como bancos de dados ou outros serviços seguros do Azure. Ao definir os valores desses segredos em arquivos de configuração, você pode torná-los disponíveis em seu código como variáveis de ambiente.  Eles devem ser tratados com cuidado para evitar comprometer a segurança dos segredos.
 
-O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pela Azure Dev Spaces ferramentas de cliente: no arquivo Values. dev. YAML e embutido diretamente em azds. YAML. Não é recomendável armazenar segredos em Values. YAML. Fora das duas abordagens para gráficos Helm gerados pela ferramenta do cliente definida neste artigo, se você criar seu próprio gráfico do Helm, poderá usar o gráfico do Helm diretamente para gerenciar e armazenar segredos.
+O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pelo Azure Dev Spaces ferramentas de cliente: no arquivo `values.dev.yaml` e embutido diretamente no `azds.yaml`. Não é recomendável armazenar segredos em `values.yaml`. Fora das duas abordagens para gráficos Helm gerados pela ferramenta do cliente definida neste artigo, se você criar seu próprio gráfico do Helm, poderá usar o gráfico do Helm diretamente para gerenciar e armazenar segredos.
 
 ## <a name="method-1-valuesdevyaml"></a>Método 1: Values. dev. YAML
 1. Abra VS Code com seu projeto habilitado para Azure Dev Spaces.
@@ -62,7 +62,7 @@ O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armaz
 7. Certifique-se de adicionar _valores. dev. YAML_ ao arquivo _. gitignore_ para evitar a confirmação de segredos no controle do código-fonte.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>Método 2: embutido diretamente em azds. YAML
+## <a name="method-2-azdsyaml"></a>Método 2: azds. YAML
 1.  Em _azds. YAML_, defina segredos na seção YAML configurações/desenvolver/instalar. Embora você possa inserir valores secretos diretamente ali, isso não é recomendável porque _azds. YAML_ é verificado no controle do código-fonte. Em vez disso, adicione espaços reservados usando a sintaxe "$PLACEHOLDER".
 
     ```yaml
@@ -104,6 +104,44 @@ O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armaz
     ```
     kubectl get secret --namespace default -o yaml
     ```
+
+## <a name="passing-secrets-as-build-arguments"></a>Passando segredos como argumentos de compilação
+
+As seções anteriores mostraram como passar segredos para uso em tempo de execução do contêiner. Você também pode passar um segredo no momento da compilação do contêiner, como uma senha para um NuGet privado, usando `azds.yaml`.
+
+Em `azds.yaml`, defina os segredos de tempo de compilação em *configurações. desenvolva. Build. args* usando a sintaxe `<variable name>: ${secret.<secret name>.<secret key>}`. Por exemplo:
+
+```yaml
+configurations:
+  develop:
+    build:
+      dockerfile: Dockerfile.develop
+      useGitIgnore: true
+      args:
+        BUILD_CONFIGURATION: ${BUILD_CONFIGURATION:-Debug}
+        MYTOKEN: ${secret.mynugetsecret.pattoken}
+```
+
+No exemplo acima, *mynugetsecret* é um segredo existente e *pattoken* é uma chave existente.
+
+>[!NOTE]
+> As chaves e os nomes de segredo podem conter o caractere `.`. Use `\` para escapar `.` ao passar segredos como argumentos de compilação. Por exemplo, para passar um segredo chamado *foo. bar* com a chave de *token*: `MYTOKEN: ${secret.foo\.bar.token}`. Além disso, os segredos podem ser avaliados com o prefixo e o texto do sufixo. Por exemplo, `MYURL: eus-${secret.foo\.bar.token}-version1`. Além disso, os segredos disponíveis nos espaços pai e avô podem ser passados como argumentos de compilação.
+
+Em seu Dockerfile, use a diretiva *ARG* para consumir o segredo e, em seguida, use essa mesma variável posteriormente no Dockerfile. Por exemplo:
+
+```dockerfile
+...
+ARG MYTOKEN
+...
+ARG NUGET_EXTERNAL_FEED_ENDPOINTS="{'endpointCredentials': [{'endpoint':'PRIVATE_NUGET_ENDPOINT', 'password':'${MYTOKEN}'}]}"
+...
+```
+
+Atualize os serviços em execução no cluster com essas alterações. Na linha de comando, execute o comando:
+
+```
+azds up
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

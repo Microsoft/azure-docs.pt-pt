@@ -1,17 +1,17 @@
 ---
-title: Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
+title: Continuidade dos negócios-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve a continuidade dos negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3623611bcd22486d90651c6e8b6880c6de1de0c5
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950101"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763883"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -48,7 +48,7 @@ Uma opção é aguardar que o servidor volte a ficar online quando a interrupç�
 O recurso de restauração geográfica restaura o servidor usando backups com redundância geográfica. Os backups são hospedados na [região emparelhada](../best-practices-availability-paired-regions.md)do servidor. Você pode restaurar esses backups para qualquer outra região. A restauração geográfica cria um novo servidor com os dados dos backups. Saiba mais sobre a restauração geográfica no [artigo conceitos de backup e restauração](concepts-backup.md).
 
 > [!IMPORTANT]
-> A restauração geográfica só será possível se você tiver provisionado o servidor com o armazenamento de backup com redundância geográfica. Se desejar alternar de localmente redundante para backups com redundância geográfica para um servidor existente, você deverá fazer um despejo usando pg_dump do seu servidor existente e restaurá-lo para um servidor recém-criado configurado com backups com redundância geográfica.
+> A restauração geográfica só será possível se você tiver provisionado o servidor com o armazenamento de backup com redundância geográfica. Se desejar alternar de localmente redundante para backups com redundância geográfica para um servidor existente, você deverá fazer um despejo usando pg_dump do servidor existente e restaurá-lo para um servidor recém-criado configurado com backups com redundância geográfica.
 
 ## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
 Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas assincronamente usando a tecnologia de replicação física do PostgreSQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 

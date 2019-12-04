@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850452"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795721"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -55,3 +55,7 @@ Uma sessão deve ser iniciada somente do portal do Azure. Entre no portal do Azu
 
 Atualmente, a bastiões do Azure dá suporte ao layout de teclado en-US-QWERTY dentro da VM.  O suporte para outras localidades de layout de teclado é o trabalho em andamento.
 
+### <a name="udr"></a>O UDR (roteamento definido pelo usuário) tem suporte em uma sub-rede de bastiões do Azure?
+
+Não. Não há suporte para UDR em uma sub-rede de bastiões do Azure.
+Para cenários que incluem o Azure bastião e o Firewall do Azure/NVA (dispositivo virtual de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede de bastiões do Azure para o Firewall do Azure, pois a comunicação entre a bastiões do Azure e suas VMs é privada. Para obter mais detalhes, consulte [acessando VMs por trás do firewall do Azure com bastiões](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).

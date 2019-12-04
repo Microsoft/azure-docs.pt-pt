@@ -1,20 +1,19 @@
 ---
-title: Acompanhar mensagens B2B com logs de Azure Monitor-aplicativos lógicos do Azure | Microsoft Docs
+title: Controlar mensagens B2B com os registos do Azure Monitor
 description: Acompanhe a comunicação B2B para contas de integração e aplicativos lógicos do Azure com o Azure Log Analytics
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997848"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792932"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Controlar mensagens B2B com os registos do Azure Monitor
 
@@ -53,7 +52,7 @@ Antes que você possa fazer com que os logs de Azure Monitor acompanhem mensagen
 
    ![Selecionar Log Analytics espaço de trabalho](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-1. Em introdução **ao log Analytics** > **configurar soluções de monitoramento**, escolha **Exibir soluções**.
+1. Em introdução **ao Log Analytics** > **configurar soluções de monitoramento**, escolha **Exibir soluções**.
 
    ![Escolha "Exibir soluções"](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
@@ -151,12 +150,12 @@ Aqui estão as descrições de propriedade para cada mensagem AS2.
 | Remetente | O parceiro convidado especificado em **configurações de recebimento**ou o parceiro host especificado em **configurações de envio** para um contrato AS2 |
 | Recetor | O parceiro host especificado em **configurações de recebimento**ou o parceiro convidado especificado em **configurações de envio** para um contrato AS2 |
 | Aplicação Lógica | O aplicativo lógico em que as ações AS2 estão configuradas |
-| State | O status da mensagem AS2 <br>Êxito = recebeu ou enviou uma mensagem AS2 válida. Nenhum MDN está configurado. <br>Êxito = recebeu ou enviou uma mensagem AS2 válida. MDN é configurado e recebido, ou MDN é enviado. <br>Falha = recebeu uma mensagem AS2 inválida. Nenhum MDN está configurado. <br>Pendente = recebeu ou enviou uma mensagem AS2 válida. MDN está configurado e MDN é esperado. |
+| Estado | O status da mensagem AS2 <br>Êxito = recebeu ou enviou uma mensagem AS2 válida. Nenhum MDN está configurado. <br>Êxito = recebeu ou enviou uma mensagem AS2 válida. MDN é configurado e recebido, ou MDN é enviado. <br>Falha = recebeu uma mensagem AS2 inválida. Nenhum MDN está configurado. <br>Pendente = recebeu ou enviou uma mensagem AS2 válida. MDN está configurado e MDN é esperado. |
 | Pacote | O status da mensagem MDN <br>Aceito = recebeu ou enviou um MDN positivo. <br>Pendente = aguardando para receber ou enviar um MDN. <br>Rejeitado = recebeu ou enviou um MDN negativo. <br>Não obrigatório = MDN não está configurado no contrato. |
-| Direction | A direção da mensagem AS2 |
+| Direção | A direção da mensagem AS2 |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e ações em um aplicativo lógico |
 | ID da mensagem | A ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
-| Timestamp | A hora em que a ação AS2 processou a mensagem |
+| Carimbo de data/hora | A hora em que a ação AS2 processou a mensagem |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -167,8 +166,8 @@ Aqui estão os formatos de nome para cada pasta e arquivos de mensagem AS2 baixa
 
 | Pasta ou arquivo | Formato do nome |
 | :------------- | :---------- |
-| Pasta de mensagens | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
-| Entrada, saída e, se configurado, arquivos de confirmação | **Carga de entrada**: [remetente\_] [destinatário\_]\_AS2 [Correlation-\_ID] input_payload. txt </p>**Carga de saída**: [remetente\_] [destinatário\_]\_AS2 [Correlation-\_ID\_] output Payload. txt </p></p>**Entradas**: [Sender]\_[Receiver]\_AS2\_[Correlation-ID\_] inputs. txt </p></p>**Saídas**: [remetente]\_[destinatário]\_AS2\_[Correlation-ID\_] Outputs. txt |
+| Pasta de mensagens | [Sender]\_[Receiver]\_AS2\_[Correlation-ID]\_[ID-da-mensagem]\_[Timestamp] |
+| Entrada, saída e, se configurado, arquivos de confirmação | **Carga de entrada**: [remetente]\_[receiver]\_AS2\_[Correlation-ID]\_input_payload. txt </p>**Carga de saída**: [remetente]\_[receiver]\_AS2\_[Correlation-ID]\_saída\_Payload. txt </p></p>**Entradas**: [sender]\_[receiver]\_AS2\_[Correlation-ID]\_inputs. txt </p></p>**Saídas**: [sender]\_[destinatário]\_AS2\_[Correlation-ID]\_Outputs. txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -182,14 +181,14 @@ Aqui estão as descrições de propriedade para cada mensagem X12.
 | Remetente | O parceiro convidado especificado em **configurações de recebimento**ou o parceiro host especificado em **configurações de envio** para um contrato X12 |
 | Recetor | O parceiro host especificado em **configurações de recebimento**ou o parceiro convidado especificado em **configurações de envio** para um contrato X12 |
 | Aplicação Lógica | O aplicativo lógico em que as ações de X12 estão configuradas |
-| State | O status da mensagem X12 <br>Êxito = recebeu ou enviou uma mensagem X12 válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebeu ou enviou uma mensagem X12 válida. A confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada. <br>Falha = recebeu ou enviou uma mensagem X12 inválida. <br>Pendente = recebeu ou enviou uma mensagem X12 válida. A confirmação funcional está configurada e uma confirmação funcional é esperada. |
+| Estado | O status da mensagem X12 <br>Êxito = recebeu ou enviou uma mensagem X12 válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebeu ou enviou uma mensagem X12 válida. A confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada. <br>Falha = recebeu ou enviou uma mensagem X12 inválida. <br>Pendente = recebeu ou enviou uma mensagem X12 válida. A confirmação funcional está configurada e uma confirmação funcional é esperada. |
 | Pacote | Status de confirmação funcional (997) <br>Aceito = recebeu ou enviou uma confirmação funcional positiva. <br>Rejeitado = recebeu ou enviou uma confirmação funcional negativa. <br>Pendente = esperando uma confirmação funcional, mas não recebida. <br>Pendente = gerou uma confirmação funcional, mas não pode enviar para o parceiro. <br>Não obrigatório = a confirmação funcional não está configurada. |
-| Direction | A direção da mensagem X12 |
+| Direção | A direção da mensagem X12 |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e ações em um aplicativo lógico |
 | Tipo de MSG | O tipo de mensagem EDI X12 |
 | ICN | O número de controle de intercâmbio para a mensagem X12 |
 | TSCN | O número de controle do conjunto de transações para a mensagem X12 |
-| Timestamp | A hora em que a ação X12 processou a mensagem |
+| Carimbo de data/hora | A hora em que a ação X12 processou a mensagem |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -200,8 +199,8 @@ Aqui estão os formatos de nome para cada pasta e arquivos de mensagem X12 baixa
 
 | Pasta ou arquivo | Formato do nome |
 | :------------- | :---------- |
-| Pasta de mensagens | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Entrada, saída e, se configurado, arquivos de confirmação | **Carga de entrada**: [remetente\_] [destinatário\_]\_X12 [Interchange-Control-Number\_] input_payload. txt </p>**Carga de saída**: [remetente\_] [destinatário\_]\_X12 [intercâmbio de controle-número\_]\_payload de saída. txt </p></p>**Entradas**: [Sender]\_[destinatário]\_X12\_[Interchange-Control-number]\_inputs. txt </p></p>**Saídas**: [Sender]\_[destinatário]\_X12\_[Interchange-Control-number]\_Outputs. txt |
+| Pasta de mensagens | [Sender]\_[destinatário]\_X12\_[intercâmbio de controle-número]\_[global-controle-número]\_[transação-conjunto-controle-número]\_[carimbo de data/hora] |
+| Entrada, saída e, se configurado, arquivos de confirmação | **Carga de entrada**: [remetente]\_[destinatário]\_X12\_[Interchange-Control-number]\_input_payload. txt </p>**Carga de saída**: [sender]\_[destinatário]\_X12\_[Interchange-Control-number]\_saída\_Payload. txt </p></p>**Entradas**: [sender]\_[destinatário]\_X12\_[Interchange-Control-number]\_inputs. txt </p></p>**Saídas**: [sender]\_[destinatário]\_X12\_[Interchange-Control-number]\_Outputs. txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -215,14 +214,14 @@ Aqui estão as descrições de propriedade para cada mensagem EDIFACT.
 | Remetente | O parceiro convidado especificado em **configurações de recebimento**ou o parceiro host especificado em **configurações de envio** para um contrato EDIFACT |
 | Recetor | O parceiro host especificado em **configurações de recebimento**ou o parceiro convidado especificado em **configurações de envio** para um contrato EDIFACT |
 | Aplicação Lógica | O aplicativo lógico em que as ações de EDIFACT estão configuradas |
-| State | O status da mensagem EDIFACT <br>Êxito = recebeu ou enviou uma mensagem EDIFACT válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebeu ou enviou uma mensagem EDIFACT válida. A confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada. <br>Falha = recebeu ou enviou uma mensagem EDIFACT inválida <br>Pendente = recebeu ou enviou uma mensagem EDIFACT válida. A confirmação funcional está configurada e uma confirmação funcional é esperada. |
+| Estado | O status da mensagem EDIFACT <br>Êxito = recebeu ou enviou uma mensagem EDIFACT válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebeu ou enviou uma mensagem EDIFACT válida. A confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada. <br>Falha = recebeu ou enviou uma mensagem EDIFACT inválida <br>Pendente = recebeu ou enviou uma mensagem EDIFACT válida. A confirmação funcional está configurada e uma confirmação funcional é esperada. |
 | Pacote | Status de ACK funcional (CONTRL) <br>Aceito = recebeu ou enviou uma confirmação funcional positiva. <br>Rejeitado = recebeu ou enviou uma confirmação funcional negativa. <br>Pendente = esperando uma confirmação funcional, mas não recebida. <br>Pendente = gerou uma confirmação funcional, mas não pode enviar para o parceiro. <br>Não obrigatório = a confirmação funcional não está configurada. |
-| Direction | A direção da mensagem EDIFACT |
+| Direção | A direção da mensagem EDIFACT |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e ações em um aplicativo lógico |
 | Tipo de MSG | O tipo de mensagem EDIFACT |
 | ICN | O número de controle de intercâmbio para a mensagem EDIFACT |
 | TSCN | O número de controle do conjunto de transações para a mensagem EDIFACT |
-| Timestamp | A hora em que a ação EDIFACT processou a mensagem |
+| Carimbo de data/hora | A hora em que a ação EDIFACT processou a mensagem |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -233,11 +232,11 @@ Aqui estão os formatos de nome para cada pasta e arquivos de mensagem EDIFACT b
 
 | Pasta ou arquivo | Formato do nome |
 | :------------- | :---------- |
-| Pasta de mensagens | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Entrada, saída e, se configurado, arquivos de confirmação | **Carga de entrada**: [remetente\_] [destinatário\_]\_EDIFACT [Interchange-Control-Number\_] input_payload. txt </p>**Carga de saída**: [remetente\_] [destinatário\_]\_EDIFACT [intercâmbio de controle-número\_]\_payload de saída. txt </p></p>**Entradas**: [Sender]\_[destinatário]\_EDIFACT\_[Interchange-Control-number]\_inputs. txt </p></p>**Saídas**: [Sender]\_[destinatário]\_EDIFACT\_[Interchange-Control-number]\_Outputs. txt |
+| Pasta de mensagens | [Sender]\_[destinatário]\_EDIFACT\_[intercâmbio de controle-número]\_[global-controle-número]\_[transação-conjunto-controle-número]\_[carimbo de data/hora] |
+| Entrada, saída e, se configurado, arquivos de confirmação | **Carga de entrada**: [remetente]\_[destinatário]\_EDIFACT\_[Interchange-Control-number]\_input_payload. txt </p>**Carga de saída**: [sender]\_[destinatário]\_EDIFACT\_[Interchange-Control-number]\_saída\_Payload. txt </p></p>**Entradas**: [sender]\_[destinatário]\_EDIFACT\_[Interchange-Control-number]\_inputs. txt </p></p>**Saídas**: [sender]\_[destinatário]\_EDIFACT\_[Interchange-Control-number]\_Outputs. txt |
 |          |             |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consulta de mensagens B2B em logs de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

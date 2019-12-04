@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672587"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793294"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -34,12 +34,12 @@ Para obter ajuda adicional, escreva para nós em farmbeatssupport@microsoft.com,
 
 **Ação corretiva**: visite a Portal do Azure e siga estas etapas:
 
-1. Vá para o grupo de recursos do hub de dados do FarmBeats.   
-2. Selecione o **Hub de eventos** (DatafeedEventHubNamespace...)  e verifique o número de mensagens de entrada.   
+1. Vá para o grupo de recursos do hub de dados do FarmBeats.   
+2. Selecione o **Hub de eventos** (DatafeedEventHubNamespace...) e verifique o número de mensagens de entrada.   
 3. Caso não haja **mensagens de entrada**, entre em contato com o parceiro do dispositivo.  
 4. Caso haja mensagens de **entrada**, entre em contato com farmbeatssupport@microsoft.com com os logs de Hub de dados e acelerador e a telemetria capturada.
 
-Consulte a [seção logs](#collect-logs-manually) do documento para entender como baixar logs.  
+Consulte a [seção logs](#collect-logs-manually) do documento para entender como baixar logs.  
 
 ### <a name="dont-have-the-eventhub-connection-string"></a>Não tem a cadeia de conexão do Eventhub
 
@@ -55,7 +55,7 @@ Consulte a [seção logs](#collect-logs-manually) do documento para entender com
 
 **Sintomas**: os dispositivos são instalados e você vinculou o FarmBeats ao seu parceiro de dispositivo. Os dispositivos estão online e enviando dados de telemetria, mas aparecem offline.
 
-**Ação corretiva**: o intervalo de relatório não está configurado para este dispositivo. Contate o fabricante do dispositivo para definir o intervalo de relatórios. 
+**Ação corretiva**: o intervalo de relatório não está configurado para este dispositivo. Contate o fabricante do dispositivo para definir o intervalo de relatórios. 
 
 ### <a name="error-deleting-a-resource"></a>Erro ao excluir um recurso
 
@@ -135,44 +135,44 @@ Feche todas as guias do navegador que têm o acelerador aberto e feche a janela 
 
 **Ação corretiva**: execute novamente o trabalho com falha ou execute um trabalho de índices satélite para o intervalo de datas de 5-7 dias e verifique se o trabalho foi bem-sucedido.
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>URL incorreta do Hub Sentinel ou não acessível 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>URL incorreta do Hub Sentinel ou não acessível 
 
-**Mensagem de falha de trabalho**: Opa, algo deu errado. A página que você estava tentando acessar está (temporariamente) indisponível. 
+**Mensagem de falha de trabalho**: Opa, algo deu errado. A página que você estava tentando acessar está (temporariamente) indisponível. 
 
 **Ação corretiva**:
-1.  Abra a URL do Sentinel (https://scihub.copernicus.eu/dhus/) no navegador e verifique se o site está acessível. 
-2.  Se o site não estiver acessível, verifique se alguma rede de firewall/empresa, etc. está bloqueando o site e execute as etapas necessárias para permitir a URL acima. 
+1.  Abra a URL do Sentinel (https://scihub.copernicus.eu/dhus/) no navegador e verifique se o site está acessível. 
+2.  Se o site não estiver acessível, verifique se alguma rede de firewall/empresa, etc. está bloqueando o site e execute as etapas necessárias para permitir a URL acima. 
 3.  Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5-7 dias e verifique se o trabalho foi bem-sucedido.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Servidor Sentinel inoperante para manutenção
 
-**Mensagem de falha do trabalho**: o Hub de acesso aberto do Copernicus será feito em breve! Lamentamos o inconveniente, estamos realizando alguma manutenção no momento. Vamos voltar online em breve! 
+**Mensagem de falha do trabalho**: o Hub de acesso aberto do Copernicus será feito em breve! Lamentamos o inconveniente, estamos realizando alguma manutenção no momento. Vamos voltar online em breve! 
 
 **Ação corretiva**:
 
-1.  Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo feita no servidor Sentinel. 
-2.  Se algum trabalho/pipeline falhar com o motivo acima, envie o trabalho novamente após algum tempo. 
-3.  O usuário pode visitar https://scihub.copernicus.eu/news/ para verificar informações sobre qualquer atividade de manutenção de sentinela planejada/não planejada.  
+1.  Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo feita no servidor Sentinel. 
+2.  Se algum trabalho/pipeline falhar com o motivo acima, envie o trabalho novamente após algum tempo. 
+3.  O usuário pode visitar https://scihub.copernicus.eu/news/ para verificar informações sobre qualquer atividade de manutenção de sentinela planejada/não planejada.  
 4.  Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5-7 dias e verifique se o trabalho foi bem-sucedido.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>O número máximo de conexões do sentinela foi atingido
 
-**Mensagem de falha de trabalho**: número máximo de dois fluxos simultâneos obtidos pelo usuário "<username>" 
+**Mensagem de falha de trabalho**: número máximo de dois fluxos simultâneos obtidos pelo usuário "<username>" 
 
 **Ação corretiva**
-1.  Se algum trabalho falhar com o motivo acima, a mesma conta do Sentinel está sendo usada em outra implantação/software. 
+1.  Se algum trabalho falhar com o motivo acima, a mesma conta do Sentinel está sendo usada em outra implantação/software. 
 2.  O usuário pode criar uma nova conta do Sentinel e executar novamente o instalador para atualizar o Hub de dados com novo nome de usuário e senha do Sentinel.  
 3.  Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para o intervalo de datas de 5-7 dias e verifique se o trabalho foi bem-sucedido.
 
-### <a name="sentinel-server-refused-connection"></a>Conexão recusada pelo servidor Sentinel 
+### <a name="sentinel-server-refused-connection"></a>Conexão recusada pelo servidor Sentinel 
 
 **Mensagem de falha de trabalho**:
 
-O servidor recusou a conexão em: http://172.30.175.69:8983/solr/dhus 
+O servidor recusou a conexão em: http://172.30.175.69:8983/solr/dhus 
 
-**Ação corretiva**: esse problema pode ocorrer se alguma atividade de manutenção estiver sendo feita no servidor Sentinel. 
-1.  Se algum trabalho/pipeline falhar com o motivo acima, envie o trabalho novamente após algum tempo. 
-2.  O usuário pode visitar https://scihub.copernicus.eu/news/ para verificar informações sobre qualquer atividade de manutenção de sentinela planejada/não planejada.  
+**Ação corretiva**: esse problema pode ocorrer se alguma atividade de manutenção estiver sendo feita no servidor Sentinel. 
+1.  Se algum trabalho/pipeline falhar com o motivo acima, envie o trabalho novamente após algum tempo. 
+2.  O usuário pode visitar https://scihub.copernicus.eu/news/ para verificar informações sobre qualquer atividade de manutenção de sentinela planejada/não planejada.  
 3.  Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para o intervalo de datas de 5-7 dias e verifique se o trabalho foi bem-sucedido.
 
 
@@ -281,11 +281,11 @@ No painel do grupo de recursos, procure a conta de armazenamento (datahublogs...
 
 ## <a name="high-cpu-usage"></a>Elevada utilização da CPU
 
-**Erro**: você recebe um alerta de email referindo-se ao alto alerta de uso da CPU. 
+**Erro**: você recebe um alerta de email referindo-se ao alto alerta de uso da CPU. 
 
-**Ação corretiva**: 
+**Ação corretiva**: 
 1.  Vá para o grupo de recursos do hub de dados do FarmBeats.
-2.  Selecione o serviço de aplicativo.  
+2.  Selecione o serviço de aplicativo.  
 3.  Vá para escalar verticalmente (plano do serviço de aplicativo) e selecione um [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/windows/) apropriado
 
 ## <a name="next-steps"></a>Passos seguintes

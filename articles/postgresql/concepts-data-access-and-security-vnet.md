@@ -1,17 +1,17 @@
 ---
-title: Visão geral do ponto de extremidade dos serviços de rede virtual (VNet) no banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba como os pontos de extremidade de serviço de rede virtual (VNet) funcionam para o banco de dados do Azure para PostgreSQL-servidor único.
-author: bolzmj
-ms.author: mbolz
+title: Regras de rede virtual-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como usar pontos de extremidade de serviço de rede virtual (vnet) para se conectar ao banco de dados do Azure para PostgreSQL-servidor único.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609986"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768661"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usar pontos de extremidade de serviço de rede virtual e regras para o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -31,7 +31,7 @@ Para criar uma regra de rede virtual, primeiro deve haver uma VNet ( [rede virtu
 
 **Rede virtual:** Você pode ter redes virtuais associadas à sua assinatura do Azure.
 
-**Redes** Uma rede virtual contém **sub-redes**. Todas as VMs (máquinas virtuais) do Azure que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Os nós de computação que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure sua segurança para permitir o acesso.
+**Sub-rede:** Uma rede virtual contém **sub-redes**. Todas as VMs (máquinas virtuais) do Azure que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computação. Os nós de computação que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure sua segurança para permitir o acesso.
 
 **Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Neste artigo, estamos interessados no nome do tipo do **Microsoft. SQL**, que se refere ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também se aplica aos serviços de banco de dados do Azure para PostgreSQL e MySQL. É importante observar ao aplicar a marca de serviço **Microsoft. SQL** a um ponto de extremidade de serviço de VNet. ele configurará o tráfego do ponto de extremidade de serviço para todos os servidores do banco de dados SQL do Azure, banco de dados do Azure para PostgreSQL e banco de dados do Azure para MySQL 
 
@@ -89,8 +89,8 @@ Cada regra de rede virtual se aplica a todo o banco de dados do Azure para servi
 
 Há uma separação de funções de segurança na administração de pontos de extremidade de serviço de rede virtual. A ação é necessária de cada uma das seguintes funções:
 
-- **Administrador de rede:** &nbsp;Ative o ponto de extremidade.
-- **Administrador do banco de dados:** &nbsp;Atualize a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao banco de dados do Azure para o servidor PostgreSQL.
+- **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
+- **Administrador de banco de dados:** &nbsp; atualizar a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao banco de dados do Azure para o servidor PostgreSQL.
 
 *Alternativa de RBAC:*
 
@@ -116,9 +116,9 @@ Para o banco de dados do Azure para PostgreSQL, o recurso de regras de rede virt
 
 - As regras de rede virtual se aplicam somente a redes virtuais Azure Resource Manager; e não para redes de [modelo de implantação clássica][arm-deployment-model-568f] .
 
-- A ativação de pontos de extremidade de serviço de rede virtual para o banco de dados do Azure para PostgreSQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: Banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do Azure e Azure SQL Data Warehouse.
+- Ativar pontos de extremidade de serviço de rede virtual no banco de dados do Azure para PostgreSQL usando a marca de serviço **Microsoft. SQL** também habilita os pontos de extremidade para todos os serviços de banco de dados do Azure: banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados SQL do azure e SQL data warehouse do Azure.
 
-- Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
+- O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
     - [VPN (rede virtual privada) site a site (S2S)][vpn-gateway-indexmd-608y]
@@ -132,7 +132,7 @@ Para permitir a comunicação do seu circuito com o banco de dados do Azure para
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de firewall de VNET ao seu servidor sem ativar os pontos de extremidade de serviço de VNET
 
-Simplesmente definir uma regra de firewall não ajuda a proteger o servidor para a VNet. Você também deve ativar os pontos de extremidade de serviço da **VNet para que** a segurança entre em vigor. Quando você ativa os pontos de extremidade **de**serviço, sua sub-rede VNet experimenta o tempo de inatividade até que conclua a transição de **desativado** para **ativado**. Isso é especialmente verdadeiro no contexto de grandes VNets. Você pode usar o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
+Simplesmente definir uma regra de firewall não ajuda a proteger o servidor para a VNet. Você também deve ativar os pontos de **extremidade de serviço da VNet para que** a segurança entre em vigor. Quando você ativa os pontos de extremidade **de**serviço, sua sub-rede VNet experimenta o tempo de inatividade até que conclua a transição de **desativado** para **ativado**. Isso é especialmente verdadeiro no contexto de grandes VNets. Você pode usar o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
 Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando o CLI do Azure ou o Portal.
 
@@ -140,7 +140,7 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando o CLI d
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter artigos sobre a criação de regras de VNet, consulte:
 - [Criar e gerenciar regras de VNet do banco de dados do Azure para PostgreSQL usando o portal do Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerenciar regras de VNet do banco de dados do Azure para PostgreSQL usando o CLI do Azure](howto-manage-vnet-using-cli.md)

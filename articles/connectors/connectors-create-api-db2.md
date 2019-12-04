@@ -1,21 +1,18 @@
 ---
-title: Conectar-se ao IBM DB2 – aplicativos lógicos do Azure
+title: Conectar-se ao IBM DB2
 description: Gerenciar recursos com APIs REST do IBM DB2 e aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a7079115b381d094cec77f96015342b5bc568c27
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051030"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789900"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerenciar recursos do IBM DB2 com aplicativos lógicos do Azure
 
@@ -29,10 +26,10 @@ O conector do DB2 inclui um cliente da Microsoft que se comunica com servidores 
 
 O conector IBM DB2 dá suporte a essas plataformas e versões do IBM DB2, juntamente com os produtos compatíveis com IBM DB2 que dão suporte à DRDA (Distributed Relacionative Database Architecture) versões 10 e 11:
 
-| Plataforma | Version | 
+| Plataforma | Versão | 
 |----------|---------|
-| IBM DB2 para z/OS | 11.1, 10.1 |
-| IBM DB2 para i | 7.3, 7.2, 7.1 |
+| IBM DB2 para z/OS | 11,1, 10,1 |
+| IBM DB2 para i | 7,3, 7,2, 7,1 |
 | IBM DB2 para LUW | 11, 10,5 |
 |||
 
@@ -47,7 +44,7 @@ O conector IBM DB2 dá suporte a essas operações de banco de dados, que são m
 | Ler todas as linhas usando SELECT | Obter linhas |
 | Adicionar uma linha usando INSERT | Inserir linha |
 | Editar uma linha usando atualizar | Atualizar linha |
-| Remover uma linha usando DELETE | Eliminar linha |
+| Remover uma linha usando DELETE | Excluir linha |
 |||
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,8 +55,8 @@ O conector IBM DB2 dá suporte a essas operações de banco de dados, que são m
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar o banco de dados DB2. Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, selecione um gatilho separado, por exemplo, o gatilho de recorrência.
-Os exemplos neste artigo usam o gatilho de recorrência.
+* O aplicativo lógico no qual você deseja acessar o banco de dados DB2. Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, selecione um gatilho separado, por exemplo, o gatilho de **recorrência** .
+Os exemplos neste artigo usam o gatilho de **recorrência** .
 
 <a name="add-db2-action"></a>
 
@@ -69,7 +66,7 @@ Os exemplos neste artigo usam o gatilho de recorrência.
 
 1. No gatilho, escolha **nova etapa**.
 
-1. Na caixa de pesquisa, digite "DB2" como filtro. Para este exemplo, na lista ações, selecione esta ação: **Obter tabelas (visualização)**
+1. Na caixa de pesquisa, digite "DB2" como filtro. Para este exemplo, na lista ações, selecione esta ação: **obter tabelas (versão prévia)**
 
    ![Selecionar ação](./media/connectors-create-api-db2/select-db2-action.png)
 
@@ -83,13 +80,13 @@ Os exemplos neste artigo usam o gatilho de recorrência.
 
 Para configurar sua conexão, forneça esses detalhes de conexão quando solicitado, escolha **criar**e, em seguida, salve seu aplicativo lógico:
 
-| Propriedade | Requerido | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
 | **Conectar por meio do gateway local** | Não | Aplica-se somente a conexões locais. |
 | **Nome da Ligação** | Sim | O nome da conexão, por exemplo, "MyLogicApp-DB2-Connection" |
-| **servidor** | Sim | O número da porta de dois-pontos de endereço ou alias para o servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
-| **Base de Dados** | Sim | O nome do seu banco de dados <p><p>**Nota**: Esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>-O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes em que o banco de dados é conhecido como um "IBM DB2 para z/OS". <br>-DB2 para eu aceito uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
-| **Nome de Utilizador** | Sim | Seu nome de usuário para o banco de dados <p><p>**Nota**: Esse valor é uma cadeia de caracteres cujo comprimento é baseado no banco de dados específico: <p><p>-O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para eu aceito uma cadeia de caracteres de 10 bytes. <br>-O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
+| **Servidor** | Sim | O número da porta de dois-pontos de endereço ou alias para o servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
+| **Base de Dados** | Sim | O nome do seu banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>-O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes em que o banco de dados é conhecido como um "IBM DB2 para z/OS". <br>-DB2 para eu aceito uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
+| **Nome de Utilizador** | Sim | Seu nome de usuário para o banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres cujo comprimento é baseado no banco de dados específico: <p><p>-O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para eu aceito uma cadeia de caracteres de 10 bytes. <br>-O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
 | **Palavra-passe** | Sim | Sua senha para o banco de dados |
 ||||
 
@@ -103,16 +100,16 @@ Por exemplo:
 
 Antes de criar sua conexão, você já deve ter seu gateway de dados local instalado. Caso contrário, não será possível concluir a configuração da conexão. Se você tiver a instalação do gateway, continue fornecendo esses detalhes de conexão e, em seguida, escolha **criar**.
 
-| Propriedade | Requerido | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
 | **Conectar por meio do gateway local** | Sim | Aplica-se quando você deseja uma conexão local e mostra as propriedades de conexão local. |
 | **Nome da Ligação** | Sim | O nome da conexão, por exemplo, "MyLogicApp-DB2-Connection" | 
-| **servidor** | Sim | O número da porta de dois-pontos de endereço ou alias para o servidor DB2, por exemplo, "myDB2server: 50000" <p><p>**Nota**: Esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
-| **Base de Dados** | Sim | O nome do seu banco de dados <p><p>**Nota**: Esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>-O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes em que o banco de dados é conhecido como um "IBM DB2 para z/OS". <br>-DB2 para eu aceito uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
-| **Autenticação** | Sim | O tipo de autenticação para sua conexão, por exemplo, "básico" <p><p>**Nota**: Selecione esse valor na lista, que inclui Basic ou Windows (Kerberos). |
-| **Nome de Utilizador** | Sim | Seu nome de usuário para o banco de dados <p><p>**Nota**: Esse valor é uma cadeia de caracteres cujo comprimento é baseado no banco de dados específico: <p><p>-O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para eu aceito uma cadeia de caracteres de 10 bytes. <br>-O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
+| **Servidor** | Sim | O número da porta de dois-pontos de endereço ou alias para o servidor DB2, por exemplo, "myDB2server: 50000" <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um endereço TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP. |
+| **Base de Dados** | Sim | O nome do seu banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres que representa um nome de banco de dados relacional DRDA (RDBNAM): <p>-O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes em que o banco de dados é conhecido como um "IBM DB2 para z/OS". <br>-DB2 para eu aceito uma cadeia de caracteres de 18 bytes em que o banco de dados é conhecido como um banco de dados relacional "IBM DB2 para i". <br>– O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
+| **Autenticação** | Sim | O tipo de autenticação para sua conexão, por exemplo, "básico" <p><p>**Observação**: selecione esse valor na lista, que inclui Basic ou Windows (Kerberos). |
+| **Nome de Utilizador** | Sim | Seu nome de usuário para o banco de dados <p><p>**Observação**: esse valor é uma cadeia de caracteres cujo comprimento é baseado no banco de dados específico: <p><p>-O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para eu aceito uma cadeia de caracteres de 10 bytes. <br>-O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>– O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
 | **Palavra-passe** | Sim | Sua senha para o banco de dados |
-| **Gateway** | Sim | O nome do gateway de dados local instalado <p><p>**Nota**: Selecione esse valor na lista, que inclui todos os gateways de dados instalados em sua assinatura e grupo de recursos do Azure. |
+| **Gateway** | Sim | O nome do gateway de dados local instalado <p><p>**Observação**: selecione esse valor na lista, que inclui todos os gateways de dados instalados em sua assinatura e grupo de recursos do Azure. |
 ||||
 
 Por exemplo:
@@ -125,7 +122,7 @@ Para executar o aplicativo lógico manualmente, na barra de ferramentas do desig
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. Em **Resumo**, na seção **histórico** de execuções, selecione a execução mais recente, que é o primeiro item na lista.
+1. Em **Resumo**, na seção **histórico de execuções** , selecione a execução mais recente, que é o primeiro item na lista.
 
    ![Ver o histórico de execuções](./media/connectors-create-api-db2/run-history.png)
 
@@ -144,7 +141,7 @@ Expanda a ação **obter tabelas** .
 
 ## <a name="get-row"></a>Obter linha
 
-Para buscar um registro em uma tabela de banco de dados DB2, use a ação **obter linha** em seu aplicativo lógico. Essa ação executa uma instrução `SELECT WHERE` DB2, por exemplo, `SELECT FROM AREA WHERE AREAID = '99999'`.
+Para buscar um registro em uma tabela de banco de dados DB2, use a ação **obter linha** em seu aplicativo lógico. Essa ação executa uma instrução de `SELECT WHERE` do DB2, por exemplo, `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 1. Se você nunca usou as ações do DB2 antes em seu aplicativo lógico, examine as etapas na seção [Adicionar a ação do DB2 – obter tabelas](#add-db2-action) , mas adicione a ação **obter linha** e, em seguida, retorne aqui para continuar.
 
@@ -154,13 +151,13 @@ Para buscar um registro em uma tabela de banco de dados DB2, use a ação **obte
 
 1. Especifique valores para todas as propriedades necessárias (*). Depois de selecionar uma tabela, a ação mostra as propriedades relevantes que são específicas para os registros nessa tabela.
 
-   | Propriedade | Requerido | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela que tem o registro desejado, como "área" neste exemplo |
    | **ID da área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
    ||||
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -170,7 +167,7 @@ Para executar o aplicativo lógico manualmente, na barra de ferramentas do desig
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. Em **Resumo**, na seção **histórico** de execuções, selecione a execução mais recente, que é o primeiro item na lista.
+1. Em **Resumo**, na seção **histórico de execuções** , selecione a execução mais recente, que é o primeiro item na lista.
 
 1. Em **execução do aplicativo lógico**, agora você pode examinar o status, as entradas e as saídas de cada etapa em seu aplicativo lógico.
 Expanda a ação **obter linha** .
@@ -185,7 +182,7 @@ Expanda a ação **obter linha** .
 
 ## <a name="get-rows"></a>Obter linhas
 
-Para buscar todos os registros em uma tabela de banco de dados DB2, use a ação **obter linhas** em seu aplicativo lógico. Essa ação executa uma instrução `SELECT` DB2, por exemplo, `SELECT * FROM AREA`.
+Para buscar todos os registros em uma tabela de banco de dados DB2, use a ação **obter linhas** em seu aplicativo lógico. Essa ação executa uma instrução de `SELECT` do DB2, por exemplo, `SELECT * FROM AREA`.
 
 1. Se você nunca usou as ações do DB2 antes em seu aplicativo lógico, examine as etapas na seção [Adicionar a ação do DB2 – obter tabelas](#add-db2-action) , mas adicione a ação **obter linhas** em vez disso e, em seguida, retorne aqui para continuar.
 
@@ -195,7 +192,7 @@ Para buscar todos os registros em uma tabela de banco de dados DB2, use a ação
 
 1. Abra a lista **nome da tabela** e, em seguida, selecione a tabela desejada, que é "área" neste exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![selecionar tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Para especificar um filtro ou uma consulta de resultados, escolha **Mostrar opções avançadas**.
 
@@ -207,7 +204,7 @@ Para executar o aplicativo lógico manualmente, na barra de ferramentas do desig
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. Em **Resumo**, na seção **histórico** de execuções, selecione a execução mais recente, que é o primeiro item na lista.
+1. Em **Resumo**, na seção **histórico de execuções** , selecione a execução mais recente, que é o primeiro item na lista.
 
 1. Em **execução do aplicativo lógico**, agora você pode examinar o status, as entradas e as saídas de cada etapa em seu aplicativo lógico.
 Expanda a ação **obter linhas** .
@@ -222,7 +219,7 @@ Expanda a ação **obter linhas** .
 
 ## <a name="insert-row"></a>Inserir linha
 
-Para adicionar um único registro a uma tabela de banco de dados DB2, use a ação **Inserir linha** em seu aplicativo lógico. Essa ação executa uma instrução `INSERT` DB2, por exemplo, `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+Para adicionar um único registro a uma tabela de banco de dados DB2, use a ação **Inserir linha** em seu aplicativo lógico. Essa ação executa uma instrução de `INSERT` do DB2, por exemplo, `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 1. Se você nunca usou as ações do DB2 antes em seu aplicativo lógico, examine as etapas na seção [Adicionar a ação do DB2 – obter tabelas](#add-db2-action) , mas adicione a ação **Inserir linha** e, em seguida, retorne aqui para continuar.
 
@@ -234,7 +231,7 @@ Para adicionar um único registro a uma tabela de banco de dados DB2, use a aç�
 
    Para este exemplo, aqui estão as propriedades:
 
-   | Propriedade | Requerido | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela onde adicionar o registro, como "área" |
    | **ID da área** | Sim | A ID da área a ser adicionada, como "99999" |
@@ -244,7 +241,7 @@ Para adicionar um único registro a uma tabela de banco de dados DB2, use a aç�
 
    Por exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![selecionar tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -254,7 +251,7 @@ Para executar o aplicativo lógico manualmente, na barra de ferramentas do desig
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. Em **Resumo**, na seção **histórico** de execuções, selecione a execução mais recente, que é o primeiro item na lista.
+1. Em **Resumo**, na seção **histórico de execuções** , selecione a execução mais recente, que é o primeiro item na lista.
 
 1. Em **execução do aplicativo lógico**, agora você pode examinar o status, as entradas e as saídas de cada etapa em seu aplicativo lógico.
 Expanda a ação **Inserir linha** .
@@ -269,7 +266,7 @@ Expanda a ação **Inserir linha** .
 
 ## <a name="update-row"></a>Atualizar linha
 
-Para atualizar um único registro em uma tabela de banco de dados DB2, use a ação **Atualizar linha** em seu aplicativo lógico. Essa ação executa uma instrução `UPDATE` DB2, por exemplo, `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
+Para atualizar um único registro em uma tabela de banco de dados DB2, use a ação **Atualizar linha** em seu aplicativo lógico. Essa ação executa uma instrução de `UPDATE` do DB2, por exemplo, `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
 
 1. Se você nunca usou as ações do DB2 antes em seu aplicativo lógico, examine as etapas na seção [Adicionar a ação do DB2 – obter tabelas](#add-db2-action) , mas adicione a ação **Atualizar linha** e, em seguida, retorne aqui para continuar.
 
@@ -281,7 +278,7 @@ Para atualizar um único registro em uma tabela de banco de dados DB2, use a aç
 
    Para este exemplo, aqui estão as propriedades:
 
-   | Propriedade | Requerido | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela onde atualizar o registro, como "área" |
    | **ID da linha** | Sim | A ID do registro a ser atualizado, como "99999" |
@@ -292,7 +289,7 @@ Para atualizar um único registro em uma tabela de banco de dados DB2, use a aç
 
    Por exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![selecionar tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -302,7 +299,7 @@ Para executar o aplicativo lógico manualmente, na barra de ferramentas do desig
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. Em **Resumo**, na seção **histórico** de execuções, selecione a execução mais recente, que é o primeiro item na lista.
+1. Em **Resumo**, na seção **histórico de execuções** , selecione a execução mais recente, que é o primeiro item na lista.
 
 1. Em **execução do aplicativo lógico**, agora você pode examinar o status, as entradas e as saídas de cada etapa em seu aplicativo lógico.
 Expanda a ação **Atualizar linha** .
@@ -315,9 +312,9 @@ Expanda a ação **Atualizar linha** .
 
    ![Exibir saída com a linha atualizada](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
 
-## <a name="delete-row"></a>Eliminar linha
+## <a name="delete-row"></a>Excluir linha
 
-Para excluir um único registro de uma tabela de banco de dados DB2, use a ação **Excluir linha** em seu aplicativo lógico. Essa ação executa uma instrução `DELETE` DB2, por exemplo, `DELETE FROM AREA WHERE AREAID = '99999'`.
+Para excluir um único registro de uma tabela de banco de dados DB2, use a ação **Excluir linha** em seu aplicativo lógico. Essa ação executa uma instrução de `DELETE` do DB2, por exemplo, `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 1. Se você nunca usou as ações do DB2 antes em seu aplicativo lógico, examine as etapas na seção [Adicionar a ação do DB2 – obter tabelas](#add-db2-action) , mas adicione a ação **Excluir linha** e, em seguida, retorne aqui para continuar.
 
@@ -329,7 +326,7 @@ Para excluir um único registro de uma tabela de banco de dados DB2, use a açã
 
    Para este exemplo, aqui estão as propriedades:
 
-   | Propriedade | Requerido | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da tabela** | Sim | A tabela onde excluir o registro, como "área" |
    | **ID da linha** | Sim | A ID do registro a ser excluído, como "99999" |
@@ -337,7 +334,7 @@ Para excluir um único registro de uma tabela de banco de dados DB2, use a açã
 
    Por exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![selecionar tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -347,7 +344,7 @@ Para executar o aplicativo lógico manualmente, na barra de ferramentas do desig
 
 1. No menu do aplicativo lógico, selecione **visão geral**.
 
-1. Em **Resumo**, na seção **histórico** de execuções, selecione a execução mais recente, que é o primeiro item na lista.
+1. Em **Resumo**, na seção **histórico de execuções** , selecione a execução mais recente, que é o primeiro item na lista.
 
 1. Em **execução do aplicativo lógico**, agora você pode examinar o status, as entradas e as saídas de cada etapa em seu aplicativo lógico.
 Expanda a ação **Excluir linha** .
@@ -364,6 +361,6 @@ Expanda a ação **Excluir linha** .
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/db2/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

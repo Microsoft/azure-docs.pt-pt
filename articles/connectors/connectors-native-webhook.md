@@ -1,21 +1,18 @@
 ---
-title: Aguardar e responder a eventos-aplicativos lógicos do Azure
+title: Aguardar e responder a eventos
 description: Automatizar fluxos de trabalho que disparam, pausam e retomam com base em eventos em um ponto de extremidade de serviço usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804259"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787051"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho baseados em eventos automatizados usando WebHooks HTTP em aplicativos lógicos do Azure
 
@@ -83,7 +80,7 @@ Esse gatilho interno registra uma URL de retorno de chamada com o serviço espec
 
    Salvar o aplicativo lógico chama o ponto de extremidade de assinatura e registra a URL de retorno de chamada para disparar esse aplicativo lógico.
 
-1. Agora, sempre que o serviço de destino envia uma solicitação `HTTP POST` para a URL de retorno de chamada, o aplicativo lógico é acionado e inclui todos os dados que são transmitidos pela solicitação.
+1. Agora, sempre que o serviço de destino envia uma solicitação de `HTTP POST` para a URL de retorno de chamada, o aplicativo lógico é acionado e inclui todos os dados que são transmitidos pela solicitação.
 
 ## <a name="add-an-http-webhook-action"></a>Adicionar uma ação de webhook HTTP
 
@@ -107,7 +104,7 @@ Essa ação interna registra uma URL de retorno de chamada com o serviço especi
 
    ![Inserir parâmetros de ação de webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-   Durante o tempo de execução, o aplicativo lógico chama o ponto de extremidade de assinatura ao executar esta ação. Em seguida, seu aplicativo lógico pausa o fluxo de trabalho e aguarda o serviço de destino enviar uma solicitação `HTTP POST` para a URL de retorno de chamada. Se a ação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico retomará a execução do fluxo de trabalho.
+   Durante o tempo de execução, o aplicativo lógico chama o ponto de extremidade de assinatura ao executar esta ação. Em seguida, seu aplicativo lógico pausa o fluxo de trabalho e aguarda o serviço de destino enviar uma solicitação de `HTTP POST` para a URL de retorno de chamada. Se a ação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico retomará a execução do fluxo de trabalho.
 
 1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
 

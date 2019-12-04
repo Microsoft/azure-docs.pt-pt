@@ -1,20 +1,19 @@
 ---
-title: Converter dados JSON com transformações Liquid-aplicativos lógicos do Azure | Microsoft Docs
+title: Converter dados JSON com transformações Liquid
 description: Criar transformações ou mapas para transformações avançadas de JSON usando aplicativos lógicos e o modelo líquido
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900665"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792506"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Executar transformações JSON avançadas com modelos líquidos nos aplicativos lógicos do Azure
 
@@ -68,11 +67,11 @@ Antes de executar uma transformação Liquid em seu aplicativo lógico, você de
 
 4. Escolha **Adicionar** e forneça estes detalhes para o mapa:
 
-   | Propriedade | Value | Descrição | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
-   | **Name** | JsonToJsonTemplate | O nome do mapa, que é "JsonToJsonTemplate" neste exemplo | 
-   | **Tipo de mapa** | **liquid** | O tipo do mapa. Para transformação JSON para JSON, você deve selecionar **Liquid**. | 
-   | **Mapeada** | "SimpleJsonToJsonTemplate.liquid" | Um modelo Liquid ou um arquivo de mapa existente a ser usado para transformação, que é "SimpleJsonToJsonTemplate. Liquid" neste exemplo. Para localizar esse arquivo, você pode usar o seletor de arquivos. |
+   | **Nome** | JsonToJsonTemplate | O nome do mapa, que é "JsonToJsonTemplate" neste exemplo | 
+   | **Tipo de mapa** | **liquidez** | O tipo do mapa. Para transformação JSON para JSON, você deve selecionar **Liquid**. | 
+   | **Mapeada** | "SimpleJsonToJsonTemplate. Liquid" | Um modelo Liquid ou um arquivo de mapa existente a ser usado para transformação, que é "SimpleJsonToJsonTemplate. Liquid" neste exemplo. Para localizar esse arquivo, você pode usar o seletor de arquivos. |
    ||| 
 
    ![Adicionar modelo Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
@@ -84,7 +83,7 @@ Antes de executar uma transformação Liquid em seu aplicativo lógico, você de
 2. No designer de aplicativo lógico, adicione o [gatilho de solicitação](../connectors/connectors-native-reqres.md#add-request) ao seu aplicativo lógico.
 
 3. No gatilho, escolha **nova etapa**. 
-   Na caixa de pesquisa, digite "Liquid" como filtro e selecione esta ação: **Transformar JSON em JSON-Liquid**
+   Na caixa de pesquisa, digite "Liquid" como filtro e selecione esta ação: **transformar JSON em JSON-Liquid**
 
    ![Localizar e Selecionar ação líquida](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -150,8 +149,8 @@ Liquid não está limitado a apenas transformações JSON. Aqui estão outras a�
 
    ![Exemplo de saída de XML para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o Enterprise Integration Pack] (../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-* [Saiba mais sobre mapas] (../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas de integração corporativa")  
+* [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
+* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas de integração corporativa")  
 

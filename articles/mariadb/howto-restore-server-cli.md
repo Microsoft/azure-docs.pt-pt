@@ -1,18 +1,18 @@
 ---
-title: Como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB
+title: Backup e restauração-CLI do Azure-banco de dados do Azure para MariaDB
 description: Saiba como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando o CLI do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965229"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765856"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando o CLI do Azure
 
@@ -117,7 +117,7 @@ O comando `az mariadb server georestore` requer os seguintes parâmetros:
 |nome | mydemoserver-georestaurado | O nome do novo servidor. |
 |source-server | mydemoserver | O nome do servidor existente cujos backups com redundância geográfica são usados. |
 |localização | eastus | O local do novo servidor. |
-|nome de SKU| GP_Gen5_8 | Esse parâmetro define o tipo de preço, a geração de computação e o número de vCores do novo servidor. O GP_Gen5_8 é mapeado para um servidor Uso Geral, Gen 5 com 8 vCores.|
+|nome de SKU| GP_Gen5_8 | Esse parâmetro define o tipo de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen5_8 mapeia para um servidor Uso Geral, Gen 5 com 8 vCores.|
 
 Ao criar um novo servidor por uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço que o servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser escalado verticalmente.
 

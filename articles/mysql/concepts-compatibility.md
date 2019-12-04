@@ -1,17 +1,17 @@
 ---
-title: Compatibilidade de drivers do banco de dados do Azure para MySQL e ferramentas de gerenciamento
+title: Compatibilidade de drivers e ferramentas-banco de dados do Azure para MySQL
 description: Este artigo descreve os drivers do MySQL e as ferramentas de gerenciamento que são compatíveis com o banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.openlocfilehash: 916c02c30f6d54aef44459775a7a437fe96a4ff9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/02/2019
+ms.openlocfilehash: 83c1463beec47ed3535811de822348cc7706f757
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720135"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765346"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e ferramentas de gerenciamento compatíveis com o banco de dados do Azure para MySQL
 Este artigo descreve os drivers e as ferramentas de gerenciamento que são compatíveis com o banco de dados do Azure para MySQL.
@@ -36,7 +36,7 @@ O banco de dados do Azure para MySQL usa a Community Edition mais popular do ban
 | C++ | Conector do MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 e abaixo | | 
 | C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
 | Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
-| R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
+| R. | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
 | Swift | MySQL-Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
 | Swift | vapor/MySQL | https://github.com/vapor/mysql-kit | 2.0.1 + | | |
 
@@ -50,7 +50,7 @@ A vantagem de compatibilidade também se estende às ferramentas de gerenciament
 | Preenchimento automático de consulta SQL | X | X |  |
 | Importar e exportar dados | X | X | X | 
 | Exportar para vários formatos | X | X | X |
-| Cópia de Segurança e Restauro |  | X |  |
+| Backup e Restauro |  | X |  |
 | Exibir parâmetros do servidor | X | X | X |
 | Exibir conexões de cliente | X | X | X |
 

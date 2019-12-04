@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452941"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766366"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 (versão prévia)
 
@@ -56,22 +56,22 @@ Os dispositivos ingressados no Azure AD com os quais você fará o piloto devem 
 As organizações podem optar por usar um ou mais dos métodos a seguir para habilitar o uso de chaves de segurança para entrada do Windows com base nos requisitos de sua organização.
 
 - [Habilitar com o Intune](#enable-with-intune)
-   - [Implantação do Intune de destino](#targeted-intune-deployment)
+- [Implantação do Intune de destino](#targeted-intune-deployment)
 - [Habilitar com um pacote de provisionamento](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>Habilitar com o Intune
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até **Microsoft Intune** > **registro de dispositivo** > **registro do Windows** > **Propriedades** **do Windows Hello para empresas** > .
 1. Em **configurações** , defina **usar chaves de segurança para entrar** como **habilitado**.
 
 A configuração de chaves de segurança para entrada não depende da configuração do Windows Hello para empresas.
 
-#### <a name="targeted-intune-deployment"></a>Implantação do Intune de destino
+### <a name="targeted-intune-deployment"></a>Implantação do Intune de destino
 
 Para direcionar grupos de dispositivos específicos para habilitar o provedor de credenciais, use as seguintes configurações personalizadas por meio do Intune.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até **Microsoft Intune** > **configuração do dispositivo** > **perfis** > **Criar perfil**.
 1. Configurar o novo perfil com as seguintes configurações
    1. Nome: chaves de segurança para entrar no Windows
@@ -80,7 +80,7 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
    1. Tipo de perfil: personalizado
    1. Configurações personalizadas de OMA-URI:
       1. Nome: ativar as chaves de segurança do FIDO para entrar no Windows
-      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. Tipo de dados: inteiro
       1. Valor: 1
 1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
@@ -155,7 +155,7 @@ Estamos trabalhando nessa funcionalidade para GA (disponibilidade geral) desse r
 
 Você pode remover chaves do portal do Azure, navegando até a página informações de segurança e removendo a chave de segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre o registro de dispositivo](../devices/overview.md)
 

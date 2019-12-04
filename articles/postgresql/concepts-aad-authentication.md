@@ -1,17 +1,17 @@
 ---
-title: Autenticação Azure Active Directory com o banco de dados do Azure para PostgreSQL-servidor único
+title: Autenticação Active Directory-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba mais sobre os conceitos de Azure Active Directory para autenticação com o banco de dados do Azure para PostgreSQL-servidor único
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 47637396581beeafb0748066cd6a66f011e8eaa1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518739"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769919"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usar Azure Active Directory para autenticação com PostgreSQL
 

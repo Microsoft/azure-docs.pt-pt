@@ -1,17 +1,17 @@
 ---
-title: Logs do servidor para o banco de dados do Azure para MariaDB
+title: Logs de consulta lentos-banco de dados do Azure para MariaDB
 description: Descreve os logs disponíveis no banco de dados do Azure para MariaDB e os parâmetros disponíveis para habilitar diferentes níveis de log.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 10dbd4d7fa838ee7f8a3f70b3caadb570877d685
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 12/02/2019
+ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259974"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772109"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
 No banco de dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. Não há suporte para o acesso ao log de transações. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -31,14 +31,14 @@ Os logs estão disponíveis por até sete dias a partir da criação. Se o taman
 Os logs são girados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
 
 ## <a name="configure-slow-query-logging"></a>Configurar o log de consultas lentas
-Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina slow_query_log como ON.
+Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina slow_query_log como ativado.
 
 Outros parâmetros que você pode ajustar incluem:
 
 - **long_query_time**: se uma consulta demorar mais do que long_query_time (em segundos) em que a consulta é registrada. O padrão é 10 segundos.
 - **log_slow_admin_statements**: se on inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas no slow_query_log.
 - **log_queries_not_using_indexes**: determina se as consultas que não usam índices são registradas no slow_query_log
-- **log_throttle_queries_not_using_indexes**: Esse parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando log_queries_not_using_indexes é definido como ON.
+- **log_throttle_queries_not_using_indexes**: esse parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando log_queries_not_using_indexes é definido como ON.
 
 Consulte a [documentação do log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/) do MariaDB para obter descrições completas dos parâmetros de log de consulta lenta.
 
@@ -54,7 +54,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 |---|---|
 | `TenantId` | Sua ID de locatário |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`HORÁRIO | Carimbo de data/hora quando o log foi gravado em UTC |
+| `TimeGenerated` [UTC] | Carimbo de data/hora quando o log foi gravado em UTC |
 | `Type` | Tipo do log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID da assinatura à qual o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos ao qual o servidor pertence |
@@ -65,7 +65,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t`HORÁRIO | Hora em que a consulta começou |
+| `start_time_t` [UTC] | Hora em que a consulta começou |
 | `query_time_s` | Tempo total que a consulta levou para ser executada |
 | `lock_time_s` | Tempo total de bloqueio da consulta |
 | `user_host_s` | Nome de utilizador |

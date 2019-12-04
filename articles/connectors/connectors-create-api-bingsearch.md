@@ -1,22 +1,18 @@
 ---
-title: Conectar-se a Pesquisa do Bing-aplicativos lógicos do Azure
+title: Conectar-se ao Pesquisa do Bing
 description: Encontre notícias com Pesquisa do Bing APIs REST e aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026779"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789961"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com Pesquisa do Bing e aplicativos lógicos do Azure
 
@@ -54,12 +50,12 @@ Ou, se sua conexão já existir, forneça as informações necessárias para o g
 
    Para este exemplo, forneça critérios para retornar artigos de notícias correspondentes de Pesquisa do Bing.
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Search Query | Sim | <*search-words*> | Insira as palavras-chave de pesquisa que você deseja usar. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
-   | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
-   | Contagem | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
+   | Consulta de pesquisa | Sim | <*Pesquisa-palavras*> | Insira as palavras-chave de pesquisa que você deseja usar. |
+   | Comercializar | Sim | > <*localidade* | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
+   | Pesquisa segura | Sim | > <*no nível de pesquisa* | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
+   | Contagem | Não | *resultados de <-contagem*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
    | Desvio | Não | > *de <de ignorar valor* | O número de resultados a serem ignorados antes de retornar os resultados |
    |||||
 
@@ -105,12 +101,12 @@ Na lista ações, selecione a ação desejada.
 
    Para este exemplo, forneça os critérios para retornar um subconjunto dos resultados do gatilho.
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Search Query | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. Você pode selecionar um dos campos na lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
-   | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
-   | Contagem | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
+   | Consulta de pesquisa | Sim | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. Você pode selecionar um dos campos na lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Comercializar | Sim | > <*localidade* | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
+   | Pesquisa segura | Sim | > <*no nível de pesquisa* | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
+   | Contagem | Não | *resultados de <-contagem*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
    | Desvio | Não | > *de <de ignorar valor* | O número de resultados a serem ignorados antes de retornar os resultados |
    |||||
 
@@ -152,11 +148,11 @@ Na lista ações, selecione a ação desejada.
 
 1. Quando as informações de conexão forem solicitadas, forneça estes detalhes:
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | Nome da Ligação | Sim | <*nome da conexão*> | O nome a ser criado para a conexão |
    | Versão da API | Sim | API <> *de versão* | Por padrão, a versão Pesquisa do Bing API é definida como a versão atual. Você pode selecionar uma versão anterior conforme necessário. |
-   | Chave de API | Sim | <*API-key*> | A chave de API Pesquisa do Bing que você obteve anteriormente. Se você não tiver uma chave, obtenha sua [chave de API agora mesmo](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Chave de API | Sim | <> *de chave de API* | A chave de API Pesquisa do Bing que você obteve anteriormente. Se você não tiver uma chave, obtenha sua [chave de API agora mesmo](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo:

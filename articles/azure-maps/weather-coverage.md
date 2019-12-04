@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0af2d306a5f5923f5e14eb0ebc4707f9c5caee90
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288571"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769035"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
 
@@ -202,7 +202,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Coreia                             | ✓ | ✓ |  ✓| 
 | Quirguizistão                        | ✓ |   |  ✓| 
 | Laos                              | ✓ |   |  ✓| 
-| RAE de Macau                         | ✓ |   |  ✓| 
+| Rae de Macau                         | ✓ |   |  ✓| 
 | Malásia                          | ✓ |   |  ✓| 
 | Maldivas                          | ✓ |   |  ✓| 
 | Ilhas Marshall                  | ✓ |   |  ✓| 
@@ -229,7 +229,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Taiwan                            | ✓ |   |  ✓| 
 | Tajiquistão                        | ✓ |   |  ✓| 
 | Tailândia                          | ✓ |   |  ✓| 
-| Timor-Leste                       | ✓ |   |  ✓| 
+| Timor-Timor Leste                       | ✓ |   |  ✓| 
 | Toquelau                           | ✓ |   |  ✓| 
 | Tonga                             | ✓ |   |  ✓| 
 | Turquemenistão                      | ✓ |   |  ✓| 
@@ -276,7 +276,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Listenstaine          | ✓ | ✓ |  ✓| 
 | Lituânia              | ✓ |   |  ✓| 
 | Luxemburgo             | ✓ | ✓ |  ✓| 
-| Macedónia do Norte        | ✓ |   |  ✓| 
+| Nordeste da Macedônia        | ✓ |   |  ✓| 
 | Malta                  | ✓ |   |  ✓| 
 | Moldova                | ✓ | ✓ |  ✓| 
 | Mónaco                 | ✓ | ✓ |  ✓| 

@@ -1,17 +1,17 @@
 ---
-title: Migrar um banco de dados usando importação e exportação no banco de dados do Azure para PostgreSQL-servidor único
+title: Migrar um banco de dados-banco de dados do Azure para PostgreSQL-servidor único
 description: Descreve como extrair um banco de dados PostgreSQL em um arquivo de script e importá-los para o banco de dado de destino desse arquivo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 0803f56312ca9b650987c2203c4271cff21df9f8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: f7cf5d245383b8a58f03e2e3610750866a2f4b5a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260366"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770208"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrar seu banco de dados PostgreSQL usando exportar e importar
 Você pode usar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extrair um banco de dados PostgreSQL em um arquivo de script e [psql](https://www.postgresql.org/docs/current/static/app-psql.html) para importar os dados para o banco de dado de destino desse arquivo.

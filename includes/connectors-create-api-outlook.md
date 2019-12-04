@@ -1,27 +1,27 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: e42292f7848eba0b4545b713f7bbc491f35fe4a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184513"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789376"
 ---
-1. Na caixa de pesquisa, introduza "outlook.com" como o filtro. Neste exemplo, selecione este acionador: **Quando chega um novo e-mail**
+1. Na caixa de pesquisa, digite "outlook.com" como filtro. Para este exemplo, selecione este gatilho: **quando um novo email chegar**
 
-   ![Localizar ações ou acionadores do Outlook.com](./media/connectors-create-api-outlook/select-outlook.png)
+   ![Localizar gatilhos ou ações do Outlook.com](./media/connectors-create-api-outlook/select-outlook.png)
 
-1. Depois de selecionar o acionador (ou a ação), lhe for pedido para iniciar sessão na sua conta do Outlook.com, se já não iniciar sessão. Escolher **iniciar sessão**.
+1. Depois de selecionar o gatilho (ou ação), você será solicitado a entrar em sua conta do Outlook.com, se você já não tiver entrado. Escolha **entrar**.
 
-   ![Inicie sessão sua conta do Outlook.com](./media/connectors-create-api-outlook/sign-in-outlook.png)  
+   ![Entre em sua conta do Outlook.com](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
-3. Selecione as credenciais da sua conta do Outlook.com.
+1. Selecione suas credenciais de conta do Outlook.com.
 
-   ![Selecione a conta de início de sessão](./media/connectors-create-api-outlook/outlook-sign-in.png)  
+   ![Selecionar conta de entrada](./media/connectors-create-api-outlook/outlook-sign-in.png)  
 
-   As suas credenciais são utilizadas para ligar e aceder aos dados da sua conta do Outlook.com.
-   Pode reutilizar esta ligação com qualquer outra aplicação de lógica na sua subscrição do Azure. 
+   Suas credenciais são usadas para conectar e acessar os dados da sua conta do Outlook.com.
+   Você pode reutilizar essa conexão com qualquer outro aplicativo lógico em sua assinatura do Azure. 

@@ -1,146 +1,145 @@
 ---
-title: Testar aplicações lógicas com dados fictícios - Azure Logic Apps
-description: Configurar resultados estáticos para aplicações lógicas com dados fictícios de teste sem afetar os ambientes de produção
+title: Testar aplicações lógicas com dados fictícios
+description: Configurar resultados estáticos para testar aplicativos lógicos com dados fictícios sem afetar os ambientes de produção
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597205"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790275"
 ---
-# <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicações lógicas com dados fictícios ao configurar resultados estáticos
+# <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicativos lógicos com dados fictícios Configurando resultados estáticos
 
-Ao testar as suas aplicações lógicas, poderá não estar preparado para realmente chamar ou aceder a aplicações, serviços e sistemas por vários motivos. Normalmente, nestes cenários, poderá ter de executar os caminhos de condição diferentes, forçar erros, fornecer corpos de resposta de mensagem específica ou até mesmo tentar ignorar alguns passos. Ao configurar resultados estáticos para uma ação na sua aplicação lógica, pode simular dados de saída da ação. Ativar os resultados estáticos de uma ação não executa a ação, mas devolve os dados fictícios em vez disso.
+Ao testar seus aplicativos lógicos, talvez você não esteja pronto para realmente chamar ou acessar aplicativos, serviços e sistemas por vários motivos. Geralmente nesses cenários, talvez seja necessário executar caminhos de condição diferentes, forçar erros, fornecer corpos de resposta de mensagem específicos ou até mesmo tentar ignorar algumas etapas. Ao configurar resultados estáticos para uma ação em seu aplicativo lógico, você pode simular dados de saída dessa ação. A habilitação de resultados estáticos em uma ação não executa a ação, mas retorna os dados fictícios.
 
-Por exemplo, se configurar resultados estáticos para o Outlook 365 enviar a ação de email, o motor do Logic Apps apenas retorna os dados fictícios que especificou como estáticos resultados, em vez de chamar o Outlook e enviar um e-mail.
+Por exemplo, se você configurar resultados estáticos para a ação enviar email do Outlook 365, o mecanismo de aplicativos lógicos retornará apenas os dados fictícios que você especificou como resultados estáticos, em vez de chamar o Outlook e enviar um email.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação de lógica onde pretende configurar resultados estáticos
+* O aplicativo lógico no qual você deseja configurar resultados estáticos
 
 <a name="set-up-static-results"></a>
 
 ## <a name="set-up-static-results"></a>Configurar resultados estáticos
 
-1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Designer de aplicações lógicas.
+1. Se você ainda não fez isso, na [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativos lógicos.
 
-1. Na ação onde pretende configurar resultados estáticos, siga estes passos: 
+1. Na ação em que você deseja configurar resultados estáticos, siga estas etapas: 
 
-   1. No canto superior direito da ação, selecione as reticências ( *...* ) e selecione **estático resultado**, por exemplo:
+   1. No canto superior direito da ação, escolha o botão de reticências ( *...* ) e selecione **resultado estático**, por exemplo:
 
-      ![Selecione "Resultado estático" > "Ativar estático resultado"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
+      ![Selecione "resultado estático" > "Habilitar resultado estático"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
-   1. Escolher **ativar o resultado estático**. Para obter as propriedades necessárias (*), especifique os valores de saída fictício que queira retornar para resposta a ação.
+   1. Escolha **habilitar resultado estático**. Para as propriedades obrigatórias (*), especifique os valores de saída fictícios que você deseja retornar para a resposta da ação.
 
-      Por exemplo, aqui estão as propriedades necessárias para a ação de HTTP:
+      Por exemplo, aqui estão as propriedades necessárias para a ação HTTP:
 
       | Propriedade | Descrição |
       |----------|-------------|
-      | **Estado** | Estado da ação a devolver |
-      | **Código de Estado** | O código de estado específicos para devolver |
-      | **Headers** (Cabeçalhos) | O conteúdo do cabeçalho para retornar |
+      | **Estado** | O status da ação a ser retornado |
+      | **Código de Estado** | O código de status específico a ser retornado |
+      | **Headers** (Cabeçalhos) | O conteúdo do cabeçalho a ser retornado |
       |||
 
-      ![Selecionar "Ativar o resultado estático"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
+      ![Selecione "Habilitar resultado estático"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      Para introduzir os dados fictícios no formato de JavaScript Object Notation (JSON), escolha **mudar para o modo de JSON** (![escolha "Comutador para modo JSON"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+      Para inserir os dados fictícios no formato JavaScript Object Notation (JSON), escolha **alternar para o modo JSON** (![escolha "alternar para o modo json"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
 
-   1. Para as propriedades opcionais, abra a **selecionar campos opcionais** listar e selecionar as propriedades que pretende simular.
+   1. Para propriedades opcionais, abra a lista **Selecionar campos opcionais** e selecione as propriedades que você deseja simular.
 
       ![Selecionar propriedades opcionais](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Quando estiver pronto para guardar, escolha **feito**.
+1. Quando estiver pronto para salvar, escolha **concluído**.
 
-   No canto no canto superior direito da ação, a barra de título mostra agora um ícone de beaker de teste (![ícone para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), que indica que ativou resultados estáticos.
+   No canto superior direito da ação, a barra de título agora mostra um ícone de Beaker de teste (ícone de![para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), que indica que você habilitou resultados estáticos.
 
-   ![Mostrar ícone ativada resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
+   ![Ícone mostrando os resultados estáticos habilitados](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   Para obter execuções anteriores que utilizam dados fictícios, consulte [encontrar execuções que utilizam resultados estáticos](#find-runs-mock-data) mais adiante neste tópico.
+   Para encontrar execuções anteriores que usam dados fictícios, consulte [Localizar execuções que usam resultados estáticos](#find-runs-mock-data) mais adiante neste tópico.
 
 <a name="reuse-sample-outputs"></a>
 
 ## <a name="reuse-previous-outputs"></a>Reutilizar saídas anteriores
 
-Se a sua aplicação lógica tiver anterior executar com saídas que pode reutilizar como saídas fictícios, pode copiar e colar as saídas do que executar.
+Se seu aplicativo lógico tiver uma execução anterior com saídas, você poderá reutilizar como saídas de simulação, poderá copiar e colar as saídas dessa execução.
 
-1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Designer de aplicações lógicas.
+1. Se você ainda não fez isso, na [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativos lógicos.
 
-1. No menu principal da sua aplicação lógica, selecione **descrição geral**.
+1. No menu principal do aplicativo lógico, selecione **visão geral**.
 
-1. Na **histórico de execuções** secção, selecione a aplicação de lógica executar mesmo.
+1. Na seção **histórico de execuções** , selecione a execução do aplicativo lógico que você deseja.
 
-1. Fluxo de trabalho da sua aplicação lógica, localize e expanda a ação que tem saídas que quer.
+1. No fluxo de trabalho do aplicativo lógico, localize e expanda a ação que tem as saídas que você deseja.
 
-1. Escolha o **Mostrar saídas em bruto** ligação.
+1. Escolha o link **Mostrar saídas brutas** .
 
-1. Copie o objeto JavaScript Object Notation (JSON) completo ou a subsecção específica que pretende utilizar, por exemplo, a secção de saídas ou até mesmo apenas a secção de cabeçalhos.
+1. Copie o objeto JavaScript Object Notation completo (JSON) ou a subseção específica que você deseja usar, por exemplo, a seção de saídas ou até apenas a seção de cabeçalhos.
 
-1. Siga os passos para abrir o **resultado estático** caixa para a sua ação no [configurar resultados estáticos](#set-up-static-results).
+1. Siga as etapas para abrir a caixa de **resultado estático** para sua ação em [Configurar resultados estáticos](#set-up-static-results).
 
-1. Depois do **resultado estático** caixa é aberto, escolha qualquer passo:
+1. Depois que a caixa de **resultado estático** for aberta, escolha uma das etapas:
 
-   * Para colar um objeto JSON completo, escolha **mudar para o modo de JSON** (![escolha "Comutador para modo JSON"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
+   * Para colar um objeto JSON completo, escolha **alternar para o modo JSON** (![escolha "alternar para o modo json"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
 
-     ![Escolher "Comutador para modo JSON" para o objeto completo](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
+     ![Escolha "alternar para o modo JSON" para o objeto completo](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
-   * Colar apenas uma seção do JSON, junto à etiqueta nessa seção, escolha **mudar para o modo JSON** daquela seção, por exemplo:
+   * Para colar apenas uma seção JSON, ao lado do rótulo dessa seção, escolha **alternar para o modo JSON** para essa seção, por exemplo:
 
-     ![Escolha "Comutador para modo JSON" para saídas](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png)
+     ![Escolha "alternar para o modo JSON" para saídas](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png)
 
-1. No editor de JSON, cole o JSON anteriormente copiado.
+1. No editor de JSON, Cole o JSON copiado anteriormente.
 
    ![Modo JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Quando tiver terminado, selecione **Concluído**. Ou, para voltar ao estruturador, escolha **modo de edição de comutador** (![escolha "Modo de edição de comutador"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. Quando tiver terminado, selecione **Concluído**. Ou, para retornar ao designer, escolha **alternar modo do editor** (![escolha "alternar modo do editor"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 
 <a name="find-runs-mock-data"></a>
 
-## <a name="find-runs-that-use-static-results"></a>Encontre as execuções que utilizam resultados estáticos
+## <a name="find-runs-that-use-static-results"></a>Localizar execuções que usam resultados estáticos
 
-Histórico de execuções da sua aplicação lógica identifica as execuções de onde as ações utilizam resultados estáticos. Para encontrar essas execuções, siga estes passos:
+O histórico de execuções do seu aplicativo lógico identifica as execuções em que as ações usam resultados estáticos. Para encontrar essas execuções, siga estas etapas:
 
-1. No menu principal da sua aplicação lógica, selecione **descrição geral**. 
+1. No menu principal do aplicativo lógico, selecione **visão geral**. 
 
-1. No painel direito, sob **histórico de execuções**, localizar o **resultados estático** coluna. 
+1. No painel direito, em **histórico de execuções**, localize a coluna **resultados estáticos** . 
 
-   Qualquer execução que inclui ações com resultados tem o **resultados estático** coluna definida como **ativado**, por exemplo:
+   Qualquer execução que inclua ações com resultados tem a coluna **resultados estáticos** definida como **habilitado**, por exemplo:
 
-   ![Executar histórico - coluna de resultados estático](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   ![Histórico de execuções-coluna de resultados estáticos](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-1. Para ver as ações que utilizar resultados estáticos, selecione o run desejar onde o **resultados estático** coluna está definida como **ativado**.
+1. Para exibir as ações que usam resultados estáticos, selecione a execução desejada onde a coluna de **resultados estáticos** está definida como **habilitada**.
 
-   Ações que utilizar estáticos resultados mostram o beaker de teste (![ícone para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) ícone, por exemplo:
+   As ações que usam resultados estáticos mostram o ícone Beaker de teste (ícone de![para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), por exemplo:
 
-   ![Executar histórico - ações que utilizar resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
+   ![Histórico de execuções-ações que usam resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
-## <a name="disable-static-results"></a>Desativar resultados estáticos
+## <a name="disable-static-results"></a>Desabilitar resultados estáticos
 
-Desativar resultados estáticos não jogar fora os valores de configuração do seu último. Então, quando ativar resultados estáticos da próxima vez, pode continuar a utilizar os seus valores anteriores.
+Desativar os resultados estáticos não retira os valores de sua última configuração. Assim, quando você ativar os resultados estáticos da próxima vez, poderá continuar usando os valores anteriores.
 
-1. Encontre a ação em que pretende desativar saídas estáticas. No canto superior direito da ação, escolha o ícone de beaker de teste (![ícone para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
+1. Localize a ação na qual você deseja desabilitar as saídas estáticas. No canto superior direito da ação, escolha o ícone testar Beaker (ícone de![para resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
 
-   ![Desativar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Desabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Escolher **desativar resultado estático** > **feito**.
+1. Escolha **desabilitar resultado estático** > **concluído**.
 
-   ![Desativar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Desabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>Referência
 
-Para obter mais informações sobre esta definição nas suas definições de fluxo de trabalho subjacente, veja [resultados estáticos - referência de esquema para a linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [runtimeConfiguration.staticResult - tempo de execução definições de configuração](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
+Para obter mais informações sobre essa configuração em suas definições de fluxo de trabalho subjacentes, consulte [resultados estáticos-referência de esquema para a linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [definições de configuração de runtimeConfiguration. staticResult-Runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* Saiba mais sobre os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md)

@@ -1,22 +1,19 @@
 ---
-title: Proteger mensagens B2B com certificados – aplicativos lógicos do Azure | Microsoft Docs
+title: Proteger mensagens B2B com certificados
 description: Adicionar certificados para proteger mensagens B2B em aplicativos lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-manager: jeconnoc
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: be3dbc386b0ac89a85bc1719081df944523c28ce
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997824"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790685"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Proteger mensagens B2B com certificados
 
@@ -29,7 +26,7 @@ Você pode usar esses certificados em seus aplicativos de integração corporati
 
 * [Certificados públicos](https://en.wikipedia.org/wiki/Public_key_certificate), que devem ser comprados de uma [AC (autoridade de certificação)](https://en.wikipedia.org/wiki/Certificate_authority) pública da Internet, mas não exigem nenhuma chave. 
 
-* Certificados privados ou [*certificados*](https://en.wikipedia.org/wiki/Self-signed_certificate)autoassinados, que você cria e emite por conta própria, mas também requer chaves privadas. 
+* Certificados privados ou [*certificados autoassinados*](https://en.wikipedia.org/wiki/Self-signed_certificate), que você cria e emite por conta própria, mas também requer chaves privadas. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,11 +44,11 @@ Para usar um *certificado público* em aplicativos lógicos que têm recursos B2
 
 3. Em **certificados**, escolha **Adicionar**. Em **Adicionar certificado**, forneça estes detalhes para seu certificado. Quando terminar, escolha **OK**.
 
-   | Propriedade | Value | Descrição | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | O nome do seu certificado, que é "publicCert" neste exemplo | 
+   | **Nome** | <*nome do certificado*> | O nome do seu certificado, que é "publicCert" neste exemplo | 
    | **Tipo de certificado** | Público | O tipo do certificado |
-   | **Certificado** | <*certificate-file-name*> | Para localizar e selecionar o arquivo de certificado que você deseja carregar, escolha o ícone de pasta ao lado da caixa **certificado** . |
+   | **Certificado** | <> de *nome de arquivo de certificado* | Para localizar e selecionar o arquivo de certificado que você deseja carregar, escolha o ícone de pasta ao lado da caixa **certificado** . |
    ||||
 
    ![Escolha "Adicionar", forneça os detalhes do certificado](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
@@ -86,14 +83,14 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
 
 5. Em **certificados**, escolha **Adicionar**. Em **Adicionar certificado**, forneça estes detalhes para seu certificado. Quando terminar, escolha **OK**.
 
-   | Propriedade | Value | Descrição | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
-   | **Name** | <*certificate-name*> | O nome do seu certificado, que é "privateCert" neste exemplo | 
+   | **Nome** | <*nome do certificado*> | O nome do seu certificado, que é "privateCert" neste exemplo | 
    | **Tipo de certificado** | Privado | O tipo do certificado |
-   | **Certificado** | <*certificate-file-name*> | Para localizar e selecionar o arquivo de certificado que você deseja carregar, escolha o ícone de pasta ao lado da caixa **certificado** . Ao usar um cofre de chaves para a chave privada, o arquivo carregado será o certificado público. | 
-   | **Grupo de Recursos** | <*integration-account-resource-group*> | O grupo de recursos da sua conta de integração, que é "MyResource Group" neste exemplo | 
-   | **Cofre de Chaves** | <*key-vault-name*> | O nome do cofre de chaves do Azure |
-   | **Nome da chave** | <*key-name*> | O nome da chave |
+   | **Certificado** | <> de *nome de arquivo de certificado* | Para localizar e selecionar o arquivo de certificado que você deseja carregar, escolha o ícone de pasta ao lado da caixa **certificado** . Ao usar um cofre de chaves para a chave privada, o arquivo carregado será o certificado público. | 
+   | **Grupo de Recursos** | *integração <-Account-Resource-group*> | O grupo de recursos da sua conta de integração, que é "MyResource Group" neste exemplo | 
+   | **Cofre de Chaves** | <*nome do cofre de chaves*> | O nome do cofre de chaves do Azure |
+   | **Nome da chave** | <*nome da chave*> | O nome da chave |
    ||||
 
    ![Escolha "Adicionar", forneça os detalhes do certificado](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
@@ -102,6 +99,6 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
 
    ![O Azure exibe novo certificado](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um contrato B2B](logic-apps-enterprise-integration-agreements.md)

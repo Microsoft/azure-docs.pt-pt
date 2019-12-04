@@ -1,58 +1,54 @@
 ---
-title: Implementar e chamar web APIs e as APIs REST do Azure Logic Apps | Documentos da Microsoft
-description: Implementar e chamar web APIs e as APIs REST para o sistema integratio fluxos de trabalho no Azure Logic Apps
+title: Implantar e chamar APIs Web & APIs REST de aplicativos lógicos do Azure
+description: Implantar e chamar APIs Web & APIs REST para fluxos de trabalho de integração do sistema em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, stepsic, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740409"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790746"
 ---
-# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementar e chamar APIs personalizadas de fluxos de trabalho no Azure Logic Apps
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho em aplicativos lógicos do Azure
 
-Depois de [criar APIs personalizadas](./logic-apps-create-api-app.md) para utilização em fluxos de trabalho de aplicação de lógica, tem de implementar as suas APIs antes de poder chamá-los. Pode implementar as suas APIs conforme [aplicações web](../app-service/overview.md), mas considere implementar as suas APIs conforme [aplicações API](../app-service/app-service-web-tutorial-rest-api.md), que tornar seu trabalho mais fácil quando criar, aloja e consumir APIs na cloud e no local. Não precisa alterar qualquer código em suas APIs - apenas implementar seu código numa aplicação API. Pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md), uma plataforma-como-um-serviço (PaaS que fornece fácil, altamente dimensionável e que aloja a API da oferta).
+Depois de [criar APIs personalizadas](./logic-apps-create-api-app.md) para uso em fluxos de trabalho de aplicativo lógico, você deve implantar suas APIs antes de poder chamá-las. Você pode implantar suas APIs como [aplicativos Web](../app-service/overview.md), mas considere implantar suas APIs como [aplicativos de API](../app-service/app-service-web-tutorial-rest-api.md), o que facilita o trabalho quando você cria, hospeda e consome APIs na nuvem e no local. Você não precisa alterar nenhum código em suas APIs – basta implantar seu código em um aplicativo de API. Você pode hospedar suas APIs no [serviço de Azure app](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece Hospedagem de API altamente escalonável e fácil.
 
-Embora pode chamar qualquer API a partir de uma aplicação lógica, a melhor experiência, adicione [OpenAPI (anteriormente Swagger) metadados](https://swagger.io/specification/) que descreve a API de operações e os parâmetros. Este ficheiro OpenAPI ajuda a sua API integrar mais facilmente e funcionam melhor com o logic apps.
+Embora você possa chamar qualquer API de um aplicativo lógico, para obter a melhor experiência, adicione os [metadados openapi (anteriormente Swagger)](https://swagger.io/specification/) que descrevem as operações e os parâmetros da API. Esse arquivo OpenAPI ajuda sua API a integrar-se mais facilmente e a trabalhar melhor com aplicativos lógicos.
 
-## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Implementar a sua API como uma aplicação web ou a aplicação de API
+## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Implantar sua API como um aplicativo Web ou aplicativo de API
 
-Antes de poder chamar a API personalizada a partir de uma aplicação lógica, implemente a sua API como uma aplicação web ou a aplicação API App Service do Azure. Além disso, para tornar o OpenAPI do ficheiro ser lido pelo Designer de aplicações lógicas, defina as propriedades de definição de API e ative [recursos de várias origens (CORS) de partilha](../app-service/overview.md) para a sua aplicação web ou a aplicação API.
+Antes de chamar a API personalizada de um aplicativo lógico, implante sua API como um aplicativo Web ou aplicativo de API para Azure App serviço. Além disso, para tornar o arquivo OpenAPI legível pelo designer de aplicativos lógicos, defina as propriedades de definição de API e ative o [CORS (compartilhamento de recursos entre origens)](../app-service/overview.md) para seu aplicativo Web ou aplicativo de API.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione a aplicação web ou a aplicação API.
+1. Na [portal do Azure](https://portal.azure.com), selecione seu aplicativo Web ou aplicativo de API.
 
-2. No menu da aplicação que se abre, em **API**, escolha **definição da API**. Definir o **localização da definição de API** para o URL para o ficheiro swagger de OpenAPI.
+2. No menu do aplicativo que é aberto, em **API**, escolha **definição de API**. Defina o **local de definição de API** como a URL para o arquivo Swagger. JSON do openapi.
 
-   Normalmente, o URL é apresentado no seguinte formato: `https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Normalmente, a URL aparece neste formato: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
-   ![Ligar ao ficheiro de OpenAPI para a API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
+   ![Link para o arquivo OpenAPI para sua API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Sob **API**, escolha **CORS**. Definir a política CORS para **permitido origens** ao **' *'** (permitir todas).
+3. Em **API**, escolha **CORS**. Defina a política CORS para **origens permitidas** como **' * '** (permitir tudo).
 
-   Esta definição permite pedidos de Estruturador da aplicação lógica.
+   Essa configuração permite solicitações do designer de aplicativo lógico.
 
-   ![Permitir pedidos a partir do Estruturador da aplicação lógica para a API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
+   ![Permitir solicitações do designer de aplicativo lógico para sua API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Para obter mais informações, consulte [alojar uma API RESTful com CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md).
+Para obter mais informações, consulte [hospedar uma API RESTful com CORS no serviço Azure app](../app-service/app-service-web-tutorial-rest-api.md).
 
-## <a name="call-your-custom-api-from-logic-app-workflows"></a>Chamar a API personalizada a partir de lógica de fluxos de trabalho de aplicação
+## <a name="call-your-custom-api-from-logic-app-workflows"></a>Chamar sua API personalizada de fluxos de trabalho do aplicativo lógico
 
-Depois de configurar as propriedades de definição de API e o CORS, acionadores e ações a API personalizada devem estar disponíveis incluir no seu fluxo de trabalho de aplicação lógica. 
+Depois de configurar as propriedades de definição de API e CORS, os gatilhos e as ações da API personalizada devem estar disponíveis para você incluir no fluxo de trabalho do aplicativo lógico. 
 
-*  Para ver os sites que tem URLs de OpenAPI, pode procurar os Web sites de subscrição no Designer de aplicações lógicas.
+*  Para exibir sites que têm URLs OpenAPI, você pode procurar seus sites de assinatura no designer de aplicativos lógicos.
 
-*  Para ver as ações disponíveis e entradas apontando num documento OpenAPI, utilize o [HTTP + Swagger ação](../connectors/connectors-native-http-swagger.md).
+*  Para exibir as ações e as entradas disponíveis apontando para um documento do OpenAPI, use a [ação http + Swagger](../connectors/connectors-native-http-swagger.md).
 
-*  Para chamar qualquer API, incluindo APIs que não têm ou expor um documento OpenAPI, pode sempre criar um pedido com o [ação de HTTP](../connectors/connectors-native-http.md).
+*  Para chamar qualquer API, incluindo APIs que não têm ou expõem um documento OpenAPI, você sempre pode criar uma solicitação com a [ação http](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral do conector personalizado](../logic-apps/custom-connector-overview.md)
+* [Visão geral do conector personalizado](../logic-apps/custom-connector-overview.md)

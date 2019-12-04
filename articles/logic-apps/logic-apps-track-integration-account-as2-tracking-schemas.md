@@ -1,30 +1,28 @@
 ---
-title: Esquemas de controlo de AS2 para mensagens B2B - Azure Logic Apps | Documentos da Microsoft
-description: Criar esquemas de controlo de AS2 monitorizar mensagens B2B no contas de integração para o Azure Logic Apps com o Enterprise Integration Pack
+title: Esquemas de controle AS2 para mensagens B2B
+description: Criar esquemas de controle AS2 que monitorem mensagens B2B em contas de integração para aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 515d7cfc985ee9929f70de2c862170ff79ae4d60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845788"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792803"
 ---
-# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Crie esquemas de controlo nas mensagens AS2 e MDNs nas contas de integração para o Azure Logic Apps
+# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhar mensagens AS2 e MDNs em contas de integração para aplicativos lógicos do Azure
 
-Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para transações empresa-empresa (B2B), pode usar esses esquemas de controlo de AS2 na sua conta de integração:
+Para ajudá-lo a monitorar o sucesso, os erros e as propriedades das mensagens para transações B2B (entre empresas), você pode usar esses esquemas de controle do AS2 em sua conta de integração:
 
-* Esquema de controlo de mensagem AS2
-* Esquema de controlo AS2 MDN
+* Esquema de controle de mensagens AS2
+* Esquema de acompanhamento de MDN AS2
 
-## <a name="as2-message-tracking-schema"></a>Esquema de controlo de mensagem AS2
+## <a name="as2-message-tracking-schema"></a>Esquema de controle de mensagens AS2
 
 ```json
 {
@@ -58,28 +56,28 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| senderPartnerName | String | Nome do parceiro do remetente da mensagem AS2. (Opcional) |
-| receiverPartnerName | String | Nome do parceiro do destinatário de mensagem AS2. (Opcional) |
-| as2To | String | Nome do destinatário de mensagem AS2, dos cabeçalhos da mensagem AS2. (Obrigatório) |
-| as2From | String | Nome do remetente da mensagem AS2, dos cabeçalhos da mensagem AS2. (Obrigatório) |
-| agreementName | String | Nome do contrato de AS2 ao qual as mensagens são resolvidas. (Opcional) |
-| direction | String | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| senderPartnerName | String | Nome do parceiro do remetente da mensagem AS2. Adicional |
+| receiverPartnerName | String | Nome do parceiro do destinatário da mensagem AS2. Adicional |
+| as2To | String | Nome do destinatário da mensagem AS2, dos cabeçalhos da mensagem AS2. Obrigatório |
+| as2From | String | Nome do remetente da mensagem AS2, dos cabeçalhos da mensagem AS2. Obrigatório |
+| agreementName | String | Nome do contrato AS2 para o qual as mensagens são resolvidas. Adicional |
+| direção | String | Direção do fluxo de mensagens, receber ou enviar. Obrigatório |
 | messageId | String | ID da mensagem AS2, dos cabeçalhos da mensagem AS2 (opcional) |
-| dispositionType |String | Valor de tipo de disposição de notificação de disposição (MDN) de mensagem. (Opcional) |
-| fileName | String | Nome de ficheiro, do cabeçalho da mensagem AS2. (Opcional) |
-| isMessageFailed |Boolean | Se a mensagem AS2 falha. (Obrigatório) |
-| isMessageSigned | Boolean | Se estava assinada a mensagem AS2. (Obrigatório) |
-| isMessageEncrypted | Boolean | Se a mensagem AS2 foi encriptada. (Obrigatório) |
-| isMessageCompressed |Boolean | Se a mensagem AS2 tenha sido compactada. (Obrigatório) |
-| correlationMessageId | String | ID da mensagem AS2, para correlacionar mensagens com MDNs. (Opcional) |
-| incomingHeaders |Dicionário de JToken | Detalhes de cabeçalho de mensagem de entrada AS2. (Opcional) |
-| outgoingHeaders |Dicionário de JToken | Detalhes de cabeçalho de mensagem de saída AS2. (Opcional) |
-| isNrrEnabled | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
-| isMdnExpected | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
-| mdnType | Enum | Valores permitidos são **NotConfigured**, **Sync**, e **Async**. (Obrigatório) |
+| desposicionatype |String | Valor do tipo de disposição de notificação de disposição de mensagem (MDN). Adicional |
+| fileName | String | Nome do arquivo, a partir do cabeçalho da mensagem AS2. Adicional |
+| isMessageFailed |Booleano | Se a mensagem AS2 falhou. Obrigatório |
+| isMessageSigned | Booleano | Se a mensagem AS2 foi assinada. Obrigatório |
+| isMessageEncrypted | Booleano | Se a mensagem AS2 foi criptografada. Obrigatório |
+| isMessageCompressed |Booleano | Se a mensagem AS2 foi compactada. Obrigatório |
+| CorrelationMessageId | String | ID da mensagem AS2, para correlacionar mensagens com MDNs. Adicional |
+| incomingHeaders |Dicionário de JToken | Detalhes do cabeçalho da mensagem AS2 de entrada. Adicional |
+| outgoingHeaders |Dicionário de JToken | Detalhes do cabeçalho da mensagem AS2 de saída. Adicional |
+| isNrrEnabled | Booleano | Use o valor padrão se o valor não for conhecido. Obrigatório |
+| isMdnExpected | Booleano | Use o valor padrão se o valor não for conhecido. Obrigatório |
+| mdnType | Enum | Os valores permitidos são não **configurados**, **sincronizados**e **assíncronos**. Obrigatório |
 ||||
 
-## <a name="as2-mdn-tracking-schema"></a>Esquema de controlo AS2 MDN
+## <a name="as2-mdn-tracking-schema"></a>Esquema de acompanhamento de MDN AS2
 
 ```json
 {
@@ -111,33 +109,33 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| senderPartnerName | String | Nome do parceiro do remetente da mensagem AS2. (Opcional) |
-| receiverPartnerName | String | Nome do parceiro do destinatário de mensagem AS2. (Opcional) |
-| as2To | String | Nome do parceiro que recebe a mensagem AS2. (Obrigatório) |
-| as2From | String | Nome do parceiro que envia a mensagem AS2. (Obrigatório) |
-| agreementName | String | Nome do contrato de AS2 ao qual as mensagens são resolvidas. (Opcional) |
-| direction |String | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
-| messageId | String | ID da mensagem AS2. (Opcional) |
-| originalMessageId |String | AS2 original ID da mensagem. (Opcional) |
-| dispositionType | String | Valor de tipo de disposição de MDN. (Opcional) |
-| isMessageFailed |Boolean | Se a mensagem AS2 falha. (Obrigatório) |
-| isMessageSigned |Boolean | Se estava assinada a mensagem AS2. (Obrigatório) |
-| isNrrEnabled | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
-| statusCode | Enum | Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
-| micVerificationStatus | Enum | Valores permitidos são **não aplicável**, **Succeeded**, e **falha**. (Obrigatório) |
-| correlationMessageId | String | ID de correlação. O original messaged ID (o ID da mensagem da mensagem para o qual o MDN está configurado). (Opcional) |
-| incomingHeaders | Dicionário de JToken | Indica os detalhes de cabeçalho da mensagem recebida. (Opcional) |
-| outgoingHeaders |Dicionário de JToken | Indica a saída detalhes de cabeçalho da mensagem. (Opcional) |
+| senderPartnerName | String | Nome do parceiro do remetente da mensagem AS2. Adicional |
+| receiverPartnerName | String | Nome do parceiro do destinatário da mensagem AS2. Adicional |
+| as2To | String | Nome do parceiro que recebe a mensagem AS2. Obrigatório |
+| as2From | String | Nome do parceiro que envia a mensagem AS2. Obrigatório |
+| agreementName | String | Nome do contrato AS2 para o qual as mensagens são resolvidas. Adicional |
+| direção |String | Direção do fluxo de mensagens, receber ou enviar. Obrigatório |
+| messageId | String | ID da mensagem AS2. Adicional |
+| originalMessageId |String | ID da mensagem original AS2. Adicional |
+| desposicionatype | String | Valor do tipo de disposição MDN. Adicional |
+| isMessageFailed |Booleano | Se a mensagem AS2 falhou. Obrigatório |
+| isMessageSigned |Booleano | Se a mensagem AS2 foi assinada. Obrigatório |
+| isNrrEnabled | Booleano | Use o valor padrão se o valor não for conhecido. Obrigatório |
+| statusCode | Enum | Os valores permitidos são **accepted**, **Rejected**e **AcceptedWithErrors**. Obrigatório |
+| micVerificationStatus | Enum | Os valores permitidos são não **aplicáveis**, com **êxito**e **falharam**. Obrigatório |
+| CorrelationMessageId | String | ID de correlação. A ID da mensagem original (a ID da mensagem para a qual MDN está configurado). Adicional |
+| incomingHeaders | Dicionário de JToken | Indica detalhes do cabeçalho da mensagem de entrada. Adicional |
+| outgoingHeaders |Dicionário de JToken | Indica detalhes do cabeçalho da mensagem de saída. Adicional |
 ||||
 
-## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de controlo de protocolo de B2B
+## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de acompanhamento do protocolo B2B
 
-Para obter informações sobre esquemas de controlo de protocolo de B2B, consulte:
+Para obter informações sobre esquemas de controle de protocolo B2B, consulte:
 
 * [Esquemas de controlo de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
-* [B2B personalizadas de esquemas de controlo](logic-apps-track-integration-account-custom-tracking-schema.md)
+* [Esquemas de acompanhamento personalizados B2B](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [monitorizar mensagens B2B](logic-apps-monitor-b2b-message.md)
-* Saiba mais sobre [mensagens B2B no Azure Monitor registos de controlo](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Saiba mais sobre o [monitoramento de mensagens B2B](logic-apps-monitor-b2b-message.md)
+* Saiba mais sobre como [controlar mensagens B2B em logs de Azure monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

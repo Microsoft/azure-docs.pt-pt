@@ -1,20 +1,17 @@
 ---
-title: Adicionar autenticação a APIs personalizadas-aplicativos lógicos do Azure | Microsoft Docs
+title: Adicionar autenticação a APIs personalizadas
 description: Configurar a autenticação para chamar APIs personalizadas de aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039132"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793152"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas para APIs personalizadas de aplicativos lógicos do Azure
 
@@ -200,10 +197,10 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 }
 ```
 
-| Propriedade | Necessário | Descrição | 
+| Propriedade | Obrigatório | Descrição | 
 | -------- | -------- | ----------- | 
-| tenant | Sim | O GUID para o locatário do Azure AD | 
-| audience | Sim | O GUID para o recurso de destino que você deseja acessar, que é a ID do cliente da identidade do aplicativo para seu aplicativo Web ou aplicativo de API | 
+| vários | Sim | O GUID para o locatário do Azure AD | 
+| platéia | Sim | O GUID para o recurso de destino que você deseja acessar, que é a ID do cliente da identidade do aplicativo para seu aplicativo Web ou aplicativo de API | 
 | clientId | Sim | O GUID para o cliente que solicita acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
 | segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
 | tipo | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
@@ -251,7 +248,7 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
 | `type` | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
 | `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
@@ -274,7 +271,7 @@ Na seção **autorização** , inclua estas propriedades:
 }
 ```
 
-| Propriedade | Necessário | Descrição | 
+| Propriedade | Obrigatório | Descrição | 
 | -------- | -------- | ----------- | 
 | tipo | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
 | o nome de utilizador | Sim | O nome de usuário que você deseja usar para autenticação | 

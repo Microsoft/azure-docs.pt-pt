@@ -1,17 +1,17 @@
 ---
-title: Arquitetura de conectividade no banco de dados do Azure para MariaDB
+title: Arquitetura de conectividade-banco de dados do Azure para MariaDB
 description: Descreve a arquitetura de conectividade do banco de dados do Azure para o servidor MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/02/2019
+ms.openlocfilehash: 6e2e39381e1500f86bce55726dda0286385d1674
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498071"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772897"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade no banco de dados do Azure para MariaDB
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MariaDB e também como o tráfego é direcionado para a instância do banco de dados do Azure para MariaDB de clientes dentro e fora do Azure.
@@ -35,35 +35,35 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Sul do Brasil | 104.41.11.5 | |
 | Canadá Central | 40.85.224.249 | |
 | Leste do Canadá | 40.86.226.166 | |
-| EUA Central | 23.99.160.139 | 13.67.215.62 |
+| Centro dos E.U.A. | 23.99.160.139 | 13.67.215.62 |
 | Leste da China 1 | 139.219.130.35 | |
 | Leste da China 2 | 40.73.82.1 | |
 | Norte da China 1 | 139.219.15.17 | |
 | Norte da China 2 | 40.73.50.0 | |
-| Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
+| Este Asiático | 191.234.2.139 | 52.175.33.150 |
 | Leste dos EUA 1 | 191.238.6.43 | 40.121.158.30 |
-| EUA Leste 2 | 191.239.224.107 | 40.79.84.180 * |
+| Este dos E.U.A. 2 | 191.239.224.107 | 40.79.84.180 * |
 | França Central | 40.79.137.0 | 40.79.129.1 |
-| Alemanha Central | 51.4.144.100 | |
+| Nordeste da Alemanha | 51.4.144.100 | |
 | Índia Central | 104.211.96.159 | |
 | Índia do Sul | 104.211.224.146 | |
 | Oeste da Índia | 104.211.160.80 | |
 | Este do Japão | 191.237.240.43 | 13.78.61.196 |
 | Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
 | Coreia do Sul Central | 52.231.32.42 | |
-| Coreia do Sul | 52.231.200.86 |  |
+| Sul da Coreia do Sul | 52.231.200.86 |  |
 | E.U.A. Centro-Norte | 23.98.55.75 | 23.96.178.199 |
 | Europa do Norte | 191.235.193.75 | 40.113.93.91 |
-| EUA Centro-Sul | 23.98.162.75 | 13.66.62.124 |
+| E.U.A. Centro-Sul | 23.98.162.75 | 13.66.62.124 |
 | Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
 | Norte da África do Sul | 102.133.152.0 | |
 | Oeste da África do Sul | 102.133.24.0 | |
 | Norte dos E.A.U. | 65.52.248.0 | |
 | Sul do Reino Unido | 51.140.184.11 | |
-| Reino Unido Oeste | 51.141.8.11| |
+| Oeste do Reino Unido | 51.141.8.11| |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
 | Oeste dos EUA 1 | 23.99.34.75 | 104.42.238.205 |
-| EUA Oeste 2 | 13.66.226.202 | |
+| E.U.A. Oeste 2 | 13.66.226.202 | |
 ||||
 
 > [!NOTE]

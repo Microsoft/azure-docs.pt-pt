@@ -1,17 +1,17 @@
 ---
-title: Repositório de Consultas no banco de dados do Azure para MariaDB
+title: Repositório de Consultas-banco de dados do Azure para MariaDB
 description: Saiba mais sobre o recurso Repositório de Consultas no banco de dados do Azure para MariaDB para ajudá-lo a acompanhar o desempenho ao longo do tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: fbc814b5d263e20cea1d961891afb19894b78965
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604002"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772221"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
@@ -171,8 +171,8 @@ Essa exibição retorna dados de eventos de espera em Repositório de Consultas.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` em, Repositório de Consultas não poderá capturar dados.
-- Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas em Unicode (\> = 6000 bytes).
+- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` ativado, Repositório de Consultas não poderá capturar dados.
+- Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas de Unicode (\>= 6000 bytes).
 - O período de retenção para estatísticas de espera é de 24 horas.
 - Estatísticas de espera usa a captura de ti de exemplo uma fração de eventos. A frequência pode ser modificada usando o parâmetro `query_store_wait_sampling_frequency`.
 

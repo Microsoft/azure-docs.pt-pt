@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 076f98cb240014bcc88a395902203413e31fe0f1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642126"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776597"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fornecer comentários de dados para mapas do Azure
 
-O mapas do Azure já esteve disponível desde maio de 2018, fornecendo dados de mapa atualizados, APIs REST fáceis de usar e SDKs avançados para dar suporte a nossos clientes corporativos em uma variedade de casos de uso de negócios. O mundo real está mudando a cada segundo e é crucial que possamos fornecer uma representação digital reais para nossos clientes. Nossos clientes que estão planejando abrir ou fechar instalações precisam garantir que nossos mapas sejam atualizados imediatamente para que possam planejar com eficiência a entrega, manutenção ou atendimento ao cliente nas instalações corretas. Criamos a ferramenta de comentários de dados do Azure Maps para capacitar nossos clientes a fornecer comentários diretos de dados. Os comentários de dados dos clientes vão diretamente para nossos provedores de dados e seus editores de mapa que podem rapidamente avaliar e incorporar comentários em nossos produtos de mapeamento.  
+O mapas do Azure já esteve disponível desde maio de 2018, fornecendo dados de mapa atualizados, APIs REST fáceis de usar e SDKs avançados para dar suporte a nossos clientes corporativos em uma variedade de casos de uso de negócios. O mundo real está mudando a cada segundo e é crucial que possamos fornecer uma representação digital reais para nossos clientes. Nossos clientes que estão planejando abrir ou fechar instalações precisam garantir que nossos mapas sejam atualizados imediatamente para que possam planejar com eficiência a entrega, manutenção ou atendimento ao cliente nas instalações corretas. Criamos o site de comentários de dados do Azure Maps para capacitar nossos clientes a fornecer comentários diretos de dados. Os comentários de dados dos clientes vão diretamente para nossos provedores de dados e seus editores de mapa que podem rapidamente avaliar e incorporar comentários em nossos produtos de mapeamento.  
 
-A [ferramenta de comentários de dados do Azure Maps](https://feedback.azuremaps.com) fornece uma maneira fácil para que nossos clientes forneçam comentários de dados de mapa, especialmente em pontos de negócios de interesse e endereços residenciais. Este artigo orienta você sobre como fornecer diferentes tipos de comentários usando a ferramenta de comentários do Azure Maps.
+O [site de comentários de dados do Azure Maps](https://feedback.azuremaps.com) fornece uma maneira fácil para nossos clientes fornecerem comentários de dados de mapa, especialmente em pontos de negócios de interesse e endereços residenciais. Este artigo orienta você sobre como fornecer diferentes tipos de comentários usando o site de comentários do Azure Maps.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Adicionar um local de negócios ou um endereço residencial 
 
-Talvez você queira fornecer comentários para um ponto de interesse ausente ou endereço residencial no mapa. Há duas maneiras de fazer isso, abrir a ferramenta de comentários de dados do Azure Map e procurar as coordenadas do local ausente e clicar em "adicionar um local"
+Talvez você queira fornecer comentários para um ponto de interesse ausente ou endereço residencial no mapa. Há duas maneiras de fazer isso, abrir o site de comentários de dados do Azure Map e procurar as coordenadas do local ausente e clicar em "adicionar um local"
 
   ![Pesquisar localização ausente](./media/how-to-use-feedback-tool/search-poi.png)
 
@@ -38,7 +38,7 @@ Ao clicar em, você será direcionado para um formulário para fornecer os detal
 
 ## <a name="fix-a-business-place-or-a-residential-address"></a>Corrigir um local de negócios ou um endereço residencial 
 
-A ferramenta de comentários também permite que você pesquise e localize um local comercial ou um endereço e forneça comentários para corrigir o endereço ou o local do PIN, se eles não estiverem corretos. Para fornecer comentários para corrigir o endereço, use a barra de pesquisa para procurar um local comercial ou endereço residencial. Clique no local do seu interesse na lista de resultados e clique em "corrigir este local".
+O site de comentários também permite que você pesquise e localize um local comercial ou um endereço e forneça comentários para corrigir o endereço ou o local do PIN, se eles não estiverem corretos. Para fornecer comentários para corrigir o endereço, use a barra de pesquisa para procurar um local comercial ou endereço residencial. Clique no local do seu interesse na lista de resultados e clique em "corrigir este local".
 
   ![local de pesquisa para corrigir](./media/how-to-use-feedback-tool/fix-place.png)
 
@@ -56,14 +56,14 @@ Além de permitir que você pesquise um local, a ferramenta de comentários tamb
 
   ![adicionar comentário](./media/how-to-use-feedback-tool/add-comment.png)
 
-## <a name="track-status"></a>Controlar o estado 
+## <a name="track-status"></a>Acompanhar o estado 
 
 Você também pode acompanhar o status de sua solicitação marcando a caixa "desejo controlar o status" e fornecendo seu email ao fazer uma solicitação. Você receberá um link de rastreamento no email que fornece um status atualizado para sua solicitação. 
 
   ![status de comentários](./media/how-to-use-feedback-tool/feedback-status.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para postar perguntas técnicas relacionadas ao Azure Maps, visite:
 

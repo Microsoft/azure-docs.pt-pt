@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cc99b469701b3974a5b8a2f235ee3a9edb798368
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006908"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790251"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Criar um novo ambiente do Time Series Insights no portal do Azure
 
@@ -28,19 +28,19 @@ Time Series Insights permite que você comece a visualizar e consultar dados que
 
 Siga estas etapas para criar um ambiente:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione o botão **+ criar um recurso** .
 
 1. Selecione a categoria **Internet das coisas** e selecione **Time Series insights**.
 
-   [![criar o ambiente de time Series insights](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
+   [![criar o ambiente de Time Series Insights](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
 1. Na página **Time Series insights** , selecione **criar**.
 
 1. Preencha os parâmetros necessários. A tabela a seguir explica cada parâmetro:
    
-   [![criar o grupo de recursos Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [![criar o grupo de recursos Time Series Insights](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
    
    Definição|Valor sugerido|Descrição
    ---|---|---
@@ -55,13 +55,13 @@ Siga estas etapas para criar um ambiente:
 
 1. Para monitorar o processo de implantação, selecione o símbolo de **notificações** (ícone de sino).
 
-   [![observar as notificações](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [![observar as notificações](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-    Quando a implantação for realizada com sucesso, você poderá selecionar **ir para o recurso** para configurar outras propriedades, definir a segurança com políticas de acesso a dados, adicionar fontes de evento e outras ações.
+1. Na **visão geral**do recurso, verifique as definições de configuração da implantação.
 
-1. Na **visão geral**do recurso, selecione o **ícone de pino** no canto superior direito para acessar facilmente seu ambiente de time Series insights no futuro.
+   [![criar o PIN de Time Series Insights ao painel](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
-   [![criar o PIN de Time Series Insights ao painel](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+1. **(Opcional)** Selecione o **ícone de pino** no canto superior direito para acessar facilmente seu ambiente de time Series insights no futuro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

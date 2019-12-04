@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao twilio de aplicativos lógicos do Azure | Microsoft Docs
+title: Conectar-se ao twilio de aplicativos lógicos do Azure
 description: Automatizar tarefas e fluxos de trabalho que gerenciam mensagens SMS, MMS e IP globais por meio de sua conta do twilio usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 09d4a6acf93f5fb01c70f9e9bd935c404c5abf50
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050716"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789108"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gerenciar mensagens no twilio com os aplicativos lógicos do Azure
 
@@ -31,7 +27,7 @@ Com os aplicativos lógicos do Azure e o conector do twilio, você pode criar ta
   * A ID da conta do twilio e o [token de autenticação](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), que podem ser encontrados no painel do twilio
 
     Suas credenciais autorizam seu aplicativo lógico a criar uma conexão e acessar sua conta do twilio de seu aplicativo lógico. 
-    Se você estiver usando uma conta de avaliação do twilio, poderá enviar SMS somente para números de telefone verificados.
+    Se você estiver usando uma conta de avaliação do twilio, poderá enviar SMS somente para números de telefone *verificados* .
 
   * Um número de telefone twilio verificado que pode enviar SMS
 
@@ -39,7 +35,7 @@ Com os aplicativos lógicos do Azure e o conector do twilio, você pode criar ta
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar sua conta do twilio. Para usar uma ação twilio, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho recorrência.
+* O aplicativo lógico no qual você deseja acessar sua conta do twilio. Para usar uma ação twilio, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho **recorrência** .
 
 ## <a name="connect-to-twilio"></a>Conectar-se ao twilio
 
@@ -54,7 +50,7 @@ Com os aplicativos lógicos do Azure e o conector do twilio, você pode criar ta
        -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-     Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+     Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
      
        Na caixa de pesquisa, digite "twilio" como filtro. 
        Na lista ações, selecione a ação desejada.
@@ -76,6 +72,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

@@ -1,20 +1,20 @@
 ---
-title: Configurar os parâmetros de serviço-banco de dados do Azure para MySQL
+title: Configurar parâmetros do servidor-CLI do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar os parâmetros de serviço no banco de dados do Azure para MySQL usando o utilitário de linha de comando CLI do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: a107c5130968ca960036d7e0f948cf6ea5d209a8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: 2a53debb72cfd5da73c2bceb7993288eb828237a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350327"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770531"
 ---
-# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalizar parâmetros de configuração do servidor usando CLI do Azure
+# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizar parâmetros de servidor usando CLI do Azure
 Você pode listar, mostrar e atualizar parâmetros de configuração para um servidor de banco de dados do Azure para MySQL usando CLI do Azure, o utilitário de linha de comando do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -51,26 +51,26 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 Esse código redefine a **consulta de\_lenta\_** configuração de log para o valor padrão **desativado**. 
 
-## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
+## <a name="working-with-the-time-zone-parameter"></a>Trabalhando com o parâmetro de fuso horário
 
-### <a name="populating-the-time-zone-tables"></a>Preencher as tabelas de fuso horário
+### <a name="populating-the-time-zone-tables"></a>Populando as tabelas de fuso horário
 
-As tabelas de fuso horário no seu servidor podem ser preenchidas chamando o `az_load_timezone` procedimento armazenado a partir de uma ferramenta como a linha de comandos MySQL ou o MySQL Workbench.
+As tabelas de fuso horário no servidor podem ser populadas chamando o procedimento armazenado `az_load_timezone` de uma ferramenta como a linha de comando do MySQL ou o MySQL Workbench.
 
 > [!NOTE]
-> Se estiver a executar o `az_load_timezone` comando a partir do MySQL Workbench, poderá ter de desativar o modo de atualização segura primeiro usando `SET SQL_SAFE_UPDATES=0;`.
+> Se você estiver executando o comando `az_load_timezone` do MySQL Workbench, talvez seja necessário desativar o modo de atualização segura primeiro usando `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
 ```
 
-Para ver os valores de fuso horário disponível, execute o seguinte comando:
+Para exibir os valores de fuso horário disponíveis, execute o seguinte comando:
 
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
 
-### <a name="setting-the-global-level-time-zone"></a>Definir o fuso de horário de nível global
+### <a name="setting-the-global-level-time-zone"></a>Configurando o fuso horário de nível global
 
 O fuso horário de nível global pode ser definido usando o comando [AZ MySQL Server Configuration Set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) .
 
@@ -80,15 +80,15 @@ O comando a seguir atualiza a **hora\_** parâmetro de configuração de servido
 az mysql server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
 ```
 
-### <a name="setting-the-session-level-time-zone"></a>Definir o fuso de horário de nível de sessão
+### <a name="setting-the-session-level-time-zone"></a>Definindo o fuso horário do nível de sessão
 
-A sessão de nível de tempo de zona pode ser definida ao executar o `SET time_zone` comando a partir de uma ferramenta como a linha de comandos MySQL ou o MySQL Workbench. O exemplo abaixo define o fuso horário o **E.U.A. / Pacífico** fuso horário.  
+O fuso horário do nível de sessão pode ser definido executando o comando `SET time_zone` de uma ferramenta como a linha de comando do MySQL ou o MySQL Workbench. O exemplo a seguir define o fuso horário para o fuso horário **dos EUA/Pacífico** .  
 
 ```sql
 SET time_zone = 'US/Pacific';
 ```
 
-Consulte a documentação do MySQL para [funções de tempo de data e](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
+Consulte a documentação do MySQL para [funções de data e hora](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 
 ## <a name="next-steps"></a>Passos seguintes

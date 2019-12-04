@@ -1,17 +1,17 @@
 ---
-title: Recomendações de desempenho no banco de dados do Azure para MariaDB
+title: Recomendações de desempenho-banco de dados do Azure para MariaDB
 description: Este artigo descreve o recurso de recomendação de desempenho no banco de dados do Azure para MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1c903dcd9015de47c5364c5abd65569d17e7e21f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 57d801177233c18db6d41d52add0e5ad862b3d87
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604141"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772548"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendações de desempenho no banco de dados do Azure para MariaDB
 

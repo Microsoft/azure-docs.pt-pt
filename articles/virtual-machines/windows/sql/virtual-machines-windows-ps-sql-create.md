@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 072c58377645c807328bfcd79028daad70df7338
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102116"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790629"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como provisionar SQL Server máquinas virtuais com Azure PowerShell
 
@@ -68,7 +68,7 @@ Defina as propriedades a serem usadas pela rede na máquina virtual.
 
 - Interface de rede
 - Método de alocação TCP/IP
-- Nome da rede virtual:
+- Nome da rede virtual
 - Nome da sub-rede virtual
 - Intervalo de endereços IP para a rede virtual
 - Intervalo de endereços IP para a sub-rede
@@ -103,7 +103,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 Use as variáveis a seguir para definir a imagem de SQL Server a ser usada para a máquina virtual. 
 
-1. Primeiro, liste todas as ofertas de imagem de SQL Server com o `Get-AzVMImageOffer` comando. Este comando lista as imagens atuais que estão disponíveis no portal do Azure e também as imagens mais antigas que só podem ser instaladas com o PowerShell:
+1. Primeiro, liste todas as ofertas de imagem SQL Server com o comando `Get-AzVMImageOffer`. Este comando lista as imagens atuais que estão disponíveis no portal do Azure e também as imagens mais antigas que só podem ser instaladas com o PowerShell:
 
    ```powershell
    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -138,7 +138,7 @@ Execute este cmdlet para criar seu novo grupo de recursos.
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 A máquina virtual requer recursos de armazenamento para o disco do sistema operacional e para os SQL Server de dados e arquivos de log. Para simplificar, você criará um único disco para ambos. Você pode anexar discos adicionais mais tarde usando o cmdlet [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) para posicionar seus SQL Server dados e arquivos de log em discos dedicados. Use o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) para criar uma conta de armazenamento padrão em seu novo grupo de recursos. Especifique as variáveis que você inicializou anteriormente para o nome da conta de armazenamento, o nome do SKU de armazenamento e o local.
 
 Execute este cmdlet para criar sua nova conta de armazenamento.
@@ -171,7 +171,7 @@ Execute este cmdlet para criar sua configuração de sub-rede virtual.
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Criar rede virtual
 Em seguida, crie sua rede virtual em seu novo grupo de recursos usando o cmdlet [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) . Especifique as variáveis que você inicializou anteriormente para o nome, o local e o prefixo de endereço. Use a configuração de sub-rede que você definiu na etapa anterior.
 
 Execute este cmdlet para criar sua rede virtual.
@@ -337,12 +337,13 @@ A máquina virtual é criada.
 > Se você receber um erro sobre o diagnóstico de inicialização, poderá ignorá-lo. Uma conta de armazenamento padrão é criada para o diagnóstico de inicialização porque a conta de armazenamento especificada para o disco da máquina virtual é uma conta de armazenamento Premium.
 
 ## <a name="install-the-sql-iaas-agent"></a>Instalar o Agente Iaas do SQL
-SQL Server máquinas virtuais dão suporte a recursos de gerenciamento automatizado com a [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente na nova VM, execute o comando a seguir após sua criação.
+SQL Server máquinas virtuais dão suporte a recursos de gerenciamento automatizado com a [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente na nova VM e registrá-lo com o provedor de recursos, execute o comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) depois que a máquina virtual for criada. Especifique o tipo de licença para sua VM SQL Server, escolhendo entre pagamento conforme o uso ou traga sua própria licença por meio do [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre licenciamento, consulte [modelo de licenciamento](virtual-machines-windows-sql-ahb.md). 
 
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
 
 ## <a name="stop-or-remove-a-vm"></a>Parar ou remover uma VM
 
@@ -419,11 +420,11 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $Publis
 # Create the VM in Azure
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
-# Add the SQL IaaS Extension
-Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+# Add the SQL IaaS Extension, and choose the license type
+New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois que a máquina virtual for criada, você poderá:
 
 - Conectar-se à máquina virtual usando o RDP

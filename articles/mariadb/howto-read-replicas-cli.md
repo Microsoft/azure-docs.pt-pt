@@ -1,17 +1,17 @@
 ---
-title: Criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB – CLI do AZURE, API REST
+title: Gerenciar réplicas de leitura-CLI do Azure, API REST-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o CLI do Azure e a API REST.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 8b3572182832dc7692f6475be44281f56cf58571
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 12/02/2019
+ms.openlocfilehash: e9353bb5d472cc8dc798e7e09aed2183e48124ed
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122764"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765839"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o CLI do Azure e a API REST
 
@@ -26,25 +26,25 @@ Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 - Um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que será usado como o servidor mestre. 
 
 > [!IMPORTANT]
-> O recurso ler réplica só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Certifique-se de que o servidor mestre está em um destes escalões de preço.
+> O recurso ler réplica só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor mestre está em um desses tipos de preço.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
-Um servidor de réplica de leitura pode ser criado com o seguinte comando:
+Um servidor de réplica de leitura pode ser criado usando o seguinte comando:
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-O `az mariadb server replica create` comando requer os seguintes parâmetros:
+O comando `az mariadb server replica create` requer os seguintes parâmetros:
 
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de réplica será criado para.  |
-| nome | mydemoreplicaserver | O nome do novo servidor de réplica, que é criado. |
-| source-server | mydemoserver | O nome ou ID do servidor mestre existente para replicar a partir do. |
+| resource-group |  myResourceGroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
+| nome | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
+| source-server | mydemoserver | O nome ou a ID do servidor mestre existente do qual replicar. |
 
-Para criar uma réplica de leitura entre regiões, use `--location` o parâmetro. 
+Para criar uma réplica de leitura entre regiões, use o parâmetro `--location`. 
 
 > [!NOTE]
 > A replicação entre regiões está em versão prévia.
@@ -59,42 +59,42 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Réplicas de leitura são criadas com a mesma configuração de servidor como o modelo. A configuração do servidor de réplica pode ser alterada depois de este ter sido criado. Recomenda-se que a configuração do servidor de réplica deve ser mantida em valores iguais ou maiores do que o principal para garantir que a réplica é capaz de acompanhar o mestre.
+> As réplicas de leitura são criadas com a mesma configuração de servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de ser criada. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores que o mestre para garantir que a réplica seja capaz de acompanhar o mestre.
 
-### <a name="list-replicas-for-a-master-server"></a>Lista de réplicas para um servidor principal
+### <a name="list-replicas-for-a-master-server"></a>Listar réplicas para um servidor mestre
 
-Para ver todas as réplicas para um determinado servidor mestre, execute o seguinte comando: 
+Para exibir todas as réplicas de um determinado servidor mestre, execute o seguinte comando: 
 
 ```azurecli-interactive
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
 ```
 
-O `az mariadb server replica list` comando requer os seguintes parâmetros:
+O comando `az mariadb server replica list` requer os seguintes parâmetros:
 
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de réplica será criado para.  |
-| server-name | mydemoserver | O nome ou ID do servidor mestre. |
+| resource-group |  myResourceGroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
+| server-name | mydemoserver | O nome ou a ID do servidor mestre. |
 
-### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
+### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação em um servidor de réplica
 
 > [!IMPORTANT]
-> A parar a replicação para um servidor é irreversível. Assim que a replicação foi parado entre um mestre e de réplica, não pode ser anulada. O servidor de réplica, em seguida, torna-se um servidor autónomo e agora oferece suporte a leitura e escrita. Este servidor não pode se transformar numa réplica novamente.
+> Parar a replicação em um servidor é irreversível. Depois que a replicação for interrompida entre um mestre e uma réplica, ela não poderá ser desfeita. O servidor de réplica se torna um servidor autônomo e agora dá suporte à leitura e às gravações. Este servidor não pode ser tornado novamente em uma réplica.
 
-Pode ser parada a replicação para um servidor de réplica de leitura com o seguinte comando:
+A replicação para um servidor de réplica de leitura pode ser interrompida usando o seguinte comando:
 
 ```azurecli-interactive
 az mariadb server replica stop --name mydemoreplicaserver --resource-group myresourcegroup
 ```
 
-O `az mariadb server replica stop` comando requer os seguintes parâmetros:
+O comando `az mariadb server replica stop` requer os seguintes parâmetros:
 
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de réplica.  |
-| nome | mydemoreplicaserver | O nome do servidor de réplicas para parar a replicação. |
+| resource-group |  myResourceGroup |  O grupo de recursos no qual o servidor de réplica existe.  |
+| nome | mydemoreplicaserver | O nome do servidor de réplica no qual interromper a replicação. |
 
-### <a name="delete-a-replica-server"></a>Eliminar um servidor de réplica
+### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
 A exclusão de um servidor de réplica de leitura pode ser feita executando o comando **[AZ MariaDB Server Delete](/cli/azure/mariadb/server)** .
 
@@ -102,10 +102,10 @@ A exclusão de um servidor de réplica de leitura pode ser feita executando o co
 az mariadb server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-### <a name="delete-a-master-server"></a>Eliminar um servidor principal
+### <a name="delete-a-master-server"></a>Excluir um servidor mestre
 
 > [!IMPORTANT]
-> A eliminar um servidor principal para a replicação para todos os servidores de réplica e elimina o próprio servidor mestre. Servidores de réplica se tornar a servidores autónomos que agora oferecem suporte a leitura e escrita.
+> Eliminar um servidor mestre interrompe a replicação de todos os servidores de réplica e elimina o próprio servidor mestre. Os servidores de réplica tornam-se servidores autónomos que suportam agora tanto leitura como escritas.
 
 Para excluir um servidor mestre, você pode executar o comando **[AZ MariaDB Server Delete](/cli/azure/mariadb/server)** .
 
@@ -136,7 +136,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
 
-Se você não tiver definido `azure.replication_support` o parâmetro para **réplica** em um servidor mestre de uso geral ou com otimização de memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
+Se você não tiver definido o parâmetro `azure.replication_support` como **réplica** em um servidor mestre com otimização de uso geral ou memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
 
 Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento e período de retenção de backup. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
 
@@ -151,7 +151,7 @@ Você pode exibir a lista de réplicas de um servidor mestre usando a [API da li
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
+### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação em um servidor de réplica
 Você pode interromper a replicação entre um servidor mestre e uma réplica de leitura usando a [API de atualização](/rest/api/mariadb/servers/update).
 
 Depois de parar a replicação em um servidor mestre e em uma réplica de leitura, ela não pode ser desfeita. A réplica de leitura torna-se um servidor autônomo que dá suporte a leituras e gravações. O servidor autônomo não pode ser tornado novamente em uma réplica.
@@ -180,4 +180,4 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [ler réplicas](concepts-read-replicas.md)
+- Saiba mais sobre [réplicas de leitura](concepts-read-replicas.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720158"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791022"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução ao ia no Azure Pesquisa Cognitiva
 
@@ -21,7 +21,7 @@ O enriquecimento de ia é um recurso da indexação de Pesquisa Cognitiva do Azu
 
 + As habilidades de **processamento de linguagem natural** incluem [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [detecção de idioma](cognitive-search-skill-language-detection.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), manipulação de texto e detecção de [sentimentos](cognitive-search-skill-sentiment.md). Com essas habilidades, o texto não estruturado pode assumir novos formulários, mapeados como campos pesquisáveis e filtráveis em um índice.
 
-+ As habilidades de **processamento de imagem** incluem [OCR (reconhecimento óptico de caracteres)](cognitive-search-skill-ocr.md) e identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), como detecção facial, interpretação de imagem, reconhecimento de imagem (famosas pessoas e pontos de referência) ou atributos como cor ou orientação da imagem. Você pode criar representações de texto de conteúdo de imagem, pesquisáveis usando todos os recursos de consulta do Azure Pesquisa Cognitiva.
++ As habilidades de **processamento de imagem** incluem [OCR (reconhecimento óptico de caracteres)](cognitive-search-skill-ocr.md) e identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), como detecção facial, interpretação de imagem, reconhecimento de imagem (famosas pessoas e pontos de referência) ou atributos como cores ou orientação de imagem. Você pode criar representações de texto de conteúdo de imagem, pesquisáveis usando todos os recursos de consulta do Azure Pesquisa Cognitiva.
 
 ![Diagrama de pipeline de enriquecimento](./media/cognitive-search-intro/cogsearch-architecture.png "Visão geral do pipeline de enriquecimento")
 
@@ -69,7 +69,7 @@ Um pipeline de enriquecimento é baseado em [*indexadores*](search-indexer-overv
 
 No início do pipeline, você tem texto não estruturado ou conteúdo de não texto (como imagens e arquivos JPEG de documentos digitalizados). Os dados devem existir em um serviço de armazenamento de dados do Azure que possa ser acessado por um indexador. Os indexadores podem "decifrar" documentos de origem para extrair texto de dados de origem.
 
-![Fase de violação de documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "Quebra de documento")
+![Fase de violação de documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "quebra de documento")
 
  As fontes com suporte incluem armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure, banco de dados SQL do Azure e Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: PDFs, Word, PowerPoint, arquivos CSV. Para obter a lista completa, consulte [formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
@@ -116,6 +116,8 @@ Os índices são gerados de um esquema de índice que define os campos, atributo
 | Indexador |  Um rastreador que extrai dados pesquisáveis e metadados de uma fonte de dados externa e popula um índice com base em mapeamentos de campo para campo entre o índice e sua fonte de dados para decifração de documentos. Para os aprimoramentos de ia, o indexador invoca um qualificable e contém os mapeamentos de campo que associam a saída de enriquecimento aos campos de destino no índice. A definição do indexador contém todas as instruções e referências para operações de pipeline e o pipeline é invocado quando você executa o indexador. Com a configuração adicional, você pode reutilizar o processamento existente e executar somente essas etapas e habilidades que são alteradas. | Consulte [indexadores](search-indexer-overview.md) e [indexação incremental (versão prévia)](cognitive-search-incremental-indexing-conceptual.md). |
 | Fonte de dados  | Um objeto usado por um indexador para se conectar a uma fonte de dados externa de tipos com suporte no Azure. | Consulte a [visão geral dos indexadores](search-indexer-overview.md) |
 | Índice | Um índice de pesquisa persistente no Pesquisa Cognitiva do Azure, criado com base em um esquema de índice que define a estrutura e o uso do campo. | Consulte [criar um índice básico](search-what-is-an-index.md) | 
+| Arquivo de dados de conhecimento | Uma conta de armazenamento em que os documentos aprimorados podem ser moldados e projetados além do índice de pesquisa | Consulte [introdução à loja de conhecimento](knowledge-store-concept-intro.md) | 
+| Cache do indexador | As saídas de uma conta de armazenamento são armazenadas em cache pelo indexador. O cache permite que o indexeer minimize o custo de reprocessar um grande número de documentos quando um contratador é editado. | Consulte [indexação incremental](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a38beb0700e470d325545a2523143ecdab9f6dfb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240669"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777422"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Conectar dados de logs do Office 365
 
@@ -42,7 +42,7 @@ Você pode transmitir logs de auditoria do [Office 365](https://docs.microsoft.c
 
 1. No Azure Sentinel, selecione **conectores de dados** e clique no bloco do **Office 365** .
 
-2. Se você ainda não o tiver habilitado, em **conexão** , use o botão **habilitar** para habilitar a solução Office 365. Se já tiver sido habilitado, ele será identificado na tela de conexão como já habilitado.
+2. Se você ainda não o tiver habilitado, poderá fazer isso acessando a folha **conectores de dados** e selecionando conector **do Office 365** . Aqui, você pode clicar na **página abrir conector** e, na seção configuração, **habilitar a solução Office 365 em seu espaço de trabalho** , use o botão **instalar solução** para habilitá-la. Se já tiver sido habilitado, ele será identificado na tela de conexão como já habilitado.
 1. O Office 365 permite que você transmita dados de vários locatários para o Azure Sentinel. Para cada locatário ao qual você deseja se conectar, adicione o locatário em **conectar locatários ao Azure Sentinel**. 
 1. Uma tela de Active Directory é aberta. Você será solicitado a autenticar com um usuário administrador global em cada locatário que deseja conectar ao Azure Sentinel e fornecer permissões ao Azure Sentinel para ler seus logs. 
 5. Em fluxo logs de atividade do Office 365, clique em **selecionar** para escolher quais tipos de log você deseja transmitir para o Azure Sentinel. Atualmente, o Azure Sentinel dá suporte ao Exchange e ao SharePoint.

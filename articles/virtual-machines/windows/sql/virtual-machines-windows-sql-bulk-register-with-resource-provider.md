@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489076"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790549"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrar em massa máquinas virtuais do SQL no Azure com o provedor de recursos da VM do SQL
 
@@ -214,7 +214,7 @@ O relatório é gerado como um arquivo de `.txt` chamado `RegisterSqlVMScriptRep
 | Número de VMs ignoradas porque não estão em execução SQL Server no Windows | Contagem de máquinas virtuais que foram ignoradas porque não estão em execução SQL Server ou não são uma máquina virtual do Windows. As máquinas virtuais são listadas no formato `SubscriptionID, Resource Group, Virtual Machine`. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Registar 
+### <a name="log"></a>Registo 
 
 Os erros são registrados no arquivo de log chamado `VMsNotRegisteredDueToError<Timestamp>.log` em que Timestamp é a hora em que o script foi iniciado. Se o erro estiver no nível da assinatura, o log conterá a assinatura separada por vírgula e a mensagem de erro. Se o erro for com o registro da máquina virtual, o log conterá a ID da assinatura, o nome do grupo de recursos, o nome da máquina virtual, o código de erro e a mensagem separados por vírgulas. 
 
@@ -222,7 +222,7 @@ Os erros são registrados no arquivo de log chamado `VMsNotRegisteredDueToError<
 
 Ao registrar SQL Server VMs com o provedor de recursos usando o script fornecido, considere o seguinte:
 
-- O registro com o provedor de recursos requer um agente convidado em execução na VM SQL Server. As imagens do Windows Server 2008 não têm um agente convidado, portanto, essas máquinas virtuais falharão e deverão ser registradas manualmente usando o [modo de gerenciamento noagent](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
+- O registro com o provedor de recursos requer um agente convidado em execução na VM SQL Server. As imagens do Windows Server 2008 não têm um agente convidado, portanto, essas máquinas virtuais falharão e deverão ser registradas manualmente usando o [modo de gerenciamento noagent](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).
 - Há uma lógica de repetição interna para superar erros transparentes. Se a máquina virtual for registrada com êxito, ela será uma operação rápida. No entanto, se o registro falhar, cada máquina virtual será repetida.  Dessa forma, você deve permitir um tempo significativo para concluir o processo de registro-embora o requisito de tempo real seja dependente do tipo e do número de erros. 
 
 ## <a name="full-script"></a>Script completo

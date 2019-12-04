@@ -1,29 +1,30 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: ebae0fac5edc0bb79e6a19d8bdc741960f0b0e20
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: 3ca8d631110f8b175e7dc68d61cc6da4ac87d375
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184517"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789528"
 ---
-### <a name="prerequisites"></a>Pré-requisitos
-* Uma [utilizadores do Office 365](https://office365.com) conta  
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar a sua conta de utilizadores do Office 365 numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta de utilizadores do Office 365. Felizmente, pode fazer isso facilmente de na sua aplicação lógica no Portal do Azure.  
+* Uma conta de [usuários do Office 365](https://office365.com)  
 
-Eis os passos para autorizar a aplicação lógica para ligar à sua conta de utilizadores do Office 365:  
+Antes de poder usar sua conta de usuários do Office 365 em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta dos usuários do Office 365. Felizmente, você pode fazer isso facilmente de dentro de seu aplicativo lógico no portal do Azure.  
 
-1. Para criar uma ligação para utilizadores do Office 365, no Estruturador da aplicação lógica, selecione **APIs geridas da Microsoft mostram** na lista pendente, em seguida, introduza *utilizadores do Office 365* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
-   ![Passo de criação de ligação de utilizadores do Office 365](./media/connectors-create-api-office365users/office365users-1.png)  
-2. Se ainda não criou quaisquer ligações para os utilizadores do Office 365 antes, terá de informar fornecer as suas credenciais de utilizadores do Office 365. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e acedam a dados da sua conta de utilizadores do Office 365:  
-   ![Passo de criação de ligação de utilizadores do Office 365](./media/connectors-create-api-office365users/office365users-2.png)  
-3. Forneça o seu nome de utilizador de utilizadores do Office 365 e a palavra-passe para autorizar a aplicação lógica:  
-   ![Passo de criação de ligação de utilizadores do Office 365](./media/connectors-create-api-office365users/office365users-3.png)  
-4. Observe que a ligação foi criada e agora está livre para continuar com os outros passos na sua aplicação lógica:  
-   ![Passo de criação de ligação de utilizadores do Office 365](./media/connectors-create-api-office365users/office365users-4.png)  
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta de usuários do Office 365:  
+
+1. Para criar uma conexão com os usuários do Office 365, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e, em seguida, insira *usuários do Office 365* na caixa de pesquisa. Selecione o gatilho ou a ação que você deseja usar:  
+   ![etapa de criação de conexão dos usuários do Office 365](./media/connectors-create-api-office365users/office365users-1.png)  
+2. Se você não tiver criado nenhuma conexão com os usuários do Office 365 antes, você receberá uma solicitação para fornecer suas credenciais de usuários do Office 365. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar e acessar os dados da sua conta dos usuários do Office 365:  
+   ![Etapa de criação de conexão dos usuários do Office 365](./media/connectors-create-api-office365users/office365users-2.png)  
+3. Forneça o nome de usuário e a senha dos usuários do Office 365 para autorizar seu aplicativo lógico:  
+   ![Etapa de criação de conexão dos usuários do Office 365](./media/connectors-create-api-office365users/office365users-3.png)  
+4. Observe que a conexão foi criada e você agora está livre para prosseguir com as outras etapas em seu aplicativo lógico:  
+   ![Etapa de criação de conexão dos usuários do Office 365](./media/connectors-create-api-office365users/office365users-4.png)  
 

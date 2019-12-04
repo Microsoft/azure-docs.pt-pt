@@ -1,17 +1,17 @@
 ---
-title: Selecionando o tipo de implantação certo para o banco de dados do Azure para MySQL
+title: Selecionando o tipo de implantação certo-banco de dados do Azure para MySQL
 description: Este artigo descreve quais fatores devem ser considerados antes de implantar o banco de dados do Azure para MySQL como IaaS (infraestrutura como serviço) ou PaaS (plataforma como um serviço).
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/02/2019
+ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132428"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770463"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
 
@@ -80,7 +80,7 @@ A lista a seguir descreve as considerações administrativas para cada opção:
 
 * Com o banco de dados do Azure para MySQL, você pode continuar a administrar seu banco de dados. Mas você não precisa mais gerenciar o mecanismo de banco de dados, o sistema operacional ou o hardware. Exemplos de itens que você pode continuar a administrar incluem:
 
-  - Bases de Dados
+  - Bases de dados
   - Iniciar sessão
   - Otimização de índices
   - Ajuste de consulta

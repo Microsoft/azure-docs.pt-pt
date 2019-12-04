@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao armazenamento de BLOBs do Azure-aplicativo lógico do Azure
+title: Conectar-se ao armazenamento de BLOBs do Azure
 description: Criar e gerenciar BLOBs em contas de armazenamento do Azure usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/28/2019
 tags: connectors
-ms.openlocfilehash: c431f917f6fc1ac080b13184bd9ce205a20afbaa
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199620"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789912"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure usando o aplicativo lógico do Azure
 
@@ -71,7 +67,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
    1. Na caixa **contêiner** , selecione o ícone de pasta.
 
-   2. Na lista de pastas, escolha o colchete de ângulo direito ( **>** ) e, em seguida, navegue até encontrar e selecione a pasta desejada.
+   2. Na lista pasta, escolha o colchete angular direito ( **>** ) e, em seguida, navegue até encontrar e selecione a pasta desejada.
 
       ![Selecione a pasta de armazenamento a ser usada com o gatilho](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -127,7 +123,7 @@ Este exemplo só Obtém o conteúdo de um blob. Para exibir o conteúdo, adicion
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Ligação** | Sim | <*nome da conexão* > | O nome a ser criado para a conexão |
+   | **Nome da Ligação** | Sim | <*nome da conexão*> | O nome a ser criado para a conexão |
    | **Storage Account** | Sim | <> *de conta de armazenamento* | Selecione sua conta de armazenamento na lista. |
    ||||
 

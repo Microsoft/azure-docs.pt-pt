@@ -1,27 +1,28 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 46a6fcb57a21f3f1e30b39fc6967256550e31616
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: 94f18b20d84a1929368053c44b4f07793e385b38
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184519"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789558"
 ---
-### <a name="prerequisites"></a>Pré-requisitos
-* R [MicrosoftTranslator](https://www.microsoft.com/translator) conta  
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar a sua conta de MicrosoftTranslator numa aplicação lógica, tem de autorizar a aplicação lógica para ligar à sua conta de MicrosoftTranslator. Felizmente, pode fazer isso facilmente de na sua aplicação lógica no Portal do Azure.  
+* Uma conta do [MicrosoftTranslator](https://www.microsoft.com/translator)  
 
-Eis os passos para autorizar a aplicação lógica para ligar à sua conta de MicrosoftTranslator:  
+Antes de poder usar sua conta do MicrosoftTranslator em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do MicrosoftTranslator. Felizmente, você pode fazer isso facilmente de dentro de seu aplicativo lógico no portal do Azure.  
 
-1. Para criar uma ligação para MicrosoftTranslator, no Estruturador da aplicação lógica, selecione **APIs geridas da Microsoft mostram** na lista pendente, em seguida, introduza *MicrosoftTranslator* na caixa de pesquisa. Selecione o acionador ou ação que irá gostar a utilizar:  
-   ![MicrosoftTranslator passo de criação de ligação](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
-2. Se ainda não criou quaisquer ligações a MicrosoftTranslator antes, terá de informar fornecer as suas credenciais de MicrosoftTranslator. Estas credenciais serão utilizadas para autorizar a aplicação lógica para ligar a e acedam a dados da sua conta MicrosoftTranslator:  
-   ![MicrosoftTranslator passo de criação de ligação](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
-3. Observe que a ligação foi criada e agora está livre para continuar com os outros passos na sua aplicação lógica:  
-   ![MicrosoftTranslator passo de criação de ligação](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do MicrosoftTranslator:  
+
+1. Para criar uma conexão com o MicrosoftTranslator, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e, em seguida, digite *MicrosoftTranslator* na caixa de pesquisa. Selecione o gatilho ou a ação que você deseja usar:  
+   ![etapa de criação de conexão do MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
+2. Se você não tiver criado nenhuma conexão com o MicrosoftTranslator antes, você receberá uma solicitação para fornecer suas credenciais do MicrosoftTranslator. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar e acessar os dados da sua conta do MicrosoftTranslator:  
+   ![Etapa de criação de conexão MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
+3. Observe que a conexão foi criada e você agora está livre para prosseguir com as outras etapas em seu aplicativo lógico:  
+   ![Etapa de criação de conexão MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 

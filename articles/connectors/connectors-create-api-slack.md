@@ -1,22 +1,18 @@
 ---
-title: Conectar-se à margem de atraso dos aplicativos lógicos do Azure | Microsoft Docs
+title: Conectar-se à margem de atraso dos aplicativos lógicos do Azure
 description: Automatizar tarefas e fluxos de trabalho que monitoram arquivos e gerenciam canais, grupos e mensagens em sua conta de margem de atraso usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 2606fdc15194264bc3d84496d2de258adfc314be
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050791"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789176"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitorar e gerenciar a margem de atraso com os aplicativos lógicos do Azure
 
@@ -39,7 +35,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta de margem de atraso e
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar sua conta de margem de atraso. Para começar com um gatilho de margem de atraso, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de margem de atraso, inicie seu aplicativo lógico com um gatilho, como um gatilho de margem de atraso ou outro gatilho, como o gatilho de recorrência.
+* O aplicativo lógico no qual você deseja acessar sua conta de margem de atraso. Para começar com um gatilho de margem de atraso, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de margem de atraso, inicie seu aplicativo lógico com um gatilho, como um gatilho de margem de atraso ou outro gatilho, como o gatilho de **recorrência** .
 
 ## <a name="connect-to-slack"></a>Conectar à margem de atraso
 
@@ -56,7 +52,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta de margem de atraso e
    Na lista ações, selecione a ação desejada.
 
    Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Se você for solicitado a entrar na margem de atraso, entre no espaço de trabalho de margem de atraso. 
 
@@ -77,6 +73,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

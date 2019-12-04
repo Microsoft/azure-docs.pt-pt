@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: a01455da36e8ab573773fec2a6da1f7903b8ea20
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: eb2d663a56084fc625c95f1f1a6236385880180d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224499"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795639"
 ---
-| Resource | Limite predefinido | Limite máximo |
+| Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | VMs por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> por região. |25.000 por região. |
 | Total de núcleos de VM por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
+| Total de núcleos da VM do Azure Spot por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | VM por série, como Dv2 e F, núcleos por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |Inúmeros. |Inúmeros. |
 | [Contas de armazenamento](../articles/storage/common/storage-quickstart-create-account.md) por região por assinatura |250 |250 |

@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706245"
+ms.locfileid: "74765466"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
 
@@ -107,13 +107,8 @@ cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 
 # <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 ```cpp
-// Create the ASA factory
-SpatialAnchorsFactory m_asaFactory { nullptr };
-// . . .
-
 // Create the sensor fingerprint provider
-PlatformLocationProvider sensorProvider;
-sensorProvider = m_asaFactory.CreatePlatformLocationProvider();
+PlatformLocationProvider sensorProvider = PlatformLocationProvider();
 
 // Create and configure the session
 cloudSpatialAnchorSession = CloudSpatialAnchorSession();
@@ -581,7 +576,7 @@ anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 # <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
 
 ```cpp
-NearDeviceCriteria nearDeviceCriteria = m_asaFactory.CreateNearDeviceCriteria();
+NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
 
 // Choose a maximum exploration distance between your device and the returned anchors
 nearDeviceCriteria.DistanceInMeters(5.0f);
@@ -590,7 +585,7 @@ nearDeviceCriteria.DistanceInMeters(5.0f);
 nearDeviceCriteria.MaxResultCount(25);
 
 // Set the session's locate criteria
-anchorLocateCriteria = m_asaFactory.CreateAnchorLocateCriteria();
+anchorLocateCriteria = AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 ```
 

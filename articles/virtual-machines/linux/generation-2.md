@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 ms.author: lahugh
-ms.openlocfilehash: 02ab7cdcbf0f150157eb44ef5e28e8284621b813
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfa8d28a41bb5551277bca29c118698ecaa8d112
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173961"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791727"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -53,13 +53,11 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure 
 
 As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 
-* Windows Server 2019 datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019, 2016, 2012 R2, 2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19, 4, 19,10 
+* Ubuntu Server 16, 4, 18, 4, 19, 4, 19,10 
 * RHEL 8,0
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
@@ -91,7 +89,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 | Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
+| Recuperação de Site do Azure               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
 | Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |

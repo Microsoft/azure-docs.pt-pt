@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 88ac0f05bf937af19a0bd6bf3cf2253fd3052f4c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 106a11959bdaf34f44faa0c6a2b031ccba537835
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503487"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795861"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de:
+Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * Verifique se você tem acesso a um microfone para captura de áudio
 
 ## <a name="open-your-project-in-visual-studio"></a>Abra seu projeto no Visual Studio
 
@@ -45,6 +46,7 @@ Antes de inicializar um objeto `SpeechRecognizer`, você precisa criar uma confi
 > [!NOTE]
 > Este exemplo usa o método `FromSubscription()` para criar o `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte [classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
+> O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
 ## <a name="initialize-a-speechrecognizer"></a>Inicializar um SpeechRecognizer
 

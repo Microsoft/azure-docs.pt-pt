@@ -1,19 +1,18 @@
 ---
-title: Mensagens EDI do processo em lote como um grupo-aplicativos lógicos do Azure
+title: Mensagens EDI do processo em lote como um grupo
 description: Enviar e receber mensagens EDI como lotes, grupos ou coleções em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 28e51363ca99182c9b6520ab1dea5aa13b16ea12
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680173"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792995"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens EDI em lotes para parceiros comerciais com aplicativos lógicos do Azure
 
@@ -72,7 +71,7 @@ Para esse receptor do lote, você especifica o modo de lote, o nome, os critéri
    | **Critérios de liberação** | Contagem de mensagens com base em agendamento | Disponível somente com o modo de lote **embutido** | 
    | **Contagem de mensagens** | 10 | Disponível somente com os critérios de liberação **baseados na contagem de mensagens** | 
    | **Intervalo** | 10 | Disponível somente com os critérios de liberação **com base na agenda** | 
-   | **Frequência** | Demorar | Disponível somente com os critérios de liberação **com base na agenda** | 
+   | **Frequência** | demorar | Disponível somente com os critérios de liberação **com base na agenda** | 
    ||| 
 
    ![Fornecer detalhes do gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -168,7 +167,7 @@ Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicati
 
       ![Selecione o aplicativo lógico "destinatário do lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Selecione esta ação: **Batch_messages-<*seu receptor-Batch-* >**
+   4. Selecione esta ação: **Batch_messages-<*seu receptor do lote*>**
 
       ![Selecione a ação "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 

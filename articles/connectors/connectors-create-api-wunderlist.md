@@ -1,22 +1,18 @@
 ---
-title: Conectar-se ao Wunderlist de aplicativos lógicos do Azure | Microsoft Docs
+title: Conectar-se ao Wunderlist de aplicativos lógicos do Azure
 description: Automatizar tarefas e fluxos de trabalho que monitoram e gerenciam listas, tarefas, lembretes e muito mais em sua conta do Wunderlist usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050659"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789125"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitorar e gerenciar o Wunderlist usando aplicativos lógicos do Azure
 
@@ -39,7 +35,7 @@ O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a pla
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar sua conta do Yammer. Para começar com um gatilho do Wunderlist, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação do Wunderlist, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de recorrência.
+* O aplicativo lógico no qual você deseja acessar sua conta do Yammer. Para começar com um gatilho do Wunderlist, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação do Wunderlist, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **recorrência** .
 
 ## <a name="connect-to-wunderlist"></a>Conectar-se ao Wunderlist
 
@@ -61,7 +57,7 @@ O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a pla
        -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-     Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+     Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
      
        Na caixa de pesquisa, insira "Wunderlist" como seu filtro. 
        Na lista ações, selecione a ação desejada.
@@ -81,4 +77,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

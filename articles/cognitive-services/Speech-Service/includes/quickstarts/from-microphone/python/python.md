@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7fe11876a7ba20981f784bc41ce8094178591371
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 956dfc2765635091d105291015ba59b3bfa87162
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503690"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795878"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de:
+Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
 > * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md)
+> * Verifique se você tem acesso a um microfone para captura de áudio
 
 ## <a name="support-and-updates"></a>Suporte e atualizações
 
@@ -48,6 +48,9 @@ python quickstart.py
 Ou você pode baixar este tutorial de início rápido como um notebook [Jupyter](https://jupyter.org) do [repositório de exemplo do SDK de fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um bloco de anotações.
 
 ### <a name="sample-code"></a>Código de exemplo
+
+> [!NOTE]
+> O SDK de fala usará como padrão o reconhecimento do uso de en-US para a linguagem, consulte [especificar o idioma de origem de fala para texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 

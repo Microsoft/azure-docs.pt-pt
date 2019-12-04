@@ -1,31 +1,31 @@
 ---
-title: Ligar aplicações à base de dados do Azure para MariaDB
-description: Este documento apresenta uma lista de cadeias de ligação suportado atualmente para aplicações ligar à base de dados do Azure para MariaDB, incluindo o ADO.NET (c#), JDBC, node. js, ODBC, PHP, Python e Ruby.
+title: Cadeias de conexão-banco de dados do Azure para MariaDB
+description: Este documento lista as cadeias de conexão com suporte no momento para que os aplicativos se conectem ao bancoC#de dados do Azure para MariaDB, incluindo ADO.net (), JDBC, Node. js, ODBC, PHP, Python e Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 70cd25ff63101fa2a477cde2502d5d286b289366
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 1b598385d533b3fc157a7a90ecc34c3cb18df4ac
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61039685"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767284"
 ---
-# <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Como ligar aplicações à base de dados do Azure para MariaDB
-Este tópico lista os tipos de cadeia de ligação que são suportados pela base de dados do Azure para MariaDB, juntamente com modelos e exemplos. Pode ter parâmetros diferentes e as definições na sua cadeia de ligação.
+# <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Como conectar aplicativos ao banco de dados do Azure para MariaDB
+Este tópico lista os tipos de cadeia de conexão que têm suporte do banco de dados do Azure para MariaDB, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
 
 - Para obter o certificado, consulte [como configurar o SSL](./howto-configure-ssl.md).
-- {your_host} = [servername].mariadb.database.azure.com
-- {your_user}@{servername} = formato do ID de utilizador para a autenticação corretamente.  Se usar apenas o ID de utilizador, a autenticação irá falhar.
+- {your_host} = [servername]. MariaDB. Database. Azure. com
+- {your_user} @ {ServerName} = formato de userID para autenticação correta.  Se você usar somente o userID, a autenticação falhará.
 
 ## <a name="adonet"></a>ADO.NET
 ```csharp
 Server={your_host}; Port=3306; Database={your_database}; Uid={username@servername}; Pwd={your_password}; SslMode=Preferred;
 ```
 
-Neste exemplo, é o nome do servidor `mydemoserver`, o nome de base de dados é `wpdb`, é o nome de utilizador `WPAdmin`, e a palavra-passe é `mypassword!2`. Como resultado, a cadeia de ligação deve ser:
+Neste exemplo, o nome do servidor é `mydemoserver`, o nome do banco de dados é `wpdb`, o nome de usuário é `WPAdmin`e a senha é `mypassword!2`. Como resultado, a cadeia de conexão deve ser:
 
 ```csharp
 Server= "mydemoserver.mariadb.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
@@ -61,10 +61,10 @@ cnx = mysql.connector.connect(user="{username@servername}", password={your_passw
 client = Mysql2::Client.new(username: "{username@servername}", password: {your_password}, database: {your_database}, host: "{your_host}", port: 3306, sslca:{ca-cert filename}, sslverify:false, sslcipher:'AES256-SHA')
 ```
 
-## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obter detalhes de cadeia de caracteres da ligação do portal do Azure
-Na [portal do Azure](https://portal.azure.com), aceda à sua base de dados do Azure para MariaDB server e, em seguida, clique em **cadeias de ligação** para obter a lista de cadeia de caracteres para a sua instância: ![O painel de cadeias de ligação no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obter os detalhes da cadeia de conexão do portal do Azure
+Na [portal do Azure](https://portal.azure.com), vá para o banco de dados do Azure para o servidor MariaDB e clique em **cadeias de conexão** para obter a lista de cadeias de caracteres da sua instância: ![o painel cadeias de conexão no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-A cadeia de caracteres fornece detalhes como o driver, o servidor e o outro banco de dados de parâmetros de ligação. Modificar estes exemplos para utilizar os seus parâmetros, como o nome de base de dados, palavra-passe e assim por diante. Em seguida, pode utilizar essa cadeia de caracteres para ligar ao servidor a partir do seu código e aplicativos.
+A cadeia de caracteres fornece detalhes como o driver, o servidor e outros parâmetros de conexão de banco de dados. Modifique esses exemplos para usar seus próprios parâmetros, como nome do banco de dados, senha e assim por diante. Você pode usar essa cadeia de caracteres para se conectar ao servidor de seu código e aplicativos.
 
 <!-- 
 ## Next steps

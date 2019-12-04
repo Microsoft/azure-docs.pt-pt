@@ -1,20 +1,19 @@
 ---
-title: Gerenciar metadados de artefato da conta de integração-aplicativos lógicos do Azure
+title: Gerenciar metadados de artefato da conta de integração
 description: Adicionar ou obter metadados de artefato de contas de integração em aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
-ms.openlocfilehash: e8e2daf1de9223766c8cec835f7718007a8cf309
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679981"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792465"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerenciar metadados de artefato em contas de integração com aplicativos lógicos do Azure e Enterprise Integration Pack
 
@@ -54,7 +53,7 @@ Você pode definir metadados personalizados para artefatos em contas de integra�
 
 1. No portal do Azure, abra o aplicativo lógico que está vinculado à conta de integração que você deseja. 
 
-1. No designer de aplicativo lógico, se você estiver adicionando a etapa para obter metadados no gatilho ou na última ação no fluxo de trabalho, escolha **nova etapa**  > **Adicionar uma ação**. 
+1. No designer de aplicativo lógico, se você estiver adicionando a etapa para obter metadados no gatilho ou na última ação no fluxo de trabalho, escolha **nova etapa** > **Adicionar uma ação**. 
 
 1. Na caixa de pesquisa, digite "conta de integração". Na caixa de pesquisa, escolha **tudo**. Na lista ações, selecione esta ação: **pesquisa de artefato da conta de integração-conta de integração**
 
@@ -65,7 +64,7 @@ Você pode definir metadados personalizados para artefatos em contas de integra�
    | Propriedade | Obrigatório | Valor | Descrição | 
    |----------|---------|-------|-------------| 
    | **Tipo de artefato** | Sim | **Esquema**, **mapa**, **parceiro**, **contrato**ou tipo personalizado | O tipo do artefato que você deseja | 
-   | **Nome do artefato** | Sim | <*artefato-nome* > | O nome do artefato que você deseja | 
+   | **Nome do artefato** | Sim | <*artefato-nome*> | O nome do artefato que você deseja | 
    ||| 
 
    Por exemplo, suponha que você queira obter os metadados para um artefato de parceiro comercial:
@@ -86,10 +85,10 @@ Você pode definir metadados personalizados para artefatos em contas de integra�
 
       | Propriedade | Obrigatório | Valor | Descrição | 
       |----------|----------|-------|-------------| 
-      | **Método** | Sim | <*operação para executar* > | A operação HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa o método **Get** . | 
-      | **URI** | Sim | *metadados <-local* > | Para acessar o valor de metadados de `routingUrl` do artefato que você recuperou, você pode usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Headers** (Cabeçalhos) | Não | <*valores de cabeçalho* > | Qualquer saída de cabeçalho do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor da propriedade de `headers` do gatilho: você pode usar uma expressão, por exemplo: <p>`@triggeroutputs()['headers']` | 
-      | **Corpo** | Não | >*de < corpo-conteúdo* | Qualquer outro conteúdo que você queira passar pela propriedade `body` da ação HTTP. Este exemplo passa os valores de `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **corpo** para que a lista de conteúdo dinâmico seja exibida. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. na lista de conteúdo dinâmico, em **pesquisa de artefato da conta de integração**, selecione **Propriedades**. | 
+      | **Método** | Sim | <*operação para executar*> | A operação HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa o método **Get** . | 
+      | **URI** | Sim | *metadados <-local*> | Para acessar o valor de metadados de `routingUrl` do artefato que você recuperou, você pode usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Headers** (Cabeçalhos) | Não | <*valores de cabeçalho*> | Qualquer saída de cabeçalho do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor da propriedade de `headers` do gatilho: você pode usar uma expressão, por exemplo: <p>`@triggeroutputs()['headers']` | 
+      | **Corpo** | Não | > *de <corpo-conteúdo* | Qualquer outro conteúdo que você queira passar pela propriedade `body` da ação HTTP. Este exemplo passa os valores de `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **corpo** para que a lista de conteúdo dinâmico seja exibida. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. na lista de conteúdo dinâmico, em **pesquisa de artefato da conta de integração**, selecione **Propriedades**. | 
       |||| 
 
       Por exemplo:

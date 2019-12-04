@@ -1,19 +1,19 @@
 ---
-title: Segurança no banco de dados do Azure para MySQL-servidor único
-description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MySQL-servidor único.
+title: Segurança-banco de dados do Azure para MySQL
+description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 06f895d2e8cd7936141c9f35c5ed0c81fb7e3e15
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485058"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764972"
 ---
-# <a name="security-in-azure-database-for-mysql---single-server"></a>Segurança no banco de dados do Azure para MySQL-servidor único
+# <a name="security-in-azure-database-for-mysql"></a>Segurança na Base de Dados do Azure para MySQL
 
 Há várias camadas de segurança que estão disponíveis para proteger os dados em seu servidor do banco de dados do Azure para MySQL. Este artigo descreve essas opções de segurança.
 
@@ -50,5 +50,5 @@ Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access
 O [log de auditoria](concepts-audit-logs.md) está disponível para acompanhar a atividade em seus bancos de dados. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)

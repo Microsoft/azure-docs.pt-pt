@@ -1,19 +1,19 @@
 ---
-title: Segurança no banco de dados do Azure para MariaDB-servidor único
-description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MariaDB-servidor único.
+title: Segurança-banco de dados do Azure para MariaDB
+description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 1a2d7ac449c131519473afaa80eb3a57c287eb28
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485188"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772155"
 ---
-# <a name="security-in-azure-database-for-mariadb---single-server"></a>Segurança no banco de dados do Azure para MariaDB-servidor único
+# <a name="security-in-azure-database-for-mariadb"></a>Segurança no Azure Database for MariaDB
 
 Há várias camadas de segurança que estão disponíveis para proteger os dados no banco de dado do Azure para o servidor MariaDB. Este artigo descreve essas opções de segurança.
 
@@ -50,5 +50,5 @@ Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access
 O [log de auditoria](concepts-audit-logs.md) está disponível para acompanhar a atividade em seus bancos de dados. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-security-vnet.md)

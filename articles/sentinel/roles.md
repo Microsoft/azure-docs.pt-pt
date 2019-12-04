@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 02d87ed5f26d36b7cd438b0d818c7bdcce43520d
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464122"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762707"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -30,9 +30,9 @@ Usando o RBAC, você pode usar e criar funções dentro de sua equipe de operaç
 
 Há três funções internas de sentinela do Azure específicas.  
 **Todas as funções internas do Azure Sentinel concedem acesso de leitura aos dados em seu espaço de trabalho do Azure Sentinel.**
-- **Leitor do Azure Sentinel**: para obter mais informações, consulte [funções internas](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- **Respondente do Azure Sentinel**: para obter mais informações, consulte [funções internas](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- **Colaborador do Azure Sentinel**: para obter mais informações, consulte [funções internas](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+- [Leitor do Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- [Respondente do Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- [Colaborador do Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 Além das funções RBAC dedicadas do Azure Sentinel, há funções do Azure e Log Analytics RBAC que podem conceder um conjunto mais amplo de permissões que incluem acesso ao seu espaço de trabalho do Azure Sentinel e a outros recursos:
 
@@ -76,7 +76,7 @@ Além de, ou em vez de, usando funções RBAC internas, você pode criar funçõ
   
 Você pode usar o Log Analytics controle de acesso baseado em função avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o controle de acesso baseado em função por tipo de dados e controle de acesso baseado em função centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, você aprendeu a trabalhar com funções para usuários do Azure Sentinel e o que cada função permite que os usuários façam.
 
 * [Blog do Azure Sentinel](https://aka.ms/azuresentinelblog). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

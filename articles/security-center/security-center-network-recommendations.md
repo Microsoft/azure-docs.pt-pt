@@ -13,15 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201710"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766791"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger seus recursos de rede na central de segurança do Azure
+# <a name="protect-your-network-resources"></a>Proteja seus recursos de rede
 A central de segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para práticas recomendadas de segurança de rede. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
+
+Este artigo explica a página de **rede** da seção segurança de recursos da central de segurança do Azure e algumas das recomendações que você verá lá.
+
+Para obter uma lista completa das recomendações de rede, consulte [recomendações de rede](recommendations-network.md).
 
 Este artigo aborda as recomendações que se aplicam aos recursos do Azure de uma perspectiva de segurança de rede. O centro de recomendações de rede em relação aos firewalls da próxima geração, grupos de segurança de rede, acesso à VM JIT por regras de tráfego de entrada excessivamente permissivos e muito mais. Para obter uma lista de recomendações de rede e ações de correção, consulte [Gerenciando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md).
 
@@ -32,7 +36,7 @@ Este artigo aborda as recomendações que se aplicam aos recursos do Azure de um
 A página **rede** fornece uma visão geral das seções que você pode aprofundar para obter mais informações sobre a integridade de seus recursos de rede:
 
 - Mapa de rede (somente camada Standard da central de segurança do Azure)
-- Proteção de Rede Ajustável
+- Proteção de Rede Ajustável
 - Recomendações de segurança de rede.
 - Folha de **rede** herdada (a folha rede anterior) 
  
@@ -75,9 +79,9 @@ Como o mapa é interativo e dinâmico, cada nó é clicável e o modo de exibiç
 
 1. Você pode modificar o que vê no mapa de rede usando os filtros na parte superior. Você pode concentrar o mapa com base em:
 
-   -  **Integridade da segurança**: Você pode filtrar o mapa com base na gravidade (alta, média, baixa) de seus recursos do Azure.
-   - **Recomendações**: Você pode selecionar quais recursos são exibidos com base nas recomendações que estão ativas nesses recursos. Por exemplo, você pode exibir apenas os recursos para os quais a central de segurança recomenda que você habilite grupos de segurança de rede.
-   - **Zonas de rede**: Por padrão, o mapa exibe apenas os recursos voltados para a Internet, você também pode selecionar VMs internas.
+   -  **Integridade da segurança**: você pode filtrar o mapa com base na severidade (alta, média, baixa) de seus recursos do Azure.
+   - **Recomendações**: você pode selecionar quais recursos são exibidos com base nas recomendações que estão ativas nesses recursos. Por exemplo, você pode exibir apenas os recursos para os quais a central de segurança recomenda que você habilite grupos de segurança de rede.
+   - **Zonas de rede**: por padrão, o mapa exibe somente os recursos voltados para a Internet, você também pode selecionar VMs internas.
  
 2. Você pode clicar em **Redefinir** no canto superior esquerdo a qualquer momento para retornar o mapa ao seu estado padrão.
 
@@ -131,31 +135,8 @@ Nesse modo de exibição de topologia, o primeiro nível exibe Vnets. O segundo 
 
 O terceiro nível exibe as máquinas virtuais, que é semelhante ao que é descrito anteriormente. Você pode clicar em qualquer recurso para saber mais ou aplicar a configuração ou o controle de segurança necessário.
 
-## <a name="network-recommendations"></a>Recomendações de rede
-
-|Nome da recomendação|Descrição|Severity|Classificação de segurança|Tipo de recurso|
-|----|----|----|----|----|----|
-|Os grupos de segurança de rede no nível de sub-rede devem ser habilitados|Habilite grupos de segurança de rede para controlar o acesso à rede de recursos implantados em suas sub-redes.|Alta/média|30|Subnet|
-|As máquinas virtuais devem ser associadas a um grupo de segurança de rede|Habilite grupos de segurança de rede para controlar o acesso à rede de suas máquinas virtuais.|Alta/média|30|Máquina virtual|
-|O acesso deve ser restrito para grupos de segurança de rede permissivos com VMs voltadas para a Internet|Proteja os grupos de segurança de rede de suas VMs voltadas para a Internet restringindo o acesso de suas regras de permissão existentes.|Alta|20|Máquina virtual|
-|As regras para aplicativos Web em IaaS NSGs devem ser protegidas|Proteger o NSG (grupo de segurança de rede) de suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.|Alta|20|Máquina virtual|
-|O acesso aos serviços de aplicativos deve ser restrito|Restrinja o acesso aos serviços de aplicativos alterando a configuração de rede, para negar o tráfego de entrada de intervalos muito amplos.|Alta|10|Serviço de aplicações|
-|As portas de gerenciamento devem ser fechadas em suas máquinas virtuais|Proteger o grupo de segurança de rede de suas máquinas virtuais para restringir o acesso às portas de gerenciamento.|Alta|10|Máquina virtual|
-A proteção contra DDoS Standard deve ser habilitada|Proteja redes virtuais que contêm aplicativos com IPs públicos habilitando o padrão de serviço de proteção contra DDoS. A proteção contra DDoS permite a mitigação de ataques de volumétricos de rede e de protocolo.|Alta|10|Rede virtual|
-|O encaminhamento IP em sua máquina virtual deve ser desabilitado|Desabilite o encaminhamento de IP. Quando o encaminhamento de IP está habilitado na NIC de uma máquina virtual, o computador pode receber o tráfego endereçado a outros destinos. O encaminhamento de IP raramente é necessário (por exemplo, ao usar a VM como uma solução de virtualização de rede) e, portanto, isso deve ser revisado pela equipe de segurança de rede.|Médio|10|Máquina virtual|
-|Aplicação Web só deve estar acessível através de HTTPS|Habilite o acesso "somente HTTPS" para aplicativos Web. O uso de HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de interceptação de camada de rede.|Médio|20|Aplicação Web|
-|O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais|Aplique o controle de acesso de máquina virtual (JIT) just-in-time para bloquear permanentemente o acesso às portas selecionadas e habilite os usuários autorizados a abri-los, por meio do JIT, apenas por uma quantidade limitada de tempo.|Alta|20|Máquina virtual|
-|Os aplicativos de funções só devem ser acessíveis via HTTPS|Habilite o acesso "somente HTTPS" para aplicativos de funções. O uso de HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de interceptação de camada de rede.|Médio|20|Function app|
-|A transferência segura para contas de armazenamento deve ser habilitada|Habilite a transferência segura para contas de armazenamento. Transferência segura é uma opção que força sua conta de armazenamento a aceitar solicitações somente de conexões seguras (HTTPS). O uso de HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, como Man-in-the-Middle, espionagem e seqüestro de sessão.|Alta|20|Conta de armazenamento|
-
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 * [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
-* [Proteger o seu serviço do SQL do Azure no Centro de segurança do Azure](security-center-sql-service-recommendations.md)
-
-Para saber mais acerca do Centro de Segurança, consulte o seguinte:
-
-* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
+* [Protegendo seu serviço SQL do Azure na central de segurança do Azure](security-center-sql-service-recommendations.md)

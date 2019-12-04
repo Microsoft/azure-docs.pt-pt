@@ -1,23 +1,23 @@
 ---
-title: Criar e gerenciar pontos de extremidade e regras de serviço VNet do banco de dados do Azure para MySQL usando o portal do Azure | Microsoft Docs
+title: Gerenciar pontos de extremidade de VNet-portal do Azure-banco de dados do Azure para MySQL
 description: Criar e gerenciar pontos de extremidade e regras de serviço VNet do banco de dados do Azure para MySQL usando o portal do Azure
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 1e5f70a806160355f02ecb649343857c28b9484f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 12/02/2019
+ms.openlocfilehash: 7479b16f2e1f14d8ebe611bf3121005af342ccb9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610022"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764938"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerenciar pontos de extremidade de serviço VNet do banco de dados do Azure para MySQL e regras de VNet usando o portal do Azure
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Para obter uma visão geral dos pontos de extremidade do serviço VNet do banco de dados do Azure para MySQL, incluindo limitações, consulte [pontos de extremidade do serviço vnet do banco de dados do Azure para MySQL Server](concepts-data-access-and-security-vnet.md). Pontos de extremidade de serviço de VNet estão disponíveis em todas as regiões com suporte para o banco de dados do Azure para MySQL.
 
 > [!NOTE]
-> Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
+> O suporte para pontos de extremidade de serviço de VNet é apenas para servidores Uso Geral e com otimização de memória.
 > No caso de emparelhamento VNet, se o tráfego estiver fluindo por um gateway de VNet comum com pontos de extremidade de serviço e for supostamente fluir para o par, crie uma regra de ACL/VNet para permitir que as máquinas virtuais do Azure na VNet do gateway acessem o servidor de banco de dados do Azure para MySQL.
 
 
@@ -30,7 +30,7 @@ Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espa
 > [!Important]
 > Se você deixar o controle definido como ON, seu servidor de banco de dados MySQL do Azure aceitará a comunicação de qualquer sub-rede. Deixar o controle definido como ON pode ser o acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço Rede Virtual do Microsoft Azure, em coordenação com o recurso de regra de rede virtual do banco de dados do Azure para MySQL, pode reduzir sua área de superfície de segurança.
 
-3. Em seguida, clique em **+ Adicionar rede virtual existente**. Se você não tiver uma VNet existente, poderá clicar em **+ criar nova rede virtual** para criar uma. Consulte [início rápido: Criar uma rede virtual usando o portal do Azure](../virtual-network/quick-create-portal.md)
+3. Em seguida, clique em **+ Adicionar rede virtual existente**. Se você não tiver uma VNet existente, poderá clicar em **+ criar nova rede virtual** para criar uma. Consulte [início rápido: criar uma rede virtual usando o portal do Azure](../virtual-network/quick-create-portal.md)
 
    ![portal do Azure clique em segurança de conexão](./media/howto-manage-vnet-using-portal/1-connection-security.png)
 
@@ -49,7 +49,7 @@ Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espa
    As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da VNet e do Azure estiverem em assinaturas diferentes, os recursos deverão estar no mesmo locatário do Active Directory (AD). Certifique-se de que ambas as assinaturas tenham o provedor de recursos **Microsoft. SQL** registrado. Para obter mais informações, consulte [Resource-Manager-Registration][resource-manager-portal]
 
    > [!IMPORTANT]
-   > É altamente recomendável ler este artigo sobre as configurações e considerações do ponto de extremidade de serviço antes de configurar pontos de extremidades de serviço. **Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Os pontos de extremidade dos serviços de VNet usam o nome do tipo de serviço **Microsoft. SQL**, que se refere ao serviço do Azure denominado Banco de dados SQL. Essa marca de serviço também se aplica ao banco de dados SQL do Azure, ao banco de dados do Azure para PostgreSQL e aos serviços MySQL. É importante observar ao aplicar a marca de serviço **Microsoft. SQL** a um ponto de extremidade de serviço VNet que configura o tráfego de ponto de extremidade de serviço para todos os serviços de banco de dados do Azure, incluindo o banco de dados SQL do Azure, banco de dados do Azure para PostgreSQL e banco de dados Servidores MySQL na sub-rede. 
+   > É altamente recomendável ler este artigo sobre as configurações e considerações do ponto de extremidade de serviço antes de configurar pontos de extremidades de serviço. **Ponto de extremidade de serviço de rede virtual:** Um [ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais de tipo de serviço do Azure. Os pontos de extremidade dos serviços de VNet usam o nome do tipo de serviço **Microsoft. SQL**, que se refere ao serviço do Azure denominado Banco de dados SQL. Essa marca de serviço também se aplica ao banco de dados SQL do Azure, ao banco de dados do Azure para PostgreSQL e aos serviços MySQL. É importante observar ao aplicar a marca de serviço **Microsoft. SQL** a um ponto de extremidade de serviço VNet que configura o tráfego de ponto de extremidade de serviço para todos os serviços de banco de dados do Azure, incluindo banco de dados SQL do Azure, banco de dados do Azure para PostgreSQL e banco de dados do Azure para servidores MySQL na sub-rede. 
    > 
 
 5. Uma vez habilitado, clique em **OK** e você verá que os pontos de extremidade do serviço VNet estão habilitados junto com uma regra de VNet.

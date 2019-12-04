@@ -1,20 +1,17 @@
 ---
-title: Adicionar loops a ações de repetição – aplicativos lógicos do Azure
+title: Adicionar loops a ações de repetição
 description: Criar loops que repetem ações de fluxo de trabalho ou matrizes de processo em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680456"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791758"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou matrizes de processo em aplicativos lógicos do Azure
 
@@ -235,7 +232,7 @@ A partir de 8:00, todos os dias, esse aplicativo lógico de exemplo incrementa u
 
       | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
-      | **Para** | *\@domain de \<email de endereço >* | O endereço de email do destinatário. Para teste, use seu próprio endereço de email. | 
+      | **Para** | *\<endereço de email\@domínio >* | o endereço de email do destinatário. Para teste, use seu próprio endereço de email. | 
       | **Assunto** | O valor atual para "Limit" é **limite** | Especifique o assunto do email. Para este exemplo, certifique-se de incluir a variável **limite** . | 
       | **Corpo** | <*email-> de conteúdo* | Especifique o conteúdo da mensagem de email que você deseja enviar. Para este exemplo, insira qualquer texto que você desejar. | 
       |||| 

@@ -1,142 +1,141 @@
 ---
-title: Ligar ao servidor do IBM MQ - Azure Logic Apps
-description: Enviar e receber mensagens com um servidor do IBM MQ do Azure ou no local e o Azure Logic Apps
+title: Conectar-se ao servidor do IBM MQ
+description: Enviar e recuperar mensagens com um servidor e aplicativos lógicos do Azure no Azure ou no local
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: valrobb
 ms.author: valthom
-ms.reviewer: chrishou, LADocs
+ms.reviewer: chrishou, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: a2894799946d069916b27a4f5bcc7bd3244705b2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ef9e91b526055ece58ce283572deb98cff951653
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273117"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789586"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ligar a um servidor do IBM MQ a partir do Azure Logic Apps
+# <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos do Azure
 
-O conector do IBM MQ envia e obtém mensagens armazenadas num servidor do IBM MQ no local ou no Azure. Este conector inclui um cliente do Microsoft MQ que comunica com um servidor remoto do IBM MQ através de uma rede TCP/IP. Este artigo fornece um guia de introdução para utilizar o conector MQ. Pode começar por uma única mensagem numa fila de navegação e, em seguida, tente outras ações.
+O conector IBM MQ envia e recupera mensagens armazenadas em um servidor do IBM MQ localmente ou no Azure. Esse conector inclui um cliente Microsoft MQ que se comunica com um servidor MQ IBM remoto em uma rede TCP/IP. Este artigo fornece um guia inicial para usar o conector do MQ. Você pode começar navegando por uma única mensagem em uma fila e, em seguida, tentar outras ações.
 
-O conector do IBM MQ inclui estas ações, mas não fornece nenhuma acionador:
+O conector IBM MQ inclui essas ações, mas não fornece gatilhos:
 
-- Procurar uma única mensagem sem a eliminação da mensagem do servidor do IBM MQ
-- Procurar um lote de mensagens sem eliminar as mensagens a partir do servidor do IBM MQ
-- Receber uma única mensagem e eliminar a mensagem do servidor do IBM MQ
-- Receber um lote de mensagens e eliminar as mensagens a partir do servidor do IBM MQ
+- Procurar uma única mensagem sem excluir a mensagem do servidor do IBM MQ
+- Procurar um lote de mensagens sem excluir as mensagens do servidor do IBM MQ
+- Receber uma única mensagem e excluir a mensagem do servidor do IBM MQ
+- Receber um lote de mensagens e excluir as mensagens do servidor do IBM MQ
 - Enviar uma única mensagem para o servidor do IBM MQ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se estiver a utilizar um servidor MQ no local, [instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md) num servidor na sua rede. O servidor onde está instalado o gateway de dados no local tem de ter também o .NET Framework 4.6 instalado para o conector MQ para trabalhar. Tem também de criar um recurso no Azure para o gateway de dados no local. Para obter mais informações, consulte [configurar a ligação de gateway de dados](../logic-apps/logic-apps-gateway-connection.md).
+* Se você estiver usando um servidor MQ local, [Instale o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) em um servidor dentro de sua rede. O servidor no qual o gateway de dados local está instalado também deve ter o .NET Framework 4,6 instalado para que o conector do MQ funcione. Você também deve criar um recurso no Azure para o gateway de dados local. Para obter mais informações, consulte [Configurar a conexão do gateway de dados](../logic-apps/logic-apps-gateway-connection.md).
 
-  No entanto, se o servidor MQ estiver publicamente disponíveis ou estão disponíveis no Azure, não tem de utilizar o gateway de dados.
+  No entanto, se o servidor do MQ estiver publicamente disponível ou disponível no Azure, você não precisará usar o gateway de dados.
 
-* Oficialmente IBM WebSphere MQ as versões suportadas:
+* Versões do IBM WebSphere MQ com suporte oficialmente:
 
-  * MQ 7.5
-  * MQ 8.0
-  * MQ 9.0
+  * MQ 7,5
+  * MQ 8,0
+  * MQ 9,0
 
-* A aplicação de lógica onde pretende adicionar a ação de MQ. Esta aplicação lógica terá de utilizar a mesma localização que a ligação de gateway de dados no local e já tem de ter um acionador que inicia o fluxo de trabalho. 
+* O aplicativo lógico no qual você deseja adicionar a ação do MQ. Esse aplicativo lógico deve usar o mesmo local que a sua conexão de gateway de dados local e já deve ter um gatilho que inicie o fluxo de trabalho. 
 
-  O conector MQ não tem qualquer gatilhos, então precisa adicionar um acionador à sua aplicação lógica pela primeira vez. Por exemplo, pode utilizar o acionador de periodicidade. Se estiver familiarizado com aplicações lógicas, experimente isto [início rápido para criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  O conector do MQ não tem nenhum gatilho, portanto, você deve adicionar um gatilho ao seu aplicativo lógico primeiro. Por exemplo, você pode usar o gatilho de recorrência. Se você for novo em aplicativos lógicos, experimente este guia [de início rápido para criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ## <a name="browse-a-single-message"></a>Procurar uma única mensagem
 
-1. Na sua aplicação lógica, sob o acionador ou outra ação, escolha **novo passo**. 
+1. No aplicativo lógico, no gatilho ou outra ação, escolha **nova etapa**. 
 
-1. Na caixa de pesquisa, escreva "mq" e selecione a ação: **Procure a mensagem**
+1. Na caixa de pesquisa, digite "MQ" e selecione esta ação: **procurar mensagem**
 
-   ![Procure a mensagem](media/connectors-create-api-mq/Browse_message.png)
+   ![Procurar mensagem](media/connectors-create-api-mq/Browse_message.png)
 
-1. Se não tiver uma ligação de MQ existente, crie a ligação:  
+1. Se você não tiver uma conexão MQ existente, crie a conexão:  
 
-   1. Na ação, selecione **ligar através do gateway de dados no local**.
+   1. Na ação, selecione **conectar por meio do gateway de dados local**.
    
-   1. Introduza as propriedades do seu servidor MQ.  
+   1. Insira as propriedades do servidor MQ.  
 
-      Para **servidor**, pode introduzir o nome do servidor MQ, ou introduza o endereço IP seguido por dois-pontos e o número de porta.
+      Para o **servidor**, você pode inserir o nome do servidor do MQ ou inserir o endereço IP seguido por dois-pontos e o número da porta.
     
-   1. Abra o **gateway** lista, que mostra a qualquer configurado anteriormente ligações do gateway. Selecione o seu gateway.
+   1. Abra a lista **Gateway** , que mostra todas as conexões de gateway configuradas anteriormente. Selecione seu gateway.
     
    1. Quando tiver terminado, escolha **Create** (Criar). 
    
-      A ligação é semelhante a este exemplo:
+      Sua conexão é semelhante a este exemplo:
 
-      ![Propriedades de ligação](media/connectors-create-api-mq/Connection_Properties.png)
+      ![Propriedades da conexão](media/connectors-create-api-mq/Connection_Properties.png)
 
-1. Configure propriedades da ação:
+1. Configure as propriedades da ação:
 
-   * **fila**: Especifique uma fila que é diferente da conexão.
+   * **Fila**: especifique uma fila diferente da conexão.
 
-   * **MessageId**, **CorrelationId**, **GroupId**e outras propriedades: Procure uma mensagem com base nas propriedades de mensagem diferentes do MQ
+   * **MessageId**, **CorrelationId**, **GroupId**e outras propriedades: procurar uma mensagem com base nas diferentes propriedades de mensagem do MQ
 
-   * **IncludeInfo**: Especifique **True** para incluir informações de mensagens adicionais no resultado. Em alternativa, especificar **False** para não incluir informações de mensagens adicionais no resultado.
+   * **IncludeInfo**: especifique **true** para incluir informações de mensagem adicionais na saída. Ou especifique **false** para não incluir informações de mensagem adicionais na saída.
 
-   * **Tempo limite**: Introduza um valor para determinar o tempo aguardar que uma mensagem chegue numa fila vazia. Se nada for inserido, a primeira mensagem da fila é recuperada e não há tempo gasto a aguardar que uma mensagem seja exibida.
+   * **Tempo limite**: Insira um valor para determinar por quanto tempo esperar que uma mensagem chegue em uma fila vazia. Se nada for inserido, a primeira mensagem na fila será recuperada e nenhum tempo será gasto aguardando a exibição de uma mensagem.
 
      ![Procurar propriedades da mensagem](media/connectors-create-api-mq/Browse_message_Props.png)
 
-1. **Guarde** as suas alterações e, em seguida **executar** a aplicação lógica.
+1. **Salve** suas alterações e, em seguida, **Execute** seu aplicativo lógico.
 
-   ![Guardar e executar](media/connectors-create-api-mq/Save_Run.png)
+   ![Salvar e executar](media/connectors-create-api-mq/Save_Run.png)
 
-   Após a conclusão da execução, são apresentados os passos de execução e pode rever a saída.
+   Após a conclusão da execução, as etapas da execução são mostradas e você pode examinar a saída.
 
-1. Para rever os detalhes para cada passo, escolha a marca de verificação verde. Para obter mais informações sobre os dados de saída de rever, escolha **Mostrar saídas em bruto**.
+1. Para examinar os detalhes de cada etapa, escolha a marca de seleção verde. Para examinar mais informações sobre os dados de saída, escolha **Mostrar saídas brutas**.
 
-   ![Procurar a saída de mensagem](media/connectors-create-api-mq/Browse_message_output.png)  
+   ![Procurar saída da mensagem](media/connectors-create-api-mq/Browse_message_output.png)  
 
-   Eis algumas saídas em bruto de exemplo:
+   Aqui está um exemplo de saída bruta:
 
-   ![Procurar saída brutos de mensagem](media/connectors-create-api-mq/Browse_message_raw_output.png)
+   ![Procurar saída bruta de mensagem](media/connectors-create-api-mq/Browse_message_raw_output.png)
 
-1. Se definir **IncludeInfo** como true, o seguinte resultado é apresentado:
+1. Se você definir **IncludeInfo** como true, a seguinte saída será exibida:
 
-   ![Mensagem de procurar incluem informações](media/connectors-create-api-mq/Browse_message_Include_Info.png)
+   ![Procurar mensagem incluir informações](media/connectors-create-api-mq/Browse_message_Include_Info.png)
 
 ## <a name="browse-multiple-messages"></a>Procurar várias mensagens
 
-O **procurar mensagens** ação inclui um **BatchSize** opção para indicar o número de mensagens devem ser devolvidas da fila.  Se **BatchSize** não tem entradas, todas as mensagens são devolvidas. O resultado retornado é uma matriz de mensagens.
+A ação **Procurar mensagens** inclui uma opção **BatchSize** para indicar quantas mensagens devem ser retornadas da fila.  Se **BatchSize** não tiver nenhuma entrada, todas as mensagens serão retornadas. A saída retornada é uma matriz de mensagens.
 
-1. Quando adiciona a **procurar mensagens** ação, a primeira anteriormente ligação configurada está selecionada por predefinição. Para criar uma nova ligação, escolha **Alterar ligação**. Em alternativa, selecione uma ligação diferente.
+1. Quando você adiciona a ação **Procurar mensagens** , a primeira conexão configurada anteriormente é selecionada por padrão. Para criar uma nova conexão, escolha **alterar conexão**. Ou então, selecione uma conexão diferente.
 
-1. Após a aplicação lógica execução estiver concluída, eis algumas saídas de exemplo do **procurar mensagens** ação:
+1. Depois que a execução do aplicativo lógico for concluída, aqui está alguns exemplos de saída da ação **Procurar mensagens** :
 
-   ![Procurar a saída de mensagens](media/connectors-create-api-mq/Browse_messages_output.png)
+   ![Saída de procurar mensagens](media/connectors-create-api-mq/Browse_messages_output.png)
 
 ## <a name="receive-single-message"></a>Receber mensagem única
 
-O **mensagem de recebimento** ação tem as mesmas entradas e saídas como o **mensagem procurar** ação. Ao usar **mensagem de recebimento**, a mensagem é eliminada da fila.
+A ação **receber mensagem** tem as mesmas entradas e saídas que a ação **procurar mensagem** . Ao usar **receber mensagem**, a mensagem é excluída da fila.
 
 ## <a name="receive-multiple-messages"></a>Receber várias mensagens
 
-O **receber mensagens** ação tem as mesmas entradas e saídas como o **procurar mensagens** ação. Ao usar **receber mensagens**, as mensagens são eliminadas da fila.
+A ação **receber mensagens** tem as mesmas entradas e saídas que a ação **Procurar mensagens** . Ao usar **receber mensagens**, as mensagens são excluídas da fila.
 
-Se não existirem mensagens na fila ao efetuar uma procura ou receber, o passo falhar com este resultado:  
+Se não houver nenhuma mensagem na fila ao fazer uma procura ou um recebimento, a etapa falhará com esta saída:  
 
-![Erro de mensagens não MQ](media/connectors-create-api-mq/MQ_No_Msg_Error.png)
+![Erro de sem mensagem do MQ](media/connectors-create-api-mq/MQ_No_Msg_Error.png)
 
 ## <a name="send-message"></a>Enviar mensagem
 
-Quando adiciona a **enviar mensagens** ação, a primeira anteriormente ligação configurada está selecionada por predefinição. Para criar uma nova ligação, escolha **Alterar ligação**. Em alternativa, selecione uma ligação diferente.
+Quando você adiciona a ação **enviar mensagens** , a primeira conexão configurada anteriormente é selecionada por padrão. Para criar uma nova conexão, escolha **alterar conexão**. Ou então, selecione uma conexão diferente.
 
-1. Selecione um tipo de mensagem válido: **Datagrama**, **resposta**, ou **do pedido**  
+1. Selecione um tipo de mensagem válido: **datagrama**, **resposta**ou **solicitação**  
 
-   ![Enviar mensagem de propriedades](media/connectors-create-api-mq/Send_Msg_Props.png)
+   ![Enviar props de mensagens](media/connectors-create-api-mq/Send_Msg_Props.png)
 
-1. Depois da aplicação lógica concluída em execução, eis algumas saídas de exemplo do **mensagem de envio** ação:
+1. Depois que o aplicativo lógico terminar a execução, aqui está alguns exemplos de saída da ação **Enviar mensagem** :
 
-   ![Enviar a mensagem de saída](media/connectors-create-api-mq/Send_Msg_Output.png)
+   ![Enviar saída de MSG](media/connectors-create-api-mq/Send_Msg_Output.png)
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre limites e ações, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](/connectors/mq/).
+Para obter detalhes técnicos sobre ações e limites, que são descritos pela descrição do OpenAPI (anteriormente Swagger) do conector, examine a [página de referência](/connectors/mq/)do conector.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

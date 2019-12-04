@@ -2,20 +2,17 @@
 title: Conectar-se a pontos de extremidade REST de aplicativos lógicos do Azure
 description: Monitorar pontos de extremidade REST em tarefas, processos e fluxos de trabalho automatizados usando aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824808"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787374"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chamar pontos de extremidade REST usando aplicativos lógicos do Azure
 
@@ -33,7 +30,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
   * O arquivo Swagger deve ter [CORS (compartilhamento de recursos entre origens)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitado.
 
-  Para fazer referência a um arquivo do Swagger que não está hospedado ou que não atende aos requisitos de segurança e entre origens, você pode [carregar o arquivo do Swagger para um contêiner de BLOB em uma conta de armazenamento do Azure](#host-swagger)e habilitar o CORS nessa conta de armazenamento para que você possa fazer referência o arquivo.
+  Para fazer referência a um arquivo do Swagger que não está hospedado ou que não atende aos requisitos de segurança e entre origens, você pode [carregar o arquivo do Swagger para um contêiner de BLOB em uma conta de armazenamento do Azure](#host-swagger)e habilitar o CORS nessa conta de armazenamento para que você possa fazer referência ao arquivo.
 
   Os exemplos neste tópico usam o [API de detecção facial de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/face/overview), que requer uma [conta de serviços cognitivas e uma chave de acesso](../cognitive-services/cognitive-services-apis-create-account.md).
 
@@ -45,7 +42,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 Esse gatilho interno envia uma solicitação HTTP para uma URL para um arquivo do Swagger que descreve uma API REST e retorna uma resposta que contém o conteúdo desse arquivo.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
 1. No designer, na caixa de pesquisa, digite "Swagger" como filtro. Na lista de **gatilhos** , selecione o gatilho **http + Swagger** .
 
@@ -81,7 +78,7 @@ Esse gatilho interno envia uma solicitação HTTP para uma URL para um arquivo d
 
 Essa ação interna faz uma solicitação HTTP para a URL do arquivo Swagger que descreve uma API REST e retorna uma resposta que contém o conteúdo desse arquivo.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
 
 1. Na etapa em que você deseja adicionar a ação HTTP + Swagger, selecione **nova etapa**.
 

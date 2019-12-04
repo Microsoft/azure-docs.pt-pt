@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 492fa7f4989a40ea1d5ec91a4fbf4dbbe79ef6ce
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383265"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790338"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos
 
@@ -51,7 +51,7 @@ Nesta seção, você configura a [grade de eventos](../event-grid/overview.md) p
 
 Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma interface para rotear os eventos gerados pela função definida pelo usuário. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**. 
 
@@ -118,9 +118,9 @@ Você pode usar o serviço de [aplicativos lógicos do Azure](../logic-apps/logi
 
 1. Abra o recurso de aplicativos lógicos quando ele for implantado e, em seguida, abra o painel **Designer de aplicativo lógico** . 
 
-1. Selecione o gatilho **quando ocorre um evento de recurso da grade de eventos** . Entre em seu locatário com sua conta do Azure quando solicitado. Selecione **permitir acesso** para seu recurso de grade de eventos, se solicitado. Selecione **Continuar**.
+1. Selecione o gatilho **quando ocorre um evento de recurso da grade de eventos** . Expanda a opção de **grade de eventos do Azure** e entre em seu locatário com sua conta do Azure quando solicitado. Selecione **permitir acesso** para seu recurso de grade de eventos, se solicitado. Selecione **Continuar**.
 
-1. Na janela **quando um evento de recurso ocorre (visualização)** : 
+1. Na janela **quando um evento de recurso ocorre** : 
    
    a. Selecione a **assinatura** que você usou para criar o tópico da grade de eventos.
 
@@ -198,12 +198,12 @@ Para parar de receber esses emails, vá para o recurso aplicativos lógicos no p
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
+Se você quiser interromper a exploração do Azure digital gêmeos neste ponto, sinta-se à vontade para excluir os recursos criados neste tutorial:
 
 1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digital gêmeos e selecione **excluir**.
 
     > [!TIP]
-    > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
+    > Se você teve problemas ao excluir sua instância de gêmeos digital, uma atualização de serviço foi distribuída com a correção. Tente excluir a instância novamente.
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 

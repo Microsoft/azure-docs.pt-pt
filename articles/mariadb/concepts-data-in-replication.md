@@ -1,17 +1,17 @@
 ---
-title: Replicar dados para o Azure Database para MariaDB
+title: Replicação de dados-para MariaDB
 description: Saiba mais sobre como usar a replicação de dados para sincronizar de um servidor externo no banco de dados do Azure para o serviço MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 826a6db289bf8b938e85d270f91836b3d8790206
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: e98f0dffe1ae004905c2b0969d825a1bca89014a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973644"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772643"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar dados para o Azure Database para MariaDB
 
@@ -31,7 +31,7 @@ O [*banco de dados do sistema MySQL*](https://mariadb.com/kb/en/library/the-mysq
 ### <a name="requirements"></a>Requisitos
 - A versão do servidor mestre deve ser pelo menos MariaDB versão 10,2.
 - As versões do servidor mestre e de réplica devem ser as mesmas. Por exemplo, ambos devem ser MariaDB versão 10,2.
-- Cada tabela tem de ter uma chave primária.
+- Cada tabela deve ter uma chave primária.
 - O servidor mestre deve usar o mecanismo InnoDB.
 - O usuário deve ter permissões para configurar o log binário e criar novos usuários no servidor mestre.
 - Se o servidor mestre tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio foi incluído no procedimento armazenado `mariadb.az_replication_change_master`. Consulte os [exemplos](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) a seguir e o parâmetro `master_ssl_ca`.

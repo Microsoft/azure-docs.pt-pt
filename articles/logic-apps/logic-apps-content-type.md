@@ -1,29 +1,26 @@
 ---
-title: Manipular tipos de conteúdo-aplicativos lógicos do Azure
+title: Lidar com tipos de conteúdo
 description: Saiba como os aplicativos lógicos lidam com tipos de conteúdo em tempo de design e tempo de execução
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868917"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791528"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em aplicativos lógicos do Azure
 
 Vários tipos de conteúdo podem fluir por meio de um aplicativo lógico, por exemplo, JSON, XML, arquivos simples e dados binários. Embora os aplicativos lógicos ofereçam suporte a todos os tipos de conteúdo, alguns têm suporte nativo e não exigem a conversão ou converter em seus aplicativos lógicos. Outros tipos podem exigir elenco ou conversão, conforme necessário. Este artigo descreve como os aplicativos lógicos tratam tipos de conteúdo e como é possível converter ou converter corretamente esses tipos quando necessário.
 
-Para determinar a maneira apropriada de lidar com tipos de conteúdo, os aplicativos lógicos `Content-Type` dependem do valor do cabeçalho em chamadas http, por exemplo:
+Para determinar a maneira apropriada de lidar com tipos de conteúdo, os aplicativos lógicos dependem do valor do cabeçalho de `Content-Type` em chamadas HTTP, por exemplo:
 
-* [aplicativo/JSON](#application-json) (tipo nativo)
-* [texto/sem formatação](#text-plain) (tipo nativo)
+* [Application/JSON](#application-json) (tipo nativo)
+* [texto/simples](#text-plain) (tipo nativo)
 * [Application/XML e application/octet-stream](#application-xml-octet-stream)
 * [Outros tipos de conteúdo](#other-content-types)
 
@@ -31,7 +28,7 @@ Para determinar a maneira apropriada de lidar com tipos de conteúdo, os aplicat
 
 ## <a name="applicationjson"></a>application/json
 
-Os aplicativos lógicos armazenam e tratam qualquer solicitação com o tipo de conteúdo *Application/JSON* como um objeto JSON (JavaScript Notation). Por padrão, você pode analisar o conteúdo JSON sem qualquer conversão. Para analisar uma solicitação que tem um cabeçalho com o tipo de conteúdo "Application/JSON", você pode usar uma expressão. Este exemplo retorna o valor `dog` `animal-type` da matriz sem conversão: 
+Os aplicativos lógicos armazenam e tratam qualquer solicitação com o tipo de conteúdo *Application/JSON* como um objeto JSON (JavaScript Notation). Por padrão, você pode analisar o conteúdo JSON sem qualquer conversão. Para analisar uma solicitação que tem um cabeçalho com o tipo de conteúdo "Application/JSON", você pode usar uma expressão. Este exemplo retorna o valor `dog` da matriz de `animal-type` sem conversão: 
  
 `@body('myAction')['animal-type'][0]` 
   
@@ -102,7 +99,7 @@ Os aplicativos lógicos fornecem a capacidade de gerar tokens amigáveis para o 
      }
      ```
 
-  3. Em sua solicitação, certifique-se de incluir `Content-Type` um cabeçalho e definir o valor do cabeçalho `application/json`como.
+  3. Em sua solicitação, certifique-se de incluir um cabeçalho de `Content-Type` e definir o valor do cabeçalho como `application/json`.
 
 * **Analisar ação JSON**
 
@@ -116,14 +113,14 @@ Os aplicativos lógicos fornecem a capacidade de gerar tokens amigáveis para o 
 
 ## <a name="textplain"></a>texto/sem formatação
 
-Quando seu aplicativo lógico recebe mensagens HTTP que têm o `Content-Type` cabeçalho definido como `text/plain`, seu aplicativo lógico armazena essas mensagens em formato bruto. Se você incluir essas mensagens em ações subsequentes sem conversão, as solicitações passarão `Content-Type` com o cabeçalho `text/plain`definido como. 
+Quando seu aplicativo lógico recebe mensagens HTTP que têm o cabeçalho `Content-Type` definido como `text/plain`, seu aplicativo lógico armazena essas mensagens em formato bruto. Se você incluir essas mensagens em ações subsequentes sem conversão, as solicitações passarão com o cabeçalho `Content-Type` definido como `text/plain`. 
 
-Por exemplo, quando você estiver trabalhando com um arquivo simples, poderá receber uma solicitação HTTP com o `Content-Type` cabeçalho definido como `text/plain` tipo de conteúdo:
+Por exemplo, quando você estiver trabalhando com um arquivo simples, poderá receber uma solicitação HTTP com o cabeçalho `Content-Type` definido como `text/plain` tipo de conteúdo:
 
 `Date,Name,Address`</br>
 `Oct-1,Frank,123 Ave`
 
-Se você enviar essa solicitação em uma ação posterior como o corpo de outra solicitação, por exemplo `@body('flatfile')`, essa segunda solicitação também terá um `Content-Type` cabeçalho definido como `text/plain`. Se você estiver trabalhando com dados com texto sem formatação, mas não tiver especificado um cabeçalho, poderá converter manualmente esses dados em texto usando a [função String ()](../logic-apps/workflow-definition-language-functions-reference.md#string) , como esta expressão: 
+Se você enviar essa solicitação em uma ação posterior como o corpo de outra solicitação, por exemplo, `@body('flatfile')`, essa segunda solicitação também terá um cabeçalho de `Content-Type` definido como `text/plain`. Se você estiver trabalhando com dados com texto sem formatação, mas não tiver especificado um cabeçalho, poderá converter manualmente esses dados em texto usando a [função String ()](../logic-apps/workflow-definition-language-functions-reference.md#string) , como esta expressão: 
 
 `@string(triggerBody())`
 
@@ -131,39 +128,39 @@ Se você enviar essa solicitação em uma ação posterior como o corpo de outra
 
 ## <a name="applicationxml-and-applicationoctet-stream"></a>Application/XML e application/octet-stream
 
-Os aplicativos lógicos sempre preservam `Content-Type` o em uma solicitação ou resposta http recebida. Portanto, se o aplicativo lógico receber conteúdo `Content-Type` com definido `application/octet-stream`como e você incluir esse conteúdo em uma ação posterior sem conversão, a solicitação de saída também terá `Content-Type` definido como `application/octet-stream`. Dessa forma, os aplicativos lógicos podem garantir que os dados não sejam perdidos durante a movimentação do fluxo de trabalho. No entanto, o estado de ação, ou entradas e saídas, é armazenado em um objeto JSON enquanto o estado se move pelo fluxo de trabalho. 
+Os aplicativos lógicos sempre preservam o `Content-Type` em uma solicitação ou resposta HTTP recebida. Portanto, se o aplicativo lógico receber conteúdo com `Content-Type` definido como `application/octet-stream`e você incluir esse conteúdo em uma ação posterior sem conversão, a solicitação de saída também terá `Content-Type` definido como `application/octet-stream`. Dessa forma, os aplicativos lógicos podem garantir que os dados não sejam perdidos durante a movimentação do fluxo de trabalho. No entanto, o estado de ação, ou entradas e saídas, é armazenado em um objeto JSON enquanto o estado se move pelo fluxo de trabalho. 
 
 ## <a name="converter-functions"></a>Funções de conversor
 
-Para preservar alguns tipos de dados, os aplicativos lógicos convertem o conteúdo em uma cadeia de caracteres binária codificada em base64 com `$content` metadados apropriados que `$content-type`preservam a carga e a, que são automaticamente convertidas. 
+Para preservar alguns tipos de dados, os aplicativos lógicos convertem o conteúdo em uma cadeia de caracteres binária codificada em base64 com metadados apropriados que preservam a carga de `$content` e a `$content-type`, que são automaticamente convertidas. 
 
 Esta lista descreve como os aplicativos lógicos convertem o conteúdo quando você usa essas [funções](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Converte dados em`application/json`
-* `xml()`: Converte dados em`application/xml`
-* `binary()`: Converte dados em`application/octet-stream`
-* `string()`: Converte dados em`text/plain`
-* `base64()`: Converte o conteúdo em uma cadeia de caracteres codificada em base64
-* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 em`text/plain`
-* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 em`application/octet-stream`
-* `dataUri()`: Converte uma cadeia de caracteres em um URI de dados
-* `dataUriToBinary()`: Converte um URI de dados em uma cadeia de caracteres binária
-* `dataUriToString()`: Converte um URI de dados em uma cadeia de caracteres
+* `json()`: converte dados em `application/json`
+* `xml()`: converte dados em `application/xml`
+* `binary()`: converte dados em `application/octet-stream`
+* `string()`: converte dados em `text/plain`
+* `base64()`: converte o conteúdo em uma cadeia de caracteres codificada em base64
+* `base64toString()`: converte uma cadeia de caracteres codificada em base64 em `text/plain`
+* `base64toBinary()`: converte uma cadeia de caracteres codificada em base64 em `application/octet-stream`
+* `dataUri()`: converte uma cadeia de caracteres em um URI de dados
+* `dataUriToBinary()`: converte um URI de dados em uma cadeia de caracteres binária
+* `dataUriToString()`: converte um URI de dados em uma cadeia de caracteres
 
-Por exemplo, se você receber uma solicitação HTTP onde `Content-Type` `application/xml`definido como, como este conteúdo:
+Por exemplo, se você receber uma solicitação HTTP onde `Content-Type` definido como `application/xml`, como este conteúdo:
 
 ```html
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-Você pode converter esse conteúdo usando a `@xml(triggerBody())` expressão com as `xml()` funções e `triggerBody()` e, em seguida, usar esse conteúdo posteriormente. Ou, você pode usar a `@xpath(xml(triggerBody()), '/CustomerName')` expressão com as `xpath()` funções `xml()` e. 
+Você pode converter esse conteúdo usando a expressão `@xml(triggerBody())` com as funções `xml()` e `triggerBody()` e, em seguida, usar esse conteúdo posteriormente. Ou, você pode usar a expressão `@xpath(xml(triggerBody()), '/CustomerName')` com as funções `xpath()` e `xml()`. 
 
 ## <a name="other-content-types"></a>Outros tipos de conteúdo
 
-Os aplicativos lógicos funcionam com o e dão suporte a outros tipos de conteúdo, mas podem exigir que você obtenha manualmente o `$content` corpo da mensagem decodificando a variável.
+Os aplicativos lógicos funcionam com o e dão suporte a outros tipos de conteúdo, mas podem exigir que você obtenha manualmente o corpo da mensagem decodificando a variável `$content`.
 
-Por exemplo, suponha que seu aplicativo lógico é disparado por uma `application/x-www-url-formencoded` solicitação com o tipo de conteúdo. Para preservar todos os dados, a `$content` variável no corpo da solicitação tem uma carga que é codificada como uma cadeia de caracteres Base64:
+Por exemplo, suponha que seu aplicativo lógico é disparado por uma solicitação com o tipo de conteúdo `application/x-www-url-formencoded`. Para preservar todos os dados, a variável `$content` no corpo da solicitação tem uma carga que é codificada como uma cadeia de caracteres Base64:
 
 `CustomerName=Frank&Address=123+Avenue`
 
@@ -187,4 +184,4 @@ Ou, você pode acessar manualmente os dados usando uma expressão como este exem
 
 `@string(body('formdataAction'))` 
 
-Se desejar que a solicitação de saída tenha o mesmo `application/x-www-url-formencoded` cabeçalho de tipo de conteúdo, você poderá adicionar a solicitação ao corpo da ação sem qualquer conversão usando uma expressão `@body('formdataAction')`como. No entanto, esse método só funciona quando o corpo é o único parâmetro `body` na entrada. Se você tentar usar a `@body('formdataAction')` expressão em uma `application/json` solicitação, obterá um erro de tempo de execução porque o corpo será enviado codificado.
+Se desejar que a solicitação de saída tenha o mesmo cabeçalho de tipo de conteúdo `application/x-www-url-formencoded`, você poderá adicionar a solicitação ao corpo da ação sem qualquer conversão usando uma expressão como `@body('formdataAction')`. No entanto, esse método só funciona quando o corpo é o único parâmetro na entrada `body`. Se você tentar usar a expressão de `@body('formdataAction')` em uma solicitação de `application/json`, obterá um erro de tempo de execução porque o corpo será enviado codificado.

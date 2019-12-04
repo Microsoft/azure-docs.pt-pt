@@ -1,27 +1,23 @@
 ---
-title: Exemplos de operação de dados – aplicativos lógicos do Azure
+title: Exemplos de operação de dados
 description: Exemplos de código para ações de operação de dados em aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179166"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793083"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplos de código de operação de dados para aplicativos lógicos do Azure
 
 Aqui estão os exemplos de código para as definições de ação de operação de dados no artigo [executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md). Você pode usar esses exemplos para quando desejar experimentar os exemplos com sua própria definição de fluxo de trabalho subjacente do aplicativo lógico, assinatura do Azure e conexões de API. Basta copiar e colar essas definições de ação no editor de exibição de código da definição de fluxo de trabalho do aplicativo lógico e, em seguida, modificar as definições para o fluxo de trabalho específico. 
 
-Com base em padrões de JavaScript Object Notation (JSON), essas definições de ação aparecem em ordem alfabética. No entanto, no designer do aplicativo lógico, cada definição aparece na sequência correta no fluxo de trabalho, pois cada `runAfter` propriedade da definição de ação especifica a ordem de execução.
+Com base em padrões de JavaScript Object Notation (JSON), essas definições de ação aparecem em ordem alfabética. No entanto, no designer do aplicativo lógico, cada definição aparece na sequência correta no fluxo de trabalho, pois a propriedade de `runAfter` de cada definição de ação especifica a ordem de execução.
 
 <a name="compose-action-example"></a>
 
@@ -326,7 +322,7 @@ Para experimentar o [exemplo de ação **analisar JSON** ](../logic-apps/logic-a
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Seleccionar
+## <a name="select"></a>Selecione
 
 Para experimentar o [exemplo de ação **Select** ](../logic-apps/logic-apps-perform-data-operations.md#select-action), aqui estão as definições de ação que você pode usar:
 

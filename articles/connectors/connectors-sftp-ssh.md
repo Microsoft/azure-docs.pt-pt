@@ -1,25 +1,23 @@
 ---
-title: Conectar-se ao servidor SFTP com SSH-aplicativos lógicos do Azure
+title: Conectar-se ao servidor SFTP com SSH
 description: Automatizar tarefas que monitoram, criamm, gerenciam, enviam e recebem arquivos para um servidor SFTP usando SSH e aplicativos lógicos do Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: f52fc91d218e1a5448f6e6e7465f6416a04fd67d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 54a1d1183ac16f5ec3db5477cda75c6e1a776b3d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837140"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786894"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorar, criar e gerenciar arquivos SFTP usando SSH e aplicativos lógicos do Azure
 
-Para automatizar tarefas que monitoram, criem, enviem e recebam arquivos em um servidor de [protocolo FTP seguro (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/) , você pode criar e automatizar fluxos de trabalho de integração usando o aplicativo lógico do Azure e o SFTP-SSH conector. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável. Aqui estão algumas tarefas de exemplo que você pode automatizar:
+Para automatizar tarefas que monitoram, criamm, enviam e recebem arquivos em um servidor de [protocolo FTP seguro (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/) , você pode criar e automatizar fluxos de trabalho de integração usando o aplicativo lógico do Azure e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável. Aqui estão algumas tarefas de exemplo que você pode automatizar:
 
 * Monitorar quando os arquivos são adicionados ou alterados.
 * Obter, criar, copiar, renomear, atualizar, listar e excluir arquivos.

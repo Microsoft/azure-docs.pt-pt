@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326599"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789997"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Pesquisa Cognitiva
 
@@ -28,11 +28,11 @@ As projeções podem ser tabulares, com dados armazenados em linhas e colunas no
 
 A loja de conhecimento dá suporte a três tipos de projeções:
 
-+ **Tabelas**: para os dados que são mais bem representados como linhas e colunas, as projeções de tabela permitem que você defina uma forma ou projeção de esquematizados no armazenamento de tabelas.
++ **Tabelas**: para os dados que são mais bem representados como linhas e colunas, as projeções de tabela permitem que você defina uma forma ou projeção de esquematizados no armazenamento de tabelas. Somente objetos JSON válidos podem ser projetados como tabelas, o documento aprimorado pode conter nós que não são nomeados como objetos JSON e, ao projetar esses objetos, criar um objeto JSON válido com uma habilidade de forma ou formatação embutida.
 
-+ **Objetos**: quando você precisa de uma representação JSON de seus dados e aprimoramentos, as projeções de objeto são salvas como BLOBs.
++ **Objetos**: quando você precisa de uma representação JSON de seus dados e aprimoramentos, as projeções de objeto são salvas como BLOBs. Somente objetos JSON válidos podem ser projetados como objetos, o documento aprimorado pode conter nós que não são nomeados como objetos JSON e, ao projetar esses objetos, criar um objeto JSON válido com uma habilidade de forma ou formatação embutida.
 
-+ **Arquivos**: quando você precisa salvar as imagens extraídas dos documentos, as projeções de arquivo permitem salvar as imagens normalizadas.
++ **Arquivos**: quando você precisa salvar as imagens extraídas dos documentos, as projeções de arquivo permitem salvar as imagens normalizadas no armazenamento de BLOBs.
 
 Para ver as projeções definidas no contexto, percorra como começar a [usar a loja de conhecimento](knowledge-store-howto.md).
 
@@ -47,7 +47,7 @@ Essa independência implica que você pode ter os mesmos dados formatados de for
 
 ### <a name="relatedness"></a>Classificação relacionada
 
-Os grupos de projeção agora permitem projetar seus documentos nos tipos de projeção, preservando as relações entre os tipos de projeção. Todo o conteúdo projetado em um único grupo de projeção preserva as relações dentro dos dados entre os tipos de projeção. Em tabelas, as relações são baseadas em uma chave gerada e cada nó filho retém uma referência ao nó pai. Entre tipos (tabelas, objetos e arquivos), as relações são preservadas quando um único nó é projetado entre diferentes tipos. Por exemplo, considere um cenário em que você tenha um documento contendo imagens e texto. Você pode projetar o texto para tabelas ou objetos e as imagens em arquivos em que as tabelas ou objetos têm uma propriedade que contém a URL do arquivo.
+Os grupos de projeção agora permitem projetar seus documentos nos tipos de projeção, preservando as relações entre os tipos de projeção. Todo o conteúdo projetado em um único grupo de projeção preserva as relações dentro dos dados entre os tipos de projeção. Em tabelas, as relações são baseadas em uma chave gerada e cada nó filho retém uma referência ao nó pai. Entre tipos (tabelas, objetos e arquivos), as relações são preservadas quando um único nó é projetado entre diferentes tipos. Por exemplo, considere um cenário em que você tenha um documento contendo imagens e texto. Você pode projetar o texto para tabelas ou objetos e as imagens em arquivos em que as tabelas ou objetos têm uma coluna/propriedade que contém a URL do arquivo.
 
 ## <a name="input-shaping"></a>Shaping de entrada
 
@@ -214,7 +214,7 @@ Como alternativa, se você precisar usar os dados aprimorados em um pipeline de 
 
 Por fim, se você precisar exportar seus dados da loja de conhecimento, Azure Data Factory terá conectores para exportar os dados e esterrará no banco de dado de sua escolha. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como uma próxima etapa, crie sua primeira loja de conhecimento usando dados de exemplo e instruções.
 

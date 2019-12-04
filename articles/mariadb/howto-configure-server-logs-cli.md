@@ -1,21 +1,21 @@
 ---
-title: Acessar logs de servidor no banco de dados do Azure para MariaDB usando CLI do Azure
-description: Este artigo descreve como acessar os logs de servidor no banco de dados do Azure para MariaDB usando o utilitário de linha de comando CLI do Azure.
-author: rachel-msft
-ms.author: raagyema
+title: Acessar logs de consulta lentos-CLI do Azure-banco de dados do Azure para MariaDB
+description: Este artigo descreve como acessar os logs lentos no banco de dados do Azure para MariaDB usando o utilitário de linha de comando CLI do Azure.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023609"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767386"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando CLI do Azure
-Você pode baixar o banco de dados do Azure para logs do MariaDB Server usando CLI do Azure, o utilitário de linha de comando do Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurar e acessar logs de consulta lentos usando CLI do Azure
+Você pode baixar o banco de dados do Azure para MariaDB logs de consulta lento usando CLI do Azure, o utilitário de linha de comando do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer este guia de instruções, você precisa de:

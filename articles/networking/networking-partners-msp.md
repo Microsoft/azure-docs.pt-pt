@@ -7,20 +7,20 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824370"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766487"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
-O [programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) permite que serviços de rede focados em MSPs, telcos e SIS (integradores de sistemas) ofereçam serviços de rede híbrida e de nuvem centrados no portfólio do Azure de produtos de rede e serviços.
+O [programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) permite que serviços de rede focados em MSPs, telcos e SIS (integradores de sistemas) ofereçam serviços de rede de nuvem e híbridos centrados no portfólio do Azure de produtos e serviços de rede.
 
 As MSPs de rede do Azure são um conjunto especializado de provedores de serviços gerenciados que abordam as necessidades e os desafios da rede em nuvem empresarial em todos os aspectos da nuvem e da rede híbrida. Os serviços de rede gerenciados incluem um ou mais dos seguintes serviços: arquitetura de rede, planejamento, implantação, operações, manutenção e otimização.
 
-![MSP][0]
+![CONSTANTES][0]
 
 Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
@@ -28,12 +28,13 @@ Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Mark
 
 Use os links nesta seção para obter mais informações sobre os serviços de rede em nuvem gerenciados oferecidos pelos parceiros MSP de rede do Azure. Se o seu parceiro de serviços de rede de nuvem não estiver listado na seção abaixo, peça ao provedor entre em contato conosco. Eles podem entrar em contato conosco enviando um email para ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** | **Serviços de segurança de rede gerenciados** |**Computação de borda de rede gerenciada** |
+| **CONSTANTES** | **Serviços de transformação de rede em nuvem** | **ExpressRoute gerenciado** | **WAN virtual gerenciada** | **Serviços de segurança de rede gerenciados** |**Computação de borda de vários acessos gerenciada** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Sim|
 |[Grupo ANS no Reino Unido](https://www.ans.co.uk/)|Sim|Sim||||
 |[Redes aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Sim |Sim |Sim | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Sim|Sim|Sim|||
+|[Coevolução](https://www.coevolve.com/services/azure-networking-services/)|Sim||Sim|Sim||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Sim|||||
 |[Dados de dimensão](https://www.dimensiondata.com/)|Sim|||||
 |[Equinix](https://www.equinix.com/)|Sim|Sim||||

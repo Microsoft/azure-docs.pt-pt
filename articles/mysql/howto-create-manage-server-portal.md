@@ -1,17 +1,17 @@
 ---
-title: Gerenciar o banco de dados do Azure para MySQL-portal do Azure
+title: Gerenciar servidor-portal do Azure-banco de dados do Azure para MySQL
 description: Saiba como gerenciar um servidor de banco de dados do Azure para MySQL do portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 286209673e5743d08ddaa2fed2f507f84d622ea6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/02/2019
+ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534064"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770514"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerenciar um servidor de banco de dados do Azure para MySQL usando o portal do Azure
 Este artigo mostra como gerenciar seu banco de dados afire para servidores MySQL. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.

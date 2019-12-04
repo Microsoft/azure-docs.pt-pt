@@ -1,96 +1,92 @@
 ---
-title: Ligar ao Office 365 Outlook - Azure Logic Apps | Documentos da Microsoft
-description: Gerir e-mails, contatos e calendários com APIs de REST do Office 365 e Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
-ms.topic: article
-ms.service: logic-apps
+title: Conectar-se ao Office 365 Outlook
+description: Gerenciar emails, contatos e calendários com APIs REST do Office 365 e aplicativos lógicos do Azure
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105059"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789597"
 ---
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Começar com o conector do Outlook do Office 365
-O conector do Outlook do Office 365 permite a interação com o Outlook do Office 365. Utilize este conector para criar, editar e atualizar contactos e itens de calendário e também obtém, enviar e responder a e-mail.
+# <a name="get-started-with-the-office-365-outlook-connector"></a>Introdução ao conector do Outlook para Office 365
+O conector do Outlook para Office 365 permite a interação com o Outlook no Office 365. Use esse conector para criar, editar e atualizar contatos e itens de calendário, além de obter, enviar e responder a emails.
 
-Com o Outlook do Office 365,:
+Com o Outlook do Office 365, você:
 
-* Crie o seu fluxo de trabalho usando os recursos de email e calendário no Office 365. 
-* Utilize os acionadores para iniciar o seu fluxo de trabalho quando existe um novo e-mail, quando um item de calendário é atualizado e muito mais.
-* Utilize ações para enviar um e-mail, criar um novo evento de calendário e muito mais. Por exemplo, quando existe um novo objeto no Salesforce (um acionador), envie um e-mail para o Outlook do Office 365 (uma ação). 
+* Crie seu fluxo de trabalho usando os recursos de email e calendário no Office 365. 
+* Use gatilhos para iniciar o fluxo de trabalho quando houver um novo email, quando um item de calendário for atualizado e muito mais.
+* Use ações para enviar um email, criar um novo evento de calendário e muito mais. Por exemplo, quando há um novo objeto no Salesforce (um gatilho), envie um email para o Outlook do Office 365 (uma ação). 
 
-Este artigo mostra-lhe como utilizar o conector do Outlook do Office 365 numa aplicação lógica e também lista os acionadores e ações.
+Este artigo mostra como usar o conector do Outlook do Office 365 em um aplicativo lógico e também lista os gatilhos e as ações.
 
 > [!NOTE]
-> Esta versão do artigo aplica-se em disponibilidade geral do Logic Apps (GA).
+> Esta versão do artigo se aplica à disponibilidade geral de aplicativos lógicos (GA).
 > 
 > 
 
-Para saber mais sobre o Logic Apps, veja [o que são as aplicações lógicas](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para saber mais sobre os aplicativos lógicos, consulte [o que são aplicativos lógicos](../logic-apps/logic-apps-overview.md) e [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
-Antes da aplicação lógica pode aceder a qualquer serviço, primeiro tem de criar uma *ligação* ao serviço. Uma ligação fornece conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar ao Office 365 Outlook, primeiro tem de um Office 365 *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que deseja se conectar. Então, com o Outlook do Office 365, introduza as credenciais para a sua conta do Office 365 para criar a ligação.
+Antes que seu aplicativo lógico possa acessar qualquer serviço, você primeiro cria uma *conexão* com o serviço. Uma conexão fornece conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Office 365 Outlook, você precisa primeiro de uma *conexão*do Office 365. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual você deseja se conectar. Com o Outlook do Office 365, insira as credenciais para sua conta do Office 365 para criar a conexão.
 
 ## <a name="create-the-connection"></a>Criar a ligação
 > [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
 > 
 > 
 
-## <a name="use-a-trigger"></a>Utilizar um acionador
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. Acionadores "consultam" o serviço num intervalo e a frequência que pretenda. [Saiba mais sobre os acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="use-a-trigger"></a>Usar um gatilho
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Dispara a "sondagem" do serviço em um intervalo e uma frequência que você deseja. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Na aplicação lógica, escreva "office 365" para obter uma lista dos acionadores:  
+1. No aplicativo lógico, digite "Office 365" para obter uma lista dos gatilhos:  
    
     ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. Selecione **Outlook do Office 365 - quando um evento futuro está a iniciar em breve**. Se já existir uma ligação, em seguida, selecione um calendário da lista pendente.
+2. Selecione **Office 365 Outlook-quando um evento futuro for iniciado em breve**. Se já existir uma conexão, selecione um calendário na lista suspensa.
    
     ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
    
-    Se lhe for pedido para iniciar sessão, em seguida, introduza o início de sessão nos detalhes para criar a ligação. [Criar a ligação](connectors-create-api-office365-outlook.md#create-the-connection) este tópico lista os passos. 
+    Se você for solicitado a entrar, insira os detalhes de entrada para criar a conexão. [Criar a conexão](connectors-create-api-office365-outlook.md#create-the-connection) neste tópico lista as etapas. 
    
    > [!NOTE]
-   > Neste exemplo, a aplicação lógica executa quando um evento de calendário é atualizado. Para ver os resultados deste acionador, adicione outra ação que envia uma mensagem de texto. Por exemplo, adicionar o Twilio *mensagem de envio* ação esse textos quando o evento do calendário é a partir de 15 minutos. 
+   > Neste exemplo, o aplicativo lógico é executado quando um evento de calendário é atualizado. Para ver os resultados desse gatilho, adicione outra ação que envie uma mensagem de texto para você. Por exemplo, adicione a ação twilio *Enviar mensagem* que faz o texto quando o evento de calendário é iniciado em 15 minutos. 
    > 
    > 
-3. Selecione o **edite** botão e defina a **frequência** e **intervalo** valores. Por exemplo, se pretender que o acionador para consultar a cada 15 minutos, em seguida, defina o **frequência** ao **minuto**e defina o **intervalo** para **15**. 
+3. Selecione o botão **Editar** e defina os valores de **frequência** e **intervalo** . Por exemplo, se você quiser que o gatilho seja sondado a cada 15 minutos, defina a **frequência** como **minuto**e defina o **intervalo** como **15**. 
    
     ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. **Guardar** as alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
+4. **Salve** suas alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
-## <a name="use-an-action"></a>Utilize uma ação
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="use-an-action"></a>Usar uma ação
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selecione o sinal. Verá várias opções: **Adicionar uma ação**, **adicionar uma condição**, ou uma da **mais** opções.
+1. Selecione o sinal de adição. Você verá várias opções: **Adicionar uma ação**, **Adicionar uma condição**ou uma das **mais** opções.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. Escolher **adicionar uma ação**.
-3. Na caixa de texto, digite "office 365" para obter uma lista de todas as ações disponíveis.
+2. Escolha **Adicionar uma ação**.
+3. Na caixa de texto, digite "Office 365" para obter uma lista de todas as ações disponíveis.
    
     ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. No nosso exemplo, escolha **Office 365 Outlook – criar contacto**. Se já existir uma ligação, em seguida, escolha o **ID da pasta**, **nome fornecido**e outras propriedades:  
+4. Em nosso exemplo, escolha **Office 365 Outlook-criar contato**. Se já existir uma conexão, escolha a **ID da pasta**, o **nome fornecido**e outras propriedades:  
    
     ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
    
-    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-office365-outlook.md#create-the-connection) neste tópico descreve essas propriedades. 
+    Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-office365-outlook.md#create-the-connection) neste tópico descreve essas propriedades. 
    
    > [!NOTE]
-   > Neste exemplo, vamos criar um novo contacto no Outlook do Office 365. Pode utilizar a saída de outro acionador para criar o contacto. Por exemplo, adicionar o SalesForce *quando é criado um objeto* acionador. Em seguida, adicione o Outlook do Office 365 *criar contacto* ação que utiliza os campos do SalesForce para criar o novo contacto no Office 365. 
+   > Neste exemplo, criamos um novo contato no Office 365 Outlook. Você pode usar a saída de outro gatilho para criar o contato. Por exemplo, adicione um gatilho do SalesForce *quando um objeto for criado* . Em seguida, adicione a ação *criar contato* do Office 365 Outlook que usa os campos do Salesforce para criar o novo contato no Office 365. 
    > 
    > 
-5. **Guardar** as alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
+5. **Salve** suas alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/office365connector/). 
+Exiba todos os gatilhos e ações definidos no Swagger e também veja os limites nos [detalhes do conector](/connectors/office365connector/). 
 
-## <a name="next-steps"></a>Próximos Passos
-[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis no Logic Apps em nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos seguintes
 
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

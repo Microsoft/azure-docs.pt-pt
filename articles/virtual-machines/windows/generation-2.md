@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 ms.author: lahugh
-ms.openlocfilehash: d6fcbcb7f5d1b6bb25840ad1bddc5327b068c15d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6f03826bf0b82150fa89ad6e17cbcb76f98bb835
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075474"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790031"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -53,15 +53,12 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure 
 
 As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 
-* Windows Server 2019 datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019, 2016, 2012 R2, 2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19, 4, 19,10
+* Ubuntu Server 16, 4, 18, 4, 19, 4, 19,10 
 * RHEL 8,0
-
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
@@ -92,7 +89,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 | Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
+| Recuperação de Site do Azure               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
 | Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |

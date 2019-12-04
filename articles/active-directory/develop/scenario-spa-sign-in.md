@@ -1,6 +1,6 @@
 ---
 title: Aplicativo de página única (entrar)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo de página única (entrar)
+description: Saiba como criar um aplicativo de página única (entrada)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,34 +17,34 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bf614a5523e78fc72918db973ef8d738a171fff
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e0fd546724b8d684746a9f4d63a03bc6b58ded52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031783"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764649"
 ---
-# <a name="single-page-application---sign-in"></a>Aplicativo de página única-entrar
+# <a name="single-page-application-sign-in"></a>Aplicativo de página única: entrar
 
 Saiba como adicionar entrada ao código para seu aplicativo de página única.
 
-Antes que você possa obter tokens para acessar APIs em seu aplicativo, você precisará de um contexto de usuário autenticado. Você pode conectar usuários ao seu aplicativo no MSAL. js de duas maneiras:
+Antes que você possa obter tokens para acessar APIs em seu aplicativo, você precisa de um contexto de usuário autenticado. Você pode conectar usuários ao seu aplicativo no MSAL. js de duas maneiras:
 
-* [Entrar com uma janela pop-up](#sign-in-with-a-pop-up-window) usando `loginPopup` o método
-* [Entrar com](#sign-in-with-redirect) redirecionar `loginRedirect` usando o método
+* [Janela pop-up](#sign-in-with-a-pop-up-window), usando o método `loginPopup`
+* [Redirecionar](#sign-in-with-redirect), usando o método `loginRedirect`
 
 Opcionalmente, você também pode passar os escopos das APIs para as quais você precisa que o usuário consenti no momento da entrada.
 
 > [!NOTE]
-> Se o seu aplicativo já tiver acesso a um contexto de usuário autenticado ou a um token de ID, você poderá ignorar a etapa de logon e adquirir tokens diretamente. Para obter mais detalhes, consulte [SSO sem logon do MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
+> Se o seu aplicativo já tiver acesso a um contexto de usuário autenticado ou a um token de ID, você poderá ignorar a etapa de logon e adquirir tokens diretamente. Para obter detalhes, consulte [SSO sem logon MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Escolhendo entre uma experiência de pop-up ou de redirecionamento
 
-Você não pode usar uma combinação dos métodos pop-up e Redirect em seu aplicativo. A escolha entre uma experiência de pop-up ou de redirecionamento depende do seu fluxo de aplicativo.
+Você não pode usar os métodos pop-up e Redirect em seu aplicativo. A escolha entre uma experiência de pop-up ou de redirecionamento depende do seu fluxo de aplicativo:
 
-* Se você não quiser que o usuário navegue para fora da página principal do aplicativo durante a autenticação, é recomendável usar os métodos pop-up. Como o redirecionamento de autenticação ocorre em uma janela pop-up, o estado do aplicativo principal é preservado.
+* Se você não quiser que os usuários se afastem da página principal do aplicativo durante a autenticação, recomendamos o método pop-up. Como o redirecionamento de autenticação ocorre em uma janela pop-up, o estado do aplicativo principal é preservado.
 
-* Há certos casos em que talvez seja necessário usar os métodos de redirecionamento. Se os usuários do seu aplicativo tiverem restrições de navegador ou políticas em que janelas pop-up estiverem desabilitadas, você poderá usar os métodos de redirecionamento. Use os métodos de redirecionamento com o navegador Internet Explorer, pois há certos [problemas conhecidos com o Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) ao lidar com janelas pop-up.
+* Se os usuários tiverem restrições de navegador ou políticas em que as janelas pop-up estiverem desabilitadas, você poderá usar o método Redirect. Use o método redirecionar com o navegador Internet Explorer, pois há [problemas conhecidos com janelas pop-up no Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Entrar com uma janela pop-up
 
@@ -66,7 +66,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### <a name="angular"></a>Angular
 
-O wrapper angular MSAL permite que você proteja rotas específicas em seu aplicativo adicionando apenas a `MsalGuard` à definição de rota. Essa proteção invocará o método para entrar quando a rota for acessada.
+O wrapper angular MSAL permite que você proteja rotas específicas em seu aplicativo adicionando `MsalGuard` à definição de rota. Essa proteção invocará o método para entrar quando a rota for acessada.
 
 ```javascript
 // In app.routes.ts
@@ -78,7 +78,7 @@ O wrapper angular MSAL permite que você proteja rotas específicas em seu aplic
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-Para uma experiência de janela pop-up, habilite a opção de `popUp` configuração. Você também pode passar os escopos que exigem consentimento da seguinte maneira:
+Para uma experiência de janela pop-up, habilite a opção de configuração `popUp`. Você também pode passar os escopos que exigem consentimento da seguinte maneira:
 
 ```javascript
 //In app.module.ts
@@ -95,7 +95,7 @@ Para uma experiência de janela pop-up, habilite a opção de `popUp` configura�
 
 ### <a name="javascript"></a>JavaScript
 
-Os métodos de redirecionamento não retornam uma promessa devido à navegação fora do aplicativo principal. Para processar e acessar os tokens retornados, será necessário registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
+Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, você precisa registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
 
 ```javascript
 function authCallback(error, response) {
@@ -113,16 +113,16 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### <a name="angular"></a>Angular
 
-O código aqui é o mesmo descrito acima na seção entrar com uma janela pop-up. O fluxo padrão é redirecionar.
+O código aqui é o mesmo descrito anteriormente na seção sobre como entrar com uma janela pop-up. O fluxo padrão é redirecionar.
 
 > [!NOTE]
-> O token de ID não contém os escopos consentido e representa apenas o usuário autenticado. Os escopos consentidos são retornados no token de acesso que será adquirido na próxima etapa.
+> O token de ID não contém os escopos consentido e representa apenas o usuário autenticado. Os escopos consentidod são retornados no token de acesso, que será adquirido na próxima etapa.
 
 ## <a name="sign-out"></a>Terminar sessão
 
-A biblioteca MSAL fornece um `logout` método que limpará o cache no armazenamento do navegador e enviará uma solicitação de saída para o Azure AD. Depois de sair, ele redireciona de volta para a página inicial do aplicativo por padrão.
+A biblioteca MSAL fornece um método `logout` que limpa o cache no armazenamento do navegador e envia uma solicitação de saída para Azure Active Directory (Azure AD). Após a saída, a biblioteca redireciona de volta para a página inicial do aplicativo por padrão.
 
-Você pode configurar o URI para o qual ele deve ser redirecionado após a `postLogoutRedirectUri`saída definindo o. Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
+Você pode configurar o URI para o qual ele deve ser redirecionado após a saída, definindo `postLogoutRedirectUri`. Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
 
 ### <a name="javascript"></a>JavaScript
 

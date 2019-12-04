@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b6439c6461ca9f4fa272eb43ef16240175fdec4f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503501"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796024"
 ---
 > [!NOTE]
 > O SDK de fala para o Unity dá suporte à área de trabalho do Windows (x86 e x64) ou Plataforma Universal do Windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (x64 Simulator, ARM32 e ARM64)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de:
+Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=unity) Se você já fez isso, ótimo. Vamos continuar.
+> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=unity)
+> * Verifique se você tem acesso a um microfone para captura de áudio
+
+Se você já fez isso, ótimo. Vamos continuar.
 
 ## <a name="create-a-unity-project"></a>Criar um projeto do Unity
 

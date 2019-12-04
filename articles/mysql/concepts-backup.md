@@ -1,17 +1,17 @@
 ---
-title: Backup e restauração no banco de dados do Azure para MySQL
+title: Backup e restauração-banco de dados do Azure para MySQL
 description: Saiba mais sobre backups automáticos e como restaurar seu banco de dados do Azure para servidor MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: a2a1fb5f84612630d4168c8af908ed86330938c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: d5941ef7ac2236137fada7202a8dd3cf2ebcc120
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213128"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776295"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no banco de dados do Azure para MySQL
 
@@ -30,7 +30,7 @@ Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais o
 O banco de dados do Azure para MySQL fornece a flexibilidade para escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e com otimização de memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são armazenados apenas na região em que o servidor está hospedado, mas também são replicados em um [Data Center emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece melhor proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada básica oferece apenas armazenamento de backup com redundância local.
 
 > [!IMPORTANT]
-> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
+> Configurar o armazenamento com redundância local ou com redundância geográfica para backup só é permitido durante a criação do servidor. Depois que o servidor for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 

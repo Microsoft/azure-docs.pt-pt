@@ -1,17 +1,17 @@
 ---
-title: Logs no banco de dados do Azure para PostgreSQL-servidor único
-description: Conceitos de configuração de log, armazenamento e análise no banco de dados do Azure para PostgreSQL-servidor único
+title: Logs-banco de dados do Azure para PostgreSQL-servidor único
+description: Descreve a configuração de log, o armazenamento e a análise no banco de dados do Azure para PostgreSQL-servidor único
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965936"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768219"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Logs no banco de dados do Azure para PostgreSQL-servidor único
 O banco de dados do Azure para PostgreSQL permite configurar e acessar os logs padrão do Postgres. Os logs podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho inferior. As informações de registro em log que você pode configurar e acessar incluem erros, informações de consulta, registros de vácuo, conexões e pontos de verificação. (O acesso aos logs de transações não está disponível).
@@ -96,7 +96,7 @@ A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo
 
 |**Campo** | **Descrição** |
 |---|---|
-| tenantId | Sua ID de locatário |
+| TenantId | Sua ID de locatário |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado em UTC |
 | Tipo | Tipo do log. Sempre `AzureDiagnostics` |
@@ -111,7 +111,7 @@ A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo
 | errorLevel | Nível de log, exemplo: LOG, erro, aviso |
 | Mensagem | Mensagem de log principal | 
 | Domain | Versão do servidor, exemplo: Postgres-10 |
-| Detalhes | Mensagem de log secundária (se aplicável) |
+| detalhes | Mensagem de log secundária (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | Tipo de texto | Nome do tipo de dados (se aplicável) |

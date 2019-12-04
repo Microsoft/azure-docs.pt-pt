@@ -1,17 +1,17 @@
 ---
-title: Selecionando o tipo de implantação certo para o banco de dados do Azure para MariaDB
+title: Selecionando o tipo de implantação certo-banco de dados do Azure para MariaDB
 description: Este artigo descreve quais fatores devem ser considerados antes de implantar o banco de dados do Azure para MariaDB como IaaS (infraestrutura como serviço) ou PaaS (plataforma como um serviço).
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d53a3f270c1de3c8d533b5886e0051f6aa1ef10d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151993"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776743"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de servidor MariaDB correta no Azure
 
@@ -80,7 +80,7 @@ A lista a seguir descreve as considerações administrativas para cada opção:
 
 * Com o banco de dados do Azure para MariaDB, você pode continuar a administrar seu banco de dados. Mas você não precisa mais gerenciar o mecanismo de banco de dados, o sistema operacional ou o hardware. Exemplos de itens que você pode continuar a administrar incluem:
 
-  - Bases de Dados
+  - Bases de dados
   - Iniciar sessão
   - Otimização de índices
   - Ajuste de consulta

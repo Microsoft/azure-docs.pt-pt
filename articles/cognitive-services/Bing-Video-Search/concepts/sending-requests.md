@@ -3,19 +3,19 @@ title: Enviar solicitações de pesquisa para o API de Pesquisa de Vídeo do Bin
 titleSuffix: Azure Cognitive Services
 description: Este artigo descreve os parâmetros e atributos das solicitações enviadas ao API de Pesquisa de Vídeo do Bing, bem como o objeto de resposta JSON retornado.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.author: aahill
-ms.openlocfilehash: 869a14c4787507f89f0a39860972a5076f02f90c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/03/2019
+ms.author: aahi
+ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110592"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766553"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
 

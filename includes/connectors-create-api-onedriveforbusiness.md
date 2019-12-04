@@ -1,17 +1,18 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 6c905842778f43196ac463b99993a3cbcd436fa5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 11/03/2016
+ms.openlocfilehash: 3a0cb48e7fe5f3eef101f644e4f72fcfa2689d6e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036759"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789460"
 ---
-### <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 * Uma conta do [onedrive](https://OneDrive.com) 
 
 Antes de poder usar sua conta do OneDrive for Business em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do OneDrive for Business. Felizmente, você pode fazer isso facilmente de dentro de seu aplicativo lógico no portal do Azure. 

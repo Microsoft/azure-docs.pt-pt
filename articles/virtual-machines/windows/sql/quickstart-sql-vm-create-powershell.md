@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69781b7c5187bd9166946a96a8b47233d0f77208
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100681"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790905"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Início rápido: Criar uma máquina virtual do SQL Server do Windows com o Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Início Rápido: criar uma máquina virtual do SQL Server do Windows com o Azure PowerShell
 
 Estes passos de início rápido explicam a criação de uma máquina virtual do SQL Server com o Azure PowerShell.
 
@@ -120,7 +120,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-the-sql-vm"></a>Criar a VM do SQL
 
-1. Defina suas credenciais para entrar na VM. O nome de usuário é "azureadmin". Certifique-se de \<alterar a senha > antes de executar o comando.
+1. Defina suas credenciais para entrar na VM. O nome de usuário é "azureadmin". Certifique-se de alterar \<> de senha antes de executar o comando.
 
    ``` PowerShell
    # Define a credential object
@@ -151,7 +151,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para obter a integração do portal e as funcionalidades da VM do SQL, tem de instalar a [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente na nova VM, execute o comando a seguir depois que a VM for criada.
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
    ```
 
 ## <a name="remote-desktop-into-the-vm"></a>Ambiente de trabalho remoto na VM
@@ -168,7 +168,7 @@ Para obter a integração do portal e as funcionalidades da VM do SQL, tem de in
    mstsc /v:<publicIpAddress>
    ```
 
-1. Quando lhe forem pedidas as credenciais, introduza credenciais para uma conta diferente. Insira o nome de usuário com uma barra invertida precedente ( `\azureadmin`por exemplo,) e a senha que você definiu anteriormente neste guia de início rápido.
+1. Quando lhe forem pedidas as credenciais, introduza credenciais para uma conta diferente. Insira o nome de usuário com uma barra invertida precedente (por exemplo, `\azureadmin`) e a senha que você definiu anteriormente neste guia de início rápido.
 
 ## <a name="connect-to-sql-server"></a>Ligar ao SQL Server
 
