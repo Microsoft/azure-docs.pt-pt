@@ -1,5 +1,5 @@
 - name: Documentação da Pesquisa de Entidades do Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Descrição geral
   items:
     - name: O que é a Pesquisa de Entidades do Bing?

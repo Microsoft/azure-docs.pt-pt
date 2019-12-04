@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: cbd3a4dbaa80119d72cd54efa7dd2dc751b91b40
-  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+  ms.openlocfilehash: 2ea0087c000af2e57604109bb11b625d8ec75154
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/23/2019
-  ms.locfileid: "74422811"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74773931"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -80,7 +80,7 @@ conceptualContent:
       itemType: quickstart
       text: Tentar uma solução de fábrica ligada
     footerLink:
-      url: ../iot-accelerators/index.md
+      url: ../iot-accelerators/index.yml
       text: Ver mais
   - title: Executar a inteligência da cloud em dispositivos edge
     links:
