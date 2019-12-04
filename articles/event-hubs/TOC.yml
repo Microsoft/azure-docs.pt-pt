@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Ativar a Integração e as Firewalls das Redes Virtuais no Espaço de Nomes dos Hubs de Eventos
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurar chaves geridas pelo cliente para a encriptação de dados inativos
+        - name: Configurar chaves geridas pelo cliente para a encriptação de dados inativos (Pré-visualização)
           href: configure-customer-managed-key.md
     - name: Resolução de problemas
       items:

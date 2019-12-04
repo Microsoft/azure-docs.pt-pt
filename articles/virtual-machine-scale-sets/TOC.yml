@@ -231,8 +231,8 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Utilizar baixa prioridade
-          href: virtual-machine-scale-sets-use-low-priority.md
+        - name: Utilizar a instância do Spot
+          href: use-spot.md
     - name: Gerir
       items:
         - name: Tarefas comuns de gestão

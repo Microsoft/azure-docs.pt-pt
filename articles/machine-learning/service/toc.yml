@@ -300,7 +300,7 @@
         - name: Executar predições em lote
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
-        - name: Utilizar o estruturador para predições em lote
+        - name: Predições em lote de estruturador
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
     - name: Monitorizar modelos

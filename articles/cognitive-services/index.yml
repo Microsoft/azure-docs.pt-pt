@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: 15a89528ce53eabe7ed70ca66a514b71ef5e5307
-  ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+  ms.openlocfilehash: fae1321f70d538dcacde83cadd83f5cb15155459
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/27/2019
-  ms.locfileid: "74554944"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74775528"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -111,34 +111,37 @@ conceptualContent:
   - title: Pesquisa
     summary: Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.
     links:
-    - url: ./Bing-Autosuggest/index.yml
+    - url: ./Bing-web-search/index.yml
+      itemType: overview
+      text: Página do hub das APIs de Pesquisa do Bing
+    - url: ./Bing-Autosuggest/get-suggested-search-terms.md
       itemType: overview
       text: Pesquisa com Sugestão Automática
-    - url: ./bing-custom-search/index.yml
+    - url: ./bing-custom-search/overview.md
       itemType: overview
       text: Pesquisa Personalizada
-    - url: ./bing-entities-search/index.yml
+    - url: ./bing-entities-search/overview.md
       itemType: overview
       text: Pesquisa de Entidades
-    - url: ./bing-image-search/index.yml
+    - url: ./bing-image-search/overview.md
       itemType: overview
       text: Pesquisa de Imagens
-    - url: ./bing-local-business-search/index.yml
+    - url: ./bing-local-business-search/overview.md
       itemType: overview
       text: Pesquisa de Negócios Locais (Pré-visualização)
-    - url: ./bing-news-search/index.yml
+    - url: ./bing-news-search/search-the-web.md
       itemType: overview
       text: Pesquisa de Notícias
-    - url: ./bing-spell-check/index.yml
+    - url: ./bing-spell-check/overview.md
       itemType: overview
       text: Verificação Ortográfica
-    - url: ./Bing-Video-Search/index.yml
+    - url: ./Bing-Video-Search/overview.md
       itemType: overview
       text: Pesquisa de Vídeos
-    - url: ./bing-visual-search/index.yml
+    - url: ./bing-visual-search/overview.md
       itemType: overview
       text: Pesquisa Visual
-    - url: ./bing-web-search/index.yml
+    - url: ./bing-web-search/overview.md
       itemType: overview
       text: Pesquisa na Web
   - title: Contentores dos Serviços Cognitivos
@@ -159,9 +162,6 @@ conceptualContent:
     - url: ./containers/docker-compose-recipe.md
       itemType: get-started
       text: Utilizar o Docker Compose para implementar vários contentores
-    - url: ./containers/container-image-tags.md
-      itemType: reference
-      text: Etiquetas de imagem de contentor dos Serviços Cognitivos
     - url: ./containers/container-faq.md
       itemType: reference
       text: FAQ dos contentores dos Serviços Cognitivos
@@ -170,12 +170,10 @@ additionalContent:
   - items:
     - title: Recursos adicionais
       links:
-      - text: Opções de suporte e ajuda
-        url: cognitive-services-support-options.md
       - text: CLI do Azure
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
     - title: APIs REST
       links:
       - text: Gestão de Serviços Cognitivos
