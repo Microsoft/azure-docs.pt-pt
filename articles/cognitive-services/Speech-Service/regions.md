@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 478a62eaddcf3b9b831812a0930ff10c1adce99d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072449"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816661"
 ---
-# <a name="speech-service-supported-regions"></a>Regiões suportadas do serviço de voz
+# <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
 
 O serviço de voz permite que seu aplicativo converter áudio em texto, efetuar a tradução de voz e converter texto em voz. O serviço está disponível em várias regiões com pontos de extremidade exclusivos para o SDK de voz e REST APIs.
 
 Certifique-se de que use o ponto final que corresponde à região para a sua subscrição.
 
-## <a name="speech-sdk"></a>API de Voz
+## <a name="speech-sdk"></a>SDK de Voz
 
 No [SDK de fala](speech-sdk.md), as regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK C#de fala para).
 
@@ -34,23 +34,23 @@ O SDK de fala está disponível nessas regiões para **reconhecimento de fala**,
 
 | Região           | Parâmetro do SDK de voz | Portal de personalização de voz    |
 | ---------------- | -------------------- | ------------------------------ |
-| EUA Oeste          | `westus`             | https://westus.cris.ai         |
-| EUA Oeste 2        | `westus2`            | https://westus2.cris.ai        |
-| EUA Leste          | `eastus`             | https://eastus.cris.ai         |
-| EUA Leste 2        | `eastus2`            | https://eastus2.cris.ai        |
-| EUA Central       | `centralus`          | https://centralus.cris.ai      |
-| EUA Centro-Norte | `northcentralus`     | https://northcentralus.cris.ai |
-| EUA Centro-Sul | `southcentralus`     | https://southcentralus.cris.ai |
-| Índia Central    | `centralindia`       | https://centralindia.cris.ai   |
-| Ásia Oriental        | `eastasia`           | https://eastasia.cris.ai       |
-| Sudeste asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
+| Oeste dos E.U.A.          | `westus`             | https://westus.cris.ai         |
+| E.U.A. Oeste 2        | `westus2`            | https://westus2.cris.ai        |
+| Este dos E.U.A.          | `eastus`             | https://eastus.cris.ai         |
+| Este dos E.U.A. 2        | `eastus2`            | https://eastus2.cris.ai        |
+| Centro dos E.U.A.       | `centralus`          | https://centralus.cris.ai      |
+| E.U.A. Centro-Norte | `northcentralus`     | https://northcentralus.cris.ai |
+| E.U.A. Centro-Sul | `southcentralus`     | https://southcentralus.cris.ai |
+| Centro da Índia    | `centralindia`       | https://centralindia.cris.ai   |
+| Este Asiático        | `eastasia`           | https://eastasia.cris.ai       |
+| Sudeste Asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
+| Este do Japão       | `japaneast`          | https://japaneast.cris.ai      |
 | Coreia do Sul Central    | `koreacentral`       | https://koreacentral.cris.ai   |
 | Leste da Austrália   | `australiaeast`      | https://australiaeast.cris.ai  |
 | Canadá Central   | `canadacentral`      | https://canadacentral.cris.ai  |
 | Europa do Norte     | `northeurope`        | https://northeurope.cris.ai    |
-| Europa ocidental      | `westeurope`         | https://westeurope.cris.ai     |
-| Reino Unido Sul         | `uksouth`            | https://uksouth.cris.ai        |
+| Europa Ocidental      | `westeurope`         | https://westeurope.cris.ai     |
+| Sul do Reino Unido         | `uksouth`            | https://uksouth.cris.ai        |
 | França Central   | `francecentral`      | https://francecentral.cris.ai  |
 
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
@@ -59,17 +59,17 @@ As regiões disponíveis para o **reconhecimento de intenções** por meio do SD
 
 | Região global | Região           | Parâmetro do SDK de voz |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Ásia Oriental        | `eastasia`           |
-| Ásia          | Sudeste asiático   | `southeastasia`      |
+| Ásia          | Este Asiático        | `eastasia`           |
+| Ásia          | Sudeste Asiático   | `southeastasia`      |
 | Austrália     | Leste da Austrália   | `australiaeast`      |
 | Europa        | Europa do Norte     | `northeurope`        |
-| Europa        | Europa ocidental      | `westeurope`         |
-| América do Norte | EUA Leste          | `eastus`             |
-| América do Norte | EUA Leste 2        | `eastus2`            |
-| América do Norte | EUA Centro-Sul | `southcentralus`     |
-| América do Norte | EUA Centro-Oeste  | `westcentralus`      |
-| América do Norte | EUA Oeste          | `westus`             |
-| América do Norte | EUA Oeste 2        | `westus2`            |
+| Europa        | Europa Ocidental      | `westeurope`         |
+| América do Norte | Este dos E.U.A.          | `eastus`             |
+| América do Norte | Este dos E.U.A. 2        | `eastus2`            |
+| América do Norte | E.U.A. Centro-Sul | `southcentralus`     |
+| América do Norte | E.U.A. Centro-Oeste  | `westcentralus`      |
+| América do Norte | Oeste dos E.U.A.          | `westus`             |
+| América do Norte | E.U.A. Oeste 2        | `westus2`            |
 | América do Sul | Sul do Brasil     | `brazilsouth`        |
 
 Esse é um subconjunto das regiões de publicação com suporte do [Luis (serviço de reconhecimento vocal)](/azure/cognitive-services/luis/luis-reference-regions).
@@ -80,13 +80,13 @@ O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** n
 
 | Região         | Parâmetro do SDK de voz |
 | -------------- | -------------------- |
-| EUA Oeste        | `westus`             |
-| EUA Oeste 2      | `westus2`            |
-| EUA Leste        | `eastus`             |
-| EUA Leste 2      | `eastus2`            |
-| Europa ocidental    | `westeurope`         |
+| Oeste dos E.U.A.        | `westus`             |
+| E.U.A. Oeste 2      | `westus2`            |
+| Este dos E.U.A.        | `eastus`             |
+| Este dos E.U.A. 2      | `eastus2`            |
+| Europa Ocidental    | `westeurope`         |
 | Europa do Norte   | `northeurope`        |
-| Sudeste asiático | `southeastasia`      |
+| Sudeste Asiático | `southeastasia`      |
 
 ## <a name="rest-apis"></a>APIs REST
 

@@ -1,7 +1,7 @@
 ---
 title: Sobre o SDK de dispositivos de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Comece com o SDK de dispositivos de voz. O serviço de voz funciona com uma ampla variedade de dispositivos e fontes de áudio. O SDK de dispositivos de voz é uma biblioteca previamente atento que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+description: Comece com o SDK de dispositivos de voz. O serviço de fala funciona com uma ampla variedade de dispositivos e fontes de áudio. O SDK de dispositivos de voz é uma biblioteca previamente atento que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7f6793cab3d2d7cc54252bae3a7393f836256bdd
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072386"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815527"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Sobre o SDK de dispositivos de fala
+# <a name="about-the-speech-devices-sdk"></a>Acerca do SDK de Dispositivos de Voz
 
-Os [serviços de fala](overview.md) funcionam com uma ampla variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+O [serviço de fala](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
 
 O SDK de dispositivos de voz pode ajudá-lo a:
 
 - Teste rapidamente a novos cenários de voz.
-- Integre mais facilmente os serviços de fala baseados em nuvem em seu dispositivo.
+- Integre mais facilmente o serviço de voz com base na cloud no seu dispositivo.
 - Crie uma experiência de usuário excecional para os seus clientes.
 
-O SDK de dispositivos de voz consome os [SDK de voz](speech-sdk.md). Ele usa o SDK de fala para enviar o áudio que é processado pelo nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para os [serviços de fala](overview.md). Ele usa o áudio multicanal para oferecer extremidade campo mais preciso [reconhecimento de fala](speech-to-text.md) através de supressão de ruído, cancelamento de eco, beamforming e dereverberation.
+O SDK de dispositivos de voz consome os [SDK de voz](speech-sdk.md). Ele usa o SDK de voz para enviar o áudio que é processado pelo nosso algoritmo de processamento de áudio avançado da matriz de microfone do dispositivo para o [serviço de voz](overview.md). Ele usa o áudio multicanal para oferecer extremidade campo mais preciso [reconhecimento de fala](speech-to-text.md) através de supressão de ruído, cancelamento de eco, beamforming e dereverberation.
 
 Você também pode usar o SDK de dispositivos de fala para criar dispositivos de ambiente que tenham sua própria [palavra-chave personalizada](speech-devices-sdk-create-kws.md) para que a indicação que inicia uma interação do usuário seja exclusiva à sua marca.
 

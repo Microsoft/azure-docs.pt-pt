@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/04/2019
+ms.openlocfilehash: d7a746c170d04ad17b86e8aca63384edffbe75ac
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646950"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806801"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure online usando DMS
 
@@ -27,7 +27,7 @@ Neste tutorial, você migra o banco de dados **Adventureworks2012** de uma inst�
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> * Crie uma instância do serviço de migração de banco de dados do Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração e inicie a migração online usando o serviço de migração de banco de dados do Azure.
 > * Monitorizar a migração.
 > * Execute a transferência de migração quando estiver pronto.
@@ -50,7 +50,7 @@ Este artigo descreve uma migração online do SQL Server para uma instância ger
 
 Para concluir este tutorial, precisa de:
 
-* Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Aprenda topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi) Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Crie uma rede virtual do Azure (VNet) para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Aprenda topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi) Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
     > Durante a configuração da VNet, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
@@ -144,7 +144,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 3. Selecione + **Novo Projeto de Migração**.
 
-4. Na tela **novo projeto de migração** , especifique um nome para o projeto, na caixa de texto **tipo de servidor de origem** , selecione **SQL Server**, na caixa de texto tipo de **servidor de destino** , selecione **instância gerenciada do banco de dados SQL do Azure**e, em seguida, para **Escolha tipo de atividade**, selecione **migração de dados online**.
+4. Na tela **novo projeto de migração** , especifique um nome para o projeto, na caixa de texto **tipo de servidor de origem** , selecione **SQL Server**, na caixa de texto tipo de **servidor de destino** , selecione **instância gerenciada do banco de dados SQL do Azure**e, para **escolher tipo de atividade**, selecione **migração de dados online**.
 
    ![Criar projeto de serviço de migração de banco de dados do Azure](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
@@ -204,13 +204,18 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
     | | |
     |--------|---------|
-    |**Partilha de localização na Rede SMB** | O compartilhamento de rede SMB local que contém os arquivos completos de backup de banco de dados e os arquivos de backup de log de transações que o serviço de migração de banco de dados do Azure pode usar para A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de leitura\escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”.|
-    |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O serviço de migração de banco de dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para operação de restauração. |
-    |**Palavra-passe** | A palavra-passe do utilizador. |
+    |**Partilha de localização na Rede SMB** | O compartilhamento de rede SMB local ou o compartilhamento de arquivos do Azure que contém os arquivos completos de backup de banco de dados e de log de transações que o serviço de migração de banco de dados do Azure pode usar para a migração. A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de leitura\escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”.|
+    |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O serviço de migração de banco de dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para operação de restauração. Se você estiver usando o compartilhamento de arquivos do Azure, use o nome da conta de armazenamento previamente pendente com o AZURE \ como o nome de usuário. |
+    |**Palavra-passe** | A palavra-passe do utilizador. Se estiver usando o compartilhamento de arquivos do Azure, use uma chave de conta de armazenamento como a senha. |
     |**Subscrição da Conta de Armazenamento do Azure** | Selecione a subscrição que contém a Conta de Armazenamento do Azure. |
     |**Conta de Armazenamento do Azure** | Selecione a Conta de Armazenamento do Azure para a qual o DMS pode carregar os ficheiros de cópia de segurança da partilha de rede SMB e utilizá-los para a migração de base de dados.  Recomendamos que selecione a Conta de Armazenamento na mesma região do serviço DMS para um desempenho de carregamento de ficheiros ideal. |
 
     ![Configurar as Definições da Migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
+
+
+> [!NOTE]
+  > Se o serviço de migração de banco de dados do Azure mostrar o erro ' erro do sistema 53 ' ou ' erro do sistema 57 ', a causa poderá resultar em uma incapacidade do serviço de migração de banco de dados do Azure de acessar o compartilhamento de arquivos do Azure Se você encontrar um desses erros, conceda acesso ao armazenamento da conta da rede virtual usando as instruções [aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+
 
 2. Selecione **Guardar**.
 

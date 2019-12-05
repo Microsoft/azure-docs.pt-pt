@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: executar o SDK de dispositivos de fala no Android'
+title: 'Início rápido: executar o SDK de dispositivos de fala no serviço Android-Speech'
 titleSuffix: Azure Cognitive Services
 description: Pré-requisitos e instruções para introdução a um SDK de dispositivos de fala Android.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3eb6ec28879a7c53feb270e33857cd67dc06b0b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111682"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815352"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início rápido: executar o aplicativo de exemplo do SDK de dispositivos de fala no Android
 
 Neste guia de início rápido, você aprenderá a usar o SDK de dispositivos de fala para Android para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversa](conversation-transcription-service.md) .
 
-Este guia requer uma conta de [Serviços cognitivas do Azure](get-started.md) com um recurso de serviços de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este guia requer uma conta de [Serviços cognitivas do Azure](get-started.md) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 O código-fonte da aplicação de exemplo está incluído com o SDK de dispositivos de voz. Também vale [está disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -36,11 +36,11 @@ Antes de começar a usar o SDK de dispositivos de fala, você precisará:
   > [!NOTE]
   > O arquivo Android-Sample-Release. zip inclui o aplicativo de exemplo do Android e este início rápido pressupõe que o aplicativo é extraído para C:\SDSDK\Android-Sample-Release
 
-- Para obter uma [chave de assinatura do Azure para serviços de fala](get-started.md)
+- Para obter uma [chave de assinatura do Azure para o serviço de fala](get-started.md)
 
 - Se você planeja usar a transcrição de conversa, deve usar um [dispositivo de microfone circular](get-speech-devices-sdk.md) e esse recurso está disponível apenas para "en-US" e "zh-CN" em regiões, "centralus" e "eastasia". Você deve ter uma chave de fala em uma dessas regiões para usar a transcrição de conversa.
 
-- Se você planeja usar os serviços de fala para identificar tentativas (ou ações) do usuário declarações, precisará de uma assinatura do [Luis (serviço de reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Para saber mais sobre o LUIS e o reconhecimento de intenção, consulte [reconhecer tentativas de fala com C#o Luis, ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Se você planeja usar o serviço de fala para identificar tentativas (ou ações) do usuário declarações, precisará de uma assinatura do [Luis (serviço de reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Para saber mais sobre o LUIS e o reconhecimento de intenção, consulte [reconhecer tentativas de fala com C#o Luis, ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
   Pode [criar um modelo do LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilize o exemplo de modelo do LUIS, LUIS example.json. O exemplo de modelo do LUIS está disponível a partir da [site de download do SDK de dispositivos de voz](https://aka.ms/sdsdk-luis). Para carregar o ficheiro JSON de seu modelo para o [portal de LUIS](https://www.luis.ai/home), selecione **importar a nova aplicação**e, em seguida, selecione o ficheiro JSON.
 

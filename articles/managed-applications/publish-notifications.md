@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: a00e5be4493b8c8116e2925e88a3ce4bf8cfb722
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8cf9fc0b3d9c13ebc5309be6d27c7be0f2e60878
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085320"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805693"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
 
@@ -71,12 +71,12 @@ A tabela a seguir descreve todas as combinações possíveis de EventType + Prov
 
 EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
-PUT | Aceitar | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado. (Antes de a implantação dentro do RG gerenciado ser inicializada.)
+PUT | Aceite | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado. (Antes de a implantação dentro do RG gerenciado ser inicializada.)
 PUT | Bem-sucedido | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
 PUT | Com Falhas | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
-DISTRIBUÍDO | Bem-sucedido | Após o PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar as marcas, a política de acesso JIT ou a identidade gerenciada.
-DELETE | Excluído | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
-DELETE | Eliminado | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
+PATCH | Bem-sucedido | Após o PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar as marcas, a política de acesso JIT ou a identidade gerenciada.
+DELETE | A eliminar | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
+DELETE | Eliminada | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
 DELETE | Com Falhas | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Marketplace fornecem muitas das mesmas propriedades com a pequena diferença descrita abaixo.
@@ -132,6 +132,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -152,6 +155,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -178,9 +184,10 @@ eventType | O tipo de evento que disparou a notificação. (por exemplo, "PUT", 
 applicationId | O identificador de recurso totalmente qualificado do aplicativo gerenciado para o qual a notificação foi disparada. 
 eventTime | O carimbo de data/hora do evento que disparou a notificação. (Data e hora no formato UTC ISO 8601.)
 ProvisioningState | O estado de provisionamento da instância do aplicativo gerenciado. (por exemplo, "êxito", "falha", "excluindo", "excluído")
+billingDetails | Os detalhes de cobrança da instância do aplicativo gerenciado. Contém o resourceUsageId que pode ser usado para consultar o Marketplace para obter detalhes de uso.
 erro | *Especificado somente quando provisioningState é com falha*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
 applicationDefinitionId | *Especificado somente para aplicativos gerenciados do catálogo de serviços*. Representa o identificador de recurso totalmente qualificado da definição de aplicativo para a qual a instância do aplicativo gerenciado foi provisionada.
-intenção | *Especificado somente para aplicativos gerenciados do Marketplace*. Representa o editor, a oferta, a SKU e a versão da instância do aplicativo gerenciado.
+plano | *Especificado somente para aplicativos gerenciados do Marketplace*. Representa o editor, a oferta, a SKU e a versão da instância do aplicativo gerenciado.
 
 ## <a name="endpoint-authentication"></a>Autenticação de ponto de extremidade
 Para proteger o ponto de extremidade do webhook e garantir a autenticidade da notificação:

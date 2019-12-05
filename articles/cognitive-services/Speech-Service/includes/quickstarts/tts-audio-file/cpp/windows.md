@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 0f166fedd1044ba3b7076f3fb7eb14becbc1272b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 024e6121e950ba27cf18b65434d712af80d1ec17
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503137"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817970"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

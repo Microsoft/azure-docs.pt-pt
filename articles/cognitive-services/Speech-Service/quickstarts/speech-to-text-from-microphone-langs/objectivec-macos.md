@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 0025e6e84a8a76ad3a332056f51f802ca95da23f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: be5f62a75d9a3998d843e9865768b46658b8386c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503592"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815023"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Início rápido: reconhecer a fala em Objective-C no macOS usando o SDK de fala
 
@@ -49,7 +49,7 @@ Nas caixas de diálogo a seguir, faça as seleções a seguir.
     1. Desmarque as caixas de seleção para usar storyboards e criar um aplicativo baseado em documento. A interface do usuário simples para o aplicativo de exemplo é criada programaticamente.
     1. Desmarque todas as caixas de seleção dos testes e dos dados principais.
 
-    ![Configurações do projeto](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-macos-project-settings.png)
+    ![Project settings](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-macos-project-settings.png)
 
 1. Selecione um diretório do projeto:
     1. Escolha um diretório no qual colocar o projeto. Esta etapa cria um diretório HelloWorld em seu diretório base que contém todos os arquivos do projeto Xcode.

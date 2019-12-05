@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091212"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816645"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
-Como alternativa ao SDK de [fala](speech-sdk.md), os serviços de fala permitem que você converta a fala em texto usando uma API REST. Cada ponto de final de acesso está associado uma região. Seu aplicativo requer uma chave de subscrição para o ponto final que pretende utilizar.
+Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST. Cada ponto de final de acesso está associado uma região. Seu aplicativo requer uma chave de subscrição para o ponto final que pretende utilizar.
 
 Antes de usar a API REST de fala em texto, entenda:
 
@@ -42,7 +42,7 @@ Esses parâmetros podem ser incluídos na cadeia de consulta da solicitação RE
 
 | Parâmetro | Descrição | Obrigatório / opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica o idioma falado que está a ser reconhecido. Ver [idiomas suportados](language-support.md#speech-to-text). | Necessário |
+| `language` | Identifica o idioma falado que está a ser reconhecido. Ver [idiomas suportados](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato de resultado. Aceite os valores são `simple` e `detailed`. Os resultados da simples incluem `RecognitionStatus`, `DisplayText`, `Offset`, e `Duration`. Respostas detalhadas incluem vários resultados com valores de confiança e quatro diferentes representações. A predefinição é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Os valores aceitos são `masked`, que substitui a profanação por asteriscos, `removed`, que remove toda a profanação do resultado, ou `raw`, que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
 
@@ -52,12 +52,12 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 
 |Cabeçalho| Descrição | Obrigatório / opcional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura dos serviços de fala. | Este cabeçalho de qualquer um dos ou `Authorization` é necessária. |
+| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de fala. | Este cabeçalho de qualquer um dos ou `Authorization` é necessária. |
 | `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Este cabeçalho de qualquer um dos ou `Ocp-Apim-Subscription-Key` é necessária. |
-| `Content-type` | Descreve o formato e o codec de dados de áudio fornecidos. Aceite os valores são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessário |
+| `Content-type` | Descreve o formato e o codec de dados de áudio fornecidos. Aceite os valores são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
 | `Transfer-Encoding` | Especifica que os dados em segmentos de áudio são enviados, em vez de um único arquivo. Utilize este cabeçalho apenas se a segmentação de dados de áudio. | Opcional |
-| `Expect` | Se utilizar a transferência em partes, enviar `Expect: 100-continue`. Os serviços de fala reconhecem a solicitação inicial e aguardam dados adicionais.| Necessário se o envio de dados de áudio em partes. |
-| `Accept` | Se for fornecido, tem de ser `application/json`. Os serviços de fala fornecem resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept`. | Opcional mas recomendado. |
+| `Expect` | Se utilizar a transferência em partes, enviar `Expect: 100-continue`. O serviço de fala reconhece a solicitação inicial e aguarda dados adicionais.| Necessário se o envio de dados de áudio em partes. |
+| `Accept` | Se for fornecido, tem de ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept`. | Opcional mas recomendado. |
 
 ## <a name="audio-formats"></a>Formatos de áudio
 
@@ -69,7 +69,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 | OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->Os formatos acima têm suporte por meio da API REST e do WebSocket nos serviços de fala. O [SDK de voz](speech-sdk.md) atualmente apenas suporta o WAV formatar com o codec PCM.
+>Os formatos acima têm suporte por meio da API REST e do WebSocket no serviço de fala. O [SDK de voz](speech-sdk.md) atualmente apenas suporta o WAV formatar com o codec PCM.
 
 ## <a name="sample-request"></a>Pedido de exemplo
 
@@ -99,7 +99,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 
 ## <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento. Ele permite que os serviços de fala comecem a processar o arquivo de áudio enquanto eles são transmitidos. A API REST não fornece resultados parciais ou provisórias.
+A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento. Ele permite que o serviço de fala comece a processar o arquivo de áudio enquanto ele é transmitido. A API REST não fornece resultados parciais ou provisórias.
 
 Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 

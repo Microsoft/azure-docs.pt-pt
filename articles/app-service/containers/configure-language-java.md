@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: edb8f25ff1e4fa01e905c3ae5c7d0ec7ab58f8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705939"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805744"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -54,7 +54,7 @@ Habilite o [log do aplicativo](../troubleshoot-diagnostic-logs.md?toc=/azure/app
 
 Se seu aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4J](https://logging.apache.org/log4j) para rastreamento, você poderá encaminhar esses rastreamentos para análise em aplicativo Azure insights usando as instruções de configuração da estrutura de registro em [explorar logs de rastreamento do Java no Application insights](/azure/application-insights/app-insights-java-trace-logs).
 
-### <a name="troubleshooting-tools"></a>Ferramentas de solução de problemas
+### <a name="troubleshooting-tools"></a>Ferramentas de resolução de problemas
 
 As imagens Java internas são baseadas no sistema operacional [alpineum Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) . Use o Gerenciador de pacotes `apk` para instalar qualquer ferramenta ou comando de solução de problemas.
 
@@ -247,6 +247,9 @@ A configuração adicional pode ser necessária para criptografar sua conexão J
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Inicializar e carregar manualmente o repositório de chaves
 
@@ -293,7 +296,7 @@ Por padrão, o serviço de aplicativo espera que seu aplicativo JAR seja nomeado
 
 Se você quiser usar um nome diferente para o JAR, também deverá fornecer o comando de [inicialização](app-service-linux-faq.md#built-in-images) que executa o arquivo jar. Por exemplo, `java -jar my-jar-app.jar`. Você pode definir o valor para o comando de inicialização no portal, em Configuração > configurações gerais ou com uma configuração de aplicativo chamada `STARTUP_COMMAND`.
 
-### <a name="server-port"></a>Porta do servidor
+### <a name="server-port"></a>Porta do Servidor
 
 O serviço de aplicativo Linux roteia solicitações de entrada para a porta 80, de modo que seu aplicativo também deve escutar na porta 80. Você pode fazer isso na configuração do seu aplicativo (como o arquivo *Application. Properties* da Spring) ou no comando Startup (por exemplo, `java -jar spring-app.jar --server.port=80`). Consulte a seguinte documentação para estruturas Java comuns:
 
@@ -616,7 +619,7 @@ As etapas a seguir explicam os requisitos para conectar seu serviço de aplicati
 
 6. Use o CLI do Azure para adicionar configurações ao serviço de aplicativo que contêm suas informações de conexão de banco de dados. Substitua `<resource group>` e `<webapp name>` pelos valores que seu serviço de aplicativo usa. Substitua `<database server name>`, `<database name>`, `<admin name>`e `<admin password>` pelas informações de conexão do banco de dados. Você pode obter as informações do serviço de aplicativo e do banco de dados do portal do Azure.
 
-    **PostgreSQL**
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
@@ -628,7 +631,7 @@ As etapas a seguir explicam os requisitos para conectar seu serviço de aplicati
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

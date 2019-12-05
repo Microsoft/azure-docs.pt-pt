@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 1dc119f0f5949b37603bbc1100a4d89d4f420fd6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033441"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819076"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o armazenamento Premium usando Azure Site Recovery
 
@@ -79,7 +79,7 @@ Você pode usar Site Recovery para migrar VMs IaaS do Azure entre regiões ou na
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **criar um recurso** > **Gerenciamento** > **backup e site Recovery (OMS)** . Como alternativa, você pode selecionar **procurar** > **cofre dos serviços de recuperação** > **Adicionar**.
    >[!NOTE]
-   >O backup e o Site Recovery anteriormente faziam parte do](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)![OMS Suite.
+   >O backup e o Site Recovery faziam parte do [OMS Suite](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Especifique uma região para a qual as VMs serão replicadas. Para fins de migração na mesma região, selecione a região onde as suas VMs de origem e as contas de armazenamento de origem são. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Etapa 2: escolher suas metas de proteção 
@@ -195,7 +195,7 @@ Certifique-se de selecionar **desligar VMs e sincronizar os dados mais recentes*
 
 Site Recovery criará uma instância de VM cujo tipo é igual ou semelhante a uma VM com capacidade de armazenamento Premium. Você pode verificar o desempenho e o preço de várias instâncias de VM acessando [máquinas virtuais do Windows preço](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou [máquinas virtuais do Linux preço](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="post-migration-steps"></a>Etapas pós-migração
+## <a name="post-migration-steps"></a>Passos pós-migração
 
 1. **Configure VMs replicadas para o conjunto de disponibilidade, se aplicável**. Site Recovery não oferece suporte à migração de VMs junto com o conjunto de disponibilidade. Dependendo da implantação da VM replicada, siga um destes procedimentos:
    * Para uma VM criada por meio do modelo de implantação clássico: Adicione a VM ao conjunto de disponibilidade no portal do Azure. Para obter etapas detalhadas, vá para [Adicionar uma máquina virtual existente a um conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
@@ -220,7 +220,7 @@ Para cenários específicos de migração de máquinas virtuais, consulte os seg
 
 Além disso, consulte os seguintes recursos para saber mais sobre o armazenamento do Azure e as máquinas virtuais do Azure:
 
-* [Storage do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

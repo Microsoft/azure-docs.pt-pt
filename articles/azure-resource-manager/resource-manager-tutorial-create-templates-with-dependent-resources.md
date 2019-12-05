@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 61f9ff575c927cdafa4aa26fbad0ebb6e257b010
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325396"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815244"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -23,7 +23,7 @@ Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início Rápido
+> * Abrir um modelo de Início rápido
 > * Explorar o modelo
 > * Implementar o modelo
 
@@ -86,7 +86,7 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
     ![Definição do endereço IP público de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:
 
-    ![dependson de modelos do Azure Resource Manager no Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+    ![Visual Studio Code os modelos de Azure Resource Manager dependentes](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
     O elemento dependsOn permite-lhe definir um recurso como sendo dependente de um ou mais recursos. O recurso depende de dois outros recursos:
 
@@ -111,15 +111,15 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 Existem muitos métodos para implementar modelos.  Neste tutorial, vai utilizar o Cloud Shell do portal do Azure.
 
 1. Inicie sessão no [Cloud Shell](https://shell.azure.com).
-2. Selecione **PowerShell** no canto superior esquerdo do Cloud Shell e, em seguida, selecione **Confirmar**.  Vai utilizar o PowerShell neste tutorial.
-3. Selecione **Carregar ficheiro** do Cloud Shell:
+1. Selecione **PowerShell** no canto superior esquerdo do Cloud Shell e, em seguida, selecione **Confirmar**.  Vai utilizar o PowerShell neste tutorial.
+1. Selecione **Carregar ficheiro** do Cloud Shell:
 
     ![Carregar ficheiro Cloud Shell do Portal do Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. Selecione o modelo que guardou anteriormente no tutorial. O nome predefinido é **azuredeploy.json**.  Se tiver um ficheiro com o mesmo nome de ficheiro, o ficheiro antigo é substituído sem qualquer notificação.
+1. Selecione o modelo que guardou anteriormente no tutorial. O nome predefinido é **azuredeploy.json**.  Se tiver um ficheiro com o mesmo nome de ficheiro, o ficheiro antigo é substituído sem qualquer notificação.
 
     Opcionalmente, você pode usar o comando **$home LS** e o **Cat $Home comando/azuredeploy.JSON** para verificar se os arquivos areis foram carregados com êxito.
 
-5. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
+1. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -135,18 +135,20 @@ Existem muitos métodos para implementar modelos.  Neste tutorial, vai utilizar 
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
-8. Execute o seguinte comando do PowerShell para listar a máquina virtual recentemente criada:
+1. Execute o seguinte comando do PowerShell para listar a máquina virtual recentemente criada:
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
     O nome da máquina virtual está hard-coded como **SimpleWinVM** dentro do modelo.
 
-9. Faça o RDP à máquina virtual para verificar se a máquina virtual foi criada com êxito.
+1. Faça o RDP à máquina virtual para verificar se a máquina virtual foi criada com êxito.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

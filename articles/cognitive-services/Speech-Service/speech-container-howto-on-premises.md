@@ -1,5 +1,5 @@
 ---
-title: Usar o contêiner de serviço de fala com kubernetes e Helm
+title: Usar contêineres de serviço de fala com kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383660"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816503"
 ---
-# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Usar o contêiner de serviço de fala com kubernetes e Helm
+# <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usar contêineres de serviço de fala com kubernetes e Helm
 
 Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes e Helm. Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local. Por fim, exploraremos como testar os serviços implantados e várias opções de configuração. Para obter mais informações sobre como executar contêineres do Docker sem orquestração kubernetes, consulte [instalar e executar contêineres de serviço de fala](speech-container-howto.md).
 
@@ -25,7 +25,7 @@ Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
-|Necessário|Objetivo|
+|Obrigatório|Finalidade|
 |--|--|
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. |
@@ -262,7 +262,7 @@ Os gráficos Helm são hierárquicos. Ser hierárquico permite a herança de gr�
 
 [!INCLUDE [Text-to-Speech Helm Chart Config](includes/text-to-speech-chart-config.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 

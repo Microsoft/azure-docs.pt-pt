@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608054"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805812"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcrição de conversa em tempo real (visualização)
 
-A API **ConversationTranscriber** do SDK de fala permite transcrever reuniões e outras conversas com a capacidade de adicionar, remover e identificar vários participantes transmitindo o áudio para os serviços de fala usando `PullStream` ou `PushStream`. Este tópico exige que você saiba como usar a conversão de fala em texto com o SDK de fala (versão 1.8.0 ou posterior). Para obter mais informações, consulte [o que são os serviços de fala](overview.md).
+A API **ConversationTranscriber** do SDK de fala permite transcrever reuniões e outras conversas com a capacidade de adicionar, remover e identificar vários participantes transmitindo o áudio para o serviço de fala usando `PullStream` ou `PushStream`. Este tópico exige que você saiba como usar a conversão de fala em texto com o SDK de fala (versão 1.8.0 ou posterior). Para obter mais informações, consulte [o que são os serviços de fala](overview.md).
 
 ## <a name="limitations"></a>Limitações
 
@@ -37,7 +37,7 @@ O SDK do dispositivo de fala fornece código de exemplo em Java para captura de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma assinatura dos serviços de fala. Você pode [obter uma assinatura de avaliação de fala](https://azure.microsoft.com/try/cognitive-services/) se não tiver uma.
+Uma assinatura do serviço de fala. Você pode [obter uma assinatura de avaliação de fala](https://azure.microsoft.com/try/cognitive-services/) se não tiver uma.
 
 ## <a name="create-voice-signatures"></a>Criar assinaturas de voz
 

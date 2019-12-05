@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: configuração de C# plataforma do SDK de fala para plataforma universal do Windows (UWP)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para C# o em plataforma universal do Windows (UWP) com o SDK dos serviços de fala.
+description: Use este guia para configurar sua plataforma para C# o em plataforma universal do Windows (UWP) com o SDK do serviço de fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b318af37f30179a7026df135cf864727976762
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea6218066ce381bbfa7ae8c6a02991b351163084
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502535"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815038"
 ---
 Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para C# plataforma universal do Windows (UWP).
 

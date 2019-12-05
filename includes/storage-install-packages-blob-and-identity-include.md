@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
-ms.openlocfilehash: 0adf1280fa50e9ee594f3025dff70786f5ba2199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: de79ea50d12ab322d1e28d0ad650df30ecc0c222
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666172"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806592"
 ---
 ## <a name="install-client-library-packages"></a>Instalar pacotes de biblioteca de cliente
 
@@ -31,5 +31,3 @@ Os exemplos mostrados aqui também usam a versão mais recente da [biblioteca de
 ```powershell
 Install-Package Azure.Identity
 ```
-
-Para saber mais sobre como autenticar com a biblioteca de cliente de identidade do Azure do armazenamento do Azure, consulte a seção intitulada **autenticar com a biblioteca de identidades** do Azure em [autorizar o acesso a BLOBs e filas com Azure Active Directory e identidades gerenciadas para recursos do Azure](/azure/storage/common/storage-auth-aad-msi?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 892171f3e275ebc405bc7a228185ebfabc61acfb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164838"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803891"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso condicional: exigir MFA para todos os usuários
 
@@ -44,7 +44,7 @@ As organizações podem ter muitos aplicativos de nuvem em uso. Nem todos esses 
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas executem a autenticação multifator.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** **acesso condicional** > .
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione **nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**

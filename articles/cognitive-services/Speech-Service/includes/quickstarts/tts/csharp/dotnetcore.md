@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 670d32a93df9e2a0363163079b50c7306f81975e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e732237b22bec6e2a66d44f12ac25e5f9adca3f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502913"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818280"
 ---
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -36,7 +36,7 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua também a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua também a cadeia de carateres `YourServiceRegion`pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 1. Guarde as alterações ao projeto.
 
@@ -50,7 +50,7 @@ Antes de começar, certifique-se de:
 
     ![Captura de tela do aplicativo do Visual Studio, com a opção Iniciar Depuração realçada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar o aplicativo na depuração")
 
-1. Uma janela de console é exibida, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
+1. Uma janela de console é exibida, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para o serviço de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
     ![Captura de tela da saída do console após a síntese bem-sucedida](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Saída do console após síntese bem-sucedida")
 
@@ -58,7 +58,7 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

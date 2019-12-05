@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579708"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806308"
 ---
-# <a name="custom-commands-preview"></a>Comandos personalizados (versão prévia)
+# <a name="custom-commands-preview"></a>Comandos Personalizados (Pré-visualização)
 
 Os [assistentes de voz](voice-assistants.md) ouvem os usuários e tomam uma ação em resposta, geralmente falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md). Os dispositivos se conectam aos assistentes com o objeto `DialogServiceConnector` do SDK de fala.
 
@@ -49,7 +49,7 @@ O código de exemplo para a criação de um assistente de voz com comandos perso
 
 ## <a name="customization"></a>Personalização
 
-Os assistentes de voz criados com o uso dos serviços de fala do Azure podem usar a gama completa de opções de personalização disponíveis para [conversão](speech-to-text.md)de texto em texto, [Text para fala](text-to-speech.md)e [seleção de palavra-chave personalizada](speech-devices-sdk-create-kws.md).
+Os assistentes de voz criados com o uso do serviço de fala podem usar a gama completa de opções de personalização disponíveis para [a](speech-to-text.md)seleção de [texto para fala](text-to-speech.md)e de [palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > As opções de personalização variam por idioma/localidade (consulte [idiomas com suporte](supported-languages.md)).
@@ -60,5 +60,5 @@ Os assistentes de voz criados com o uso dos serviços de fala do Azure podem usa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+* [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 24f44d02170866645711cb302453a009d2935fbf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503102"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817813"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -197,7 +197,7 @@ Agora você está pronto para criar seu aplicativo e testar a síntese de fala u
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

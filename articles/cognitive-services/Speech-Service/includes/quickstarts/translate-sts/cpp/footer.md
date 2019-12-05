@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: e85e040dc6a35c55a4b1da7b8c0c9738064a06b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8c3eb95d42b9a9aab806779ff2c14f4107660f46
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503193"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817556"
 ---
 > [!div class="nextstepaction"]
 > [Explorar C++ exemplos no github](https://aka.ms/speech/github-cpp)

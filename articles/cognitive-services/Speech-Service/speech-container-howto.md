@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325872"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815370"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
@@ -39,9 +39,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
-| Necessário | Objetivo |
+| Obrigatório | Finalidade |
 |--|--|
-| Mecanismo do Docker | Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter uma introdução sobre o Docker e noções básicas de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
+| Motor do Docker | Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos básicos de `docker`. |
 | Recurso de fala | Para usar esses contêineres, você deve ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}** : uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página **visão geral** |
 
@@ -367,16 +367,14 @@ Este comando:
 ***
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing`e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para obter mais informações, consulte [cobrança](#billing).
+> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-| Contentor | Ponto Final | Protocolo |
+| Contentores | URL do host do SDK | Protocolo |
 |--|--|--|
-| Conversão de voz em texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | Federation |
-| Fala Personalizada para texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | Federation |
-| Conversão de texto em voz | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Conversão de texto em fala personalizada | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Conversão de fala em texto e Fala Personalizada em texto | `ws://localhost:5000` | WS |
+| Conversão de texto em fala e Text-to-Speech personalizado | `http://localhost:5000` | HTTP |
 
 Para obter mais informações sobre como usar os protocolos do WSS e HTTPS, consulte [segurança do contêiner](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -394,7 +392,7 @@ Você pode ter esse contêiner e um contêiner diferente de serviços cognitivas
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Parar o contêiner
+## <a name="stop-the-container"></a>Parar o contentor
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
@@ -410,7 +408,7 @@ Os contêineres de fala enviam informações de cobrança para o Azure, usando u
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, consulte [configurar contêineres](speech-container-configuration.md).
+Para obter mais informações sobre estas opções, consulte [configurar contentores](speech-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -433,7 +431,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, ins
 > [!IMPORTANT]
 >  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Examinar [definir contêineres](speech-container-configuration.md) para definições de configuração
 * Saiba como [usar contêineres de serviço de fala com kubernetes e Helm](speech-container-howto-on-premises.md)

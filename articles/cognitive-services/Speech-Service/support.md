@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422620"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815449"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
-Você está apenas começando a explorar a funcionalidade dos serviços de fala? Você está implementando um novo recurso para seu aplicativo? Aqui estão sugestões sobre onde você pode obter ajuda como desenvolvedor.
+Você está apenas começando a explorar a funcionalidade do serviço de fala? Você está implementando um novo recurso para seu aplicativo? Aqui estão sugestões sobre onde você pode obter ajuda como desenvolvedor.
 
 > [!div class="checklist"]
 > * Mantenha-se informado sobre novos desenvolvimentos nos *Serviços cognitivas do Azure*ou encontre as notícias mais recentes relacionadas ao *serviço de fala*.
@@ -31,13 +31,13 @@ Você está apenas começando a explorar a funcionalidade dos serviços de fala?
 
 ## <a name="stay-informed"></a>Mantenha-se informado
 
-Notícias sobre serviços cognitivas são coletadas no [blog de serviços cognitivas](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de fala, acompanhe o [blog de serviços de fala](https://azure.microsoft.com/blog/tag/speech-service/).
+Notícias sobre serviços cognitivas são coletadas no [blog de serviços cognitivas](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de fala, acompanhe o [blog do serviço de fala](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de versão
 
 As [notas de versão](https://aka.ms/csspeech/whatsnew) são atualizadas assim que uma nova versão estiver disponível. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Procurar
 
 Você pode encontrar a resposta que precisa na documentação, nos exemplos ou nas respostas para [Stack Overflow](https://www.stackoverflow.com) perguntas ou nos exemplos.
 

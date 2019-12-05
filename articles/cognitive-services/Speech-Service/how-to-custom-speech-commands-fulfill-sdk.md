@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110068"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806155"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Como: preencher comandos no cliente com o SDK de fala (versão prévia)
 
@@ -29,7 +29,7 @@ Neste artigo, você vai:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Uma chave de assinatura do Azure para serviços de fala
+- Uma chave de assinatura do Azure para o serviço de fala
   - [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
 - Um aplicativo de comandos personalizados criado anteriormente
   - [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)

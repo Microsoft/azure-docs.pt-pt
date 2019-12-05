@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: c0666dccbb7f110e122c4632995299a414bf690a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 35c8eb640e3c8c9e33486d5126f83dd40b5b96e0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503375"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818393"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Antes de começar, certifique-se de:
 
 1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. Digite uma frase ou sentença em inglês. O aplicativo transmite o texto para os serviços de fala, o que envia a fala sintetizada para o aplicativo para ser tocado no seu palestrante.
+1. Digite uma frase ou sentença em inglês. O aplicativo transmite o texto para o serviço de fala, que envia a fala sintetizada para que o aplicativo Jogue no seu palestrante.
 
    ![Saída do console após uma síntese de fala bem-sucedida](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
 
@@ -54,7 +54,7 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: edee0e2efadd8e92ebf3533f0716c82029a0c680
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791696"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806988"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento v2 de uso geral
 
-As contas de armazenamento de uso geral v2 dão suporte aos recursos mais recentes do armazenamento do Azure e incorporam toda a funcionalidade das contas de armazenamento de blob v1 e de uso geral. Contas de uso geral v2 são recomendadas para a maioria dos cenários de armazenamento. As contas v2 de uso geral fornecem os preços de capacidade por gigabyte mais baixos para o armazenamento do Azure, bem como preços de transação competitivos do setor. As contas do General-propósitos v2 dão suporte às camadas de acesso de conta padrão de camadas de nível quente ou frio, entre alta, fria ou arquivo morto.
+As contas de armazenamento de uso geral v2 dão suporte aos recursos mais recentes do armazenamento do Azure e incorporam toda a funcionalidade das contas de armazenamento de blob v1 e de uso geral. Contas de uso geral v2 são recomendadas para a maioria dos cenários de armazenamento. As contas v2 de uso geral fornecem os preços de capacidade por gigabyte mais baixos para o armazenamento do Azure, bem como preços de transação competitivos do setor. As contas v2 de uso geral dão suporte a camadas de acesso de conta padrão de camadas de nível quente ou fria e de camada de blob entre Hot, frio ou arquivo morto.
 
 A atualização para uma conta de armazenamento v2 de uso geral de suas contas de armazenamento de blob v1 ou de uso geral é simples. Você pode atualizar usando o portal do Azure, o PowerShell ou o CLI do Azure.
 
@@ -59,11 +59,11 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificar uma camada de acesso para dados de BLOB
 
-As contas de uso geral v2 dão suporte a todos os serviços de armazenamento do Azure e objetos de dados, mas as camadas de acesso estão disponíveis somente para BLOBs de blocos no armazenamento de BLOBs. Ao atualizar para uma conta de armazenamento v2 de uso geral, você pode especificar uma camada de acesso para seus dados de BLOB.
+As contas de uso geral v2 dão suporte a todos os serviços de armazenamento do Azure e objetos de dados, mas as camadas de acesso estão disponíveis somente se aplicam a blobs de blocos no armazenamento de BLOBs. Ao atualizar para uma conta de armazenamento v2 de uso geral, você pode especificar uma camada de acesso de conta padrão de frequente ou esporádica, que indica a camada padrão em que os dados de blob serão carregados como se o parâmetro de camada de acesso de blob individual não for especificado.
 
-As camadas de acesso permitem que você escolha o armazenamento mais econômico com base em seus padrões de uso previstos. Blobs de blocos podem ser armazenados em uma camada quente, fria ou de arquivo morto. Para obter mais informações sobre camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de armazenamento quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
+As camadas de acesso ao blob permitem que você escolha o armazenamento mais econômico com base nos padrões de uso previstos. Blobs de blocos podem ser armazenados em camadas quentes, frias ou de arquivo morto. Para obter mais informações sobre camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de armazenamento quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
-Por padrão, uma nova conta de armazenamento é criada na camada de acesso quente e uma conta de armazenamento v1 de uso geral é atualizada para a camada de acesso quente. Se você estiver explorando qual camada de acesso usar para os dados após a atualização, considere seu cenário. Há dois cenários de usuário típicos para migrar para uma conta v2 de uso geral:
+Por padrão, uma nova conta de armazenamento é criada na camada de acesso quente e uma conta de armazenamento v1 de uso geral pode ser atualizada para a camada de conta quente ou fria. Se uma camada de acesso à conta não for especificada na atualização, ela será atualizada para ativa por padrão. Se você estiver explorando qual camada de acesso usar para a atualização, considere seu cenário de uso de dados atual. Há dois cenários de usuário típicos para migrar para uma conta v2 de uso geral:
 
 * Você tem uma conta de armazenamento de uso geral v1 existente e deseja avaliar uma atualização para uma conta de armazenamento de uso geral v2, com a camada de acesso de armazenamento correta para dados de BLOB.
 * Você decidiu usar uma conta de armazenamento de uso geral v2 ou já tem uma e deseja avaliar se deve usar a camada de acesso de armazenamento quente ou fria para dados de BLOB.

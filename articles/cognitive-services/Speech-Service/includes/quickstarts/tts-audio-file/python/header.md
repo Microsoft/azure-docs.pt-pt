@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: b627f14231eb5b989cd431f5ce39dc85af97b5d9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 49e7481a2a7f6d1bcd17321551601cb1f084e4c0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503305"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817950"
 ---
 Se você preferir ir diretamente, exiba ou Baixe todos os <a href="https://aka.ms/speech/github-python">exemplos de Python do SDK de fala</a> no github. Caso contrário, vamos começar.

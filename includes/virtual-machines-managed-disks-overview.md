@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796291"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828912"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos Managed disks
 
@@ -37,7 +37,7 @@ O Managed disks oferece suporte a [zonas de disponibilidade](../articles/availab
 
 ### <a name="azure-backup-support"></a>Suporte do backup do Azure
 
-Para proteger contra desastres regionais, o [backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis no. Atualmente, o backup do Azure dá suporte a tamanhos de disco de até quatro discos tebibyte (TiB).  O backup do Azure dá suporte a backup e restauração de discos gerenciados. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup de VM do Azure.
+Para proteger contra desastres regionais, o [backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis no. O backup do Azure dá suporte a backup e restauração de discos gerenciados. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup de VM do Azure.
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
@@ -61,7 +61,7 @@ A [criptografia do lado do servidor do Azure](../articles/virtual-machines/windo
 
 Azure Disk Encryption permite criptografar o sistema operacional e os discos de dados usados por uma máquina virtual IaaS. Essa criptografia inclui discos gerenciados. Para o Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. Para o Linux, os discos são criptografados usando a tecnologia DM-cript. O processo de encriptação é integrado no Azure Key Vault para lhe permitir controlar e gerir as chaves de encriptação dos discos. Para obter mais informações, consulte [Azure Disk Encryption para VMs de IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 
-## <a name="disk-roles"></a>Funções de disco
+## <a name="disk-roles"></a>Funções de discos
 
 Há três funções de disco principais no Azure: o disco de dados, o disco do sistema operacional e o disco temporário. Essas funções são mapeadas para discos anexados à sua máquina virtual.
 

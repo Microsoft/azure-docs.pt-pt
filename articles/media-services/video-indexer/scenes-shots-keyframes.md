@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860240"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806723"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
 
@@ -38,9 +38,71 @@ Video Indexer determina quando uma captura é alterada no vídeo com base em ind
 
 Seleciona os quadros que melhor representam a captura. Quadros-chave são os quadros representativos selecionados de todo o vídeo com base em Propriedades estética (por exemplo, contraste e capacidade de ativação). Video Indexer recupera uma lista de IDs de quadro-chave como parte dos metadados da captura, com base nas quais os clientes podem extrair a miniatura do quadro-chave. 
 
-Os quadros-chave são associados a capturas no JSON de saída. 
+### <a name="extracting-keyframes"></a>Extraindo quadros-chave
+
+Para extrair quadros-chave de alta resolução para seu vídeo, você deve primeiro carregar e indexar o vídeo.
+
+![Quadros-chave](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+#### <a name="with-the-video-indexer-website"></a>Com o site Video Indexer
+
+Para extrair quadros-chave usando o site Video Indexer, carregue e indexe seu vídeo. Depois que o trabalho de indexação for concluído, clique no botão **baixar** e selecione **artefatos (zip)** . Isso baixará a pasta de artefatos em seu computador. 
+
+![Quadros-chave](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+Descompacte e abra a pasta. Na pasta *_KeyframeThumbnail* , você encontrará todos os quadros-chave extraídos do seu vídeo. 
+
+#### <a name="with-the-video-indexer-api"></a>Com a API de Video Indexer
+
+Para obter quadros-chave usando a API Video Indexer, carregue e indexe seu vídeo usando a chamada [carregar vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) . Quando o trabalho de indexação estiver concluído, chame [obter índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Isso fornecerá a você todas as informações que Video Indexer extraídas do seu conteúdo em um arquivo JSON.  
+
+Você obterá uma lista de IDs de quadro-chave como parte dos metadados de cada captura. 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
+Agora, você precisará executar cada uma dessas IDs de quadro-chave na chamada [obter miniaturas](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) . Isso baixará cada uma das imagens de quadro-chave em seu computador. 
 
 ## <a name="editorial-shot-type-detection"></a>Detecção de tipo editorial shot
+
+Os quadros-chave são associados a capturas no JSON de saída. 
 
 O tipo de captura associado a uma captura individual no JSON do insights representa seu tipo editorial. Você pode encontrar essas características de tipo de captura úteis ao editar vídeos em clipes, trailers ou ao pesquisar um estilo específico de quadro-chave para fins artísticos. Os diferentes tipos são determinados com base na análise do primeiro quadro-chave de cada captura. As capturas são identificadas pela escala, pelo tamanho e pelo local das faces que aparecem no primeiro quadro-chave. 
 
@@ -64,6 +126,7 @@ Características adicionais:
 * Duas capturas: mostra as faces de duas pessoas de tamanho médio.
 * Vários rostos: mais de duas pessoas.
 
-## <a name="next-steps"></a>Passos Seguintes
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Examinar a saída de Video Indexer produzida pela API](video-indexer-output-json-v2.md#scenes)

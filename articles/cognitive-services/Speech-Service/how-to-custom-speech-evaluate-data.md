@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801541"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806101"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão de Fala Personalizada
 
@@ -29,9 +29,9 @@ O padrão do setor para medir a precisão do modelo é o WER ( *taxa de erros do
 
 Palavras incorretamente identificadas se enquadram em três categorias:
 
-* Inserção (I): Palavras que são adicionadas incorretamente à transcrição de hipótese
-* Exclusão (D): Palavras que não são detectadas na transcrição da hipótese
-* Substituição (ões): Palavras que foram substituídas entre referência e hipótese
+* Inserção (I): palavras que são adicionadas incorretamente na transcrição de hipótese
+* Exclusão (D): palavras que não são detectadas na transcrição da hipótese
+* Substituição (ões): palavras que foram substituídas entre referência e hipótese
 
 Segue-se um exemplo:
 
@@ -64,7 +64,7 @@ Depois que o teste tiver sido criado com êxito, você poderá comparar os resul
 
 Depois que o teste for concluído, indicado pela alteração do status para *êxito*, você encontrará um número do WER para ambos os modelos incluídos no teste. Clique no nome do teste para exibir a página de detalhes de teste. Essa página de detalhes lista todos os declarações no conjunto de seus conjuntos de anotações, indicando os resultados de reconhecimento dos dois modelos junto com a transcrição do conjunto de resultados enviado. Para ajudar a inspecionar a comparação lado a lado, você pode alternar vários tipos de erro, incluindo inserção, exclusão e substituição. Ao ouvir o áudio e comparar os resultados de reconhecimento em cada coluna, que mostra a transcrição com rótulo humano e os resultados de dois modelos de fala em texto, você pode decidir qual modelo atende às suas necessidades e em que outros treinamentos e aprimoramentos são Necessário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Treinar seu modelo](how-to-custom-speech-train-model.md)
 * [Implantar seu modelo](how-to-custom-speech-deploy-model.md)

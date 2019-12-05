@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464499"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805982"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparar dados para criar uma voz personalizada
 
-Quando você estiver pronto para criar uma voz personalizada de conversão de texto em fala para seu aplicativo, a primeira etapa é coletar gravações de áudio e scripts associados para começar a treinar o modelo de voz. O serviço usa esses dados para criar uma voz exclusiva ajustada para corresponder à voz nas gravações. Depois de treinar a voz, você pode começar a resumir a fala em seus aplicativos.
+Quando você estiver pronto para criar uma voz personalizada de conversão de texto em fala para seu aplicativo, a primeira etapa é coletar gravações de áudio e scripts associados para começar a treinar o modelo de voz. O serviço de fala usa esses dados para criar uma voz exclusiva ajustada para corresponder à voz nas gravações. Depois de treinar a voz, você pode começar a resumir a fala em seus aplicativos.
 
 Você pode começar com uma pequena quantidade de dados para criar uma prova de conceito. No entanto, quanto mais dados você fornecer, mais natural será o som de sua voz personalizada. Antes de treinar seu próprio modelo de voz de conversão de texto em fala, você precisará de gravações de áudio e das transcrições de texto associadas. Nesta página, examinaremos os tipos de dados, como eles são usados e como gerenciar cada um deles.
 
@@ -60,7 +60,7 @@ Siga estas diretrizes ao preparar o áudio.
 | Propriedade | Valor |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav), agrupado em um arquivo. zip |
-| Taxa de amostragem | Pelo menos 16.000 Hz |
+| Frequência de amostragem | Pelo menos 16.000 Hz |
 | Formato de exemplo | PCM, 16 bits |
 | Nome de ficheiro | Numeric, com extensão. wav. Nenhum nome de arquivo duplicado é permitido. |
 | Comprimento do áudio | Menos de 15 segundos |

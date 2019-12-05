@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9a7e3de3502ba9be4edc46dc60907a20d9cf349e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 310d0cd94dcdb57254de3764c57b9b2438aa5442
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681983"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819495"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Início rápido: reconhecer a fala de um arquivo de áudio
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: b6439c6461ca9f4fa272eb43ef16240175fdec4f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796024"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818664"
 ---
 > [!NOTE]
 > O SDK de fala para o Unity dá suporte à área de trabalho do Windows (x86 e x64) ou Plataforma Universal do Windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (x64 Simulator, ARM32 e ARM64)
@@ -89,7 +89,7 @@ Para adicionar o código de script de exemplo para o projeto do Unity, siga esta
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localize e substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura dos serviços de fala.
+1. Localize e substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura do serviço de fala.
 
 1. Localize e substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua assinatura. Por exemplo, se estiver a utilizar a versão de avaliação gratuita, a região é `westus`.
 
@@ -120,7 +120,7 @@ Agora você está pronto para executar o aplicativo no editor do Unity.
 
 1. Vá para o modo de exibição de [ **jogo** ](https://docs.unity3d.com/Manual/GameView.html)e aguarde até que o objeto de **texto** seja exibido **clique no botão para reconhecer a fala**. (Ele exibe o **novo texto** quando o aplicativo não foi iniciado ou não está pronto para responder.)
 
-1. Selecione o botão e fale uma frase ou sentença em inglês no microfone do seu computador. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na exibição do **jogo** .
+1. Selecione o botão e fale uma frase ou sentença em inglês no microfone do seu computador. Sua fala é transmitida para o serviço de fala e transcrita para texto, que aparece na exibição do **jogo** .
 
    [![exibição de jogo no editor do Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 

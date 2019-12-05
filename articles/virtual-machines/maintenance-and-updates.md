@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535889"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807090"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção para máquinas virtuais no Azure
 
@@ -29,7 +29,7 @@ As atualizações raramente afetam as VMs hospedadas. Quando as atualizações t
 
 Esta página descreve como o Azure executa os dois tipos de manutenção. Para obter mais informações sobre eventos não planejados (interrupções), consulte [gerenciar a disponibilidade de VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para [Linux](./linux/manage-availability.md).
 
-Em uma VM, você pode obter notificações sobre a manutenção futura [usando eventos agendados para Windows](/windows/scheduled-events.md) ou para [Linux](/linux/scheduled-events.md).
+Em uma VM, você pode obter notificações sobre a manutenção futura [usando eventos agendados para Windows](./windows/scheduled-events.md) ou para [Linux](./linux/scheduled-events.md).
 
 
 
@@ -43,12 +43,12 @@ A manutenção de preservação de memória funciona por mais de 90% das VMs do 
 
 Essas operações de manutenção que não exigem uma reinicialização são aplicadas um domínio de falha por vez. Eles serão interrompidos se receberem sinais de integridade de aviso. 
 
-Esses tipos de atualizações podem afetar alguns aplicativos. Quando a VM é migrada ao vivo para um host diferente, algumas cargas de trabalho confidenciais podem mostrar uma pequena degradação de desempenho em alguns minutos, levando a uma pausa na VM. Para se preparar para a manutenção da VM e reduzir o impacto durante a manutenção do Azure, tente [usar eventos agendados para Windows](/windows/scheduled-events.md) ou [Linux](/linux/scheduled-events.md) para tais aplicativos. 
+Esses tipos de atualizações podem afetar alguns aplicativos. Quando a VM é migrada ao vivo para um host diferente, algumas cargas de trabalho confidenciais podem mostrar uma pequena degradação de desempenho em alguns minutos, levando a uma pausa na VM. Para se preparar para a manutenção da VM e reduzir o impacto durante a manutenção do Azure, tente [usar eventos agendados para Windows](./windows/scheduled-events.md) ou [Linux](./linux/scheduled-events.md) para tais aplicativos. 
 
 Há também um recurso, controle de manutenção, em visualização pública que pode ajudar a gerenciar a manutenção que não exige uma reinicialização. Você deve estar usando [hosts dedicados do Azure](./linux/dedicated-hosts.md) ou uma [VM isolada](../security/fundamentals/isolation-choices.md). O controle de manutenção oferece a opção de ignorar as atualizações de plataforma e aplicar as atualizações em sua escolha de tempo dentro de uma janela sem interrupção de 35 dias. Para obter mais informações, consulte [controlar atualizações com o controle de manutenção e o CLI do Azure](maintenance-control-cli.md).
 
 
-### <a name="live-migration"></a>Migração ao vivo
+### <a name="live-migration"></a>Migração em direto
 
 A migração ao vivo é uma operação que não exige uma reinicialização e preserva a memória da VM. Isso causa uma pausa ou congelamento, normalmente com duração de mais de 5 segundos. Exceto para as séries G, M, N e H, todas as VMs de IaaS (infraestrutura como serviço) são elegíveis para a migração ao vivo. As VMs qualificadas representam mais de 90% das VMs IaaS implantadas no Azure frota. 
 

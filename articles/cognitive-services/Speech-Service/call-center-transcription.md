@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538177"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806325"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -125,7 +125,7 @@ Outro cenário é a integração direta com o SIP (Session Initiation Protocol).
 | -------------- | ----- | ----------- |
 | Conversão de voz em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos que são usados em ambientes específicos, como em um carro ou em um piso de fábrica, cada um com condições de gravação específicas. Os exemplos incluem fala acentuada, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
 |                | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos do setor, como terminologia médica ou jargão de ti. |
-|                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um arquivo simples de `.txt`. |
+|                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e exibir uma palavra ou termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, que é um arquivo simples de `.txt`. |
 | Conversão de texto em voz | [Tipo de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz de um tipo reconhecível para sua marca. Ele só leva uma pequena quantidade de dados para começar. Quanto mais dados você fornecer, mais natural e humana, como a fonte de voz soará. |
 
 ## <a name="sample-code"></a>Código de exemplo

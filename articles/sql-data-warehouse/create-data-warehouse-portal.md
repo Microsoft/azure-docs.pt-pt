@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839929"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815812"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: criar e consultar uma SQL Data Warehouse do Azure no portal do Azure
 
@@ -33,7 +33,7 @@ Transfira e instale a versão mais recente do [SQL Server Management Studio](/sq
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
 
@@ -41,7 +41,7 @@ Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos 
 
 Siga estas etapas para criar um SQL Data Warehouse que contém os dados de exemplo AdventureWorksDW. 
 
-1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Bases de Dados** na página **Novo** e selecione **Armazém de Dados SQL** em **Destaques** na página **Novo**.
 
@@ -51,16 +51,14 @@ Siga estas etapas para criar um SQL Data Warehouse que contém os dados de exemp
 
     | Definição | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
-    | **Nome da base de dados** | mySampleDataWarehouse | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). Tenha em atenção que um armazém de dados é um tipo de base de dados.|
     | **Subscrição** | A sua subscrição | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
     | **Grupo de recursos** | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-    | **Selecionar origem** | Sample | Especifica para carregar uma base de dados de exemplo. Tenha em atenção que um armazém de dados é um tipo de base de dados. |
-    | **Selecionar exemplo** | AdventureWorksDW | Especifica para carregar a base de dados de exemplo AdventureWorksDW. |
+    | **Nome do data warehouse** | mySampleDataWarehouse | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). Tenha em atenção que um armazém de dados é um tipo de base de dados.|
     ||||
 
     ![criar um armazém de dados](media/create-data-warehouse-portal/select-sample.png)
 
-4. Clique em **Servidor** para criar e configurar um novo servidor para a nova base de dados. Preencha o **Novo formulário de servidor** com as seguintes informações: 
+4. Selecione um **servidor** existente ou clique em **criar novo** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **Novo formulário de servidor** com as seguintes informações: 
 
     | Definição | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
@@ -82,7 +80,7 @@ Siga estas etapas para criar um SQL Data Warehouse que contém os dados de exemp
 
 8. Clique em **Aplicar**.
 
-9. Agora que você concluiu o formulário de SQL Data Warehouse, clique em **criar** para provisionar o banco de dados. O aprovisionamento demora alguns minutos.
+9. Agora que você concluiu a guia noções básicas do formulário SQL Data Warehouse, clique em **revisar + criar** para provisionar o banco de dados. O aprovisionamento demora alguns minutos.
 
     ![clique em criar](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -126,7 +124,7 @@ Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este e
 
 Obtenha o nome de servidor completamente qualificado para o servidor SQL no portal do Azure. Utilizará mais tarde o nome completamente qualificado quando ligar ao servidor.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **SQL data warehouses** no menu à esquerda e clique em seu data warehouse na página **SQL data warehouses** .
 3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é mynewserver-20180430.database.windows.net.
 

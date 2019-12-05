@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8bae2db08a5279225eba7492c63706dc9fc3df02
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815918"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819510"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
@@ -77,7 +77,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Definir a vida útil em um contêiner usando o SDK
 
-Para definir a vida útil em um contêiner, você precisa fornecer um número positivo diferente de zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no contêiner após o último carimbo de data/hora `_ts` modificado do item são excluídos.
+Para definir a vida útil em um contêiner, você precisa fornecer um número positivo diferente de zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no contêiner após o último carimbo de data/hora modificado do item `_ts` são excluídos.
 
 ### <a id="dotnet-enable-withexpiry"></a>SDK do .NET v2 (Microsoft. Azure. DocumentDB)
 
@@ -86,7 +86,7 @@ Para definir a vida útil em um contêiner, você precisa fornecer um número po
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
-collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
@@ -123,7 +123,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 Além de definir uma vida útil padrão em um contêiner, você pode definir uma vida útil para um item. Definir a vida útil no nível do item substituirá o TTL padrão do item nesse contêiner.
 
-* Para definir o TTL em um item, você precisa fornecer um número positivo diferente de zero, que indica o período, em segundos, para expirar o item após o último carimbo de data/hora modificado `_ts`do item.
+* Para definir o TTL em um item, você precisa fornecer um número positivo diferente de zero, que indica o período, em segundos, para expirar o item após o último carimbo de data/hora modificado do item `_ts`.
 
 * Se o item não tiver um campo TTL, por padrão, o TTL definido para o contêiner será aplicado ao item.
 
@@ -146,7 +146,7 @@ Use as etapas a seguir para habilitar a vida útil em um item:
    * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor TTL. 
    * Clique em **Guardar** para guardar as alterações.
 
-5. Em seguida, navegue até o item para o qual você deseja definir a vida útil, `ttl` adicione a propriedade e selecione **Atualizar**. 
+5. Em seguida, navegue até o item para o qual você deseja definir a vida útil, adicione a propriedade `ttl` e selecione **Atualizar**. 
 
    ```json
    {
@@ -198,7 +198,7 @@ const itemDefinition = {
 
 ## <a name="reset-time-to-live"></a>Redefinir vida útil
 
-Você pode redefinir a vida útil em um item executando uma operação de gravação ou atualização no item. A operação de gravação ou atualização definirá `_ts` o como a hora atual, e o TTL do item a expirar começará novamente. Se desejar alterar a TTL de um item, você poderá atualizar o campo da mesma forma que atualizar qualquer outro campo.
+Você pode redefinir a vida útil em um item executando uma operação de gravação ou atualização no item. A operação de gravação ou atualização definirá o `_ts` como a hora atual, e o TTL do item a expirar começará novamente. Se desejar alterar a TTL de um item, você poderá atualizar o campo da mesma forma que atualizar qualquer outro campo.
 
 ### <a id="dotnet-extend-ttl-item"></a>SDK do .NET v2 (Microsoft. Azure. DocumentDB)
 
@@ -257,7 +257,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 ## <a name="disable-time-to-live"></a>Desabilitar vida útil
 
-Para desabilitar a vida útil em um contêiner e impedir que o processo em segundo plano Verifique se há itens `DefaultTimeToLive` expirados, a propriedade no contêiner deve ser excluída. A exclusão dessa propriedade é diferente de defini-la como-1. Quando você o define como-1, novos itens adicionados ao contêiner residirão para sempre, no entanto, você pode substituir esse valor em itens específicos no contêiner. Quando você remove a propriedade TTL do contêiner, os itens nunca expirarão, mesmo que tenham substituído explicitamente o valor TTL padrão anterior.
+Para desabilitar a vida útil em um contêiner e impedir que o processo em segundo plano Verifique se há itens expirados, a propriedade `DefaultTimeToLive` no contêiner deve ser excluída. A exclusão dessa propriedade é diferente de defini-la como-1. Quando você o define como-1, novos itens adicionados ao contêiner residirão para sempre, no entanto, você pode substituir esse valor em itens específicos no contêiner. Quando você remove a propriedade TTL do contêiner, os itens nunca expirarão, mesmo que tenham substituído explicitamente o valor TTL padrão anterior.
 
 ### <a id="dotnet-disable-ttl"></a>SDK do .NET v2 (Microsoft. Azure. DocumentDB)
 

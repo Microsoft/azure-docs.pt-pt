@@ -8,12 +8,12 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: dd2b3bd584bb39810e0a5c9acde1a961330c273d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093764"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819137"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrar Data Explorer do Azure com Azure Data Factory
 
@@ -93,7 +93,7 @@ A tabela a seguir lista as permissões necessárias para várias etapas na integ
 | Passo | Operação | Nível mínimo de permissões | Notas |
 |---|---|---|---|
 | **Criar um serviço vinculado** | Navegação de banco de dados | *Visualizador de banco de dados* <br>O usuário conectado usando o ADF deve ser autorizado a ler os metadados do banco de dados. | O usuário pode fornecer o nome do banco de dados manualmente. |
-| | Testar conexão | *Monitor de banco de dados* ou *ingestão de tabela* <br>A entidade de serviço deve ser autorizada a executar comandos de `.show` no nível do banco de dados ou ingestão de nível de tabela. | <ul><li>TestConnection verifica a conexão com o cluster e não com o banco de dados. Ele pode ter sucesso mesmo que o banco de dados não exista.</li><li>As permissões de administrador de tabela não são suficientes.</li></ul>|
+| | Testar Ligação | *Monitor de banco de dados* ou *ingestão de tabela* <br>A entidade de serviço deve ser autorizada a executar comandos de `.show` no nível do banco de dados ou ingestão de nível de tabela. | <ul><li>TestConnection verifica a conexão com o cluster e não com o banco de dados. Ele pode ter sucesso mesmo que o banco de dados não exista.</li><li>As permissões de administrador de tabela não são suficientes.</li></ul>|
 | **Criando um conjunto de uma** | Navegação de tabela | *monitor de banco de dados* <br>O usuário conectado usando o ADF deve estar autorizado a executar comandos de `.show` no nível do banco de dados. | O usuário pode fornecer o nome da tabela manualmente.|
 | **Criando um conjunto de um DataSet ou uma atividade de** **cópia** | Visualizar dados | *Visualizador de banco de dados* <br>A entidade de serviço deve ser autorizada a ler metadados do banco de dados. | | 
 |   | Importar esquema | *Visualizador de banco de dados* <br>A entidade de serviço deve ser autorizada a ler metadados do banco de dados. | Quando ADX é a origem de uma cópia de tabela a tabular, o ADF importará o esquema automaticamente, mesmo que o usuário não tenha importado explicitamente o esquema. |
@@ -118,13 +118,90 @@ Esta seção aborda o uso da atividade de cópia em que o Azure Data Explorer é
 | **Complexidade do processamento de dados** | A latência varia de acordo com o formato do arquivo de origem, o mapeamento de coluna e a compactação.|
 | **A VM que executa o Integration Runtime** | <ul><li>Para a cópia do Azure, as VMs do ADF e as SKUs do computador não podem ser alteradas.</li><li> Para a cópia local para o Azure, determine se a VM que hospeda o IR auto-hospedado é forte o suficiente.</li></ul>|
 
-## <a name="monitor-activity-progress"></a>Monitorar o andamento da atividade
+## <a name="tips-and-common-pitfalls"></a>Dicas e armadilhas comuns
+
+### <a name="monitor-activity-progress"></a>Monitorar o andamento da atividade
 
 * Ao monitorar o andamento da atividade, a propriedade de *dados gravados* pode ser muito maior do que a propriedade de *leitura* de dados porque a *leitura de dados* é calculada de acordo com o tamanho do arquivo binário, enquanto os *dados gravados* são calculados de acordo com o tamanho da memória, depois que os dados são desserializados e descompactados.
 
 * Ao monitorar o andamento da atividade, você pode ver que os dados são gravados no coletor de Data Explorer do Azure. Ao consultar a tabela de Data Explorer do Azure, você verá que os dados não chegaram. Isso ocorre porque há dois estágios ao copiar para o Azure Data Explorer. 
     * O primeiro estágio lê os dados de origem, divide-os em blocos de 900 MB e carrega cada bloco em um blob do Azure. O primeiro estágio é visto pelo modo de exibição progresso da atividade do ADF. 
     * O segundo estágio começa quando todos os dados são carregados nos BLOBs do Azure. Os nós do mecanismo de Data Explorer do Azure baixam os BLOBs e ingerim os dados na tabela de coletor. Os dados são então vistos em sua tabela de Data Explorer do Azure.
+
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Falha ao ingerir arquivos CSV devido à saída incorreta
+
+O Azure Data Explorer espera que os arquivos CSV se alinhem com a [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+Espera:
+* Os campos que contêm caracteres que exigem escape (como "e novas linhas) devem começar e terminar com um caractere **"** , sem espaço em branco. Todos os **"** caracteres *dentro* do campo têm escape usando um **"** caractere "duplo ( **" "** ). Por exemplo, _"Olá", "mundo" ""_ é um arquivo CSV válido com um único registro com um único campo ou coluna com o conteúdo _Olá, "mundo"_ .
+* Todos os registros no arquivo devem ter o mesmo número de colunas e campos.
+
+Azure Data Factory permite o caractere de barra invertida (escape). Se você gerar um arquivo CSV com um caractere de barra invertida usando Azure Data Factory, a ingestão do arquivo para o Azure Data Explorer falhará.
+
+#### <a name="example"></a>Exemplo
+
+Os seguintes valores de texto: Olá, "mundo"<br/>
+DEF. DE ABC<br/>
+"ABC\D" EF<br/>
+"ABC DEF<br/>
+
+Deve aparecer em um arquivo CSV apropriado da seguinte maneira: "Olá", "mundo" ""<br/>
+"ABC DEF"<br/>
+"" ABC DEF "<br/>
+"" "ABC\D" "EF"<br/>
+
+Usando o caractere de escape padrão (barra invertida), o CSV a seguir não funcionará com o Azure Data Explorer: "Olá, \"mundo\""<br/>
+"ABC DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### <a name="nested-json-objects"></a>Objetos JSON aninhados
+
+Ao copiar um arquivo JSON para o Azure Data Explorer, observe que:
+* Não há suporte para matrizes.
+* Se sua estrutura JSON contiver tipos de dados de objeto, Azure Data Factory mesclará os itens filho do objeto e tentará mapear cada item filho para uma coluna diferente em sua tabela de Data Explorer do Azure. Se você quiser que todo o item de objeto seja mapeado para uma única coluna no Azure Data Explorer:
+    * Ingerir a linha JSON inteira em uma única coluna dinâmica no Azure Data Explorer.
+    * Edite manualmente a definição de pipeline usando o editor de JSON do Azure Data Factory. Em **mapeamentos**
+       * Remova os vários mapeamentos que foram criados para cada item filho e adicione um único mapeamento que mapeie o tipo de objeto para a coluna da tabela.
+       * Após o colchete de fechamento, adicione uma vírgula seguida por:<br/>
+       `"mapComplexValuesToString": true`.
+
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Especifique asproperties adicionais ao copiar para o Azure Data Explorer
+
+> [!NOTE]
+> Esse recurso está disponível no momento por meio da edição manual da carga JSON. 
+
+Adicione uma única linha na seção "coletor" da atividade de cópia da seguinte maneira:
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+A saída do valor pode ser complicada. Use o seguinte trecho de código como uma referência:
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+O valor impresso:
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: cb37bd0c83956b9858639a78d4995e14811498e5
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559332"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805761"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -246,7 +246,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Conjuntos Elásticos |  Atualmente, não há suporte para pools elásticos com a hiperescala do banco de dados SQL.|
 | A migração para o hiperescala é uma operação unidirecional no momento | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo BACPAC ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.)|
 | Migração de bancos de dados com objetos na memória persistentes | O hiperscale dá suporte apenas a objetos não persistentes na memória (tipos de tabela, SPs nativos e funções).  As tabelas persistentes na memória e outros objetos devem ser descartados e recriados como objetos não na memória antes de migrar um banco de dados para a camada de serviço de hiperescala.|
-| Monitorização de Alterações | Você ainda não pode configurar e usar Controle de Alterações com bancos de dados de hiperescala do SQL do Azure. |
+| Monitorização de Alterações | O Controle de Alterações está atualmente em visualização pública e pode ser habilitado em bancos de dados de hiperescala novos ou existentes. |
 | Georreplicação  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
 | Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |

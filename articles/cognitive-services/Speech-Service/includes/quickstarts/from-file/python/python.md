@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 221a5ef40f2ebe59b0a40b3cd666b53fabf82e85
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8a5652f6cb8b42200e24221921868b084bd6e62f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795584"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819185"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -113,7 +113,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Criar um ficheiro](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, Cole e salve o [código Python](#sample-code) no arquivo recém-criado.
-1. Insira as informações de assinatura dos serviços de fala.
+1. Insira as informações de assinatura do serviço de fala.
 1. Se selecionado, um intérprete do Python é exibido no lado esquerdo da barra de status na parte inferior da janela.
    Caso contrário, traga uma lista de intérpretes de Python disponíveis. Abra a paleta de comandos (Ctrl + Shift + P) e digite **Python: selecionar intérprete**. Escolha um apropriado.
 1. Você pode instalar o pacote Python do SDK de fala de dentro do Visual Studio Code. Faça isso se ele ainda não estiver instalado para o intérprete do Python selecionado.

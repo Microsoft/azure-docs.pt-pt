@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3d9826e3eae2a60b217df1406d26d83c78fbdefb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a826bb01a906153b4ca2a3c854623c83b6192aec
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67673483"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828834"
 ---
 Para criar uma VNet no modelo de implementação do Gestor de Recursos com o Portal do Azure, siga os passos abaixo. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para obter mais informações sobre como trabalhar com redes virtuais, veja [Descrição Geral da Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,10 +22,12 @@ Para criar uma VNet no modelo de implementação do Gestor de Recursos com o Por
 >
 >
 
-1. Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
-2. Clique em **+** . No campo **Procurar no Marketplace**, escreva “Rede Virtual”. Localize a **Rede Virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  No menu portal do Azure ou na **Home** Page do e selecione **criar um recurso**. O **New** é aberta a página.
 
-   ![Página localizar recurso de rede virtual](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "Página localizar recurso de rede virtual")
+2. Em **Pesquisar no Marketplace**, insira *rede virtual* e selecione **rede virtual** nos resultados.
+
+   ![Página localizar recurso de rede virtual](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/search-marketplace-for-virtual-network.png "Página localizar recurso de rede virtual")
+
 3. Perto da parte inferior do painel Virtual Network, na página **Selecionar um modelo de implementação**, selecione **Resource Manager** e clique em **Criar**.
 
    ![Selecionar Gerenciador de recursos](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "Selecionar o Resource Manager")

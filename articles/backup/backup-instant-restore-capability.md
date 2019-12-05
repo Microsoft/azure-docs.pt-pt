@@ -4,12 +4,12 @@ description: Capacidade de restauração instantânea do Azure e perguntas frequ
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172335"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806376"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha melhor desempenho de backup e restauração com o recurso de restauração instantânea do backup do Azure
 
@@ -21,7 +21,7 @@ O novo modelo para restauração instantânea fornece os seguintes aprimoramento
 
 * Capacidade de usar instantâneos tirados como parte de um trabalho de backup que está disponível para recuperação sem aguardar a conclusão da transferência de dados para o cofre. Ele reduz o tempo de espera para que os instantâneos sejam copiados para o cofre antes de disparar a restauração.
 * Reduz os tempos de backup e restauração mantendo instantâneos localmente, por padrão, por dois dias. Esse valor de retenção de instantâneo padrão é configurável para qualquer valor entre 1 e 5 dias.
-* Oferece suporte a tamanhos de disco de até 4 TB. O redimensionamento de discos não é recomendado pelo backup do Azure. Para se inscrever em uma visualização pública limitada de suporte de disco grande do backup do Azure para discos com mais de 4 TB e até 30 TB de tamanho, consulte [backup de VM com tamanhos de disco de até 30 TB](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+* Dá suporte a tamanhos de disco de até 32 TB. O redimensionamento de discos não é recomendado pelo backup do Azure.
 * Dá suporte a discos SSD Standard juntamente com discos HDD Standard e SSD Premium discos.
 * Capacidade de usar uma conta de armazenamento original de VMs não gerenciadas (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM tem discos que são distribuídos entre contas de armazenamento. Ele acelera as operações de restauração para uma ampla variedade de configurações de VM.
 * Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup.
@@ -59,13 +59,13 @@ Os instantâneos incrementais são armazenados na conta de armazenamento da VM, 
 
 ## <a name="configure-snapshot-retention"></a>Configurar retenção de instantâneo
 
-### <a name="using-azure-portal"></a>Com o Portal do Azure
+### <a name="using-azure-portal"></a>Utilizar o portal do Azure
 
 No portal do Azure, você pode ver um campo adicionado na folha **política de backup de VM** na seção **restauração instantânea** . Você pode alterar a duração da retenção de instantâneo da folha **política de backup da VM** para todas as VMs associadas à política de backup específica.
 
 ![Capacidade de restauração instantânea](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 >[!NOTE]
 > Em AZ PowerShell Version 1.6.0 em diante, você pode atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell

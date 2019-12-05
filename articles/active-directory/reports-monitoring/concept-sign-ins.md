@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232136"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805267"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -47,7 +47,7 @@ Este artigo fornece uma visão geral do relatório de entradas.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Que licença do Azure AD precisa para aceder à atividade de entrada?
 
-* Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de entrada. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
+* O seu inquilino tem de ter uma licença do Azure AD Premium associada ao mesmo para ver o relatório de atividades de início de sessão. Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium sem atividades de dados antes da atualização.
 
 ## <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -81,7 +81,7 @@ Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramen
 
 Exibe campos adicionais ou remove os campos que já estão exibidos.
 
-![Atividade de entrada](./media/concept-sign-ins/02.png "Atividade de início de sessão")
+![Atividade de entrada](./media/concept-sign-ins/columns.png "Atividade de início de sessão")
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
@@ -105,13 +105,13 @@ O filtro **Aplicação** permite-lhe especificar o nome da aplicação que mais 
 
 O filtro **Estado do início de sessão** permite-lhe selecionar:
 
-- Todos
+- Tudo
 - Êxito
 - Falha
 
 O filtro de **acesso condicional** permite que você selecione o status da política de CA para a entrada:
 
-- Todos
+- Tudo
 - Não aplicado
 - Êxito
 - Falha
@@ -129,7 +129,7 @@ Quando selecionar um período de tempo personalizado, pode configurar uma hora d
 Se adicionar mais campos à vista de inícios de sessão, estes campos são adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicação Cliente** à sua lista, também obtém outra opção de filtro que lhe permite definir os seguintes filtros:  
 ![Atividade de entrada](./media/concept-sign-ins/12.png "Atividade de início de sessão")
 
-- **Navegador**  
+- **Browser**  
     Esse filtro mostra todos os eventos em que as tentativas de entrada foram tentadas usando fluxos de navegador.
 - **Exchange ActiveSync (com suporte)**  
     Esse filtro mostra todas as tentativas de entrada em que o protocolo EAS (Exchange ActiveSync) foi tentado a partir de plataformas com suporte, como iOS, Android e Windows Phone.
@@ -146,14 +146,14 @@ Se adicionar mais campos à vista de inícios de sessão, estes campos são adic
         Office 2013 em sua configuração padrão em que a ADAL não está habilitada e está usando MAPI ou o Office 2016 em que a ADAL foi desabilitada.
     - **POP**  
         Um cliente de email herdado usando POP3 para recuperar email.
-    - **PROTOCOLO**  
+    - **SMTP**  
         Um cliente de email herdado usando SMTP para enviar email.
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
 Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
-![Transferência](./media/concept-sign-ins/71.png "Transferência")
+![Transferência](./media/concept-sign-ins/71.png "Transferir")
 
 > [!IMPORTANT]
 > O número de registros que você pode baixar é restrito pelo [Azure Active Directory políticas de retenção de relatório](reference-reports-data-retention.md).  
@@ -189,11 +189,11 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Utilizador
 - Nome de utilizador
 - ID da aplicação
-- Aplicação
+- Candidatura
 - Cliente
 - Localização
 - Endereço IP
-- Data
+- Date
 - MFA Necessário
 - Estado de início de sessão
 

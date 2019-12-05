@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554975"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806016"
 ---
 # <a name="what-is-custom-speech"></a>O que é Fala Personalizada?
 
@@ -23,13 +23,13 @@ ms.locfileid: "74554975"
 
 ## <a name="whats-in-custom-speech"></a>O que há de Fala Personalizada?
 
-Para poder fazer qualquer coisa com Fala Personalizada, você precisará de uma conta do Azure e uma assinatura de serviços de fala. Depois de ter uma conta, você pode preparar seus dados, treinar e testar seus modelos, inspecionar a qualidade do reconhecimento, avaliar a precisão e, por fim, implantar e usar o modelo de fala em texto personalizado.
+Para poder fazer qualquer coisa com Fala Personalizada, você precisará de uma conta do Azure e uma assinatura do serviço de fala. Depois de ter uma conta, você pode preparar seus dados, treinar e testar seus modelos, inspecionar a qualidade do reconhecimento, avaliar a precisão e, por fim, implantar e usar o modelo de fala em texto personalizado.
 
 Este diagrama realça as partes que compõem o [portal de fala personalizada](https://aka.ms/customspeech). Use os links abaixo para saber mais sobre cada etapa.
 
 ![Realça os diferentes componentes que compõem o portal de Fala Personalizada.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Assinar e criar um projeto](#set-up-your-azure-account) -crie uma conta do Azure e assine os serviços de fala. Essa assinatura unificada fornece acesso a conversão de fala, texto em fala, tradução de fala e o [portal de fala personalizada](https://speech.microsoft.com/customspeech). Em seguida, usando sua assinatura de serviços de fala, crie seu primeiro projeto de Fala Personalizada.
+1. [Assinar e criar um projeto](#set-up-your-azure-account) -crie uma conta do Azure e assine o serviço de fala. Essa assinatura unificada fornece acesso a conversão de fala, texto em fala, tradução de fala e o [portal de fala personalizada](https://speech.microsoft.com/customspeech). Em seguida, usando sua assinatura do serviço de fala, crie seu primeiro projeto de Fala Personalizada.
 
 2. [Carregar dados de teste](how-to-custom-speech-test-data.md) – carregar dados de teste (arquivos de áudio) para avaliar a oferta de fala a texto da Microsoft para seus aplicativos, ferramentas e produtos.
 
@@ -43,14 +43,14 @@ Este diagrama realça as partes que compõem o [portal de fala personalizada](ht
 
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
-Uma assinatura de serviços de fala é necessária para que você possa usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma assinatura padrão dos serviços de fala: [criar uma assinatura de fala](get-started.md#try-the-speech-service-using-a-new-azure-account).
+Uma assinatura de serviço de fala é necessária para que você possa usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma assinatura de serviço de fala padrão: [criar uma assinatura de fala](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Certifique-se de criar assinaturas padrão (S0), não há suporte para assinaturas de avaliação gratuita (F0).
 
-Depois de criar uma conta do Azure e uma assinatura de serviços de fala, você precisará entrar no [portal fala personalizada](https://speech.microsoft.com/customspeech) e conectar-se à sua assinatura.
+Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você precisará entrar no [portal fala personalizada](https://speech.microsoft.com/customspeech) e conectar-se à sua assinatura.
 
-1. Obtenha sua chave de assinatura dos serviços de fala da portal do Azure.
+1. Obtenha sua chave de assinatura do serviço de fala do portal do Azure.
 2. Entre no [portal de fala personalizada](https://aka.ms/custom-speech).
 3. Selecione a assinatura na qual você precisa trabalhar e crie um projeto de fala.
 4. Se você quiser modificar sua assinatura, use o ícone **engrenagem** localizado na navegação superior.

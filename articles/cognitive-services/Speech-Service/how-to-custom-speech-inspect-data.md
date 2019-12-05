@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 07426e096858dec61f501581be565dc4137d6316
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 60b415f69800885f37ee53cc4f090098f5ebf1f1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773367"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806084"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados de Fala Personalizada
 

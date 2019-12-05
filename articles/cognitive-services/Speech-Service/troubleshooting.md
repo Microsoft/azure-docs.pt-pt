@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558878"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815408"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Resolver problemas com o SDK de Voz
 
@@ -107,11 +107,11 @@ Se você inseriu um token de autorização válido, o comando retornará a trans
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erro: Solicitação inadequada de HTTP 400
+## <a name="error-http-400-bad-request"></a>Erro: Pedido HTTP 400 inválido
 
 Este erro ocorre normalmente quando o corpo do pedido contém dados de áudio inválidos. Formato WAV apenas é suportado. Além disso, verifique os cabeçalhos da solicitação para se certificar de que especifique valores corretos para o `Content-Type` e `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Erro: Tempo limite de solicitação HTTP 408
+## <a name="error-http-408-request-timeout"></a>Erro: Tempo limite HTTP 408 pedido
 
 O maior probabilidade de erro ocorre porque não existem dados de áudio são enviados para o serviço. Este erro também pode ser causado por problemas de rede.
 
@@ -123,6 +123,6 @@ Normalmente, este problema é causado por dados de áudio. Poderá ver este erro
 
 * O áudio usa um formato de codec não suportado, o que faz com que os dados de áudio deve ser tratada como silêncio.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja as notas de versão](releasenotes.md)

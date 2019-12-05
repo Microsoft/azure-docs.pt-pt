@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/19/2019
 ms.author: erhopf
-ms.openlocfilehash: e3825e1520c5f2696da64ae151ceffc0d1a5414e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fde9b17e5161652633fac99b5a1db0433de9b458
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260834"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816883"
 ---
 **Escolha seu ambiente de destino**
 

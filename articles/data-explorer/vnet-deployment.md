@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668576"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812722"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implantar Data Explorer do Azure em sua rede virtual (versão prévia)
 
@@ -54,7 +54,7 @@ O número total de endereços IP:
 | Serviço de gerenciamento de dados | 2 |
 | Balanceadores de carga internos | 2 |
 | Endereços reservados do Azure | 5 |
-| **Completa** | **#engine_instances + 9** |
+| **Total** | **#engine_instances + 9** |
 
 > [!IMPORTANT]
 > O tamanho da sub-rede deve ser planejado antecipadamente, uma vez que não pode ser alterado após a implantação do Data Explorer do Azure. Portanto, Reserve o tamanho necessário da sub-rede adequadamente.
@@ -75,7 +75,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 
 #### <a name="inbound-nsg-configuration"></a>Configuração de NSG de entrada
 
-| **Utilizar**   | **De**   | **Para**   | **Protocolo**   |
+| **Utilizar**   | **From**   | **Para**   | **Protocolo**   |
 | --- | --- | --- | --- |
 | Gestão  |[ADX Management Addresses](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Sub-rede ADX: 443  | TCP  |
 | Monitorização do estado de funcionamento  | [Endereços de monitoramento de integridade do ADX](#health-monitoring-addresses)  | Sub-rede ADX: 443  | TCP  |
@@ -84,7 +84,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 
 #### <a name="outbound-nsg-configuration"></a>Configuração de NSG de saída
 
-| **Utilizar**   | **De**   | **Para**   | **Protocolo**   |
+| **Utilizar**   | **From**   | **Para**   | **Protocolo**   |
 | --- | --- | --- | --- |
 | Dependência no armazenamento do Azure  | Sub-rede ADX  | Armazenamento: 443  | TCP  |
 | Dependência em Azure Data Lake  | Sub-rede ADX  | AzureDataLake: 443  | TCP  |
@@ -236,7 +236,6 @@ azureprofilerfrontdoor.cloudapp.net:443
 *.core.windows.net:443
 *.servicebus.windows.net:443
 shoebox2.metrics.nsatc.net:443
-production.diagnostics.monitoring.core.windows.net:443
 prod-dsts.dsts.core.windows.net:443
 ocsp.msocsp.com:80
 *.windowsupdate.com:80

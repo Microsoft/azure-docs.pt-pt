@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/20/2019
 ms.author: erhopf
-ms.openlocfilehash: bee3b64ece3faac6258fe4d017f12833b12e370d
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: a72597163a8c11cd8b515d052dc69992784e61e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74536343"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818686"
 ---
 Neste guia de início rápido, você usará o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconhecer de forma interativa a fala de uma entrada de microfone e obterá a transcrição de texto do áudio capturado. É fácil integrar esse recurso em seus aplicativos ou dispositivos para tarefas de reconhecimento comuns, como transcrever conversas. Ele também pode ser usado para integrações mais complexas, como usar o bot Framework com o SDK de fala para criar assistentes de voz.
 

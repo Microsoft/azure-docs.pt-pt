@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554997"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806210"
 ---
 # <a name="audio-content-creation"></a>Criação de Conteúdo de Áudio
 

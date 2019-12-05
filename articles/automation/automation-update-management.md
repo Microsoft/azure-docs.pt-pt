@@ -4,17 +4,17 @@ description: Este artigo descreve como usar a solução de Gerenciamento de Atua
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66acb1284f0814eec91715284259272a065dbae2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690900"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806546"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -31,7 +31,7 @@ Você pode habilitar Gerenciamento de Atualizações para VMs (máquinas virtuai
 
 Os computadores gerenciados pelo Gerenciamento de Atualizações usam as seguintes configurações para executar a avaliação e para atualizar as implantações:
 
-* Microsoft Monitoring Agent (MMA) para Windows ou Linux
+* Agente de Monitorização da Microsoft (MMA) para Windows ou Linux
 * Configuração de Estado Pretendido do PowerShell (DSC) para Linux
 * Função de Trabalho de Runbook Híbrida da Automatização
 * Microsoft Update ou Windows Server Update Services (WSUS) para computadores Windows
@@ -40,7 +40,7 @@ O diagrama a seguir ilustra como a solução avalia e aplica atualizações de s
 
 ![Fluxo do processo de Gerenciamento de Atualizações](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Gerenciamento de Atualizações pode ser usado para integrar de forma nativa computadores em várias assinaturas no mesmo locatário.
+A Gestão de Atualizações pode ser utilizada para integrar máquinas de forma nativa em múltiplas subscrições no mesmo inquilino.
 
 Depois que um pacote é liberado, leva de 2 a 3 horas para que o patch seja exibido para as máquinas Linux para avaliação. Para computadores Windows, leva de 12 a 15 horas para que o patch seja mostrado para avaliação após sua liberação.
 
@@ -69,7 +69,7 @@ Não há suporte para um computador registrado para Gerenciamento de Atualizaç�
 
 ## <a name="clients"></a>Clientes
 
-### <a name="supported-client-types"></a>Tipos de cliente com suporte
+### <a name="supported-client-types"></a>Tipos de cliente suportados
 
 A tabela a seguir lista os sistemas operacionais com suporte para avaliações de atualização. A aplicação de patch requer um Hybrid Runbook Worker. Para obter informações sobre requisitos de Hybrid Runbook Worker, consulte os guias de instalação para instalar um [Hybrid runbook Worker do Windows](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) e um [Hybrid runbook Worker do Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
@@ -85,14 +85,14 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 > Os conjuntos de dimensionamento de máquinas virtuais do Azure podem ser gerenciados por meio de Gerenciamento de Atualizações. Gerenciamento de Atualizações funciona nas instâncias e não na imagem base. Você precisará agendar as atualizações de forma incremental, para que nem todas as instâncias de VM sejam atualizadas ao mesmo tempo.
 > Você pode adicionar nós para conjuntos de dimensionamento de máquinas virtuais seguindo as etapas em [carregar um computador não Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
-### <a name="unsupported-client-types"></a>Tipos de cliente sem suporte
+### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
 A tabela a seguir lista os sistemas operacionais sem suporte:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Não há suporte para sistemas operacionais cliente (como o Windows 7 e Windows 10).        |
-|Windows Server 2016 nano Server     | Não suportado.       |
+|Cliente Windows     | Não são suportados sistemas operativos de cliente (por exemplo, o Windows 7 e Windows 10).        |
+|Servidor de Nano do Windows Server 2016     | Não suportado.       |
 |Nós do serviço kubernetes do Azure | Não suportado. Use o processo de aplicação de patch descrito em [aplicar segurança e atualizações de kernel a nós do Linux no serviço kubernetes do Azure (AKs)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos do cliente
@@ -132,13 +132,13 @@ A solução consiste nos seguintes recursos. Os recursos são adicionados à sua
 
 Depois de habilitar essa solução, qualquer computador com Windows conectado diretamente ao seu espaço de trabalho Log Analytics será automaticamente configurado como um Hybrid Runbook Worker para dar suporte aos runbooks incluídos nesta solução.
 
-Cada computador Windows gerenciado pela solução é listado no painel **grupos do Hybrid Worker** como um **grupo de trabalho híbrido do sistema** para a conta de automação. As soluções usam a Convenção de nomenclatura *FQDN_GUID do nome do host* . Você não pode direcionar esses grupos com runbooks em sua conta. Se você tentar, a tentativa falhará. Esses grupos têm o objetivo de dar suporte apenas à solução de gerenciamento.
+Cada computador Windows gerenciado pela solução é listado no painel **grupos do Hybrid Worker** como um **grupo de trabalho híbrido do sistema** para a conta de automação. As soluções usam o *nome de host FQDN_GUID* Convenção de nomenclatura. Você não pode direcionar esses grupos com runbooks em sua conta. Se você tentar, a tentativa falhará. Esses grupos têm o objetivo de dar suporte apenas à solução de gerenciamento.
 
 Você pode adicionar os computadores Windows a um grupo de Hybrid Runbook Worker em sua conta de automação para dar suporte a runbooks de automação se usar a mesma conta para a solução e a associação de grupo de Hybrid Runbook Worker. Essa funcionalidade foi adicionada na versão 7.2.12024.0 do Hybrid Runbook Worker.
 
 ### <a name="management-packs"></a>Pacotes de gestão
 
-Se o grupo de gerenciamento do System Center Operations Manager estiver conectado a um espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no Operations Manager. Esses pacotes de gerenciamento também são instalados em computadores com Windows conectados diretamente depois que você adiciona a solução. Você não precisa configurar ou gerenciar esses pacotes de gerenciamento.
+Se o seu grupo de gestão do System Center Operations Manager estiver ligado a uma área de trabalho do Log Analytics, serão instalados os seguintes pacotes de gestão no Operations Manager. Estes pacotes de gestão também são instalados em computadores Windows ligados diretamente após adicionar a solução. Não precisa de configurar nem de gerir estes pacotes de gestão.
 
 * Pacote de Informações de Avaliação de Atualização do Microsoft System Center Advisor (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -162,7 +162,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições com suporte. |
-| Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br/><br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho Log Analytics. |
+| Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br/><br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -170,7 +170,7 @@ Uma verificação é executada duas vezes por dia para cada computador gerenciad
 
 Uma verificação é executada a cada hora para cada computador Linux gerenciado.
 
-Pode levar entre 30 minutos e 6 horas para que o painel exiba dados atualizados de computadores gerenciados.
+O dashboard pode demorar entre 30 minutos a 6 horas a apresentar os dados atualizados a partir dos computadores geridos.
 
 O uso médio de dados por Azure Monitor logs para um computador usando Gerenciamento de Atualizações é de aproximadamente 25 megabytes (MB) por mês. Esse valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que você monitore seu ambiente para controlar seu uso exato.
 
@@ -178,12 +178,12 @@ O uso médio de dados por Azure Monitor logs para um computador usando Gerenciam
 
 Os endereços a seguir são necessários especificamente para Gerenciamento de Atualizações. A comunicação com esses endereços ocorre na porta 443.
 
-|Público do Azure  |Azure Government  |
+|Azure Público  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*. azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 Para computadores Windows, você também deve permitir o tráfego para qualquer ponto de extremidade exigido pelo Windows Update. Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [problemas relacionados ao http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)local, também deverá permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -211,7 +211,7 @@ Selecione **atualizações ausentes** para exibir a lista de atualizações ause
 
 ![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de atualização
+## <a name="update-classifications"></a>Classificações de atualizações
 
 As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição para cada classificação.
 

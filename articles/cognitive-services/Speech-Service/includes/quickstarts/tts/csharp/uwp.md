@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: sintetizar fala C# , (UWP)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, você cria um C# aplicativo plataforma universal do Windows (UWP) usando o SDK de fala dos serviços cognitivas. Você sintetiza a fala de texto em tempo real para o palestrante do dispositivo. O aplicativo é criado com o pacote NuGet do SDK de fala e Microsoft Visual Studio 2019.
+description: Neste artigo, vai criar um C# aplicação plataforma Universal do Windows (UWP) com o SDK de voz dos serviços cognitivos. Você sintetiza a fala de texto em tempo real para o palestrante do dispositivo. O aplicativo é criado com o pacote NuGet do SDK de fala e Microsoft Visual Studio 2019.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 3a88f4fc14286a60feb9d72676827b0cce91eb25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503130"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818341"
 ---
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -61,7 +61,7 @@ Agora você está pronto para criar e testar seu aplicativo.
 
    ![Aplicativo de síntese de fala de C# exemplo UWP no início rápido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. Insira um texto na caixa e clique em **fala**. Seu texto é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
+1. Insira um texto na caixa e clique em **fala**. Seu texto é transmitido para o serviço de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
     ![Interface do usuário de síntese de fala](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
@@ -69,7 +69,7 @@ Agora você está pronto para criar e testar seu aplicativo.
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

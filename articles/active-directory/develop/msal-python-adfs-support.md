@@ -18,16 +18,16 @@ ms.author: abpati
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 148b9a4a890b22db63f03c673f5d779547a589e1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0aada339ab68eeb7f29eeb815611a8e434e6a998
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485032"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803653"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Suporte Serviços de Federação do Active Directory (AD FS) no MSAL para Python
 
-O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas em OAuth 2,0 a seus aplicativos usando a MSAL (biblioteca de autenticação da Microsoft) para Python. Usando o MSAL para a biblioteca do Python, seu aplicativo pode autenticar usuários diretamente no AD FS. Para obter mais informações sobre cenários, consulte [cenários de AD FS para desenvolvedores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas em OAuth 2,0 a seus aplicativos usando a MSAL (biblioteca de autenticação da Microsoft) para Python. Usando o MSAL para a biblioteca do Python, seu aplicativo pode autenticar usuários diretamente no AD FS. Para obter mais informações sobre cenários, consulte [cenários de AD FS para desenvolvedores](/windows-server/identity/ad-fs/ad-fs-development).
 
 Geralmente, há duas maneiras de se autenticar no AD FS:
 
@@ -64,6 +64,6 @@ MSAL Python dá suporte ao ADFS 2019.
 
 Ele não dá suporte a uma conexão direta com o ADFS 2016 ou ADFS v2. Se você precisar dar suporte a cenários que exigem uma conexão direta com o ADFS 2016, use a versão mais recente do Python do ADAL. Depois de atualizar seu sistema local para o ADFS 2019, você poderá usar o MSAL Python.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para o caso federado, consulte [Configurar o comportamento de entrada Azure Active Directory para um aplicativo usando uma política de descoberta de realm inicial](../manage-apps/configure-authentication-for-federated-users-portal.md)

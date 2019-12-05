@@ -3,18 +3,18 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172479"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806444"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
 Este artigo descreve como o [serviço de backup do Azure](backup-introduction-to-azure-backup.md) faz backup de VMs (máquinas virtuais) do Azure.
 
-## <a name="backup-process"></a>Processo de backup
+## <a name="backup-process"></a>Processo de cópia de segurança
 
 Veja como o backup do Azure conclui um backup para VMs do Azure:
 
@@ -54,7 +54,7 @@ Os BEKs (segredos) e KEKs (chaves) com backup são criptografados. Eles podem se
 
 Também é feito backup de BEKs. Portanto, se os BEKs forem perdidos, os usuários autorizados poderão restaurar o BEKs para o cofre de chaves e recuperar as VMs criptografadas. Somente os usuários com o nível necessário de permissões podem fazer backup e restaurar VMs criptografadas ou chaves e segredos.
 
-## <a name="snapshot-creation"></a>Criação de instantâneo
+## <a name="snapshot-creation"></a>Criação de instantâneos
 
 O backup do Azure faz instantâneos de acordo com o agendamento de backup.
 
@@ -79,14 +79,14 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 --- | --- | --- | ---
 **Consistente com o aplicativo** | Backups consistentes com o aplicativo capturam conteúdo de memória e operações de e/s pendentes. Os instantâneos consistentes com o aplicativo usam um gravador VSS (ou scripts de pré/pós para Linux) para garantir a consistência dos dados do aplicativo antes que ocorra um backup. | Quando você estiver recuperando uma VM com um instantâneo consistente com o aplicativo, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos são iniciados em um estado consistente. | Windows: todos os gravadores VSS foram bem-sucedidos<br/><br/> Linux: os scripts Pre/post estão configurados e tiveram êxito
 **Consistente com o sistema de arquivos** | Os backups consistentes do sistema de arquivos fornecem consistência ao tirar um instantâneo de todos os arquivos ao mesmo tempo.<br/><br/> | Quando você estiver recuperando uma VM com um instantâneo consistente do sistema de arquivos, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos precisam implementar seu próprio mecanismo de "correção" para garantir que os dados restaurados sejam consistentes. | Windows: alguns gravadores VSS falharam <br/><br/> Linux: padrão (se os scripts Pre/post não estiverem configurados ou falharem)
-**Com consistência de falhas** | Instantâneos com consistência de falhas normalmente ocorrem se uma VM do Azure é desligada no momento do backup. Somente os dados que já existem no disco no momento do backup são capturados e submetidos a backup.<br/><br/> Um ponto de recuperação consistente com falhas não garante a consistência de dados para o sistema operacional ou o aplicativo. | Embora não haja nenhuma garantia, a VM geralmente é inicializada e, em seguida, inicia uma verificação de disco para corrigir erros de corrupção. Quaisquer operações de gravação ou dados na memória que não foram transferidas para o disco antes da falha sejam perdidas. Os aplicativos implementam sua própria verificação de dados. Por exemplo, um aplicativo de banco de dados pode usar seu log de transações para verificação. Se o log de transações tem entradas que não estão no banco de dados, o software de banco de dados reverte as transações até que eles sejam consistentes. | A VM está em estado de desligamento
+**Com consistência de falhas** | Instantâneos com consistência de falhas normalmente ocorrem se uma VM do Azure é desligada no momento do backup. Somente os dados que já existem no disco no momento do backup são capturados e submetidos a backup. | Começa com o processo de inicialização da VM seguido por uma verificação de disco para corrigir erros de corrupção. Quaisquer operações de gravação ou dados na memória que não foram transferidas para o disco antes da falha sejam perdidas. Os aplicativos implementam sua própria verificação de dados. Por exemplo, um aplicativo de banco de dados pode usar seu log de transações para verificação. Se o log de transações tem entradas que não estão no banco de dados, o software de banco de dados reverte as transações até que eles sejam consistentes. | A VM está em estado de desligamento (parado/desalocado).
 
 ## <a name="backup-and-restore-considerations"></a>Considerações de backup e restauração
 
 **Consideração** | **Detalhes**
 --- | ---
 **Disco** | O backup de discos de VM é paralelo. Por exemplo, se uma VM tiver quatro discos, o serviço de backup tentará fazer backup de todos os quatro discos em paralelo. O backup é incremental (somente dados alterados).
-**Scheduling** |  Para reduzir o tráfego de backup, faça backup de VMs diferentes em diferentes momentos do dia e certifique-se de que os horários não se sobreponham. O backup de VMs ao mesmo tempo causa congestionamentos de tráfego.
+**Agendamento** |  Para reduzir o tráfego de backup, faça backup de VMs diferentes em diferentes momentos do dia e certifique-se de que os horários não se sobreponham. O backup de VMs ao mesmo tempo causa congestionamentos de tráfego.
 **Preparando backups** | Tenha em mente o tempo necessário para preparar o backup. O tempo de preparação inclui a instalação ou atualização da extensão de backup e o disparo de um instantâneo de acordo com o agendamento de backup.
 **Transferência de dados** | Considere o tempo necessário para o backup do Azure identificar as alterações incrementais do backup anterior.<br/><br/> Em um backup incremental, o backup do Azure determina as alterações calculando a soma de verificação do bloco. Se um bloco for alterado, ele será marcado para transferência para o cofre. O serviço analisa os blocos identificados para tentar minimizar ainda mais a quantidade de dados a serem transferidos. Depois de avaliar todos os blocos alterados, o backup do Azure transfere as alterações para o cofre.<br/><br/> Pode haver um atraso entre tirar o instantâneo e copiá-lo para o cofre.<br/><br/> Em horários de pico, pode levar até oito horas para que os backups sejam processados. O tempo de backup de uma VM será menor que 24 horas para o backup diário.
 **Backup inicial** | Embora o tempo total de backup para backups incrementais seja menor que 24 horas, esse pode não ser o caso para o primeiro backup. O tempo necessário para o backup inicial dependerá do tamanho dos dados e do processamento do backup.
@@ -134,16 +134,6 @@ Disco de dados 1 | 4095 GB | 30 GB
 Disco de dados 2 | 4095 GB | 0 GB
 
 O tamanho real da VM, nesse caso, é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
-
-<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Visualização pública: backup de VM com tamanhos de disco de até 30 TB
-
-O backup do Azure agora dá suporte à visualização pública de tamanhos maiores e mais potentes do [Azure Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) de até 30 TB. Essa visualização fornece suporte de nível de produção para máquinas virtuais gerenciadas.
-
-Os backups para suas máquinas virtuais com cada tamanho de disco de até 30 TB e um máximo de 256 TB combinados para todos os discos em uma VM devem funcionar sem afetar os backups existentes. Não há nenhuma ação do usuário necessária para obter os backups em execução para os discos de tamanho grande, se a máquina virtual já estiver configurada com o backup do Azure.
-
-Todas as máquinas virtuais do Azure com discos grandes com backup configurado devem ser submetidas a backup com êxito.
 
 ## <a name="next-steps"></a>Passos seguintes
 

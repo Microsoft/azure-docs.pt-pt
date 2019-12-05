@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 6b9d5eb3adb8cad963ec513d327d237e73f94878
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535590"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803738"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -51,7 +51,7 @@ Ao examinar sua lista, você pode achar necessário atribuir um proprietário pa
 - [Atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Governação no Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-## <a name="credentials-management"></a>Gerenciamento de credenciais
+## <a name="credentials-management"></a>Gestão de credenciais
 
 ### <a name="password-policies"></a>Políticas de palavra-passe
 
@@ -141,7 +141,7 @@ Se você estiver gerenciando dispositivos com MDM ou Microsoft Intune, mas não 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Leitura recomendada de políticas de acesso de confiança de dispositivo
 
 - [Como planejar sua implementação de junção de Azure Active Directory híbrida](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [Configurações de acesso de dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso de dispositivos e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
@@ -194,7 +194,7 @@ Por outro lado, se você encontrar aplicativos que têm atribuição a usuários
 
 ## <a name="access-policies"></a>Políticas de acesso
 
-### <a name="named-locations"></a>Locais nomeados
+### <a name="named-locations"></a>Localizações com nome
 
 Com os [locais nomeados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) no Azure AD, você pode rotular intervalos de endereços IP confiáveis em sua organização. O Microsoft Azure AD utiliza localizações com nome para:
 
@@ -256,7 +256,7 @@ O acesso condicional é uma ferramenta essencial para melhorar a postura de segu
 #### <a name="conditional-access-recommended-reading"></a>Leitura recomendada de acesso condicional
 
 - [Práticas recomendadas para acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Configurações de acesso de dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso de dispositivos e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de configurações de acesso condicional Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Políticas de acesso condicional comum](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -319,7 +319,7 @@ Para evitar esse cenário, você deve se referir a [detectar e corrigir concess�
 
 Abaixo estão as configurações de usuário e grupo que podem ser bloqueadas se não houver uma necessidade comercial explícita:
 
-#### <a name="user-settings"></a>Configurações do usuário
+#### <a name="user-settings"></a>Definições do utilizador
 
 - **Usuários externos** -colaboração externa pode ocorrer de forma orgânica na empresa com serviços como equipes, Power bi, SharePoint Online e proteção de informações do Azure. Se você tiver restrições explícitas para controlar a colaboração externa iniciada pelo usuário, é recomendável habilitar usuários externos usando o [Gerenciamento de direitos do Azure ad](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) ou uma operação controlada, como por meio de seu suporte técnico. Se você não quiser permitir a colaboração externa orgânica para serviços, poderá [Bloquear completamente os membros de convidar usuários externos](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Como alternativa, você também pode [permitir ou bloquear domínios específicos](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) em convites de usuários externos.
 - **Registros de aplicativo** – quando registros de aplicativo estão habilitados, os usuários finais podem integrar aplicativos e conceder acesso aos seus dados. Um exemplo típico de registro de aplicativo são os usuários que habilitam plug-ins do Outlook, ou assistentes de voz, como Alexa e Siri para ler seu email e calendário ou enviar emails em seu nome. Se o cliente decidir desativar o registro do aplicativo, as equipes batalha e IAM deverão estar envolvidas no gerenciamento de exceções (registros de aplicativo que são necessários com base nos requisitos de negócios), pois eles precisariam registrar os aplicativos com uma conta de administrador, e, provavelmente, exigem a criação de um processo para colocar o processo em operação.
@@ -363,7 +363,7 @@ Ter acesso a atividades de entrada, auditorias e eventos de risco do Azure AD é
 - [Obter dados usando a API de relatórios do Azure AD com certificados](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph para Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Referência de API de atividade de gerenciamento do Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [Como usar o pacote de conteúdo do Azure Active Directory Power BI](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [Como usar o pacote de conteúdo do Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>Resumo
 

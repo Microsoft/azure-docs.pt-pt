@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b5cf375b1e5e4c09617dc6ae74513d303a9a6a4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559193"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816672"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -32,7 +32,7 @@ Muitos detalhes de pequenas, mas importantes se incluem na criação de uma grav
 
 Existem quatro funções básicas num projeto de gravação de voz personalizada:
 
-Função|Objetivo
+Função|Finalidade
 -|-
 Talentos de voz        |Voz desta pessoa formará a base de voz personalizada.
 Engenheiro de gravação  |Supervisiona os aspectos técnicos da gravação e opera o equipamento de gravação.
@@ -191,7 +191,7 @@ Registe um bom cinco segundos, de silêncio antes da gravação de primeira para
 Ouça com atenção, utilizar auscultadores, ao desempenho o talento de voz. Está à procura de diction boa mas natural, pronúncia correta e a falta de sons indesejados. Não hesite em fazer o seu talento para registrar novamente uma expressão que não cumpram estas normas.
 
 > [!TIP]
-> Se estiver a utilizar um grande número de expressões, uma única expressão pode não ter um impacto perceptível sobre a voz personalizada resultante. Poderá ser mais vantajoso simplesmente observar qualquer expressões com problemas, excluí-los a partir do seu conjunto de dados e veja como a voz personalizada acontece. Pode sempre voltar ao studio e registe os exemplos em falta mais tarde.
+> Se estiver a utilizar um grande número de expressões, uma única expressão pode não ter um impacto perceptível sobre a voz personalizada resultante. Pode ser mais vantajoso simplesmente anotar qualquer declarações com problemas, excluí-los do conjunto de informações e ver como sua voz personalizada se transforma. Você sempre pode voltar para o estúdio e registrar os exemplos perdidos posteriormente.
 
 Tenha em atenção o número ou tempo de código no script para cada ocorrência de pronunciação. Peça o engenheiro para marcar cada ocorrência de pronunciação em metadados a gravação ou folha de indicação também.
 
@@ -215,7 +215,7 @@ Por fim, crie o *transcrição* que associa cada arquivo WAV com uma versão de 
 
 Arquive as gravações originais num local seguro no caso de precisa deles mais tarde. Preserva o seu script e notas, demasiado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Está pronto para carregar as gravações e criar a sua voz personalizada.
 

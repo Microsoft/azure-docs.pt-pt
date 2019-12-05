@@ -1,7 +1,7 @@
 ---
 title: 'Guia de início rápido: SDK de fala para instalação de plataforma do .NET Framework (Windows)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para C# o em .NET Framework para Windows com o SDK dos serviços de fala.
+description: Use este guia para configurar sua plataforma para C# o em .NET Framework para Windows com o SDK do serviço de fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 2caa5124144146e2286b102bf6ded9c5d120f904
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a858a078f8e22a7176fc0eeb09ae0133e2ea11a4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502514"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818580"
 ---
 Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para .NET Framework (Windows).
 
@@ -55,7 +55,7 @@ Você precisará instalar o [pacote NuGet do SDK de fala](https://aka.ms/csspeec
 
 1. Na Gerenciador de Soluções, clique com o botão direito do mouse no projeto **HelloWorld** e selecione **gerenciar pacotes NuGet** para mostrar o Gerenciador de pacotes NuGet.
 
-   ![Gerenciador de pacotes NuGet](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. No canto superior direito, localize a caixa suspensa **origem do pacote** e verifique se **`nuget.org`** está selecionada.
 

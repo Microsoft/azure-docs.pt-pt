@@ -1,23 +1,23 @@
 ---
 title: Trabalhos de streaming do Spark altamente disponíveis no YARN – Azure HDInsight
 description: Como configurar o streaming de Apache Spark para um cenário de alta disponibilidade no Azure HDInsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/26/2018
-ms.openlocfilehash: 3e48f220035c56d34d6ca5a7347e9a4ee100e1f1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 11/29/2019
+ms.openlocfilehash: ac51b77e1ffc2b476b0a73dac9b6917552a86ce4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241240"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807158"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar trabalhos de streaming de alta disponibilidade Apache Spark com o YARN
 
-[Apache Spark](https://spark.apache.org/) O streaming permite que você implemente aplicativos escalonáveis, de alta taxa de transferência e tolerante a falhas para processamento de fluxos de dados. Você pode conectar aplicativos do Spark streaming em um cluster HDInsight Spark a uma variedade de fontes de dados, como hubs de eventos do Azure, Hub IoT do Azure, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), soquetes TCP brutos ou monitorando o [ Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) o sistema de arquivos HDFS para alterações. O streaming do Spark dá suporte à tolerância a falhas com a garantia de que qualquer evento determinado é processado exatamente uma vez, mesmo com uma falha de nó.
+[Apache Spark](https://spark.apache.org/) O streaming permite que você implemente aplicativos escalonáveis, de alta taxa de transferência e tolerante a falhas para processamento de fluxos de dados. Você pode conectar aplicativos do Spark streaming em um cluster HDInsight Spark a diferentes tipos de fontes de dados, como hubs de eventos do Azure, Hub IoT do Azure, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), soquetes TCP brutos ou monitorando o sistema de arquivos [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) para alterações. O streaming do Spark dá suporte à tolerância a falhas com a garantia de que qualquer evento determinado é processado exatamente uma vez, mesmo com uma falha de nó.
 
 O streaming do Spark cria trabalhos de longa execução durante os quais você pode aplicar transformações aos dados e, em seguida, enviar por push os resultados para sistemas de sistema, bancos de dados, painéis e o console. O streaming do Spark processa micro lotes de dados, coletando primeiro um lote de eventos em um intervalo de tempo definido. Em seguida, esse lote é enviado para processamento e saída. Os intervalos de tempo de lote geralmente são definidos em frações de um segundo.
 
@@ -33,11 +33,11 @@ O núcleo do Spark usa RDDs (conjuntos de fonte *distribuídos resilientes* ). O
 
 ## <a name="spark-structured-streaming-jobs"></a>Trabalhos de streaming estruturado do Spark
 
-O streaming estruturado do Spark foi introduzido no Spark 2,0 como um mecanismo analítico para uso em streaming de dados estruturados. O streaming estruturado do Spark usa as APIs do mecanismo de envio em lote do SparkSQL. Assim como acontece com o streaming do Spark, o Spark Structured streaming executa seus cálculos por meio de micro lotes de dados que chegam continuamente. O streaming estruturado do Spark representa um fluxo de dados como uma tabela de entrada com linhas ilimitadas. Ou seja, a tabela de entrada continua crescendo conforme novos dados chegam. Essa tabela de entrada é processada continuamente por uma consulta de execução longa e os resultados são gravados em uma tabela de saída.
+O streaming estruturado do Spark foi introduzido no Spark 2,0 como um mecanismo analítico para uso em streaming de dados estruturados. O streaming estruturado do Spark usa as APIs do mecanismo de envio em lote do SparkSQL. Assim como acontece com o streaming do Spark, o streaming estruturado do Spark executa seus cálculos em microssegundos de dados que chegam continuamente. O streaming estruturado do Spark representa um fluxo de dados como uma tabela de entrada com linhas ilimitadas. Ou seja, a tabela de entrada continua crescendo conforme novos dados chegam. Essa tabela de entrada é processada continuamente por uma consulta de execução longa e os resultados são gravados em uma tabela de saída.
 
 ![Streaming estruturado do Spark](./media/apache-spark-streaming-high-availability/structured-streaming.png)
 
-No streaming estruturado, os dados chegam ao sistema e são imediatamente incluídos na tabela de entrada. Você escreve consultas que executam operações nessa tabela de entrada. A saída da consulta produz outra tabela, chamada tabela de resultados. A tabela de resultados contém resultados de sua consulta, a partir da qual você desenha dados para enviar para um datastore externo, como um banco de dado relacional. O *intervalo de gatilho* define o tempo para quando os dados são processados da tabela de entrada. Por padrão, o streaming estruturado processa os dados assim que eles chegam. No entanto, você também pode configurar o gatilho para ser executado em um intervalo mais longo, de modo que os dados de streaming sejam processados em lotes baseados em tempo. Os dados na tabela de resultados podem ser completamente atualizados sempre que houver novos dados, de modo que eles incluam todos os dados de saída desde que a consulta de streaming começou (*modo completo*) ou que pode conter apenas os dados que são novos desde a última vez que a consulta foi proc ssed (*modo de acréscimo*).
+No streaming estruturado, os dados chegam ao sistema e são imediatamente incluídos na tabela de entrada. Você escreve consultas que executam operações nessa tabela de entrada. A saída da consulta produz outra tabela, chamada tabela de resultados. A tabela de resultados contém resultados de sua consulta, a partir da qual você desenha dados para enviar para um datastore externo, como um banco de dado relacional. O *intervalo de gatilho* define o tempo para quando os dados são processados da tabela de entrada. Por padrão, o streaming estruturado processa os dados assim que eles chegam. No entanto, você também pode configurar o gatilho para ser executado em um intervalo mais longo, de modo que os dados de streaming sejam processados em lotes baseados em tempo. Os dados na tabela de resultados podem ser atualizados sempre que houver novos dados, de modo que eles incluam todos os dados de saída desde que a consulta de streaming começou (*modo completo*) ou que só possa conter apenas os dados que são novos desde a última vez em que a consulta foi processada (*modo de acréscimo*).
 
 ## <a name="create-fault-tolerant-spark-streaming-jobs"></a>Criar trabalhos de streaming do Spark com tolerância a falhas
 
@@ -46,16 +46,16 @@ Para criar um ambiente altamente disponível para seus trabalhos de streaming do
 RDDs têm várias propriedades que auxiliam trabalhos de streaming do Spark altamente disponíveis e tolerantes a falhas:
 
 * Os lotes de dados de entrada armazenados em RDDs como um DStream são replicados automaticamente na memória para tolerância a falhas.
-* Os dados perdidos devido a uma falha de trabalho podem ser recalculados a partir de dados de entrada replicados em diferentes trabalhadores, desde que esses nós de trabalho estejam disponíveis.
+* Os dados perdidos devido à falha do trabalhador podem ser recomputados de dados de entrada replicados em diferentes trabalhadores, desde que esses nós de trabalho estejam disponíveis.
 * A recuperação rápida de falhas pode ocorrer em um segundo, pois a recuperação de falhas/Stragglers ocorre por meio de computação na memória.
 
-### <a name="exactly-once-semantics-with-spark-streaming"></a>Semântica de exatamente uma vez com o streaming do Spark
+### <a name="exactly-once-semantics-with-spark-streaming"></a>Semântica de exatamente uma vez com o Spark streaming
 
-Para criar um aplicativo que processa cada evento uma vez (e apenas uma vez), considere como todos os pontos do sistema de falha são reiniciados depois de ter um problema e como você pode evitar a perda de dados. Semânticas exatamente uma vez exigem que nenhum dado seja perdido em qualquer ponto e que o processamento de mensagens seja reinicializável, independentemente de onde a falha ocorra. Consulte [criar trabalhos de streaming do Spark com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md).
+Para criar um aplicativo que processa cada evento uma vez (e apenas uma vez), considere como todos os pontos do sistema de falha são reiniciados depois de ter um problema e como você pode evitar a perda de dados. A semântica exata exige que nenhum dado seja perdido em qualquer ponto e que o processamento de mensagens seja reiniciado, independentemente de onde a falha ocorra. Consulte [criar trabalhos de streaming do Spark com o processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md).
 
 ## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Streaming do Spark e Apache Hadoop YARN
 
-No HDInsight, o trabalho do cluster é coordenado por *outro negociador de recursos* (Yarn). A criação de alta disponibilidade para o Spark streaming inclui técnicas para streaming do Spark e também para componentes YARN.  Uma configuração de exemplo usando YARN é mostrada abaixo. 
+No HDInsight, o trabalho do cluster é coordenado por *outro negociador de recursos* (Yarn). A criação de alta disponibilidade para o Spark streaming inclui técnicas para streaming do Spark e também para componentes YARN.  Uma configuração de exemplo usando YARN é mostrada abaixo.
 
 ![Arquitetura do YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
@@ -67,7 +67,7 @@ Para criar uma configuração de YARN para alta disponibilidade, você deve plan
 
 Se um **executor** falhar, suas tarefas e receptores serão reiniciados automaticamente pelo Spark, portanto, não há nenhuma alteração de configuração necessária.
 
-No entanto, se um **Driver** falhar, todos os executores associados falharão e todos os blocos recebidos e os resultados de computação serão perdidos. Para se recuperar de uma falha de driver, use o *ponto de verificação DStream* , conforme descrito em [criar trabalhos de streaming do Spark com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). O ponto de verificação DStream salva periodicamente o DAG ( *grafo direcionado acíclico* ) de DStreams para o armazenamento tolerante a falhas, como o armazenamento do Azure.  O ponto de verificação permite o streaming estruturado do Spark para reiniciar o driver com falha a partir das informações do ponto de verificação.  Essa reinicialização de driver inicia novos executores e também reinicia os receptores.
+No entanto, se um **Driver** falhar, todos os executores associados falharão e todos os blocos recebidos e os resultados de computação serão perdidos. Para se recuperar de uma falha de driver, use o *ponto de verificação DStream* , conforme descrito em [criar trabalhos de streaming do Spark com o processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). O ponto de verificação DStream salva periodicamente o DAG ( *grafo direcionado acíclico* ) de DStreams para o armazenamento tolerante a falhas, como o armazenamento do Azure.  O ponto de verificação permite o streaming estruturado do Spark para reiniciar o driver com falha a partir das informações do ponto de verificação.  Essa reinicialização de driver inicia novos executores e também reinicia os receptores.
 
 Para recuperar drivers com o ponto de verificação DStream:
 
@@ -93,7 +93,7 @@ Para recuperar drivers com o ponto de verificação DStream:
 Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis, você poderá fornecer a recuperação de dados "pelo menos uma vez":
 
 * Exatamente uma vez, desde que os dados recebidos não sejam perdidos e as saídas sejam idempotentes ou transacionais.
-* Exatamente uma vez, com a nova abordagem direta do Kafka que usa Kafka como um log replicado, em vez de usar receptores ou WALs.
+* Exatamente uma vez, com a nova abordagem direta do Kafka, que usa Kafka como um log replicado, em vez de usar destinatários ou WALs.
 
 ### <a name="typical-concerns-for-high-availability"></a>Preocupações típicas para alta disponibilidade
 
@@ -120,7 +120,7 @@ Para resumir, usando o ponto de verificação + WAL + destinatários confiáveis
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral de streaming de Apache Spark](apache-spark-streaming-overview.md)
-* [Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)
-* [Trabalhos de streaming de Apache Spark de execução longa em YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Criar Apache Spark trabalhos de streaming com o processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)
+* [Trabalhos de streaming de Apache Spark de execução longa em YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/)
 * [Streaming estruturado: semântica tolerante a falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Fluxos de discretizado: um modelo tolerante a falhas para processamento de fluxo escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

@@ -1,7 +1,7 @@
 ---
 title: Listas de frases-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como fornecer os serviços de fala com uma lista de frases usando o objeto `PhraseListGrammar` para melhorar os resultados de reconhecimento de fala em texto.
+description: Saiba como fornecer o serviço de fala com uma lista de frases usando o objeto `PhraseListGrammar` para melhorar os resultados de reconhecimento de fala em texto.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 61d3e4d2de6b8707ee7433815f8002e5d5e3e3d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 052e02ef562da0637b6b5b9683120f0c397dbfd5
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464538"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805880"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para conversão de fala em texto
 
-Ao fornecer os serviços de fala com uma lista de frases, você pode melhorar a precisão do reconhecimento de fala. As listas de frases são usadas para identificar frases conhecidas em dados de áudio, como o nome de uma pessoa ou um local específico.
+Ao fornecer o serviço de fala com uma lista de frases, você pode melhorar a precisão do reconhecimento de fala. As listas de frases são usadas para identificar frases conhecidas em dados de áudio, como o nome de uma pessoa ou um local específico.
 
 Por exemplo, se você tiver um comando "mover para" e um possível destino de "para trás" que pode ser falado, você poderá adicionar uma entrada de "mover para o mais à frente". A adição de uma frase aumentará a probabilidade de quando o áudio for reconhecido de "mover para o mais para cima" será reconhecido em vez de "ir para".
 
@@ -93,7 +93,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> As alterações em um objeto `PhraseListGrammar` entram em vigor no próximo reconhecimento ou após uma reconexão com os serviços de fala.
+> As alterações em um objeto `PhraseListGrammar` entram em vigor no próximo reconhecimento ou após uma reconexão com o serviço de fala.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 370b5005f27fbfe6ee8fc96d6dd7e467a581ec67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 437b87a3d684d7751adc89ba77b20ea86b3455e4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464605"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805999"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 

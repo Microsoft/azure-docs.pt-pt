@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464557"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816397"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -25,9 +25,9 @@ Se você estiver testando para ver quão precisas o reconhecimento de fala da Mi
 
 Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser usado e a quantidade recomendada. Nem todos os tipos de dados são necessários para criar um modelo. Os requisitos de dados irão variar dependendo se você estiver criando um teste ou treinando um modelo.
 
-| Data type | Uso de testes | Quantidade | Usado para treinamento | Quantidade |
+| Data type | Uso de testes | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Sonoro](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/a |
+| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/a |
 | [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
 | [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
 
@@ -60,7 +60,7 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 | Comprimento máximo por áudio | 2 horas |
 | Formato de exemplo | PCM, 16 bits |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do arquivo morto | 2GB |
+| Tamanho máximo do arquivo morto | 2 GB |
 
 Se o seu áudio não atender a essas propriedades ou se você quiser verificar se ele faz isso, sugerimos baixar o [Sox](http://sox.sourceforge.net) para verificar ou converter o áudio. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando:
 
@@ -81,7 +81,7 @@ Para medir a precisão da precisão de fala para texto da Microsoft ao processar
 | Comprimento máximo por áudio | 60 s |
 | Formato de exemplo | PCM, 16 bits |
 | Formato de arquivo morto | .zip |
-| Tamanho máximo do zip | 2GB |
+| Tamanho máximo do zip | 2 GB |
 
 Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
 
@@ -148,10 +148,10 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês (en-US) e alemão (de-DE). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Região | Personagens |
+| Linguagem | Região | Carateres |
 |----------|--------|------------|
-| Português | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
-| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, p, r, s, t, u, v, w, x, y, z |
+| Português | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Use esta tabela para garantir que o arquivo de dados relacionado para pronúncias esteja formatado corretamente. Os arquivos de pronúncia são pequenos e não devem exceder alguns KBs.
 

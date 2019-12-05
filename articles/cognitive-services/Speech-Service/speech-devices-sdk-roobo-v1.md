@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08bac7cd833f52d2dfec4561c2f87330a4119748
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552868"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815591"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Kit de desenvolvimento de áudio inteligente Roobo
+# <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: kit de desenvolvimento de áudio inteligente Roobo
 
 Este artigo fornece informações específicas do dispositivo para o kit de desenvolvimento de áudio inteligente do Roobo.
 
@@ -54,12 +54,12 @@ Este artigo fornece informações específicas do dispositivo para o kit de dese
     > [!NOTE]
     > Estes comandos utilizem a ponte de depuração do Android, `adb.exe`, que faz parte da instalação do Android Studio. Esta ferramenta está localizada no C:\Users\[nome de utilizador] \AppData\Local\Android\Sdk\platform ferramentas. Pode adicionar esse diretório ao seu caminho para que seja mais conveniente para invocar `adb`. Caso contrário, tem de especificar o caminho completo para a instalação do adb.exe em todos os comandos que invoquem `adb`.
     >
-    > Se você vir um erro `no devices/emulators found` , verifique se o cabo USB está conectado e se é um cabo de alta qualidade. Você pode usar `adb devices` o para verificar se o computador pode se comunicar com o kit de desenvolvimento, pois ele retornará uma lista de dispositivos.
+    > Se você vir um erro `no devices/emulators found`, verifique se o cabo USB está conectado e se é um cabo de alta qualidade. Você pode usar `adb devices` para verificar se o seu computador pode se comunicar com o kit de desenvolvimento, pois ele retornará uma lista de dispositivos.
     >
     > [!TIP]
     > Mudo microfone e palestrante Certifique-se de que está a trabalhar com microfones o kit de desenvolvimento do seu PC. Dessa forma, não acidentalmente aciona o dispositivo com o áudio do PC.
 
-1. Se quiser anexar um palestrante para o kit de desenvolvimento, pode ligá-la na linha de áudio horizontalmente. Você deve escolher um palestrante de boa qualidade com um plugue analógico de 3,5 mm.
+1. Se você quiser anexar um palestrante ao kit de desenvolvimento, poderá conectá-lo à linha de saída de áudio. Você deve escolher um palestrante de boa qualidade com um plugue analógico de 3,5 mm.
 
     ![Vysor áudio](media/speech-devices-sdk/qsg-14.png)
 
@@ -71,6 +71,6 @@ Para obter mais informações de desenvolvimento, consulte o [Guia de desenvolvi
 
 O Roobo fornece uma ferramenta que captura todos os áudios para memória flash. Ele pode ajudar a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração de kit de desenvolvimento. No [site do Roobo](https://ddk.roobo.com/), selecione seu dispositivo e, em seguida, selecione o link **Ferramentas do Roobo** na parte inferior da página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Executar o aplicativo de exemplo do Android](speech-devices-sdk-android-quickstart.md)

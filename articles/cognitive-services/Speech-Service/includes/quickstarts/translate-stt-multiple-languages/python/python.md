@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: fe969b45384568a41fe74415995b0173450eeaf4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44fafa361744f3c405cdb5c7ad416146fc0b1de2
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503074"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817147"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,7 +91,7 @@ Antes de começar, certifique-se de:
    python quickstart.py
    ```
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para os serviços de fala, que converte e transcreve em texto (neste caso, para francês e alemão). Em seguida, os serviços de fala enviam o texto de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que converte e transcreve em texto (neste caso, para francês e alemão). Em seguida, o serviço de fala envia o texto de volta para o aplicativo para exibição.
 
    ```
    Say something...

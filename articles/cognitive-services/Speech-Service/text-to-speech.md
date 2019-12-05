@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 85022d52c9513e53da31cc3c962f3a54dd538371
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075713"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815483"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
-Conversão de texto em fala dos serviços de fala do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha entre as vozes padrão e neural ou crie sua própria voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em 4 idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
+A conversão de texto em fala do serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha entre as vozes padrão e neural ou crie sua própria voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em 4 idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 A tecnologia de conversão de texto em fala permite que os criadores de conteúdo interajam com seus usuários de maneiras diferentes. A conversão de texto em fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo forma audível. Se o usuário tem um deficiência visual, uma deficiência de aprendizado ou requer informações de navegação enquanto conduz, a conversão de texto em fala pode melhorar uma experiência existente. Conversão de texto em fala também é um complemento valioso para bots de voz e assistentes de voz.
 
@@ -31,7 +31,7 @@ As vozes padrão são criadas usando as técnicas de síntese paramétricas esta
 
 ### <a name="neural-voices"></a>Vozes neurais
 
-As vozes neurais usam redes neurais profundas para superar os limites de sistemas de conversão de texto em fala tradicionais na correspondência dos padrões de estresse e intonation na linguagem falada e no sintetizamento das unidades de fala em uma voz de computador. A conversão de texto em fala padrão prosody em análise linguística separada e etapas de previsão acústica que são governadas por modelos independentes, o que pode resultar em síntese de voz muffled. Nosso recurso neural Prosody a previsão e a síntese de voz simultaneamente, o que resulta em uma voz mais fluida e de som natural.
+As vozes neurais usam redes neurais profundas para superar os limites de sistemas de conversão de texto em fala tradicionais na correspondência dos padrões de estresse e intonation na linguagem falada e no sintetizamento das unidades de fala em uma voz de computador. A conversão de texto em fala padrão prosody em análise linguística separada e etapas de previsão acústica que são governadas por modelos independentes, o que pode resultar em síntese de voz muffled. A nossa funcionalidade neural leva a cabo a predição da prosódia e a sintetização de voz em simultâneo, produzindo uma voz mais fluida e natural.
 
 As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos, em Audiobooks e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia.
 
@@ -102,7 +102,7 @@ Oferecemos guias de início rápido projetados para que você execute códigos e
 
 ### <a name="rest-quickstarts"></a>Guias de início rápido do REST
 
-| Início rápido (REST) | Plataforma | Referência da API |
+| Início rápido (REST) | Plataforma | Referência de API |
 | ----------------- | -------- | ------------- |
 | [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Navegador](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [Navegador](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -125,5 +125,5 @@ O código de exemplo para conversão de texto em fala está disponível no GitHu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obtenha uma assinatura gratuita dos serviços de fala](get-started.md)
+- [Obtenha uma assinatura gratuita do serviço de fala](get-started.md)
 - [Criar tipos de voz personalizada](how-to-customize-voice-font.md)

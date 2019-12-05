@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792042"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815137"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
@@ -70,7 +70,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
 1. Na caixa de pesquisa portal do Azure, insira "gateway de dados local" e selecione **gateways de dados locais**.
 
-   ![Localizar "gateway de dados local"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Localizar "gateway de dados local"](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. Em **gateways de dados locais**, selecione **Adicionar**.
 
@@ -89,7 +89,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
 
    Aqui está um exemplo que mostra uma instalação de gateway que está na mesma região que o recurso de gateway e está vinculado à mesma conta do Azure:
 
-   ![Fornecer detalhes para criar um recurso de gateway de dados](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![Fornecer detalhes para criar um recurso de gateway de dados](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -128,7 +128,7 @@ Para atualizar as configurações de uma conexão de gateway, você pode editar 
 
 1. Para localizar todas as conexões de API apenas para seu aplicativo lógico, no menu do aplicativo lógico, em **ferramentas de desenvolvimento**, selecione **conexões de API**.
 
-   ![No menu do aplicativo lógico, selecione "conexões de API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![No menu do aplicativo lógico, selecione "conexões de API"](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. Selecione a conexão de gateway desejada e, em seguida, selecione **Editar conexão de API**.
 
@@ -137,8 +137,8 @@ Para atualizar as configurações de uma conexão de gateway, você pode editar 
 
 Para localizar todas as conexões de API associadas à sua assinatura do Azure:
 
-* No menu principal do Azure, vá para **todos os serviços** > **conexões da API**de > **da Web** .
-* Ou, no menu principal do Azure, vá para **todos os recursos**. Defina o filtro de **tipo** como **conexão de API**.
+* No menu portal do Azure, selecione **todos os serviços** > conexões de **API**de > **Web** .
+* Ou, no menu portal do Azure, selecione **todos os recursos**. Defina o filtro de **tipo** como **conexão de API**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -146,13 +146,13 @@ Para localizar todas as conexões de API associadas à sua assinatura do Azure:
 
 Para criar um recurso de gateway diferente, vincule a instalação do gateway a um recurso de gateway diferente ou remova o recurso de gateway, você pode excluir o recurso de gateway sem afetar a instalação do gateway.
 
-1. No menu principal do Azure, selecione **todos os recursos**. Localize e selecione o recurso de gateway.
+1. No menu portal do Azure, selecione **todos os recursos**ou pesquise e selecione **todos os recursos** em qualquer página. Localize e selecione o recurso de gateway.
 
 1. Se ainda não estiver selecionado, no menu de recursos do gateway, selecione **Gateway de dados local**. Na barra de ferramentas de recursos do gateway, selecione **excluir**.
 
    Por exemplo:
 
-   ![Excluir recurso de gateway no Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![Excluir recurso de gateway no Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

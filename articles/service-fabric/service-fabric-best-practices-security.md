@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828517"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807447"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
 Para obter mais informações sobre [as práticas recomendadas de segurança do Azure](https://docs.microsoft.com/azure/security/), examine [as práticas recomendadas de segurança do Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
-## <a name="key-vault"></a>Cofre de Chaves
+## <a name="key-vault"></a>Key Vault
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) é o serviço de gerenciamento de segredos recomendado para aplicativos e clusters do Azure Service Fabric.
 > [!NOTE]
@@ -166,7 +166,7 @@ Para dar ao seu aplicativo acesso aos segredos, inclua o certificado adicionando
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autenticar Service Fabric aplicativos para recursos do Azure usando Identidade de Serviço Gerenciada (MSI)
 
-Para saber mais sobre identidades gerenciadas para recursos do Azure, consulte [o que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
+Para saber mais sobre identidades gerenciadas para recursos do Azure, consulte [o que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
 Os clusters do Azure Service Fabric são hospedados em conjuntos de dimensionamento de máquinas virtuais, que dão suporte a [identidade de serviço gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 Para obter uma lista de serviços que o MSI pode usar para autenticar no, consulte [Serviços do Azure que dão suporte à autenticação Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
@@ -225,7 +225,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 
 Essas regras de firewall complementam seus grupos de segurança de rede de saída permitidos, que incluem o infabric e o armazenamento, como destinos permitidos de sua rede virtual.
 
-## <a name="tls-12"></a>TLS 1,2
+## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 

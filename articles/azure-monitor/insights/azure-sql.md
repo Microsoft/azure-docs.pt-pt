@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 11/12/2019
+ms.date: 12/04/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b54783f29de731613a5f3c9c5d9d3b805b2d0115
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961977"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819522"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -32,7 +32,7 @@ Para obter uma descrição geral prática sobre como utilizar a solução de an�
 
 Análise de SQL do Azure é uma cloud apenas a monitorização de solução suporte de transmissão em fluxo de telemetria de diagnóstico para bases de dados SQL do Azure: bases de dados de instância únicas, agrupados e geridos. Como a solução não usa agentes para se conectar ao Azure Monitor, a solução não oferece suporte ao monitoramento de SQL Server hospedados localmente ou em VMs, consulte a tabela de compatibilidade abaixo.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Configurações de diagnóstico](../platform/diagnostic-settings.md) | **Sim** | Os dados de log e métrica do Azure são enviados para Azure Monitor logs diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | Azure Monitor não lê os dados de uma conta de armazenamento. |
@@ -47,11 +47,11 @@ A tabela abaixo descreve as opções com suporte para duas versões do painel An
 | Opção Análise de SQL do Azure | Descrição | Suporte de agrupamentos de base de dados SQL e elástico | Suporte a instância gerenciados |
 | --- | ------- | ----- | ----- |
 | Recurso por tipo | Ponto de vista que conte de todos os recursos monitorizados. | Sim | Sim |
-| Informações | Fornece a desagregação hierárquica em informações inteligentes sobre o desempenho. | Sim | Sim |
+| Insights | Fornece a desagregação hierárquica em informações inteligentes sobre o desempenho. | Sim | Sim |
 | Erros | Fornece a desagregação hierárquica em erros de SQL que ocorreram nas bases de dados. | Sim | Sim |
 | Tempos limite | Fornece a desagregação hierárquica em tempos limite SQL que ocorreram nas bases de dados. | Sim | Não |
 | Bloqueios | Fornece a desagregação hierárquica no blockings SQL que ocorreram nas bases de dados. | Sim | Não |
-| Esperas de base de dados | Fornece a desagregação hierárquica para estatísticas de espera SQL no nível da base de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |Sim | Sim |
+| Esperas de base de dados | Fornece a desagregação hierárquica para estatísticas de espera SQL no nível da base de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |Sim | Não |
 | Duração da consulta | Fornece a desagregação hierárquica para as estatísticas de execução de consulta, como a duração de consulta, a utilização da CPU, utilização e/s de dados, utilização e/s de registo. | Sim | Sim |
 | Esperas de consulta | Fornece a desagregação hierárquica para as estatísticas de espera de consulta por categoria de espera. | Sim | Sim |
 

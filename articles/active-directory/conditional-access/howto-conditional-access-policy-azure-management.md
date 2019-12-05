@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad44cc83d65206ec1f199e57685b0dcc3cbb07a5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9d0a1f56624314ff0cebe93a46027d3ca5b6a838
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151164"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803721"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso condicional: exigir MFA para o gerenciamento do Azure
 
@@ -42,14 +42,14 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas executem a autenticação multifator.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** **acesso condicional** > .
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione **nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**
    1. Em **incluir**, selecione **todos os usuários**.
    1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos de nuvem ou ações** > **incluir**, **selecione selecionar aplicativos**, escolha **Gerenciamento de Microsoft Azure**e **selecione** **concluir**.
+1. Em **aplicativos de nuvem ou ações** > **incluir**, selecione **selecionar aplicativos**, escolha **Gerenciamento de Microsoft Azure**e selecione **selecionar** e **concluído**.
 1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir autenticação multifator**e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.

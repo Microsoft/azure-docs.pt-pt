@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 460d2069bea8809b7d453bbe1cf27284109df9b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 09ee7f0918bce469186688a5d0e82441bb2e5457
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503473"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817785"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: sintetizar a fala em Objective-C no iOS usando o SDK de fala
 
@@ -23,10 +23,10 @@ Neste artigo, você aprende a criar um aplicativo iOS em Objective-C usando o SD
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, veja uma lista de pré-requisitos:
+Antes de começar, eis uma lista de pré-requisitos:
 
 * Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) para o serviço de fala
-* Uma máquina macOS com o [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
+* Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
 * O destino definido como iOS versão 9,3 ou posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Voz para iOS

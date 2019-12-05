@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504026"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829151"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Siga estas etapas para a instalação:
 
 1. Aceda a https://editor.swagger.io.
 1. Clique em **arquivo**e em **importar URL**.
-1. Insira a URL do Swagger incluindo a região para sua assinatura dos serviços de fala: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Insira a URL do Swagger incluindo a região para sua assinatura do serviço de fala: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Clique em **gerar cliente** e selecione **Python**.
 1. Salve a biblioteca de cliente.
 1. Extraia o Python-Client-generated. zip baixado em algum lugar no sistema de arquivos.

@@ -5,18 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4c263b32b7ededb9e5169e80a29806f322a3c849
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755175"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806529"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
 
-As transações de banco de dados fornecem um modelo de programação seguro e previsível para lidar com alterações simultâneas nos dados. Os bancos de dados relacionais tradicionais, como SQL Server, permitem que você grave a lógica de negócios usando procedimentos armazenados e/ou gatilhos, envie-o para o servidor para execução diretamente no mecanismo de banco de dados. Com os bancos de dados relacionais tradicionais, você precisa lidar com duas linguagens de programação diferentes da linguagem de programação de aplicativo (não transacional), como JavaScript, C#Python, Java, etc., e a linguagem de programação transacional ( como T-SQL) que é executado nativamente pelo banco de dados.
+As transações de banco de dados fornecem um modelo de programação seguro e previsível para lidar com alterações simultâneas nos dados. Os bancos de dados relacionais tradicionais, como SQL Server, permitem que você grave a lógica de negócios usando procedimentos armazenados e/ou gatilhos, envie-o para o servidor para execução diretamente no mecanismo de banco de dados. Com os bancos de dados relacionais tradicionais, você precisa lidar com duas linguagens de programação diferentes a linguagem de programação de aplicativo (não transacional), como JavaScript, C#Python, Java, etc., e a linguagem de programação transacional (como T-SQL) que é executada nativamente pelo banco de dados.
 
 O mecanismo de banco de dados no Azure Cosmos DB dá suporte a transações inteiras em conformidade com ACID (atomicidade, consistência, isolamento, durabilidade) com isolamento de instantâneo. Todas as operações de banco de dados no escopo da [partição lógica](partition-data.md) de um contêiner são executadas de forma transacional no mecanismo de banco de dados hospedado pela réplica da partição. Essas operações incluem gravação (Atualizando um ou mais itens dentro da partição lógica) e operações de leitura. A tabela a seguir ilustra diferentes operações e tipos de transação:
 
@@ -47,15 +47,15 @@ Os procedimentos armazenados, gatilhos, UDFs e procedimentos de mesclagem basead
 
 A capacidade de executar o JavaScript diretamente no mecanismo de banco de dados fornece desempenho e execução transacional de operações de banco de dados em relação aos itens de um contêiner. Além disso, como o mecanismo de banco de dados Cosmos do Azure dá suporte nativo a JSON e JavaScript, não há nenhuma incompatibilidade de impedância entre os sistemas de tipos de um aplicativo e o banco de dados.
 
-## <a name="optimistic-concurrency-control"></a>Controle de simultaneidade otimista 
+## <a name="optimistic-concurrency-control"></a>Controle de simultaneidade otimista
 
 O controle de simultaneidade otimista permite que você impeça atualizações e exclusões perdidas. Operações simultâneas e conflitantes estão sujeitas ao bloqueio pessimista regular do mecanismo de banco de dados hospedado pela partição lógica que possui o item. Quando duas operações simultâneas tentam atualizar a versão mais recente de um item em uma partição lógica, uma delas vencerá e a outra falhará. No entanto, se uma ou duas operações tentarem atualizar simultaneamente o mesmo item tiver lido anteriormente um valor mais antigo do item, o banco de dados não saberá se o valor lido anteriormente por uma ou ambas as operações conflitantes era realmente o valor mais recente do item. Felizmente, essa situação pode ser detectada com o **controle de simultaneidade otimista (OCC)** antes de permitir que as duas operações insiram o limite da transação dentro do mecanismo de banco de dados. O OCC protege seus dados contra a substituição acidental de alterações feitas por outras pessoas. Ele também impede que outras pessoas substituam acidentalmente suas próprias alterações.
 
 As atualizações simultâneas de um item estão sujeitas ao OCC pela camada de protocolo de comunicação do Azure Cosmos DB. O banco de dados Cosmos do Azure garante que a versão do lado do cliente do item que você está atualizando (ou excluindo) seja a mesma que a versão do item no contêiner Cosmos do Azure. Isso garante que suas gravações sejam protegidas acidentalmente por gravações de outros e vice-versa. Em um ambiente de vários usuários, o controle de simultaneidade otimista protege você contra acidentalmente exclusão ou atualização de versão incorreta de um item. Dessa forma, os itens são protegidos contra os problemas infamosos de "atualização perdida" ou "exclusão perdida".
 
-Cada item armazenado em um contêiner Cosmos do Azure tem uma propriedade de `_etag` definida pelo sistema. O valor da `_etag` é gerado automaticamente e atualizado pelo servidor sempre que o item é atualizado. `_etag` pode ser usado com o cabeçalho de solicitação `if-match` fornecido pelo cliente para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do cabeçalho de `if-match` corresponde ao valor do `_etag` no servidor, o item é então atualizado. Se o valor do cabeçalho de solicitação `if-match` não for mais atual, o servidor rejeitará a operação com uma mensagem de resposta "falha na pré-condição HTTP 412". Em seguida, o cliente pode buscar novamente o item para adquirir a versão atual do item no servidor ou substituir a versão do item no servidor pelo seu próprio valor `_etag` para o item. Além disso, `_etag` pode ser usado com o cabeçalho `if-none-match` para determinar se uma rebusca de um recurso é necessária. 
+Cada item armazenado em um contêiner Cosmos do Azure tem uma propriedade de `_etag` definida pelo sistema. O valor da `_etag` é gerado automaticamente e atualizado pelo servidor sempre que o item é atualizado. `_etag` pode ser usado com o cabeçalho de solicitação `if-match` fornecido pelo cliente para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do cabeçalho de `if-match` corresponde ao valor do `_etag` no servidor, o item é então atualizado. Se o valor do cabeçalho de solicitação `if-match` não for mais atual, o servidor rejeitará a operação com uma mensagem de resposta "falha na pré-condição HTTP 412". Em seguida, o cliente pode buscar novamente o item para adquirir a versão atual do item no servidor ou substituir a versão do item no servidor pelo seu próprio valor `_etag` para o item. Além disso, `_etag` pode ser usado com o cabeçalho `if-none-match` para determinar se uma rebusca de um recurso é necessária.
 
-O valor `_etag` do item é alterado toda vez que o item é atualizado. Para operações de substituição de item, `if-match` deve ser expressa explicitamente como parte das opções de solicitação. Para obter um exemplo, consulte o código de exemplo no [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` valores são verificados implicitamente para todos os itens gravados tocadas pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado reverterá a transação e lançará uma exceção. Com esse método, todas ou nenhuma gravação no procedimento armazenado é aplicada atomicamente. Esse é um sinal para o aplicativo reaplicar atualizações e tentar novamente a solicitação original do cliente.
+O valor `_etag` do item é alterado toda vez que o item é atualizado. Para operações de substituição de item, `if-match` deve ser expressa explicitamente como parte das opções de solicitação. Para obter um exemplo, consulte o código de exemplo no [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag` valores são verificados implicitamente para todos os itens gravados tocadas pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado reverterá a transação e lançará uma exceção. Com esse método, todas ou nenhuma gravação no procedimento armazenado é aplicada atomicamente. Esse é um sinal para o aplicativo reaplicar atualizações e tentar novamente a solicitação original do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

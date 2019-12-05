@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ee7a03f27ab03feadedb7ac8441675a90468655c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535811"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807413"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Manipulando notificações de manutenção planejada
 
@@ -80,7 +80,7 @@ A manutenção de autoatendimento não é recomendada para implantações usando
 
 **R:** As máquinas virtuais implantadas em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais têm a noção de domínios de atualização (UD). Ao executar a manutenção, o Azure honra a restrição UD e não reinicializará as máquinas virtuais de diferentes UD (dentro do mesmo conjunto de disponibilidade).  O Azure também aguarda pelo menos 30 minutos antes de passar para o próximo grupo de máquinas virtuais. 
 
-Para obter mais informações sobre alta disponibilidade, consulte [disponibilidade para máquinas virtuais no Azure](/linux/availability.md).
+Para obter mais informações sobre alta disponibilidade, consulte [disponibilidade para máquinas virtuais no Azure](./linux/availability.md).
 
 **P: Como fazer ser notificado sobre a manutenção planejada?**
 
@@ -92,7 +92,7 @@ Para obter mais informações sobre alta disponibilidade, consulte [disponibilid
 
 **P: há uma maneira de saber exatamente quando minha máquina virtual será afetada?**
 
-**R:** Ao definir a agenda, definimos uma janela de tempo de vários dias. No entanto, o sequenciamento exato de servidores (e VMs) nessa janela é desconhecido. Os clientes que gostariam de saber o tempo exato para suas VMs podem usar [eventos agendados](/linux/scheduled-events.md) e consultar de dentro da máquina virtual e receber uma notificação de 15 minutos antes da reinicialização da VM.
+**R:** Ao definir a agenda, definimos uma janela de tempo de vários dias. No entanto, o sequenciamento exato de servidores (e VMs) nessa janela é desconhecido. Os clientes que gostariam de saber o tempo exato para suas VMs podem usar [eventos agendados](./linux/scheduled-events.md) e consultar de dentro da máquina virtual e receber uma notificação de 15 minutos antes da reinicialização da VM.
 
 **P: quanto tempo levará para reinicializar minha máquina virtual?**
 

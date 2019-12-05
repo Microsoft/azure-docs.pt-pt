@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075820"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806067"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -57,7 +57,7 @@ Aqui estão alguns exemplos de normalização que você deve executar na transcr
 | Meu tipo de sangue é O +         | Meu tipo de sangue é O positivo           |
 | Água é H20                | Água é H 2 O                        |
 | Reproduzir OU812 por Van Halen     | Reproduzir O U 8 1 2 por Van Halen           |
-| UTF-8 com BOM              | U T F 8 com BOM                      |
+| UTF-8 with BOM              | U T F 8 com BOM                      |
 
 As seguintes regras de normalização são aplicadas automaticamente às transcrições:
 
@@ -162,7 +162,7 @@ Aqui estão alguns exemplos de normalização executadas automaticamente na tran
 | ¡ Eine Defrag!     | Eine de desfragmentação               |
 | wir, haben       | wir haben                |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Preparar e testar seus dados](how-to-custom-speech-test-data.md)
 - [Inspecione seus dados](how-to-custom-speech-inspect-data.md)

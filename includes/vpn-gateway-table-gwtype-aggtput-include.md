@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075438"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829116"
 ---
 |**Geração de<br>do gateway de<br>VPN** |**SKU**   | **S2S/VNet para VNet<br>Túneis** | **Ligações SSTP <br>P2S** | **P2S<br> conexões IKEv2/OpenVPN** | **Referência de<br>Débito de Agregação** | **BGP** | **Com redundância de zona** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
-|**Generation1**|**Básica**   | Um máximo de 10    | Um máximo de 128  | Não Suportado  | 100 Mbps  | Não Suportado| Não |
-|**Generation1**|**VpnGw1**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 250       | 650 Mbps  | Suportado | Não |
-|**Generation1**|**VpnGw2**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1 Gbps    | Suportado | Não |
-|**Generation1**|**VpnGw3**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 1,25 Gbps | Suportado | Não |
-|**Generation1**|**VpnGw1AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 250       | 650 Mbps  | Suportado | Sim |
-|**Generation1**|**VpnGw2AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1 Gbps    | Suportado | Sim |
-|**Generation1**|**VpnGw3AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 1,25 Gbps | Suportado | Sim |
+|**Generation1**|**Básica**   | Um máximo de 10    | Um máximo de 128  | Não suportado  | 100 Mbps  | Não suportado| Não |
+|**Generation1**|**VpnGw1**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 250       | 650 Mbps  | Suportadas | Não |
+|**Generation1**|**VpnGw2**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1 Gbps    | Suportadas | Não |
+|**Generation1**|**VpnGw3**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 1,25 Gbps | Suportadas | Não |
+|**Generation1**|**VpnGw1AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 250       | 650 Mbps  | Suportadas | Sim |
+|**Generation1**|**VpnGw2AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1 Gbps    | Suportadas | Sim |
+|**Generation1**|**VpnGw3AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 1,25 Gbps | Suportadas | Sim |
 |        |            |            |           |                |           |           |     |
-|**Generation2**|**VpnGw2**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1,25 Gbps | Suportado | Não |
-|**Generation2**|**VpnGw3**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 2,5 Gbps  | Suportado | Não |
-|**Generation2**|**VpnGw4**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 5 Gbps    | Suportado | Não |
-|**Generation2**|**VpnGw5**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 10 Gbps   | Suportado | Não |
-|**Generation2**|**VpnGw2AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1,25 Gbps | Suportado | Sim |
-|**Generation2**|**VpnGw3AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 2,5 Gbps  | Suportado | Sim |
-|**Generation2**|**VpnGw4AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 5 Gbps    | Suportado | Sim |
-|**Generation2**|**VpnGw5AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 10 Gbps   | Suportado | Sim |
+|**Generation2**|**VpnGw2**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1,25 Gbps | Suportadas | Não |
+|**Generation2**|**VpnGw3**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 2,5 Gbps  | Suportadas | Não |
+|**Generation2**|**VpnGw4**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 5000      | 5 Gbps    | Suportadas | Não |
+|**Generation2**|**VpnGw5**  | Um máximo de 30*   | Um máximo de 128  | Um máximo de 10000      | 10 Gbps   | Suportadas | Não |
+|**Generation2**|**VpnGw2AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 500       | 1,25 Gbps | Suportadas | Sim |
+|**Generation2**|**VpnGw3AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 1000      | 2,5 Gbps  | Suportadas | Sim |
+|**Generation2**|**VpnGw4AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 5000      | 5 Gbps    | Suportadas | Sim |
+|**Generation2**|**VpnGw5AZ**| Um máximo de 30*   | Um máximo de 128  | Um máximo de 10000      | 10 Gbps   | Suportadas | Sim |
 
 (*) Utilize a [WAN Virtual](../articles/virtual-wan/virtual-wan-about.md) se precisar de mais de 30 túneis S2S VPN.
 
@@ -50,9 +50,9 @@ Para ajudar nossos clientes a entender o desempenho relativo de SKUs usando algo
 
 |**Geração**|**SKU**   | **Algoritmos<br>usados** | **Taxa de transferência<br>observada** | **<br>de pacotes por segundo observados** |
 |---           |---       | ---                 | ---            | ---                    |
-|**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>120 Mbps   | 58.000<br>50 000<br>50 000|
-|**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbps<br>500 Mbps<br>120 Mbps | 90,000<br>80,000<br>55.000|
+|**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>120 Mbps   | 58.000<br>50 000<br>50 000|
+|**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbps<br>500 Mbps<br>120 Mbps | 90,000<br>80,000<br>55.000|
 |**Generation1**|**VpnGw3**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1,25 Gbps<br>550 Mbps<br>120 Mbps | 105.000<br>90,000<br>60,000|
-|**Generation1**|**VpnGw1AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>120 Mbps   | 58.000<br>50 000<br>50 000|
-|**Generation1**|**VpnGw2AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbps<br>500 Mbps<br>120 Mbps | 90,000<br>80,000<br>55.000|
+|**Generation1**|**VpnGw1AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>120 Mbps   | 58.000<br>50 000<br>50 000|
+|**Generation1**|**VpnGw2AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbps<br>500 Mbps<br>120 Mbps | 90,000<br>80,000<br>55.000|
 |**Generation1**|**VpnGw3AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1,25 Gbps<br>550 Mbps<br>120 Mbps | 105.000<br>90,000<br>60,000|

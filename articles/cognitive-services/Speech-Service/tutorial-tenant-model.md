@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578226"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816377"
 ---
 # <a name="create-a-tenant-model-preview"></a>Criar um modelo de locatário (visualização)
 
@@ -71,7 +71,7 @@ Depois que o administrador tiver habilitado o modelo de locatário para sua orga
 1. Entre no [Speech Studio](https://speech.microsoft.com/).
 2. No canto superior direito, localize e clique no ícone de engrenagem (configurações) e selecione **configurações de modelo de locatário**.
 
-   ![Menu configurações](media/tenant-language-model/tenant-language-settings.png)
+   ![Menu Definições](media/tenant-language-model/tenant-language-settings.png)
 
 3. Neste ponto, você verá uma mensagem informando que você sabe se está qualificado para criar um modelo de locatário.
    > [!NOTE]
@@ -89,9 +89,9 @@ Quando o modelo de locatário estiver pronto, siga estas etapas para implantar s
 1. Clique no botão **Exibir modelo** no email de confirmação que você recebeu ou entre no [Speech Studio](https://speech.microsoft.com/).
 2. No canto superior direito, localize e clique no ícone de engrenagem (configurações) e selecione **configurações de modelo de locatário**.
 
-   ![Menu configurações](media/tenant-language-model/tenant-language-settings.png)
+   ![Menu Definições](media/tenant-language-model/tenant-language-settings.png)
 
-3. Clique em **implantar**.
+3. Clique em **implementar**.
 4. Quando o modelo for implantado, o status será alterado para **implantado**.
 
 ## <a name="use-your-model-with-the-speech-sdk"></a>Usar seu modelo com o SDK de fala

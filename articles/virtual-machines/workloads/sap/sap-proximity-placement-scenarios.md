@@ -1,5 +1,5 @@
 ---
-title: Grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP | Microsoft Docs
+title: Grupos de posicionamento de proximidade do Azure para aplicativos SAP | Microsoft Docs
 description: Descreve os cenários de implantação do SAP com grupos de posicionamento de proximidade do Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720003"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805710"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP
 Os aplicativos SAP baseados na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência de rede entre a camada de aplicativo SAP e a camada de banco de dados SAP. Essa sensibilidade é o resultado da maior parte da lógica de negócios em execução na camada de aplicativo. Como a camada de aplicativo SAP executa a lógica de negócios, ela emite consultas para a camada de banco de dados em uma alta frequência, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza dessas consultas é simples. Geralmente, eles podem ser executados na camada de banco de dados em 500 microssegundos ou menos.

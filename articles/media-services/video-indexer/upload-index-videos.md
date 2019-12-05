@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: juliako
-ms.openlocfilehash: a1fd37b65c3449e7000db6189c8c71def1f96b0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790052"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815393"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -59,7 +59,7 @@ Este parâmetro permite-lhe especificar um ID que será associado ao vídeo. O I
 Uma URL que é usada para notificar o cliente (usando uma solicitação POST) sobre os seguintes eventos:
 
 - Alteração de estado de indexação: 
-    - Properties    
+    - Propriedades:    
     
         |Nome|Descrição|
         |---|---|
@@ -74,7 +74,7 @@ Uma URL que é usada para notificar o cliente (usando uma solicitação POST) so
       |ID| A ID do vídeo|
       |faceId|A ID de face que aparece no índice de vídeo|
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de face|
-      |PersonName|O nome da pessoa|
+      |personName|O nome da pessoa|
         
     - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
@@ -88,9 +88,9 @@ Uma URL que é usada para notificar o cliente (usando uma solicitação POST) so
 Utilize este parâmetro se as gravações não processadas ou externas contiverem ruído de fundo. Este parâmetro é utilizado para configurar o processo de indexação. Pode especificar os seguintes valores:
 
 - `AudioOnly` – indexe e extraia informações apenas com áudio (ignorar vídeo)
+- `VideoOnly`-indexar e extrair informações usando somente vídeo (ignorando áudio)
 - `Default` – indexe e extraia informações com áudio e vídeo
 - `DefaultWithNoiseReduction` – indexe e extraia informações de áudio e vídeo, enquanto aplica algoritmos de redução de ruído na transmissão de áudio
-- `VideoOnly`-indexar e extrair informações usando somente vídeo 
 
 O preço varia consoante a opção de indexação selecionada.  
 

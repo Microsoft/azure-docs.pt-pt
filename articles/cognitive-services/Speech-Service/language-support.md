@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 87b065d2ecf9d80c072918c14e7861f72b8d7aba
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304908"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815377"
 ---
-# <a name="language-and-region-support-for-the-speech-services"></a>Suporte a idiomas e regiões para os serviços de fala
+# <a name="language-and-region-support-for-the-speech-service"></a>Suporte a idiomas e regiões para o serviço de fala
 
 O suporte a idiomas varia de acordo com a funcionalidade do serviço de fala. As tabelas a seguir resumem o suporte a idiomas para ofertas de [voz para texto](#speech-to-text), conversão de [texto em fala](#text-to-speech)e serviço de [tradução de fala](#speech-translation) .
 
@@ -26,7 +26,7 @@ O suporte a idiomas varia de acordo com a funcionalidade do serviço de fala. As
 
 O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: frases.  Atualmente, a personalização de pronúncia está disponível apenas para `en-US` e `de-DE`. Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
 
- Região | Idioma | Suportado | Personalizável
+ Região | Linguagem | Suportadas | Personalizável
 ------|------------|-----------|-------------
 `ar-EG` | Árabe (Egito), standard moderna | Sim | Sim
 `ar-SA` | Árabe (Arábia Saudita) | Sim | Sim
@@ -83,7 +83,7 @@ As vozes neurais podem ser usadas para fazer interações com os assistentes de 
 
 Para obter uma lista completa de vozes neurais e da disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome curto da voz
+Região | Linguagem | Género | Mapeamento de nome de serviço completo | Nome curto da voz
 --------|----------|--------|---------|------------
 `de-DE` | Alemão (Alemanha) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 `en-US` | English (US) | Masculino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, GuyNeural)" | "en-US-GuyNeural"
@@ -98,7 +98,7 @@ Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome curt
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abreviado
+Região | Linguagem | Género | Mapeamento de nome de serviço completo | Nome abreviado
 -------|----------|---------|----------|----------
 <sup>&dagger;</sup>`ar-EG` | Árabe (Egito) | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)" | "ar-ex-Hoda"
 `ar-SA` | Árabe (Arábia Saudita) | Masculino | "Microsoft Server voz texto para voz de voz (ar-SA, Naayf)" | "ar-SA-Naayf"
@@ -182,7 +182,7 @@ Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abre
 | | | Feminino | "Microsoft Server voz texto para voz de voz (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Masculino | "Microsoft Server voz texto para voz de voz (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-ex suporta o moderno padrão árabe (MSA).*
+&dagger; *ar-por exemplo, oferece suporte a Árabe padrão modernos (MSA).*
 
 > [!NOTE]
 > Você pode usar o mapeamento de nome de serviço completo ou o nome de voz curto em suas solicitações de síntese de fala.
@@ -196,7 +196,7 @@ A personalização de voz está disponível para `de-DE`, `en-GB`, `en-IN`, `en-
 
 ## <a name="speech-translation"></a>Tradução de voz
 
-A API de **tradução de fala** dá suporte a idiomas diferentes para conversão de fala em fala e de fala em texto. O idioma de origem sempre deve ser da tabela de linguagem de fala para texto. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Você pode traduzir a fala de entrada em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas está disponível para [síntese de fala](language-support.md#text-languages).
+O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem sempre deve ser da tabela de linguagem de fala para texto. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Pode converter voz recebida em mais do que [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas está disponível para [síntese de fala](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Idiomas de texto
 
@@ -269,5 +269,5 @@ A API de **tradução de fala** dá suporte a idiomas diferentes para conversão
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obter a subscrição de avaliação dos Serviços de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer a fala noC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Obtenha sua assinatura de avaliação do serviço de fala](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

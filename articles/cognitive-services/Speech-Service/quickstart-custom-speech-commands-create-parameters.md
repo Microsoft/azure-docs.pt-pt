@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: caa1959ec64bb3a123c60763750267b107685b82
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d1c709beb225dff0ae616a23eb67eb57f4643ac9
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111248"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812757"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Início rápido: criar um comando personalizado com parâmetros (versão prévia)
 
@@ -38,9 +38,9 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
    | Nome               | OnOff           | Um nome descritivo para seu parâmetro                                                                     |
    | É global          | desmarcada       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
-   | Necessário           | check         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
+   | Obrigatório           | check         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | Ativar ou desativar?      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
-   | Tipo               | Cadeia          | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
+   | Tipo               | String          | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
    | Configuração      | Lista de cadeias de caracteres     | Para cadeias de caracteres, uma lista String limita as entradas a um conjunto de valores possíveis                                      |
    | Valores da lista de cadeia de caracteres | ativado, desativado         | Para um parâmetro de lista de cadeia de caracteres, o conjunto de valores possíveis e seus sinônimos                                |
 
@@ -50,9 +50,9 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
    | Nome               | SubjectDevice     | Um nome descritivo para seu parâmetro                                                                     |
    | É global          | desmarcada         | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
-   | Necessário           | check           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
+   | Obrigatório           | check           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | Qual dispositivo?     | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
-   | Tipo               | Cadeia            | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
+   | Tipo               | String            | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
    | Configuração      | Lista de cadeias de caracteres       | Para cadeias de caracteres, uma lista String limita as entradas a um conjunto de valores possíveis                                      |
    | Valores da lista de cadeia de caracteres | TV, ventilador           | Para um parâmetro de lista de cadeia de caracteres, o conjunto de valores possíveis e seus sinônimos                                |
    | Sinônimos (TV)      | televisão, conte | Sinônimos opcionais para cada valor possível de um parâmetro de lista de cadeias de caracteres                                      |

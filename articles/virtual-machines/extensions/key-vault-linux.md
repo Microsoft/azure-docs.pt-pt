@@ -3,16 +3,17 @@ title: Azure Key Vault extensão de VM para Linux
 description: Implante um agente executando a atualização automática de certificados de Key Vault em máquinas virtuais usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 author: msmbaldwin
+tags: keyvault
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.date: 09/23/2018
+ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d6b8cdf43fea63fa4709dd5fc5319bb92ddefc63
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073008"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806978"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
 
@@ -29,7 +30,7 @@ A extensão de VM Key Vault dá suporte a essas distribuições do Linux:
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Mais concretamente:  
+O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Especificamente:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -40,20 +41,20 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-            "publisher": "Microsoft.Azure.KeyVault.Edp",
-            "type": "KeyVaultForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "secretsManagementSettings": {
-                    "pollingIntervalInS": <polling interval in seconds>,
-                    "certificateStoreName": <certificate store name, e.g.: "MY">,
-                    "linkOnRenewal": <Not available on Linux e.g.: false>,
-                    "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-                    "requireInitialSync": <initial synchronization of certificates e..g: true>,
-                    "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-                }         
-            }
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "linkOnRenewal": <Not available on Linux e.g.: false>,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        }      
+      }
       }
     }
 ```
@@ -69,7 +70,7 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft. Azure. keyvault. EDP | string |
+| publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
@@ -96,17 +97,17 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-            "publisher": "Microsoft.Azure.KeyVault.Edp",
-            "type": "KeyVaultForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                    "pollingIntervalInS": <polling interval in seconds>,
-                    "certificateStoreName": <certificate store name, e.g.: "MY">,
-                    "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-                    "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-                }         
-            }
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "1.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "certificateStoreName": <certificate store name, e.g.: "MY">,
+          "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        }      
+      }
       }
     }
 ```
@@ -121,12 +122,12 @@ O Azure PowerShell pode ser usado para implantar a extensão de VM Key Vault em 
     ```powershell
         # Build settings
         $settings = '{"secretsManagementSettings": 
-            { "pollingIntervalInS": "' + <pollingInterval> + 
-            '", "certificateStoreName": "' + <certStoreName> + 
-            '", "certificateStoreLocation": "' + <certStoreLoc> + 
-            '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        { "pollingIntervalInS": "' + <pollingInterval> + 
+        '", "certificateStoreName": "' + <certStoreName> + 
+        '", "certificateStoreLocation": "' + <certStoreLoc> + 
+        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName =  "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
        
     
@@ -141,12 +142,12 @@ O Azure PowerShell pode ser usado para implantar a extensão de VM Key Vault em 
     
         # Build settings
         $settings = '{"secretsManagementSettings": 
-            { "pollingIntervalInS": "' + <pollingInterval> + 
-            '", "certificateStoreName": "' + <certStoreName> + 
-            '", "certificateStoreLocation": "' + <certStoreLoc> + 
-            '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        { "pollingIntervalInS": "' + <pollingInterval> + 
+        '", "certificateStoreName": "' + <certStoreName> + 
+        '", "certificateStoreLocation": "' + <certStoreLoc> + 
+        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName = "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForLinux"
         
         # Add Extension to VMSS
@@ -186,8 +187,8 @@ O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma 
 
 Esteja ciente das seguintes restrições/requisitos:
 - Restrições de Key Vault:
-    - Ele deve existir no momento da implantação 
-    - A política de acesso Key Vault está definida para a identidade VM/VMSS usando o MSI
+  - Ele deve existir no momento da implantação 
+  - A política de acesso Key Vault está definida para a identidade VM/VMSS usando o MSI
 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte

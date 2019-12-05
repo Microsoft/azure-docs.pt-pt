@@ -1,7 +1,7 @@
 ---
 title: Migrar do serviço de Fala Personalizada para o serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O serviço de voz personalizada agora é parte integrante do serviço de voz. Mude para o serviço de voz para tirar partido dos mais recentes atualizações de qualidade e funcionalidade.
+description: O serviço de Fala Personalizada agora faz parte do serviço de fala. Alterne para o serviço de fala para se beneficiar da qualidade e das atualizações de recursos mais recentes.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9c93286329316d081f8fd99ebd360195931b7b09
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562768"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805931"
 ---
-# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do serviço de voz personalizada para o serviço de voz
+# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do serviço de Fala Personalizada para o serviço de fala
 
-Utilize este artigo para migrar seus aplicativos de serviço de voz personalizada para o serviço de voz.
+Use este artigo para migrar seus aplicativos do serviço de Fala Personalizada para o serviço de fala.
 
-O serviço de voz personalizada agora é parte integrante do serviço de voz. Alterne para os serviços de fala para se beneficiar da qualidade e das atualizações de recursos mais recentes.
+O serviço de Fala Personalizada agora faz parte do serviço de fala. Alterne para o serviço de fala para se beneficiar da qualidade e das atualizações de recursos mais recentes.
 
 ## <a name="migration-for-new-customers"></a>Migração para os novos clientes
 
-O modelo de preços é mais simples, com um modelo de preços baseado em hora para o serviço de voz.  
+O modelo de preços é mais simples, usando um modelo de preços baseado em hora para o serviço de fala.  
 
 1. Crie um recurso do Azure em cada região em que a sua aplicação está disponível. O nome de recurso do Azure é **voz**. Pode usar um único recurso do Azure para os seguintes serviços na mesma região, em vez de criar recursos separados:
 
@@ -39,11 +39,11 @@ O modelo de preços é mais simples, com um modelo de preços baseado em hora pa
 
 3. Siga os guias de início rápido e amostras de SDK para utilizar as APIs corretas. Se utilizar as APIs REST, terá também de utilizar os pontos de extremidade corretos e as chaves do recurso.
 
-4. Atualize o aplicativo cliente para usar os serviços de fala e as APIs.
+4. Atualize o aplicativo cliente para usar o serviço de fala e as APIs.
 
 ## <a name="migration-for-existing-customers"></a>Migração para os clientes existentes
 
-Migre suas chaves de recurso existentes para os serviços de fala no portal de serviços de fala. Utilize os passos seguintes:
+Migre as chaves de recurso existentes para o serviço de fala no portal do serviço de fala. Utilize os passos seguintes:
 
 > [!NOTE]
 > As chaves do recurso só podem ser migradas dentro da mesma região.
@@ -54,12 +54,12 @@ Migre suas chaves de recurso existentes para os serviços de fala no portal de s
 
 3. Introduza a chave de subscrição na caixa de texto e selecione **migrar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Experimente os serviços de fala gratuitamente](get-started.md).
+* [Experimente o Speech Service gratuitamente](get-started.md).
 * Saiba mais [conversão de voz em texto](./speech-to-text.md) conceitos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-* [O que é o serviço de voz](overview.md)
-* [Documentação dos serviços de fala e do SDK de fala](speech-sdk.md#get-the-sdk)
+* [O que é o serviço de fala](overview.md)
+* [Documentação do Speech Service e do Speech SDK](speech-sdk.md#get-the-sdk)

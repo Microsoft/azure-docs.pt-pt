@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 68a52ddd7bcf711f64860b6598cc982e961075ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 005d3c36525546443f96ec2134a2c8f9ad44b4dd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796051"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819267"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,7 +95,7 @@ Antes de começar, certifique-se de:
 
 1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. O arquivo de áudio é transmitido para os serviços de fala e a primeira expressão no arquivo é transcrita para texto, que aparece na mesma janela.
+1. O arquivo de áudio é transmitido para o serviço de fala e o primeiro expressão no arquivo é transcrita para texto, que aparece na mesma janela.
 
    ```text
    Recognizing first result...

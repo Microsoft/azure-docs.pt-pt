@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: af101862e824d6527c08c232812913565536bb4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38dac73d253245fce86ac419c7a4eb3a106df3f0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503151"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818132"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Antes de começar, certifique-se de:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
-1. Localize a cadeia de caracteres `YourSubscriptionKey`e substitua-a pela sua chave de assinatura dos serviços de fala.
+1. Localize a cadeia de caracteres `YourSubscriptionKey`e substitua-a pela sua chave de assinatura do serviço de fala.
 
 1. Localize a cadeia de caracteres `YourServiceRegion`e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua assinatura. Por exemplo, se você estiver usando a assinatura de avaliação gratuita, a região será `westus`.
 
@@ -44,7 +44,7 @@ Antes de começar, certifique-se de:
 
 1. Escolha **depurar** > **Iniciar Depuração** (ou selecione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. Insira uma frase ou sentença em inglês. O aplicativo transmite o texto para os serviços de fala, o que envia a fala sintetizada para o aplicativo para ser tocado no seu palestrante.
+1. Insira uma frase ou sentença em inglês. O aplicativo transmite o texto para o serviço de fala, que envia a fala sintetizada para que o aplicativo Jogue no seu palestrante.
 
    ![Interface do usuário de síntese de fala](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 
@@ -52,7 +52,7 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

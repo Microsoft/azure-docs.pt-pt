@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f87cfb2564e1cd74d2a6a77b0f4a427d261a3101
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 69aa29d16e1869e48481b60e31b28afa949aa3c3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503851"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815972"
 ---
 [!INCLUDE [windows](./windows.md)]
 

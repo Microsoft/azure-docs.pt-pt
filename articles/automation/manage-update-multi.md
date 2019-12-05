@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278659"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806512"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -114,11 +114,15 @@ Além do agendamento da verificação, a verificação de conformidade da atuali
 
 Para um computador Linux, a verificação de conformidade é executada a cada hora por padrão. Se o agente MMA for reiniciado, uma verificação de conformidade será iniciada dentro de 15 minutos.
 
-Pode levar entre 30 minutos e 6 horas para que o painel exiba dados atualizados de computadores gerenciados.
+O dashboard pode demorar entre 30 minutos a 6 horas a apresentar os dados atualizados a partir dos computadores geridos.
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implementação de atualizações
 
 Para instalar atualizações, agende uma implantação que se alinhe ao seu cronograma de liberação e à sua janela de serviço. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
+
+>[!NOTE]
+>Quando você agenda uma implantação de atualização, ela cria um recurso de [agendamento](shared-resources/schedules.md) vinculado ao runbook **patch-MicrosoftOMSComputers** que manipula a implantação de atualização nos computadores de destino. Se você excluir o recurso de agenda do portal do Azure ou usando o PowerShell depois de criar a implantação, ele interromperá a implantação de atualização agendada e apresentará um erro quando você tentar reconfigurá-la no Portal. Você só pode excluir o recurso de agendamento excluindo a agenda de implantação correspondente.
+>
 
 Para agendar uma nova implantação de atualização para uma ou mais máquinas virtuais, em **Gerenciamento de atualizações**, selecione **agendar implantação de atualização**.
 
@@ -161,7 +165,7 @@ No painel **nova implantação de atualização** , especifique as seguintes inf
 
    |Opção|Descrição|
    |---|---|
-   |Reinicializar se necessário| **(Padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
+   |Reiniciar se necessário| **(Padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
    |Reiniciar sempre|Uma reinicialização é iniciada independentemente de ser necessária. |
    |Nunca reiniciar|Independentemente de uma reinicialização ser necessária, as reinicializações são suprimidas.|
    |Reiniciar apenas - não irá instalar atualizações|Essa opção ignora a instalação de atualizações e inicia apenas uma reinicialização.|

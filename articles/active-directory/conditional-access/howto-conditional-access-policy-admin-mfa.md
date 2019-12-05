@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50978b51fd1451cf65e33b38ca0699694cb115b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dd3de14d8c82a3e51d38a1e32241cb106e0f95b3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151185"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74804623"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acesso condicional: exigir MFA para administradores
 
@@ -30,7 +30,7 @@ A Microsoft recomenda que você exija MFA nas seguintes funções no mínimo:
 * Administrador de acesso condicional
 * Administrador de segurança
 * Administrador da assistência técnica (senha)
-* Administrador de senha
+* Administrador de palavras-passe
 * Administrador de faturação
 * Administrador do usuário
 
@@ -50,7 +50,7 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas executem a autenticação multifator.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** **acesso condicional** > .
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione **nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**
@@ -61,7 +61,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
       * Administrador de acesso condicional
       * Administrador de segurança
       * Administrador de assistência técnica
-      * Administrador de senha
+      * Administrador de palavras-passe
       * Administrador de faturação
       * Administrador do usuário
    1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 

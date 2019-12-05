@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795667"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829028"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de VPN (gateway de rede virtual) do Azure e um gateway de VPN de WAN virtual do Azure?
 
@@ -113,7 +113,9 @@ Você pode conectar uma VNet em uma região diferente da WAN virtual.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>As VNets spoke ligadas a um hub virtual podem comunicar entre si?
 
-Sim. O spoke VNets pode se comunicar diretamente por meio do emparelhamento de rede virtual. Para obter mais informações, veja [Peering de Rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md). Também damos suporte à comunicação de VNets transitivamente por meio do Hub.
+Sim. A WAN virtual padrão dá suporte à conectividade transitiva vnet para vnet por meio do Hub WAN virtual ao qual os Vnets estão conectados. Na terminologia da WAN virtual, nos referimos a esses caminhos como "trânsito da VNet da WAN virtual local" para VNets conectados a um hub de WAN virtual dentro de uma única região e "trânsito da VNet global de WAN virtual" para VNets conectados por meio de vários hubs de WAN virtual em dois ou mais regiões. O trânsito de VNet dá suporte a até 3 Gbps de taxa de transferência durante a visualização pública. A taxa de transferência será expandida quando o trânsito global ficar GA.   
+
+Para alguns cenários, o spoke Vnets também pode ser diretamente emparelhado entre si usando o [emparelhamento de rede virtual](../articles/virtual-network/virtual-network-peering-overview.md) , além do trânsito local ou global da VNET de WAN virtual. Nesse caso, o emparelhamento vnet tem precedência sobre a conexão transitiva por meio do Hub WAN virtual. 
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>O que é uma conexão de ramificação para a WAN virtual do Azure?
 

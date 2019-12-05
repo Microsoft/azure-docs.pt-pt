@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 727929efb499f32dcd42a964b6b6c8e762803590
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 616d212c9968fe740811805eb6ecdc200c749ed7
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503466"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817728"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início rápido: sintetizar a fala em Swift no macOS usando o SDK de fala
 
@@ -23,7 +23,7 @@ Neste artigo, você aprende a criar um aplicativo macOS em Swift usando o SDK de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, veja uma lista de pré-requisitos:
+Antes de começar, eis uma lista de pré-requisitos:
 
 * Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) para o serviço de fala.
 * Uma máquina macOS com o [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior e o [CocoaPods](https://cocoapods.org/) instalado.

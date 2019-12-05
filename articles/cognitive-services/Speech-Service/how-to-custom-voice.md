@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e40ca55a9cd198e1b086362a2559ab2fc0ba95e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464524"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805965"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -23,13 +23,13 @@ ms.locfileid: "73464524"
 
 ## <a name="whats-in-custom-voice"></a>O que há em voz personalizada?
 
-Antes de começar com a voz personalizada, você precisará de uma conta do Azure e uma assinatura de serviços de fala. Depois de criar uma conta, você pode preparar seus dados, treinar e testar seus modelos, avaliar a qualidade da voz e, por fim, implantar seu modelo de voz personalizado.
+Antes de começar com a voz personalizada, você precisará de uma conta do Azure e uma assinatura do serviço de fala. Depois de criar uma conta, você pode preparar seus dados, treinar e testar seus modelos, avaliar a qualidade da voz e, por fim, implantar seu modelo de voz personalizado.
 
 O diagrama a seguir realça as etapas para criar um modelo de voz personalizado usando o [portal de voz personalizado](https://aka.ms/customvoice). Use os links para saber mais.
 
 ![Diagrama de arquitetura de voz personalizada](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Assinar e criar um projeto](#set-up-your-azure-account) -criar uma conta do Azure e criar uma assinatura de serviços de fala. Essa assinatura unificada fornece acesso a conversão de fala em texto, texto para fala, tradução de fala e portal de voz personalizado. Em seguida, usando sua assinatura de serviços de fala, crie seu primeiro projeto de voz personalizado.
+1.  [Assinar e criar um projeto](#set-up-your-azure-account) -crie uma conta do Azure e crie uma assinatura do serviço de fala. Essa assinatura unificada fornece acesso a conversão de fala em texto, texto para fala, tradução de fala e portal de voz personalizado. Em seguida, usando sua assinatura do serviço de fala, crie seu primeiro projeto de voz personalizado.
 
 2.  [Carregar dados](how-to-custom-voice-create-voice.md#upload-your-datasets) – carregar dados (áudio e texto) usando o portal de voz personalizado ou a API de voz personalizada. No portal, você pode investigar e avaliar as pontuações de pronúncia e as taxas de sinal para ruído. Para obter mais informações, consulte [como preparar dados para voz personalizada](how-to-custom-voice-prepare-data.md).
 
@@ -46,11 +46,11 @@ O recurso de personalização de voz neural está atualmente em visualização p
 
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
-Uma assinatura de serviços de fala é necessária para que você possa usar o portal de Fala Personalizada para criar um modelo personalizado. Siga estas instruções para criar uma assinatura de serviços de fala no Azure. Se você não tiver uma conta do Azure, poderá se inscrever para uma nova.  
+Uma assinatura de serviço de fala é necessária para que você possa usar o portal de Fala Personalizada para criar um modelo personalizado. Siga estas instruções para criar uma assinatura do serviço de fala no Azure. Se você não tiver uma conta do Azure, poderá se inscrever para uma nova.  
 
-Depois de criar uma conta do Azure e uma assinatura de serviços de fala, você precisará entrar no portal de voz personalizado e conectar-se à sua assinatura.
+Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você precisará entrar no portal de voz personalizado e conectar-se à sua assinatura.
 
-1. Obtenha sua chave de assinatura dos serviços de fala da portal do Azure.
+1. Obtenha sua chave de assinatura do serviço de fala do portal do Azure.
 2. Entre no portal de [voz personalizado](https://aka.ms/custom-voice).
 3. Selecione sua assinatura e crie um projeto de fala.
 4. Se você quiser mudar para outra assinatura de fala, use o ícone de engrenagem localizado na navegação superior.

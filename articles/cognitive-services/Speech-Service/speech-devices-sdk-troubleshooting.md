@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558912"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815575"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Resolver problemas do SDK de Dispositivos de Voz
 
@@ -23,7 +23,7 @@ Este artigo fornece informações para ajudá-lo a resolver problemas que você 
 
 ## <a name="certificate-failures"></a>Falhas de certificado
 
-Se você obtiver falhas de certificado ao usar os serviços de fala, verifique se o dispositivo tem a data e a hora corretas:
+Se você obtiver falhas de certificado ao usar o serviço de fala, verifique se o dispositivo tem a data e a hora corretas:
 
 1. Aceda a **definições**. Sob **System**, selecione **data e hora**.
 
@@ -35,6 +35,6 @@ Se você obtiver falhas de certificado ao usar os serviços de fala, verifique s
 
     Quando vir que o tempo o kit de desenvolvimento corresponde a hora no seu PC, o kit de desenvolvimento está ligado à internet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja as notas de versão](devices-sdk-release-notes.md)

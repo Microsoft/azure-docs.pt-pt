@@ -11,12 +11,12 @@ ms.date: 12/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a130eb5e1777259a0c74285ead526b3b995466
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 163d1f7f457dcbca7fbb9e331ec889bcc0894dfc
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793620"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814458"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionamento de nuvem piloto para uma floresta do AD sincronizada existente 
 
@@ -72,7 +72,7 @@ Azure AD Connect sincronização sincroniza as alterações que ocorrem em seu d
 
     |Regra|Atributo|Operador|Valor|
     |-----|----|----|-----|
-    |UO de escopo|IGNORA|ENDSWITH|Nome diferenciado da UO.|
+    |UO de escopo|DN|ENDSWITH|Nome diferenciado da UO.|
     |Grupo de escopo||ISMEMBEROF|Nome distinto do grupo de segurança.|
 
     ![Regra personalizada](media/how-to-cloud-custom-user-rule/user3.png)</br>
@@ -119,7 +119,7 @@ Agora, você configurará Azure AD Connect para excluir a UO piloto que foi cria
  5. Na tela **conectar seus diretórios** , clique em **Avançar**.
  6. Na tela **filtragem de domínio e UO** , selecione **sincronizar domínios e UOs selecionados**.
  7. Expanda seu domínio e **desmarque** a UO de **CPUs** .  Clique em **Seguinte**.
-](media/tutorial-existing-forest/scope1.png) de escopo de ![</br>
+![scope](media/tutorial-existing-forest/scope1.png)</br>
  9. Na tela **recursos opcionais** , clique em **Avançar**.
  10. Na tela **pronto para configurar** , clique em **Configurar**.
  11. Após a conclusão, clique em **sair**. 
@@ -132,37 +132,25 @@ Azure AD Connect sincronização sincroniza as alterações que ocorrem em seu d
 3.  Execute `Start-ADSyncSyncCycle`.  Pressione Enter.  
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalar o agente de provisionamento do Azure AD Connect
-1. Entre no servidor que será usado com as permissões de administrador corporativo.  Se você estiver usando o tutorial [básico do ambiente do AD e do Azure](tutorial-basic-ad-azure.md) , seria CP1.
-2. Baixe o agente de provisionamento de nuvem Azure AD Connect [aqui](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Executar o provisionamento Azure AD Connect Cloud (AADConnectProvisioningAgent. Installer)
-3. Na tela inicial, **aceite** os termos de licenciamento e clique em **instalar**.</br>
+1. Entre no servidor ingressado no domínio.  Se você estiver usando o tutorial [básico do ambiente do AD e do Azure](tutorial-basic-ad-azure.md) , seria DC1.
+2. Entre no portal do Azure usando credenciais de administrador global somente em nuvem.
+3. À esquerda, selecione **Azure Active Directory**, clique em **Azure ad Connect** e, no centro, selecione **gerenciar provisionamento (versão prévia)** .</br>
+![Portal do Azure](media/how-to-install/install6.png)</br>
+4. Clique em "baixar agente"
+5. Executar o agente de provisionamento do Azure AD Connect
+6. Na tela inicial, **aceite** os termos de licenciamento e clique em **instalar**.</br>
 ![Ecrã de Boas-Vindas](media/how-to-install/install1.png)</br>
 
-4. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.
-5. Na tela **conectar Active Directory** , clique em **Adicionar diretório** e entre com sua conta de administrador do Active Directory.  Esta operação adicionará seu diretório local.  Clique em **Seguinte**.</br>
+7. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.  Observe que, se você tiver a segurança aprimorada do IE habilitada, isso bloqueará a entrada.  Se esse for o caso, feche a instalação, desabilite a segurança aprimorada do IE no Gerenciador do Servidor e clique no **Assistente do agente de provisionamento do AAD Connect** para reiniciar a instalação.
+8. Na tela **conectar Active Directory** , clique em **Adicionar diretório** e entre com sua conta de administrador de domínio do Active Directory.  Observação: a conta de administrador de domínio não deve ter requisitos de alteração de senha. Caso a senha expire ou seja alterada, será necessário reconfigurar o agente com as novas credenciais. Esta operação adicionará seu diretório local.  Clique em **Seguinte**.</br>
 ![Ecrã de Boas-Vindas](media/how-to-install/install3.png)</br>
 
-6. Na tela **configuração concluída** , clique em **confirmar**.  Esta operação registrará e reiniciará o agente.</br>
+9. Na tela **configuração concluída** , clique em **confirmar**.  Esta operação registrará e reiniciará o agente.</br>
 ![Ecrã de Boas-Vindas](media/how-to-install/install4.png)</br>
 
-7. Após a conclusão dessa operação, você deverá ver um aviso **de que seu foi verificado com êxito.**  Você pode clicar em **sair**.</br>
+10. Quando essa operação for concluída, você deverá ver um aviso: **a configuração do agente foi verificada com êxito.**  Você pode clicar em **sair**.</br>
 ![Ecrã de Boas-Vindas](media/how-to-install/install5.png)</br>
-8. Se você ainda vir a tela de abertura inicial, clique em **fechar**. 1. Entre no servidor que será usado com as permissões de administrador corporativo.
-2. Baixe o agente de provisionamento de nuvem Azure AD Connect [aqui](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Executar o provisionamento Azure AD Connect Cloud (AADConnectProvisioningAgent. Installer)
-3. Na tela inicial, **aceite** os termos de licenciamento e clique em **instalar**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install1.png)</br>
-
-4. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.
-5. Na tela **conectar Active Directory** , clique em **Adicionar diretório** e entre com sua conta de administrador do Active Directory.  Esta operação adicionará seu diretório local.  Clique em **Seguinte**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install3.png)</br>
-
-6. Na tela **configuração concluída** , clique em **confirmar**.  Esta operação registrará e reiniciará o agente.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install4.png)</br>
-
-7. Após a conclusão dessa operação, você deverá ver um aviso **de que seu foi verificado com êxito.**  Você pode clicar em **sair**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install5.png)</br>
-8. Se você ainda vir a tela de abertura inicial, clique em **fechar**.
+11. Se você ainda vir a tela de abertura inicial, clique em **fechar**.
 
 ## <a name="verify-agent-installation"></a>Verificar a instalação do agente
 A verificação do agente ocorre na portal do Azure e no servidor local que está executando o agente.
@@ -211,7 +199,7 @@ Use as seguintes etapas para configurar o provisionamento:
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Verificar se os usuários são provisionados pelo provisionamento de nuvem
 Agora, você verificará se os usuários que você tinha em nosso diretório local foram sincronizados e agora existem no locatário do Azure AD.  Lembre-se de que isso pode levar algumas horas para ser concluído.  Para verificar se os usuários estão Provisionando por provisionamento de nuvem, siga estas etapas:
 
-1. Navegue até o [portal do Azure](https://portal.azure.com) e entre com uma conta que tenha uma assinatura do Azure.
+1. Navegue para o [portal do Azure](https://portal.azure.com) e inicie sessão com uma conta que tenha uma subscrição do Azure.
 2. À esquerda, selecione **Azure Active Directory**
 3. Clique em **Azure ad Connect**
 4. Clique em **gerenciar provisionamento (versão prévia)**
@@ -220,7 +208,7 @@ Agora, você verificará se os usuários que você tinha em nosso diretório loc
 
 Além disso, você pode verificar se o usuário e o grupo existem no Azure AD.
 
-## <a name="something-went-wrong"></a>Algo deu errado
+## <a name="something-went-wrong"></a>Algo correu mal
 Caso o piloto não funcione conforme o esperado, você poderá voltar para a configuração de sincronização do Azure AD Connect seguindo as etapas abaixo:
 1.  Desabilite a configuração de provisionamento no portal do Azure. 
 2.  Desabilite todas as regras de sincronização personalizadas criadas para provisionamento de nuvem usando a ferramenta sincronizar editor de regra. A desabilitação deve causar sincronização completa em todos os conectores.

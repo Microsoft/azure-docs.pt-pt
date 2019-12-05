@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 54a5be769ace97ffa9a4f5f38a9227d9565abfd1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111706"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815852"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Início rápido: criar um assistente de voz com o SDK de fala, Java (visualização)
 
@@ -30,7 +30,7 @@ Este início rápido requer:
 - Sistema operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10,13 ou posterior.
 - [Java IDE Eclipse](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
+- Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
 - Um bot pré-configurado criado usando o bot Framework versão 4,2 ou superior. O bot precisa assinar o novo canal de fala de linha direta para receber entradas de voz.
 
   > [!NOTE]
@@ -477,7 +477,7 @@ Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão dispon
 ## <a name="see-also"></a>Ver também
 
 - [Sobre assistentes de voz](voice-assistants.md)
-- [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+- [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
 - [Palavras-chave personalizadas](speech-devices-sdk-create-kws.md)
 - [Conecte a fala de linha direta ao bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)

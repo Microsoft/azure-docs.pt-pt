@@ -1,7 +1,7 @@
 ---
 title: Como usar a transcrição do lote – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A transcrição do lote é ideal se você quiser transcrever uma grande quantidade de áudio no armazenamento, como BLOBs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio com um URI de assinatura de acesso compartilhado (SAS) e receber transcrições de forma assíncrona.
+description: Transcrição de batch é ideal se quiser transcrição de uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Ao utilizar a API de REST dedicada, que pode apontar para arquivos de áudio com uma assinatura de acesso partilhado (SAS) URI e assincronamente receber transcrições.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,52 +10,52 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538122"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806342"
 ---
-# <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
+# <a name="why-use-batch-transcription"></a>Por que usar a transcrição de Batch?
 
-A transcrição do lote é ideal se você quiser transcrever uma grande quantidade de áudio no armazenamento, como BLOBs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio com um URI de assinatura de acesso compartilhado (SAS) e receber transcrições de forma assíncrona.
+Transcrição de batch é ideal se quiser transcrição de uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Ao utilizar a API de REST dedicada, que pode apontar para arquivos de áudio com uma assinatura de acesso partilhado (SAS) URI e assincronamente receber transcrições.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="subscription-key"></a>Chave de assinatura
+### <a name="subscription-key"></a>Chave de Subscrição
 
-Assim como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura do [portal do Azure](https://portal.azure.com) seguindo nosso [Guia de introdução](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo o que você precisa fazer.
+Com todas as funcionalidades do serviço de voz, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com) seguindo nossas [guia de introdução](get-started.md). Se pretender obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo o que precisa fazer.
 
 >[!NOTE]
-> Uma assinatura padrão (S0) para serviços de fala é necessária para usar a transcrição do lote. As chaves de assinatura gratuitas (F0) não funcionarão. Para obter informações adicionais, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Uma assinatura padrão (S0) para o serviço de fala é necessária para usar a transcrição do lote. Chaves de subscrição gratuita (F0) não irão funcionar. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modelos personalizados
 
 Se você planeja personalizar modelos acústicos ou de idioma, siga as etapas em [personalizar modelos acústicos](how-to-customize-acoustic-models.md) e [personalizar modelos de linguagem](how-to-customize-language-model.md). Para usar os modelos criados na transcrição do lote, você precisa de suas IDs de modelo. Essa ID não é a ID do ponto de extremidade que você encontra no modo de exibição detalhes do ponto de extremidade, é a ID do modelo que você pode recuperar ao selecionar os detalhes dos modelos.
 
-## <a name="the-batch-transcription-api"></a>A API de transcrição do lote
+## <a name="the-batch-transcription-api"></a>A API de transcrição do Batch
 
-A API de transcrição do lote oferece uma transcrição de fala a texto assíncrona, juntamente com recursos adicionais. É uma API REST que expõe métodos para:
+A API de transcrição do Batch oferece assíncrona transcrição de voz em texto, juntamente com funcionalidades adicionais. É uma API REST que expõe métodos para:
 
-1. Criando solicitações de processamento em lote
-1. Status da consulta
-1. Baixando transcrições
+1. Criar pedidos de processamento de batch
+1. Estado de consulta
+1. Baixar o transcrições
 
 > [!NOTE]
-> A API de transcrição do lote é ideal para call centers, que normalmente acumulam milhares de horas de áudio. Ele facilita transcrever grandes volumes de gravações de áudio.
+> A API de transcrição do Batch é ideal para os centros de chamada, que normalmente se acumular milhares de horas de áudio. Ele facilita transcrever grandes volumes de gravações de áudio.
 
-### <a name="supported-formats"></a>Formatos com suporte
+### <a name="supported-formats"></a>Formatos suportados
 
-A API de transcrição do lote dá suporte aos seguintes formatos:
+A API de transcrição do Batch suporta os seguintes formatos:
 
-| Formato | Codec | 720p | Taxa de amostra |
+| Formato | Codec | Velocidade de transmissão | Taxa de exemplo |
 |--------|-------|---------|-------------|
-| WAV | PCM | 16 bits | 8 ou 16 kHz, mono, estéreo |
-| MP | PCM | 16 bits | 8 ou 16 kHz, mono, estéreo |
-| OGG | OPUS | 16 bits | 8 ou 16 kHz, mono, estéreo |
+| WAV | PCM | 16-bit | 8 ou 16 estéreo mono, kHz, |
+| MP3 | PCM | 16-bit | 8 ou 16 estéreo mono, kHz, |
+| OGG | OPUS | 16-bit | 8 ou 16 estéreo mono, kHz, |
 
-Para fluxos de áudio estéreo, a API de transcrição do lote divide o canal esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os carimbos de data/hora por expressão permitem que o desenvolvedor crie uma transcrição final ordenada. Essa solicitação de exemplo inclui propriedades de filtragem de profanação, pontuação e carimbos de data/hora de nível de palavra.
+Para fluxos de áudio estéreo, a API de transcrição do Batch divide o canal do esquerda e direito durante a transcrição. Os dois ficheiros JSON com o resultado são todos criados a partir de um canal único. Os carimbos de data / por expressão permitem aos programadores criar uma transcrição final ordenada. Essa solicitação de exemplo inclui propriedades de filtragem de profanação, pontuação e carimbos de data/hora de nível de palavra.
 
 ### <a name="configuration"></a>Configuração
 
@@ -78,7 +78,7 @@ Os parâmetros de configuração são fornecidos como JSON:
 ```
 
 > [!NOTE]
-> A API de transcrição do lote usa um serviço REST para solicitar transcrições, seu status e os resultados associados. Você pode usar a API de qualquer idioma. A próxima seção descreve como a API é usada.
+> A API de transcrição do Batch utiliza um serviço REST para pedir transcrições, o respetivo estado e resultados associados. Pode utilizar a API em qualquer linguagem. A seguinte secção descreve como a API é utilizada.
 
 ### <a name="configuration-properties"></a>Propriedades de configuração
 
@@ -86,8 +86,8 @@ Use essas propriedades opcionais para configurar a transcrição:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| `ProfanityFilterMode` | Especifica como lidar com profanação em resultados de reconhecimento. Os valores aceitos são `None` que desabilita a filtragem de profanação, `masked` que substitui profanação por asteriscos, `removed` que remove toda a profanaidade do resultado ou `tags` que adiciona marcas de "profanação". A configuração padrão é `masked`. |
-| `PunctuationMode` | Especifica como lidar com a pontuação nos resultados do reconhecimento. Os valores aceitos são `None` que desabilita a pontuação, `dictated` que implica Pontuação explícita, `automatic` que permite que o decodificador lide com pontuação ou `dictatedandautomatic` que implica em marcas de Pontuação ditadas ou automáticas. |
+| `ProfanityFilterMode` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Aceite os valores são `None` que desativa a filtragem de palavras ofensivas `masked` que substitui a linguagem inapropriada por asteriscos, `removed` linguagem inapropriada todos os que remove o resultado ou `tags` que adiciona as etiquetas de "linguagem inapropriada". A predefinição é `masked`. |
+| `PunctuationMode` | Especifica como lidar com a pontuação nos resultados de reconhecimento. Aceite os valores são `None` que desativa a pontuação, `dictated` implica que pontuação explícita, `automatic` que permite que o Decodificador lidar com a pontuação, ou `dictatedandautomatic` que implica ditado marcas de pontuação ou automático. |
  | `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora de nível de palavra devem ser adicionados à saída. Os valores aceitos são `true` que habilita os carimbos de data e hora de nível de palavra e `false` (o valor padrão) para desabilitá-lo. |
  | `AddSentiment` | Especifica um sentimentos que deve ser adicionado ao expressão. Os valores aceitos são `true` que habilita a expressão e a `false` (o valor padrão) para desabilitá-lo. |
  | `AddDiarization` | Especifica que a análise de diarization deve ser executada na entrada que é esperada como canal mono contendo duas vozes. Os valores aceitos são `true` que habilita diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer que `AddWordLevelTimestamps` seja definido como true.|
@@ -190,9 +190,9 @@ O código de exemplo configurará o cliente e enviará a solicitação de transc
 
 Para obter detalhes completos sobre as chamadas anteriores, consulte nosso [documento do Swagger](https://westus.cris.ai/swagger/ui/index). Para obter o exemplo completo mostrado aqui, vá para [GitHub](https://aka.ms/csspeech/samples) no subdiretório `samples/batch`.
 
-Anote a configuração assíncrona para postar áudio e receber o status da transcrição. O cliente que você cria é um cliente HTTP .NET. Há um método `PostTranscriptions` para enviar os detalhes do arquivo de áudio e um método `GetTranscriptions` para receber os resultados. `PostTranscriptions` retorna um identificador e `GetTranscriptions` o usa para criar um identificador para obter o status de transcrição.
+Tome nota da configuração assíncrona para áudio de lançamentos e a receção de estado de transcrição. O cliente que criou é um cliente de HTTP do .NET. Há uma `PostTranscriptions` método para enviar os detalhes do arquivo de áudio e um `GetTranscriptions` método para receber os resultados. `PostTranscriptions` Retorna um identificador, e `GetTranscriptions` utiliza para criar um identificador para obter o estado de transcrição.
 
-O código de exemplo atual não especifica um modelo personalizado. O serviço usa os modelos de linha de base para transcrever o arquivo ou os arquivos. Para especificar os modelos, você pode passar o mesmo método que as IDs de modelo para o acústica e o modelo de linguagem.
+O código de exemplo atual não especifica um modelo personalizado. O serviço utiliza os modelos de linha de base para fotografar o ficheiro ou ficheiros. Para especificar os modelos, pode passar o mesmo método que os IDs de modelo para o acústicos e o modelo de idioma.
 
 > [!NOTE]
 > Para transcrições de linha de base, você não precisa declarar a ID para os modelos de linha de base. Se você especificar apenas uma ID de modelo de linguagem (e nenhuma ID de modelo acústico), um modelo acústico correspondente será selecionado automaticamente. Se você especificar apenas uma ID de modelo acústico, um modelo de idioma correspondente será selecionado automaticamente.

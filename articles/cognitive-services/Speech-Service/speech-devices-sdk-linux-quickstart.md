@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090432"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815319"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Início rápido: executar o aplicativo de exemplo do SDK de dispositivos de fala no Linux
 
@@ -23,7 +23,7 @@ Neste guia de início rápido, você aprenderá a usar o SDK de dispositivos de 
 
 O aplicativo é criado com o pacote do SDK de fala e o eclipse Java IDE (v4) no Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9). É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
-Este guia requer uma conta de [Serviços cognitivas do Azure](get-started.md) com um recurso de serviços de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
+Este guia requer uma conta de [Serviços cognitivas do Azure](get-started.md) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 O código-fonte do [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE) está incluído no SDK dos dispositivos de fala. Também vale [está disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 

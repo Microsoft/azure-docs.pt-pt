@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 0bcfd40510352abc9e64782255d3c8349b8ad87e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f4200a0a43507a335f0e4e59e5a794d2bc4d6142
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072409"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816547"
 ---
 # <a name="ship-an-application"></a>Lançar uma aplicação
 

@@ -2,13 +2,13 @@
 title: Implantação condicional com modelos
 description: Descreve como implantar condicionalmente um recurso em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: e3d78f875e39628194ac30310314e59e2ef19fdb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: ec2337686f92bb631ae4b08ce125eb576cd8bd69
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147183"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806478"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Implantação condicional em modelos do Resource Manager
 
@@ -78,6 +78,8 @@ Para obter o modelo completo, consulte [servidor lógico do SQL do Azure](https:
 Se você usar uma função de [referência](resource-group-template-functions-resource.md#reference) ou de [lista](resource-group-template-functions-resource.md#list) com um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado. Você receberá um erro se a função se referir a um recurso que não existe.
 
 Use a função [If](resource-group-template-functions-logical.md#if) para certificar-se de que a função é avaliada apenas para condições quando o recurso for implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e Reference com um recurso implantado condicionalmente.
+
+Você define um [recurso como dependente](resource-group-define-dependencies.md) de um recurso condicional exatamente como faria com qualquer outro recurso. Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
 
 ## <a name="condition-with-complete-mode"></a>Condição com modo completo
 

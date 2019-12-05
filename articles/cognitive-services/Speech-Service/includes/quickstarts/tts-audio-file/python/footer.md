@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 53c1eadb89ddbbe9cf71bb33e87d4900d4968e8e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8a8cd23c21a190c8ddfcb3b7e1a97919ce27f22d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503347"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818063"
 ---
 > [!div class="nextstepaction"]
 > [Explore os exemplos do Python no GitHub](https://aka.ms/speech/github-python)

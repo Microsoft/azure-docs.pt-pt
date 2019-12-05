@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 0729bee2f01dbd230b6f4442fc8e429a4fef3e16
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9a4c7f24a2e28743679e312e3dce0bc605db6749
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795925"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816125"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

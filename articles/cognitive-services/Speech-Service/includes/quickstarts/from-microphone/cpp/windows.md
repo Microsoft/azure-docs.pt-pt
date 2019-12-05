@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: dd31ae7b0fbbd9c411cf1bb511551bfba57a1838
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 74bc77fbb9436983c26c572b521d96795f14cfcd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796217"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818914"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Antes de começar:
 
 1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para os serviços de fala, o que transcreve para o texto e o envia de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que transcreve para o texto e o envia de volta para o aplicativo para exibição.
 
    ![Saída do console após reconhecimento bem-sucedido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 
