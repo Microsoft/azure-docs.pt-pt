@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226378"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665615"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
 
@@ -36,7 +36,7 @@ Precisará das seguintes permissões para criar subscrições:
 |---------|---------|
 |Contrato Enterprise (EA) |  Função de Proprietário de Conta na inscrição do Contrato Enterprise. Para obter mais informações, veja [Compreender as funções administrativas do Contrato Enterprise no Azure](billing-understand-ea-roles.md).    |
 |Contrato de Cliente da Microsoft (MCA) |  Função de proprietário ou contribuidor na secção da fatura, no perfil de faturação ou na conta de faturação. Ou função de criador da subscrição do Azure na secção da fatura.  Para obter mais informações, veja [Tarefa e funções da faturação da subscrição](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Contrato de Parceiro da Microsoft (MPA) |   Função de Administrador Global e de Agente de Administração na organização parceira. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores)  |
+|Contrato de Parceiro da Microsoft (MPA) |   Função de Administrador Global e de Agente de Administração na organização de parceiro CSP. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).  O utilizador tem de iniciar sessão no inquilino parceiro para criar subscrições do Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma subscrição no portal do Azure
 

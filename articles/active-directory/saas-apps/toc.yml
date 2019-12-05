@@ -283,6 +283,8 @@
           href: civic-platform-tutorial.md
         - name: Clarizen
           href: clarizen-tutorial.md
+        - name: Claromentis
+          href: claromentis-tutorial.md
         - name: Clear Review
           href: clearreview-tutorial.md
         - name: ClearCompany
@@ -507,7 +509,7 @@
           href: floqast-tutorial.md
         - name: Fluxx Labs
           href: fluxxlabs-tutorial.md
-        - name: 'FM&#58Systems'
+        - name: 'FM:Systems'
           href: fm-systems-tutorial.md
         - name: Foko Retail
           href: foko-retail-tutorial.md
@@ -715,6 +717,8 @@
           href: jiramicrosoft-tutorial.md
         - name: JIRA SAML SSO da Microsoft (V5.2)
           href: jira52microsoft-tutorial.md
+        - name: Recenseamento Eleitoral para Estudantes da Jisc
+          href: jisc-student-voter-registration-tutorial.md
         - name: Jitbit Helpdesk
           href: jitbit-helpdesk-tutorial.md
         - name: Jive
@@ -1602,6 +1606,8 @@
           href: github-provisioning-tutorial.md
         - name: GoToMeeting
           href: citrixgotomeeting-provisioning-tutorial.md
+        - name: Harness
+          href: harness-provisioning-tutorial.md
         - name: Infor CloudSuite
           href: infor-cloudsuite-provisioning-tutorial.md
         - name: Ideo
