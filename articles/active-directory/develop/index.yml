@@ -5,15 +5,16 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/22/2019
   author: CelesteDG
+  ms.author: celested
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 63c9b205048b6cd4f59d1f5972f8f789a875b768
-  ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+  ms.openlocfilehash: e15eb958c301d0a7d3795743668e269058ae63d3
+  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/23/2019
-  ms.locfileid: "72803252"
+  ms.lasthandoff: 12/05/2019
+  ms.locfileid: "74842531"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:

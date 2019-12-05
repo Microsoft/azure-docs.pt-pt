@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: MicrosoftGuyJFlo
-  ms.author: joflore
+  author: iainfoulds
+  ms.author: iainfou
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: a9c893f8549562c4628220cbd674eea9986e5cbb
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
+  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70124864"
+  ms.lasthandoff: 12/05/2019
+  ms.locfileid: "74847156"
 landingContent:
 - title: Acerca da autenticação
   linkLists:
