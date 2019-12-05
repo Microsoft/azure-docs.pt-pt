@@ -13,37 +13,43 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0e8b203240b4b2d6b67534ab52a7cd4ccf5df571
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: e1c5504b30c2784e8657ccc0dc4ec18689fe2a68
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976586"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806818"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classe-Azure Lab Services
+
 Azure Lab Services permite que você configure rapidamente ambientes de laboratório de sala de aula na nuvem. Os artigos nesta seção fornecem orientação sobre como configurar vários tipos de laboratórios de sala de aula usando Azure Lab Services.
 
 ## <a name="deep-learning-in-natural-language-processing"></a>Aprendizado profundo no processamento de linguagem natural
-Você pode configurar um laboratório voltado para o aprendizado profundo no NLP (processamento de linguagem natural) usando Azure Lab Services. O NLP (processamento de idioma natural) é uma forma de ia (inteligência artificial) que permite aos computadores com tradução, reconhecimento de fala e outros recursos de compreensão da linguagem. Os alunos que tomam uma classe NLP obtêm uma VM (máquina virtual) do Linux para saber como aplicar algoritmos de rede neural para desenvolver modelos de aprendizado profundo que são usados para analisar a linguagem humana programada. 
+
+Você pode configurar um laboratório voltado para o aprendizado profundo no NLP (processamento de linguagem natural) usando Azure Lab Services. O NLP (processamento de idioma natural) é uma forma de ia (inteligência artificial) que permite aos computadores com tradução, reconhecimento de fala e outros recursos de compreensão da linguagem. Os alunos que tomam uma classe NLP obtêm uma VM (máquina virtual) do Linux para saber como aplicar algoritmos de rede neural para desenvolver modelos de aprendizado profundo que são usados para analisar a linguagem humana programada.
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, consulte [configurar um laboratório voltado para o aprendizado profundo no processamento de idioma natural usando Azure Lab Services](class-type-deep-learning-natural-processing.md).
 
 ## <a name="shell-scripting-on-linux"></a>Script de Shell no Linux
-Você pode configurar um laboratório para ensinar o script de Shell no Linux. O script é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de exemplo, a classe abrange scripts de bash tradicionais e scripts aprimorados. Scripts aprimorados são scripts que combinam comandos de bash e Ruby. Essa abordagem permite que o Ruby transmita dados e bash comandos para interagir com o Shell. 
+
+Você pode configurar um laboratório para ensinar o script de Shell no Linux. O script é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de exemplo, a classe abrange scripts de bash tradicionais e scripts aprimorados. Scripts aprimorados são scripts que combinam comandos de bash e Ruby. Essa abordagem permite que o Ruby transmita dados e bash comandos para interagir com o Shell.
 
 Os alunos que tomam essas classes de script obtêm uma máquina virtual Linux para aprender as noções básicas do Linux e também se familiarizarem com os scripts do shell bash. A máquina virtual Linux vem com o acesso à área de trabalho remota habilitado e com os editores de texto [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) instalados.
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, consulte [shell scripting no Linux](class-type-shell-scripting-linux.md).
 
-## <a name="ethical-hacking"></a>Ethical Hacking 
-Você pode configurar um laboratório para uma classe que se concentre no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar. 
+## <a name="ethical-hacking"></a>Acesso ilícito ético
 
-Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de defesa contra vulnerabilidades. Cada aluno Obtém uma máquina virtual do host do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem **Metaspoiltable** e outra máquina com a imagem do [Kali Linux](https://www.kali.org/) . A máquina virtual Metasploitable é usada para fins de exploração e a máquina virtual Kali fornece acesso às ferramentas necessárias para executar tarefas forenses.
+Você pode configurar um laboratório para uma classe que se concentre no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar.
+
+Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de defesa contra vulnerabilidades. Cada aluno Obtém uma máquina virtual do host do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem [Metasploitable3](https://github.com/rapid7/metasploitable3) e outra máquina com a imagem do [Kali Linux](https://www.kali.org/) . A máquina virtual Metasploitable é usada para fins de exploração.  A máquina virtual Kali Linux fornece acesso às ferramentas necessárias para executar tarefas forenses.
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, consulte [configurar um laboratório para ensinar a aula ética de hackers](class-type-ethical-hacking.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos: 
+
+Consulte os seguintes artigos:
 
 - [Configure um laboratório voltado para o aprendizado profundo no processamento de linguagem natural usando Azure Lab Services](class-type-deep-learning-natural-processing.md)
 - [Script de Shell no Linux](class-type-shell-scripting-linux.md)
+- [Ethical Hacking](class-type-ethical-hacking.md)

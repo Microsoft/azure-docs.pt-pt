@@ -4,19 +4,19 @@ description: Este artigo descreve a nova camada de computação sem servidor e a
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: test
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775588"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807022"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de Dados SQL do Azure sem servidor
 
@@ -66,9 +66,9 @@ A tabela a seguir resume as distinções entre a camada de computação sem serv
 | | **Computação sem servidor** | **Computação provisionada** |
 |:---|:---|:---|
 |**Padrão de uso do banco de dados**| Uso intermitente e imprevisível com menor utilização média de computação ao longo do tempo. |  Padrões de uso mais regulares com maior utilização média de computação ao longo do tempo ou a vários bancos de dados usando pools elásticos.|
-| **Esforço de gerenciamento de desempenho** |Canto|Altos|
+| **Esforço de gerenciamento de desempenho** |Inferior|Superior|
 |**Escala de computação**|Automático|Manual|
-|**Capacidade de resposta de computação**|Inferior após períodos inativos|Implantação|
+|**Capacidade de resposta de computação**|Inferior após períodos inativos|Imediata|
 |**Granularidade da cobrança**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modelo de compra e camada de serviço
@@ -269,7 +269,7 @@ Modificar o atraso de autopausa é executado usando o comando [set-AzSqlDatabase
 
 Os recursos de um banco de dados sem servidor são encapsulados por pacote do aplicativo, instância do SQL e entidades do pool de recursos do usuário.
 
-#### <a name="app-package"></a>Pacote do aplicativo
+#### <a name="app-package"></a>Pacote de aplicações
 
 O pacote do aplicativo é o limite mais externo de gerenciamento de recursos para um banco de dados, independentemente se o banco de dados está em uma camada de computação sem servidor ou provisionada. O pacote do aplicativo contém a instância do SQL e os serviços externos que, juntos, abrangem todos os recursos de usuário e sistema usados por um banco de dados no banco de dados SQL. Exemplos de serviços externos incluem R e pesquisa de texto completo. A instância do SQL geralmente domina a utilização geral de recursos no pacote do aplicativo.
 
@@ -283,9 +283,9 @@ As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool 
 
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
-|Pacote do aplicativo|app_cpu_percent|Percentual de vCores usado pelo aplicativo em relação ao Max vCores permitido para o aplicativo.|Percentagem|
-|Pacote do aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período de relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo o máximo de CPU usado e a memória usada a cada segundo. Se o valor usado for menor que o valor mínimo provisionado conforme definido pelo mínimo de vCores e mín de memória, o valor mínimo provisionado será cobrado. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
-|Pacote do aplicativo|app_memory_percent|Porcentagem de memória usada pelo aplicativo em relação à memória máxima permitida para o aplicativo.|Percentagem|
+|Pacote de aplicações|app_cpu_percent|Percentual de vCores usado pelo aplicativo em relação ao Max vCores permitido para o aplicativo.|Percentagem|
+|Pacote de aplicações|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período de relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo o máximo de CPU usado e a memória usada a cada segundo. Se o valor usado for menor que o valor mínimo provisionado conforme definido pelo mínimo de vCores e mín de memória, o valor mínimo provisionado será cobrado. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
+|Pacote de aplicações|app_memory_percent|Porcentagem de memória usada pelo aplicativo em relação à memória máxima permitida para o aplicativo.|Percentagem|
 |Pool de usuários|cpu_percent|Percentual de vCores usado pela carga de trabalho do usuário em relação ao Max vCores permitido para a carga de trabalho do usuário.|Percentagem|
 |Pool de usuários|data_IO_percent|Porcentagem de IOPS de dados usada pela carga de trabalho do usuário em relação ao IOPS de dados máximo permitido para a carga de trabalho do usuário.|Percentagem|
 |Pool de usuários|log_IO_percent|Percentual de MB/s de log usado pela carga de trabalho do usuário em relação ao número máximo de MB/s de log permitido para a carga de trabalho do usuário.|Percentagem|
@@ -334,7 +334,7 @@ Nesse caso, o banco de dados é cobrado para computação e armazenamento durant
 
 Mais precisamente, a fatura de computação neste exemplo é calculada da seguinte maneira:
 
-|Intervalo de tempo|vCores usado por segundo|GB usados a cada segundo|Dimensão de computação cobrada|segundos de vCore cobrados com o intervalo de tempo|
+|Intervalo de Tempo|vCores usado por segundo|GB usados a cada segundo|Dimensão de computação cobrada|segundos de vCore cobrados com o intervalo de tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores usado|4 vCores * 3600 segundos = 14400 vCore segundos|
 |1:00-2:00|1|12|Memória usada|12 GB * 1/3 * 3600 segundos = 14400 vCore segundos|

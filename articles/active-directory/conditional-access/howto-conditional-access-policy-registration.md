@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5864424f003ce9254a6452d8374d78c54516f2bc
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08c1db1a8e377edd1bf9b8f1b942e65b970edf56
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322739"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803687"
 ---
 # <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Acesso condicional: exigir local confiável para o registro de MFA
 
@@ -26,7 +26,7 @@ A proteção de quando e como os usuários se registram para a autenticação mu
 
 A política a seguir se aplica a todos os usuários selecionados, que tentam se registrar usando a experiência de registro combinada e bloqueia o acesso, a menos que eles estejam se conectando de um local marcado como rede confiável.
 
-1. Na **portal do Azure**, navegue até **Azure Active Directory** > **acesso condicional**.
+1. Na **portal do Azure**, navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione **nova política**.
 1. Em nome, insira um nome para essa política. Por exemplo, o **registro de informações de segurança combinadas em redes confiáveis**.
 1. Em **atribuições**, clique em **usuários e grupos**e selecione os usuários e grupos aos quais você deseja que essa política se aplique.
@@ -44,10 +44,10 @@ A política a seguir se aplica a todos os usuários selecionados, que tentam se 
 1. Em **controles de acesso** > **concessão**.
    1. Clique em **bloquear acesso**.
    1. Em seguida, clique em **Selecionar**.
-1. Defina **habilitar política** como **ativado**.
+1. Defina **Ativar política** como **Ativado**.
 1. Em seguida, clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

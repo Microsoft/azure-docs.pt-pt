@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790495"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806767"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Como configurar a indexação incremental de documentos aprimorados no Azure Pesquisa Cognitiva
 
@@ -41,8 +41,7 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>Etapa 2: adicionar a propriedade de cache
 
-< < < < < < < cabeçalho edite a resposta da solicitação GET para adicionar a propriedade `cache` ao indexador. O objeto de cache requer apenas uma única propriedade, `storageConnectionString` que é a cadeia de conexão para a conta de armazenamento. = = = = = = = Editar a resposta da solicitação GET para adicionar a propriedade `cache` ao indexador. O objeto de cache requer apenas uma única propriedade, que é a cadeia de conexão para uma conta de armazenamento do Azure.
->>>>>>> 3519a330aa86b6827d31403690529105825b1b16
+Edite a resposta da solicitação GET para adicionar a propriedade `cache` ao indexador. O objeto de cache requer apenas uma única propriedade, `storageConnectionString` que é a cadeia de conexão para a conta de armazenamento. 
 
 ```json
 {

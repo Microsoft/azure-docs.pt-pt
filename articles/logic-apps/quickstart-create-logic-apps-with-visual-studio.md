@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: 49269cf2171269063de4a3cf5de1f22ebc545005
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790818"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819158"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: criar tarefas, processos e fluxos de trabalho automatizados com os aplicativos lógicos do Azure-Visual Studio
 
@@ -179,7 +179,7 @@ Quando você tiver um projeto existente do grupo de recursos do Azure, poderá a
 
 1. Para adicionar um recurso ao arquivo de modelo, selecione **Adicionar recurso** na parte superior da janela estrutura de tópicos JSON. Ou, na janela estrutura de tópicos JSON, abra o menu de atalho **recursos** e selecione **Adicionar novo recurso**.
 
-   ![Janela estrutura de tópicos JSON](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
+   ![Janela contorno de JSON](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
 1. Na caixa de diálogo **Adicionar recurso** , na caixa de pesquisa, localize `logic app`e selecione **aplicativo lógico**. Nomeie seu aplicativo lógico e selecione **Adicionar**.
 
@@ -191,11 +191,11 @@ Quando você terminar seu aplicativo lógico, exclua o grupo de recursos que con
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com a mesma conta utilizada para criar a aplicação lógica.
 
-1. No menu principal do Azure, selecione **Grupos de recursos**. Selecione o grupo de recursos do aplicativo lógico e selecione **visão geral**.
+1. No menu portal do Azure, selecione **grupos de recursos**ou pesquise e selecione grupos de **recursos** em qualquer página. Selecione o grupo de recursos do aplicativo lógico.
 
 1. Na página **visão geral** , selecione **excluir grupo de recursos**. Insira o nome do grupo de recursos como confirmação e selecione **excluir**.
 
-   !["Grupos de recursos" > "Descrição geral" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   !["Grupos de recursos" > "Descrição geral" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. Elimine a solução do Visual Studio do seu computador local.
 
