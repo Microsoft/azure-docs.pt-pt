@@ -6,13 +6,13 @@ ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
-ms.date: 4/27/2018
-ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/03/2019
+ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792019"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815097"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Manipular mensagens grandes com agrupamento em aplicativos lógicos do Azure
 
@@ -39,6 +39,9 @@ Caso contrário, você obterá um erro de tempo de execução quando tentar aces
 Serviços que se comunicam com aplicativos lógicos podem ter seus próprios limites de tamanho de mensagem. Esses limites geralmente são menores do que o limite dos aplicativos lógicos. Por exemplo, supondo que um conector ofereça suporte a agrupamento, um conector pode considerar uma mensagem de 30 MB como grande, enquanto os aplicativos lógicos não. Para obedecer ao limite deste conector, os aplicativos lógicos dividem qualquer mensagem maior que 30 MB em partes menores.
 
 Para conectores que dão suporte a agrupamento, o protocolo subjacente é invisível para os usuários finais. No entanto, nem todos os conectores dão suporte a agrupamento, portanto, esses conectores geram erros de tempo de execução quando as mensagens de entrada excedem os limites de tamanho
+
+> [!NOTE]
+> Para ações que usam agrupamento, você não pode passar o corpo do gatilho ou usar expressões como `@triggerBody()?['Content']` nessas ações. Em vez disso, para conteúdo de texto ou arquivo JSON, você pode tentar usar a [ação **compor** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [criar uma variável](../logic-apps/logic-apps-create-variables-store-values.md) para lidar com esse conteúdo. Se o corpo do gatilho contiver outros tipos de conteúdo, como arquivos de mídia, você precisará executar outras etapas para lidar com esse conteúdo.
 
 <a name="set-up-chunking"></a>
 
@@ -112,15 +115,15 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
 
    | Campo de cabeçalho de solicitação de aplicativos lógicos | Valor | Tipo | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-modo de transferência** | em bloco | String | Indica que o conteúdo é carregado em partes |
-   | **x-MS-Content-Length** | <> *de comprimento de conteúdo* | Número inteiro | O tamanho do conteúdo inteiro em bytes antes do agrupamento |
+   | **x-ms-transfer-mode** | chunked | String | Indica que o conteúdo é carregado em partes |
+   | **x-ms-content-length** | <*content-length*> | Número inteiro | O tamanho do conteúdo inteiro em bytes antes do agrupamento |
    ||||
 
 2. O ponto de extremidade responde com o código de status de êxito "200" e essas informações opcionais:
 
    | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Obrigatório | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **x-MS-fragmento-tamanho** | Número inteiro | Não | O tamanho de parte sugerido em bytes |
+   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho de parte sugerido em bytes |
    | **Localização** | String | Sim | O local da URL para onde enviar as mensagens de PATCH HTTP |
    ||||
 
@@ -132,9 +135,9 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
 
      | Campo de cabeçalho de solicitação de aplicativos lógicos | Valor | Tipo | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Intervalo de conteúdo** | *intervalo* de <> | String | O intervalo de bytes para a parte de conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo: "bytes = 0-1023/10100" |
-     | **Tipo de conteúdo** | *tipo de conteúdo de* <> | String | O tipo de conteúdo em partes |
-     | **Comprimento do conteúdo** | <> *de comprimento de conteúdo* | String | O comprimento do tamanho em bytes da parte atual |
+     | **Intervalo de conteúdo** | <*range*> | String | O intervalo de bytes para a parte de conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo: "bytes = 0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
+     | **Content-Length** | <*content-length*> | String | O comprimento do tamanho em bytes da parte atual |
      |||||
 
 4. Após cada solicitação de PATCH, o ponto de extremidade confirma o recebimento de cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
@@ -142,7 +145,7 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
    | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Obrigatório | Descrição |
    |--------------------------------|------|----------|-------------|
    | **Intervalo** | String | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
-   | **x-MS-fragmento-tamanho** | Número inteiro | Não | O tamanho de parte sugerido em bytes |
+   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho de parte sugerido em bytes |
    ||||
 
 Por exemplo, essa definição de ação mostra uma solicitação HTTP POST para carregar conteúdo em partes para um ponto de extremidade. Na propriedade `runTimeConfiguration` da ação, a propriedade `contentTransfer` define `transferMode` como `chunked`:

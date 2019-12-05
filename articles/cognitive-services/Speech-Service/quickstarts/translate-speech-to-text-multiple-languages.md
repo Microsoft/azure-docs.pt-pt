@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 78ee67706f7521cb6d071c5c50a48e987bcd8aec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4ac6e7628559520dee9859c8da2f2985c0b7aa5
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681892"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817077"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>Início rápido: traduzir a fala para vários idiomas
 

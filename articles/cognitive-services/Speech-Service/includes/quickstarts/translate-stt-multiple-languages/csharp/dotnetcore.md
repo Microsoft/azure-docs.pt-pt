@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 947c0dd8a15efa8ac296aa598d883951816e759d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ea3c0bd1ab12004b51c3c9b56eb8a8370da6f36
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502801"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817332"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,7 +117,7 @@ Antes de começar, certifique-se de:
 
 1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo **HelloWorld** .
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para os serviços de fala, que converte e transcreve em texto (neste caso, para francês e alemão). Em seguida, os serviços de fala enviam o texto de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que converte e transcreve em texto (neste caso, para francês e alemão). Em seguida, o serviço de fala envia o texto de volta para o aplicativo para exibição.
 
 ````
 Say something...

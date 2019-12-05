@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891471"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806614"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral de aplicativos e soluções Oracle no Azure
 
@@ -42,7 +42,7 @@ Execute aplicativos empresariais no Azure em sistemas operacionais Oracle com su
 
 * 12.1.2 do Oracle WebLogic Server
 
-* Oracle Linux (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 e 7,6
+* Oracle Linux com o UEK (inquebrable Enterprise kernel) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 e 7,6 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opções de alta disponibilidade e recuperação de desastre
 
@@ -82,7 +82,7 @@ Implante também aplicativos personalizados no Azure que se conectam ao OCI e a 
 Use Oracle Database serviços de nuvem (banco de dados autônomo, RAC, Exadata, DBaaS, nó único) em conjunto com os aplicativos Oracle em execução no Azure. Saiba mais sobre [as opções de banco de dados de OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licenças
 
 A implantação de aplicativos Oracle no Azure é baseada em um modelo "Traga sua própria licença". Supõe-se que você esteja devidamente licenciado para usar o software Oracle e que tenha um contrato de suporte atual em vigor com a Oracle. A Oracle assegurau a mobilidade de licenças do local para o Azure. Consulte as [perguntas frequentes sobre](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)o Oracle-Azure.
 
@@ -91,3 +91,5 @@ A implantação de aplicativos Oracle no Azure é baseada em um modelo "Traga su
 * Saiba mais sobre como implantar [imagens de VM do Oracle](oracle-vm-solutions.md) na infraestrutura do Azure.
 
 * Saiba mais sobre como [interconectar o Azure com o OCI](oracle-oci-overview.md).
+
+* Confira a [sessão de visão geral do Oracle no Azure](https://myignite.techcommunity.microsoft.com/sessions/82915) do Ignite 2019. 

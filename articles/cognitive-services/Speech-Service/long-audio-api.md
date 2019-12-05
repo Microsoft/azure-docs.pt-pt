@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: f03e32eb17c7c02d8969ea6f79663a5c99196d7b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ed00a9df46660cc6bfb4ec5fd9a93c80f5d6653e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931938"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815327"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (visualização)
 
@@ -29,7 +29,7 @@ Benefícios adicionais da API de áudio longa:
 > [!NOTE]
 > A API de áudio longo agora dá suporte apenas à [voz neural personalizada](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 Normalmente, ao usar a API de áudio longo, você enviará um arquivo de texto ou arquivos a serem sintetizados, sondando o status e, se o status for bem-sucedido, você poderá baixar a saída de áudio.
 

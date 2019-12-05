@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d65d60f06bebd2383237431e27673ca73a8e0c73
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c4e1213cdf389903b84ee0af45dab529a72f1af0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021161"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818126"
 ---
 ## <a name="additional-language-and-platform-support"></a>Suporte a idiomas e plataformas adicionais
 
 Se você tiver clicado nessa guia, provavelmente não verá um guia de início rápido em sua linguagem de programação favorita. Não se preocupe, temos materiais de início rápido e exemplos de código adicionais disponíveis no GitHub. Use a tabela para encontrar o exemplo correto para a sua linguagem de programação e a combinação de plataforma/sistema operacional.
 
-| Idioma | Guias de início rápido adicionais | Exemplos de código |
+| Linguagem | Guias de início rápido adicionais | Exemplos de código |
 |----------|------------------------|--------------|
 | C++ | |[Guias de início rápido](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp), [exemplos](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/linux)|
 | C# | |[.NET Framework](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet), [.NET Core](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore), [UWP](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp), [Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity), [Xamarin](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin) |

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b385c9bed1a6cf2aa1163d35fade69ddc15ff8b3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9b8fed7a023a4c39dca3eacb4f8496730a7f50b2
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280401"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815874"
 ---
 # <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Início rápido: reconhecer fala, intenções e entidades com Reconhecimento vocal (LUIS)
 

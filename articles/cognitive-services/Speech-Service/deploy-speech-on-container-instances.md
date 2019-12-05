@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 41589a12f16f330188e2971e3069eb715d1a7163
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 690a45ad7f009a65686e27eba5095a5a2870039c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559725"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806274"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Implantar o contêiner do serviço de fala nas instâncias de contêiner do Azure
 
@@ -29,9 +29,9 @@ Você deve primeiro concluir e enviar o [formulário de solicitação de contêi
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
-[!INCLUDE [Create a Cognitive Services Speech Service resource](includes/create-speech-resource.md)]
+[!INCLUDE [Create a Cognitive Services Speech service resource](includes/create-speech-resource.md)]
 
-[!INCLUDE [Create an Speech Service container on Azure Container Instances](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
+[!INCLUDE [Create a Speech service container on Azure Container Instances](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

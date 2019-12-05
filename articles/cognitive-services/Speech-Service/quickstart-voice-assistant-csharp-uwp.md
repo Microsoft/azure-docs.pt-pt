@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 75ecbe8351e68b77a59b40709a2beb15d09b16df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504089"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816224"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Início rápido: criar um assistente de voz com o SDK de fala, UWP
 
@@ -31,7 +31,7 @@ Neste artigo, você desenvolverá um C# aplicativo plataforma universal do Windo
 Este início rápido requer:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
 * Um bot criado anteriormente configurado com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
@@ -108,7 +108,7 @@ O modo de exibição de Design é atualizado para mostrar a interface do usuári
 
 Em seguida, você adiciona a fonte code-behind para que o aplicativo funcione conforme o esperado. A fonte code-behind inclui:
 
-- instruções `using` para os namespaces `Speech` e `Speech.Dialog`
+- instruções de `using` para os namespaces de `Speech` e `Speech.Dialog`
 - Uma implementação simples para garantir o acesso ao microfone, com fio a um manipulador de botão
 - Auxiliares básicos da interface do usuário para apresentar mensagens e erros no aplicativo
 - Um ponto de chegada para o caminho do código de inicialização que será preenchido posteriormente
@@ -289,10 +289,10 @@ Para adicionar a origem code-behind, siga estas etapas:
     }
     ```
 
-1. Adicione o seguinte trecho de código ao corpo do método de `InitializeDialogServiceConnector`. Esse código cria o `DialogServiceConnector` com as informações de sua assinatura.
+1. Adicione o seguinte trecho de código ao corpo do método de `InitializeDialogServiceConnector`. Esse código cria o `DialogServiceConnector` com suas informações de assinatura.
 
     ```csharp
-    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // Create a BotFrameworkConfig by providing a Speech service subscription key
     // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
@@ -310,7 +310,7 @@ Para adicionar a origem code-behind, siga estas etapas:
 
 1. Substitua as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey`e `YourServiceRegion` pelos seus próprios valores para o bot, a assinatura de fala e a [região](regions.md).
 
-1. Acrescente o trecho de código a seguir ao final do corpo do método de `InitializeDialogServiceConnector`. Esse código configura manipuladores para eventos que dependem de `DialogServiceConnector` para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações.
+1. Acrescente o trecho de código a seguir ao final do corpo do método de `InitializeDialogServiceConnector`. Esse código configura manipuladores para eventos com os quais se conta com `DialogServiceConnector` para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -419,10 +419,10 @@ Agora você está pronto para criar e testar seu aplicativo.
 > [!div class="nextstepaction"]
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 - [Sobre assistentes de voz](voice-assistants.md)
-- [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+- [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
 - [Palavras-chave personalizadas](speech-devices-sdk-create-kws.md)
 - [Conecte a fala de linha direta ao bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)

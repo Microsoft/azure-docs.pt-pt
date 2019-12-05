@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110696"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814849"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre fala para texto
 
@@ -65,11 +65,32 @@ O DataSet antigo e o novo conjunto de dados devem ser combinados em um único ar
 
 Se você tiver adaptado e implantado um modelo com a linha de base V 1.0, essa implantação permanecerá como está. Os clientes podem desativar o modelo implantado, readaptar-se usando a versão mais recente da linha de base e reimplantar.
 
+**P: posso baixar meu modelo e executá-lo localmente?**
+
+**R**: os modelos não podem ser baixados e executados localmente.
+
+**P: minhas solicitações estão registradas?**
+
+**R**: você tem uma opção ao criar uma implantação para desativar o rastreamento. Nesse ponto, nenhum áudio ou transcrição será registrado. Caso contrário, as solicitações normalmente são registradas no Azure no armazenamento seguro.
+
+**P: minhas solicitações estão limitadas?**
+
+**R**: a API REST limita as solicitações a 25 por 5 segundos. Os detalhes podem ser encontrados em nossas páginas de [fala para texto](speech-to-text.md).
+
+**P: como sou cobrado por áudio de canal duplo?**
+
+**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado por duração do arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
+
+> [!IMPORTANT]
+> Se você tiver outras preocupações de privacidade que proíbam de usar o serviço de fala personalizado, entre em contato com um dos canais de suporte.
+
+## <a name="increasing-concurrency"></a>Aumentando a simultaneidade
+
 **P: e se eu precisar de uma simultaneidade maior para meu modelo implantado do que o que é oferecido no portal?**
 
 **R**: você pode escalar verticalmente seu modelo em incrementos de 20 solicitações simultâneas.
 
-Contate o [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala mais alta.
+Com as informações necessárias, crie uma solicitação de suporte no [portal de suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Não poste as informações em nenhum dos canais públicos (GitHub, stackoverflow,...) mencionados na [página de suporte](support.md).
 
 Para aumentar a simultaneidade para um ***modelo personalizado***, precisamos das seguintes informações:
 
@@ -97,25 +118,6 @@ ou
   - nos serviços exibidos, escolha o serviço de fala para o qual você deseja aumentar a simultaneidade,
   - exibir o `Properties` para este serviço,
   - Copie o `Resource ID`completo.
-
-**P: posso baixar meu modelo e executá-lo localmente?**
-
-**R**: os modelos não podem ser baixados e executados localmente.
-
-**P: minhas solicitações estão registradas?**
-
-**R**: você tem uma opção ao criar uma implantação para desativar o rastreamento. Nesse ponto, nenhum áudio ou transcrição será registrado. Caso contrário, as solicitações normalmente são registradas no Azure no armazenamento seguro.
-
-**P: minhas solicitações estão limitadas?**
-
-**R**: a API REST limita as solicitações a 25 por 5 segundos. Os detalhes podem ser encontrados em nossas páginas de [fala para texto](speech-to-text.md).
-
-**P: como sou cobrado por áudio de canal duplo?**
-
-**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado por duração do arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
-
-> [!IMPORTANT]
-> Se você tiver outras preocupações de privacidade que proíbam de usar o serviço de fala personalizado, entre em contato com um dos canais de suporte.
 
 ## <a name="importing-data"></a>Importar dados
 

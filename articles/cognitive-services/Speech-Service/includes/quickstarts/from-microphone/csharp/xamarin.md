@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: f67c98eb8417b66c3315bccb1d56b98a68aac839
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796006"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818688"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -136,7 +136,7 @@ Agora, adicione C# o código que define a parte específica do UWP do aplicativo
 
    ![Solicitação de permissão de acesso ao microfone](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Selecione **Iniciar reconhecimento de fala**e fale uma frase em inglês ou frase no microfone do dispositivo. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na janela.
+1. Selecione **Iniciar reconhecimento de fala**e fale uma frase em inglês ou frase no microfone do dispositivo. A sua voz é transmitida ao serviço de Voz e convertida para texto que é apresentado na janela.
 
    ![Interface do usuário de reconhecimento de fala](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

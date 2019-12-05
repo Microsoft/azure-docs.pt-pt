@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a6ef6c0070642e1c2f762f5cb19f97bd4d1e8cb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6b49f7e79b72ff1f8de8ede4b34c8d7de1462b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503186"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817695"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -143,7 +143,7 @@ Antes de começar, certifique-se de:
 
 Prima F11 ou selecione **Executar** > **Depurar**.
 
-1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para os serviços de fala, que converte e transcreve em texto (neste caso, para alemão). Em seguida, os serviços de fala enviam o áudio sintetizado e o texto de volta para o aplicativo para exibição.
+1. Diga uma expressão ou uma frase em inglês. O aplicativo transmite sua fala para o serviço de fala, que converte e transcreve em texto (neste caso, para alemão). Em seguida, o serviço de fala envia o áudio sintetizado e o texto de volta para o aplicativo para exibição.
 
 ````
 Say something...

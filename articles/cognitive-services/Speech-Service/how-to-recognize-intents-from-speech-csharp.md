@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110159"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805897"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer tentativas de fala usando o SDK de fala paraC#
 
@@ -44,11 +44,11 @@ Verifique se você tem os seguintes itens antes de iniciar este guia:
 
 ## <a name="luis-and-speech"></a>O LUIS e a voz
 
-O LUIS integra-se com os serviços de fala para reconhecer tentativas de fala. Você não precisa de uma assinatura de serviços de fala, apenas LUIS.
+O LUIS integra-se no serviço Voz para reconhecer as intenções de voz. Não precisa de uma subscrição do serviço Voz, apenas do LUIS.
 
 O LUIS usa três tipos de chaves:
 
-| Tipo de chave  | Objetivo                                               |
+| Tipo de chave  | Finalidade                                               |
 | --------- | ----------------------------------------------------- |
 | Criação | Permite criar e modificar aplicativos LUIS de forma programática |
 | Inicial   | Permite testar seu aplicativo LUIS usando somente texto   |
@@ -56,7 +56,7 @@ O LUIS usa três tipos de chaves:
 
 Para este guia, você precisa do tipo de chave do ponto de extremidade. Este guia usa o aplicativo de exemplo Home Automation LUIS, que você pode criar seguindo o guia de início rápido [usar aplicativo de automação inicial predefinido](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Se você criou um aplicativo LUIS por conta própria, poderá usá-lo em vez disso.
 
-Quando você cria um aplicativo LUIS, o LUIS gera automaticamente uma chave inicial para que você possa testar o aplicativo usando consultas de texto. Esta chave não habilita a integração dos serviços de fala e não funcionará com este guia. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este guia.
+Quando você cria um aplicativo LUIS, o LUIS gera automaticamente uma chave inicial para que você possa testar o aplicativo usando consultas de texto. Esta chave não habilita a integração do serviço de fala e não funcionará com este guia. Crie um recurso LUIS no painel do Azure e atribua-o ao aplicativo LUIS. Você pode usar a camada de assinatura gratuita para este guia.
 
 Depois de criar o recurso LUIS no painel do Azure, faça logon no [portal do Luis](https://www.luis.ai/home), escolha seu aplicativo na página **meus aplicativos** e, em seguida, alterne para a página **gerenciar** do aplicativo. Por fim, selecione **chaves e pontos de extremidade** na barra lateral.
 
@@ -128,7 +128,7 @@ As secções seguintes incluem abordagens ao código.
 Primeiro, você precisa criar uma configuração de fala da sua chave de ponto de extremidade do LUIS e da região. Você pode usar as configurações de fala para criar reconhecedores para os vários recursos do SDK de fala. A configuração de fala tem várias maneiras de especificar a assinatura que você deseja usar; aqui, usamos `FromSubscription`, que usa a chave de assinatura e a região.
 
 > [!NOTE]
-> Use a chave e a região da sua assinatura do LUIS, não de uma assinatura de serviços de fala.
+> Use a chave e a região da sua assinatura do LUIS, não uma assinatura do serviço de fala.
 
 Em seguida, crie um reconhecedor de intenções com `new IntentRecognizer(config)`. Como a configuração já sabe qual assinatura deve ser usada, você não precisa especificar a chave de assinatura e o ponto de extremidade novamente ao criar o reconhecedor.
 
@@ -138,7 +138,7 @@ Agora, utilize `LanguageUnderstandingModel.FromAppId()` para importar o modelo d
 
 Para adicionar tentativas, você deve fornecer três argumentos: o modelo LUIS (que foi criado e nomeado `model`), o nome da intenção e uma ID de tentativa. A diferença entre o ID e o nome da intenção é a seguinte.
 
-| `AddIntent()`&nbsp;argumento | Objetivo |
+| `AddIntent()`&nbsp;argumento | Finalidade |
 | --------------------------- | ------- |
 | `intentName` | O nome da intenção, conforme definido na aplicação LUIS. Esse valor deve corresponder exatamente ao nome da intenção LUIS. |
 | `intentID` | Um ID que o SDK de Voz atribui a uma intenção reconhecida. Esse valor pode ser o que você desejar; Ele não precisa corresponder ao nome da intenção, conforme definido no aplicativo LUIS. Se o mesmo código processar várias intenções, pode, por exemplo, utilizar o mesmo ID para essas intenções. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a38beb0700e470d325545a2523143ecdab9f6dfb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777422"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815794"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Conectar dados de logs do Office 365
 
@@ -42,12 +42,12 @@ Você pode transmitir logs de auditoria do [Office 365](https://docs.microsoft.c
 
 1. No Azure Sentinel, selecione **conectores de dados** e clique no bloco do **Office 365** .
 
-2. Se você ainda não o tiver habilitado, poderá fazer isso acessando a folha **conectores de dados** e selecionando conector **do Office 365** . Aqui, você pode clicar na **página abrir conector** e, na seção configuração, **habilitar a solução Office 365 em seu espaço de trabalho** , use o botão **instalar solução** para habilitá-la. Se já tiver sido habilitado, ele será identificado na tela de conexão como já habilitado.
+2. Se você ainda não o tiver habilitado, poderá fazer isso acessando a folha **conectores de dados** e selecionando conector **do Office 365** . Aqui você pode clicar na **página abrir conector** e na seção configuração rotulada **habilitar a solução do Office 365 em seu espaço de trabalho** , use o botão **instalar solução** para habilitá-la. Se já tiver sido habilitado, ele será identificado na tela de conexão como já habilitado.
 1. O Office 365 permite que você transmita dados de vários locatários para o Azure Sentinel. Para cada locatário ao qual você deseja se conectar, adicione o locatário em **conectar locatários ao Azure Sentinel**. 
 1. Uma tela de Active Directory é aberta. Você será solicitado a autenticar com um usuário administrador global em cada locatário que deseja conectar ao Azure Sentinel e fornecer permissões ao Azure Sentinel para ler seus logs. 
-5. Em fluxo logs de atividade do Office 365, clique em **selecionar** para escolher quais tipos de log você deseja transmitir para o Azure Sentinel. Atualmente, o Azure Sentinel dá suporte ao Exchange e ao SharePoint.
+5. Na lista de locatários, você veria a ID do diretório do Azure AD (ID do locatário) e duas caixas de seleção para logs do Exchange e do SharePoint. Você pode selecionar qualquer um ou todos os serviços listados que deseja ingerir no sentinela. Atualmente, o Azure Sentinel dá suporte aos logs do Exchange e do SharePoint nos serviços do Office365 existentes.
 
-4. Clique em **aplicar alterações**.
+4. Depois de selecionar os serviços (Exchange, SharePoint etc.), você pode clicar em salvar no quadro de adição de locatário na página. 
 
 3. Para usar o esquema relevante no Log Analytics para os logs do Office 365, pesquise **OfficeActivity**.
 

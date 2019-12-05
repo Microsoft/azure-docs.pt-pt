@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701801"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807430"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar o gêmeos do módulo no Hub IoT
 
@@ -33,7 +33,7 @@ Consulte as [diretrizes de comunicação do dispositivo para a nuvem](iot-hub-de
 
 Consulte as [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) para obter orientação sobre como usar as propriedades desejadas, métodos diretos ou mensagens da nuvem para o dispositivo.
 
-## <a name="module-twins"></a>Gêmeos do módulo
+## <a name="module-twins"></a>Duplos de módulo
 
 Módulo gêmeos armazene informações relacionadas ao módulo que:
 
@@ -180,13 +180,13 @@ O back-end da solução opera no módulo "cópia" usando as seguintes operaçõe
     | --- | --- |
     tipo de $content | application/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
-    fonte de $iothub-mensagem | twinChangeEvents |
-    codificação de $content | UTF-8 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
     deviceId | ID do dispositivo |
     moduleId | ID do módulo |
     hubName | Nome do Hub IoT |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) carimbo de data/hora da operação |
-    iothub-mensagem-esquema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" ou "updateTwin" |
 
     As propriedades do sistema de mensagens são prefixadas com o símbolo de `$`.

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 585828855cdbd3a585ced1aa6803482c3f26f0f4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 74fcce412b2673a3ec9e4809cef018f1afbc3530
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121590"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812832"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova o TLS 1,0 e 1,1 do uso com o cache do Azure para Redis
 
@@ -33,7 +33,7 @@ A maioria dos aplicativos usa bibliotecas de cliente do Redis para lidar com a c
 
 Os clientes do Redis .NET usam a versão mais antiga do TLS por padrão no .NET Framework 4.5.2 ou anterior e usam a versão mais recente do TLS no .NET Framework 4,6 ou posterior. Se você estiver usando uma versão mais antiga do .NET Framework, poderá habilitar o TLS 1,2 manualmente:
 
-* **Stackexchange. Redis:** Defina `ssl=true` e `sslprotocls=tls12` na cadeia de conexão.
+* **Stackexchange. Redis:** Defina `ssl=true` e `sslprotocols=tls12` na cadeia de conexão.
 * **Perstack. Redis:** Siga as [instruções do perstack. Redis](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
 
 ### <a name="net-core"></a>.NET Core
@@ -92,6 +92,6 @@ Redis-py usa TLS 1,2 por padrão.
 
 O RediGO usa TLS 1,2 por padrão.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
 - [Como configurar o cache do Azure para Redis](cache-configure.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111361"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815827"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 
@@ -105,7 +105,7 @@ Agora, adicione uma regra de conclusão para responder ao usuário indicando que
 | Definição    | Valor sugerido                        | Descrição                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Nome da Regra  | "ConfirmationResponse"                 | Um nome que descreve a finalidade da regra          |
-| Condições | Nenhum                                   | Condições que determinam quando a regra pode ser executada    |
+| Condições | Nenhuma                                   | Condições que determinam quando a regra pode ser executada    |
 | Ações    | SpeechResponse "Ok, ligando a TV" | A ação a ser tomada quando a condição da regra for verdadeira |
 
 ## <a name="try-it-out"></a>Experimentar

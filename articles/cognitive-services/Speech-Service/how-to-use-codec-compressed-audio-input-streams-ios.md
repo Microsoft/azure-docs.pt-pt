@@ -1,7 +1,7 @@
 ---
 title: Áudio compactado do codec de fluxo com o SDK de fala no iOS
 titleSuffix: Azure Cognitive Services
-description: Saiba como transmitir áudio compactado para os serviços de fala do Azure com o SDK de fala no iOS.
+description: Saiba como transmitir áudio compactado para o serviço de fala com o SDK de fala no iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1d78c690fd07eb974418f0ea17d71d1f394d863d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109580"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805863"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no iOS
 
@@ -42,7 +42,7 @@ Abra o projeto no Xcode e compile-o para o destino do **dispositivo IOS genéric
 
 A etapa de compilação irá gerar um pacote de estrutura dinâmica com uma biblioteca dinâmica para todas as arquiteturas necessárias com o nome de `GStreamerWrapper.framework`.
 
-Essa estrutura deve ser incluída em todos os aplicativos que usam fluxos de áudio compactados com o SDK dos serviços de fala.
+Essa estrutura deve ser incluída em todos os aplicativos que usam fluxos de áudio compactados com o SDK do serviço de fala.
 
 Aplique as seguintes configurações em seu projeto Xcode para fazer isso:
 
@@ -54,7 +54,7 @@ Aplique as seguintes configurações em seu projeto Xcode para fazer isso:
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando a entrada de áudio compactado por codec
 
-Para transmitir em um formato de áudio compactado para os serviços de fala, crie um `SPXPullAudioInputStream` ou `SPXPushAudioInputStream`.
+Para transmitir em um formato de áudio compactado para o serviço de fala, crie um `SPXPullAudioInputStream` ou `SPXPushAudioInputStream`.
 
 O trecho a seguir mostra como criar um `SPXAudioConfiguration` de uma instância de um `SPXPushAudioInputStream`, especificando MP3 como o formato de compactação do fluxo.
 

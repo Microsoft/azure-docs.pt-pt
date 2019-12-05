@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: instalação da plataforma do SDK de fala para Java (Android)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para usar o Java (Android) com o SDK dos serviços de fala.
+description: Use este guia para configurar sua plataforma para usar o Java (Android) com o SDK do serviço de fala.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: b0b3084cf8a1ad4de972ad90d2ed508d54ba2b29
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3d7f265993a03c637577678cd9b3012776598c7
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502465"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816320"
 ---
 Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Java no Android. A instalação é baseada no pacote do SDK do Speech do Maven e Android Studio 3,3.
 

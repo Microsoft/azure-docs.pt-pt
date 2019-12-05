@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507178"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806223"
 ---
 # <a name="about-direct-line-speech"></a>Sobre a Direct line Speech
 
@@ -35,7 +35,7 @@ Para obter um guia passo a passo completo sobre como criar um assistente de voz 
 
 Também oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido do assistente de voz organizados por idioma.
 
-| Início Rápido | Plataforma | Referência da API |
+| Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Navegador](https://aka.ms/csspeech/javaref) |
@@ -50,7 +50,7 @@ O código de exemplo para a criação de um assistente de voz está disponível 
 
 ## <a name="customization"></a>Personalização
 
-Os assistentes de voz criados com o uso dos serviços de fala do Azure podem usar a gama completa de opções de personalização disponíveis para [conversão](speech-to-text.md)de texto em texto, [Text para fala](text-to-speech.md)e [seleção de palavra-chave personalizada](speech-devices-sdk-create-kws.md).
+Os assistentes de voz criados com o uso do serviço de fala podem usar a gama completa de opções de personalização [disponíveis para a](speech-to-text.md)seleção de [texto para fala](text-to-speech.md)e de [palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > As opções de personalização variam por idioma/localidade (consulte [idiomas com suporte](supported-languages.md)).
@@ -64,7 +64,7 @@ A Direct line Speech e sua funcionalidade associada para assistentes de voz são
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+* [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)
 * [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 * [Obter a solução de assistente virtual e o modelo empresarial](https://github.com/Microsoft/AI)

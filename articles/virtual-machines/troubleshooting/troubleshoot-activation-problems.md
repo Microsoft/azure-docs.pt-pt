@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058140"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819098"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows do Azure
 
@@ -26,7 +26,7 @@ Se você tiver problemas ao ativar a VM (máquina virtual) do Windows do Azure q
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Noções básicas sobre pontos de extremidade do KMS do Azure para a ativação do Windows de máquinas virtuais do Azure
 
-O Azure usa pontos de extremidade diferentes para ativação do KMS, dependendo da região da nuvem onde a VM reside. Ao usar este guia de solução de problemas, use o ponto de extremidade KMS apropriado que se aplica à sua região.
+O Azure usa pontos de extremidade diferentes para a ativação do KMS (serviços de gerenciamento de chaves), dependendo da região da nuvem onde reside a VM. Ao usar este guia de solução de problemas, use o ponto de extremidade KMS apropriado que se aplica à sua região.
 
 * Regiões de nuvem pública do Azure: kms.core.windows.net:1688
 * Regiões da nuvem nacional do Azure China 21Vianet: kms.core.chinacloudapi.cn:1688
@@ -37,7 +37,7 @@ O Azure usa pontos de extremidade diferentes para ativação do KMS, dependendo 
 
 Ao tentar ativar uma VM do Windows Azure, você receberá uma mensagem de erro semelhante à seguinte amostra:
 
-**Erro: 0xC004F074 serviço software reportou que o computador não pôde ser ativado. Nenhum ManagementService de chave (KMS) pôde ser contatado. Consulte o log de eventos do aplicativo para obter informações adicionais.**
+**Erro: 0xC004F074 o serviço de software relatou que o computador não pôde ser ativado. Nenhum ManagementService de chave (KMS) pôde ser contatado. Consulte o log de eventos do aplicativo para obter informações adicionais.**
 
 ## <a name="cause"></a>Causa
 
@@ -87,14 +87,14 @@ Para a VM que é criada com base em uma imagem personalizada, você deve configu
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
 
-    O comando deve devolver: Nome da máquina do serviço de gerenciamento de chaves definido como kms.core.windows.net:1688 com êxito.
+    O comando deve retornar: nome do computador do serviço de gerenciamento de chaves definido como kms.core.windows.net:1688 com êxito.
 
 4. Verifique usando Psping que você tem conectividade com o servidor KMS. Mude para a pasta para a qual extraiu a transferência de Pstools.zip e execute o seguinte:
   
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-   Na penúltima linha da saída, verifique se vê: Enviado = 4, recebido = 4, perdido = 0 (0% de perda).
+   Na segunda linha da saída, verifique se você vê: sent = 4, Received = 4, Lost = 0 (0% de perda).
 
    Se a perda for maior que 0 (zero), a VM não terá conectividade com o servidor KMS. Nessa situação, se a VM estiver em uma rede virtual e tiver um servidor DNS personalizado especificado, você deverá verificar se o servidor DNS é capaz de resolver kms.core.windows.net. Ou então, altere o servidor DNS para um que resolva kms.core.windows.net.
 
@@ -132,4 +132,4 @@ Quando o período de carência tiver expirado e o Windows ainda não estiver ati
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 
-Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.
+Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.

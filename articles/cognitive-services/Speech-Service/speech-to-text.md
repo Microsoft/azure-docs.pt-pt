@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 651a30bbcba7b4d4f5d00765c651be73953cd748
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774013"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815505"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
-A conversão de fala em texto dos serviços de fala do Azure, também conhecida como conversão de fala em texto, permite a transcrição em tempo real de fluxos de áudio em texto que seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e agir como entrada de comando. Esse serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft usa para os produtos da Cortana e do Office e trabalha diretamente com a tradução e conversão de texto em fala. Para obter uma lista completa de idiomas de fala para texto disponíveis, consulte [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+A conversão de fala em texto do serviço de fala, também conhecida como conversão de fala em texto, permite a transcrição em tempo real de fluxos de áudio em texto que seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e agir como entrada de comando. Esse serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft usa para os produtos da Cortana e do Office e trabalha diretamente com a tradução e conversão de texto em fala. Para obter uma lista completa de idiomas de fala para texto disponíveis, consulte [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Por padrão, o serviço de fala a texto usa o modelo de linguagem universal. Esse modelo foi treinado usando dados de propriedade da Microsoft e é implantado na nuvem. É ideal para cenários de conversação e de ditado. Se estiver usando a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor.
 
@@ -54,7 +54,7 @@ Se você preferir usar o serviço REST de fala em texto, consulte [APIs REST](ht
 
 ## <a name="tutorials-and-sample-code"></a>Tutoriais e código de exemplo
 
-Depois de ter tido a oportunidade de usar os serviços de fala, experimente nosso tutorial que ensina como reconhecer tentativas de fala usando o SDK de fala e o LUIS.
+Depois de ter tido a oportunidade de usar o serviço de fala, experimente nosso tutorial que ensina como reconhecer tentativas de fala usando o SDK de fala e o LUIS.
 
 - [Tutorial: reconhecer tentativas de fala com o SDK de fala e o LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
 
@@ -65,7 +65,7 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 
 ## <a name="customization"></a>Personalização
 
-Além do modelo de linha de base padrão usado pelos serviços de fala, você pode personalizar modelos para suas necessidades com os dados disponíveis, para superar as barreiras de reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo, consulte [fala personalizada](how-to-custom-speech.md)
+Além do modelo de linha de base padrão usado pelo serviço de fala, você pode personalizar modelos para suas necessidades com os dados disponíveis, para superar as barreiras de reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo, consulte [fala personalizada](how-to-custom-speech.md)
 
 > [!NOTE]
 > As opções de personalização variam por idioma/localidade (consulte [idiomas com suporte](supported-languages.md)).
@@ -75,10 +75,10 @@ Além do modelo de linha de base padrão usado pelos serviços de fala, você po
 > [!WARNING]
 > Fala do Bing foi encerrado em 15 de outubro de 2019.
 
-Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing APIs ou Fala Personalizada, criamos guias para ajudá-lo a migrar para os serviços de fala.
+Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing APIs ou Fala Personalizada, criamos guias para ajudá-lo a migrar para o serviço de fala.
 
-- [Migrar do Fala do Bing para os serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-- [Migrar do Fala Personalizada para os serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+- [Migrar do Fala do Bing para o serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+- [Migrar do Fala Personalizada para o serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## <a name="reference-docs"></a>Documentos de referência
 
@@ -90,5 +90,5 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing API
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+- [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
 - [Obtenha o SDK de fala](speech-sdk.md)
