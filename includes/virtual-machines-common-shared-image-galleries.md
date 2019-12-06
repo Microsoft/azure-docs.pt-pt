@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085267"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875535"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -49,11 +49,11 @@ As definições de imagem são um agrupamento lógico de versões de uma imagem.
 
 Há três parâmetros para cada definição de imagem que são usados em combinação- **Publicador**, **oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
 
-|Definição da Imagem|Publicador|Oferta|Sku|
+|Definição da Imagem|Publicador|Oferta|SKU|
 |---|---|---|---|
-|myImage1|Contoso|Finanças|End|
+|myImage1|Contoso|Finanças|Back-end|
 |myImage2|Contoso|Finanças|Front-end|
-|myImage3|Testar|Finanças|Front-end|
+|myImage3|Testes|Finanças|Front-end|
 
 Todos esses três têm conjuntos de valores exclusivos. O formato é semelhante a como você pode especificar atualmente Publicador, oferta e SKU para [imagens do Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) em Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa ter um conjunto exclusivo desses valores.
 
@@ -93,17 +93,17 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 
 | Regiões de origem        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
-| Austrália Central     | Norte da China        | Sul da Índia        | Europa ocidental        |
-| Austrália Central 2   | Leste da China 2      | Sudeste asiático     | Reino Unido Sul           |
-| Leste da Austrália        | China Norte       | Leste do Japão         | Reino Unido Oeste            |
-| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD Centro     |
-| Sul do Brasil          | Ásia Oriental         | Coreia do Sul Central      | US DoD Leste        |
-| Canadá Central        | EUA Leste           | Coreia do Sul        | Gov (US) - Arizona     |
-| Leste do Canadá           | EUA Leste 2         | EUA Centro-Norte   | Gov (US) - Texas       |
-| Índia Central         | Leste dos EUA 2 EUAP    | Europa do Norte       | Gov (US) - Virginia    |
-| EUA Central            | França Central    | EUA Centro-Sul   | Oeste da Índia         |
-| EUA Central EUAP       | Sul de França      | EUA Centro-Oeste    | EUA Oeste            |
-|                       |                   |                    | EUA Oeste 2          |
+| Austrália Central     | Norte da China        | Sul da Índia        | Europa Ocidental        |
+| Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
+| Leste da Austrália        | China Norte       | Este do Japão         | Oeste do Reino Unido            |
+| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD - Centro     |
+| Sul do Brasil          | Este Asiático         | Coreia do Sul Central      | US Gov - Arizona        |
+| Canadá Central        | Este dos E.U.A.           | Sul da Coreia do Sul        | US Gov - Texas     |
+| Leste do Canadá           | Este dos E.U.A. 2         | E.U.A. Centro-Norte   | Gov (US) - Texas       |
+| Centro da Índia         | Leste dos EUA 2 EUAP    | Europa do Norte       | Gov dos E.U.A. Virginia    |
+| Centro dos E.U.A.            | França Central    | E.U.A. Centro-Sul   | Oeste da Índia         |
+| EUA Central EUAP       | Sul de França      | E.U.A. Centro-Oeste    | Oeste dos E.U.A.            |
+|                       |                   |                    | E.U.A. Oeste 2          |
 
 
 
@@ -113,6 +113,7 @@ Há limites, por assinatura, para implantar recursos usando galerias de imagens 
 - 100 galerias de imagens compartilhadas, por assinatura, por região
 - 1\.000 definições de imagem, por assinatura, por região
 - 10.000 versões de imagem, por assinatura, por região
+- Qualquer disco anexado à imagem deve ser menor ou igual a 1 TB de tamanho
 
 Para obter mais informações, consulte [verificar o uso de recursos em relação aos limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obter exemplos de como verificar seu uso atual.
  
@@ -143,13 +144,13 @@ As regiões nas quais uma versão de imagem compartilhada é replicada podem ser
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Acesso
+## <a name="access"></a>Access
 
 Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de imagem são todos os recursos, elas podem ser compartilhadas usando controles nativos do Azure RBAC internos. Usando o RBAC, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso a pessoas fora do locatário em que foram criadas. Quando um usuário tem acesso à versão da imagem compartilhada, ele pode implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender a que o usuário obtém acesso:
 
-| Compartilhado com usuário     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
+| Compartilhado com usuário     | Galeria de Imagens Partilhadas | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
+| Galeria de Imagens Partilhadas | Sim                  | Sim          | Sim                  |
 | Definição da Imagem     | Não                   | Sim          | Sim                  |
 
 É recomendável compartilhar no nível da galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -180,7 +181,7 @@ Versão da imagem:
 - Excluir da versão mais recente
 - Data de término da vida útil
 
-## <a name="sdk-support"></a>Suporte a SDK
+## <a name="sdk-support"></a>Suporte de SKDs
 
 Os SDKs a seguir dão suporte à criação de galerias de imagens compartilhadas:
 

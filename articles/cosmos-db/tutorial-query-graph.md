@@ -1,21 +1,21 @@
 ---
 title: Como consultar dados de gráfico no Azure Cosmos DB?
-description: Saiba como consultar dados de gráfico no Azure Cosmos DB
+description: Saiba como consultar dados de grafo de Azure Cosmos DB usando consultas Gremlin
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 12/03/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 2bc79801864481562967702a7c52a7670950199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1dde7bfc74c6a7b0c03d8f192f4e6eaf72e2de6b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293116"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870178"
 ---
-# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consultar a API de Gremlin do Azure Cosmos DB através do Gremlin
+# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consultar a API do Gremlin do Azure Cosmos DB através do Gremlin
 
 A [API do Gremlin](graph-introduction.md) do Azure Cosmos DB suporta consultas [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Este artigo fornece documentos e consultas de exemplo para poder começar. É fornecida uma referência ao Gremlin detalhada no artigo [Suporte para Gremlin](gremlin-support.md).
 
@@ -68,7 +68,7 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 
 Pode criar consultas mais complexas e implementar uma lógica de gráfico transversal poderosa com o Gremlin, incluindo misturar expressões de filtro, efetuar o ciclo com o passo `loop` e implementar a navegação condicional com o passo `choose`. Saiba mais sobre o que pode fazer com o [Suporte para Gremlin](gremlin-support.md)!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 

@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Azure Cosmos DB tutorial de distribuição global para a API do SQL'
-description: 'Tutorial: saiba como configurar a distribuição global Azure Cosmos DB usando a API do SQL.'
+description: 'Tutorial: saiba como configurar a distribuição global Azure Cosmos DB usando a API do SQL com .net, Java, Python e vários outros SDKs'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7c7ea4ca8fc28ef47e60d5010c804223c3cfab3b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 541fcdd966ec1e0443fa6211d894bab3ed965f93
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173839"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870331"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: configurar a distribuição global Azure Cosmos DB usando a API do SQL
 
@@ -44,7 +44,7 @@ A aplicação pode verificar o ponto final de escrita atual e o ponto final de l
 
 Se a propriedade PreferredLocations não estiver definida, todos os pedidos serão fornecidos a partir da região de escrita atual.
 
-## <a name="net-sdk"></a>SDK .NET
+## <a name="net-sdk"></a>.NET SDK
 O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direciona automaticamente as leituras e as escritas para a região de escrita atual.
 
 Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia de caracteres são formatados de acordo com a coluna nome da região na página [regiões do Azure][regions] , sem espaços antes ou depois do primeiro e do último caractere, respectivamente.
@@ -98,7 +98,7 @@ const preferredLocations = ['West US', 'East US', 'North Europe'];
 const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLocations } });
 ```
 
-## <a name="python-sdk"></a>SDK Python
+## <a name="python-sdk"></a>Python SDK
 
 O código a seguir mostra como definir locais preferenciais usando o SDK do Python:
 

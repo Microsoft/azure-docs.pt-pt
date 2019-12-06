@@ -2,28 +2,24 @@
 title: Metadados de Federação do Azure AD | Microsoft Docs
 description: Este artigo descreve o documento de metadados de Federação que Azure Active Directory publica para serviços que aceitam tokens de Azure Active Directory.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fefaf618ff29cc2186dc555eb6f452223f4cd097
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b0da348d87d1dedbdc1f97d3a4d0a1a001871a1d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835129"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843789"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
 O Azure Active Directory (Azure AD) publica um documento de metadados de Federação para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados de Federação é descrito na [versão 1,2 do especificação Web Services Federation Language (WS-Federation)](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que estende [os metadados para o Oasis Security Assertion Markup Language (SAML) v 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -36,24 +32,24 @@ Os pontos de extremidade específicos do locatário são projetados para um loca
 Os pontos de extremidade independentes de locatário fornecem informações que são comuns a todos os locatários do Azure AD. Essas informações se aplicam a locatários hospedados em *login.microsoftonline.com* e são compartilhadas entre locatários. Os pontos de extremidade independentes de locatário são recomendados para aplicativos multilocatários, pois não estão associados a nenhum locatário específico.
 
 ## <a name="federation-metadata-endpoints"></a>Pontos de extremidade de metadados de Federação
-O Azure AD publica metadados de Federação `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`em.
+O Azure AD publica metadados de Federação em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
 Para **pontos de extremidade específicos do locatário**, o `TenantDomainName` pode ser um dos seguintes tipos:
 
-* Um nome de domínio registrado de um locatário do Azure AD, como `contoso.onmicrosoft.com`:.
-* A ID de locatário imutável do domínio, `72f988bf-86f1-41af-91ab-2d7cd011db45`como.
+* Um nome de domínio registrado de um locatário do Azure AD, como: `contoso.onmicrosoft.com`.
+* A ID de locatário imutável do domínio, como `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
 Para **pontos de extremidade independentes de locatário**, o `TenantDomainName` é `common`. Este documento lista somente os elementos de metadados de Federação que são comuns a todos os locatários do Azure AD hospedados em login.microsoftonline.com.
 
-Por exemplo, um ponto de extremidade específico de locatário `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`pode ser. O ponto de extremidade independente de [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)locatário é. Você pode exibir o documento de metadados de Federação digitando esta URL em um navegador.
+Por exemplo, um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. O ponto de extremidade independente de locatário é [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Você pode exibir o documento de metadados de Federação digitando esta URL em um navegador.
 
 ## <a name="contents-of-federation-metadata"></a>Conteúdo dos metadados de Federação
 A seção a seguir fornece as informações necessárias para os serviços que consomem os tokens emitidos pelo Azure AD.
 
-### <a name="entity-id"></a>ID de entidade
-O `EntityDescriptor` elemento contém um `EntityID` atributo. O valor do `EntityID` atributo representa o emissor, ou seja, o serviço de token de segurança (STS) que emitiu o token. É importante validar o emissor quando você recebe um token.
+### <a name="entity-id"></a>ID da entidade
+O elemento `EntityDescriptor` contém um atributo `EntityID`. O valor do atributo `EntityID` representa o emissor, ou seja, o serviço de token de segurança (STS) que emitiu o token. É importante validar o emissor quando você recebe um token.
 
-Os metadados a seguir mostram um exemplo de elemento `EntityDescriptor` específico de locatário `EntityID` com um elemento.
+Os metadados a seguir mostram um elemento de `EntityDescriptor` de exemplo específico do locatário com um elemento `EntityID`.
 
 ```
 <EntityDescriptor
@@ -61,9 +57,9 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-Você pode substituir a ID de locatário no ponto de extremidade independente de locatário por sua ID de locatário para criar um `EntityID` valor específico de locatário. O valor resultante será o mesmo que o emissor do token. A estratégia permite que um aplicativo multilocatário valide o emissor para um determinado locatário.
+Você pode substituir a ID do locatário no ponto de extremidade independente do locatário por sua ID de locatário para criar um valor de `EntityID` específico do locatário. O valor resultante será o mesmo que o emissor do token. A estratégia permite que um aplicativo multilocatário valide o emissor para um determinado locatário.
 
-Os metadados a seguir mostram um exemplo de elemento `EntityID` independente de locatário. Observe que o `{tenant}` é um literal, não um espaço reservado.
+Os metadados a seguir mostram um elemento de `EntityID` de exemplo independente de locatário. Observe que o `{tenant}` é um literal, não um espaço reservado.
 
 ```
 <EntityDescriptor
@@ -73,11 +69,11 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certificados de assinatura de token
-Quando um serviço recebe um token emitido por um locatário do Azure AD, a assinatura do token deve ser validada com uma chave de assinatura que é publicada no documento de metadados de Federação. Os metadados de Federação incluem a parte pública dos certificados que os locatários usam para autenticação de token. Os bytes brutos do certificado aparecem `KeyDescriptor` no elemento. O certificado de autenticação de tokens é válido para assinatura somente quando o `use` valor do `signing`atributo é.
+Quando um serviço recebe um token emitido por um locatário do Azure AD, a assinatura do token deve ser validada com uma chave de assinatura que é publicada no documento de metadados de Federação. Os metadados de Federação incluem a parte pública dos certificados que os locatários usam para autenticação de token. Os bytes brutos do certificado aparecem no elemento `KeyDescriptor`. O certificado de autenticação de tokens é válido para assinatura somente quando o valor do atributo `use` é `signing`.
 
 Um documento de metadados de Federação publicado pelo Azure AD pode ter várias chaves de assinatura, como quando o Azure AD está se preparando para atualizar o certificado de autenticação. Quando um documento de metadados de Federação inclui mais de um certificado, um serviço que está validando os tokens deve dar suporte a todos os certificados no documento.
 
-Os metadados a seguir mostram um `KeyDescriptor` elemento de exemplo com uma chave de assinatura.
+Os metadados a seguir mostram um elemento de `KeyDescriptor` de exemplo com uma chave de assinatura.
 
 ```
 <KeyDescriptor use="signing">
@@ -91,19 +87,19 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-O `KeyDescriptor` elemento aparece em dois locais no documento de metadados de Federação; na seção específica do WS-Federation e na seção específica do SAML. Os certificados publicados em ambas as seções serão os mesmos.
+O elemento `KeyDescriptor` aparece em dois locais no documento de metadados de Federação; na seção específica do WS-Federation e na seção específica do SAML. Os certificados publicados em ambas as seções serão os mesmos.
 
-Na seção específica do WS-Federation, um leitor de metadados do WS-Federation lerá os certificados de um `RoleDescriptor` elemento com o `SecurityTokenServiceType` tipo.
+Na seção específica do WS-Federation, um leitor de metadados do WS-Federation lerá os certificados de um elemento `RoleDescriptor` com o tipo `SecurityTokenServiceType`.
 
-Os metadados a seguir mostram um `RoleDescriptor` elemento de exemplo.
+Os metadados a seguir mostram um elemento de `RoleDescriptor` de exemplo.
 
 ```
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-Na seção específica do SAML, um leitor de metadados do WS-Federation lerá os certificados de um `IDPSSODescriptor` elemento.
+Na seção específica do SAML, um leitor de metadados do WS-Federation lerá os certificados de um elemento `IDPSSODescriptor`.
 
-Os metadados a seguir mostram um `IDPSSODescriptor` elemento de exemplo.
+Os metadados a seguir mostram um elemento de `IDPSSODescriptor` de exemplo.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -111,9 +107,9 @@ Os metadados a seguir mostram um `IDPSSODescriptor` elemento de exemplo.
 Não há diferenças no formato de certificados específicos de locatários e independentes de locatário.
 
 ### <a name="ws-federation-endpoint-url"></a>URL de ponto de extremidade do WS-Federation
-Os metadados de Federação incluem a URL que o Azure AD usa para logon único e saída única no protocolo WS-Federation. Esse ponto de extremidade aparece `PassiveRequestorEndpoint` no elemento.
+Os metadados de Federação incluem a URL que o Azure AD usa para logon único e saída única no protocolo WS-Federation. Esse ponto de extremidade aparece no elemento `PassiveRequestorEndpoint`.
 
-Os metadados a seguir mostram um `PassiveRequestorEndpoint` elemento de exemplo para um ponto de extremidade específico do locatário.
+Os metadados a seguir mostram um elemento de `PassiveRequestorEndpoint` de exemplo para um ponto de extremidade específico do locatário.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -137,11 +133,11 @@ https://login.microsoftonline.com/common/wsfed
 ```
 
 ### <a name="saml-protocol-endpoint-url"></a>URL do ponto de extremidade do protocolo SAML
-Os metadados de Federação incluem a URL que o AD do Azure usa para logon único e saída única no protocolo SAML 2,0. Esses pontos de extremidade aparecem no `IDPSSODescriptor` elemento.
+Os metadados de Federação incluem a URL que o AD do Azure usa para logon único e saída única no protocolo SAML 2,0. Esses pontos de extremidade aparecem no elemento `IDPSSODescriptor`.
 
-As URLs de entrada e saída são exibidas nos `SingleSignOnService` elementos e. `SingleLogoutService`
+As URLs de entrada e saída são exibidas nos elementos `SingleSignOnService` e `SingleLogoutService`.
 
-Os metadados a seguir mostram um `PassiveResistorEndpoint` exemplo para um ponto de extremidade específico do locatário.
+Os metadados a seguir mostram um `PassiveResistorEndpoint` de exemplo para um ponto de extremidade específico do locatário.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

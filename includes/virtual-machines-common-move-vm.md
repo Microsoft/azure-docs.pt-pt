@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 61990e785741799fcbcd4e6df965953bd9944f4d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c3f485765e0bbbb91de0938261b587c27bf414bf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184231"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875454"
 ---
-## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Utilizar o portal do Azure para mover uma VM para uma subscrição diferente
-Pode mover uma VM e os respetivos recursos associados a uma subscrição diferente com o portal do Azure.
+## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Usar o portal do Azure para mover uma VM para uma assinatura diferente
+Você pode mover uma VM e seus recursos associados para uma assinatura diferente usando o portal do Azure.
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Clique em **navegue** > **grupos de recursos** e selecione o grupo de recursos que contém a VM que pretende mover.
-3. Na parte superior da página para o grupo de recursos, selecione **mover** e, em seguida, selecione **mover para outra subscrição**. O **mover recursos** é aberta a página.
-4. Selecione cada um dos recursos a mover. Na maioria dos casos, deve mover todos os recursos relacionados que estão listados.
-5. Selecione o **subscrição** onde pretende que a VM ser movida.
-6. Selecione um existente **grupo de recursos**, ou introduza um nome para que um novo grupo de recursos criado.
-7. Quando estiver concluído, selecione de que entenda que serão criados novos IDs de recurso e que os IDs de nova tem de ser utilizado com a VM depois de ser movido e, em seguida, selecione **OK**.
+1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o grupo de recursos que contém a VM a ser movida. Procure e selecione **grupos de recursos**.
+2. Escolha o grupo de recursos que contém a VM que você deseja mover.
+3. Na parte superior da página do grupo de recursos, selecione **mover** e, em seguida, selecione **mover para outra assinatura**. A página **mover recursos** é aberta.
+4. Selecione cada um dos recursos a serem movidos. Na maioria dos casos, você deve mover todos os recursos relacionados listados.
+5. Selecione a **assinatura** na qual você deseja que a VM seja movida.
+6. Selecione um **grupo de recursos**existente ou insira um nome para criar um novo grupo de recursos.
+7. Quando terminar, selecione que você entendeu que as novas IDs de recurso serão criadas e que as novas IDs precisarão ser usadas com a VM depois que ela for movida e, em seguida, selecione **OK**.
 
-## <a name="use-the-azure-portal-to-move-a-vm-to-another-resource-group"></a>Utilizar o portal do Azure para mover uma VM para outro grupo de recursos
-Pode mover uma VM e os respetivos recursos associados a outro grupo de recursos com o portal do Azure.
+## <a name="use-the-azure-portal-to-move-a-vm-to-another-resource-group"></a>Usar o portal do Azure para mover uma VM para outro grupo de recursos
+Você pode mover uma VM e seus recursos associados para outro grupo de recursos usando o portal do Azure.
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Clique em **navegue** > **máquinas virtuais** e selecione a VM que pretende mover a partir da lista.
-3. Na página para a VM, junto a etiqueta do grupo de recursos, selecione **alteração**. O **mover recursos** é aberta a página.
-4. Selecione cada um dos recursos a mover. Na maioria dos casos, deve mover todos os recursos relacionados que estão listados.
-5. Selecione um existente **grupo de recursos**, ou introduza um nome para que um novo grupo de recursos criado.
-6. Quando estiver concluído, selecione de que entenda que serão criados novos IDs de recurso e que os IDs de nova tem de ser utilizado com a VM depois de ser movido e, em seguida, selecione **OK**.
+1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar o grupo de recursos que contém a VM a ser movida. Procure e selecione **grupos de recursos**.
+2. Escolha o grupo de recursos que contém a VM que você deseja mover.
+3. Na parte superior da página do grupo de recursos, selecione **mover** e, em seguida, selecione **mover para outro grupo de recursos**. A página **mover recursos** é aberta.
+4. Selecione cada um dos recursos a serem movidos. Na maioria dos casos, você deve mover todos os recursos relacionados listados.
+5. Selecione um **grupo de recursos**existente ou insira um nome para criar um novo grupo de recursos.
+6. Quando terminar, selecione que você entendeu que as novas IDs de recurso serão criadas e que as novas IDs precisarão ser usadas com a VM depois que ela for movida e, em seguida, selecione **OK**.
 

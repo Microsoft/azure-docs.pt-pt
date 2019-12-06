@@ -1,47 +1,47 @@
 ---
-title: Enviar um e-mail a partir de um runbook da automatização do Azure
-description: Saiba como utilizar o SendGrid para enviar um e-mail a partir de um runbook.
+title: Enviar um email de um runbook de automação do Azure
+description: Saiba como usar o SendGrid para enviar um email de dentro de um runbook.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/15/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: ce05aadb53cc3ad24ed65ea139594010e1aef047
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8550635b581eb944719c39cc8c195859a2c9e868
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234984"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849620"
 ---
-# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutorial: Enviar um e-mail a partir de um runbook da automatização do Azure
+# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutorial: enviar um email de um runbook de automação do Azure
 
-Pode enviar um e-mail a partir de um runbook com [SendGrid](https://sendgrid.com/solutions) com o PowerShell. Este tutorial mostra-lhe como criar um runbook reutilizável que envia um e-mail com uma chave de API armazenada num [Azure KeyVault](/azure/key-vault/).
+Você pode enviar um email de um runbook com o [SendGrid](https://sendgrid.com/solutions) usando o PowerShell. Este tutorial mostrará como criar um runbook reutilizável que envia um email usando uma chave de API armazenada no cofre de chaves [do Azure](/azure/key-vault/).
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
 > * Criar um cofre de chaves do Azure
-> * Store sua chave de API do SendGrid no Cofre de chaves
-> * Criar um runbook que obtém a chave de API e envia um e-mail
+> * Armazenar sua chave de API do SendGrid no keyvault
+> * Criar um runbook que recupere sua chave de API e envie um email
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, é necessário o seguinte:
 
-* Subscrição do Azure: Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Criar uma conta do SendGrid](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
-* [Conta de automatização](automation-offering-get-started.md) com **Az** módulos, e [ligação Run as](automation-create-runas-account.md), para armazenar e executar o runbook.
+* Assinatura do Azure: se você ainda não tiver um, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Crie uma conta do SendGrid](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
+* [Conta de automação](automation-offering-get-started.md) com módulos **AZ** e a [conexão executar como](automation-create-runas-account.md)para armazenar e executar o runbook.
 
 ## <a name="create-an-azure-keyvault"></a>Criar um cofre de chaves do Azure
 
-Pode criar um cofre de chaves do Azure com o seguinte script do PowerShell. Substitua os valores das variáveis com valores específicos ao seu ambiente. Utilizar o Azure Cloud Shell embedded através da <kbd>experimentar</kbd> botão, localizado no canto superior direito do bloco de código. Também pode copiar e executar o código localmente, se tiver o [módulo do PowerShell do Azure](/powershell/azure/install-az-ps) instalado no seu computador local.
+Você pode criar um cofre de chaves do Azure usando o seguinte script do PowerShell. Substitua os valores de variáveis por valores específicos do seu ambiente. Use o Azure Cloud Shell inserido por meio do botão <kbd>experimentar</kbd> , localizado no canto superior direito do bloco de código. Você também pode copiar e executar o código localmente se tiver o [módulo Azure PowerShell](/powershell/azure/install-az-ps) instalado no computador local.
 
 > [!NOTE]
-> Para obter a chave de API, utilize as etapas descritas no [localizar a chave de API do SendGrid](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
+> Para recuperar sua chave de API, use as etapas encontradas em [localizar sua chave de API do SendGrid](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -74,35 +74,35 @@ $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
-Para outras formas de criar um cofre de chaves do Azure e armazenar um segredo, consulte [inícios rápidos de KeyVault](/azure/key-vault/).
+Para outras maneiras de criar um cofre de chaves do Azure e armazenar um segredo, consulte [início rápido do keyvault](/azure/key-vault/).
 
-## <a name="import-required-modules-to-your-automation-account"></a>Importar os módulos necessários para a sua conta de automatização
+## <a name="import-required-modules-to-your-automation-account"></a>Importar módulos necessários para sua conta de automação
 
-Para utilizar o Cofre de chaves do Azure dentro de um runbook, a sua conta de automatização terá os seguintes módulos:
+Para usar o Azure keyvault em um runbook, sua conta de automação precisará dos seguintes módulos:
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile).
-* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault).
+* [AZ. Profile](https://www.powershellgallery.com/packages/Az.Profile).
+* [AZ. keyvault](https://www.powershellgallery.com/packages/Az.KeyVault).
 
-Clique em <kbd>implementar a automatização do Azure</kbd> no separador de automatização do Azure em Opções de instalação. Esta ação abre o portal do Azure. Na página de importação, selecione a sua conta de automatização e clique em <kbd>OK</kbd>.
+Clique em <kbd>implantar na automação do Azure</kbd> na guia automação do Azure em opções de instalação. Essa ação abre a portal do Azure. Na página importar, selecione sua conta de automação e clique em <kbd>OK</kbd>.
 
-Para obter métodos adicionais para adicionar os módulos necessários, consulte [importar módulos](/azure/automation/shared-resources/modules#import-modules).
+Para obter métodos adicionais para adicionar os módulos necessários, consulte [Importar módulos](/azure/automation/shared-resources/modules#import-modules).
 
-## <a name="create-the-runbook-to-send-an-email"></a>Criar o runbook para enviar um e-mail
+## <a name="create-the-runbook-to-send-an-email"></a>Criar o runbook para enviar um email
 
-Depois de ter criado um cofre de chaves e armazenada a chave de API do SendGrid, é hora de criar o runbook que irá obter a chave de API e enviar um e-mail.
+Depois de ter criado um keyvault e armazenado sua chave de API do SendGrid, é hora de criar o runbook que recuperará a chave de API e enviará um email.
 
-Este runbook utiliza a AzureRunAsConnection [conta Run As](automation-create-runas-account.md) para autenticar com o Azure para recuperar o segredo do Cofre de chaves do Azure.
+Esse runbook usa a [conta Executar como](automation-create-runas-account.md) AzureRunAsConnection para autenticar com o Azure para recuperar o segredo do Azure keyvault.
 
-Utilize este exemplo para criar um runbook denominado **Send GridMailMessage**. Pode modificar o script do PowerShell e reutilizá-lo para diferentes cenários.
+Use este exemplo para criar um runbook chamado **Send-GridMailMessage**. Você pode modificar o script do PowerShell e reutilizá-lo para diferentes cenários.
 
-1. Aceda à sua conta de automatização do Azure.
-2. Sob **automatização de processos**, selecione **Runbooks**.
+1. Vá para sua conta de automação do Azure.
+2. Em **automação de processo**, selecione **Runbooks**.
 3. Na parte superior da lista de runbooks, selecione **+ criar um runbook**.
-4. Sobre o **adicionar Runbook** página, introduza **Send GridMailMessage** para o nome do runbook. Para o tipo de runbook, selecione **PowerShell**. Em seguida, selecione **Criar**.
-   ![Criar Runbook](./media/automation-send-email/automation-send-email-runbook.png)
+4. Na página **Adicionar runbook** , digite **Send-GridMailMessage** para o nome do runbook. Para o tipo de runbook, selecione **PowerShell**. Em seguida, selecione **Criar**.
+   ![criar](./media/automation-send-email/automation-send-email-runbook.png) de runbook
 5. O runbook é criado e a página **Editar Runbook do PowerShell** é aberta.
-   ![Editar o Runbook](./media/automation-send-email/automation-send-email-edit.png)
-6. Copie o seguinte exemplo do PowerShell para o **editar** página. Certifique-se de que o `$VaultName` é o nome que especificou quando criou o seu Cofre de chaves.
+   ![editar o runbook](./media/automation-send-email/automation-send-email-edit.png)
+6. Copie o exemplo do PowerShell a seguir na página **Editar** . Verifique se o `$VaultName` é o nome que você especificou ao criar o seu cofre de chaves.
 
     ```powershell-interactive
     Param(
@@ -151,16 +151,16 @@ Utilize este exemplo para criar um runbook denominado **Send GridMailMessage**. 
     $response = Invoke-RestMethod -Uri https://api.sendgrid.com/v3/mail/send -Method Post -Headers $headers -Body $bodyJson
     ```
 
-7. Selecione **publicar** para guardar e publicar o runbook.
+7. Selecione **publicar** para salvar e publicar o runbook.
 
-Para verificar que o runbook seja executado com êxito pode seguir os passos em [testar um runbook](manage-runbooks.md#test-a-runbook) ou [iniciar um runbook](start-runbooks.md).
-Se não vir inicialmente o seu e-mail de teste, verifique sua **lixo** e **Spam** pastas.
+Para verificar se o runbook é executado com êxito, você pode seguir as etapas em [testar um runbook](manage-runbooks.md#test-a-runbook) ou [Iniciar um runbook](start-runbooks.md).
+Se você não vir inicialmente seu email de teste, verifique suas pastas de **lixo eletrônico** e **spam** .
 
 ## <a name="clean-up"></a>Limpar
 
 Quando já não precisar, elimine o runbook. Para tal, selecione o runbook na lista de runbooks e clique em **Eliminar**.
 
-Eliminar o Cofre de chaves com o [Remove-AzureRMKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault?view=azurermps) cmdlet.
+Exclua o cofre de chaves usando o cmdlet [Remove-AzureRMKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault?view=azurermps) .
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
@@ -168,9 +168,9 @@ $ResourceGroupName = "<your ResourceGroup name>"
 Remove-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para problemas de criação ou ao iniciar o runbook, consulte [resolver problemas de erros com runbooks](./troubleshoot/runbooks.md).
-* Para atualizar os módulos na conta de automatização, consulte [como atualizar módulos do Azure PowerShell na automatização do Azure](automation-update-azure-modules.md)].
-* Para monitorizar a execução de runbooks, consulte [reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
-* Para acionar um runbook com um alerta, consulte [utilize um alerta para acionar um runbook da automatização do Azure](automation-create-alert-triggered-runbook.md).
+* Para problemas ao criar ou iniciar o runbook, consulte [solucionar erros com runbooks](./troubleshoot/runbooks.md).
+* Para atualizar os módulos em sua conta de automação, consulte [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md)].
+* Para monitorar a execução do runbook, consulte [encaminhar o status do trabalho e fluxos de trabalho da automação para os logs do Azure monitor](automation-manage-send-joblogs-log-analytics.md).
+* Para disparar um runbook usando um alerta, consulte [usar um alerta para disparar um runbook de automação do Azure](automation-create-alert-triggered-runbook.md).

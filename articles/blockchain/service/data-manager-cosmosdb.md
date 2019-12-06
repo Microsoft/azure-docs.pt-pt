@@ -1,15 +1,15 @@
 ---
 title: Usar o Blockchain Gerenciador de Dados para atualizar Azure Cosmos DB-serviço Blockchain do Azure
 description: Use o Blockchain Gerenciador de Dados para o serviço Blockchain do Azure para enviar dados do Blockchain para Azure Cosmos DB
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 497652f91d46592212a17a0a22832c02a696df62
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 642e8b4d9d2492c0d7119f0a5469176765565159
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326249"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849981"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: usar o Blockchain Gerenciador de Dados para enviar dados para Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Neste tutorial:
 
 Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó de transação do serviço Blockchain do Azure. Uma instância captura todos os dados brutos de bloqueio e de transação do nó de transação. Uma conexão de saída envia dados blockchain para a grade de eventos do Azure. Você configura uma conexão de saída única quando cria a instância.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá para o membro do serviço Blockchain do Azure que você criou no guia de [início rápido de pré-requisito: criar um membro do Blockchain usando o portal do Azure](create-member.md). Selecione **Blockchain Gerenciador de dados**.
 1. Selecione **Adicionar**.
 
@@ -173,7 +173,7 @@ Você pode usar o Data Explorer no portal do Azure para criar um banco de dados 
     |---------|-------------|
     | ID da base de dados | Insira **blockchain-data** como o nome do novo banco de dados. |
     | Débito | Deixe a taxa de transferência em **400** unidades de solicitação por segundo (ru/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.|
-    | ID do contêiner | Insira **mensagens** como o nome do novo contêiner. |
+    | ID do Contentor | Insira **mensagens** como o nome do novo contêiner. |
     | Chave de partição | Use **/MessageType** como a chave de partição. |
 
 1. Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner que você criou.
@@ -290,7 +290,7 @@ Quando não for mais necessário, você poderá excluir os recursos e grupos de 
 1. No portal do Azure, navegue até o **grupo de recursos** no painel de navegação esquerdo e selecione o grupo de recursos que deseja excluir.
 1. Selecione **Eliminar grupo de recursos**. Verifique a exclusão inserindo o nome do grupo de recursos e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a integração com os razões blockchain.
 

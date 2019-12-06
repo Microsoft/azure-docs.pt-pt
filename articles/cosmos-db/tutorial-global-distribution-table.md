@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB tutorial de distribuição global para API de Tabela
-description: Aprenda a configurar a distribuição global do Azure Cosmos DB com a API de Tabela.
+description: Saiba como a distribuição global funciona em Azure Cosmos DB contas de API de Tabela e como configurar a lista de regiões preferida
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8562d37d81ce02e150e6ad1cc2a440cf7bb1e5e3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e6cd574d1041908e91ad5e6629403c0e40d11c03
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693363"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870365"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurar a distribuição global do Azure Cosmos DB com a API de Tabela
 

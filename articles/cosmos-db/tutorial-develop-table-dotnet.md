@@ -1,19 +1,19 @@
 ---
 title: Introdução ao Azure Cosmos DB API de Tabela usando o SDK do .NET Standard
-description: Armazene dados estruturados na nuvem usando o API de Tabela de Azure Cosmos DB.
+description: Saiba como armazenar e consultar os dados estruturados na conta Azure Cosmos DB API de Tabela
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 05/20/2019
-ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/03/2019
+ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764478"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870552"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao Azure Cosmos DB API de Tabela e ao armazenamento de tabelas do Azure usando o SDK do .NET
 

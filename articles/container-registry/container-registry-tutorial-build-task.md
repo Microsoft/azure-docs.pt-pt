@@ -4,16 +4,19 @@ description: Neste tutorial, você aprenderá a configurar uma tarefa de registr
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454750"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840787"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: automatizar compilações de imagem de contêiner na nuvem quando você confirma o código-fonte
 
-Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a compilações automatizadas de imagem de contêiner do Docker na nuvem quando você confirma o código-fonte para um repositório git.
+Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a compilações automatizadas de imagem de contêiner do Docker na nuvem quando você confirma o código-fonte para um repositório git. Contextos git com suporte para tarefas ACR incluem GitHub público ou privado ou repositórios do Azure.
+
+> [!NOTE]
+> Atualmente, as tarefas ACR não dão suporte a confirmações de solicitação de confirmação ou pull no GitHub Enterprise repositórios.
 
 Neste tutorial, a tarefa ACR cria e envia uma única imagem de contêiner especificada em um Dockerfile quando você confirma o código-fonte para um repositório git. Para criar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md) que usa um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres na confirmação do código, consulte [tutorial: executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o código-fonte](container-registry-tutorial-multistep-task.md). Para obter uma visão geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md)
 

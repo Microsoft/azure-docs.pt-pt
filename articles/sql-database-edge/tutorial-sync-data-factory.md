@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bfa65117bf31ad9cb9917fd8a643a0358e02be0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384213"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851711"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: sincronizar dados do SQL Database Edge para o armazenamento de BLOBs do Azure usando Azure Data Factory
 
@@ -177,7 +177,7 @@ Crie um data factory seguindo as instruções neste [tutorial](../data-factory/q
 
 27. Vá para a guia **conexão** do SinkDataset e conclua estas etapas:
 
-    1. Em **caminho do arquivo**, insira *asdedatasync/incrementalcopy*, em que *adftutorial* é o nome do contêiner de BLOB e *incrementalcopy* é o nome da pasta. Crie o contêiner se ele não existir, ou use o nome de um existente. Azure Data Factory criará automaticamente a pasta de saída *incrementalcopy* se ela não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
+    1. Em **caminho do arquivo**, insira *asdedatasync/incrementalcopy*, em que *asdedatasync* é o nome do contêiner de BLOB e *incrementalcopy* é o nome da pasta. Crie o contêiner se ele não existir, ou use o nome de um existente. Azure Data Factory criará automaticamente a pasta de saída *incrementalcopy* se ela não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
 
     2. Para a parte do **arquivo** do **caminho do arquivo**, selecione **adicionar conteúdo dinâmico [Alt + P]** e, em seguida, insira **@CONCAT(' incremental-', pipeline (). RunId, '. txt ')** na janela que é aberta. Selecione **Concluir**. O nome do arquivo é gerado dinamicamente pela expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro.
 
@@ -198,7 +198,7 @@ Crie um data factory seguindo as instruções neste [tutorial](../data-factory/q
     |Nome|Tipo|Valor|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@ {atividade (' NewWaterMark '). Output. firstRow. NewWatermarkvalue}|
-    |TableName|Cadeia|@ {atividade (' OldWaterMark '). Output. firstRow. TableName}|
+    |TableName|String|@ {atividade (' OldWaterMark '). Output. firstRow. TableName}|
 
 33. Para validar as configurações de pipeline, selecione **validar** na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **relatório de validação de pipeline** , selecione **>>** .
 
@@ -218,6 +218,6 @@ Crie um data factory seguindo as instruções neste [tutorial](../data-factory/q
 
 6. Mude para o separador **Monitorizar**, no lado esquerdo. Pode ver o estado da execução do pipeline acionada pelo acionador manual. Selecione **Atualizar** para atualizar a lista.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O pipeline de Azure Data Factory neste tutorial copia dados de uma tabela em uma instância de borda do banco do dados SQL para um local no armazenamento de BLOBs do Azure uma vez a cada hora. Para saber mais sobre como usar Data Factory em outros cenários, consulte estes [tutoriais](../data-factory/tutorial-copy-data-portal.md).

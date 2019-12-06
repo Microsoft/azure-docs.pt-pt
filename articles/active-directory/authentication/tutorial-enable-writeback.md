@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: e1ec439696c1ebd9d5929a4c8b2d9925fc1a71cc
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853027"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846476"
 ---
-# <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavra-passe
+# <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavras-passe
 
 Neste tutorial, irá ativar a repetição de escrita de palavras-passe para o seu ambiente híbrido. A repetição de escrita de palavras-passe é utilizada para sincronizar alterações de palavra-passe no Azure Active Directory (Azure AD) para o seu ambiente de Serviços de Domínio do Active Directory (AD DS) no local. A repetição de escrita de palavras-passe está ativada como parte do Azure AD Connect, para oferecer um mecanismo seguro para enviar as alterações de palavra-passe para um diretório local existente do Azure AD. Pode encontrar mais detalhes sobre os funcionamentos internos da repetição de escrita de palavras-passe no artigo [O que é a repetição de escrita de palavras-passe](concept-sspr-writeback.md).
 
@@ -54,9 +54,9 @@ Ativar a funcionalidade de repetição de escrita de palavras-passe no Azure AD 
 2. Navegue até o **Azure Active Directory**, clique em **Reposição de Palavra-passe** e, em seguida, escolha **Integração no local**.
 3. Defina a opção **Repetir a escrita de palavras-passe no diretório no local** para **Sim**.
 4. Defina a opção **Permitir que os utilizadores desbloqueiem as contas sem repor a palavra-passe** para **Sim**.
-5. Clique em **Guardar**
+5. Clicar em **Guardar**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ativou a repetição de escrita de palavras-passe para a reposição personalizada de palavra-passe. Deixe a janela do portal do Azure aberta e avance para o próximo tutorial para configurar definições adicionais relacionadas com a reposição personalizada de palavra-passe antes de implementar a solução num piloto.
 

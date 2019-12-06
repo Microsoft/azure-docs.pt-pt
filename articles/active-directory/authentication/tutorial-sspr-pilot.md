@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 685c928a20e9bfb47365b5ffa769f1a223d2c563
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: ecdde4ef12c6991fad53f2286ee462fec31606ae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561515"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846288"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Concluir uma distribuição do piloto de redefinição de senha de autoatendimento do Azure AD
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: concluir uma implementação piloto de reposição personalizada de palavra-passe do Azure AD
 
 Neste tutorial, vai ativar uma implementação piloto de reposição personalizada de palavra-passe (SSPR) do Azure AD na sua organização e testá-la com uma conta de não administrador.
 
@@ -37,18 +37,18 @@ Neste tutorial, vai ativar uma implementação piloto de reposição personaliza
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador Global.
 1. Navegue até ao **Azure Active Directory** e selecione **Reposição de palavra-passe**.
 1. Comece com um grupo piloto, ativando a reposição personalizada de palavra-passe para um subconjunto de utilizadores na sua organização.
-   * Na página **Propriedades** , na opção redefinição de **senha de autoatendimento habilitada**, escolha **selecionado**e escolha um grupo piloto.
+   * Na página **Propriedades** , na opção **redefinição de senha de autoatendimento habilitada**, escolha **selecionado**e escolha um grupo piloto.
       * Só os membros do grupo específico do Azure AD que escolher podem utilizar a funcionalidade SSPR. Recomendamos que defina um grupo de utilizadores e que utilize esta definição quando implementar a funcionalidade, para prova de conceito. O aninhamento de grupos de segurança é suportado aqui.
       * Certifique-se de que os utilizadores no grupo que escolheu estão adequadamente licenciados.
-   * Clique em **Guardar**
+   * Clicar em **Guardar**
 1. Na página **Métodos de autenticação**
    * Definir o **número de métodos necessários para redefinir** como **1**
    * Escolha os**Métodos disponíveis para os utilizadores** que a sua organização vai permitir. Para este tutorial, marque as caixas para habilitar **email**, **telefone celular**, **telefone comercial**, **notificação de aplicativo móvel**e **código de aplicativo móvel**.
-   * Clique em **Guardar**
+   * Clicar em **Guardar**
 1. Na página **Registo**
    * Selecione **Sim** para **Exigir que os utilizadores se registem ao iniciar sessão**.
    * Defina o **Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação** como **180**.
-   * Clique em **Guardar**
+   * Clicar em **Guardar**
 1. Na página **Notificações**
    * Defina a opção **Notificar os utilizadores sobre reposições de palavra-passe** como **Sim**.
    * Defina **Notificar todos os administradores quando outros administradores repõem as palavras-passe deles** como **Sim**.
@@ -74,9 +74,9 @@ Se decidir que já não quer utilizar a funcionalidade que configurou como parte
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até ao **Azure Active Directory** e selecione **Reposição de palavra-passe**.
 1. Na página **Propriedades**, na opção **Reposição Personalizada de Palavra-passe Ativada**, escolha **Nenhuma**.
-1. Clique em **Guardar**
+1. Clicar em **Guardar**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ativou a reposição personalizada de palavra-passe do Azure AD. Avance para o próximo tutorial para ver como uma infraestrutura do Active Directory Domain Services no local pode ser integrada na experiência de reposição personalizada de palavra-passe.
 

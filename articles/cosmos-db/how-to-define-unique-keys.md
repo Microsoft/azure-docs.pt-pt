@@ -1,23 +1,23 @@
 ---
 title: Definir chaves exclusivas para um contêiner Cosmos do Azure
-description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure
+description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .net, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 2f61afd12a50b1b135419585bfada52d7ef98f3a
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811648"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872116"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner Cosmos do Azure
 
 Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](unique-keys.md) ao criar um contêiner Cosmos do Azure. No momento, é possível executar essa operação usando o portal do Azure ou por meio de um dos SDKs.
 
-## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
+## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -41,7 +41,7 @@ Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Co
 
 ## <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET v2
 
-Ao criar um novo contêiner usando o [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), `UniqueKeyPolicy` um objeto pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo contêiner usando o [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusivas.
 
 ```csharp
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
@@ -78,7 +78,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Usar o SDK do Java
 
-Ao criar um novo contêiner usando o [SDK do Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), `UniqueKeyPolicy` um objeto pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo contêiner usando o [SDK do Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusivas.
 
 ```java
 // create a new DocumentCollection object
@@ -115,7 +115,7 @@ client.createCollection(String.format("/dbs/%s", "database"), container, null);
 
 ## <a name="use-the-nodejs-sdk"></a>Usar o SDK do node. js
 
-Ao criar um novo contêiner usando o [SDK do node. js](https://www.npmjs.com/package/@azure/cosmos), `UniqueKeyPolicy` um objeto pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo contêiner usando o [SDK do node. js](https://www.npmjs.com/package/@azure/cosmos), um objeto `UniqueKeyPolicy` pode ser usado para definir restrições de chave exclusivas.
 
 ```javascript
 client.database('database').containers.create({

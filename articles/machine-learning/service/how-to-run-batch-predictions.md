@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671570"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851609"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar a inferência de lote em grandes quantidades de dados usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste "como", você aprende a obter inferências sobre grandes quantidades de dados de forma assíncrona e em paralelo usando Azure Machine Learning. A funcionalidade de inferência de lote descrita aqui está em visualização pública. É uma maneira de alto desempenho e alta taxa de transferência para gerar inferências e processar dados. Ele fornece recursos assíncronos prontos para uso.
+Saiba como obter inferências sobre grandes quantidades de dados de forma assíncrona e em paralelo usando Azure Machine Learning. A funcionalidade de inferência de lote descrita aqui está em visualização pública. É uma maneira de alto desempenho e alta taxa de transferência para gerar inferências e processar dados. Ele fornece recursos assíncronos prontos para uso.
 
 Com a inferência de lote, é simples dimensionar as inferências offline para grandes clusters de computadores em terabytes de dados de produção, resultando em produtividade aprimorada e custo otimizado.
 
-Neste "como", você aprende as seguintes tarefas:
+Neste artigo, você aprende as seguintes tarefas:
 
 > * Crie um recurso de computação remota.
 > * Escreva um script de inferência personalizado.
@@ -189,7 +189,7 @@ model = Model.register(model_path="models/",
 O script *deve conter* duas funções:
 - `init()`: Use essa função para qualquer preparação dispendiosa ou comum para a inferência posterior. Por exemplo, use-o para carregar o modelo em um objeto global.
 -  `run(mini_batch)`: a função será executada para cada instância de `mini_batch`.
-    -  `mini_batch`: a inferência de lote invocará o método Run e passará uma List ou pandas dataframe como um argumento para o método. Cada entrada em min_batch será um FilePath se a entrada for um filedataset, um dataframe do pandas se a entrada for um TabularDataset.
+    -  `mini_batch`: a inferência de lote invocará o método Run e passará uma List ou pandas dataframe como um argumento para o método. Cada entrada em min_batch será-um caminho de arquivo se a entrada for um filedataset, um dataframe do pandas se a entrada for um TabularDataset.
     -  `response`: o método Run () deve retornar um dataframe do pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Por summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma inferência bem-sucedida do elemento input no mini-lote de entrada. O usuário deve garantir que dados suficientes sejam incluídos no resultado da inferência para mapear a entrada para a inferência. A saída de inferência será gravada no arquivo de saída e não haverá garantia de que esteja em ordem, o usuário deverá usar alguma chave na saída para mapeá-la para entrada.
 
 ```python
@@ -237,6 +237,15 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>Como acessar outros arquivos em funções `init()` ou `run()`
+
+Se você tiver outro arquivo ou pasta no mesmo diretório que o script de inferência, poderá fazer referência a ele encontrando o diretório de trabalho atual.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>Compilar e executar o pipeline de inferência de lote
 
 Agora você tem tudo o que precisa para criar o pipeline.
@@ -261,11 +270,11 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Especifique os parâmetros para a etapa do pipeline de inferência de lote
 
-`ParallelRunConfig` é a principal configuração para a instância de `ParallelRunStep` de inferência de lote introduzida recentemente no pipeline de Azure Machine Learning. Use-o para encapsular o script e configurar os parâmetros necessários, incluindo todos os itens a seguir:
+`ParallelRunConfig` é a principal configuração para a instância de `ParallelRunStep` de inferência de lote introduzida recentemente no pipeline de Azure Machine Learning. Você o usa para encapsular o script e configurar os parâmetros necessários, incluindo todos os seguintes parâmetros:
 - `entry_script`: um script de usuário como um caminho de arquivo local que será executado em paralelo em vários nós. Se `source_directly` estiver presente, use um caminho relativo. Caso contrário, use qualquer caminho que esteja acessível no computador.
 - `mini_batch_size`: o tamanho do mini-lote passado para uma única chamada de `run()`. (Opcional; o valor padrão é `1`.)
     - Por `FileDataset`, é o número de arquivos com um valor mínimo de `1`. Você pode combinar vários arquivos em um mini-lote.
-    - Por `TabularDataset`, é o tamanho dos dados. Os valores de exemplo são `1024`, `1024KB`, `10MB`e `1GB`. O valor recomendado é `1MB`. Observe que o mini-lote de `TabularDataset` nunca irá cruzar os limites do arquivo. Por exemplo, se você tiver arquivos. csv com vários tamanhos, o menor arquivo será 100 KB e o maior será de 10 MB. Se você definir `mini_batch_size = 1MB`, os arquivos com um tamanho menor que 1 MB serão tratados como um mini-lote. Arquivos com um tamanho maior que 1 MB serão divididos em vários mini-lotes.
+    - Por `TabularDataset`, é o tamanho dos dados. Os valores de exemplo são `1024`, `1024KB`, `10MB`e `1GB`. O valor recomendado é `1MB`. O mini-lote de `TabularDataset` nunca irá cruzar os limites do arquivo. Por exemplo, se você tiver arquivos. csv com vários tamanhos, o menor arquivo será 100 KB e o maior será de 10 MB. Se você definir `mini_batch_size = 1MB`, os arquivos com um tamanho menor que 1 MB serão tratados como um mini-lote. Arquivos com um tamanho maior que 1 MB serão divididos em vários mini-lotes.
 - `error_threshold`: o número de falhas de registro para falhas de `TabularDataset` e arquivo para `FileDataset` que devem ser ignoradas durante o processamento. Se a contagem de erros de toda a entrada for acima desse valor, o trabalho será interrompido. O limite de erro é para toda a entrada e não para mini-lotes individuais enviados ao método `run()`. O intervalo é `[-1, int.max]`. A parte `-1` indica ignorar todas as falhas durante o processamento.
 - `output_action`: um dos seguintes valores indica como a saída será organizada:
     - `summary_only`: o script de usuário armazenará a saída. `ParallelRunStep` usará a saída somente para o cálculo do limite de erro.
@@ -276,7 +285,7 @@ batch_env.spark.precache_packages = False
 - `process_count_per_node`: o número de processos por nó.
 - `environment`: a definição de ambiente do Python. Você pode configurá-lo para usar um ambiente Python existente ou para configurar um ambiente temporário para o experimento. A definição também é responsável por definir as dependências de aplicativo necessárias (opcional).
 - `logging_level`: detalhes do log. Os valores no detalhamento crescente são: `WARNING`, `INFO`e `DEBUG`. O padrão é `INFO` (opcional).
-- `run_invocation_timeout`: o tempo limite de invocação do método `run()` em segundos. O valor padrão é `60`.
+- `run_invocation_timeout`: o tempo limite de invocação do método `run()` em segundos. O valor predefinido é `60`.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -292,7 +301,7 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Criar a etapa de pipeline
+### <a name="create-the-pipeline-step"></a>Criar o passo de pipeline
 
 Crie a etapa de pipeline usando o script, a configuração de ambiente e os parâmetros. Especifique o destino de computação que você já anexou ao seu espaço de trabalho como o destino de execução para o script. Use `ParallelRunStep` para criar a etapa pipeline de inferência de lote, que usa todos os seguintes parâmetros:
 - `name`: o nome da etapa, com as seguintes restrições de nomenclatura: Unique, 3-32 caracteres e Regex ^\[a-z\]([-a-Z0-9] * [a-Z0-9])? $.
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>Passos seguintes
 
 Para ver esse processo funcionando de ponta a ponta, experimente o bloco de notas de [inferência em lote](https://aka.ms/batch-inference-notebooks). 
+
+Para obter diretrizes de depuração e solução de problemas do ParallelRunStep, consulte o [Guia de instruções](how-to-debug-batch-predictions.md).
 
 Para obter diretrizes de depuração e solução de problemas para pipelines, consulte o [Guia de instruções](how-to-debug-pipelines.md).
 

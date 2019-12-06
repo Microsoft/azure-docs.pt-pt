@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795721"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875537"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -59,3 +59,7 @@ Atualmente, a bastiões do Azure dá suporte ao layout de teclado en-US-QWERTY d
 
 Não. Não há suporte para UDR em uma sub-rede de bastiões do Azure.
 Para cenários que incluem o Azure bastião e o Firewall do Azure/NVA (dispositivo virtual de rede) na mesma rede virtual, você não precisa forçar o tráfego de uma sub-rede de bastiões do Azure para o Firewall do Azure, pois a comunicação entre a bastiões do Azure e suas VMs é privada. Para obter mais detalhes, consulte [acessando VMs por trás do firewall do Azure com bastiões](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+
+### <a name="filetransfer"></a>Há suporte para a transferência de arquivos com a sessão RDP de bastiões do Azure?
+
+Estamos trabalhando duro para adicionar novos recursos. A partir de agora, a transferência de arquivos não é suportada, mas faz parte de nosso roteiro. Fique à vontade para compartilhar seus comentários sobre os novos recursos na [página de comentários de bastiões do Azure](https://feedback.azure.com/forums/217313-networking?category_id=367303).

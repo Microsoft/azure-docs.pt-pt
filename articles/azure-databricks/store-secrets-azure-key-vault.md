@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706150"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849280"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault
 
@@ -52,7 +52,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 4. Navegue até sua conta de armazenamento recém-criada e selecione **BLOBs** em **Serviços** na página **visão geral** . Em seguida, selecione **+ contêiner** e insira um nome de contêiner. Selecione **OK**.
 
-   ![Criar novo contêiner](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
+   ![Criar novo contentor](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
 
 5. Localize um arquivo que você deseja carregar em seu contêiner de armazenamento de BLOBs. Se você não tiver um arquivo, use um editor de texto para criar um novo arquivo de texto com algumas informações. Neste exemplo, um arquivo chamado **HW. txt** contém o texto "Olá, mundo". Salve o arquivo de texto localmente e carregue-o no contêiner de armazenamento de BLOBs.
 
@@ -77,7 +77,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    |Propriedade|Descrição|
    |--------|-----------|
    |Nome|Um nome exclusivo para o cofre de chaves.|
-   |Subscrição|Escolha uma assinatura.|
+   |Subscrição|Escolha uma subscrição.|
    |Grupo de recursos|Escolha um grupo de recursos ou crie um novo.|
    |Localização|Escolher uma localização.|
 
@@ -113,7 +113,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    |Propriedade  |Descrição  |
    |---------|---------|
-   |Nome do espaço de trabalho     | Indique um nome para a sua área de trabalho do Databricks        |
+   |Nome da área de trabalho     | Indique um nome para a sua área de trabalho do Databricks        |
    |Subscrição     | Na lista pendente, selecione a sua subscrição do Azure.        |
    |Grupo de recursos     | Selecione o mesmo grupo de recursos que contém o cofre de chaves. |
    |Localização     | Selecione o mesmo local que o seu Azure Key Vault. Para todas as regiões disponíveis, consulte [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
@@ -129,7 +129,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 4. Quando o espaço de trabalho do Azure Databricks estiver aberto em uma janela separada, acrescente **#secrets/createscope** à URL. A URL deve ter o seguinte formato: 
 
-   **https://< \location >. azuredatabricks. net/#secrets/createscope**.
+   **https://< \location >. azuredatabricks. net/? o = < \orgID > #secrets/createscope**.
+   
 
 5. Insira um nome de escopo e insira o Azure Key Vault nome DNS e a ID de recurso que você salvou anteriormente. Salve o nome do escopo em um editor de texto para uso posterior neste tutorial. Em seguida, selecione **Criar**.
 

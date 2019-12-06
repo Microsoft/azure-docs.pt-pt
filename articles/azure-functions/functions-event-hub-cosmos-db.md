@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: 04cb91a62536c493240998270b5bd8d29fd331ba
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230631"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849841"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: criar uma função em Java com um gatilho de Hub de eventos e uma Azure Cosmos DB Associação de saída
 
@@ -36,8 +36,6 @@ Para concluir este tutorial, você deve ter o seguinte instalado:
 
 > [!IMPORTANT]
 > A variável de ambiente `JAVA_HOME` deve ser definida como o local de instalação do JDK para concluir este tutorial.
-
-Se você preferir usar o código para este tutorial diretamente, consulte o repositório de exemplo [Java-Functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -132,7 +130,7 @@ O valor de `partition-key-path` particiona seus dados com base no valor de `temp
 
 ### <a name="create-a-storage-account-and-function-app"></a>Criar uma conta de armazenamento e um aplicativo de funções
 
-Em seguida, crie uma conta de armazenamento do Azure, que é exigida pelo Azure Functions, em seguida, crie o aplicativo de funções. Use os seguintes comandos:
+Em seguida, crie uma conta de armazenamento do Azure, que é exigida pelo Azure Functions, em seguida, crie o aplicativo de funções. Utilize os seguintes comandos:
 
 ```azurecli-interactive
 az storage account create \
@@ -443,7 +441,7 @@ Quando tiver concluído os recursos do Azure criados neste tutorial, você poder
 az group delete --name $RESOURCE_GROUP
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a criar uma função do Azure que manipula eventos do hub de eventos e atualiza um Cosmos DB. Para obter mais informações, consulte o [Guia do desenvolvedor do Azure Functions Java](/azure/azure-functions/functions-reference-java). Para obter informações sobre as anotações usadas, consulte a referência [com. Microsoft. Azure. Functions. Annotation](/java/api/com.microsoft.azure.functions.annotation) .
 

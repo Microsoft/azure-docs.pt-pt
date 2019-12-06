@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 01/31/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125187"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846356"
 ---
-# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar as detecções de risco para disparar a autenticação multifator e as alterações de senha
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: usar as detecções de risco para disparar a autenticação multifator e as alterações de senha
 
 Neste tutorial, vai ativar funcionalidades do Azure Active Directory (Azure AD) Identity Protection, uma funcionalidade do Azure AD Premium P2 que é mais do que apenas uma ferramenta de monitorização e relatórios. Para proteger as identidades da sua organização, pode configurar políticas baseadas em risco que respondam automaticamente aos comportamentos de risco. Estas políticas podem bloquear ou iniciar imediatamente a remediação, incluindo a exigência de alteração da palavra-passe e a imposição do Multi-Factor Authentication.
 
@@ -73,7 +73,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
 1. Em **Acesso**, escolha **Permitir acesso** e selecione **Exigir alteração da palavra-passe**.
 1. Clique em "Selecionar"
 1. Defina Impor Política como **Ativado**.
-1. Clique em **Guardar**
+1. Clicar em **Guardar**
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>Ativar a Multi-Factor Authentication baseada em risco
 
@@ -85,7 +85,7 @@ A maioria dos utilizadores tem um comportamento normal que pode ser controlado. 
 1. Em **Acesso**, escolha **Permitir acesso** e, em seguida, selecione **Exigir autenticação multifator**.
 1. Clique em "Selecionar"
 1. Defina Impor Política como **Ativado**.
-1. Clique em **Guardar**
+1. Clicar em **Guardar**
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
