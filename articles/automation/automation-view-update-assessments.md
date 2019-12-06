@@ -4,17 +4,17 @@ description: Este artigo descreve como exibir as avaliações de atualização p
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4e20b2924504b714dff9f5ba650f9b25c1c26c3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d27df57e9371f16a15d3a18b7722598062377d88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690852"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850521"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Exibir avaliações de atualização de Gerenciamento de Atualizações do Azure
 
@@ -32,7 +32,7 @@ Selecione **atualizações ausentes** para exibir a lista de atualizações ause
 
 ![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de atualização
+## <a name="update-classifications"></a>Classificações de atualizações
 
 As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição para cada classificação.
 

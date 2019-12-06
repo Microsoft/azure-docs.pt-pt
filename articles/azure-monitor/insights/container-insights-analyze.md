@@ -1,20 +1,20 @@
 ---
-title: Monitorar o desempenho do cluster kubernetes com o Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve como pode ver e analisar os dados de desempenho e de registo com o Azure Monitor para contentores.
+title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft Docs
+description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 8bb3ac1905167989e27d47304ae539e49a1412e8
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132348"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872983"
 ---
-# <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Entender o desempenho do cluster kubernetes com Azure Monitor para contêineres
+# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
 Com Azure Monitor para contêineres, você pode usar os gráficos de desempenho e o status de integridade para monitorar a carga de trabalho de clusters kubernetes hospedados no AKS (serviço kubernetes do Azure), Azure Stack ou outro ambiente de duas perspectivas. Você pode monitorar diretamente do cluster ou pode exibir todos os clusters em uma assinatura do Azure Monitor. A exibição de instâncias de contêiner do Azure também é possível ao monitorar um cluster AKS específico.
 
@@ -34,7 +34,7 @@ As principais diferenças no monitoramento de um cluster do Windows Server com A
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com). 
+Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de cluster multi do Azure Monitor
 
@@ -81,17 +81,17 @@ A tabela a seguir fornece uma análise do cálculo que controla os Estados de in
 |**Pod do usuário**| | |  
 | |Bom estado de funcionamento |100% |  
 | |Aviso |90 - 99% |  
-| |Crítica |< 90% |  
+| |Crítico |< 90% |  
 | |Desconhecido |Se não comunicadas nos últimos 30 minutos |  
 |**Pod do sistema**| | |  
 | |Bom estado de funcionamento |100% |
-| |Aviso |N/D |
-| |Crítica |< 100% |
+| |Aviso |N/A |
+| |Crítico |< 100% |
 | |Desconhecido |Se não comunicadas nos últimos 30 minutos |
 |**Node** | | |
 | |Bom estado de funcionamento |> 85% |
 | |Aviso |60 - 84% |
-| |Crítica |< 60% |
+| |Crítico |< 60% |
 | |Desconhecido |Se não comunicadas nos últimos 30 minutos |
 
 Na lista de clusters, você pode fazer uma busca detalhada na página do **cluster** selecionando o nome do cluster. Em seguida, vá para a página de desempenho de **nós** selecionando o acúmulo de nós na coluna **nós** para esse cluster específico. Ou, você pode fazer uma busca detalhada na página de desempenho de **controladores** selecionando o acúmulo da coluna **pods do usuário** ou pods do **sistema** .
@@ -142,7 +142,7 @@ No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod
 
 Você pode [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) uma métrica para exibi-la por dimensão e visualizar como os diferentes segmentos de ti se comparam entre si. Para um nó, você pode segmentar o gráfico pela dimensão do *host* . De um pod, você pode segmentá-lo pelas seguintes dimensões:
 
-* Controle
+* Controlador
 * Namespace kubernetes
 * Nó
 * Fase
@@ -199,7 +199,7 @@ Essas informações podem ajudá-lo a identificar rapidamente se você tem um eq
 
 As informações apresentadas quando você exibe a guia **nós** é descrita na tabela a seguir.
 
-| Coluna | Descrição | 
+| Column | Descrição | 
 |--------|-------------|
 | Nome | O nome do anfitrião. |
 | Estado | Vista de Kubernetes do Estado de nó. |
@@ -207,7 +207,7 @@ As informações apresentadas quando você exibe a guia **nós** é descrita na 
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
 | Contentores | Número de contentores. |
 | Tempo de atividade | Representa o tempo, uma vez que um nó iniciado ou foi reiniciado. |
-| Controle | Apenas para os contentores e pods. Ele mostra em qual controlador ele reside. Nem todos os pods estão num controlador, para alguns podem apresentar **n/d**. | 
+| Controlador | Apenas para os contentores e pods. Ele mostra em qual controlador ele reside. Nem todos os pods estão num controlador, para alguns podem apresentar **n/d**. | 
 | Trend min&nbsp;%, AVG&nbsp;%, 50 º&nbsp;%, 90 º&nbsp;%, 95 º&nbsp;%, Max&nbsp;% | Tendência de gráfico de barras representa a percentagem de métrica de percentil média do controlador. |
 
 No Seletor de, selecione **controladores**.
@@ -228,7 +228,7 @@ Selecione o valor na coluna **nó** para o controlador específico.
 
 As informações exibidas quando você exibe controladores são descritas na tabela a seguir.
 
-| Coluna | Descrição | 
+| Column | Descrição | 
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Estado | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado*ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
@@ -265,7 +265,7 @@ De um contentor, pode desagregar para um pod ou o nó para ver os dados de desem
 
 As informações exibidas quando você exibe contêineres são descritas na tabela a seguir.
 
-| Coluna | Descrição | 
+| Column | Descrição | 
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Estado | Estado dos contentores, se aplicável. São fornecidos detalhes adicionais do ícone de estado na tabela seguinte.|

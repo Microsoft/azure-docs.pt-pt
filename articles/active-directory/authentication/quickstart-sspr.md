@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 582a6a32aa4c34b2e6fef37f3de5b5414de16cf3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474367"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846662"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início Rápido: Reposição personalizada de palavra-passe
 

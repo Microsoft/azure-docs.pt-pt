@@ -4,12 +4,12 @@ description: Saiba como adicionar uma associação de saída para conectar suas 
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227431"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849212"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conectar funções ao armazenamento do Azure usando o Visual Studio
 
@@ -23,7 +23,7 @@ A maioria das associações requer uma cadeia de conexão armazenada que o Funct
 
 Antes de iniciar este artigo, você deve: 
 
- - Conclua [parte 1 do início rápido do Visual Studio] [./Functions-Create-First-function-vs-Code.MD]. 
+ - Conclua [a parte 1 do início rápido do Visual Studio](./functions-create-first-function-vs-code.md). 
 
 - Entre em sua assinatura do Azure no Visual Studio.
 
@@ -99,7 +99,7 @@ Agora, é hora de republicar o aplicativo de funções atualizado no Azure.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você atualizou sua função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre o desenvolvimento de funções, consulte [desenvolver Azure Functions usando o Visual Studio](functions-develop-vs.md).
 

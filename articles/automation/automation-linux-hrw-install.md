@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre como instalar uma Hybrid Ru
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01dcb30fca2819bc4cf85ea624de5735cc84801b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129843"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850827"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar um Hybrid Runbook Worker do Linux
 
@@ -49,10 +49,10 @@ Os requisitos mínimos para um Hybrid Runbook Worker do Linux são:
 | **Pacote necessário** | **Descrição** | **Versão mínima**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |Biblioteca GNU C| 2.5-12 |
-|OpenSSL| Bibliotecas OpenSSL | 1,0 (há suporte para o TLS 1,1 e o TLS 1,2|
+|Openssl| Bibliotecas OpenSSL | 1,0 (há suporte para o TLS 1,1 e o TLS 1,2|
 |Curl | enrolando o cliente Web | 7.15.5|
 |Python-ctypes | O Python 2. x é obrigatório |
-|PAM | Módulos de autenticação conectáveis|
+|PAM | Módulos de Autenticação Incorporável|
 | **Pacote opcional** | **Descrição** | **Versão mínima**|
 | PowerShell Core | Para executar runbooks do PowerShell, o PowerShell precisa ser instalado, consulte [instalando o PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo.  | 6.0.0 |
 

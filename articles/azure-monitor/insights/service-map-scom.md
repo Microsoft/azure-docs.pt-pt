@@ -1,5 +1,5 @@
 ---
-title: Integração do Azure Monitor para VMs com o System Center Operations Manager | Microsoft Docs
+title: Integrar o mapa de Azure Monitor para VMs com Operations Manager | Microsoft Docs
 description: Azure Monitor para VMs descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo aborda o uso do recurso de mapa para criar automaticamente diagramas de aplicativos distribuídos no Operations Manager.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/12/2019
-ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f1acf3c1574fd94606d75c6250dedd40a9c7ea4d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553970"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849824"
 ---
-# <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>Integração do System Center Operations Manager com o recurso de mapa do Azure Monitor para VMs
+# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar System Center Operations Manager com o recurso de mapa de Azure Monitor para VMs
 
-No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Com essa integração entre o recurso de mapa e System Center Operations Manager, você pode criar automaticamente diagramas de aplicativo distribuídos em Operations Manager que se baseiam nos mapas de dependência dinâmica no Azure Monitor para VMs. 
+No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Com essa integração entre o recurso de mapa e System Center Operations Manager, você pode criar automaticamente diagramas de aplicativo distribuídos em Operations Manager que se baseiam nos mapas de dependência dinâmica no Azure Monitor para VMs. Este artigo descreve como configurar seu grupo de gerenciamento de System Center Operations Manager para dar suporte a esse recurso.
 
 >[!NOTE]
 >Se você já tiver implantado Mapa do Serviço, poderá exibir seus mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. O recurso de mapa do Azure Monitor para VMs destina-se a substituir a solução de Mapa do Serviço autônoma. Para saber mais, confira [Azure monitor para VMs visão geral](vminsights-overview.md).
@@ -107,7 +107,7 @@ A pasta Mapa do Serviço tem quatro nós:
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou excluir o espaço de trabalho
 
-Você pode editar ou excluir o espaço de trabalho configurado por meio do painel de **visão geral mapa do serviço** (painel**Administração** > **operations Management Suite**  > **mapa do serviço**).
+Você pode editar ou excluir o espaço de trabalho configurado por meio do painel de **visão geral mapa do serviço** (painel**Administração** > **operations Management Suite** > **mapa do serviço**).
 
 >[!NOTE]
 >[O Operations Management Suite foi uma coleção de serviços](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) que incluíam log Analytics, que agora faz parte do [Azure monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).

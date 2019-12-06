@@ -1,21 +1,21 @@
 ---
 title: Saiba como gerir contas de base de dados no Azure Cosmos DB
-description: Saiba como gerir contas de base de dados no Azure Cosmos DB
+description: Saiba como gerenciar recursos de Azure Cosmos DB usando os modelos portal do Azure, PowerShell, CLI e Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582624"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873680"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
 
-Este artigo descreve como gerenciar várias tarefas em uma conta do Azure Cosmos usando os modelos portal do Azure, Azure PowerShell, CLI do Azure e Azure Resource Manager.
+Este artigo descreve como gerir várias tarefas numa conta do Azure Cosmos com o portal do Azure, o Azure PowerShell, a CLI do Azure e os modelos do Azure Resource Manager.
 
 ## <a name="create-an-account"></a>Criar uma conta
 

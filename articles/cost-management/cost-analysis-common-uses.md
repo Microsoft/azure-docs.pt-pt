@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219496"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849110"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos comuns de análise de custo
 
@@ -65,6 +65,8 @@ Observar os custos diários e mensais pode ajudá-lo a entender melhor se há um
 
 Muitos usuários do Azure aplicam marcas a seus recursos, como um centro de custo ou um ambiente de desenvolvimento (produção e teste) para categorizar melhor os encargos. As marcas aparecem como uma dimensão na análise de custo. Você pode usar a dimensão para obter informações sobre suas categorizações de marcação personalizadas.
 
+O suporte para marcas se aplica ao uso relatado *depois* que a marca foi aplicada ao recurso. As marcas não são aplicadas retroativamente para rollups de custo.
+
 1. Na portal do Azure, navegue até análise de custo para seu escopo. Por exemplo: **Gerenciamento de custos + cobrança** > **gerenciamento de custos** > **análise de custo**.
 1. Selecione **Agrupar por** para sua marca.
 
@@ -111,6 +113,6 @@ Exiba os encargos líquidos acumulados ao longo do tempo para entender as despes
 
 ![Custos acumulados no registro](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-- Se você ainda não tiver concluído o primeiro início rápido para o gerenciamento de custos, leia-o em [comece a analisar os custos](quick-acm-cost-analysis.md).
+## <a name="next-steps"></a>Passos seguintes
+- Se ainda não tiver concluído o primeira guia de introdução do Cost Management, leia-a em [começar a analisar os custos](quick-acm-cost-analysis.md).
 - Leia a [documentação do gerenciamento de custos](index.yml).

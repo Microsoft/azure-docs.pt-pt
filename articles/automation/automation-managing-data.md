@@ -1,80 +1,80 @@
 ---
 title: Gerir os dados da Automatização do Azure
-description: Este artigo contém vários tópicos para gerir um ambiente de automatização do Azure.  Atualmente, inclui retenção de dados e realizar backup de recuperação de desastres de automatização do Azure na automatização do Azure.
+description: Este artigo contém vários tópicos para gerenciar um ambiente de automação do Azure.  Atualmente inclui a retenção de dados e o backup da recuperação de desastre da automação do Azure na automação do Azure.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476590"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850776"
 ---
 # <a name="managing-azure-automation-data"></a>Gerir os dados da Automatização do Azure
-Este artigo contém vários tópicos para gerir um ambiente de automatização do Azure.
+Este artigo contém vários tópicos para gerenciar um ambiente de automação do Azure.
 
 ## <a name="data-retention"></a>Retenção de dados
-Quando elimina um recurso na automatização do Azure, são retido durante 90 dias para fins de auditoria antes de serem removidos permanentemente.  Não é possível ver ou utilizar o recurso durante este período.  Esta política também se aplica aos recursos que pertencem a uma conta de automatização foi eliminada.
+Quando você exclui um recurso na automação do Azure, ele é retido por 90 dias para fins de auditoria antes de ser removido permanentemente.  Você não pode ver ou usar o recurso durante esse tempo.  Essa política também se aplica a recursos que pertencem a uma conta de automação que é excluída.
 
-A automatização do Azure elimina automaticamente e remove permanentemente a trabalhos mais de 90 dias.
+A automação do Azure exclui automaticamente e remove permanentemente os trabalhos com mais de 90 dias.
 
-A tabela seguinte resume a política de retenção para os recursos diferentes.
+A tabela a seguir resume a política de retenção para diferentes recursos.
 
-| Data | Política |
+| Dados | Política |
 |:--- |:--- |
-| Contas |Remover permanentemente os 90 dias após a conta for eliminada por um utilizador. |
-| Elementos |Removido de forma permanente 90 dias após o elemento é eliminado por um utilizador ou 90 dias após a conta que contém que o elemento é eliminado por um utilizador. |
-| Módulos |Permanentemente removido 90 dias depois de eliminar o módulo por um utilizador ou 90 dias após a conta que contém que o módulo foi eliminado por um utilizador. |
-| Runbooks |Permanentemente removido 90 dias após o recurso é excluído por um utilizador ou 90 dias após a conta que contém que o recurso é excluído por um utilizador. |
-| Tarefas |Eliminado e permanentemente removidos 90 dias após a última a ser modificado. Isto pode ser após a tarefa for concluída, está parada ou está suspensa. |
-| Ficheiros MOF/configurações de nó |Configuração do nó antigo é permanentemente removida 90 dias após é gerada uma nova configuração de nó. |
-| Nós de DSC |Permanentemente removido 90 dias após o nó é anulado o registo da conta de automatização com o portal do Azure ou o [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) cmdlet no Windows PowerShell. Nós também permanentemente são removidos 90 dias após a conta que contém que o nó é eliminado por um utilizador. |
-| Relatórios de nó |Permanentemente removido 90 dias depois de um novo relatório é gerado para esse nó |
+| Contas |Removidos permanentemente 90 dias após a conta ser excluída por um usuário. |
+| Elementos |Removidos permanentemente 90 dias após o ativo ser excluído por um usuário ou 90 dias após a conta que contém o ativo é excluída por um usuário. |
+| Módulos |Removidos permanentemente 90 dias após o módulo ser excluído por um usuário ou 90 dias após a conta que contém o módulo ser excluída por um usuário. |
+| Runbooks |Removidos permanentemente 90 dias após o recurso ser excluído por um usuário ou 90 dias após a conta que contém o recurso ser excluída por um usuário. |
+| Tarefas |Excluídos e removidos permanentemente 90 dias após a última modificação. Isso pode ser após o trabalho ser concluído, ser interrompido ou suspenso. |
+| Configurações de nó/Arquivos MOF |A configuração antiga do nó é removida permanentemente 90 dias após a geração de uma nova configuração de nó. |
+| Nós DSC |Removidos permanentemente 90 dias após o cancelamento do registro do nó da conta de automação usando portal do Azure ou o cmdlet [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) no Windows PowerShell. Os nós também são removidos permanentemente 90 dias depois que a conta que contém o nó é excluída por um usuário. |
+| Relatórios de nó |Removido permanentemente 90 dias após a geração de um novo relatório para esse nó |
 
-A política de retenção aplica-se a todos os utilizadores e atualmente não pode ser personalizada.
+A política de retenção se aplica a todos os usuários e, no momento, não pode ser personalizada.
 
-No entanto, se precisar de reter dados durante um período mais longo do tempo, pode reencaminhar os runbook registos da tarefa para registos do Azure Monitor.  Para obter mais informações, consulte [reencaminhar dados de tarefa da automatização do Azure para registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
+No entanto, se você precisar reter dados por um período de tempo maior, poderá encaminhar logs de trabalho de runbook para logs de Azure Monitor.  Para obter mais informações, examine [encaminhar dados de trabalho de automação do Azure para Azure monitor logs](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Fazer cópia de segurança da Automatização do Azure
-Quando elimina uma conta de automatização no Microsoft Azure, todos os objetos na conta são eliminados incluindo runbooks, módulos, configurações, configurações, tarefas e ativos. Não não possível recuperar os objetos depois da conta for eliminada.  Pode utilizar as seguintes informações para o conteúdo da sua conta de automatização de cópia de segurança antes de o eliminar. 
+Quando você exclui uma conta de automação no Microsoft Azure, todos os objetos na conta são excluídos, incluindo runbooks, módulos, configurações, configurações, trabalhos e ativos. Os objetos não podem ser recuperados depois que a conta é excluída.  Você pode usar as informações a seguir para fazer backup do conteúdo da sua conta de automação antes de excluí-la. 
 
 ### <a name="runbooks"></a>Runbooks
-Pode exportar os runbooks para arquivos de script usando o portal do Azure ou o [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet no Windows PowerShell.  Esses arquivos de script podem ser importados para outra conta de automatização, conforme discutido [criar ou importar um Runbook](/previous-versions/azure/dn643637(v=azure.100)).
+Você pode exportar seus runbooks para arquivos de script usando o portal do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell.  Esses arquivos de script podem ser importados para outra conta de automação, conforme discutido na [criação ou importação de um runbook](/previous-versions/azure/dn643637(v=azure.100)).
 
 ### <a name="integration-modules"></a>Módulos de integração
-Não é possível exportar os módulos de integração da automatização do Azure.  Tem de se certificar de que estão disponíveis fora a conta de automatização.
+Não é possível exportar módulos de integração da automação do Azure.  Você deve garantir que eles estejam disponíveis fora da conta de automação.
 
 ### <a name="assets"></a>Elementos
-Não é possível exportar [ativos](/previous-versions/azure/dn939988(v=azure.100)) da automatização do Azure.  Com o portal do Azure, deve observar os detalhes de variáveis, credenciais, certificados, ligações e agendas.  Em seguida, deve criar manualmente qualquer recurso que é utilizado por runbooks que importar para a automatização de outro.
+Você não pode exportar [ativos](/previous-versions/azure/dn939988(v=azure.100)) da automação do Azure.  Usando o portal do Azure, você deve observar os detalhes de variáveis, credenciais, certificados, conexões e agendas.  Você deve criar manualmente todos os ativos que são usados por runbooks importados em outra automação.
 
-Pode usar [cmdlets do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) para obter os detalhes da ativos não encriptados e guardá-los para referência futura ou crie recursos equivalentes na outra conta de automatização.
+Você pode usar os [cmdlets do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) para recuperar detalhes de ativos não criptografados e salvá-los para referência futura ou criar ativos equivalentes em outra conta de automação.
 
-Não é possível obter o valor para variáveis encriptadas ou o campo de palavra-passe de credenciais com os cmdlets.  Se não sabe estes valores, em seguida, pode obtê-las a partir de um runbook com o [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) e [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) atividades.
+Você não pode recuperar o valor de variáveis criptografadas ou o campo de senha de credenciais usando cmdlets.  Se você não souber esses valores, poderá recuperá-los de um runbook usando as atividades [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) e [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) .
 
-Não é possível exportar os certificados da automatização do Azure.  Tem de se certificar de que todos os certificados estão disponíveis fora do Azure.
+Você não pode exportar certificados da automação do Azure.  Você deve garantir que todos os certificados estejam disponíveis fora do Azure.
 
-### <a name="dsc-configurations"></a>Configurações de DSC
-Pode exportar as configurações para arquivos de script usando o portal do Azure ou o [Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) cmdlet no Windows PowerShell. Estas configurações podem ser importadas e utilizadas em outra conta de automatização.
+### <a name="dsc-configurations"></a>Configurações DSC
+Você pode exportar suas configurações para arquivos de script usando o portal do Azure ou o cmdlet [Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) no Windows PowerShell. Essas configurações podem ser importadas e usadas em outra conta de automação.
 
-## <a name="geo-replication-in-azure-automation"></a>Replicação geográfica na automatização do Azure
-A georreplicação padrão nas contas de automatização do Azure, faz o backup de dados de conta para uma região geográfica diferente para redundância. Pode escolher a região primária quando configurar a sua conta e, em seguida, em que uma região secundária é atribuída automaticamente ao mesmo. Os dados secundários, copiados da região primária, é constantemente atualizados em caso de perda de dados.  
+## <a name="geo-replication-in-azure-automation"></a>Replicação geográfica na automação do Azure
+A replicação geográfica, Standard nas contas de automação do Azure, faz backup de dados de conta para uma região geográfica diferente para redundância. Você pode escolher uma região primária ao configurar sua conta e, em seguida, uma região secundária é atribuída a ela automaticamente. Os dados secundários, copiados da região primária, são atualizados continuamente em caso de perda de dados.  
 
-A tabela seguinte mostra o emparelhamento de regiões disponíveis de primário e secundário.
+A tabela a seguir mostra os emparelhamentos de região primária e secundária disponíveis.
 
 | Primária | Secundária |
 | --- | --- |
-| EUA Centro-Sul |EUA Centro-Norte |
-| Este dos EUA 2 |EUA Central |
+| E.U.A. Centro-Sul |E.U.A. Centro-Norte |
+| Este dos EUA 2 |Centro dos E.U.A. |
 | Europa Ocidental |Europa do Norte |
-| Sudeste Asiático |Ásia Oriental |
-| Leste do Japão |Oeste do Japão |
+| Sudeste Asiático |Este Asiático |
+| Este do Japão |Oeste do Japão |
 
-Na improvável eventualidade que uma região primária os dados são perdidos, a Microsoft tenta recuperá-la. Se não não possível recuperar os dados primários, em seguida, é efetuada a ativação pós-falha geográfica e os clientes afetados serão notificados sobre isso através de sua assinatura.
+No caso improvável de os dados da região primária serem perdidos, a Microsoft tentará recuperá-lo. Se os dados primários não puderem ser recuperados, o failover geográfico será executado e os clientes afetados serão notificados sobre isso por meio de sua assinatura.
 
 

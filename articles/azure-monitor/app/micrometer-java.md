@@ -1,18 +1,18 @@
 ---
-title: Como usar o micrometer com o SDK do Java do insights Aplicativo Azure | Microsoft Docs
-description: 'Um guia passo a passo sobre como usar o micrometer com seus Application Insights aplicativos Spring boot e não Spring boot. '
+title: Como usar o micrometer com o SDK do Java do insights Aplicativo Azure
+description: Um guia passo a passo sobre como usar o micrometer com seus Application Insights aplicativos Spring boot e não Spring boot.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 267665c97f683740c05ae6602a416225c79aa44c
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c9f1c6f6742f36d376668422f9c37c6c5a2228a4
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819303"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873000"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrometer com o SDK do Java do insights Aplicativo Azure
 O monitoramento de aplicativos micrometer mede as métricas para o código do aplicativo baseado em JVM e permite que você exporte os dados para seus sistemas de monitoramento favoritos. Este artigo ensinará como usar o micrometer com Application Insights para aplicativos Spring boot e não Spring boot.
@@ -96,7 +96,7 @@ Métricas padrão:
 Como desativar a coleção de métricas automáticas: 
  
 - Métricas de JVM: 
-    - Management. Metrics. associars. JVM. Enabled = False 
+    - management.metrics.binders.jvm.enabled=false 
 - Métricas de Logback: 
     - Management. Metrics. associars. logback. Enabled = False
 - Métricas de tempo de atividade: 
@@ -106,7 +106,7 @@ Como desativar a coleção de métricas automáticas:
 - FileDescriptorMetrics:
     - Management. Metrics. binderers. files. Enabled = False 
 - Métricas de Hystrix se biblioteca no classpath: 
-    - Management. Metrics. associars. Hystrix. Enabled = False 
+    - management.metrics.binders.hystrix.enabled=false 
 - Métricas de AspectJ se biblioteca no classpath: 
     - Spring. AOP. Enabled = False 
 

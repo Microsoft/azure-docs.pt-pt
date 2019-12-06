@@ -2,13 +2,13 @@
 title: Obter alterações do recurso
 description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
 ms.date: 10/09/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2ed2c0ef8638744aeaa9f31eded14d1716d891ae
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.topic: how-to
+ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74303984"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873034"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -284,7 +284,7 @@ A resposta é semelhante a este exemplo:
 
 Para comparar os resultados, use a propriedade **Changes** em **resourceChanges** ou avalie a parte de **conteúdo** de cada instantâneo em **resourceChangeDetails** para determinar a diferença. Se você comparar os instantâneos, o **carimbo de data/hora** sempre será mostrado como uma diferença, apesar de ser esperado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

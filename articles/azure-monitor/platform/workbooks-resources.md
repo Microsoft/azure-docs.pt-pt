@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com Azure Monitor pastas de trabalho | Parâmetros de recurso | Microsoft docs
+title: Parâmetros de recurso de pastas de trabalho Azure Monitor
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cd170fdc3bed04a81c66d83b9e75ed77e3c0a5a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165852"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872813"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recurso da pasta de trabalho
 

@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com pastas de trabalho Azure Monitor + parâmetros de texto | Microsoft docs
+title: Parâmetros de texto de Azure Monitor pastas de trabalho
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas. Saiba mais sobre os parâmetros de texto da pasta de trabalho.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: ee3e24444b87c461841b591176774d4e945e4fcc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3b7affb9c7d7be790d4279c1db8174a5dd3b2c2a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165163"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872779"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto da pasta de trabalho
 

@@ -4,17 +4,17 @@ description: Explicação e exemplos das tarefas mais comuns na configuração d
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243616"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850963"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à configuração de estado da automação do Azure
 
@@ -71,7 +71,7 @@ Em seguida, você importará a configuração para a conta de automação.
 1. À esquerda, clique em **todos os recursos** e, em seguida, no nome da sua conta de automação.
 1. Na página **conta de automação** , selecione **configuração de estado (DSC)** em **Gerenciamento de configuração**.
 1. Na página **configuração de estado (DSC)** , clique na guia **configurações** e, em seguida, clique em **+ Adicionar**.
-1. Na página **importar configuração** , navegue até o arquivo `TestConfig.ps1` no computador.
+1. Na página **importar configuração** , navegue até o arquivo de `TestConfig.ps1` no computador.
 
    ![Captura de tela da folha * * importar configuração * *](./media/automation-dsc-getting-started/AddConfig.png)
 

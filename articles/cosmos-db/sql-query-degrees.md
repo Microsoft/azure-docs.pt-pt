@@ -1,18 +1,18 @@
 ---
 title: GRAUS na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre os graus de função do sistema SQL no Azure Cosmos DB.
+description: Saiba mais sobre a função de sistema SQL de graus em Azure Cosmos DB para retornar o ângulo correspondente em graus para um ângulo especificado em radianos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8c2109c2c11f137b1966741a95d1d0c02895016
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5f432f5ef57c8eccc0cf629f00d2231364785b9a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351196"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871334"
 ---
 # <a name="degrees-azure-cosmos-db"></a>GRAUS (Azure Cosmos DB)
  Devolve o ângulo correspondente em graus para um ângulo especificado em radianos.  

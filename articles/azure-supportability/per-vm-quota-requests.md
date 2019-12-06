@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: ccd0c88c95ae9a752ef8ea2387bbde4f8559bc68
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531754"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850045"
 ---
 # <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Cota padrão: aumento de limite de vCPU por série de VM
 
-O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o uso e as instâncias de VM reservadas** usam a cota padrão. As **VMs de baixa prioridade** usam a cota de baixa prioridade. A cota de vCPU padrão para instâncias de VMs pagas conforme o uso e as de VM reservadas são impostas em duas camadas para cada assinatura em cada região
+O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o uso e as instâncias de VM reservadas** usam a cota padrão. As **VMs pontuais** usam a cota Spot. A cota de vCPU padrão para instâncias de VMs pagas conforme o uso e as de VM reservadas são impostas em duas camadas para cada assinatura em cada região
 
 A primeira camada é o **limite de VCPUs regional total** (em toda a série de VM), e a segunda camada é o **limite de vCPUs por série de VMs** (como a vCPUs da série Dv3). Sempre que uma nova VM for implantada, a soma do uso de vCPUs novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, a contagem de vCPU total e nova e existente implantada em toda a série de VMs não deve exceder a cota de vCPUs regional total aprovada para a assinatura. Se qualquer uma dessas cotas for excedida, a implantação da VM não será permitida.
 Você pode solicitar um aumento do limite de cota de vCPUs para a série de VMs de portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPUs regional total pelo mesmo valor. 
@@ -25,7 +25,7 @@ Saiba mais sobre as cotas de vCPU padrão na [página de cotas do vCPU de máqui
 
 Saiba mais sobre como aumentar o limite de vCPU regionais para a cota padrão [aqui](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-Saiba mais sobre como **aumentar os limites de vCPU de VM de baixa prioridade** [aqui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Saiba mais sobre como **aumentar os limites de vCPU de VM Spot** [aqui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Você pode solicitar um aumento nos **limites de cota padrão do vCPU por série de VM** por meio da folha **ajuda + suporte** ou da folha **usos + cota** no Portal.
 
@@ -37,7 +37,7 @@ Você também pode solicitar a cota para várias regiões por meio de um único 
 
 1. Em https://portal.azure.com, selecione **ajuda + suporte**.
 
-   ![Ajuda + suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![Ajuda + Suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Selecione **Novo pedido de suporte**. 
 
@@ -63,7 +63,7 @@ Você também pode solicitar a cota para várias regiões por meio de um único 
 
    ![Detalhes da cota DM](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. Para o local selecionado, selecione valor de **tipo** como **' padrão '** . Você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar os limites de cota de baixa prioridade** na **página de > de <** .
+8. Para o local selecionado, selecione valor de **tipo** como **' padrão '** . Você pode solicitar tipos de cota padrão e spot de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar os limites de cota Spot** nesta [página](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
 
    ![Família de SKU](./media/resource-manager-core-quotas-request/1-8.png)
 
@@ -111,7 +111,7 @@ Você também pode **solicitar a cota para várias regiões** por meio de um ún
 
    ![Folha problema de cota](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. Para o local selecionado, selecione valor de **tipo** como **' padrão '** . Você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar os limites de vCPUs de baixa prioridade** nesta [página](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+7. Para o local selecionado, selecione valor de **tipo** como **' padrão '** . Você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar os limites de VCPUs Spot** nesta [página](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
    ![Série de SKUs selecionada](./media/resource-manager-core-quotas-request/1-1-7.png)
    

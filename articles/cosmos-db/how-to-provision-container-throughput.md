@@ -1,17 +1,17 @@
 ---
 title: Aprovisionar débito do contentor no Azure Cosmos DB
-description: Aprenda a aprovisionar débito ao nível do contentor no Azure Cosmos DB
+description: Saiba como provisionar a taxa de transferência no nível de contêiner em Azure Cosmos DB usando portal do Azure, CLI, PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0b48652f7b181f1254a4b20af75b83593c2aba05
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed6a55c8b6049f16e96a4a95ecf3ef125db908d7
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147608"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872048"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionar a taxa de transferência em um contêiner Cosmos do Azure
 
@@ -19,7 +19,7 @@ Este artigo explica como provisionar a taxa de transferência em um contêiner (
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente do Azure Cosmos.
 
@@ -43,7 +43,7 @@ Para criar um contêiner com taxa de transferência dedicada, consulte
 > [!Note]
 > Se você estiver Provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Azure Cosmos DB para MongoDB, use `/myShardKey` para o caminho da chave de partição. Se você estiver Provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com API do Cassandra, use `/myPrimaryKey` para o caminho da chave de partição.
 
-## <a name="net-sdk"></a>SDK .NET
+## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
 > Use os SDKs do cosmos para a API do SQL para provisionar a taxa de transferência para todas as APIs de Cosmos DB, exceto API do Cassandra.
@@ -66,7 +66,7 @@ await client.CreateDocumentCollectionAsync(
 ### <a name="net-v3-sdk"></a>SDK do .net v3
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
-## <a name="javascript-sdk"></a>SDK JavaScript
+## <a name="javascript-sdk"></a>SDK de JavaScript
 
 ```javascript
 // Create a new Client

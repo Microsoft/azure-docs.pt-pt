@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558543"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848396"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -52,7 +52,7 @@ A autenticação multifator do Azure é implantada pela imposição de política
 
 * Todos os usuários, um usuário específico, um membro de um grupo ou uma função atribuída
 * Aplicativo de nuvem específico que está sendo acessado
-* Plataforma do dispositivo
+* Plataforma de dispositivo
 * Estado do dispositivo
 * Local de rede ou endereço IP localizado geograficamente
 * Aplicações de cliente
@@ -102,7 +102,7 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
 
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que desejam disponibilizar para os usuários. É importante permitir mais do que um único método de autenticação para que os usuários tenham um método de backup disponível caso o método principal não esteja disponível. Os seguintes métodos estão disponíveis para que os administradores habilitem:
 
-### <a name="notification-through-mobile-app"></a>Notificação por meio do aplicativo móvel
+### <a name="notification-through-mobile-app"></a>Notificação através da aplicação para dispositivos móveis
 
 Uma notificação por push é enviada para o aplicativo Microsoft Authenticator em seu dispositivo móvel. O usuário exibe a notificação e seleciona **aprovar** para concluir a verificação. As notificações por Push por meio de um aplicativo móvel fornecem a opção menos invasiva para os usuários. Eles também são a opção mais confiável e segura porque usam uma conexão de dados em vez de telefonia.
 
@@ -117,7 +117,7 @@ Um aplicativo móvel como o Microsoft Authenticator aplicativo gera um novo cód
 
 Uma chamada de voz automática é colocada para o usuário. O usuário responde à chamada e pressiona **#** no teclado do telefone para aprovar sua autenticação. A chamada para Phone é um excelente método de backup para notificação ou código de verificação de um aplicativo móvel.
 
-### <a name="text-message-to-phone"></a>Mensagem de texto para telefone
+### <a name="text-message-to-phone"></a>Mensagem de texto para um telefone
 
 Uma mensagem de texto que contém um código de verificação é enviada ao usuário, o usuário é solicitado a inserir o código de verificação na interface de entrada.
 
@@ -283,12 +283,12 @@ Escolha o que acontece quando os usuários que não estão registrados com o MFA
 
 A finalidade dessa configuração é determinar o que fazer quando um usuário não está registrado para MFA. Os efeitos da alteração dessa configuração são listados na tabela a seguir.
 
-| Definições | Status de MFA do usuário | Effect |
+| Definições | Status de MFA do usuário | Effects |
 | --- | --- | --- |
 | A chave não existe | Não registrado | O desafio de MFA não foi bem-sucedido |
 | Valor definido como true/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
 | Chave definida como false | Não registrado | Autenticação sem MFA |
-| Chave definida como falsa ou verdadeira | Registrados | Deve autenticar com MFA |
+| Chave definida como falsa ou verdadeira | Enrolled (Inscrito) | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com o Serviços de Federação do Active Directory (AD FS)
 

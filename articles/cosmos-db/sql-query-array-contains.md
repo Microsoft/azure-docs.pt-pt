@@ -1,18 +1,18 @@
 ---
 title: ARRAY_CONTAINS na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL ARRAY_CONTAINS no Azure Cosmos DB.
+description: Saiba mais sobre como a matriz contém a função do sistema SQL em Azure Cosmos DB retorna um valor booleano que indica se a matriz contém o valor especificado
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 247956ccc2718c9bf192b4d704a48014753c00dc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 115667c93bbb832926a7939cf250a02b6fef8baa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348699"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873493"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
 Devolve um valor booleano que indica se a matriz contém o valor especificado. Você pode verificar se há uma correspondência parcial ou completa de um objeto usando uma expressão booliana dentro do comando. 

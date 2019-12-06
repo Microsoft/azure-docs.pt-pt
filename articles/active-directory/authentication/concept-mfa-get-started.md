@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98bf62dff3e6c642f5de775f2d5bf8682ecea169
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 84da00b7d6ef49fcdcc91bf6374d8c8f48a034da
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164929"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848702"
 ---
 # <a name="enable-multi-factor-authentication-for-your-organization"></a>Habilitar a autenticação multifator para sua organização
 
@@ -55,9 +55,9 @@ A recomendação é usar [políticas de acesso condicional](../conditional-acces
 
 |   | Predefinições de segurança | Todos os outros métodos |
 | --- | --- | --- |
-| Notificação por meio do aplicativo móvel | X | X |
-| Código de verificação do aplicativo móvel ou token de hardware |   | X |
-| Mensagem de texto para telefone |   | X |
+| Notificação através da aplicação para dispositivos móveis | X | X |
+| Código de verificação da aplicação para dispositivos móveis ou token de hardware |   | X |
+| Mensagem de texto para um telefone |   | X |
 | Ligar para telefone |   | X |
 | Palavras-passe de aplicações |   | X * * |
 

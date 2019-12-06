@@ -2,28 +2,23 @@
 title: Saiba como fornecer declarações opcionais para seu aplicativo do Azure AD
 titleSuffix: Microsoft identity platform
 description: Um guia para adicionar declarações personalizadas ou adicionais aos tokens SAML 2,0 e JSON Web tokens (JWT) emitidos pelo Azure Active Directory.
-documentationcenter: na
 author: rwike77
-services: active-directory
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74e680979ccbcc94f8a49e993c6d64797ab80b1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803418"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844724"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
 
@@ -35,13 +30,13 @@ Você pode usar declarações opcionais para:
 - Altere o comportamento de determinadas declarações que o Azure AD retorna em tokens.
 - Adicione e acesse declarações personalizadas para seu aplicativo.
 
-Para obter as listas de declarações padrão, consulte o [token de acesso](access-tokens.md) e a documentação de declarações do [id_token](id-tokens.md) . 
+Para obter as listas de declarações padrão, consulte o [token de acesso](access-tokens.md) e a documentação de declarações de [id_token](id-tokens.md) . 
 
 Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v 2.0, bem como nos tokens SAML, elas fornecem a maior parte de seu valor ao mudar de v 1.0 para v 2.0. Um dos objetivos do ponto de [extremidade da plataforma de identidade da Microsoft v 2.0](active-directory-appmodel-v2-overview.md) é um tamanho de token menor para garantir o desempenho ideal dos clientes. Como resultado, várias declarações anteriormente incluídas nos tokens de acesso e de ID não estão mais presentes em tokens v 2.0 e devem ser solicitadas especificamente por aplicativo.
 
 **Tabela 1: aplicabilidade**
 
-| Tipo de conta | tokens v 1.0 | tokens v 2.0  |
+| Tipo de Conta | tokens v 1.0 | tokens v 2.0  |
 |--------------|---------------|----------------|
 | conta Microsoft pessoais  | N/A  | Suportadas |
 | Conta do Azure AD      | Suportadas | Suportadas |
@@ -61,7 +56,7 @@ O conjunto de declarações opcionais disponíveis por padrão para aplicativos 
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
 | `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.| JWT        |           | |
 | `sid`                      | ID da sessão, usada para sair do usuário por sessão. | JWT        |  Contas pessoais e do Azure AD.   |         |
-| `platf`                    | Plataforma do dispositivo    | JWT        |           | Restrito a dispositivos gerenciados que podem verificar o tipo de dispositivo.|
+| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restrito a dispositivos gerenciados que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Originado do PrimaryAuthoritativeEmail do usuário      | JWT        |           |         |
 | `verified_secondary_email` | Originado do SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
 | `enfpolids`                | IDs de política imposta. Uma lista das IDs de política que foram avaliadas para o usuário atual. | JWT |  |  |
@@ -88,10 +83,10 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP do qual o cliente fez logon.   |       |
 | `onprem_sid`  | Identificador de segurança local |                                             |       |
-| `pwd_exp`     | Tempo de expiração da senha        | O DateTime no qual a senha expira. |       |
+| `pwd_exp`     | Hora de Expiração da Palavra-Passe        | O DateTime no qual a senha expira. |       |
 | `pwd_url`     | Alterar URL da senha             | Uma URL que o usuário pode visitar para alterar sua senha.   |   |
-| `in_corp`     | Dentro da rede corporativa        | Sinaliza se o cliente está fazendo logon da rede corporativa. Se não forem, a declaração não será incluída.   |  Com base nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
-| `nickname`    | Apelido                        | Um nome adicional para o usuário, separado do nome ou sobrenome. | 
+| `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está fazendo logon da rede corporativa. Se não forem, a declaração não será incluída.   |  Com base nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
+| `nickname`    | Alcunha                        | Um nome adicional para o usuário, separado do nome ou sobrenome. | 
 | `family_name` | Apelido                       | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. <br>"family_name": "Miller" | Com suporte no MSA e no Azure AD   |
 | `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do usuário, conforme definido no objeto de usuário.<br>"given_name": "Frank"                   | Com suporte no MSA e no Azure AD  |
 | `upn`         | Nome Principal de Utilizador | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Consulte [as propriedades adicionais](#additional-properties-of-optional-claims) abaixo para obter a configuração da declaração. |
@@ -186,7 +181,7 @@ Se houver suporte para uma declaração específica, você também poderá modif
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e declarações definidas pelo usuário das propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for User, o valor na propriedade Name será a propriedade de extensão do objeto user. |
-| `essential`            | Edm.Boolean             | Se o valor for true, a declaração especificada pelo cliente será necessária para garantir uma experiência de autorização suave para a tarefa específica solicitada pelo usuário final. O valor padrão é false.                                                                                                             |
+| `essential`            | Edm.Boolean             | Se o valor for true, a declaração especificada pelo cliente será necessária para garantir uma experiência de autorização suave para a tarefa específica solicitada pelo usuário final. O valor predefinido é false.                                                                                                             |
 | `additionalProperties` | Coleção (EDM. String) | Propriedades adicionais da declaração. Se uma propriedade existir nessa coleção, ela modificará o comportamento da declaração opcional especificada na propriedade Name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurando declarações opcionais de extensão de diretório
 
@@ -220,7 +215,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
    Os valores válidos são:
 
-   - Os
+   - "Todas"
    - SecurityGroup
    - DistributionList
    - DirectoryRole
@@ -257,17 +252,17 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
    | Esquema de declarações opcional | Valor |
    |----------|-------------|
-   | **nomes** | Deve ser "grupos" |
-   | **original** | Não usado. Omitir ou especificar nulo |
-   | **importante** | Não usado. Omitir ou especificar false |
-   | **AdditionalProperties** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **name:** | Deve ser "grupos" |
+   | **original** | Não utilizado. Omitir ou especificar nulo |
+   | **essential:** | Não utilizado. Omitir ou especificar false |
+   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   Em AdditionalProperties, apenas um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" são necessários.  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
+   Somente um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" é necessário em um adicional.  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
 
    Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração para de uma declaração de grupo para uma declaração de função, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
    > [!NOTE]
-   > Se "emit_as_roles" for usado, qualquer função de aplicativo configurada que o usuário está atribuído não aparecerá na declaração de função
+   > Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário está atribuído não aparecerão na declaração de função
 
 **Exemplos:** Emitir grupos como nomes de grupo nos tokens de acesso OAuth no formato dnsDomainName\sAMAccountName
 
@@ -340,7 +335,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
     ```
 
-    Nesse caso, diferentes declarações opcionais foram adicionadas a cada tipo de token que o aplicativo pode receber. Agora, os tokens de ID conterão o UPN para usuários federados no formato completo (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Os tokens de acesso que outros clientes solicitam para esse aplicativo agora incluirão a declaração auth_time. Os tokens SAML agora conterão a extensão de esquema de diretório do SkypeID (neste exemplo, a ID do aplicativo para esse aplicativo é ab603c56068041afb2f6832e2a17e237). Os tokens SAML vão expor a ID do Skype como `extension_skypeId`.
+    Nesse caso, diferentes declarações opcionais foram adicionadas a cada tipo de token que o aplicativo pode receber. Agora, os tokens de ID conterão o UPN para usuários federados no formato completo (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Os tokens de acesso que outros clientes solicitam para esse aplicativo agora incluirão a declaração de auth_time. Os tokens SAML agora conterão a extensão de esquema de diretório do SkypeID (neste exemplo, a ID do aplicativo para esse aplicativo é ab603c56068041afb2f6832e2a17e237). Os tokens SAML vão expor a ID do Skype como `extension_skypeId`.
 
 1. Quando tiver terminado de atualizar o manifesto, clique em **salvar** para salvar o manifesto
 

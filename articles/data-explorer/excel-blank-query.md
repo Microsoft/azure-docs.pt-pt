@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 55198e0c38c2922d69b68d9ce62e16ea25e9cc44
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173732"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849093"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualizar dados usando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel
 
@@ -68,3 +68,7 @@ O Azure Data Explorer fornece duas opções para se conectar a dados no Excel: U
 1. Agora, seus dados estão no Excel. Selecione o botão **Atualizar** para atualizar a consulta.
 
     ![Exibir dados no Excel](media/excel-blank-query/data-in-excel.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+[Visualizar dados usando o conector do Data Explorer do Azure para Excel](excel-connector.md)

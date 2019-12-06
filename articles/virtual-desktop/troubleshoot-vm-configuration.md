@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791152"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869532"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -81,10 +81,10 @@ A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **cr
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
 1. Confirme se os dois componentes estão instalados verificando no **painel de controle** > **programas** > **programas e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
-2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\scriptlogs.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
-3. Se o arquivo **C:\Windows\Temp\scriptlogs.log** estiver presente, abra-o e verifique se há mensagens de erro.
+2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\ScriptLog.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
+3. Se o arquivo **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Erro: o agente de área de trabalho virtual do Windows e o carregador de inicialização do Windows Virtual Desktop Agent estão ausentes. C:\Windows\Temp\scriptlogs.log também está ausente
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Erro: o agente de área de trabalho virtual do Windows e o carregador de inicialização do Windows Virtual Desktop Agent estão ausentes. C:\Windows\Temp\ScriptLog.log também está ausente
 
 **Causa 1:** As credenciais fornecidas durante a entrada para o modelo de Azure Resource Manager estavam incorretas ou as permissões eram insuficientes.
 
@@ -98,7 +98,7 @@ Siga estas instruções para confirmar se os componentes estão instalados e par
 - Confirme se o nome do locatário é preciso e se o locatário existe na área de trabalho virtual do Windows.
 - Confirme se a conta tem pelo menos permissões de colaborador de RDS.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Erro: falha na autenticação, erro em C:\Windows\Temp\scriptlogs.log
+### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Erro: falha na autenticação, erro em C:\Windows\Temp\ScriptLog.log
 
 **Causa:** O DSC do PowerShell foi capaz de executar, mas não pôde se conectar à área de trabalho virtual do Windows.
 

@@ -1,17 +1,17 @@
 ---
 title: Aprovisionar débito da base de dados no Azure Cosmos DB
-description: Aprenda a aprovisionar o débito ao nível da base de dados no Azure Cosmos DB
+description: Saiba como provisionar a taxa de transferência no nível de banco de dados no Azure Cosmos DB usando portal do Azure, CLI, PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575148"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873663"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisione a taxa de transferência em um banco de dados no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Este artigo explica como provisionar a taxa de transferência em um banco de dad
 
 ### <a id="portal-sql"></a>API de SQL (Core)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente do Azure Cosmos.
 
@@ -79,6 +79,6 @@ session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisio
 Consulte os artigos a seguir para saber mais sobre a taxa de transferência provisionada no Azure Cosmos DB:
 
 * [Dimensionar globalmente a taxa de transferência provisionada](scaling-throughput.md)
-* [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md)
+* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
 * [Como aprovisionar o débito para um contentor](how-to-provision-container-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

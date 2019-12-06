@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 12/06/2019
 ms.author: victorh
-ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267959"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869566"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a versão prévia do Gerenciador de firewall do Azure?
 
@@ -53,7 +53,7 @@ Para obter mais informações sobre provedores de segurança confiáveis, consul
 
 Encaminhe facilmente o tráfego para o Hub protegido para filtragem e registro sem a necessidade de configurar manualmente as rotas definidas pelo usuário (UDR) em redes virtuais do spoke. Você pode usar provedores de terceiros para a filtragem de tráfego de Branch para a Internet (B2I), lado a lado com o Firewall do Azure para B2V (Branch to VNet), VNet para VNet (V2V) e VNet para a Internet (V2I). Você também pode usar provedores de terceiros para a filtragem de tráfego V2I, contanto que o Firewall do Azure não seja necessário para B2V ou V2V. 
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
 As seguintes regiões têm suporte para a visualização pública:
 
@@ -70,14 +70,15 @@ A versão prévia do Gerenciador de firewall do Azure tem os seguintes problemas
 
 |Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
-|Não há suporte para VNets central criadas manualmente|Atualmente, o Gerenciador de firewall do Azure dá suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de Hub criada manualmente ainda não tem suporte.|Por enquanto, use o Gerenciador de firewall do Azure com redes de Hub e spoke criadas com hubs virtuais.<br>Investigando atualmente.
+|Não há suporte para VNets central criadas manualmente|Atualmente, o Gerenciador de firewall do Azure dá suporte a redes criadas com hubs virtuais. O uso de sua própria VNet de Hub criada manualmente ainda não tem suporte.|Por enquanto, use o Gerenciador de firewall do Azure com redes de Hub e spoke criadas com hubs virtuais.<br>Correção em andamento.
 |Limitações de filtragem de terceiros|Não há suporte para a filtragem de tráfego V2I com provedores de terceiros com o Firewall do Azure B2V e V2V.|Investigando atualmente.|
 |Divisão de tráfego sem suporte no momento|O Office 365 e a divisão de tráfego de PaaS público do Azure não têm suporte no momento. Dessa forma, a seleção de um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço de parceiro.|Investigando atualmente a divisão de tráfego no Hub.
 |Um hub por região|Você não pode ter mais de um hub por região|Crie várias WANs virtuais em uma região.|
 |As políticas de base devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política de base. Você ainda pode aplicar uma política que foi criada em uma região em um hub protegido de outra região.|Investigando atualmente.|
 |A comunicação entre os hubs não está funcionando com o Hub virtual protegido|Ainda não há suporte para o Hub virtual protegido para comunicação de Hub virtual protegida.|Investigando atualmente.|
+|Todos os hubs virtuais protegidos que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado com os hubs de WAN virtuais hoje.|Crie várias WANs virtuais para permitir que os hubs virtuais protegidos sejam criados em diferentes grupos de recursos.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examinar a [visão geral da implantação do Azure firewall Manager Preview](deployment-overview.md)
 - Saiba mais sobre os [hubs virtuais protegidos](secured-virtual-hub.md).

@@ -4,17 +4,17 @@ description: Este artigo descreve as configurações de Windows Update que você
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690847"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850419"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Definir configurações de Windows Update para Gerenciamento de Atualizações
 
@@ -47,7 +47,7 @@ As chaves do registro listadas na [configuração de atualizações automáticas
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>Habilitar atualizações para outros produtos da Microsoft
 
-Por padrão, Windows Update fornece atualizações somente para o Windows. Se você habilitar a configuração **fornecer atualizações para outros produtos da Microsoft ao atualizar o Windows** , também receberá atualizações para outros produtos, incluindo patches de segurança para Microsoft SQL Server e outros softwares da Microsoft. Esta opção não pode ser configurada por Política de Grupo. Execute o seguinte comando do PowerShell nos sistemas nos quais você deseja habilitar outras atualizações da Microsoft. Gerenciamento de Atualizações será compatível com essa configuração.
+Por predefinição, o Windows Update fornece atualizações apenas para o Windows. Se você habilitar a configuração **fornecer atualizações para outros produtos da Microsoft ao atualizar o Windows** , também receberá atualizações para outros produtos, incluindo patches de segurança para Microsoft SQL Server e outros softwares da Microsoft. Esta opção não pode ser configurada por Política de Grupo. Execute o seguinte comando do PowerShell nos sistemas nos quais você deseja habilitar outras atualizações da Microsoft. Gerenciamento de Atualizações será compatível com essa configuração.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486882"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872303"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -30,7 +30,7 @@ Para ver como funciona a opção múltipla, veja o vídeo de demonstração a se
 
 Algumas perguntas não podem ser respondidas em uma única vez. Quando você projeta suas conversas de aplicativo cliente (bot de bate-papo), um usuário pode fazer uma pergunta que precisa ser filtrada ou refinada para determinar a resposta correta. Você pode fazer esse fluxo seguindo as perguntas possíveis apresentando o usuário com *avisos de acompanhamento*.
 
-Quando um usuário faz uma pergunta, QnA Maker retorna a resposta _e_ quaisquer avisos de acompanhamento. Essa resposta permite que você apresente as perguntas de acompanhamento como opções. 
+Quando um usuário faz uma pergunta, QnA Maker retorna a resposta _e_ quaisquer avisos de acompanhamento. Essa resposta permite que você apresente as perguntas de acompanhamento como opções.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exemplo de conversa múltipla com bot de chat
 
@@ -38,7 +38,7 @@ Com o multi-Transform, um bot de chat gerencia uma conversa com um usuário para
 
 ![Uma caixa de diálogo de várias desligamentos com prompts que orientam um usuário por meio de uma conversa](../media/conversational-context/conversation-in-bot.png)
 
-Na imagem anterior, um usuário iniciou uma conversa inserindo **minha conta**. A base de dados de conhecimento tem três pares de perguntas e respostas vinculados. Para refinar a resposta, o usuário seleciona uma das três opções na base de dados de conhecimento. A pergunta (#1), tem três prompts de acompanhamento, que são apresentados no bot de bate-papo como três opções (#2). 
+Na imagem anterior, um usuário iniciou uma conversa inserindo **minha conta**. A base de dados de conhecimento tem três pares de perguntas e respostas vinculados. Para refinar a resposta, o usuário seleciona uma das três opções na base de dados de conhecimento. A pergunta (#1), tem três prompts de acompanhamento, que são apresentados no bot de bate-papo como três opções (#2).
 
 Quando o usuário seleciona uma opção (#3), a próxima lista de opções de refinamento (#4) é apresentada. Essa sequência continua (#5) até que o usuário determine a resposta final correta (#6).
 
@@ -49,13 +49,13 @@ Depois de publicar sua KB, você pode selecionar o botão **criar bot** para imp
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Criar uma conversa de passagem múltipla da estrutura do documento
 
-Quando você cria uma base de dados de conhecimento, a seção **popular a KB** exibe uma caixa **de seleção Habilitar extração múltipla de URLs, arquivos. pdf ou. docx** . 
+Quando você cria uma base de dados de conhecimento, a seção **popular a KB** exibe uma caixa **de seleção Habilitar extração múltipla de URLs, arquivos. pdf ou. docx** .
 
 ![Caixa de seleção para habilitar a extração de vários desligamentos](../media/conversational-context/enable-multi-turn.png)
 
-Quando você seleciona essa opção, QnA Maker extrai a hierarquia presente na estrutura do documento. A hierarquia é convertida em para acompanhamento de prompts e a raiz da hierarquia serve como o QnA pai. Em alguns documentos, a raiz da hierarquia não tem conteúdo que possa servir como resposta, você pode fornecer o ' texto de resposta padrão ' para ser usado como um texto de resposta substituto para extrair tais hierarquias.   
+Quando você seleciona essa opção, QnA Maker extrai a hierarquia presente na estrutura do documento. A hierarquia é convertida em para acompanhamento de prompts e a raiz da hierarquia serve como o QnA pai. Em alguns documentos, a raiz da hierarquia não tem conteúdo que possa servir como resposta, você pode fornecer o ' texto de resposta padrão ' para ser usado como um texto de resposta substituto para extrair tais hierarquias.
 
-A estrutura de vários folheios pode ser inferida apenas de URLs, arquivos PDF ou arquivos DOCX. Para obter um exemplo de estrutura, exiba uma imagem de um [arquivo PDF manual do usuário do Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
+A estrutura de vários folheios pode ser inferida apenas de URLs, arquivos PDF ou arquivos DOCX. Para obter um exemplo de estrutura, exiba uma imagem de um [arquivo PDF manual do usuário do Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
 ![! [Exemplo de estrutura em um manual do usuário] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
@@ -63,18 +63,20 @@ A estrutura de vários folheios pode ser inferida apenas de URLs, arquivos PDF o
 
 Se você estiver criando um documento com vários folheios, tenha em mente as seguintes diretrizes:
 
-* Use títulos e subtítulos para denotar hierarquia. Por exemplo, você pode indicar que o pai QnA e H2 denotam o QnA que deve ser levado como prompt. Use pequeno tamanho de título para denotar a hierarquia subsequente. Não use estilo, cor ou algum outro mecanismo para implicar a estrutura em seu documento, QnA Maker não extrairá as solicitações de múltipla ativação. 
+* Use títulos e subtítulos para denotar hierarquia. Por exemplo, você pode indicar que o pai QnA e H2 denotam o QnA que deve ser levado como prompt. Use pequeno tamanho de título para denotar a hierarquia subsequente. Não use estilo, cor ou algum outro mecanismo para implicar a estrutura em seu documento, QnA Maker não extrairá as solicitações de múltipla ativação.
 
-* Não termine um título com um ponto de interrogação, `?`. 
+* O primeiro caractere de título deve estar em letras maiúsculas. 
+
+* Não termine um título com um ponto de interrogação, `?`.
 
 * Você pode usar o [documento de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) como um exemplo para criar seu próprio documento com vários folheios.
 
 ### <a name="adding-files-to-a-multi-turn-kb"></a>Adicionando arquivos a um KB de várias transformações
 
-Quando você adiciona um documento hierárquico, QnA Maker determina os prompts de acompanhamento da estrutura para criar o fluxo de conversação. 
+Quando você adiciona um documento hierárquico, QnA Maker determina os prompts de acompanhamento da estrutura para criar o fluxo de conversação.
 
-1. Em QnA Maker, selecione uma base de dados de conhecimento existente que foi criada com **habilitar extração múltipla de URLs, arquivos. pdf ou. docx.** Habilitado. 
-1. Vá para a página **configurações** , selecione o arquivo ou a URL a ser adicionada. 
+1. Em QnA Maker, selecione uma base de dados de conhecimento existente que foi criada com **habilitar extração múltipla de URLs, arquivos. pdf ou. docx.** habilitado.
+1. Vá para a página **configurações** , selecione o arquivo ou a URL a ser adicionada.
 1. **Salve e treine** a base de dados de conhecimento.
 
 > [!Caution]
@@ -83,13 +85,13 @@ Quando você adiciona um documento hierárquico, QnA Maker determina os prompts 
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar uma base de dados de conhecimento com prompts de múltipla ativação com a API de criação
 
-Você pode criar um caso de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão adicionando na matriz de `prompts` da propriedade de `context`. 
+Você pode criar um caso de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão adicionando na matriz de `prompts` da propriedade de `context`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar perguntas e respostas com contexto
 
-Reduza os pares de perguntas e respostas exibidos para apenas aqueles com conversas contextuais. 
+Reduza os pares de perguntas e respostas exibidos para apenas aqueles com conversas contextuais.
 
-Selecione **Opções de exibição**e, em seguida, selecione **Mostrar contexto**. A lista exibe os pares de perguntas e respostas que contêm avisos de acompanhamento. 
+Selecione **Opções de exibição**e, em seguida, selecione **Mostrar contexto**. A lista exibe os pares de perguntas e respostas que contêm avisos de acompanhamento.
 
 ![Filtrar pares de perguntas e respostas por conversas contextuais](../media/conversational-context/filter-question-and-answers-by-context.png)
 
@@ -97,11 +99,11 @@ O contexto de múltipla ativação é exibido na primeira coluna.
 
 ![! [A coluna "contexto (visualização)"] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-Na imagem anterior, **#1** indica texto em negrito na coluna, que significa a pergunta atual. A pergunta pai é o item superior na linha. As perguntas abaixo são os pares de perguntas e respostas vinculadas. Esses itens são selecionáveis, para que você possa ir imediatamente para os outros itens de contexto. 
+Na imagem anterior, **#1** indica texto em negrito na coluna, que significa a pergunta atual. A pergunta pai é o item superior na linha. As perguntas abaixo são os pares de perguntas e respostas vinculadas. Esses itens são selecionáveis, para que você possa ir imediatamente para os outros itens de contexto.
 
 ## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Adicionar um par de perguntas e respostas existente como um aviso de acompanhamento
 
-A pergunta original, **minha conta**, tem avisos de acompanhamento, como **contas e entrada**. 
+A pergunta original, **minha conta**, tem avisos de acompanhamento, como **contas e entrada**.
 
 ![As respostas de "contas e entrada" e as solicitações de acompanhamento](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
@@ -118,24 +120,24 @@ Adicione um aviso de acompanhamento a um par de perguntas e respostas existentes
     |Link para responder|Digite **usar a tela de entrada** para localizar o par de perguntas e respostas existente.|
 
 
-1.  Uma correspondência é retornada. Selecione essa resposta como o acompanhamento e, em seguida, selecione **salvar**. 
+1.  Uma correspondência é retornada. Selecione essa resposta como o acompanhamento e, em seguida, selecione **salvar**.
 
     ![A página "aviso de acompanhamento (visualização)"](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
 1. Depois de adicionar o prompt de acompanhamento, selecione **salvar e treinar** na navegação superior.
-  
-### <a name="edit-the-display-text"></a>Editar o texto de exibição 
 
-Quando um prompt de acompanhamento é criado e um par de perguntas e respostas existente é inserido como o **link para responder**, você pode inserir o novo texto de **exibição**. Esse texto não substitui a pergunta existente e não adiciona uma nova pergunta alternativa. Ele é separado desses valores. 
+### <a name="edit-the-display-text"></a>Editar o texto de exibição
+
+Quando um prompt de acompanhamento é criado e um par de perguntas e respostas existente é inserido como o **link para responder**, você pode inserir o novo texto de **exibição**. Esse texto não substitui a pergunta existente e não adiciona uma nova pergunta alternativa. Ele é separado desses valores.
 
 1. Para editar o texto de exibição, procure e selecione a pergunta no campo **contexto** .
-1. Na linha dessa pergunta, selecione o prompt de acompanhamento na coluna resposta. 
+1. Na linha dessa pergunta, selecione o prompt de acompanhamento na coluna resposta.
 1. Selecione o texto de exibição que você deseja editar e, em seguida, selecione **Editar**.
 
     ![O comando Editar para o texto de exibição](../media/conversational-context/edit-existing-display-text.png)
 
-1. Na janela pop-up de **aviso de acompanhamento** , altere o texto de exibição existente. 
-1. Quando terminar de editar o texto de exibição, selecione **salvar**. 
+1. Na janela pop-up de **aviso de acompanhamento** , altere o texto de exibição existente.
+1. Quando terminar de editar o texto de exibição, selecione **salvar**.
 1. Na barra de navegação superior, **salve e treine**.
 
 
@@ -143,10 +145,10 @@ Quando um prompt de acompanhamento é criado e um par de perguntas e respostas e
 
 Quando você adiciona um novo par de perguntas e respostas à base de dados de conhecimento, cada par deve ser vinculado a uma pergunta existente como um aviso de acompanhamento.
 
-1. Na barra de ferramentas da base de dados de conhecimento, procure e selecione o par pergunta-e-resposta existente para **contas e entrada**. 
+1. Na barra de ferramentas da base de dados de conhecimento, procure e selecione o par pergunta-e-resposta existente para **contas e entrada**.
 
-1. Na coluna **resposta** dessa pergunta, selecione **Adicionar aviso de acompanhamento**. 
-1. Em **aviso de acompanhamento (versão prévia)** , crie um novo prompt de acompanhamento inserindo os seguintes valores: 
+1. Na coluna **resposta** dessa pergunta, selecione **Adicionar aviso de acompanhamento**.
+1. Em **aviso de acompanhamento (versão prévia)** , crie um novo prompt de acompanhamento inserindo os seguintes valores:
 
     |Campo|Valor|
     |--|--|
@@ -158,9 +160,9 @@ Quando você adiciona um novo par de perguntas e respostas à base de dados de c
     ![Criar uma nova pergunta e resposta de prompt](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Selecione **criar novo**e, em seguida, selecione **salvar**. 
+1. Selecione **criar novo**e, em seguida, selecione **salvar**.
 
-    Essa ação cria um novo par de perguntas e respostas e vincula a pergunta selecionada como um aviso de acompanhamento. A coluna de **contexto** , para as duas perguntas, indica uma relação de aviso de acompanhamento. 
+    Essa ação cria um novo par de perguntas e respostas e vincula a pergunta selecionada como um aviso de acompanhamento. A coluna de **contexto** , para as duas perguntas, indica uma relação de aviso de acompanhamento.
 
 1. Selecione **Opções de exibição**e, em seguida, selecione [**Mostrar contexto (versão prévia)** ](#show-questions-and-answers-with-context).
 
@@ -184,7 +186,7 @@ Se você não habilitar a opção múltipla, a resposta será retornada, mas os 
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>Uma solicitação JSON para retornar uma resposta inicial e prompts de acompanhamento
 
-Use o objeto `context` vazio para solicitar a resposta para a pergunta do usuário e incluir avisos de acompanhamento. 
+Use o objeto `context` vazio para solicitar a resposta para a pergunta do usuário e incluir avisos de acompanhamento.
 
 ```JSON
 {
@@ -198,7 +200,7 @@ Use o objeto `context` vazio para solicitar a resposta para a pergunta do usuár
 
 ## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Uma resposta JSON para retornar uma resposta inicial e prompts de acompanhamento
 
-A seção anterior solicitou uma resposta e quaisquer avisos de acompanhamento para **contas e logon**. A resposta inclui as informações do prompt, que estão localizadas em *respostas [0]. contexto*e o texto a ser exibido para o usuário. 
+A seção anterior solicitou uma resposta e quaisquer avisos de acompanhamento para **contas e logon**. A resposta inclui as informações do prompt, que estão localizadas em *respostas [0]. contexto*e o texto a ser exibido para o usuário.
 
 ```JSON
 {
@@ -263,7 +265,7 @@ A seção anterior solicitou uma resposta e quaisquer avisos de acompanhamento p
 }
 ```
 
-A matriz de `prompts` fornece texto na propriedade `displayText` e o valor `qnaId`. Você pode mostrar essas respostas como as próximas opções exibidas no fluxo de conversa e, em seguida, enviar o `qnaId` selecionado de volta para QnA Maker na solicitação a seguir. 
+A matriz de `prompts` fornece texto na propriedade `displayText` e o valor `qnaId`. Você pode mostrar essas respostas como as próximas opções exibidas no fluxo de conversa e, em seguida, enviar o `qnaId` selecionado de volta para QnA Maker na solicitação a seguir.
 
 <!--
 
@@ -275,7 +277,7 @@ The `promptsToDelete` array provides the ...
 
 Preencha o objeto `context` para incluir o contexto anterior.
 
-Na solicitação JSON a seguir, a pergunta atual é *usar o Windows Hello para entrar* e a pergunta anterior era *contas e entrando*. 
+Na solicitação JSON a seguir, a pergunta atual é *usar o Windows Hello para entrar* e a pergunta anterior era *contas e entrando*.
 
 ```JSON
 {
@@ -289,7 +291,7 @@ Na solicitação JSON a seguir, a pergunta atual é *usar o Windows Hello para e
     "previousUserQuery": "accounts and signing in"
   }
 }
-``` 
+```
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Uma resposta JSON para retornar uma resposta não inicial e prompts de acompanhamento
 
@@ -353,16 +355,16 @@ A resposta JSON do QnA Maker _GenerateAnswer_ inclui os prompts de acompanhament
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consultar a base de dados de conhecimento com a ID de QnA Maker
 
-Se você estiver criando um aplicativo personalizado usando o recurso de troca múltipla. Na resposta da pergunta inicial, qualquer prompt de acompanhamento e seu `qnaId` associado são retornados. Agora que você tem a ID, é possível passá-la no corpo da solicitação do prompt de acompanhamento. Se o corpo da solicitação contiver o `qnaId`e o objeto de contexto (que contém as propriedades anteriores do QnA Maker), GenerateAnswer retornará a pergunta exata por ID, em vez de usar o algoritmo de classificação para localizar a resposta pelo texto da pergunta. 
+Se você estiver criando um aplicativo personalizado usando o recurso de troca múltipla. Na resposta da pergunta inicial, qualquer prompt de acompanhamento e seu `qnaId` associado são retornados. Agora que você tem a ID, é possível passá-la no corpo da solicitação do prompt de acompanhamento. Se o corpo da solicitação contiver o `qnaId`e o objeto de contexto (que contém as propriedades anteriores do QnA Maker), GenerateAnswer retornará a pergunta exata por ID, em vez de usar o algoritmo de classificação para localizar a resposta pelo texto da pergunta.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>A ordem de exibição tem suporte na API de atualização
 
-O [texto de exibição e a ordem de exibição](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retornados na resposta JSON, têm suporte para edição pela [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
+O [texto de exibição e a ordem de exibição](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retornados na resposta JSON, têm suporte para edição pela [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Adicionar ou excluir prompts de várias ativações com a API de atualização
 
-Você pode adicionar ou excluir prompts de várias ativações usando a [API de atualização de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Os prompts estão adicionando na matriz `promptsToAdd` da propriedade `context` e na matriz de `promptsToDelete`. 
+Você pode adicionar ou excluir prompts de várias ativações usando a [API de atualização de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Os prompts estão adicionando na matriz `promptsToAdd` da propriedade `context` e na matriz de `promptsToDelete`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportar base de dados de conhecimento para controle de versão
 

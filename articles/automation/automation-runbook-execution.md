@@ -4,21 +4,21 @@ description: Descreve os detalhes de como um runbook na automação do Azure é 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f8fa4c378ed394930a4018c58b99ed919cbc2c2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886973"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850759"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na automação do Azure
 
-Quando você inicia um runbook na automação do Azure, um trabalho é criado. Um trabalho é uma instância de execução única de um runbook. Um trabalhador de automação do Azure é atribuído para executar cada trabalho. Embora os trabalhadores sejam compartilhados por muitas contas do Azure, os trabalhos de diferentes contas de automação são isolados uns dos outros. Você não tem controle sobre qual trabalhador serviços de solicitação para seu trabalho. Um único runbook pode ter muitos trabalhos em execução ao mesmo tempo. O ambiente de execução para trabalhos da mesma conta de automação pode ser reutilizado. Quanto mais trabalhos você executar ao mesmo tempo, mais frequentemente eles poderão ser expedidos para a mesma área restrita. Os trabalhos em execução no mesmo processo de área restrita podem afetar os outros, um exemplo é a execução do cmdlet `Disconnect-AzureRMAccount`. A execução desse cmdlet desconectaria cada trabalho de runbook no processo de área restrita compartilhada. Quando você exibe a lista de runbooks no portal do Azure, ele lista o status de todos os trabalhos que foram iniciados para cada runbook. Você pode exibir a lista de trabalhos para cada runbook para acompanhar o status de cada um. Os logs de trabalho são armazenados por um máximo de 30 dias. Para obter uma descrição dos diferentes [status de trabalho](#job-statuses)de status de trabalho.
+Quando você inicia um runbook na automação do Azure, um trabalho é criado. Uma tarefa é uma instância de execução individual de um runbook. Um trabalhador de automação do Azure é atribuído para executar cada trabalho. Embora os trabalhadores sejam compartilhados por muitas contas do Azure, os trabalhos de diferentes contas de automação são isolados uns dos outros. Você não tem controle sobre qual trabalhador serviços de solicitação para seu trabalho. Um único runbook pode ter muitos trabalhos em execução ao mesmo tempo. O ambiente de execução para trabalhos da mesma conta de automação pode ser reutilizado. Quanto mais trabalhos você executar ao mesmo tempo, mais frequentemente eles poderão ser expedidos para a mesma área restrita. Os trabalhos em execução no mesmo processo de área restrita podem afetar os outros, um exemplo é a execução do cmdlet `Disconnect-AzureRMAccount`. A execução desse cmdlet desconectaria cada trabalho de runbook no processo de área restrita compartilhada. Quando você exibe a lista de runbooks no portal do Azure, ele lista o status de todos os trabalhos que foram iniciados para cada runbook. Você pode exibir a lista de trabalhos para cada runbook para acompanhar o status de cada um. Os logs de trabalho são armazenados por um máximo de 30 dias. Para obter uma descrição dos diferentes [status de trabalho](#job-statuses)de status de trabalho.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -199,22 +199,22 @@ Os trabalhos de runbook executados em áreas restritas do Azure não têm acesso
 
 ## <a name="job-statuses"></a>Status do trabalho
 
-A tabela a seguir descreve os diferentes status que são possíveis para um trabalho. O PowerShell tem dois tipos de erros, encerrando e não encerrando erros. Os erros de encerramento definem o status do runbook como **falha** se ocorrerem. Os erros de não finalização permitem que o script continue mesmo depois que eles ocorrerem. Um exemplo de um erro de não finalização é usar o cmdlet `Get-ChildItem` com um caminho que não existe. O PowerShell vê que o caminho não existe, gera um erro e continua para a próxima pasta. Esse erro não definiria o status do runbook como **com falha** e poderá ser marcado como **concluído**. Para forçar um runbook a parar em um erro de não encerramento, você pode usar `-ErrorAction Stop` no cmdlet.
+A tabela seguinte descreve os diferentes estados possíveis das tarefas. O PowerShell tem dois tipos de erros, encerrando e não encerrando erros. Os erros de encerramento definem o status do runbook como **falha** se ocorrerem. Os erros de não finalização permitem que o script continue mesmo depois que eles ocorrerem. Um exemplo de um erro de não finalização é usar o cmdlet `Get-ChildItem` com um caminho que não existe. O PowerShell vê que o caminho não existe, gera um erro e continua para a próxima pasta. Esse erro não definiria o status do runbook como **com falha** e poderá ser marcado como **concluído**. Para forçar um runbook a parar em um erro de não encerramento, você pode usar `-ErrorAction Stop` no cmdlet.
 
 | Estado | Descrição |
 |:--- |:--- |
-| Concluído |O trabalho foi concluído com êxito. |
+| Concluído |A tarefa foi concluída com êxito. |
 | Com Falhas |Para [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md), o runbook não pôde ser compilado. Para [runbooks de script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho tinha uma exceção. |
 | Falha, aguardando recursos |O trabalho falhou porque atingiu o limite de [compartilhamento justo](#fair-share) três vezes e foi iniciado a partir do mesmo ponto de verificação ou desde o início do runbook a cada vez. |
-| Em fila |O trabalho está aguardando que os recursos em um trabalho de automação sejam disponibilizados para que possam ser iniciados. |
-| A iniciar |O trabalho foi atribuído a um trabalho e o sistema o está iniciando. |
-| Retomar |O sistema está retomando o trabalho depois de ser suspenso. |
-| A executar |O trabalho está em execução. |
+| Em fila |A tarefa está a aguardar a disponibilização de recursos num trabalho de Automatização para que possa ser iniciada. |
+| A Iniciar |O trabalho foi atribuído a um trabalho e o sistema o está iniciando. |
+| A retomar |O sistema está retomando o trabalho depois de ser suspenso. |
+| A executar |A tarefa está a ser executada. |
 | Em execução, aguardando recursos |O trabalho foi descarregado porque atingiu o limite de [compartilhamento justo](#fair-share) . Ele é retomado em breve do último ponto de verificação. |
-| Parada |O trabalho foi interrompido pelo usuário antes de ser concluído. |
-| A parar |O sistema está parando o trabalho. |
-| Suspenso |O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele será iniciado a partir do início do runbook. Se ele tiver um ponto de verificação, ele poderá ser iniciado novamente e retomado do último ponto de verificação. O runbook só é suspenso pelo sistema quando ocorre uma exceção. Por padrão, ErrorActionPreference é definido como **continuar**, o que significa que o trabalho continua em execução em um erro. Se essa variável de preferência for definida como **parar**, o trabalho será suspenso em um erro. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
-| Suspensão |O sistema está tentando suspender o trabalho na solicitação do usuário. O runbook deve alcançar seu próximo ponto de verificação antes que possa ser suspenso. Se já passou seu último ponto de verificação, ele é concluído antes que possa ser suspenso. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
+| Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
+| A Parar |O sistema está parando o trabalho. |
+| Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele será iniciado a partir do início do runbook. Se ele tiver um ponto de verificação, ele poderá ser iniciado novamente e retomado do último ponto de verificação. O runbook só é suspenso pelo sistema quando ocorre uma exceção. Por padrão, ErrorActionPreference é definido como **continuar**, o que significa que o trabalho continua em execução em um erro. Se essa variável de preferência for definida como **parar**, o trabalho será suspenso em um erro. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
+| A suspender |O sistema está tentando suspender o trabalho na solicitação do usuário. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passou seu último ponto de verificação, ele é concluído antes que possa ser suspenso. Aplica-se somente a [runbooks de fluxo de trabalho gráfico e do PowerShell](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Exibindo o status do trabalho no portal do Azure
 
@@ -242,9 +242,9 @@ Como alternativa, você pode exibir detalhes de resumo do trabalho para um runbo
 
 ### <a name="job-summary"></a>Resumo da Tarefa
 
-Você pode exibir uma lista de todos os trabalhos que foram criados para um runbook específico e seu status mais recente. Você pode filtrar essa lista por status do trabalho e o intervalo de datas para a última alteração no trabalho. Para exibir suas informações e saída detalhadas, clique no nome de um trabalho. A exibição detalhada do trabalho inclui os valores para os parâmetros de runbook que foram fornecidos para esse trabalho.
+Você pode exibir uma lista de todos os trabalhos que foram criados para um runbook específico e seu status mais recente. Pode filtrar esta lista por estado da tarefa e por intervalo de datas da última alteração efetuada à tarefa. Para exibir suas informações e saída detalhadas, clique no nome de um trabalho. A vista detalhada da tarefa inclui os valores dos parâmetros do runbook fornecidos para essa tarefa.
 
-Você pode usar as etapas a seguir para exibir os trabalhos de um runbook.
+Pode utilizar os passos seguintes para ver as tarefas de um runbook.
 
 1. No portal do Azure, selecione **automação** e, em seguida, selecione o nome de uma conta de automação.
 2. No Hub, selecione **Runbooks** e, em seguida, na página **Runbooks** , selecione um runbook na lista.

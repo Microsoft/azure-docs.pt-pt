@@ -1,17 +1,17 @@
 ---
 title: Alias no Azure Cosmos DB
-description: Saiba mais sobre valores de alias em consultas do Azure Cosmos DB SQL
+description: Saiba como usar o alias em consultas do Azure Cosmos DB SQL para diferenciar duas propriedades com o mesmo nome
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002076"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873476"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Alias no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Você pode explicitamente alias de valores em consultas. Se uma consulta tiver d
 
 ## <a name="examples"></a>Exemplos
 
-A palavra-chave as usada para alias é opcional, conforme mostrado no exemplo a seguir ao projetar o segundo valor como `NameInfo`:
+A palavra-chave as usada para o alias é opcional, conforme mostrado no exemplo a seguir ao projetar o segundo valor como `NameInfo`:
 
 ```sql
     SELECT 

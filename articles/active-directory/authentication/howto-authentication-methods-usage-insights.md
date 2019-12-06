@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381906"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848515"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
 
@@ -27,7 +27,7 @@ O uso & insights permite que você entenda como os métodos de autenticação pa
 As funções a seguir podem acessar o uso e as informações:
 
 - Administrador Global
-- Leitor de segurança
+- Leitor de Segurança
 - Administrador de Segurança
 - Leitor de relatórios
 
@@ -94,7 +94,7 @@ Os dados mostrados nesses relatórios serão atrasados em até 60 minutos. Um ca
 
 Os dados de uso e insight não são uma substituição para os relatórios de atividade da autenticação multifator do Azure ou informações contidas no relatório de entradas do Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Trabalhando com a API de relatório de uso dos métodos de autenticação](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Escolhendo métodos de autenticação para sua organização](concept-authentication-methods.md)

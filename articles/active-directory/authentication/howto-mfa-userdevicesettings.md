@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd03ea807e48f6f0e287bb4497e4d20268995db
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 7a1e6dc3ed1c1f9af6f6b935cdd3a6ceaedbe7a4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404169"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848260"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a autenticação multifator do Azure na nuvem
 
@@ -32,8 +32,8 @@ Como um administrador atribuiu a função de administrador de autenticação, vo
 
 ![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. À esquerda, selecione **Azure Active Directory** > **Utilizadores** > **Todos os utilizadores**.
 1. Escolha o usuário no qual você deseja executar uma ação e selecione **métodos de autenticação**.
    - **Redefinir senha** redefinirá a senha do usuário e atribuirá uma senha temporária que deve ser alterada na próxima entrada.
    - **Exigir o novo registro da MFA** fará com que, quando o usuário entrar na próxima vez, será solicitado a configurar um novo método de autenticação de MFA.
@@ -45,8 +45,8 @@ Essa configuração exclui todas as senhas de aplicativo que um usuário criou. 
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. À esquerda, selecione **Azure Active Directory** > **Utilizadores** > **Todos os utilizadores**.
 3. À direita, selecione **autenticação multifator** na barra de ferramentas. A página autenticação multifator é aberta.
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **gerenciar configurações do usuário**.

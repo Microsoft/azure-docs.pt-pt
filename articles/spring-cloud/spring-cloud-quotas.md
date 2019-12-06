@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607675"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851558"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Cotas e planos de serviço para o Azure Spring Cloud
 
@@ -25,11 +25,10 @@ Durante o período de visualização, o Azure Spring Cloud oferece apenas uma ca
 
 Recurso | Montante
 ------- | -------
-vCPU | 4
-Memória | 8 GBytes
-Assinatura do Azure Spring Cloud | 1
-Instâncias de serviço de nuvem do Azure Spring por região por assinatura | 2
-Total de instâncias de aplicativo por instância de serviço de nuvem do Azure Spring | 50
+vCPU | 4 por instância de serviço
+Memória | 8 GBytes por instância de serviço
+Instâncias de serviço de nuvem do Azure Spring por região por assinatura | 10
+Total de instâncias de aplicativo por instância de serviço de nuvem do Azure Spring | 500
 Total de instâncias do aplicativo por aplicativo Spring | 20
 Volumes persistentes | 10 x 50 GBytes
 

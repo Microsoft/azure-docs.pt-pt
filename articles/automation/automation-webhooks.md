@@ -4,17 +4,17 @@ description: Um webhook que permite que um cliente inicie um runbook na automaç
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061446"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849603"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciando um runbook de automação do Azure com um webhook
 
@@ -30,12 +30,12 @@ Você pode comparar WebHooks com outros métodos de iniciar um runbook no [iníc
 
 A tabela a seguir descreve as propriedades que você deve configurar para um webhook.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
-| Name |Você pode fornecer qualquer nome desejado para um webhook, pois ele não é exposto ao cliente. Ele é usado apenas para você identificar o runbook na automação do Azure. <br> Como prática recomendada, você deve dar um nome ao webhook relacionado ao cliente que o utiliza. |
+| Nome |Você pode fornecer qualquer nome desejado para um webhook, pois ele não é exposto ao cliente. Ele é usado apenas para você identificar o runbook na automação do Azure. <br> Como prática recomendada, você deve dar um nome ao webhook relacionado ao cliente que o utiliza. |
 | URL |A URL do webhook é o endereço exclusivo que um cliente chama com um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, ele deve ser tratado como uma senha. Por motivos de segurança, você só pode exibir a URL no portal do Azure no momento em que o webhook é criado. Observe a URL em um local seguro para uso futuro. |
 | Data de validade |Como um certificado, cada webhook tem uma data de expiração em que momento ele não pode mais ser usado. Essa data de expiração pode ser modificada depois que o webhook for criado, desde que o webhook não tenha expirado. |
-| Enabled |Um webhook é habilitado por padrão quando ele é criado. Se você defini-lo como desabilitado, nenhum cliente poderá usá-lo. Você pode definir a propriedade **Enabled** ao criar o webhook ou a qualquer momento quando ele for criado. |
+| Ativado |Um webhook é habilitado por padrão quando ele é criado. Se você defini-lo como desabilitado, nenhum cliente poderá usá-lo. Você pode definir a propriedade **Enabled** ao criar o webhook ou a qualquer momento quando ele for criado. |
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -51,7 +51,7 @@ O objeto **$WebhookData** tem as seguintes propriedades:
 |:--- |:--- |
 | WebhookName |O nome do webhook. |
 | RequestHeader |Tabela de hash que contém os cabeçalhos da solicitação POST de entrada. |
-| RequestBody |O corpo da solicitação POST de entrada. Isso mantém qualquer formatação, como cadeia de caracteres, JSON, XML ou dados codificados de formulário. O runbook deve ser gravado para funcionar com o formato de dados esperado. |
+| requestBody |O corpo da solicitação POST de entrada. Isso mantém qualquer formatação, como cadeia de caracteres, JSON, XML ou dados codificados de formulário. O runbook deve ser gravado para funcionar com o formato de dados esperado. |
 
 Não há nenhuma configuração do webhook necessária para dar suporte ao parâmetro **$WebhookData** e o runbook não é necessário para aceitá-lo. Se o runbook não definir o parâmetro, todos os detalhes da solicitação enviada do cliente serão ignorados.
 
@@ -66,7 +66,7 @@ Por exemplo, se você estiver iniciando o runbook a seguir no portal do Azure e 
 
 Para o runbook a seguir, se você tiver as seguintes propriedades para o parâmetro WebhookData:
 
-* WebhookName: *MyWebhook*
+* Webhookname: *MyWebhook*
 * RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
 
 Em seguida, você passaria o valor JSON a seguir na interface do usuário para o parâmetro WebhookData. O exemplo a seguir com retornos de carro e caracteres de nova linha corresponde ao formato passado de um webhook.
@@ -84,7 +84,7 @@ Em seguida, você passaria o valor JSON a seguir na interface do usuário para o
 
 A segurança de um webhook depende da privacidade de sua URL, que contém um token de segurança que permite que ele seja invocado. A automação do Azure não executa nenhuma autenticação na solicitação, contanto que seja feita na URL correta. Por esse motivo, os WebHooks não devem ser usados para runbooks que executam funções altamente confidenciais sem usar um meio alternativo de validar a solicitação.
 
-Você pode incluir lógica dentro do runbook para determinar que ele foi chamado por um webhook, verificando a propriedade webhookname do parâmetro $WebhookData. O runbook pode executar uma validação adicional procurando informações específicas nas propriedades **RequestHeader** ou **RequestBody** .
+Você pode incluir lógica dentro do runbook para determinar que ele foi chamado por um webhook, verificando a propriedade **webhookname** do parâmetro $WebhookData. O runbook pode executar uma validação adicional procurando informações específicas nas propriedades **RequestHeader** ou **RequestBody** .
 
 Outra estratégia é fazer com que o runbook execute alguma validação de uma condição externa quando recebeu uma solicitação de webhook. Por exemplo, considere um runbook chamado pelo GitHub sempre que houver uma nova confirmação para um repositório GitHub. O runbook pode se conectar ao GitHub para validar que uma nova confirmação ocorreu antes de continuar.
 
@@ -93,15 +93,15 @@ Outra estratégia é fazer com que o runbook execute alguma validação de uma c
 Use o procedimento a seguir para criar um novo webhook vinculado a um runbook no portal do Azure.
 
 1. Na **página Runbooks** no portal do Azure, clique no runbook que o webhook começa a exibir sua página de detalhes. Verifique se o **status** do runbook está **publicado**.
-2. Clique em webhook na parte superior da página para abrir a página **Adicionar webhook** .
+2. Clique em **webhook** na parte superior da página para abrir a página **Adicionar webhook** .
 3. Clique em **criar novo webhook** para abrir a **página Criar webhook**.
 4. Especifique um **nome**, uma **data de validade** para o webhook e se ele deve ser habilitado. Consulte os [detalhes de um webhook](#details-of-a-webhook) para obter mais informações sobre essas propriedades.
 5. Clique no ícone de cópia e pressione CTRL + C para copiar a URL do webhook. Em seguida, registre-o em um local seguro. **Depois de criar o webhook, você não poderá recuperar a URL novamente.**
 
-   ![URL de webhook](media/automation-webhooks/copy-webhook-url.png)
+   ![URL do webhook](media/automation-webhooks/copy-webhook-url.png)
 
-1. Clique em **parâmetros** para fornecer valores para os parâmetros de runbook. Se o runbook tiver parâmetros obrigatórios, você não poderá criar o webhook, a menos que os valores sejam fornecidos.
-1. Clique em **criar** para criar o webhook.
+1. Clique em **parâmetros** para fornecer valores para os parâmetros de runbook. Se o runbook tiver parâmetros obrigatórios, não poderá criar o webhook, a não ser que sejam fornecidos os valores.
+1. Clique em **Criar** para criar o webhook.
 
 ## <a name="using-a-webhook"></a>Usando um webhook
 
@@ -113,12 +113,12 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de retorno da solicitação POST.
 
-| Código | Text | Descrição |
+| Código | Texto | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceite |A solicitação foi aceita e o runbook foi enfileirado com êxito. |
-| 400 |Pedido Inválido |A solicitação não foi aceita por um dos seguintes motivos: <ul> <li>O webhook expirou.</li> <li>O webhook está desabilitado.</li> <li>O token na URL é inválido.</li>  </ul> |
-| 404 |Não Encontrado |A solicitação não foi aceita por um dos seguintes motivos: <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro Interno do Servidor |A URL era válida, mas ocorreu um erro. Envie a solicitação novamente. |
+| 400 |Pedido Incorreto |A solicitação não foi aceita por um dos seguintes motivos: <ul> <li>O webhook expirou.</li> <li>O webhook está desabilitado.</li> <li>O token na URL é inválido.</li>  </ul> |
+| 404 |Não foi encontrado |A solicitação não foi aceita por um dos seguintes motivos: <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
+| 500 |Erro interno do servidor |A URL era válida, mas ocorreu um erro. Envie a solicitação novamente. |
 
 Supondo que a solicitação foi bem-sucedida, a resposta do webhook contém a ID do trabalho no formato JSON da seguinte maneira. Ele conterá uma única ID de trabalho, mas o formato JSON permite possíveis aprimoramentos futuros.
 
@@ -132,7 +132,7 @@ O cliente não pode determinar quando o trabalho de runbook é concluído ou seu
 
 Quando um webhook é criado, ele tem um tempo de validade de um ano. Após esse ano, o webhook expirará automaticamente. Depois que um webhook estiver expirado, ele não poderá ser reativado, ele deverá ser removido e recriado. Se um webhook não tiver atingido sua hora de expiração, ele poderá ser estendido.
 
-Para estender um webhook, navegue até o runbook que contém o webhook. Selecione WebHooks em **recursos**. Clique no webhook que você deseja estender, essa ação abre a página **webhook** .  Escolha uma nova data e hora de expiração e clique em **salvar**.
+Para estender um webhook, navegue até o runbook que contém o webhook. Selecione **WebHooks** em **recursos**. Clique no webhook que você deseja estender, essa ação abre a página **webhook** .  Escolha uma nova data e hora de expiração e clique em **salvar**.
 
 ## <a name="sample-runbook"></a>Runbook de exemplo
 

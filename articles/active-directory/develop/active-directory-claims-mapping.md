@@ -9,19 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 12726a1ad9b04bdfe2cd279d36a696bb011e4122
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803510"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845353"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -62,21 +60,21 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | access_token |
 | account_type |
 | acr |
-| Ator |
+| actor |
 | actortoken |
 | AIO |
 | altsecid |
-| Amr |
+| amr |
 | app_chain |
 | app_displayname |
 | app_res |
 | appctx |
 | appctxsender |
-| AppID |
+| appid |
 | appidacr |
-| declaração |
+| assertion |
 | at_hash |
-| AUD |
+| aud |
 | auth_data |
 | auth_time |
 | authorization_code |
@@ -84,18 +82,18 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | azpacr |
 | c_hash |
 | ca_enf |
-| CC |
+| cc |
 | cert_token_use |
 | client_id |
 | cloud_graph_host_name |
 | cloud_instance_name |
 | CNF |
-| Auto-completar |
+| code |
 | controlos |
 | credential_keys |
 | CSR |
 | csr_type |
-| DeviceID |
+| deviceid |
 | dns_names |
 | domain_dns_name |
 | domain_netbios_name |
@@ -103,10 +101,10 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | e-mail |
 | endpoint |
 | enfpolids |
-| Exp |
+| exp |
 | expires_on |
 | grant_type |
-| Graph |
+| graph |
 | group_sids |
 | grupos |
 | hasgroups |
@@ -123,10 +121,10 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | identityprovider |
 | IDP |
 | in_corp |
-| cópia |
+| instance |
 | ipaddr |
 | isbrowserhostedapp |
-| ISS |
+| iss |
 | jwk |
 | key_id |
 | key_type |
@@ -139,8 +137,8 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | NameID |
 | NBF |
 | netbios_name |
-| momentos |
-| OIDs |
+| nonce |
+| oid |
 | on_prem_id |
 | onprem_sam_account_name |
 | onprem_sid |
@@ -152,20 +150,20 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | preferred_username |
 | previous_refresh_token |
 | primary_sid |
-| PUID |
+| puid |
 | pwd_exp |
 | pwd_url |
 | redirect_uri |
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| Kit |
-| Cargo |
+| resource |
+| role |
 | roles |
 | scope |
-| SCP |
-| SIDs |
-| Signature |
+| scp |
+| sid |
+| signature |
 | signin_state |
 | src1 |
 | src2 |
@@ -181,7 +179,7 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | sufixo |
 | user_setting_sync_url |
 | o nome de utilizador |
-| UTI |
+| uti |
 | versão |
 | verified_primary_email |
 | verified_secondary_email |
@@ -289,20 +287,20 @@ O elemento ID identifica qual propriedade na fonte fornece o valor para a declar
 
 | Origem | ID | Descrição |
 |-----|-----|-----|
-| Utilizador | Sobrenome | Nome da família |
-| Utilizador | GivenName | Nome Próprio |
-| Utilizador | DisplayName | Nome a Apresentar |
+| Utilizador | Apelido | Nome da Família |
+| Utilizador | givenName | Nome Próprio |
+| Utilizador | displayName | Nome a Apresentar |
 | Utilizador | ObjectID | ObjectID |
-| Utilizador | Mescla | Endereço de email |
-| Utilizador | userPrincipalName | Nome Principal de Utilizador |
-| Utilizador | Inteiros|Departamento|
+| Utilizador | correio | Endereço de E-mail |
+| Utilizador | userprincipalname | Nome Principal de Utilizador |
+| Utilizador | Departamento|Departamento|
 | Utilizador | onpremisessamaccountname | Nome da conta SAM local |
 | Utilizador | NetBiosName| Nome NetBios |
 | Utilizador | dnsdomainname | Nome de domínio DNS |
 | Utilizador | onpremisesecurityidentifier | Identificador de segurança local |
 | Utilizador | CompanyName| Nome da Organização |
-| Utilizador | StreetAddress | Endereço da rua |
-| Utilizador | PostalCode | CEP |
+| Utilizador | StreetAddress | Morada |
+| Utilizador | PostalCode | Código postal |
 | Utilizador | preferredlanguange | Idioma preferencial |
 | Utilizador | onpremisesuserprincipalname | UPN local |
 | Utilizador | mailNickname | Apelido de email |
@@ -321,14 +319,14 @@ O elemento ID identifica qual propriedade na fonte fornece o valor para a declar
 | Utilizador | extensionattribute13 | Atributo de extensão 13 |
 | Utilizador | extensionAttribute14 | Atributo de extensão 14 |
 | Utilizador | extensionAttribute15 | Atributo de extensão 15 |
-| Utilizador | Othermail | Outros emails |
-| Utilizador | País | País |
+| Utilizador | othermail | Outros emails |
+| Utilizador | país | País |
 | Utilizador | city | Cidade |
 | Utilizador | state | Estado |
 | Utilizador | JobTitle | Cargo |
-| Utilizador | funcionário | ID do funcionário |
+| Utilizador | employeeid | ID de Empregado |
 | Utilizador | facsimileTelephoneNumber | Número de telefone do fax |
-| aplicativo, recurso, público-alvo | DisplayName | Nome a Apresentar |
+| aplicativo, recurso, público-alvo | displayName | Nome a Apresentar |
 | aplicativo, recurso, público-alvo | com objeto | ObjectID |
 | aplicativo, recurso, público-alvo | etiquetas | Marca da entidade de serviço |
 | Empresa | tenantcountry | País do locatário |
@@ -364,7 +362,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 |TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
 |Associar|Seqüência1, seqüência2, separador|outputClaim|Une cadeias de caracteres de entrada usando um separador entre. Por exemplo: seqüência1: "foo@bar.com", seqüência2: "sandbox", separador: "." resulta em outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|Mescla|outputClaim|Extrai a parte local de um endereço de email. Por exemplo: mail: "foo@bar.com" resulta em outputClaim: "foo". Se nenhum sinal de \@ estiver presente, a cadeia de caracteres de entrada original será retornada como está.|
+|ExtractMailPrefix|correio|outputClaim|Extrai a parte local de um endereço de email. Por exemplo: mail: "foo@bar.com" resulta em outputClaim: "foo". Se nenhum sinal de \@ estiver presente, a cadeia de caracteres de entrada original será retornada como está.|
 
 **InputClaims:** Use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -389,10 +387,10 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 |Origem|ID|Descrição|
 |-----|-----|-----|
-| Utilizador | Mescla|Endereço de email|
-| Utilizador | userPrincipalName|Nome Principal de Utilizador|
+| Utilizador | correio|Endereço de E-mail|
+| Utilizador | userprincipalname|Nome Principal de Utilizador|
 | Utilizador | onpremisessamaccountname|Nome da conta Sam local|
-| Utilizador | funcionário|ID do funcionário|
+| Utilizador | employeeid|ID de Empregado|
 | Utilizador | extensionAttribute1 | Atributo de extensão 1 |
 | Utilizador | extensionAttribute2 | Atributo de extensão 2 |
 | Utilizador | extensionattribute3 | Atributo de extensão 3 |

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88669b5453069d9f6bb64e803adc65baf8afc6b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420686"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848583"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: redefinição de senha de autoatendimento do Azure AD
 
@@ -57,10 +57,10 @@ Leia as etapas a seguir para saber mais sobre a lógica por trás da página de 
 Se SSPR estiver habilitado, você deverá selecionar pelo menos uma das opções a seguir para os métodos de autenticação. Às vezes, você ouve essas opções conhecidas como "Gates". É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que os usuários tenham mais flexibilidade caso não possam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo [o que são métodos de autenticação?](concept-authentication-methods.md).
 
 * Notificação de aplicação móvel
-* Código do aplicativo móvel
-* Email
+* Código da aplicação móvel
+* E-mail
 * Número de telemóvel
-* Telefone comercial
+* Telefone do escritório
 * Perguntas de segurança
 
 Os usuários só poderão redefinir sua senha se tiverem dados presentes nos métodos de autenticação habilitados pelo administrador.
@@ -88,7 +88,7 @@ Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um
 * Quando os administradores exigem que um método seja usado para redefinir uma senha, o código de verificação é a única opção disponível.
 * Quando os administradores exigem dois métodos para redefinir uma senha, os usuários são capazes de usar **o** código de notificação **ou** de verificação, além de quaisquer outros métodos habilitados.
 
-| Número de métodos necessários para redefinir | Só | Dois |
+| Número de métodos necessários para a reposição | Um | Dois |
 | :---: | :---: | :---: |
 | Recursos do aplicativo móvel disponíveis | Código | Código ou notificação |
 

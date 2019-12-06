@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d53d63b40ad62a4d21cbad22a67e9e9781b1f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381723"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847871"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -32,7 +32,7 @@ Durante o estágio de auditoria, muitas organizações acham que:
 * Os usuários geralmente usam senhas não seguras.
 * Eles precisam informar os usuários sobre a próxima alteração na imposição de segurança, o possível impacto sobre eles e como escolher senhas mais seguras.
 
-Também é possível que uma validação de senha mais forte afete sua automação de implantação do controlador de domínio Active Directory existente. É recomendável que pelo menos uma promoção de DC e um rebaixamento de DC ocorram durante a avaliação do período de auditoria, a fim de ajudar a descobrir esses problemas com antecedência.  Para obter mais informações, consulte:
+Também é possível que uma validação de senha mais forte afete sua automação de implantação do controlador de domínio Active Directory existente. É recomendável que pelo menos uma promoção de DC e um rebaixamento de DC ocorram durante a avaliação do período de auditoria, a fim de ajudar a descobrir esses problemas com antecedência.  Para obter mais informações, veja:
 
 * [O Ntdsutil. exe não pode definir uma senha fraca do modo de reparo de serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [A promoção da réplica do controlador de domínio falha devido a uma senha fraca do modo de reparo do serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -40,7 +40,7 @@ Também é possível que uma validação de senha mais forte afete sua automaç�
 
 Depois que o recurso estiver sendo executado no modo de auditoria por um período razoável, você poderá alternar a configuração de *auditoria* para *impor* para exigir senhas mais seguras. O monitoramento focado durante esse tempo é uma boa ideia.
 
-## <a name="deployment-requirements"></a>Requisitos de implantação
+## <a name="deployment-requirements"></a>Requisitos de implementação
 
 * Os requisitos de licenciamento para proteção de senha do Azure AD podem ser encontrados no artigo [eliminar senhas inadequadas em sua organização](concept-password-ban-bad.md#license-requirements).
 * Todos os computadores em que o software do agente DC da proteção de senha do Azure AD serão instalados devem executar o Windows Server 2012 ou posterior. Esse requisito não significa que o domínio ou floresta de Active Directory também deve estar no nível funcional de domínio ou floresta do Windows Server 2012. Conforme mencionado nos [princípios de design](concept-password-ban-bad-on-premises.md#design-principles), não há nenhum DFL ou FFL mínimo necessário para a execução do agente DC ou do software proxy.
@@ -55,7 +55,7 @@ Depois que o recurso estiver sendo executado no modo de auditoria por um períod
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospede o serviço de proxy para proteção por senha. Essa conectividade deve permitir que o controlador de domínio acesse a porta 135 do mapeador de ponto de extremidade RPC e a porta do servidor RPC no serviço de proxy. Por padrão, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [usar uma porta estática](#static).
 * Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter acesso à rede para os seguintes pontos de extremidade:
 
-    |**Extremidade**|**Objetivo**|
+    |**Endpoint**|**Objetivo**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Solicitações de autenticação|
     |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de senha do Azure AD|

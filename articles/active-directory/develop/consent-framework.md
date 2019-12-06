@@ -3,33 +3,29 @@ title: Estrutura de consentimento Azure Active Directory
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a estrutura de consentimento em Azure Active Directory e como ela facilita o desenvolvimento de aplicativos de cliente nativos e Web multilocatários.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5b60901e57392aaea504f96572801a878d707c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e850b58274a98fd18b84114552bbf7835a27417c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803855"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843381"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento Azure Active Directory
 
 A estrutura de consentimento do Azure Active Directory (AD do Azure) facilita o desenvolvimento de aplicativos cliente nativos e Web multilocatários. Esses aplicativos permitem a entrada por contas de usuário de um locatário do Azure AD diferente daquele em que o aplicativo está registrado. Eles também podem precisar acessar APIs da Web, como a API de Microsoft Graph (para acessar o Azure AD, o Intune e os serviços no Office 365) e outras APIs de serviços da Microsoft, além de suas próprias APIs Web.
 
-A estrutura é baseada em um usuário ou administrador que dá consentimento a um aplicativo que solicita ser registrado em seu diretório, o que pode envolver o acesso a dados do diretório. Por exemplo, se um aplicativo cliente Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo cliente primeiro. Após o consentimento ser fornecido, o aplicativo cliente poderá chamar a API de Microsoft Graph em nome do usuário e usar as informações de calendário conforme necessário. A [API Microsoft Graph](https://developer.microsoft.com/graph) fornece acesso a dados no Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do onedrive, blocos de anotações do OneNote, tarefas do Planner e pastas de trabalho do Excel), bem como usuários e grupos do Azure AD e outros objetos de dados de mais serviços em nuvem da Microsoft.
+A estrutura é baseada em um usuário ou administrador que dá consentimento a um aplicativo que solicita ser registrado em seu diretório, o que pode envolver o acesso a dados do diretório. Por exemplo, se um aplicativo cliente Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo cliente primeiro. Após o consentimento ser fornecido, o aplicativo cliente poderá chamar a API de Microsoft Graph em nome do usuário e usar as informações de calendário conforme necessário. A [API Microsoft Graph](https://developer.microsoft.com/graph) fornece acesso a dados no Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do onedrive, notebooks do OneNote, tarefas do Planner e pastas de trabalho do Excel), bem como usuários e grupos do Azure AD e outros objetos de dados de outros serviços de nuvem da Microsoft.
 
 A estrutura de consentimento é criada no OAuth 2,0 e em seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Usando o OAuth 2,0, o AD do Azure possibilita criar muitos tipos diferentes de aplicativos cliente, como em um telefone, Tablet, servidor ou aplicativo Web, e obter acesso aos recursos necessários.
 

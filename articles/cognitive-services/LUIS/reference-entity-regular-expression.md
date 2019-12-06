@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695205"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841222"
 ---
-# <a name="regular-expression-entity"></a>Entidade de expressão regular 
+# <a name="regular-expression-entity"></a>Entidade de expressão regular
 
 Uma entidade de expressão regular extrai uma entidade com base em um padrão de expressão regular fornecido por você.
 
-Uma expressão regular é melhor para texto bruto expressão. Ele ignora caso e ignora a variante cultural.  Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token. Se a expressão regular for muito complexa, como usar muitos colchetes, não será possível adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [Regex .net](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) . 
+Uma expressão regular é melhor para texto bruto expressão. Ele ignora caso e ignora a variante cultural.  Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token. Se a expressão regular for muito complexa, como usar muitos colchetes, não será possível adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [Regex .net](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) .
 
 **A entidade é uma boa opção quando:**
 
 * Os dados são formatados consistentemente com qualquer variação que também seja consistente.
-* A expressão regular não precisa de mais de 2 níveis de aninhamento. 
+* A expressão regular não precisa de mais de 2 níveis de aninhamento.
 
 ![Entidade de expressão regular](./media/luis-concept-entities/regex-entity.png)
 
@@ -36,7 +36,7 @@ Expressões regulares podem corresponder a mais do que você espera corresponder
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
+```
 
 Essa expressão Regex também corresponde a quaisquer palavras que terminem com esses números, como `phone`. Para corrigir problemas como esse, verifique se as correspondências de Regex levam em conta limites de palavras. O Regex para usar limites de palavras para este exemplo é usado no seguinte Regex:
 
@@ -102,8 +102,8 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste [tutorial](luis-quickstart-intents-regex-entity.md), crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .
+Neste [tutorial](tutorial-regex-entity.md), crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .

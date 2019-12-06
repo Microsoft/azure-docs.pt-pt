@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 07/01/2019
-ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/05/2019
+ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823745"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873748"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do banco de dados SQL do Azure (versão prévia)
 
@@ -56,10 +56,10 @@ Uma consulta elástica permite acesso fácil a uma coleção inteira de bancos d
 Os cenários de cliente para consulta elástica são caracterizados pelas seguintes topologias:
 
 * **Particionamento vertical-consultas entre bancos** de dados (topologia 1): os dados são particionados verticalmente entre um número de databases em uma camada de dado. Normalmente, diferentes conjuntos de tabelas residem em bancos de dados diferentes. Isso significa que o esquema é diferente em bancos de dados diferentes. Por exemplo, todas as tabelas para o inventário estão em um banco de dados enquanto todas as tabelas relacionadas à contabilidade estão em um segundo banco de dados. Casos de uso comuns com essa topologia exigem que uma consulta entre ou compile relatórios entre tabelas em vários bancos de dados.
-* **Particionamento horizontal-fragmentação** (topologia 2): os dados são particionados horizontalmente para distribuir linhas em uma camada de dados expandida. Com essa abordagem, o esquema é idêntico em todos os bancos de dados participantes. Essa abordagem também é chamada de "fragmentação". A fragmentação pode ser realizada e gerenciada usando (1) as bibliotecas de ferramentas de banco de dados elástico ou (2) autofragmentação. Uma consulta elástica é usada para consultar ou compilar relatórios em vários fragmentos.
+* **Particionamento horizontal-fragmentação** (topologia 2): os dados são particionados horizontalmente para distribuir linhas em uma camada de dados expandida. Com essa abordagem, o esquema é idêntico em todos os bancos de dados participantes. Essa abordagem também é chamada de "fragmentação". A fragmentação pode ser realizada e gerenciada usando (1) as bibliotecas de ferramentas de banco de dados elástico ou (2) autofragmentação. Uma consulta elástica é usada para consultar ou compilar relatórios em vários fragmentos. Os fragmentos normalmente são bancos de dados dentro de um pool elástico. Você pode considerar a consulta elástica como uma maneira eficiente de consultar todos os bancos de dados do pool elástico de uma vez, desde que os bancos de dados compartilhem o esquema comum.
 
 > [!NOTE]
-> A consulta elástica funciona melhor para cenários de relatório em que a maior parte do processamento (filtragem, agregação) pode ser executada no lado da fonte externa. Ele não é adequado para operações de ETL em que uma grande quantidade de dados está sendo transferida de banco (es) remoto (s). Para obter cargas de trabalho de relatório pesadas ou cenários de data warehouse com consultas mais complexas, considere também o uso [do Azure SQL data warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+> A consulta elástica funciona melhor para cenários de relatório em que a maior parte do processamento (filtragem, agregação) pode ser executada no lado da fonte externa. Ele não é adequado para operações de ETL em que uma grande quantidade de dados está sendo transferida de banco (es) remoto (s). Para obter cargas de trabalho de relatório pesadas ou cenários de data warehouse com consultas mais complexas, considere também usar o [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>Particionamento vertical-consultas entre bancos de dados
@@ -117,6 +117,9 @@ Depois de executar essas etapas, você poderá acessar a tabela particionada hor
 Mais informações sobre as etapas necessárias para o cenário de particionamento horizontal podem ser encontradas em [consulta elástica para particionamento horizontal](sql-database-elastic-query-horizontal-partitioning.md).
 
 Para começar a codificar, consulte [introdução à consulta elástica para particionamento horizontal (fragmentação)](sql-database-elastic-query-getting-started.md).
+
+> [!IMPORTANT]
+> A execução bem-sucedida da consulta elástica em um grande conjunto de bancos de dados depende muito da disponibilidade de cada um dos bancos de dados durante a execução da consulta. Se um dos bancos de dados não estiver disponível, a consulta inteira falhará. Se você planeja consultar centenas ou milhares de bancos de dados ao mesmo tempo, certifique-se de que seu aplicativo cliente tenha a lógica de repetição inserida ou considere o uso de [trabalhos de banco de dados elástico](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (versão prévia) e a consulta de subconjuntos menores de banco de dados, consolidando os resultados de cada consulta em um único destino.
 
 ## <a name="t-sql-querying"></a>Consultas T-SQL
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381946"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848634"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinadas (versão prévia)
 
@@ -54,8 +54,8 @@ O registro combinado dá suporte aos seguintes métodos e ações de autenticaç
 | Token de hardware | Não | Não | Sim |
 | Telefone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
-| Telefone comercial | Não | Não | Não |
-| Email | Sim | Sim | Sim |
+| Telefone do escritório | Não | Não | Não |
+| E-mail | Sim | Sim | Sim |
 | Perguntas de segurança | Sim | Não | Sim |
 | Palavras-passe de aplicações | Sim | Não | Sim |
 

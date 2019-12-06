@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com visualizações de Azure Monitor pastas de trabalho | Microsoft docs
+title: Azure Monitor visualizações da pasta de trabalho
 description: Saiba mais sobre todos os componentes de visualizações de pasta de trabalho do Azure Monitor, incluindo-texto, gráficos, grades, árvores e grafos.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165059"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872796"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
 
@@ -41,7 +41,7 @@ O texto é adicionado por meio de um controle de redução que fornece controle 
 > [!TIP]
 > Use esta [página](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) de dicas de redução para saber mais sobre as diferentes opções de formatação.
 
-## <a name="charts"></a>spersão
+## <a name="charts"></a>Gráficos
 
 As pastas de trabalho permitem que os dados de monitoramento sejam apresentados como gráficos. Os tipos de gráfico com suporte incluem linha, barra, categórica, área, gráficos de dispersão, pizza e hora. Os autores podem optar por personalizar a altura, a largura, a paleta de cores, a legenda, os títulos, as mensagens sem dados, etc. do gráfico.
 
@@ -96,7 +96,7 @@ As pastas de trabalho dão suporte a gráficos para logs e fontes de dados de m�
 | `Size` | O tamanho vertical do controle | Pequeno, médio ou grande |
 | `Color palette` | A paleta de cores a ser usada no gráfico. Ignorado se o parâmetro `Split by` for usado | Azul, verde, vermelho etc. |
 
-## <a name="grids"></a>Grades
+## <a name="grids"></a>Grelhas
 
 Grades ou tabelas são uma maneira comum de apresentar dados aos usuários. As pastas de trabalho permitem que os usuários estilizam individualmente as colunas da grade para fornecer uma interface do usuário rica para seus relatórios.
 
@@ -115,7 +115,7 @@ O exemplo a seguir mostra uma grade que combina ícones, calor e barras de Spark
 
 ![Captura de tela da consulta de grade com base em log](./media/workbooks-visualizations/grid-query.png)
 
-## <a name="tiles"></a>Blocos
+## <a name="tiles"></a>Mosaicos
 
 Os blocos são uma maneira muito útil de apresentar dados resumidos em pastas de trabalho. A imagem abaixo mostra um caso de uso comum de blocos-Resumo de nível de aplicativo na parte superior de uma grade detalhada.
 
@@ -197,7 +197,7 @@ O exemplo a seguir mostra as métricas de integridade do contêiner (tamanho do 
 | `Show the expander on` | A coluna na qual mostrar o expansor de árvore. É comum que as grades de árvore ocultem seus campos ID e ID pai porque não são muito legíveis. Em vez disso, o expansor aparece em um campo com um valor mais legível, como o nome da entidade |
 | `Expand the top level of the tree` | Se marcada, a grade de árvore será expandida no nível superior. Útil se você quiser mostrar mais informações por padrão |
 
-## <a name="graphs"></a>Gráficos
+## <a name="graphs"></a>Graphs
 
 As pastas de trabalho dão suporte à visualização de grafos arbitrários com base em dados de logs para mostrar as relações entre entidades de monitoramento.
 
@@ -205,7 +205,7 @@ O gráfico abaixo mostra dados que fluem para dentro/para fora de um computador 
 
 ![Captura de tela da exibição de resumo do bloco](./media/workbooks-visualizations/graph.png)
 
-### <a name="adding-a-graph"></a>Adicionando um grafo
+### <a name="adding-a-graph"></a>Adicionando um gráfico
 1. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
 2. Use o link **Adicionar consulta** para adicionar um controle de consulta de log à pasta de trabalho. 
 3. Selecione o tipo de consulta como **log**, tipo de recurso (por exemplo, Application insights) e os recursos a serem direcionados.

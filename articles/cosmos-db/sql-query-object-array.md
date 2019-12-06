@@ -1,23 +1,23 @@
 ---
 title: Trabalhando com matrizes e objetos no Azure Cosmos DB
-description: Saiba mais sobre a sintaxe SQL de criação de objetos e de matriz para Azure Cosmos DB.
+description: Aprenda a sintaxe do SQL para criar matrizes e objetos no Azure Cosmos DB. Este artigo também fornece alguns exemplos para executar operações em objetos de matriz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003924"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870926"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos no Azure Cosmos DB
 
 Um recurso importante do Azure Cosmos DB API do SQL é a criação de matriz e objeto.
 
-## <a name="arrays"></a>Storage
+## <a name="arrays"></a>Matrizes
 
 Você pode construir matrizes, conforme mostrado no exemplo a seguir:
 
@@ -54,7 +54,7 @@ FROM f
 
 ## <a id="Iteration"></a>Iteração
 
-A API do SQL fornece suporte para iteração em matrizes JSON, com uma nova construção adicionada por meio da [palavra-chave in](sql-query-keywords.md#in) na fonte from. No exemplo a seguir:
+A API do SQL fornece suporte para iteração em matrizes JSON, com uma nova construção adicionada por meio da [palavra-chave in](sql-query-keywords.md#in) na fonte from. No seguinte exemplo:
 
 ```sql
     SELECT *
@@ -90,7 +90,7 @@ Os resultados são:
     ]
 ```
 
-A próxima consulta executa a iteração `children` `Families` no contêiner. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e mescla os resultados em uma única matriz:  
+A próxima consulta executa a iteração sobre `children` no contêiner de `Families`. A matriz de saída é diferente da consulta anterior. Este exemplo divide `children`e mescla os resultados em uma única matriz:  
 
 ```sql
     SELECT *
@@ -155,7 +155,7 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)

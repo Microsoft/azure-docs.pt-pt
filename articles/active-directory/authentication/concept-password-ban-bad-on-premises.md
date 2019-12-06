@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/18/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 013a14505f7ac1382bce369e161fdae834f605fc
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1b9d07099f8de996181948921330ef6744b302a8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200228"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848651"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção de senha do Azure AD ao Windows Server Active Directory
 
@@ -43,7 +43,7 @@ O software de agente DC de proteção de senha do Azure AD só pode validar senh
 
 Muitas organizações desejarão fazer um teste cuidadoso de proteção de senha do Azure AD em um subconjunto de controladores de domínio antes de fazer uma implantação completa. A proteção de senha do Azure AD oferece suporte à implantação parcial, o IE o software do agente de DC em um determinado DC validará ativamente as senhas mesmo quando outros DCs no domínio não tiverem o software do agente de DC instalado. Implantações parciais desse tipo não são seguras e não são recomendadas além de para fins de teste.
 
-## <a name="architectural-diagram"></a>Diagrama arquitetônico
+## <a name="architectural-diagram"></a>Diagrama da arquitetura
 
 É importante entender os conceitos subjacentes de design e função antes de implantar a proteção de senha do Azure AD em um ambiente de Active Directory local. O diagrama a seguir mostra como os componentes da proteção por senha funcionam em conjunto:
 
@@ -87,7 +87,7 @@ A implantação da proteção de senha do Azure AD em uma floresta Active Direct
 
 A floresta Active Directory e todos os serviços de proxy implantados em uma floresta devem ser registrados com o mesmo locatário. Não há suporte para ter uma floresta Active Directory ou quaisquer serviços de proxy na floresta que estão sendo registrados em locatários diferentes do Azure AD. Os sintomas de tal implantação mal configurada incluem a incapacidade de baixar políticas de senha.
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Transferir
 
 Os dois instaladores de agente necessários para a proteção de senha do Azure AD estão disponíveis no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 

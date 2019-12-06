@@ -3,18 +3,18 @@ title: Saiba como carregar soluções de Gerenciamento de Atualizações, Contro
 description: Saiba como carregar uma máquina virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário que fazem parte da automação do Azure
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e117c6f8aa8526392678f37a05ec61b55983a1c7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ab934db026b598e80541f98d74df70c893692120
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374424"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849705"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Soluções integradas de Gerenciamento de Atualizações, Controle de Alterações e inventário
 
@@ -55,7 +55,7 @@ Se o espaço de trabalho selecionado não tiver as soluções Gerenciamento de A
 
 * **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig-atualizações**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Se o espaço de trabalho selecionado já tiver a solução, a solução não será reimplantada e a configuração de escopo não será adicionada a ela.
 
@@ -139,7 +139,7 @@ Se você usou a solução Gerenciamento de Atualizações, opcionalmente, talvez
 
 * Atualizar agendas-cada uma terá nomes que correspondam às implantações de atualização que você criou)
 
-* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Se você usou a solução iniciar e parar VMs fora do horário comercial, opcionalmente, talvez você queira remover os itens a seguir que não são mais necessários após a remoção da solução.
 
@@ -153,7 +153,7 @@ Como alternativa, você também pode desvincular seu espaço de trabalho de sua 
 
 Para remover uma VM do Gerenciamento de Atualizações:
 
-* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para o `MicrosoftDefaultScopeConfig-Updates`de configuração de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
 * Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -2,28 +2,23 @@
 title: Glossário do desenvolvedor da plataforma de identidade da Microsoft | Azure
 description: Uma lista de termos para conceitos e recursos de desenvolvedor da plataforma de identidade do Microsoft comumente usados.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 221a491abad6c11ee12c75b1d69f1263f4abddc4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8ffc9c0ed5787803fff01d929567bda23b698135
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322602"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843211"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário do desenvolvedor da plataforma de identidade da Microsoft
 
@@ -79,7 +74,7 @@ O ato de conceder uma entidade de segurança autenticada permissão para fazer a
 
 Um "token" de curta duração fornecido a um [aplicativo cliente](#client-application) pelo [ponto de extremidade de autorização](#authorization-endpoint), como parte do fluxo de "código de autorização", uma das quatro [concessões de autorização](#authorization-grant)de OAuth2. O código é retornado para o aplicativo cliente em resposta à autenticação de um [proprietário de recurso](#resource-owner), indicando que o proprietário do recurso tem autorização delegada para acessar os recursos solicitados. Como parte do fluxo, o código é resgatado posteriormente para um [token de acesso](#access-token).
 
-## <a name="authorization-endpoint"></a>Ponto de extremidade de autorização
+## <a name="authorization-endpoint"></a>ponto de extremidade de autorização
 
 Um dos pontos de extremidade implementados pelo [servidor de autorização](#authorization-server), usado para interagir com o [proprietário do recurso](#resource-owner) a fim de fornecer uma concessão de [autorização](#authorization-grant) durante um fluxo de concessão de autorização de OAuth2. Dependendo do fluxo de concessão de autorização usado, a concessão real fornecida pode variar, incluindo um [código de autorização](#authorization-code) ou [token de segurança](#security-token).
 
@@ -156,7 +151,7 @@ Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos
 
 Assim como um aplicativo cliente, a configuração de identidade do aplicativo de recurso é estabelecida por meio do [registro](#application-registration) em um locatário do Azure AD, fornecendo o aplicativo e o objeto de entidade de serviço. Algumas APIs fornecidas pela Microsoft, como o API do Graph do Azure AD, têm entidades de serviço previamente registradas disponibilizadas em todos os locatários durante o provisionamento.
 
-## <a name="roles"></a>funções
+## <a name="roles"></a>roles
 
 Como os [escopos](#scopes), as funções fornecem uma maneira para um [servidor de recursos](#resource-server) controlar o acesso aos seus recursos protegidos. Há dois tipos: uma função de "usuário" implementa o controle de acesso baseado em função para usuários/grupos que exigem acesso ao recurso, enquanto uma função de "aplicativo" implementa o mesmo para [aplicativos cliente](#client-application) que exigem acesso.
 
@@ -182,7 +177,7 @@ Quando você registra/atualiza um aplicativo no [portal do Azure][AZURE-portal],
 
 Para obter mais informações, consulte [objetos de entidade de serviço e de aplicativo][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>entrar
+## <a name="sign-in"></a>iniciar sessão
 
 O processo de um [aplicativo cliente](#client-application) que inicia a autenticação do usuário final e captura o estado relacionado, com a finalidade de adquirir um [token de segurança](#security-token) e definir o escopo da sessão do aplicativo para esse estado. O estado pode incluir artefatos, como informações de perfil do usuário, e informações derivadas de declarações de token.
 
@@ -202,7 +197,7 @@ Uma instância de um diretório do Azure AD é conhecida como um locatário do A
 
 Os locatários do Azure AD são criados/associados às assinaturas do Azure e do Office 365 durante a inscrição, fornecendo Gerenciamento de Identidades e Acesso recursos para a assinatura. Os administradores de assinatura do Azure também podem criar locatários adicionais do Azure AD por meio do portal do Azure. Consulte [como obter um locatário Azure Active Directory][AAD-How-To-Tenant] para obter detalhes sobre as várias maneiras pelas quais você pode obter acesso a um locatário. Veja [como as assinaturas do Azure estão associadas a Azure Active Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD.
 
-## <a name="token-endpoint"></a>Ponto de extremidade do token
+## <a name="token-endpoint"></a>ponto de extremidade do token
 
 Um dos pontos de extremidade implementados pelo [servidor de autorização](#authorization-server) para dar suporte a [concessões de autorização](#authorization-grant)OAuth2. Dependendo da concessão, ele pode ser usado para adquirir um token de [acesso](#access-token) (e um token de "atualização" relacionado) para um [cliente](#client-application)ou [token de ID](#id-token) quando usado com o protocolo [OpenID Connect][OpenIDConnect] .
 

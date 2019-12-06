@@ -2,13 +2,13 @@
 title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição de Azure Policy.
 ms.date: 11/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.topic: how-to
+ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555170"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873102"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
@@ -185,14 +185,14 @@ Os resultados a seguir são o resultado da combinação da condição e a regra 
 
 |Condição |Resultado |Explicação |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_ e o efeito não é disparado. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Nenhumas |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_ e o efeito não é disparado. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efeito de política |Ambos os elementos da matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição não é **igual** a _true_ e o efeito é disparado. |
 |`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito de política |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
 |`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito de política |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
 |`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito de política |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Ambos os elementos de matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição de não é **igual** a _true_. O operador lógico é avaliado como falso (**não** _verdadeiro_), portanto, o efeito não é disparado. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nada |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nenhumas |Ambos os elementos de matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição de não é **igual** a _true_. O operador lógico é avaliado como falso (**não** _verdadeiro_), portanto, o efeito não é disparado. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nenhumas |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nenhumas |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
 
 ## <a name="the-append-effect-and-arrays"></a>As matrizes e o efeito de acréscimo
 

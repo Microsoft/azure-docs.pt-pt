@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5844d440da768ae2647ea7f15c4c913f83078ce1
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e7600bffd8d00caa6e9b5fdda03aefe429d4788b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672958"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842582"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização de Azure AD Connect: faça uma alteração na configuração padrão
 A finalidade deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
@@ -204,7 +204,7 @@ Por padrão, o atributo UserType não está habilitado para sincronização porq
 
 - O Azure AD aceita apenas dois valores para o atributo UserType: **membro** e **convidado**.
 - Se o atributo UserType não estiver habilitado para sincronização no Azure AD Connect, os usuários do Azure AD criados por meio da sincronização de diretório teriam o atributo UserType definido como **membro**.
-- O Azure AD não permite que o atributo UserType em usuários existentes do Azure AD seja alterado por Azure AD Connect. Ele só pode ser definido durante a criação dos usuários do Azure AD.
+- O Azure AD não permite que o atributo UserType em usuários existentes do Azure AD seja alterado por Azure AD Connect. Ele só pode ser definido durante a criação dos usuários do Azure AD e [alterado por meio do PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Antes de habilitar a sincronização do atributo UserType, primeiro você deve decidir como o atributo é derivado do Active Directory local. Estas são as abordagens mais comuns:
 
@@ -271,7 +271,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Nome | *Forneça um nome* | Por exemplo, *entrada do AD – UserType do usuário* |
     | Descrição | *Forneça uma descrição* |  |
     | Sistema conectado | *Selecione o AD Connector local* |  |
-    | Tipo de objeto do sistema conectado | **Usuário** |  |
+    | Tipo de objeto do sistema conectado | **Utilizador** |  |
     | Tipo de objeto do metaverso | **Pessoa** |  |
     | Tipo de link | **Associar** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 é reservado para regras de sincronização personalizadas. Não escolha um valor que seja usado por outra regra de sincronização. |
@@ -288,13 +288,13 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direct | userType | extensionAttribute1 | desmarcada | Atualizar |
+    | Direto | UserType | extensionAttribute1 | Desmarcada | Atualizar |
 
     Em outro exemplo, você deseja derivar o valor para o atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como convidados se seu atributo userPrincipalName do AD local termina com a parte de domínio <em>@partners.fabrikam123.org</em>. Você pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Expressão | userType | IIF (IsPresent ([userPrincipalName]), IIF (CBool (Instr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "membro", "convidado"), erro ("UserPrincipalName não está presente para determinar UserType")) | desmarcada | Atualizar |
+    | Expressão | UserType | IIF (IsPresent ([userPrincipalName]), IIF (CBool (Instr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "membro", "convidado"), erro ("UserPrincipalName não está presente para determinar UserType")) | Desmarcada | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de entrada.
 
@@ -313,7 +313,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Nome | *Forneça um nome* | Por exemplo, *out to AAD – UserType do usuário* |
     | Descrição | *Forneça uma descrição* ||
     | Sistema conectado | *Selecione o conector do AAD* ||
-    | Tipo de objeto do sistema conectado | **Usuário** ||
+    | Tipo de objeto do sistema conectado | **Utilizador** ||
     | Tipo de objeto do metaverso | **Pessoa** ||
     | Tipo de link | **Associar** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 é reservado para regras de sincronização personalizadas. Não escolha um valor que seja usado por outra regra de sincronização. |
@@ -331,7 +331,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direct | userType | userType | desmarcada | Atualizar |
+    | Direto | UserType | UserType | Desmarcada | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de saída.
 

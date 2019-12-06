@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603460"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848498"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -51,7 +51,7 @@ Os métodos de autenticação com senha da Microsoft permitem diferentes cenári
 
 ### <a name="passwordless-authentication-scenarios"></a>Cenários de autenticação com senha
 
-| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para empresas |
+| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para Empresas |
 | --- | --- | --- | --- |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 atribuído | **Não** | **Sim** <br> Com biométrica, PIN | **Sim**<br>com reconhecimento biométrico e PIN |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 compartilhado | **Não** | **Sim** <br> Com biométrica, PIN  | **Não** |
@@ -133,7 +133,7 @@ A tabela a seguir descreve os casos de uso a serem implementados durante este pr
 | --- | --- |
 | **Acesso** | A conexão sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
-| **Controles** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
+| **Governação** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
 | **Segurança** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar o logon sem senha. |
 | **Performance** (Desempenho) | As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. <br> As horas de entrada são medidas para facilitar o uso. |
 | **Experiência do usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar o logon sem senha do aplicativo autenticador. |

@@ -3,27 +3,23 @@ title: Configurar a declaração de função para aplicativos empresariais no Az
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: jeevansd
 manager: CelesteDG
-editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4657a69347eb2294877e6bd2d7de8e41c0c2ef26
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803491"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845302"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -99,7 +95,7 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
       ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
       > [!Note]
-      > Se você estiver usando o aplicativo personalizado (não o aplicativo do Azure Marketplace), verá duas funções padrão: User e msiam_access. Para o aplicativo do Marketplace, msiam_access é a única função padrão. Você não precisa fazer nenhuma alteração nas funções padrão.
+      > Se você estiver usando o aplicativo personalizado (não o aplicativo do Azure Marketplace), verá duas funções padrão: usuário e msiam_access. Para o aplicativo do Marketplace, msiam_access é a única função padrão. Você não precisa fazer nenhuma alteração nas funções padrão.
 
     h. Gere novas funções para seu aplicativo.
 
@@ -158,7 +154,7 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
-    | Nome da função  | User. assignedroles |
+    | Nome da função  | user.assignedroles |
 
     >[!NOTE]
     >Se o valor de declaração de função for nulo, o Azure AD não enviará esse valor no token e isso será padrão de acordo com o design.
@@ -257,7 +253,7 @@ Para excluir uma função existente, execute as seguintes etapas:
 
     c. Defina o valor de **IsEnabled** como **false** para a função que você deseja excluir.
 
-    d. Selecione **Executar consulta**.
+    d. Selecione **Executar Consulta**.
 
     > [!NOTE]
     > Verifique se você tem a função msiam_access e se a ID corresponde à função gerada.

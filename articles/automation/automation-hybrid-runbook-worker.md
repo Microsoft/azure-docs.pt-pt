@@ -1,20 +1,20 @@
 ---
-title: Hybrid Runbook Worker de automação do Azure
+title: Função de Trabalho de Runbook Híbrida da Automatização do Azure
 description: Este artigo fornece informações sobre como instalar e usar Hybrid Runbook Worker, que é um recurso da automação do Azure que você pode usar para executar runbooks em computadores em seu datacenter local ou provedor de nuvem.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 7329d32c01f005f4f5a727f80c6af0b58982b41f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743807"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850266"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizar recursos em seu datacenter ou nuvem usando Hybrid Runbook Worker
 
@@ -34,7 +34,7 @@ O processo para instalar uma Hybrid Runbook Worker depende do sistema operaciona
 
 Para instalar e configurar um Hybrid Runbook Worker do Windows, você pode usar dois métodos. O método recomendado é usar um runbook de automação para automatizar completamente o processo de configuração de um computador com Windows. O segundo método é seguir um procedimento passo a passo para instalar e configurar manualmente a função. Para computadores Linux, você executa um script Python para instalar o agente no computador.
 
-|OS  |Tipos de implantação  |
+|SO  |Tipos de implantação  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
@@ -63,7 +63,7 @@ Abra uma sessão do PowerShell no modo de administrador e execute o comando a se
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
-Para remover computadores obsoletos do seu grupo de Hybrid Worker, use `machineName` o parâmetro opcional.
+Para remover computadores obsoletos do seu grupo de Hybrid Worker, use o parâmetro opcional `machineName`.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
@@ -71,7 +71,7 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 
 ### <a name="linux"></a>Linux
 
-Você pode usar o comando `ls /var/opt/microsoft/omsagent` no Hybrid runbook Worker para obter o workspaceid. Há uma pasta no diretório em que o nome da pasta é a ID do espaço de trabalho.
+Você pode usar o comando `ls /var/opt/microsoft/omsagent` na Hybrid Runbook Worker para obter o workspaceid. Há uma pasta no diretório em que o nome da pasta é a ID do espaço de trabalho.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -107,10 +107,10 @@ Se você usar um servidor proxy para comunicação entre o agente e o serviço d
 
 A porta e as URLs a seguir são necessárias para que a função de Hybrid Runbook Worker se comunique com a automação:
 
-* Porto Somente TCP 443 é necessário para acesso de saída à Internet.
+* Porta: somente TCP 443 é necessário para acesso à Internet de saída.
 * URL global: *. azure-automation.net
 * URL global de US Gov-Virgínia: *. azure-automation.us
-* Serviço do agente:\<https://\>workspaceid. AgentSvc.Azure-Automation.net
+* Serviço do agente: https://\<workspaceid\>. agentsvc.azure-automation.net
 
 É recomendável usar os endereços listados ao definir exceções. Para endereços IP, você pode baixar os [intervalos de IP do Microsoft Azure datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
 
@@ -118,20 +118,20 @@ Se você tiver uma conta de automação definida para uma região específica, p
 
 | **Região** | **Registro DNS** |
 | --- | --- |
-| EUA Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| EUA Centro-Sul |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| EUA Leste 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| EUA Oeste 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
+| E.U.A. Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| E.U.A. Centro-Sul |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| Este dos E.U.A. 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| E.U.A. Oeste 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Europa do Norte |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Sudeste Asiático |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| Centro da Índia |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| Este do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Leste da Austrália |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Reino Unido Sul | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Gov (US) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
+| Gov dos E.U.A. Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obter uma lista de endereços IP de região em vez de nomes de região, baixe o arquivo XML do [endereço IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) no centro de download da Microsoft.
 
@@ -146,7 +146,7 @@ Para obter uma lista de endereços IP de região em vez de nomes de região, bai
 
 Além dos endereços padrão e das portas que o Hybrid Runbook Worker requer, os endereços a seguir são necessários especificamente para Gerenciamento de Atualizações. A comunicação com esses endereços é feita pela porta 443.
 
-|Público do Azure  |Azure Government  |
+|Azure Público  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |

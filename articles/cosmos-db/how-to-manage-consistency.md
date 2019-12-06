@@ -1,17 +1,17 @@
 ---
 title: Saiba como gerir consistência no Azure Cosmos DB
-description: Saiba como gerir consistência no Azure Cosmos DB
+description: Saiba como configurar e gerenciar níveis de consistência no Azure Cosmos DB usando portal do Azure, SDK do .net, SDK do Java e vários outros SDKs
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093311"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872082"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
@@ -231,12 +231,12 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Como a eventualidade é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização em relação ao histórico e à hora da versão. A métrica do [**PBS (** ](https://pbs.cs.berkeley.edu/) desatualização vinculada) do Probabilistic tenta quantificar a probabilidade de desatualização e a mostra como uma métrica. Para exibir a métrica do PBS, vá para sua conta do cosmos do Azure no portal do Azure. Abra o painel métricas e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)** .
+Como a eventualidade é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização em relação ao histórico e à hora da versão. A métrica do PBS (desatualização [**vinculada) do Probabilistic**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e a mostra como uma métrica. Para exibir a métrica do PBS, vá para sua conta do cosmos do Azure no portal do Azure. Abra o painel **métricas** e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)** .
 
 ![Grafo do PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como gerenciar conflitos de dados ou vá para o próximo conceito de chave em Azure Cosmos DB. Consulte os seguintes artigos:
 

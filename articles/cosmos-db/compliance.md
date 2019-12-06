@@ -1,32 +1,32 @@
 ---
 title: Conformidade de Azure Cosmos DB
 description: Este artigo descreve a cobertura de certificação para Azure Cosmos DB ofertas de conformidade.
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 9ebec5498da8f7280179a48a6e3e3b10a9810e28
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: a41d95a5ab0665698676d0f17333e2f5c7f467eb
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881838"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872208"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformidade no Azure Cosmos DB 
 
 Azure Cosmos DB está disponível em todas as regiões do Azure. A Microsoft disponibiliza cinco ambientes distintos de nuvem do Azure para os clientes:
 
-* Nuvem **pública do Azure** , que está disponível globalmente.
+* **Azure público** nuvem, o que está disponível globalmente.
 
 * O **Azure China 21vianet** está disponível por meio de uma parceria exclusiva entre a Microsoft e a 21vianet, um dos maiores provedores de Internet do país.
 
-* O **Azure Alemanha** fornece serviços em um modelo de dados de confiança, que garante que os dados do cliente permaneçam na Alemanha sob o controle de T-Systems International GmbH, uma subsidiária da alemã Telecom, agindo como o data Trustee do alemão.
+* **O Azure Alemanha** fornece serviços através de um modelo de consignação de dados, o que garante que o cliente dados permanecem na Alemanha sob o controle do T-Systems International GmbH, uma subsidiária da Deutsche telecomunicações, que funcionam como os dados na Alemanha.
 
-* O **Azure governamental** está disponível em quatro regiões no Estados Unidos para agências governamentais dos EUA e seus parceiros. 
+* **O Azure Government** está disponível em quatro regiões nos Estados Unidos para organismos públicos dos E.U.A. e respetivos parceiros. 
 
-* O **Azure governamental para o departamento de defesa (DoD)** está disponível em duas regiões do Estados Unidos para o departamento de defesa dos EUA.
+* **O Azure Government para o departamento de defesa** está disponível em duas regiões nos Estados Unidos para o departamento de defesa.
 
 Para ajudar os clientes a atender suas próprias obrigações de conformidade entre indústrias regulamentadas e mercados em todo o mundo, o Azure mantém o maior portfólio de conformidade do setor em termos de amplitude (número total de ofertas) e profundidade (número de produtos voltados para o cliente serviços no escopo da avaliação).  As ofertas de conformidade do Azure são agrupadas em quatro segmentos: globalmente aplicável, governo dos EUA, específico do setor e região ou país/região específico.  As ofertas de conformidade baseiam-se em vários tipos de garantia, incluindo certificações formais, atestado, validações, autorizações e avaliações produzidas por empresas de auditoria de terceiros independentes, bem como emendas contratuais, autoavaliações e documentos de orientação do cliente produzidos pela Microsoft.
 
@@ -71,4 +71,4 @@ Para saber mais sobre as certificações de conformidade do Azure, confira os se
 
 * Para obter uma visão geral da segurança Azure Cosmos DB e os aprimoramentos mais recentes, consulte o artigo [segurança do banco de dados Cosmos do Azure](database-security.md) .
 
-* Para obter mais informações sobre certificações da Microsoft, consulte a [central de confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/).
+* Para obter mais informações sobre as certificações da Microsoft, consulte a [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/).

@@ -1,17 +1,17 @@
 ---
 title: Subconsultas SQL para Azure Cosmos DB
-description: Saiba mais sobre as subconsultas do SQL e seus casos de uso comuns no Azure Cosmos DB
+description: Saiba mais sobre subconsultas SQL e seus casos de uso comuns e tipos diferentes de subconsultas no Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003483"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870569"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos de subconsulta do SQL para Azure Cosmos DB
 
@@ -23,16 +23,16 @@ Este artigo descreve as subconsultas do SQL e seus casos de uso comuns no Azure 
 
 Há dois tipos principais de subconsultas:
 
-* **Correlacionado**: Uma subconsulta que faz referência a valores da consulta externa. A subconsulta é avaliada uma vez para cada linha que a consulta externa processa.
-* **Não correlacionado**: Uma subconsulta que é independente da consulta externa. Ele pode ser executado sozinho sem depender da consulta externa.
+* **Correlacionado**: uma subconsulta que faz referência a valores da consulta externa. A subconsulta é avaliada uma vez para cada linha que a consulta externa processa.
+* **Não correlacionado**: uma subconsulta que é independente da consulta externa. Ele pode ser executado sozinho sem depender da consulta externa.
 
 > [!NOTE]
 > Azure Cosmos DB dá suporte apenas a Subconsultas correlacionadas.
 
 As subconsultas podem ser classificadas com base no número de linhas e colunas que retornam. Há três tipos:
-* **Tabela**: Retorna várias linhas e várias colunas.
-* **Valores múltiplos**: Retorna várias linhas e uma única coluna.
-* **Escalar**: Retorna uma única linha e uma única coluna.
+* **Tabela**: retorna várias linhas e várias colunas.
+* **Vários valores**: retorna várias linhas e uma única coluna.
+* **Escalar**: retorna uma única linha e uma única coluna.
 
 As consultas SQL em Azure Cosmos DB sempre retornam uma única coluna (um valor simples ou um documento complexo). Portanto, somente subconsultas de valores múltiplos e escalares são aplicáveis em Azure Cosmos DB. Você pode usar uma subconsulta de vários valores somente na cláusula FROM como uma expressão relacional. Você pode usar uma subconsulta escalar como uma expressão escalar na cláusula SELECT ou WHERE ou como uma expressão relacional na cláusula FROM.
 
@@ -47,7 +47,7 @@ Subconsultas de vários valores retornam um conjunto de documentos e são sempre
 
 Subconsultas com vários valores podem otimizar as expressões de junção enviando predicados após cada expressão Select-many em vez de todas as junções cruzadas na cláusula WHERE.
 
-Considere a seguinte consulta:
+Considere a consulta seguinte:
 
 ```sql
 SELECT Count(1) AS Count
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-A abordagem não está limitada a UDFs. Ele se aplica a qualquer expressão potencialmente dispendiosa. Por exemplo, você pode usar a mesma abordagem com a função `avg`matemática:
+A abordagem não está limitada a UDFs. Ele se aplica a qualquer expressão potencialmente dispendiosa. Por exemplo, você pode usar a mesma abordagem com a função matemática `avg`:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -124,24 +124,24 @@ Geralmente, talvez seja necessário fazer referência a dados estáticos que rar
 
 Por exemplo, considere este conjunto de dados de referência:
 
-| **Unidade** | **Name**            | **Multiplicador** | **Unidade base** |
+| **Unidade** | **Nome**            | **Multiplicador** | **Unidade base** |
 | -------- | ------------------- | -------------- | ------------- |
-| ção       | Cograma            | E-09 1,00       | Gram          |
-| µg       | Microgram           | E-06 1,00       | Gram          |
-| mg       | Milligram           | E-03 DE 1,00       | Gram          |
-| g        | Gram                | 1,00 E + 00       | Gram          |
-| kg       | Kg            | 1,00 E + 03       | Gram          |
-| mg       | Megagram            | 1,00 E + 06       | Gram          |
-| GG       | Gigagram            | 1,00 E + 09       | Gram          |
-| nJ       | Nanojoule           | E-09 1,00       | Joule         |
-| µJ       | Microjoule          | E-06 1,00       | Joule         |
-| mJ       | Millijoule          | E-03 DE 1,00       | Joule         |
-| D        | Joule               | 1,00 E + 00       | Joule         |
-| kJ       | Kilojoule           | 1,00 E + 03       | Joule         |
-| MJ       | Megajoule           | 1,00 E + 06       | Joule         |
-| GJ       | Gigajoule           | 1,00 E + 09       | Joule         |
-| licença      | Calorias             | 1,00 E + 00       | calorias       |
-| kcal     | Calorias             | 1,00 E + 03       | calorias       |
+| ção       | Cograma            | e-09 1,00       | Gram          |
+| µg       | Microgram           | e-06 1,00       | Gram          |
+| mg       | Milligram           | e-03 de 1,00       | Gram          |
+| g        | Gram                | 1,00 e + 00       | Gram          |
+| kg       | Kg            | 1,00 e + 03       | Gram          |
+| Mg       | Megagram            | 1,00 e + 06       | Gram          |
+| GG       | Gigagram            | 1,00 e + 09       | Gram          |
+| nJ       | Nanojoule           | e-09 1,00       | Joule         |
+| µJ       | Microjoule          | e-06 1,00       | Joule         |
+| mJ       | Millijoule          | e-03 de 1,00       | Joule         |
+| J        | Joule               | 1,00 e + 00       | Joule         |
+| kJ       | Kilojoule           | 1,00 e + 03       | Joule         |
+| MJ       | Megajoule           | 1,00 e + 06       | Joule         |
+| GJ       | Gigajoule           | 1,00 e + 09       | Joule         |
+| licença      | Calorias             | 1,00 e + 00       | calorias       |
+| kcal     | Calorias             | 1,00 e + 03       | calorias       |
 | IU       | Unidades internacionais |                |               |
 
 
@@ -351,7 +351,7 @@ WHERE count_mg > 20
 
 ## <a name="exists-expression"></a>Expressão EXISTs
 
-Azure Cosmos DB dá suporte a expressões EXISTs. Essa é uma subconsulta escalar agregada incorporada à API do SQL do Azure Cosmos DB. EXISTs é uma expressão booliana que usa uma expressão de subconsulta e retorna true se a subconsulta retornar qualquer linha. Caso contrário, retornará false.
+Azure Cosmos DB dá suporte a expressões EXISTs. Essa é uma subconsulta escalar agregada incorporada à API do SQL do Azure Cosmos DB. EXISTs é uma expressão booliana que usa uma expressão de subconsulta e retorna true se a subconsulta retornar qualquer linha. Caso contrário, retorna false.
 
 Como a API do SQL do Azure Cosmos DB não diferencia as expressões boolianas e quaisquer outras expressões escalares, você pode usar EXISTs nas cláusulas SELECT e WHERE. Isso é diferente de T-SQL, em que uma expressão booliana (por exemplo, EXISTs, BETWEEN e IN) é restrita ao filtro.
 
@@ -366,11 +366,11 @@ Se a palavra-chave VALUE na subconsulta anterior for omitida, a consulta será a
 SELECT EXISTS (SELECT undefined) 
 ```
 
-A subconsulta colocará a lista de valores na lista selecionada em um objeto. Se a lista selecionada não tiver valores, a subconsulta retornará o único valor '{}'. Esse valor é definido, portanto, EXISTs é avaliado como true.
+A subconsulta colocará a lista de valores na lista selecionada em um objeto. Se a lista selecionada não tiver valores, a subconsulta retornará o valor único '{}'. Esse valor é definido, portanto, EXISTs é avaliado como true.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exemplo: Reescrevendo ARRAY_CONTAINS e JOIN como EXISTs
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exemplo: reescrever ARRAY_CONTAINS e INGRESSAr como existe
 
-Um caso de uso comum do ARRAY_CONTAINS é filtrar um documento pela existência de um item em uma matriz. Nesse caso, estamos verificando se a matriz de marcas contém um item chamado "laranja".
+Um caso de uso comum de ARRAY_CONTAINS é filtrar um documento pela existência de um item em uma matriz. Nesse caso, estamos verificando se a matriz de marcas contém um item chamado "laranja".
 
 ```sql
 SELECT TOP 5 f.id, f.tags

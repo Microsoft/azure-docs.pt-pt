@@ -2,26 +2,23 @@
 title: Referência de tokens de acesso à plataforma de identidade da Microsoft | Azure
 description: Saiba mais sobre tokens de acesso emitidos pelos pontos de extremidade do Azure AD v 1.0 e da plataforma Microsoft Identity (v 2.0).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34548b623317eff17bcbf5a7749cd411a44bd722
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 61bcdac38b9b8765c7c3d575bb632c9291e46b90
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73935863"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845863"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma Microsoft Identity
 
@@ -77,10 +74,10 @@ As declarações estarão presentes somente se houver um valor para preenchê-lo
 |Afirmação | Formato | Descrição |
 |--------|--------|-------------|
 | `typ` | Cadeia de caracteres – sempre "JWT" | Indica que o token é um JWT.|
-| `nonce` | Cadeia | Um identificador exclusivo usado para proteger contra ataques de reprodução de token. O recurso pode registrar esse valor para proteger contra repetições. |
-| `alg` | Cadeia | Indica o algoritmo que foi usado para assinar o token, por exemplo, "RS256" |
-| `kid` | Cadeia | Especifica a impressão digital para a chave pública que é usada para assinar esse token. Emitido em tokens de acesso v 1.0 e v 2.0. |
-| `x5t` | Cadeia | As funções são as mesmas (em uso e valor) que `kid`. `x5t` é uma declaração herdada emitida apenas em tokens de acesso v 1.0 para fins de compatibilidade. |
+| `nonce` | String | Um identificador exclusivo usado para proteger contra ataques de reprodução de token. O recurso pode registrar esse valor para proteger contra repetições. |
+| `alg` | String | Indica o algoritmo que foi usado para assinar o token, por exemplo, "RS256" |
+| `kid` | String | Especifica a impressão digital para a chave pública que é usada para assinar esse token. Emitido em tokens de acesso v 1.0 e v 2.0. |
+| `x5t` | String | As funções são as mesmas (em uso e valor) que `kid`. `x5t` é uma declaração herdada emitida apenas em tokens de acesso v 1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Declarações de carga
 
@@ -99,8 +96,8 @@ As declarações estarão presentes somente se houver um valor para preenchê-lo
 | `appidacr` | "0", "1" ou "2" | Presente apenas em tokens v 1.0. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se a ID do cliente e o segredo do cliente forem usados, o valor será "1". Se um certificado de cliente foi usado para autenticação, o valor será "2". |
 | `azp` | Cadeia de caracteres, um GUID | Somente presentes em tokens v 2.0, uma substituição para `appid`. A ID do aplicativo do cliente usando o token. O aplicativo pode atuar como ele mesmo ou em nome de um usuário. A ID do aplicativo normalmente representa um objeto de aplicativo, mas também pode representar um objeto de entidade de serviço no Azure AD. |
 | `azpacr` | "0", "1" ou "2" | Somente presentes em tokens v 2.0, uma substituição para `appidacr`. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se a ID do cliente e o segredo do cliente forem usados, o valor será "1". Se um certificado de cliente foi usado para autenticação, o valor será "2". |
-| `preferred_username` | Cadeia | O nome de usuário primário que representa o usuário. Pode ser um endereço de email, número de telefone ou um nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode mudar ao longo do tempo. Como é mutável, esse valor não deve ser usado para tomar decisões de autorização.  No entanto, ele pode ser usado para dicas de nome de usuário. O escopo de `profile` é necessário para receber essa declaração. |
-| `name` | Cadeia | Fornece um valor legível que identifica o assunto do token. Não há garantia de que o valor seja exclusivo, ele é mutável e foi projetado para ser usado somente para fins de exibição. O escopo de `profile` é necessário para receber essa declaração. |
+| `preferred_username` | String | O nome de usuário primário que representa o usuário. Pode ser um endereço de email, número de telefone ou um nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode mudar ao longo do tempo. Como é mutável, esse valor não deve ser usado para tomar decisões de autorização.  No entanto, ele pode ser usado para dicas de nome de usuário. O escopo de `profile` é necessário para receber essa declaração. |
+| `name` | String | Fornece um valor legível que identifica o assunto do token. Não há garantia de que o valor seja exclusivo, ele é mutável e foi projetado para ser usado somente para fins de exibição. O escopo de `profile` é necessário para receber essa declaração. |
 | `scp` | Cadeia de caracteres, uma lista de escopos separados por espaço | O conjunto de escopos expostos por seu aplicativo para o qual o aplicativo cliente solicitou (e recebeu) consentimento. Seu aplicativo deve verificar se esses escopos são válidos expostos por seu aplicativo e tomar decisões de autorização com base no valor desses escopos. Incluído apenas para [tokens de usuário](#user-and-application-tokens). |
 | `roles` | Matriz de cadeias de caracteres, uma lista de permissões | O conjunto de permissões expostas por seu aplicativo que o aplicativo ou usuário solicitante recebeu permissão para chamar. Para [tokens de aplicativo](#user-and-application-tokens), isso é usado durante o fluxo de [credenciais do cliente](v1-oauth2-client-creds-grant-flow.md) no lugar de escopos do usuário.  Para [tokens de usuário](#user-and-application-tokens) , isso é populado com as funções às quais o usuário foi atribuído no aplicativo de destino. |
 | `wids` | Matriz de GUIDs [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota as funções de todo o locatário atribuídas a esse usuário, da seção de funções presentes na [página funções de administrador](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Essa declaração é configurada por aplicativo, por meio da propriedade `groupMembershipClaims` do manifesto do [aplicativo](reference-app-manifest.md).  Configurá-lo como "All" ou "DirectoryRole" é necessário.  Pode não estar presente em tokens obtidos por meio do fluxo implícito devido a problemas de comprimento do token. |
@@ -110,7 +107,7 @@ As declarações estarão presentes somente se houver um valor para preenchê-lo
 | `sub` | Cadeia de caracteres, um GUID | A entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, como quando o token é usado para acessar um recurso e pode ser usado como uma chave em tabelas de banco de dados. Como o assunto está sempre presente nos tokens que o Azure AD emite, é recomendável usar esse valor em um sistema de autorização de uso geral. O assunto é, no entanto, um identificador emparelhado-ele é exclusivo para uma ID de aplicativo específica. Portanto, se um único usuário entrar em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração de assunto. Isso pode ou não ser desejado dependendo dos requisitos de arquitetura e privacidade. Consulte também a declaração de `oid` (que permanece a mesma em aplicativos dentro de um locatário). |
 | `oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, nesse caso, uma conta de usuário. Ele também pode ser usado para executar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na declaração de `oid`. Assim, `oid` pode ser usado ao fazer consultas ao Microsoft serviços online, como o Microsoft Graph. O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada [conta de usuário](/graph/api/resources/user). Como o `oid` permite que vários aplicativos correlacionem os usuários, o escopo de `profile` é necessário para receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário-eles serão considerados contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
 | `tid` | Cadeia de caracteres, um GUID | Representa o locatário do Azure AD do qual o usuário é. Para contas corporativas e de estudante, o GUID é a ID de locatário imutável da organização à qual o usuário pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O escopo de `profile` é necessário para receber essa declaração. |
-| `unique_name` | Cadeia | Presente apenas em tokens v 1.0. Fornece um valor legível por humanos que identifica o requerente do token. Não há garantia de que esse valor seja exclusivo dentro de um locatário e deve ser usado somente para fins de exibição. |
+| `unique_name` | String | Presente apenas em tokens v 1.0. Fornece um valor legível por humanos que identifica o requerente do token. Não há garantia de que esse valor seja exclusivo dentro de um locatário e deve ser usado somente para fins de exibição. |
 | `uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
 | `rh` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
 | `ver` | Cadeia de caracteres, seja `1.0` ou `2.0` | Indica a versão do token de acesso. |
@@ -144,15 +141,15 @@ As declarações a seguir serão incluídas em tokens v 1.0, se aplicável, mas 
 
 | Afirmação | Formato | Descrição |
 |-----|--------|-------------|
-| `ipaddr`| Cadeia | O endereço IP do qual o usuário se autenticou. |
+| `ipaddr`| String | O endereço IP do qual o usuário se autenticou. |
 | `onprem_sid`| Cadeia de caracteres, no [formato Sid](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece seu SID. Você pode usar `onprem_sid` para autorização em aplicativos herdados.|
 | `pwd_exp`| int, um carimbo de data/hora do UNIX | Indica quando a senha do usuário expira. |
-| `pwd_url`| Cadeia | Uma URL onde os usuários podem ser enviados para redefinir sua senha. |
+| `pwd_url`| String | Uma URL onde os usuários podem ser enviados para redefinir sua senha. |
 | `in_corp`| boolean | Sinaliza se o cliente está fazendo logon da rede corporativa. Se não forem, a declaração não será incluída. |
-| `nickname`| Cadeia | Um nome adicional para o usuário, separado do nome ou sobrenome.|
-| `family_name` | Cadeia | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. |
-| `given_name` | Cadeia | Fornece o primeiro ou o nome do usuário fornecido, conforme definido no objeto de usuário. |
-| `upn` | Cadeia | O nome do usuário. Pode ser um número de telefone, endereço de email ou cadeia de caracteres não formatada. Só deve ser usado para fins de exibição e fornecer dicas de nome de usuário em cenários de reautenticação. |
+| `nickname`| String | Um nome adicional para o usuário, separado do nome ou sobrenome.|
+| `family_name` | String | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. |
+| `given_name` | String | Fornece o primeiro ou o nome do usuário fornecido, conforme definido no objeto de usuário. |
+| `upn` | String | O nome do usuário. Pode ser um número de telefone, endereço de email ou cadeia de caracteres não formatada. Só deve ser usado para fins de exibição e fornecer dicas de nome de usuário em cenários de reautenticação. |
 
 #### <a name="the-amr-claim"></a>A declaração de `amr`
 
@@ -164,7 +161,7 @@ As identidades da Microsoft podem ser autenticadas de maneiras diferentes, o que
 | `rsa` | A autenticação foi baseada na prova de uma chave RSA, por exemplo, com o [aplicativo Microsoft Authenticator](https://aka.ms/AA2kvvu). Isso inclui se a autenticação foi feita por um JWT autoassinado com um certificado X509 de Propriedade do serviço. |
 | `otp` | Senha de uso único usando um email ou uma mensagem de texto. |
 | `fed` | Uma asserção de autenticação federada (como JWT ou SAML) foi usada. |
-| `wia` | Autenticação integrada do Windows |
+| `wia` | Autenticação Integrada do Windows |
 | `mfa` | A autenticação multifator foi usada. Quando isso estiver presente, os outros métodos de autenticação também serão incluídos. |
 | `ngcmfa` | Equivalente a `mfa`, usado para provisionamento de determinados tipos de credencial avançada. |
 | `wiaormfa`| O usuário usou o Windows ou uma credencial MFA para autenticar. |

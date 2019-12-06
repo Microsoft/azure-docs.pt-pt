@@ -1,5 +1,5 @@
 ---
-title: Acompanhar operações personalizadas com o Aplicativo Azure SDK do .NET do insights | Microsoft Docs
+title: Acompanhar operações personalizadas com o SDK do .NET do Aplicativo Azure insights
 description: Controlando operações personalizadas com o SDK do .NET do Aplicativo Azure insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 3e316527992b4a478b82bef61fb6da608e218ba5
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: dabdfa43a87aadadbd6c22b886b8bfe08aa69f02
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554930"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872660"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com Application Insights SDK do .NET
 
@@ -343,7 +343,7 @@ Quando você instrumenta a exclusão de mensagens, certifique-se de definir os i
 
 - Crie um novo `Activity` depois de ter um item da fila.
 - Use `Activity.SetParentId(message.ParentId)` para correlacionar os logs de produtor e de consumidor.
-- Inicie o `Activity`.
+- Iniciar a `Activity`.
 - Acompanhe as operações de remover da fila, processar e excluir usando `Start/StopOperation` auxiliares. Faça isso no mesmo fluxo de controle assíncrono (contexto de execução). Dessa forma, eles são correlacionados corretamente.
 - Pare o `Activity`.
 - Use `Start/StopOperation`ou chame a telemetria de `Track` manualmente.

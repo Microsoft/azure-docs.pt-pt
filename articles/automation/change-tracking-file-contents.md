@@ -1,79 +1,79 @@
 ---
-title: Ver alterações de conteúdo do ficheiro com a automatização do Azure
-description: Utilize a funcionalidade de alteração de conteúdo do ficheiro de controlo de alterações para ver o conteúdo de um ficheiro que foi alterado.
+title: Exibir alterações de conteúdo do arquivo com a automação do Azure
+description: Use o recurso alteração de conteúdo de arquivo do controle de alterações para exibir o conteúdo de um arquivo que foi alterado.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6aef9a24e3337d1f5a5a6c9ac6b510cc7f9a66a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478638"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850589"
 ---
-# <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Ver o conteúdo de um ficheiro que está a ser controlada com controlo de alterações
+# <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo acompanhado com Controle de Alterações
 
-Controlo de conteúdo de ficheiros permite-lhe ver os conteúdos de um ficheiro antes e depois uma alteração que está a ser controlada com controlo de alterações. Para fazer isso, ele salva o conteúdo do ficheiro para uma conta de armazenamento após a ocorrência de cada alteração.
+O controle de conteúdo de arquivo permite que você exiba o conteúdo de um arquivo antes e depois de uma alteração que está sendo controlada com Controle de Alterações. Para fazer isso, ele salva o conteúdo do arquivo em uma conta de armazenamento após a ocorrência de cada alteração.
 
 ## <a name="requirements"></a>Requisitos
 
-* Uma conta de armazenamento standard com o modelo de implementação do Resource Manager é necessária para armazenar o conteúdo do ficheiro. Premium e contas de armazenamento de modelo de implementação clássica não devem ser utilizadas. Para obter mais informações sobre contas de armazenamento, consulte [sobre as contas de armazenamento](../storage/common/storage-create-storage-account.md)
+* Uma conta de armazenamento padrão usando o modelo de implantação do Gerenciador de recursos é necessária para armazenar o conteúdo do arquivo. As contas de armazenamento do modelo de implantação Premium e clássico não devem ser usadas. Para obter mais informações sobre contas de armazenamento, consulte [sobre contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
 
-* A conta de armazenamento utilizada só pode ter 1 conta de automatização ligada.
+* A conta de armazenamento usada pode ter apenas uma conta de automação conectada.
 
-* [Controlo de alterações](automation-change-tracking.md) estiver ativado na sua conta de automatização.
+* O [controle de alterações](automation-change-tracking.md) está habilitado em sua conta de automação.
 
-## <a name="enable-file-content-tracking"></a>Ativar o controlo de conteúdo do ficheiro
+## <a name="enable-file-content-tracking"></a>Habilitar rastreamento de conteúdo de arquivo
 
-1. No portal do Azure, abra a sua conta de automatização e, em seguida, selecione **controlo de alterações**.
-2. No menu superior, selecione **editar definições de**.
-3. Selecione **conteúdo do ficheiro** e clique em **ligação**. Esta ação abre o **localização de conteúdo adicionar para controlo de alterações** painel.
+1. No portal do Azure, abra sua conta de automação e, em seguida, selecione **controle de alterações**.
+2. No menu superior, selecione **Editar configurações**.
+3. Selecione **conteúdo do arquivo** e clique em **vincular**. Isso abre o painel **Adicionar local de conteúdo para controle de alterações** .
 
-   ![Ativar](./media/change-tracking-file-contents/enable.png)
+   ![ativar](./media/change-tracking-file-contents/enable.png)
 
-4. Selecione a subscrição e a conta de armazenamento a utilizar para armazenar o conteúdo do ficheiro para. Se pretender ativar o controlo de conteúdo do ficheiro para todos os ficheiros de controladas existentes, selecione **nos** para **carregar conteúdo do ficheiro para todas as definições**. Pode alterar isso para cada caminho de ficheiro posteriormente.
+4. Selecione a assinatura e a conta de armazenamento a serem usadas para armazenar o conteúdo do arquivo. Se você quiser habilitar o rastreamento de conteúdo de arquivo para todos os arquivos acompanhados existentes, selecione **ativado** para **carregar o conteúdo do arquivo para todas as configurações**. Você pode alterar isso para cada caminho de arquivo posteriormente.
 
-   ![conta de armazenamento do conjunto](./media/change-tracking-file-contents/storage-account.png)
+   ![definir conta de armazenamento](./media/change-tracking-file-contents/storage-account.png)
 
-5. Uma vez ativada, a conta de armazenamento e os Uris de SAS são mostrados. Os Uris de SAS expire após a 365 dias e pode ser recriada clicando a **regenerar** botão.
+5. Uma vez habilitado, a conta de armazenamento e os URIs de SAS são mostrados. Os URIs de SAS expiram após 365 dias e podem ser recriados clicando no botão **regenerar** .
 
-   ![Listar chaves de conta](./media/change-tracking-file-contents/account-keys.png)
+   ![listar chaves de conta](./media/change-tracking-file-contents/account-keys.png)
 
-## <a name="add-a-file"></a>Adicione um ficheiro
+## <a name="add-a-file"></a>Adicionar um arquivo
 
-Os seguintes passos guiá-lo por meio de ativar o controlo de alterações para um ficheiro:
+As etapas a seguir orientarão você na ativação do controle de alterações de um arquivo:
 
-1. Na **editar definições** página do **controlo de alterações**, selecione **ficheiros do Windows** ou **ficheiros do Linux** separador e clique em  **Adicionar**
+1. Na página **Editar configurações** do **controle de alterações**, selecione a guia **arquivos do Windows** ou **arquivos do Linux** e clique em **Adicionar**
 
-1. Preencha as informações para o caminho do ficheiro e selecione **True** sob **carregar conteúdo do ficheiro para todas as definições**. Esta definição permite que o conteúdo do ficheiro de controlo para o caminho do arquivo apenas.
+1. Preencha as informações do caminho do arquivo e selecione **true** em **carregar conteúdo do arquivo para todas as configurações**. Essa configuração habilita o rastreamento de conteúdo de arquivo somente para esse caminho de arquivo.
 
-   ![Adicionar um ficheiro do linux](./media/change-tracking-file-contents/add-linux-file.png)
+   ![Adicionar um arquivo do Linux](./media/change-tracking-file-contents/add-linux-file.png)
 
-## <a name="viewing-the-contents-of-a-tracked-file"></a>Ver o conteúdo de um ficheiro controlado
+## <a name="viewing-the-contents-of-a-tracked-file"></a>Exibindo o conteúdo de um arquivo rastreado
 
-1. Uma vez que foi detetada uma alteração para o ficheiro ou um ficheiro no caminho, mostra o portal. Selecione a alteração de ficheiro da lista de alterações. O **alterar detalhes** é apresentado o painel.
+1. Depois que uma alteração for detectada para o arquivo ou um arquivo no caminho, ela será mostrada no Portal. Selecione a alteração de arquivo na lista de alterações. O painel **alterar detalhes** é exibido.
 
-   ![alterações de lista](./media/change-tracking-file-contents/change-list.png)
+   ![listar alterações](./media/change-tracking-file-contents/change-list.png)
 
-1. Sobre o **alterar detalhes** página, verá o padrão antes e depois do ficheiro informações, no canto superior esquerdo, clique em **alterações de conteúdo do ficheiro de vista de** para ver o conteúdo do ficheiro.
+1. Na página **alterar detalhes** , você vê as informações padrão antes e depois do arquivo, na parte superior esquerda, clique em **Exibir alterações de conteúdo do arquivo** para ver o conteúdo do arquivo.
 
-   ![Detalhes de alteração](./media/change-tracking-file-contents/change-details.png)
+   ![Alterar detalhes](./media/change-tracking-file-contents/change-details.png)
 
-1. A nova página mostra o conteúdo do arquivo numa exibição lado a lado. Também pode selecionar **Inline** para ver uma vista de inline das alterações.
+1. A nova página mostra o conteúdo do arquivo em uma exibição lado a lado. Você também pode selecionar **embutido** para ver uma exibição em linha das alterações.
 
-   ![alterações de vista de ficheiro](./media/change-tracking-file-contents/view-file-changes.png)
+   ![Exibir alterações de arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Visite o tutorial para saber mais sobre como utilizar a solução de controlo de alterações:
+Visite o tutorial em Controle de Alterações para saber mais sobre como usar a solução:
 
 > [!div class="nextstepaction"]
-> [Resolver problemas relacionados com alterações no seu ambiente](automation-tutorial-troubleshoot-changes.md)
+> [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Uso [pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
+* Use [pesquisas de log em logs de Azure monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados de controle de alterações.
 

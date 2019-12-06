@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80d356426fe312708d64cc4284dbb1fd925e47c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233335"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849344"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: configurar o WORKDAY para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para importar perfis de trabalho do WORKDAY para Active Directory e Azure Active Directory, com write-back opcional de endereço de email e nome de usuário para workday.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O [serviço de provisionamento de usuário Azure Active Directory](../manage-apps/user-provisioning.md) integra-se com a [API de recursos humanos do workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para provisionar contas de usuário. O Azure AD usa essa conexão para habilitar os seguintes fluxos de trabalho de provisionamento de usuário:
 
@@ -69,7 +69,7 @@ Esta seção descreve a arquitetura da solução de provisionamento de usuário 
 * **Fluxo de dados de RH autoritativo – do WORKDAY para o local Active Directory:** Nesse fluxo, eventos de trabalho (como novas contratações, transferências, terminações) ocorrem pela primeira vez no locatário de RH do workday de nuvem e, em seguida, os dados de evento fluem para Active Directory locais por meio do Azure AD e do agente de provisionamento. Dependendo do evento, ele pode levar a criar/atualizar/habilitar/desabilitar operações no AD.
 * **Fluxo de write-back de email e nome de usuário – do local Active Directory para o workday:** Depois que a criação da conta for concluída em Active Directory, ela será sincronizada com o Azure AD por meio do Azure AD Connect, e o atributo de nome de usuário e de email poderá ser gravado novamente no workday.
 
-![Descrição geral](./media/workday-inbound-tutorial/wd_overview.png)
+![Visão geral](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Fluxo de dados do usuário de ponta a ponta
 
@@ -236,16 +236,16 @@ Um requisito comum de todos os conectores de provisionamento do workday é que e
 
 **Para criar um usuário do sistema de integração:**
 
-1. Entre em seu locatário do workday usando uma conta de administrador. No **aplicativo workday**, digite criar usuário na caixa de pesquisa e, em seguida, clique em **criar usuário do sistema de integração**.
+1. Entre no seu locatário do workday usando uma conta de administrador. No **aplicativo workday**, digite criar usuário na caixa de pesquisa e, em seguida, clique em **criar usuário do sistema de integração**.
 
-    ![Criar usuário](./media/workday-inbound-tutorial/wd_isu_01.png "Criar utilizador")
+   ![Criar usuário](./media/workday-inbound-tutorial/wd_isu_01.png "Criar utilizador")
 2. Conclua a tarefa **criar usuário do sistema de integração** fornecendo um nome de usuário e senha para um novo usuário do sistema de integração.  
   
-* Deixe a opção **exigir nova senha na próxima entrada** desmarcada, pois esse usuário fará logon por meio de programação.
-* Deixe o **tempo limite da sessão em minutos** com seu valor padrão de 0, o que impedirá que as sessões do usuário atinjam o tempo de ociosidade prematuramente.
-* Selecione a opção **não permitir sessões de interface do usuário** , pois ela fornece uma camada de segurança adicional que impede que um usuário com a senha do sistema de integração faça logon no workday.
+   * Deixe a opção **exigir nova senha na próxima entrada** desmarcada, pois esse usuário fará logon por meio de programação.
+   * Deixe o **tempo limite da sessão em minutos** com seu valor padrão de 0, o que impedirá que as sessões do usuário atinjam o tempo de ociosidade prematuramente.
+   * Selecione a opção **não permitir sessões de interface do usuário** , pois ela fornece uma camada de segurança adicional que impede que um usuário com a senha do sistema de integração faça logon no workday.
 
-    ![Criar usuário do sistema de integração](./media/workday-inbound-tutorial/wd_isu_02.png "Criar usuário do sistema de integração")
+   ![Criar usuário do sistema de integração](./media/workday-inbound-tutorial/wd_isu_02.png "Criar usuário do sistema de integração")
 
 ### <a name="creating-an-integration-security-group"></a>Criando um grupo de segurança de integração
 
@@ -312,9 +312,9 @@ Nesta etapa, você concederá permissões de política de "segurança de domíni
    | ---------- | ---------- |
    | Obter e colocar | Dados de trabalho: relatórios de trabalho públicos |
    | Obter e colocar | Dados da pessoa: informações de contato de trabalho |
-   | Get | Dados de trabalho: todas as posições |
-   | Get | Dados de trabalho: informações sobre a equipe atual |
-   | Get | Dados de trabalho: título comercial no perfil de trabalho |
+   | Obter | Dados de trabalho: todas as posições |
+   | Obter | Dados de trabalho: informações sobre a equipe atual |
+   | Obter | Dados de trabalho: título comercial no perfil de trabalho |
    | Obter e colocar | Contas de workday |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurando permissões de política de segurança do processo comercial
@@ -356,20 +356,44 @@ Nesta etapa, você concederá permissões de política de "segurança de process
 
 Esta seção fornece etapas para o provisionamento de contas de usuário do WORKDAY para cada domínio Active Directory dentro do escopo da sua integração.
 
-* [Instalar e configurar agente (s) de provisionamento local](#part-1-install-and-configure-on-premises-provisioning-agents)
-* [Adicionando o aplicativo do conector de provisionamento e criando a conexão com o workday](#part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Configurar mapeamentos de atributo](#part-3-configure-attribute-mappings)
+* [Adicionar o aplicativo do conector de provisionamento e baixar o agente de provisionamento](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Instalar e configurar agente (s) de provisionamento local](#part-2-install-and-configure-on-premises-provisioning-agents)
+* [Configurar a conectividade com o workday e o Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)
+* [Configurar mapeamentos de atributo](#part-4-configure-attribute-mappings)
 * [Habilitar e iniciar o provisionamento de usuário](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>Parte 1: instalar e configurar agente (s) de provisionamento local
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Parte 1: Adicionar o aplicativo do conector de provisionamento e baixar o agente de provisionamento
 
-Para provisionar para Active Directory local, um agente deve ser instalado em um servidor que tenha o .NET 4.7.1 + estrutura e acesso de rede aos domínios de Active Directory desejados.
+**Para configurar o WORKDAY para Active Directory provisionamento:**
+
+1. Ir para <https://portal.azure.com>
+
+2. Na barra de navegação à esquerda, selecione **Azure Active Directory**
+
+3. Selecione **aplicativos empresariais**e **todos os aplicativos**.
+
+4. Selecione **Adicionar um aplicativo**e selecione a categoria **tudo** .
+
+5. Pesquise o **provisionamento do WORKDAY para Active Directory**e adicione esse aplicativo da galeria.
+
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
+
+7. Alterar o **modo** de provisionamento para **automático**
+
+8. Clique na faixa de informações exibida para baixar o agente de provisionamento. 
+
+   ![Agente de download](./media/workday-inbound-tutorial/pa-download-agent.png "Tela de download do agente")
+
+
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Parte 2: instalar e configurar agente (s) de provisionamento local
+
+Para provisionar para Active Directory local, o agente de provisionamento deve ser instalado em um servidor que tenha o .NET 4.7.1 + estrutura e acesso de rede aos domínios de Active Directory desejados.
 
 > [!TIP]
 > Você pode verificar a versão do .NET Framework no seu servidor usando as instruções fornecidas [aqui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Se o servidor não tiver o .NET 4.7.1 ou superior instalado, você poderá baixá-lo [aqui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-Depois de implantar o .NET 4.7.1 +, você pode baixar o **[agente de provisionamento local aqui](https://go.microsoft.com/fwlink/?linkid=847801)** e seguir as etapas fornecidas abaixo para concluir a configuração do agente.
+Transfira o instalador do agente baixado para o host do servidor e siga as etapas fornecidas abaixo para concluir a configuração do agente.
 
 1. Entre no Windows Server em que você deseja instalar o novo agente.
 
@@ -420,25 +444,12 @@ Depois de implantar o .NET 4.7.1 +, você pode baixar o **[agente de provisionam
   
    ![Serviços](./media/workday-inbound-tutorial/services.png)
 
-### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 2: adicionando o aplicativo do conector de provisionamento e criando a conexão com o workday
+### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: no aplicativo de provisionamento, configure a conectividade com o workday e o Active Directory
+Nesta etapa, estabelecemos a conectividade com o workday e o Active Directory no portal do Azure. 
 
-**Para configurar o WORKDAY para Active Directory provisionamento:**
+1. Na portal do Azure, volte para o WORKDAY para Active Directory aplicativo de provisionamento de usuário criado na [parte 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 
-1. Ir para <https://portal.azure.com>
-
-2. Na barra de navegação à esquerda, selecione **Azure Active Directory**
-
-3. Selecione **aplicativos empresariais**e **todos os aplicativos**.
-
-4. Selecione **Adicionar um aplicativo**e selecione a categoria **tudo** .
-
-5. Pesquise o **provisionamento do WORKDAY para Active Directory**e adicione esse aplicativo da galeria.
-
-6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
-
-7. Alterar o **modo** de provisionamento para **automático**
-
-8. Conclua a seção de **credenciais de administrador** da seguinte maneira:
+1. Conclua a seção de **credenciais de administrador** da seguinte maneira:
 
    * **Nome de usuário do administrador** – Insira o nome de usuário da conta do sistema de integração do workday, com o nome de domínio do locatário anexado. Ele deve ser semelhante a: **username\@tenant_name**
 
@@ -465,7 +476,7 @@ Depois de implantar o .NET 4.7.1 +, você pode baixar o **[agente de provisionam
 
    * Depois que as credenciais forem salvas com êxito, a seção **mapeamentos** exibirá o mapeamento padrão **sincronizar trabalhos do WORKDAY para o local Active Directory**
 
-### <a name="part-3-configure-attribute-mappings"></a>Parte 3: configurar mapeamentos de atributo
+### <a name="part-4-configure-attribute-mappings"></a>Parte 4: configurar mapeamentos de atributo
 
 Nesta seção, você configurará como os dados do usuário fluem do WORKDAY para o Active Directory.
 
@@ -538,18 +549,18 @@ Nesta seção, você configurará como os dados do usuário fluem do WORKDAY par
 
 | ATRIBUTO WORKDAY | ATRIBUTO DO ACTIVE DIRECTORY |  ID DE CORRESPONDÊNCIA? | CRIAR/ATUALIZAR |
 | ---------- | ---------- | ---------- | ---------- |
-| **Workerid**  |  Funcionário | **Sim** | Gravado em criar somente |
+| **WorkerID**  |  EmployeeID | **Sim** | Gravado em criar somente |
 | **PreferredNameData**    |  CN    |   |   Gravado em criar somente |
 | **SelectUniqueValue (Join ("\@", Join (".", \[FirstName\], \[LastName\]), "contoso.com"), junção ("\@", junção (".", mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), junção ("\@", Join (".", mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Gravado em criar somente 
-| **Replace (EXT (Replace (\[UserID\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\]) ",," ",,), 1, 20),," ([\\\\.)\*\$] (file:///\\). *$)", , "", , )**      |    sAMAccountName            |     |         Gravado em criar somente |
-| **Switch (\[active\],, "0", "true", "1", "false")** |  accountDisabled      |     | Criar + atualizar |
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Gravado em criar somente |
+| **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Criar + atualizar |
 | **FirstName**   | givenName       |     |    Criar + atualizar |
 | **LastName**   |   sn   |     |  Criar + atualizar |
 | **PreferredNameData**  |  displayName |     |   Criar + atualizar |
-| **Corporativa**         | Empresa   |     |  Criar + atualizar |
+| **Empresa**         | Empresa   |     |  Criar + atualizar |
 | **SupervisoryOrganization**  | Departamento  |     |  Criar + atualizar |
-| **ManagerReference**   | Manager  |     |  Criar + atualizar |
-| **BusinessTitle**   |  Título     |     |  Criar + atualizar | 
+| **ManagerReference**   | gestor  |     |  Criar + atualizar |
+| **BusinessTitle**   |  title     |     |  Criar + atualizar | 
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **Município**   |   l   |     | Criar + atualizar |
 | **CountryReferenceTwoLetter**      |   Co |     |   Criar + atualizar |
@@ -558,8 +569,8 @@ Nesta seção, você configurará como os dados do usuário fluem do WORKDAY par
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Criar + atualizar |
 | **PostalCode**  |   postalCode  |     | Criar + atualizar |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Criar + atualizar |
-| <bpt id="p1">**</bpt>Fax<ept id="p1">**</ept>      | facsimileTelephoneNumber     |     |    Criar + atualizar |
-| **Móveis**  |    móvel       |     |       Criar + atualizar |
+| **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualizar |
+| **Móvel**  |    móvel       |     |       Criar + atualizar |
 | **LocalReference** |  preferredLanguage  |     |  Criar + atualizar |                                               
 | **Switch (\[\]Municipal, "OU = Standard Users, OU = Users, OU = Default, OU = Locations, DC = contoso, DC = com", "Dallas", "OU = Standard Users, OU = Users, OU = Dallas, OU = Locations, DC = contoso, DC = com", "Austin", "OU = Standard Users, OU = Users, OU OU = Locations, DC = contoso, DC = com", "Seattle", "OU = Users Standard, OU = Users, OU = Seattle, OU = Locations, DC = contoso, DC = com", "Londres", "OU = Users Standard, OU = Users, OU = London, OU = Locations = contoso, DC = com"**  | parentDistinguishedName     |     |  Criar + atualizar |
 
@@ -973,7 +984,7 @@ Veja como você pode lidar com esses requisitos para construir *CN* ou *DisplayN
      | ----------------- | -------------------- |
      | Nomepreferido | WD: Worker/WD: Worker_Data/WD: Personal_Data/WD: Name_Data/WD: Preferred_Name_Data/WD: Name_Detail_Data/WD: First_Name/Text () |
      | PreferredLastName | WD: Worker/WD: Worker_Data/WD: Personal_Data/WD: Name_Data/WD: Preferred_Name_Data/WD: Name_Detail_Data/WD: Last_Name/Text () |
-     | Empresa | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID [@wd:type= ' Organization_Type_ID '] = ' Company ']/wd:Organization_Reference/@wd:Descriptor |
+     | Empresa | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID [@wd:type= ' Organization_Type_ID '] = ' supervisor ']/WD: Organization_Name/Text () |
   
    Confirme com sua equipe do workday que a expressão de API acima é válida para sua configuração de locatário do workday. Se necessário, você pode editá-los conforme descrito na seção [Personalizando a lista de atributos de usuário do workday](#customizing-the-list-of-workday-user-attributes).
@@ -984,10 +995,10 @@ Veja como você pode lidar com esses requisitos para construir *CN* ou *DisplayN
 
      | Atributo workday | Expressão XPATH da API |
      | ----------------- | -------------------- |
-     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Alpha-3_Code ']/Text () |
+     | CountryReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-3_Code']/text() |
      | CountryReferenceFriendly | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/@wd:Descriptor |
-     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Numeric-3_Code ']/Text () |
-     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Alpha-2_Code ']/Text () |
+     | CountryReferenceNumeric | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Numeric-3_Code']/text() |
+     | CountryReferenceTwoLetter | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-2_Code']/text() |
      | CountryRegionReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
 
   Confirme com sua equipe do workday que as expressões de API acima são válidas para sua configuração de locatário do workday. Se necessário, você pode editá-los conforme descrito na seção [Personalizando a lista de atributos de usuário do workday](#customizing-the-list-of-workday-user-attributes).
@@ -1040,7 +1051,7 @@ Veja também:
 
 Use a função [NormalizeDiacritics](../manage-apps/functions-for-customizing-application-data.md#normalizediacritics) para remover caracteres especiais em nome e sobrenome do usuário, ao construir o endereço de email ou o valor CN para o usuário.
 
-## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
+## <a name="troubleshooting-tips"></a>Sugestões para a resolução de problemas
 
 Esta seção fornece diretrizes específicas sobre como solucionar problemas de provisionamento com sua integração do workday usando os logs de auditoria do Azure AD e os logs de Visualizador de Eventos do Windows Server. Ele se baseia nas etapas e conceitos de solução de problemas genéricos capturados no [tutorial: relatórios sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md)
 

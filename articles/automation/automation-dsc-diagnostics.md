@@ -4,17 +4,17 @@ description: Este artigo demonstra como enviar dados de relatório de DSC (confi
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5905afdb9832f32e837dc4496e4a951fca41b8b0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243556"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850351"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Encaminhe os dados do relatório de configuração de estado da automação do Azure para Azure Monitor logs
 
@@ -60,7 +60,7 @@ Para começar a importar dados do Azure DSC de Automação para Azure Monitor lo
    Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
-1. Execute o seguinte comando do PowerShell, substituindo `<AutomationResourceId>` e `<WorkspaceResourceId>` pelos valores _ResourceId_ de cada uma das etapas anteriores:
+1. Execute o seguinte comando do PowerShell, substituindo `<AutomationResourceId>` e `<WorkspaceResourceId>` com os valores _ResourceId_ de cada uma das etapas anteriores:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
@@ -130,13 +130,13 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 | --- | --- |
 | TimeGenerated |Data e hora em que a verificação de conformidade foi executada. |
 | OperationName |DscNodeStatusData |
-| resultType |Se o nó está em conformidade. |
+| ResultType |Se o nó está em conformidade. |
 | NodeName_s |O nome do nó gerenciado. |
 | NodeComplianceStatus_s |Se o nó está em conformidade. |
 | DscReportStatus |Se a verificação de conformidade foi executada com êxito. |
 | ConfigurationMode | Como a configuração é aplicada ao nó. Os valores possíveis são __"ApplyOnly"__ , __"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: o DSC aplica a configuração e não faz nada além disso, a menos que uma nova configuração seja enviada por push ao nó de destino ou quando uma nova configuração for retirada de um servidor. Após a aplicação inicial de uma nova configuração, a DSC não verifica se há descompasso de um Estado previamente configurado. O DSC tenta aplicar a configuração até que ela seja bem-sucedida antes de __ApplyOnly__ entrar em vigor. </li><li> __ApplyAndMonitor__: esse é o valor padrão. O LCM aplica quaisquer novas configurações. Após a aplicação inicial de uma nova configuração, se o nó de destino se desconectar do estado desejado, a DSC relatará a discrepância nos logs. O DSC tenta aplicar a configuração até que ela seja bem-sucedida antes de __ApplyAndMonitor__ entrar em vigor.</li><li>__ApplyAndAutoCorrect__: o DSC aplica-se a novas configurações. Após a aplicação inicial de uma nova configuração, se o nó de destino se desconectar do estado desejado, a DSC relatará a discrepância nos logs e reaplicará a configuração atual.</li></ul> |
 | HostName_s | O nome do nó gerenciado. |
-| IP | O endereço IPv4 do nó gerenciado. |
+| IPAddress | O endereço IPv4 do nó gerenciado. |
 | Categoria | DscNodeStatus |
 | Recurso | O nome da conta de automação do Azure. |
 | Tenant_g | GUID que identifica o locatário do chamador. |
@@ -148,10 +148,10 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 | NumberOfResources_d |O número de recursos DSC chamados na configuração aplicada ao nó. |
 | SourceSystem | Como os logs de Azure Monitor coletaram os dados. Sempre *Azure* para diagnóstico do Azure. |
 | ResourceId |Especifica a conta de automação do Azure. |
-| resultDescription | A descrição para esta operação. |
+| ResultDescription | A descrição para esta operação. |
 | SubscriptionId | A ID da assinatura do Azure (GUID) para a conta de automação. |
 | ResourceGroup | Nome do grupo de recursos para a conta de automação. |
-| ResourceProvider | O. INICIA |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID que é a ID de correlação do relatório de conformidade. |
 
@@ -161,7 +161,7 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 | --- | --- |
 | TimeGenerated |Data e hora em que a verificação de conformidade foi executada. |
 | OperationName |DscResourceStatusData|
-| resultType |Se o recurso está em conformidade. |
+| ResultType |Se o recurso está em conformidade. |
 | NodeName_s |O nome do nó gerenciado. |
 | Categoria | DscNodeStatus |
 | Recurso | O nome da conta de automação do Azure. |
@@ -179,10 +179,10 @@ O diagnóstico da automação do Azure cria duas categorias de registros em logs
 | DscResourceDuration_d |O tempo, em segundos, que o recurso DSC foi executado. |
 | SourceSystem | Como os logs de Azure Monitor coletaram os dados. Sempre *Azure* para diagnóstico do Azure. |
 | ResourceId |Especifica a conta de automação do Azure. |
-| resultDescription | A descrição para esta operação. |
+| ResultDescription | A descrição para esta operação. |
 | SubscriptionId | A ID da assinatura do Azure (GUID) para a conta de automação. |
 | ResourceGroup | Nome do grupo de recursos para a conta de automação. |
-| ResourceProvider | O. INICIA |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID que é a ID de correlação do relatório de conformidade. |
 

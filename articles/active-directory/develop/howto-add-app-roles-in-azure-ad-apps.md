@@ -6,24 +6,21 @@ services: active-directory
 documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: kkrishna
-ms.reviewer: ''
+ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84275be5c85570a44d968dca8887b448fce09979
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5fca807913d2753828d55c095c1a3b380340fd95
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546847"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843160"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -131,4 +128,4 @@ Depois de adicionar funções de aplicativo em seu aplicativo, você pode atribu
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Manifesto do aplicativo Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Tokens de acesso do AAD](access-tokens.md)
-- [`id_tokens` do AAD](id-tokens.md)
+- [AAD `id_tokens`](id-tokens.md)

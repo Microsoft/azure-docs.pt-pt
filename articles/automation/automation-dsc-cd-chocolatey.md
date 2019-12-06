@@ -4,17 +4,17 @@ description: DevOps implantação contínua usando a configuração de estado da
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243593"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850368"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: implantação contínua em máquinas virtuais usando configuração de estado de automação e Chocolatey
 
@@ -91,7 +91,7 @@ Isso requer um pequeno ajuste de sua parte. Mas não é difícil, e isso é feit
 - Instale o módulo de que você precisa em sua estação de trabalho da seguinte maneira:
   - Instalar o [Windows Management Framework, V5](https://aka.ms/wmf5latest) (não é necessário para o Windows 10)
   - `Install-Module –Name MODULE-NAME` < — captura o módulo do Galeria do PowerShell
-- Copie a pasta do módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` para uma pasta temporária
+- Copiar a pasta do módulo do `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` para uma pasta temporária
 - Excluir exemplos e documentação da pasta principal
 - Compactar a pasta principal, nomeando o arquivo ZIP exatamente igual à pasta 
 - Coloque o arquivo ZIP em um local HTTP acessível, como o armazenamento de BLOBs em uma conta de armazenamento do Azure.
@@ -109,7 +109,7 @@ O exemplo incluído executa essas etapas para cChoco e xNetworking. Consulte as 
 
 Não há nada de especial sobre a primeira vez que você importa a configuração para o servidor de pull e compila. Todas as importações/compilações subsequentes da mesma configuração têm exatamente a mesma aparência. Sempre que você atualizar o pacote e precisar enviá-lo para a produção, siga esta etapa depois de garantir que o arquivo de configuração está correto, incluindo a nova versão do pacote. Aqui está o arquivo de configuração e o PowerShell:
 
-ISVBoxConfig. ps1:
+ISVBoxConfig.ps1:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -154,7 +154,7 @@ Configuration ISVBoxConfig
 }
 ```
 
-New-ConfigurationScript. ps1:
+New-ConfigurationScript.ps1:
 
 ```powershell
 Import-AzureRmAutomationDscConfiguration `

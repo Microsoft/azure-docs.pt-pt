@@ -2,7 +2,6 @@
 title: Como o consentimento do aplicativo funciona | Microsoft Docs
 description: Saiba mais sobre como a estrutura de consentimento do Azure AD funciona para ver como você pode usá-la ao desenvolver aplicativos no Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
@@ -10,18 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5ccdce6ac9e3107e0cf4dd4b68b49918fffeae
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0c79d9226b3a8965ad6ce853350f2e4c46617b5b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324612"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843432"
 ---
 # <a name="how-application-consent-works"></a>Como o consentimento do aplicativo funciona
 

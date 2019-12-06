@@ -5,327 +5,327 @@ keywords: rbac de automatização, controlo de acesso baseado em funções , rba
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477720"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850793"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
-O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Usando [RBAC](../role-based-access-control/overview.md), pode separar responsabilidades dentro da sua equipa e conceder apenas a quantidade de acesso a utilizadores, grupos e aplicações que precisam para desempenhar as suas funções. O acesso baseado em funções pode ser concedido aos utilizadores através do portal do Azure, das ferramentas da Linha de Comandos do Azure ou de APIs de Gestão do Azure.
+O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Usando o [RBAC](../role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso a usuários, grupos e aplicativos de que eles precisam para executar seus trabalhos. O acesso baseado em funções pode ser concedido aos utilizadores através do portal do Azure, das ferramentas da Linha de Comandos do Azure ou de APIs de Gestão do Azure.
 
-## <a name="roles-in-automation-accounts"></a>Funções de contas de automatização
+## <a name="roles-in-automation-accounts"></a>Funções em contas de automação
 
 Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC adequada aos utilizadores, grupos e aplicações no âmbito da conta de Automatização. Seguem-se as funções incorporadas suportadas por uma conta de Automatização:
 
 | **Função** | **Descrição** |
 |:--- |:--- |
-| Owner |A função de proprietário permite o acesso a todos os recursos e ações dentro de uma conta de automatização, incluindo fornecer acesso a outros utilizadores, grupos e aplicações para gerir a conta de automatização. |
+| Proprietário |A função proprietário permite acesso a todos os recursos e ações em uma conta de automação, incluindo o fornecimento de acesso a outros usuários, grupos e aplicativos para gerenciar a conta de automação. |
 | Contribuinte |A função de Contribuidor permite-lhe gerir tudo, exceto modificar as permissões de acesso de outro utilizador para uma conta de Automatização. |
 | Leitor |A função de Leitor permite-lhe ver todos os recursos numa conta de Automatização, mas não permite efetuar quaisquer alterações. |
-| Operador de Automatização |A função de operador de automatização permite-lhe ver o nome do runbook e as propriedades e criar e gerir tarefas de todos os runbooks numa conta de automatização. Esta função é útil se pretender proteger os seus recursos da Conta de Automatização como recursos de credenciais e runbooks contra a visualização ou modificação, mas ainda permite que os membros da sua organização executem estes runbooks. |
-|Operador de tarefas de automatização|A função de operador de tarefas de automatização permite-lhe criar e gerir tarefas de todos os runbooks numa conta de automatização.|
-|Operador de Runbook de automatização|A função de operador de Runbook de automatização permite-lhe ver o nome e propriedades de um runbook.|
-| Contribuidor do Log Analytics | A função de Contribuidor do Log Analytics permite-lhe ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs, ler as chaves de conta de armazenamento para poder configurar a recolha de registos a partir do armazenamento do Azure, criar e configurar contas de automatização, adicionar soluções e configurar os diagnósticos do Azure em todos os recursos do Azure.|
-| Leitor do Log Analytics | A função de leitor do Log Analytics permite-lhe ver e procurar todas as monitorização dados, bem como ver definições de monitorização. Isto inclui a visualização da configuração dos diagnósticos do Azure em todos os recursos do Azure. |
-| Contribuidor de monitorização | A função de Contribuidor de monitorização permite-lhe ler todos os dados de monitorização e atualização de definições de monitorização.|
-| Leitor de monitorização | A função de leitor de monitorização permite-lhe ler todos os dados de monitorização. |
+| Operador de Automatização |A função operador de automação permite exibir o nome e as propriedades do runbook e criar e gerenciar trabalhos para todos os runbooks em uma conta de automação. Esta função é útil se pretender proteger os seus recursos da Conta de Automatização como recursos de credenciais e runbooks contra a visualização ou modificação, mas ainda permite que os membros da sua organização executem estes runbooks. |
+|Operador de trabalho de automação|A função operador de trabalho de automação permite criar e gerenciar trabalhos para todos os runbooks em uma conta de automação.|
+|Operador de runbook de automação|A função de operador de runbook de automação permite que você exiba o nome e as propriedades de um runbook.|
+| Contribuidor do Log Analytics | A função colaborador de Log Analytics permite que você leia todos os dados de monitoramento e edite as configurações de monitoramento. A edição das configurações de monitoramento inclui adicionar a extensão de VM às VMs, lendo as chaves da conta de armazenamento para poder configurar a coleta de logs do armazenamento do Azure, criar e configurar contas de automação, adicionar soluções e configurar o diagnóstico do Azure em todos os recursos do Azure.|
+| Leitor do Log Analytics | A função leitor de Log Analytics permite exibir e Pesquisar todos os dados de monitoramento, bem como exibir configurações de monitoramento. Isso inclui a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. |
+| Colaborador de monitoramento | A função de colaborador de monitoramento permite que você leia todos os dados de monitoramento e atualize as configurações de monitoramento.|
+| Leitor de monitoramento | A função leitor de monitoramento permite que você leia todos os dados de monitoramento. |
 | Administrador de Acesso de Utilizador |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
 
 ## <a name="role-permissions"></a>Permissões de função
 
-As tabelas seguintes descrevem as permissões específicas para cada função. Isto pode incluir ações, que concede permissões, e NotActions, que restringi-los.
+As tabelas a seguir descrevem as permissões específicas dadas a cada função. Isso pode incluir ações, que fornecem permissões e não ações, que as restringem.
 
-### <a name="owner"></a>Owner
+### <a name="owner"></a>Proprietário
 
-Um proprietário pode gerir tudo, incluindo o acesso. A tabela seguinte mostra as permissões concedidas para a função:
+Um proprietário pode gerenciar tudo, incluindo o acesso. A tabela a seguir mostra as permissões concedidas para a função:
 
 |Ações|Descrição|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Criar e gerir recursos de todos os tipos.|
+|Microsoft.Automation/automationAccounts/|Crie e gerencie recursos de todos os tipos.|
 
 ### <a name="contributor"></a>Contribuinte
 
-Contribuidor pode gerir tudo, exceto o acesso. A tabela seguinte mostra as permissões concedidas e negado para a função:
+Um colaborador pode gerenciar tudo, exceto o acesso. A tabela a seguir mostra as permissões concedidas e negadas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/|Criar e gerir recursos de todos os tipos|
-|**Ações de não**||
-|Microsoft.Authorization/*/Delete| Elimine funções e as atribuições de funções.       |
-|Microsoft.Authorization/*/Write     |  Crie funções e as atribuições de funções.       |
-|Microsoft.Authorization/elevateAccess/Action    | Nega a capacidade de criar um administrador de acesso do utilizador.       |
+|Microsoft.Automation/automationAccounts/|Criar e gerenciar recursos de todos os tipos|
+|**Não há ações**||
+|Microsoft.Authorization/*/Delete| Excluir funções e atribuições de função.       |
+|Microsoft. Authorization/*/Write     |  Criar funções e atribuições de função.       |
+|Microsoft.Authorization/elevateAccess/Action    | Nega a capacidade de criar um administrador de acesso do usuário.       |
 
 ### <a name="reader"></a>Leitor
 
-Um leitor pode ver todos os recursos numa conta de automatização, mas não é possível fazer alterações.
+Um leitor pode exibir todos os recursos em uma conta de automação, mas não pode fazer nenhuma alteração.
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/read|Ver todos os recursos numa conta de automatização. |
+|Microsoft.Automation/automationAccounts/read|Exibir todos os recursos em uma conta de automação. |
 
 ### <a name="automation-operator"></a>Operador de Automatização
 
-Um operador de automatização é capaz de criar e gerir tarefas e leia os nomes de runbook e as propriedades de todos os runbooks numa conta de automatização.  Nota: Se pretender controlar o acesso de operador individuais para runbooks, em seguida, não defina esta função em vez disso, as funções de "Operador de tarefas de automatização" e "Operador de Runbook de automatização" em combinação. A tabela seguinte mostra as permissões concedidas para a função:
+Um operador de automação é capaz de criar e gerenciar trabalhos e ler nomes e propriedades de runbook para todos os runbooks em uma conta de automação.  Observação: se você quiser controlar o acesso do operador a runbooks individuais, não defina essa função e, em vez disso, use as funções ' operador de trabalho de automação ' e ' operador de runbook de automação ' em combinação. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|Microsoft.Authorization/*/read|Leia a autorização.|
-|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Leia os recursos de trabalho de Runbook híbrida.|
-|Microsoft.Automation/automationAccounts/jobs/read|Lista de tarefas do runbook.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Retome uma tarefa que está em pausa.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancele uma tarefa em curso.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Leia a fluxos de trabalho e a saída.|
-|Microsoft.Automation/automationAccounts/jobs/output/read|Obtenha o resultado de uma tarefa.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Colocar em pausa uma tarefa em curso.|
-|Microsoft.Automation/automationAccounts/jobs/write|Crie tarefas.|
-|Microsoft.Automation/automationAccounts/jobSchedules/read|Obtenha um plano de trabalho de automatização do Azure.|
-|Microsoft.Automation/automationAccounts/jobSchedules/write|Crie um plano de trabalho de automatização do Azure.|
-|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Obtenha a área de trabalho ligada à conta de automatização.|
-|Microsoft.Automation/automationAccounts/read|Obtenha uma conta de automatização do Azure.|
-|Microsoft.Automation/automationAccounts/runbooks/read|Obtenha um runbook da automatização do Azure.|
-|Microsoft.Automation/automationAccounts/schedules/read|Obter um recurso de agenda da automatização do Azure.|
-|Microsoft.Automation/automationAccounts/schedules/write|Criar ou atualizar um recurso de agenda da automatização do Azure.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Leia as funções e as atribuições de funções.         |
-|Microsoft.Resources/deployments/*      |Criar e gerir implementações de grupo de recursos.         |
-|Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
-|Microsoft.Support/* |Criar e gerir pedidos de suporte.|
+|Microsoft.Authorization/*/read|Leitura de autorização.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Leia Hybrid Runbook Worker recursos.|
+|Microsoft.Automation/automationAccounts/jobs/read|Listar trabalhos do runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Retomar um trabalho que está em pausa.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancelar um trabalho em andamento.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Leia os fluxos de trabalho e a saída.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|Obter a saída de um trabalho.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausar um trabalho em andamento.|
+|Microsoft.Automation/automationAccounts/jobs/write|Criar trabalhos.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Obter um plano de trabalho de automação do Azure.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Criar um plano de trabalho de automação do Azure.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Obtenha o espaço de trabalho vinculado à conta de automação.|
+|Microsoft.Automation/automationAccounts/read|Obtenha uma conta de automação do Azure.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Obtenha um runbook de automação do Azure.|
+|Microsoft.Automation/automationAccounts/schedules/read|Obtenha um ativo de agendamento de automação do Azure.|
+|Microsoft.Automation/automationAccounts/schedules/write|Criar ou atualizar um ativo de agendamento de automação do Azure.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Ler funções e atribuições de função.         |
+|Microsoft.Resources/deployments/*      |Crie e gerencie implantações de grupo de recursos.         |
+|Microsoft.Insights/alertRules/*      | Crie e gerencie regras de alerta.        |
+|Microsoft.Support/* |Criar e gerenciar tíquetes de suporte.|
 
-### <a name="automation-job-operator"></a>Operador de tarefas de automatização
+### <a name="automation-job-operator"></a>Operador de trabalho de automação
 
-Uma função de operador de tarefas de automatização é concedida no âmbito da conta de automatização. Isso permite que as permissões de operador para criar e gerir tarefas de todos os runbooks na conta. A tabela seguinte mostra as permissões concedidas para a função:
+Uma função de operador de trabalho de automação é concedida no escopo da conta de automação. Isso permite que as permissões de operador criem e gerenciem trabalhos para todos os runbooks na conta. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|Microsoft.Authorization/*/read|Leia a autorização.|
-|Microsoft.Automation/automationAccounts/jobs/read|Lista de tarefas do runbook.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Retome uma tarefa que está em pausa.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancele uma tarefa em curso.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Leia a fluxos de trabalho e a saída.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|Colocar em pausa uma tarefa em curso.|
-|Microsoft.Automation/automationAccounts/jobs/write|Crie tarefas.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |  Leia as funções e as atribuições de funções.       |
-|Microsoft.Resources/deployments/*      |Criar e gerir implementações de grupo de recursos.         |
-|Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
-|Microsoft.Support/* |Criar e gerir pedidos de suporte.|
+|Microsoft.Authorization/*/read|Leitura de autorização.|
+|Microsoft.Automation/automationAccounts/jobs/read|Listar trabalhos do runbook.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Retomar um trabalho que está em pausa.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Cancelar um trabalho em andamento.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Leia os fluxos de trabalho e a saída.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausar um trabalho em andamento.|
+|Microsoft.Automation/automationAccounts/jobs/write|Criar trabalhos.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |  Ler funções e atribuições de função.       |
+|Microsoft.Resources/deployments/*      |Crie e gerencie implantações de grupo de recursos.         |
+|Microsoft.Insights/alertRules/*      | Crie e gerencie regras de alerta.        |
+|Microsoft.Support/* |Criar e gerenciar tíquetes de suporte.|
 
-### <a name="automation-runbook-operator"></a>Operador de Runbook de automatização
+### <a name="automation-runbook-operator"></a>Operador de runbook de automação
 
-Uma função de operador de Runbook de automatização é concedida no âmbito do Runbook. Um operador de Runbook de automatização pode ver o nome e as propriedades do runbook.  Esta função combinada com a função "Operador de tarefas de automatização" permite que o operador para também criar e gerir tarefas do runbook. A tabela seguinte mostra as permissões concedidas para a função:
+Uma função de operador de runbook de automação é concedida no escopo do runbook. Um operador de runbook de automação pode exibir o nome e as propriedades do runbook.  Essa função combinada com a função ' operador de trabalho de automação ' permite que o operador também crie e gerencie trabalhos para o runbook. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Liste os runbooks.        |
-|Microsoft.Authorization/*/read      | Leia a autorização.        |
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Leia as funções e as atribuições de funções.         |
-|Microsoft.Resources/deployments/*      | Criar e gerir implementações de grupo de recursos.         |
-|Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
-|Microsoft.Support/*      | Criar e gerir pedidos de suporte.        |
+|Microsoft.Authorization/*/read      | Leitura de autorização.        |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Ler funções e atribuições de função.         |
+|Microsoft.Resources/deployments/*      | Crie e gerencie implantações de grupo de recursos.         |
+|Microsoft.Insights/alertRules/*      | Crie e gerencie regras de alerta.        |
+|Microsoft.Support/*      | Criar e gerenciar tíquetes de suporte.        |
 
 ### <a name="log-analytics-contributor"></a>Contribuidor do Log Analytics
 
-Contribuidor do Log Analytics pode ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs; ler as chaves de conta de armazenamento para poder configurar a recolha de registos do armazenamento do Azure; criar e configurar contas de automatização; Adicionar soluções; e configurar os diagnósticos do Azure em todos os recursos do Azure. A tabela seguinte mostra as permissões concedidas para a função:
+Um colaborador de Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. Editar configurações de monitoramento inclui adicionar a extensão de VM às VMs; leitura de chaves de conta de armazenamento para poder configurar a coleta de logs do armazenamento do Azure; Criando e Configurando contas de automação; adicionando soluções; e configurar o diagnóstico do Azure em todos os recursos do Azure. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
-|Microsoft.Automation/automationAccounts/*|Gerir contas de automatização.|
-|Microsoft.ClassicCompute/virtualMachines/extensions/*|Criar e gerir extensões de máquina virtual.|
-|Microsoft.ClassicStorage/storageAccounts/listKeys/action|Listar chaves de conta de armazenamento clássicas.|
-|Microsoft.Compute/virtualMachines/extensions/*|Criar e gerir extensões de máquina virtual clássica.|
-|Microsoft.Insights/alertRules/*|Regras de alerta de leitura/escrita/eliminar.|
-|Microsoft.Insights/diagnosticSettings/*|Definições de diagnóstico de leitura/escrita/eliminar.|
-|Microsoft.OperationalInsights/*|Gerir registos do Azure Monitor.|
-|Microsoft.OperationsManagement/*|Gerir soluções em áreas de trabalho.|
-|Microsoft.Resources/deployments/*|Criar e gerir implementações de grupo de recursos.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Criar e gerir implementações de grupo de recursos.|
+|*/read|Ler recursos de todos os tipos, exceto segredos.|
+|Microsoft.Automation/automationAccounts/*|Gerenciar contas de automação.|
+|Microsoft.ClassicCompute/virtualMachines/extensions/*|Criar e gerenciar extensões de máquina virtual.|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|Listar chaves de conta de armazenamento clássico.|
+|Microsoft.Compute/virtualMachines/extensions/*|Criar e gerenciar extensões de máquina virtual clássicas.|
+|Microsoft.Insights/alertRules/*|Regras de alerta de leitura/gravação/exclusão.|
+|Microsoft.Insights/diagnosticSettings/*|Configurações de diagnóstico de leitura/gravação/exclusão.|
+|Microsoft.OperationalInsights/*|Gerenciar logs de Azure Monitor.|
+|Microsoft.OperationsManagement/*|Gerencie soluções em espaços de trabalho.|
+|Microsoft.Resources/deployments/*|Crie e gerencie implantações de grupo de recursos.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Crie e gerencie implantações de grupo de recursos.|
 |Microsoft.Storage/storageAccounts/listKeys/action|Listar chaves de conta de armazenamento.|
-|Microsoft.Support/*|Criar e gerir pedidos de suporte.|
+|Microsoft.Support/*|Criar e gerenciar tíquetes de suporte.|
 
 ### <a name="log-analytics-reader"></a>Leitor do Log Analytics
 
-Um leitor do Log Analytics pode ver e procurar todos os dados de monitorização e como e vista de definições, incluindo ver a configuração dos diagnósticos do Azure em todos os recursos do Azure de monitorização. A tabela seguinte mostra as permissões concedidas ou negadas para a função:
+Um leitor de Log Analytics pode exibir e Pesquisar todos os dados de monitoramento, bem como exibir configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. A tabela a seguir mostra as permissões concedidas ou negadas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerir consultas nos registos do Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/search/action|Procure dados de registo do Azure Monitor.|
-|Microsoft.Support/*|Criar e gerir pedidos de suporte.|
-|**Ações de não**| |
-|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Não é possível ler as chaves de acesso partilhado.|
+|*/read|Ler recursos de todos os tipos, exceto segredos.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerenciar consultas em logs de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/search/action|Pesquisar Azure Monitor dados de log.|
+|Microsoft.Support/*|Criar e gerenciar tíquetes de suporte.|
+|**Não há ações**| |
+|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Não é possível ler as chaves de acesso compartilhado.|
 
-### <a name="monitoring-contributor"></a>Contribuidor de monitorização
+### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 
-Contribuidor de monitorização pode ler todos os dados de monitorização e atualizar as definições de monitorização. A tabela seguinte mostra as permissões concedidas para a função:
+Um colaborador de monitoramento pode ler todos os dados de monitoramento e atualizar as configurações de monitoramento. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
-|Microsoft.AlertsManagement/alerts/*|Gerir alertas.|
-|Microsoft.AlertsManagement/alertsSummary/*|Gerir o dashboard de alerta.|
-|Microsoft.Insights/AlertRules/*|Gerir regras de alerta.|
-|Microsoft.Insights/components/*|Gerir componentes do Application Insights.|
-|Microsoft.Insights/DiagnosticSettings/*|Gerir definições de diagnóstico.|
-|Microsoft.Insights/eventtypes/*|Lista de eventos de registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável ao portal e programático acesso ao registo de atividades.|
-|Microsoft.Insights/LogDefinitions/*|Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de Atividades através do portal. Lista as categorias de registo no registo de atividades.|
-|Microsoft.Insights/MetricDefinitions/*|Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso).|
+|*/read|Ler recursos de todos os tipos, exceto segredos.|
+|Microsoft.AlertsManagement/alerts/*|Gerenciar alertas.|
+|Microsoft.AlertsManagement/alertsSummary/*|Gerencie o painel de alerta.|
+|Microsoft.Insights/AlertRules/*|Gerenciar regras de alerta.|
+|Microsoft.Insights/components/*|Gerenciar componentes de Application Insights.|
+|Microsoft.Insights/DiagnosticSettings/*|Gerenciar configurações de diagnóstico.|
+|Microsoft.Insights/eventtypes/*|Listar eventos do log de atividades (eventos de gerenciamento) em uma assinatura. Essa permissão é aplicável a acesso de portal e programático ao log de atividades.|
+|Microsoft.Insights/LogDefinitions/*|Essa permissão é necessária para os usuários que precisam acessar os logs de atividade por meio do Portal. Listar categorias de log no log de atividades.|
+|Microsoft.Insights/MetricDefinitions/*|Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso).|
 |Microsoft.Insights/Metrics/*|Ler métricas para um recurso.|
-|Microsoft.Insights/Register/Action|Registe o fornecedor de Microsoft. insights.|
-|Microsoft.Insights/webtests/*|Faça a gestão de testes web do Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gerir pacotes de solução de registos do Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gerir as pesquisas de registos guardados do Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/search/action|Procure áreas de trabalho do Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Listar chaves para uma área de trabalho do Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gerir configurações de informações de armazenamento de registos do Azure Monitor.|
-|Microsoft.Support/*|Criar e gerir pedidos de suporte.|
-|Microsoft.WorkloadMonitor/workloads/*|Gerir cargas de trabalho.|
+|Microsoft.Insights/Register/Action|Registre o provedor Microsoft. insights.|
+|Microsoft.Insights/webtests/*|Gerenciar Application Insights testes da Web.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gerenciar Azure Monitor os pacotes de solução de logs.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gerenciar Azure Monitor logs de pesquisas salvas.|
+|Microsoft.OperationalInsights/workspaces/search/action|Pesquisar Log Analytics espaços de trabalho.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Listar chaves para um espaço de trabalho Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gerenciar Azure Monitor registra as configurações de insights de armazenamento.|
+|Microsoft.Support/*|Criar e gerenciar tíquetes de suporte.|
+|Microsoft.WorkloadMonitor/workloads/*|Gerenciar cargas de trabalho.|
 
-### <a name="monitoring-reader"></a>Leitor de monitorização
+### <a name="monitoring-reader"></a>Leitor de monitoramento
 
-Um leitor de monitorização pode ler todos os dados de monitorização. A tabela seguinte mostra as permissões concedidas para a função:
+Um leitor de monitoramento pode ler todos os dados de monitoramento. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
-|Microsoft.OperationalInsights/workspaces/search/action|Procure áreas de trabalho do Log Analytics.|
-|Microsoft.Support/*|Criar e gerir pedidos de suporte|
+|*/read|Ler recursos de todos os tipos, exceto segredos.|
+|Microsoft.OperationalInsights/workspaces/search/action|Pesquisar Log Analytics espaços de trabalho.|
+|Microsoft.Support/*|Criar e gerenciar tíquetes de suporte|
 
 ### <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
 
-Um administrador de acesso de utilizador pode gerir o acesso dos utilizadores aos recursos do Azure. A tabela seguinte mostra as permissões concedidas para a função:
+Um administrador de acesso do usuário pode gerenciar o acesso do usuário aos recursos do Azure. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|\* / leitura|Ler todos os recursos|
-|Microsoft.Authorization/*|Gerir a autorização|
-|Microsoft.Support/*|Criar e gerir pedidos de suporte|
+|*/read|Ler todos os recursos|
+|Microsoft. Authorization/*|Gerenciar autorização|
+|Microsoft.Support/*|Criar e gerenciar tíquetes de suporte|
 
-## <a name="onboarding"></a>Inclusão
+## <a name="onboarding"></a>Carregamento
 
-As tabelas seguintes mostram as permissões necessárias mínimo necessárias para máquinas de virtuais de integração para o controlo de alterações ou atualizar soluções de gestão.
+As tabelas a seguir mostram as permissões mínimas necessárias para a integração de máquinas virtuais para o controle de alterações ou soluções de gerenciamento de atualizações.
 
-### <a name="onboarding-from-a-virtual-machine"></a>Inclusão de uma máquina virtual
+### <a name="onboarding-from-a-virtual-machine"></a>Integração de uma máquina virtual
 
-|**ação**  |**Permissão**  |**Âmbito mínimo**  |
+|**Ação**  |**Permissão**  |**Escopo mínimo**  |
 |---------|---------|---------|
-|Escrever a nova implementação      | Microsoft.Resources/deployments/*          |Subscrição          |
-|Escrever o novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscrição          |
-|Criar nova área de trabalho de predefinição      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
+|Gravar nova implantação      | Microsoft.Resources/deployments/*          |Subscrição          |
+|Gravar novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscrição          |
+|Criar novo espaço de trabalho padrão      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
 |Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
-|Área de trabalho de ligação e a conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabalho</br>Conta de automatização
+|Vincular espaço de trabalho e conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabalho</br>Conta de automatização
 |Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Grupo de recursos          |
-|Criar a extensão do MMA      | Microsoft.Compute/virtualMachines/write         | Máquina virtual         |
-|Criar pesquisa guardada      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
-|Criar configuração de âmbito      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
-|Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
-|Verifique o estado de carregamento - área de trabalho de leitura      | Microsoft.OperationalInsights/workspaces/read         | Área de trabalho         |
-|Verificação do Estado de inclusão - leitura ligada a propriedade de área de trabalho da conta     | Microsoft.Automation/automationAccounts/read      | Conta de automatização        |
-|Verifique o estado de carregamento - solução de leitura      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
-|Verificação de estado de inclusão - VM de leitura      | Microsoft.Compute/virtualMachines/read         | Máquina virtual         |
-|Verifique o estado de carregamento - conta de leitura      | Microsoft.Automation/automationAccounts/read  |  Conta de automatização   |
-| Verificação de área de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscrição         |
-| Registar o fornecedor do Log Analytics |Microsoft.Insights/register/action | Subscrição|
+|Criar extensão MMA      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
+|Criar pesquisa salva      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
+|Criar configuração de escopo      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
+|Vincular solução à configuração de escopo      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
+|Verificação de estado de integração-ler espaço de trabalho      | Microsoft.OperationalInsights/workspaces/read         | Área de trabalho         |
+|Verificação de estado de integração-ler propriedade de conta do espaço de trabalho vinculado     | Microsoft.Automation/automationAccounts/read      | Conta de automatização        |
+|Verificação de estado de integração – ler solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
+|Verificação de estado de integração-ler VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
+|Verificação de estado de integração-ler conta      | Microsoft.Automation/automationAccounts/read  |  Conta de automatização   |
+| Verificação de espaço de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscrição         |
+| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Subscrição|
 
-<sup>1</sup> esta permissão é necessária para carregar através da experiência de portal da VM.
+<sup>1</sup> essa permissão é necessária para integração por meio da experiência do portal de VM.
 
-### <a name="onboarding-from-automation-account"></a>Integração da conta de automatização
+### <a name="onboarding-from-automation-account"></a>Integração da conta de automação
 
-|**ação**  |**Permissão** |**Âmbito mínimo**  |
+|**Ação**  |**Permissão** |**Escopo mínimo**  |
 |---------|---------|---------|
-|Criar nova implementação     | Microsoft.Resources/deployments/*        | Subscrição         |
+|Criar nova implantação     | Microsoft.Resources/deployments/*        | Subscrição         |
 |Criar novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscrição        |
-|Painel AutomationOnboarding - criar nova área de trabalho     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
-|Painel de AutomationOnboarding - ler a área de trabalho ligada     | Microsoft.Automation/automationAccounts/read        | Conta de automatização       |
-|Painel de AutomationOnboarding - solução de leitura     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
-|Painel de AutomationOnboarding - área de trabalho de leitura     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Área de trabalho        |
-|Criar ligação para a área de trabalho e conta     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
-|Escrever conta para shoebox      | Microsoft.Automation/automationAccounts/write        | Conta        |
+|Folha AutomationOnboarding – criar novo espaço de trabalho     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
+|Folha AutomationOnboarding-ler espaço de trabalho vinculado     | Microsoft.Automation/automationAccounts/read        | Conta de automatização       |
+|Folha AutomationOnboarding-ler solução     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
+|Folha AutomationOnboarding-ler espaço de trabalho     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Área de trabalho        |
+|Criar link para o espaço de trabalho e conta     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
+|Gravar conta para sapatos      | Microsoft.Automation/automationAccounts/write        | Conta        |
 |Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Grupo de Recursos         |
-|Criar/editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
-|Criar/Editar configuração de âmbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
-|Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
-| Registar o fornecedor do Log Analytics |Microsoft.Insights/register/action | Subscrição|
-|**Passo 2 - carregar várias VMs**     |         |         |
-|Painel VMOnboarding - extensão MMA criar     | Microsoft.Compute/virtualMachines/write           | Máquina virtual        |
-|Criar / editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabalho        |
-|Criar / Editar configuração de âmbito  | Microsoft.OperationalInsights/workspaces/write   | Área de trabalho|
+|Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
+|Criar/Editar configuração de escopo     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
+|Vincular solução à configuração de escopo      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
+| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Subscrição|
+|**Etapa 2 – carregar várias VMs**     |         |         |
+|Folha VMOnboarding – criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
+|Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write           | Área de trabalho        |
+|Criar/Editar configuração de escopo  | Microsoft.OperationalInsights/workspaces/write   | Área de trabalho|
 
 ## <a name="update-management"></a>Gestão de atualizações
 
-Gestão de atualizações atinge em vários serviços para fornecer o respetivo serviço. A tabela seguinte mostra as permissões necessárias para gerir implementações de atualização de gestão:
+O gerenciamento de atualizações atinge vários serviços para fornecer seu serviço. A tabela a seguir mostra as permissões necessárias para gerenciar implantações de gerenciamento de atualizações:
 
 |**Recurso**  |**Função**  |**Âmbito**  |
 |---------|---------|---------|
 |Conta de automatização     | Contribuidor do Log Analytics       | Conta de automatização        |
-|Conta de automatização    | Contribuinte de máquina virtual        | Grupo de recursos para a conta        |
-|Área de trabalho do log Analytics     | Contribuidor do Log Analytics| Área de trabalho do log Analytics        |
-|Área de trabalho do log Analytics |Leitor do Log Analytics| Subscrição|
+|Conta de automatização    | Colaborador da Máquina Virtual        | Grupo de recursos para a conta        |
+|Área de trabalho do Log Analytics     | Contribuidor do Log Analytics| Área de trabalho do Log Analytics        |
+|Área de trabalho do Log Analytics |Leitor do Log Analytics| Subscrição|
 |Solução     |Contribuidor do Log Analytics         | Solução|
-|Máquina virtual     | Contribuinte de máquina virtual        | Máquina virtual        |
+|Virtual Machine     | Colaborador da Máquina Virtual        | Virtual Machine        |
 
-## <a name="configure-rbac-for-your-automation-account"></a>Configurar o RBAC para a sua conta de automatização
+## <a name="configure-rbac-for-your-automation-account"></a>Configurar o RBAC para sua conta de automação
 
-A seção a seguir mostra como configurar o RBAC na sua conta de automatização através da [portal](#configure-rbac-using-the-azure-portal) e [PowerShell](#configure-rbac-using-powershell)
+A seção a seguir mostra como configurar o RBAC em sua conta de automação por meio do [portal](#configure-rbac-using-the-azure-portal) e do [PowerShell](#configure-rbac-using-powershell)
 
-### <a name="configure-rbac-using-the-azure-portal"></a>Configurar o RBAC com o portal do Azure
+### <a name="configure-rbac-using-the-azure-portal"></a>Configurar o RBAC usando o portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) e abra a sua conta de Automatização a partir da página Contas de Automatização.
-2. Clique nas **controlo de acesso (IAM)** controle no canto superior esquerdo. Esta ação abre o **controlo de acesso (IAM)** página onde pode adicionar novos utilizadores, grupos e aplicações para gerir a sua automação de conta e ver funções existentes que podem ser configuradas para a conta de automatização.
+2. Clique no controle de **controle de acesso (iam)** no canto superior esquerdo. Isso abre a página **controle de acesso (iam)** , na qual você pode adicionar novos usuários, grupos e aplicativos para gerenciar sua conta de automação e exibir as funções existentes que podem ser configuradas para a conta de automação.
 3. Clique nas **atribuições de funções** separador.
 
    ![Botão de acesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Adicionar um novo utilizador e atribuir uma função
 
-1. Do **controlo de acesso (IAM)** página, clique em **+ adicionar atribuição de função** para abrir o **adicionar atribuição de função** página onde pode adicionar um utilizador, grupo ou aplicação e atribuir uma função a eles.
+1. Na página **controle de acesso (iam)** , clique em **+ Adicionar atribuição de função** para abrir a página **Adicionar atribuição de função** , na qual é possível adicionar um usuário, grupo ou aplicativo e atribuir uma função a eles.
 
-2. Selecione uma função na lista de funções disponíveis. Pode escolher qualquer uma das funções incorporadas disponíveis que suporte a uma conta de automatização ou qualquer função personalizada que pode ter definido.
+2. Selecione uma função na lista de funções disponíveis. Você pode escolher qualquer uma das funções internas disponíveis às quais uma conta de automação oferece suporte ou qualquer função personalizada que você tenha definido.
 
-3. Escreva o nome de utilizador do utilizador que pretende conceder permissões na **selecione** campo. Selecione o utilizador a partir da lista e clique em **guardar**.
+3. Digite o nome do usuário ao qual você deseja conceder permissões no campo **selecionar** . Selecione o usuário na lista e clique em **salvar**.
 
    ![Adicionar utilizadores](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   Agora verá que o utilizador adicionado para o **utilizadores** página com a função selecionada atribuída
+   Agora você deve ver o usuário adicionado à página **usuários** com a função selecionada atribuída
 
    ![Listar utilizadores](media/automation-role-based-access-control/automation-05-list-users.png)
 
    Também pode atribuir uma função ao utilizador a partir da página **Funções**.
-4. Clique em **funções** partir a **controlo de acesso (IAM)** página para abrir o **funções** página. A partir daí, pode ver o nome da função, o número de utilizadores e os grupos atribuídos a essa função.
+4. Clique em **funções** na página **controle de acesso (iam)** para abrir a página **funções** . A partir daí, pode ver o nome da função, o número de utilizadores e os grupos atribuídos a essa função.
 
     ![Atribuir função a partir da página Utilizadores](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
    > [!NOTE]
-   > Controlo de acesso baseado em funções só pode ser definido no âmbito da conta de automatização e não em qualquer recurso abaixo a conta de automatização.
+   > O controle de acesso baseado em função só pode ser definido no escopo da conta de automação e não em nenhum recurso abaixo da conta de automação.
 
 #### <a name="remove-a-user"></a>Remover um utilizador
 
-Pode remover a permissão de acesso para um utilizador que não está a gerir a conta de automatização ou que já não trabalha para a organização. Seguem-se os passos para remover um utilizador:
+Você pode remover a permissão de acesso para um usuário que não está gerenciando a conta de automação ou que não funciona mais para a organização. Seguem-se os passos para remover um utilizador:
 
-1. Partir do **controlo de acesso (IAM)** , selecione a utilizador pretenda remover e clique em **remover**.
+1. Na página **controle de acesso (iam)** , selecione o usuário deseja remover e clique em **remover**.
 2. Clique no botão **Remover** na página de detalhes de atribuição.
 3. Clique em **Sim** para confirmar a remoção.
 
    ![Remover utilizadores](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-### <a name="configure-rbac-using-powershell"></a>Configurar o RBAC com o PowerShell
+### <a name="configure-rbac-using-powershell"></a>Configurar o RBAC usando o PowerShell
 
-Acesso baseado em funções também pode ser configurado para uma conta de automatização utilizando os seguintes [cmdlets do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+O acesso baseado em função também pode ser configurado para uma conta de automação usando os seguintes [cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) apresenta uma lista de todas as funções RBAC que estão disponíveis no Azure Active Directory. Pode utilizar este comando juntamente com a propriedade **Nome** para listar todas as ações que podem ser utilizadas com uma função específica.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) lista todas as funções RBAC que estão disponíveis no Azure Active Directory. Pode utilizar este comando juntamente com a propriedade **Nome** para listar todas as ações que podem ser utilizadas com uma função específica.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
 ```
 
-Segue-se a saída de exemplo:
+Veja a seguir o exemplo de saída:
 
 ```azurepowershell
 Name             : Automation Operator
@@ -338,14 +338,14 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) apresenta uma lista de atribuições de funções de RBAC do Azure AD no âmbito especificado. Sem quaisquer parâmetros, este comando devolve todas as atribuições de funções efetuadas sob a subscrição. Utilize o parâmetro **ExpandPrincipalGroups** para listar atribuições de acesso para o utilizador especificado, bem como para os grupos dos quais o utilizador é membro.
-    **Exemplo:** Utilize o seguinte comando para listar todos os utilizadores e as respetivas funções dentro de uma conta de automatização.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) lista as atribuições de função do RBAC do Azure AD no escopo especificado. Sem quaisquer parâmetros, este comando devolve todas as atribuições de funções efetuadas sob a subscrição. Utilize o parâmetro **ExpandPrincipalGroups** para listar atribuições de acesso para o utilizador especificado, bem como para os grupos dos quais o utilizador é membro.
+    **Exemplo:** utilize o seguinte comando para listar todos os utilizadores e as respetivas funções dentro de uma conta de automatização.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Segue-se a saída de exemplo:
+Veja a seguir o exemplo de saída:
 
 ```powershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
@@ -359,14 +359,14 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[Novo-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) atribuir acesso a utilizadores, grupos e aplicações num determinado âmbito.
-    **Exemplo:** Utilize o seguinte comando para atribuir a função "Operador de automatização" para um utilizador no âmbito da conta de automatização.
+[New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) para atribuir acesso a usuários, grupos e aplicativos a um escopo específico.
+    **Exemplo:** Use o comando a seguir para atribuir a função "operador de automação" para um usuário no escopo da conta de automação.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Segue-se a saída de exemplo:
+Veja a seguir o exemplo de saída:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
@@ -380,24 +380,24 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Uso [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) para remover o acesso de um utilizador especificado, grupo ou aplicação de um âmbito específico.
-    **Exemplo:** Utilize o seguinte comando para remover o utilizador da função "Operador de automatização" no âmbito da conta de automatização.
+Use [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) para remover o acesso de um usuário, grupo ou aplicativo especificado de um escopo específico.
+    **Exemplo:** Use o comando a seguir para remover o usuário da função "operador de automação" no escopo da conta de automação.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Nos exemplos anteriores, substitua **Id início de sessão**, **Id de subscrição**, **nome do grupo de recursos**, e **nome da conta de automatização** com sua Detalhes da conta. Escolha **Sim** quando lhe for solicitado para confirmar antes de continuar para remover a atribuição de função de utilizador.
+Nos exemplos anteriores, substitua **ID de entrada**, **ID da assinatura**, **nome do grupo de recursos**e nome da conta de **automação** pelos detalhes da sua conta. Escolha **Sim** quando lhe for solicitado para confirmar antes de continuar para remover a atribuição de função de utilizador.
 
-### <a name="user-experience-for-automation-operator-role---automation-account"></a>Experiência de utilizador para a função de operador de automatização - conta de automatização
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Experiência do usuário para função do operador de automação – conta de automação
 
-Quando um utilizador, quem é atribuído à função de operador de automatização no âmbito da conta de automatização vê a conta de automatização estão atribuídos, apenas podem visualizar a lista de runbooks, tarefas de runbook e agendas criadas na Automação de contas, mas não é possível ver seus definição. Pode iniciar, parar, suspender, retomar ou agendar a tarefa de runbook. O utilizador não tem acesso a outros recursos de automatização, como configurações, grupos de trabalho híbrida ou nós de DSC.
+Quando um usuário, que é atribuído à função de operador de automação no escopo da conta de automação exibe a conta de automação à qual eles estão atribuídos, eles só podem exibir a lista de runbooks, trabalhos de runbook e agendamentos criados na conta de automação, mas não podem exibir seus defini. Pode iniciar, parar, suspender, retomar ou agendar a tarefa de runbook. O usuário não tem acesso a outros recursos de automação, como configurações, grupos de trabalho híbrido ou nós DSC.
 
 ![Sem acesso aos recursos](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
 ## <a name="configure-rbac-for-runbooks"></a>Configurar o RBAC para Runbooks
 
-A automatização do Azure permite-lhe atribuir o RBAC para runbooks específicos. Para tal, execute o seguinte script para adicionar um utilizador a um runbook específico. O script seguinte pode ser executada por um administrador de conta de automatização ou o administrador de inquilinos.
+A automação do Azure permite que você atribua o RBAC a runbooks específicos. Para fazer isso, execute o script a seguir para adicionar um usuário a um runbook específico. O script a seguir pode ser executado por um administrador de conta de automação ou administrador de locatário.
 
 ```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
@@ -418,17 +418,17 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job 
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Uma vez for executada, peça ao utilizador que inicie sessão no portal do Azure e exibição **todos os recursos**. Na lista veem o Runbook terem sido adicionados como um **operador de Runbook de automatização** para.
+Depois de executado, peça ao usuário que faça logon no portal do Azure e exiba **todos os recursos**. Na lista, eles veem o runbook que foram adicionados como um **operador de runbook de automação** para.
 
-![RBAC de Runbook no portal](./media/automation-role-based-access-control/runbook-rbac.png)
+![Runbook RBAC no portal](./media/automation-role-based-access-control/runbook-rbac.png)
 
-### <a name="user-experience-for-automation-operator-role---runbook"></a>Experiência de utilizador para a função de operador de automatização - Runbook
+### <a name="user-experience-for-automation-operator-role---runbook"></a>Experiência do usuário para função de operador de automação-runbook
 
-Quando um utilizador, o que é atribuído a função de operador de automatização em vistas de âmbito de Runbook um Runbook que estão atribuídos, podem apenas iniciar o runbook e ver as tarefas de runbook.
+Quando um usuário, que é atribuído à função de operador de automação no escopo do runbook exibe um runbook ao qual eles são atribuídos, eles só podem iniciar o runbook e exibir os trabalhos de runbook.
 
-![Apenas tem acesso ao iniciar](media/automation-role-based-access-control/automation-only-start.png)
+![Só tem acesso para iniciar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre diferentes maneiras de configurar o RBAC para a Automatização do Azure, veja [Gerir o RBAC com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter detalhes sobre diferentes formas de iniciar um runbook, consulte o artigo [Iniciar um runbook](automation-starting-a-runbook.md)

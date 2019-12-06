@@ -2,21 +2,42 @@
 title: Marcar recursos para a organização lógica
 description: Mostra como aplicar marcas para organizar recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/04/2019
+ms.openlocfilehash: c0a34204b5eb7080c6444e69def9d82d0193783b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484278"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850606"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
-[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+Você aplica marcas aos recursos do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome e valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
-Para aplicar marcas aos recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar marcas a todos os tipos de recursos, use a função [colaborador](../role-based-access-control/built-in-roles.md#contributor) . Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [colaborador da máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Depois de aplicar etiquetas, pode obter todos os recursos na sua subscrição com este nome e este valor da etiqueta. As etiquetas permitem-lhe obter recursos relacionados de grupos de recursos diferentes. Esta abordagem é útil quando precisa de organizar os recursos de gestão ou de faturação.
+
+Sua taxonomia deve considerar uma estratégia de marcação de metadados de autoatendimento, além de uma estratégia de marcação automática para reduzir a carga sobre os usuários e aumentar a precisão.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="limitations"></a>Limitações
+
+As seguintes limitações aplicam-se às etiquetas:
+
+* Nem todos os tipos de recurso dão suporte a marcas. Para determinar se você pode aplicar uma marca a um tipo de recurso, consulte [suporte a marcas para recursos do Azure](tag-support.md).
+* Cada recurso ou grupo de recursos pode ter um máximo de 50 pares de nome/valor de marca. Se você precisar aplicar mais marcas do que o número máximo permitido, use uma cadeia de caracteres JSON para o valor da marca. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos pode conter muitos recursos que têm um número de 50 pares de nome/valor de marca.
+* O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
+* As VMs generalizadas não dão suporte a marcas.
+* As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
+* As marcas não podem ser aplicadas a recursos clássicos, como serviços de nuvem.
+* Os nomes de marca não podem conter estes caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Atualmente, as zonas DNS do Azure e os serviços do Gerenciador de tráfego também não permitem o uso de espaços na marca. 
+
+## <a name="required-access"></a>Acesso necessário
+
+Para aplicar marcas aos recursos, o usuário deve ter acesso de gravação a esse tipo de recurso. Para aplicar marcas a todos os tipos de recursos, use a função [colaborador](../role-based-access-control/built-in-roles.md#contributor) . Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [colaborador da máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="policies"></a>Políticas
 
@@ -25,8 +46,6 @@ Você pode usar [Azure Policy](../governance/policy/overview.md) para impor regr
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para ver as etiquetas existentes de um *grupo de recursos*, utilize:
 
@@ -400,7 +419,7 @@ O portal do Azure e o PowerShell usam a [API REST do Gerenciador de recursos](ht
 
 ## <a name="tags-and-billing"></a>Marcas e cobrança
 
-Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se você estiver executando várias VMs para organizações diferentes, use as marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos por ambiente de tempo de execução, como o uso de cobrança para VMs em execução no ambiente de produção.
+Pode utilizar etiquetas para agrupar os seus dados de faturação. Por exemplo, se estiver a executar múltiplas VMs para organizações diferentes, utilize as etiquetas para agrupar a utilização por centro de custos. Também pode utilizar etiquetas para categorizar os custos por ambiente de runtime, tal como a utilização de faturação das VMs executadas no ambiente de produção.
 
 Você pode recuperar informações sobre marcas por meio de [APIs de RateCard e uso de recursos do Azure](../billing/billing-usage-rate-card-overview.md) ou o arquivo CSV (valores separados por vírgula) de uso. Você baixa o arquivo de uso do [centro de contas do Azure](https://account.azure.com/Subscriptions) ou portal do Azure. Para obter mais informações, consulte [baixar ou exibir sua fatura de cobrança do Azure e dados de uso diário](../billing/billing-download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **versão 2**. Para serviços que dão suporte a marcas com cobrança, as marcas aparecem na coluna **marcas** .
 

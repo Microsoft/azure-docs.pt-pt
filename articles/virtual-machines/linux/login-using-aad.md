@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035932"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873017"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -54,7 +54,7 @@ No momento, há suporte para as seguintes distribuições do Linux durante a ver
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42,3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
-| SUSE Linux Enterprise Server | SLES 12 |
+| Servidor Linux Empresarial SUSE | SLES 12 |
 | Ubuntu Server | Ubuntu 14, 4 LTS, Ubuntu Server 16, 4 e Ubuntu Server 18, 4 |
 
 
@@ -68,7 +68,20 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando o CLI do Azure versão 2.0.31 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
+## <a name="network-requirements"></a>Requisitos de rede
+
+Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, você precisa garantir que sua configuração de rede de VMs permita o acesso de saída aos seguintes pontos de extremidade pela porta TCP 443:
+
+* https://login.microsoftonline.com
+* https://device.login.microsoftonline.com
+* https://pas.windows.net
+* https://management.azure.com
+* https://packages.microsoft.com
+
+> [!NOTE]
+> Atualmente, os grupos de segurança de rede do Azure não podem ser configurados para VMs habilitadas com a autenticação do Azure AD.
+
+## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
 
 Crie um grupo de recursos com [AZ Group Create](/cli/azure/group#az-group-create)e crie uma VM com [AZ VM Create](/cli/azure/vm#az-vm-create) usando um distribuição com suporte e em uma região com suporte. O exemplo a seguir implanta uma VM chamada *myVM* que usa o *Ubuntu 16, 4 LTS* em um grupo de recursos chamado *MyResource* Group na região *southcentralus* . Nos exemplos a seguir, você pode fornecer seu próprio grupo de recursos e nomes de VM, conforme necessário.
 

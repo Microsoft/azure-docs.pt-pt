@@ -1,17 +1,17 @@
 ---
 title: Crie uma chave de partição sintética em Azure Cosmos DB para distribuir os dados e a carga de trabalho uniformemente.
-description: Saiba como usar chaves de partição sintética em seus contêineres de Cosmos do Azure
+description: Saiba como usar chaves de partição sintéticas em seus contêineres de Cosmos do Azure para distribuir os dados e a carga de trabalho uniformemente entre as chaves de partição
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 8b4e2b8abac39f3268e0da7838acd566f40fdccc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 093610777b150c90ad55f1ce18337f1de8b17219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754805"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870501"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Criar uma chave de partição sintética
 
@@ -44,15 +44,15 @@ Em cenários em tempo real, você pode ter milhares de itens em um banco de dado
 
 Outra estratégia possível para distribuir a carga de trabalho mais uniformemente é acrescentar um número aleatório no final do valor da chave de partição. Ao distribuir itens dessa forma, você pode executar operações de gravação paralelas entre partições.
 
-Um exemplo é se uma chave de partição representa uma data. Você pode escolher um número aleatório entre 1 e 400 e concatenar-o como um sufixo para a data. Esse método resulta em valores de chave de partição como  `2018-08-09.1`, `2018-08-09.2` e assim por diante, por meio de  `2018-08-09.400`. Como você randomiza a chave de partição, as operações de gravação no contêiner em cada dia são distribuídas uniformemente entre várias partições. Esse método resulta em um paralelismo melhor e na taxa de transferência geral mais alta.
+Um exemplo é se uma chave de partição representa uma data. Você pode escolher um número aleatório entre 1 e 400 e concatenar-o como um sufixo para a data. Esse método resulta em valores de chave de partição como `2018-08-09.1`,`2018-08-09.2`e assim por diante, por meio de `2018-08-09.400`. Como você randomiza a chave de partição, as operações de gravação no contêiner em cada dia são distribuídas uniformemente entre várias partições. Esse método resulta em um paralelismo melhor e na taxa de transferência geral mais alta.
 
 ## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Usar uma chave de partição com sufixos previamente calculados 
 
 A estratégia de sufixo aleatório pode melhorar muito a taxa de transferência de gravação, mas é difícil ler um item específico. Você não sabe o valor do sufixo que foi usado quando escreveu o item. Para facilitar a leitura de itens individuais, use a estratégia de sufixos previamente calculados. Em vez de usar um número aleatório para distribuir os itens entre as partições, use um número que seja calculado com base em algo que você deseja consultar.
 
-Considere o exemplo anterior, em que um contêiner usa uma data como a chave de partição. Agora suponha que cada item tenha um atributo  `Vehicle-Identification-Number` (`VIN`) que desejamos acessar. Além disso, suponha que você geralmente execute consultas para localizar itens pelo `VIN`, além de data. Antes que seu aplicativo grave o item no contêiner, ele pode calcular um sufixo de hash com base no VIN e acrescentá-lo à data da chave da partição. O cálculo pode gerar um número entre 1 e 400 que é distribuído uniformemente. Esse resultado é semelhante aos resultados produzidos pelo método de estratégia de sufixo aleatório. O valor da chave de partição é, então, a data concatenada com o resultado calculado.
+Considere o exemplo anterior, em que um contêiner usa uma data como a chave de partição. Agora suponha que cada item tenha um atributo `Vehicle-Identification-Number` (`VIN`) que desejamos acessar. Além disso, suponha que você geralmente execute consultas para localizar itens pelo `VIN`, além de data. Antes que seu aplicativo grave o item no contêiner, ele pode calcular um sufixo de hash com base no VIN e acrescentá-lo à data da chave da partição. O cálculo pode gerar um número entre 1 e 400 que é distribuído uniformemente. Esse resultado é semelhante aos resultados produzidos pelo método de estratégia de sufixo aleatório. O valor da chave de partição é, então, a data concatenada com o resultado calculado.
 
-Com essa estratégia, as gravações são espalhadas uniformemente entre os valores de chave de partição e entre as partições. Você pode ler facilmente um item e uma data específicos, pois você pode calcular o valor da chave de partição para um `Vehicle-Identification-Number` específico. O benefício desse método é que você pode evitar a criação de uma única chave de partição ativa, ou seja, uma chave de partição que usa toda a carga de trabalho. 
+Com essa estratégia, as gravações são espalhadas uniformemente entre os valores de chave de partição e entre as partições. Você pode ler facilmente um item e uma data específicos, pois você pode calcular o valor da chave de partição para um `Vehicle-Identification-Number`específico. O benefício desse método é que você pode evitar a criação de uma única chave de partição ativa, ou seja, uma chave de partição que usa toda a carga de trabalho. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

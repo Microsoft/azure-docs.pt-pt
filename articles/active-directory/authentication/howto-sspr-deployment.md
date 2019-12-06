@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381292"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847274"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar a reposição personalizada de palavra-passe do Azure AD
 
@@ -31,7 +31,7 @@ Ajude os usuários a se registrarem rapidamente implantando SSPR junto com outro
 
 Antes de implantar o SSPR, as organizações podem querer determinar a quantidade de redefinição de senha relacionada às chamadas de suporte técnico que ocorrem ao longo do tempo e o custo médio de cada chamada. Eles podem usar esses dados após a implantação para mostrar o valor que o SSPR está trazendo para sua organização.  
 
-## <a name="how-sspr-works"></a>Como o SSPR funciona
+## <a name="how-sspr-works"></a>Como funciona a SSPR
 
 1. Quando um usuário tenta redefinir uma senha, ele deve verificar seu método de autenticação registrado anteriormente ou métodos para provar sua identidade.
 1. Em seguida, o usuário insere uma nova senha.
@@ -62,11 +62,11 @@ As configurações a seguir são necessárias para habilitar o SSPR juntamente c
 | **Métodos de autenticação** | Métodos de autenticação necessários para registrar | Sempre 1 mais do que o necessário para redefinir |
 |   | Métodos de autenticação necessários para redefinir | Um ou dois |
 | **Registo** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
-|   | Número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação | 90 – 180 dias |
+|   | Número de dias até ser pedido aos utilizadores que reconfirmem as informações de autenticação | 90 – 180 dias |
 | **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
 |   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Customization** | Personalizar link de assistência técnica | Sim |
-|   | URL ou email de assistência técnica personalizado | Site de suporte ou endereço de email |
+| **Customization** | Personalizar ligação do suporte técnico | Sim |
+|   | URL ou e-mail do suporte técnico personalizado | Site de suporte ou endereço de email |
 | **Integração no local** | Write-back de senhas para o AD local | Sim |
 |   | Permitir que os usuários desbloqueiem a conta sem redefinir a senha | Sim |
 
@@ -90,7 +90,7 @@ Defina **exigir que os usuários se registrem ao entrar** em **Sim**. Essa confi
 
 Defina **o número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação** entre **90** e **180** dias, a menos que sua organização tenha uma necessidade comercial por um período de tempo menor.
 
-### <a name="notifications-settings"></a>Configurações de notificações
+### <a name="notifications-settings"></a>Definições de notificações
 
 Configure os **usuários de notificação em redefinições de senha** e **notifique todos os administradores quando outros administradores redefinirem sua senha** como **Sim**. A seleção de **Sim** em ambos aumenta a segurança, garantindo que os usuários saibam quando sua senha foi redefinida e que todos os administradores estão cientes quando um administrador altera uma senha. Se os usuários ou administradores receberem tal notificação e eles não tiverem iniciado a alteração, eles poderão relatar imediatamente uma possível violação de segurança.
 
@@ -183,7 +183,7 @@ Os grupos que você vai implementar devem ter a licença do Azure AD Premium atr
 
 Informações sobre a atribuição de licenças a grupos de usuários podem ser encontradas no artigo [atribuir licenças a usuários por associação de grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### <a name="configure-sspr"></a>Configurar o SSPR
+### <a name="configure-sspr"></a>Configurar a SSPR
 
 #### <a name="enable-groups-for-sspr"></a>Habilitar grupos para SSPR
 
@@ -217,7 +217,7 @@ Funções necessárias para gerenciar recursos associados à redefinição de se
 
 | Função corporativa/persona | Função do Azure AD (se necessário) |
 | :---: | :---: |
-| Suporte técnico nível 1 | Administrador de senha |
+| Suporte técnico nível 1 | Administrador de palavras-passe |
 | Suporte técnico nível 2 | Administrador do usuário |
 | Administrador do SSPR | Administrador global |
 

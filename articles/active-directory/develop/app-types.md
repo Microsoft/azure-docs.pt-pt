@@ -2,27 +2,23 @@
 title: Tipos de aplicativos em v 1.0 | Azure
 description: Descreve os tipos de aplicativos e cenários com suporte pelo ponto de extremidade Azure Active Directory v 2.0.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7e4228febb5b49ad14a89ceec5482c277fca5fae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374053"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844214"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos em v 1.0
 
@@ -74,7 +70,7 @@ O provisionamento fica mais claro quando você entende que há duas categorias d
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais ao desenvolver aplicativos de locatário único ou de vários locatários
 
-Algumas considerações adicionais surgem ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo para os usuários em vários diretórios, você precisará de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único precisa apenas examinar seu próprio diretório para um usuário, enquanto um aplicativo multilocatário precisa identificar um usuário específico de todos os diretórios no Azure AD. Para realizar essa tarefa, o AD do Azure fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico do locatário. Esse ponto de extremidade é https://login.microsoftonline.com/common para todos os diretórios no Azure AD, enquanto um ponto de extremidade específico do locatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto de extremidade comum é especialmente importante para ser considerado ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante a entrada, saída e validação de token.
+Algumas considerações adicionais surgem ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo para os usuários em vários diretórios, você precisará de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único precisa apenas examinar seu próprio diretório para um usuário, enquanto um aplicativo multilocatário precisa identificar um usuário específico de todos os diretórios no Azure AD. Para realizar essa tarefa, o AD do Azure fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico do locatário. Esse ponto de extremidade é https://login.microsoftonline.com/common para todos os diretórios no Azure AD, enquanto um ponto de extremidade específico de locatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto de extremidade comum é especialmente importante para ser considerado ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante a entrada, saída e validação de token.
 
 Se, no momento, você estiver desenvolvendo um aplicativo de locatário único, mas quiser disponibilizá-lo para muitas organizações, poderá fazer alterações facilmente no aplicativo e em sua configuração no Azure AD para torná-lo compatível com vários locatários. Além disso, o Azure AD usa a mesma chave de assinatura para todos os tokens em todos os diretórios, independentemente de você estar fornecendo autenticação em um único locatário ou aplicativo multilocatário.
 

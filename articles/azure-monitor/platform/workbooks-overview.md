@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com Azure Monitor pastas de trabalho | Microsoft docs
+title: Visão geral das Azure Monitor de trabalho
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cbc128e59472e36e2b5685efdf4cd02144edf15
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165930"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872864"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
 

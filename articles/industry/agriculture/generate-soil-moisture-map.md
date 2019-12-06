@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798131"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851456"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
 
 A umidade de solo é a água que é mantida nos espaços entre as partículas de solo. A calor de umidade de solo ajuda você a entender os dados de umidade em qualquer profundidade e em alta resolução em seus farms. Para gerar um calor de umidade de solo preciso e utilizável, uma implantação uniforme de sensores do mesmo provedor é necessária. Provedores diferentes terão diferenças na maneira como a umidade de solo é medida junto com as diferenças na calibragem. O calor é gerado para uma profundidade específica usando os sensores implantados nessa profundidade.
 
-Este artigo descreve o processo de geração de um calor de umidade de solo para seu farm, usando o acelerador de FarmBeats do Azure. Neste artigo, você aprenderá a:
+Este artigo descreve o processo de geração de um calor de umidade de solo para seu farm, usando o acelerador de FarmBeats do Azure. Neste artigo, ficará a saber como:
 
 - [Criar farms](#create-a-farm)
 - [Atribuir sensores a farms](#get-soil-moisture-sensor-data-from-partner)
@@ -24,7 +24,7 @@ Este artigo descreve o processo de geração de um calor de umidade de solo para
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique o seguinte:  
+Certifique-se do seguinte:  
 
 - Uma subscrição do Azure.
 - Uma instância em execução do Azure FarmBeats.
@@ -93,4 +93,4 @@ Utilize os passos seguintes:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps.md#sensor-placement-maps) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data.md). 
+Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps.md#sensor-placement-map) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data.md). 

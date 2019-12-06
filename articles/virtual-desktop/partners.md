@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: helohr
-ms.openlocfilehash: 6b4e1a5024fec07ca73c79d2742933b7b115e6c2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384309"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851184"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -28,16 +28,6 @@ A Citrix estende o valor da área de trabalho virtual do Windows com ferramentas
 
 - [Acesse o site do parceiro](https://more.citrix.com/wvd).
 
-## <a name="cloudhouse"></a>Cloudhouse
-
-![Logotipo do Cloudhouse](./media/partners/cloudhouse.png)
-
-O Cloudhouse é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que oferece aos clientes um serviço de migração de aplicativos completo que pode mover todos os aplicativos, incluindo aqueles incompatíveis com sistemas operacionais Windows modernos para o Windows Ambiente de área de trabalho virtual, permitindo que os clientes aproveitem verdadeiramente o Windows 10 de várias sessões. 
-
-Ao aproveitar a tecnologia comprovada de contêiner Cloudhouse, o serviço Cloudhouse usa todos os aplicativos, incluindo aqueles projetados para o Windows XP, o Windows 7 ou o Windows 8, e os implanta em uma área de trabalho virtual do Windows moderna sem a necessidade de alterar o código ou afete a experiência do usuário. O Cloudhouse aumenta ainda mais o valor da área de trabalho virtual do Windows Isolando aplicativos do sistema operacional subjacente, permitindo que as atualizações de serviço do Windows sejam distribuídas sem afetar o aplicativo em contêineres. 
-
-- [Acesse o site do parceiro](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
-
 ## <a name="vmware"></a>VMware
 
 ![Logotipo do VMware](./media/partners/vmware.png)
@@ -48,6 +38,17 @@ Como um provedor aprovado, os benefícios da área de trabalho virtual do Window
 
 - [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+
+## <a name="cloudhouse"></a>Cloudhouse
+
+![Logotipo do Cloudhouse](./media/partners/cloudhouse.png)
+
+O Cloudhouse é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que oferece aos clientes um serviço de migração de aplicativos completo que pode mover todos os aplicativos, incluindo aqueles incompatíveis com sistemas operacionais Windows modernos para o Windows Ambiente de área de trabalho virtual, permitindo que os clientes aproveitem verdadeiramente o Windows 10 de várias sessões. 
+
+Ao aproveitar a tecnologia comprovada de contêiner Cloudhouse, o serviço Cloudhouse usa todos os aplicativos, incluindo aqueles projetados para o Windows XP, o Windows 7 ou o Windows 8, e os implanta em uma área de trabalho virtual do Windows moderna sem a necessidade de alterar o código ou afete a experiência do usuário. O Cloudhouse aumenta ainda mais o valor da área de trabalho virtual do Windows Isolando aplicativos do sistema operacional subjacente, permitindo que as atualizações de serviço do Windows sejam distribuídas sem afetar o aplicativo em contêineres. 
+
+- [Acesse o site do parceiro](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## <a name="cloudjumper"></a>CloudJumper
 
@@ -225,7 +226,7 @@ Workspot estende o valor da área de trabalho virtual do Windows simplificando o
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Acesse o site do parceiro](https://www.workspot.com/wvd).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre a área de trabalho virtual do Windows](overview.md).
 - [Crie um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).

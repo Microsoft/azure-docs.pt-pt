@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26744791dd3abe732f56f69ca05dd7c781755e9b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167970"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848413"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure
 
@@ -40,16 +40,16 @@ Algumas dessas configurações se aplicam ao servidor MFA, ao Azure MFA ou a amb
 | [Configurações de chamada telefônica](#phone-call-settings) | Defina as configurações relacionadas a chamadas telefônicas e saudações para ambientes locais e na nuvem. |
 | Fornecedores | Isso mostrará todos os provedores de autenticação existentes que você possa ter associado à sua conta. Novos provedores de autenticação não podem ser criados a partir de 1º de setembro de 2018 |
 
-## <a name="manage-mfa-server"></a>Gerenciar servidor MFA
+## <a name="manage-mfa-server"></a>Gerir Servidor MFA
 
 As configurações nesta seção são somente para o servidor MFA.
 
 | Funcionalidade | Descrição |
 | ------- | ----------- |
-| Configurações do servidor | Baixar o servidor MFA e gerar credenciais de ativação para inicializar seu ambiente |
+| Definições do servidor | Baixar o servidor MFA e gerar credenciais de ativação para inicializar seu ambiente |
 | [Desvio único](#one-time-bypass) | Permitir que um usuário autentique sem executar a verificação em duas etapas por um período limitado. |
 | [Regras de cache](#caching-rules) |  O cache é usado principalmente quando os sistemas locais, como VPN, enviam várias solicitações de verificação enquanto a primeira solicitação ainda está em andamento. Esse recurso permite que as solicitações subsequentes sejam realizadas automaticamente, depois que o usuário obtiver a primeira verificação em andamento. |
-| Status do servidor | Consulte o status de seus servidores MFA locais, incluindo versão, status, IP e data e hora da última comunicação. |
+| Estado do servidor | Consulte o status de seus servidores MFA locais, incluindo versão, status, IP e data e hora da última comunicação. |
 
 ## <a name="activity-report"></a>Relatório de atividade
 
@@ -106,7 +106,7 @@ Configure endereços de email aqui para os usuários que receberão emails de al
 
 ![Exemplo de email de alerta de fraude de notificação](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
-## <a name="phone-call-settings"></a>Configurações de chamada telefônica
+## <a name="phone-call-settings"></a>Definições de chamada telefónica
 
 ### <a name="caller-id"></a>ID do chamador
 
@@ -163,7 +163,7 @@ Scripts de exemplo para a criação de mensagens personalizadas.
 | Confirmação de fraude | Um alerta de fraude foi enviado. Para desbloquear sua conta, entre em contato com o suporte técnico de ti da sua empresa. |
 | Saudação de fraude (padrão) | Obrigado por usar o sistema de verificação de entrada da Microsoft. Pressione a tecla tralha para concluir a verificação. Se você não iniciou essa verificação, alguém pode estar tentando acessar sua conta. Pressione a tralha zero para enviar um alerta de fraude. Isso notificará a equipe de ti da sua empresa e poderá bloquear outras tentativas de verificação. |
 | A fraude relatou que um alerta de fraude foi enviado. | Para desbloquear sua conta, entre em contato com o suporte técnico de ti da sua empresa. |
-| Ativá | Obrigado por usar o sistema de verificação de entrada da Microsoft. Pressione a tecla tralha para concluir a verificação. |
+| Ativação | Obrigado por usar o sistema de verificação de entrada da Microsoft. Pressione a tecla tralha para concluir a verificação. |
 | Nova tentativa de autenticação negada | Verificação negada. |
 | Repetir (padrão) | Obrigado por usar o sistema de verificação de entrada da Microsoft. Pressione a tecla tralha para concluir a verificação. |
 | Saudação (padrão) | Obrigado por usar o sistema de verificação de entrada da Microsoft. Pressione a tecla tralha para concluir a verificação. |
@@ -177,7 +177,7 @@ Scripts de exemplo para a criação de mensagens personalizadas.
 | Saudação de ativação (PIN) | Obrigado por usar o sistema de verificação de entrada da Microsoft. Insira seu PIN seguido pela tecla tralha para concluir a verificação. |
 | Prompt de extensão antes dos dígitos | Obrigado por usar o sistema de verificação de entrada da Microsoft. Transfira esta chamada para a extensão... |
 
-## <a name="one-time-bypass"></a>Desvio único
+## <a name="one-time-bypass"></a>Omissão de uso individual
 
 O recurso de _bypass único_ permite que um usuário autentique uma única vez sem executar a verificação em duas etapas. O bypass é temporário e expira após um número especificado de segundos. Em situações em que o aplicativo móvel ou o telefone não está recebendo uma notificação ou chamada telefônica, você pode permitir um bypass único para que o usuário possa acessar o recurso desejado.
 
@@ -195,7 +195,7 @@ O recurso de _bypass único_ permite que um usuário autentique uma única vez s
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bypass único**.
 
-## <a name="caching-rules"></a>Regras de cache
+## <a name="caching-rules"></a>Regras de colocação em cache
 
 Você pode definir um período de tempo para permitir tentativas de autenticação depois que um usuário é autenticado usando o recurso de _cache_ . As tentativas de autenticação subsequentes para o usuário dentro do período de tempo especificado têm sucesso automaticamente. O cache é usado principalmente quando os sistemas locais, como VPN, enviam várias solicitações de verificação enquanto a primeira solicitação ainda está em andamento. Esse recurso permite que as solicitações subsequentes sejam realizadas automaticamente, depois que o usuário obtiver a primeira verificação em andamento.
 
@@ -233,7 +233,7 @@ Há suporte para a autenticação moderna para os clientes Microsoft Office 2013
 Ao usar senhas de aplicativo, considere os seguintes pontos importantes:
 
 * As senhas de aplicativo são inseridas apenas uma vez por aplicativo. Os usuários não precisam manter o controle das senhas ou digitá-las todas as vezes.
-* A senha real é gerada automaticamente e não é fornecida pelo usuário. A senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
+* A palavra-passe real é gerada automaticamente, não sendo fornecida pelo utilizador. A senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
 * Há um limite de 40 senhas por usuário.
 * Os aplicativos que armazenam senhas em cache e as usam em cenários locais podem começar a falhar porque a senha do aplicativo não é conhecida fora da conta corporativa ou de estudante. Um exemplo desse cenário são os emails do Exchange que estão no local, mas o email arquivado está na nuvem. Nesse cenário, a mesma senha não funciona.
 * Após a habilitação da autenticação multifator na conta de um usuário, as senhas de aplicativo podem ser usadas com a maioria dos clientes sem navegador, como o Outlook e o Microsoft Skype for Business. As ações administrativas não podem ser executadas usando senhas de aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell. As ações não podem ser executadas mesmo quando o usuário tem uma conta administrativa. Para executar scripts do PowerShell, crie uma conta de serviço com uma senha forte e não habilite a conta para a verificação em duas etapas.
@@ -278,8 +278,8 @@ O Azure AD dá suporte à Federação, ou SSO (logon único), com o Windows Serv
 Por padrão, os usuários não podem criar senhas de aplicativo. O recurso senhas de aplicativo deve ser habilitado. Para conceder aos usuários a capacidade de criar senhas de aplicativo, use o seguinte procedimento:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários**.
-3. Selecione **autenticação multifator**.
+2. À esquerda, selecione **Azure Active Directory** > **Utilizadores**.
+3. Selecione **Multi-Factor Authentication**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
 5. Na página **configurações de serviço** , selecione a opção **permitir que os usuários criem senhas de aplicativo para entrar em aplicativos sem navegador** .
 
@@ -300,8 +300,8 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções de recursos de IPs confiáveis |
 |:--- |:--- |
-| Managed |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
-| Federado |**Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração emitida por Serviços de Federação do Active Directory (AD FS) (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. |
+| Gerido |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Federados |**Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração emitida por Serviços de Federação do Active Directory (AD FS) (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. |
 
 O bypass de IPs confiáveis funciona somente de dentro da intranet da empresa. Se você selecionar a opção **todos os usuários federados** e um usuário entrar de fora da intranet da empresa, o usuário precisará se autenticar usando a verificação em duas etapas. O processo é o mesmo, mesmo que o usuário apresente uma declaração de AD FS. 
 
@@ -346,8 +346,8 @@ Independentemente de o recurso de IPs confiáveis estar habilitado, a verificaç
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilitar o recurso IPs confiáveis usando as configurações de serviço
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários**.
-3. Selecione **autenticação multifator**.
+2. À esquerda, selecione **Azure Active Directory** > **Utilizadores**.
+3. Selecione **Multi-Factor Authentication**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
 5. Na página **configurações de serviço** , em **IPs confiáveis**, escolha uma (ou ambas) das duas opções a seguir:
 
@@ -370,16 +370,16 @@ Quando os usuários registram suas contas para a autenticação multifator do Az
 
 | Método | Descrição |
 |:--- |:--- |
-| Ligar para telefone |Coloca uma chamada de voz automática. O usuário responde à chamada e pressiona # no teclado do telefone para autenticar. O número de telefone não está sincronizado com o Active Directory local. |
-| Mensagem de texto para telefone |Envia uma mensagem de texto que contém um código de verificação. O usuário é solicitado a inserir o código de verificação na interface de entrada. Esse processo é chamado de SMS unidirecional. O SMS bidirecional significa que o usuário deve fazer o texto de um código específico. O SMS bidirecional foi preterido e não tem suporte após 14 de novembro de 2018. Os administradores devem habilitar outro método para os usuários que usaram o SMS bidirecional anteriormente.|
-| Notificação por meio do aplicativo móvel |Envia uma notificação por push para seu telefone ou dispositivo registrado. O usuário exibe a notificação e seleciona **verificar** para concluir a verificação. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [Ios](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de verificação do aplicativo móvel ou token de hardware |O aplicativo Microsoft Authenticator gera um novo código de verificação OATH a cada 30 segundos. O usuário insere o código de verificação na interface de entrada. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [Ios](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Ligar para telefone |Coloca uma chamada de voz automática. O utilizador atende a chamada e prime # no teclado do telefone para se autenticar. O número de telefone não está sincronizado com o Active Directory local. |
+| Mensagem de texto para um telefone |Envia uma mensagem de texto que contém um código de verificação. O usuário é solicitado a inserir o código de verificação na interface de entrada. Esse processo é chamado de SMS unidirecional. O SMS bidirecional significa que o usuário deve fazer o texto de um código específico. O SMS bidirecional foi preterido e não tem suporte após 14 de novembro de 2018. Os administradores devem habilitar outro método para os usuários que usaram o SMS bidirecional anteriormente.|
+| Notificação através da aplicação para dispositivos móveis |Envia uma notificação por push para seu telefone ou dispositivo registrado. O usuário exibe a notificação e seleciona **verificar** para concluir a verificação. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [Ios](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificação da aplicação para dispositivos móveis ou token de hardware |O aplicativo Microsoft Authenticator gera um novo código de verificação OATH a cada 30 segundos. O usuário insere o código de verificação na interface de entrada. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [Ios](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Habilitar e desabilitar métodos de verificação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários**.
-3. Selecione **autenticação multifator**.
+2. À esquerda, selecione **Azure Active Directory** > **Utilizadores**.
+3. Selecione **Multi-Factor Authentication**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
 5. Na página **configurações de serviço** , em **Opções de verificação**, selecione/desmarque os métodos a serem fornecidos aos usuários.
 6. Clique em **Guardar**.
@@ -388,7 +388,7 @@ Detalhes adicionais sobre o uso de métodos de autenticação podem ser encontra
 
 ## <a name="remember-multi-factor-authentication"></a>Lembrar a autenticação multifator
 
-O recurso _lembrar a autenticação multifator_ para dispositivos e navegadores que são confiáveis para o usuário é um recurso gratuito para todos os usuários da autenticação multifator. Os usuários podem ignorar as verificações subsequentes por um número especificado de dias, depois de entrarem com êxito em um dispositivo usando a autenticação multifator. O recurso melhora a usabilidade ao minimizar o número de vezes que um usuário tem de executar a verificação em duas etapas no mesmo dispositivo.
+O recurso _lembrar a autenticação multifator_ para dispositivos e navegadores que são confiáveis para o usuário é um recurso gratuito para todos os usuários da autenticação multifator. Os utilizadores podem ignorar as verificações subsequentes por um número especificado de dias, após iniciarem sessão com sucesso num dispositivo através do Multi-Factor Authentication. O recurso melhora a usabilidade ao minimizar o número de vezes que um usuário tem de executar a verificação em duas etapas no mesmo dispositivo.
 
 >[!IMPORTANT]
 >Se uma conta ou dispositivo for comprometido, lembrar a autenticação multifator para dispositivos confiáveis pode afetar a segurança. Se uma conta corporativa for comprometida ou um dispositivo confiável for perdido ou roubado, você deverá [revogar as sessões de MFA](howto-mfa-userdevicesettings.md).
@@ -404,7 +404,7 @@ A opção **não perguntar novamente por X dias** não é mostrada em aplicativo
 O recurso reduz o número de autenticações em aplicativos Web, que normalmente são notificados toda vez. O recurso aumenta o número de autenticações para clientes de autenticação modernos que normalmente solicitam a cada 90 dias. Também pode aumentar o número de autenticações quando combinadas com políticas de acesso condicional.
 
 >[!IMPORTANT]
->O recurso **lembrar a autenticação multifator** não é compatível com o recurso **manter-me conectado** do AD FS, quando os usuários executam a verificação em duas etapas para AD FS por meio do Azure servidor de autenticação multifator ou de um multifator de terceiros solução de autenticação.
+>O recurso **lembrar a autenticação multifator** não é compatível com o recurso **manter-me conectado** do AD FS, quando os usuários executam a verificação em duas etapas para AD FS por meio do Azure servidor de autenticação multifator ou uma solução de autenticação multifator de terceiros.
 >
 >Se os usuários selecionarem **Mantenha-me conectado** em AD FS e também marcarem seu dispositivo como confiável para a autenticação multifator, o usuário não será automaticamente verificado após a memorização do número de dias de expiração da **autenticação multifator** . O Azure AD solicita uma nova verificação em duas etapas, mas AD FS retorna um token com a declaração e a data originais da autenticação multifator, em vez de executar a verificação em duas etapas novamente. **Essa reação define um loop de verificação entre o Azure AD e o AD FS.**
 >
@@ -414,8 +414,8 @@ O recurso reduz o número de autenticações em aplicativos Web, que normalmente
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitar lembrar a autenticação multifator
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários**.
-3. Selecione **autenticação multifator**.
+2. À esquerda, selecione **Azure Active Directory** > **Utilizadores**.
+3. Selecione **Multi-Factor Authentication**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
 5. Na página **configurações de serviço** , **gerencie lembrar autenticação multifator**, selecione **permitir que os usuários se lembrem da autenticação multifator nos dispositivos em que confiam** opção.
 6. Defina o número de dias para permitir que os dispositivos confiáveis ignorem a verificação em duas etapas. O padrão é 14 dias.

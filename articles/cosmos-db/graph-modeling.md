@@ -1,18 +1,18 @@
 ---
 title: Modelagem de dados de grafo para Azure Cosmos DB API Gremlin
-description: Saiba como modelar um banco de dados de grafo usando Cosmos DB API Gremlin.
+description: Saiba como modelar um banco de dados de grafo usando Azure Cosmos DB API Gremlin. Este artigo descreve quando usar um banco de dados de grafo e práticas recomendadas para modelar entidades e relações.
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/24/2019
+ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 2bd8c07b384872f3107b5938380cea4c8eb0abae
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559116"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873731"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo para Azure Cosmos DB API Gremlin
 
@@ -47,10 +47,10 @@ A seguir estão as práticas recomendadas para as propriedades nos objetos de gr
 
 | Object | Propriedade | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Deles | ID | String | Imposto exclusivamente por partição. Se um valor não for fornecido na inserção, um GUID gerado automaticamente será armazenado. |
-| Deles | label | String | Essa propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, um valor padrão "Vertex" será usado. |
-| Deles | propriedades | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada vértice. |
-| Deles | chave de partição | Cadeia de caracteres, booliano, numérico | Esta propriedade define onde o vértice e suas bordas de saída serão armazenados. Leia mais sobre [particionamento de grafo](graph-partitioning.md). |
+| Vértice | ID | String | Imposto exclusivamente por partição. Se um valor não for fornecido na inserção, um GUID gerado automaticamente será armazenado. |
+| Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, um valor padrão "Vertex" será usado. |
+| Vértice | propriedades | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada vértice. |
+| Vértice | chave de partição | Cadeia de caracteres, booliano, numérico | Esta propriedade define onde o vértice e suas bordas de saída serão armazenados. Leia mais sobre [particionamento de grafo](graph-partitioning.md). |
 | Microsoft Edge | ID | String | Imposto exclusivamente por partição. Gerado automaticamente por padrão. As bordas geralmente não têm a necessidade de serem recuperadas de forma exclusiva por uma ID. |
 | Microsoft Edge | label | String | Essa propriedade é usada para definir o tipo de relação que dois vértices têm. |
 | Microsoft Edge | propriedades | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares de chave-valor em cada borda. |

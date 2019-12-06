@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09aa95e55b3d253ef41724298247694b9883e31f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381770"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848294"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados do usuário da autenticação multifator do Azure
 
@@ -35,14 +35,14 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Nome Próprio
 - Apelido
 - Endereço de E-mail
-- Grupo de usuários
+- Grupo do Utilizador
 - Método de autenticação (chamada telefônica, mensagem de texto, aplicativo móvel, token OATH)
 - Modo de chamada telefônica (Standard, PIN)
 - Direção da mensagem de texto (unidirecional, bidirecional)
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicativo móvel (padrão, PIN)
 - Modo de token OATH (Standard, PIN)
-- Tipo de autenticação
+- Tipo de Autenticação
 - Nome da Aplicação
 - Código do país da chamada principal
 - Número de telefone de chamada principal
@@ -86,27 +86,27 @@ Blocos (usados para determinar o estado bloqueado e para relatórios):
 - Bloquear carimbo de data/hora
 - Bloquear por nome de usuário
 - Nome de utilizador
-- Código do País
+- Indicativo do País
 - Número de Telefone
 - Número de telefone formatado
 - Extensão
 - Limpar extensão
 - Bloqueado
-- Motivo do bloqueio
+- Razão do Bloqueio
 - Timestamp de conclusão
 - Motivo da conclusão
 - Bloqueio de Conta
 - Alerta de fraude
 - Alerta de fraude não bloqueado
-- Idioma
+- Linguagem
 
 Bypasss (usados para relatórios):
 
 - Ignorar carimbo de data/hora
-- Segundos de bypass
+- Segundos de Omissão
 - Bypass por nome de usuário
 - Nome de utilizador
-- Código do País
+- Indicativo do País
 - Número de Telefone
 - Número de telefone formatado
 - Extensão
@@ -127,7 +127,7 @@ Alterações (usadas para sincronizar as alterações do usuário no servidor MF
 - Novo número de telefone de backup
 - Nova extensão de backup
 - Novo PIN
-- Alteração de PIN necessária
+- Necessário Alterar PIN
 - Antigo token de dispositivo
 - Novo token de dispositivo
 

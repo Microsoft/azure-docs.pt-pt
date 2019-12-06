@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3071effeb2d5eeaafc48fd742559b093a0517c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279140"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851677"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -33,10 +33,9 @@ Antes de anexar discos à sua VM, examine estas dicas:
 
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda, clique em **máquinas virtuais**.
-3. Selecione a máquina virtual na lista.
-4. Para a página máquinas virtuais, em **Essentials**, clique em **discos**.
+1. Vá para a [portal do Azure](https://portal.azure.com/) para localizar a VM. Pesquise e selecione **máquinas virtuais**.
+2. Escolha a VM na lista.
+3. Na barra lateral da página **máquinas virtuais** , em **configurações**, escolha **discos**.
    
     ![Abrir configurações de disco](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -109,7 +108,7 @@ Particione o disco com `fdisk`. Se o tamanho do disco for 2 tebibytes (TiB) ou m
 sudo fdisk /dev/sdc
 ```
 
-Use o comando `n` para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o restante dos valores padrão. A saída será semelhante ao exemplo a seguir:
+Utilize o comando `n` para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o restante dos valores padrão. O resultado vai ser semelhante ao exemplo seguinte:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -205,7 +204,7 @@ Use `mount` para montar o sistema de arquivos. O exemplo a seguir monta a parti�
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab* . Também é altamente recomendável que o UUID (identificador universal exclusivo) seja usado em */etc/fstab* para se referir à unidade em vez de apenas ao nome do dispositivo (como, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Em seguida, os discos de dados restantes seriam atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o utilitário `blkid`:
+Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab* . Também é altamente recomendável que o UUID (identificador universal exclusivo) seja usado em */etc/fstab* para se referir à unidade em vez de apenas ao nome do dispositivo (como, */dev/sdc1*). Se o SO detetar um erro do disco durante o arranque, ao utilizar o UUID evitará que o disco incorreto seja montado numa determinada localização. Os restantes discos de dados serão, em seguida, atribuídos aos mesmos IDs de dispositivos. Para localizar o UUID da nova unidade, utilize o utilitário `blkid`:
 
 ```bash
 sudo -i blkid
@@ -220,7 +219,7 @@ A saída é semelhante ao exemplo a seguir:
 ```
 
 > [!NOTE]
-> A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que um backup do arquivo/etc/fstab seja criado antes da edição.
+> A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Também é recomendável que um backup do arquivo/etc/fstab seja criado antes da edição.
 
 Em seguida, abra o arquivo */etc/fstab* em um editor de texto da seguinte maneira:
 

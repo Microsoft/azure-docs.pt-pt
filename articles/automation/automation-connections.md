@@ -4,17 +4,17 @@ description: Os ativos de conexão na automação do Azure contêm as informaç�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90b2234607ad120c43e241fe4ae5222fe285803e
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001655"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850436"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na automação do Azure
 
@@ -68,7 +68,7 @@ A função na tabela a seguir é usada para acessar conexões em um runbook do P
 > [!NOTE]
 > Você deve importar o módulo "automationassets" na parte superior do seu runbook do Python para acessar as funções de ativo.
 
-## <a name="creating-a-new-connection"></a>Criando uma nova conexão
+## <a name="creating-a-new-connection"></a>Criar uma Ligação Nova
 
 ### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Para criar uma nova conexão com o portal do Azure
 
@@ -78,11 +78,11 @@ A função na tabela a seguir é usada para acessar conexões em um runbook do P
 4. Na lista suspensa **tipo** , selecione o tipo de conexão que você deseja criar. O formulário apresentará as propriedades desse tipo específico.
 5. Preencha o formulário e clique em **criar** para salvar a nova conexão.
 
-### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para criar uma nova conexão com o Windows PowerShell
+### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para criar uma nova ligação com o Windows PowerShell
 
 Crie uma nova conexão com o Windows PowerShell usando o cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) . Esse cmdlet tem um parâmetro chamado **ConnectionFieldValues** que espera uma [tabela de hash](https://technet.microsoft.com/library/hh847780.aspx) definindo valores para cada uma das propriedades definidas pelo tipo de conexão.
 
-Se você estiver familiarizado com a [conta Executar como](automation-sec-configure-azure-runas-account.md) da automação para autenticar runbooks usando a entidade de serviço, o script do PowerShell, fornecido como uma alternativa para criar a conta Executar como do portal, criará um novo ativo de conexão usando o os comandos de exemplo a seguir.
+Se você estiver familiarizado com a [conta Executar como](automation-sec-configure-azure-runas-account.md) da automação para autenticar runbooks usando a entidade de serviço, o script do PowerShell, fornecido como uma alternativa para criar a conta Executar como do portal, criará um novo ativo de conexão usando os comandos de exemplo a seguir.
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
@@ -90,7 +90,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Você pode usar o script para criar o ativo de conexão porque, quando você cria sua conta de automação, ele inclui automaticamente vários módulos globais por padrão junto com o tipo de conexão **AzureServicePrincipal** para criar oAtivo de conexão AzureRunAsConnection.  Isso é importante para ter em mente, porque se você tentar criar um novo ativo de conexão para se conectar a um serviço ou aplicativo com um método de autenticação diferente, ele falhará porque o tipo de conexão ainda não está definido em sua conta de automação.  Para obter mais informações sobre como criar seu próprio tipo de conexão para seu módulo personalizado ou de [Galeria do PowerShell](https://www.powershellgallery.com), consulte [módulos de integração](automation-integration-modules.md)
+Você pode usar o script para criar o ativo de conexão porque, quando você cria sua conta de automação, ele automaticamente inclui vários módulos globais por padrão junto com o tipo de conexão **AzureServicePrincipal** para criar o ativo de conexão **AzureRunAsConnection** .  Isso é importante para ter em mente, porque se você tentar criar um novo ativo de conexão para se conectar a um serviço ou aplicativo com um método de autenticação diferente, ele falhará porque o tipo de conexão ainda não está definido em sua conta de automação.  Para obter mais informações sobre como criar seu próprio tipo de conexão para seu módulo personalizado ou de [Galeria do PowerShell](https://www.powershellgallery.com), consulte [módulos de integração](automation-integration-modules.md)
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Usando uma conexão em um runbook ou configuração DSC
 

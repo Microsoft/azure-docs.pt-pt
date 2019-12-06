@@ -1,23 +1,23 @@
 ---
-title: Indexação no Azure Cosmos DB
-description: Entenda como a indexação funciona em Azure Cosmos DB.
+title: Indexação no Azure Cosmos DB
+description: Entenda como a indexação funciona em Azure Cosmos DB, tipos diferentes de índices, como intervalos, espaciais e índices compostos com suporte.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299794"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873629"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação em Azure Cosmos DB-visão geral
 
 Azure Cosmos DB é um banco de dados independente de esquema que permite iterar em seu aplicativo sem precisar lidar com o gerenciamento de esquema ou de índice. Por padrão, Azure Cosmos DB indexa automaticamente cada propriedade para todos os itens em seu [contêiner](databases-containers-items.md#azure-cosmos-containers) sem precisar definir qualquer esquema ou configurar índices secundários.
 
-O objetivo deste artigo é explicar como Azure Cosmos DB os dados de índices e como ele usa índices para melhorar o desempenho da consulta. É recomendável percorrer esta seção antes de explorar como personalizar políticas de [indexação](index-policy.md).
+O objetivo deste artigo é explicar como o Azure Cosmos DB indexa os dados e como utiliza os índices para melhorar o desempenho da consulta. É recomendável percorrer esta seção antes de explorar como personalizar políticas de [indexação](index-policy.md).
 
 ## <a name="from-items-to-trees"></a>De itens para árvores
 
@@ -104,13 +104,13 @@ O índice de **intervalo** se baseia em uma estrutura ordenada de árvore. O tip
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
    ```
 
-- consultas `ORDER BY`:
+- consultas de `ORDER BY`:
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- consultas `JOIN`:
+- consultas de `JOIN`:
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -120,7 +120,7 @@ Os índices de intervalo podem ser usados em valores escalares (cadeia de caract
 
 ### <a name="spatial-index"></a>Índice espacial
 
-Os índices **espaciais** permitem consultas eficientes em objetos geoespaciais, como pontos, linhas, polígonos e MultiPolygon. Essas consultas usam palavras-chave ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. Veja a seguir alguns exemplos que usam o tipo de índice espacial:
+Os índices **espaciais** permitem consultas eficientes em objetos geoespaciais, como pontos, linhas, polígonos e MultiPolygon. Essas consultas usam as palavras-chave ST_DISTANCE, ST_WITHIN ST_INTERSECTS. Veja a seguir alguns exemplos que usam o tipo de índice espacial:
 
 - Consultas de distância geoespaciais:
 
@@ -146,7 +146,7 @@ Os índices espaciais podem ser usados em objetos [geojson](geospatial.md) forma
 
 Os índices **compostos** aumentam a eficiência quando você está executando operações em vários campos. O tipo de índice composto é usado para:
 
-- consultas `ORDER BY` em várias propriedades:
+- `ORDER BY` consultas em várias propriedades:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
@@ -173,14 +173,14 @@ Desde que um predicado de filtro use no tipo de índice, o mecanismo de consulta
 
 ## <a name="querying-with-indexes"></a>Consultando com índices
 
-Os caminhos extraídos ao indexar dados facilitam a pesquisa do índice durante o processamento de uma consulta. Ao corresponder a cláusula `WHERE` de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem ao predicado de consulta muito rapidamente.
+Os caminhos extraídos ao indexar dados facilitam a pesquisa do índice durante o processamento de uma consulta. Ao corresponder a cláusula de `WHERE` de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem ao predicado de consulta muito rapidamente.
 
 Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. O predicado de consulta (filtragem em itens, onde qualquer local tem "França" como seu país) corresponderia ao caminho realçado em vermelho abaixo:
 
 ![Correspondência de um caminho específico dentro de uma árvore](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Uma cláusula `ORDER BY` que ordena por uma única propriedade *sempre* precisa de um índice de intervalo e falhará se o caminho referenciado não tiver um. Da mesma forma, uma consulta `ORDER BY` que pedidos por várias propriedades *sempre* precisa de um índice composto.
+> Uma cláusula `ORDER BY` que Orders por uma única propriedade *sempre* precisa de um índice de intervalo e falhará se o caminho referenciado não tiver um. Da mesma forma, um `ORDER BY` consulta quais pedidos por várias propriedades *sempre* precisam de um índice composto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

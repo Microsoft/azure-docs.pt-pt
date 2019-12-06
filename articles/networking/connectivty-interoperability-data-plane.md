@@ -1,6 +1,6 @@
 ---
-title: 'Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: Análise do plano de dados | Documentos da Microsoft'
-description: Este artigo fornece a análise de plano de dados da configuração do teste, que pode usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e da rede virtual peering no Azure.
+title: 'Interoperabilidade nos recursos de conectividade de back-end do Azure: análise do plano de dados | Microsoft Docs'
+description: Este artigo fornece a análise do plano de dados da configuração de teste que você pode usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e um emparelhamento de rede virtual no Azure.
 documentationcenter: na
 services: networking
 author: rambk
@@ -10,24 +10,24 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11c964bedce7a8b979434b888d756c2121d06a60
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425539"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873833"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: Análise de plano de dados
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade nos recursos de conectividade de back-end do Azure: análise do plano de dados
 
-Este artigo descreve a análise de plano de dados do [configuração de teste][Setup]. Também pode rever o [configuração do programa de configuração de teste] [ Configuration] e o [controlar a análise de plano] [ Control-Analysis] da configuração do teste.
+Este artigo descreve a análise do plano de dados da [configuração do teste][Setup]. Você também pode examinar a [configuração][Configuration] de configuração de teste e a [análise do plano de controle][Control-Analysis] da configuração do teste.
 
-Análise de plano de dados examina o caminho percorrido por pacotes que atravessam a partir de uma rede local (LAN ou de rede virtual) para outra dentro de uma topologia. O caminho de dados entre duas redes locais não é necessariamente simétrico. Portanto, neste artigo, vamos analisar um caminho de encaminhamento de uma rede local, a outra rede separada do caminho inverso.
+A análise do plano de dados examina o caminho obtido por pacotes que atravessam de uma rede local (LAN ou rede virtual) para outra dentro de uma topologia. O caminho de dados entre duas redes locais não é necessariamente simétrico. Portanto, neste artigo, analisamos um caminho de encaminhamento de uma rede local para outra rede separada do caminho inverso.
 
-## <a name="data-path-from-the-hub-vnet"></a>Caminho de dados do hub de VNet
+## <a name="data-path-from-the-hub-vnet"></a>Caminho de dados da VNet do Hub
 
-### <a name="path-to-the-spoke-vnet"></a>Caminho para o VNet spoke
+### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
-Peering de rede virtual (VNet) emula a funcionalidade de ponte de rede entre as duas VNets em modo de peering. Traceroute de uma VNet do hub de saída a uma VM no spoke que vnet é mostrado aqui:
+O emparelhamento de rede virtual (VNet) emula a funcionalidade de ponte de rede entre os dois VNets emparelhados. A saída de traceroute de uma VNet de Hub para uma VM na VNet do spoke é mostrada aqui:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -37,14 +37,14 @@ Peering de rede virtual (VNet) emula a funcionalidade de ponte de rede entre as 
 
     Trace complete.
 
-A figura a seguir mostra a exibição de gráfico de ligação de VNet do hub e spoke VNet da perspetiva do observador de rede do Azure:
+A figura a seguir mostra a exibição de conexão gráfica da VNet do Hub e a VNet do spoke da perspectiva do observador de rede do Azure:
 
 
-[![1]][1]
+![1][1]
 
-### <a name="path-to-the-branch-vnet"></a>Caminho para o ramo de VNet
+### <a name="path-to-the-branch-vnet"></a>Caminho para a VNet da ramificação
 
-Traceroute de uma VNet do hub de saída a uma VM no ramo que vnet é mostrado aqui:
+A saída de traceroute de uma VNet de Hub para uma VM na VNet de ramificação é mostrada aqui:
 
     C:\Users\rb>tracert 10.11.30.68
 
@@ -56,19 +56,19 @@ Traceroute de uma VNet do hub de saída a uma VM no ramo que vnet é mostrado aq
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o gateway de VPN no Gateway de VPN do Azure de VNet do hub. O segundo salto é o gateway VPN do ramo de VNet. O endereço IP do gateway de VPN do ramo de VNet não é anunciado na VNet do hub. O terceiro salto é a VM no ramo VNet.
+Nessas rotas, o primeiro salto é o gateway de VPN no gateway de VPN do Azure da VNet do Hub. O segundo salto é o gateway de VPN da VNet da ramificação. O endereço IP do gateway de VPN da VNet de ramificação não é anunciado na VNet do Hub. O terceiro salto é a VM na VNet da ramificação.
 
-A figura a seguir mostra a exibição de gráfico de ligação de VNet do hub e o ramo VNet da perspetiva do observador de rede:
+A figura a seguir mostra a exibição de conexão gráfica da VNet do Hub e a VNet da ramificação da perspectiva do observador de rede:
 
-[![2]][2]
+![2][2]
 
-Para a mesma ligação, a figura seguinte mostra a exibição de grade no observador de rede:
+Para a mesma conexão, a figura a seguir mostra o modo de exibição de grade no observador de rede:
 
-[![3]][3]
+![3][3]
 
-### <a name="path-to-on-premises-location-1"></a>Caminho para a localização no local 1
+### <a name="path-to-on-premises-location-1"></a>Caminho para o local 1
 
-O traceroute saída de uma VNet do hub para uma VM em 1 de localização no local é mostrada aqui:
+A saída de traceroute de uma VNet de Hub para uma VM no local 1 é mostrada aqui:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -81,12 +81,12 @@ O traceroute saída de uma VNet do hub para uma VM em 1 de localização no loca
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o Azure ExpressRoute túnel ponto final de gateway para um roteador de borda do Microsoft Enterprise (MSEE). Os segundo e terceiro saltos são o router de limite (CE) do cliente e os IPs de LAN de 1 de localização no local. Estes endereços IP não são anunciados na VNet do hub. O quarto salto é a VM no 1 localização no local.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do Azure ExpressRoute para um roteador Microsoft Enterprise Edge (MSEE). O segundo e o terceiro saltos são o roteador da borda do cliente (CE) e os IPs de LAN locais 1. Esses endereços IP não são anunciados na VNet do Hub. O quarto salto é a VM no local 1.
 
 
-### <a name="path-to-on-premises-location-2"></a>Caminho para a localização no local 2
+### <a name="path-to-on-premises-location-2"></a>Caminho para o local 2
 
-O traceroute saída de uma VNet do hub para uma VM em 2 de localização no local é mostrada aqui:
+A saída de traceroute de uma VNet de Hub para uma VM no local 2 é mostrada aqui:
 
     C:\Users\rb>tracert 10.1.31.10
 
@@ -99,11 +99,11 @@ O traceroute saída de uma VNet do hub para uma VM em 2 de localização no loca
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o ponto final túnel do gateway ExpressRoute para uma MSEE. Os segundo e terceiro saltos são o roteador CE e os IPs de LAN de 2 de localização no local. Estes endereços IP não são anunciados na VNet do hub. O quarto salto é a VM em 2 de localização no local.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute para um MSEE. O segundo e o terceiro saltos são o roteador CE e os IPs de LAN locais 2. Esses endereços IP não são anunciados na VNet do Hub. O quarto salto é a VM no local 2.
 
 ### <a name="path-to-the-remote-vnet"></a>Caminho para a VNet remota
 
-O traceroute saída de uma VNet do hub para uma VM na VNet remota é mostrada aqui:
+A saída de traceroute de uma VNet de Hub para uma VM na VNet remota é mostrada aqui:
 
     C:\Users\rb>tracert 10.17.30.4
 
@@ -115,15 +115,15 @@ O traceroute saída de uma VNet do hub para uma VM na VNet remota é mostrada aq
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o ponto final túnel do gateway ExpressRoute para uma MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo IP do segundo salto não é anunciado na VNet do hub. O terceiro salto é a VM na VNet remota.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo de IP do segundo salto não é anunciado na VNet do Hub. O terceiro salto é a VM na VNet remota.
 
-## <a name="data-path-from-the-spoke-vnet"></a>Caminho de dados a partir da VNet spoke
+## <a name="data-path-from-the-spoke-vnet"></a>Caminho de dados da VNet do spoke
 
-O VNet spoke partilha a visão de rede da VNet do hub. Através de VNet peering, o VNet spoke utiliza a conectividade de gateway remoto de VNet do hub como se ele está conectado diretamente à spoke VNet.
+A VNet do spoke compartilha a exibição de rede da VNet do Hub. Por meio do emparelhamento VNet, a VNet do spoke usa a conectividade do gateway remoto da VNet do Hub como se ela fosse conectada diretamente à VNet do spoke.
 
-### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do hub
+### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do Hub
 
-Traceroute de saída da spoke VNet para uma VM no hub que vnet é mostrado aqui:
+A saída de traceroute da VNet do spoke para uma VM na VNet do hub é mostrada aqui:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -133,9 +133,9 @@ Traceroute de saída da spoke VNet para uma VM no hub que vnet é mostrado aqui:
 
     Trace complete.
 
-### <a name="path-to-the-branch-vnet"></a>Caminho para o ramo de VNet
+### <a name="path-to-the-branch-vnet"></a>Caminho para a VNet da ramificação
 
-Traceroute de saída da spoke VNet para uma VM no ramo que vnet é mostrado aqui:
+A saída de traceroute da VNet do spoke para uma VM na VNet da ramificação é mostrada aqui:
 
     C:\Users\rb>tracert 10.11.30.68
 
@@ -147,29 +147,11 @@ Traceroute de saída da spoke VNet para uma VM no ramo que vnet é mostrado aqui
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o gateway de VPN de VNet do hub. O segundo salto é o gateway VPN do ramo de VNet. O endereço IP do gateway de VPN do ramo de VNet não é anunciado dentro do VNet hub/spoke. O terceiro salto é a VM no ramo VNet.
+Nessas rotas, o primeiro salto é o gateway de VPN da VNet do Hub. O segundo salto é o gateway de VPN da VNet da ramificação. O endereço IP do gateway de VPN da VNet de ramificação não é anunciado na VNet hub/spoke. O terceiro salto é a VM na VNet da ramificação.
 
-### <a name="path-to-on-premises-location-1"></a>Caminho para a localização no local 1
+### <a name="path-to-on-premises-location-1"></a>Caminho para o local 1
 
-O traceroute saída da spoke VNet para uma VM em 1 de localização no local é mostrada aqui:
-
-    C:\Users\rb>tracert 10.2.30.10
-
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
-
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
-
-    Trace complete.
-
-Este traceroute, o primeiro salto é ExpressRoute túnel ponto final de gateway a VNet hub para um MSEE. Os segundo e terceiro saltos são o roteador CE e os IPs de LAN de 1 de localização no local. Estes endereços IP não são anunciados no hub/spoke VNet. O quarto salto é a VM no 1 localização no local.
-
-### <a name="path-to-on-premises-location-2"></a>Caminho para a localização no local 2
-
-O traceroute saída da spoke VNet para uma VM em 2 de localização no local é mostrada aqui:
-
+A saída de traceroute da VNet do spoke para uma VM no local 1 é mostrada aqui:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -182,11 +164,29 @@ O traceroute saída da spoke VNet para uma VM em 2 de localização no local é 
 
     Trace complete.
 
-Este traceroute, o primeiro salto é ExpressRoute túnel ponto final de gateway a VNet hub para um MSEE. Os segundo e terceiro saltos são o roteador CE e os IPs de LAN de 2 de localização no local. Estes endereços IP não são anunciados no hub/spoke VNets. O quarto salto é a VM na localização 2 no local.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo e o terceiro saltos são o roteador CE e os IPs de LAN locais 1. Esses endereços IP não são anunciados na VNet hub/spoke. O quarto salto é a VM no local 1.
+
+### <a name="path-to-on-premises-location-2"></a>Caminho para o local 2
+
+A saída de traceroute da VNet do spoke para uma VM no local 2 é mostrada aqui:
+
+
+    C:\Users\rb>tracert 10.2.30.10
+
+    Tracing route to 10.2.30.10 over a maximum of 30 hops
+
+      1    24 ms     2 ms     3 ms  10.10.30.132
+      2     *        *        *     Request timed out.
+      3     *        *        *     Request timed out.
+      4     3 ms     2 ms     2 ms  10.2.30.10
+
+    Trace complete.
+
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo e o terceiro saltos são o roteador CE e os IPs de LAN locais 2. Esses endereços IP não são anunciados no VNets hub/spoke. O quarto salto é a VM no local 2.
 
 ### <a name="path-to-the-remote-vnet"></a>Caminho para a VNet remota
 
-O traceroute saída da spoke VNet para uma VM na VNet remota é mostrada aqui:
+A saída de traceroute da VNet do spoke para uma VM na VNet remota é mostrada aqui:
 
     C:\Users\rb>tracert 10.17.30.4
 
@@ -198,13 +198,13 @@ O traceroute saída da spoke VNet para uma VM na VNet remota é mostrada aqui:
 
     Trace complete.
 
-Este traceroute, o primeiro salto é ExpressRoute túnel ponto final de gateway a VNet hub para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo IP do segundo salto não está anunciado no hub/spoke VNet. O terceiro salto é a VM na VNet remota.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo de IP do segundo salto não é anunciado na VNet hub/spoke. O terceiro salto é a VM na VNet remota.
 
-## <a name="data-path-from-the-branch-vnet"></a>Caminho de dados a partir do ramo de VNet
+## <a name="data-path-from-the-branch-vnet"></a>Caminho de dados da VNet da ramificação
 
-### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do hub
+### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do Hub
 
-Traceroute saída a partir do ramo de VNet a uma VM no hub de que vnet é mostrado aqui:
+A saída de traceroute da VNet de ramificação para uma VM na VNet do hub é mostrada aqui:
 
     C:\Windows\system32>tracert 10.10.30.4
 
@@ -216,11 +216,11 @@ Traceroute saída a partir do ramo de VNet a uma VM no hub de que vnet é mostra
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o gateway de VPN do ramo de VNet. O segundo salto é o gateway VPN de VNet do hub. O endereço IP do gateway de VPN de VNet do hub não é anunciado na VNet remota. O terceiro salto é a VM na VNet do hub.
+Nessas rotas, o primeiro salto é o gateway de VPN da VNet da ramificação. O segundo salto é o gateway de VPN da VNet do Hub. O endereço IP do gateway de VPN da VNet do Hub não é anunciado na VNet remota. O terceiro salto é a VM na VNet do Hub.
 
-### <a name="path-to-the-spoke-vnet"></a>Caminho para o VNet spoke
+### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
-Traceroute saída a partir do ramo de VNet a uma VM no spoke que vnet é mostrado aqui:
+A saída de traceroute da VNet de ramificação para uma VM na VNet do spoke é mostrada aqui:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -232,11 +232,11 @@ Traceroute saída a partir do ramo de VNet a uma VM no spoke que vnet é mostrad
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o gateway de VPN do ramo de VNet. O segundo salto é o gateway VPN de VNet do hub. O endereço IP do gateway de VPN de VNet do hub não é anunciado na VNet remota. O terceiro salto é a VM na spoke VNet.
+Nessas rotas, o primeiro salto é o gateway de VPN da VNet da ramificação. O segundo salto é o gateway de VPN da VNet do Hub. O endereço IP do gateway de VPN da VNet do Hub não é anunciado na VNet remota. O terceiro salto é a VM na VNet do spoke.
 
-### <a name="path-to-on-premises-location-1"></a>Caminho para a localização no local 1
+### <a name="path-to-on-premises-location-1"></a>Caminho para o local 1
 
-Saída de traceroute do ramo a VNet a uma VM em 1 de localização no local é mostrada aqui:
+A saída de traceroute da VNet de ramificação para uma VM no local 1 é mostrada aqui:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -250,11 +250,11 @@ Saída de traceroute do ramo a VNet a uma VM em 1 de localização no local é m
 
     Trace complete.
 
-Este traceroute, o primeiro salto é o gateway de VPN do ramo de VNet. O segundo salto é o gateway VPN de VNet do hub. O endereço IP do gateway de VPN de VNet do hub não é anunciado na VNet remota. O terceiro salto é o ponto de terminação de túnel VPN no router CE primário. O quarto salto é um endereço IP de 1 de localização no local. Este endereço IP de LAN não está anunciado fora o roteador CE. O quinto salto é o destino de VM no 1 localização no local.
+Nessas rotas, o primeiro salto é o gateway de VPN da VNet da ramificação. O segundo salto é o gateway de VPN da VNet do Hub. O endereço IP do gateway de VPN da VNet do Hub não é anunciado na VNet remota. O terceiro salto é o ponto de término do túnel VPN no roteador CE primário. O quarto salto é um endereço IP interno do local 1. Esse endereço IP de LAN não é anunciado fora do roteador CE. O quinto salto é a VM de destino no local 1.
 
-### <a name="path-to-on-premises-location-2-and-the-remote-vnet"></a>Caminho para 2 de localização no local e a VNet remota
+### <a name="path-to-on-premises-location-2-and-the-remote-vnet"></a>Caminho para o local 2 e a VNet remota
 
-Conforme discutimos na análise de plano de controlo, o ramo VNet tem sem visibilidade para 2 de localização no local ou para a VNet remota pela configuração de rede. Confirmar os resultados de ping seguintes: 
+Como discutimos na análise do plano de controle, a VNet da ramificação não tem visibilidade para o local 2 ou para a VNet remota por configuração de rede. Os seguintes resultados de ping são confirmados: 
 
     C:\Users\rb>ping 10.1.31.10
 
@@ -278,11 +278,11 @@ Conforme discutimos na análise de plano de controlo, o ramo VNet tem sem visibi
     Ping statistics for 10.17.30.4:
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-## <a name="data-path-from-on-premises-location-1"></a>Caminho de dados de 1 de localização no local
+## <a name="data-path-from-on-premises-location-1"></a>Caminho de dados do local 1
 
-### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do hub
+### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do Hub
 
-Traceroute de saída de 1 de localização no local a uma VM no hub de que vnet é mostrado aqui:
+A saída de traceroute do local 1 para uma VM na VNet do hub é mostrada aqui:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -296,15 +296,15 @@ Traceroute de saída de 1 de localização no local a uma VM no hub de que vnet 
 
     Trace complete.
 
-Neste traceroute, os dois primeiros saltos fazem parte da rede no local. O terceiro salto é a interface MSEE primária que enfrenta o roteador CE. O salto quarto é o gateway do ExpressRoute de VNet do hub. O intervalo IP do gateway ExpressRoute de VNet do hub não é anunciado à rede no local. O quinto salto é a VM de destino.
+Nessas rotas, os dois primeiros saltos fazem parte da rede local. O terceiro salto é a interface MSEE primária que enfrenta o roteador CE. O quarto salto é o gateway de ExpressRoute da VNet do Hub. O intervalo de IP do gateway de ExpressRoute da VNet do Hub não é anunciado para a rede local. O quinto salto é a VM de destino.
 
-Observador de rede fornece apenas uma vista centrada no Azure. Para um ponto de vista no local, podemos usar o Monitor de desempenho de rede do Azure. Monitor de desempenho de rede fornece agentes que pode instalar em servidores em redes fora do Azure para análise de caminho de dados.
+O observador de rede fornece apenas uma exibição centrada no Azure. Para uma perspectiva local, usamos o Azure Monitor de Desempenho de Rede. O Monitor de Desempenho de Rede fornece agentes que você pode instalar em servidores em redes fora do Azure para análise de caminho de dados.
 
-A figura a seguir mostra a vista de topologia de conectividade de VM de 1 de localização no local para a VM na VNet através do ExpressRoute do hub:
+A figura a seguir mostra a exibição de topologia da conectividade de VM local 1 para a VM na VNet do hub por meio do ExpressRoute:
 
-[![4]][4]
+![4][4]
 
-Como discutido anteriormente, a configuração de teste utiliza uma VPN de site a site como conectividade de cópia de segurança para o ExpressRoute entre 1 de localização no local e a VNet do hub. Para testar o caminho de cópia de segurança de dados, vamos induza uma falha de ligação de ExpressRoute entre o router no local 1 localização primário CE e do MSEE correspondente. Para induza uma falha de ligação do ExpressRoute, encerre a interface de CE que enfrenta do MSEE:
+Conforme discutido anteriormente, a configuração de teste usa uma VPN site a site como conectividade de backup para o ExpressRoute entre o local 1 e a VNet do Hub. Para testar o caminho de dados de backup, vamos induzir uma falha de link do ExpressRoute entre o roteador CE local 1 primário e o MSEE correspondente. Para induzir uma falha de link do ExpressRoute, desligue a interface CE que enfrenta o MSEE:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -316,15 +316,15 @@ Como discutido anteriormente, a configuração de teste utiliza uma VPN de site 
 
     Trace complete.
 
-A figura a seguir mostra a vista de topologia de conectividade de VM de 1 de localização no local para a VM na VNet do hub através de conectividade VPN de site a site quando a conectividade do ExpressRoute está inativo:
+A figura a seguir mostra a exibição de topologia da conectividade de VM local 1 para a VM na VNet do hub por meio da conectividade VPN site a site quando a conectividade do ExpressRoute está inoperante:
 
-[![5]][5]
+![5][5]
 
-### <a name="path-to-the-spoke-vnet"></a>Caminho para o VNet spoke
+### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
-Traceroute de saída de 1 de localização no local a uma VM no spoke que vnet é mostrado aqui:
+A saída de traceroute do local 1 para uma VM na VNet do spoke é mostrada aqui:
 
-Vamos trazer de volta a conectividade de principal do ExpressRoute para fazer a análise de caminho de dados para a VNet spoke:
+Vamos voltar à conectividade primária do ExpressRoute para fazer a análise do caminho de dados em direção à VNet do spoke:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -338,11 +338,11 @@ Vamos trazer de volta a conectividade de principal do ExpressRoute para fazer a 
 
     Trace complete.
 
-Abra a conectividade de 1 do ExpressRoute primária para o restante da análise de caminho de dados.
+Traga a conectividade primária do ExpressRoute 1 para o restante da análise de caminho de dados.
 
-### <a name="path-to-the-branch-vnet"></a>Caminho para o ramo de VNet
+### <a name="path-to-the-branch-vnet"></a>Caminho para a VNet da ramificação
 
-Traceroute de saída de 1 de localização no local a uma VM no ramo que vnet é mostrado aqui:
+A saída de traceroute do local 1 para uma VM na VNet da ramificação é mostrada aqui:
 
     C:\Users\rb>tracert 10.11.30.68
 
@@ -354,9 +354,9 @@ Traceroute de saída de 1 de localização no local a uma VM no ramo que vnet é
 
     Trace complete.
 
-### <a name="path-to-on-premises-location-2"></a>Caminho para a localização no local 2
+### <a name="path-to-on-premises-location-2"></a>Caminho para o local 2
 
-À medida que abordamos a [controlar a análise de plano][Control-Analysis], tem de 1 de localização no local sem visibilidade para 2 de localização no local pela configuração de rede. Confirmar os resultados de ping seguintes: 
+À medida que discutimos na [análise do plano de controle][Control-Analysis], o local 1 não tem visibilidade no local 2 de acordo com a configuração de rede. Os seguintes resultados de ping são confirmados: 
 
     C:\Users\rb>ping 10.1.31.10
     
@@ -371,7 +371,7 @@ Traceroute de saída de 1 de localização no local a uma VM no ramo que vnet é
 
 ### <a name="path-to-the-remote-vnet"></a>Caminho para a VNet remota
 
-O traceroute saída de 1 de localização no local a uma VM na VNet remota é mostrada aqui:
+A saída de traceroute do local 1 para uma VM na VNet remota é mostrada aqui:
 
     C:\Users\rb>tracert 10.17.30.4
 
@@ -385,11 +385,11 @@ O traceroute saída de 1 de localização no local a uma VM na VNet remota é mo
 
     Trace complete.
 
-## <a name="data-path-from-on-premises-location-2"></a>Caminho de dados de 2 de localização no local
+## <a name="data-path-from-on-premises-location-2"></a>Caminho de dados do local 2
 
-### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do hub
+### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do Hub
 
-Traceroute de saída de 2 de localização no local a uma VM no hub de que vnet é mostrado aqui:
+A saída de traceroute do local 2 para uma VM na VNet do hub é mostrada aqui:
 
     C:\Windows\system32>tracert 10.10.30.4
 
@@ -403,9 +403,9 @@ Traceroute de saída de 2 de localização no local a uma VM no hub de que vnet 
 
     Trace complete.
 
-### <a name="path-to-the-spoke-vnet"></a>Caminho para o VNet spoke
+### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
-Traceroute de saída de 2 de localização no local a uma VM no spoke que vnet é mostrado aqui:
+A saída de traceroute do local 2 para uma VM na VNet do spoke é mostrada aqui:
 
     C:\Windows\system32>tracert 10.11.30.4
 
@@ -418,15 +418,15 @@ Traceroute de saída de 2 de localização no local a uma VM no spoke que vnet �
 
     Trace complete.
 
-### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Caminho para o ramo VNet, no local a 1 de localização e a VNet remota
+### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Caminho para a VNet da ramificação, local 1 e a VNet remota
 
-À medida que abordamos a [controlar a análise de plano][Control-Analysis], tem de 1 de localização no local sem visibilidade para o ramo VNet, a 1 de localização no local ou para a VNet remota pela configuração de rede. 
+Conforme discutimos na [análise do plano de controle][Control-Analysis], o local 1 não tem visibilidade para a vnet do Branch, para o local 1 ou para a vnet remota por configuração de rede. 
 
-## <a name="data-path-from-the-remote-vnet"></a>Caminho de dados a partir da VNet remota
+## <a name="data-path-from-the-remote-vnet"></a>Caminho de dados da VNet remota
 
-### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do hub
+### <a name="path-to-the-hub-vnet"></a>Caminho para a VNet do Hub
 
-Traceroute de saída da VNet remota a uma VM no hub de que vnet é mostrado aqui:
+A saída de traceroute da VNet remota para uma VM na VNet do hub é mostrada aqui:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -438,9 +438,9 @@ Traceroute de saída da VNet remota a uma VM no hub de que vnet é mostrado aqui
 
     Trace complete.
 
-### <a name="path-to-the-spoke-vnet"></a>Caminho para o VNet spoke
+### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
-Traceroute de saída da VNet remota a uma VM no spoke que vnet é mostrado aqui:
+A saída de traceroute da VNet remota para uma VM na VNet do spoke é mostrada aqui:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -452,13 +452,13 @@ Traceroute de saída da VNet remota a uma VM no spoke que vnet é mostrado aqui:
 
     Trace complete.
 
-### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Caminho para o ramo de VNet e de 2 de localização no local
+### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Caminho para a VNet de ramificação e local 2
 
-À medida que abordamos a [controlar a análise de plano][Control-Analysis], a VNet remota tiver sem visibilidade para o ramo de VNet ou para 2 de localização no local pela configuração de rede. 
+À medida que discutimos na [análise do plano de controle][Control-Analysis], a vnet remota não tem visibilidade para a VNet da ramificação ou para o local 2 de acordo com a configuração de rede. 
 
-### <a name="path-to-on-premises-location-1"></a>Caminho para a localização no local 1
+### <a name="path-to-on-premises-location-1"></a>Caminho para o local 1
 
-O traceroute saída da VNet remota a uma VM em 1 de localização no local é mostrada aqui:
+A saída de traceroute da VNet remota para uma VM no local 1 é mostrada aqui:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -472,49 +472,49 @@ O traceroute saída da VNet remota a uma VM em 1 de localização no local é mo
     Trace complete.
 
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade VPN de site a site e ExpressRoute em conjunto
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade de VPN site a site e de ExpressRoute em tandem
 
-###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de site a site através do ExpressRoute
+###  <a name="site-to-site-vpn-over-expressroute"></a>VPN site a site por meio do ExpressRoute
 
-Pode configurar uma VPN de site a site com o ExpressRoute peering em privado trocar dados entre a rede no local e as VNets do Azure da Microsoft. Com esta configuração, podem trocar dados com confidencialidade e integridade autenticidade. Além disso, a troca de dados é anti-repetições. Para obter mais informações sobre como configurar uma VPN IPsec de site a site no modo de túnel com o ExpressRoute peering da Microsoft, consulte [VPN de Site a site através do peering da Microsoft do ExpressRoute][S2S-Over-ExR]. 
+Você pode configurar uma VPN site a site usando o emparelhamento da Microsoft ExpressRoute para trocar dados de forma privada entre sua rede local e o VNets do Azure. Com essa configuração, você pode trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é a anti-repetição. Para obter mais informações sobre como configurar uma VPN IPsec site a site no modo de túnel usando o emparelhamento da Microsoft do ExpressRoute, consulte [VPN site a site sobre o emparelhamento da Microsoft do expressroute][S2S-Over-ExR]. 
 
-A principal limitação de configuração de uma VPN de site a site que utiliza o peering da Microsoft é a taxa de transferência. Taxa de transferência sobre o túnel IPsec é limitada pela capacidade do gateway VPN. O débito do gateway VPN é inferior a taxa de transferência do ExpressRoute. Neste cenário, utilizar o túnel IPsec para o tráfego altamente seguro e utilizar o peering privado para todos os outros tráfegos ajuda a otimizar a utilização de largura de banda do ExpressRoute.
+A principal limitação de configurar uma VPN site a site que usa o emparelhamento da Microsoft é a taxa de transferência. A taxa de transferência sobre o túnel IPsec é limitada pela capacidade do gateway de VPN. A taxa de transferência do gateway de VPN é inferior à taxa de transferência do ExpressRoute. Nesse cenário, o uso do túnel IPsec para tráfego altamente seguro e o uso de emparelhamento privado para todo o outro tráfego ajuda a otimizar a utilização da largura de banda do ExpressRoute.
 
-### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN de site a site como um caminho de ativação pós-falha seguro para o ExpressRoute
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN site a site como um caminho de failover seguro para o ExpressRoute
 
-ExpressRoute funciona como um par de circuito redundantes para elevada disponibilidade. Pode configurar a conectividade do ExpressRoute com redundância geográfica em diferentes regiões do Azure. Além disso, como demonstrado em nossa configuração de teste, dentro de uma região do Azure, pode utilizar uma VPN de site a site para criar um caminho de ativação pós-falha para a conectividade do ExpressRoute. Quando os mesmos prefixos são anunciados através do ExpressRoute e uma VPN de site a site, o Azure dá prioridade ExpressRoute. Para evitar o encaminhamento assimétricas entre ExpressRoute e VPN site a site, no local a configuração de rede também deve reciprocate utilizando a conectividade do ExpressRoute antes de ele usa a conectividade VPN de site a site.
+O ExpressRoute serve como um par de circuitos redundantes para garantir a alta disponibilidade. Você pode configurar a conectividade do ExpressRoute com redundância geográfica em diferentes regiões do Azure. Além disso, conforme demonstrado em nossa configuração de teste, em uma região do Azure, você pode usar uma VPN site a site para criar um caminho de failover para a conectividade do ExpressRoute. Quando os mesmos prefixos são anunciados no ExpressRoute e em uma VPN site a site, o Azure prioriza o ExpressRoute. Para evitar o roteamento assimétrico entre o ExpressRoute e a VPN site a site, a configuração de rede local também deve ser reciprocada usando a conectividade de ExpressRoute antes de usar a conectividade VPN site a site.
 
-Para obter mais informações sobre como configurar ligações coexistentes ExpressRoute e uma VPN de site a site, consulte [ExpressRoute e coexistência site a site][ExR-S2S-CoEx].
+Para obter mais informações sobre como configurar conexões coexistentes para o ExpressRoute e uma VPN site a site, consulte [ExpressRoute e coexistência site a site][ExR-S2S-CoEx].
 
-## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Expandir a conectividade de back-end para spoke VNets e localizações de sucursais
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Estender a conectividade de back-end para spoke VNets e locais de filiais
 
-### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade de VNet do spoke ao utilizar o VNet peering
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade de VNet do spoke usando o emparelhamento VNet
 
-Hub- and -spoke arquitetura da VNet é amplamente utilizada. O hub é uma VNet no Azure que age como um ponto central de conectividade entre a VNets spoke e à sua rede no local. Os spokes são VNets que partilham com o hub, e que pode ser usada para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação VPN ou ExpressRoute. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-and-spoke no Azure][Hub-n-Spoke].
+A arquitetura de VNet de Hub e spoke é amplamente usada. O Hub é uma VNet no Azure que atua como um ponto central de conectividade entre seu VNets de spoke e sua rede local. Os spokes são VNets que emparelham com o Hub e que você pode usar para isolar cargas de trabalho. O tráfego flui entre o datacenter local e o Hub por meio de uma conexão de ExpressRoute ou VPN. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
 
-O VNet peering dentro de uma região, spoke VNets pode utilizar gateways de VNet do hub (gateways VPN e ExpressRoute) para comunicar com redes remotas.
+No emparelhamento VNet dentro de uma região, o spoke VNets pode usar gateways de VNet de Hub (gateways VPN e ExpressRoute) para se comunicar com redes remotas.
 
-### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Ramificar a conectividade VNet através da VPN site a site
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Conectividade de VNet de ramificação usando VPN site a site
 
-Pode desejar ramo VNets, que estão em diferentes regiões e redes no local para comunicar entre si através de uma VNet do hub. A solução nativa do Azure para esta configuração é a conectividade VPN de site a site com uma VPN. Uma alternativa é usar uma aplicação virtual de rede (NVA) para o encaminhamento no hub.
+Talvez você queira ramificar VNets, que estão em regiões diferentes, e redes locais para se comunicarem entre si por meio de uma VNet de Hub. A solução nativa do Azure para essa configuração é a conectividade VPN site a site usando uma VPN. Uma alternativa é usar uma NVA (solução de virtualização de rede) para roteamento no Hub.
 
-Para obter mais informações, consulte [o que é o Gateway de VPN?] [ VPN] e [implementar uma NVA altamente disponível][Deploy-NVA].
+Para obter mais informações, consulte [o que é o gateway de VPN?][VPN] e [implantar um NVA altamente disponível][Deploy-NVA].
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [FAQ do ExpressRoute] [ ExR-FAQ] para:
--   Saiba quantos circuitos do ExpressRoute pode ligar a um gateway do ExpressRoute.
--   Saiba quantos gateways do ExpressRoute pode ligar a um circuito do ExpressRoute.
--   Saiba mais sobre outros limites de dimensionamento do ExpressRoute.
+Consulte as [perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
+-   Saiba quantos circuitos do ExpressRoute você pode se conectar a um gateway de ExpressRoute.
+-   Saiba quantos gateways do ExpressRoute você pode se conectar a um circuito do ExpressRoute.
+-   Saiba mais sobre outros limites de escala do ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "vista do observador de rede de conectividade entre uma VNet do hub e uma VNet spoke"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "vista do observador de rede de conectividade entre uma VNet do hub e um ramo de VNet"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "exibição de grade do observador de rede de conectividade entre uma VNet do hub e um ramo de VNet"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "exibição de Monitor de desempenho de rede de conectividade entre a VM de 1 de localização e a VNet através do ExpressRoute 1 do hub"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "exibição de Monitor de desempenho de rede de conectividade entre a VM de 1 de localização e a VNet através de uma VPN de site a site de hub"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Exibição de conectividade do observador de rede de uma VNet do hub para uma VNet do spoke"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Exibição do observador de rede de conectividade de uma VNet de Hub para uma VNet de ramificação"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Exibição em grade do observador de rede de conectividade de uma VNet de Hub para uma VNet de ramificação"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Monitor de Desempenho de Rede exibição de conectividade da VM local 1 para a VNet do hub por meio do ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Monitor de Desempenho de Rede exibição de conectividade da VM local 1 para a VNet do hub por meio de uma VPN site a site"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

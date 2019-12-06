@@ -1,32 +1,27 @@
 ---
 title: Autenticação orientada no Android | Azure
+titlesuffix: Microsoft identity platform
 description: Uma visão geral da autenticação orientada & autorização para Android na plataforma de identidade da Microsoft
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175652"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843721"
 ---
-# <a name="brokered-auth-in-android"></a>Autenticação orientada no Android
-
-## <a name="introduction"></a>Introdução
+# <a name="brokered-authentication-in-android"></a>Autenticação orientada no Android
 
 Você deve usar um dos agentes de autenticação da Microsoft para participar do SSO (logon único) em todo o dispositivo e para atender às políticas de acesso condicional organizacional. A integração com um agente oferece os seguintes benefícios:
 
@@ -52,9 +47,9 @@ O diagrama a seguir ilustra a relação entre seu aplicativo, a MSAL (biblioteca
 
 Os aplicativos de Hospedagem de agente podem ser instalados pelo proprietário do dispositivo de sua loja de aplicativos (normalmente Google Play Store) a qualquer momento. No entanto, algumas APIs (recursos) são protegidas por políticas de acesso condicional que exigem que os dispositivos sejam:
 
-- registrado (ingressado no local de trabalho) e/ou
-- registrado no gerenciamento de dispositivos ou
-- registrado no Proteção de Aplicativo do Intune
+- Registrado (ingressado no local de trabalho) e/ou
+- Registrado no gerenciamento de dispositivos ou
+- Registrado no Proteção de Aplicativo do Intune
 
 Se um dispositivo ainda não tiver um aplicativo de agente instalado, o MSAL instruirá o usuário a instalar um assim que o aplicativo tentar obter um token interativamente. O aplicativo precisará conduzir o usuário pelas etapas para tornar o dispositivo compatível com a política necessária.
 

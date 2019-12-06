@@ -2,29 +2,25 @@
 title: Guia de treinamento para fazer a transição de Registros de aplicativo (Herdado) para a nova experiência de Registros de aplicativo no portal do Azure
 description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927099"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844265"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transição de Registros de aplicativo (Herdado) para a nova experiência de Registros de aplicativo no portal do Azure
+# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Fazer a transição dos Registos de aplicações (Legado) para a nova experiência de Registos de aplicações no portal do Azure
 
 Você pode encontrar muitos aprimoramentos na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver familiarizado com a experiência de Registros de aplicativo (herdada) no portal do Azure, use este guia de treinamento para começar a usar a nova experiência.
 
@@ -47,7 +43,7 @@ A nova lista de aplicativo mostra os aplicativos que foram registrados por meio 
 
 A nova lista de aplicativos não tem uma coluna de **tipo de aplicativo** porque um único registro de aplicativo pode ser de vários tipos. A lista tem duas colunas adicionais: **criadas em** e **certificados & segredos**. **Certificados & segredos** mostra o status das credenciais que foram registradas no aplicativo. Os status incluem **atual**, **expirando em breve**e **expiraram**.
 
-## <a name="new-app-registration"></a>Novo registro de aplicativo
+## <a name="new-app-registration"></a>Registo de nova aplicação
 
 Na experiência herdada, para registrar um aplicativo, você precisa fornecer: **nome**, **tipo de aplicativo**e URL de **entrada/URI de redirecionamento**. Os aplicativos que foram criados eram apenas aplicativos de locatário único do Azure AD. Eles só dão suporte a contas organizacionais do diretório no qual o aplicativo foi registrado.
 
@@ -61,13 +57,13 @@ A experiência herdada tinha uma página **Propriedades** . As **Propriedades** 
 
 - **Nome**
 - **ID do objeto**
-- **ID do aplicativo**
+- **ID da Aplicação**
 - **URI do ID da Aplicação**
 - **Logotipo**
 - **URL da Home Page**
 - **URL de logout**
 - **URL dos termos de serviço**
-- **URL da política de privacidade**
+- **URL de declaração de privacidade**
 - **Tipo de Aplicação**
 - **Multilocatário**
 

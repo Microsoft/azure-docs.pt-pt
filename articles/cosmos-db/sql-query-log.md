@@ -1,18 +1,18 @@
 ---
 title: Fazer logon Azure Cosmos DB linguagem de consulta
-description: Saiba mais sobre o LOG de funções do sistema SQL no Azure Cosmos DB.
+description: Saiba mais sobre a função de sistema SQL de LOG em Azure Cosmos DB para retornar o logaritmo natural da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 16f2321eb48afacbc9636b5c0588b1ea3a01a284
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349733"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873289"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
  Devolve o logaritmo natural da expressão numérica especificado.  
@@ -41,7 +41,7 @@ LOG (<numeric_expr> [, <base>])
   
   O logaritmo natural é o logaritmo para a base **i**, onde **i** é uma constante irracional aproximadamente igual a 2.718281828.  
   
-  O logaritmo natural do exponencial de um número é o próprio número: LOG (EXP (n)) = n. E o exponencial do logaritmo natural de um número é o próprio número: EXP (LOG (n)) = n.  
+  O logaritmo natural de exponencial de um número é o número em si: registo (EXP (n)) = n. E exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n.  
   
 ## <a name="examples"></a>Exemplos
   

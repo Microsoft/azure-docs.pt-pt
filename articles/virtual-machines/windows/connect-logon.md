@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 43b6d541cfb3d2e5bd583223d9d93921982c65e0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039446"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842123"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows
 Irá utilizar o botão **Ligar** no Portal do Azure para iniciar uma sessão de Ambiente de Trabalho Remoto (RDP) a partir de um ambiente de trabalho do Windows. Primeiro, conecte-se à máquina virtual e, em seguida, faça logon.
@@ -27,15 +27,13 @@ Irá utilizar o botão **Ligar** no Portal do Azure para iniciar uma sessão de 
 Para se conectar a uma VM do Windows de um Mac, será necessário instalar um cliente RDP para Mac, como [área de trabalho remota da Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Ligar à máquina virtual
-1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda, selecione **máquinas virtuais**.
-3. Selecione a máquina virtual na lista.
-4. Na parte superior da página da máquina virtual, selecione **conectar**.
-2. Na página **conectar à máquina virtual** , selecione o endereço IP e a porta apropriados. Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **Transferir ficheiro RDP**. Se a VM tiver um conjunto de políticas just-in-time, primeiro você precisará selecionar o botão **solicitar acesso** para solicitar acesso para poder baixar o arquivo RDP. Para obter mais informações sobre a política just-in-time, consulte [gerenciar o acesso à máquina virtual usando a política just in time](../../security-center/security-center-just-in-time.md).
-2. Abra o arquivo RDP baixado e selecione **conectar** quando solicitado. 
-2. Você receberá um aviso de que o arquivo de `.rdp` é de um Publicador desconhecido. Isto era esperado. Na janela **conexão de área de trabalho remota** , selecione **conectar** para continuar.
+1. Vá para a [portal do Azure](https://portal.azure.com/) para se conectar a uma VM. Pesquise e selecione **máquinas virtuais**.
+2. Selecione a máquina virtual na lista.
+3. No início da página da máquina virtual, selecione **conectar**.
+4. Na página **conectar à máquina virtual** , selecione **RDP**e, em seguida, selecione o **endereço IP** e o **número da porta**apropriados. Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **transferir ficheiro RDP**. Se a VM tiver um conjunto de políticas just-in-time, primeiro você precisará selecionar o botão **solicitar acesso** para solicitar acesso para poder baixar o arquivo RDP. Para obter mais informações sobre a política just-in-time, consulte [gerenciar o acesso à máquina virtual usando a política just in time](../../security-center/security-center-just-in-time.md).
+5. Abra o arquivo RDP baixado e selecione **conectar** quando solicitado. Você receberá um aviso de que o arquivo de `.rdp` é de um Publicador desconhecido. Isto era esperado. Na janela **conexão de área de trabalho remota** , selecione **conectar** para continuar.
    
-    ![Captura de ecrã de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)
+    ![Captura de ecrã de um aviso sobre um publicador desconhecido.](./media/connect-logon/rdp-warn.png)
 3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Insira as credenciais para uma conta na máquina virtual e, em seguida, selecione **OK**.
    
      **Conta local**: geralmente é o nome de usuário e a senha da conta local que você especificou quando criou a máquina virtual. Neste caso, o domínio é o nome da máquina virtual e é introduzido como *nomedavm*&#92;*nomedeutilizador*.  
@@ -45,7 +43,7 @@ Para se conectar a uma VM do Windows de um Mac, será necessário instalar um cl
     **Controlador de domínio**: se a VM for um controlador de domínio, insira o nome de usuário e a senha de uma conta de administrador de domínio para esse domínio.
 4. Selecione **Sim** para verificar a identidade da máquina virtual e concluir o logon.
    
-   ![Captura de ecrã que mostra uma mensagem sobre a verificação da identidade da VM.](./media/connect-logon/cert-warning.png)
+   ![Captura de ecrã que mostra uma mensagem sobre a confirmação da identidade da VM.](./media/connect-logon/cert-warning.png)
 
 
    > [!TIP]

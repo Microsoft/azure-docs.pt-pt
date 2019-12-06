@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/01/2019
-ms.openlocfilehash: 0f7102081d5ccd29507917068893b484902a4fb3
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.date: 12/02/2019
+ms.openlocfilehash: 9b563f7546710b0cb07573d32b2f3939d8e64085
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708192"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872218"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início rápido: criar uma conta do Azure Cosmos, um banco de dados, um contêiner e itens do portal do Azure
 
@@ -51,15 +51,15 @@ Você pode usar o Data Explorer no portal do Azure para criar um banco de dados 
     
     Talvez seja necessário rolar para a direita para ver a janela **Adicionar contêiner** .
     
-    ![O Data Explorer de portal do Azure, o painel Adicionar contêiner](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    ![O Data Explorer no portal do Azure, painel Adicionar Contentor](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
 1.  No painel **Adicionar contêiner** , insira as configurações para o novo contêiner.
     
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|ToDoList|Insira *ToDoList* como o nome do novo banco de dados. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?`ou um espaço à direita. Marque a opção **provisionar taxa de transferência do banco de dados** , que permite que você compartilhe a taxa de transferência provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custos. |
+    |**ID da Base de Dados**|ToDoList|Insira *ToDoList* como o nome do novo banco de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita. Marque a opção **provisionar taxa de transferência do banco de dados** , que permite que você compartilhe a taxa de transferência provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custos. |
     |**Débito**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
-    |**ID do contêiner**|Itens|Insira os *itens* como o nome do novo contêiner. As IDs de contêiner têm os mesmos requisitos de caractere que os nomes de banco de dados.|
+    |**ID do Contentor**|Itens|Insira os *itens* como o nome do novo contêiner. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
     |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */Category* como a chave de partição.|
 
     

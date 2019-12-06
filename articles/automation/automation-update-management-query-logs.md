@@ -4,17 +4,17 @@ description: Este artigo descreve como consultar os logs para Gerenciamento de A
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d53e41fc902241d796cf8b10ae35c50c090a803a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 4797e3a348b057fa21677649e4cb7de78de0d8b9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377541"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850623"
 ---
 # <a name="query-update-records-for-update-management-in-log-analytics"></a>Registros de atualização de consulta para Gerenciamento de Atualizações em Log Analytics
 
@@ -22,7 +22,7 @@ Além dos detalhes que são fornecidos no portal do Azure, você pode fazer pesq
 
 Você também pode aprender como personalizar as consultas ou usá-las de diferentes clientes e muito mais visitando: [log Analytics a documentação da API de pesquisa](https://dev.loganalytics.io/).
 
-## <a name="sample-queries"></a>Exemplos de consultas
+## <a name="sample-queries"></a>Amostras de consultas
 
 As seções a seguir fornecem exemplos de consultas de log para registros de atualização que são coletados para Gerenciamento de Atualizações.
 
@@ -47,7 +47,7 @@ Heartbeat
 Em um computador com Windows, você pode examinar as seguintes informações para verificar a conectividade do agente com os logs de Azure Monitor:
 
 1. No painel de controle, abra **Microsoft Monitoring Agent**. Na guia **log Analytics do Azure** , o agente exibe a seguinte mensagem: **a Microsoft Monitoring Agent foi conectada com êxito ao log Analytics**.
-2. Abra o log de eventos do Windows. Vá para **aplicativo e serviços Gerenciador de logs** e procure a ID de evento 3000 e a ID de evento 5002 do **conector de serviço**de origem. Esses eventos indicam que o computador foi registrado com o espaço de trabalho Log Analytics e está recebendo a configuração.
+2. Abra o log de eventos do Windows. Vá para **aplicativo e serviços Gerenciador de logs** e procure a ID de evento 3000 e a ID de evento 5002 do **conector de serviço**de origem. Estes eventos indicam que o computador foi registado na área de trabalho do Log Analytics e que está a receber a configuração.
 
 Se o agente não puder se comunicar com os logs de Azure Monitor e o agente estiver configurado para se comunicar com a Internet por meio de um servidor proxy ou firewall, confirme se o firewall ou o servidor proxy está configurado corretamente. Para saber como verificar se o firewall ou o servidor proxy está configurado corretamente, consulte [configuração de rede para o agente do Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente do Linux](../log-analytics/log-analytics-agent-linux.md).
 
@@ -63,7 +63,7 @@ Para confirmar que um grupo de gerenciamento de Operations Manager está se comu
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Consultas únicas de avaliação de VM do Azure (Windows)
 
-Substitua o valor VMUUID pelo GUID da VM da máquina virtual que você está consultando. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta em logs de Azure Monitor: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Substitua o valor VMUUID pelo GUID da VM da máquina virtual que você está consultando. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta nos logs de Azure Monitor: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Resumo de atualizações ausentes
 
@@ -92,7 +92,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas únicas de avaliação de VM do Azure (Linux)
 
-Para alguns distribuições do Linux, há uma incompatibilidade de [endian](https://en.wikipedia.org/wiki/Endianness) com o valor de VMUUID que vem de Azure Resource Manager e o que é armazenado em logs de Azure monitor. A consulta a seguir verifica uma correspondência em qualquer endian. Substitua os valores de VMUUID pelo formato big-endian e little-endian do GUID para retornar os resultados corretamente. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta em logs de Azure Monitor: `Update | where Computer == "<machine name>"
+Para alguns distribuições do Linux, há uma incompatibilidade de [endian](https://en.wikipedia.org/wiki/Endianness) com o valor de VMUUID que vem de Azure Resource Manager e o que é armazenado em logs de Azure monitor. A consulta a seguir verifica uma correspondência em qualquer endian. Substitua os valores de VMUUID pelo formato big-endian e little-endian do GUID para retornar os resultados corretamente. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta nos logs de Azure Monitor: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Resumo de atualizações ausentes

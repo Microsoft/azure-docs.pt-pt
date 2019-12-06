@@ -1,27 +1,27 @@
 ---
 title: Cláusula FROM em Azure Cosmos DB
-description: Saiba mais sobre a cláusula SQL FROM para Azure Cosmos DB
+description: Saiba mais sobre a sintaxe SQL e o exemplo da cláusula FROM para Azure Cosmos DB. Este artigo também mostra exemplos de escopo de resultados e obter subitens usando a cláusula FROM.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327004"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873374"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
 
-A cláusula FROM (`FROM <from_specification>`) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo o contêiner `Families`. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
+A cláusula FROM (`FROM <from_specification>`) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo o contêiner de `Families`. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
 
 A cláusula FROM impõe as seguintes regras por consulta:
 
-* O contêiner pode ter um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-aliasing.md) do identificador.  
+* O contentor pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-aliasing.md) do identificador.  
 
-* Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` tem um alias e não pode mais ser resolvido.  
+* Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` foi alias e não pode mais ser resolvido.  
 
 * Todas as propriedades referenciadas devem ser totalmente qualificadas para evitar associações ambíguas na ausência da adesão estrita ao esquema. Por exemplo, `SELECT id FROM Families f` é sintaticamente inválido porque a propriedade `id` não está associada.
 
@@ -49,59 +49,59 @@ FROM <from_specification>
   
 - `<from_source>`  
   
-  Especifica uma fonte de dados, com ou sem um alias. Se o alias não for especificado, ele será inferido do `<container_expression>` usando as seguintes regras:  
+  Especifica uma origem de dados, com ou sem um alias. Se não for especificado o alias, ele irá ser inferido a partir do `<container_expression>` com os seguintes regras:  
   
-  -  Se a expressão for um container_name, então container_name será usado como um alias.  
+  -  Se a expressão for um container_name, container_name será utilizado como um alias.  
   
-  -  Se a expressão for `<container_expression>`, então property_name, property_name será usado como um alias. Se a expressão for um container_name, então container_name será usado como um alias.  
+  -  Se a expressão for `<container_expression>`, property_name, em seguida, property_name será utilizado como um alias. Se a expressão for um container_name, container_name será utilizado como um alias.  
   
-- COMO `input_alias`  
+- AS `input_alias`  
   
-  Especifica que o `input_alias` é um conjunto de valores retornados pela expressão de contêiner subjacente.  
+  Especifica que o `input_alias` é um conjunto de valores devolvidos pela expressão de contentor subjacente.  
  
-- `input_alias` em  
+- `input_alias` ÍNDIA  
   
-  Especifica que o `input_alias` deve representar o conjunto de valores obtidos pela iteração em todos os elementos de matriz de cada matriz retornada pela expressão de contêiner subjacente. Qualquer valor retornado pela expressão de contêiner subjacente que não é uma matriz é ignorado.  
+  Especifica que o `input_alias` deve representar o conjunto de valores obtidos com a iteração sobre todos os elementos de matriz de cada matriz devolvida pela expressão de contentor subjacente. Qualquer valor devolvido pela expressão subjacente do contentor que não seja uma matriz é ignorada.  
   
 - `<container_expression>`  
   
-  Especifica a expressão de contêiner a ser usada para recuperar os documentos.  
+  Especifica a expressão de contentor a ser usada para recuperar os documentos.  
   
 - `ROOT`  
   
-  Especifica que o documento deve ser recuperado do contêiner padrão conectado no momento.  
+  Especifica que esse documento deve ser obtido da predefinição, o contentor atualmente ligada.  
   
 - `container_name`  
   
-  Especifica que o documento deve ser recuperado do contêiner fornecido. O nome do contêiner deve corresponder ao nome do contêiner atualmente conectado.  
+  Especifica que esse documento deve ser obtido a partir do contentor fornecido. O nome do contentor tem de corresponder ao nome do contentor ligadas atualmente ao.  
   
 - `input_alias`  
   
-  Especifica que o documento deve ser recuperado da outra fonte definida pelo alias fornecido.  
+  Especifica que esse documento deve ser obtido a partir de outra origem definida pelo alias fornecido.  
   
 - `<container_expression> '.' property_`  
   
-  Especifica que o documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de contêiner especificada.  
+  Especifica esse documento deve ser obtido ao aceder a `property_name` especificada de propriedade ou array_index elemento de matriz para todos os documentos obtidos através de expressão de contentor.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Especifica que o documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de contêiner especificada.  
+  Especifica esse documento deve ser obtido ao aceder a `property_name` especificada de propriedade ou array_index elemento de matriz para todos os documentos obtidos através de expressão de contentor.  
   
 ## <a name="remarks"></a>Observações
   
-Todos os aliases fornecidos ou inferidos no `<from_source>(`s) devem ser exclusivos. A sintaxe `<container_expression>.`property_name é a mesma que `<container_expression>' ['"property_name"']'`. No entanto, a última sintaxe poderá ser usada se um nome de propriedade contiver um caractere não identificador.  
+Todos os aliases fornecido ou inferido no `<from_source>(`s) tem de ser exclusivo. A sintaxe `<container_expression>.`property_name é o mesmo que `<container_expression>' ['"property_name"']'`. No entanto, a sintaxe esse último pode ser utilizada se um nome de propriedade contém um caráter não identificador.  
   
-### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Manipulando propriedades ausentes, elementos de matriz ausentes e valores indefinidos
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>manipulação em falta as propriedades, em falta elementos de matriz e os valores não definidos
   
-Se uma expressão de contêiner acessar propriedades ou elementos de matriz e esse valor não existir, esse valor será ignorado e não poderá mais ser processado.  
+Se uma expressão de contentor acessa as propriedades ou elementos de matriz e que valor não existir, esse valor será ignorado e não processado ainda mais.  
   
-### <a name="container-expression-context-scoping"></a>Escopo de contexto de expressão de contêiner  
+### <a name="container-expression-context-scoping"></a>O controlo de âmbito do contentor expressão contexto  
   
-Uma expressão de contêiner pode ser no escopo do contêiner ou no escopo do documento:  
+Uma expressão de contentor pode ser no âmbito do contentor ou no âmbito do documento:  
   
--   Uma expressão é de escopo de contêiner, se a fonte subjacente da expressão de contêiner for ROOT ou `container_name`. Essa expressão representa um conjunto de documentos recuperados diretamente do contêiner e não depende do processamento de outras expressões de contêiner.  
+-   Uma expressão é o contentor no âmbito, se a origem subjacente da expressão de contentor é a raiz ou `container_name`. Tal uma expressão representa um conjunto de documentos obtidas diretamente a partir do contentor e não é dependente do processamento de outras expressões de contentor.  
   
--   Uma expressão tem escopo de documento, se a fonte subjacente da expressão de contêiner for `input_alias` introduzida anteriormente na consulta. Essa expressão representa um conjunto de documentos obtidos pela avaliação da expressão de contêiner no escopo de cada documento pertencente ao conjunto associado ao contêiner com alias.  O conjunto resultante será uma União de conjuntos obtidos pela avaliação da expressão de contêiner para cada um dos documentos no conjunto subjacente. 
+-   Uma expressão é o documento no âmbito, se a origem subjacente da expressão de contentor é `input_alias` introduzida anteriormente a consulta. Tal uma expressão representa um conjunto de documentos obtido ao avaliar a expressão de contentor no âmbito de cada documento que pertencem ao conjunto associado ao contentor de um alias.  O conjunto resultante será uma União dos conjuntos de obteve ao avaliar a expressão de contentor para cada um dos documentos no conjunto de subjacente. 
 
 ## <a name="examples"></a>Exemplos
 
@@ -147,7 +147,7 @@ Os resultados são:
     ]
 ```
 
-A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluirá `Families` que não têm um valor de `address.state`.
+A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluiria `Families` que não têm um valor de `address.state`.
 
 ```sql
     SELECT *

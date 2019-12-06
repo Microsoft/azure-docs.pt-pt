@@ -4,17 +4,17 @@ description: Tutorial que orienta você durante a criação, o teste e a publica
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 54b008939b3d083769756b9ac3c3c9e3f7aebea5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596933"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850283"
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook do Python
 

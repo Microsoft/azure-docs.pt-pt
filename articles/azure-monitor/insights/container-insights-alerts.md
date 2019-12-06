@@ -1,20 +1,21 @@
 ---
-title: Criar alertas de desempenho usando Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve como usar Azure Monitor para contêineres para criar alertas personalizados com base em consultas de log para utilização de memória e CPU.
+title: Criar alertas de desempenho para Azure Monitor para contêineres | Microsoft Docs
+description: Este artigo descreve como criar alertas personalizados com base em consultas de log para utilização de memória e CPU de Azure Monitor para contêineres.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195025"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841630"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como configurar alertas para problemas de desempenho em Azure Monitor para contêineres
+
 Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de contêiner que são implantadas em instâncias de contêiner do Azure ou em clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure).
 
 Este artigo descreve como habilitar alertas para as seguintes situações:
@@ -30,6 +31,7 @@ Para alertar sobre alta utilização de CPU ou memória ou pouco espaço livre e
 Se você não estiver familiarizado com alertas de Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../platform/alerts-overview.md) antes de iniciar. Para saber mais sobre alertas que usam consultas de log, consulte [alertas de log em Azure monitor](../platform/alerts-unified-log.md). Para obter mais informações sobre alertas de métrica, consulte [alertas de métrica em Azure monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Consultas de pesquisa de log de utilização de recursos
+
 As consultas nesta seção dão suporte a cada cenário de alerta. Eles são usados na etapa 7 da seção [criar alerta](#create-an-alert-rule) deste artigo.
 
 A consulta a seguir calcula a utilização média da CPU como uma média da utilização de CPU de nós membros a cada minuto.  
@@ -278,13 +280,14 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
-Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das regras de pesquisa de log que foi fornecida anteriormente.  
+
+Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das regras de pesquisa de log que foi fornecida anteriormente. Para criar usando um modelo de ARM, consulte [criação de alerta de log de exemplo usando o modelo de recurso do Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../platform/alerts-log-api-switch.md).
 >
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Monitor** no painel no lado esquerdo. Em **insights**, selecione **contêineres**.
 3. Na guia **clusters monitorados** , selecione um cluster na lista.
 4. No painel no lado esquerdo, em **monitoramento**, selecione **logs** para abrir a página logs de Azure monitor. Use essa página para gravar e executar consultas de Log Analytics do Azure.

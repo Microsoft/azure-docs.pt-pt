@@ -2,27 +2,24 @@
 title: Contas da plataforma de identidade da Microsoft e perfis de locatário (Android) | Azure
 description: Uma visão geral das contas da plataforma de identidade da Microsoft para Android
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7beab6759524037f86c83429644c1bb1fffe4d07
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9af7d8c5a1793b34dd609c2cfd68fb468884ef8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679844"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845727"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
 
@@ -32,10 +29,10 @@ A API da MSAL (biblioteca de autenticação da Microsoft) substitui o termo *usu
 
 Uma conta na plataforma Microsoft Identity consiste em:
 
-  - Um identificador exclusivo.
-  - Uma ou mais credenciais usadas para demonstrar a propriedade/o controle da conta.
-  - Um ou mais perfis que consistem em atributos como:
-    - Imagem, nome fornecido, nome da família, título, localização do escritório
+- Um identificador exclusivo.  
+- Uma ou mais credenciais usadas para demonstrar a propriedade/o controle da conta.
+- Um ou mais perfis que consistem em atributos como:
+  - Imagem, nome fornecido, nome da família, título, localização do escritório
 - Uma conta tem uma fonte de autoridade ou sistema de registro. Esse é o sistema em que a conta é criada e onde as credenciais associadas a essa conta são armazenadas. Em sistemas multilocatários como a plataforma Microsoft Identity, o sistema de registro é o `tenant` em que a conta foi criada. Esse locatário também é chamado de `home tenant`.
 - As contas na plataforma de identidade da Microsoft têm os seguintes sistemas de registro:
   - Azure Active Directory, incluindo Azure Active Directory B2C.
@@ -49,7 +46,6 @@ Uma conta na plataforma Microsoft Identity consiste em:
   - Esse registro local, que é a representação da conta, está associado à conta original.
   - MSAL expõe esse registro local como um `Tenant Profile`.
   - O perfil do locatário pode ter atributos diferentes que são apropriados para o contexto local, como cargo, local do escritório, informações de contato, etc.
- 
 - Como uma conta pode estar presente em um ou mais locatários, uma conta pode ter mais de um perfil.
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios interativos com Azure Monitor pastas de trabalho | Parâmetros de tempo | Microsoft docs
+title: Parâmetros de tempo de pastas de trabalho do Azure Monitor
 description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 906ebcc49eca72744abf5854a1b320407d0384dc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165514"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872762"
 ---
 # <a name="workbook-time-parameters"></a>Parâmetros de tempo da pasta de trabalho
 

@@ -1,19 +1,19 @@
 ---
-title: Particionamento no Azure Cosmos DB
-description: Visão geral do particionamento no Azure Cosmos DB.
+title: Criação de partições no Azure Cosmos DB
+description: Saiba mais sobre o particionamento em Azure Cosmos DB, práticas recomendadas ao escolher uma chave de partição e como gerenciar partições lógicas
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 38b4e4c2541bf30bd9c95d9c0ec61779b0d1d7bb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 12/02/2019
+ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753251"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871997"
 ---
-# <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no Azure Cosmos DB
+# <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
 
 Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas*. As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
 

@@ -2,25 +2,22 @@
 title: Práticas recomendadas de tratamento de erros para clientes da biblioteca de autenticação do Azure AD (ADAL)
 description: Fornece diretrizes de tratamento de erros e práticas recomendadas para aplicativos cliente ADAL.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 04ffeb85dc424396593d13f2cdc2681e26bd2db3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374195"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845200"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas de tratamento de erros para clientes ADAL (biblioteca de autenticação Azure Active Directory)
 
@@ -52,7 +49,7 @@ Há um conjunto de erros gerados pelo sistema operacional, o que pode exigir tra
 
 Fundamentalmente, há dois casos de erros de AcquireTokenSilent:
 
-| Casos | Descrição |
+| Caso | Descrição |
 |------|-------------|
 | **Caso 1**: o erro pode ser resolvido com uma entrada interativa | Para erros causados por uma falta de tokens válidos, uma solicitação interativa é necessária. Especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para resolver.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como pressionar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que o diagnosticam.|
 | **Caso 2**: o erro não pode ser resolvido com uma entrada interativa | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Prompts de entrada interativa desnecessárias também podem frustrar os usuários finais. A ADAL tenta automaticamente uma única repetição para a maioria dos erros em falhas de AcquireTokenSilent.<br><br>O aplicativo cliente também pode tentar uma nova tentativa posteriormente, mas quando e como depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo pode fazer uma nova tentativa de AcquireTokenSilent após alguns minutos ou em resposta a alguma ação do usuário final. Uma repetição imediata resultará no aplicativo que está sendo limitado e não deverá ser tentada.<br><br>Uma nova tentativa subsequente falha com o mesmo erro não significa que o cliente deve fazer uma solicitação interativa usando AcquireToken, pois não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que o diagnosticam. |
@@ -61,8 +58,8 @@ Fundamentalmente, há dois casos de erros de AcquireTokenSilent:
 
 As diretrizes a seguir fornecem exemplos de tratamento de erros em conjunto com os métodos ADAL: 
 
-- acquireTokenSilentAsync (...)
-- acquireTokenSilentSync(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
 - [preterido] acquireTokenSilent (...)
 - [preterido] acquireTokenByRefreshToken (...) 
 
@@ -105,8 +102,8 @@ catch (AdalException e) {
 
 As diretrizes a seguir fornecem exemplos de tratamento de erros em conjunto com os métodos ADAL: 
 
-- acquireTokenSilentSync(...)
-- acquireTokenSilentAsync (...)
+- acquireTokenSilentSync(…)
+- acquireTokenSilentAsync(...)
 - [preterido] acquireTokenSilent (...)
 
 Seu código seria implementado da seguinte maneira:
@@ -141,7 +138,7 @@ public void onError(Exception e) {
 
 As diretrizes a seguir fornecem exemplos de tratamento de erros em conjunto com os métodos ADAL: 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
 Seu código seria implementado da seguinte maneira:
 
@@ -211,7 +208,7 @@ O tratamento de erros em aplicativos nativos pode ser definido por dois casos:
 
 As diretrizes a seguir fornecem exemplos de tratamento de erros em conjunto com todas as AcquireToken não silenciosas (...) Métodos de ADAL, *exceto*: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
 - AcquireTokenAsync (..., ClientCredential,...)
 - AcquireTokenAsync (..., ClientAssertion,...)
 - AcquireTokenAsync (..., userdeclaration,...)   
@@ -347,7 +344,7 @@ Se você estiver criando um aplicativo Web .NET que chama obter um token usando 
 
 As diretrizes a seguir fornecem exemplos de tratamento de erros em conjunto com os métodos ADAL: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 Seu código seria implementado da seguinte maneira:
 
@@ -416,10 +413,10 @@ Para *todos os* cenários de aplicativo de serviço a serviço, incluindo em nom
 
 As diretrizes a seguir fornecem exemplos de tratamento de erros em conjunto com os métodos ADAL: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync (..., userdeclaration,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion, …)
 
 Seu código seria implementado da seguinte maneira:
 
@@ -577,7 +574,8 @@ window.Logging = {
     }
 };
 ```
-## <a name="related-content"></a>Conteúdo relacionado
+
+## <a name="related-content"></a>Related content (Conteúdos relacionados)
 
 * [Guia do desenvolvedor do Azure AD][AAD-Dev-Guide]
 * [Bibliotecas de autenticação do Azure AD][AAD-Auth-Libraries]
@@ -586,7 +584,7 @@ window.Logging = {
 
 Use a seção de comentários a seguir para fornecer comentários e nos ajudar a refinar e formatar nosso conteúdo.
 
-[![Shows o botão "Entrar com a conta da Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[![mostra o botão "Entrar com a conta da Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

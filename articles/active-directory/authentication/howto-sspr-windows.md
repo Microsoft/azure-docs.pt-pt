@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44e25efcb068fe51f05dbbde50e8a96da492a735
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381235"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847291"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como habilitar a redefinição de senha na tela de logon do Windows
 
@@ -50,7 +50,7 @@ Para computadores que executam o Windows 7, 8, 8,1 e 10, você pode permitir que
 - Um administrador deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure.
 - **Os usuários devem se registrar no SSPR antes de usar esse recurso**
 - Requisitos de proxy de rede
-   - Dispositivos Windows 10 
+   - Dispositivos com o Windows 10 
        - Porta 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
        - Dispositivos Windows 10 dão suporte apenas à configuração de proxy no nível de computador
 - Execute pelo menos o Windows 10, versão de abril de 2018 atualização (v1803) e os dispositivos devem ser:
@@ -113,7 +113,7 @@ Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windo
 > [!WARNING]
 > O TLS 1,2 deve ser habilitado, não apenas definido como negociação automática
 
-### <a name="install"></a>Instalar
+### <a name="install"></a>Instalação
 
 1. Baixe o instalador apropriado para a versão do Windows que você deseja habilitar.
    - O software está disponível no centro de download da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
@@ -124,7 +124,7 @@ Quando os usuários redefinem sua senha na tela de logon de um dispositivo Windo
 
 ![Exemplo, o Windows 7 clicou em "esqueceu a senha?" Fluxo de SSPR](media/howto-sspr-windows/windows-7-sspr.png)
 
-#### <a name="silent-installation"></a>Instalação silenciosa
+#### <a name="silent-installation"></a>Instalação automática
 
 - Para instalação silenciosa, use o comando "msiexec/i SsprWindowsLogon. PROD. msi/qn"
 - Para desinstalação silenciosa, use o comando "msiexec/x SsprWindowsLogon. PROD. msi/qn"
@@ -152,7 +152,7 @@ Quando os usuários tentam entrar, eles agora veem um link **Redefinir senha** o
 
 Os seus utilizadores podem obter orientações sobre como utilizar esta funcionalidade em [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md) (Repor a palavra-passe da conta escolar ou profissional)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Planejar métodos de autenticação para permitir](concept-authentication-methods.md)
 

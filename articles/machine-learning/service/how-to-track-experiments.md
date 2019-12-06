@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a60691222c6f5f31a5b5c97df029790c1fd690ed
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584531"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873891"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,31 +32,31 @@ Aprimore o processo de criação de modelo rastreando suas experiências e monit
 
 ## <a name="available-metrics-to-track"></a>Métricas disponíveis para acompanhar
 
-As métricas a seguir podem ser adicionadas a uma execução durante o treinamento de um experimento. Para exibir uma lista mais detalhada do que pode ser acompanhado em uma execução, consulte a [documentação de referência da classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
+As métricas seguintes podem ser adicionadas a uma execução enquanto uma experimentação de preparação. Para ver uma lista mais detalhada das quais podem ser acompanhadas numa execução, consulte a [execute a documentação de referência de classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tipo| Função do Python | Notas|
+|Tipo| Função de Python | Notas|
 |----|:----|:----|
-|Valores escalares |Funcionamento<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>Run. log ("exatidão", 0,95) |Registre um valor numérico ou de cadeia de caracteres para a execução com o nome fornecido. Registrar uma métrica em uma execução faz com que essa métrica seja armazenada no registro de execução no experimento.  Você pode registrar a mesma métrica várias vezes em uma execução, o resultado sendo considerado um vetor dessa métrica.|
-|Lista|Funcionamento<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>Run. log_list ("imprecisões", [0,6, 0,7, 0,87]) | Registra em log uma lista de valores para a execução com o nome fornecido.|
-|fila|Funcionamento<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>Run. log_row ("Y sobre X", X = 1, Y = 0.4) | O uso de *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para registrar uma tupla arbitrária ou várias vezes em um loop para gerar uma tabela completa.|
-|Tabela|Funcionamento<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run. log_table ("Y sobre X", {"X": [1, 2, 3], "y": [0,6, 0,7, 0,89]}) | Registra em log um objeto Dictionary na execução com o nome fornecido. |
-|Imagens|Funcionamento<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plt)` | Registre uma imagem no registro de execução. Use log_image para registrar um arquivo de imagem ou um gráfico matplotlib na execução.  Essas imagens estarão visíveis e comparáveis no registro de execução.|
-|Marcar uma execução|Funcionamento<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>Run. Tag ("Selected", "Yes") | Marque a execução com uma chave de cadeia de caracteres e um valor de cadeia de caracteres opcional.|
-|Carregar arquivo ou diretório|Funcionamento<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>Run. upload_file ("best_model. PKL", "./Model.PKL") | Carregue um arquivo no registro de execução. Executa o arquivo de captura automaticamente no diretório de saída especificado, cujo padrão é "./Outputs" para a maioria dos tipos de execução.  Use upload_file somente quando arquivos adicionais precisarem ser carregados ou se um diretório de saída não for especificado. Sugerimos adicionar `outputs` ao nome para que ele seja carregado no diretório de saídas. Você pode listar todos os arquivos associados a esse registro de execução chamado `run.get_file_names()`|
+|Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>Run.log ("precisão", 0.95) |Iniciar um numéricos ou de cadeia de valor para a execução com o nome fornecido. Registo de uma métrica para uma execução faz com que essa métrica sejam armazenadas no registo de execução na experimentação.  Pode se conectar a mesma métrica várias vezes dentro de uma execução, o resultado a ser considerado um vetor dessa métrica.|
+|Apresenta uma lista|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>Run.log_list ("precisões", [0,6, 0,7, 0,87]) | Inicie a sessão de uma lista de valores para a execução com o nome fornecido.|
+|linha|Função:<br>`run.log_row(name, description=None, **kwargs)`<br>Exemplo:<br>Run.log_row ("Y ao longo de X", x = 1, y = 0.4) | Usando *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para iniciar sessão uma tupla arbitrária, ou várias vezes num loop para gerar uma tabela completa.|
+|Tabelas|Função:<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run.log_table ("Y ao longo de X", {"x": [1, 2, 3], "y": [0,6, 0,7, 0.89]}) | Inicie a sessão de um objeto de dicionário para a execução com o nome fornecido. |
+|Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>`run.log_image("ROC", plt)` | Inicie a sessão de uma imagem para o registo de execução. Utilizar log_image para registar um ficheiro de imagem ou um matplotlib gráfico para a execução.  Estas imagens serão visíveis e comparável no registo de execução.|
+|Marcar uma execução|Função:<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>Run.tag ("selecionado", "Sim") | Marca a execução com uma chave de cadeia de caracteres e o valor de cadeia de caracteres opcional.|
+|Carregar o ficheiro ou diretório|Função:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>Run.upload_file ("best_model.pkl", ". / pkl") | Carregar um ficheiro para o registo de execução. Execuções de recolher automaticamente o ficheiro no diretório de saída especificado, o que está predefinida para ". / saídas" para a mais tipos de execução.  Utilize upload_file apenas quando os ficheiros adicionais devem ser carregados ou não for especificado um diretório de saída. Sugerimos que adicionar `outputs` para o nome, de modo que ele é carregado para o diretório de saídas. Pode listar todos os ficheiros que estão associados com esta opção executar o registo por chamada `run.get_file_names()`|
 
 > [!NOTE]
-> Métricas para escalares, listas, linhas e tabelas podem ter tipo: float, Integer ou String.
+> As métricas de escalares, listas, linhas e tabelas podem ter o tipo: número de vírgula flutuante, número inteiro ou uma cadeia.
 
 ## <a name="choose-a-logging-option"></a>Escolha uma opção de log
 
-Se você quiser acompanhar ou monitorar seu experimento, você deve adicionar o código para iniciar o registro em log ao enviar a execução. Veja a seguir as maneiras de disparar o envio de execução:
-* __Run. start_logging__ -adiciona funções de log ao seu script de treinamento e inicia uma sessão de log interativa no experimento especificado. **start_logging** cria uma execução interativa para uso em cenários como notebooks. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento.
-* __ScriptRunConfig__ – adicione funções de registro em log ao seu script de treinamento e carregue a pasta de script inteira com a execução.  **ScriptRunConfig** é uma classe para configurar as configurações para execuções de script. Com essa opção, você pode adicionar o código de monitoramento para ser notificado da conclusão ou para fazer com que um widget Visual monitore.
+Se pretender controlar ou monitorizar a sua experimentação, tem de adicionar o código para iniciar o log ao submeter a execução. Seguem-se formas para acionar o envio de execução:
+* __Run.start_logging__ - adicionar funções de registo para o script de treinamento e iniciar uma sessão de registo interativo na experimentação do especificado. **start_logging** cria uma execução interativa para utilização em cenários como blocos de notas. Qualquer métricas que são registadas durante a sessão são adicionadas ao registo de execução na experimentação.
+* __ScriptRunConfig__ - adicionar funções de registo para o script de formação e a pasta de script inteiro com a execução de carga.  **ScriptRunConfig** é uma classe para a configuração de configurações para o script é executado. Com esta opção, pode adicionar o código de monitorização para ser notificado da conclusão de ou para obter um widget visual para monitorizar.
 
-## <a name="set-up-the-workspace"></a>Configurar o espaço de trabalho
-Antes de adicionar o registro em log e enviar um experimento, você deve configurar o espaço de trabalho.
+## <a name="set-up-the-workspace"></a>Configurar a área de trabalho
+Antes de adicionar o registo e submeter uma experimentação, tem de configurar a área de trabalho.
 
-1. Carregue o espaço de trabalho. Para saber mais sobre como definir a configuração do espaço de trabalho, consulte [arquivo de configuração do espaço de trabalho](how-to-configure-environment.md#workspace).
+1. Carregar a área de trabalho. Para saber mais sobre como definir a configuração do espaço de trabalho, consulte [arquivo de configuração do espaço de trabalho](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -65,13 +65,13 @@ Antes de adicionar o registro em log e enviar um experimento, você deve configu
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-start_logging"></a>Opção 1: usar start_logging
+## <a name="option-1-use-start_logging"></a>Opção 1: Utilizar start_logging
 
-**start_logging** cria uma execução interativa para uso em cenários como notebooks. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento.
+**start_logging** cria uma execução interativa para utilização em cenários como blocos de notas. Qualquer métricas que são registadas durante a sessão são adicionadas ao registo de execução na experimentação.
 
-O exemplo a seguir treina um modelo de ondulação sklearn simples localmente em um notebook Jupyter local. Para saber mais sobre como enviar experimentos para ambientes diferentes, confira [Configurar destinos de computação para treinamento de modelo com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+O exemplo seguinte prepara um modelo simples de sklearn Ridge localmente num bloco de notas Jupyter local. Para saber mais sobre como enviar experimentos para ambientes diferentes, confira [Configurar destinos de computação para treinamento de modelo com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
-1. Crie um script de treinamento em um bloco de anotações Jupyter local. 
+1. Crie um script de treinamento num bloco de notas Jupyter local. 
 
    ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
@@ -95,7 +95,7 @@ O exemplo a seguir treina um modelo de ondulação sklearn simples localmente em
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Adicione o acompanhamento de experimento usando o SDK do Azure Machine Learning e carregue um modelo persistente no registro de execução do experimento. O código a seguir adiciona marcas, logs e carrega um arquivo de modelo para a execução do experimento.
+2. Adicione o acompanhamento de experimento usando o SDK do Azure Machine Learning e carregue um modelo persistente no registro de execução do experimento. O código a seguir adiciona etiquetas, os registos e carrega um ficheiro de modelo para a experimentação executar.
 
    ```python
     # Get an experiment object from Azure Machine Learning
@@ -127,13 +127,13 @@ O exemplo a seguir treina um modelo de ondulação sklearn simples localmente em
     run.complete()
    ```
 
-    O script termina com ```run.complete()```, que marca a execução como concluída.  Essa função é normalmente usada em cenários de notebooks interativos.
+    O script termina com ```run.complete()```, que marca a execução como concluída.  Esta função é normalmente utilizada em cenários de bloco de notas interativo.
 
-## <a name="option-2-use-scriptrunconfig"></a>Opção 2: usar ScriptRunConfig
+## <a name="option-2-use-scriptrunconfig"></a>Opção 2: Utilizar ScriptRunConfig
 
-[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) é uma classe para configurar as configurações para execuções de script. Com essa opção, você pode adicionar o código de monitoramento para ser notificado da conclusão ou para fazer com que um widget Visual monitore.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) é uma classe para configurar as configurações para execuções de script. Com esta opção, pode adicionar o código de monitorização para ser notificado da conclusão de ou para obter um widget visual para monitorizar.
 
-Este exemplo expande o modelo de ondulação sklearn básico acima. Ele faz uma varredura de parâmetro simples para varrer valores Alfa do modelo para capturar métricas e modelos treinados em execuções no experimento. O exemplo é executado localmente em um ambiente gerenciado pelo usuário. 
+Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâmetro simple paramétrico para paramétrico sobre os valores alfabéticos do modelo para capturar métricas com modelos de formação em é executado sob a experimentação. O exemplo é executado localmente em relação a um ambiente gerenciado por utilizador. 
 
 1. Crie um script de treinamento `train.py`.
 
@@ -201,7 +201,7 @@ Este exemplo expande o modelo de ondulação sklearn básico acima. Ele faz uma 
       return np.arange(0.0, 1.0, 0.05)
    ```
 
-3. Configure um ambiente local gerenciado pelo usuário.
+3. Configure um ambiente local do utilizador gerido.
 
    ```python
    from azureml.core import Environment
@@ -215,7 +215,7 @@ Este exemplo expande o modelo de ondulação sklearn básico acima. Ele faz uma 
    #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
-4. Envie o script de ```train.py``` para ser executado no ambiente gerenciado pelo usuário. Essa pasta de script inteira é enviada para treinamento, incluindo o arquivo de ```mylib.py```.
+4. Submeter o ```train.py``` script seja executado no ambiente do utilizador gerido. Esta pasta de script inteiro é submetida para treinamento, incluindo o ```mylib.py``` ficheiro.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -230,19 +230,38 @@ Este exemplo expande o modelo de ondulação sklearn básico acima. Ele faz uma 
 
 O artigo [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md) destaca Azure Machine Learning fluxos de trabalho específicos sobre como gerenciar seus experimentos.
 
-## <a name="view-run-details"></a>Exibir detalhes da execução
+## <a name="view-run-details"></a>Vista de detalhes da execução
+
+### <a name="view-activequeued-runs-from-the-browser"></a>Exibir execuções ativas/em fila no navegador
+
+Os destinos de computação usados para treinar modelos são um recurso compartilhado. Assim, eles podem ter várias execuções em fila ou ativas em um determinado momento. Para ver as execuções de um destino de computação específico do seu navegador, use as seguintes etapas:
+
+1. No [Azure Machine Learning Studio](https://ml.azure.com/), selecione seu espaço de trabalho e, em seguida, selecione __computação__ no lado esquerdo da página.
+
+1. Selecione __clusters de treinamento__ para exibir uma lista de destinos de computação usados para treinamento. Em seguida, selecione o cluster.
+
+    ![Selecione o cluster de treinamento](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Selecione __execuções__. A lista de execuções que usam esse cluster é exibida. Para exibir detalhes de uma execução específica, use o link na coluna __executar__ . Para exibir detalhes do experimento, use o link na coluna __experimento__ .
+
+    ![Selecionar execuções para o cluster de treinamento](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > Uma execução pode conter execuções filhas, portanto um trabalho de treinamento pode resultar em várias entradas.
+
+Quando uma execução for concluída, ela não será mais exibida nesta página. Para exibir informações sobre execuções concluídas, visite a seção __experimentos__ do estúdio e selecione o experimento e execute. Para obter mais informações, consulte a seção [métricas de execução de consulta](#queryrunmetrics) .
 
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Monitor executar com o widget do Jupyter Notebook
 Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução com um [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
 
-1. Exiba o widget Jupyter enquanto aguarda a conclusão da execução.
+1. Ver o widget de Jupyter enquanto aguarda a execução concluir.
 
    ```python
    from azureml.widgets import RunDetails
    RunDetails(run).show()
    ```
 
-   ![Captura de tela do widget Jupyter Notebook](./media/how-to-track-experiments/run-details-widget.png)
+   ![Widget de bloco de notas de captura de ecrã do Jupyter](./media/how-to-track-experiments/run-details-widget.png)
 
 Você também pode obter um link para a mesma exibição em seu espaço de trabalho.
 
@@ -250,7 +269,7 @@ Você também pode obter um link para a mesma exibição em seu espaço de traba
 print(run.get_portal_url())
 ```
 
-2. **[Para execuções automatizadas do Machine Learning]** Para acessar os gráficos de uma execução anterior. Substitua `<<experiment_name>>` pelo nome de experimento apropriado:
+2. **[Máquina automatizada aprendizagem execuções]**  Para acessar os gráficos de uma execução anterior. Substitua `<<experiment_name>>` pelo nome de experimento apropriado:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -262,55 +281,56 @@ print(run.get_portal_url())
    RunDetails(run).show()
    ```
 
-   ![Widget Jupyter Notebook para Machine Learning automatizada](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+   ![Widget de bloco de notas do Jupyter para Machine Learning automatizada](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 Para exibir mais detalhes de um pipeline, clique no pipeline que você gostaria de explorar na tabela e os gráficos serão renderizados em um pop-up do Azure Machine Learning Studio.
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados do registo após a conclusão
 
-O monitoramento e o treinamento do modelo ocorrem em segundo plano para que você possa executar outras tarefas enquanto espera. Você também pode aguardar até que o modelo tenha concluído o treinamento antes de executar mais código. Ao usar o **ScriptRunConfig**, você pode usar ```run.wait_for_completion(show_output = True)``` para mostrar quando o treinamento do modelo está concluído. O sinalizador ```show_output``` fornece saída detalhada. 
+Modelo de formação e monitorização ocorre em segundo plano para que possam executar outras tarefas enquanto espera. Também pode aguardar até que o modelo de conclusão da formação antes de executar mais de código. Quando utiliza **ScriptRunConfig**, pode utilizar ```run.wait_for_completion(show_output = True)``` para mostrar quando a preparação de modelos está concluída. O ```show_output``` sinalizador dá-lhe uma saída verbosa ideal. 
 
+<a id="queryrunmetrics"></a>
 
-### <a name="query-run-metrics"></a>Métricas de execução de consulta
+### <a name="query-run-metrics"></a>Métricas de execução da consulta
 
-Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Agora você pode obter todas as métricas que foram registradas no exemplo acima para determinar o melhor modelo.
+Pode ver as métricas de usar um modelo preparado ```run.get_metrics()```. Agora pode obter todas as métricas que foram registadas no exemplo acima para determinar o melhor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>Exibir o experimento em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com)
 
-Quando um experimento terminar de ser executado, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico do [Azure Machine Learning Studio](https://ml.azure.com).
+Quando uma experimentação estiver concluída em execução, pode navegar para a experimentação gravada executar o registo. Você pode acessar o histórico do [Azure Machine Learning Studio](https://ml.azure.com).
 
-Navegue até a guia experimentos e selecione seu experimento. Você é levado para o painel Executar teste, no qual você pode ver as métricas e os gráficos acompanhados que são registrados para cada execução. Nesse caso, registramos em log o MSE e os valores Alfa.
+Navegue até a guia experimentos e selecione seu experimento. Você é levado para o painel Executar teste, no qual você pode ver as métricas e os gráficos acompanhados que são registrados para cada execução. Neste caso, fizemos logon MSE e os valores alfa.
 
   ![Detalhes da execução no Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
 
 Você pode fazer uma busca detalhada em uma execução específica para exibir suas saídas ou logs ou baixar o instantâneo do teste enviado para que você possa compartilhar a pasta experimento com outras pessoas.
 
-### <a name="viewing-charts-in-run-details"></a>Exibindo gráficos em detalhes da execução
+### <a name="viewing-charts-in-run-details"></a>Ver gráficos em detalhes da execução
 
 Há várias maneiras de usar as APIs de log para registrar diferentes tipos de métricas durante uma execução e exibi-las como gráficos no Azure Machine Learning Studio.
 
-|Valor registrado|Código de exemplo| Exibir no portal|
+|Valor com sessão iniciada|Código de exemplo| Ver no portal|
 |----|----|----|
-|Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável única|
-|Registrar em log um único valor numérico com o mesmo nome de métrica usado repetidamente (como de dentro de um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| gráfico de linhas de variável única|
-|Registrar uma linha com duas colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
-|Tabela de log com duas colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
+|Registo de uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável de único|
+|Um único valor numérico de registo com o mesmo nome de métrica repetidamente utilizado (semelhantes a partir de um for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| gráfico de linhas de variável de único|
+|Inicie uma linha com 2 colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
+|Tabela de logs de 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
 
 
-## <a name="example-notebooks"></a>Blocos de anotações de exemplo
-Os blocos de anotações a seguir demonstram conceitos neste artigo:
-* [como usar-azureml/treinamento/treinar-dentro do notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [como usar-azureml/Training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [How-to-use-azureml/Training/logging-API/logging-API. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+## <a name="example-notebooks"></a>Blocos de notas de exemplo
+Os seguintes blocos de notas demonstram os conceitos deste artigo:
+* [How-to-use-azureml/Training/Train-within-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
+* [How-to-use-azureml/Training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [How-to-use-azureml/Training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente estas próximas etapas para aprender a usar o SDK do Azure Machine Learning para Python:
+Experimente os passos seguintes para aprender a utilizar o Azure Machine Learning SDK para Python:
 
-* Veja um exemplo de como registrar o melhor modelo e implantá-lo no tutorial, [treinar um modelo de classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Veja um exemplo de como registar o melhor modelo e implementá-la no tutorial [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-* Saiba como [treinar modelos PyTorch com Azure Machine Learning](how-to-train-pytorch.md).
+* Saiba como [formar modelos PyTorch com o Azure Machine Learning](how-to-train-pytorch.md).

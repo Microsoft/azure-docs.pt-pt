@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531528"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850011"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>Cota padrão: aumento do limite de vCPU regionais 
 
-O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o** uso e as **instâncias de VM reservadas** usam a cota padrão. As **VMs de baixa prioridade** usam a cota de baixa prioridade. 
+O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o** uso e as **instâncias de VM reservadas** usam a cota padrão. As **VMs pontuais** usam a cota Spot. 
 
 A cota de vCPU padrão para instâncias de VMs pagas conforme o uso e as de VM reservadas são impostas em duas camadas para cada assinatura em cada região.
  
@@ -26,7 +26,7 @@ Quando uma nova assinatura é criada, o vCPUs regional total padrão pode não s
 
 Saiba mais sobre as cotas de vCPU padrão na [página de cotas do vCPU de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e na página [limites de serviço e assinatura do Azure](https://aka.ms/quotalimits) .
 
-Saiba mais sobre como **aumentar os limites de vCPU de VM de baixa prioridade** [aqui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Saiba mais sobre como **aumentar os limites de vCPU de VM Spot** [aqui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Você pode solicitar um aumento no **limite de vCPU regional total de VM padrão** por meio da folha **ajuda + suporte** ou da folha **usos + cota** no Portal.
 
@@ -36,7 +36,7 @@ Siga as instruções abaixo para criar uma solicitação de suporte por meio da 
 
 1. Em https://portal.azure.com, selecione **ajuda + suporte**.
 
-![Ajuda + suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
+![Ajuda + Suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Selecione **Novo pedido de suporte**. 
 
@@ -52,7 +52,7 @@ Siga as instruções abaixo para criar uma solicitação de suporte por meio da 
    
 5. Selecione **outras solicitações** na lista suspensa **tipo de cota** .
 
-![Tipo de cota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+![Tipo de Quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
 6. No painel de **detalhes** , forneça informações adicionais de acordo com o exemplo abaixo, para ajudar a processar sua solicitação e continuar com a criação do caso. 
     1.  **Modelo de implantação** – Especifique ' Resource Manager '
@@ -83,7 +83,7 @@ Siga as instruções abaixo usando para criar uma solicitação de suporte por m
 
 5. Selecione **outras solicitações** na lista suspensa **tipo de cota** .
 
-![Tipo de cota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+![Tipo de Quota](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
 6. No painel de **detalhes** , forneça informações adicionais de acordo com o exemplo abaixo, para ajudar a processar sua solicitação e continuar com a criação do caso. 
     1.  **Modelo de implantação** – Especifique ' Resource Manager '

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 691c8e8d2f2c6c8e9472ba7a4ae83d8b76f2850c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814110"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868733"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: integrar uma única floresta a um único locatário do Azure AD
 
@@ -43,7 +43,7 @@ Você pode usar o ambiente criado neste tutorial para teste ou para se familiari
      | --- | --- |
      | **80** | Baixa as listas de certificados revogados (CRLs) ao validar o certificado SSL |
      | **443** | Manipula toda a comunicação de saída com o serviço |
-     | **8080** (opcional) | Os agentes relatarão seu status a cada 10 minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do AD do Azure. A porta 8080 _não_ é usada para entradas de usuário. |
+     | **8080** (opcional) | Os agentes relatarão seu status a cada 10 minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do AD do Azure. |
      
      Se o firewall impõe regras de acordo com os usuários de origem, abra essas portas para o tráfego de serviços do Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitir que você especifique os sufixos seguros, adicione as conexões t a **\*. msappproxy.net** e **\*. ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.

@@ -1,41 +1,36 @@
 ---
-title: Como encontrar uma API específica necessária para uma aplicação personalizada desenvolvida | Documentos da Microsoft
-description: Como configurar as permissões que necessárias para aceder a uma API específica em seu custom desenvolveu a aplicação do Azure AD
+title: Como encontrar uma API específica necessária para um aplicativo de desenvolvimento personalizado | Microsoft Docs
+description: Como configurar as permissões necessárias para acessar uma API específica em seu aplicativo do Azure AD personalizado desenvolvido
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2492a9346585698132e7fd9cfcde068ffd60ebc5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 66c223df28f8082125d48f1e3619088de5cf2687
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476155"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844605"
 ---
-# <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como encontrar uma API específica necessária para uma aplicação personalizada desenvolvida
+# <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como encontrar uma API específica necessária para um aplicativo desenvolvido de forma personalizada
 
-O acesso a APIs exigem a configuração das funções e âmbitos de acesso. Se quiser expor seu recurso aplicação APIs web para aplicativos cliente, terá de configurar âmbitos de acesso e as funções para a API. Se pretender que uma aplicação de cliente para aceder a uma API web, tem de configurar permissões para aceder à API do registo de aplicação.
+O acesso às APIs requer a configuração de escopos de acesso e funções. Se você quiser expor suas APIs Web do aplicativo de recursos para aplicativos cliente, será necessário configurar escopos de acesso e funções para a API. Se você quiser que um aplicativo cliente acesse uma API Web, precisará configurar permissões para acessar a API no registro do aplicativo.
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurar uma aplicação de recurso para expor APIs Web
 
-Quando expõe a web API, a API seja apresentado no **selecionar uma API** lista ao adicionar permissões a um registo de aplicações. Para adicionar âmbitos de acesso, siga os passos descritos em [configurar uma aplicação para expor as APIs web](quickstart-configure-app-expose-web-apis.md).
+Quando você expõe sua API Web, a API é exibida na lista **selecionar uma API** ao adicionar permissões a um registro de aplicativo. Para adicionar escopos de acesso, siga as etapas descritas em [configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md).
 
-## <a name="configuring-a-client-application-to-access-web-apis"></a>Configurar uma aplicação de cliente para aceder a APIs web
+## <a name="configuring-a-client-application-to-access-web-apis"></a>Configurando um aplicativo cliente para acessar APIs Web
 
-Quando adicionar permissões ao registo da aplicação, pode **adicionar acesso à API** para APIs da web expostas. Para aceder a web APIs, siga os passos descritos em [configurar uma aplicação de cliente para aceder a web APIs](quickstart-configure-app-access-web-apis.md).
+Ao adicionar permissões ao registro do aplicativo, você pode **Adicionar acesso à API** para APIs da Web expostas. Para acessar APIs Web, siga as etapas descritas em [configurar um aplicativo cliente para acessar APIs da Web](quickstart-configure-app-access-web-apis.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
--   [Compreender o manifesto da aplicação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
-
-
+- [Noções básicas sobre o manifesto do aplicativo Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)

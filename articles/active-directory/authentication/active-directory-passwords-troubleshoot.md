@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b72f0675569ea6f683e8e1f8d2e4bc468f82c71f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a22c0cc922e021edc37dfbb2d89fdd20c77b2c87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382041"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848770"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de redefinição de senha de autoatendimento
 
@@ -127,7 +127,7 @@ Uma prática recomendada ao solucionar problemas com o Write-back de senha é in
 | 31018| KeyPairCreationSuccess| Esse evento indica que criamos com êxito a chave de criptografia de senha. Essa chave é usada para criptografar senhas da nuvem para serem enviadas ao seu ambiente local.|
 | 32000| UnknownError| Esse evento indica que ocorreu um erro desconhecido durante uma operação de gerenciamento de senha. Examine o texto da exceção no evento para obter mais detalhes. Se você estiver tendo problemas, tente desabilitar e reabilitar o Write-back de senha. Se isso não ajudar, inclua uma cópia do seu log de eventos junto com a ID de acompanhamento especificada Insider ao seu engenheiro de suporte.|
 | 32001| ServiceError| Esse evento indica que houve um erro ao conectar-se ao serviço de redefinição de senha na nuvem. Esse erro geralmente ocorre quando o serviço local não pôde se conectar ao serviço Web de redefinição de senha.|
-| 32002| ServiceBusError| Esse evento indica que houve um erro ao conectar-se à instância do barramento de serviço do locatário. Isso pode acontecer se você estiver bloqueando as conexões de saída no seu ambiente local. Verifique o firewall para garantir que você permita conexões sobre TCP 443 e para https://ssprdedicatedsbprodncu.servicebus.windows.nete tente novamente. Se você ainda tiver problemas, tente desabilitar e reabilitar o Write-back de senha.|
+| 32002| ServiceBusError| Esse evento indica que houve um erro ao conectar-se à instância do barramento de serviço do locatário. Isso pode acontecer se você estiver bloqueando as conexões de saída no seu ambiente local. Verifique o firewall para garantir que você permita conexões sobre TCP 443 e para https://ssprdedicatedsbprodncu.servicebus.windows.net e tente novamente. Se você ainda tiver problemas, tente desabilitar e reabilitar o Write-back de senha.|
 | 32003| InPutValidationError| Esse evento indica que a entrada passada para a API do serviço Web era inválida. Tente a operação novamente.|
 | 32004| DecryptionError| Esse evento indica que houve um erro ao descriptografar a senha que chegou da nuvem. Isso pode ser devido a uma incompatibilidade de chave de descriptografia entre o serviço de nuvem e seu ambiente local. Para resolver esse problema, desabilite e, em seguida, habilite novamente o Write-back de senha no seu ambiente local.|
 | 32005| ConfigurationError| Durante a integração, salvamos informações específicas de locatário em um arquivo de configuração em seu ambiente local. Esse evento indica que houve um erro ao salvar esse arquivo ou que, quando o serviço foi iniciado, houve um erro ao ler o arquivo. Para corrigir esse problema, tente desabilitar e reabilitar o Write-back de senha para forçar uma regravação do arquivo de configuração.|
@@ -136,7 +136,7 @@ Uma prática recomendada ao solucionar problemas com o Write-back de senha é in
 | 32009| AuthTokenError| Esse evento indica que não foi possível obter um token de autorização para a conta de administrador global especificada durante a instalação do Azure AD Connect. Esse erro pode ser causado por um nome de usuário ou senha inválidos especificados para a conta de administrador global. Esse erro também pode ocorrer se a conta de administrador global especificada for federada. Para corrigir esse problema, execute novamente a configuração com o nome de usuário e a senha corretos e verifique se o administrador é uma conta gerenciada (somente em nuvem ou sincronizada por senha).|
 | 32010| CryptoError| Esse evento indica que houve um erro ao gerar a chave de criptografia de senha ou descriptografar uma senha que chega do serviço de nuvem. Esse erro provavelmente indica um problema com o seu ambiente. Examine os detalhes do seu log de eventos para saber mais sobre como resolver esse problema. Você também pode tentar desabilitar e habilitar novamente o serviço de write-back de senha.|
 | 32011| OnBoardingServiceError| Esse evento indica que o serviço local não pôde se comunicar corretamente com o serviço Web de redefinição de senha para iniciar o processo de integração. Isso pode ocorrer como resultado de uma regra de firewall ou se houver um problema ao obter um token de autenticação para seu locatário. Para corrigir esse problema, verifique se você não está bloqueando as conexões de saída sobre TCP 443 e TCP 9350-9354 ou para https://ssprdedicatedsbprodncu.servicebus.windows.net. Além disso, certifique-se de que a conta de administrador do Azure AD que você está usando para a integração não é federada.|
-| 32013| OffBoardingError| Esse evento indica que o serviço local não pôde se comunicar corretamente com o serviço Web de redefinição de senha para iniciar o processo de remoção. Isso pode acontecer como resultado de uma regra de firewall ou se houver um problema ao obter um token de autorização para seu locatário. Para corrigir esse problema, certifique-se de que você não está bloqueando as conexões de saída por 443 ou para https://ssprdedicatedsbprodncu.servicebus.windows.nete que a conta de administrador do Azure Active Directory que você está usando para transferir não é federada.|
+| 32013| OffBoardingError| Esse evento indica que o serviço local não pôde se comunicar corretamente com o serviço Web de redefinição de senha para iniciar o processo de remoção. Isso pode acontecer como resultado de uma regra de firewall ou se houver um problema ao obter um token de autorização para seu locatário. Para corrigir esse problema, certifique-se de que você não está bloqueando as conexões de saída por 443 ou para https://ssprdedicatedsbprodncu.servicebus.windows.net e que a conta de administrador do Azure Active Directory que você está usando para transferir não é federada.|
 | 32014| ServiceBusWarning| Esse evento indica que tivemos que tentar novamente se conectar à instância do barramento de serviço de seu locatário. Em condições normais, isso não deve ser uma preocupação, mas se você vir esse evento muitas vezes, considere verificar sua conexão de rede para o barramento de serviço, especialmente se for uma conexão de alta latência ou baixa largura de banda.|
 | 32015| ReportServiceHealthError| Para monitorar a integridade do seu serviço de write-back de senha, enviamos dados de pulsação para nosso serviço Web de redefinição de senha a cada cinco minutos. Esse evento indica que houve um erro ao enviar essas informações de integridade de volta para o serviço Web na nuvem. Essas informações de integridade não incluem informações de identificação de objeto (OII) ou dados de informações de identificação pessoal (PII) e são puramente uma pulsação e estatísticas básicas de serviço para que possamos fornecer informações de status de serviço na nuvem.|
 | 33001| ADUnKnownError| Esse evento indica que houve um erro desconhecido retornado por Active Directory. Verifique o log de eventos do Azure AD Connect Server em busca de eventos da origem do ADSync para obter mais informações.|
@@ -167,8 +167,8 @@ O ponto mais comum de falha é que as portas de firewall e ou proxy e os tempos 
 
 Para Azure AD Connect versão 1.1.443.0 e posterior, você precisa de acesso HTTPS de saída para o seguinte:
 
-* \*. passwordreset.microsoftonline.com
-* \*. servicebus.windows.net
+* \*.passwordreset.microsoftonline.com
+* \*.servicebus.windows.net
 
 Para obter mais granularidade, faça referência à lista atualizada de [Microsoft Azure intervalos de IP do datacenter](https://www.microsoft.com/download/details.aspx?id=41653) atualizados todas as quartas-feiras e coloque em vigor na próxima segunda-feira.
 

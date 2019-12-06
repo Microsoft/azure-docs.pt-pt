@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077124"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851779"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -47,14 +47,16 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 Você pode adicionar, editar ou remover uma política usando qualquer um dos seguintes métodos:
 
 * [Portal do Azure](https://portal.azure.com)
-* [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
+* [O Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.  
+Uma política pode ser lida ou gravada por completo. Não há suporte para atualizações parciais. 
 
 > [!NOTE]
 > Se você habilitar regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento de ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -65,7 +67,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 #### <a name="azure-portal-list-view"></a>Exibição de lista de portal do Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
@@ -86,7 +88,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 9. Selecione **Adicionar** para adicionar a nova política.
 
 #### <a name="azure-portal-code-view"></a>Exibição de código portal do Azure
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
@@ -230,9 +232,9 @@ Uma política é uma coleção de regras:
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
+| Nome do parâmetro | Tipo de parâmetro | Notas | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | Verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
 | `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | Verdadeiro |
 | `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
@@ -299,7 +301,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs e ex
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporte a BLOBs atualmente na camada quente         | Não suportado |
 | tierToArchive | Suporte a BLOBs atualmente na camada quente ou fria | Não suportado |
-| delete        | Suportado                                   | Suportado     |
+| delete        | Suportadas                                   | Suportadas     |
 
 >[!NOTE]
 >Se você definir mais de uma ação no mesmo BLOB, o gerenciamento do ciclo de vida aplicará a ação menos dispendiosa ao blob. Por exemplo, a ação `delete` é mais barata que a ação `tierToArchive`. A ação `tierToArchive` é mais barata que a ação `tierToCool`.

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 0ab2ba2c49dd0d0f946358c8f52a6daaf7428dd1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672564"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851422"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -27,10 +27,10 @@ Você também precisará habilitar o acesso do parceiro, conforme mencionado nas
 
 Você precisa habilitar a integração de parceiros à instância do FarmBeats do Azure. Esta etapa cria um cliente que terá acesso ao seu FarmBeats do Azure como seu parceiro de dispositivo e fornecerá os seguintes valores necessários nas etapas subsequentes.
 
-- Ponto de extremidade de API – é a URL do hub de dados, por exemplo, https://<datahub>. azurewebsites.net
+- Ponto de extremidade de API – é a URL do hub de dados, por exemplo, https://\<datahub >. azurewebsites. net
 - ID do inquilino
 - ID de Cliente
-- Segredo do cliente
+- Segredo do Cliente
 - Cadeia de conexão do EventHub
 
 Siga as etapas abaixo para gerá-los:
@@ -75,7 +75,7 @@ Siga as etapas abaixo para gerá-los:
 - /**sensor de sensor corresponde** a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.  
 
 
-|        Modelo de dispositivo   |  Sugestões   |
+|        Modelo do Dispositivo   |  Sugestões   |
 | ------- | -------             |
 |     Tipo (nó, gateway)        |          1 Estrela      |
 |          Fabricante            |         2 Estrelas     |
@@ -84,7 +84,7 @@ Siga as etapas abaixo para gerá-los:
 |     Nome                 |  Nome para identificar o recurso. Por exemplo, nome do modelo/nome do produto.
       Descrição     | Forneça uma descrição significativa do modelo
 |    Propriedades          |    Propriedades adicionais do fabricante   |
-|    **Vice**             |                      |
+|    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado  |
 |  HardwareID          | ID exclusiva para o dispositivo, como endereço MAC, etc.,
 |  reportingInterval        |   Intervalo de relatórios em segundos
@@ -119,14 +119,14 @@ Para obter mais informações sobre objetos, consulte [Swagger](https://aka.ms/F
 
 **Solicitação de API para criar metadados**
 
-Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL para o serviço de API, o URI para um recurso a ser consultado, envia dados para criar ou excluir uma solicitação e adicionar um ou mais cabeçalhos de solicitação HTTP. A URL para o serviço de API é o ponto de extremidade da API, ou seja, a URL do hub de dados (https://<yourdatahub>. azurewebsites.net)  
+Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL para o serviço de API, o URI para um recurso a ser consultado, envia dados para criar ou excluir uma solicitação e adicionar um ou mais cabeçalhos de solicitação HTTP. A URL para o serviço de API é o ponto de extremidade da API, ou seja, a URL do hub de dados (https://\<yourdatahub >. azurewebsites. net)  
 
-**Autenticação**:
+**Autenticação:**
 
 O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais que geramos na seção acima.
 
 - ID de Cliente
-- Segredo do cliente
+- Segredo do Cliente
 - ID do inquilino  
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes na seção de cabeçalho da seguinte maneira:
@@ -134,6 +134,28 @@ Usando as credenciais acima, o chamador pode solicitar um token de acesso, que p
 ```
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
+
+Veja abaixo um código Python de exemplo que fornece o token de acesso, que pode ser usado para chamadas de API subsequentes para FarmBeats: 
+
+```python
+import azure 
+
+from azure.common.credentials import ServicePrincipalCredentials 
+import adal 
+#FarmBeats API Endpoint 
+ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
+CLIENT_ID = "<Your Client ID>"   
+CLIENT_SECRET = "<Your Client Secret>"   
+TENANT_ID = "<Your Tenant ID>" 
+AUTHORITY_HOST = 'https://login.microsoftonline.com' 
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
+#Authenticating with the credentials 
+context = adal.AuthenticationContext(AUTHORITY) 
+token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
+#Should get an access token here 
+access_token = token_response.get('accessToken') 
+```
+
 
 **Cabeçalhos de solicitação HTTP**:
 
@@ -271,6 +293,26 @@ Você deve enviar a telemetria para o Hub de eventos do Azure para processamento
 **Enviar mensagem de telemetria como o cliente**
 
 Depois de estabelecer uma conexão como um cliente do EventHub, você poderá enviar mensagens para o EventHub como um JSON.  
+
+Aqui está um código Python de exemplo que envia telemetria como um cliente para um hub de eventos especificado:
+
+```python
+import azure
+from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
+EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
+EVENTHUBNAME = "<EventHub Name provided by customer>"
+
+write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
+sender = write_client.add_sender(partition="0")
+write_client.run()
+for i in range(5):
+    telemetry = "<Canonical Telemetry message>"
+    print("Sending telemetry: " + telemetry)
+    sender.send(EventData(telemetry))
+write_client.stop()
+
+```
+
 Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte:  
 
 ```json

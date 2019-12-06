@@ -4,17 +4,17 @@ description: Este artigo descreve como gerenciar runbooks na automação do Azur
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a477811e46d97375d4dce4d83072dda60ca797c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 42b973ce8a25abff60211afb34ef719d42366175
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717221"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850504"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na automação do Azure
 
@@ -47,10 +47,10 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 
 Você pode criar um novo runbook na automação do Azure importando um script do PowerShell ou um fluxo de trabalho do PowerShell (extensão. ps1), um runbook gráfico exportado (. graphrunbook) ou um script Python 2 (extensão. py).  Você deve especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração as considerações a seguir.
 
-* Um `.graphrunbook` arquivo só pode ser importado para um novo [runbook gráfico](automation-runbook-types.md#graphical-runbooks), e runbooks gráficos só podem ser criados `.graphrunbook` a partir de um arquivo.
-* Um `.ps1` arquivo que contém um fluxo de trabalho do PowerShell só pode ser importado para um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se o arquivo contiver vários fluxos de trabalho do PowerShell, a importação falhará. Você deve salvar cada fluxo de trabalho em seu próprio arquivo e importar cada um separadamente.
-* Um `.ps1` arquivo que contém um fluxo de trabalho do PowerShell não deve ser importado para um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks), pois não pode ser reconhecido pelo mecanismo de script do PowerShell.
-* Um `.ps1` arquivo que não contém um fluxo de trabalho pode ser importado para um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) ou um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Se ele for importado para um runbook de fluxo de trabalho do PowerShell, ele será convertido em um fluxo de trabalho e os comentários serão incluídos no runbook especificando as alterações feitas.
+* Um arquivo de `.graphrunbook` só pode ser importado para um novo [runbook gráfico](automation-runbook-types.md#graphical-runbooks), e runbooks gráficos só podem ser criados a partir de um arquivo de `.graphrunbook`.
+* Um arquivo de `.ps1` contendo um fluxo de trabalho do PowerShell só pode ser importado para um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se o arquivo contiver vários fluxos de trabalho do PowerShell, a importação falhará. Você deve salvar cada fluxo de trabalho em seu próprio arquivo e importar cada um separadamente.
+* Um arquivo de `.ps1` que contém um fluxo de trabalho do PowerShell não deve ser importado para um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks), pois ele não pode ser reconhecido pelo mecanismo de script do PowerShell.
+* Um arquivo de `.ps1` que não contém um fluxo de trabalho pode ser importado para um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) ou um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Se ele for importado para um runbook de fluxo de trabalho do PowerShell, ele será convertido em um fluxo de trabalho e os comentários serão incluídos no runbook especificando as alterações feitas.
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Para importar um runbook de um arquivo com o portal do Azure
 
@@ -71,7 +71,7 @@ Você pode usar o procedimento a seguir para importar um arquivo de script para 
 > [!NOTE]
 > Depois de importar um runbook gráfico ou um runbook de fluxo de trabalho gráfico do PowerShell, você tem a opção de converter para outro tipo, se desejar. Não é possível converter em um runbook textual.
 
-### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Para importar um runbook de um arquivo de script com o Windows PowerShell
+### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Para importar um runbook de um ficheiro de script através do Windows PowerShell
 
 Você pode usar o cmdlet [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) para importar um arquivo de script como um runbook de fluxo de trabalho do PowerShell de rascunho. Se o runbook já existir, a importação falhará, a menos que você use o parâmetro *-Force* .
 
@@ -111,7 +111,7 @@ Ao criar ou importar um novo runbook, você deve publicá-lo antes de poder exec
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. Abra o runbook no portal do Azure.
-2. Clique no botão **Editar** .
+2. Clique no botão **Edit** (Editar).
 3. Clique no botão **publicar** e, em seguida, em **Sim** para a mensagem de verificação.
 
 ### <a name="powershell"></a>PowerShell

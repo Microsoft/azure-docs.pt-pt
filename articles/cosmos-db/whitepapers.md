@@ -1,20 +1,20 @@
 ---
 title: White Papers que descrevem os conceitos do Azure Cosmos DB
-description: Estes documentos técnicos descrevem conceitos do Azure Cosmos DB em profundidade.
+description: Obtenha a lista de White papers para Azure Cosmos DB, esses White papers descrevem os conceitos em detalhes.
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 69e75af8481b21929b8d36a14a2ce72ec3f9f5f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257167"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869787"
 ---
-# <a name="azure-cosmos-db-whitepapers"></a>White Papers de Cosmos DB do Azure 
+# <a name="azure-cosmos-db-whitepapers"></a>White Papers de Cosmos DB do Azure
 
 Documentos técnicos permitem explorar os conceitos do Azure Cosmos DB num nível mais aprofundado. Este artigo fornece uma lista de documentos técnicos disponíveis para o Azure Cosmos DB.
 

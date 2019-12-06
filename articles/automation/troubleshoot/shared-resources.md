@@ -2,18 +2,18 @@
 title: Solucionar erros com recursos compartilhados da automação do Azure
 description: Saiba como solucionar problemas com recursos compartilhados da automação do Azure
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9313b042433489307a2bd2822a96d1e0e127362b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231523"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849297"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solucionar erros com recursos compartilhados
 
@@ -116,7 +116,7 @@ Se o processo de atualização suspender, você precisará adicionar o parâmetr
 "@
 ```
 
-## <a name="run-as-accounts"></a>Contas Executar como
+## <a name="run-as-accounts"></a>Contas Run As
 
 ### <a name="unable-create-update"></a>Cenário: não é possível criar ou atualizar uma conta Executar como
 

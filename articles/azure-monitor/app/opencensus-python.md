@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132204"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849790"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
@@ -26,7 +26,7 @@ O Azure Monitor dá suporte ao rastreamento distribuído, à coleta de métrica 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Criar um recurso de Application Insights no Azure Monitor
 
@@ -42,7 +42,7 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor global exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para hospedar Application Insights dados |
-   | **Localização** | EUA Leste | Um local perto de você ou próximo de onde seu aplicativo está hospedado |
+   | **Localização** | Este dos E.U.A. | Um local perto de você ou próximo de onde seu aplicativo está hospedado |
 
 1. Selecione **Criar**.
 
@@ -268,7 +268,7 @@ O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telem
     90
     ```
 
-3. Embora a inserção de valores seja útil para fins de demonstração, por fim, desejamos emitir os dados de métrica para Azure Monitor. Modifique seu código da etapa anterior com base no exemplo de código a seguir:
+3. Embora a inserção de valores seja útil para fins de demonstração, por fim, queremos emitir os dados de log para Azure Monitor. Modifique seu código da etapa anterior com base no exemplo de código a seguir:
 
     ```python
     import logging
@@ -295,7 +295,53 @@ O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telem
 
 4. O exportador enviará dados de log para Azure Monitor. Você pode encontrar os dados em `traces`.
 
-5. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+5. Para formatar suas mensagens de log, você pode usar `formatters` na API interna de [log](https://docs.python.org/3/library/logging.html#formatter-objects)do Python.
+
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+
+6. Você também pode adicionar dimensões personalizadas aos seus logs. Eles serão exibidos como pares de chave-valor em `customDimensions` em Azure Monitor.
+> [!NOTE]
+> Para que esse recurso funcione, você precisa passar um dicionário como um argumento para os logs, qualquer outra estrutura de dados será ignorada. Para manter a formatação da cadeia de caracteres, armazene-as em um dicionário e passe-as como argumentos.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
+
+7. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Exibir seus dados com consultas
 

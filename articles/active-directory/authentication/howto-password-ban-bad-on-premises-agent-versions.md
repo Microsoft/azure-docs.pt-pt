@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6458f31b21d09e54afb080ffc73598903a9831e0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381738"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847854"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de proteção de senha do Azure AD
 

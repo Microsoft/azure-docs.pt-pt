@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8ba3cc27777d13448b0e1114413128b550b0b2f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273995"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842293"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar a maneira como os usuários finais consentirem para um aplicativo no Azure Active Directory
 Saiba como configurar a maneira como os usuários consentirão as permissões do aplicativo. Você pode simplificar a experiência do usuário concedendo consentimento ao administrador. Este artigo fornece as diferentes maneiras como você pode configurar o consentimento do usuário. Os métodos se aplicam a todos os usuários finais em seu locatário do Azure Active Directory (Azure AD). 
@@ -27,6 +27,8 @@ Para obter mais informações sobre como conferir a aplicativos, consulte [Azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Conceder consentimento de administrador exige que você entre como administrador global, administrador de aplicativos ou administrador de aplicativos de nuvem.
+
+Para conceder consentimento de administrador às permissões no Microsoft Graph e no Azure AD Graph, você precisa de privilégios de administrador global. 
 
 Para restringir o acesso a aplicativos, você precisa exigir a atribuição de usuário e, em seguida, atribuir usuários ou grupos ao aplicativo.  Para obter mais informações, consulte [métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
 
@@ -55,7 +57,7 @@ Para conceder consentimento de administrador ao registrar um aplicativo:
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Navegue até a folha **registros do aplicativo** .
 3. Selecione o aplicativo para o consentimento.
-4. Selecione **permissões de API**.
+4. Selecione **permissões API**.
 5. Clique em **conceder consentimento do administrador**.
 
 

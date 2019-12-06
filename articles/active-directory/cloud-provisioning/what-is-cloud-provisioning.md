@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88f6f344c77109ee01cd6b0332138518f70270d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 903551bfcaae3ffa7ccee72b1a5d781413864b32
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793786"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868461"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>O que é Azure AD Connect provisionamento de nuvem?
 Azure AD Connect provisionamento em nuvem é um novo agente da Microsoft projetado para atender e atingir suas metas de identidade híbrida para a sincronização de usuários, grupos e contatos com o Azure AD.  Ele pode ser usado junto com Azure AD Connect sincronização e oferece os seguintes benefícios:
@@ -59,8 +59,9 @@ A tabela a seguir fornece uma comparação entre Azure AD Connect e Azure AD Con
 | Permitir a remoção de atributos no sentido do AD para o Azure AD |● |● |
 | Permitir a personalização avançada de fluxos de atributos |● | |
 | Suporte para Write-back (senhas, dispositivos, grupos) |● | |
+| Suporte a Azure AD Domain Services|● | |
 
 ## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect provisionamento de nuvem?](what-is-cloud-provisioning.md)
+- [Instalar o provisionamento de nuvem](how-to-install.md)

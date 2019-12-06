@@ -3,12 +3,12 @@ title: Descrição geral das Tarefas do ACR
 description: Uma introdução às tarefas do ACR, um conjunto de recursos no registro de contêiner do Azure que fornece criação de imagem de contêiner segura e automatizada, gerenciamento e aplicação de patches na nuvem.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456152"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840770"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -52,16 +52,19 @@ Saiba como usar tarefas rápidas no primeiro tutorial de tarefas do ACR, [criar 
 
 ## <a name="trigger-task-on-source-code-update"></a>Disparar tarefa na atualização do código-fonte
 
-Dispare uma compilação de imagem de contêiner ou uma tarefa de várias etapas quando o código é confirmado ou uma solicitação de pull é feita ou atualizada, em um repositório git no GitHub ou no Azure DevOps. Por exemplo, configure uma tarefa de compilação com o comando de CLI do Azure [AZ ACR Task Create][az-acr-task-create] especificando um repositório git e, opcionalmente, uma ramificação e Dockerfile. Quando a sua equipe atualiza o código no repositório, um webhook criado por tarefas de ACR dispara uma compilação da imagem de contêiner definida no repositório. 
+Dispare uma compilação de imagem de contêiner ou uma tarefa de várias etapas quando o código é confirmado ou uma solicitação de pull é feita ou atualizada para um repositório git público ou privado no GitHub ou no Azure DevOps. Por exemplo, configure uma tarefa de compilação com o comando de CLI do Azure [AZ ACR Task Create][az-acr-task-create] especificando um repositório git e, opcionalmente, uma ramificação e Dockerfile. Quando a sua equipe atualiza o código no repositório, um webhook criado por tarefas de ACR dispara uma compilação da imagem de contêiner definida no repositório. 
 
 As tarefas ACR dão suporte aos seguintes gatilhos quando você define um repositório Git como o contexto da tarefa:
 
-| Acionador | Habilitado por padrão |
+| Acionador | Ativado por predefinição |
 | ------- | ------------------ |
 | Consolidação | Sim |
-| Solicitação pull | Não |
+| Pedido Pull | Não |
 
-Para configurar o gatilho, você fornece à tarefa um PAT (token de acesso pessoal) para definir o webhook no GitHub ou no repositório DevOps do Azure.
+Para configurar um gatilho de atualização de código-fonte, você precisa fornecer à tarefa um PAT (token de acesso pessoal) para definir o webhook no GitHub público ou privado ou no repositório DevOps do Azure.
+
+> [!NOTE]
+> Atualmente, as tarefas ACR não dão suporte a confirmações de solicitação de confirmação ou pull no GitHub Enterprise repositórios.
 
 Saiba como disparar compilações na confirmação do código-fonte no segundo tutorial de tarefas do ACR, [automatizar compilações de imagem de contêiner com tarefas de registro de contêiner do Azure](container-registry-tutorial-build-task.md).
 
@@ -116,11 +119,14 @@ A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para 
 | Local do contexto | Descrição | Exemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de arquivos local | Arquivos dentro de um diretório no sistema de arquivos local. | `/home/user/projects/myapp` |
-| Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório do GitHub.  | `https://github.com/gituser/myapp-repo.git` |
-| Branch do GitHub | Branch específico de um repositório GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Subpasta DevOps do Azure | Arquivos dentro de uma subpasta em um repositório do Azure. O exemplo mostra a combinação de especificação de ramificação e subpasta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
+| Branch do GitHub | Branch específico de um repositório GitHub público ou privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub público ou privado. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Subpasta DevOps do Azure | Arquivos dentro de uma subpasta em um repositório público ou privado do Azure. O exemplo mostra a combinação de especificação de ramificação e subpasta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Arquivos em um arquivo compactado em um servidor webremoto. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> Ao usar um repositório git privado como um contexto para uma tarefa, você precisa fornecer um PAT (token de acesso pessoal).
 
 ## <a name="image-platforms"></a>Plataformas de imagem
 
@@ -128,7 +134,7 @@ Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64.
 
 | SO | Arquitetura|
 | --- | ------- | 
-| Linux | AMD64<br/>braço<br/>arm64<br/>386 |
+| Linux | AMD64<br/>arm<br/>arm64<br/>386 |
 | Windows | AMD64 |
 
 ## <a name="view-task-logs"></a>Exibir logs de tarefa

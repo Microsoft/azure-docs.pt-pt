@@ -1,24 +1,24 @@
 ---
 title: Conectar um aplicativo MongoDB ao Azure Cosmos DB
-description: Saiba como conectar seu aplicativo MongoDB ao Azure Cosmos DB.
+description: Saiba como conectar um aplicativo do MongoDB a Azure Cosmos DB obtendo a cadeia de conexão do portal do Azure
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 30b37b86bbe0e91887932423fa1884d8bd49333c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757012"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872167"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar um aplicativo MongoDB ao Azure Cosmos DB
-Saiba como conectar seu aplicativo MongoDB a um Azure Cosmos DB usando uma cadeia de conexão do MongoDB. Em seguida, você pode usar um banco de dados Cosmos do Azure como o armazenamento de dado para seu aplicativo MongoDB. 
+Saiba como ligar a aplicação MongoDB a um Azure Cosmos DB com uma cadeia de ligação do MongoDB. Em seguida, pode utilizar uma base de dados Azure Cosmos como arquivo de dados para a aplicação MongoDB. 
 
-Este tutorial fornece duas maneiras de recuperar informações de cadeia de conexão:
+Este tutorial fornece duas formas de recuperar informações da cadeia de ligação:
 
 - [O método de início rápido](#QuickstartConnection), para uso com os drivers .net, Node. js, Shell do MongoDB, Java e Python
 - [O método de cadeia de conexão personalizada](#GetCustomConnection), para uso com outros drivers

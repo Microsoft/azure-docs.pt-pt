@@ -1,18 +1,18 @@
 ---
 title: EXP na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função de sistema SQL EXP no Azure Cosmos DB.
+description: Saiba mais sobre a função de sistema SQL do expoente (EXP) no Azure Cosmos DB para retornar o valor exponencial da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 21c7ae63f46f2acd961245c59805220174c106f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351041"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873323"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
  Devolve o valor exponencial da expressão especificada numérico.  
@@ -38,7 +38,7 @@ EXP (<numeric_expr>)
   
   O expoente de um número é a constante **i** elevado à potência do número. Por exemplo, EXP(1.0) = e ^ 1.0 = 2.71828182845905 e EXP(10) = e ^ 10 = 22026.4657948067.  
   
-  O exponencial do logaritmo natural de um número é o próprio número: EXP (LOG (n)) = n. E o logaritmo natural do exponencial de um número é o próprio número: LOG (EXP (n)) = n.  
+  Exponencial do logaritmo natural de um número é o número em si: EXP (LOG (n)) = n. E o logaritmo natural de exponencial de um número é o número em si: registo (EXP (n)) = n.  
   
 ## <a name="examples"></a>Exemplos
   

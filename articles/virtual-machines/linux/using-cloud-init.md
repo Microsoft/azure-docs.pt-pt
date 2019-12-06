@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: d372b94ac0df4cef3c43fab10686e9bf20633bfe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034239"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873952"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de inicialização de nuvem para máquinas virtuais no Azure
 Este artigo explica o suporte que existe para [Cloud-init](https://cloudinit.readthedocs.io) para configurar uma VM (máquina virtual) ou conjuntos de dimensionamento de máquinas virtuais no tempo de provisionamento no Azure. Esses scripts de Cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
@@ -34,11 +34,12 @@ Estamos a trabalhar ativamente com os nossos parceiros de distribuição do Linu
 
 | Publicador | Oferta | SKU | Versão | preparado para o cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canónico |UbuntuServer |18.04-LTS |mais recente |sim | 
-|Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
-|Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
+|Canonical |UbuntuServer |18.04-LTS |mais recente |sim | 
+|Canonical |UbuntuServer |16.04-LTS |mais recente |sim | 
+|Canonical |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |pré-visualização |
+|Oracle 7,7 |Oracle-Linux |77-CI |7.7.01|pré-visualização |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |pré-visualização |
     
@@ -47,6 +48,7 @@ Atualmente Azure Stack não oferece suporte ao provisionamento do RHEL 7. x e do
 * Para o RHEL 7,6, pacote Cloud-init, o pacote com suporte é: *18.2-1. el7_6.2* 
 * Para o RHEL 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5 -3. EL7*
 * Para o CentOS 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5 -3. EL7. centos*
+* Para o Oracle 7,7 (versão prévia), o pacote Cloud-init, o pacote de visualização é: *18.5-3.0.1. EL7*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Qual é a diferença entre Cloud-init e o agente do Linux (WALA)?
 WALA é um agente específico da plataforma do Azure usado para provisionar e configurar VMs e manipular extensões do Azure. Estamos aprimorando a tarefa de configurar VMs para usar Cloud-init em vez do agente do Linux para permitir que os clientes existentes de Cloud-init usem seus scripts de Cloud-init atuais.  Se você tiver investimentos existentes em scripts de Cloud-init para configurar sistemas Linux, não haverá **configurações adicionais necessárias** para habilitá-los. 
@@ -88,7 +90,7 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-Quando a VM tiver sido criada, a CLI do Azure mostrará informações específicas de sua implantação. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.  Leva algum tempo para que a VM seja criada, os pacotes a serem instalados e o aplicativo seja iniciado. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Você pode fazer SSH na VM e usar as etapas descritas na seção de solução de problemas para exibir os logs de Cloud-init. 
+Quando a VM tiver sido criada, a CLI do Azure mostrará informações específicas de sua implantação. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.  Leva algum tempo para que a VM seja criada, os pacotes a serem instalados e o aplicativo seja iniciado. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Você pode fazer SSH na VM e usar as etapas descritas na seção de solução de problemas para exibir os logs de Cloud-init. 
 
 ## <a name="troubleshooting-cloud-init"></a>Solucionando problemas de Cloud-init
 Depois que a VM for provisionada, o Cloud-init será executado por todos os módulos e o script definido em `--custom-data` para configurar a VM.  Se precisar solucionar erros ou omissões da configuração, você precisará pesquisar o nome do módulo (`disk_setup` ou `runcmd`, por exemplo) no log Cloud-init-localizado em **/var/log/Cloud-init.log**.

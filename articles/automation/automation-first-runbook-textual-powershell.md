@@ -5,17 +5,17 @@ keywords: Azure powershell, tutorial de script do powershell, automatização de
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae9daaf797d3d82200ee094b63bad1f5c1ff68cc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743824"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850878"
 ---
 # <a name="my-first-powershell-runbook"></a>O meu primeiro runbook do PowerShell
 
@@ -242,7 +242,7 @@ Os runbooks do PowerShell têm o mesmo ciclo de vida, capacidades e gestão que 
 3. Os runbooks de fluxo de trabalho do PowerShell dão suporte à execução paralela e serial. Os runbooks do PowerShell só podem executar comandos em série.
 4. Em um runbook de fluxo de trabalho do PowerShell, uma atividade, um comando ou um bloco de script pode ter seu próprio runspace. Em um runbook do PowerShell, tudo em um script é executado em um único runspace. Também existem algumas [diferenças sintáticas](https://technet.microsoft.com/magazine/dn151046.aspx) entre um runbook de PowerShell nativo e um runbook de Fluxo de Trabalho do PowerShell.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](/powershell/scripting/overview).
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)

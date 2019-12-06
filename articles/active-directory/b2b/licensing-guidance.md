@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5968536d0bd0fbe2496fd9bf5fca86c7a1c4053d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 28d02160163da4081ad8adbe233b27fee970a0df
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162271"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868852"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Orientação de licenciamento de colaboração do Azure Active Directory B2B
 
@@ -25,11 +25,11 @@ Com a colaboração B2B (Business-to-Business) do Azure Active Directory (Azure 
 > [!NOTE]
 > Consulte [Azure Active Directory preços](https://azure.microsoft.com/pricing/details/active-directory/) para obter detalhes sobre os preços do Azure AD e recursos de colaboração B2B.
 
-O licenciamento de usuário convidado B2B é calculado e relatado automaticamente com base na proporção de 1:5. Atualmente, não é possível atribuir licenças de usuário convidado B2B diretamente aos usuários convidados.
+O licenciamento de usuário convidado B2B é calculado e relatado automaticamente com base na proporção de 1:5. 
 
 Além disso, os usuários convidados podem usar recursos gratuitos do Azure AD sem requisitos de licenciamento adicionais. Os usuários convidados têm acesso aos recursos gratuitos do Azure AD, mesmo que você não tenha nenhuma licença paga do Azure AD. 
 
-## <a name="examples-calculating-guest-user-licenses"></a>Exemplos: Calculando licenças de usuário convidado
+## <a name="examples-calculating-guest-user-licenses"></a>Exemplos: calculando licenças de usuário convidado
 Depois de determinar quantos usuários convidados precisam acessar seus serviços pagos do Azure AD, verifique se você tem licenças pagas do Azure AD suficientes para cobrir os usuários convidados na proporção 1:5 necessária. Eis alguns exemplos:
 
 - Você deseja convidar usuários convidados 100 para seus aplicativos ou serviços do Azure AD e fornecer gerenciamento e provisionamento de acesso. Para 50 desses usuários convidados, você também deseja exigir MFA e acesso condicional, portanto, para esses recursos, você precisará de 10 Azure AD Premium licenças P1. Se você planeja usar recursos de proteção de identidade com seus usuários convidados, precisará de Azure AD Premium licenças P2 na mesma proporção de 1:5 para cobrir os usuários convidados.

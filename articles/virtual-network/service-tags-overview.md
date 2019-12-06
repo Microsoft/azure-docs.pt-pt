@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 33ee7351e547ee5ef57ef07f67ba6f5f4410b57f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 152b9f3974f24644e55bed68f5ed65faa90d7fe7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384150"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851660"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual 
 <a name="network-service-tags"></a>
@@ -38,7 +38,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem.  Al
 
 
 
-| Etiqueta | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall do Azure? |
+| Etiqueta | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Tráfego de gerenciamento para implantações dedicadas do APIM. | Ambos | Não | Sim |
 | **AppService**    | Serviço do serviço de aplicativo. Essa marca é recomendada para regras de segurança de saída para front-ends WebApp. | Saída | Sim | Sim |
@@ -51,6 +51,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem.  Al
 | **AzureContainerRegistry** | Serviço de registro de contêiner do Azure. | Saída | Sim | Sim |
 | **AzureCosmosDB** | Serviço de banco de dados Cosmos do Azure. | Saída | Sim | Sim |
 | **AzureDataLake** | Serviço de Azure Data Lake. | Saída | Não | Sim |
+| **AzureHDInsight** | Serviço HDInsight do Azure. | Entrada | Sim | Não |
 | **AzureIoTHub** | Serviço do Hub IoT do Azure. | Saída | Não | Não |
 | **AzureKeyVault** | Serviço de keyvault do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência na marca **AzureActiveDirectory** . | Saída | Sim | Sim |
 | **AzureLoadBalancer** | Balanceador de carga de infraestrutura do Azure. A etiqueta traduz o [Endereço IP virtual do anfitrião](security-overview.md#azure-platform-considerations) (168.63.129.16), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra. | Ambos | Não | Não |
@@ -65,14 +66,14 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem.  Al
 | **Dynamics365ForMarketingEmail** | Os intervalos de endereços para o serviço de email de marketing do Dynamics 365. | Saída | Sim | Não |
 | **EventHub** | Serviço do Azure EventHub. | Saída | Sim | Sim |
 | **Gatewaymanager** | O tráfego de gerenciamento para implantações dedicadas de gateways de VPN/aplicativo. | Entrada | Não | Não |
-| **IP** | O espaço de endereço IP que está fora da rede virtual e acessível pela Internet pública.<br/><br/>O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | Não | Não |
+| **Internet** | O espaço de endereço IP que está fora da rede virtual e acessível pela Internet pública.<br/><br/>O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | Não | Não |
 | **MicrosoftContainerRegistry** | Serviço de registro de contêiner da Microsoft. | Saída | Sim | Sim |
 | **ServiceBus** | Serviço do barramento de serviço do Azure usando a camada de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Serviço de Service Fabric. | Saída | Não | Não |
 | **SQL** | Banco de dados SQL do Azure, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e serviços de SQL Data Warehouse do Azure.<br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gerenciamento para implantações do SQL dedicado. | Ambos | Não | Sim |
 | **Armazenamento** | Serviço de armazenamento do Azure. <br/><br/>*Observação:* A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
-| **VirtualNetwork** | O espaço de endereço de rede virtual (todos os intervalos de endereços IP definidos para a rede virtual), todos os espaços de endereço locais conectados, redes virtuais [emparelhadas](virtual-network-peering-overview.md) ou rede virtual conectada a um [Gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), o [IP virtual endereço dos](security-overview.md#azure-platform-considerations) prefixos de endereço e host usados em [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Lembre-se de que essa marca também pode conter rotas padrão. | Ambos | Não | Não |
+| **VirtualNetwork** | O espaço de endereço de rede virtual (todos os intervalos de endereços IP definidos para a rede virtual), todos os espaços de endereço locais conectados, redes virtuais [emparelhadas](virtual-network-peering-overview.md) ou rede virtual conectada a um [Gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), o [endereço IP virtual dos](security-overview.md#azure-platform-considerations) prefixos de endereço e host usados em [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Lembre-se de que essa marca também pode conter rotas padrão. | Ambos | Não | Não |
 
 >[!NOTE]
 >Ao trabalhar no ambiente *clássico* (pré Azure Resource Manager), há suporte para um conjunto selecionado das marcas acima.  Eles usam uma grafia alternativa:
@@ -98,7 +99,7 @@ Você pode obter a marca de serviço e as informações de intervalo atuais para
 Você pode recuperar programaticamente a lista atual de marcas de serviço com detalhes do intervalo de endereços IP:
 
 - [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
+- [O Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
@@ -120,6 +121,6 @@ Você pode baixar arquivos JSON que contenham a lista atual de marcas de serviç
 - Você pode detectar atualizações de uma publicação para a próxima, por meio de valores de *changeNumber* maiores dentro do arquivo JSON. Cada subseção (por exemplo, **Storage. westus**) tem seu próprio *changeNumber* que é incrementado conforme ocorrem alterações.  O nível superior do *changeNumber* do arquivo é incrementado quando qualquer uma das subseções é alterada.
 - Para obter exemplos de como analisar as informações de marca de serviço (por exemplo, obter todos os intervalos de endereços para armazenamento na Westus), consulte a documentação do [PowerShell da API de descoberta de marca de serviço](https://aka.ms/discoveryapi_powershell) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Leia o artigo [Create a network security group](tutorial-filter-network-traffic.md) (Criar um grupo de segurança de rede).
 

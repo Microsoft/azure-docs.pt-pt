@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Monitorizar Sites com o Azure Monitor Application Insights | Microsoft Docs'
+title: Monitore sites com Azure Monitor Application Insights
 description: Fornece instruções para configurar rapidamente a monitorização de sites do lado do cliente/browser com o Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: eecc3d739cb5500abdbd04a9aaca1ddcf86e352b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3b909f1cb65ae2b355451def53410c32ae482167
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899256"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872966"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 

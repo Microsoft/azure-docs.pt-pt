@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111750"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873935"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -73,8 +73,8 @@ Use esta tabela como um guia:
 | Tipo de armazenamento | Método de autorização atualmente com suporte |
 |--|--|
 |**Armazenamento de blobs** | SAS do Azure AD & |
-|**Armazenamento de BLOBs (namespace de hierarquia)** | SAS do Azure AD & |
-|**Armazenamento de arquivos** | Somente SAS |
+|**Armazenamento de BLOBs (namespace hierárquico)** | SAS do Azure AD & |
+|**Armazenamento de ficheiros** | Somente SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opção 1: usar Azure Active Directory
 
@@ -254,7 +254,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 Para saber mais sobre tokens SAS e como obter um, consulte [usando assinaturas de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
-## <a name="transfer-files"></a>Transferir arquivos
+## <a name="transfer-files"></a>Transferir ficheiros
 
 Depois de autenticar sua identidade ou obter um token SAS, você pode começar a transferir arquivos.
 

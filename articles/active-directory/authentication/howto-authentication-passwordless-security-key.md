@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f1b2561b65590dfe29d7d2c8d1318e3d35e1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381844"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848447"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (visualização)
 
@@ -31,7 +31,7 @@ Este documento se concentra na habilitação da autenticação com senha baseada
 
 ## <a name="requirements"></a>Requisitos
 
-- [Autenticação multifator do Azure](howto-mfa-getstarted.md)
+- [Autenticação Multifator do Azure](howto-mfa-getstarted.md)
 - [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - Webauthn requer o Windows 10 versão 1809 ou superior * *
@@ -50,7 +50,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 
 ### <a name="enable-fido2-security-key-method"></a>Habilitar o método de chave de segurança FIDO2
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até **Azure Active Directory** > **segurança** > **métodos de autenticação** > **diretiva de método de autenticação (versão prévia)** .
 1. Na chave de **segurança**do método FIDO2, escolha as seguintes opções:
    1. **Habilitar** -Sim ou não
@@ -59,7 +59,7 @@ Os recursos de registro para métodos de autenticação com senha contam com a v
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registro de usuário e gerenciamento de chaves de segurança FIDO2
 
-1. Navegue até [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+1. Navegue para [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Entrar se ainda não estiver.
 1. Clique em **informações de segurança**.
    1. Se o usuário já tiver pelo menos um método de autenticação multifator do Azure registrado, ele poderá registrar imediatamente uma chave de segurança FIDO2.
@@ -97,7 +97,7 @@ O provisionamento e desprovisionamento de chaves de segurança do administrador 
 
 Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrar novamente suas chaves de segurança do FIDO2.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Entrada da chave de segurança do FIDO2 do Windows 10](howto-authentication-passwordless-security-key-windows.md)
 

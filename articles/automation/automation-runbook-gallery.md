@@ -4,17 +4,17 @@ description: Os Runbooks e os módulos da Microsoft e da Comunidade estão dispo
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231616"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850725"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e módulo para a automação do Azure
 
@@ -38,12 +38,12 @@ Você só pode importar diretamente do Galeria do PowerShell usando o portal do 
 3. Selecione o **código-fonte: Galeria do PowerShell**.
 4. Localize o item da Galeria desejado e selecione-o para exibir seus detalhes. À esquerda, você pode inserir parâmetros de pesquisa adicionais para o Publicador e o tipo.
 
-   ![Procurar na Galeria](media/automation-runbook-gallery/browse-gallery.png)
+   ![Galeria de Procura](media/automation-runbook-gallery/browse-gallery.png)
 
 5. Clique em **Exibir projeto de origem** para exibir o item no [TechNet Script Center](https://gallery.technet.microsoft.com/).
 6. Para importar um item, clique nele para exibir seus detalhes e, em seguida, clique no botão **importar** .
 
-   ![Botão importar](media/automation-runbook-gallery/gallery-item-detail.png)
+   ![Botão Importar](media/automation-runbook-gallery/gallery-item-detail.png)
 
 7. Opcionalmente, altere o nome do runbook e clique em **OK** para importar o runbook.
 8. O runbook aparece na guia **Runbooks** da conta de automação.
@@ -69,7 +69,7 @@ Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, 
 
 4. Na página **procurar na Galeria** , você pode pesquisar pelos seguintes campos:
 
-   * Nome do módulo
+   * Nome do Módulo
    * Etiquetas
    * Autor
    * Nome do recurso de cmdlet/DSC

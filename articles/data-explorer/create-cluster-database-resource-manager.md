@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667836"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869719"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando um modelo de Azure Resource Manager
 
@@ -26,7 +26,7 @@ ms.locfileid: "74667836"
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. 
 
-Neste artigo, você cria um cluster de Data Explorer do Azure e um banco de dados usando um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). O artigo mostra como definir quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, consulte [tipos de recursos Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
+Neste artigo, você cria um cluster de Data Explorer do Azure e um banco de dados usando um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). O artigo mostra como definir quais recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, consulte [tipos de recursos Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -71,7 +71,7 @@ Neste artigo, você usa um [modelo de início rápido existente](https://raw.git
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-05-15",
+          "apiVersion": "2019-09-07",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -80,7 +80,7 @@ Neste artigo, você usa um [modelo de início rápido existente](https://raw.git
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-05-15",
+          "apiVersion": "2019-09-07",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"
@@ -136,7 +136,7 @@ Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco d
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Selecione **copiar** para copiar o script do PowerShell.
+1. Selecione **cópia** para copiar o script do PowerShell.
 1. Clique com o botão direito do mouse no console do Shell e selecione **colar**.
 Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco de dados.
 

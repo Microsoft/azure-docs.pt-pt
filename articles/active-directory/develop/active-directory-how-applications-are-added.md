@@ -3,28 +3,24 @@ title: Como e por que os aplicativos são adicionados ao Azure Active Directory
 titleSuffix: Microsoft identity platform
 description: O que significa que um aplicativo seja adicionado ao Azure AD e como eles ficam lá?
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 6a04315d887a1774fa50743d4bb361b9d9082aba
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533004"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845064"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 
@@ -38,7 +34,7 @@ Há duas representações de aplicativos no Azure AD:
 Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.md#application-object) no portal do Azure por meio da experiência de [registros do aplicativo](https://aka.ms/appregistrations) . Os objetos de aplicativo descrevem o aplicativo para o Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo com base em suas configurações. O objeto de aplicativo só existirá em seu diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos seguintes (bem como informações adicionais não mencionadas aqui):
 
 * Nome, logotipo e Publicador
-* Redirecionar URIs
+* URIs de Redirecionamento
 * Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
 * Dependências de API (OAuth)
 * APIs/recursos/escopos publicados (OAuth)
@@ -110,7 +106,7 @@ Os aplicativos que você mesmo adiciona (representados como **aplicativo (seu)**
   * Regras de transformação de declarações
   * Mapeamentos de atributo (provisionamento de usuário)
 * Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência da API REST do Azure AD Graph:
-  * [Aplicativo](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Aplicação](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Entidade de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos se integram ao Azure AD?

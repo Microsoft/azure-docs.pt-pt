@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1036d7e8aef29e3185452d5088e660d474726e4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0982f6fb70cd6866af48feab640d5dc36bcb6b28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381977"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848685"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: autenticação multifator do Azure
 
@@ -32,15 +32,15 @@ A segurança da verificação em duas etapas está em sua abordagem em camadas. 
 
 A autenticação multifator do Azure (MFA) ajuda a proteger o acesso a dados e aplicativos, mantendo a simplicidade para os usuários. Ele fornece segurança adicional exigindo uma segunda forma de autenticação e fornece autenticação forte por meio de uma variedade de métodos de [autenticação](concept-authentication-methods.md)fáceis de usar. Os usuários podem ou não ser desafiados pela MFA com base nas decisões de configuração que um administrador faz.
 
-## <a name="how-to-get-multi-factor-authentication"></a>Como obter a autenticação multifator?
+## <a name="how-to-get-multi-factor-authentication"></a>Como obter a Multi-Factor Authentication?
 
-A autenticação multifator é fornecido como parte das seguintes ofertas:
+A Multi-Factor Authentication é fornecida como parte das seguintes ofertas:
 
 * **Azure Active Directory Premium** ou **Microsoft 365 Business** -uso completo da autenticação multifator do Azure usando políticas de acesso condicional para exigir a autenticação multifator.
 
 * **Azure ad gratuito** ou licenças autônomas **do Office 365** – use [políticas de proteção de linha de base de acesso condicional](../conditional-access/concept-baseline-protection.md) pré-criado para exigir a autenticação multifator para seus usuários e administradores.
 
-* **Azure Active Directory administradores globais** – um subconjunto de recursos de autenticação multifator do Azure está disponível como um meio de proteger contas de administrador global.
+* **Administradores Globais do Azure Active Directory** – está disponível um subconjunto de recursos da Multi-Factor Authentication do Azure como forma de proteger contas de administradores globais.
 
 > [!NOTE]
 > Novos clientes não poderão mais comprar a autenticação multifator do Azure como uma oferta autônoma em 1º de setembro de 2018. A autenticação multifator continuará a ser um recurso disponível em licenças Azure AD Premium.

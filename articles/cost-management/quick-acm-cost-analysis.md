@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 858672a7fcfcfd5f50c91eb769fdd0d42578195f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 36b8a3bba82a338f3aab526d505c4d1e96061ddf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230000"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849127"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: explorar e analisar custos com análise de custo
 
@@ -66,10 +66,10 @@ A exibição análise de custo inicial inclui as áreas a seguir.
 
 A análise de custo tem quatro exibições internas, otimizadas para as metas mais comuns:
 
-Vista | Responder perguntas como
+Ver | Responder perguntas como
 --- | ---
 Custo acumulado | Quanto eu passei até agora neste mês? Ficarei dentro do meu orçamento?
-Custo diário | Há algum aumento nos custos por dia nos últimos 30 dias?
+Daily cost | Há algum aumento nos custos por dia nos últimos 30 dias?
 Custo por serviço | Como o meu uso mensal varia nas últimas três faturas?
 Custo por recurso | Quais recursos custam mais até agora neste mês?
 
@@ -101,7 +101,9 @@ Em geral, você pode esperar ver dados ou notificações para recursos consumido
 
 **Agrupe por** Propriedades comuns para dividir os custos e identificar os principais colaboradores. Para agrupar por marcas de recurso, por exemplo, selecione a chave de marca que você deseja agrupar. Os custos são divididos por cada valor de marca, com um segmento extra para os recursos que não têm essa marca aplicada.
 
-A maioria dos [recursos do Azure dá suporte à marcação](../azure-resource-manager/tag-support.md). No entanto, algumas marcas não estão disponíveis no gerenciamento de custos e na cobrança. Além disso, as marcas do grupo de recursos não têm suporte. O gerenciamento de custos só dá suporte a marcas de recurso da data em que as marcas são aplicadas diretamente ao recurso. Assista ao vídeo [como examinar políticas de marcas com o gerenciamento de custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para saber mais sobre como usar a política de marca do Azure para melhorar a visibilidade dos dados de custo.
+A maioria dos [recursos do Azure dá suporte à marcação](../azure-resource-manager/tag-support.md). No entanto, algumas marcas não estão disponíveis no gerenciamento de custos e na cobrança. Além disso, as marcas do grupo de recursos não têm suporte. O suporte para marcas se aplica ao uso relatado *depois* que a marca foi aplicada ao recurso. As marcas não são aplicadas retroativamente para rollups de custo.
+
+Assista ao vídeo [como examinar políticas de marcas com o gerenciamento de custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para saber mais sobre como usar a política de marca do Azure para melhorar a visibilidade dos dados de custo.
 
 Aqui está uma exibição dos custos de serviço do Azure para o mês atual.
 

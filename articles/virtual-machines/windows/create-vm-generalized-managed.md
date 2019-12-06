@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037534"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841936"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM com base em uma imagem gerenciada
 
@@ -29,8 +29,7 @@ Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada]
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione **todos os recursos**. Você pode classificar os recursos por **tipo** para localizar facilmente suas imagens.
+1. Vá para a [portal do Azure](https://portal.azure.com) para localizar uma imagem gerenciada. Procure e selecione **imagens**.
 3. Selecione a imagem que você deseja usar na lista. A página **visão geral** da imagem é aberta.
 4. Selecione **criar VM** no menu.
 5. Introduza as informações da máquina virtual. O nome de usuário e a senha inseridos aqui serão usados para fazer logon na máquina virtual. Ao concluir, selecione **OK**. Você pode criar a nova VM em um grupo de recursos existente ou escolher **criar nova** para criar um novo grupo de recursos para armazenar a VM.

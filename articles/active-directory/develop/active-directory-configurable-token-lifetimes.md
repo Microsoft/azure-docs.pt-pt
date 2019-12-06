@@ -3,32 +3,28 @@ title: Tempos de vida de token configuráveis no Azure Active Directory
 titleSuffix: Microsoft identity platform
 description: Saiba como definir tempos de vida para tokens emitidos pelo Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 5abd6928ed92b80caabe71dd27dc2db2e53b1abf
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046560"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845251"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
-Você pode especificar o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Você pode definir tempos de vida de token para todos os aplicativos em sua organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
+Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
 
 > [!IMPORTANT]
 > Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de maio de 2020, você não poderá usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
@@ -41,7 +37,6 @@ Você pode designar uma política como a política padrão para sua organizaçã
 > Não há suporte para a política de tempo de vida de token configurável para o SharePoint Online.  Embora você tenha a capacidade de criar essa política por meio do PowerShell, o SharePoint Online não reconhecerá essa política. Consulte o [blog do SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre como configurar tempos limite de sessão ociosa.
 >* O tempo de vida padrão para o token de acesso do SharePoint Online é de 1 hora. 
 >* O tempo máximo inativo padrão do token de atualização do SharePoint Online é de 90 dias.
-
 
 ## <a name="token-types"></a>Tipos de token
 
@@ -383,7 +378,7 @@ Neste exemplo, você cria algumas políticas para saber como o sistema de priori
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlets
 
-### <a name="manage-policies"></a>Gerenciar políticas
+### <a name="manage-policies"></a>Gerir políticas
 
 Você pode usar os cmdlets a seguir para gerenciar políticas.
 
@@ -462,7 +457,7 @@ Exclui a política especificada.
 
 </br></br>
 
-### <a name="application-policies"></a>Políticas de aplicativo
+### <a name="application-policies"></a>Políticas da aplicação
 Você pode usar os cmdlets a seguir para políticas de aplicativo.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy

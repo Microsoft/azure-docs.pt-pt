@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8388d5b22cddcf148c68f35758ccdf797abbcd9e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420636"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848311"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integre sua infraestrutura de NPS existente com a autenticação multifator do Azure
 
@@ -35,7 +35,7 @@ O diagrama a seguir ilustra esse fluxo de solicitação de autenticação de alt
 
 ![Diagrama de fluxo de autenticação](./media/howto-mfa-nps-extension/auth-flow.png)
 
-## <a name="plan-your-deployment"></a>Planear a sua implementação
+## <a name="plan-your-deployment"></a>Planeie a sua implementação
 
 A extensão NPS manipula automaticamente a redundância, de modo que você não precisa de uma configuração especial.
 
@@ -47,7 +47,7 @@ Os servidores VPN roteiam solicitações de autenticação, portanto, precisam e
 
 A extensão do NPS é destinada a trabalhar com sua infraestrutura existente. Verifique se você tem os pré-requisitos a seguir antes de começar.
 
-### <a name="licenses"></a>Las
+### <a name="licenses"></a>Licenças
 
 A extensão do NPS para o Azure MFA está disponível para clientes com [licenças para a autenticação multifator do Azure](multi-factor-authentication.md) (incluída com Azure ad Premium, EMS ou uma licença do MFA autônoma). As licenças baseadas em consumo para o Azure MFA, como licenças por usuário ou por autenticação, não são compatíveis com a extensão do NPS. 
 
@@ -68,11 +68,11 @@ O Módulo Microsoft Azure Active Directory para Windows PowerShell é instalado,
 
 Todos que usam a extensão NPS devem ser sincronizados para Azure Active Directory usando Azure AD Connect e devem ser registrados para MFA.
 
-Ao instalar a extensão, você precisa da ID de diretório e das credenciais de administrador para seu locatário do Azure AD. Você pode encontrar a ID do diretório na [portal do Azure](https://portal.azure.com). Entre como administrador. Procure e selecione a **Azure Active Directory**e, em seguida, selecione **Propriedades**. Copie o GUID na caixa **ID de diretório** e salve-o. Você usa esse GUID como a ID de locatário ao instalar a extensão NPS.
+Ao instalar a extensão, você precisa da ID de diretório e das credenciais de administrador para seu locatário do Azure AD. Pode encontrar o seu ID de diretório no [portal do Azure](https://portal.azure.com). Entre como administrador. Procure e selecione a **Azure Active Directory**e, em seguida, selecione **Propriedades**. Copie o GUID na caixa **ID de diretório** e salve-o. Você usa esse GUID como a ID de locatário ao instalar a extensão NPS.
 
 ![Localize sua ID de diretório em Propriedades de Azure Active Directory](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
-### <a name="network-requirements"></a>Requisitos da rede
+### <a name="network-requirements"></a>Requisitos de rede
 
 O servidor NPS precisa ser capaz de se comunicar com as URLs a seguir pelas portas 80 e 443.
 
@@ -85,7 +85,7 @@ Além disso, a conectividade com as URLs a seguir é necessária para concluir a
 - https:\//provisioningapi.microsoftonline.com
 - https:\//aadcdn.msauth.net
 
-## <a name="prepare-your-environment"></a>Preparar o ambiente
+## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
 Antes de instalar a extensão NPS, você deseja preparar seu ambiente para lidar com o tráfego de autenticação.
 

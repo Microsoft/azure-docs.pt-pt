@@ -1,34 +1,34 @@
 ---
-title: Cota de baixa prioridade | Microsoft Docs
-description: Solicitações de cota de baixa prioridade
+title: Cota de spot | Microsoft Docs
+description: Solicitações de cota de spot
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 11/19/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 49ac478330cf73dff050a3edcc15933692fa6448
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 09c9d7940314b691e6351353e6a0076510fdcb13
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535174"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850572"
 ---
-# <a name="low-priority-quota-limit-increase-for-all-vm-series"></a>Cota de baixa prioridade: limite de aumento para todas as séries de VM
+# <a name="spot-quota-limit-increase-for-all-vm-series"></a>Cota de spot: limite de aumento para todas as séries de VM
 
-As VMs de baixa prioridade fornecem um modelo diferente de uso do Azure, negociando um custo menor para permitir que o Azure Remova uma VM conforme necessário para implantações de instância de VM pagas conforme o uso ou reservadas. Leia mais sobre VMs de baixa prioridade [aqui](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority).
+As VMs pontuais fornecem um modelo diferente de uso do Azure, negociando um custo menor para permitir que o Azure Remova uma VM conforme necessário para implantações de instância de VM pagas conforme o uso ou reservadas. Leia mais sobre VMs pontuais [aqui](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o uso e as instâncias de VM reservadas** usam a cota padrão. As **VMs de baixa prioridade** usam a cota de baixa prioridade. 
+O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o uso e as instâncias de VM reservadas** usam a cota padrão. As **VMs pontuais** usam a cota Spot. 
 
-Para o tipo de **cota de baixa prioridade** , as cotas de vCPU do Resource Manager são impostas em toda a série de VMs disponíveis como um único limite regional.
+Para o tipo de **cota de spot** , as cotas de vCPU do Resource Manager são impostas em toda a série de VMs disponíveis como um único limite regional.
 
-Sempre que uma nova VM de baixa prioridade for implantada, a soma do uso de vCPUs novo e existente para todas as instâncias de VM de baixa prioridade não deverá exceder o limite de cota de vCPU de baixa prioridade aprovada. Se a cota de baixa prioridade for excedida, a implantação de VM de baixa prioridade não será permitida. Você pode solicitar um aumento do limite de cota de vCPUs de baixa prioridade de portal do Azure. 
+Sempre que uma nova VM Spot for implantada, a soma do uso de vCPUs novo e existente para todas as instâncias de VM Spot não deverá exceder o limite de cota vCPU Spot aprovado. Se a cota de spot for excedida, a implantação da VM Spot não será permitida. Você pode solicitar um aumento do limite de cota vCPUs spot de portal do Azure. 
 
 Saiba mais sobre as cotas de vCPU padrão na página de cotas do vCPU de máquina virtual e na página limites de serviço e assinatura do Azure. Saiba mais sobre como aumentar o limite de vCPU regionais para a cota padrão nesta [página](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
 
-Agora você pode solicitar um aumento nos **limites de cota de baixa prioridade para todas as séries de VM** por meio da folha **ajuda + suporte** ou da folha **usos + cota** no Portal.
+Agora você pode solicitar um aumento nos **limites de cota spot para todas as séries de VM** por meio da folha **ajuda + suporte** ou da folha **usos + cota** no Portal.
 
-## <a name="request-low-priority-quota-limit-increase-for-all-vm-series-per-subscription-using-the-help--support-blade"></a>Aumento do limite de cota de prioridade baixa para todas as séries VM por assinatura usando a folha ajuda + suporte
+## <a name="request-spot-quota-limit-increase-for-all-vm-series-per-subscription-using-the-help--support-blade"></a>Aumento do limite de cota de solicitação para todas as séries VM por assinatura usando a folha ajuda + suporte
 
 Siga as instruções abaixo para criar uma solicitação de suporte por meio da folha ' ajuda + suporte ' do Azure disponível no portal do Azure.
 
@@ -37,7 +37,7 @@ Você também pode **solicitar a cota para várias regiões** por meio de um ún
 
 1. Em https://portal.azure.com, selecione **ajuda + suporte**.
 
-   ![Ajuda + suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![Ajuda + Suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Selecione **Novo pedido de suporte**. 
 
@@ -63,7 +63,7 @@ Você também pode **solicitar a cota para várias regiões** por meio de um ún
 
 ![Fornecer detalhes](./media/resource-manager-core-quotas-request/3-7.png)
 
-8. Para o local selecionado, selecione valor de **tipo** como **' baixa prioridade '** . Você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar a cota padrão por série de VM** nesta [página](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+8. Para o local selecionado, selecione valor de **tipo** como **' spot '** . Você pode solicitar tipos de cota padrão e spot de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar a cota padrão por série de VM** nesta [página](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
 ![Fornecer detalhes](./media/resource-manager-core-quotas-request/3-8.png)
 
@@ -77,7 +77,7 @@ Você também pode **solicitar a cota para várias regiões** por meio de um ún
 
 11. Depois de inserir a cota desejada, clique em **salvar e continue** no painel detalhes da cota para continuar com a criação da solicitação de suporte.
 
-## <a name="request-low-priority-quota-limit-increase-for-all-vm-series-per-subscription-using-usages--quota-blade"></a>Aumento do limite de cota de prioridade baixa para todas as séries de VM por assinatura usando usos + folha de cota
+## <a name="request-spot-quota-limit-increase-for-all-vm-series-per-subscription-using-usages--quota-blade"></a>Aumento do limite de cota de solicitação para todas as séries de VM por assinatura usando usos + folha de cota
 
 Siga as instruções abaixo usando para criar uma solicitação de suporte por meio da folha ' uso + cota ' do Azure disponível no portal do Azure.
 
@@ -107,7 +107,7 @@ Você também pode **solicitar a cota para várias regiões** por meio de um ún
 
   ![Preencher formulário](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-7.  Para o local selecionado, selecione valor de **tipo** como **' baixa prioridade '.** Você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar a cota padrão por série de VM** nesta [página](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+7.  Para o local selecionado, selecione valor de **tipo** como **' spot '.** Você pode solicitar tipos de cota padrão e spot de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar a cota padrão por série de VM** nesta [página](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
   ![Preencher formulário](./media/resource-manager-core-quotas-request/3-2-7.png)
  
@@ -120,4 +120,5 @@ Você também pode **solicitar a cota para várias regiões** por meio de um ún
   ![Preencher formulário](./media/resource-manager-core-quotas-request/3-2-9.png)
  
 10. Depois de inserir a cota desejada, clique em **salvar e continue** no painel detalhes da cota para continuar com a criação da solicitação de suporte.
+
 

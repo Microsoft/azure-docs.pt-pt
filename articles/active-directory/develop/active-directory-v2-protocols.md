@@ -2,28 +2,24 @@
 title: Saiba mais sobre os protocolos de autorização com suporte na plataforma de identidade da Microsoft | Azure
 description: Um guia para os protocolos OAuth 2,0 e OpenID Connect que são suportados pelo ponto de extremidade da plataforma Microsoft Identity.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 50f2b4d5da2cdda35de0adc5dc646065f2b64a41
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835283"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844707"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade da Microsoft
 
@@ -43,12 +39,12 @@ Em quase todos os fluxos do OAuth 2,0 e do OpenID Connect, há quatro partes env
 * O **cliente OAuth** é seu aplicativo, identificado por sua ID de aplicativo. O cliente OAuth geralmente é a parte com a qual o usuário final interage e solicita tokens do servidor de autorização. O cliente deve receber permissão para acessar o recurso pelo proprietário do recurso.
 * O **servidor de recursos** é onde residem o recurso ou os dados. Ele confia no servidor de autorização para autenticar e autorizar com segurança o cliente OAuth e usa tokens de acesso de portador para garantir que o acesso a um recurso possa ser concedido.
 
-## <a name="app-registration"></a>Registro do aplicativo
+## <a name="app-registration"></a>Registo da aplicação
 
 Cada aplicativo que deseja aceitar contas pessoais e corporativas ou de estudante deve ser registrado por meio da experiência de **registros de aplicativo** no [portal do Azure](https://aka.ms/appregistrations) antes de poder assinar esses usuários usando o OAuth 2,0 ou o OpenID Connect. O processo de registro do aplicativo coletará e atribuirá alguns valores ao seu aplicativo:
 
 * Uma **ID de aplicativo** que identifica exclusivamente seu aplicativo
-* Um **URI** de redirecionamento (opcional) que pode ser usado para direcionar as respostas de volta para seu aplicativo
+* Um **URI de redirecionamento** (opcional) que pode ser usado para direcionar as respostas de volta para seu aplicativo
 * Alguns outros valores específicos do cenário.
 
 Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-register-app.md).

@@ -3,16 +3,16 @@ title: Entenda como os alertas de métrica funcionam no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam em Azure Monitor.
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775726"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850062"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entenda como os alertas de métrica funcionam no Azure Monitor
 
@@ -125,7 +125,7 @@ O aumento dos períodos de look-back e o número de violações também pode per
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoramento em escala usando alertas de métrica no Azure Monitor
 
-Até agora, você viu como um único alerta de métrica pode ser usado para monitorar uma ou várias séries temporais relacionadas a um único recurso do Azure. Muitas vezes, talvez você queira que a mesma regra de alerta seja aplicada a muitos recursos. O Azure Monitor também dá suporte ao monitoramento de vários recursos com uma regra de alerta de métrica. Atualmente, esse recurso tem suporte apenas em máquinas virtuais. Além disso, um único alerta de métrica pode monitorar recursos em uma região do Azure.
+Até agora, você viu como um único alerta de métrica pode ser usado para monitorar uma ou várias séries temporais relacionadas a um único recurso do Azure. Muitas vezes, talvez você queira que a mesma regra de alerta seja aplicada a muitos recursos. O Azure Monitor também dá suporte ao monitoramento de vários recursos com uma regra de alerta de métrica. No momento, esse recurso tem suporte apenas em máquinas virtuais, bancos de dados do SQL Server, pools elásticos do SQL Server e dispositivos de borda da caixa do data box. Além disso, um único alerta de métrica pode monitorar recursos em uma região do Azure.
 
 Você pode especificar o escopo do monitoramento por um único alerta de métrica de uma das três maneiras:
 

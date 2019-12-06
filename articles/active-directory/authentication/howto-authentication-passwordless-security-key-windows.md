@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ce2b420c2124c86610058ce2f31cd6d7bf620a97
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766366"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848464"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 (versão prévia)
 
@@ -29,7 +29,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 
 ## <a name="requirements"></a>Requisitos
 
-- [Autenticação multifator do Azure](howto-mfa-getstarted.md)
+- [Autenticação Multifator do Azure](howto-mfa-getstarted.md)
 - [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - Webauthn requer o Windows 10 versão 1809 ou superior
@@ -37,7 +37,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 - [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (opcional)
 - Pacote de provisionamento (opcional)
 
-### <a name="unsupported-scenarios"></a>Cenários sem suporte
+### <a name="unsupported-scenarios"></a>Cenários não suportados
 
 - **Não há suporte para**a implantação do Windows Server Active Directory Domain Services (AD DS) ingressado no domínio (somente dispositivos locais).
 - Os cenários RDP, VDI e Citrix **não têm suporte** usando a chave de segurança.
@@ -80,7 +80,7 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
    1. Tipo de perfil: personalizado
    1. Configurações personalizadas de OMA-URI:
       1. Nome: ativar as chaves de segurança do FIDO para entrar no Windows
-      1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. Tipo de dados: inteiro
       1. Valor: 1
 1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).

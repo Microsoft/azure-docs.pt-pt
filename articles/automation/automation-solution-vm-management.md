@@ -4,17 +4,17 @@ description: Essa solução de gerenciamento de VM é iniciada e interrompe sua 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 11/06/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 54f0584eae948d6e577b0439a5a0d976ff61d4b1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718677"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850657"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/Parar VMs fora do horário comercial solução na automação do Azure
 
@@ -57,24 +57,24 @@ Para implantar a solução iniciar/parar VMs fora do horário comercial em uma c
 
 | Permissão | Âmbito|
 | --- | --- |
-| Microsoft. Automation/automationAccounts/Read | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Variables/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Schedules/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/runbooks/gravar | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Connections/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Certificates/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/modules/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/modules/Read | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/jobSchedules/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Jobs/Write | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Jobs/ler | Grupo de Recursos |
-| Microsoft. OperationsManagement/soluções/gravação | Grupo de Recursos |
-| Microsoft. OperationalInsights/Workspaces/* | Grupo de Recursos |
-| Microsoft. insights/diagnosticSettings/Write | Grupo de Recursos |
-| Microsoft. insights/ActionGroups/Write | Grupo de Recursos |
-| Microsoft. insights/ActionGroups/Read | Grupo de Recursos |
-| Microsoft. Resources/subscriptions/resourceGroups/Read | Grupo de Recursos |
-| Microsoft. Resources/Implantations/* | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/read | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/variables/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/schedules/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/runbooks/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/connections/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/certificates/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/modules/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/modules/read | Grupo de Recursos |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/jobs/write | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/jobs/read | Grupo de Recursos |
+| Microsoft.OperationsManagement/solutions/write | Grupo de Recursos |
+| Microsoft.OperationalInsights/workspaces/* | Grupo de Recursos |
+| Microsoft.Insights/diagnosticSettings/write | Grupo de Recursos |
+| Microsoft.Insights/ActionGroups/Write | Grupo de Recursos |
+| Microsoft.Insights/ActionGroups/read | Grupo de Recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de Recursos |
+| Microsoft.Resources/deployments/* | Grupo de Recursos |
 
 #### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nova conta de automação e um novo espaço de trabalho Log Analytics
 
@@ -86,15 +86,15 @@ Para implantar a solução iniciar/parar VMs fora do horário comercial em uma n
 
 | Permissão |Âmbito|
 | --- | --- |
-| Microsoft. Authorization/Operations/Read | Subscrição|
-| Microsoft. Authorization/Permissions/Read |Subscrição|
-| Microsoft. Authorization/roleAssignments/Read | Subscrição |
+| Microsoft.Authorization/Operations/read | Subscrição|
+| Microsoft.Authorization/permissions/read |Subscrição|
+| Microsoft.Authorization/roleAssignments/read | Subscrição |
 | Microsoft.Authorization/roleAssignments/write | Subscrição |
-| Microsoft. Authorization/roleAssignments/Delete | Subscrição |
-| Microsoft. Automation/automationAccounts/Connections/Read | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Certificates/Read | Grupo de Recursos |
-| Microsoft. Automation/automationAccounts/Write | Grupo de Recursos |
-| Microsoft. OperationalInsights/Workspaces/Write | Grupo de Recursos |
+| Microsoft.Authorization/roleAssignments/delete | Subscrição |
+| Microsoft.Automation/automationAccounts/connections/read | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/certificates/read | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/write | Grupo de Recursos |
+| Microsoft.OperationalInsights/workspaces/write | Grupo de Recursos |
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -119,7 +119,7 @@ Execute as etapas a seguir para adicionar a solução de Iniciar/Parar VMs fora 
    - Especifique um nome para o novo **espaço de trabalho log Analytics**, como "ContosoLAWorkspace".
    - Selecione uma **assinatura** à qual vincular selecionando na lista suspensa, se o padrão selecionado não for apropriado.
    - Para o **grupo de recursos**, você pode criar um novo grupo de recursos ou selecionar um existente.
-   - Selecione uma **Localização**. Atualmente, os únicos locais disponíveis são **sudeste da Austrália**, **Canadá central**, **Índia central**, **leste dos EUA**, **leste do Japão**, **sudeste da Ásia**, **sul do Reino Unido**, **Europa Ocidental**e **oeste dos EUA 2** .
+   - Selecione uma **Localização**.
    - Selecione um **Escalão de preço**. Escolha a opção **por GB (autônomo)** . Os logs de Azure Monitor têm [preços](https://azure.microsoft.com/pricing/details/log-analytics/) atualizados e a camada por GB é a única opção.
 
    > [!NOTE]
@@ -153,7 +153,7 @@ Execute as etapas a seguir para adicionar a solução de Iniciar/Parar VMs fora 
 8. Depois de definir as configurações iniciais necessárias para a solução, clique em **OK** para fechar a página **parâmetros** e selecione **criar**. Depois que todas as configurações forem validadas, a solução será implantada em sua assinatura. Esse processo pode levar vários segundos para ser concluído e você pode acompanhar seu progresso em **notificações** no menu.
 
 > [!NOTE]
-> Se você tiver uma assinatura do provedor de soluções na nuvem do Azure (CSP do Azure), após a conclusão da implantação, em sua conta de automação, vá para **variáveis** em **recursos compartilhados** e defina a variável [**External_EnableClassicVMs**](#variables) como **false** . Isso interrompe a solução de procurar por recursos de VM clássicos.
+> Se você tiver uma assinatura do provedor de soluções na nuvem do Azure (CSP do Azure), após a conclusão da implantação, em sua conta de automação, vá para **variáveis** em **recursos compartilhados** e defina a variável [**External_EnableClassicVMs**](#variables) como **false**. Isso interrompe a solução de procurar por recursos de VM clássicos.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -202,7 +202,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs que dão supor
 1. Execute o runbook **SequencedStartStop_Parent** com o parâmetro action definido como **Iniciar**, adicione uma lista de VMs separadas por vírgula no parâmetro *VMList* e, em seguida, defina o parâmetro WHATIF como **true**. Visualize suas alterações.
 1. Configure o parâmetro **External_ExcludeVMNames** com uma lista separada por vírgulas de VMs (VM1, VM2, VM3).
 1. Esse cenário não respeita as variáveis **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupnames** . Para esse cenário, você precisa criar seu próprio agendamento de automação. Para obter detalhes, consulte [agendando um runbook na automação do Azure](../automation/automation-schedules.md).
-1. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute manualmente o Monitoring-and-Diagnostics/Monitoring-Action-groupsrunbook com o parâmetro definido como **false**ou permita que o agendamento de automação **Sequenced-StartVM** e **Sequenced-StopVM** sejam executados automaticamente seguindo seu agendamento prescrito.
+1. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute manualmente o Monitoring-and-Diagnostics/Monitoring-Action-groupsrunbook com o parâmetro definido como **false**ou permita que o agendamento de automação **Sequenced-StartVM** e **Sequenced-StopVM** sejam executados automaticamente após sua programação prescrita.
 
 ### <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a>Cenário 3: iniciar/parar automaticamente com base na utilização da CPU
 
@@ -249,7 +249,7 @@ Todos os runbooks pai incluem o parâmetro _WhatIf_ . Quando definido como **tru
 
 |Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
-|AutoStop_CreateAlert_Child | VMObject <br> Alerta <br> WebHookURI | Chamado a partir do runbook pai. Esse runbook cria alertas por recurso para o cenário autostop.|
+|AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamado a partir do runbook pai. Esse runbook cria alertas por recurso para o cenário autostop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true ou false  | Cria ou atualiza as regras de alerta do Azure em VMs na assinatura ou nos grupos de recursos de destino. <br> VMList: lista de VMs separadas por vírgula. Por exemplo, _VM1, VM2, VM3_.<br> *WhatIf* valida a lógica do runbook sem execução.|
 |AutoStop_Disable | nenhuma | Desabilita os alertas autostop e o agendamento padrão.|
 |AutoStop_StopVM_Child | WebHookData | Chamado a partir do runbook pai. As regras de alerta chamam esse runbook para interromper a VM.|
@@ -270,7 +270,7 @@ A tabela a seguir lista as variáveis criadas em sua conta de automação. Modif
 |External_AutoStop_Threshold | O limite para a regra de alerta do Azure especificado na variável _External_AutoStop_MetricName_. Os valores percentuais podem variar de 1 a 100.|
 |External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo, que é aplicado ao tamanho de janela selecionado para avaliar a condição. Os valores aceitáveis são **média**, **mínimo**, **máximo**, **total**e **último**.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa as métricas selecionadas para disparar um alerta. Esse parâmetro aceita entrada no formato TimeSpan. Os valores possíveis são de 5 minutos a 6 horas.|
-|External_EnableClassicVMs| Especifica se as VMs clássicas são destinadas à solução. O valor padrão é true. Isso deve ser definido como false para assinaturas do CSP. As VMs clássicas exigem uma [conta Executar como clássica](automation-create-standalone-account.md#classic-run-as-accounts).|
+|External_EnableClassicVMs| Especifica se as VMs clássicas são destinadas à solução. O valor predefinido é Verdadeiro. Isso deve ser definido como false para assinaturas do CSP. As VMs clássicas exigem uma [conta Executar como clássica](automation-create-standalone-account.md#classic-run-as-accounts).|
 |External_ExcludeVMNames | Insira os nomes de VM a serem excluídos, separando os nomes usando uma vírgula sem espaços. Isso é limitado a 140 VMs. Se você adicionar mais de 140 VMs a essa lista separada por vírgulas, as VMs definidas como excluídas poderão ser iniciadas ou interrompidas inadvertidamente.|
 |External_Start_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando valores usando uma vírgula, direcionada para ações de início.|
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando valores usando uma vírgula, destinada a ações de parada.|
@@ -279,7 +279,7 @@ A tabela a seguir lista as variáveis criadas em sua conta de automação. Modif
 |Internal_AzureSubscriptionId | Especifica a ID da assinatura do Azure.|
 |Internal_ResourceGroupName | Especifica o nome do grupo de recursos da conta de automação.|
 
-Em todos os cenários, as variáveis **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**e **External_ExcludeVMNames** são necessárias para direcionar as VMs, com exceção de fornecer uma separada por vírgulas lista de VMs para os runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** . Ou seja, suas VMs devem residir em grupos de recursos de destino para que as ações iniciar e parar ocorram. A lógica funciona semelhante à política do Azure, na qual você pode direcionar a assinatura ou o grupo de recursos e ter ações herdadas por VMs recém-criadas. Essa abordagem evita ter que manter um agendamento separado para cada VM e gerenciar inícios e paradas em escala.
+Em todos os cenários, as variáveis **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**e **External_ExcludeVMNames** são necessárias para direcionar as VMs, com exceção de fornecer uma lista separada por vírgulas de vms para os runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** . Ou seja, suas VMs devem residir em grupos de recursos de destino para que as ações iniciar e parar ocorram. A lógica funciona semelhante à política do Azure, na qual você pode direcionar a assinatura ou o grupo de recursos e ter ações herdadas por VMs recém-criadas. Essa abordagem evita ter que manter um agendamento separado para cada VM e gerenciar inícios e paradas em escala.
 
 ### <a name="schedules"></a>Agendas
 
@@ -318,7 +318,7 @@ A automação cria dois tipos de registros no espaço de trabalho Log Analytics:
 |SourceSystem | Especifica o sistema de origem dos dados submetidos. Para a automação, o valor é OpsManager|
 |StreamType | Especifica o tipo de evento. Os valores possíveis são:<br>- Verboso<br>- Saída<br>- Erro<br>- Aviso|
 |SubscriptionId | Especifica o ID de subscrição do trabalho.
-|Hora | Data e hora da execução do trabalho do runbook.|
+|Tempo | Data e hora da execução do trabalho do runbook.|
 
 ### <a name="job-streams"></a>Fluxos de trabalho
 
@@ -337,7 +337,7 @@ A automação cria dois tipos de registros no espaço de trabalho Log Analytics:
 |RunbookName | O nome do runbook.|
 |SourceSystem | Especifica o sistema de origem dos dados submetidos. Para a automação, o valor é OpsManager.|
 |StreamType | O tipo de fluxo de trabalho. Os valores possíveis são:<br>-Progresso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso|
-|Hora | Data e hora da execução do trabalho do runbook.|
+|Tempo | Data e hora da execução do trabalho do runbook.|
 
 Ao executar qualquer pesquisa de log que retorne registros de categoria de **JobLogs** ou **JobStreams**, você pode selecionar a exibição **JobLogs** ou **JobStreams** , que exibe um conjunto de blocos Resumindo as atualizações retornadas pela pesquisa.
 

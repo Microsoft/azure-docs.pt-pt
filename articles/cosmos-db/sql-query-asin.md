@@ -1,18 +1,18 @@
 ---
 title: Asen na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função de sistema SQL Asen no Azure Cosmos DB.
+description: Saiba mais sobre como a função de sistema do codeseno (Asen) do SQL em Azure Cosmos DB retorna o ângulo, em radianos, cujo seno é a expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5a64fc8d8f87d38f001bf2bc9dd581692c97fe64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3e790eb5ae5eb780637b199a1a65dec2dd02d1bc
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348506"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871743"
 ---
 # <a name="asin-azure-cosmos-db"></a>Asen (Azure Cosmos DB)
  Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Isso também é chamado o arco de seno.  

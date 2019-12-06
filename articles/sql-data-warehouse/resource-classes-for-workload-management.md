@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8c3e3c272ce12200ab7506fd7c9759a8cb3aa64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685922"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851745"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gerenciamento de carga de trabalho com classes de recurso no Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Diretrizes para usar classes de recursos para gerenciar a memória e a simultane
 
 ## <a name="what-are-resource-classes"></a>O que são classes de recurso
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  As classes de recursos são limites de recursos predeterminados no Azure SQL Data Warehouse que regem os recursos de computação e a simultaneidade para a execução da consulta. As classes de recursos podem ajudá-lo a gerenciar sua carga de trabalho definindo limites no número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma compensação entre a memória e a simultaneidade.
+A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  As classes de recursos são limites de recursos predeterminados no Azure SQL Data Warehouse que regem os recursos de computação e a simultaneidade para a execução da consulta. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas definindo limites no número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma compensação entre a memória e a simultaneidade.
 
 - Classes de recursos menores reduzem a memória máxima por consulta, mas aumentam a simultaneidade.
 - Classes de recursos maiores aumentam a memória máxima por consulta, mas reduzem a simultaneidade.
@@ -65,14 +65,18 @@ As classes de recursos dinâmicos são implementadas com essas funções de banc
 - largerc
 - xlargerc
 
-A alocação de memória para cada classe de recurso é a seguinte, **independentemente do nível de serviço**.  As consultas de simultaneidade mínima também são listadas.  Para alguns níveis de serviço, mais do que a simultaneidade mínima pode ser alcançada.
+A alocação de memória para cada classe de recurso é a seguinte. 
 
-| Classe de Recursos | Percentual de memória | Mínimo de consultas simultâneas |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | Beta                | 32                     |
-| mediumrc       | 10%               | 10                     |
-| largerc        | 22               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| Nível de Serviço  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
+| DW200c         | 12,5%             | 12,5%                  | 22%                    | 70%                    |
+| DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
+| DW400c         | 6,25%             | 10%                    | 22%                    | 70%                    |
+| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| DW1000c para<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
+
+
 
 ### <a name="default-resource-class"></a>Classe de recurso padrão
 
@@ -105,6 +109,8 @@ Essas operações são governadas pelas classes de recurso:
 
 > [!NOTE]  
 > As instruções SELECT nas DMVs (exibições de gerenciamento dinâmico) ou outras exibições do sistema não são governadas por nenhum dos limites de simultaneidade. Você pode monitorar o sistema independentemente do número de consultas em execução nele.
+>
+>
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Operações não governadas por classes de recurso
 
@@ -179,6 +185,11 @@ Os usuários podem ser membros de várias classes de recursos. Quando um usuári
 
 ## <a name="recommendations"></a>Recomendações
 
+>[!NOTE]
+>Considere aproveitar os recursos de gerenciamento de carga de trabalho ([isolamento de carga de trabalho](sql-data-warehouse-workload-isolation.md), [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md)) para obter mais controle sobre sua carga de trabalho e desempenho previsível  
+>
+>
+
 É recomendável criar um usuário dedicado à execução de um tipo específico de consulta ou operação de carregamento. Dê a esse usuário uma classe de recurso permanente em vez de alterar a classe de recurso com frequência. As classes de recursos estáticos oferecem maior controle geral na carga de trabalho, então sugerimos o uso de classes de recursos estáticos antes de considerar as classes de recursos dinâmicos.
 
 ### <a name="resource-classes-for-load-users"></a>Classes de recursos para usuários de carga
@@ -231,12 +242,12 @@ Esta é a finalidade deste procedimento armazenado:
 
 ### <a name="usage-example"></a>Exemplo de uso
 
-Sintaxe  
+Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU: forneça um parâmetro nulo para extrair o DWU atual do banco de BD DW ou fornecer qualquer DWU com suporte no formato ' DW100c '
-2. @SCHEMA_NAME: forneça um nome de esquema da tabela
-3. @TABLE_NAME: forneça um nome de tabela de interesse
+1. @DWU: fornecer um parâmetro nulo para extrair o DWU atual do banco de BD DW ou fornecer qualquer DWU com suporte na forma de ' DW100c '
+2. @SCHEMA_NAME: fornecer um nome de esquema da tabela
+3. @TABLE_NAME: fornecer um nome de tabela de interesse
 
 Exemplos que executam esse procedimento armazenado:
 
@@ -250,7 +261,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 A instrução a seguir cria Table1 que é usado nos exemplos anteriores.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### <a name="stored-procedure-definition"></a>Definição de procedimento armazenado
+### <a name="stored-procedure-definition"></a>Definição do procedimento armazenado
 
 ```sql
 -------------------------------------------------------------------------------

@@ -6,19 +6,19 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af0c2ecde539c9737249e4251f7eab276affb9c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381923"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848549"
 ---
-# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha no Azure Active Directory
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
 Este artigo descreve as políticas de senha e os requisitos de complexidade associados às contas de usuário no locatário do Azure Active Directory (Azure AD).
 
@@ -32,24 +32,24 @@ A política de duas portas requer duas partes de dados de autenticação, como u
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de assistência técnica
-  * Administrador de suporte de serviço
+  * Administrador de suporte de serviços
   * Administrador de faturação
   * Parceiro de Suporte de Escalão 1
   * Parceiro de Suporte de Escalão 2
   * Administrador do Exchange
-  * Administrador do Skype for Business
+  * Administrador do Skype para Empresas
   * Administrador do usuário
   * Gravadores de diretório
   * Administrador global ou administrador da empresa
   * Administrador do SharePoint
   * Administrador de conformidade
-  * Administrador de aplicativos
+  * Administrador de aplicações
   * Administrador de segurança
   * Administrador de função com privilégios
   * Administrador do Intune
   * Administrador do serviço de proxy de aplicativo
   * Administrador do Dynamics 365
-  * Administrador de serviço do Power BI
+  * Administrador do serviço Power BI
   * Administrador de autenticação
   * Administrador de autenticação privilegiada
 
@@ -71,7 +71,7 @@ Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atrib
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_! \# ^ \~</li></ul> |
+| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo de "\@\"</li></ul> |
 | Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>Pode haver até 64 caracteres antes do símbolo de "\@\"</li><li>Pode haver até 48 caracteres após o símbolo de "\@\"</li></ul> |
 
@@ -81,7 +81,7 @@ A tabela a seguir descreve as configurações de política de senha aplicadas a 
 
 | Propriedade | Requisitos |
 | --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ "();</li> <li>espaço em branco</li></ul> |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não permitidos | Caracteres Unicode. |
 | Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 caracteres.</li><li>Requer três de quatro dos seguintes:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de senha anteriores).</li></ul></li></ul> |
 | Duração da expiração da senha (duração máxima da senha) |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do módulo Azure Active Directory para o Windows PowerShell.</li></ul> |

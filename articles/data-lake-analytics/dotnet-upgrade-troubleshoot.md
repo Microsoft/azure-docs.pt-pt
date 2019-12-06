@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 851a405e5143ea5bb3a26de76f713914aa4bb569
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648522"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873238"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics está atualizando para o .NET Framework v 4.7.2
 
@@ -39,7 +39,7 @@ Verifique o potencial de problemas de interrupção da compatibilidade com vers�
 1. Execute o verificador de compatibilidade com versões anteriores em suas DLLs do .NET por
    1. Usando a extensão do Visual Studio na [extensão do .net portabilidade Analyzer Visual Studio](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
    1. Baixando e usando a ferramenta autônoma do [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). As instruções para executar a ferramenta autônoma estão no [GitHub dotnetapiport alterações significativas](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
-   1. Para 4.7.2. Read Compatibility isRetargeting = = true são as alterações significativas.
+   1. Para 4.7.2. compatibilidade `read isRetargeting == True` identifica possíveis problemas.
 2. Se a ferramenta indicar se o código pode ser afetado por qualquer uma das possíveis incompatibilidades com versões anteriores (alguns exemplos comuns de incompatibilidades estão listados abaixo), você pode verificar novamente por
    1. Analisando seu código e identificando se seu código está passando valores para as APIs afetadas
    1. Execute uma verificação de tempo de execução. A implantação de tempo de execução não é feita lado a lado no ADLA. Você pode executar uma verificação de tempo de execução antes da atualização, usando a execução local do VisualStudio com um .NET Framework local 4.7.2 em relação a um conjunto de dados representativo.
@@ -65,7 +65,7 @@ As incompatibilidades com versões anteriores mais comuns que o verificador prov
   - Ação sugerida: Verifique se TaskFactory. FromAsync retorna true corretamente
 
 - DataObject. GetData agora recupera dados como UTF-8
-  - Para aplicativos direcionados para o .NET Framework 4 ou executados no .NET Framework 4.5.1 ou versões anteriores, DataObject. GetData recupera dados formatados em HTML como uma cadeia de caracteres ASCII. Como resultado, caracteres não ASCII (caracteres cujos códigos ASCII são maiores que 0x7F) são representados por dois caracteres aleatórios. #N # #N # para aplicativos direcionados ao .NET Framework 4,5 ou posterior e executados no .NET Framework 4.5.2, `DataObject.GetData` recupera dados formatados em HTML como UTF-8, que representa caracteres maiores que 0x7F corretamente.
+  - Para aplicativos direcionados para o .NET Framework 4 ou executados no .NET Framework 4.5.1 ou versões anteriores, DataObject. GetData recupera dados formatados em HTML como uma cadeia de caracteres ASCII. Como resultado, caracteres não ASCII (caracteres cujos códigos ASCII são maiores que 0x7F) são representados por dois caracteres aleatórios. #N # #N # para aplicativos direcionados para o .NET Framework 4,5 ou posterior e executados no .NET Framework 4.5.2, `DataObject.GetData` recupera dados formatados em HTML como UTF-8, que representa caracteres maiores que 0x7F corretamente.
   - Bibliotecas afetadas: Glo
   - Ação sugerida: Verifique se os dados recuperados são do formato que você deseja
 

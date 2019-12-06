@@ -1,18 +1,18 @@
 ---
 title: ACOS na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre os ACOS da função do sistema SQL no Azure Cosmos DB.
+description: Saiba como a função do sistema SQL de ACOS (arccosice) no Azure Cosmos DB retorna o ângulo, em radianos, cujo cosseno é a expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2c9d29fba6b5dc55a98bf90cfafe0940d7bf9674
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: fd5baa3ffefb7039c40706253e633661a51150f2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348738"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873527"
 ---
 # <a name="acos-azure-cosmos-db"></a>ACOS (Azure Cosmos DB)
  Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também chamado de arco de cosseno.  

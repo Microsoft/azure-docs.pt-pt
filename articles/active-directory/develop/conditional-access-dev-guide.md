@@ -2,7 +2,6 @@
 title: Diretrizes para desenvolvedores para Azure Active Directory acesso condicional
 description: Diretrizes para desenvolvedores e cenários para acesso condicional do Azure AD
 services: active-directory
-keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
@@ -11,17 +10,15 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 69fcb50cb8273fa9e6606e1d071249ed17c78786
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374011"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843738"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretrizes para desenvolvedores para Azure Active Directory acesso condicional
 
@@ -114,7 +111,7 @@ A solicitação de token inicial para a API Web 1 não solicita ao usuário fina
 O Azure AD retorna uma resposta HTTP com alguns dados interessantes:
 
 > [!NOTE]
-> Nessa instância, é uma descrição de erro de autenticação multifator, mas há uma grande variedade de `interaction_required` possível pertencente ao acesso condicional.
+> Nessa instância, é uma descrição de erro de autenticação multifator, mas há uma ampla variedade de `interaction_required` possíveis pertencentes ao acesso condicional.
 
 ```
 HTTP 400; Bad Request
@@ -123,7 +120,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-Na API da Web 1, capturamos o erro `error=interaction_required` e enviamos de volta o desafio de `claims` para o aplicativo da área de trabalho. Nesse ponto, o aplicativo de desktop pode fazer uma nova chamada `acquireToken()` e acrescentar o `claims`challenge como um parâmetro de cadeia de caracteres de consulta extra. Essa nova solicitação exige que o usuário faça a autenticação multifator e envie esse novo token de volta para a API da Web 1 e conclua o fluxo em nome de.
+Na API da Web 1, capturamos o erro `error=interaction_required`e enviamos de volta o desafio `claims` para o aplicativo da área de trabalho. Nesse ponto, o aplicativo de desktop pode fazer uma nova chamada de `acquireToken()` e acrescentar o desafio de `claims`como um parâmetro de cadeia de caracteres de consulta extra. Essa nova solicitação exige que o usuário faça a autenticação multifator e envie esse novo token de volta para a API da Web 1 e conclua o fluxo em nome de.
 
 Para testar esse cenário, consulte nosso [exemplo de código .net](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Ele demonstra como passar o desafio de declarações de volta da API Web 1 para o aplicativo nativo e construir uma nova solicitação dentro do aplicativo cliente.
 
@@ -146,23 +143,23 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Aplicativo acessando vários serviços solicitando um novo token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso é verdadeiro, a menos que a solicitação seja um `AcquireTokenSilentAsync` ou `PromptBehavior.Never`, nesse caso, o aplicativo precisa executar uma solicitação ```AcquireToken``` interativa para dar ao usuário final a oportunidade de cumprir a política.
+Se o aplicativo estiver usando a biblioteca ADAL, uma falha ao adquirir o token será sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso é verdadeiro, a menos que a solicitação seja uma `AcquireTokenSilentAsync` ou `PromptBehavior.Never` nesse caso, o aplicativo precisa executar uma solicitação de ```AcquireToken``` interativa para dar ao usuário final a oportunidade de cumprir a política.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: aplicativo de página única (SPA) usando ADAL. js
 
 Nesse cenário, percorremos o caso em que temos um aplicativo de página única (SPA), usando o ADAL. js para chamar uma API Web protegida por acesso condicional. Essa é uma arquitetura simples, mas tem algumas nuances que precisam ser levadas em conta ao desenvolver em volta do acesso condicional.
 
-No ADAL. js, há algumas funções que obtêm tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)` e `acquireTokenRedirect(…)`.
+No ADAL. js, há algumas funções que obtêm tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`e `acquireTokenRedirect(…)`.
 
 * `login()` Obtém um token de ID por meio de uma solicitação de entrada interativa, mas não obtém tokens de acesso para nenhum serviço (incluindo uma API Web protegida por acesso condicional).
-* o `acquireToken(…)` pode então ser usado para obter silenciosamente um token de acesso, o que significa que ele não mostra a interface do usuário em nenhuma circunstância.
+* `acquireToken(…)` pode ser usado para obter silenciosamente um token de acesso, o que significa que ele não mostra a interface do usuário em nenhuma circunstância.
 * `acquireTokenPopup(…)` e `acquireTokenRedirect(…)` são usados para solicitar interativamente um token para um recurso, o que significa que eles sempre mostram a interface do usuário de entrada.
 
-Quando um aplicativo precisa de um token de acesso para chamar uma API da Web, ele tenta um `acquireToken(…)`. Se a sessão de token estiver expirada ou precisar estar em conformidade com uma política de acesso condicional, a função *acquireToken* falhará e o aplicativo usará `acquireTokenPopup()` ou `acquireTokenRedirect()`.
+Quando um aplicativo precisa de um token de acesso para chamar uma API da Web, ele tenta uma `acquireToken(…)`. Se a sessão de token estiver expirada ou precisar estar em conformidade com uma política de acesso condicional, a função *acquireToken* falhará e o aplicativo usará `acquireTokenPopup()` ou `acquireTokenRedirect()`.
 
 ![Aplicativo de página única usando o diagrama de fluxo ADAL](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-Vamos examinar um exemplo com nosso cenário de acesso condicional. O usuário final apenas descarregou no site e não tem uma sessão. Realizamos uma chamada `login()`, obtenho um token de ID sem autenticação multifator. Em seguida, o usuário acessa um botão que exige que o aplicativo solicite dados de uma API da Web. O aplicativo tenta fazer uma chamada `acquireToken()`, mas falha, pois o usuário ainda não executou a autenticação multifator e precisa estar em conformidade com a política de acesso condicional.
+Vamos examinar um exemplo com nosso cenário de acesso condicional. O usuário final apenas descarregou no site e não tem uma sessão. Realizamos uma chamada de `login()`, obtemos um token de ID sem autenticação multifator. Em seguida, o usuário acessa um botão que exige que o aplicativo solicite dados de uma API da Web. O aplicativo tenta fazer uma chamada de `acquireToken()`, mas falha, pois o usuário ainda não executou a autenticação multifator e precisa estar em conformidade com a política de acesso condicional.
 
 O Azure AD envia de volta a seguinte resposta HTTP:
 

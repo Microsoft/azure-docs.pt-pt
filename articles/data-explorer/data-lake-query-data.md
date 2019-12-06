@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1299ca9192481c1cc914732d47823c1d8cbd0fae
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383367"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849076"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consultar dados em Azure Data Lake usando o Data Explorer do Azure (versão prévia)
 
@@ -21,20 +21,15 @@ Azure Data Lake Storage é uma solução data Lake altamente escalonável e econ
 O Azure Data Explorer integra-se com o armazenamento de BLOBs do Azure e Azure Data Lake Storage Gen2, fornecendo acesso rápido, armazenado em cache e indexado aos dados no Lake. Você pode analisar e consultar dados no Lake sem ingestão anterior no Azure Data Explorer. Você também pode consultar dados nativos do Lake ingeridos e indesejados simultaneamente.  
 
 > [!TIP]
-> O melhor desempenho de consulta exige a ingestão de dados no Azure Data Explorer. A capacidade de consultar dados em Azure Data Lake Storage Gen2 sem ingestão anterior deve ser usada apenas para dados históricos ou dados que raramente são consultados.
+> O melhor desempenho de consulta exige a ingestão de dados no Azure Data Explorer. A capacidade de consultar dados em Azure Data Lake Storage Gen2 sem ingestão anterior deve ser usada apenas para dados históricos ou dados que raramente são consultados. [Otimize seu desempenho de consulta no Lake](#optimize-your-query-performance) para obter melhores resultados.
  
-## <a name="optimize-query-performance-in-the-lake"></a>Otimizar o desempenho de consulta no Lake 
-
-* Particione os dados para melhorar o desempenho e o tempo de consulta otimizado.
-* Compacte dados para melhorar o desempenho (gzip para melhor compactação, lz4 para melhor desempenho).
-* Use o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2 com a mesma região que o cluster de Data Explorer do Azure. 
 
 ## <a name="create-an-external-table"></a>Criar uma tabela externa
 
  > [!NOTE]
  > Atualmente, as contas de armazenamento com suporte são o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2. Atualmente, os formatos de dados com suporte são JSON, CSV, TSV e txt.
 
-1. Use o `.create external table` comando para criar uma tabela externa no Azure data Explorer. Comandos de tabela externa adicionais, `.show`como `.drop`, e `.alter` são documentados em [comandos de tabela externa](/azure/kusto/management/externaltables).
+1. Use o comando `.create external table` para criar uma tabela externa no Data Explorer do Azure. Comandos de tabela externa adicionais, como `.show`, `.drop`e `.alter`, são documentados em [comandos de tabela externa](/azure/kusto/management/externaltables).
 
     ```Kusto
     .create external table ArchivedProducts(
@@ -50,7 +45,7 @@ O Azure Data Explorer integra-se com o armazenamento de BLOBs do Azure e Azure D
     > * O aumento do desempenho é esperado com particionamento mais granular. Por exemplo, as consultas em tabelas externas com partições diárias terão um desempenho melhor do que as consultas com tabelas particionadas mensais.
     > * Quando você define uma tabela externa com partições, espera-se que a estrutura de armazenamento seja idêntica.
 Por exemplo, se a tabela for definida com uma partição DateTime no formato AAAA/MM/DD (padrão), o caminho do arquivo de armazenamento URI deverá ser *Container1/aaaa/mm/dd/all_exported_blobs*. 
-    > * Se a tabela externa for particionada por uma coluna DateTime, sempre inclua um filtro de tempo para um intervalo fechado em sua consulta (por exemplo, a consulta `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` --deve executar melhor do que esse (intervalo aberto) `ArchivedProducts | where Timestamp > ago(1h)` um-). 
+    > * Se a tabela externa for particionada por uma coluna DateTime, sempre inclua um filtro de tempo para um intervalo fechado em sua consulta (por exemplo, o `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` de consulta-deve ter um desempenho melhor do que esse (intervalo aberto) um-`ArchivedProducts | where Timestamp > ago(1h)`). 
 
 1. A tabela externa está visível no painel esquerdo da interface do usuário da Web
 
@@ -60,7 +55,7 @@ Por exemplo, se a tabela for definida com uma partição DateTime no formato AAA
 
 Você pode criar uma tabela externa com o formato JSON. Para obter mais informações, consulte [comandos de tabela externa](/azure/kusto/management/externaltables)
 
-1. Use o `.create external table` comando para criar uma tabela chamada *ExternalTableJson*:
+1. Use o comando `.create external table` para criar uma tabela chamada *ExternalTableJson*:
 
     ```kusto
     .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
@@ -91,7 +86,7 @@ Você pode criar uma tabela externa com o formato JSON. Para obter mais informa�
  
 ## <a name="query-an-external-table"></a>Consultar uma tabela externa
  
-Para consultar uma tabela externa, use a `external_table()` função e forneça o nome da tabela como o argumento da função. O restante da consulta é a linguagem de consulta Kusto padrão.
+Para consultar uma tabela externa, use a função `external_table()` e forneça o nome da tabela como o argumento da função. O restante da consulta é a linguagem de consulta Kusto padrão.
 
 ```Kusto
 external_table("ArchivedProducts") | take 100
@@ -102,7 +97,7 @@ external_table("ArchivedProducts") | take 100
 
 ### <a name="query-an-external-table-with-json-format"></a>Consultar uma tabela externa com o formato JSON
 
-Para consultar uma tabela externa com o formato JSON, use `external_table()` a função e forneça o nome da tabela e o nome do mapeamento como os argumentos da função. Na consulta abaixo, se *MappingName* não for especificado, um mapeamento que você criou anteriormente será usado.
+Para consultar uma tabela externa com o formato JSON, use a função `external_table()` e forneça o nome da tabela e o nome do mapeamento como os argumentos da função. Na consulta abaixo, se *MappingName* não for especificado, um mapeamento que você criou anteriormente será usado.
 
 ```kusto
 external_table(‘ExternalTableJson’, ‘mappingName’)
@@ -110,7 +105,7 @@ external_table(‘ExternalTableJson’, ‘mappingName’)
 
 ## <a name="query-external-and-ingested-data-together"></a>Consultar dados externos e ingeridos juntos
 
-Você pode consultar tabelas externas e tabelas de dados ingeridos dentro da mesma consulta. Você [`join`](/azure/kusto/query/joinoperator) [ou`union`](/azure/kusto/query/unionoperator) a tabela externa com dados adicionais do Azure data Explorer, SQL Servers ou outras fontes. Use um [`let( ) statement`](/azure/kusto/query/letstatement) para atribuir um nome abreviado a uma referência de tabela externa.
+Você pode consultar tabelas externas e tabelas de dados ingeridos dentro da mesma consulta. Você [`join`](/azure/kusto/query/joinoperator) ou [`union`](/azure/kusto/query/unionoperator) a tabela externa com dados adicionais do Azure data Explorer, SQL Servers ou outras fontes. Use um [`let( ) statement`](/azure/kusto/query/letstatement) para atribuir um nome abreviado a uma referência de tabela externa.
 
 No exemplo a seguir, *Products* é uma tabela de dados ingerida e *ArchivedProducts* é uma tabela externa que contém dados no Azure data Lake Storage Gen2:
 
@@ -199,7 +194,7 @@ O conjunto de dados de exemplo *TaxiRides* contém dados de táxi da cidade de N
 
 ### <a name="query-taxirides-external-table-data"></a>Consultar dados da tabela externa do *TaxiRides* 
 
-Entre no para consultar a tabela externa *TaxiRides.* [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
+Entre no [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) para consultar a tabela externa *TaxiRides* . 
 
 #### <a name="query-taxirides-external-table-without-partitioning"></a>Consultar tabela externa do *TaxiRides* sem particionamento
 
@@ -231,6 +226,37 @@ Essa consulta usa particionamento, o que otimiza o tempo de consulta e o desempe
 ![renderizar consulta particionada](media/data-lake-query-data/taxirides-with-partition.png)
   
 Você pode escrever consultas adicionais para executar na tabela externa *TaxiRides* e saber mais sobre os dados. 
+
+## <a name="optimize-your-query-performance"></a>Otimizar o desempenho da consulta
+
+Otimize seu desempenho de consulta no Lake usando as práticas recomendadas a seguir para consultar dados externos. 
+ 
+### <a name="data-format"></a>Formato de dados
+ 
+Use um formato de coluna para consultas analíticas desde o:
+* Somente as colunas relevantes para uma consulta podem ser lidas. 
+* As técnicas de codificação de coluna podem reduzir significativamente o tamanho dos dados.  
+O Azure Data Explorer dá suporte aos formatos de coluna parquet e ORC. O formato parquet é sugerido devido à implementação otimizada. 
+ 
+### <a name="azure-region"></a>Região do Azure 
+ 
+Verifique se os dados externos residem na mesma região do Azure que o cluster de Data Explorer do Azure. Isso reduz o custo e o tempo de busca de dados.
+ 
+### <a name="file-size"></a>Tamanho dos ficheiros
+ 
+O tamanho de arquivo ideal é de centenas de MB (até 1 GB) por arquivo. Evite muitos arquivos pequenos que exigem sobrecarga desnecessária, como o processo de enumeração de arquivos mais lento e o uso limitado do formato de coluna. Observe que o número de arquivos deve ser maior que o número de núcleos de CPU no cluster de Data Explorer do Azure. 
+ 
+### <a name="compression"></a>Compressão
+ 
+Use a compactação para reduzir a quantidade de dados que estão sendo buscados do armazenamento remoto. Para o formato parquet, use o mecanismo de compactação parquet interno que compacta os grupos de colunas separadamente, permitindo que você os leia separadamente. Para validar o uso do mecanismo de compactação, verifique se os arquivos são nomeados da seguinte maneira: "<filename>. gz. parquet" ou "<filename>. snapshoty. parquet", em oposição a "<filename>. parquet. gz"). 
+ 
+### <a name="partitioning"></a>Criação de partições
+ 
+Organize seus dados usando partições de "pasta" que permitem que a consulta ignore caminhos irrelevantes. Ao planejar o particionamento, considere o tamanho do arquivo e os filtros comuns em suas consultas, como carimbo de data/hora ou ID do locatário.
+ 
+### <a name="vm-size"></a>Tamanhos de VM
+ 
+Selecione SKUs de VM com mais núcleos e maior taxa de transferência de rede (a memória é menos importante). Para obter mais informações, consulte [selecionar o SKU de VM correto para seu cluster de data Explorer do Azure](manage-cluster-choose-sku.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
