@@ -60,9 +60,6 @@
         - name: Agrupar e extrair dados relacionados com entidades compostas
           href: luis-tutorial-composite-entity.md
           displayName: roles
-        - name: Obter nomes com entidades simples
-          href: luis-quickstart-primary-and-secondary-data.md
-          displayName: roles
     - name: Melhorar a aplicação
       items:
         - name: Corrigir predições inseguras

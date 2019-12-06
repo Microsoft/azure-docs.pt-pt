@@ -4,12 +4,12 @@ ms.date: 11-21-2019
 ms.topic: hub-page
 title: Documentação do serviço de Voz
 description: Comece a utilizar o serviço de Voz. Reconheça e sintetize voz, obtenha traduções em tempo real, transcreva conversas ou integre voz nas experiências que o seu bot oferece.
-ms.openlocfilehash: 2ec258501b89d9ff801974b38f6717bf7af2eafc
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: df90416b9ef046d68b5785b1fcb203159831e8fd
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840804"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886063"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -28,7 +28,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_microphone_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-recognition-from-microphone-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -47,7 +47,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_file_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-recognition-from-file-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -66,7 +66,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                        <img src="media/hub/speech-recognition-from-blob.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -85,7 +85,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -104,7 +104,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -123,7 +123,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -147,7 +147,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_synthesis_to_audio_out.jpg" alt="" />
+                                                        <img src="media/hub/speech-synthesis-to-audio-out.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -166,7 +166,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_synthesis_to_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-synthesis-to-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -185,7 +185,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -204,7 +204,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -223,7 +223,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -242,7 +242,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -266,7 +266,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_intent_recognition.jpg" alt="" />
+                                                        <img src="media/hub/speech-intent-recognition.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -285,7 +285,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -304,7 +304,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -328,7 +328,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_translation_from_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-translation-from-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -347,7 +347,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_translation_from_microphone_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-translation-from-microphone-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -366,7 +366,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_translation_from_microphone_audio_out.jpg" alt="" />
+                                                        <img src="media/hub/speech-translation-from-microphone-audio-out.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -385,7 +385,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -404,7 +404,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -423,7 +423,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -447,7 +447,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -466,7 +466,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversation_transcription.jpg" alt="" />
+                                                        <img src="media/hub/speech-conversation-transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -485,7 +485,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversation_transcription.jpg" alt="" />
+                                                        <img src="media/hub/speech-conversation-transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -504,7 +504,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -523,7 +523,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -547,7 +547,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -566,7 +566,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
+                                                        <img src="media/hub/speech-conversational-agent.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -585,7 +585,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -609,7 +609,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech-github-issues.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -628,7 +628,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech-stackoverflow.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -647,7 +647,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech-uservoice.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -676,7 +676,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -695,7 +695,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -714,7 +714,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -733,7 +733,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -752,7 +752,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -777,7 +777,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -797,7 +797,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -816,7 +816,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -835,7 +835,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_human_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-human-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -855,7 +855,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -885,7 +885,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -904,7 +904,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -928,7 +928,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
+                                                        <img src="media/hub/speech-containers.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -947,7 +947,7 @@ ms.locfileid: "74840804"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-regions.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
