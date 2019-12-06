@@ -2,19 +2,19 @@
 title: Integração de soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário de uma VM do Azure
 description: Saiba como carregar uma máquina virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário que fazem parte da automação do Azure.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 8dd69b1cf4ac8874175cff84d3c2b9fc5e323922
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374415"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849688"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integração de soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário de uma máquina virtual do Azure
 
@@ -26,7 +26,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Habilitar as soluções
 
-Vá para uma máquina virtual existente. Em **operações**, selecione **Gerenciamento de atualizações**, **inventário**ou **controle de alterações**. A máquina virtual pode existir em qualquer região, independentemente do local da sua conta de automação. Ao realizar a integração de uma solução de uma VM, você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está integrada a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessárias em geral, confira [as permissões necessárias para carregar computadores](automation-role-based-access-control.md#onboarding).
+Vá para uma máquina virtual existente. Em **operações**, selecione **Gerenciamento de atualizações**, **inventário**ou **controle de alterações**. A máquina virtual pode existir em qualquer região, independentemente do local da sua conta de automação. Ao integrar uma solução de uma VM, você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está integrada a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessárias em geral, confira [as permissões necessárias para carregar computadores](automation-role-based-access-control.md#onboarding).
 
 Para habilitar a solução somente para a VM, verifique se **habilitar para esta VM** está selecionado. Para integrar vários computadores à solução, selecione **habilitar para VMs nesta assinatura**e, em seguida, selecione **clique para selecionar os computadores a serem habilitados**. Para saber como integrar várias máquinas de uma só vez, consulte [integração gerenciamento de atualizações, controle de alterações e soluções de inventário](automation-onboard-solutions-from-automation-account.md).
 
@@ -47,7 +47,7 @@ Se o espaço de trabalho selecionado ainda não tiver as soluções Gerenciament
 
 * **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig-atualizações**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Se o espaço de trabalho selecionado já tiver a solução, a solução não será reimplantada e a configuração de escopo não será adicionada.
 
@@ -97,7 +97,7 @@ Se você usou a solução Gerenciamento de Atualizações, opcionalmente, talvez
 
 * Atualizar agendas-cada uma terá nomes que correspondam às implantações de atualização que você criou)
 
-* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Se você usou a solução Iniciar/Parar VMs fora do horário comercial, opcionalmente, talvez queira remover os itens a seguir que não são mais necessários após a remoção da solução.
 
@@ -111,7 +111,7 @@ Como alternativa, você também pode desvincular seu espaço de trabalho de sua 
 
 Para remover uma VM do Gerenciamento de Atualizações:
 
-* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para o `MicrosoftDefaultScopeConfig-Updates`de configuração de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
 * Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -4,17 +4,17 @@ description: Este artigo orienta você pelas etapas de criação, teste e uso de
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0dcfcfe5bc6e59eeb4ccb7272ed3f68edc9c4172
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146651"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850402"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -35,10 +35,10 @@ Com essas contas criadas para você, você pode começar rapidamente a criar e i
 
 Para criar ou atualizar uma conta de automação e para concluir as tarefas descritas neste artigo, você deve ter os seguintes privilégios e permissões:
 
-* Para criar uma conta de automação, sua conta de usuário do Azure ad deve ser adicionada a uma função com permissões equivalentes à **função de proprietário da Microsoft. Recursos** de automação. Para obter mais informações, consulte [controle de acesso baseado em função na automação do Azure](automation-role-based-access-control.md).
-* Na portal do Azure, em **Azure Active Directory** > **gerenciar** > **configurações de usuário**, se **registros de aplicativo** estiver definido como **Sim**, os usuários não administradores em seu locatário do Azure ad poderão [registrar ativos Aplicativos de diretório](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **registros de aplicativo** for definido como **não**, o usuário que executa essa ação deverá ser um administrador global no Azure AD.
+* Para criar uma conta de automação, sua conta de usuário do Azure AD deve ser adicionada a uma função com permissões equivalentes à função de proprietário da **Microsoft.** Recursos de automação. Para obter mais informações, consulte [controle de acesso baseado em função na automação do Azure](automation-role-based-access-control.md).
+* Na portal do Azure, em **Azure Active Directory** > **gerenciar** configurações de **usuário** > , se **registros de aplicativo** estiver definido como **Sim**, os usuários não administradores em seu locatário do Azure ad poderão [registrar Active Directory aplicativos](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **registros de aplicativo** for definido como **não**, o usuário que executa essa ação deverá ser um administrador global no Azure AD.
 
-Se você não for um membro da instância de Active Directory da assinatura antes de ser adicionado à função Administrador Global/coadministrador da assinatura, será adicionado ao Active Directory como convidado. Nesse cenário, você verá esta mensagem na página **adicionar conta de automação** : "Você não tem permissões para criar."
+Se você não for um membro da instância de Active Directory da assinatura antes de ser adicionado à função Administrador Global/coadministrador da assinatura, será adicionado ao Active Directory como convidado. Nesse cenário, você verá esta mensagem na página **adicionar conta de automação** : "você não tem permissões para criar".
 
 Se um usuário for adicionado à função de administrador global/coadministrador primeiro, você poderá removê-los da instância de Active Directory da assinatura e, em seguida, lê-los para a função de usuário completo no Active Directory.
 
@@ -88,7 +88,7 @@ Para criar uma conta de automação do Azure no portal do Azure, conclua as segu
 
 Quando a conta de Automatização é criada com sucesso, são criados vários recursos automaticamente para si. Após a criação, esses runbooks poderão ser excluídos com segurança se você não quiser mantê-los. As contas Executar como podem ser usadas para autenticar sua conta em um runbook e devem ser deixadas a menos que você crie outra ou não as exija. A tabela seguinte resume os recursos para a conta Run As.
 
-| Resource | Descrição |
+| Recurso | Descrição |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Um runbook gráfico de exemplo que demonstra como autenticar usando a conta Executar como. O runbook Obtém todos os recursos do Resource Manager. |
 | AzureAutomationTutorialScript Runbook |Um runbook do PowerShell de exemplo que demonstra como autenticar usando a conta Executar como. O runbook Obtém todos os recursos do Resource Manager. |
@@ -107,7 +107,7 @@ As contas Executar como clássicas não são mais criadas, por padrão, quando v
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a criação gráfica, consulte [criação gráfica na automação do Azure](automation-graphical-authoring-intro.md).
-* Para começar com runbooks do PowerShell, consulte [My first PowerShell runbook (O meu primeiro runbook do PowerShell)](automation-first-runbook-textual-powershell.md).
+* Para começar a utilizar runbooks do PowerShell, veja [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).
 * Para começar com runbooks do fluxo de trabalho do PowerShell, veja [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
 * Para obter uma introdução aos runbooks Python2, veja [My first Python2 runbook](automation-first-runbook-textual-python2.md) (O meu primeiro runbook Python2).
 

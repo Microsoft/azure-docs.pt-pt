@@ -2,27 +2,24 @@
 title: Azure Active Directory API do Graph | Microsoft Docs
 description: Uma visão geral e guia de início rápido para o Azure AD API do Graph, que permite o acesso programático ao Azure AD por meio de pontos de extremidade da API REST.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c1b5a3600c48dc548561df3cd2f955347a7e64
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c74c02d8a82c27c71ce01cd122082010487b453e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533041"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845047"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 
@@ -31,7 +28,7 @@ ms.locfileid: "74533041"
 
 Este artigo se aplica ao Azure AD API do Graph. Para obter informações semelhantes relacionadas à API de Microsoft Graph, consulte [usar a API de Microsoft Graph](https://docs.microsoft.com/graph/use-the-api).
 
-O Azure Active Directory API do Graph fornece acesso programático ao Azure AD por meio de pontos de extremidade da API REST. Os aplicativos podem usar o Azure AD API do Graph para executar operações CRUD (criar, ler, atualizar e excluir) em dados e objetos de diretório. Por exemplo, o Azure AD API do Graph dá suporte às seguintes operações comuns para um objeto de usuário:
+A API Azure Active Directory Graph fornece acesso programático ao Azure AD através de pontos finais API REST. Os aplicativos podem usar o Azure AD API do Graph para executar operações CRUD (criar, ler, atualizar e excluir) em dados e objetos de diretório. Por exemplo, o Azure AD API do Graph dá suporte às seguintes operações comuns para um objeto de usuário:
 
 * Criar um novo usuário em um diretório
 * Obter as propriedades detalhadas de um usuário, como seus grupos

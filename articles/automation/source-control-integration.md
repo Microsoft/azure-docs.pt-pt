@@ -4,17 +4,17 @@ description: Este artigo descreve a integração do controle do código-fonte co
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886517"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850164"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -99,9 +99,9 @@ Para obter mais informações sobre como criar um token de acesso pessoal no Git
 |repositório: status     | Status de confirmação de acesso         |
 |repo_deployment      | Status de implantação do Access         |
 |public_repo     | Acessar repositórios públicos         |
-|**administrador: repo_hook**     |         |
-|gravação: repo_hook     | Gravar ganchos de repositório         |
-|leitura: repo_hook|Ler ganchos de repositório|
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Gravar ganchos de repositório         |
+|read:repo_hook|Ler ganchos de repositório|
 
 #### <a name="azure-repos"></a>Repositórios do Azure
 
@@ -118,7 +118,7 @@ Para obter mais informações sobre como criar um token de acesso pessoal no Azu
 
 <sup>1</sup> a permissão de conexões de serviço só será necessária se você tiver habilitado o AutoSync.
 
-## <a name="syncing"></a>Sincronização
+## <a name="syncing"></a>Sincronizar
 
 Selecione a origem da tabela na página **controle do código-fonte** . Clique em **Iniciar sincronização** para iniciar o processo de sincronização.
 
@@ -169,7 +169,7 @@ Para se desconectar de um repositório de controle do código-fonte, **controle 
 
 Selecione o controle do código-fonte que você deseja remover. Na página **Resumo do controle do código-fonte** , clique em **excluir**.
 
-## <a name="encoding"></a>Codificação
+## <a name="encoding"></a>Encoding
 
 Se várias pessoas estiverem editando runbooks em seu repositório de controle do código-fonte com editores diferentes, haverá a chance de executar problemas de codificação. Essa situação pode levar a caracteres incorretos em seu runbook. Para saber mais sobre isso, confira [causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 

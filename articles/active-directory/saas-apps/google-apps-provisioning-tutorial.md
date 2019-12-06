@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167857"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842769"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuário
 
@@ -178,7 +178,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Mapeamentos do Grupo G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Examine os atributos de grupo que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no G Suite para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+12. Examine os atributos de grupo que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no G Suite para operações de atualização. Selecione o botão **salvar** para confirmar as alterações. A interface do usuário exibe o conjunto padrão de mapeamentos de atributo entre o Azure AD e o G Suite. Você pode optar por adicionar atributos adicionais, como a unidade org, clicando em Adicionar novo mapeamento. 
 
     ![Atributos do Grupo G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -204,6 +204,9 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 * [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+
+## <a name="common-issues"></a>Problemas comuns
+* As falhas de autorização podem ocorrer quando a conta usada para estabelecer uma conexão não é para um administrador no GSuite. Verifique se a conta usada para autorizar o acesso tem permissões de administrador em **todos os domínios** aos quais os usuários precisam ser provisionados. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

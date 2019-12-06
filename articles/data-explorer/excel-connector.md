@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 18c6499afe450a0387b0d9f0f13ee4378e0a21a9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173836"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849059"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualizar dados usando o conector do Data Explorer do Azure para Excel
 
@@ -44,7 +44,7 @@ O conector nativo do Azure Data Explorer Excel oferece a capacidade de exportar 
     |**Limitar o número de registros do resultado da consulta**     |     Limitar o número de registros carregados no Excel  |    
     |**Limitar o tamanho dos dados de resultado da consulta (bytes)**    |    Limitar o tamanho dos dados      |   
     |**Desabilitar truncamento do conjunto de resultados**    |         |      
-    |**Instruções SET adicionais (separadas por ponto e vírgula)**    |    Adicionar `set` instruções para aplicar à fonte de dados     |   
+    |**Instruções SET adicionais (separadas por ponto e vírgula)**    |    Adicionar `set` instruções a serem aplicadas à fonte de dados     |   
 
 1.  No painel **navegador** , navegue até a tabela correta. No painel visualização de tabela, selecione **transformar dados** para fazer alterações em seus dados ou selecione **carregar** para carregá-los no Excel.
 
@@ -75,3 +75,6 @@ Depois que os dados forem carregados no Excel e estiverem disponíveis na planil
 
 1. Crie painéis completos para monitorar seus dados.
 
+## <a name="next-steps"></a>Passos seguintes
+
+[Visualizar dados usando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel](excel-blank-query.md)

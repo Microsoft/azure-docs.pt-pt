@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763662"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850130"
 ---
 # <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Windows Hybrid Runbook Worker no Gerenciamento de Atualizações
 
@@ -29,7 +29,7 @@ A lista a seguir são os três Estados de preparação em que um computador pode
 > [!NOTE]
 > Pode haver um pequeno atraso entre o que o portal do Azure mostra e o estado atual do computador.
 
-## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
+## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
 
 Para computadores do Azure, clicar no link **solucionar problemas** na coluna **prontidão do agente de atualização** no portal inicia a página **solucionar problemas do agente de atualização** . Para computadores não Azure, o link o leva a este artigo. Consulte as [instruções offline](#troubleshoot-offline) para solucionar problemas em um computador não Azure.
 
@@ -61,27 +61,27 @@ A verificação do sistema operacional verifica se o Hybrid Runbook Worker está
 
 A verificação de .NET Framework verifica se o sistema tem um mínimo de [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) instalado.
 
-### <a name="wmf-51"></a>WMF 5,1
+### <a name="wmf-51"></a>WMF 5.1
 
 A verificação do WMF verifica se o sistema tem a versão necessária do WMF (Windows Management Framework) – [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-### <a name="tls-12"></a>TLS 1,2
+### <a name="tls-12"></a>TLS 1.2
 
 Essa verificação determina se você está usando o TLS 1,2 para criptografar suas comunicações. O TLS 1,0 não é mais suportado pela plataforma. Recomendamos que os clientes usem o TLS 1,2 para se comunicar com Gerenciamento de Atualizações.
 
 ## <a name="connectivity-checks"></a>Verificações de conectividade
 
-### <a name="registration-endpoint"></a>Ponto de extremidade de registro
+### <a name="registration-endpoint"></a>Ponto final do registo
 
 Essa verificação determina se o agente pode se comunicar corretamente com o serviço do Agent.
 
-As configurações de proxy e firewall devem permitir que o agente de Hybrid Runbook Worker se comunique com o ponto de extremidade de registro. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida comunicar com o ponto final do registo. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="operations-endpoint"></a>Ponto de extremidade de operações
+### <a name="operations-endpoint"></a>Ponto final de operações
 
 Essa verificação determina se o agente pode se comunicar corretamente com o serviço de dados de tempo de execução de trabalho.
 
-As configurações de proxy e firewall devem permitir que o agente de Hybrid Runbook Worker se comunique com o serviço de dados de tempo de execução de trabalho. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida para comunicar com o serviço de dados de tempo de execução de tarefa. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Verificações de integridade do serviço de VM
 

@@ -1,31 +1,27 @@
 ---
-title: Transição do portal de registro de aplicativos para a nova experiência de Registros de aplicativo no portal do Azure
+title: Fazer a transição do Portal de Registo de Aplicações para a nova experiência de Registos de aplicações no portal do Azure
 titleSuffix: Microsoft identity platform
 description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013030"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844521"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transição do portal de registro de aplicativos para a nova experiência de Registros de aplicativo no portal do Azure
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Fazer a transição do Portal de Registo de Aplicações para a nova experiência de Registos de aplicações no portal do Azure
 
 Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com a experiência do apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos convergidos, chamados de experiência antiga, este guia de treinamento o ajudará a começar a usar a nova experiência.
 
@@ -55,7 +51,7 @@ Há muitas melhorias na nova experiência de [registros de aplicativo](https://g
 
 -   A nova lista de aplicativos tem duas colunas adicionais: **criado em** coluna e **certificados & coluna segredos** que mostra o status (atual, expirando em breve ou expirado) de credenciais que foram registradas no aplicativo.
 
-## <a name="new-app-registration"></a>Novo registro de aplicativo
+## <a name="new-app-registration"></a>Registo de nova aplicação
 
 Na antiga experiência, para registrar um aplicativo convergido, você só precisa fornecer um nome. Os aplicativos que foram criados foram registrados como aplicativos convergidos que dão suporte a todos os diretórios organizacionais (multilocatário), bem como a contas pessoais da Microsoft.  Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único). [Saiba mais sobre os tipos de conta com suporte](v2-supported-account-types.md)
 
@@ -87,12 +83,12 @@ Na nova experiência, os **segredos do aplicativo** foram renomeados para **cert
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/autenticação: URLs de resposta/URIs de redirecionamento
 Na antiga experiência, uma seção aplicativo tinha plataformas para Web, nativa e API Web para configurar URLs de redirecionamento, URL de logout e fluxo implícito.
 
-Na nova experiência, as URLs de resposta podem ser encontradas em uma seção de autenticação do\'s de aplicativo. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles devem ser associados a um tipo de aplicativo (cliente Web ou público-celular e desktop). [Saber mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Na nova experiência, as URLs de resposta podem ser encontradas em uma seção de autenticação do\'s de aplicativo. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles devem ser associados a um tipo de aplicativo (cliente Web ou público-celular e desktop). [Saiba mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 As APIs da Web são configuradas em expor uma página de API.
 
 > [!NOTE] 
-> Experimente a nova experiência de configurações de autenticação, na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja direcionar. [Saber mais](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Experimente a nova experiência de configurações de autenticação, na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja direcionar. [Saiba mais](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Permissões de Microsoft Graph/permissões de API
 

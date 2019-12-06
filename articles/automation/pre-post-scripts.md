@@ -4,17 +4,17 @@ description: Este artigo descreve como configurar e gerenciar pré-scripts e pó
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 860eaf5d37b3d3064e3b10bd1dab02c04b95ab5b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a5d68b64fc24577621c82be62f833c356e8fb9c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755500"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850249"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gerenciar pré e pós-scripts
 
@@ -54,9 +54,9 @@ Ao configurar pré e pós-scripts, você pode passar parâmetros, assim como age
 
 * º
 * minuciosa
-* inteiro
+* [int]
 * completa
-* vírgula
+* [decimal]
 * exclusivo
 * Clique
 * Horário
@@ -77,12 +77,12 @@ A tabela a seguir mostra as propriedades que são fornecidas na variável.
 |SoftwareUpdateConfigurationName     | O nome da configuração de atualização de software.        |
 |SoftwareUpdateConfigurationRunId     | A ID exclusiva para a execução.        |
 |SoftwareUpdateConfigurationSettings     | Uma coleção de propriedades relacionadas à configuração de atualização de software.         |
-|SoftwareUpdateConfigurationSettings. operatingSystem     | Os sistemas operacionais destinados à implantação da atualização.         |
-|SoftwareUpdateConfigurationSettings. Duration     | A duração máxima da execução da implantação de atualização como `PT[n]H[n]M[n]S` por ISO8601; também chamada de *janela de manutenção*.          |
-|SoftwareUpdateConfigurationSettings. Windows     | Uma coleção de propriedades relacionadas a computadores Windows.         |
-|SoftwareUpdateConfigurationSettings. Windows. excludedKbNumbers     | Uma lista de KBs que são excluídos da implantação de atualização.        |
-|SoftwareUpdateConfigurationSettings. Windows. includedUpdateClassifications     | Classificações de atualização selecionadas para a implantação de atualização.        |
-|SoftwareUpdateConfigurationSettings. Windows. rebootSetting     | Reinicialize as configurações para a implantação da atualização.        |
+|SoftwareUpdateConfigurationSettings.operatingSystem     | Os sistemas operacionais destinados à implantação da atualização.         |
+|SoftwareUpdateConfigurationSettings.duration     | A duração máxima da execução da implantação de atualização como `PT[n]H[n]M[n]S` por ISO8601; também chamada de *janela de manutenção*.          |
+|SoftwareUpdateConfigurationSettings.Windows     | Uma coleção de propriedades relacionadas a computadores Windows.         |
+|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Uma lista de KBs que são excluídos da implantação de atualização.        |
+|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classificações de atualização selecionadas para a implantação de atualização.        |
+|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Reinicialize as configurações para a implantação da atualização.        |
 |azureVirtualMachines     | Uma lista de ResourceId para as VMs do Azure na implantação da atualização.        |
 |nonAzureComputerNames|Uma lista de FQDNs de computadores não Azure na implantação de atualização.|
 

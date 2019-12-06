@@ -1,26 +1,26 @@
 ---
 title: Atualizando o servidor MFA do Azure-Azure Active Directory
-description: Etapas e orientações para atualizar o servidor de autenticação multifator do Azure para uma versão mais recente.
+description: Etapas e orientações para atualizar o Servidor de Autenticação Multifator do Azure para uma versão mais recente.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ca6d82b80a9ed77a842b638ff8e9ff346342e8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 756c45541907c52448805376e1b054180c31fdf5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988548"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848107"
 ---
-# <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o servidor de autenticação multifator do Azure mais recente
+# <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para a última Servidor de Autenticação Multifator do Azure
 
-Este artigo orienta você pelo processo de atualização do servidor de autenticação multifator do Azure (MFA) v 6.0 ou superior. Se você precisar atualizar uma versão antiga do agente do PhoneFactor, consulte [atualizar o agente do PhoneFactor para o servidor de autenticação multifator do Azure](howto-mfaserver-deploy-upgrade-pf.md).
+Este artigo orienta você pelo processo de atualização do servidor de autenticação multifator do Azure (MFA) v 6.0 ou superior. Se você precisar atualizar uma versão antiga do agente do PhoneFactor, consulte [atualizar o agente do PhoneFactor para o Azure servidor de autenticação multifator](howto-mfaserver-deploy-upgrade-pf.md).
 
 Se você estiver atualizando do v6. x ou mais antigo para o v7. x ou mais recente, todos os componentes serão alterados do .NET 2,0 para o .NET 4,5. Todos os componentes também exigem o C++ Microsoft Visual 2015 redistribuível atualização 1 ou superior. O instalador do servidor MFA instalará as versões x86 e x64 desses componentes se eles ainda não estiverem instalados. Se o portal do usuário e o serviço Web de aplicativo móvel forem executados em servidores separados, você precisará instalar esses pacotes antes de atualizar esses componentes. Você pode procurar a atualização mais recente do C++ Microsoft Visual 2015 redistribuível no [centro de download da Microsoft](https://www.microsoft.com/download/). 
 
@@ -35,7 +35,7 @@ Etapas de atualização em um relance:
 
 ## <a name="upgrade-azure-mfa-server"></a>Atualizar o servidor MFA do Azure
 
-1. Use as instruções em [baixar o servidor de autenticação](howto-mfaserver-deploy.md#download-the-mfa-server) multifator do Azure para obter a versão mais recente do instalador do servidor do Azure MFA.
+1. Use as instruções em [baixar o servidor de autenticação multifator do Azure](howto-mfaserver-deploy.md#download-the-mfa-server) para obter a versão mais recente do instalador do servidor do Azure MFA.
 2. Faça um backup do arquivo de dados do servidor MFA localizado em C:\Program Programas\servidor Authentication Server\Data\PhoneFactor.pfdata (supondo o local de instalação padrão) em seu servidor de MFA mestre.
 3. Se você executar vários servidores para alta disponibilidade, altere os sistemas cliente que se autenticam no servidor MFA para que eles parem de enviar tráfego para os servidores que estão atualizando. Se você usar um balanceador de carga, remova um servidor MFA subordinado do balanceador de carga, faça a atualização e, em seguida, adicione o servidor de volta ao farm.
 4. Execute o novo instalador em cada servidor MFA. Atualize os servidores subordinados primeiro porque eles podem ler o arquivo de dados antigo que está sendo replicado pelo mestre.
@@ -53,7 +53,7 @@ Etapas de atualização em um relance:
 
 Conclua a atualização de seus servidores MFA antes de ir para esta seção.
 
-1. Faça um backup do arquivo Web. config que está no diretório virtual do local de instalação do portal do usuário (por exemplo, C:\inetpub\wwwroot\MultiFactorAuth). Se alguma alteração foi feita no tema padrão, faça um backup da pasta App_Themes\Default também. É melhor criar uma cópia da pasta padrão e criar um novo tema do que alterar o tema padrão.
+1. Faça um backup do arquivo Web. config que está no diretório virtual do local de instalação do portal do usuário (por exemplo, C:\inetpub\wwwroot\MultiFactorAuth). Se alguma alteração foi feita no tema padrão, faça um backup da pasta App_Themes \Default também. É melhor criar uma cópia da pasta padrão e criar um novo tema do que alterar o tema padrão.
 2. Se o portal do usuário for executado no mesmo servidor que os outros componentes do servidor MFA, a instalação do servidor MFA solicitará que você atualize o portal do usuário. Aceite o prompt e instale a atualização do portal do usuário. Verifique se o nome do diretório virtual corresponde ao diretório virtual instalado anteriormente (por exemplo, MultiFactorAuth).
 3. Se o portal do usuário estiver em seu próprio servidor, copie o arquivo MultiFactorAuthenticationUserPortalSetup64. msi do local de instalação de um dos servidores MFA e coloque-o no servidor Web do portal do usuário. Execute o instalador.
 
@@ -74,7 +74,7 @@ Conclua a atualização dos seus servidores MFA e do portal do usuário antes de
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Se a MFA for executada em servidores diferentes do que AD FS
 
-Essas instruções se aplicam somente se você executar o servidor de autenticação multifator separadamente de seus servidores de AD FS. Se ambos os serviços forem executados nos mesmos servidores, pule esta seção e vá para as etapas de instalação. 
+Essas instruções se aplicam somente se você executar Servidor de Autenticação Multifator separadamente de seus servidores de AD FS. Se ambos os serviços forem executados nos mesmos servidores, pule esta seção e vá para as etapas de instalação. 
 
 1. Salve uma cópia do arquivo MultiFactorAuthenticationAdfsAdapter. config que foi registrado no AD FS ou exporte a configuração usando o seguinte comando do PowerShell: `Export-AdfsAuthenticationProviderConfigurationData -Name [adapter name] -FilePath [path to config file]`. O nome do adaptador é "WindowsAzureMultiFactorAuthentication" ou "AzureMfaServerAuthentication", dependendo da versão instalada anteriormente.
 2. Copie os seguintes arquivos do local de instalação do servidor MFA para os servidores de AD FS:
@@ -84,7 +84,7 @@ Essas instruções se aplicam somente se você executar o servidor de autentica�
    * Unregister-MultiFactorAuthenticationAdfsAdapter.ps1
    * MultiFactorAuthenticationAdfsAdapter.config
 
-3. Edite o script Register-multifactorauthenticationadfsadapter. ps1 adicionando `-ConfigurationFilePath [path]` ao final `Register-AdfsAuthenticationProvider` do comando. Substitua *[Path]* pelo caminho completo do arquivo MultiFactorAuthenticationAdfsAdapter. config ou do arquivo de configuração exportado na etapa anterior.
+3. Edite o script Register-multifactorauthenticationadfsadapter. ps1 adicionando `-ConfigurationFilePath [path]` ao final do comando `Register-AdfsAuthenticationProvider`. Substitua *[Path]* pelo caminho completo do arquivo MultiFactorAuthenticationAdfsAdapter. config ou do arquivo de configuração exportado na etapa anterior.
 
    Verifique os atributos no novo MultiFactorAuthenticationAdfsAdapter. config para ver se eles correspondem ao arquivo de configuração antigo. Se algum atributo tiver sido adicionado ou removido na nova versão, copie os valores de atributo do arquivo de configuração antigo para o novo ou modifique o arquivo de configuração antigo para corresponder.
 
@@ -98,7 +98,7 @@ Essas instruções se aplicam somente se você executar o servidor de autentica�
 
    Se ocorrer um erro informando que " C++ Microsoft Visual 2015 redistribuível atualização 1 ou superior é necessário", baixe e instale o pacote de atualização mais recente no [centro de download da Microsoft](https://www.microsoft.com/download/). Instale as versões x86 e x64.
 
-3. Vá para **AD FS** > políticas > de autenticação**Editar política de autenticação multifator global**. Desmarque **WindowsAzureMultiFactorAuthentication** ou **AzureMFAServerAuthentication** (dependendo da versão atual instalada).
+3. Vá para **AD FS** > **políticas de autenticação** > **Editar a política de autenticação multifator global**. Desmarque **WindowsAzureMultiFactorAuthentication** ou **AzureMFAServerAuthentication** (dependendo da versão atual instalada).
 
    Após a conclusão desta etapa, a verificação em duas etapas por meio do servidor MFA não estará disponível neste AD FS cluster até que você conclua a etapa 8.
 
@@ -106,7 +106,7 @@ Essas instruções se aplicam somente se você executar o servidor de autentica�
 5. Registre o novo adaptador de AD FS executando o script do PowerShell Register-multifactorauthenticationadfsadapter. ps1. Isso se aplica a todos os servidores no mesmo cluster AD FS, pois há uma configuração central.
 6. Reinicie o serviço AD FS em cada servidor removido do farm de AD FS.
 7. Adicione os servidores atualizados de volta ao farm de AD FS e remova os outros servidores do farm.
-8. Vá para **AD FS** > políticas > de autenticação**Editar política de autenticação multifator global**. Verifique **AzureMfaServerAuthentication**.
+8. Vá para **AD FS** > **políticas de autenticação** > **Editar a política de autenticação multifator global**. Verifique **AzureMfaServerAuthentication**.
 9. Repita a etapa 2 para atualizar os servidores agora removidos do farm de AD FS e reinicie o serviço de AD FS nesses servidores.
 10. Adicione esses servidores de volta ao farm de AD FS.
 

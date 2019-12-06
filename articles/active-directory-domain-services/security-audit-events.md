@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704281"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848901"
 ---
-# <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services (versão prévia)
+# <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services
 
 As auditorias de segurança do Azure Active Directory Domain Services (AD DS do Azure) permitem que o Azure transmita eventos de segurança para os recursos de destino. Esses recursos incluem armazenamento do Azure, espaços de trabalho do Log Analytics do Azure ou Hub de eventos do Azure. Depois de habilitar os eventos de auditoria de segurança, o Azure AD DS envia todos os eventos auditados para a categoria selecionada para o recurso de destino. Você pode arquivar eventos no armazenamento do Azure e transmitir eventos no software SIEM (gerenciamento de eventos e informações de segurança) (ou equivalente) usando os hubs de eventos do Azure ou fazer sua própria análise e usando os espaços de trabalho do Azure Log Analytics do portal do Azure.
 
@@ -83,7 +83,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o por
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
 1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha seu domínio gerenciado, como *aadds.contoso.com*.
-1. Na janela AD DS do Azure, selecione **configurações de diagnóstico (versão prévia)** no lado esquerdo.
+1. Na janela AD DS do Azure, selecione **configurações de diagnóstico** no lado esquerdo.
 1. Nenhum diagnóstico é configurado por padrão. Para começar, selecione **Adicionar configuração de diagnóstico**.
 
     ![Adicionar uma configuração de diagnóstico para Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
@@ -175,7 +175,7 @@ Os espaços de trabalho de análise de log permitem exibir e analisar os eventos
 * [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 * [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 * [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Criar e compartilhar painéis de dados de Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Criar e partilhar dashboards dos dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 As consultas de exemplo a seguir podem ser usadas para iniciar a análise de eventos de auditoria de segurança do Azure AD DS.
 

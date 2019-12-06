@@ -4,23 +4,23 @@ description: Este artigo fornece informações sobre a solução de problemas Co
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564849"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849399"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Resolver Problemas do Controlo de Alterações e do Inventário
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Cenário Registros de Controle de Alterações não estão sendo exibidos para computadores Windows
+### <a name="records-not-showing-windows"></a>Cenário: registros de Controle de Alterações não estão sendo exibidos para computadores Windows
 
 #### <a name="issue"></a>Problema
 
@@ -38,7 +38,7 @@ Esse erro pode ser causado pelos seguintes motivos:
 #### <a name="resolution"></a>Resolução
 
 1. Verifique se o **Microsoft Monitoring Agent** (HealthService. exe) está em execução no computador.
-1. Verifique **Visualizador de eventos** no computador e procure todos os eventos que tenham a palavra `changetracking` em si.
+1. Verifique **Visualizador de eventos** no computador e procure os eventos que tenham a palavra `changetracking` nelas.
 1. Visite o [planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas precisam ser permitidos para que controle de alterações funcionem.
 1. Verifique se os seguintes pacotes de gerenciamento de Controle de Alterações e inventário existem localmente:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
@@ -58,9 +58,9 @@ net start healthservice
 ```
 
 > [!NOTE]
-> Por padrão, o rastreamento de erro é habilitado, se você quiser habilitar mensagens de erro detalhadas como o exemplo `VER` anterior, use o parâmetro. Para rastreamentos de informações `INF` , use ao `StartTracing.cmd`invocar.
+> Por padrão, o rastreamento de erro é habilitado, se você quiser habilitar mensagens de erro detalhadas como o exemplo anterior, use `VER` parâmetro. Para rastreamentos de informações, use `INF` ao invocar `StartTracing.cmd`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

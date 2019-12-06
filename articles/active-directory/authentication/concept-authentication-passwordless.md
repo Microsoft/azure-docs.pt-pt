@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e073b4ff366c05cdf429f81d46647cd330604057
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 28d4dd3f0d4432930d62bb499fe72533b79d2a08
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081584"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848736"
 ---
 # <a name="passwordless-authentication-options"></a>Opções de autenticação com senha
 
@@ -28,13 +28,13 @@ A autenticação multifator (MFA) é uma ótima maneira de proteger sua organiza
 
 Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece três opções de autenticação com senha:
 
-- Windows Hello para empresas
+- Windows Hello para Empresas
 - Aplicação Microsoft Authenticator
 - Chaves de segurança do FIDO2
 
 ![Autenticação: segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello para empresas
+## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
 O Windows Hello para empresas é ideal para os operadores de informações que têm seu próprio computador Windows designado. A biométrica e o PIN estão diretamente ligados ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração PKI e o suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método simples e conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
 
@@ -69,7 +69,7 @@ Uma chave de segurança **deve** implementar os seguintes recursos e extensões 
 
 Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma diferentes que são conhecidos como compatíveis com a experiência sem senha. A Microsoft incentiva os clientes a avaliar as propriedades de segurança dessas chaves contatando o fornecedor, bem como a FIDO Alliance.
 
-| Fornecedor | Contacto |
+| Fornecedor | Contacte-nos |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |

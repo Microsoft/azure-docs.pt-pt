@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420753"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848753"
 ---
 # <a name="what-are-authentication-methods"></a>O que são métodos de autenticação?
 
@@ -26,7 +26,7 @@ Os administradores podem definir na política quais métodos de autenticação e
 
 A Microsoft recomenda aos administradores que permitam que os usuários selecionem mais do que o número mínimo necessário de métodos de autenticação, caso eles não tenham acesso a um.
 
-|Método de autenticação|Utilização|
+|Método de Autenticação|Utilização|
 | --- | --- |
 | Palavra-passe | MFA e SSPR |
 | Perguntas de segurança | Somente SSPR |
@@ -129,7 +129,7 @@ A aplicação Microsoft Authenticator está disponível para [Android](https://g
 > Os usuários não terão a opção de registrar seu aplicativo móvel ao se registrar para a redefinição de senha de autoatendimento. Em vez disso, os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou na versão prévia do registro de informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 >
 
-### <a name="notification-through-mobile-app"></a>Notificação por meio do aplicativo móvel
+### <a name="notification-through-mobile-app"></a>Notificação através da aplicação para dispositivos móveis
 
 O aplicativo Microsoft Authenticator pode ajudar a impedir o acesso não autorizado a contas e interromper transações fraudulentas enviando uma notificação para o smartphone ou Tablet. Os usuários exibem a notificação e, se for legítima, selecione verificar. Caso contrário, eles poderão selecionar negar.
 
@@ -146,7 +146,7 @@ Se você habilitar o uso de notificação por meio do aplicativo móvel e do có
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação do aplicativo móvel
 
-O aplicativo Microsoft Authenticator ou outros aplicativos de terceiros podem ser usados como um token de software para gerar um código de verificação OATH. Depois de inserir seu nome de usuário e senha, insira o código fornecido pelo aplicativo na tela de entrada. O código de verificação fornece uma segunda forma de autenticação.
+O aplicativo Microsoft Authenticator ou outros aplicativos de terceiros podem ser usados como um token de software para gerar um código de verificação OATH. Depois de inserir seu nome de usuário e senha, insira o código fornecido pelo aplicativo na tela de entrada. O código de verificação proporciona uma segunda forma de autenticação.
 
 > [!WARNING]
 > Para redefinição de senha de autoatendimento quando apenas um método é necessário para redefinir o código de verificação é a única opção disponível aos usuários **para garantir o nível mais alto de segurança**.
@@ -201,14 +201,14 @@ A Microsoft não garante a entrega de prompt de autenticação multifator basead
 
 Um SMS é enviado para o número de telefone celular que contém um código de verificação. Insira o código de verificação fornecido na interface de entrada para continuar.
 
-#### <a name="phone-call"></a>Chamada telefônica
+#### <a name="phone-call"></a>Chamada telefónica
 
 Uma chamada de voz automática é feita para o número de telefone que você fornece. Responda à chamada e pressione # no teclado do telefone para autenticar
 
 > [!IMPORTANT]
 > A partir de março de 2019, as opções de chamada telefônica não estarão disponíveis para os usuários de MFA e SSPR em locatários gratuitos/de avaliação do Azure AD. As mensagens SMS não são afetadas por essa alteração. A chamada telefônica continuará disponível para os usuários em locatários pagos do Azure AD. Essa alteração afeta apenas os locatários gratuitos/de avaliação do Azure AD.
 
-### <a name="office-phone"></a>Telefone comercial
+### <a name="office-phone"></a>Telefone do escritório
 
 Uma chamada de voz automática é feita para o número de telefone que você fornece. Responda à chamada e pressione # no teclado do telefone para autenticar.
 

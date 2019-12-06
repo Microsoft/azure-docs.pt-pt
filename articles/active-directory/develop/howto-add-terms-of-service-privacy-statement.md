@@ -1,79 +1,75 @@
 ---
-title: Termos de serviço e declaração de privacidade para aplicações | Azure
-description: Saiba como pode configurar os termos de serviço e declaração de privacidade de aplicações registadas para utilizar o Azure AD.
+title: Termos de serviço e política de privacidade para aplicativos | Azure
+description: Saiba como você pode configurar os termos de serviço e a política de privacidade para aplicativos registrados para usar o Azure AD.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482852"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842816"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar os termos de serviço e declaração de privacidade de uma aplicação
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
 
-Os desenvolvedores que criam e gerir as aplicações que se integram com o Azure Active Directory (Azure AD) e contas da Microsoft deverá incluir ligações aos termos da aplicação de serviço e declaração de privacidade. Os termos de serviço e declaração de privacidade são apresentados aos utilizadores através da experiência de consentimento do utilizador. Ajudam os utilizadores que podem dar seu aplicativo. Os termos de serviço e declaração de privacidade são essenciais sobretudo para destinada ao utilizador multi-inquilinos aplicações – aplicações que são utilizadas por vários diretórios ou que estão disponíveis para qualquer conta Microsoft.
+Os desenvolvedores que criam e gerenciam aplicativos que se integram ao Azure Active Directory (Azure AD) e às contas da Microsoft devem incluir links para os termos de serviço e a política de privacidade do aplicativo. Os termos de serviço e a política de privacidade são exibidos para os usuários por meio da experiência de consentimento do usuário. Eles ajudam os usuários a saber que eles podem confiar em seu aplicativo. Os termos de serviço e a declaração de privacidade são especialmente críticos para aplicativos multilocatário voltados para o usuário – aplicativos que são usados por vários diretórios ou estão disponíveis para qualquer conta Microsoft.
 
-É responsável por criar os termos de serviço e a privacidade documentos de instrução para a sua aplicação e para fornecer os URLs a estes documentos. Para aplicações multi-inquilino que não conseguem fornecer esses links, a experiência de consentimento do usuário para a sua aplicação irá mostrar um alerta, o que pode desencorajar os utilizadores de consentir a aplicação.
+Você é responsável por criar os termos de serviço e documentos de política de privacidade para seu aplicativo e para fornecer as URLs a esses documentos. Para aplicativos multilocatários que não fornecem esses links, a experiência de consentimento do usuário para seu aplicativo mostrará um alerta, o que pode desencorajar os usuários de consentirem o seu aplicativo.
 
 > [!NOTE]
-> * Aplicações de inquilino único não apresentará um alerta.
-> * Se um ou ambos os links de dois estão em falta, a aplicação irá mostrar um alerta.
+> * Os aplicativos de locatário único não mostrarão um alerta.
+> * Se um ou ambos os dois links estiverem ausentes, seu aplicativo mostrará um alerta.
 
-## <a name="user-consent-experience"></a>Experiência de consentimento do utilizador
+## <a name="user-consent-experience"></a>Experiência de consentimento do usuário
 
-Os exemplos seguintes mostram o utilizador consente experiência quando os termos de serviço e declaração de privacidade são configurados e quando não estiverem configuradas estas ligações.
+Os exemplos a seguir mostram a experiência de consentimento do usuário quando os termos de serviço e a política de privacidade são configurados e quando esses links não são configurados.
 
-![Capturas de ecrã com e sem uma declaração de privacidade e termos de serviço fornecido](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
+![Capturas de tela com e sem uma declaração de privacidade e os termos de serviço fornecidos](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 
-## <a name="formatting-links-to-the-terms-of-service-and-privacy-statement-documents"></a>Links para os termos de serviço e a privacidade documentos de instrução de formatação
+## <a name="formatting-links-to-the-terms-of-service-and-privacy-statement-documents"></a>Links de formatação para os termos de serviço e documentos de política de privacidade
 
-Antes de adicionar links para os termos da sua aplicação de serviço e a privacidade documentos de instrução, certifique-se de que os URLs de seguir estas diretrizes.
+Antes de adicionar links aos termos de serviço e documentos de política de privacidade do seu aplicativo, verifique se as URLs seguem estas diretrizes.
 
 | Diretriz     | Descrição                           |
 |---------------|---------------------------------------|
-| Formato        | URL válido                             |
-| Esquemas válidas | HTTP e HTTPS<br/>Recomendamos que HTTPS |
-| Comprimento máximo    | 2048 carateres                       |
+| Formato        | URL válida                             |
+| Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
+| Comprimento máximo    | 2048 caracteres                       |
 
 Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statement`
 
-## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Adicionar ligações para os termos de serviço e declaração de privacidade
+## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Adicionando links aos termos de serviço e à política de privacidade
 
-Quando os termos de serviço e declaração de privacidade encontram prontos, pode adicionar ligações a estes documentos na sua aplicação com um dos seguintes métodos:
+Quando os termos de serviço e a política de privacidade estiverem prontos, você poderá adicionar links a esses documentos em seu aplicativo usando um destes métodos:
 
-* [Através do portal do Azure](#azure-portal)
-* [Usando o objeto de aplicação JSON](#app-object-json)
-* [Usando a versão beta de MSGraph REST API](#msgraph-beta-rest-api)
+* [Por meio do portal do Azure](#azure-portal)
+* [Usando o JSON do objeto de aplicativo](#app-object-json)
+* [Usando a API REST do MSGraph beta](#msgraph-beta-rest-api)
 
-### <a name="azure-portal"></a>No portal do Azure
-Siga estes passos no portal do Azure.
+### <a name="azure-portal"></a>Usando o portal do Azure
+Siga estas etapas na portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Navegue para o **registos das aplicações** secção e selecione a sua aplicação.
-3. Abra o **marca** painel.
-4. Preencha os **URL de termos de serviço** e **URL de declaração de privacidade** campos.
+2. Navegue até a seção **registros do aplicativo** e selecione seu aplicativo.
+3. Abra o painel de **identidade visual** .
+4. Preencha os campos **de URL dos termos de serviço e de política de** **privacidade** .
 5. Guarde as alterações.
 
-    ![As propriedades da aplicação contém os termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"></a>Usando o objeto de aplicação JSON
+### <a name="app-object-json"></a>Usando o JSON do objeto de aplicativo
 
-Se preferir modificar diretamente o objeto de aplicação JSON, pode utilizar o editor de manifesto no portal do Azure ou o Portal de registo de aplicação para incluir ligações para os termos da sua aplicação de serviço e declaração de privacidade.
+Se você preferir modificar o objeto de aplicativo JSON diretamente, poderá usar o editor de manifesto no portal do Azure ou no portal de registro de aplicativo para incluir links para os termos de serviço e a política de privacidade do seu aplicativo.
 
 ```json
     "informationalUrls": { 
@@ -82,9 +78,9 @@ Se preferir modificar diretamente o objeto de aplicação JSON, pode utilizar o 
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>Usando a versão beta de MSGraph REST API
+### <a name="msgraph-beta-rest-api"></a>Usando a API REST do MSGraph beta
 
-Para atualizar programaticamente todas as suas aplicações, pode utilizar a versão beta de MSGraph REST API para atualizar todas as suas aplicações para incluir ligações aos termos de serviço e a privacidade documentos de instrução.
+Para atualizar todos os seus aplicativos programaticamente, você pode usar a API REST do MSGraph beta para atualizar todos os seus aplicativos a fim de incluir links para os documentos de termos de serviço e de política de privacidade.
 
 ```
 PATCH https://graph.microsoft.com/beta/applications/{application id}
@@ -101,5 +97,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Tenha cuidado para não substituir quaisquer valores existentes se foi atribuído a qualquer um destes campos: `supportUrl`, `marketingUrl`, e `logoUrl`
-> * A versão beta de MSGraph REST API só funcionará quando inicia sessão com uma conta do Azure AD. Contas Microsoft pessoais não são suportadas.
+> * Tenha cuidado para não substituir os valores preexistentes que você atribuiu a qualquer um destes campos: `supportUrl`, `marketingUrl`e `logoUrl`
+> * A API REST do MSGraph beta só funcionará quando você entrar com uma conta do Azure AD. Não há suporte para contas pessoais da Microsoft.

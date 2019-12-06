@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8c5b932a1b44169cc50c8c7214d3f3410c581f4e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bb76f41b4272392c1aeebe83d9a8fd3aaea3cb0b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792274"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851762"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -74,10 +74,10 @@ Carga de trabalho da máquina | O Site Recovery dá suporte à replicação de q
 Windows Server 2019 | Com suporte do [pacote cumulativo de atualizações 34](https://support.microsoft.com/help/4490016) (versão 9,22 do serviço de mobilidade) em diante.
 Windows Server 2016 64 bits | Com suporte para Server Core, servidor com experiência desktop.
 Windows Server 2012 R2/Windows Server 2012 | Suportado.
-Windows Server 2008 R2 com SP1 em diante. | Suportado.<br/><br/> Da versão 9.30. x. x (versão esperada a partir de novembro de 2019) do agente do serviço de mobilidade, você precisa de uma atualização de [Ssu (manutenção de pilha)](https://support.microsoft.com/help/4490628) e de [SHA-2](https://support.microsoft.com/help/4474419) instalada em computadores que executam o Windows 2008 R2 com SP1 ou posterior. O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 com SP2 ou posterior (64 bits/32 bits) |  Com suporte somente para migração. [Saiba mais](migrate-tutorial-windows-server-2008.md).<br/><br/> Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) do agente do serviço de mobilidade, você precisa de um [Ssu (atualização da pilha de manutenção)](https://support.microsoft.com/help/4493730) e da [atualização do SHA-2](h https://support.microsoft.com/help/4474419) instaladas em computadores com Windows 2008 SP2. ISHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 com SP1 em diante. | Suportado.<br/><br/> Da versão [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) do agente do serviço de mobilidade, você precisa de um [Ssu (atualização da pilha de manutenção)](https://support.microsoft.com/help/4490628) e da [atualização do SHA-2](https://support.microsoft.com/help/4474419) instaladas em computadores que executam o Windows 2008 R2 com SP1 ou posterior. O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 com SP2 ou posterior (64 bits/32 bits) |  Com suporte somente para migração. [Saiba mais](migrate-tutorial-windows-server-2008.md).<br/><br/> Da versão [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) do agente do serviço de mobilidade, você precisa de um [Ssu (atualização da pilha de manutenção)](https://support.microsoft.com/help/4493730) e da [atualização do SHA-2](h https://support.microsoft.com/help/4474419) instaladas em computadores com Windows 2008 SP2. ISHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 Windows 10, Windows 8.1, Windows 8 | Suportado.
-Windows 7 com SP1 64 bits | Com suporte do [pacote cumulativo de atualizações 36](https://support.microsoft.com/help/4503156) (versão 9,22 do serviço de mobilidade) em diante. </br></br> Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) do agente do serviço de mobilidade, você precisa de um [Ssu (atualização da pilha de manutenção)](https://support.microsoft.com/help/4490628) e da [atualização do SHA-2](https://support.microsoft.com/help/4474419) instaladas em computadores com o Windows 7 SP1.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows 7 com SP1 64 bits | Com suporte do [pacote cumulativo de atualizações 36](https://support.microsoft.com/help/4503156) (versão 9,22 do serviço de mobilidade) em diante. </br></br> De [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) do agente do serviço de mobilidade, você precisa de um [Ssu (atualização da pilha de manutenção)](https://support.microsoft.com/help/4490628) e da [atualização do SHA-2](https://support.microsoft.com/help/4474419) instaladas em computadores com o Windows 7 SP1.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 Linux | Somente o sistema de 64 bits tem suporte. Não há suporte para o sistema de 32 bits.<br/><br/>Todos os servidores Linux devem ter [componentes de Lis (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) instalados. É necessário inicializar o servidor no Azure após failover/failover de teste. Se os componentes de LIS estiverem ausentes, certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure. <br/><br/> Site Recovery orquestra o failover para executar servidores Linux no Azure. No entanto, os fornecedores do Linux podem limitar o suporte apenas a versões de distribuição que não atingiram o fim da vida útil.<br/><br/> Em distribuições do Linux, somente os kernels de ações que fazem parte do lançamento/atualização da versão secundária de distribuição têm suporte.<br/><br/> Não há suporte para a atualização de computadores protegidos nas principais versões de distribuição do Linux. Para atualizar, desabilite a replicação, atualize o sistema operacional e habilite a replicação novamente.<br/><br/> [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código-fonte aberto no Azure.
 Linux Red Hat Enterprise | 5,2 a 5,11</b><br/> 6,1 a 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) <br/> Os servidores que executam Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 não têm [componentes LIS (Linux Integration Services)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
 Linux: CentOS | 5,2 a 5,11</b><br/> 6,1 a 6,10</b><br/> 7,0 a 7,6<br/> <br/> Os servidores que executam o CentOS 5.2-5.11 & 6.1-6.10 não têm [componentes LIS (Integration Services do Linux)](https://www.microsoft.com/download/details.aspx?id=55106) pré-instalados. Certifique-se de instalar os [componentes](https://www.microsoft.com/download/details.aspx?id=55106) antes de habilitar a replicação para que os computadores inicializem no Azure.
@@ -122,7 +122,7 @@ Debian 8 | [9,25][9.25 UR], [9,26][9.26 UR] | 3.16.0-4-AMD64 para 3.16.0-8-AMD64
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 versões de kernel com suporte
 
-**Liberar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,28][9.28 UR] | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.118-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.117-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.180-94.100-padrão</br></br>SP3 4.4.138-4.7-Azure para 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.29-default</br>SP4 4.12.14-6.3-Azure para 4.12.14-6.23-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,27][9.27 UR] | SP1 3.12.49-11-padrão para 3.12.74-60.64.40-padrão</br></br> SP1 (LTSS) 3.12.74-60.64.45-padrão para 3.12.74-60.64.115-padrão</br></br> SP2 4.4.21-69-padrão para 4.4.120-92.70-padrão</br></br>SP2 (LTSS) 4.4.121-92.73-padrão para 4.4.121-92.114-padrão</br></br>SP3 4.4.73-5-padrão para 4.4.180-94.97-padrão</br></br>SP3 4.4.138-4.7-Azure para 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.19-default</br>SP4 4.12.14-6.3-Azure para 4.12.14-6.15-Azure |
@@ -133,7 +133,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.1
 
 **Componente** | **Suportado**
 --- | ---
-Sistemas de arquivos | ext3, ext4, XFS
+Sistemas de ficheiros | ext3, ext4, XFS
 Gerenciador de volumes | -O LVM tem suporte.<br/> -/boot no LVM tem suporte do [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/) (versão 9,20 do serviço de mobilidade) em diante. Ele não tem suporte em versões anteriores do serviço de mobilidade.<br/> -Não há suporte para vários discos de sistema operacional.
 Dispositivos de armazenamento paravirtualizados | Os dispositivos exportados por controladores paravirtualizados não são suportados.
 Dispositivos de e/s de bloco de várias filas | Não suportado.
@@ -178,7 +178,7 @@ ELB | Sim
 Traffic Manager do Azure | Sim
 Várias NICs | Sim
 Endereço IP reservado | Sim
-IPv6 | Sim
+IPv4 | Sim
 Reter endereço IP de origem | Sim
 Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
 Redes aceleradas | Não
@@ -226,7 +226,7 @@ Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Se
 --- | ---
 Armazenamento localmente redundante | Sim
 Armazenamento georredundante | Sim
-Armazenamento com redundância geográfica com acesso de leitura | Sim
+Armazenamento georredundante com acesso de leitura | Sim
 Armazenamento frio | Não
 Armazenamento dinâmico| Não
 Blobs de bloco | Não
@@ -252,14 +252,14 @@ As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azur
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operacional convidado | Verifique os [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falhará se não houver suporte.
+Sistema operativo convidado | Verifique os [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falhará se não houver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falhará se não houver suporte.
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falhará se não houver suporte.
 Contagem de disco do sistema operacional | 1 | A verificação falhará se não houver suporte.
 Contagem de disco de dados | 64 ou menos. | A verificação falhará se não houver suporte.
 Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falhará se não houver suporte.
-Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Não suportado. | A verificação falhará se não houver suporte.
+Placas de rede | Há suporte para vários adaptadores. |
+VHD Partilhado | Não suportado. | A verificação falhará se não houver suporte.
 Disco FC | Não suportado. | A verificação falhará se não houver suporte.
 BitLocker | Não suportado. | O BitLocker deve ser desabilitado antes de habilitar a replicação para um computador. |
 o nome da VM | De 1 a 63 caracteres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina em Site Recovery.
@@ -310,7 +310,7 @@ Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | Não
 --- | --- | ---
 Servidor de configuração | Instalado no local.<br/> Coordena as comunicações entre servidores VMware locais ou computadores físicos e o Azure. | - [saiba mais sobre](vmware-physical-azure-config-process-server-overview.md) o servidor de configuração.<br/> - [saiba mais sobre como](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) atualizar para a versão mais recente.<br/> - [saiba mais sobre como](vmware-azure-deploy-configuration-server.md) configurar o servidor de configuração. 
 Servidor de processo | Instalado por predefinição no servidor de configuração.<br/> Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Azure.<br/> À medida que sua implantação cresce, você pode adicionar servidores de processo adicionais para lidar com volumes maiores de tráfego de replicação. | - [saiba mais sobre](vmware-physical-azure-config-process-server-overview.md) o servidor de processo.<br/> - [saiba mais sobre como](vmware-azure-manage-process-server.md#upgrade-a-process-server) atualizar para a versão mais recente.<br/> - [saiba mais sobre como](vmware-physical-large-deployment.md#set-up-a-process-server) configurar servidores de processo de expansão.
-Serviço de mobilidade | Instalado na VM VMware ou servidores físicos que você deseja replicar.<br/> Coordena a replicação entre servidores VMware/servidores físicos locais e o Azure.| - [saiba mais sobre](vmware-physical-mobility-service-overview.md) o serviço de mobilidade.<br/> - [saiba mais sobre como](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) atualizar para a versão mais recente.<br/> 
+Mobility Service | Instalado na VM VMware ou servidores físicos que você deseja replicar.<br/> Coordena a replicação entre servidores VMware/servidores físicos locais e o Azure.| - [saiba mais sobre](vmware-physical-mobility-service-overview.md) o serviço de mobilidade.<br/> - [saiba mais sobre como](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) atualizar para a versão mais recente.<br/> 
 
 
 

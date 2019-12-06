@@ -2,18 +2,18 @@
 title: Solucionar erros de integração Gerenciamento de Atualizações, Controle de Alterações e inventário
 description: Saiba como solucionar erros de integração com as soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516406"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849314"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solucionar erros ao realizar soluções de integração
 
@@ -21,7 +21,7 @@ Você pode encontrar erros ao realizar soluções de integração como Gerenciam
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="node-rename"></a>Cenário Renomear um nó registrado requer cancelar o registro/registro novamente
+### <a name="node-rename"></a>Cenário: renomear um nó registrado requer cancelar o registro/registro novamente
 
 #### <a name="issue"></a>Problema
 
@@ -36,7 +36,7 @@ Renomear nós registrados não atualiza o nome do nó na automação do Azure.
 Cancele o registro do nó da configuração de estado da automação do Azure e registre-o novamente.  Os relatórios publicados no serviço antes dessa hora não estarão mais disponíveis.
 
 
-### <a name="resigning-cert"></a>Cenário Não há suporte para a assinatura de certificados novamente por meio do proxy HTTPS
+### <a name="resigning-cert"></a>Cenário: não há suporte para assinar certificados novamente por meio do proxy HTTPS
 
 #### <a name="issue"></a>Problema
 
@@ -52,7 +52,7 @@ Não há nenhuma solução alternativa para esse problema.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="missing-write-permissions"></a>Cenário A integração falha com a mensagem-a solução não pode ser habilitada
+### <a name="missing-write-permissions"></a>Cenário: a integração falha com a mensagem-a solução não pode ser habilitada
 
 #### <a name="issue"></a>Problema
 
@@ -72,9 +72,9 @@ Esse erro é causado por permissões incorretas ou ausentes na máquina virtual,
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se você tem as permissões corretas para carregar a máquina virtual. Examine as [permissões necessárias para carregar computadores](../automation-role-based-access-control.md#onboarding) e tente carregar a solução novamente. Se você receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, verifique se `Microsoft.OperationalInsights/workspaces/read` tem permissão para encontrar se a VM está integrada a um espaço de trabalho.
+Verifique se você tem as permissões corretas para carregar a máquina virtual. Examine as [permissões necessárias para carregar computadores](../automation-role-based-access-control.md#onboarding) e tente carregar a solução novamente. Se você receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, verifique se você tem a permissão `Microsoft.OperationalInsights/workspaces/read` para poder encontrar se a VM está integrada a um espaço de trabalho.
 
-### <a name="diagnostic-logging"></a>Cenário A integração falha com a mensagem-falha ao configurar a conta de automação para o log de diagnóstico
+### <a name="diagnostic-logging"></a>Cenário: a integração falha com a mensagem-falha ao configurar a conta de automação para o log de diagnóstico
 
 #### <a name="issue"></a>Problema
 
@@ -92,7 +92,7 @@ Esse erro pode ser causado se o tipo de preço não corresponder ao modelo de co
 
 Crie seu espaço de trabalho do Log Analytics manualmente e repita o processo de integração para selecionar o espaço de trabalho criado.
 
-### <a name="computer-group-query-format-error"></a>Cenário ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
@@ -106,7 +106,7 @@ Você pode ter alterado a consulta ou ela pode ter sido alterada pelo sistema.
 
 Você pode excluir a consulta para essa solução e reintegre a solução, que recria a consulta. A consulta pode ser encontrada no seu espaço de trabalho, em **pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**e a categoria da consulta é o nome da solução associada a essa consulta. Se várias soluções estiverem habilitadas, o **MicrosoftDefaultComputerGroup** mostrará várias vezes em **pesquisas salvas**.
 
-### <a name="policy-violation"></a>Cenário PolicyViolation
+### <a name="policy-violation"></a>Cenário: PolicyViolation
 
 #### <a name="issue"></a>Problema
 
@@ -126,9 +126,9 @@ Para implantar a solução com êxito, você precisa considerar a alteração da
   * Redirecionando a política para um recurso específico (por exemplo, para uma conta de automação específica).
   * Revisando o conjunto de recursos que a política foi configurada para negar.
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione implantações em **configurações** para exibir a implantação com falha. Para saber mais sobre Azure Policy visite: [Visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione **implantações** em **configurações** para exibir a implantação com falha. Para saber mais sobre Azure Policy visite: [visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Cenário Erros ao tentar desvincular um espaço de trabalho
+### <a name="unlink"></a>Cenário: erros ao tentar desvincular um espaço de trabalho
 
 #### <a name="issue"></a>Problema
 
@@ -156,7 +156,7 @@ Depois de remover as soluções, você pode desvincular seu espaço de trabalho.
   * Remover implantações de atualização (agendas) de sua conta de automação
 * Iniciar/Parar VMs durante horas de inatividade
   * Remova os bloqueios nos componentes da solução em sua conta de automação em **configurações** > **bloqueios**.
-  * Para obter etapas adicionais para remover a solução iniciar/parar VMs fora do horário comercial, consulte [remover a solução iniciar/parar VM fora do horário comercial](../automation-solution-vm-management.md##remove-the-solution).
+  * Para obter etapas adicionais para remover a solução Iniciar/Parar VMs fora do horário comercial consulte, [remova a solução iniciar/parar VM fora do horário comercial](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Falhas de extensão de MMA
 
@@ -168,7 +168,7 @@ A instalação do agente MMA ou Log Analytics para Linux pode falhar por vários
 
 A seção a seguir descreve vários problemas que você pode percorrer ao realizar a integração que causa uma falha na implantação da extensão MMA.
 
-### <a name="webclient-exception"></a>Cenário Ocorreu uma exceção durante uma solicitação de WebClient
+### <a name="webclient-exception"></a>Cenário: ocorreu uma exceção durante uma solicitação WebClient
 
 A extensão MMA na máquina virtual não pode se comunicar com recursos externos e a implantação falha.
 
@@ -196,7 +196,7 @@ Algumas causas possíveis para esse erro são:
 
 Verifique se você tem as portas e os endereços adequados abertos para comunicação. Para obter uma lista de portas e endereços, consulte [planejando sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Cenário A instalação falhou devido a problemas de um ambiente transitório
+### <a name="transient-environment-issue"></a>Cenário: falha na instalação devido a problemas de um ambiente transitório
 
 Falha na instalação da extensão de Microsoft Monitoring Agent durante a implantação devido a outra instalação ou ação que está bloqueando a instalação
 
@@ -227,7 +227,7 @@ Algumas causas possíveis para esse erro são:
 
 Esse erro é um erro transitório por natureza. Repita a implantação para instalar a extensão.
 
-### <a name="installation-timeout"></a>Cenário Tempo limite da instalação
+### <a name="installation-timeout"></a>Cenário: tempo limite de instalação
 
 A instalação da extensão MMA não foi concluída devido a um tempo limite.
 
@@ -247,7 +247,7 @@ Esse erro ocorre porque a máquina virtual está sob uma carga pesada durante a 
 
 Tente instalar a extensão MMA quando a VM estiver sob uma carga inferior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

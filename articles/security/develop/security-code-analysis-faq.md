@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828238"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851524"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 Tem perguntas? Confira as perguntas frequentes a seguir para obter mais informações.
@@ -76,7 +76,7 @@ Sim. Todas as tarefas e ferramentas na extensão podem ser executadas em um agen
 
 ### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>Posso executar essas tarefas de compilação como parte de um pipeline de lançamento em vez de um pipeline de compilação?
 
-Na maioria dos casos, sim.
+Na maior parte dos casos, sim.
 
 No entanto, o Azure DevOps não dá suporte a tarefas em execução em pipelines de versão quando essas tarefas publicam artefatos. Essa falta de suporte impede que a tarefa publicar logs de análise de segurança seja executada com êxito em um pipeline de liberação. Em vez disso, a tarefa falhará com uma mensagem de erro descritiva.
 
@@ -88,7 +88,7 @@ As tarefas de compilação podem baixar os pacotes NuGet das ferramentas do [fee
 
 Após a instalação, as tarefas de compilação de segurança fornecidas pela extensão ficam disponíveis para todos os usuários em sua organização. Quando você cria ou edita um pipeline do Azure, essas tarefas estão disponíveis na lista coleção de tarefas de compilação. Caso contrário, instalar a extensão em sua organização DevOps do Azure não terá nenhum efeito. A instalação não modifica nenhuma configuração de conta, configurações de projeto ou pipelines.
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica meus pipelines do Azure existentes? 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica o Azure Pipelines existente? 
 
 Não. A instalação da extensão torna as tarefas de compilação de segurança disponíveis para adição aos seus pipelines. Você ainda precisa adicionar ou atualizar definições de compilação, para que as ferramentas possam trabalhar com o processo de compilação.
 
@@ -222,9 +222,6 @@ A tarefa de compilação de analisadores Roslyn precisa consultar o Azure DevOps
 
 Se você precisar de assistência adicional, o suporte à análise de código de segurança da Microsoft estará disponível de segunda a sexta-feira, de 9:00 às 5:00, hora oficial do Pacífico.
 
-  - Integração: entre em contato com seus gerentes de contas técnicas para começar.
+- Integração: consulte nossa [documentação de integração](security-code-analysis-onboard.md)
   
-  - Suporte: envie a equipe por email com [o suporte à análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >Talvez você não tenha um relacionamento de suporte pago com a Microsoft. Ou talvez você tenha uma oferta de suporte que impeça a compra de serviços do catálogo de Phoenix. Se uma dessas condições for verdadeira, visite nossos serviços de [suporte Home Page](https://www.microsoft.com/enterprise/services/support) para obter mais informações.
+- Suporte: envie a equipe por email [para o suporte da análise de código de segurança da Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

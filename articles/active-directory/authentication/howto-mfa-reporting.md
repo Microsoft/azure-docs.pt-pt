@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb90fafb48be1d3389597c6188b0200743f90c3e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065965"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848277"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na autenticação multifator do Azure
 
@@ -24,15 +24,15 @@ A autenticação multifator do Azure fornece vários relatórios que podem ser u
 
 | Relatório | Localização | Descrição |
 |:--- |:--- |:--- |
-| Histórico de usuário bloqueado | O Azure AD > Security > MFA > bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
+| Histórico de utilizador bloqueado | O Azure AD > Security > MFA > bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
 | Alertas de uso e fraude | Entradas de > do Azure AD | Fornece informações sobre o uso geral, Resumo do usuário e detalhes do usuário; bem como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 | Uso para componentes locais | Relatório de atividade de > do Azure AD > Security > MFA | Fornece informações sobre o uso geral da MFA por meio da extensão do NPS, do ADFS e do servidor MFA. |
-| Histórico de usuário ignorado | O Azure AD > Security > MFA > bypass único | Fornece um histórico de solicitações para ignorar a autenticação multifator para um usuário. |
-| Status do servidor | Status do servidor > MFA > do Azure AD > Security | Exibe o status dos servidores de autenticação multifator associados à sua conta. |
+| Histórico de utilizador ignorado | O Azure AD > Security > MFA > bypass único | Fornece um histórico de solicitações para ignorar a autenticação multifator para um usuário. |
+| Estado do servidor | Status do servidor > MFA > do Azure AD > Security | Exibe o status dos servidores de autenticação multifator associados à sua conta. |
 
 ## <a name="view-mfa-reports"></a>Exibir relatórios de MFA
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **segurança** > **MFA**.
 3. Selecione o relatório que você deseja exibir.
 
@@ -140,46 +140,46 @@ A tabela a seguir pode ser usada para solucionar problemas de autenticação mul
 
 | Resultado da chamada | Descrição | Descrição ampla |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN inserido | O usuário inseriu um PIN.  Se a autenticação for bem-sucedida, elas entraram no PIN correto.  Se a autenticação for negada, elas inseriram um PIN incorreto ou o usuário será definido como modo padrão. |
+| SUCCESS_WITH_PIN | PIN Introduzido | O usuário inseriu um PIN.  Se a autenticação for bem-sucedida, elas entraram no PIN correto.  Se a autenticação for negada, elas inseriram um PIN incorreto ou o usuário será definido como modo padrão. |
 | SUCCESS_NO_PIN | Somente # inserido | Se o usuário estiver definido como modo PIN e a autenticação for negada, isso significa que o usuário não inseriu seu PIN e apenas inseriu #.  Se o usuário estiver definido como modo padrão e a autenticação for bem sucedido, isso significa que o usuário inseriu apenas #, que é a coisa correta a fazer no modo padrão. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Não pressionado após a entrada | O usuário não enviou nenhum dígito DTMF, pois # não foi inserido.  Outros dígitos inseridos não são enviados, a menos que # seja inserido indicando a conclusão da entrada. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Nenhuma entrada de telefone-tempo limite excedido | A chamada foi respondida, mas não havia resposta.  Isso normalmente indica que a chamada foi selecionada pela caixa postal. |
-| SUCCESS_PIN_EXPIRED | PIN expirado e não alterado | O PIN do usuário expirou e foi solicitado a alterá-lo, mas a alteração do PIN não foi concluída com êxito. |
-| SUCCESS_USED_CACHE | Cache usado | A autenticação foi bem-sucedida sem uma chamada de autenticação multifator desde que uma autenticação bem-sucedida anterior para o mesmo nome de usuário ocorreu dentro do período de tempo de cache configurado. |
-| SUCCESS_BYPASSED_AUTH | Autenticação ignorada | Êxito na autenticação usando um bypass único iniciado para o usuário.  Consulte o relatório histórico de usuário desviado para obter mais detalhes sobre o bypass. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Não Premido Após a Entrada | O usuário não enviou nenhum dígito DTMF, pois # não foi inserido.  Outros dígitos inseridos não são enviados, a menos que # seja inserido indicando a conclusão da entrada. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Nenhuma Entrada de Telefone - Tempo Limite Excedido | A chamada foi respondida, mas não havia resposta.  Isso normalmente indica que a chamada foi selecionada pela caixa postal. |
+| SUCCESS_PIN_EXPIRED | PIN Expirado e Não Alterado | O PIN do usuário expirou e foi solicitado a alterá-lo, mas a alteração do PIN não foi concluída com êxito. |
+| SUCCESS_USED_CACHE | Cache Utilizada | A autenticação foi bem-sucedida sem uma chamada de autenticação multifator desde que uma autenticação bem-sucedida anterior para o mesmo nome de usuário ocorreu dentro do período de tempo de cache configurado. |
+| SUCCESS_BYPASSED_AUTH | Autenticação Ignorada | Êxito na autenticação usando um bypass único iniciado para o usuário.  Consulte o relatório histórico de usuário desviado para obter mais detalhes sobre o bypass. |
 | SUCCESS_USED_IP_BASED_CACHE | Cache baseado em IP usado | A autenticação foi bem-sucedida sem uma chamada de autenticação multifator desde uma autenticação bem-sucedida anterior para o mesmo nome de usuário, tipo de autenticação, nome do aplicativo e IP ocorrido dentro do período de tempo de cache configurado. |
 | SUCCESS_USED_APP_BASED_CACHE | Cache baseado em aplicativo usado | A autenticação foi bem-sucedida sem uma chamada de autenticação multifator desde uma autenticação bem-sucedida anterior para o mesmo nome de usuário, tipo de autenticação e nome do aplicativo dentro do período de tempo de cache configurado. |
-| SUCCESS_INVALID_INPUT | Entrada de telefone inválida | A resposta enviada do telefone não é válida.  Isso pode ser de uma máquina de fax ou modem, ou o usuário pode ter inserido * como parte do PIN. |
-| SUCCESS_USER_BLOCKED | O usuário está bloqueado | O número de telefone do usuário está bloqueado.  Um número bloqueado pode ser iniciado pelo usuário durante uma chamada de autenticação ou por um administrador usando o portal do Azure. <br> Observação: um número bloqueado também é um subproduto de um alerta de fraude. |
-| SUCCESS_SMS_AUTHENTICATED | Mensagem de texto autenticada | Para a mensagem de teste de duas vias, o usuário respondeu corretamente com sua OTP (senha de uso único) ou OTP + PIN. |
-| SUCCESS_SMS_SENT | Mensagem de texto enviada | Para mensagem de texto, a mensagem de texto que contém a senha de uso único (OTP) foi enviada com êxito.  O usuário vai inserir a OTP ou OTP + PIN no aplicativo para concluir a autenticação. |
-| SUCCESS_PHONE_APP_AUTHENTICATED | Aplicativo móvel autenticado | O usuário foi autenticado com êxito por meio do aplicativo móvel. |
-| SUCCESS_OATH_CODE_PENDING | Código OATH pendente | O usuário foi solicitado a fornecer seu código OATH, mas não respondeu. |
-| SUCCESS_OATH_CODE_VERIFIED | Código OATH verificado | O usuário inseriu um código OATH válido quando solicitado. |
-| SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Código OATH de fallback verificado | O usuário teve a autenticação negada usando o método de autenticação multifator primário e forneceu um código OATH válido para fallback. |
-| SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Perguntas de segurança de fallback respondidas | O usuário teve a autenticação negada usando seu método de autenticação multifator primário e respondeu suas perguntas de segurança corretamente para fallback. |
-| FAILED_PHONE_BUSY | A autenticação já está em andamento | A autenticação multifator já está processando uma autenticação para esse usuário.  Isso geralmente é causado por clientes RADIUS que enviam várias solicitações de autenticação durante o mesmo logon. |
-| CONFIG_ISSUE | Telefone inacessível | A chamada foi tentada, mas não pôde ser colocada ou não foi respondida.  Isso inclui sinal de ocupado, sinal de fast Busy (desconectado), três tons (número não mais em serviço), tempo limite atingido durante o toque, etc. |
-| FAILED_INVALID_PHONENUMBER | Formato de número de telefone inválido | O número de telefone tem um formato inválido.  Os números de telefone devem ser numéricos e devem ter 10 dígitos para o código do país + 1 (Estados Unidos & Canadá). |
-| FAILED_USER_HUNGUP_ON_US | O usuário desligou o telefone | O usuário respondeu ao telefone, mas, em seguida, travou sem pressionar nenhum botão. |
-| FAILED_INVALID_EXTENSION | Extensão inválida | A extensão contém caracteres inválidos.  Somente dígitos, vírgulas, * e # são permitidos.  Um prefixo @ também pode ser usado. |
-| FAILED_FRAUD_CODE_ENTERED | Código de fraude inserido | O usuário optou por relatar fraude durante a chamada, resultando em uma autenticação negada e um número de telefone bloqueado.| 
-| FAILED_SERVER_ERROR | Não é possível fazer a chamada | O serviço de autenticação multifator não pôde fazer a chamada. |
-| FAILED_SMS_NOT_SENT | Não foi possível enviar a mensagem de texto | Não foi possível enviar a mensagem de texto.  A autenticação foi negada. |
-| FAILED_SMS_OTP_INCORRECT | OTP de mensagem de texto incorreto | O usuário inseriu uma senha de uso único (OTP) incorreta da mensagem de texto recebida.  A autenticação foi negada. |
-| FAILED_SMS_OTP_PIN_INCORRECT | OTP de mensagem de texto + PIN incorreto | O usuário inseriu uma senha de uso único (OTP) incorreta e/ou um PIN de usuário incorreto.  A autenticação foi negada. |
+| SUCCESS_INVALID_INPUT | Entrada de Telefone Inválido | A resposta enviada do telefone não é válida.  Isso pode ser de uma máquina de fax ou modem, ou o usuário pode ter inserido * como parte do PIN. |
+| SUCCESS_USER_BLOCKED | Utilizador Está Bloqueado | O número de telefone do usuário está bloqueado.  Um número bloqueado pode ser iniciado pelo usuário durante uma chamada de autenticação ou por um administrador usando o portal do Azure. <br> Observação: um número bloqueado também é um subproduto de um alerta de fraude. |
+| SUCCESS_SMS_AUTHENTICATED | Mensagem de Texto Autenticada | Para a mensagem de teste de duas vias, o usuário respondeu corretamente com sua OTP (senha de uso único) ou OTP + PIN. |
+| SUCCESS_SMS_SENT | Mensagem de Texto Enviada | Para mensagem de texto, a mensagem de texto que contém a senha de uso único (OTP) foi enviada com êxito.  O usuário vai inserir a OTP ou OTP + PIN no aplicativo para concluir a autenticação. |
+| SUCCESS_PHONE_APP_AUTHENTICATED | Aplicação Móvel Autenticada | O usuário foi autenticado com êxito por meio do aplicativo móvel. |
+| SUCCESS_OATH_CODE_PENDING | Código OATH Pendente | O usuário foi solicitado a fornecer seu código OATH, mas não respondeu. |
+| SUCCESS_OATH_CODE_VERIFIED | Código OATH Verificado | O usuário inseriu um código OATH válido quando solicitado. |
+| SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Código OATH de Contingência Verificado | O usuário teve a autenticação negada usando o método de autenticação multifator primário e forneceu um código OATH válido para fallback. |
+| SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Respostas às Perguntas de Segurança de Contingência | O usuário teve a autenticação negada usando seu método de autenticação multifator primário e respondeu suas perguntas de segurança corretamente para fallback. |
+| FAILED_PHONE_BUSY | Autenticação Já Em Curso | A autenticação multifator já está processando uma autenticação para esse usuário.  Isso geralmente é causado por clientes RADIUS que enviam várias solicitações de autenticação durante o mesmo logon. |
+| CONFIG_ISSUE | Telefone Inacessível | A chamada foi tentada, mas não pôde ser colocada ou não foi respondida.  Isso inclui sinal de ocupado, sinal de fast Busy (desconectado), três tons (número não mais em serviço), tempo limite atingido durante o toque, etc. |
+| FAILED_INVALID_PHONENUMBER | Formato de Número de Telefone Inválido | O número de telefone tem um formato inválido.  Os números de telefone devem ser numéricos e devem ter 10 dígitos para o código do país + 1 (Estados Unidos & Canadá). |
+| FAILED_USER_HUNGUP_ON_US | O Utilizador Desligou o Telefone | O usuário respondeu ao telefone, mas, em seguida, travou sem pressionar nenhum botão. |
+| FAILED_INVALID_EXTENSION | Extensão Inválida | A extensão contém caracteres inválidos.  Somente dígitos, vírgulas, * e # são permitidos.  Um prefixo @ também pode ser usado. |
+| FAILED_FRAUD_CODE_ENTERED | Código Fraudulento Introduzido | O usuário optou por relatar fraude durante a chamada, resultando em uma autenticação negada e um número de telefone bloqueado.| 
+| FAILED_SERVER_ERROR | Não é Possível Efetuar a Chamada | O serviço de autenticação multifator não pôde fazer a chamada. |
+| FAILED_SMS_NOT_SENT | Não Foi Possível Enviar a Mensagem de Texto | Não foi possível enviar a mensagem de texto.  A autenticação foi negada. |
+| FAILED_SMS_OTP_INCORRECT | Mensagem de Texto OTP Incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta da mensagem de texto recebida.  A autenticação foi negada. |
+| FAILED_SMS_OTP_PIN_INCORRECT | Mensagem de Texto OTP + PIN Incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta e/ou um PIN de usuário incorreto.  A autenticação foi negada. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Máximo de tentativas de OTP de mensagem de texto excedido | O usuário excedeu o número máximo de tentativas de OTP (senha de uso único). |
-| FAILED_PHONE_APP_DENIED | Aplicativo móvel negado | O usuário negou a autenticação no aplicativo móvel pressionando o botão negar. |
-| FAILED_PHONE_APP_INVALID_PIN | PIN inválido do aplicativo móvel | O usuário inseriu um PIN inválido ao autenticar no aplicativo móvel. |
-| FAILED_PHONE_APP_PIN_NOT_CHANGED | PIN do aplicativo móvel não alterado | O usuário não concluiu com êxito uma alteração de PIN necessária no aplicativo móvel. |
-| FAILED_FRAUD_REPORTED | Fraude relatada | O usuário relatou fraude no aplicativo móvel. |
-| FAILED_PHONE_APP_NO_RESPONSE | Sem resposta do aplicativo móvel | O usuário não respondeu à solicitação de autenticação do aplicativo móvel. |
-| FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | Aplicativo móvel todos os dispositivos bloqueados | Os dispositivos de aplicativo móvel para este usuário não estão mais respondendo a notificações e foram bloqueados. |
-| FAILED_PHONE_APP_NOTIFICATION_FAILED | Falha na notificação do aplicativo móvel | Ocorreu uma falha ao tentar enviar uma notificação para o aplicativo móvel no dispositivo do usuário. |
-| FAILED_PHONE_APP_INVALID_RESULT | Resultado inválido do aplicativo móvel | O aplicativo móvel retornou um resultado inválido. |
-| FAILED_OATH_CODE_INCORRECT | Código OATH incorreto | O usuário inseriu um código OATH incorreto.  A autenticação foi negada. |
+| FAILED_PHONE_APP_DENIED | Aplicação Móvel Negada | O usuário negou a autenticação no aplicativo móvel pressionando o botão negar. |
+| FAILED_PHONE_APP_INVALID_PIN | PIN de Aplicação Móvel Inválido | O usuário inseriu um PIN inválido ao autenticar no aplicativo móvel. |
+| FAILED_PHONE_APP_PIN_NOT_CHANGED | PIN de Aplicação Móvel Não Alterado | O usuário não concluiu com êxito uma alteração de PIN necessária no aplicativo móvel. |
+| FAILED_FRAUD_REPORTED | Fraude Reportada | O usuário relatou fraude no aplicativo móvel. |
+| FAILED_PHONE_APP_NO_RESPONSE | Aplicação Móvel Não Responde | O usuário não respondeu à solicitação de autenticação do aplicativo móvel. |
+| FAILED_PHONE_APP_ALL_DEVICES_BLOCKED | Todos os Dispositivos de Aplicações Móveis Bloqueados | Os dispositivos de aplicativo móvel para este usuário não estão mais respondendo a notificações e foram bloqueados. |
+| FAILED_PHONE_APP_NOTIFICATION_FAILED | Falha de Notificação de Aplicação Móvel | Ocorreu uma falha ao tentar enviar uma notificação para o aplicativo móvel no dispositivo do usuário. |
+| FAILED_PHONE_APP_INVALID_RESULT | Resultado de Aplicação Móvel Inválido | O aplicativo móvel retornou um resultado inválido. |
+| FAILED_OATH_CODE_INCORRECT | Código OATH Incorreto | O usuário inseriu um código OATH incorreto.  A autenticação foi negada. |
 | FAILED_OATH_CODE_PIN_INCORRECT | Código OATH + PIN incorreto | O usuário inseriu um código OATH incorreto e/ou um PIN de usuário incorreto.  A autenticação foi negada. |
-| FAILED_OATH_CODE_DUPLICATE | Código OATH duplicado | O usuário inseriu um código OATH que foi usado anteriormente.  A autenticação foi negada. |
+| FAILED_OATH_CODE_DUPLICATE | Código OATH Duplicado | O usuário inseriu um código OATH que foi usado anteriormente.  A autenticação foi negada. |
 | FAILED_OATH_CODE_OLD | Código OATH desatualizado | O usuário inseriu um código OATH que precede um código OATH que foi usado anteriormente.  A autenticação foi negada. |
 | FAILED_OATH_TOKEN_TIMEOUT | Tempo limite do resultado do código OATH | O usuário demorou muito para inserir o código OATH e a tentativa de autenticação multifator já tinha atingido o tempo limite. |
 | FAILED_SECURITY_QUESTIONS_TIMEOUT | Tempo limite do resultado de perguntas de segurança | O usuário demorou muito para inserir a resposta a perguntas de segurança e a tentativa de autenticação multifator já tinha atingido o tempo limite. |

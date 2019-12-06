@@ -3,17 +3,17 @@ title: Conectar um dispositivo DevKit ao aplicativo de IoT Central do Azure | Mi
 description: Como desenvolvedor de dispositivos, saiba como conectar um dispositivo MXChip IoT DevKit ao seu aplicativo de IoT Central do Azure usando o IoT Plug and Play.
 author: liydu
 ms.author: liydu
-ms.date: 08/17/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930138"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849003"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo IoT Central do Azure (recursos de visualização)
 
@@ -34,9 +34,21 @@ Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
 ## <a name="get-device-connection-details"></a>Obter detalhes de conexão do dispositivo
 
-No aplicativo IoT Central do Azure, selecione a guia **Administração** e selecione **conexão do dispositivo**. Anote a **ID do escopo** e a **chave primária** (no link **Exibir chaves** ). E verifique se a **aprovação automática** está habilitada.
+1. No aplicativo IoT Central do Azure, selecione a guia **modelos de dispositivo** e selecione **novo**. Na seção de **usar um modelo de dispositivo pré-configurado**, escolha **MXChip IOT devkit** na lista. E escolha **Avançar: Personalizar** e **criar**.
 
-![Detalhes de conexão do grupo de dispositivos](media/howto-connect-devkit/device-group-connection-details.png)
+    ![Modelo de dispositivo para MXChip IoT DevKit](media/howto-connect-devkit/device-template.png)
+
+1. Selecione a guia **dispositivos** , na lista dispositivos, selecione **MXChip IOT devkit** e selecione **novo** para criar um novo dispositivo do modelo de dispositivo.
+
+    ![Novo dispositivo](media/howto-connect-devkit/new-device.png)
+
+1. Na janela pop-up, insira a **ID do dispositivo** como `SampleDevKit` e o **nome do dispositivo** como `MXChip IoT DevKit - Sample`. Verifique se a opção **Simulated** está desativada. Em seguida, selecione **Criar**.
+
+    ![ID e nome do dispositivo](media/howto-connect-devkit/device-id-name.png)
+
+1. Clique no dispositivo que você acabou de criar e selecione **conectar**. Anote o **escopo da ID**, a **ID do dispositivo** e a **chave primária**.
+
+    ![Informações de conexão do dispositivo](media/howto-connect-devkit/device-connection-info.png)
 
 ## <a name="prepare-the-device"></a>Preparar o dispositivo
 
@@ -61,7 +73,7 @@ No aplicativo IoT Central do Azure, selecione a guia **Administração** e selec
 
     - O nome de sua rede WiFi (SSID).
     - Sua senha de rede WiFi.
-    - Os detalhes da conexão: a **ID do dispositivo** que você pode escolher por conta própria e a ID de **escopo** e a **chave primária de SAS do grupo** anotada anteriormente.
+    - Os detalhes da conexão: Insira a **ID do dispositivo**, o escopo da **ID** e a **chave primária SAS** anotada anteriormente.
 
     > [!NOTE]
     > Atualmente, o IoT DevKit pode se conectar somente a Wi-Fi de 2,4 GHz, não há suporte para 5 GHz devido a restrições de hardware.
@@ -86,7 +98,7 @@ No aplicativo IoT Central, selecione a guia **dispositivos** , selecione o dispo
 
 ## <a name="review-the-code"></a>Rever o código
 
-Para examinar o código ou modificá-lo, vá para o [repositório GitHub do código de exemplo do MXChip IOT devkit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Para examinar o código ou modificá-lo e compilá-lo, vá para os [exemplos de código](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

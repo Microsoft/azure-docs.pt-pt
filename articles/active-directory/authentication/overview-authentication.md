@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccbb754f03f77ce0571912a5443dc9b18c66b463
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3077851f5feafdec9d46d9365c45f5729ca2b0b1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381107"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846679"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Que métodos de autenticação estão disponíveis?
 

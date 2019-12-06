@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404680"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848379"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura de VPN com o Azure MFA usando a extensão do servidor de políticas de rede para o Azure
 
@@ -98,7 +98,7 @@ Para obter informações sobre como instalar o serviço de função de serviços
 
 ### <a name="azure-mfa-license"></a>Licença do MFA do Azure
 
-Uma licença é necessária para a autenticação multifator do Azure e está disponível por meio de um Azure AD Premium, Enterprise Mobility + Security ou uma licença autônoma de autenticação multifator. As licenças baseadas em consumo para o Azure MFA, como licenças por usuário ou por autenticação, não são compatíveis com a extensão do NPS. Para obter mais informações, consulte [como obter a autenticação multifator do Azure](concept-mfa-licensing.md). Para fins de teste, pode utilizar uma subscrição de avaliação.
+Uma licença é necessária para a autenticação multifator do Azure e está disponível por meio de um Azure AD Premium, Enterprise Mobility + Security ou uma licença autônoma de autenticação multifator. As licenças baseadas em consumo para o Azure MFA, como licenças por usuário ou por autenticação, não são compatíveis com a extensão do NPS. Para obter mais informações, consulte [como obter o Azure multi-factor Authentication](concept-mfa-licensing.md). Para fins de teste, pode utilizar uma subscrição de avaliação.
 
 ### <a name="windows-server-software"></a>Software Windows Server
 
@@ -137,7 +137,7 @@ Esta seção pressupõe que você instalou a função de serviços de acesso e p
 
 Para funcionar corretamente nesse cenário, o servidor NPS deve ser registrado em Active Directory.
 
-1. Abra Gerenciador do Servidor.
+1. Abra o Gestor de Servidor.
 
 2. Em Gerenciador do Servidor, selecione **ferramentas**e, em seguida, selecione **servidor de políticas de rede**.
 
@@ -324,7 +324,7 @@ Se o valor for definido como *true* ou estiver em branco, todas as solicitaçõe
 
 Como parte da configuração da extensão do NPS, você deve fornecer credenciais de administrador e a ID do seu locatário do Azure AD. Obtenha a ID fazendo o seguinte:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como o administrador global do locatário do Azure.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como administrador global do inquilino do Azure.
 
 2. No painel esquerdo, selecione o botão **Azure Active Directory** .
 
@@ -426,7 +426,7 @@ No servidor em que você instalou a extensão NPS para a autenticação multifat
 
 ## <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
-Se a configuração não estiver funcionando conforme o esperado, inicie a solução de problemas verificando se o usuário está configurado para usar a MFA. Peça ao usuário para se conectar ao [portal do Azure](https://portal.azure.com). Se o usuário for solicitado a fornecer a autenticação secundária e puder se autenticar com êxito, você poderá eliminar uma configuração incorreta da MFA como um problema.
+Se a configuração não estiver funcionando conforme o esperado, inicie a solução de problemas verificando se o usuário está configurado para usar a MFA. Peça ao utilizador ligar para o [portal do Azure](https://portal.azure.com). Se o usuário for solicitado a fornecer a autenticação secundária e puder se autenticar com êxito, você poderá eliminar uma configuração incorreta da MFA como um problema.
 
 Se a MFA estiver funcionando para o usuário, examine os logs de Visualizador de Eventos relevantes. Os logs incluem o evento de segurança, o gateway operacional e os logs da autenticação multifator do Azure que são discutidos na seção anterior.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278171"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849156"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: configurar a margem de atraso para o provisionamento automático de usuário
 
@@ -66,13 +66,13 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 4. Defina o **modo de provisionamento** como **automático**.
 
-   ![Provisionamento de margem de atraso](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Provisionamento de margem de atraso](./media/slack-provisioning-tutorial/slack1.png)
 
 5. Na seção **credenciais de administrador** , clique em **autorizar**. Isso abre uma caixa de diálogo de autorização de margem de atraso em uma nova janela do navegador.
 
 6. Na nova janela, entre na margem de atraso usando sua conta de administrador da equipe. na caixa de diálogo autorização resultante, selecione a equipe de margem de atraso para a qual você deseja habilitar o provisionamento e, em seguida, selecione **autorizar**. Depois de concluído, retorne ao portal do Azure para concluir a configuração de provisionamento.
 
-    ![Caixa de diálogo de autorização](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Caixa de diálogo de autorização](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. No portal do Azure, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao seu aplicativo de margem de atraso. Se a conexão falhar, verifique se a sua conta de margem de atraso tem permissões de administrador de equipe e tente a etapa "autorizar" novamente.
 
@@ -106,7 +106,7 @@ Opcionalmente, você pode habilitar o provisionamento de objetos de grupo do Azu
 
 Isso resulta em qualquer objeto de grupo atribuído à margem de atraso na seção **usuários e grupos** sendo totalmente sincronizada do Azure ad até a margem de atraso. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo de margem de atraso.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 

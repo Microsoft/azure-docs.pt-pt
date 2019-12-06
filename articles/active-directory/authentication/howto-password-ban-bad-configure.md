@@ -1,64 +1,64 @@
 ---
-title: Como proibir o uso de senhas fracas no Azure AD - Azure Active Directory
-description: Banir senhas fracas de sua envirionment com passwrords do Azure AD banido dinamicamente
+title: Como proibir senhas fracas no Azure AD – Azure Active Directory
+description: Proíba senhas fracas de seu envirionment com o Azure AD banido dinamicamente passwrords
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798193"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847920"
 ---
-# <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de palavras-passe banidas personalizado
+# <a name="configuring-the-custom-banned-password-list"></a>Configurando a lista personalizada de senhas banidas
 
-Muitas organizações consideram que aos utilizadores criarem palavras-passe utilizando palavras locais comuns, como uma instituição de ensino, equipe de esporte ou pessoas famosas, deixando-as fáceis de adivinhar. Lista de palavras-passe banidas personalizado da Microsoft permite que as organizações de acrescentar cadeias de caracteres para avaliar e bloquear, além de global banida a lista de palavra-passe, quando os utilizadores e administradores tentam alterar ou repor uma palavra-passe.
+Muitas organizações acham que seus usuários criam senhas usando palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa, deixando-as fáceis de adivinhar. A lista de senhas banidas personalizada da Microsoft permite que as organizações adicionem cadeias de caracteres para avaliar e bloquear, além da lista de senhas globais banidas, quando os usuários e administradores tentam alterar ou redefinir uma senha.
 
 ## <a name="add-to-the-custom-list"></a>Adicionar à lista personalizada
 
-Configurar a lista de palavras-passe banidas personalizado requer uma licença do Azure Active Directory Premium P1 ou P2. Para obter mais informações sobre o licenciamento do Azure Active Directory, consulte a [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
+A configuração da lista de senhas excluídas personalizada requer uma licença Azure Active Directory Premium P1 ou P2. Para obter informações mais detalhadas sobre Azure Active Directory licenciamento, consulte a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory**, **métodos de autenticação**, em seguida, **proteção por senha**.
-1. Definir a opção **lista personalizada de impor**ao **Sim**.
-1. Acrescentar cadeias de caracteres para o **personalizado banida lista de palavra-passe**, uma cadeia de caracteres por linha
-   * A lista de palavras-passe banidas personalizado pode conter até 1000 termos.
-   * A lista de palavras-passe banidas personalizado diferencia maiúsculas de minúsculas.
-   * A lista de palavras-passe banidas personalizado considera a substituição de caracteres comuns.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, métodos de **autenticação**e proteção por **senha**.
+1. Defina a opção **impor lista personalizada**para **Sim**.
+1. Adicionar cadeias de caracteres à **lista personalizada de senhas banidas**, uma cadeia de texto por linha
+   * A lista de senhas excluídas personalizada pode conter até 1000 termos.
+   * A lista de senhas proibidas personalizada não diferencia maiúsculas de minúsculas.
+   * A lista de senhas excluídas personalizada considera a substituição de caracteres comum.
       * Exemplo: "o" e "0" ou "a" e "\@"
-   * O comprimento da cadeia mínimo é de quatro caracteres e o máximo é de 16 carateres.
-1. Quando adicionar todas as cadeias de caracteres, clique em **guardar**.
+   * O comprimento mínimo da cadeia de caracteres é de quatro caracteres e o máximo é 16 caracteres.
+1. Depois de adicionar todas as cadeias de caracteres, clique em **salvar**.
 
 > [!NOTE]
-> Pode demorar várias horas para atualizações para a lista de palavras-passe banidas personalizadas a serem aplicadas.
+> Pode levar várias horas para que as atualizações da lista de senhas excluídas personalizada sejam aplicadas.
 
 > [!NOTE]
-> A lista de palavras-passe banidas personalizado está limitada a ter um máximo de 1000 termos. Não foi concebida para listas muito grandes de palavras-passe de bloqueio. Para aproveitar totalmente os benefícios da lista de palavras-passe banidas personalizado, a Microsoft recomenda que primeiro analisar e compreender o design pretendido e a utilização da lista de palavras-passe banidas personalizado (consulte [personalizado banida lista de palavra-passe](concept-password-ban-bad.md#custom-banned-password-list)), e também o algoritmo de avaliação de palavra-passe (consulte [como a palavras-passe são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+> A lista de senhas excluídas personalizada é limitada a ter no máximo 1000 termos. Ele não foi projetado para bloquear listas de senhas extremamente grandes. Para aproveitar totalmente os benefícios da lista personalizada de senhas banidas, a Microsoft recomenda que você primeiro revise e entenda o design e o uso pretendidos da lista de senhas excluídas personalizadas (consulte a [lista de senhas excluídas personalizada](concept-password-ban-bad.md#custom-banned-password-list)) e também o algoritmo de avaliação de senha (consulte [como as senhas são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated)).
 
-![Modificar a lista de palavras-passe banidas personalizadas em métodos de autenticação no portal do Azure](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
+![Modifique a lista personalizada de senha banida em métodos de autenticação no portal do Azure](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Como funciona
 
-Sempre que um utilizador ou administrador repõe ou uma palavra-passe do Azure AD, é alterado, flui através de listas de palavra-passe banidas para confirmar que não está numa lista. Esta verificação está incluída nas palavras-passe definiu ou alterou a utilizar o Azure AD.
+Cada vez que um usuário ou administrador redefine ou altera uma senha do Azure AD, ele flui pelas listas de senhas banidas para confirmar que ela não está em uma lista. Essa verificação é incluída em qualquer senha definida ou alterada usando o Azure AD.
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 
-Quando um utilizador tenta repor uma palavra-passe para algo que deve ser excluído, veem uma das seguintes mensagens de erro:
+Quando um usuário tenta redefinir uma senha para algo que seria banido, ele vê uma das seguintes mensagens de erro:
 
-* Infelizmente, a sua palavra-passe contém uma palavra, frase ou padrão que faz com que a palavra-passe guessable facilmente. Tente novamente com uma palavra-passe diferente.
-* Infelizmente, não é possível utilizar essa palavra-passe porque contém palavras ou carateres que foram bloqueados pelo seu administrador. Tente novamente com uma palavra-passe diferente.
+* Infelizmente, sua senha contém uma palavra, frase ou padrão que torna sua senha facilmente adivinhada. Tente novamente com uma senha diferente.
+* Infelizmente, você não pode usar essa senha porque ela contém palavras ou caracteres que foram bloqueados pelo administrador. Tente novamente com uma senha diferente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral conceptual das listas de palavra-passe banidas](concept-password-ban-bad.md)
+[Visão geral conceitual das listas de senhas banidas](concept-password-ban-bad.md)
 
-[Descrição geral conceptual de proteção de palavra-passe do Azure AD](concept-password-ban-bad-on-premises.md)
+[Visão geral conceitual da proteção de senha do Azure AD](concept-password-ban-bad-on-premises.md)
 
-[Ativar a integração no local com as listas de palavra-passe banidas](howto-password-ban-bad-on-premises.md)
+[Habilitar a integração local com as listas de senhas banidas](howto-password-ban-bad-on-premises.md)

@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre a execução de runbooks em
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c8da5736869a39815d9abf33cf4a03353681b193
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887051"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849722"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executando runbooks em um Hybrid Runbook Worker
 
@@ -39,7 +39,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 > [!NOTE]
 > O parâmetro **RunOn** foi adicionado ao cmdlet **Start-AzureAutomationRunbook** na versão 0.9.1 do Microsoft Azure PowerShell. Você deve [baixar a versão mais recente](https://azure.microsoft.com/downloads/) se tiver uma instalada anteriormente. Você só precisa instalar essa versão em uma estação de trabalho na qual você está iniciando o runbook do PowerShell. Você não precisa instalá-lo no computador de trabalho, a menos que pretenda iniciar runbooks desse computador "
 
-## <a name="runbook-permissions"></a>Permissões de runbook
+## <a name="runbook-permissions"></a>Permissões do Runbook
 
 Os runbooks em execução em um Hybrid Runbook Worker não podem usar o mesmo método que normalmente é usado para autenticação de runbooks nos recursos do Azure, já que eles acessam recursos que não estão no Azure. O runbook pode fornecer sua própria autenticação para recursos locais ou pode configurar a autenticação usando [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Você também pode especificar uma conta Executar como para fornecer um contexto de usuário para todos os runbooks.
 

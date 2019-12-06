@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786720"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847223"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatório para o gerenciamento de senhas do Azure AD
 
@@ -44,7 +44,7 @@ As perguntas a seguir podem ser respondidas pelos relatórios que existem no [po
 Na experiência de portal do Azure, melhoramos a maneira como você pode exibir a redefinição de senha e a atividade de registro de redefinição de senha. Use as etapas a seguir para localizar os eventos de redefinição de senha e registro de redefinição de senha:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** no painel esquerdo.
+2. Selecione **Todos os serviços** no painel esquerdo.
 3. Pesquise **Azure Active Directory** na lista de serviços e selecione-o.
 4. Selecione **usuários** na seção Gerenciar.
 5. Selecione **logs de auditoria** na folha **usuários** . Isso mostra todos os eventos de auditoria que ocorreram em relação a todos os usuários em seu diretório. Você pode filtrar essa exibição para ver todos os eventos relacionados à senha.
@@ -81,7 +81,7 @@ Os seguintes tipos de atividade aparecem na categoria de evento de auditoria de 
 * [Redefinir senha (por administrador)](#activity-type-reset-password-by-admin): indica que um administrador executou uma redefinição de senha em nome de um usuário da portal do Azure.
 * [Redefinir senha (autoatendimento)](#activity-type-reset-password-self-service): indica que um usuário redefiniu sua senha com êxito no [portal de redefinição de senha do Azure ad](https://passwordreset.microsoftonline.com).
 * [Progresso da atividade de fluxo de redefinição de senha de autoatendimento](#activity-type-self-serve-password-reset-flow-activity-progress): indica cada etapa específica que um usuário passa, como passar um portão de autenticação de redefinição de senha específico, como parte do processo de redefinição de senha.
-* [Desbloquear conta de usuário (autoatendimento)](#activity-type-unlock-a-user-account-self-service)): indica que um usuário desbloqueou sua conta de Active Directory com êxito sem redefinir a senha do [portal de redefinição de senha do Azure ad](https://passwordreset.microsoftonline.com) usando o recurso de Active Directory de desbloqueio de conta sem redefinição.
+* [Desbloquear conta de usuário (autoatendimento)](#activity-type-unlock-a-user-account-self-service)): indica que um usuário desbloqueou com êxito sua conta de Active Directory sem redefinir a senha no [portal de redefinição de senha do Azure ad](https://passwordreset.microsoftonline.com) usando o recurso Active Directory de desbloqueio de conta sem redefinição.
 * [Usuário registrado para redefinição de senha de autoatendimento](#activity-type-user-registered-for-self-service-password-reset): indica que um usuário registrou todas as informações necessárias para poder redefinir sua senha de acordo com a política de redefinição de senha do locatário especificada no momento.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: bloqueado da redefinição de senha de autoatendimento

@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre como solucionar problemas d
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ab9a39cfba082ea4c4d1cc6c29764619011d8cb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a45ed90b2b2c4a3a4f8eb11c4618c11e6d66761
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231542"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849365"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
