@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: Configurar políticas de palavras-passe e bloqueio de conta
           href: password-policy.md
-        - name: Ativar eventos de auditoria de segurança (pré-visualização)
+        - name: Ativar eventos de auditoria de segurança
           href: security-audit-events.md
     - name: Associar VMs a um domínio
       items:

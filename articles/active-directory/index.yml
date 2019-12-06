@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 07/27/2019
-  ms.openlocfilehash: f3e8495671b56eda804e33b78667cf75cc2f8e70
-  ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+  ms.openlocfilehash: 11d32abbcd07f16bd21d512d36cd08abd8ca97df
+  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/29/2019
-  ms.locfileid: "68607640"
+  ms.lasthandoff: 12/05/2019
+  ms.locfileid: "74842311"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -95,6 +95,20 @@ conceptualContent:
       text: Políticas personalizadas no Azure AD B2C
     footerLink:
       url: ../active-directory-b2c/index.yml
+      text: Ver mais
+  - title: Aprovisionamento na cloud
+    links:
+    - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+      itemType: overview
+      text: O que é o aprovisionamento na cloud?
+    - url: ./cloud-provisioning/tutorial-single-forest.md
+      itemType: tutorial
+      text: Integrar uma única floresta num único inquilino do Azure AD
+    - url: ./cloud-provisioning/how-to-install.md
+      itemType: how-to-guide
+      text: Instalar o agente de aprovisionamento na cloud do Azure AD Connect
+    footerLink:
+      url: ./cloud-provisioning/index.yml
       text: Ver mais
   - title: Acesso Condicional
     links:

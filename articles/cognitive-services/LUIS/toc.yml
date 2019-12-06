@@ -48,13 +48,13 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. Obter sentimento a partir de expressões do utilizador
           href: tutorial-publish-settings.md
-    - name: Criar aplicação
+    - name: Criar e utilizar entidades
       items:
-        - name: Obter dados bem formatados com expressões regulares
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Obter correspondências de texto exatas com listas
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Obter dados relacionados com as funções de entidade
+        - name: Entidades de expressão regular
+          href: tutorial-regex-entity.md
+        - name: Listar entidades
+          href: tutorial-list-entity.md
+        - name: Funções de entidade
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: Agrupar e extrair dados relacionados com entidades compostas

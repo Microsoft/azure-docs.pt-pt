@@ -203,6 +203,10 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Criar um espaço de nomes com o tópico, uma subscrição e regra'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: Proteger
+      items:
+        - name: Configurar chaves geridas pelo cliente para encriptação inativa (Pré-visualização)
+          href: configure-customer-managed-key.md
     - name: Resolução de problemas
       items:
         - name: Guia de resolução de problemas
