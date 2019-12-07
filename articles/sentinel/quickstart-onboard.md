@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 09/23/2019
-ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/05/2019
+ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133095"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900442"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início rápido: Sentinela do Azure integrado
 
@@ -24,18 +24,8 @@ Para o Azure Sentinel integrado, primeiro você precisa habilitar o Azure Sentin
 
 Depois de conectar suas fontes de dados, escolha de uma galeria de pastas de trabalho criadas de especialistas que insights de superfície com base em seus dados. Essas pastas de trabalho podem ser facilmente personalizadas para suas necessidades.
 
->[!NOTE] 
-> O [preço do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) é baseado na quantidade de dados ingeridos no espaço de trabalho associado do Azure monitor log Analytics. Alguns dos conectores de dados a seguir não são cobrados pela ingestão, mas haveria algum encargo associado quando você gera qualquer tipo de alerta usando os dados ingeridos armazenados no espaço de trabalho Log Analytics que serão cobrados de acordo com o [preço do Azure monitor log Analytics](https://azure.microsoft.com/pricing/details/monitor/). 
-  > - Atividade do Azure (logs de atividade para operações do Azure)
-  > - Azure Active Directory Identity Protection (para locatários com licenças AAD P2)
-  > - Azure Information Protection
-  > - Proteção avançada contra ameaças do Azure (alertas)
-  > - Central de segurança do Azure (alertas)
-  > - Microsoft Cloud App Security (somente alertas)
-  > - Proteção avançada contra ameaças do Microsoft defender (alertas do agente de monitoramento)
-  > - Office 365 (logs do Exchange e do SharePoint)
->
-> Os logs de auditoria do Azure AD/Office365 não são gratuitos e são oferecidos como uma camada Premium, portanto, a ingestão desses dados é cobrada por GB. 
+>[!IMPORTANT] 
+> Para obter informações sobre os encargos incorridos ao usar o Azure Sentinel, consulte [preços do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
   
 
 ## <a name="global-prerequisites"></a>Pré-requisitos globais
@@ -44,7 +34,7 @@ Depois de conectar suas fontes de dados, escolha de uma galeria de pastas de tra
 
 - Espaço de trabalho Log Analytics. Saiba como [criar um espaço de trabalho log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Para obter mais informações sobre espaços de trabalho Log Analytics, consulte [projetando sua implantação de logs de Azure monitor](../azure-monitor/platform/design-logs-deployment.md).
 
--  Para habilitar o Azure Sentinel, você precisa de permissões de colaborador para a assinatura na qual reside o espaço de trabalho do Azure Sentinel. 
+- Para habilitar o Azure Sentinel, você precisa de permissões de colaborador para a assinatura na qual reside o espaço de trabalho do Azure Sentinel. 
 - Para usar o Azure Sentinel, você precisa de permissões de colaborador ou leitor no grupo de recursos ao qual o espaço de trabalho pertence.
 - Permissões adicionais podem ser necessárias para conectar fontes de dados específicas.
 - O Azure Sentinel é um serviço pago. Para obter informações sobre preços, consulte [sobre o Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
@@ -59,7 +49,7 @@ Depois de conectar suas fontes de dados, escolha de uma galeria de pastas de tra
 1. Clique em **+ Adicionar**.
 1. Selecione o espaço de trabalho que você deseja usar ou crie um novo. Você pode executar o Azure Sentinel em mais de um espaço de trabalho, mas os dados são isolados em um único espaço de trabalho.
 
-   ![procurando](./media/quickstart-onboard/choose-workspace.png)
+   ![procurar](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Os espaços de trabalho padrão criados pela central de segurança do Azure não serão exibidos na lista; Você não pode instalar o Azure Sentinel neles.
