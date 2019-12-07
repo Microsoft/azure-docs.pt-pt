@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027250"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900939"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o status
 
@@ -47,10 +47,10 @@ Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores p
 ## <a name="to-create-a-group-membership-rule"></a>Para criar uma regra de associação de grupo
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador do Intune ou administrador de usuários no locatário.
-1. Selecione **grupos**.
+1. Procure e selecione **grupos**.
 1. Selecione **todos os grupos**e selecione **novo grupo**.
 
-   ![Selecione o comando para adicionar um novo grupo](./media/groups-create-rule/new-group-creation.png)
+   ![Selecione o comando para adicionar um novo grupo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. Na página **grupo** , insira um nome e uma descrição para o novo grupo. Selecione um **tipo de associação** para usuários ou dispositivos e, em seguida, selecione **Adicionar consulta dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
 
@@ -88,7 +88,7 @@ As seguintes mensagens de status podem ser mostradas para o status da **última 
 - **Em andamento**: as atualizações estão em andamento no momento.
 - **Desconhecido**: a hora da última atualização não pode ser recuperada. O grupo pode ser novo.
 
-Se ocorrer um erro durante o processamento da regra de associação para um grupo específico, um alerta será mostrado na parte superior da **página Visão geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada para todos os grupos dentro do locatário para mais de 24 horas, um alerta será mostrado na parte superior de **todos os grupos**.
+Se ocorrer um erro durante o processamento da regra de associação para um grupo específico, um alerta será mostrado na parte superior da **página Visão geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada para todos os grupos dentro do locatário por mais de 24 horas, um alerta será mostrado na parte superior de **todos os grupos**.
 
 ![Processando alertas de mensagens de erro](./media/groups-create-rule/processing-error.png)
 

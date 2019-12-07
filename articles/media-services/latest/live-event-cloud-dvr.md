@@ -1,7 +1,7 @@
 ---
 title: Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 titleSuffix: Azure Media Services
-description: Saiba como usar as saídas dinâmicas e de mudança de tempo para registrar fluxos ao vivo e criar a reprodução sob demanda.
+description: Este artigo descreve como usar as saídas dinâmicas e de mudança de tempo para registrar fluxos ao vivo e criar a reprodução sob demanda.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: acba251a57f39c07d690d0c55665b8914feaf06c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186235"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899787"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 
@@ -45,7 +45,7 @@ Mesmo depois de parar e excluir o evento, os usuários podem transmitir o conte�
 
 Se você publicou o ativo da sua saída ao vivo usando um localizador de streaming, o evento ao vivo (até o comprimento da janela DVR) continuará a ser exibido até a expiração ou a exclusão do localizador de streaming, o que ocorrer primeiro.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Visão geral da transmissão ao vivo](live-streaming-overview.md)
 - [Tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md)

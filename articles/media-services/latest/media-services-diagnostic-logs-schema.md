@@ -1,6 +1,6 @@
 ---
 title: Esquemas de logs de diagnóstico dos serviços de mídia do Azure – Azure
-description: Este artigo mostra os esquemas dos logs de diagnóstico dos serviços de mídia do Azure.
+description: Este artigo demonstra os esquemas de logs de diagnóstico dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261091"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896051"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas dos registos de diagnósticos
 
@@ -34,15 +34,15 @@ Para obter uma descrição detalhada do esquema de logs de diagnóstico de níve
 
 ## <a name="key-delivery-log-schema"></a>Esquema do log de distribuição de chaves
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriedades
 
 Essas propriedades são específicas para o esquema de log de distribuição de chaves.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |keyId|A ID da chave solicitada.|
-|keyType|Pode ser um dos seguintes valores: "Clear" (sem criptografia), "FairPlay", "PlayReady" ou "Widevine".|
-|PolicyName|O nome Azure Resource Manager da política.|
+|KeyType|Pode ser um dos seguintes valores: "Clear" (sem criptografia), "FairPlay", "PlayReady" ou "Widevine".|
+|policyName|O nome Azure Resource Manager da política.|
 |tokenType|O tipo de token.|
 |statusMessage|A mensagem de status.|
 

@@ -1,26 +1,28 @@
 ---
-title: Criptografia do lado do cliente com Python para Armazenamento do Microsoft Azure | Microsoft Docs
+title: Criptografia do lado do cliente com Python
+titleSuffix: Azure Storage
 description: A biblioteca de cliente de armazenamento do Azure para Python dá suporte à criptografia do lado do cliente para segurança máxima para seus aplicativos de armazenamento do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: python
-ms.topic: article
-ms.date: 05/11/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cd8ba51b960703fa25371d874ed2bb50e7df2fde
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360051"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895375"
 ---
-# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Criptografia do lado do cliente com Python para Armazenamento do Microsoft Azure
+# <a name="client-side-encryption-with-python"></a>Criptografia do lado do cliente com Python
+
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 A [biblioteca de cliente de armazenamento do Azure para Python](https://pypi.python.org/pypi/azure-storage) dá suporte à criptografia de dados em aplicativos cliente antes do carregamento no armazenamento do Azure e à descriptografia de dados durante o download para o cliente.
 
 > [!NOTE]
@@ -90,12 +92,12 @@ A criptografia de dados de tabela funciona da seguinte maneira:
 
 1. Os usuários especificam as propriedades a serem criptografadas.
 2. A biblioteca de cliente gera um vetor de inicialização aleatória (IV) de 16 bytes juntamente com uma CEK (chave de criptografia de conteúdo aleatória) de 32 bytes para cada entidade e executa a criptografia de envelope nas propriedades individuais a serem criptografadas derivando um novo IV por propriedade. A Propriedade Encrypted é armazenada como dados binários.
-3. O CEK encapsulado e alguns metadados de criptografia adicionais são armazenados como duas propriedades reservadas adicionais. A primeira propriedade reservada\_(ClientEncryptionMetadata1) é uma propriedade de cadeia de caracteres que contém as informações sobre o IV, a versão e a chave encapsulada. A segunda propriedade reservada\_(ClientEncryptionMetadata2) é uma propriedade binária que contém as informações sobre as propriedades que são criptografadas. As informações nessa segunda Propriedade (\_ClientEncryptionMetadata2) são criptografadas em si.
+3. O CEK encapsulado e alguns metadados de criptografia adicionais são armazenados como duas propriedades reservadas adicionais. A primeira propriedade reservada (\_ClientEncryptionMetadata1) é uma propriedade de cadeia de caracteres que contém as informações sobre o IV, a versão e a chave encapsulada. A segunda propriedade reservada (\_ClientEncryptionMetadata2) é uma propriedade binária que contém as informações sobre as propriedades que são criptografadas. As informações nessa segunda Propriedade (\_ClientEncryptionMetadata2) são criptografadas.
 4. Devido a essas propriedades reservadas adicionais necessárias para a criptografia, os usuários agora podem ter apenas 250 Propriedades personalizadas em vez de 252. O tamanho total da entidade deve ser menor que 1 MB.
 
    Observe que apenas as propriedades de cadeia de caracteres podem ser criptografadas. Se outros tipos de propriedades forem criptografados, eles deverão ser convertidos em cadeias de caracteres. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias e são convertidas de volta em cadeias de caracteres (cadeias de caracteres brutas, não Entityproperties com o tipo EdmType. STRING) após a descriptografia.
 
-   Para tabelas, além da política de encriptação, os utilizadores tem de especificar as propriedades sejam encriptados. Isso pode ser feito armazenando-se essas propriedades em objetos TableEntity com o tipo definido como EdmType. STRING e Encrypt definido como true ou definindo o encryption_resolver_function no objeto tableservice. Um resolvedor de criptografia é uma função que usa uma chave de partição, uma chave de linha e um nome de propriedade e retorna um booliano que indica se essa propriedade deve ser criptografada. Durante a encriptação, a biblioteca de cliente utilizará estas informações para decidir se uma propriedade deve ser encriptada ao escrever para a transmissão. O delegado também fornece a possibilidade de lógica em torno de como as propriedades são encriptadas. (Por exemplo, se X, em seguida, criptografar propriedades R; caso contrário, encriptar propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou consulta de entidades.
+   Para tabelas, além da política de encriptação, os utilizadores tem de especificar as propriedades sejam encriptados. Isso pode ser feito armazenando-se essas propriedades em objetos TableEntity com o tipo definido como EdmType. STRING e Encrypt definido como true ou definindo o encryption_resolver_function no objeto tableservice. Um resolvedor de criptografia é uma função que usa uma chave de partição, uma chave de linha e um nome de propriedade e retorna um booliano que indica se essa propriedade deve ser criptografada. Durante a encriptação, a biblioteca de cliente utilizará estas informações para decidir se uma propriedade deve ser encriptada ao escrever para a transmissão. O delegado também fornece a possibilidade de lógica em torno de como as propriedades são encriptadas. (Por exemplo, se X, em seguida, criptografe A propriedade A; caso contrário, criptografe as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou consulta de entidades.
 
 ### <a name="batch-operations"></a>Operações em lote
 Uma política de criptografia se aplica a todas as linhas no lote. A biblioteca de cliente gerará internamente um novo IV aleatório e CEK aleatórios por linha no lote. Os usuários também podem optar por criptografar propriedades diferentes para cada operação no lote definindo esse comportamento no resolvedor de criptografia.
@@ -107,14 +109,14 @@ Observe que as entidades são criptografadas à medida que são inseridas no lot
 > Como as entidades são criptografadas, você não pode executar consultas que filtram uma propriedade criptografada.  Se você tentar, os resultados estarão incorretos, pois o serviço estaria tentando comparar dados criptografados com dados não criptografados.
 > 
 > 
-> Para executar operações de consulta, você deve especificar um resolvedor de chave capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca do cliente gerará um erro. Para qualquer consulta que executa projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades especiais\_de metadados \_de criptografia (ClientEncryptionMetadata1 e ClientEncryptionMetadata2) por padrão às colunas selecionadas.
+> Para executar operações de consulta, você deve especificar um resolvedor de chave capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca do cliente gerará um erro. Para qualquer consulta que executa projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades especiais de metadados de criptografia (\_ClientEncryptionMetadata1 e \_ClientEncryptionMetadata2) por padrão às colunas selecionadas.
 > 
 > [!IMPORTANT]
 > Esteja atento a esses pontos importantes ao usar a criptografia do lado do cliente:
 > 
 > * Ao ler ou gravar em um blob criptografado, use comandos de carregamento de blob inteiros e comandos de download de blob completo e de intervalo. Evite gravar em um blob criptografado usando operações de protocolo como colocar bloco, colocar lista de blocos, gravar páginas ou limpar páginas; caso contrário, você pode corromper o blob criptografado e torná-lo ilegível.
 > * Para tabelas, existe uma restrição semelhante. Tenha cuidado para não atualizar Propriedades criptografadas sem Atualizar os metadados de criptografia.
-> * Se você definir metadados no blob criptografado, poderá substituir os metadados relacionados à criptografia necessários para a descriptografia, pois a definição de metadados não é aditiva. Isso também é verdadeiro para instantâneos; Evite especificar metadados ao criar um instantâneo de um blob criptografado. Se os metadados devem ser definidos, certifique-se de chamar o método **get_blob_metadata** primeiro para obter os metadados de criptografia atuais e evitar gravações simultâneas enquanto os metadados estão sendo definidos.
+> * Se você definir metadados no blob criptografado, poderá substituir os metadados relacionados à criptografia necessários para a descriptografia, pois a definição de metadados não é aditiva. Isso também é verdadeiro para instantâneos; Evite especificar metadados ao criar um instantâneo de um blob criptografado. Se for necessário definir os metadados, chame o método **get_blob_metadata** primeiro para obter os metadados de criptografia atuais e evite gravações simultâneas enquanto os metadados estão sendo definidos.
 > * Habilite o sinalizador **require_encryption** no objeto de serviço para usuários que devem funcionar apenas com dados criptografados. Consulte abaixo para obter mais informações.
 
 A biblioteca de cliente de armazenamento espera o KEK e o resolvedor de chave fornecidos para implementar a interface a seguir. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) suporte para o gerenciamento Kek do Python está pendente e será integrado a essa biblioteca quando for concluído.
@@ -124,12 +126,12 @@ Depois que um objeto de serviço de armazenamento (ou seja, blockblobservice) ti
 
 O KEK deve implementar os seguintes métodos para criptografar os dados com êxito:
 
-* wrap_key(cek): Encapsula o CEK especificado (bytes) usando um algoritmo da opção do usuário. Retorna a chave encapsulada.
-* get_key_wrap_algorithm(): Retorna o algoritmo usado para encapsular as chaves.
-* get_kid(): Retorna a ID da chave de cadeia de caracteres para este KEK.
+* wrap_key (CEK): encapsula o CEK especificado (bytes) usando um algoritmo de escolha do usuário. Retorna a chave encapsulada.
+* get_key_wrap_algorithm (): retorna o algoritmo usado para encapsular chaves.
+* get_kid (): retorna a ID de chave da cadeia de caracteres para este KEK.
   O KEK deve implementar os seguintes métodos para descriptografar dados com êxito:
-* unwrap_key(cek, algorithm): Retorna a forma desencapsulada do CEK especificado usando o algoritmo de cadeia de caracteres especificado.
-* get_kid(): Retorna uma ID de chave de cadeia de caracteres para este KEK.
+* unwrap_key (CEK, Algorithm): retorna a forma desencapsulada do CEK especificado usando o algoritmo de cadeia de caracteres especificado.
+* get_kid (): retorna uma ID de chave de cadeia de caracteres para este KEK.
 
 O resolvedor de chave deve, pelo menos, implementar um método que, dado uma ID de chave, retorne o KEK correspondente que implementa a interface acima. Somente esse método deve ser atribuído à propriedade key_resolver_function no objeto de serviço.
 
@@ -242,6 +244,6 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="encryption-and-performance"></a>Criptografia e desempenho
 Observe que criptografar os dados de armazenamento resulta em sobrecarga de desempenho adicional. A chave de conteúdo e a IV devem ser geradas, o conteúdo em si deve ser criptografado e os metadados adicionais devem ser formatados e carregados. Essa sobrecarga variará dependendo da quantidade de dados que estão sendo criptografados. Recomendamos que os clientes sempre testem seus aplicativos quanto ao desempenho durante o desenvolvimento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Baixar a [biblioteca de cliente do armazenamento do Azure para o pacote PyPi Java](https://pypi.python.org/pypi/azure-storage)
 * Baixar a [biblioteca de cliente do armazenamento do Azure para o código-fonte do Python do GitHub](https://github.com/Azure/azure-storage-python)

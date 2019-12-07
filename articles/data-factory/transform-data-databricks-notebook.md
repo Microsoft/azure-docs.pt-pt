@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o databricks Notebook-Azure
+title: Transformar dados com o databricks Notebook
 description: Saiba como processar ou transformar dados executando um notebook do databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0768c16562a3931249dbbbc8f836ae14e7d0958b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683923"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893999"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do databricks
 
@@ -57,7 +57,7 @@ Aqui está a definição de JSON de exemplo de uma atividade do databricks noteb
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|Descrição|Necessário|
+|Propriedade|Descrição|Obrigatório|
 |---|---|---|
 |nome|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que a atividade faz.|Não|
@@ -65,7 +65,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |linkedServiceName|Nome do serviço vinculado do databricks no qual o notebook do databricks é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) .|Sim|
 |notebookPath|O caminho absoluto do bloco de anotações a ser executado no espaço de trabalho do databricks. Esse caminho deve começar com uma barra.|Sim|
 |baseparameters|Uma matriz de pares chave-valor. Os parâmetros de base podem ser usados para cada execução de atividade. Se o notebook usar um parâmetro que não é especificado, o valor padrão do notebook será usado. Encontre mais sobre parâmetros em [notebooks do databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|
-|DLLs|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres de \<, > de objeto.|Não|
+|bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres de \<, > de objeto.|Não|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do databricks

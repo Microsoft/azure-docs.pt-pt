@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555693"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893591"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Os alertas clássicos estão [agendados para serem desativados](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Os alertas clássicos são [desativados](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. 
 >
 
 Os alertas permitem que você configure condições sobre os dados e sejam notificados quando as condições corresponderem aos dados de monitoramento mais recentes.
@@ -54,7 +54,7 @@ Há dois tipos de alertas clássicos disponíveis-alertas de métrica e alertas 
 
 * **Alertas do log de atividades clássicas** – um alerta do log de streaming que dispara em uma entrada de evento do log de atividades que corresponde aos seus critérios de filtro. Esses alertas têm apenas um estado, "ativado". O mecanismo de alerta simplesmente aplica os critérios de filtro a qualquer novo evento. Ele não pesquisa para localizar entradas mais antigas. Esses alertas podem notificá-lo quando um novo incidente de integridade do serviço ocorrer ou quando um usuário ou aplicativo executar uma operação em sua assinatura, por exemplo, "excluir máquina virtual".
 
-Para dados de log de diagnóstico disponíveis por meio de Azure Monitor, encaminhe os dados para Log Analytics (anteriormente OMS) e use um alerta de consulta Log Analytics. Log Analytics agora usa o [novo método de alerta](../../azure-monitor/platform/alerts-overview.md) 
+Para dados de log de recursos disponíveis por meio de Azure Monitor, encaminhe os dados para Log Analytics e use um alerta de consulta de log. Log Analytics agora usa o [novo método de alerta](../../azure-monitor/platform/alerts-overview.md) 
 
 O diagrama a seguir resume as fontes de dados em Azure Monitor e, conceitualmente, como você pode alertar sobre esses dados.
 
@@ -81,8 +81,8 @@ No entanto, os alertas de métrica mais antigos não usam grupos de ação. Em v
 
 Os WebHooks permitem a automação e a correção, por exemplo, usando:
 - Runbook da Automatização do Azure
-- Função do Azure
-- Aplicativo lógico do Azure
+- Azure Function
+- Aplicação Lógica do Azure
 - um serviço de terceiros
 
 ## <a name="next-steps"></a>Passos seguintes

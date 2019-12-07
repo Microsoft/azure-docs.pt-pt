@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811153"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901232"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de solução de problemas de desempenho de hiperescala do SQL
 
@@ -44,13 +44,14 @@ As réplicas de computação não armazenam em cache uma cópia completa do banc
  
 Quando uma leitura é emitida em uma réplica de computação, se os dados não existirem no pool de buffers ou no cache RBPEX local, uma chamada de função GetPage (PageId, LSN) será emitida e a página será buscada no servidor de páginas correspondente. As leituras de servidores de páginas são leituras remotas e, portanto, são mais lentas do que as leituras do RBPEX local. Ao solucionar problemas de desempenho relacionados a e/s, precisamos saber quantos IOs foram feitos por meio de leituras de servidor de página remota relativamente mais lentas.
 
-Várias DMVs e eventos estendidos têm colunas e campos que especificam o número de leituras remotas de um servidor de páginas que podem ser comparadas com o total de leituras. 
+Várias DMVs e eventos estendidos têm colunas e campos que especificam o número de leituras remotas de um servidor de páginas que podem ser comparadas com o total de leituras. O repositório de consultas também captura as leituras remotas como parte das estatísticas de tempo de execução de consulta.
 
-- As leituras de colunas para o servidor de página de relatório estão disponíveis em DMVs de execução, como:
-    - [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
-    - [sys. dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
-    - [sys. dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
+- As leituras das colunas para o servidor da página de relatório estão disponíveis em DMVs de execução e exibições de catálogo, como:
+    - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
+    - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
+    - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
     - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys. query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - As leituras de servidor de página são adicionadas aos seguintes eventos estendidos:
     - sql_statement_completed
     - sp_statement_completed

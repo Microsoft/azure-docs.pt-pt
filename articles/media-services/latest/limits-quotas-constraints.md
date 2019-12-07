@@ -1,6 +1,6 @@
 ---
 title: Cotas e limitações nos serviços de mídia do Azure v3 | Microsoft Docs
-description: Este tópico descreve cotas e limitações nos serviços de mídia do Azure v3
+description: Este tópico descreve cotas e limitações no Serviços de Mídia do Microsoft Azure v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 2a530d6a1a447ccde448259623da6faeaa6a4d72
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5a4f7e31cb17f47e8796ab99c1f8a089339903df
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598368"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888432"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cotas e limitações nos serviços de mídia do Azure v3
 
@@ -30,7 +30,7 @@ Este artigo descreve cotas e limitações nos serviços de mídia do Azure v3.
 | JobOutputs por trabalho | 20 (fixo) |
 | TransformOutputs em uma transformação | 20 (fixo) |
 | Arquivos por JobInput|10 (fixo)|
-| Tamanho dos ficheiros| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para processamento nos serviços de mídia. <sup>uma</sup> |
+| Tamanho dos ficheiros| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para processamento nos serviços de mídia. <sup>(1)</sup> |
 | Trabalhos por conta de serviços de mídia | 500.000 <sup>(2)</sup> (fixo)|
 | Eventos em Direto por conta dos Serviços de Multimédia |5|
 | Contas de serviços de mídia em uma única assinatura | 25 (fixo) |

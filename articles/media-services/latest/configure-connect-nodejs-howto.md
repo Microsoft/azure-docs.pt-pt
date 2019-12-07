@@ -1,6 +1,6 @@
 ---
 title: Conectar-se à API dos serviços de mídia do Azure v3-node. js
-description: Saiba como se conectar à API dos serviços de mídia v3 com node. js.
+description: Este artigo demonstra como se conectar à API dos serviços de mídia v3 com node. js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5361a820da0caa336ccc95ae657407889443268c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048424"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896106"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-node. js
 
@@ -26,7 +26,7 @@ Este artigo mostra como se conectar ao SDK do node. js dos serviços de mídia d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale o [node. js](https://nodejs.org/en/download/).
+- Instalar o [Node.js](https://nodejs.org/en/download/).
 - [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
 
 > [!IMPORTANT]
@@ -123,7 +123,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Conceitos dos serviços de mídia](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/) (Instalação de azure-arm-mediaservices do NPM)

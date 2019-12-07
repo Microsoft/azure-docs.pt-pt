@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f2366d60868dd1db52fd8bfc2149756ed4b1b0d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048259"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893625"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 
@@ -33,13 +33,13 @@ Os [hubs de eventos do Azure](/azure/event-hubs/) são uma plataforma de streami
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando os logs de diagnóstico e as métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
+Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando logs e métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
 
 A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 > [!NOTE]
 >  Atualmente, não é possível arquivar dados em uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Hubs de Eventos
 Se você estiver enviando o log de atividades para um hub de eventos, você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você tiver transmitido anteriormente eventos do log de atividades para esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
 
 A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado para o namespace de hubs de eventos na portal do Azure na guia Configurar para seu namespace de hubs de eventos.
@@ -111,7 +111,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Propriedade | Necessário | Descrição |
+    | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
     | Nome |Sim |Nome do seu perfil de log. |
     | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
@@ -154,7 +154,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Propriedade | Necessário | Descrição |
+    | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
     | nome |Sim |Nome do seu perfil de log. |
     | storage-account-id |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
@@ -169,7 +169,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 Seja enviado para o armazenamento do Azure ou Hub de eventos, os dados do log de atividades serão gravados em JSON com o formato a seguir.
 
 
-> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de diagnóstico arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
 
 ``` JSON
 {

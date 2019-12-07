@@ -1,6 +1,6 @@
 ---
-title: Telemetria dos serviços de multimédia do Azure | Documentos da Microsoft
-description: Este artigo fornece uma descrição geral de telemetria de serviços de multimédia do Azure.
+title: Telemetria dos serviços de mídia do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral da telemetria de Serviços de Mídia do Microsoft Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,209 +14,209 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545525"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895782"
 ---
-# <a name="azure-media-services-telemetry"></a>Telemetria de serviços de multimédia do Azure  
+# <a name="azure-media-services-telemetry"></a>Telemetria dos serviços de mídia do Azure  
 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Serviços de multimédia do Azure (AMS) permite-lhe aceder aos dados de telemetria/métricas para seus serviços. A versão atual do AMS permite-lhe recolher dados telemétricos para em direto **canal**, **StreamingEndpoint**e ao vivo **arquivo** entidades. 
+O AMS (serviços de mídia do Azure) permite que você acesse dados de telemetria/métricas para seus serviços. A versão atual do AMS permite que você colete dados de telemetria para entidades de Live **Channel**, **StreamingEndpoint**e de **arquivamento** ao vivo. 
 
-Telemetria é escrita para uma tabela de armazenamento numa conta de armazenamento do Azure que especificar (normalmente, usaria a conta de armazenamento à conta do AMS). 
+A telemetria é gravada em uma tabela de armazenamento em uma conta de armazenamento do Azure que você especifica (normalmente, você usaria a conta de armazenamento associada à sua conta AMS). 
 
-O sistema de telemetria não gere a retenção de dados. Pode remover os dados de telemetria antigos ao eliminar as tabelas de armazenamento.
+O sistema de telemetria não gerencia a retenção de dados. Você pode remover os dados de telemetria antigos excluindo as tabelas de armazenamento.
 
-Este tópico descreve como configurar e consumir a telemetria de AMS.
+Este tópico discute como configurar e consumir a telemetria do AMS.
 
-## <a name="configuring-telemetry"></a>Configurar a telemetria
+## <a name="configuring-telemetry"></a>Configurando telemetria
 
-Pode configurar a telemetria sobre uma granularidade de nível de componente. Existem dois níveis de detalhe "Normal" e "Verbose". Atualmente, ambos os níveis de devolvem as mesmas informações. É recomendado que utilize "Normal. 
+Você pode configurar a telemetria em uma granularidade de nível de componente. Há dois níveis de detalhes "normal" e "detalhado". Atualmente, os dois níveis retornam as mesmas informações. É recomendável usar "normal. 
 
-Os tópicos seguintes mostram como ativar a telemetria:
+Os tópicos a seguir mostram como habilitar a telemetria:
 
-[Ativar a telemetria com .NET](media-services-dotnet-telemetry.md) 
+[Habilitando a telemetria com o .NET](media-services-dotnet-telemetry.md) 
 
-[Ativar a telemetria com REST](media-services-rest-telemetry.md)
+[Habilitando telemetria com REST](media-services-rest-telemetry.md)
 
-## <a name="consuming-telemetry-information"></a>Consumo de informações de telemetria
+## <a name="consuming-telemetry-information"></a>Consumindo informações de telemetria
 
-Telemetria é escrita para uma tabela de armazenamento do Azure na conta de armazenamento que especificou quando configurou a telemetria para a conta de Media Services. Esta secção descreve as tabelas de armazenamento para as métricas.
+A telemetria é gravada em uma tabela de armazenamento do Azure na conta de armazenamento que você especificou quando configurou a telemetria para a conta dos serviços de mídia. Esta seção descreve as tabelas de armazenamento para as métricas.
 
-Pode consumir dados de telemetria de uma das seguintes formas:
+Você pode consumir dados de telemetria de uma das seguintes maneiras:
 
-- Ler dados diretamente a partir do armazenamento de tabelas do Azure (por exemplo, utilizando o SDK de armazenamento). Para a descrição das tabelas de armazenamento de telemetria, consulte a **consumir informações telemétricas** na [isso](https://msdn.microsoft.com/library/mt742089.aspx) tópico.
+- Ler dados diretamente do armazenamento de tabelas do Azure (por exemplo, usando o SDK de armazenamento). Para obter a descrição das tabelas de armazenamento de telemetria, consulte o **consumo de informações de telemetria** [neste tópico.](https://msdn.microsoft.com/library/mt742089.aspx)
 
 Ou
 
-- Utilizar o suporte do SDK do .NET de serviços de suporte de dados para ler os dados de armazenamento, conforme descrito em [isso](media-services-dotnet-telemetry.md) tópico. 
+- Use o suporte no SDK do .NET dos serviços de mídia para ler dados de armazenamento, conforme descrito [neste tópico.](media-services-dotnet-telemetry.md) 
 
 
-O esquema de telemetria descrito abaixo é projetado para dar o bom desempenho dentro dos limites de armazenamento de tabelas do Azure:
+O esquema de telemetria descrito abaixo foi projetado para fornecer um bom desempenho dentro dos limites do armazenamento de tabelas do Azure:
 
-- Os dados são particionados por conta de ID e ID de serviço para permitir que a telemetria a partir de cada serviço ser consultadas de forma independente.
-- Partições contêm a data para dar um limite superior razoável sobre o tamanho da partição.
-- Chaves de linha estão em ordem inversa de tempo para permitir que os itens de telemetria mais recentes para ser consultada para um determinado serviço.
+- Os dados são particionados por ID de conta e ID de serviço para permitir que a telemetria de cada serviço seja consultada de forma independente.
+- As partições contêm a data para fornecer um limite superior razoável no tamanho da partição.
+- As chaves de linha estão em ordem de tempo inversa para permitir que os itens de telemetria mais recentes sejam consultados para um determinado serviço.
 
-Isso deve permitir que muitas das consultas comuns para ser eficiente:
+Isso deve permitir que muitas das consultas comuns sejam eficientes:
 
-- Baixar o paralela, independente de dados para serviços separados.
-- Obter todos os dados para um determinado serviço num intervalo de datas.
-- A obter os dados mais recentes para um serviço.
+- Download paralelo e independente de dados para serviços separados.
+- Recuperando todos os dados de um determinado serviço em um intervalo de datas.
+- Recuperando os dados mais recentes de um serviço.
 
 ### <a name="telemetry-table-storage-output-schema"></a>Esquema de saída de armazenamento de tabela de telemetria
 
-Dados de telemetria são armazenados no agregado numa tabela, "TelemetryMetrics20160321" onde "20160321" é a data de tabela criada. Sistema de telemetria cria uma tabela separada para cada dia de novo com base 00:00 UTC. A tabela é utilizada para armazenar valores recorrentes, tais como ingestão de velocidade de transmissão dentro de uma determinada janela de tempo, bytes enviados, etc. 
+Os dados de telemetria são armazenados em agregação em uma tabela, "TelemetryMetrics20160321", onde "20160321" é a data da tabela criada. O sistema de telemetria cria uma tabela separada para cada novo dia com base em 00:00 UTC. A tabela é usada para armazenar valores recorrentes, como a taxa de bits de ingestão em um determinado período de tempo, bytes enviados, etc. 
 
-Propriedade|Value|Exemplos/notas
+Propriedade|Valor|Exemplos/observações
 ---|---|---
-PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>O ID da conta está incluído na chave de partição para simplificar os fluxos de trabalho em que várias contas de serviços de multimédia estiver a escrever para a mesma conta de armazenamento.
-RowKey|{seconds meia-noite} _ {valor aleatório}|01688_00199<br/><br/>A chave de linha começa com o número de segundos a meia-noite para permitir consultas de estilo de n principais dentro de uma partição. Para obter mais informações, veja [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
-Carimbo de data/hora|Data/Hora|Timestamp da tabela do Azure 2016 de auto-09-09T22:43:42.241Z
-Tipo|O tipo da entidade a fornecer os dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
-Name|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
-ObservedTime|O tempo em que ocorreu o evento de telemetria (UTC)|2016-09-09T22:42:36.924Z<br/><br/>O tempo observado é fornecido pela entidade enviar a telemetria (por exemplo um canal). Pode haver problemas de sincronização entre os componentes, para que este valor é obter uma estimativa de tempo
-ServiceID|{serviço ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Propriedades específicas de entidade|Conforme definido pelo evento|StreamName: stream1, velocidade de transmissão 10123,...<br/><br/>As propriedades restantes são definidas para o tipo de evento específico. Conteúdo da tabela do Azure é pares chave-valor.  (ou seja, diferentes linhas da tabela têm conjuntos diferentes de propriedades).
+PartitionKey|{ID da conta} _ {ID da entidade}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>A ID da conta é incluída na chave de partição para simplificar os fluxos de trabalho em que várias contas de serviços de mídia estão gravando na mesma conta de armazenamento.
+RowKey|{segundos à meia-noite} _ {valor aleatório}|01688_00199<br/><br/>A chave de linha começa com o número de segundos à meia-noite para permitir as primeiras consultas de estilo n em uma partição. Para obter mais informações, veja [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
+Carimbo de data/hora|Data/hora|Carimbo de data/hora automático da tabela do Azure 2016-09-09T22:43:42.241 Z
+Tipo|O tipo da entidade que fornece dados de telemetria|Canal/StreamingEndpoint/arquivo morto<br/><br/>O tipo de evento é apenas um valor de cadeia de caracteres.
+Nome|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
+ObservedTime|A hora em que o evento de telemetria ocorreu (UTC)|2016-09-09T22:42:36.924 Z<br/><br/>O tempo observado é fornecido pela entidade enviando a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de horário entre os componentes para que esse valor seja aproximado
+ServiceID|{ID do serviço}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+Propriedades específicas da entidade|Conforme definido pelo evento|StreamName: STREAM1, taxa de bits 10123,...<br/><br/>As propriedades restantes são definidas para o tipo de evento fornecido. O conteúdo da tabela do Azure é par chave-valor.  (ou seja, linhas diferentes na tabela têm conjuntos diferentes de propriedades).
 
-### <a name="entity-specific-schema"></a>Esquema específico de entidade
+### <a name="entity-specific-schema"></a>Esquema específico da entidade
 
-Existem três tipos de entradas de dados de telemetria de específicas de entidades cada instalados com a frequência seguinte:
+Há três tipos de entradas de dados de telemétricas específicas de entidade que são empurradas com a seguinte frequência:
 
-- Pontos finais de transmissão em fluxo: Cada 30 segundos
-- Canais em direto: Cada minuto
-- Arquivo Live: Cada minuto
+- Pontos de extremidade de streaming: a cada 30 segundos
+- Canais ao vivo: a cada minuto
+- Arquivamento dinâmico: a cada minuto
 
 **Ponto Final de Transmissão em Fluxo**
 
-Propriedade|Value|Exemplos
+Propriedade|Valor|Exemplos
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Carimbo de data/hora|Carimbo de data/hora|Auto timestamp a partir de 2016 de tabela do Azure-09-09T22:43:42.241Z
+Carimbo de data/hora|Carimbo de data/hora|Carimbo de data/hora automático da tabela do Azure 2016-09-09T22:43:42.241 Z
 Tipo|Tipo|StreamingEndpoint
-Name|Name|StreamingEndpointRequestLog
-ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
+Nome|Nome|StreamingEndpointRequestLog
+ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|ID de serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-nome de anfitrião|Nome de anfitrião do ponto final|builddemoserver.origin.mediaservices.windows.net
-StatusCode|Estado HTTP de registos|200
-ResultCode|Detalhes de código de resultado|S_OK
-RequestCount|Pedido de total na agregação|3
-BytesSent|Agregados bytes enviados|2987358
-ServerLatency|Latência média de servidor (incluindo o armazenamento)|129
-E2ELatency|Latência de ponto-a-ponto média|250
+nome de anfitrião|Nome do host do ponto de extremidade|builddemoserver.origin.mediaservices.windows.net
+StatusCode|Registra o status HTTP|200
+ResultCode|Detalhe do código de resultado|S_OK
+RequestCount|Total de solicitações na agregação|3
+BytesSent|Bytes agregados enviados|2987358
+ServerLatency|Latência média do servidor (incluindo armazenamento)|129
+E2ELatency|Latência média de ponta a ponta|250
 
-**Canais em direto**
+**Canal ao vivo**
 
-Propriedade|Value|Exemplos/notas
+Propriedade|Valor|Exemplos/observações
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Carimbo de data/hora|Carimbo de data/hora|Timestamp da tabela do Azure 2016 de auto-09-09T22:43:42.241Z
+Carimbo de data/hora|Carimbo de data/hora|Carimbo de data/hora automático da tabela do Azure 2016-09-09T22:43:42.241 Z
 Tipo|Tipo|Canal
-Name|Name|ChannelHeartbeat
-ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
+Nome|Nome|ChannelHeartbeat
+ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|ID de serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-TrackType|Tipo de vídeo/áudio/text do controle|vídeo/áudio
+TrackType|Tipo de faixa de vídeo/áudio/texto|vídeo/áudio
 TrackName|Nome da faixa|vídeo/audio_1
-Velocidade de transmissão|Velocidade de transmissão do Roteiro|785000
+Velocidade de transmissão|Rastrear taxa de bits|785000
 CustomAttributes||   
-IncomingBitrate|Velocidade de transmissão de entrada real|784548
-OverlapCount|Se sobrepõe de ingestão|0
-DiscontinuityCount|Descontinuidade Roteiro|0
-LastTimestamp|Últimos dados ingeridos timestamp|1800488800
-NonincreasingCount|Contagem de fragmentos rejeitados, devido à nerostoucí timestamp|2
-UnalignedKeyFrames|Se recebemos fragment(s) (nos níveis de qualidade) onde chave quadros não alinhados |Verdadeiro
-UnalignedPresentationTime|Se recebemos fragment(s) (em níveis de qualidade/faixas) em que o tempo de apresentação não está alinhado|Verdadeiro
-UnexpectedBitrate|TRUE, se calculado/real velocidade de transmissão de áudio/vídeo controlar > 40.000 bps e IncomingBitrate = = 0 ou IncomingBitrate e actualBitrate diferirem em 50% |Verdadeiro
-Bom estado de funcionamento|Se VERDADEIRO, <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos os 0|Verdadeiro<br/><br/>Bom estado de funcionamento é uma função composta, que retorna falsa quando qualquer uma das seguintes condições conter:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+IncomingBitrate|Taxa de bits de entrada real|784548
+OverlapCount|Sobreposição na ingestão|0
+DiscontinuityCount|Descontinuidade para acompanhamento|0
+LastTimestamp|Último carimbo de data/hora de dados ingeridos|1800488800
+NonincreasingCount|Contagem de fragmentos descartados devido ao carimbo de data/hora sem aumento|2
+UnalignedKeyFrames|Se recebemos fragmentos (nos níveis de qualidade) em que os quadros-chave não estão alinhados |Verdadeiro
+UnalignedPresentationTime|Se recebemos fragmentos (em faixas/níveis de qualidade) em que o tempo de apresentação não está alinhado|Verdadeiro
+UnexpectedBitrate|True, se a taxa de bits calculada/real para a faixa de áudio/vídeo > 40.000 bps e IncomingBitrate = = 0 ou IncomingBitrate e actualBitrate for diferente de 50% |Verdadeiro
+Bom estado de funcionamento|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos 0|Verdadeiro<br/><br/>Íntegro é uma função composta que retorna falso quando qualquer uma das seguintes condições mantém:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames = = true<br/>-UnalignedPresentationTime = = true<br/>-UnexpectedBitrate = = true
 
-**Arquivo Live**
+**Arquivamento dinâmico**
 
-Propriedade|Value|Exemplos/notas
+Propriedade|Valor|Exemplos/observações
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Carimbo de data/hora|Carimbo de data/hora|Timestamp da tabela do Azure 2016 de auto-09-09T22:43:42.241Z
+Carimbo de data/hora|Carimbo de data/hora|Carimbo de data/hora automático da tabela do Azure 2016-09-09T22:43:42.241 Z
 Tipo|Tipo|Arquivo
-Name|Name|ArchiveHeartbeat
-ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
+Nome|Nome|ArchiveHeartbeat
+ObservedTime|ObservedTime|2016-09-09T22:42:36.924 Z
 ServiceID|ID de serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-ManifestName|Url de programa|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
+ManifestName|URL do programa|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
 TrackName|Nome da faixa|audio_1
-TrackType|Tipo de faixa|Áudio/vídeo
-Atribut CustomAttribute|Hex a cadeia de caracteres que diferencia entre diferente controlar com o mesmo nome e a velocidade de transmissão (ângulo da câmera de transmissões)|
-Velocidade de transmissão|Velocidade de transmissão do Roteiro|785000
-Bom estado de funcionamento|TRUE, se FragmentDiscardedCount = = 0 & & ArchiveAcquisitionError = = False|VERDADEIRO (esses dois valores não estão presentes na métrica mas eles estão presentes no evento de origem)<br/><br/>Bom estado de funcionamento é uma função composta, que retorna falsa quando qualquer uma das seguintes condições conter:<br/><br/>-FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
+TrackType|Tipo da faixa|Áudio/vídeo
+CustomAttribute|Cadeia de caracteres hexadecimal que diferencia entre diferentes faixas com o mesmo nome e taxa de bits (ângulo de várias câmeras)|
+Velocidade de transmissão|Rastrear taxa de bits|785000
+Bom estado de funcionamento|True, se FragmentDiscardedCount = = 0 & & ArchiveAcquisitionError = = false|True (esses dois valores não estão presentes na métrica, mas estão presentes no evento de origem)<br/><br/>Íntegro é uma função composta que retorna falso quando qualquer uma das seguintes condições mantém:<br/><br/>-FragmentDiscardedCount > 0<br/>-ArchiveAcquisitionError = = true
 
-## <a name="general-qa"></a>Gerais e respostas
+## <a name="general-qa"></a>P geral & um
 
 ### <a name="how-to-consume-metrics-data"></a>Como consumir dados de métricas?
 
-Dados de métricas são armazenados como uma série de tabelas do Azure na conta de armazenamento do cliente. Estes dados podem ser consumidos usando as ferramentas seguintes:
+Os dados de métricas são armazenados como uma série de tabelas do Azure na conta de armazenamento do cliente. Esses dados podem ser consumidos usando as seguintes ferramentas:
 
 - SDK DO AMS
-- Explorador de armazenamento do Microsoft Azure (dá suporte à exportação para o formato de valores separados por vírgulas e processado no Excel)
+- Gerenciador de Armazenamento do Microsoft Azure (dá suporte à exportação para o formato de valor separado por vírgula e processada no Excel)
 - API REST
 
-### <a name="how-to-find-average-bandwidth-consumption"></a>Como encontrar o consumo de largura de banda média?
+### <a name="how-to-find-average-bandwidth-consumption"></a>Como encontrar o consumo médio de largura de banda?
 
-O consumo de largura de banda média é a média de BytesSent ao longo de um período de tempo.
+O consumo médio de largura de banda é a média de BytesSent em um período de tempo.
 
-### <a name="how-to-define-streaming-unit-count"></a>Como definir a contagem de unidades de transmissão em fluxo?
+### <a name="how-to-define-streaming-unit-count"></a>Como definir a contagem de unidades de streaming?
 
-A contagem de unidades de transmissão em fluxo pode ser definida como a taxa de transferência de pico de pontos finais de transmissão o serviço dividida pela taxa de transferência de pico de um ponto final de transmissão em fluxo. O débito de utilizável de pico de um ponto final de transmissão em fluxo é de 160 Mbps.
-Por exemplo, suponha que a taxa de transferência de pico do serviço de um cliente é 40 MBps (o valor máximo de BytesSent ao longo de um período de tempo). Em seguida, a contagem de unidades de transmissão em fluxo é igual a (40 MBps) * (8 bits/byte) /(160 Mbps) = 2 unidades de transmissão em fluxo.
+A contagem de unidades de streaming pode ser definida como a taxa de transferência de pico dos pontos de extremidade de streaming do serviço divididos pela taxa de transferência de pico de um ponto de extremidades de streaming. O pico de taxa de transferência utilizável de um ponto de extremidade de streaming é de 160 Mbps.
+Por exemplo, suponha que a taxa de transferência de pico do serviço de um cliente seja 40 MBps (o valor máximo de BytesSent em um período de tempo). Em seguida, a contagem de unidades de streaming é igual a (40 MBps) * (8 bits/byte)/(160 Mbps) = 2 unidades de streaming.
 
-### <a name="how-to-find-average-requestssecond"></a>Como determinar média de pedidos por segundo?
+### <a name="how-to-find-average-requestssecond"></a>Como encontrar média de solicitações/segundo?
 
-Para localizar o número médio de pedidos por segundo, compute o número médio de pedidos (RequestCount) ao longo de um período de tempo.
+Para localizar o número médio de solicitações/segundo, calcule o número médio de solicitações (RequestCount) em um período de tempo.
 
-### <a name="how-to-define-channel-health"></a>Como definir o estado de funcionamento do canal?
+### <a name="how-to-define-channel-health"></a>Como definir a integridade do canal?
 
-Estado de funcionamento do canal pode ser definido como uma função booleana de composição, de modo a que for falsa quando qualquer uma das seguintes condições conter:
+A integridade do canal pode ser definida como uma função booliana composta, de modo que ela seja falsa quando qualquer uma das seguintes condições mantiver:
 
 - OverlapCount > 0
 - DiscontinuityCount > 0
 - NonincreasingCount > 0
 - UnalignedKeyFrames == True 
 - UnalignedPresentationTime == True 
-- UnexpectedBitrate == True
+- UnexpectedBitrate = = true
 
 
-### <a name="how-to-detect-discontinuities"></a>Como detectar discontinuities?
+### <a name="how-to-detect-discontinuities"></a>Como detectar o descontinuidades?
 
-Para detectar discontinuities, encontrar todas as entradas de dados de canal onde DiscontinuityCount > 0. O carimbo de hora ObservedTime correspondente indica as horas em que ocorreu os discontinuities.
+Para detectar o descontinuidades, localize todas as entradas de dados de canal em que DiscontinuityCount > 0. O carimbo de data/hora Observad correspondente indica as horas em que o descontinuidades ocorreu.
 
-### <a name="how-to-detect-timestamp-overlaps"></a>Como detectar timestamp sobrepõe-se?
+### <a name="how-to-detect-timestamp-overlaps"></a>Como detectar sobreposições de carimbo de data/hora?
 
-Para detectar timestamp sobreposições, encontrar todas as entradas de dados de canal onde OverlapCount > 0. O carimbo de hora ObservedTime correspondente indica as horas em que o carimbo de hora sobrepõe-se ocorreu.
+Para detectar sobreposições de carimbo de data/hora, localize todas as entradas de dados de canal em que OverlapCount > 0. O carimbo de data/hora Observadotime indica as horas em que as sobreposições de carimbo de data/hora ocorreram.
 
-### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Como encontrar motivos e falhas de pedido de transmissão em fluxo?
+### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Como encontrar falhas de solicitação de streaming e motivos?
 
-Para localizar falhas de pedido de transmissão em fluxo e motivos, encontre todas as entradas de dados do ponto final de transmissão em fluxo em que não é igual a S_OK ResultCode. O campo correspondente de StatusCode indica o motivo da falha do pedido.
+Para encontrar falhas de solicitação de streaming e motivos, localize todas as entradas de dados de ponto de extremidade de streaming em que ResultCode não é igual a S_OK. O campo StatusCode correspondente indica o motivo da falha de solicitação.
 
 ### <a name="how-to-consume-data-with-external-tools"></a>Como consumir dados com ferramentas externas?
 
-Dados de telemetria podem ser processados e visualizados com as seguintes ferramentas:
+Os dados de telemétricas podem ser processados e visualizados com as seguintes ferramentas:
 
 - PowerBI
-- Application Insights
-- O Azure Monitor (anteriormente conhecido como Shoebox)
-- Dashboard em direto do AMS
-- Portal do Azure (pendente lançamento)
+- Estatísticas das Aplicações
+- Azure Monitor (anteriormente sapatos)
+- Painel dinâmico do AMS
+- Portal do Azure (versão pendente)
 
-### <a name="how-to-manage-data-retention"></a>Como gerir a retenção de dados?
+### <a name="how-to-manage-data-retention"></a>Como gerenciar a retenção de dados?
 
-O sistema de telemetria não fornece gestão de retenção de dados ou eliminação automática antigos registos. Portanto, precisa gerir e eliminar registos antigos manualmente a partir da tabela de armazenamento. Pode consultar o SDK para saber como fazê-lo de armazenamento.
+O sistema de telemetria não fornece gerenciamento de retenção de dados ou exclusão automática de registros antigos. Portanto, você precisa gerenciar e excluir registros antigos manualmente da tabela de armazenamento. Você pode consultar o SDK de armazenamento para saber como fazê-lo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

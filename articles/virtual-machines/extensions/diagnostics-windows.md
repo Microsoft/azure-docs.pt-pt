@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 09aaa998bf011561bd73ad87eda6a2e211ffaa72
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 61b94e95c5292b4013409deed6565a90890b66d1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158939"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892639"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utilizar o PowerShell para ativar o Diagnóstico do Azure numa máquina virtual com o Windows
 
@@ -40,7 +40,7 @@ Para habilitar a extensão de diagnóstico em uma VM existente que foi criada po
 
 *$diagnosticsconfig _path* é o caminho para o arquivo que contém a configuração de diagnóstico em XML, conforme descrito no [exemplo](#sample-diagnostics-configuration) a seguir.  
 
-Se o arquivo de configuração de diagnóstico especificar um elemento **StorageAccount** com um nome de conta de armazenamento, o script *set-AzVMDiagnosticsExtension* irá definir automaticamente a extensão de diagnóstico para enviar dados de diagnóstico para esse armazenamento considerar. Para que isso funcione, a conta de armazenamento precisa estar na mesma assinatura que a VM.
+Se o arquivo de configuração de diagnóstico especificar um elemento **StorageAccount** com um nome de conta de armazenamento, o script *set-AzVMDiagnosticsExtension* irá definir automaticamente a extensão de diagnóstico para enviar dados de diagnóstico para essa conta de armazenamento. Para que isso funcione, a conta de armazenamento precisa estar na mesma assinatura que a VM.
 
 Se nenhum **StorageAccount** tiver sido especificado na configuração de diagnóstico, você precisará passar o parâmetro *StorageAccountName* para o cmdlet. Se o parâmetro *StorageAccountName* for especificado, o cmdlet sempre usará a conta de armazenamento especificada no parâmetro e não aquela especificada no arquivo de configuração de diagnóstico.
 
@@ -64,9 +64,9 @@ O cmdlet [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Habilitar a extensão de diagnóstico se você usar o modelo de implantação clássico
 Você pode usar o cmdlet [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) para habilitar uma extensão de diagnóstico em uma VM que você cria por meio do modelo de implantação clássico. O exemplo a seguir mostra como criar uma nova VM por meio do modelo de implantação clássico com a extensão de diagnóstico habilitada.
 
-    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 Para habilitar a extensão de diagnóstico em uma VM existente que foi criada por meio do modelo de implantação clássico, primeiro use o cmdlet [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) para obter a configuração da VM. Em seguida, atualize a configuração da VM para incluir a extensão de diagnóstico usando o cmdlet [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) . Por fim, aplique a configuração atualizada à VM usando [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
@@ -82,8 +82,8 @@ A configuração precisa ser atualizada para incluir o seguinte:
 
 * O atributo *ResourceId* do elemento de **métricas** precisa ser atualizado com a ID de recurso para a VM.
   
-  * A ID do recurso pode ser construída usando o seguinte padrão: "*ID da assinatura/subscriptions/{para a assinatura com a VM*}/resourceGroups/{*o nome do RESOURCEGROUP para a VM*}/Providers/Microsoft.Compute/virtualMachines/{ *O nome da VM*} ".
-  * Por exemplo, se a ID da assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos é **MyResource**Group e o nome da VM for **MyWindowsVM**, então o o valor de *ResourceId* seria:
+  * A ID do recurso pode ser criada usando o seguinte padrão: "*ID da assinatura/subscriptions/{para a assinatura com a VM*}/resourceGroups/{*o nome do RESOURCEGROUP para a VM*}/PROVIDERS/Microsoft.Compute/VIRTUALMACHINES/{*o nome da VM*}".
+  * Por exemplo, se a ID da assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos for **MyResource**Group e o nome da VM for **MyWindowsVM**, o valor de *ResourceId* será:
     
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >

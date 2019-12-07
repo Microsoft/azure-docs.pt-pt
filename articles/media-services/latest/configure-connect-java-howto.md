@@ -1,6 +1,6 @@
 ---
 title: Conectar-se à API dos serviços de mídia do Azure v3-Java
-description: Saiba como se conectar à API dos serviços de mídia v3 com Java.
+description: Este artigo descreve como se conectar à API dos serviços de mídia do Azure v3 com Java.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3f5e45bb84ca4fc46ccf1f3f3ab86d43c7c03cab
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122863"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888500"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Conectar-se à API dos serviços de mídia v3-Java
 
@@ -33,7 +33,7 @@ Neste artigo, o Visual Studio Code é usado para desenvolver o aplicativo de exe
    - JDK
    - Apache Maven
    - Pacote de extensão do Java
-- Certifique-se de `JAVA_HOME` definir `PATH` as variáveis de ambiente e.
+- Certifique-se de definir `JAVA_HOME` e `PATH` variáveis de ambiente.
 - [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
 - Siga as etapas no tópico [APIs de acesso](access-api-cli-how-to.md) . Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID de locatário que você precisa em uma etapa posterior.
 
@@ -47,18 +47,18 @@ Examine também:
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-Abra uma ferramenta de linha de comando `cd` e um diretório onde você deseja criar o projeto.
+Abra uma ferramenta de linha de comando e `cd` em um diretório em que você deseja criar o projeto.
     
 ```
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-Quando você executa o comando, o `pom.xml`, `App.java`o e outros arquivos são criados. 
+Quando você executa o comando, o `pom.xml`, `App.java`e outros arquivos são criados. 
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
 1. Em Visual Studio Code, abra a pasta na qual seu projeto está
-1. Localize e abra o`pom.xml`
+1. Localize e abra o `pom.xml`
 1. Adicionar as dependências necessárias
 
     ```xml
@@ -81,7 +81,7 @@ Quando você executa o comando, o `pom.xml`, `App.java`o e outros arquivos são 
 
 ## <a name="connect-to-the-java-client"></a>Conectar-se ao cliente Java
 
-1. Abra o `App.java` arquivo em `src\main\java\com\azure\ams` e verifique se o pacote está incluído na parte superior:
+1. Abra o arquivo de `App.java` em `src\main\java\com\azure\ams` e verifique se o pacote está incluído na parte superior:
 
     ```java
     package com.azure.ams;
@@ -117,9 +117,9 @@ Quando você executa o comando, o `pom.xml`, `App.java`o e outros arquivos são 
       System.out.println(e.toString());
    }
    ```
-1. Execute o aplicativo.
+1. Execute a aplicação.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Conceitos dos serviços de mídia](concepts-overview.md)
 - [SDK Java](https://aka.ms/ams-v3-java-sdk)

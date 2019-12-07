@@ -1,6 +1,6 @@
 ---
 title: Visão geral dos codificadores de mídia sob demanda do Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral dos codificadores de mídia sob demanda do Azure.
+description: Os serviços de mídia do Azure fornecem várias opções para a codificação de mídia na nuvem. Este artigo fornece uma visão geral dos codificadores de mídia sob demanda do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019034"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901518"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure 
 
@@ -48,10 +48,10 @@ Por padrão, cada conta dos serviços de mídia pode ter uma tarefa de codifica�
 ### <a name="how-to-use"></a>Como utilizar
 [Como codificar com Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-### <a name="formats"></a>Forma
+### <a name="formats"></a>Formatos
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
-### <a name="presets"></a>Predefinições
+### <a name="presets"></a>Presets
 Media Encoder Standard é configurado usando uma das predefinições do codificador descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
@@ -68,11 +68,11 @@ Para obter informações, consulte [como cortar vídeos usando Media Encoder Sta
 ### <a name="create-overlays"></a>Criar sobreposições
 Para obter informações, consulte [como criar sobreposições usando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Ver também
 [O blog dos serviços de mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Fluxo de Trabalho Premium de Codificador de Multimédia
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Visão geral
 [Introdução à codificação Premium nos serviços de mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Como utilizar

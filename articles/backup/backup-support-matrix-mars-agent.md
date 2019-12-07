@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195008"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893982"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -45,7 +45,7 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
 Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
-Pasta | A pasta de cache deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
+Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup (`net stop bengine`) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
 ## <a name="networking-and-access-support"></a>Suporte de rede e acesso
@@ -72,7 +72,7 @@ O acesso a todas as URLs e endereços IP listados acima usa o protocolo HTTPS na
 **Funcionalidade** | **Detalhes**
 --- | ---
 Controle de largura de banda | Suportado. No agente MARS, use **alterar propriedades** para ajustar a largura de banda.
-Limitação de rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
+Limitação da rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Suporte para backups diretos
 
@@ -118,15 +118,15 @@ Windows 7| 1\.700 GB
 
 **Tipo** | **Suporte**
 --- | ---
-Encriptados| Suportado.
+Encriptada| Suportado.
 Comprimidos | Suportado.
-Disperso | Suportado.
+Dispersos | Suportado.
 Compactados e esparsos |Suportado.
 Ligações fixas| Não suportado. Ignorada.
-Ponto de nova análise| Não suportado. Ignorada.
+Ponto de reanálise| Não suportado. Ignorada.
 Criptografado e esparso |Não suportado. Ignorada.
-Fluxo compactado| Não suportado. Ignorada.
-Fluxo esparso| Não suportado. Ignorada.
+Sequência comprimida| Não suportado. Ignorada.
+Sequência dispersa| Não suportado. Ignorada.
 OneDrive (arquivos sincronizados são fluxos esparsos)| Não suportado.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
@@ -139,7 +139,7 @@ Compartilhamento de rede| Não suportado |O volume deve ser local no servidor.
 Volumes bloqueados pelo BitLocker| Não suportado |O volume deve ser desbloqueado antes do início do backup.
 Identificação do sistema de arquivos| Não suportado |Há suporte apenas para NTFS.
 Mídia removível| Não suportado |Todas as fontes de itens de backup devem ter um status *fixo* .
-Unidades com eliminação de duplicação | Suportado | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
+Unidades com eliminação de duplicação | Suportadas | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
 
 ## <a name="support-for-initial-offline-backup"></a>Suporte para backup offline inicial
 

@@ -3,12 +3,12 @@ title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 0be85bf57510f575f238012b9bd1ef21e44e3cf1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278212"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894033"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -18,13 +18,13 @@ As preocupações em relação a problemas de segurança, como software maligno,
 > A exclusão reversível só protege os dados de backup excluídos. Se uma VM for excluída sem um backup, o recurso de exclusão reversível não preservará os dados. Todos os recursos devem ser protegidos com o backup do Azure para garantir a resiliência completa.
 >
 
-## <a name="soft-delete"></a>Exclusão reversível
+## <a name="soft-delete"></a>Eliminação de forma recuperável
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
 A exclusão reversível tem suporte no momento no EUA Central ocidental, Ásia Oriental, Canadá central, leste do Canadá, França central, sul da França, Coreia central, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, leste da Austrália, leste do Sul da Austrália, Europa Setentrional, oeste dos EUA, oeste dos EUA 2, EUA Central, sul Ásia Oriental, norte EUA Central, Sul EUA Central, leste do Japão, oeste do Japão, sul da Índia, Índia central, Índia ocidental, leste dos EUA 2, Norte da Suíça, Oeste da Suíça e todas as regiões nacionais.
 
-### <a name="soft-delete-for-vms"></a>Exclusão reversível para VMs
+### <a name="soft-delete-for-vms-using-azure-portal"></a>Exclusão reversível para VMs usando portal do Azure
 
 1. Para excluir os dados de backup de uma VM, o backup deve ser interrompido. Na portal do Azure, vá para o cofre dos serviços de recuperação, clique com o botão direito do mouse no item de backup e escolha **parar backup**.
 
@@ -66,9 +66,59 @@ Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backu
 
 Para obter mais informações, consulte a seção [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) abaixo.
 
+### <a name="soft-delete-for-vms-using-azure-powershell"></a>Exclusão reversível para VMs usando o Azure PowerShell
+
+> [!IMPORTANT]
+> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+
+Conforme descrito acima para portal do Azure, a sequência de etapas é a mesma ao usar o Azure PowerShell também.
+
+#### <a name="delete-the-backup-item-using-azure-powershell"></a>Excluir o item de backup usando o Azure PowerShell
+
+Exclua o item de backup usando o cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) do PS.
+
+```powershell
+Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
+```
+
+O ' Deletestate ' do item de backup será alterado de ' candeleted ' para ' ToBeDeleted '. Os dados de backup serão mantidos por 14 dias. Se você quiser reverter a operação de exclusão, a ação desfazer-excluir deverá ser executada.
+
+#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazendo a operação de exclusão usando o Azure PowerShell
+
+Primeiro, busque o item de backup relevante que está no estado de exclusão reversível, ou seja, prestes a ser excluído
+
+```powershell
+
+Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+
+Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
+----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
+VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
+
+$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+```
+
+Em seguida, execute a operação de desfazer exclusão usando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) do PS.
+
+```powershell
+Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
+```
+
+O ' Deletestate ' do item de backup será revertido para ' candeleted '. Mas a proteção ainda está parada. Você precisa [retomar o backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para reabilitar a proteção.
+
 ## <a name="disabling-soft-delete"></a>Desabilitando a exclusão reversível
 
 A exclusão reversível é habilitada por padrão em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas.  Não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você está planejando mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste). Somente um administrador de backup pode desabilitar esse recurso. Se você desabilitar esse recurso, todas as exclusões de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente imediatamente, será necessário restaurar e excluí-las novamente para que sejam excluídas permanentemente.
+
+### <a name="disabling-soft-delete-using-azure-portal"></a>Desabilitando a exclusão reversível usando o portal do Azure
 
 Para desabilitar a exclusão reversível, siga estas etapas:
 
@@ -76,17 +126,36 @@ Para desabilitar a exclusão reversível, siga estas etapas:
 2. No painel Propriedades, selecione **configurações de segurança** -> **atualização**.  
 3. No painel configurações de segurança, em **exclusão reversível**, selecione **desabilitar**.
 
-
 ![Desabilitar exclusão reversível](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+### <a name="disabling-soft-delete-using-azure-powershell"></a>Desabilitando a exclusão reversível usando o Azure PowerShell
+
+> [!IMPORTANT]
+> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+
+Para desabilitar, use o cmdlet [set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) do PS.
+
+```powershell
+Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
+
+
+StorageModelType       :
+StorageType            :
+StorageTypeState       :
+EnhancedSecurityState  : Enabled
+SoftDeleteFeatureState : Disabled
+```
 
 ## <a name="permanently-deleting-soft-deleted-backup-items"></a>Excluindo permanentemente itens de backup com exclusão reversível
 
-Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente, desexclua-as e exclua-as novamente para que sejam excluídas permanentemente. 
+Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente, desexclua-as e exclua-as novamente para que sejam excluídas permanentemente.
+
+### <a name="using-azure-portal"></a>Utilizar o portal do Azure
 
 Siga estes passos.
 
 1. Siga as etapas para [desabilitar a exclusão reversível](#disabling-soft-delete). 
-2. No portal do Azure, acesse seu cofre, vá para **itens de backup** e escolha a VM com exclusão reversível 
+2. No portal do Azure, acesse seu cofre, vá para **itens de backup** e escolha a VM com exclusão reversível
 
 ![Escolher VM com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -109,6 +178,42 @@ Siga estes passos.
 
 7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 
+### <a name="using-azure-powershell"></a>Usando o Azure PowerShell
+
+Se os itens foram excluídos antes de a exclusão reversível ter sido desabilitada, eles estarão em um estado de exclusão reversível. Para excluí-los imediatamente, a operação de exclusão precisa ser revertida e, em seguida, executada novamente.
+
+Identifique os itens que estão no estado de exclusão reversível.
+
+```powershell
+
+Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+
+Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
+----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
+VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
+
+$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+```
+
+Em seguida, inverta a operação de exclusão que foi executada quando a exclusão reversível foi habilitada.
+
+```powershell
+Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
+```
+
+Como a exclusão reversível agora está desabilitada, a operação de exclusão resultará na remoção imediata dos dados de backup.
+
+```powershell
+Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
+```
 
 ## <a name="other-security-features"></a>Outros recursos de segurança
 
@@ -132,7 +237,7 @@ Para obter mais informações, consulte [usar o controle de acesso baseado em fu
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="soft-delete"></a>Exclusão reversível
+### <a name="soft-delete"></a>Eliminação de forma recuperável
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>É necessário habilitar o recurso de exclusão reversível em todos os cofres?
 
@@ -168,12 +273,12 @@ Não. Não é possível forçar a exclusão dos itens excluídos por software, e
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de exclusão reversível podem ser executadas no PowerShell ou na CLI?
 
-Não, o suporte ao PowerShell ou à CLI não está disponível no momento.
+As operações de exclusão reversível podem ser executadas usando o [PowerShell](#soft-delete-for-vms-using-azure-powershell). Atualmente, não há suporte para a CLI.
 
 #### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>A exclusão reversível tem suporte para outras cargas de trabalho de nuvem, como SQL Server em VMs do Azure e SAP HANA em VMs do Azure?
 
 Não. Atualmente, há suporte para a exclusão reversível em máquinas virtuais do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre os [controles de segurança para o backup do Azure](backup-security-controls.md).

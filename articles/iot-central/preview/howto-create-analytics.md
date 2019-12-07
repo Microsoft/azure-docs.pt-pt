@@ -3,17 +3,17 @@ title: Analisar dados do dispositivo em seu aplicativo de IoT Central do Azure |
 description: Analise os dados do dispositivo em seu aplicativo IoT Central do Azure.
 author: ankitgup
 ms.author: ankitgup
-ms.date: 10/17/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ee15d581cfc17af01ae0fa53139edc331a4fea
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4cf4469833e28a594996b981a47a964131026a7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896011"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895712"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
 
@@ -61,11 +61,11 @@ Depois de consultar seus dados, você pode começar a Visualizar no gráfico de 
    
     - **Controle deslizante de intervalo de datas externas**: Use os controles de ponto de extremidade para selecionar o intervalo de datas externas, que estará disponível para o controle de intervalo de datas interna.
 
-    - **Botões aumentar e diminuir intervalo de datas**: aumente ou diminua seu período selecionando um dos botões para o intervalo desejado.
+    - **Aumentar e diminuir os botões de intervalo de datas**: aumento ou diminuição span de seu tempo ao selecionar o botão para o intervalo que pretende.
 
-    - **Controle deslizante de tamanho do intervalo**: Use-o para ampliar e reduzir intervalos no mesmo período de tempo. Essa ação fornece um controle mais preciso da movimentação entre grandes fatias de tempo. Você pode usá-lo para ver exibições granulares e de alta resolução de seus dados, mesmo abaixo de milissegundos. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção, que equilibra a resolução, a velocidade da consulta e a granularidade.
+    - **Controle deslizante de tamanho do intervalo**: Use-o para ampliar e reduzir intervalos no mesmo período de tempo. Esta ação fornece um controle mais preciso de movimento entre os setores de grandes dimensões de tempo. Você pode usá-lo para ver exibições granulares e de alta resolução de seus dados, mesmo abaixo de milissegundos. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção, que equilibra a resolução, a velocidade da consulta e a granularidade.
     
-    - **Seletor de intervalo de datas**: com esse controle da Web, você pode selecionar facilmente os intervalos de data e hora desejados. Você também pode usar o controle para alternar entre fusos horários diferentes. Depois de fazer as alterações a serem aplicadas ao seu espaço de trabalho atual, selecione salvar.
+    - **Seletor de intervalo de datas**: com esse controle da Web, você pode selecionar facilmente os intervalos de data e hora desejados. Também pode utilizar o controlo de alternar entre diferentes fusos horários. Depois de fazer as alterações a serem aplicadas ao seu espaço de trabalho atual, selecione salvar.
 
     > [!TIP]
     > O tamanho do intervalo é determinado dinamicamente com base no período de tempo selecionado. Os intervalos de tempo menores habilitarão a agregação dos dados em um intervalo muito granular de até alguns segundos.

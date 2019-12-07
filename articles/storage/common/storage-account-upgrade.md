@@ -1,18 +1,19 @@
 ---
-title: Atualizar para uma conta de armazenamento v2 de uso geral-armazenamento do Azure | Microsoft Docs
+title: Atualizar para uma conta de armazenamento v2 de uso geral
+titleSuffix: Azure Storage
 description: Atualize para contas de armazenamento v2 de uso geral.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 03/26/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806988"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892231"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento v2 de uso geral
 
@@ -84,7 +85,7 @@ Todas as contas de armazenamento utilizam um modelo de preços para o armazename
 
 * **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 
-* **Custos de transferência de dados de saída**: transferências de dados de saída (dados transferidos para fora de uma região do Azure) incorrem em cobrança de uso de largura de banda por gigabyte, consistente com contas de armazenamento de uso geral.
+* **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
 
 * **Alterando a camada de acesso de armazenamento**: alterar a camada de acesso de armazenamento de conta de fria para quente incorre em um encargo igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de acesso da conta de quente para fria incorre em um encargo igual à gravação de todos os dados na camada fria (somente contas GPv2).
 
@@ -96,11 +97,12 @@ Todas as contas de armazenamento utilizam um modelo de preços para o armazename
 Para estimar o custo de armazenar e acessar dados de BLOB em uma conta de armazenamento de uso geral V2 em uma determinada camada, avalie seu padrão de uso existente ou aproximando seu padrão de uso esperado. Em geral, precisa de saber o seguinte:
 
 * Seu consumo de armazenamento de BLOBs, em gigabytes, incluindo:
-    - Que quantidade de dados está a ser armazenada na conta de armazenamento?
-    - De que forma o volume de dados é alterado mensalmente: os novos dados substituem constantemente os dados antigos?
+  * Que quantidade de dados está a ser armazenada na conta de armazenamento?
+  * De que forma o volume de dados é alterado mensalmente: os novos dados substituem constantemente os dados antigos?
+
 * O padrão de acesso primário para seus dados de armazenamento de BLOBs, incluindo:
-    - A quantidade de dados que estão sendo lidos e gravados na conta de armazenamento?
-    - Quantas operações de leitura versus operações de gravação ocorrem nos dados na conta de armazenamento?
+  * A quantidade de dados que estão sendo lidos e gravados na conta de armazenamento?
+  * Quantas operações de leitura versus operações de gravação ocorrem nos dados na conta de armazenamento?
 
 Para decidir sobre a melhor camada de acesso às suas necessidades, pode ser útil determinar a capacidade dos dados do blob e como esses dados estão sendo usados. Isso pode ser feito melhor examinando as métricas de monitoramento da sua conta.
 
@@ -119,7 +121,7 @@ Com esta opção ativada, os dados de capacidade são registados diariamente par
 Para monitorizar os padrões de acesso a dados do Armazenamento de blobs, tem de ativar as métricas de transação horária a partir da API. Com as métricas de transação horária ativadas, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
 
 > [!NOTE]
-> Se você tiver uma conta de armazenamento de uso geral na qual você armazenou blobs de páginas e discos de máquina virtual, ou filas, arquivos ou tabelas, juntamente com os dados de blob de bloco e acréscimo, esse processo de estimativa não será aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
+> Se tiver uma conta de armazenamento de fins gerais na qual armazenou blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
 
 Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
 
@@ -165,5 +167,5 @@ Também pode ser calculado o custo de transferência de dados de georreplicaçã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
-- [Gerenciar contas de armazenamento do Azure](storage-account-manage.md)
+* [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
+* [Gerenciar contas de armazenamento do Azure](storage-account-manage.md)

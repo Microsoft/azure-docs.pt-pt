@@ -9,18 +9,18 @@ editor: v-miegge
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: b03ac071ba508955d07002fc55dc96e007dfc2d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 237081380445f2b2e4168ee3afe9a3ed7544fc89
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873969"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900204"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Coletar detalhes sobre todas as VMs em uma assinatura com o PowerShell
 

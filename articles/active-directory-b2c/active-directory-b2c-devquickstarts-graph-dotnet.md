@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119982"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900023"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar o API do Graph do Azure AD
 
@@ -97,7 +97,7 @@ Depois de obter o exemplo de código, configure-o para o seu ambiente e, em segu
     </appSettings>
     ```
 
-1. Compile a solução. Clique com o botão direito do mouse na solução **B2CGraphClient** no Gerenciador de soluções e selecione **Recompilar solução**.
+1. Compilar a solução. Clique com o botão direito do mouse na solução **B2CGraphClient** no Gerenciador de soluções e selecione **Recompilar solução**.
 
 Se a compilação for bem-sucedida, o aplicativo de console `B2C.exe` pode ser encontrado em `B2CGraphClient\bin\Debug`.
 
@@ -363,6 +363,5 @@ Usando `B2CGraphClient`, você tem um aplicativo de serviço que pode gerenciar 
 Ao incorporar essa funcionalidade em seu próprio aplicativo, lembre-se de alguns pontos-chave para aplicativos B2C:
 
 * Conceda ao aplicativo as permissões necessárias no locatário.
-* Por enquanto, você precisa usar a ADAL (não MSAL) para obter tokens de acesso. (Você também pode enviar mensagens de protocolo diretamente, sem usar uma biblioteca.)
 * Ao chamar o API do Graph, use `api-version=1.6`.
 * Quando você cria e atualiza os usuários do consumidor, algumas propriedades são necessárias, conforme descrito acima.

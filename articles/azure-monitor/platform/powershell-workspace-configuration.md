@@ -1,39 +1,39 @@
 ---
-title: Usar o PowerShell para criar e configurar um espaço de trabalho Log Analytics | Microsoft Docs
-description: Log Analytics espaços de trabalho no Azure Monitor armazenar dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados do computador do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
+title: Utilizar o PowerShell para criar e configurar uma área de trabalho do Log Analytics | Documentos da Microsoft
+description: Log Analytics espaços de trabalho no Azure Monitor armazenar dados de servidores em sua infraestrutura local ou na nuvem. Pode recolher dados de máquina de armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9d5bbaf02798c0fd87c40f1d952db19aac7b0b7e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932085"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894575"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gerenciar Log Analytics espaço de trabalho no Azure Monitor usando o PowerShell
 
-Você pode usar os [cmdlets do log Analytics PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para executar várias funções em um espaço de trabalho Log Analytics no Azure monitor de uma linha de comando ou como parte de um script.  Exemplos das tarefas que você pode executar com o PowerShell incluem:
+Você pode usar os [cmdlets do log Analytics PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para executar várias funções em um espaço de trabalho Log Analytics no Azure monitor de uma linha de comando ou como parte de um script.  Exemplos das tarefas que pode efetuar com o PowerShell:
 
 * Criar áreas de trabalho
 * Adicionar ou remover uma solução
-* Importar e exportar pesquisas salvas
+* Importar e exportar pesquisas guardadas
 * Criar um grupo de computadores
-* Habilitar a coleta de logs do IIS de computadores com o agente do Windows instalado
-* Coletar contadores de desempenho de computadores Linux e Windows
-* Coletar eventos do syslog em computadores Linux
-* Coletar eventos de logs de eventos do Windows
-* Coletar logs de eventos personalizados
-* Adicionar o agente do log Analytics a uma máquina virtual do Azure
-* Configurar o log Analytics para indexar dados coletados usando o diagnóstico do Azure
+* Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
+* Recolher contadores de desempenho de computadores com Linux e Windows
+* Recolher eventos do syslog em computadores com Linux
+* Recolher eventos de registos de eventos do Windows
+* Recolher registos de eventos personalizados
+* Adicionar o log analytics agent para uma máquina virtual do Azure
+* Configurar o log analytics para dados de índice recolhidos através dos diagnósticos do Azure
 
-Este artigo fornece dois exemplos de código que ilustram algumas das funções que você pode executar do PowerShell.  Você pode consultar o [log Analytics referência de cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para outras funções.
+Este artigo fornece dois exemplos de código que mostram algumas das funções que pode efetuar a partir do PowerShell.  Pode consultar o [referência de cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para outras funções.
 
 > [!NOTE]
-> O Log Analytics anteriormente era chamado de insights operacionais, motivo pelo qual ele é o nome usado nos cmdlets.
+> O log Analytics anteriormente chamado das informações operacionais, razão pela qual é o nome utilizado nos cmdlets.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,21 +41,21 @@ Este artigo fornece dois exemplos de código que ilustram algumas das funções 
 Esses exemplos funcionam com a versão 1.0.0 ou posterior do módulo AZ. OperationalInsights.
 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho Log Analytics
-O exemplo de script a seguir ilustra como:
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho do Log Analytics
+O script de exemplo seguinte ilustra como:
 
 1. Criar áreas de trabalho
 2. Listar as soluções disponíveis
-3. Adicionar soluções ao espaço de trabalho
-4. Importar pesquisas salvas
-5. Exportar pesquisas salvas
+3. Adicionar soluções para a área de trabalho
+4. Pesquisas guardada de importação
+5. Pesquisas guardada de exportação
 6. Criar um grupo de computadores
-7. Habilitar a coleta de logs do IIS de computadores com o agente do Windows instalado
-8. Coletar contadores de desempenho de disco lógico de computadores Linux (% de inodes usados; Megabytes livres; % De espaço usado; Transferências de disco/s; Leituras de disco/s; Gravações de disco/s)
-9. Coletar eventos de syslog de computadores Linux
-10. Coletar eventos de erro e aviso do log de eventos do aplicativo de computadores com Windows
-11. Coletar o contador de desempenho Mbytes disponíveis de memória de computadores Windows
-12. Coletar um log personalizado
+7. Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
+8. Recolher contadores de desempenho disco lógico de computadores Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
+9. Recolher eventos do syslog de computadores Linux
+10. Recolher eventos de erro e aviso de Log de eventos de computadores Windows
+11. Recolher contador de desempenho de memória utilizada em Mbytes disponíveis a partir de computadores Windows
+12. Recolher um registo personalizado
 
 ```powershell
 
@@ -194,16 +194,16 @@ No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O deli
 | `yyyy-MM-ddTHH:mm:ss` <br> T é uma letra literal T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurando Log Analytics para enviar o diagnóstico do Azure
-Para o monitoramento sem agente de recursos do Azure, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em um espaço de trabalho Log Analytics. Essa abordagem envia dados diretamente para o espaço de trabalho e não requer que os dados sejam gravados em uma conta de armazenamento. Os recursos com suporte incluem:
+Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o diagnóstico do Azure ativada e configurada para gravar numa área de trabalho do Log Analytics. Essa abordagem envia dados diretamente para o espaço de trabalho e não requer que os dados sejam gravados em uma conta de armazenamento. Os recursos suportados incluem:
 
 | Tipo de Recurso | Registos | Métricas |
 | --- | --- | --- |
 | Gateways da Aplicação    | Sim | Sim |
 | Contas de automatização     | Sim | |
-| Contas do lote          | Sim | Sim |
+| Contas de Batch          | Sim | Sim |
 | Data Lake analytics     | Sim | |
-| Data Lake Store         | Sim | |
-| Pool SQL elástico        |     | Sim |
+| Arquivo do Data Lake         | Sim | |
+| Conjunto elástico de SQL        |     | Sim |
 | Espaço de nomes do hub de eventos     |     | Sim |
 | Hubs IoT                |     | Sim |
 | Key Vault               | Sim | |
@@ -212,14 +212,14 @@ Para o monitoramento sem agente de recursos do Azure, os recursos precisam ter o
 | Grupos de Segurança de Rede | Sim | |
 | Cache do Azure para Redis             |     | Sim |
 | Procurar serviços         | Sim | Sim |
-| Namespace do barramento de serviço   |     | Sim |
-| SQL (V12)               |     | Sim |
+| Espaço de nomes do Service Bus   |     | Sim |
+| SQL (v12)               |     | Sim |
 | Web Sites               |     | Sim |
 | Farms de servidores Web        |     | Sim |
 
-Para obter os detalhes das métricas disponíveis, consulte [métricas com suporte com Azure monitor](../../azure-monitor/platform/metrics-supported.md).
+Para obter os detalhes das métricas disponíveis, consulte [suportado métricas com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
-Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-schema.md).
+Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de recursos](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -229,21 +229,21 @@ $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/D
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Você também pode usar o cmdlet anterior para coletar logs de recursos que estão em assinaturas diferentes. O cmdlet é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID do recurso de criação de logs e o espaço de trabalho ao qual os logs são enviados.
+Também pode utilizar o cmdlet anterior para recolher registos de recursos que estão em subscrições diferentes. O cmdlet é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID do recurso de criação de logs e o espaço de trabalho ao qual os logs são enviados.
 
 
 ## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configurando Log Analytics espaço de trabalho para coletar o diagnóstico do Azure do armazenamento
-Para coletar dados de log de dentro de uma instância em execução de um serviço de nuvem clássico ou de um cluster do Service Fabric, você precisa primeiro gravar os dados no armazenamento do Azure. Um espaço de trabalho Log Analytics é então configurado para coletar os logs da conta de armazenamento. Os recursos com suporte incluem:
+Para recolher dados de registos de dentro de uma instância em execução de um serviço cloud clássico ou um cluster do service fabric, precisa primeiro escrever os dados ao armazenamento do Azure. Um espaço de trabalho Log Analytics é então configurado para coletar os logs da conta de armazenamento. Os recursos suportados incluem:
 
-* Serviços de nuvem clássicos (funções Web e de trabalho)
-* Clusters do Service Fabric
+* Serviços de cloud clássico (funções web e de trabalho)
+* Clusters do Service fabric
 
-O exemplo a seguir mostra como:
+A exemplo a seguir mostra como:
 
 1. Listar as contas de armazenamento e os locais existentes dos quais o espaço de trabalho indexará dados
-2. Criar uma configuração para ler de uma conta de armazenamento
-3. Atualizar a configuração recém-criada para indexar dados de locais adicionais
-4. Excluir a configuração recém-criada
+2. Criar uma configuração para ler a partir de uma conta de armazenamento
+3. Atualizar a configuração do recentemente criada para dados de índice a partir de localizações adicionais
+4. Eliminar a configuração criada recentemente
 
 ```powershell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
@@ -267,9 +267,9 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 ```
 
-Você também pode usar o script anterior para coletar logs de contas de armazenamento em assinaturas diferentes. O script é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID de recurso da conta de armazenamento e uma chave de acesso correspondente. Quando você altera a chave de acesso, precisa atualizar o insight de armazenamento para ter a nova chave.
+Também pode utilizar o script anterior para recolher registos de contas de armazenamento em subscrições diferentes. O script é capaz de trabalhar entre assinaturas, pois você está fornecendo a ID de recurso da conta de armazenamento e uma chave de acesso correspondente. Quando alterar a chave de acesso, tem de atualizar a informação de armazenamento para que a nova chave.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Examine log Analytics cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter informações adicionais sobre como usar o PowerShell para configuração de log Analytics.
+* [Reveja o Log Analytics dos cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter mais informações sobre como utilizar o PowerShell para a configuração do Log Analytics.
 

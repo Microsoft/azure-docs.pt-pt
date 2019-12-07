@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 48ce748a95f58abb060cd6f54ac29c877356f5de
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555580"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893540"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Exemplos de início rápido da CLI do Azure Monitor
 Este artigo mostra exemplos de comandos da CLI (interface de linha de comando) para ajudá-lo a acessar recursos do Azure Monitor. Azure Monitor permite dimensionar automaticamente serviços de nuvem, máquinas virtuais e aplicativos Web e enviar notificações de alerta ou chamar URLs da Web com base em valores de dados de telemetria configurados.
@@ -160,7 +160,7 @@ Use as informações desta seção para trabalhar com as configurações de diag
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="create-a-diagnostic-log-setting"></a>Criar uma configuração de log de diagnóstico 
+### <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

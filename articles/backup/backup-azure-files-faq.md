@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivos do Azure com o serviço de backup do Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173115"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892578"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -70,6 +70,18 @@ A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmen
 - US Gov Arizona (UGA)
 - US Gov Texas (UGT)
 - US Gov-Virgínia (UGV)
+- Central da Austrália (ACL)
+- Índia ocidental (INW)
+- Norte da África do Sul (SAN)
+- Norte dos EAU (UAN)
+- França central (FRC)
+- Norte da Alemanha (GN)                       
+- Centro-oeste da Alemanha (GWC)
+- Oeste da África do Sul (visto)
+- EAU Central (UAC)
+- NÉ (leste da Noruega)     
+- NWW (oeste da Noruega)
+- SZN (Norte da Suíça)
 
 Envie uma mensagem para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se precisar de a utilizar numa área geográfica específica que não esteja listada acima.
 
@@ -81,7 +93,7 @@ Durante a pré-visualização, pode proteger partilhas de ficheiros do Azure de 
 
 Não. As partilhas de ficheiros numa Conta de Armazenamento só podem ser protegidas pelo mesmo Cofre.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Quantos backups agendados posso configurar por compartilhamento de arquivos?
 

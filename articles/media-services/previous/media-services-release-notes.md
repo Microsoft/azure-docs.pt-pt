@@ -1,6 +1,6 @@
 ---
-title: Notas de versão dos serviços de mídia | Microsoft Docs
-description: Notas de versão dos serviços de mídia
+title: Notas de versão dos serviços de mídia do Azure | Microsoft Docs
+description: Este artigo fala sobre as notas de versão do Serviços de Mídia do Microsoft Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f798a1eff8d9c90a58856a12b84061ece7e3720d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423881"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885676"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de mídia do Azure
 
@@ -170,7 +170,7 @@ A partir da versão mais recente do serviço, após a conclusão de uma tarefa d
 > 
 > 
 
-Para obter mais informações, consulte [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+Para obter mais informações, veja [este blogue](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### <a name="known-issues"></a>Problemas conhecidos
 Alguns clientes podem vir por um problema de marca de repetição no manifesto Smooth Streaming. Para obter mais informações, consulte [esta seção](media-services-deliver-content-overview.md#known-issues).
@@ -206,7 +206,7 @@ As unidades reservadas para codificação básica, Standard e Premium foram reno
 ### <a name="azure-sdk-for-php"></a>SDK do Azure para PHP
 A equipe do SDK do Azure publicou uma nova versão do pacote [SDK do Azure para php](https://github.com/Azure/azure-sdk-for-php) que contém atualizações e novos recursos para os serviços de mídia. Em particular, o SDK dos serviços de mídia para PHP agora dá suporte aos recursos de [proteção de conteúdo](media-services-content-protection-overview.md) mais recentes. Esses recursos são criptografia dinâmica com AES e DRM (PlayReady e Widevine) com e sem restrições de token. Ele também dá suporte a [unidades de codificação](media-services-dotnet-encoding-units.md)de dimensionamento.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * Os [exemplos de código](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) a seguir ajudam você a começar rapidamente:
   * **vodworkflow_aes. php**: este arquivo php mostra como usar a criptografia dinâmica aes-128 e o serviço de distribuição de chaves. Ele é baseado no exemplo do .NET explicado em [usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves](media-services-protect-with-aes128.md).
@@ -214,9 +214,9 @@ Para obter mais informações, consulte:
   * **scale_encoding_units. php**: este arquivo php mostra como dimensionar unidades reservadas para codificação.
 
 ## <a id="nov_changes_15"></a>Versão de novembro de 2015
- Os serviços de mídia agora oferecem o serviço de entrega de licença do Widevine na nuvem. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Além disso, consulte [este tutorial](media-services-protect-with-playready-widevine.md) e o [repositório GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+ Os serviços de mídia agora oferecem o serviço de entrega de licença do Widevine na nuvem. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Além disso, consulte [este tutorial](media-services-protect-with-playready-widevine.md) e o [repositório GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Os serviços de entrega de licença do Widevine fornecidos pelos serviços de mídia estão em versão prévia. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Os serviços de entrega de licença do Widevine fornecidos pelos serviços de mídia estão em versão prévia. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versão de outubro de 2015
 Os serviços de mídia agora estão ativos nos seguintes data centers: Sul do Brasil, Índia ocidental, sul da Índia e Índia central. Agora você pode usar o portal do Azure para [criar contas de serviço de mídia](media-services-portal-create-account.md) e executar várias tarefas descritas na [página da Web documentação dos serviços de mídia](https://azure.microsoft.com/documentation/services/media-services/). A codificação ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de unidades reservadas para codificação estão disponíveis nesses data centers.
@@ -230,30 +230,30 @@ Os serviços de mídia agora oferecem a capacidade de proteger vídeos sob deman
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
-Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
 Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar o AssetDeliveryConfiguration para utilizar o Widevine. 
-* Os serviços de mídia adicionaram suporte para vídeos do Apple ProRes. Agora você pode carregar seus arquivos de vídeos de origem do QuickTime que usam o Apple ProRes ou outros codecs. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
-* Agora você pode usar Media Encoder Standard para fazer o subcorte e a extração de arquivo ao vivo. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+* Os serviços de mídia adicionaram suporte para vídeos do Apple ProRes. Agora você pode carregar seus arquivos de vídeos de origem do QuickTime que usam o Apple ProRes ou outros codecs. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+* Agora você pode usar Media Encoder Standard para fazer o subcorte e a extração de arquivo ao vivo. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Foram feitas as seguintes atualizações de filtragem: 
   
   * Agora você pode usar o formato Apple HLS com um filtro somente de áudio. Você pode usar essa atualização para remover uma faixa somente de áudio especificando (áudio-somente = falso) na URL.
   * Ao definir filtros para seus ativos, agora você pode combinar vários filtros (até três) em uma única URL.
     
-    Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+    Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 * Os serviços de mídia agora dão suporte a I-frames no HLS versão 4. O suporte a I-frame otimiza operações de avanço e retrocesso. Por padrão, todas as saídas do HLS versão 4 incluem a lista de reprodução de I-frame (EXT-X-I-FRAME-STREAM-INF).
-Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versão de agosto de 2015
-* O SDK dos serviços de mídia para a versão 0.8.0 do Java e novos exemplos agora estão disponíveis. Para obter mais informações, consulte:
+* O SDK dos serviços de mídia para a versão 0.8.0 do Java e novos exemplos agora estão disponíveis. Para obter mais informações, veja:
     
-* O Player de Mídia do Azure foi atualizado com suporte a fluxo de vários áudios. Para obter mais informações, consulte [esta postagem no blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
+* O Player de Mídia do Azure foi atualizado com suporte a fluxo de vários áudios. Para obter mais informações, veja [esta mensagem do blogue](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Versão de julho de 2015
-* A disponibilidade geral do Media Encoder Standard foi anunciada. Para obter mais informações, consulte [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+* A disponibilidade geral do Media Encoder Standard foi anunciada. Para obter mais informações, veja [esta mensagem do blogue](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
     Media Encoder Standard usa predefinições, conforme descrito nesta [seção](https://go.microsoft.com/fwlink/?LinkId=618336). Quando você usa uma predefinição para codificações de 4K, obtenha o tipo de unidade reservada Premium. Para obter mais informações, consulte [dimensionar codificação](media-services-scale-media-processing-overview.md).
-* As legendas em tempo real são usadas com os serviços de mídia e o Media Player. Para obter mais informações, consulte [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+* As legendas em tempo real são usadas com os serviços de mídia e o Media Player. Para obter mais informações, veja [esta mensagem do blogue](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK do .NET dos serviços de mídia
 O SDK do .NET dos serviços de mídia agora está na versão 3.4.0.0. As seguintes atualizações foram feitas: 
@@ -289,7 +289,7 @@ Os novos recursos a seguir foram anunciados:
 * Foi adicionado suporte para idioma espanhol.
 * Foi adicionada uma nova configuração para o formato XML.
 
-Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK do .NET dos serviços de mídia
 O SDK do .NET dos serviços de mídia agora está na versão 3.2.0.0. As seguintes atualizações foram feitas:
@@ -371,7 +371,7 @@ O SDK dos serviços de mídia para .NET agora está na versão 3.0.0.7
   
     Para usar um nome de domínio personalizado como o nome do ponto de extremidade de streaming dos serviços de mídia, adicione nomes de host personalizados ao ponto de extremidade de streaming. Use as APIs REST dos serviços de mídia ou o SDK do .NET para adicionar nomes de host personalizados.
   
-    As seguintes considerações se aplicam:
+    As seguintes considerações são aplicáveis:
   
   * Você deve ter a propriedade do nome de domínio personalizado.
   * A propriedade do nome de domínio deve ser validada pelos serviços de mídia. Para validar o domínio, crie um CName que mapeie o domínio pai MediaServicesAccountId para verificar o DNS mediaservices-DNS-Zone.

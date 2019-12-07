@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: acafb9aab756507bb073b3e883ee190c72b4f9f8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006776"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901468"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -27,9 +27,9 @@ O Time Series Insights dá suporte aos seguintes recursos:
    | Recurso | Descrição |
    | --- | --- |
    | Ambiente | Um ambiente de Time Series Insights é um agrupamento lógico de eventos que são lidos de agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, consulte [planejar seu ambiente de Azure Time Series insights](time-series-insights-environment-planning.md) |
-   | Origem do evento | Uma origem de evento é uma conexão com um agente de evento a partir do qual Time Series Insights lê e insome eventos no ambiente. As fontes de eventos com suporte no momento são Hub IoT e Hub de eventos. |
+   | Origem do Evento | Uma origem de evento é uma conexão com um agente de evento a partir do qual Time Series Insights lê e insome eventos no ambiente. As fontes de eventos com suporte no momento são Hub IoT e Hub de eventos. |
    | Conjunto de dados de referência | Os conjuntos de dados de referência fornecem metadados sobre os eventos no ambiente. Os metadados nos conjuntos de dados de referência serão associados a eventos durante a entrada. Os conjuntos de dados de referência são definidos como recursos por suas propriedades de chave de evento. Os metadados reais que compõem o conjunto de dados de referência são carregados ou modificados por meio de APIs de plano de dados. |
-   | Política de acesso | As políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e compartilhar consultas salvas e perspectivas associadas ao ambiente. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](time-series-insights-data-access.md) |
+   | Política de Acesso | As políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e compartilhar consultas salvas e perspectivas associadas ao ambiente. Para obter mais informações, leia [conceder acesso a dados para um ambiente de time Series insights usando portal do Azure](time-series-insights-data-access.md) |
 
 Um modelo do Resource Manager é um arquivo JSON que define a infraestrutura e a configuração de recursos em um grupo de recursos. Os documentos a seguir descrevem os arquivos de modelo com mais detalhes:
 
@@ -57,7 +57,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
     <div id="required-parameters"></div>
 
-   * Parâmetros necessários
+   * Parâmetros Obrigatórios
 
      | Parâmetro | Descrição |
      | --- | --- |
@@ -69,7 +69,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
     <div id="optional-parameters"></div>
 
-   * Parâmetros opcionais
+   * Parâmetros Opcionais
 
      | Parâmetro | Descrição |
      | --- | --- |

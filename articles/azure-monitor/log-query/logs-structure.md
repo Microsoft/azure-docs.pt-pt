@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894256"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893642"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura de logs de Azure Monitor
 A capacidade de obter informações rapidamente sobre seus dados usando uma consulta de [log](log-query-overview.md) é um recurso poderoso de Azure monitor. Para criar consultas eficientes e úteis, você deve entender alguns conceitos básicos, como onde estão localizados os dados desejados e como eles são estruturados. Este artigo fornece os conceitos básicos de que você precisa para começar.
@@ -26,8 +26,8 @@ A imagem a seguir mostra exemplos de fontes de dados que gravam em tabelas difer
 
 ![Tabelas](media/logs-structure/queries-tables.png)
 
-## <a name="log-analytics-workspace"></a>Espaço de trabalho Log Analytics
-Todos os dados coletados pelos logs de Azure Monitor, exceto pelo Application Insights, são armazenados em um [espaço de trabalho log Analytics](../platform/manage-access.md). Você pode criar um ou mais espaços de trabalho dependendo de seus requisitos específicos. [Fontes de dados](../platform/data-sources.md) como logs de atividades e logs de diagnóstico de recursos do Azure, agentes em máquinas virtuais e dados de insights e soluções de monitoramento gravarão dados em um ou mais espaços de trabalho que você configurar como parte de sua integração. Outros serviços, como a [central de segurança do Azure](/azure/security-center/) e o [Azure Sentinel](/azure/sentinel/) , também usam um espaço de trabalho log Analytics para armazenar seus dados para que possam ser analisados usando consultas de log junto com dados de monitoramento de outras fontes.
+## <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
+Todos os dados coletados pelos logs de Azure Monitor, exceto pelo Application Insights, são armazenados em um [espaço de trabalho log Analytics](../platform/manage-access.md). Você pode criar um ou mais espaços de trabalho dependendo de seus requisitos específicos. As [fontes de dados](../platform/data-sources.md) , como logs de atividades e logs de recursos de recursos do Azure, agentes em máquinas virtuais e dados de informações de soluções e monitoramento, gravam dados em um ou mais espaços de trabalho que você configura como parte de sua integração. Outros serviços, como a [central de segurança do Azure](/azure/security-center/) e o [Azure Sentinel](/azure/sentinel/) , também usam um espaço de trabalho log Analytics para armazenar seus dados para que possam ser analisados usando consultas de log junto com dados de monitoramento de outras fontes.
 
 Tipos diferentes de dados são armazenados em tabelas diferentes no espaço de trabalho e cada tabela tem um conjunto exclusivo de propriedades. Um conjunto padrão de tabelas é adicionado a um espaço de trabalho quando ele é criado, e novas tabelas são adicionadas para diferentes fontes de dados, soluções e serviços à medida que são integradas. Você também pode criar tabelas personalizadas usando a [API do coletor de dados](../platform/data-collector-api.md).
 
@@ -43,7 +43,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Consulte a documentação para cada fonte de dados para obter detalhes das tabelas que eles criam. Os exemplos incluem artigos para [fontes de dados do Agent](../platform/agent-data-sources.md), logs de [diagnóstico](../platform/diagnostic-logs-schema.md)e soluções de [monitoramento](../insights/solutions-inventory.md).
+Consulte a documentação para cada fonte de dados para obter detalhes das tabelas que eles criam. Os exemplos incluem artigos para [fontes de dados do agente](../platform/agent-data-sources.md), logs de [recursos](../platform/diagnostic-logs-schema.md)e soluções de [monitoramento](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Permissões do espaço de trabalho
 Consulte [criando uma implantação de logs de Azure monitor](../platform/design-logs-deployment.md) para entender a estratégia de controle de acesso e as recomendações para fornecer acesso aos dados em um espaço de trabalho. Além de conceder acesso ao próprio espaço de trabalho, você pode limitar o acesso a tabelas individuais usando o [RBAC de nível de tabela](../platform/manage-access.md#table-level-rbac).
@@ -59,11 +59,11 @@ Ao contrário de um espaço de trabalho Log Analytics, um aplicativo Application
 | browserTimings      | Dados sobre o desempenho do cliente, como o tempo necessário para processar os dados de entrada. |
 | customEvents        | Eventos personalizados criados pelo seu aplicativo. |
 | customMetrics       | Métricas personalizadas criadas pelo seu aplicativo. |
-| Depend        | Chama do aplicativo para componentes externos. |
+| dependências        | Chama do aplicativo para componentes externos. |
 | Exceção          | Exceções geradas pelo tempo de execução do aplicativo. |
-| PageViews           | Dados sobre cada exibição do site com informações do navegador. |
+| pageViews           | Dados sobre cada exibição do site com informações do navegador. |
 | performanceCounters | Medições de desempenho dos recursos de computação que dão suporte ao aplicativo. |
-| Pedido            | Detalhes de cada solicitação de aplicativo.  |
+| pedidos            | Detalhes de cada solicitação de aplicativo.  |
 | Rastreamentos              | Resultados do rastreamento distribuído. |
 
 Você pode exibir o esquema para cada tabela na guia **esquema** em log Analytics para o aplicativo.
@@ -73,10 +73,10 @@ Você pode exibir o esquema para cada tabela na guia **esquema** em log Analytic
 ## <a name="standard-properties"></a>Propriedades padrão
 Embora cada tabela em logs de Azure Monitor tenha seu próprio esquema, há propriedades padrão compartilhadas por todas as tabelas. Consulte [propriedades padrão em logs de Azure monitor](../platform/log-standard-properties.md) para obter detalhes de cada um.
 
-| Espaço de trabalho Log Analytics | Application Insights aplicativo | Descrição |
+| Área de trabalho do Log Analytics | Application Insights aplicativo | Descrição |
 |:---|:---|:---|
 | TimeGenerated | carimbo de data/hora  | Data e hora em que o registro foi criado. |
-| Tipo          | ItemType   | Nome da tabela da qual o registro foi recuperado. |
+| Tipo          | itemType   | Nome da tabela da qual o registro foi recuperado. |
 | _ResourceId   |            | Identificador exclusivo do recurso ao qual o registro está associado. |
 | _IsBillable   |            | Especifica se os dados ingeridos são faturáveis. |
 | _BilledSize   |            | Especifica o tamanho em bytes de dados que serão cobrados. |

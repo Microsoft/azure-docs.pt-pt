@@ -1,6 +1,6 @@
 ---
 title: Transmita ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits – Azure | Microsoft Docs
-description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. O fluxo pode então ser entregue a aplicativos de reprodução de cliente por meio de um ou mais pontos de extremidade de streaming, usando um dos seguintes protocolos de streaming adaptável: HLS, Smooth Streaming, DASH.'
+description: Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,19 +14,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015486"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887106"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não serão mais compatíveis com o protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Migre do RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Nos serviços de mídia do Azure, um *canal* representa um pipeline para o processamento de conteúdo de streaming ao vivo. Um canal recebe fluxos de entrada ao vivo de uma das duas maneiras:
 
 * Um codificador ao vivo local envia um fluxo RTMP de múltiplas taxas de bits ou Smooth Streaming (MP4 fragmentado) para o canal que não está habilitado para executar a codificação ativa com os serviços de mídia. Os fluxos ingeridos passam por canais sem nenhum processamento adicional. Esse método é chamado *de passagem*. Um codificador ao vivo também pode enviar um fluxo de taxa de bits única para um canal que não está habilitado para codificação ativa, mas não recomendamos isso. Os serviços de mídia fornecem o fluxo para clientes que o solicitam.
@@ -40,7 +40,7 @@ Nos serviços de mídia do Azure, um *canal* representa um pipeline para o proce
 A partir da versão 2,10 dos serviços de mídia, ao criar um canal, você pode especificar como deseja que seu canal receba o fluxo de entrada. Você também pode especificar se deseja que o canal execute a codificação ativa de seu fluxo. Tem duas opções:
 
 * **Passagem**: Especifique esse valor se você planeja usar um codificador ao vivo local que tenha um fluxo de múltiplas taxas de bits (um fluxo de passagem) como saída. Nesse caso, o fluxo de entrada passa para a saída sem qualquer codificação. Esse é o comportamento de um canal antes da versão 2,10. Este artigo fornece detalhes sobre como trabalhar com canais deste tipo.
-* **Codificação ativa**: Escolha esse valor se você planeja usar os serviços de mídia para codificar sua transmissão ao vivo de taxa de bits única para um fluxo de múltiplas taxas de bits. Deixar um canal de codificação ativo em um estado de **execução** incorre em encargos de cobrança. Recomendamos que você pare imediatamente seus canais em execução depois que o evento de transmissão ao vivo for concluído para evitar cobranças por hora extra. Os serviços de mídia fornecem o fluxo para clientes que o solicitam.
+* **Codificação ativa**: escolha esse valor se você planeja usar os serviços de mídia para codificar sua transmissão ao vivo de taxa de bits única para um fluxo de múltiplas taxas de bits. Deixar um canal de codificação ativo em um estado de **execução** incorre em encargos de cobrança. Recomendamos que você pare imediatamente seus canais em execução depois que o evento de transmissão ao vivo for concluído para evitar cobranças por hora extra. Os serviços de mídia fornecem o fluxo para clientes que o solicitam.
 
 > [!NOTE]
 > Este artigo discute os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados para executar a codificação ativa, consulte [transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas](media-services-manage-live-encoder-enabled-channels.md)de bits.
@@ -88,8 +88,8 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 #### <a id="ingest_protocols"></a>Protocolo de streaming de ingestão
 Os serviços de mídia dão suporte à ingestão de feeds ao vivo usando MP4 fragmentado de múltiplas taxas de bits e RTMP com várias taxas de bits como protocolos de streaming. Quando o protocolo de streaming de ingestão RTMP é selecionado, dois pontos de extremidade de ingestão (entrada) são criados para o canal:
 
-* **URL primária**: Especifica a URL totalmente qualificada do ponto de extremidade de ingestão RTMP primário do canal.
-* **URL secundária** (opcional): Especifica a URL totalmente qualificada do ponto de extremidade de ingestão RTMP secundário do canal.
+* **URL primária**: especifica a URL totalmente qualificada do ponto de extremidade de ingestão RTMP primário do canal.
+* **URL secundária** (opcional): especifica a URL totalmente qualificada do ponto de extremidade de ingestão RTMP secundário do canal.
 
 Use a URL secundária se desejar melhorar a durabilidade e a tolerância a falhas do seu fluxo de ingestão (bem como failover do codificador e tolerância a falhas), especialmente para os seguintes cenários:
 
@@ -140,7 +140,7 @@ Você pode definir os endereços IP que têm permissão para publicar o vídeo n
 
 Se nenhum endereço IP for especificado e não houver nenhuma definição de regra, não haverá permissão para nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 
-### <a name="channel-preview"></a>Pré-visualização do canal
+### <a name="channel-preview"></a>Visualização do canal
 #### <a name="preview-urls"></a>URLs de visualização
 Os canais fornecem um ponto de extremidade de visualização (URL de visualização) que você usa para visualizar e validar seu fluxo antes do processamento e da entrega.
 
@@ -176,25 +176,25 @@ Mesmo depois de parar e excluir o programa, os usuários podem transmitir seu co
 ## <a id="states"></a>Estados e cobrança do canal
 Os valores possíveis para o estado atual de um canal incluem:
 
-* **Parado**: Este é o estado inicial de um canal após a sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
-* **Iniciando**em: O canal está a ser iniciado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Se ocorrer um erro, o canal retornará ao estado **parado** .
-* **Em execução**: O canal pode processar transmissões ao vivo.
-* **Parando**: O canal está a ser parado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
-* **Excluindo**: O canal está a ser apagado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **Stopped**: esse é o estado inicial do canal após sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
+* **Iniciando**: o canal está sendo iniciado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Se ocorrer um erro, o canal retornará ao estado **parado** .
+* **Em execução**: o canal pode processar fluxos ao vivo.
+* **Parando**: o canal está sendo interrompido. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **Excluindo**: o canal está sendo excluído. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
 
 A tabela seguinte mostra como os estados de um canal mapeiam para o modo de faturação.
 
 | Estado do canal | Indicadores IU do portal | Foi cobrado? |
 | --- | --- | --- |
 | **Comece** |**Comece** |Não (estado transitório) |
-| **Executado** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (pelo menos um programa em execução) |Sim |
+| **Executado** |**Pronto** (sem programas em execução)<p><p>ou<p>**Streaming** (pelo menos um programa em execução) |Sim |
 | **Impedir** |**Impedir** |Não (estado transitório) |
 | **Interrompido** |**Interrompido** |Não |
 
 ## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncio
 A tabela a seguir demonstra os padrões suportados para Legendagem oculta e inserção de anúncio.
 
-| Standard | Notas |
+| Padrão | Notas |
 | --- | --- |
 | CEA-708 e EIA-608 (708/608) |O CEA-708 e o EIA-608 são padrões de legenda codificada para o Estados Unidos e o Canadá.<p><p>Atualmente, há suporte para legendas somente se ela for transportada no fluxo de entrada codificado. Você precisa usar um codificador de mídia ao vivo que pode inserir legendas 608 ou 708 no fluxo codificado que é enviado aos serviços de mídia. Os serviços de mídia fornecem o conteúdo com legendas inseridas para seus visualizadores. |
 | TTML Inside. ISMT (Smooth Streaming faixas de texto) |O empacotamento dinâmico dos serviços de mídia permite que seus clientes transmitam conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se você ingerir MP4 fragmentado (Smooth Streaming) com legendas dentro de. ISMT (Smooth Streaming faixas de texto), você pode entregar o fluxo somente para clientes Smooth Streaming. |

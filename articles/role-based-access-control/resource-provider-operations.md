@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b00e699eb49d88e41dff18d6c86024c9b0537e50
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e8a3397cd8229a84103fdcbb116bf61648a6ba22
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872320"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895551"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos Azure Resource Manager
 
@@ -5534,14 +5534,14 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Listar rótulos de sensibilidade de um determinado banco de dados |
 > | Ação | Microsoft. SQL/managedInstances/databases/recommendedSensitivityLabels/Write | Rótulos de sensibilidade recomendados da atualização do lote |
 > | Ação | Microsoft. SQL/managedInstances/bancos de dados/restoreDetails/leitura | Retorna detalhes da restauração do banco de dados gerenciado enquanto a restauração está em andamento. |
-> | Ação | Microsoft.Sql/managedInstances/databases/schemas/read | Obtenha um esquema de banco de dados gerenciado. |
-> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Obter uma coluna de banco de dados gerenciado |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/read | Obtenha um esquema de banco de dados gerenciado. (somente esquema) |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Obter uma coluna de banco de dados gerenciado (somente esquema) |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Excluir o rótulo de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Desabilitar recomendações de sensibilidade em uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Habilitar recomendações de sensibilidade em uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Obter o rótulo de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Criar ou atualizar o rótulo de sensibilidade de uma determinada coluna |
-> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Obter uma tabela de banco de dados gerenciado |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Obter uma tabela de banco de dados gerenciada (somente esquema) |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Recuperar uma lista de políticas de detecção de ameaças de banco de dados gerenciadas configuradas para um determinado servidor |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | Alterar a política de detecção de ameaças do banco de dados para um determinado banco de dados gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityEvents/read | Recupera os eventos de segurança do banco de dados gerenciado |
@@ -5680,14 +5680,14 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/servers/databases/restorePoints/delete | Exclui um ponto de restauração para o banco de dados. |
 > | Ação | Microsoft.Sql/servers/databases/restorePoints/read | Retorna pontos de restauração para o banco de dados. |
 > | Ação | Microsoft.Sql/servers/databases/resume/action | Continuar banco de dados de DataWarehouse do SQL do Azure |
-> | Ação | Microsoft.Sql/servers/databases/schemas/read | Obtenha um esquema de banco de dados. |
-> | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obter uma coluna de banco de dados. |
+> | Ação | Microsoft.Sql/servers/databases/schemas/read | Obter um esquema de banco de dados (somente esquema). |
+> | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obter uma coluna de banco de dados (somente esquema). |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Excluir o rótulo de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Desabilitar recomendações de sensibilidade em uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Habilitar recomendações de sensibilidade em uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Obter o rótulo de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Criar ou atualizar o rótulo de sensibilidade de uma determinada coluna |
-> | Ação | Microsoft.Sql/servers/databases/schemas/tables/read | Obter uma tabela de banco de dados. |
+> | Ação | Microsoft.Sql/servers/databases/schemas/tables/read | Obter uma tabela de banco de dados (somente esquema). |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | Recuperar lista de recomendações de índice em um banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | Aplicar recomendação de índice |
 > | Ação | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Recuperar uma lista de políticas de detecção de ameaças de banco de dados configuradas para um determinado servidor |

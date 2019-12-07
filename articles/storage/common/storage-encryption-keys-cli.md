@@ -1,22 +1,23 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o armazenamento CLI do Azure do Azure
+title: Usar CLI do Azure para configurar chaves gerenciadas pelo cliente
+titleSuffix: Azure Storage
 description: Saiba como usar CLI do Azure para configurar chaves gerenciadas pelo cliente com Azure Key Vault para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9b9ec315954f5916339bb006cb020acc28886839
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806631"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895329"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando CLI do Azure
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando CLI do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

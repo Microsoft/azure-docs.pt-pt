@@ -1,20 +1,20 @@
 ---
-title: Otimizar a taxa de transferência ao importar dados em massa para Azure Cosmos DB conta da API do SQL
-description: Saiba como criar um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados para Azure Cosmos DB.
+title: Importar dados em massa para Azure Cosmos DB conta da API do SQL usando o SDK do .net
+description: Saiba como importar ou ingerir dados para Azure Cosmos DB criando um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606205"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896268"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Otimizar a taxa de transferência ao importar dados em massa para Azure Cosmos DB conta da API do SQL
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importar dados em massa para Azure Cosmos DB conta da API do SQL usando o SDK do .NET
 
 Este tutorial mostra como criar um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados para Azure Cosmos DB. Neste artigo, você vai ler dados de uma fonte de dados de exemplo e importá-los para um contêiner Cosmos do Azure.
 Este tutorial usa a [versão 3.0 +](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do SDK do .net Azure Cosmos DB, que pode ser direcionado para .NET Framework ou .NET Core.
@@ -22,7 +22,7 @@ Este tutorial usa a [versão 3.0 +](https://www.nuget.org/packages/Microsoft.Azu
 Este tutorial aborda:
 
 > [!div class="checklist"]
-> * Criando uma conta do Azure Cosmos
+> * Criar uma conta do Cosmos do Azure
 > * Configurando seu projeto
 > * Conectando-se a uma conta do Azure cosmos com suporte em massa habilitado
 > * Executar uma importação de dados por meio de operações de criação simultânea
@@ -81,7 +81,7 @@ Ainda no diretório do aplicativo, instale a biblioteca de cliente do Azure Cosm
 
 O aplicativo de exemplo precisa se autenticar na sua conta do Azure Cosmos. Para autenticar, você deve passar as credenciais da conta do Azure Cosmos para o aplicativo. Obtenha suas credenciais de conta do Azure Cosmos seguindo estas etapas:
 
-1.  Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1.  Navegue até sua conta do Azure Cosmos.
 1.  Abra o painel **chaves** e copie o **URI** e a **chave primária** da sua conta.
 
@@ -186,7 +186,7 @@ O exemplo pode ser executado alterando para o diretório do repositório e usand
 Neste tutorial, você fez as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criando uma conta do Azure Cosmos
+> * Criar uma conta do Cosmos do Azure
 > * Configurando seu projeto
 > * Conectando-se a uma conta do Azure cosmos com suporte em massa habilitado
 > * Executar uma importação de dados por meio de operações de criação simultânea

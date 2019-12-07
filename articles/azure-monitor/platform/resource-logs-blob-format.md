@@ -1,6 +1,6 @@
 ---
-title: Preparar para alterar o formato para Azure Monitor logs de diagnóstico
-description: Os logs de diagnóstico do Azure serão movidos para usar blobs de acréscimo em 1º de novembro de 2018.
+title: Preparar para alterar o formato para Azure Monitor logs de recursos
+description: Os logs de recursos do Azure foram movidos para usar blobs de acréscimo em 1º de novembro de 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,23 +8,22 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: c6f21ffdcf94f23d089073710f2e6c18fd20558d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 09a5d95ead9f294d54a7491734b11c7247353444
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262430"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894508"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparar para a alteração de formato para Azure Monitor logs de plataforma arquivados em uma conta de armazenamento
 
 > [!WARNING]
-> Se você estiver enviando [logs de recursos do Azure ou métricas para uma conta de armazenamento usando configurações de diagnóstico](resource-logs-collect-storage.md) ou [logs de atividade para uma conta de armazenamento usando perfis de log](activity-log-export.md), o formato dos dados na conta de armazenamento será alterado para linhas JSON em Nov. 1, 2018. As instruções a seguir descrevem o impacto e como atualizar suas ferramentas para lidar com o novo formato. 
+> Se você estiver enviando [logs de recursos do Azure ou métricas para uma conta de armazenamento usando configurações de diagnóstico](resource-logs-collect-storage.md) ou [logs de atividade para uma conta de armazenamento usando perfis de log](activity-log-export.md), o formato dos dados na conta de armazenamento será alterado para linhas JSON em Nov. 1, 2018. As instruções a seguir descrevem o impacto e como atualizar suas ferramentas para lidar com o novo formato.
 >
-> 
 
-## <a name="what-is-changing"></a>O que está a mudar
+## <a name="what-changed"></a>O que mudou
 
-O Azure Monitor oferece um recurso que permite que você envie logs de recursos e logs de atividade para uma conta de armazenamento do Azure, namespace de hubs de eventos ou em um espaço de trabalho Log Analytics no Azure Monitor. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 12:00, meia-noite UTC** o formato dos dados de log enviados para o armazenamento de BLOBs será alterado. Se você tiver ferramentas que estão lendo dados fora do armazenamento de BLOBs, precisará atualizar suas ferramentas para entender o novo formato de dados.
+O Azure Monitor oferece um recurso que permite que você envie logs de recursos e logs de atividade para uma conta de armazenamento do Azure, namespace de hubs de eventos ou em um espaço de trabalho Log Analytics no Azure Monitor. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 12:00, meia-noite UTC** o formato dos dados de log enviados ao armazenamento de BLOBs foi alterado. Se você tiver ferramentas que estão lendo dados fora do armazenamento de BLOBs, precisará atualizar suas ferramentas para entender o novo formato de dados.
 
 * Na quinta-feira, 1º de novembro de 2018 às 12:00, meia-noite UTC, o formato de blob mudou para [as linhas JSON](http://jsonlines.org/). Isso significa que cada registro será delimitado por uma nova linha, sem nenhuma matriz de registros externos e sem vírgulas entre os registros JSON.
 * O formato de blob alterado para todas as configurações de diagnóstico em todas as assinaturas de uma só vez. O primeiro arquivo PT1H. JSON emitido para 1º de novembro usou esse novo formato. Os nomes de BLOB e contêiner permanecem os mesmos.
@@ -36,8 +35,8 @@ O Azure Monitor oferece um recurso que permite que você envie logs de recursos 
   * [Dados do log de atividades do Azure sendo exportados por perfis de log](activity-log-collect.md)
 * Essa alteração não afeta:
   * Logs de fluxo de rede
-  * Logs de serviço do Azure não disponibilizados por meio do Azure Monitor ainda (por exemplo, Azure App logs de diagnóstico do serviço, logs de análise de armazenamento)
-  * Roteamento de logs de diagnóstico e logs de atividades do Azure para outros destinos (hubs de eventos, Log Analytics)
+  * Logs de serviço do Azure não disponibilizados por meio do Azure Monitor ainda (por exemplo, Azure App logs de recursos do serviço, logs de análise de armazenamento)
+  * Roteamento de logs de recursos do Azure e logs de atividade para outros destinos (hubs de eventos, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Como ver se você está impactado
 
@@ -45,7 +44,7 @@ Você só será afetado por essa alteração se:
 1. Está enviando dados de log para uma conta de armazenamento do Azure usando uma configuração de diagnóstico e
 2. Têm ferramentas que dependem da estrutura JSON desses logs no armazenamento.
  
-Para identificar se você tem configurações de diagnóstico que estão enviando dados para uma conta de armazenamento do Azure, navegue até a seção **Monitor** do portal, clique em **configurações de diagnóstico**e identifique os recursos que têm **status de diagnóstico** Defina como **habilitado**:
+Para identificar se você tem configurações de diagnóstico que estão enviando dados para uma conta de armazenamento do Azure, você pode navegar até a seção **Monitor** do portal, clicar em **configurações de diagnóstico**e identificar todos os recursos que têm o **status de diagnóstico** definido como **habilitado**:
 
 ![Folha configurações de diagnóstico Azure Monitor](media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 
@@ -135,6 +134,6 @@ As ferramentas personalizadas devem ser atualizadas para lidar com o formato atu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como [arquivar logs de diagnóstico de recurso em uma conta de armazenamento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Saiba mais sobre como [arquivar logs de recursos de recurso em uma conta de armazenamento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Saiba mais sobre como [arquivar dados de log de atividades em uma conta de armazenamento](./../../azure-monitor/platform/archive-activity-log.md)
 

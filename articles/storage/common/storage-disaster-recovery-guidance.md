@@ -1,22 +1,23 @@
 ---
-title: Recuperação de desastres e failover de conta de armazenamento (versão prévia) – armazenamento do Azure
+title: Failover de conta de armazenamento e recuperação de desastre (versão prévia)
+titleSuffix: Azure Storage
 description: O armazenamento do Azure dá suporte ao failover de conta (versão prévia) para contas de armazenamento com redundância geográfica. Com o failover de conta, você pode iniciar o processo de failover para sua conta de armazenamento se o ponto de extremidade primário ficar indisponível.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775933"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895357"
 ---
-# <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure
+# <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e failover de conta (versão prévia)
 
 A Microsoft se esforça para garantir que os serviços do Azure estejam sempre disponíveis. No entanto, podem ocorrer interrupções de serviço não planejadas. Se seu aplicativo exigir resiliência, a Microsoft recomenda usar o armazenamento com redundância geográfica, para que os dados sejam replicados em uma segunda região. Além disso, os clientes devem ter um plano de recuperação de desastre em vigor para lidar com uma interrupção de serviço regional. Uma parte importante de um plano de recuperação de desastre está se preparando para fazer failover para o ponto de extremidade secundário no caso de o ponto de extremidade primário ficar indisponível. 
 
@@ -69,7 +70,7 @@ A Microsoft também recomenda que você projete seu aplicativo para se preparar 
 
 O failover de conta gerenciada pelo cliente (versão prévia) permite que você falhe toda a conta de armazenamento para a região secundária se a primária ficar indisponível por algum motivo. Quando você força um failover para a região secundária, os clientes podem começar a gravar dados no ponto de extremidade secundário após a conclusão do failover. O failover normalmente leva cerca de uma hora.
 
-### <a name="how-an-account-failover-works"></a>Como funciona um failover de conta
+### <a name="how-an-account-failover-works"></a>Como funciona a ativação pós-falha de uma conta
 
 Em circunstâncias normais, um cliente grava dados em uma conta de armazenamento do Azure na região primária e esses dados são replicados assincronamente para a região secundária. A imagem a seguir mostra o cenário quando a região primária está disponível:
 
@@ -160,7 +161,7 @@ Como prática recomendada, a Microsoft recomenda converter discos não gerenciad
 Os discos não gerenciados são armazenados como BLOBs de páginas no armazenamento do Azure. Quando uma VM está em execução no Azure, todos os discos não gerenciados anexados à VM são concedidos. Um failover de conta não pode continuar quando há uma concessão em um blob. Para executar o failover, siga estas etapas:
 
 1. Antes de começar, observe os nomes de todos os discos não gerenciados, seus números de unidade lógica (LUN) e a VM à qual eles estão anexados. Isso facilitará a anexação dos discos após o failover. 
-2. Desligue a VM.
+2. Desligar a VM.
 3. Exclua a VM, mas mantenha os arquivos VHD para os discos não gerenciados. Observe a hora em que você excluiu a VM.
 4. Aguarde até que a **hora da última sincronização** seja atualizada e seja posterior à hora em que você excluiu a VM. Esta etapa é importante, porque se o ponto de extremidade secundário não tiver sido totalmente atualizado com os arquivos VHD quando o failover ocorrer, a VM poderá não funcionar corretamente na nova região primária.
 5. Inicie o failover da conta.

@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial: Criptografar e descriptografar BLOBs no armazenamento do Azure usando Azure Key Vault | Microsoft Docs'
-description: Como criptografar e descriptografar um BLOB usando criptografia do lado do cliente para Armazenamento do Microsoft Azure com Azure Key Vault.
+title: Tutorial – criptografar e descriptografar BLOBs usando Azure Key Vault
+titleSuffix: Azure Storage
+description: Saiba como criptografar e descriptografar um BLOB usando a criptografia do lado do cliente com o Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003438"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892894"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Criptografar e descriptografar BLOBs no Armazenamento do Microsoft Azure usando Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial – criptografar e descriptografar BLOBs usando Azure Key Vault
 
-## <a name="introduction"></a>Introdução
 Este tutorial aborda como fazer uso da criptografia de armazenamento do lado do cliente com o Azure Key Vault. Ele orienta você sobre como criptografar e descriptografar um blob em um aplicativo de console usando essas tecnologias.
 
-**Tempo estimado para conclusão:** 20 minutos
+**Tempo estimado para concluir:** 20 minutos
 
 Para obter informações gerais sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -48,7 +48,7 @@ Aqui está uma breve descrição de como funciona a criptografia do lado do clie
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurar seu Azure Key Vault
 
-Para continuar com este tutorial, você precisa executar as etapas a seguir, que são descritas no guia de início rápido do [tutorial: Definir e recuperar um segredo de Azure Key Vault usando um aplicativo](../../key-vault/quick-create-net.md)Web .net:
+Para continuar com este tutorial, você precisa executar as etapas a seguir, que são descritas no guia de [início rápido do tutorial: definir e recuperar um segredo de Azure Key Vault usando um aplicativo Web .net](../../key-vault/quick-create-net.md):
 
 * Criar um cofre de chaves.
 * Adicione uma chave ou um segredo ao cofre de chaves.
@@ -87,7 +87,7 @@ Adicione AppSettings ao app. config.
 </appSettings>
 ```
 
-Adicione as seguintes `using` diretivas e certifique-se de adicionar uma referência a System. Configuration ao projeto.
+Adicione as seguintes diretivas de `using` e certifique-se de adicionar uma referência a System. Configuration ao projeto.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -121,7 +121,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Acessar o armazenamento e Key Vault em seu programa
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Acessar o armazenamento do Azure e Key Vault em seu programa
 
 No método Main (), adicione o código a seguir.
 
@@ -229,9 +229,10 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-Já está. Divirta-se!
 
-## <a name="next-steps"></a>Passos Seguintes
+E já está. Divirta-se!
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como usar C#armazenamento do Microsoft Azure com o, consulte [armazenamento do Microsoft Azure biblioteca de cliente para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 

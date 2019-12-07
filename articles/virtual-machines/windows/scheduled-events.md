@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: f6e3e370201b49da149c09d87ed7cec63fef8ebf
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e6aa53ab5e71cbcc830e31ee1f3650feca7db63b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792245"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885522"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -49,7 +49,7 @@ Eventos Agendados fornece eventos nos seguintes casos de uso:
 - Manutenção iniciada pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
 - [Detectar](spot-vms.md) as remoções de instância de VM e [conjunto de escala de spot](../../virtual-machine-scale-sets/use-spot.md)
 
-## <a name="the-basics"></a>Noções básicas  
+## <a name="the-basics"></a>As noções básicas  
 
 O serviço de metadados do Azure expõe informações sobre a execução de máquinas virtuais usando um ponto de extremidade REST acessível de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que não seja exposta fora da VM.
 
@@ -63,9 +63,9 @@ Se a máquina virtual não for criada em uma rede virtual, os casos padrão para
 ### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
 O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias e a versão atual é `2017-11-01`.
 
-| Versão | Tipo de liberação | Regiões | Notas de Lançamento | 
+| Versão | Tipo de Versão | Regiões | Notas de Lançamento | 
 | - | - | - | - |
-| 2017-11-01 | Disponibilidade Geral | Tudo | <li> Suporte adicionado para a remoção de VM de baixa prioridade do EventType ' preempt '<br> | 
+| 2017-11-01 | Disponibilidade Geral | Tudo | <li> Suporte adicionado para o EventType de remoção de VM spot ' preempt '<br> | 
 | 2017-08-01 | Disponibilidade Geral | Tudo | <li> Foi removido o sublinhado precedido dos nomes de recursos para VMs IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Pré-visualização | Tudo |<li>Versão inicial
 
@@ -117,8 +117,8 @@ O DocumentIncarnation é uma ETag e fornece uma maneira fácil de inspecionar se
 ### <a name="event-properties"></a>Propriedades do evento
 |Propriedade  |  Descrição |
 | - | - |
-| 1008 | Identificador global exclusivo para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto causado por esse evento. <br><br> Valores: <br><ul><li> `Freeze`: a máquina virtual está agendada para pausar por alguns segundos. A conectividade de CPU e de rede pode ser suspensa, mas não há nenhum impacto na memória ou em arquivos abertos. <li>`Reboot`: a máquina virtual está agendada para reinicialização (a memória não persistente é perdida). <li>`Redeploy`: a máquina virtual está agendada para ser movida para outro nó (discos efêmeros são perdidos). <li>`Preempt`: a máquina virtual de baixa prioridade está sendo excluída (discos efêmeros são perdidos).|
+| EventId | Identificador global exclusivo para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impacto causado por esse evento. <br><br> Valores: <br><ul><li> `Freeze`: a máquina virtual está agendada para pausar por alguns segundos. A conectividade de CPU e de rede pode ser suspensa, mas não há nenhum impacto na memória ou em arquivos abertos. <li>`Reboot`: a máquina virtual está agendada para reinicialização (a memória não persistente é perdida). <li>`Redeploy`: a máquina virtual está agendada para ser movida para outro nó (discos efêmeros são perdidos). <li>`Preempt`: a máquina virtual Spot está sendo excluída (discos efêmeros são perdidos).|
 | ResourceType | Tipo de recurso que esse evento afeta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Lista de recursos que esse evento afeta. Isso é garantido para conter máquinas de no máximo um [domínio de atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Status do evento | Status deste evento. <br><br> Valores: <ul><li>`Scheduled`: esse evento está agendado para iniciar após o tempo especificado na propriedade `NotBefore`.<li>`Started`: este evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante já foi fornecido; o evento não será mais retornado quando o evento for concluído.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 14e2f79383aa45125ce6955f3611a75ece1df10d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152947"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893574"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solucionando problemas do dimensionamento automático do Azure
  
@@ -115,7 +115,7 @@ Assim como ocorre com qualquer serviço com suporte Azure Monitor, você pode us
 
 ![Configurações de diagnóstico de dimensionamento automático](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-A imagem anterior mostra as configurações de diagnóstico de autoescala portal do Azure. Lá, você pode selecionar a guia logs de diagnóstico e habilitar a coleta e o roteamento de logs. Você também pode executar a mesma ação usando a API REST, a CLI, o PowerShell, os modelos do Resource Manager para configurações de diagnóstico, escolhendo o tipo de recurso como *Microsoft. insights/AutoscaleSettings*. 
+A imagem anterior mostra as configurações de diagnóstico de autoescala portal do Azure. Lá, você pode selecionar a guia diagnóstico/recurso logs e habilitar a coleta e o roteamento de logs. Você também pode executar a mesma ação usando a API REST, a CLI, o PowerShell, os modelos do Resource Manager para configurações de diagnóstico, escolhendo o tipo de recurso como *Microsoft. insights/AutoscaleSettings*. 
 
 ## <a name="troubleshooting-using-autoscale-logs"></a>Solução de problemas usando logs de dimensionamento automático 
 

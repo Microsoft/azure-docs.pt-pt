@@ -1,8 +1,7 @@
 ---
-title: 'Transformar dados usando Azure Data Factory '
+title: Transformar dados
 description: Saiba como transformar dados ou processar dados em Azure Data Factory usando o Hadoop, Machine Learning ou Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -10,15 +9,16 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 40157228e3bb2ab7625d703a25dd1e820ca1bc07
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+manager: shwang
+ms.openlocfilehash: dbca107fc35a297c2a0b44b85a1cbb48865c3ab0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703590"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893744"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
+
 > [!div class="op_single_selector"]
 > * [Mapeando fluxo de dados](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  

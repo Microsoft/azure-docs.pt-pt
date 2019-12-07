@@ -1,20 +1,21 @@
 ---
-title: Usar o portal do Azure para acessar dados de BLOB ou de fila-armazenamento do Azure
+title: Usar o portal do Azure para acessar dados de BLOB ou de fila
+titleSuffix: Azure Storage
 description: Quando você acessa dados de BLOB ou de fila usando o portal do Azure, o portal faz solicitações para o armazenamento do Azure nos bastidores. Essas solicitações para o armazenamento do Azure podem ser autenticadas e autorizadas usando sua conta do Azure AD ou a chave de acesso da conta de armazenamento.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5d5bd6400fdf09216124665b6b236b4da2583b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673281"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892402"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar o portal do Azure para acessar dados de BLOB ou de fila
 
@@ -48,11 +49,11 @@ A atribuição de função de **leitor** ou outra atribuição de função de Az
 
 As funções internas que dão suporte ao acesso ao BLOB ou aos dados da fila incluem:
 
-- [Proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para controle de acesso POSIX para Azure Data Lake Storage Gen2.
-- [Colaborador de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Permissões de leitura/gravação/exclusão para BLOBs.
-- [Leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Permissões somente leitura para BLOBs.
-- [Colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Permissões de leitura/gravação/exclusão para filas.
-- [Leitor de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Permissões somente leitura para filas.
+- [Proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): para o controle de acesso POSIX para Azure data Lake Storage Gen2.
+- [Colaborador de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): permissões de leitura/gravação/exclusão para BLOBs.
+- [Leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): permissões somente leitura para BLOBs.
+- [Colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): permissões de leitura/gravação/exclusão para filas.
+- [Leitor de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): permissões somente leitura para filas.
     
 As funções personalizadas podem dar suporte a diferentes combinações das mesmas permissões fornecidas pelas funções internas. Para obter mais informações sobre como criar funções RBAC personalizadas, consulte [funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md) e [noções básicas sobre definições de função para recursos do Azure](../../role-based-access-control/role-definitions.md).
 

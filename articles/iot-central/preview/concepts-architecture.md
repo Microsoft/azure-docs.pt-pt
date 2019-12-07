@@ -3,17 +3,17 @@ title: Conceitos de arquitetura no Azure IoT Central | Microsoft Docs
 description: Este artigo apresenta os principais conceitos relacionados à arquitetura do Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013858"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895756"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Arquitetura de IoT Central do Azure (recursos de visualização)
 

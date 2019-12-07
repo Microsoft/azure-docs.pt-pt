@@ -1,22 +1,23 @@
 ---
-title: Proteger o acesso aos dados de uma aplicação na cloud com o Armazenamento do Azure | Microsoft Docs
+title: Proteger o acesso aos dados do aplicativo
+titleSuffix: Azure Storage
 description: Utilizar tokens SAS, encriptação e HTTPS para proteger os dados da aplicação na cloud.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986686"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892435"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de uma aplicação na cloud
+# <a name="secure-access-to-application-data"></a>Proteger o acesso aos dados do aplicativo
 
 Este tutorial é a terceira parte de uma série. Ficará a saber como proteger o acesso à conta de armazenamento. 
 
@@ -31,7 +32,7 @@ O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-stora
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: Automatize o redimensionamento de [imagens carregadas usando a grade de eventos][previous-tutorial]. 
+Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [automatizar o redimensionamento de imagens carregadas usando a grade de eventos][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Definir o acesso público ao contentor
 
@@ -128,7 +129,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 As seguintes classes, propriedades e métodos são utilizados na tarefa anterior:
 
-|Classe  |properties| Métodos  |
+|Classe  |Propriedades| Métodos  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |
@@ -165,7 +166,7 @@ Agora que a transferência segura é necessária, recebe a mensagem seguinte:
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na terceira parte da série, aprendeu a proteger o acesso à conta de armazenamento, como:
 

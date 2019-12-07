@@ -1,6 +1,6 @@
 ---
 title: Visão geral da transmissão ao vivo usando os serviços de mídia do Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral da transmissão ao vivo usando os serviços de mídia do Azure.
+description: Este artigo fornece uma visão geral da transmissão ao vivo usando Serviços de Mídia do Microsoft Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,19 +14,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5ab4a6b96df964497e20b2b93c59febb0e24393c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8b58e9d2eae1fbe5b0f4086f772bea3bf46399c3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035890"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895943"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral da transmissão ao vivo usando os serviços de mídia
 
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Ao fornecer eventos de transmissão ao vivo com os serviços de mídia do Azure, os seguintes componentes estão normalmente envolvidos:
 
@@ -55,17 +55,17 @@ Nos Media Services do Azure, os **Canais**, **Programas** e **Pontos Finais de T
 
 Um **Canal** representa um pipeline de processamento de conteúdos de transmissão em fluxo em direto. Um Canal pode receber transmissões em fluxo de entrada em direto das seguintes formas:
 
-* Um codificador em direto no local envia um **RTMP** ou uma **Transmissão em Fluxo Uniforme** com velocidade de transmissão múltipla (MP4 fragmentado) para o Canal configurado para distribuição **pass-through**. A distribuição **pass-through** ocorre quando as transmissões em fluxo inseridas passam pelos **Canais** sem qualquer processamento adicional. Você pode usar os codificadores dinâmicos a seguir que geram Smooth Streaming de múltiplas taxas de bits: MediaExcel, Ateme, imagine Communications, envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: O Adobe Flash Media Live encoder (FMLE), o Telestream Wirecast, o HaiVision, o Teradek e o tricastr transcodificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia um **RTMP** ou uma **Transmissão em Fluxo Uniforme** com velocidade de transmissão múltipla (MP4 fragmentado) para o Canal configurado para distribuição **pass-through**. A distribuição **pass-through** ocorre quando as transmissões em fluxo inseridas passam pelos **Canais** sem qualquer processamento adicional. Você pode usar os codificadores ao vivo a seguir que geram várias taxas de bits Smooth Streaming: MediaExcel, Ateme, imagine Communications, envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: transcodificadores Adobe Flash Media Live encoder (FMLE), Telestream Wirecast, HaiVision, Teradek e TriCaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
   > A utilização de um método pass-through é a forma mais económica de realizar uma transmissão em fluxo em direto quando estiver a realizar vários eventos durante um longo período de tempo e já investiu em codificadores no local. Consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* Um codificador ao vivo local envia um fluxo de taxa de bits única para o canal que está habilitado para executar a codificação ativa com os serviços de mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). Os seguintes codificadores dinâmicos com saída RTMP são conhecidos por trabalhar com canais desse tipo: Telestream Wirecast, FMLE. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo local envia um fluxo de taxa de bits única para o canal que está habilitado para executar a codificação ativa com os serviços de mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). Os seguintes codificadores ao vivo com saída RTMP são conhecidos por trabalhar com canais desse tipo: Telestream Wirecast, FMLE. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
 A partir da versão 2,10 dos serviços de mídia, ao criar um canal, você pode especificar de que maneira deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal execute a codificação ativa de seu fluxo. Tem duas opções:
 
-* **Nenhum** (passagem) – Especifique esse valor se você planeja usar um codificador ao vivo local que produzirá fluxo de múltiplas taxas de bits (um fluxo de passagem). Nesse caso, o fluxo de entrada passou para a saída sem nenhuma codificação. Esse é o comportamento de um canal antes da versão 2,10.  
+* **Nenhum** (passagem) – Especifique esse valor, se você planeja usar um codificador ao vivo local que produzirá fluxo de múltiplas taxas de bits (um fluxo de passagem). Nesse caso, o fluxo de entrada passou para a saída sem nenhuma codificação. Esse é o comportamento de um canal antes da versão 2,10.  
 * **Padrão** – escolha esse valor se você planeja usar os serviços de mídia para codificar sua transmissão ao vivo de taxa de bits única para fluxo de múltiplas taxas de bits. Esse método é mais econômico para escalar verticalmente rapidamente para eventos infrequentes. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar de que deixar um canal de codificação ativa no estado "em execução" incorrerá em encargos de cobrança.  É recomendável parar imediatamente os canais em execução após a conclusão do evento de transmissão ao vivo para evitar cobranças por hora extra.
 
 ## <a name="comparison-of-channel-types"></a>Comparação de tipos de canal
@@ -78,7 +78,7 @@ A tabela a seguir fornece um guia para comparar os dois tipos de canal com supor
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60 + fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Preço |Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia "vídeo ao vivo" |Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
-| Tempo de execução máximo |Permanente (24x7) |8 horas |
+| Tempo de execução máximo |24x7 |8 horas |
 | Suporte para inserção de slates |Não |Sim |
 | Suporte para sinalização de anúncios |Não |Sim |
 | Legendas CEA 608/708 de passagem |Sim |Sim |
@@ -112,7 +112,7 @@ Você pode obter a URL de ingestão e a URL de visualização ao criar o canal. 
 
 Cada conta dos serviços de mídia pode conter vários canais, vários programas e vários StreamingEndpoints. Dependendo da largura de banda e das necessidades de segurança, os serviços StreamingEndpoints podem ser dedicados a um ou mais canais. Qualquer StreamingEndpoint pode efetuar pull de qualquer canal.
 
-Ao criar um canal, você pode especificar endereços IP permitidos em um dos seguintes formatos: Endereço IpV4 com 4 números, intervalo de endereços CIDR.
+Ao criar um canal, você pode especificar endereços IP permitidos em um dos seguintes formatos: endereço IpV4 com 4 números, intervalo de endereços CIDR.
 
 ### <a name="program"></a>Programa
 Um [programa](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em uma transmissão ao vivo. Canais gerem Programas. A relação entre o Canal e o Programa é muito semelhante à multimédia tradicional onde um canal tem uma transmissão em fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
@@ -150,9 +150,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 
 | Estado do canal | Indicadores IU do portal | É cobrança? |
 | --- | --- | --- |
-| A iniciar |A iniciar |Não (estado transitório) |
+| A Iniciar |A Iniciar |Não (estado transitório) |
 | A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
-| A parar |A parar |Não (estado transitório) |
+| A Parar |A Parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304701"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893353"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -38,9 +38,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../../storage/common/storage-quickstart-create-account.md).
 
@@ -70,7 +70,7 @@ Os dados de monitorização da sua subscrição estão agora a ser encaminhados 
 
 ## <a name="route-resource-data-to-the-storage-account"></a>Encaminhar os dados de recursos para a conta de armazenamento
 
-Agora, vamos configurar as **definições de diagnóstico de recursos** para configurar o encaminhamento dos dados ao nível de recursos (registos de diagnóstico e métricas dos recursos) para a conta de armazenamento.
+Agora, configuramos os dados em nível de recurso (métricas de recurso e logs de recursos) para serem roteados para a conta de armazenamento definindo **as configurações de diagnóstico do recurso**.
 
 1. Clique no botão **Monitorizar**, na lista de navegação esquerda, e em **Definições de Diagnóstico**. Aqui, pode ver uma lista de todos os recursos na sua subscrição que produzem dados de monitorização através do Azure Monitor. Se a lista não mostrar nenhum recurso, pode [criar uma aplicação lógica](../../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de avançar, para que tenha um recurso no qual possa configurar uma definição de diagnósticos.
 
@@ -162,7 +162,7 @@ Se tiver seguido os passos anteriores, os dados começaram a fluir para a sua co
 
 5. Clique nos contentores de ID de recurso, data e hora para navegar para o ficheiro PT1H.json. Clique no ficheiro PT1H.json e clique em **Transferir**. Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m=00) é sempre 00, uma vez que o registo de eventos é divididos em blobs individuais por hora.
 
-   Pode ver agora o evento JSON que foi armazenado na conta de armazenamento. Para os registos de diagnóstico de recursos, o formato dos blobs é:
+   Pode ver agora o evento JSON que foi armazenado na conta de armazenamento. Para logs de recurso de recurso, o formato para os BLOBs é:
 
    insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 

@@ -1,5 +1,5 @@
 ---
-title: Amostras & passo a passos
+title: Exemplos de programas & instruções do ML
 titleSuffix: Azure Data Science Virtual Machine
 description: Por meio desses exemplos e orientações, saiba como lidar com as tarefas e cenários comuns com o Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802441"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900054"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemplos em máquinas virtuais de ciência de dados do Azure
 
@@ -36,7 +36,7 @@ Para executar esses exemplos, você deve ter provisionado um Máquina Virtual de
 | Azure Machine Learning  | Ilustra como criar modelos de aprendizado de máquina e aprendizado aprofundado com o Machine Learning. Implemente modelos em qualquer lugar. Utilize a aprendizagem automática e a otimização de hiper-parâmetros inteligente. Também pode utilize gestão de modelos e distribuído de treinamento. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Blocos de notas PyTorch  | Exemplos de aprendizado aprofundado que usam redes neurais baseadas em PyTorch. Intervalo de blocos de notas de iniciantes a cenários avançados.  <br/> [Blocos de notas PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Uma variedade de exemplos de rede neural e técnicas implementadas usando a estrutura TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive Toolkit <br/>   | Exemplos de aprendizado aprofundado publicados pela equipe de Cognitive Toolkit na Microsoft.  <br/> [Conjunto de ferramentas cognitivos](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Conjunto de Ferramentas Cognitivas da Microsoft <br/>   | Exemplos de aprendizado aprofundado publicados pela equipe de Cognitive Toolkit na Microsoft.  <br/> [Conjunto de ferramentas cognitivos](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
 | Caffe2 | Exemplos de aprendizado aprofundado que usam redes neurais baseadas em Caffe2. Vários notebooks familiarizam os usuários com o Caffe2 e como usá-lo com eficiência. Os exemplos incluem o pré-processamento de imagem e a criação de conjunto de imagens. Eles também incluem a regressão e como usar modelos pretreinados. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Exemplos baseados em Python que usam H2O para cenários de problemas do mundo real. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | Idioma de SparkML  | Exemplos que usam recursos do Apache Spark Toolkit MLLib por meio de pySpark e MMLSpark: Microsoft Machine Learning para Apache Spark no Apache Spark 2. x.  <br/> [Idioma de SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |

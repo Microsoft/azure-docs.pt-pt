@@ -1,5 +1,5 @@
 ---
-title: Cópia em massa de um banco de dados usando uma tabela de controle com Azure Data Factory
+title: Cópia em massa de um banco de dados usando uma tabela de controle
 description: Saiba como usar um modelo de solução para copiar dados em massa de um banco de dado usando uma tabela de controle externo para armazenar uma lista de partições de tabelas de origem usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b651721e9b833c02e4789c79ff5ad0b49ce31343
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684274"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896261"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
 
@@ -76,9 +76,9 @@ O modelo define cinco parâmetros:
 
     ![Criar uma nova conexão com o repositório de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Selecione **usar este modelo**.
+5. Selecione **Utilizar este modelo**.
 
-    ![Usar este modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
+    ![Utilizar este modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     
 6. Você verá o pipeline, conforme mostrado no exemplo a seguir:
 

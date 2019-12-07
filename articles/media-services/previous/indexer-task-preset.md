@@ -1,6 +1,6 @@
 ---
 title: Predefinição de tarefa para Azure Media Indexer
-description: Este tópico fornece uma visão geral da predefinição de tarefa para Azure Media Indexer.
+description: Este tópico fornece uma visão geral da predefinição de tarefa para o indexador de mídia dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 38baa4f69d96efd68839e7ee15ae5ee6088d2063
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 29753759af341f82429f12b6710ae9c32dcb4103
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896031"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Predefinição de tarefa para Azure Media Indexer 
 

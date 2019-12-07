@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944216"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891784"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -31,7 +31,7 @@ Tópico |  Detalhes
 --------- | --------- |
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [Atualizar de uma versão anterior para a versão mais recente do](how-to-upgrade-previous-version.md) Azure ad Connect.
 Permissões obrigatórias | Para obter permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
-Transferência| [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Transferir| [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >A liberação de uma nova versão do Azure AD Connect é um processo que requer várias etapas de controle de qualidade para garantir a funcionalidade de operação do serviço e, enquanto passamos por esse processo, o número de versão de uma nova versão e o status da versão serão atualizados para refletir o estado mais recente.
@@ -70,7 +70,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 
 ### <a name="release-status"></a>Status da versão
-9/25/2019: removido do download manual até que a investigação de incidentes seja concluída.
+9/25/2019: liberado somente para atualização automática.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Novas ferramentas de solução de problemas ajudam a solucionar os cenários "usuário não sincronizando", "grupo não sincronizando" ou "membros do grupo não sincronizando".
@@ -469,18 +469,18 @@ Bloqueie o acesso à conta de AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto específico, exceto ACEs específicas para si mesma. Queremos manter as permissões padrão intactas quando se trata de si mesma.
 *   Atribua estas permissões específicas:
 
-Tipo     | Nome                          | Acesso               | Aplica-se a
+Tipo     | Nome                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SISTEMA                        | Controle total         | Este objeto  |
-Permitir    | Administradores corporativos             | Controle total         | Este objeto  |
-Permitir    | Administradores de domínio                 | Controle total         | Este objeto  |
-Permitir    | Administradores                | Controle total         | Este objeto  |
+Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
+Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
+Permitir    | Administradores do Domínio                 | Controlo Total         | Este objeto  |
+Permitir    | Administradores                | Controlo Total         | Este objeto  |
 Permitir    | Controladores de domínio da empresa | Listar conteúdo        | Este objeto  |
 Permitir    | Controladores de domínio da empresa | Ler todas as propriedades  | Este objeto  |
 Permitir    | Controladores de domínio da empresa | Permissões de leitura     | Este objeto  |
-Permitir    | Usuários autenticados           | Listar conteúdo        | Este objeto  |
-Permitir    | Usuários autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Usuários autenticados           | Permissões de leitura     | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Listar conteúdo        | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Permissões de leitura     | Este objeto  |
 
 Para restringir as configurações para a conta de AD DS, você pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell atribuirá as permissões mencionadas acima à conta de AD DS.
 

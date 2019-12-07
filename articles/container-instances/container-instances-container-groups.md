@@ -4,12 +4,12 @@ description: Saiba mais sobre grupos de contêineres em instâncias de contêine
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706315"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896584"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em instâncias de contêiner do Azure
 
@@ -68,7 +68,9 @@ Para obter mais informações, consulte a propriedade [ResourceRequirements][res
 
 ## <a name="networking"></a>Funcionamento em Rede
 
-Grupos de contêineres compartilham um endereço IP e um namespace de porta nesse endereço IP. Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e no contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. Os contêineres dentro de um grupo podem alcançar uns aos outros por meio de localhost nas portas que foram expostas, mesmo se essas portas não estiverem expostas externamente no endereço IP do grupo.
+Os grupos de contêineres podem compartilhar um endereço IP voltado para o externo e um namespace de porta nesse endereço IP. Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e no contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. 
+
+Dentro de um grupo de contêineres, as instâncias de contêineres podem chegar umas às outras por meio de localhost em qualquer porta, mesmo se essas portas não estiverem expostas externamente no endereço IP do grupo ou no contêiner.
 
 Opcionalmente, implante grupos de contêineres em uma [rede virtual do Azure][virtual-network] (versão prévia) para permitir que os contêineres se comuniquem com segurança com outros recursos na rede virtual.
 

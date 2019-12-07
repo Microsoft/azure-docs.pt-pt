@@ -1,5 +1,5 @@
 ---
-title: Criar pipelines de dados de previsão usando Azure Data Factory
+title: Criar pipelines de dados de previsão
 description: Saiba como criar um pipeline de previsão usando a atividade de execução de Azure Machine Learning em lote no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dc2104495f231a316a1354100ecc105e8fda5bb4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683775"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893846"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines preditivas usando Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -124,7 +124,7 @@ O trecho JSON a seguir define uma atividade de execução de Azure Machine Learn
 }
 ```
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | nome              | Nome da atividade no pipeline     | Sim      |
 | descrição       | Texto que descreve o que a atividade faz.  | Não       |

@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure - Carregar um ficheiro para um contentor | Microsoft Docs
-description: Utilize o script da CLI do Azure para carregar um ficheiro local para um contentor de armazenamento.
+description: Este artigo mostra como usar o script CLI do Azure para carregar um arquivo local em um contêiner de armazenamento.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5fd7c41301aa2ece1b5cf62dd294ecc1970521be
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 873bd81d1bb6f67de17f31d1701cae08d091c2e6
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209616"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900226"
 ---
 # <a name="cli-example-upload-a-local-file-to-a-container"></a>Exemplo da CLI: Carregar um ficheiro local para um contentor 
 
@@ -35,6 +35,6 @@ Neste artigo, o script da CLI do Azure mostra como carregar um ficheiro local pa
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/upload-file-asset/UploadFile-Asset.sh "Upload a file")]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral dos serviços de multimédia](media-services-overview.md)
+[Visão geral dos serviços de mídia](media-services-overview.md)

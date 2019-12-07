@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/06/2019
 ms.author: cabailey
-ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546853"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900464"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use transmissão ao vivo de caça no Azure Sentinel para detectar ameaças
 
@@ -70,7 +70,7 @@ Você pode criar uma sessão transmissão ao vivo de uma consulta de busca exist
 
 5. Selecione **reproduzir** na barra de comandos.
     
-    A barra de status na barra de comandos indica se o transmissão ao vivo está em execução ou em pausa. No exemplo a seguir, a sessão está em execução:
+    A barra de status na barra de comandos indica se a sessão transmissão ao vivo está em execução ou em pausa. No exemplo a seguir, a sessão está em execução:
     
     > [!div class="mx-imgBorder"]
     > ![criar sessão transmissão ao vivo do Azure Sentinel caça](./media/livestream/livestream-session.png)
@@ -110,7 +110,6 @@ Essa ação abre o assistente de criação de regras, que é preenchido previame
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a usar o transmissão ao vivo de busca no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-
 
 - [Busca de ameaças de forma proativa](hunting.md)
 - [Use blocos de anotações para executar campanhas de busca automatizadas](notebooks.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o bancada | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o bancada | Microsoft Docs'
 description: Saiba como configurar o logon único entre Azure Active Directory e a bancada.
 services: active-directory
 documentationCenter: na
@@ -13,216 +13,158 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 98ef1b3a44b6db49048ea53b2539e3d7c7e743d8
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8f946ce1ca397428d015b83ca6953a9f537519db
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823901"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893119"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benchling"></a>Tutorial: Integração do Azure Active Directory com o bancada
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benchling"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com a bancada
 
-Neste tutorial, você aprenderá a integrar o bancada com o Azure Active Directory (Azure AD).
-A integração do bancada ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o bancada com o Azure Active Directory (Azure AD). Ao integrar o bancada com o Azure AD, você pode:
 
-* No Azure AD, é possível controlar quem tem acesso ao bancada.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao bancada (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao bancada.
+* Habilite seus usuários a serem conectados automaticamente ao bancada com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao bancada, você precisa dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do bancada
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do bancada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* A bancada dá suporte ao **SP** iniciado por um SSO e ao **IDP**
 
+
+* A bancada dá suporte ao SP iniciado por um SSO **e ao IDP**
 * A bancação dá suporte ao provisionamento **de usuário just in time**
+
 
 ## <a name="adding-benchling-from-the-gallery"></a>Adicionando a bancada da Galeria
 
 Para configurar a integração do banco de bancada ao Azure AD, você precisa adicionar o banco de gerenciamento da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o banco de tarefas da galeria, execute as seguintes etapas:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **bancada** na caixa de pesquisa.
+1. Selecione **bancada** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-benchling"></a>Configurar e testar o logon único do Azure AD para o bancada
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+Configure e teste o SSO do Azure AD com o bancada usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no banco de trabalho.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+Para configurar e testar o SSO do Azure AD com o bancada, conclua os seguintes blocos de construção:
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO de bancada](#configure-benchling-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste de bancada](#create-benchling-test-user)** – para ter um equivalente de B. Simon em bancada que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-4. Na caixa de pesquisa, digite **bancada**, selecione **bancada** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-     ![Bancada na lista de resultados](common/search-new-app.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo de **bancada** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o bancada com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do bancada.
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-Para configurar e testar o logon único do Azure AD com o bancada, você precisa concluir os seguintes blocos de construção:
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.benchling.com/ext/saml/metadata.xml`
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o logon único](#configure-benchling-single-sign-on)** de bancada-para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar usuário de teste](#create-benchling-test-user)** de bancada – para ter um equivalente de Brenda Simon em bancada que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.benchling.com/ext/saml/signin:finish`
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o bancada, execute as seguintes etapas:
-
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo de **bancada** , selecione **logon único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar configuração básica de SAML](common/edit-urls.png)
-
-4. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , execute as seguintes etapas:
-
-    ![Informações de logon único de domínio e URLs de bancada](common/idp-intiated.png)
-
-    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`https://<SUBDOMAIN>.benchling.com/ext/saml/metadata.xml`
-
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://<SUBDOMAIN>.benchling.com/ext/saml/signin:finish`
-
-5. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
-
-    ![Informações de logon único de domínio e URLs de bancada](common/metadata-upload-additional-signon.png)
-
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<SUBDOMAIN>.benchling.com`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.benchling.com`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente](mailto:support@benchling.com) de bancada para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente de bancada](mailto:support@benchling.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-6. O aplicativo de bancação espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo **atributos de usuário** .
+1. O aplicativo de bancação espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
-7. Além de acima, o aplicativo de bancada espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo: 
+1. Além de acima, o aplicativo de bancada espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
 
     | Nome | Atributo de origem|
     | ---------------| --------------- |
     | FirstName | user.givenname |
-    | LastName | User. sobrenome |
-    | Email | user.mail |
+    | Apelido | User. sobrenome |
+    | E-mail | user.mail |
 
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
-
-    c. Deixe o **namespace** em branco.
-
-    d. Selecione origem como **atributo**.
-
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
-
-    f. Clique em **Ok**
-
-    g. Clique em **Guardar**.
-
-8. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
     ![O link de download de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-benchling-single-sign-on"></a>Configurar o logon único de bancada
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Para configurar o logon único no lado do bancada, você precisa enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [bancada](mailto:support@benchling.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
-
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Botão novo usuário](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. No campo **nome** , insira **brendafernandes**.
-  
-    b. No campo **nome de usuário** , brittasimon@yourcompanydomain.extensiondigite. Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao bancada.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao bancada.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **bancada**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **bancada**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicativos, selecione **bancada**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![O link de bancada na lista de aplicativos](common/all-applications.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+## <a name="configure-benchling-sso"></a>Configurar SSO de bancada
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+Para configurar o logon único no lado do **bancada** , você precisa enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [bancada](mailto:support@benchling.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-benchling-test-user"></a>Criar usuário de teste de bancada
 
-Nesta seção, um usuário chamado Brenda Simon é criado em bancada. A bancada dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir na bancada, um novo será criado após a autenticação.
+Nesta seção, um usuário chamado B. Simon é criado em bancada. A bancada dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir na bancada, um novo será criado após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco de bancada no painel de acesso, você deverá ser conectado automaticamente à bancada para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente a bancada com o Azure AD](https://aad.portal.azure.com/)
 

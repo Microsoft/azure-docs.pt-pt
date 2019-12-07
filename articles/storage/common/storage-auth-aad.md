@@ -1,22 +1,23 @@
 ---
-title: Autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory | Microsoft Docs
+title: Autorizar o acesso a BLOBs e filas usando Active Directory
+titleSuffix: Azure Storage
 description: Autorize o acesso a BLOBs e filas do Azure usando Azure Active Directory.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598112"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891818"
 ---
-# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory
+# <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas usando Azure Active Directory
 
 O armazenamento do Azure dá suporte ao uso de Azure Active Directory (AD) para autorizar solicitações de armazenamento de BLOBs e filas. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo AD do Azure para retornar um token 2,0 do OAuth. O token pode ser usado para autorizar uma solicitação para acessar um recurso no armazenamento de BLOBs ou de filas.
 

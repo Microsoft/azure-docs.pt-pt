@@ -1,6 +1,6 @@
 ---
-title: Utilizar o moderador de conteúdo de multimédia do Azure para detetar possíveis conteúdos para adultos | Documentos da Microsoft
-description: Moderação de vídeo ajuda a detetar potenciais conteúdos para adultos nos vídeos.
+title: Usar o Content Moderator de mídia do Azure para detectar possíveis conteúdo adulto e erótico | Microsoft Docs
+description: O processador de mídia do Azure Media Content Moderator ajuda a detectar possíveis conteúdos de conteúdo adulto e erótico em vídeos.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,81 +14,81 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465682"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896006"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilizar o moderador de conteúdo de multimédia do Azure para detetar possíveis conteúdos para adultos 
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Content Moderator de mídia do Azure para detectar possíveis conteúdo adulto e erótico 
 
-## <a name="overview"></a>Descrição geral
-O **moderador de conteúdo de multimédia do Azure** processador de multimédia (MP) permite-lhe utilizar moderação assistida por computador para os seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana.
+## <a name="overview"></a>Visão geral
+O MP (processador de mídia) do **Azure media Content moderator** permite que você use a moderação assistida por computador para seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana.
 
-O **moderador de conteúdo de multimédia do Azure** MP está atualmente em pré-visualização.
+O **Azure Media Content moderator** MP está atualmente em visualização.
 
-Este artigo fornece detalhes sobre **moderador de conteúdo de multimédia do Azure** e mostra como utilizá-lo com o SDK de Media Services para .NET.
+Este artigo fornece detalhes sobre o **Content moderator de mídia do Azure** e mostra como usá-lo com o SDK dos serviços de mídia para .net.
 
-## <a name="content-moderator-input-files"></a>Ficheiros de entrada do moderador de conteúdo
-Ficheiros de vídeo. Atualmente, são suportados os seguintes formatos: MP4, MOV e WMV.
+## <a name="content-moderator-input-files"></a>Content Moderator arquivos de entrada
+Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
 
-## <a name="content-moderator-output-files"></a>Ficheiros de saída do conteúdo moderador
-A saída moderada no formato JSON inclui capturas detetado automaticamente e quadros-chave. Os quadros-chave é devolvidos com pontuações de confiança para possível conteúdo adultos. Eles também incluem um sinalizador booleano que indica se uma revisão é recomendada. O sinalizador de recomendação de revisão é atribuído a valores com base nos limiares internos para as pontuações para adultos.
+## <a name="content-moderator-output-files"></a>Content Moderator arquivos de saída
+A saída moderada no formato JSON inclui capturas e quadros-chave detectados automaticamente. Os quadros-chave são retornados com pontuações de confiança para conteúdo adulto ou erótico possível. Eles também incluem um sinalizador booliano que indica se uma revisão é recomendada. O sinalizador de recomendação de revisão recebe valores com base nos limites internos para pontuações de adulto e erótico.
 
-## <a name="elements-of-the-output-json-file"></a>Elementos do ficheiro de saída JSON
+## <a name="elements-of-the-output-json-file"></a>Elementos do arquivo JSON de saída
 
-A tarefa produz um ficheiro de saída do JSON que contém metadados sobre capturas detetadas e quadros-chave e se eles contêm conteúdo de adultos.
+O trabalho produz um arquivo de saída JSON que contém metadados sobre capturas e quadros-chave detectados e se eles contêm conteúdo adulto ou erótico.
 
-A saída JSON inclui os seguintes elementos:
+O JSON de saída inclui os seguintes elementos:
 
-### <a name="root-json-elements"></a>Elementos de JSON de raiz
+### <a name="root-json-elements"></a>Elementos JSON raiz
 
 | Elemento | Descrição |
 | --- | --- |
-| version |A versão do Content Moderator. |
-| escala temporal |"Ticks" por segundo do vídeo. |
-| offset |Desvio de tempo para carimbos de data/hora. Na versão 1.0 de APIs de vídeo, este valor será sempre 0. Este valor podem ser alterados no futuro. |
-| framerate |Fotogramas por segundo do vídeo. |
-| Largura |A largura do quadro de vídeo de saída, em pixéis.|
-| Altura |A altura do quadro de vídeo de saída, em pixéis.|
-| totalDuration |A duração da entrada de vídeo, em "ticks". |
-| [fragments](#fragments-json-elements) |Os metadados é segmentado cópias em diferentes segmentos chamados fragmentos. Cada fragmento é uma captura automaticamente detetados com um início, a duração, o número do intervalo e o evento (s). |
+| versão |A versão do Content Moderator. |
+| timescale |"Tiques" por segundo do vídeo. |
+| desvio |Desvio de tempo para carimbos de data/hora. Na versão 1,0 de APIs de vídeo, esse valor será sempre 0. Esse valor pode ser alterado no futuro. |
+| quadros |Fotogramas por segundo do vídeo. |
+| largura |A largura do quadro de vídeo de saída, em pixels.|
+| altura |A altura do quadro de vídeo de saída, em pixels.|
+| totalDuration |A duração do vídeo de entrada, em "tiques". |
+| [fragments](#fragments-json-elements) |Os metadados são divididos em segmentos diferentes chamados fragmentos. Cada fragmento é uma captura detectada automaticamente com início, duração, número de intervalo e evento (s). |
 
-### <a name="fragments-json-elements"></a>Elementos JSON de fragmentos
+### <a name="fragments-json-elements"></a>Fragmentos de elementos JSON
 
 |Elemento|Descrição|
 |---|---|
-| start |A hora de início do primeiro evento na "ticks". |
-| Duração |O comprimento do fragmento, em "ticks". |
-| interval |O intervalo de cada entrada de evento dentro do fragmento, na "ticks". |
-| [events](#events-json-elements) |Cada evento representa um clip e cada clip contém quadros-chave detetados e monitorizados dentro desse período de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
+| start |A hora de início do primeiro evento em "tiques". |
+| duration |O comprimento do fragmento, em "tiques". |
+| intervalo |O intervalo de cada entrada de evento dentro do fragmento, em "tiques". |
+| [LostFocus](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e acompanhados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
 
 |Elemento|Descrição|
 |---|---|
-| reviewRecommended | `true` ou `false` consoante esteja a **adultScore** ou **racyScore** exceder os limiares internos. |
-| adultScore | Pontuação de confiança para possível conteúdo para adultos, numa escala de 0,00 para 0,99. |
-| racyScore | Pontuação de confiança para possível conteúdo para adultos, numa escala de 0,00 para 0,99. |
-| index | índice do quadro numa escala do primeiro quadro de índice para o último índice do quadro. |
-| timestamp | A localização do quadro em "ticks". |
-| shotIndex | Captura o índice do pai. |
+| reviewRecommended | `true` ou `false` dependendo se **adultScore** ou **racyScore** excedem os limites internos. |
+| adultScore | Pontuação de confiança para conteúdo adulto possível, em uma escala de 0, 0 a 0,99. |
+| racyScore | Pontuação de confiança para conteúdo de erótico possível, em uma escala de 0, 0 a 0,99. |
+| index | índice do quadro em uma escala do primeiro índice de quadro para o último índice de quadro. |
+| carimbo de data/hora | O local do quadro em "tiques". |
+| shotIndex | O índice da captura pai. |
 
 
-## <a name="content-moderation-quickstart-and-sample-output"></a>Saída de exemplo e de início rápido de moderação de conteúdos
+## <a name="content-moderation-quickstart-and-sample-output"></a>Início rápido de moderação de conteúdo e saída de exemplo
 
-### <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
-Ao criar uma tarefa com **moderador de conteúdo de multimédia do Azure**, tem de especificar uma predefinição de configuração. A predefinição de configuração seguinte é apenas para moderação de conteúdos.
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
+Ao criar uma tarefa com o **Content moderator de mídia do Azure**, você deve especificar uma predefinição de configuração. A predefinição de configuração a seguir é apenas para moderação de conteúdo.
 
     {
       "version":"2.0"
     }
 
-### <a name="net-code-sample"></a>Exemplo de código do .NET
+### <a name="net-code-sample"></a>Exemplo de código .NET
 
-O seguinte exemplo de código do .NET usa o SDK de .NET de serviços de multimédia para executar uma tarefa do Content Moderator. Demora um suporte de dados de serviços ativo como entrada que contém o vídeo para moderado.
-Consulte a [guia de introdução de vídeo Content Moderator](../../cognitive-services/Content-Moderator/video-moderation-api.md) para o código-fonte completo e o projeto do Visual Studio.
+O exemplo de código .NET a seguir usa o SDK do .NET dos serviços de mídia para executar um trabalho Content Moderator. Ele usa um ativo de serviços de mídia como a entrada que contém o vídeo a ser moderado.
+Consulte o guia de [início rápido de vídeo Content moderator](../../cognitive-services/Content-Moderator/video-moderation-api.md) para obter o código-fonte completo e o projeto do Visual Studio.
 
 
 ```csharp
@@ -223,17 +223,17 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Ligações relacionadas
-[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
+## <a name="related-links"></a>Hiperligações relacionadas
+[Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 
-[Demonstrações de análise de multimédia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações de Análise de Mídia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o Content Moderator [solução e revisão de moderação de vídeo](../../cognitive-services/Content-Moderator/video-moderation-human-review.md).
+Saiba mais sobre a [solução de análise e moderação de vídeo](../../cognitive-services/Content-Moderator/video-moderation-human-review.md)de Content Moderator.
 
-Obtenha o código-fonte completo e o projeto do Visual Studio a partir da [início rápido de moderação de vídeos](../../cognitive-services/Content-Moderator/video-moderation-api.md). 
+Obtenha o código-fonte completo e o projeto do Visual Studio do guia de [início rápido de moderação do vídeo](../../cognitive-services/Content-Moderator/video-moderation-api.md). 
 
-Saiba como gerar [revisões de vídeo](../../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) da sua saída moderada, e [moderar as transcrições](../../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) no .NET.
+Saiba como gerar [revisões de vídeo](../../cognitive-services/Content-Moderator/video-reviews-quickstart-dotnet.md) de sua saída moderada e [transcrições moderadas](../../cognitive-services/Content-Moderator/video-transcript-reviews-quickstart-dotnet.md) no .net.
 
-Confira o .NET detalhadas [tutorial e revisão de moderação de vídeo](../../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md). 
+Confira o tutorial detalhado de [moderação e análise de vídeo](../../cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md).net. 

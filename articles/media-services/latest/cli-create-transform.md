@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure – Criar uma transformação | Microsoft Docs
-description: Utilize o script da CLI do Azure para criar uma Transformação.
+description: As transformações descrevem um fluxo de trabalho de tarefas simples para processar os ficheiros de vídeo ou áudio (normalmente designados como "receita"). Neste artigo, o script da CLI do Azure mostra como criar uma transformação.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7fea8d997d25d6075e30620e7fd3527003c6a8bb
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c21a16d043f972042949d6340985774741b3df6a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128796"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888620"
 ---
-# <a name="cli-example-create-a-transform"></a>Exemplo da CLI: Criar uma transformação
+# <a name="cli-example-create-a-transform"></a>Exemplo da CLI: Criar uma Transformação
 
 Neste artigo, o script da CLI do Azure mostra como criar uma transformação. As transformações descrevem um fluxo de trabalho de tarefas simples para processar os ficheiros de vídeo ou áudio (normalmente designados como "receita"). Deve sempre verificar se já existe uma Transformação com o nome e a "receita" pretendidos. Se for o caso, deve reutilizá-la.
 

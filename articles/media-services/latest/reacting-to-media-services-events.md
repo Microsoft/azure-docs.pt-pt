@@ -1,6 +1,6 @@
 ---
 title: Reagindo aos eventos dos serviços de mídia do Azure | Microsoft Docs
-description: Use a grade de eventos do Azure para assinar eventos de serviços de mídia.
+description: Este artigo descreve como usar a grade de eventos do Azure para assinar eventos de serviços de mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 07ad39bdcec6e4b00d3b47553930fc05694ca2af
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026614"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887889"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
 

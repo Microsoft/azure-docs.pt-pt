@@ -3,12 +3,12 @@ title: 'Tutorial: criar uma definição de política personalizada'
 description: Neste tutorial, você criará uma definição de política personalizada para Azure Policy para impor regras de negócios personalizadas em seus recursos do Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483982"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885454"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: criar uma definição de política personalizada
 
@@ -53,7 +53,7 @@ Com base no requisito de negócios, o recurso do Azure para auditar com Azure Po
 Há várias maneiras de determinar as propriedades de um recurso do Azure. Vamos examinar cada um para este tutorial:
 
 - Extensão do Azure Policy para o VS Code
-- Modelos do Resource Manager
+- Modelos do Gestor de Recursos
   - Exportar recurso existente
   - Experiência de criação
   - Modelos de início rápido (GitHub)
@@ -64,7 +64,7 @@ Há várias maneiras de determinar as propriedades de um recurso do Azure. Vamos
 
 A [extensão de vs Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) pode ser usada para procurar recursos em seu ambiente e ver as propriedades do Resource Manager em cada recurso.
 
-### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+### <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
 
 Há várias maneiras de examinar um modelo do [Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que você está procurando gerenciar.
 
@@ -200,35 +200,37 @@ Assim como CLI do Azure, os resultados mostram um alias com suporte das contas d
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-O [grafo de recursos do Azure](../../resource-graph/overview.md) é um novo serviço. Ele permite que outro método encontre Propriedades de recursos do Azure. Aqui está um exemplo de consulta para examinar uma única conta de armazenamento com o grafo de recursos:
+O [grafo de recursos do Azure](../../resource-graph/overview.md) é um serviço que fornece outro método para localizar Propriedades de recursos do Azure. Aqui está um exemplo de consulta para examinar uma única conta de armazenamento com o grafo de recursos:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 Os resultados são semelhantes ao que vemos nos modelos do Resource Manager e por meio do Azure Resource Explorer. No entanto, os resultados do grafo de recursos do Azure também podem incluir detalhes de [alias](../concepts/definition-structure.md#aliases) _projetando_ a matriz de _aliases_ :
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 Aqui está um exemplo de saída de uma conta de armazenamento para aliases:
@@ -455,7 +457,7 @@ A definição concluída pode ser usada para criar uma nova política. O portal 
 
 Se já está a trabalhar com os recursos neste tutorial, utilize os passos seguintes para eliminar quaisquer atribuições ou definições criadas acima:
 
-1. Selecione **definições** (ou **atribuições** se você estiver tentando excluir uma atribuição) em **criação** no lado esquerdo da página Azure Policy.
+1. Selecione **definições** (ou **atribuições** se estiver a tentar eliminar uma atribuição) sob **criação** no lado esquerdo da página política do Azure.
 
 1. Procure a nova definição de iniciativa ou de política (ou atribuição) que acabou de remover.
 

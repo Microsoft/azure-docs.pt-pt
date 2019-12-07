@@ -1,6 +1,6 @@
 ---
-title: Como verificar o progresso da tarefa com a REST API | Documentos da Microsoft
-description: Saiba como controlar o progresso da tarefa.
+title: Como verificar o andamento do trabalho usando a API REST | Microsoft Docs
+description: Este artigo demonstra como verificar o andamento do trabalho usando a API REST dos serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869497"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901487"
 ---
-# <a name="how-to-check-job-progress"></a>Como: verificar o progresso da tarefa
+# <a name="how-to-check-job-progress"></a>Como verificar o andamento do trabalho
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode descobrir o estado da tarefa usando a propriedade de estado da tarefa. Para obter mais informações sobre a propriedade de estado, consulte [propriedades de entidade de tarefa](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+Quando você executa trabalhos, muitas vezes requer uma maneira de acompanhar o andamento do trabalho. Você pode descobrir o status do trabalho usando a propriedade de estado do trabalho. Para obter mais informações sobre a propriedade State, consulte [Propriedades da entidade do trabalho](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
-## <a name="connect-to-media-services"></a>Ligar aos Media Services
+## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
 
-Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como se conectar à API do AMS, consulte [acessar a API dos serviços de mídia do Azure com a autenticação do Azure ad](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="check-job-progress"></a>Verificar progresso da tarefa
 
@@ -68,6 +68,6 @@ Resposta:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Descrição geral de REST API de operações de serviços de multimédia](media-services-rest-how-to-use.md)
+[Visão geral da API REST de operações dos serviços de mídia](media-services-rest-how-to-use.md)

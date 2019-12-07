@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: c4c2b1f334e37691655b18d2c629fbd8edc95382
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171597"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900183"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de correspondência no mecanismo de regras padrão para a CDN do Azure
 
@@ -40,7 +40,7 @@ Operador | Valores suportados
 ---------|----------------
 Equals, não é igual a | Móvel, área de trabalho
 
-### <a name="http-version"></a>Versão de HTTP
+### <a name="http-version"></a>Versão HTTP
 
 Identifica solicitações com base na versão HTTP da solicitação.
 
@@ -58,11 +58,11 @@ Identifica solicitações com base nas informações de cookie na solicitação 
 
 Nome do cookie | Operador | Valor do cookie | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
-- Você não pode usar valores curinga (incluindo asteriscos (\*)) ao especificar um nome de cookie; Você usa um nome de cookie exato.
+- Você não pode usar valores curinga (incluindo asteriscos (\*)) ao especificar um nome de cookie; Você deve usar um nome de cookie exato.
 - Você pode especificar apenas um único nome de cookie por instância dessa condição de correspondência.
 - Comparações de nome de cookie diferenciam maiúsculas de minúsculas.
 - Para especificar vários valores de cookie, use um único espaço entre cada valor de cookie. 
@@ -77,7 +77,7 @@ Identifica solicitações com base em argumentos definidos para o método POST R
 
 Nome do argumento | Operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="query-string"></a>Cadeia de consulta
 
@@ -97,19 +97,19 @@ Identifica solicitações com base no local ou endereço IP do solicitante.
 
 Operador | Valores suportados
 ---------|-----------------
-Qualquer | N/D
+Qualquer | N/A
 Correspondência geográfica | Indicativo do país
 Correspondência de IP | Endereço IP (separado por espaços)
-Não qualquer | N/D
+Não qualquer | N/A
 Não correspondência geográfica | Indicativo do país
 Não correspondência de IP | Endereço IP (separado por espaços)
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
 - Use a notação CIDR.
 - Para especificar vários endereços IP e blocos de endereço IP, use um único espaço entre os valores:
   - **Exemplo de IPv4**: *1.2.3.4 10.20.30.40* corresponde a todas as solicitações que chegam de um endereço 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:8*0 corresponde a todas as solicitações que chegam de um dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+  - **Exemplo de IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corresponde a todas as solicitações que chegam de um dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe de um bloco de endereço IP é o endereço IP base seguido por uma barra e o tamanho do prefixo. Por exemplo:
   - **Exemplo de IPv4**: *5.5.5.64/26* corresponde a todas as solicitações que chegam de endereços 5.5.5.64 por meio de 5.5.5.127.
   - **Exemplo de IPv6**: *1:2:3:/48* corresponde a todas as solicitações que chegam de endereços 1:2:3:0:0:0:0:0 a 1:2: 3: ffff: ffff: ffff: ffff: ffff.
@@ -132,7 +132,7 @@ Identifica as solicitações que usam um cabeçalho específico na solicitação
 
 Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-Cadeia | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
+String | [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
 ### <a name="request-method"></a>Método de solicitação
 
@@ -144,7 +144,7 @@ Operador | Valores suportados
 ---------|----------------
 Equals, não é igual a | OBTER, POSTAR, COLOCAR, EXCLUIR, CABEÇALHO, OPÇÕES, RASTREAMENTO
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
 - Somente o método GET Request pode gerar conteúdo armazenado em cache na CDN do Azure. Todos os outros métodos de solicitação são proxies por meio da rede. 
 
@@ -168,7 +168,7 @@ Operador | URL do Pedido | Transformação de caso
 ---------|-------------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
 - Ao usar essa condição de regra, certifique-se de incluir informações de protocolo. Por exemplo: *https://www.\<yourdomain\>.com* .
 
@@ -182,7 +182,7 @@ Operador | Extensão | Transformação de caso
 ---------|-----------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
 - Para extensão, não inclua um ponto à esquerda; por exemplo, use *HTML* em vez de *. html*.
 
@@ -196,7 +196,7 @@ Operador | Nome de ficheiro | Transformação de caso
 ---------|-----------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
 - Para especificar vários nomes de arquivo, separe cada nome de arquivo com um único espaço. 
 
@@ -210,7 +210,7 @@ Operador | Valor | Transformação de caso
 ---------|-------|---------------
 [Lista de operadores padrão](#standard-operator-list) | Cadeia de caracteres, int | Nenhuma transformação, para letras maiúsculas, para minúsculas
 
-#### <a name="key-information"></a>Informações de chave
+#### <a name="key-information"></a>Informação importante
 
 - Um valor de nome de arquivo pode aproveitar os valores curinga. Por exemplo, cada padrão de nome de arquivo pode consistir em um ou mais asteriscos (*), onde cada asterisco corresponde a uma sequência de um ou mais caracteres.
 
@@ -221,13 +221,13 @@ Operador | Valor | Transformação de caso
 Para regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
 
 - Qualquer
-- É igual a 
+- Igual a 
 - Contains 
 - Começa com 
 - termina com 
-- Menor que
+- Menos do que
 - Menor ou igual a
-- Maior que
+- Mais do que
 - Maior ou igual a
 - Não qualquer
 - Não contém

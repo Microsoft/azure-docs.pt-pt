@@ -1,5 +1,5 @@
 ---
-title: 'Destinos de computação: onde treinar e implantar modelos'
+title: O que são destinos de computação
 titleSuffix: Azure Machine Learning
 description: Defina onde você deseja treinar ou implantar seu modelo com Azure Machine Learning.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd4ac07ddf94bd7fc12a2673ce76fb0b9f4d2ccb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580586"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901433"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -67,6 +67,6 @@ Um destino de computação *não gerenciado não* é gerenciado pelo Azure Machi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a:
+Saiba como:
 * [Configurar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md)
 * [Implantar seu modelo em um destino de computação](how-to-deploy-and-where.md)

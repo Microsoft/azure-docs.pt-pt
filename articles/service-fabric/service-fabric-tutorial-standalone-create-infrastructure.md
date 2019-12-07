@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 048051a612793cbe82f82fbde482ed470ad3758c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 12/06/2019
 ms.locfileid: "73177837"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura do AWS para alojar um cluster do Service Fabric
@@ -82,7 +82,7 @@ O Service Fabric requer um número de portas abertas entre os anfitriões do clu
 
 Para evitar abrir estas portas para o mundo, abra-as apenas para anfitriões no mesmo grupo de segurança. Tome nota do ID de grupo de segurança, no exemplo, **sg-c4fb1eba**.  Em seguida, selecione **Editar**.
 
-Adicione quatro regras ao grupo de segurança para as dependências do serviço e, em seguida, mais três para o próprio Service Fabric. A primeira regra é permitir o tráfego de ICMP, para verificações de conectividade básica. As outras regras abrem as portas necessárias para habilitar o registro remoto.
+Adicione quatro regras ao grupo de segurança para as dependências do serviço e, em seguida, mais três para o próprio Service Fabric. A primeira regra é permitir o tráfego de ICMP, para verificações de conectividade básica. As outras regras abrem as portas necessárias para ativar o SMB e o Registo Remoto.
 
 Para a primeira regra, selecione **Adicionar Regra** e, no menu pendente, selecione **Todo o ICMP - IPv4**. Selecione a caixa de entrada junto a Personalizado e introduza o ID do grupo de segurança acima.
 
@@ -118,18 +118,30 @@ Para validar que a conectividade básica funciona, utilize o comando ping.
 ping 172.31.20.163
 ```
 
-Se o resultado for semelhante a `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repetido quatro vezes, a ligação entre as instâncias está a funcionar.  
+Se o resultado for semelhante a `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repetido quatro vezes, a ligação entre as instâncias está a funcionar.  Valide agora que a partilha SMB funciona com o seguinte comando:
+
+```
+net use * \\172.31.20.163\c$
+```
+
+Deverá devolver `Drive Z: is now connected to \\172.31.20.163\c$.` como resultado.
 
 ## <a name="prep-instances-for-service-fabric"></a>Preparar instâncias do Service Fabric
 
-Se for criar a partir do zero, tem de efetuar alguns passos adicionais.  Ou seja, você precisaria validar se o registro remoto estava em execução e abrir as portas necessárias.
+Se for criar a partir do zero, tem de efetuar alguns passos adicionais.  Nomeadamente, tem de validar que o registo remoto estava a ser executado, ativar o SMB e abrir as portas necessárias para o SMB e o registo remoto.
 
 Para facilitar, vai incorporar todo este trabalho quando colocar as instâncias no programa de arranque com o script de dados de utilizador.
+
+Para ativar o SMB, este é o comando do PowerShell utilizado:
+
+```powershell
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+```
 
 Para abrir as portas na firewall, o comando do PowerShell é:
 
 ```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

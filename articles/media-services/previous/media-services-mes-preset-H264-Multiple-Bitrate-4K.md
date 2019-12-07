@@ -1,6 +1,6 @@
 ---
-title: H264 Multiple Bitrate 4K Media Encoder Standard configuração predefinida - Azure | Documentos da Microsoft
-description: O tópico fornece uma visão geral do **H264 Multiple Bitrate 4K** predefinido de tarefa.
+title: H264 taxas de bits múltiplas 4K Media Encoder Standard predefinida-Azure | Microsoft Docs
+description: O artigo fornece uma visão geral da predefinição de tarefa Media Encoder Standard **H264 taxas de bits múltiplas 4K** .
 author: Juliako
 manager: femila
 editor: ''
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e2c5339731267a00e3423e79bc25b9d03d274bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129589"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887022"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 Taxas de Bits Múltiplas 4K
-`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` define um conjunto de predefinições de codificação que você pode usar ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou você pode criar suas próprias predefinições de JSON ou baseadas em XML (usando a codificação UTF-8 ou UTF-16. Em seguida, você passaria a predefinição personalizada para o codificador. Para obter a lista de todos os nomes predefinidos com suporte por este codificador de `Media Encoder Standard`, consulte [predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Multiple Bitrate 4K` predefinidos no formato XML e JSON.  
+ Este tópico mostra a predefinição de `H264 Multiple Bitrate 4K` no formato XML e JSON.  
   
- Esta predefinição produz um conjunto de 12 ficheiros MP4 GOP alinhados, desde 20000 kbps até 1000 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
-  
-> [!NOTE]
->  Deve obter a unidade reservada Premium codifica de tipo com 4K. Para obter mais informações, consulte [como a codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+ Essa predefinição produz um conjunto de 12 arquivos MP4 alinhados a GOP, variando de 20000 kbps a 1000 Kbps, e áudio AAC estéreo. Para obter informações detalhadas sobre perfil, taxa de bits, taxa de amostragem, etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que cada elemento nessas predefinições significa e os valores válidos para cada elemento, consulte o tópico [Media Encoder Standard Schema](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma combinação de proporções, tais como: 1280x720, 720x480, 640x360.  
+>  Você deve obter o tipo de unidade reservada Premium com codificações de 4K. Para obter mais informações, consulte [como dimensionar a codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+  
+> [!NOTE]
+>  Ao modificar os valores de `Width` e `Height` entre camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo: 1920 x 1080, 1280x720, 1080x576, 640 x 360. Você não deve usar uma combinação de taxas de proporção, como: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

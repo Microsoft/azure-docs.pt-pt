@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: ebe362be49995ce2cd1f4c43a5cfbee408396976
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275745"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900412"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -101,6 +101,8 @@ Resumo dos fatores que influenciam o tempo necessário para concluir um **ciclo 
 - Limites de taxa de solicitação e limitação implementados pelo sistema de destino. Alguns sistemas de destino implementam limites de taxa de solicitação e limitação, o que pode afetar o desempenho durante grandes operações de sincronização. Sob essas condições, um aplicativo que recebe muitas solicitações muito rápidas pode reduzir sua taxa de resposta ou fechar a conexão. Para melhorar o desempenho, o conector precisa ser ajustado por não enviar solicitações de aplicativo mais rápido do que o aplicativo pode processá-las. Os conectores de provisionamento criados pela Microsoft fazem esse ajuste. 
 
 - O número e os tamanhos de grupos atribuídos. A sincronização de grupos atribuídos leva mais tempo do que a sincronização de usuários. O número e os tamanhos dos grupos atribuídos impactam o desempenho. Se um aplicativo tiver [mapeamentos habilitados para sincronização de objeto de grupo](customize-application-attributes.md#editing-group-attribute-mappings), as propriedades de grupo, como nomes de grupo e associações, serão sincronizadas além dos usuários. Essas sincronizações adicionais levarão mais tempo do que apenas sincronizar objetos de usuário.
+
+- Se o desempenho se tornar um problema e você estiver tentando provisionar a maioria dos usuários e grupos em seu locatário, use filtros de escopo. Os filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando os usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
 ## <a name="next-steps"></a>Passos seguintes
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) (Automatizar o aprovisionamento e desaprovisionamento automático de utilizadores em aplicações SaaS no Azure Active Directory)

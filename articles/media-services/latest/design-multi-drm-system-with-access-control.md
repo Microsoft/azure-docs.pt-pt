@@ -1,6 +1,6 @@
 ---
 title: Design de um sistema de proteção de conteúdo de vários DRM com controle de acesso – serviços de mídia do Azure | Microsoft Docs
-description: Saiba mais sobre licenciamento Microsoft Smooth Streaming cliente portar Kit.
+description: Este artigo fornece uma descrição detalhada de como criar um sistema de proteção de conteúdo de vários DRM com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310333"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896179"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso 
 
@@ -27,7 +27,7 @@ Conceber e criar um subsistema de gestão de direitos digitais (DRM) para um ove
 
 Os leitores de destinados para este documento são engenheiros que trabalham em subsistemas DRM do OTT ou soluções de transmissão em fluxo/multiscreen online ou leitores que estejam interessados em subsistemas DRM. A pressuposição é de que os leitores estejam familiarizados com pelo menos uma das tecnologias de DRM no mercado, como o PlayReady, Widevine, FairPlay ou acesso Adobe.
 
-Nesta discussão, por multi-DRM, incluímos o 3 DRMs com suporte dos serviços de mídia do Azure: Criptografia Comum (CENC) para PlayReady e Widevine, FairPlay, bem como criptografia de chave não criptografada AES-128. Uma tendência principais na transmissão em fluxo online e o setor OTT é usar DRMs nativos em várias plataformas de cliente. Essa tendência é uma mudança do anterior que é utilizado um único DRM e o SDK de cliente para várias plataformas de cliente. Ao utilizar CENC com nativo com múltiplos DRM tanto PlayReady como Widevine são encriptados de acordo com o [encriptação comum (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) especificação.
+Esta discussão, pelo multi-DRM Incluímos os 3 DRMs suportadas pelos serviços de multimédia do Azure: encriptação comum (CENC) para o PlayReady e Widevine, FairPlay, bem como AES-128 encriptação de chave não. Uma tendência principais na transmissão em fluxo online e o setor OTT é usar DRMs nativos em várias plataformas de cliente. Essa tendência é uma mudança do anterior que é utilizado um único DRM e o SDK de cliente para várias plataformas de cliente. Ao utilizar CENC com nativo com múltiplos DRM tanto PlayReady como Widevine são encriptados de acordo com o [encriptação comum (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) especificação.
 
 As vantagens de utilizar o multi-DRM nativo para proteção de conteúdo são:
 
@@ -116,11 +116,11 @@ Por que são essas considerações importantes?
 
 Se utilizar uma cloud pública para entrega de licenças, persistentes e nonpersistent licenças têm um impacto direto no custo da entrega de licença. Os seguintes dois casos de design diferentes servem para ilustrar:
 
-* Assinatura mensal: Use uma licença persistente e um mapeamento de chave para ativo de conteúdo de um para muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
+* Subscrição mensal: utilizar uma licença persistente e o mapeamento de recurso de chave de conteúdo 1-para-muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = 1
 
-* Assinatura mensal: Use uma licença não persistente e um mapeamento de 1 para 1 entre a chave de conteúdo e o ativo. Neste caso:
+* Subscrição mensal: utilizar uma licença nonpersistent e mapeamento de 1 para 1 entre a chave de conteúdo e ativos. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = [número de filmes assistiu] x [número de sessões]
 
@@ -245,7 +245,7 @@ Utilize as seguintes informações de resolução de problemas para obter ajuda 
 
 * Associação de grupo de conceder privilégios de afirmações. Certifique-se de que é o seguinte no ficheiro de manifesto de aplicação do Azure AD: 
 
-    "groupMembershipClaims": "All" (o valor padrão é NULL)
+    "groupMembershipClaims": "All" (o valor predefinido é nulo)
 
 * Defina o TokenType adequada quando criar requisitos de restrição.
 
@@ -286,15 +286,15 @@ Pode contactar qualquer um dos autores tenham uma conta criada ou adicionado par
 
 As capturas de ecrã seguintes mostram as páginas de início de início de sessão diferentes utilizadas por contas de domínio diferente:
 
-**Conta de domínio de locatário personalizada do Azure ad**: A página de entrada personalizada do domínio de locatário personalizado do Azure AD.
+**Conta de domínio de inquilino de personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado de domínio de inquilino.
 
 ![Conta de domínio de inquilino personalizado do Azure AD um](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Conta de domínio da Microsoft com cartão inteligente**: A página de entrada personalizada pela Microsoft Corporate IT com autenticação de dois fatores.
+**Conta de domínio da Microsoft com smart card**: A página de início de sessão personalizada através do Microsoft empresarial IT com a autenticação de dois fatores.
 
 ![Conta de domínio do inquilino personalizado do Azure AD dois](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Conta Microsoft**: A página de entrada do conta Microsoft para os consumidores.
+**Conta Microsoft**: A página de início de sessão da conta Microsoft para os consumidores.
 
 ![Conta de domínio de inquilino três personalizado do Azure AD](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
@@ -350,7 +350,7 @@ Captura de ecrã seguinte mostra um cenário que utiliza uma chave assimétrica 
 
 Em ambos os casos anteriores, a autenticação do utilizador permanece o mesmo. Ele ocorre através do Azure AD. A única diferença é que JWTs são emitidos pelo STS personalizado em vez do Azure AD. Ao configurar a proteção de CENC dinâmica, a restrição de serviço de entrega de licença Especifica o tipo de JWT, um simétrico ou uma chave assimétrica.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Perguntas mais frequentes](frequently-asked-questions.md)
 * [Descrição geral da proteção de conteúdo](content-protection-overview.md)

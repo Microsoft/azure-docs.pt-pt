@@ -1,6 +1,6 @@
 ---
 title: Como cortar vídeos com o Media Encoder Standard-Azure | Microsoft Docs
-description: Este artigo mostra como cortar vídeos com Media Encoder Standard.
+description: O corte é o processo de seleção de uma janela retangular dentro do quadro de vídeo e a codificação apenas dos pixels dentro dessa janela. Este artigo demonstra como cortar vídeos com Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 03d68cc3a60abba8b7189a9d03fbc21d7606f736
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69016618"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887769"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Recortar vídeos com o Media Encoder Standard  
 

@@ -3,18 +3,18 @@ title: Estender IoT Central do Azure com análise personalizada | Microsoft Docs
 description: Como desenvolvedor de soluções, configure um aplicativo IoT Central para realizar análises e visualizações personalizadas. Essa solução usa Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a29cae2fabe1542a7498bca19dc0a6e147d1d024
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 59fb0dfbc44746853f25437e8e13a1cbc317e151
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895153"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895543"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks-preview-features"></a>Estender IoT Central do Azure com análise personalizada usando Azure Databricks (recursos de visualização)
 
@@ -41,10 +41,10 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 
 | Definição | Valor |
 | ------- | ----- |
-| Plano de pagamento | "Pay As You Go" |
+| Plano de pagamento | "Pay-As-You-Go" |
 | Modelo de aplicação | Análise na loja – monitoramento de condição |
 | Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
-| do IdP | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
+| URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
 | Subscrição do Azure | A sua subscrição do Azure |
 | Região | Sua região mais próxima |
@@ -64,10 +64,10 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Definição | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do namespace |
-| Escalão de preço | Básica |
+| Escalão de preço | Basic |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
-| Localização | EUA Leste |
+| Localização | Este dos E.U.A. |
 | Unidades de Débito | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Espaço de trabalho Azure Databricks
@@ -76,11 +76,11 @@ Use o [portal do Azure para criar um serviço de Azure Databricks](https://porta
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome do espaço de trabalho    | Escolha o nome do seu espaço de trabalho |
+| Nome da área de trabalho    | Escolha o nome do seu espaço de trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
-| Localização | EUA Leste |
-| Escalão de Preço | Standard |
+| Localização | Este dos E.U.A. |
+| Escalão de Preço | Padrão |
 
 Quando você criou os recursos necessários, o grupo de recursos **IoTCentralAnalysis** é semelhante à captura de tela a seguir:
 
@@ -116,7 +116,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Hub de eventos | centralexport |
     | Medições | Ativado |
     | Dispositivos | Desativado |
-    | Modelos de dispositivo | Desativado |
+    | Modelos de Dispositivos | Desativado |
 
 ![Configuração de exportação de dados](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -134,15 +134,15 @@ Use as informações na tabela a seguir para criar o cluster:
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome do Cluster | centralanalysis |
-| Modo de cluster | Standard |
+| Nome do cluster | centralanalysis |
+| Modo do Cluster | Padrão |
 | Versão do Databricks Runtime | 5,5 LTS (escala 2,11, Spark 2.4.3) |
-| Versão do Python | 3 |
+| Versão de Python | 3 |
 | Ativar o Dimensionamento Automático | Não |
 | Terminar após minutos de inatividade | 30 |
-| Tipo de trabalho | Standard_DS3_v2 |
+| Tipo de Função de Trabalho | Standard_DS3_v2 |
 | Pelos | 1 |
-| Tipo de driver | Igual ao trabalho |
+| Tipo de Controlador | O mesmo que a função de trabalho |
 
 A criação de um cluster pode levar vários minutos, aguarde a conclusão da criação do cluster antes de continuar.
 

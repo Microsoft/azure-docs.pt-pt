@@ -1,6 +1,6 @@
 ---
-title: Gerir pontos finais de transmissão em fluxo com o SDK do .NET. | Microsoft Docs
-description: Este artigo mostra como gerir pontos finais de transmissão em fluxo com o portal do Azure.
+title: Gerenciar pontos de extremidade de streaming com o SDK do .NET. | Microsoft Docs
+description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,46 +15,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0222450e1b85c255f2028adff750b9257f109be7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464968"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901279"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerir pontos finais de transmissão em fluxo com o .NET SDK  
+# <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerenciar pontos de extremidade de streaming com o SDK do .NET  
 
 >[!NOTE]
->Lembre-se de que reveja os [descrição geral](media-services-streaming-endpoints-overview.md) artigo. Além disso, reveja [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Certifique-se de examinar o artigo de [visão geral](media-services-streaming-endpoints-overview.md) . Além disso, examine [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-O código neste artigo mostra como fazer as seguintes tarefas utilizando o SDK de .NET de serviços de multimédia do Azure:
+O código neste artigo mostra como executar as seguintes tarefas usando o SDK do .NET dos serviços de mídia do Azure:
 
-- Examine o padrão de ponto final de transmissão em fluxo.
-- Criar/de adicionar novo ponto final de transmissão em fluxo.
+- Examine o ponto de extremidade de streaming padrão.
+- Criar/Adicionar novo ponto de extremidade de streaming.
 
-    Pode querer ter vários pontos finais de transmissão em fluxo, se planear ter CDNs diferentes ou de uma CDN e acesso direto.
+    Talvez você queira ter vários pontos de extremidade de streaming se planeja ter diferentes CDNs ou uma CDN e acesso direto.
 
     > [!NOTE]
-    > É-lhe cobrada apenas quando o ponto final de transmissão em fluxo está no estado de execução.
+    > Você será cobrado somente quando o ponto de extremidade de streaming estiver em estado de execução.
     
-- Atualize o ponto de final de transmissão em fluxo.
+- Atualize o ponto de extremidade de streaming.
     
-    Certifique-se chamar a função de Update ().
+    Certifique-se de chamar a função Update ().
 
-- Elimine o ponto de final de transmissão em fluxo.
+- Exclua o ponto de extremidade de streaming.
 
     >[!NOTE]
-    >Não é possível eliminar o ponto final de transmissão em fluxo predefinido.
+    >O ponto de extremidade de streaming padrão não pode ser excluído.
 
-Para obter informações sobre como dimensionar o ponto final de transmissão em fluxo, consulte [isso](media-services-portal-scale-streaming-endpoints.md) artigo.
+Para obter informações sobre como dimensionar o ponto de extremidade de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) artigo.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a>Adicione código que gere pontos finais de transmissão em fluxo
+## <a name="add-code-that-manages-streaming-endpoints"></a>Adicionar código que gerencia pontos de extremidade de streaming
     
-Substitua o código a Program.cs pelo seguinte código:
+Substitua o código no Program.cs pelo código a seguir:
 
 ```csharp
 using System;
@@ -143,7 +143,7 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

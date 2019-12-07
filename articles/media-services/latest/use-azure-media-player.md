@@ -1,6 +1,6 @@
 ---
 title: Reprodução com Player de Mídia do Azure-Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral do Player de Mídia do Azure.
+description: Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir conteúdo de mídia de Serviços de Mídia do Microsoft Azure em uma ampla variedade de navegadores e dispositivos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311831"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900359"
 ---
 # <a name="azure-media-player-overview"></a>Visão geral de Player de Mídia do Azure
 
@@ -39,7 +39,7 @@ Para reproduzir um novo vídeo, Cole uma URL diferente e pressione **Atualizar**
 
 Para configurar várias opções de reprodução (por exemplo, Tech, Language ou Encryption), pressione **Opções avançadas**.
 
-![Media Player do Azure](./media/azure-media-player/home-page.png)
+![Leitor de Multimédia do Azure](./media/azure-media-player/home-page.png)
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitorar o diagnóstico de um fluxo de vídeo
 
@@ -51,7 +51,7 @@ Você pode usar a [página de demonstração de player de mídia do Azure](https
 
 Player de Mídia do Azure é fácil de configurar. Leva apenas alguns minutos para obter a reprodução básica do conteúdo de mídia da sua conta de serviços de mídia. Consulte a [documentação player de mídia do Azure](https://aka.ms/ampdocs) para obter detalhes sobre como configurar e configurar player de mídia do Azure. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Media Player documentation](https://aka.ms/ampdocs) (Documentação do Leitor de Multimédia do Azure)
 - [Exemplos de Player de Mídia do Azure](https://aka.ms/ampsamples)

@@ -1,7 +1,7 @@
 ---
 title: Inserir Video Indexer widgets em seus aplicativos
 titleSuffix: Azure Media Services
-description: Saiba como inserir Video Indexer widgets em seu aplicativo.
+description: Este artigo demonstra como inserir os widgets Video Indexer de serviços de mídia do Azure em seu aplicativo.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 99d6647ab5e7fa8f35cef883dd00ae9fea866370
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839108"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892741"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -32,7 +32,7 @@ Um widget de análise cognitiva inclui todos os insights visuais que foram extra
 |Nome|Definição|Descrição|
 |---|---|---|
 |`widgets`|Cadeias separadas por vírgulas|Permite que você controle as informações que deseja renderizar. <br/> Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderiza apenas pessoas e marcas da interface do usuário do.<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Observe que o parâmetro de URL `widgets` não tem suporte na versão 2.<br/>|
-|`locale`|Um código de idioma curto|Controla o idioma do insights. O valor padrão é `en`. <br/> Exemplo: `locale=de`.|
+|`locale`|Um código de idioma curto|Controla o idioma do insights. O valor predefinido é `en`. <br/> Exemplo: `locale=de`.|
 |`tab`|A guia selecionada padrão|Controla a guia **insights** que é renderizada por padrão. <br/> Exemplo: `tab=timeline` renderiza as informações com a guia **linha do tempo** selecionada.|
 
 ### <a name="player-widget"></a>Widget Player
@@ -45,8 +45,8 @@ Você pode usar o widget Player para transmitir vídeo usando a taxa de bits ada
 |`captions`|Um código de idioma|Busca a legenda no idioma especificado durante o carregamento do widget para estar disponível no menu **legendas** .<br/> Exemplo: `captions=en-US`.|
 |`showCaptions`|Um valor booliano|Faz com que o leitor carregue já com as legendas ativadas.<br/> Exemplo: `showCaptions=true`.|
 |`type`||Ativa uma capa de player de áudio (a parte de vídeo é removida).<br/> Exemplo: `type=audio`.|
-|`autoplay`|Um valor booliano|Indica se o Player deve começar a reproduzir o vídeo quando carregado. O valor padrão é `true`.<br/> Exemplo: `autoplay=false`.|
-|`language`|Um código de idioma|Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`.|
+|`autoplay`|Um valor booliano|Indica se o Player deve começar a reproduzir o vídeo quando carregado. O valor predefinido é `true`.<br/> Exemplo: `autoplay=false`.|
+|`language`|Um código de idioma|Controla o idioma do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
 
 ### <a name="editor-widget"></a>Widget do editor
 
@@ -55,8 +55,8 @@ Você pode usar o widget editor para criar novos projetos e gerenciar informaç�
 |Nome|Definição|Descrição|
 |---|---|---|
 |`accessToken`<sup>*</sup>|String|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
-|`language`|Um código de idioma|Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`.|
-|`locale`|Um código de idioma curto|Controla o idioma do insights. O valor padrão é `en`.<br/>Exemplo: `language=de`.|
+|`language`|Um código de idioma|Controla o idioma do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
+|`locale`|Um código de idioma curto|Controla o idioma do insights. O valor predefinido é `en`.<br/>Exemplo: `language=de`.|
 
 <sup>*</sup> O proprietário deve fornecer `accessToken` com cautela.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 36035d844237115361ccb3c1e1bc0dcb91250881
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423870"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894413"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Visão geral do Azure Standard Load Balancer
 
@@ -38,11 +38,6 @@ As funções do recurso de Load Balancer são sempre expressas como front-end, u
 Um aspecto fundamental é o escopo da rede virtual para o recurso.  Embora o Load Balancer básico exista no escopo de um conjunto de disponibilidade, um Standard Load Balancer é totalmente integrado ao escopo de uma rede virtual e todos os conceitos de rede virtual se aplicam.
 
 Load Balancer recursos são objetos nos quais você pode expressar como o Azure deve programar sua infraestrutura multilocatário para obter o cenário que você deseja criar.  Não há nenhuma relação direta entre Load Balancer recursos e a infraestrutura real; a criação de uma Load Balancer não cria uma instância, a capacidade está sempre disponível e não há atrasos de inicialização ou de dimensionamento a serem considerados. 
-
->[!NOTE]
-> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se você estiver procurando a terminação do protocolo TLS ("descarregamento SSL") ou a solicitação por HTTP/HTTPS, o processamento da camada de aplicativo, consulte [o que é aplicativo Azure gateway?](../application-gateway/overview.md) Se você estiver procurando balanceamento de carga de DNS global, consulte [o que é o Gerenciador de tráfego?](../traffic-manager/traffic-manager-overview.md) Seus cenários de ponta a ponta podem se beneficiar com a combinação dessas soluções.
->
-> Para obter uma comparação das opções de balanceamento de carga do Azure, consulte [visão geral das opções de balanceamento de carga no Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-standard-load-balancer"></a>Por que usar Standard Load Balancer?
 
@@ -206,7 +201,7 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 >
 >Os SKUs correspondentes devem ser usados para Load Balancer e recursos IP públicos. Você não pode ter uma mistura de recursos de SKU básicos e recursos de SKU padrão. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
 O Standard Load Balancer está disponível atualmente em todas as regiões de nuvem pública.
 
@@ -240,7 +235,7 @@ Para obter as informações de preços do Balanceador de Carga Standard, aceda �
 - Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md).
 - Saiba mais sobre o [diagnóstico de Standard Load Balancer](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre as [métricas multidimensionais com suporte](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) para diagnósticos no [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Saiba mais sobre como usar [Load Balancer para conexões de saída](load-balancer-outbound-connections.md).
+- Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).
 - Saiba mais sobre a [redefinição de TCP em ociosidade](load-balancer-tcp-reset.md).
 - Saiba mais sobre [Standard Load Balancer com regras de balanceamento de carga de portas de alta disponibilidade](load-balancer-ha-ports-overview.md).

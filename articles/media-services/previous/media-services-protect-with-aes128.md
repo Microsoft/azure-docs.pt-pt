@@ -1,6 +1,6 @@
 ---
 title: Usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves | Microsoft Docs
-description: Entregue seu conteúdo criptografado com chaves de criptografia AES de 128 bits usando Serviços de Mídia do Microsoft Azure. Os serviços de mídia também fornecem o serviço de distribuição de chaves que fornece chaves de criptografia para usuários autorizados. Este tópico mostra como criptografar dinamicamente com o AES-128 e usar o serviço de distribuição de chaves.
+description: Este tópico mostra como criptografar dinamicamente com o AES-128 e usar o serviço de distribuição de chaves.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014976"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895837"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Execute as seguintes etapas gerais ao criptografar seus ativos com o AES usando 
 
 5. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração da política de entrega inclui a URL de aquisição de chave e um vetor de inicialização (IV). (O AES-128 requer o mesmo IV para criptografia e descriptografia.) A configuração também inclui o protocolo de entrega (por exemplo, MPEG-DASH, HLS, Smooth Streaming ou All) e o tipo de criptografia dinâmica (por exemplo, envelope ou sem criptografia dinâmica).
 
-    Pode aplicar uma política diferente para cada protocolo no mesmo elemento. Por exemplo, pode aplicar a encriptação do PlayReady a Smooth/DASH e envelope AES a HLS. Todos os protocolos que não estão definidos em uma política de entrega são bloqueados do streaming. (Um exemplo é se você adicionar uma única política que especifica apenas HLS como o protocolo.) A exceção é se não tiver nenhuma política de entrega de elementos definida. Aí, todos os protocolos serão permitidos.
+    Pode aplicar uma política diferente para cada protocolo no mesmo elemento. Por exemplo, pode aplicar a encriptação do PlayReady a Smooth/DASH e envelope AES a HLS. Todos os protocolos que não estão definidos em uma política de entrega são bloqueados do streaming. (Um exemplo é se você adicionar uma única política que especifica apenas HLS como o protocolo.) A exceção será se você não tiver nenhuma política de entrega de ativos definida. Aí, todos os protocolos serão permitidos.
 
 6. [Crie um localizador OnDemand](media-services-protect-with-aes128.md#create_locator) para obter uma URL de streaming.
 
@@ -141,7 +141,7 @@ Pode utilizar o [Leitor dos Serviços de Multimédia do Azure](https://aka.ms/az
 Na etapa anterior, você construiu a URL que aponta para um arquivo de manifesto. O cliente precisa extrair as informações necessárias dos arquivos de manifesto de streaming para fazer uma solicitação ao serviço de distribuição de chaves.
 
 ### <a name="manifest-files"></a>Arquivos de manifesto
-O cliente precisa extrair a URL (que também contém o valor de ID de chave de conteúdo [Kid]) do arquivo de manifesto. Em seguida, o cliente tenta obter a chave de criptografia do serviço de distribuição de chaves. O cliente também precisa extrair o valor de IV e usá-lo para descriptografar o fluxo. O trecho a seguir mostra `<Protection>` o elemento do manifesto Smooth streaming:
+O cliente precisa extrair a URL (que também contém o valor de ID de chave de conteúdo [Kid]) do arquivo de manifesto. Em seguida, o cliente tenta obter a chave de criptografia do serviço de distribuição de chaves. O cliente também precisa extrair o valor de IV e usá-lo para descriptografar o fluxo. O trecho a seguir mostra o elemento `<Protection>` do manifesto Smooth Streaming:
 
 ```xml
     <Protection>
@@ -159,7 +159,7 @@ O cliente precisa extrair a URL (que também contém o valor de ID de chave de c
 
 No caso do HLS, o manifesto raiz é dividido em arquivos de segmento. 
 
-Por exemplo, o manifesto raiz é: http:\//test001.Origin.mediaservices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL). Ele contém uma lista de nomes de arquivo de segmento.
+Por exemplo, o manifesto raiz é: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (Format = M3U8-AAPL). Ele contém uma lista de nomes de arquivo de segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Por exemplo, o manifesto raiz é: http:\//test001.Origin.mediaservices.Windows.n
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, http\/:/test001.Origin.mediaservices.Windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (vídeo, Format = M3U8-AAPL), Ele contém #EXT-X-KEY, que indica que o arquivo está criptografado.
+Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/manifest (vídeo, Format = M3U8-AAPL), ele conterá #EXT-X-KEY, o que indica que o arquivo está criptografado.
 
     #EXTM3U
     #EXT-X-VERSION:4

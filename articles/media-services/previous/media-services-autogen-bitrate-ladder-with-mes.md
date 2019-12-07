@@ -1,6 +1,6 @@
 ---
 title: Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits-Azure | Microsoft Docs
-description: Este tópico mostra como usar Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits com base na resolução de entrada e na taxa de bits. A resolução de entrada e a taxa de bits nunca serão excedidas. Por exemplo, se a entrada for 720p em 3Mbps, a saída permanecerá 720p na melhor das hipóteses e começará com taxas inferiores a 3Mbps.
+description: Este tópico mostra como usar Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits com base na resolução de entrada e na taxa de bits.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543550"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896026"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este artigo mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits (pares de resolução de taxa de bits) com base na resolução de entrada e taxa de bits. A predefinição gerada automaticamente nunca excederá a resolução de entrada e a taxa de bits. Por exemplo, se a entrada for 720p a 3 Mbps, saída permanece 720p na melhor e será iniciado às tarifas inferiores a 3 Mbps.
 
@@ -208,6 +208,6 @@ A origem com altura "360" e a framerate "29.970" produz 3 camadas de vídeo:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 [Visão geral da codificação dos serviços de mídia](media-services-encode-asset.md)
 

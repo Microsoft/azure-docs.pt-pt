@@ -1,6 +1,6 @@
 ---
-title: H264 taxa de bits única 720p predefinir Media Encoder Standard - Azure | Documentos da Microsoft
-description: O tópico fornece uma visão geral do **h264 taxa de bits única 720p** predefinido de tarefa.
+title: H264 taxa de bits única 720p Media Encoder Standard predefinida – Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral da predefinição de tarefa Media Encoder Standard "H264 taxa de bits única 720p".
 author: Juliako
 manager: femila
 editor: ''
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d43b78b83ca1dcb60dc6afb17424354975681494
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e48f0c614ba7a7b4199e6ddf0050de0ae7db063f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129604"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886834"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 Taxa de Bits Única 720p
-`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` define um conjunto de predefinições de codificação que você pode usar ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou você pode criar suas próprias predefinições de JSON ou baseadas em XML (usando a codificação UTF-8 ou UTF-16. Em seguida, você passaria a predefinição personalizada para o codificador. Para obter a lista de todos os nomes predefinidos com suporte por este codificador de `Media Encoder Standard`, consulte [predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Single Bitrate 720p` predefinidos no formato XML e JSON.  
+ Este tópico mostra a predefinição de `H264 Single Bitrate 720p` no formato XML e JSON.  
   
- Este ficheiro predefinidas produz um único MP4 com velocidade de transmissão de 4500 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
+ Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 4500 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre perfil, taxa de bits, taxa de amostragem, etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que cada elemento nessas predefinições significa e os valores válidos para cada elemento, consulte o tópico [Media Encoder Standard Schema](media-services-mes-schema.md) .  
   
  XML  
   

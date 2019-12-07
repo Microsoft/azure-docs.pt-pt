@@ -1,21 +1,22 @@
 ---
-title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com a CLI do Azure | Microsoft Docs
+title: Início rápido-criar um blob com CLI do Azure
+titleSuffix: Azure Storage
 description: Neste guia de início rápido, você aprende a usar o CLI do Azure carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c913cb978796abeed5766ffa030aaeb6142320ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747941"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892928"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, transferir e listar blobs através da CLI do Azure
+# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Início rápido: criar, baixar e listar BLOBs com CLI do Azure
 
 A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode utilizá-la no seu browser com o Azure Cloud Shell. Também pode instalá-la no macOS, Linux ou Windows e executá-la a partir da linha de comandos. Neste início rápido, vai aprender a utilizar a CLI do Azure para carregar e transferir dados de e para o armazenamento de Blobs do Azure.
 

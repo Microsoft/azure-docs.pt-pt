@@ -1,6 +1,6 @@
 ---
 title: Monitorar logs de diagnóstico dos serviços de mídia via Azure Monitor | Microsoft Docs
-description: Este artigo mostra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
+description: Este artigo demonstra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261109"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887956"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
 
@@ -55,7 +55,7 @@ Os dados de monitorização do seu recurso estão agora a ser encaminhados para 
 
 ## <a name="route-data-to-the-storage-account-using-the-cli"></a>Rotear dados para a conta de armazenamento usando a CLI
 
-Para habilitar o armazenamento de logs de diagnóstico em uma conta de armazenamento, você executaria o seguinte `az monitor diagnostic-settings` comando da CLI: 
+Para habilitar o armazenamento de logs de diagnóstico em uma conta de armazenamento, você executaria o seguinte comando da CLI `az monitor diagnostic-settings`: 
 
 ```cli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -174,7 +174,7 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md)

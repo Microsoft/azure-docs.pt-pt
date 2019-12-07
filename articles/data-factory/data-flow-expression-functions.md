@@ -1,22 +1,21 @@
 ---
-title: Funções de expressão no recurso de fluxo de dados de mapeamento do Azure Data Factory
+title: Funções de expressão no fluxo de dados de mapeamento
 description: Saiba mais sobre as funções de expressão no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f384c440dab06660c95f635dde02ced5b3e54d94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596968"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896316"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento 
-
-
 
 ## <a name="expression-functions"></a>Funções de expressão
 
@@ -956,7 +955,7 @@ Multiplica o par de números. Mesmo que o operador *
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-A função NTile divide as linhas de cada partição de janela em buckets `n` variando de 1 para no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
+A função NTile divide as linhas de cada partição de janela em `n` buckets variando de 1 para no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
 
 * ``nTile()``
 
@@ -1019,7 +1018,7 @@ Retorna um valor nulo. Use a sintaxe da função (NULL ()) se houver uma coluna 
 ___
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Operador OR lógico. Mesmo que | |
+Operador OU lógico. Mesmo que | |
 
 * ``or(true, false) -> true``
 
@@ -1067,7 +1066,7 @@ Acumula elementos em uma matriz. A redução espera uma referência a um acumula
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extraia uma subcadeia de caracteres correspondente para um determinado padrão de Regex. O último parâmetro identifica o grupo de correspondência e é padronizado como 1 se omitido. Use ' <regex> ' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
+Extraia uma subcadeia de caracteres correspondente para um determinado padrão de Regex. O último parâmetro identifica o grupo de correspondência e é padronizado como 1 se omitido. Use '<regex>' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 
@@ -1076,7 +1075,7 @@ Extraia uma subcadeia de caracteres correspondente para um determinado padrão d
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido. Use ' <regex> ' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
+Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido. Use '<regex>' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 
@@ -1085,7 +1084,7 @@ Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido. Use '
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Substituir todas as ocorrências de um padrão Regex por outra subcadeia na cadeia de caracteres fornecida use ' <regex> ' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
+Substituir todas as ocorrências de um padrão Regex por outra subcadeia na cadeia de caracteres fornecida use '<regex>' (aspas de fundo) para corresponder a uma cadeia de caracteres sem saída
 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 
@@ -1143,7 +1142,7 @@ Verifica se a cadeia de caracteres corresponde ao padrão Regex fornecido
 ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Arredonda um número de acordo com uma escala opcional e um modo de arredondamento opcional. Se a escala for omitida, o padrão será 0.  Se o modo for omitido, ele será padronizado como ROUND_HALF_UP (5). Os valores para arredondamento incluem 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY
+Arredonda um número de acordo com uma escala opcional e um modo de arredondamento opcional. Se a escala for omitida, o padrão será 0.  Se o modo for omitido, o padrão será ROUND_HALF_UP (5). Os valores de arredondamento incluem 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY
 
 * ``round(100.123) -> 100.0``
 

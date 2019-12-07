@@ -1,5 +1,5 @@
 ---
-title: Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
+title: Copiar arquivos novos e alterados por LastModifiedDate
 description: Saiba como usar um modelo de solução para copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca752fb75b8e151de925d3b5604a7e7182d82e92
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684229"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896298"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -51,9 +51,9 @@ O modelo define quatro parâmetros:
 
     ![Criar uma nova conexão com o destino](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
-4. Selecione **usar este modelo**.
+4. Selecione **Utilizar este modelo**.
 
-    ![Usar este modelo](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
+    ![Utilizar este modelo](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
 5. Você verá o pipeline disponível no painel, conforme mostrado no exemplo a seguir:
 
@@ -61,7 +61,7 @@ O modelo define quatro parâmetros:
 
 6. Selecione **depurar**, grave o valor para os **parâmetros** e selecione **concluir**.  Na imagem abaixo, definimos os parâmetros como a seguir.
    - **FolderPath_Source** =  **/Source/**
-   - **FolderPath_Destination** =  **/Destination/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
@@ -83,7 +83,7 @@ O modelo define quatro parâmetros:
 
 10. Selecione a **janela em cascata** para o tipo de gatilho, defina a **cada 15 minuto (s)** como a recorrência (você pode alterar para qualquer hora de intervalo) e, em seguida, selecione **Avançar**.
 
-    ![Criar gatilho](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
+    ![Criar acionador](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Grave o valor para os **parâmetros de execução do gatilho** conforme a seguir e selecione **concluir**.
     - **FolderPath_Source** =  **/Source/** .  Você pode substituir por sua pasta no armazenamento de dados de origem.

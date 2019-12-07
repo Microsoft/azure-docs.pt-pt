@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580755"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894728"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -28,7 +28,7 @@ Os preços e os recursos disponíveis dependem de se a [edição Basic ou Enterp
 
 Uma taxonomia do espaço de trabalho é ilustrada no diagrama a seguir:
 
-[taxonomia do espaço de trabalho ![](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 O diagrama mostra os seguintes componentes de um espaço de trabalho:
 
@@ -71,10 +71,10 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 
 | Tarefa de gerenciamento de espaço de trabalho   | Portal              | Studio | SDK/R do SDK do Python       | CLI        |
 |---------------------------|---------|---------|------------|------------|
-| Criar uma área de trabalho        | **&check;**     | | **&check;** | **&check;** |
+| Criar áreas de trabalho        | **&check;**     | | **&check;** | **&check;** |
 | Gerenciar o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    |
-| Atualizar para o Enterprise Edition    | **&check;** |  | |     |
-| Criar e gerenciar recursos de computação    |   | **&check;** | **&check;** |  **&check;**   |
+| Atualizar para o Enterprise Edition    | **&check;** | **&check;**  | |     |
+| Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Criar uma VM do notebook |   | **&check;** | |     |
 
 
@@ -95,7 +95,7 @@ Você pode [atualizar seu espaço de trabalho de básico para Enterprise Edition
 
 ## <a name="resources"></a>Recursos associados
 
-Quando você cria um novo espaço de trabalho, ele cria automaticamente vários recursos do Azure que são usados pelo espaço de trabalho:
+Quando cria uma nova área de trabalho, este cria automaticamente vários recursos do Azure que são utilizados pela área de trabalho:
 
 + [Registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/): registra os contêineres do Docker que você usa durante o treinamento e quando implanta um modelo. Para minimizar os custos, o ACR é **carregado com o preguiçoso** até que as imagens de implantação sejam criadas.
 + [Conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/): é usada como o repositório de armazenamento padrão para o espaço de trabalho.  Os blocos de anotações do Jupyter que são usados com sua VM Azure Machine Learning Notebook também são armazenados aqui.

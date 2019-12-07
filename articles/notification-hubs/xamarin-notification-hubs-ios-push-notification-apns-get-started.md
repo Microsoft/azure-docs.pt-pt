@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/23/2019
+ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 38a4924cd6bee2f6e2860320d51cfb61aa6fe1bb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e693d771d9a4726a1a9d698b5b7ed61d19197bdb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387696"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895040"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para aplicativos Xamarin. iOS usando hubs de notificação do Azure
 
@@ -79,7 +79,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 5. Adicione o pacote de Mensagens do Azure. Na vista Solução, clique com o botão direito no projeto e selecione **Adicionar** > **Adicionar pacotes de NuGet**. Procure **Xamarin.Azure.NotificationHubs.iOS** e adicione o pacote ao projeto.
 
-6. Adicione um novo arquivo à sua classe, nomeie-o `Constants.cs` e adicione as variáveis a seguir e substitua os espaços reservados de cadeia de caracteres literais por `hubname` e o `DefaultListenSharedAccessSignature` mencionado anteriormente.
+6. Adicione um novo arquivo à sua classe, nomeie-o `Constants.cs` e adicione as variáveis a seguir e substitua os espaços reservados de literal de cadeia de caracteres pelo `hubname` e os `DefaultListenSharedAccessSignature` observados anteriormente.
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -87,14 +87,14 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. No `AppDelegate.cs`, adicione a seguinte instrução Using:
+7. Em `AppDelegate.cs`, adicione a seguinte instrução Using:
 
     ```csharp
     using WindowsAzure.Messaging;
     using UserNotifications
     ```
 
-8. Declarar uma instância de `SBNotificationHub`:
+8. Declare uma instância de `SBNotificationHub`:
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
@@ -129,14 +129,14 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
     }
     ```
 
-10. No `AppDelegate.cs`, substitua o método `RegisteredForRemoteNotifications()`:
+10. Em `AppDelegate.cs`, substitua o método `RegisteredForRemoteNotifications()`:
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
     {
         Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
 
-        Hub.UnregisterAllAsync (deviceToken, (error) => {
+        Hub.UnregisterAll (deviceToken, (error) => {
             if (error != null)
             {
                 System.Diagnostics.Debug.WriteLine("Error calling Unregister: {0}", error.ToString());
@@ -152,7 +152,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
     }
     ```
 
-11. No `AppDelegate.cs`, substitua o método `ReceivedRemoteNotification()`:
+11. Em `AppDelegate.cs`, substitua o método `ReceivedRemoteNotification()`:
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -161,7 +161,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
     }
     ```
 
-12. No `AppDelegate.cs`, crie o método `ProcessNotification()`:
+12. Em `AppDelegate.cs`, crie o método `ProcessNotification()`:
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)

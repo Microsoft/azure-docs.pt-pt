@@ -3,18 +3,18 @@ title: Estender os IoT Central do Azure com regras e notificações personalizad
 description: Como desenvolvedor de soluções, configure um aplicativo IoT Central para enviar notificações por email quando um dispositivo parar de enviar telemetria. Essa solução usa Azure Stream Analytics, Azure Functions e SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff01af6466e90ff4b69cd37c1638265c59b873
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bdaa08e8c3b104c7269c1fb4169779d98b4e0880
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895868"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895733"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid-preview-features"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid (recursos de visualização)
 
@@ -42,10 +42,10 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 
 | Definição | Valor |
 | ------- | ----- |
-| Plano de pagamento | "Pay As You Go" |
+| Plano de pagamento | "Pay-As-You-Go" |
 | Modelo de aplicação | Análise na loja – monitoramento de condição |
 | Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
-| do IdP | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
+| URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
 | Subscrição do Azure | A sua subscrição do Azure |
 | Região | Sua região mais próxima |
@@ -65,13 +65,13 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Definição | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do namespace |
-| Escalão de preço | Básica |
+| Escalão de preço | Basic |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
-| Localização | EUA Leste |
+| Localização | Este dos E.U.A. |
 | Unidades de Débito | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics trabalho
+### <a name="stream-analytics-job"></a>Tarefa do Stream Analytics
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
 
@@ -80,7 +80,7 @@ Use o [portal do Azure para criar um trabalho de Stream Analytics](https://porta
 | Nome    | Escolha o nome do seu trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
-| Localização | EUA Leste |
+| Localização | Este dos E.U.A. |
 | Ambiente de alojamento | Nuvem |
 | Unidades de transmissão em fluxo | 3 |
 
@@ -94,10 +94,10 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | SO | Windows |
-| Plano de hospedagem | Plano de Consumo |
-| Localização | EUA Leste |
-| Pilha de tempo de execução | .NET |
-| Storage | Criar novo |
+| Plano de Alojamento | Plano de Consumo |
+| Localização | Este dos E.U.A. |
+| Pilha de Runtime | .NET |
+| Armazenamento | Criar novo |
 
 ### <a name="sendgrid-account"></a>Conta do SendGrid
 
@@ -322,13 +322,13 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Hub de eventos | centralexport |
     | Medições | Ativado |
     | Dispositivos | Desativado |
-    | Modelos de dispositivo | Desativado |
+    | Modelos de Dispositivos | Desativado |
 
 ![Configuração de exportação de dados contínuas](media/howto-create-custom-rules/cde-configuration.png)
 
 Aguarde até que o status de exportação seja **executado** antes de continuar.
 
-## <a name="test"></a>Teste
+## <a name="test"></a>Testar
 
 Para testar a solução, você pode desabilitar a exportação de dados contínuas de IoT Central para dispositivos interrompidos simulados:
 

@@ -1,6 +1,6 @@
 ---
-title: Guia de resolução de problemas para a transmissão em fluxo em direto | Documentos da Microsoft
-description: Este tópico fornece sugestões sobre como solucionar problemas de transmissão em fluxo em direto.
+title: Guia de solução de problemas para streaming ao vivo | Microsoft Docs
+description: Este artigo fornece sugestões sobre como solucionar problemas de transmissão ao vivo dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,45 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f502e3228274840d23b9f52512280fc0d9f0553b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b00df5e8176aaad86be5cf3ae4e04c736f36cf5b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544699"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885607"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de resolução de problemas de transmissão em fluxo em direto  
 
-Este artigo fornece sugestões sobre como solucionar alguns problemas de transmissão em fluxo em direto.
+Este artigo fornece sugestões sobre como solucionar alguns problemas de transmissão ao vivo.
 
-## <a name="issues-related-to-on-premises-encoders"></a>Problemas relacionados com codificadores no local
-Esta secção fornece sugestões sobre como resolver problemas relacionados com codificadores no local que estão configurados para enviar um fluxo de velocidade de transmissão única para canais de AMS ativados para live encoding.
+## <a name="issues-related-to-on-premises-encoders"></a>Problemas relacionados a codificadores locais
+Esta seção fornece sugestões sobre como solucionar problemas relacionados a codificadores locais que são configurados para enviar um fluxo de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa.
 
-### <a name="problem-would-like-to-see-logs"></a>Problema: Gostaria de ver registos
-* **Problema em potencial**: Não é possível localizar os registos de codificador que podem ajudar a depurar problemas.
+### <a name="problem-would-like-to-see-logs"></a>Problema: deseja ver os logs
+* **Possível problema**: não é possível encontrar logs do codificador que podem ajudar na depuração de problemas.
   
-  * **Telestream Wirecast**: Normalmente, pode encontrar registos em C:\Users\{username} \AppData\Roaming\Wirecast\ 
-  * **Elementar ao vivo**: Pode encontrar tem ligações para os registos no portal de gestão. Clique em **estatísticas**, em seguida, **registos**. Sobre o **ficheiros de registo** página, verá uma lista de registos para todos os itens de LiveEvent; selecione a sua sessão atual de correspondência. 
-  * **Codificador de multimédia em direto de Flash**: Pode encontrar o **diretório de registo...**  ao navegar para o **registo de codificação** separador.
+  * **Telestream Wirecast**: geralmente, você pode encontrar logs em C:\Users\{username} \AppData\Roaming\Wirecast\ 
+  * **Elemento ao vivo**: você pode encontrar links para logs no portal de gerenciamento. Clique em **estatísticas**e em **logs**. Na página **arquivos de log** , você verá uma lista de logs para todos os itens LiveEvent; Selecione aquele correspondente à sessão atual. 
+  * **Codificador do Flash Media Live**: você pode encontrar o **diretório de log...** navegando até a guia **log de codificação** .
 
-### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: Não existe nenhuma opção para produzir um fluxo de transferência progressivo
-* **Problema em potencial**: O codificador que está a ser utilizado automaticamente não deinterlace. 
+### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: não há nenhuma opção para gerar um fluxo progressivo
+* **Possível problema**: o codificador que está sendo usado não desentrelaça automaticamente. 
   
-    **Passos de resolução de problemas**: Procure uma opção de anular interlacing dentro da interface do codificador. Depois de anular entrelaçamento estiver ativado, verifique novamente para as definições de saída de transferência progressiva. 
+    **Etapas de solução de problemas**: Procure uma opção de desentrelaçamento na interface do codificador. Depois de habilitar o desentrelaçamento, verifique novamente as configurações de saída progressivas. 
 
-### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: Tentei várias configurações de saída do codificador e ainda não é possível ligar.
-* **Problema em potencial**: Canal de codificação do Azure não foi reposta corretamente. 
+### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: tentativa de várias configurações de saída de codificador e ainda não é possível se conectar.
+* **Possível problema**: o canal de codificação do Azure não foi redefinido corretamente. 
   
-    **Passos de resolução de problemas**: Certifique-se de que o codificador já não é enviar por push para o AMS, parar e reiniciar o canal. Depois de executar novamente, tente ligar seu codificador com as novas definições. Se isso ainda não corrigir o problema, tente criar um novo canal inteiramente, às vezes, canais podem tornar-se danificado após várias tentativas falhadas.  
-* **Problema em potencial**: As definições de quadro-chave ou o tamanho de GOP não estejam otimizadas. 
+    **Etapas de solução de problemas**: Verifique se o codificador não está mais enviando para o AMS, pare e redefina o canal. Depois de executar novamente, tente conectar o codificador com as novas configurações. Se isso ainda não corrigir o problema, tente criar um novo canal inteiramente, às vezes os canais podem se tornar corrompidos após várias tentativas com falha.  
+* **Possível problema**: o tamanho do GOP ou as configurações do quadro chave não são ideais. 
   
-    **Passos de resolução de problemas**: Intervalo recomendado de tamanho ou quadro-chave de GOP é de dois segundos. Alguns codificadores calculam esta definição no número de quadros, enquanto outros utilizam segundos. Por exemplo: Na saída de 30 fps, o tamanho de GOP seria 60 quadros, que é equivalente a 2 segundos.  
-* **Problema em potencial**: Fechado portas estão a bloquear o fluxo. 
+    **Etapas de solução de problemas**: o tamanho recomendado do GOP ou o intervalo de quadro-chave é de dois segundos. Alguns codificadores calculam essa configuração em número de quadros, enquanto outros usam segundos. Por exemplo: ao gerar 30 fps, o tamanho de GOP seria de 60 quadros, que é equivalente a 2 segundos.  
+* **Possível problema**: as portas fechadas estão bloqueando o fluxo. 
   
-    **Passos de resolução de problemas**: Quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. 
+    **Etapas de solução de problemas**: ao transmitir via RTMP, verifique as configurações de firewall e/ou proxy para confirmar se as portas de saída 1935 e 1936 estão abertas. 
 
 > [!NOTE]
-> Se depois de seguir os passos de resolução de problemas que ainda não é possível com êxito do stream, submeta um pedido de suporte com o portal do Azure.
+> Se depois de seguir as etapas de solução de problemas que ainda não puderem ser transmitidas com êxito, envie um tíquete de suporte usando o portal do Azure.
 > 
 > 
 

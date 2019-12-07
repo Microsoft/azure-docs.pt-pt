@@ -5,39 +5,39 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3477820cb20d856c2e979cdfbe5528113bf4b562
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769409"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888670"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
-O banco de dados do Azure para MariaDB dá suporte à configuração de alguns parâmetros de servidor. Este artigo descreve como configurar esses parâmetros usando o portal do Azure. Nem todos os parâmetros de servidor podem ser ajustados.
+O banco de dados do Azure para MariaDB dá suporte à configuração de alguns parâmetros de servidor. Este artigo descreve como configurar esses parâmetros com o portal do Azure. Nem todos os parâmetros do servidor podem ser ajustados.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue até parâmetros de servidor em portal do Azure
+## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue para os parâmetros do servidor no portal do Azure
 
 1. Entre no portal do Azure e localize o banco de dados do Azure para o servidor MariaDB.
 2. Na seção **configurações** , clique em **parâmetros do servidor** para abrir a página parâmetros do servidor do banco de dados do Azure para o servidor MariaDB.
-![página de parâmetros do portal do Azure Server](./media/howto-server-parameters/azure-portal-server-parameters.png)
-3. Localize as configurações que você precisa ajustar. Examine a coluna **Descrição** para entender a finalidade e os valores permitidos.
-![lista suspensa enumerar](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Clique em **salvar** para salvar as alterações.
-![salvar ou descartar alterações](./media/howto-server-parameters/4-save_parameters.png)
-5. Se você salvou novos valores para os parâmetros, sempre será possível reverter tudo para os valores padrão selecionando **Redefinir tudo para o padrão**.
-![redefinir tudo para o](./media/howto-server-parameters/5-reset_parameters.png) padrão
+![Página de parâmetros do servidor do portal do Azure](./media/howto-server-parameters/azure-portal-server-parameters.png)
+3. Localize quaisquer definições que precisa de ajustar. Reveja os **Descrição** coluna para compreender a finalidade e os valores permitidos.
+![Enumerar para baixo](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Clique em **guardar** para guardar as alterações.
+![Guardar ou alterações de rejeição](./media/howto-server-parameters/4-save_parameters.png)
+5. Se guardar novos valores para os parâmetros, poderá sempre reverter tudo volta para os valores predefinidos, selecionando **repor tudo para predefinição**.
+![Repor tudo para predefinição](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista de parâmetros de servidor configuráveis
+## <a name="list-of-configurable-server-parameters"></a>Lista de parâmetros do servidor configurável
 
-A lista de parâmetros de servidor com suporte está crescendo constantemente. Use a guia parâmetros de servidor no portal do Azure para obter a definição e configurar parâmetros de servidor com base em seus requisitos de aplicativo.
+A lista de parâmetros de servidor com suporte está constantemente a crescer. Utilize o separador de parâmetros de servidor no portal do Azure para obter a definição e configurar os parâmetros do servidor com base nos requisitos da sua aplicação.
 
-## <a name="non-configurable-server-parameters"></a>Parâmetros de servidor não configuráveis
+## <a name="non-configurable-server-parameters"></a>Parâmetros do servidor não configuráveis
 
-O pool de buffers InnoDB e as conexões máximas não são configuráveis e estão ligadas ao seu [tipo de preço](concepts-pricing-tiers.md).
+Conjunto de memória intermédia de InnoDB e máx. ligações não são configuráveis e empatados para sua [escalão de preço](concepts-pricing-tiers.md).
 
-|**Escalão de Preço**| **vCore (s)**|**Pool de buffers InnoDB (MB)**| **Máximo de conexões**|
+|**Escalão de Preço**| **vCore(s)**|**Pool de buffers de InnoDB (MB)**| **Máx. ligações**|
 |---|---|---|---|
 |Basic| 1| 1024| 50|
 |Basic| 2| 2560| 100|
@@ -55,43 +55,45 @@ O pool de buffers InnoDB e as conexões máximas não são configuráveis e est�
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 
-|**Meter**|**Valor fixo**|
+|**Parâmetro**|**Valor fixo**|
 | :------------------------ | :-------- |
-|innodb_file_per_table na camada básica|OFF|
+|innodb_file_per_table no escalão básico|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|
 
 Outros parâmetros de servidor que não estão listados aqui são definidos como seus valores padrão MariaDB prontos para uso para [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 
-## <a name="working-with-the-time-zone-parameter"></a>Trabalhando com o parâmetro de fuso horário
+## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
-### <a name="populating-the-time-zone-tables"></a>Populando as tabelas de fuso horário
+### <a name="populating-the-time-zone-tables"></a>Preencher as tabelas de fuso horário
 
-As tabelas de fuso horário no servidor podem ser populadas chamando o procedimento armazenado `az_load_timezone` de uma ferramenta como a linha de comando do MySQL ou o MySQL Workbench.
+As tabelas de fuso horário no seu servidor podem ser preenchidas chamando o `az_load_timezone` procedimento armazenado a partir de uma ferramenta como a linha de comandos MySQL ou o MySQL Workbench.
 
 > [!NOTE]
-> Se você estiver executando o comando `az_load_timezone` do MySQL Workbench, talvez seja necessário desativar o modo de atualização segura primeiro usando `SET SQL_SAFE_UPDATES=0;`.
+> Se estiver a executar o `az_load_timezone` comando a partir do MySQL Workbench, poderá ter de desativar o modo de atualização segura primeiro usando `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
 ```
 
-Para exibir os valores de fuso horário disponíveis, execute o seguinte comando:
+> [!IMPORTANT]
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
+Para ver os valores de fuso horário disponível, execute o seguinte comando:
 
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
 
-### <a name="setting-the-global-level-time-zone"></a>Configurando o fuso horário de nível global
+### <a name="setting-the-global-level-time-zone"></a>Definir o fuso de horário de nível global
 
-O fuso horário de nível global pode ser definido na página de **parâmetros do servidor** na portal do Azure. O abaixo define o fuso horário global para o valor "US/Pacífico".
+O fuso de horário de nível global pode ser definido entre o **parâmetros do servidor** página no portal do Azure. A seguir define o fuso horário global para o valor "E.U.A. / Pacífico".
 
-![Definir parâmetro de fuso horário](./media/howto-server-parameters/timezone.png)
+![Parâmetro de fuso horário do conjunto](./media/howto-server-parameters/timezone.png)
 
-### <a name="setting-the-session-level-time-zone"></a>Definindo o fuso horário do nível de sessão
+### <a name="setting-the-session-level-time-zone"></a>Definir o fuso de horário de nível de sessão
 
-O fuso horário do nível de sessão pode ser definido executando o comando `SET time_zone` de uma ferramenta como a linha de comando do MySQL ou o MySQL Workbench. O exemplo a seguir define o fuso horário para o fuso horário **dos EUA/Pacífico** .
+A sessão de nível de tempo de zona pode ser definida ao executar o `SET time_zone` comando a partir de uma ferramenta como a linha de comandos MySQL ou o MySQL Workbench. O exemplo abaixo define o fuso horário o **E.U.A. / Pacífico** fuso horário.
 
 ```sql
 SET time_zone = 'US/Pacific';

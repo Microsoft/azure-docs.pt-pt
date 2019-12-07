@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899140"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893319"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento de rede do Azure no Azure Monitor
 
@@ -45,7 +45,7 @@ Para usar as soluções:
 
 Você pode habilitar o diagnóstico e a solução correspondente para um ou ambos os grupos de segurança de rede e de gateway de aplicativo.
 
-Se você não habilitar o log de diagnóstico para um tipo de recurso específico, mas instalar a solução, as folhas do painel para esse recurso ficarão em branco e exibirão uma mensagem de erro.
+Se você não habilitar o log de recursos de diagnóstico para um tipo de recurso específico, mas instalar a solução, as folhas do painel para esse recurso ficarão em branco e exibirão uma mensagem de erro.
 
 > [!NOTE]
 > Em janeiro de 2017, o modo com suporte de envio de logs de gateways de aplicativo e grupos de segurança de rede para um espaço de trabalho Log Analytics alterado. Se você vir a solução **análise de rede do Azure (preterida)** , consulte [migrando da solução de análise de rede antiga](#migrating-from-the-old-networking-analytics-solution) para obter as etapas que você precisa seguir.
@@ -100,7 +100,7 @@ Use as instruções a seguir para instalar e configurar a solução de análise 
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>Habilitar o diagnóstico de rede do Azure usando o PowerShell
 
-O script do PowerShell a seguir fornece um exemplo de como habilitar o log de diagnóstico para gateways de aplicativo.
+O script do PowerShell a seguir fornece um exemplo de como habilitar o log de recursos para gateways de aplicativo.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ Em qualquer uma das páginas de pesquisa de log, você pode exibir os resultados
 > A solução de análise do grupo de segurança de rede está mudando para o suporte da Comunidade, pois sua funcionalidade foi substituída por [análise de tráfego](../../network-watcher/traffic-analytics.md).
 > - A solução agora está disponível nos [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) e, em breve, não estará mais disponível no Azure Marketplace.
 > - Para clientes existentes que já adicionaram a solução ao espaço de trabalho, ele continuará a funcionar sem alterações.
-> - A Microsoft continuará a dar suporte ao envio de logs de diagnóstico do NSG para seu espaço de trabalho usando as configurações de diagnóstico.
+> - A Microsoft continuará a dar suporte ao envio de logs de recursos NSG para seu espaço de trabalho usando as configurações de diagnóstico.
 
 Os seguintes logs têm suporte para grupos de segurança de rede:
 
@@ -171,7 +171,7 @@ Use as instruções a seguir para instalar e configurar a solução de análise 
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>Habilitar o diagnóstico de rede do Azure usando o PowerShell
 
-O script do PowerShell a seguir fornece um exemplo de como habilitar o log de diagnóstico para grupos de segurança de rede
+O script do PowerShell a seguir fornece um exemplo de como habilitar o log de recursos para grupos de segurança de rede
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -217,7 +217,7 @@ Para usar as soluções atualizadas:
      | --- | --- |
      | NetworkApplicationgateways &#124; Where OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; em que ResourceType = = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayAccess" |
      | NetworkApplicationgateways &#124; Where OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; em que ResourceType = = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayPerformance" |
-     | NetworkSecuritygroups | AzureDiagnostics &#124; em que ResourceType = = "NETWORKSECURITYGROUPS" |
+     | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que tenha um sufixo de \_s, \_d ou \_g no nome, altere o primeiro caractere para minúscula
    + Para qualquer campo que tenha um sufixo de \_o em nome, os dados são divididos em campos individuais com base nos nomes de campo aninhados.

@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o data Bricks jar – Azure
+title: Transformar dados com o JAR do databricks
 description: Saiba como processar ou transformar dados executando um jar do databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 982f00b5de9fd3e84233e5fe3b68e22fa6f7fe2a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4a01a21259c4957b6f497bf213a3ef53f940bab7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683951"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893965"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformar dados executando uma atividade jar no Azure Databricks
 
@@ -56,7 +56,7 @@ Aqui está a definição de JSON de exemplo de uma atividade de jar do databrick
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|Descrição|Necessário|
+|Propriedade|Descrição|Obrigatório|
 |:--|---|:-:|
 |nome|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que a atividade faz.|Não|
@@ -64,10 +64,10 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |linkedServiceName|Nome do serviço vinculado do databricks no qual a atividade jar é executada. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) .|Sim|
 |mainClassName|O nome completo da classe que contém o método principal a ser executado. Essa classe deve estar contida em um JAR fornecido como uma biblioteca.|Sim|
 |parâmetros|Parâmetros que serão passados para o método Main.  Esta é uma matriz de cadeias de caracteres.|Não|
-|DLLs|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres <, objeto >|Sim (pelo menos uma contendo o método mainClassName)|
+|bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres <, objeto >|Sim (pelo menos uma contendo o método mainClassName)|
 
 > [!NOTE]
-> **Problema conhecido** – ao usar o mesmo [cluster interativo](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) para executar atividades do jar do databricks simultâneos (sem a reinicialização do cluster), há um problema conhecido no databricks em que os parâmetros da 1ª atividade serão usados pelas atividades a seguir também. Portanto, isso resulta em parâmetros incorretos que estão sendo passados para os trabalhos subsequentes. Para atenuar isso, use um [cluster de trabalho](compute-linked-services.md#example---using-new-job-cluster-in-databricks) . 
+> **Problema conhecido** – ao usar o mesmo [cluster interativo](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) para executar atividades do jar do databricks simultâneos (sem a reinicialização do cluster), há um problema conhecido no databricks em que os parâmetros da 1ª atividade também serão usados pelas atividades a seguir. Portanto, isso resulta em parâmetros incorretos que estão sendo passados para os trabalhos subsequentes. Para atenuar isso, use um [cluster de trabalho](compute-linked-services.md#example---using-new-job-cluster-in-databricks) . 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do databricks
 

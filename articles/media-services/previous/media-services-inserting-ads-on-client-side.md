@@ -1,6 +1,6 @@
 ---
 title: Inserindo anúncios no lado do cliente | Microsoft Docs
-description: Este tópico mostra como inserir anúncios no lado do cliente.
+description: Este artigo demonstra como inserir anúncios em sua mídia no lado do cliente.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 37ee600a2f7d621d3fefb2f70c26b6c29f738ea9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f56c897fd6f5ce7e5129a4500ecaacbaf0a75f3b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162700"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895968"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserindo anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -96,7 +96,7 @@ Um vasto arquivo especifica o que o AD ou o ADS exibir. O XML a seguir é um exe
 
 O anúncio linear é descrito pelo < elemento >**linear**. Ele especifica a duração do anúncio, eventos de rastreamento, cliques, cliques de rastreamento e vários elementos **mediafile** . Os eventos de rastreamento são especificados no elemento <**TrackingEvents**> e permitem que um servidor do AD rastreie vários eventos que ocorrem durante a exibição do anúncio. Nesse caso, os eventos Start, central, complete e Expand são rastreados. O evento iniciar ocorre quando o anúncio é exibido. O evento de ponto médio ocorre quando pelo menos 50% da linha do tempo do anúncio tiver sido exibida. O evento completo ocorre quando o anúncio foi executado até o final. O evento de expansão ocorre quando o usuário expande o player de vídeo para tela inteira. Os clickthroughs são especificados com um elemento <**ClickThrough**> dentro de um elemento <**VideoClicks**> e especifica um URI para um recurso a ser exibido quando o usuário clica no anúncio. ClickTracking é especificado em um elemento <**ClickTracking**>, também dentro do elemento <**VideoClicks**> e especifica um recurso de controle para o Player solicitar quando o usuário clica no anúncio. Os elementos do <**mediafile**> especificam informações sobre uma codificação específica de um anúncio. Quando há mais de um elemento <**mediafile**>, o player de vídeo pode escolher a melhor codificação para a plataforma.
 
-Anúncios lineares podem ser exibidos em uma ordem especificada. Para fazer isso, adicione elementos `<Ad>` adicionais ao vasto arquivo e especifique a ordem usando o atributo Sequence. O exemplo a seguir ilustra isso:
+Anúncios lineares podem ser exibidos em uma ordem especificada. Para fazer isso, adicione elementos `<Ad>` adicionais ao vasto arquivo e especifique a ordem usando o atributo Sequence. O exemplo seguinte ilustra isso mesmo:
 
 ```xml
     <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">

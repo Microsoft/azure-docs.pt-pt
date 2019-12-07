@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d22bfb0743bc18102e665a63f7e36ed75dd39cab
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900321"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,7 +146,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Acompanhar conjuntos de os testes em experimentos
 
-Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada por meio do objeto de `Run` do modelo registrado.
+Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada por meio do objeto experimento `Run`.
+
+O código a seguir usa o método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para controlar quais conjuntos de dados de entrada foram usados com a execução do experimento:
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+Você também pode encontrar o `input_datasets` de experimentos usando [Azure Machine Learning Studio](https://ml.azure.com/). 
+
+A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento em Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento, `keras-mnist`.
+
+![Conjuntos de dados de entrada](media/how-to-version-datasets/input-datasets.png)
 
 Use o código a seguir para registrar modelos com conjuntos de valores:
 
@@ -156,26 +173,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou [Azure Machine Learning Studio](https://ml.azure.com/).
-
-O código a seguir usa o método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para controlar quais conjuntos de dados de entrada foram usados com a execução do experimento:
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-Você também pode encontrar o `input_datasets` de experimentos usando [Azure Machine Learning Studio](https://ml.azure.com/). 
-
-A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento em Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento, `keras-mnist`.
-
-![Conjuntos de dados de entrada](media/how-to-version-datasets/input-datasets.png)
-
-Você também pode encontrar os modelos que usaram seu conjunto de seus conjuntos de seus. A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos que estão usando esse conjunto de tais. 
+Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou [Azure Machine Learning Studio](https://ml.azure.com/). A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos registrados com o conjunto de um. 
 
 ![Modelos de conjuntos de dados de entrada](media/how-to-version-datasets/dataset-models.png)
 

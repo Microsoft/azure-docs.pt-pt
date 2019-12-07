@@ -1,7 +1,7 @@
 ---
 title: Gerenciar uma conta de Video Indexer
 titleSuffix: Azure Media Services
-description: Este artigo mostra como gerenciar uma conta de Video Indexer conectada ao Azure.
+description: Este artigo demonstra como gerenciar uma conta de Video Indexer conectada ao Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838971"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892775"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerenciar uma conta de Video Indexer conectada ao Azure
 
@@ -56,7 +56,7 @@ A página **configurações** permite que você defina o dimensionamento automá
 
 O dimensionamento automático não é dimensionado abaixo de 1 RU ou acima do limite padrão da conta dos serviços de mídia. Para aumentar o limite, crie uma solicitação de serviço. Para obter informações sobre cotas e limitações e como abrir um tíquete de suporte, consulte [cotas e limitações](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Inscrever-se](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Inscrição](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erros e avisos
 

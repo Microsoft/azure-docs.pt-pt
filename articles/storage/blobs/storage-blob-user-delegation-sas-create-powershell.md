@@ -1,20 +1,21 @@
 ---
-title: Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia) – armazenamento do Azure
-description: Saiba como criar uma assinatura de acesso compartilhado (SAS) usando credenciais de Azure Active Directory no armazenamento do Azure usando o PowerShell.
+title: Usar o PowerShell para criar uma SAS de delegação de usuário para um contêiner ou BLOB
+titleSuffix: Azure Storage
+description: Saiba como criar uma SAS de delegação de usuário (versão prévia) com credenciais de Azure Active Directory usando o PowerShell.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673343"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892520"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)
 
@@ -31,7 +32,7 @@ Para usar o PowerShell para criar uma SAS de delegação de usuário, você deve
 1. Desinstale todas as instalações anteriores do Azure PowerShell:
 
     - Remova todas as instalações anteriores do Azure PowerShell do Windows usando a configuração **aplicativos & recursos** em **configurações**.
-    - Remova todos os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
+    - Remova todos os módulos do **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Verifique se você tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 

@@ -1,131 +1,131 @@
 ---
-title: Gerir o armazenamento em independente de Azure nuvens a utilizar o Azure PowerShell | Documentos da Microsoft
-description: Gerir o armazenamento na cloud na China, Government Cloud e Cloud da Alemanha utilizar o Azure PowerShell
+title: Usar o PowerShell para gerenciar dados em nuvens independentes do Azure
+titleSuffix: Azure Storage
+description: Gerenciamento de armazenamento na nuvem da China, na nuvem governamental e na nuvem alemã usando o Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/24/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145873"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895240"
 ---
-# <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o armazenamento em clouds independentes do Azure, com o PowerShell
+# <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciando o armazenamento nas nuvens independentes do Azure usando o PowerShell
 
-A maioria das pessoas utilizar a Cloud pública do Azure para a sua implementação do Azure global. Existem também algumas implementações independentes do Microsoft Azure por motivos de soberania de dados e assim por diante. Estas implementações independentes são referidas como "ambientes". A lista seguinte enumera as nuvens independentes, atualmente disponíveis.
+A maioria das pessoas usa a nuvem pública do Azure para sua implantação global do Azure. Há também algumas implantações independentes de Microsoft Azure por razões da soberania e assim por diante. Essas implantações independentes são chamadas de "ambientes". A lista a seguir detalha as nuvens independentes disponíveis no momento.
 
-* [O Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-* [Cloud do Azure na China, operado pela 21Vianet na China](http://www.windowsazure.cn/)
-* [O Azure Cloud da Alemanha](../../germany/germany-welcome.md)
+* [Nuvem do Azure governamental](https://azure.microsoft.com/features/gov/)
+* [Nuvem do Azure China 21Vianet operada pela 21Vianet na China](http://www.windowsazure.cn/)
+* [Nuvem alemã do Azure](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="using-an-independent-cloud"></a>Utilizar uma cloud independente 
+## <a name="using-an-independent-cloud"></a>Usando uma nuvem independente
 
-Para utilizar o armazenamento do Azure das nuvens independentes, vai ligar essa nuvem em vez de pública do Azure. Para utilizar um das clouds independentes em vez de pública do Azure:
+Para usar o armazenamento do Azure em uma das nuvens independentes, você se conecta a essa nuvem em vez de ao público do Azure. Para usar uma das nuvens independentes em vez do público do Azure:
 
-* Especificar a *ambiente* para estabelecer ligação.
-* Determinar e utilizar as regiões disponíveis.
-* Utilize o sufixo de ponto final correto, o que é diferente do Azure público.
+* Especifique o *ambiente* ao qual deseja se conectar.
+* Você determina e usa as regiões disponíveis.
+* Você usa o sufixo de ponto de extremidade correto, que é diferente do público do Azure.
 
-Os exemplos requerem o Azure PowerShell versão do módulo Az 0,7 ou posterior. Numa janela do PowerShell, execute `Get-Module -ListAvailable Az` para localizar a versão. Se nada estiver listado, ou terá de atualizar, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-Az-ps). 
+Os exemplos exigem Azure PowerShell módulo AZ versão 0,7 ou posterior. Em uma janela do PowerShell, execute `Get-Module -ListAvailable Az` para localizar a versão. Se nada estiver listado ou você precisar atualizar, consulte [instalar Azure PowerShell Module](/powershell/azure/install-Az-ps).
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Executar o [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cmdlet para ver os ambientes do Azure disponíveis:
-   
+Execute o cmdlet [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) para ver os ambientes disponíveis do Azure:
+
 ```powershell
 Get-AzEnvironment
 ```
 
-Inicie sessão na sua conta que tenha acesso para a cloud para o qual pretende ligar e defina o ambiente. Este exemplo mostra como iniciar sessão numa conta que utiliza a Cloud do Azure Government.   
+Entre em sua conta que tenha acesso à nuvem à qual você deseja se conectar e definir o ambiente. Este exemplo mostra como entrar em uma conta que usa a nuvem do Azure governamental.   
 
 ```powershell
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Para aceder a cloud na China, utilize o ambiente **AzureChinaCloud**. Para acessar a nuvem da Alemanha, use **AzureGermanCloud**.
+Para acessar a nuvem da China, use o ambiente **AzureChinaCloud**. Para acessar a nuvem em alemão, use **AzureGermanCloud**.
 
-Neste momento, se precisar da lista de localizações para criar uma conta de armazenamento ou outro recurso, pode consultar as localizações disponíveis para a nuvem selecionada utilizando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
+Neste ponto, se você precisar da lista de locais para criar uma conta de armazenamento ou outro recurso, poderá consultar os locais disponíveis para a nuvem selecionada usando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
 Get-AzLocation | select Location, DisplayName
 ```
 
-A tabela seguinte mostra as localizações devolvidas para a cloud da Alemanha.
+A tabela a seguir mostra os locais retornados para a nuvem alemã.
 
-|Location | displayName |
+|Localização | Nome a Apresentar |
 |----|----|
-| germanycentral | Alemanha Central|
-| germanynortheast | Alemanha Nordeste | 
+| `germanycentral` | Nordeste da Alemanha|
+| `germanynortheast` | Alemanha Nordeste |
 
 
-## <a name="endpoint-suffix"></a>Sufixo de ponto final
+## <a name="endpoint-suffix"></a>Sufixo do ponto de extremidade
 
-O sufixo de ponto final de cada um desses ambientes é diferente do ponto final público do Azure. Por exemplo, é o sufixo de ponto final do blob para o Azure público **blob.core.windows.net**. Para a Cloud de governo, é o sufixo de ponto final do blob **blob.core.usgovcloudapi.net**. 
+O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade público do Azure. Por exemplo, o sufixo de ponto de extremidade de BLOB para o público do Azure é **BLOB.Core.Windows.net**. Para a nuvem governamental, o sufixo de ponto de extremidade de blob é **BLOB.Core.usgovcloudapi.net**.
 
-### <a name="get-endpoint-using-get-azenvironment"></a>Obter ponto de extremidade usando Get-AzEnvironment 
+### <a name="get-endpoint-using-get-azenvironment"></a>Obter ponto de extremidade usando Get-AzEnvironment
 
-Obter o sufixo de ponto final utilizando [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto final é o *StorageEndpointSuffix* propriedade do ambiente. Os fragmentos de código seguintes mostram como fazer isso. Todos esses comandos retornam algo como "core.cloudapp.net" ou "core.cloudapi.de", etc. Acrescente isso para o serviço de armazenamento para aceder a esse serviço. Por exemplo, "queue.core.cloudapi.de" terão acesso ao serviço de fila em nuvem da Alemanha.
+Recupere o sufixo do ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente.
 
-Este fragmento de código obtém todos os ambientes e o sufixo de ponto final para cada um deles.
+Os trechos de código a seguir mostram como recuperar o sufixo do ponto de extremidade. Todos esses comandos retornam algo como "core.cloudapp.net" ou "core.cloudapi.de", etc. Acrescente o sufixo ao serviço de armazenamento para acessar esse serviço. Por exemplo, "queue.core.cloudapi.de" acessará o serviço fila na nuvem alemã.
+
+Esse trecho de código recupera todos os ambientes e o sufixo do ponto de extremidade para cada um.
 
 ```powershell
 Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
-Este comando devolve os seguintes resultados.
+Esse comando retorna os seguintes resultados.
 
-| Name| StorageEndpointSuffix|
+| Nome| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Para obter todas as propriedades para o ambiente especificado, chame **Get-AzEnvironment** e especifique o nome de nuvem. Este fragmento de código devolve uma lista de propriedades; Procure **StorageEndpointSuffix** na lista. O exemplo seguinte é para a nuvem da Alemanha.
+Para recuperar todas as propriedades do ambiente especificado, chame **Get-AzEnvironment** e especifique o nome da nuvem. Este trecho de código retorna uma lista de propriedades; Procure **StorageEndpointSuffix** na lista. O exemplo a seguir é para a nuvem em alemão.
 
 ```powershell
-Get-AzEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud
 ```
 
-Os resultados são semelhantes ao seguinte:
+Os resultados são semelhantes aos seguintes valores:
 
-|Nome da propriedade|Value|
+|Nome da propriedade|Valor|
 |----|----|
-| Name | AzureGermanCloud |
-| EnableAdfsAuthentication | False |
-| ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
-| GalleryURL | https://gallery.cloudapi.de/ |
-| ManagementPortalUrl | https://portal.microsoftazure.de/ | 
-| ServiceManagementUrl | https://manage.core.cloudapi.de/ |
-| PublishSettingsFileUrl| https://manage.microsoftazure.de/publishsettings/index |
-| ResourceManagerUrl | http://management.microsoftazure.de/ |
-| SqlDatabaseDnsSuffix | .database.cloudapi.de |
-| **StorageEndpointSuffix** | core.cloudapi.de |
-| ... | ... | 
-
-Para recuperar apenas a propriedade de sufixo de ponto final armazenamento, obter a cloud específica e peça para apenas essa propriedade de um.
+| Nome | `AzureGermanCloud` |
+| EnableAdfsAuthentication | `False` |
+| ActiveDirectoryServiceEndpointResourceI | `http://management.core.cloudapi.de/` |
+| GalleryURL | `https://gallery.cloudapi.de/` |
+| ManagementPortalUrl | `https://portal.microsoftazure.de/` |
+| ServiceManagementUrl | `https://manage.core.cloudapi.de/` |
+| PublishSettingsFileUrl| `https://manage.microsoftazure.de/publishsettings/index` |
+| ResourceManagerUrl | `http://management.microsoftazure.de/` |
+| SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
+| **StorageEndpointSuffix** | `core.cloudapi.de` |
+| ... | ... |
+Para recuperar apenas a propriedade de sufixo de ponto de extremidade de armazenamento, recupere a nuvem específica e solicite apenas essa propriedade.
 
 ```powershell
 $environment = Get-AzEnvironment -Name AzureGermanCloud
-Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
+Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix
 ```
 
-Isso retorna as seguintes informações.
+Esse comando retorna as seguintes informações:
 
-```
-Storage Endpoint Suffix = core.cloudapi.de
-```
+`Storage Endpoint Suffix = core.cloudapi.de`
 
-### <a name="get-endpoint-from-a-storage-account"></a>Obter o ponto final de uma conta de armazenamento
+### <a name="get-endpoint-from-a-storage-account"></a>Obter ponto de extremidade de uma conta de armazenamento
 
-Também pode examinar as propriedades de uma conta de armazenamento para recuperar os pontos de extremidade. Isto pode ser útil se já estiver a utilizar uma conta de armazenamento no seu script do PowerShell; apenas pode obter o ponto final que precisa. 
+Você também pode examinar as propriedades de uma conta de armazenamento para recuperar os pontos de extremidade:
 
 ```powershell
 # Get a reference to the storage account.
@@ -141,7 +141,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-Para uma conta de armazenamento na Cloud de governo, isso retorna o seguinte: 
+Para uma conta de armazenamento na nuvem governamental, esse comando retorna a seguinte saída:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -152,20 +152,20 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="after-setting-the-environment"></a>Depois de definir o ambiente
 
-A partir de aqui daqui em diante, pode utilizar o mesmo PowerShell utilizado para gerir as contas de armazenamento e aceder ao plano de dados, conforme descrito no artigo [utilizar o Azure PowerShell com armazenamento do Azure](storage-powershell-guide-full.md).
+Daqui em diante, você pode usar o mesmo PowerShell usado para gerenciar suas contas de armazenamento e acessar o plano de dados, conforme descrito no artigo [usando Azure PowerShell com o armazenamento do Azure](storage-powershell-guide-full.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, pode remover todos os ativos ao remover o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento que criou e o grupo de recursos.
+Se você criou um novo grupo de recursos e uma conta de armazenamento para este exercício, você pode remover ambos os ativos excluindo o grupo de recursos. Eliminar o grupo de recursos elimina todos os recursos incluídos no grupo.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Inícios de sessão de utilizador persistentes entre sessões do PowerShell](/powershell/azure/context-persistence)
-* [Armazenamento do Azure Government](../../azure-government/documentation-government-services-storage.md)
-* [Manual de programação do Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
-* [Notas do programador para as aplicações do Azure na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Persistência de logons de usuário entre sessões do PowerShell](/powershell/azure/context-persistence)
+* [Armazenamento do Azure governamental](../../azure-government/documentation-government-services-storage.md)
+* [Guia do desenvolvedor do Microsoft Azure Governamental](../../azure-government/documentation-government-developer-guide.md)
+* [Notas do desenvolvedor para aplicativos da 21Vianet do Azure na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Documentação do Azure Alemanha](../../germany/germany-welcome.md)

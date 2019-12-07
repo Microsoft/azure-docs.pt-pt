@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186474"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901164"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
-Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor de banco de dados SQL do Azure e compartilham um número definido de recursos a um preço definido. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
+Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis. As bases de dados num conjunto elástico estão num único servidor de Base de Dados SQL do Azure e partilham um número definido de recursos a um preço definido. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
 
 ## <a name="what-are-sql-elastic-pools"></a>O que são pools elásticos do SQL
 
-Os programadores de SaaS criam as aplicações sobre camadas de dados de grande escala, que consistem em várias bases de dados. Um padrão de aplicação comum é aprovisionar uma base de dados individual para cada cliente. Contudo, muitas vezes, os padrões de cada cliente são distintos e imprevisíveis, sendo difícil prever os requisitos de recursos de cada utilizador de bases de dados individual. Tradicionalmente, você tinha duas opções:
+Os programadores de SaaS criam as aplicações sobre camadas de dados de grande escala, que consistem em várias bases de dados. Um padrão de aplicação comum é aprovisionar uma base de dados individual para cada cliente. Mas clientes diferentes geralmente têm padrões de uso variados e imprevisíveis, e é difícil prever os requisitos de recursos de cada usuário de banco de dados individual. Tradicionalmente, você tinha duas opções:
 
 - Provisionamento excessivo de recursos com base no uso de pico e pagamento por excesso, ou
 - Subprovisione para economizar custos, às custas do desempenho e da satisfação do cliente durante os picos.
@@ -48,7 +48,7 @@ Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para 
 
 Os conjuntos são bastante adequados para um grande número de bases de dados com padrões de utilização específicos. Para uma determinada base de dados, este padrão caracteriza-se por uma utilização média baixa com picos de utilização relativamente raros.
 
-Quantas mais bases de dados adicionar a um conjunto, maior será a poupança. Dependendo do padrão de utilização de aplicações, é possível ver poupanças com um mínimo de duas bases de dados S3.
+Quantas mais bases de dados adicionar a um conjunto, maior será a poupança. Dependendo do padrão de utilização do aplicativo, é possível ver economias com apenas dois bancos de dados S3.
 
 As secções seguintes ajudam-no a avaliar se a sua coleção de bases de dados específica pode beneficiar de estar num conjunto. Os exemplos utilizam conjuntos Standard, mas os mesmos princípios também se aplicam aos conjuntos Básicos e Premium.
 
@@ -95,7 +95,7 @@ Ao compartilhar recursos, nem todos os bancos de dados em um pool podem usar sim
 
 Para reduzir os custos de três bases de dados S3 num conjunto de 200 eDTU, duas bases de dados, no máximo, podem ter o pico de utilização ao mesmo tempo. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos de computação para bancos de dados individuais.
 
-Tenha em conta que este exemplo não considera a utilização de outras bases de dados do conjunto. Se todas as bases de dados tiverem alguma utilização num determinado momento, menos de 2/3 (67%) das bases de dados podem ter o pico em simultâneo.
+Observação Este exemplo não considera a utilização de outros bancos de dados no pool. Se todas as bases de dados tiverem alguma utilização num determinado momento, menos de 2/3 (67%) das bases de dados podem ter o pico em simultâneo.
 
 ### <a name="resource-utilization-per-database"></a>Utilização de recursos por banco de dados
 
@@ -155,7 +155,7 @@ As bases de dados de conjunto suportam geralmente as mesmas [funcionalidades de 
 
 Há duas maneiras de criar um pool elástico no portal do Azure.
 
-1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o SQL do Azure não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+1. Vá para a [portal do Azure](https://portal.azure.com) para criar um pool elástico. Pesquise e selecione **SQL do Azure**.
 2. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre pools elásticos selecionando **Mostrar detalhes** no bloco **bancos de dados** .
 3. No bloco **bancos de dados** , selecione **pool elástico** na lista suspensa **tipo de recurso** e, em seguida, selecione **criar**:
 

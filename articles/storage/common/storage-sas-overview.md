@@ -1,26 +1,27 @@
 ---
-title: Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
+title: Conceder acesso limitado a dados com SAS (assinaturas de acesso compartilhado)
+titleSuffix: Azure Storage
 description: Saiba mais sobre como usar SAS (assinaturas de acesso compartilhado) para delegar acesso aos recursos de armazenamento do Azure, incluindo BLOBs, filas, tabelas e arquivos.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382016"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895145"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
 Uma SAS (assinatura de acesso compartilhado) fornece acesso delegado seguro aos recursos em sua conta de armazenamento sem comprometer a segurança de seus dados. Com uma SAS, você tem controle granular sobre como um cliente pode acessar seus dados. Você pode controlar quais recursos o cliente pode acessar, quais permissões eles têm sobre esses recursos e por quanto tempo a SAS é válida, entre outros parâmetros.
 
-## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de acesso compartilhado
+## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de acesso partilhado
 
 O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso compartilhado:
 
@@ -61,7 +62,7 @@ Você pode assinar uma SAS de uma das duas maneiras:
 
 - Com a chave da conta de armazenamento. Uma SAS de serviço e uma SAS de conta são assinadas com a chave da conta de armazenamento. Para criar uma SAS que é assinada com a chave de conta, um aplicativo deve ter acesso à chave de conta.
 
-### <a name="sas-token"></a>Token SAS
+### <a name="sas-token"></a>Token de SAS
 
 O token SAS é uma cadeia de caracteres que você gera no lado do cliente, por exemplo, usando uma das bibliotecas de cliente do armazenamento do Azure. O token SAS não é acompanhado pelo armazenamento do Azure de nenhuma forma. Você pode criar um número ilimitado de tokens SAS no lado do cliente. Depois de criar uma SAS, você pode distribuí-la aos aplicativos cliente que exigem acesso aos recursos em sua conta de armazenamento.
 
@@ -75,13 +76,13 @@ Aqui está um exemplo de um URI de SAS de serviço, mostrando o URI de recurso e
 
 Use uma SAS quando desejar fornecer acesso seguro aos recursos em sua conta de armazenamento para qualquer cliente que não tenha permissões para esses recursos.
 
-Um cenário comum em que uma SAS é útil é um serviço no qual os usuários lêem e gravam seus próprios dados em sua conta de armazenamento. Em um cenário em que uma conta de armazenamento armazena dados do usuário, há dois padrões de design típicos:
+Um cenário comum em que uma SAS é útil é um serviço no qual os usuários lêem e gravam seus próprios dados em sua conta de armazenamento. Num cenário em que uma conta de armazenamento armazene dados de utilizador, existem dois padrões de conceção típicos:
 
-1. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy de front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, criar um serviço que pode ser dimensionado para corresponder a demanda pode ser caro ou difícil.
+1. Os clientes carregam e transferem dados através de um serviço de proxy de front-end, o qual realiza a autenticação. Esse serviço de proxy de front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, criar um serviço que pode ser dimensionado para corresponder a demanda pode ser caro ou difícil.
 
    ![Diagrama de cenário: serviço de proxy de front-end](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
-1. Um serviço leve autentica o cliente conforme necessário e, em seguida, gera uma SAS. Depois que o aplicativo cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS mitiga a necessidade de rotear todos os dados por meio do serviço de proxy de front-end.
+1. Um serviço simples autentica o cliente conforme necessário e, em seguida, gera uma SAS. Depois que o aplicativo cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de encaminhamento de todos os dados através do serviço de proxy de front-end.
 
    ![Diagrama de cenário: serviço de provedor SAS](./media/storage-sas-overview/sas-storage-provider-service.png)
 

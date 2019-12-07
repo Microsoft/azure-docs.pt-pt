@@ -1,6 +1,6 @@
 ---
 title: Configurar o ambiente de desenvolvimento dos Serviços de Multimédia do Azure | Microsoft Docs
-description: Configure o ambiente para o desenvolvimento com os Media Services do Azure.
+description: Este artigo descreve como configurar seu ambiente para desenvolvimento com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 546e8e50bc34307c46d33e217d5bc0887b548774
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410030"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895789"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurar o ambiente de desenvolvimento dos Serviços de Multimédia  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os passos seguintes descrevem os pré-requisitos necessários para o desenvolvimento com os Media Services do Azure.
 
-## <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
+## <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Multimédia
 Utilize o Portal do Azure, o SDK do .NET ou a API REST para criar uma conta dos Serviços de Multimédia do Azure.
 
 <a id="setup_dev_env"></a>
@@ -45,9 +45,9 @@ Para configurar o ambiente de desenvolvimento REST, veja [este](media-services-r
 
 Para ligar à API dos Serviços de Multimédia do Azure, veja [Aceder à API dos Serviços de Multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Encontrar vários exemplos de código na **exemplos de código do Azure** galeria: [Exemplos de código de serviços de multimédia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [exemplos de código dos Serviços de Multimédia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

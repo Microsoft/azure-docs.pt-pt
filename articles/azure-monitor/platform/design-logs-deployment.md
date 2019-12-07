@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 09/20/2019
-ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932356"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894220"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criando sua implantação de logs de Azure Monitor
 
@@ -63,7 +63,7 @@ Com o RBAC (controle de acesso baseado em função), você pode conceder aos usu
 
 Os dados aos quais um usuário tem acesso são determinados por uma combinação de fatores listados na tabela a seguir. Cada um é descrito nas seções a seguir.
 
-| Multi-fator | Descrição |
+| Fator | Descrição |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método usado pelo usuário para acessar o espaço de trabalho.  Define o escopo dos dados disponíveis e o modo de controle de acesso que é aplicado. |
 | [Modo de controle de acesso](#access-control-mode) | Configuração no espaço de trabalho que define se as permissões são aplicadas no nível de espaço de trabalho ou de recurso. |
@@ -80,7 +80,7 @@ Os usuários têm duas opções para acessar os dados:
 
     ![Log Analytics contexto do espaço de trabalho](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Recurso-contexto**: quando você acessa o espaço de trabalho para um recurso específico, grupo de recursos ou assinatura, como quando você seleciona **logs** em um menu de recursos na portal do Azure, você pode exibir logs somente para recursos em todas as tabelas que você tiver acesso ao. As consultas neste modo têm o escopo para apenas os dados associados a esse recurso. Esse modo também permite o RBAC granular.
+* **Recurso-contexto**: quando você acessa o espaço de trabalho para um recurso específico, grupo de recursos ou assinatura, como quando você seleciona **logs** de um menu de recursos no portal do Azure, você pode exibir logs somente para recursos em todas as tabelas às quais você tem acesso. As consultas neste modo têm o escopo para apenas os dados associados a esse recurso. Esse modo também permite o RBAC granular.
 
     ![Log Analytics contexto do recurso](./media/design-logs-deployment/query-from-resource.png)
 
@@ -102,7 +102,7 @@ A tabela a seguir resume os modos de acesso:
 |:---|:---|:---|
 | A quem cada modelo se destina? | Administração Central. Os administradores que precisam configurar a coleta de dados e os usuários que precisam de acesso a uma ampla variedade de recursos. Também exigido no momento para os usuários que precisam acessar os logs para recursos fora do Azure. | Equipes de aplicativos. Administradores de recursos do Azure sendo monitorados. |
 | O que um usuário precisa para exibir os logs? | Permissões para o espaço de trabalho. Consulte **permissões de espaço de trabalho** em [gerenciar acesso usando permissões de espaço de trabalho](manage-access.md#manage-access-using-workspace-permissions). | Acesso de leitura ao recurso. Consulte **permissões de recurso** em [gerenciar o acesso usando as permissões do Azure](manage-access.md#manage-access-using-azure-permissions). As permissões podem ser herdadas (por exemplo, do grupo de recursos que a contém) ou diretamente atribuídas ao recurso. A permissão para os logs do recurso será atribuída automaticamente. |
-| Qual é o escopo das permissões? | Espaço. Os usuários com acesso ao espaço de trabalho podem consultar todos os logs no espaço de trabalho de tabelas às quais eles têm permissões. Consulte [controle de acesso à tabela](manage-access.md#table-level-rbac) | Recurso do Azure. O usuário pode consultar logs de recursos específicos, grupos de recursos ou assinaturas aos quais eles têm acesso de qualquer espaço de trabalho, mas não podem consultar logs para outros recursos. |
+| Qual é o escopo das permissões? | espaço. Os usuários com acesso ao espaço de trabalho podem consultar todos os logs no espaço de trabalho de tabelas às quais eles têm permissões. Consulte [controle de acesso à tabela](manage-access.md#table-level-rbac) | Recurso do Azure. O usuário pode consultar logs de recursos específicos, grupos de recursos ou assinaturas aos quais eles têm acesso de qualquer espaço de trabalho, mas não podem consultar logs para outros recursos. |
 | Como o usuário pode acessar os logs? | <ul><li>Inicie **os logs** no menu **Azure monitor** .</li></ul> <ul><li>Iniciar **logs** de **log Analytics espaços de trabalho**.</li></ul> <ul><li>De [pastas de trabalho](../visualizations.md#workbooks)do Azure monitor.</li></ul> | <ul><li>Iniciar **logs** no menu do recurso do Azure</li></ul> <ul><li>Inicie **os logs** no menu **Azure monitor** .</li></ul> <ul><li>Iniciar **logs** de **log Analytics espaços de trabalho**.</li></ul> <ul><li>De [pastas de trabalho](../visualizations.md#workbooks)do Azure monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modo de controle de acesso
@@ -115,7 +115,7 @@ O *modo de controle de acesso* é uma configuração em cada espaço de trabalho
 
     Essa é a configuração padrão para todos os espaços de trabalho criados antes de março de 2019.
 
-* **Usar permissões de recurso ou espaço de trabalho**: esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo permissão do Azure `read`. 
+* **Usar permissões de recurso ou espaço de trabalho**: esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo a permissão de `read` do Azure. 
 
     Quando um usuário acessa o espaço de trabalho no modo de contexto de espaço de trabalho, as permissões de espaço de trabalho se aplicam. Quando um usuário acessa o espaço de trabalho no modo de contexto de recurso, somente as permissões de recurso são verificadas e as permissões de espaço de trabalho são ignoradas. Habilite o RBAC para um usuário removendo-os das permissões do espaço de trabalho e permitindo que suas permissões de recurso sejam reconhecidas.
 
@@ -147,7 +147,7 @@ Este cenário aborda um design de espaço de trabalho único em sua assinatura d
 
 Todos os recursos, soluções de monitoramento e informações como Application Insights e Azure Monitor para VMs, a infraestrutura de suporte e os aplicativos mantidos pelas diferentes equipes são configurados para encaminhar seus dados de log coletados para as organizações de ti espaço de trabalho compartilhado centralizado. Os usuários em cada equipe recebem acesso a logs para recursos aos quais eles receberam acesso.
 
-Depois de implantar a arquitetura do espaço de trabalho, você pode impor isso nos recursos do Azure com [Azure Policy](../../governance/policy/overview.md). Ele fornece uma maneira de definir políticas e garantir a conformidade com os recursos do Azure para que eles enviem todos os seus logs de diagnóstico para um espaço de trabalho específico. Por exemplo, com máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais, você pode usar políticas existentes que avaliam a conformidade do espaço de trabalho e os resultados do relatório, ou personalizar para corrigir se não estiver em conformidade.  
+Depois de implantar a arquitetura do espaço de trabalho, você pode impor isso nos recursos do Azure com [Azure Policy](../../governance/policy/overview.md). Ele fornece uma maneira de definir políticas e garantir a conformidade com os recursos do Azure para que eles enviem todos os seus logs de recursos para um espaço de trabalho específico. Por exemplo, com máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais, você pode usar políticas existentes que avaliam a conformidade do espaço de trabalho e os resultados do relatório, ou personalizar para corrigir se não estiver em conformidade.  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>Estratégia de migração de consolidação de espaço de trabalho
 
@@ -160,7 +160,7 @@ Ao planejar a migração para esse modelo, considere o seguinte:
 * Identifique o acesso concedido aos recursos para suas equipes de aplicativo e teste em um ambiente de desenvolvimento antes de implementar em produção.
 * Configure o espaço de trabalho para habilitar **as permissões usar recurso ou espaço de trabalho**.
 * Remova a permissão de equipes de aplicativo para ler e consultar o espaço de trabalho.
-* Habilite e configure qualquer solução de monitoramento, informações como Azure Monitor para contêineres e/ou Azure Monitor para VMs, suas contas de automação e soluções de gerenciamento, como Gerenciamento de Atualizações, iniciar/parar VMs, etc., que foram implantadas no original espaço.
+* Habilite e configure qualquer solução de monitoramento, informações como Azure Monitor para contêineres e/ou Azure Monitor para VMs, suas contas de automação e soluções de gerenciamento, como Gerenciamento de Atualizações, iniciar/parar VMs, etc., que foram implantadas no espaço de trabalho original.
 
 ## <a name="next-steps"></a>Passos seguintes
 

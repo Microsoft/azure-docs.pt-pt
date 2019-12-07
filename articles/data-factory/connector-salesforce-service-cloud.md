@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de e para a nuvem do serviço Salesforce usando Azure Data Factory
+title: Copiar dados de e para a nuvem do serviço Salesforce
 description: Saiba como copiar dados da nuvem do serviço Salesforce para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para a nuvem do serviço Salesforce usando uma atividade de cópia em um pipeline data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5b98e11d4b8d820c87dfb6ffc5e98b46f2095ace
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3d49ec7260017421a60268e159c8152359455871
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680359"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895622"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiar dados de e para a nuvem do serviço Salesforce usando Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para a nuvem do serviço Salesforce. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para a nuvem do serviço Salesforce. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector de nuvem do serviço do Salesforce tem suporte para as seguintes atividades:
 
@@ -58,18 +58,18 @@ Você também pode receber a mensagem de erro "REQUEST_LIMIT_EXCEEDED" em ambos 
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas para o conector de nuvem do serviço do Salesforce.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |A propriedade Type deve ser definida como **SalesforceServiceCloud**. |Sim |
 | environmentUrl | Especifique a URL da instância de nuvem do serviço do Salesforce. <br> -O padrão é `"https://login.salesforce.com"`. <br> -Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de um domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | o nome de utilizador |Especifique um nome de usuário para a conta de usuário. |Sim |
-| palavra-passe |Especifique uma senha para a conta de usuário.<br/><br/>Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| securityToken |Especifique um token de segurança para a conta de usuário. Para obter instruções sobre como redefinir e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usará o Azure Integration Runtime padrão. | Não para fonte, sim para o coletor se o serviço vinculado de origem não tiver o tempo de execução de integração |
+| palavra-passe |Especifique uma senha para a conta de usuário.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| securityToken |Especifique um token de segurança para a conta de usuário. Para obter instruções sobre como redefinir e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para fonte, sim para o coletor se o serviço vinculado de origem não tiver o tempo de execução de integração |
 
 >[!IMPORTANT]
 >Quando você copia dados para a nuvem do serviço Salesforce, o Azure Integration Runtime padrão não pode ser usado para executar a cópia. Em outras palavras, se o serviço vinculado de origem não tiver um tempo de execução de integração especificado, [crie explicitamente um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com um local perto da instância de nuvem do serviço Salesforce. Associe o serviço vinculado da nuvem do serviço do Salesforce como no exemplo a seguir.
@@ -134,16 +134,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de serviços de nuvem do serviço Salesforce.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de serviços de nuvem do serviço Salesforce.
 
 Para copiar dados de e para a nuvem do serviço Salesforce, há suporte para as propriedades a seguir.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **SalesforceServiceCloudObject**.  | Sim |
-| objectApiName | O nome do objeto do Salesforce do qual recuperar dados. | Não para fonte, sim para coletor |
+| objectApiName | O nome do objeto do Salesforce do qual recuperar dados. | Não para a origem, Sim para o sink |
 
 > [!IMPORTANT]
 > A parte "__c" do **nome da API** é necessária para qualquer objeto personalizado.
@@ -169,20 +169,20 @@ Para copiar dados de e para a nuvem do serviço Salesforce, há suporte para as 
 }
 ```
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **RelationalTable**. | Sim |
 | tableName | Nome da tabela na nuvem do serviço Salesforce. | Não (se "Query" na origem da atividade for especificado) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pelo coletor e pela fonte de nuvem do serviço Salesforce.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo coletor e pela fonte de nuvem do serviço Salesforce.
 
 ### <a name="salesforce-service-cloud-as-a-source-type"></a>Nuvem do serviço Salesforce como um tipo de origem
 
 Para copiar dados da nuvem do serviço Salesforce, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **SalesforceServiceCloudSource**. | Sim |
 | consulta |Use a consulta personalizada para ler os dados. Você pode usar a consulta [SOQL (Salesforce Object Querying Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou a consulta SQL-92. Veja mais dicas na seção [dicas de consulta](#query-tips) . Se a consulta não for especificada, todos os dados do objeto de nuvem do serviço do Salesforce especificados em "objectApiName" no conjunto serão recuperados. | Não (se "objectApiName" no DataSet for especificado) |
@@ -229,10 +229,10 @@ Para copiar dados da nuvem do serviço Salesforce, as propriedades a seguir têm
 
 Para copiar dados para a nuvem do serviço Salesforce, as propriedades a seguir têm suporte na seção **coletor** de atividade de cópia.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do coletor da atividade de cópia deve ser definida como **SalesforceServiceCloudSink**. | Sim |
-| WriteBehavior | O comportamento de gravação para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (o padrão é inserir) |
+| writeBehavior | O comportamento de gravação para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (o padrão é inserir) |
 | externalIdFieldName | O nome do campo de ID externa para a operação Upsert. O campo especificado deve ser definido como "campo de ID externa" no objeto de nuvem do serviço Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados na nuvem do serviço Salesforce em cada lote. | Não (o padrão é 5.000) |
 | ignoreNullValues | Indica se os valores nulos devem ser ignorados de dados de entrada durante uma operação de gravação.<br/>Os valores permitidos são **true** e **false**.<br>- **true**: Deixe os dados no objeto de destino inalterados quando você fizer uma operação de Upsert ou atualização. Insira um valor padrão definido quando você fizer uma operação de inserção.<br/>- **false**: atualizar os dados no objeto de destino para NULL quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção. | Não (o padrão é false) |
@@ -291,9 +291,9 @@ Ao copiar dados da nuvem do serviço Salesforce, você pode usar a consulta SOQL
 | Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo, `SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de coluna. |
 | Aspas | Nomes de objetos/arquivados não podem ser colocados entre aspas. | Os nomes de campo/objeto podem ser colocados entre aspas, por exemplo, `SELECT "id" FROM "Account"` |
 | Formato DateTime |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e os exemplos na próxima seção. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e os exemplos na próxima seção. |
-| Valores Boolianos | Representado como `False` e `True`, por exemplo, `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, por exemplo, `SELECT … WHERE IsDeleted=1`. |
+| Valores boolianos | Representado como `False` e `True`, por exemplo, `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, por exemplo, `SELECT … WHERE IsDeleted=1`. |
 | Renomeação de coluna | Não suportado. | Com suporte, por exemplo: `SELECT a AS b FROM …`. |
-| Inter-relações | Com suporte, por exemplo, `Account_vod__r.nvs_Country__c`. | Não suportado. |
+| Relação | Com suporte, por exemplo, `Account_vod__r.nvs_Country__c`. | Não suportado. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando uma cláusula WHERE na coluna DateTime
 
@@ -310,27 +310,27 @@ Se você encontrar o erro de "MALFORMED_QUERY: TRUNCATE", normalmente, é devido
 
 Quando você copia dados da nuvem do serviço Salesforce, os seguintes mapeamentos são usados de tipos de dados de nuvem do serviço do Salesforce para Data Factory tipos de dados provisórios. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de dados de nuvem do serviço Salesforce | Data Factory tipo de dados provisório |
+| Tipo de dados de nuvem do serviço Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| Número automático |String |
-| verificação |Booleano |
-| Moeda |Vírgula |
+| Auto Number |String |
+| Checkbox |Booleano |
+| Moeda |Decimal |
 | Date |DateTime |
 | Data/hora |DateTime |
-| Email |String |
+| E-mail |String |
 | Id |String |
-| Relação de pesquisa |String |
-| Lista de seleção de seleção múltipla |String |
-| Número |Vírgula |
-| Percentagem |Vírgula |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
+| Percentagem |Decimal |
 | Telefone |String |
-| Seleção |String |
+| Picklist |String |
 | Texto |String |
-| Área de texto |String |
-| Área de texto (longa) |String |
-| Área de texto (rica) |String |
-| Texto (criptografado) |String |
-| do IdP |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
@@ -338,4 +338,4 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: Copiar arquivos de vários contêineres usando Azure Data Factory
+title: Copiar ficheiros de vários contentores
 description: Saiba como usar um modelo de solução para copiar arquivos de vários contêineres usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: 004a623f0dfe251da9d452b53c2541e53339d965
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fffe356225fc813b027bf1d6e29b3afe19b7fb01
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684258"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890798"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar arquivos de vários contêineres com Azure Data Factory
 
@@ -49,9 +49,9 @@ O modelo define dois parâmetros:
 
     ![Criar uma nova conexão com o destino](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selecione **usar este modelo**.
+3. Selecione **Utilizar este modelo**.
 
-    ![Usar este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    ![Utilizar este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
 4. Você verá o pipeline, como no exemplo a seguir:
 

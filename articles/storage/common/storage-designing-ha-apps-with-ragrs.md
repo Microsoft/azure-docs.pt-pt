@@ -1,20 +1,21 @@
 ---
-title: Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura (RA-GZRS ou RA-GRS) | Microsoft Docs
-description: Como usar o armazenamento RA-GZRS ou RA-GRS do Azure para arquitetar um aplicativo altamente disponível e flexível o suficiente para lidar com interrupções.
+title: Criar aplicativos altamente disponíveis usando o armazenamento com redundância geográfica
+titleSuffix: Azure Storage
+description: Saiba como usar o armazenamento com redundância geográfica com acesso de leitura para arquitetar um aplicativo altamente disponível que seja flexível o suficiente para lidar com interrupções.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673121"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895344"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura
 
@@ -74,7 +75,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 * Dados consistentes eventualmente e a hora da última sincronização
 
-* Testar
+* Testes
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando seu aplicativo no modo somente leitura
 
@@ -199,12 +200,12 @@ O armazenamento com redundância geográfica funciona replicando as transações
 
 A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza os detalhes de um funcionário para torná-los membros da função *Administradores* . Para fins deste exemplo, isso exige que você atualize a entidade **Employee** e atualize uma entidade de **função de administrador** com uma contagem do número total de administradores. Observe como as atualizações são aplicadas fora de ordem na região secundária.
 
-| **Momento** | **Aciona**                                            | **Replicação**                       | **Hora da última sincronização** | **Disso** |
+| **Hora** | **Aciona**                                            | **Replicação**                       | **Hora da última sincronização** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no primário |                                   |                    | Transação A inserida no primário,<br> Ainda não replicado. |
 | T1       |                                                            | Transação A <br> replicado para<br> secundário | T1 | Transação A replicada para secundária. <br>Hora da última sincronização atualizada.    |
 | T2       | Transação B:<br>Atualizar<br> Entidade de funcionário<br> no primário  |                                | T1                 | Transação B gravada no primário,<br> Ainda não replicado.  |
-| T3       | Transação C:<br> Atualizar <br>administradores<br>entidade de função em<br>Primary |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
+| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>Primary |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
 | *T4*     |                                                       | Transação C <br>replicado para<br> secundário | T1         | Transação C replicada para secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
 | *T5*     | Ler entidades <br>do secundário                           |                                  | T1                 | Você Obtém o valor obsoleto para o funcionário <br> entidade porque a transação B não <br> replicado ainda. Você Obtém o novo valor para<br> entidade de função de administrador porque C tem<br> replicados. A hora da última sincronização ainda não<br> atualizado porque a transação B<br> Não foi replicado. Você pode informar ao<br>a entidade da função de administrador está inconsistente <br>Porque a data/hora da entidade é posterior <br>a hora da última sincronização. |
 | *T6*     |                                                      | Transação B<br> replicado para<br> secundário | T6                 | *T6* – todas as transações por meio de C têm <br>replicado, hora da última sincronização<br> é atualizado. |
@@ -246,7 +247,7 @@ $lastSyncTime=$(az storage account show \
     --output tsv)
 ```
 
-## <a name="testing"></a>Testar
+## <a name="testing"></a>Testes
 
 É importante testar se o aplicativo se comporta conforme o esperado quando encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e para o modo somente leitura quando detecta um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
@@ -266,7 +267,7 @@ Você pode estender esse exemplo para interceptar um intervalo maior de solicita
 
 Se você tiver tornado os limites para alternar o aplicativo para o modo somente leitura configurável, será mais fácil testar o comportamento com volumes de transações de não produção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Para obter mais informações sobre como ler a partir da região secundária, incluindo outro exemplo de como a última propriedade de hora de sincronização está definida, consulte [Opções de redundância de armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

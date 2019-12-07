@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144475"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894591"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros Azure Monitor
 
@@ -63,7 +63,7 @@ Circonus é uma plataforma de monitoramento e análise de microserviços criada 
 
 Desune e automatize sua nuvem com uma plataforma criada para economizar tempo e dinheiro. O CloudHealth fornece visibilidade, otimização intuitiva e práticas de governança sólidas para o gerenciamento de nuvem. A plataforma CloudHealth permite que as empresas e a MSPs maximizem o retorno sobre os investimentos em nuvem. Tome decisões confiantes em relação ao custo, uso, desempenho e segurança.
 
-[Saber mais][cloudhealth-doc]
+[Saiba mais][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -136,13 +136,13 @@ A LogRhythm, líder no NextGen SIEM, capacita as organizações em seis continen
 
 O **ArcSight** de microfoco tem um conector inteligente para Azure monitor hubs de eventos.
 
-[Saber mais](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentação do ArcSight.")
+[Saiba mais](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentação do ArcSight.")
 
 A **ponte de operações** de microfocus monitora automaticamente todos os recursos de ti híbridos – qualquer dispositivo, sistema operacional, banco de dados, aplicativo ou serviço, independentemente de onde ele é executado e aplica AIOps a todos os tipos de dado – eventos, métricas, logs e dependências. Ele fornece uma combinação exclusiva de qualidade de monitoramento de serviço, juntamente com a análise profunda da integridade do aplicativo, e inclui monitoramento abrangente de desempenho e disponibilidade de serviços de Microsoft Azure. A ponte de operações permite que os clientes forneçam um único painel, disponível em qualquer dispositivo com um navegador, de maneiras que os interessados comerciais e de ti possam entender.
 
-Saiba mais
+Saber mais
 - [Visão geral do pacote de OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Transferir](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope é um componente do Operations Bridge Suite.
 
 
@@ -255,7 +255,7 @@ O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas 
 - [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
 - [Acessar métricas usando a API REST](rest-api-walkthrough.md)
 - [Transmitir o log de atividades para um serviço que não seja da Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmitir logs de diagnóstico para um serviço que não seja da Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Transmitir logs de recursos para um serviço que não seja da Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: 15a0e27f3f96eda27182e8437dc95d047f56e260
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815289"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896415"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Criar uma palavra-chave personalizada usando o serviço de fala
 
@@ -50,17 +50,29 @@ Para poder usar uma palavra-chave personalizada, você precisará criar uma pala
 
 1. Vá para o [Speech Studio](https://aka.ms/sdsdk-speechportal) e **entre** ou, se você ainda não tiver uma assinatura de fala, escolha [**criar uma assinatura**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. Na página [palavra-chave personalizada](https://aka.ms/sdsdk-wakewordportal) , digite a palavra-chave de sua escolha e clique em **Adicionar palavra-chave**. Temos algumas [diretrizes](#choose-an-effective-keyword) para ajudar a escolher uma palavra-chave efetiva. No momento, o suporte é limitado ao idioma en-US.
+1. Na página de [palavra-chave personalizada](https://aka.ms/sdsdk-wakewordportal) , crie um **novo projeto**. 
 
-    ![Insira sua palavra-chave](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. Insira um **nome**, uma **Descrição**opcional, e selecione o idioma. Você precisará de um projeto por idioma e o suporte no momento é limitado ao idioma en-US.
 
-1. Agora, o portal criará pronúncias candidatas para sua palavra-chave. Ouça cada candidato clicando nos botões de reprodução e remove as verificações ao lado de quaisquer pronúncias incorretas. Quando apenas as boas pronúncias estiverem marcadas, selecione **Enviar** para começar a gerar a palavra-chave. Se você quiser alterar a palavra-chave, primeiro remova a existente clicando no botão excluir que aparece no lado direito da linha ao passar o mouse sobre ela.
+    ![Descrever seu projeto de palavra-chave](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![Examine sua palavra-chave](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. Selecione o projeto na lista. 
 
-1. Pode levar até um minuto para que o modelo seja gerado. Em seguida, você será solicitado a baixar o arquivo.
+    ![Selecione seu projeto de palavra-chave](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![Baixe sua palavra-chave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. Para iniciar um novo modelo de palavra-chave, clique em **treinar modelo**.
+
+1. Insira um **nome** para o modelo de palavra-chave e a **Descrição** opcional e digite na **palavra-chave** de sua escolha e clique em **Avançar**. Temos algumas [diretrizes](#choose-an-effective-keyword) para ajudar a escolher uma palavra-chave efetiva.
+
+    ![Insira sua palavra-chave](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. Agora, o portal criará pronúncias candidatas para sua palavra-chave. Ouça cada candidato clicando nos botões de reprodução e remove as verificações ao lado de quaisquer pronúncias incorretas. Quando apenas as boas pronúncias estiverem marcadas, clique em **treinar** para começar a gerar a palavra-chave. 
+
+    ![Examine sua palavra-chave](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. Pode levar até dez minutos para que o modelo seja gerado. A lista de palavras-chave mudará de **processamento** para com **êxito** quando o modelo for concluído. Em seguida, você pode baixar o arquivo.
+
+    ![Examine sua palavra-chave](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. Guarde o ficheiro. zip para o seu computador. Você precisará desse arquivo para implantar sua palavra-chave personalizada em seu dispositivo.
 

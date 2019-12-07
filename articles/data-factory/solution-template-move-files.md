@@ -1,5 +1,5 @@
 ---
-title: Mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory
+title: Mover arquivos entre o armazenamento baseado em arquivo
 description: Saiba como usar um modelo de solução para mover arquivos entre o armazenamento baseado em arquivo usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0f9179918016b9eaec04b0d559e25ed7973f18a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684179"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896210"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover arquivos com Azure Data Factory
 
@@ -51,9 +51,9 @@ O modelo define dois parâmetros:
 
     ![Criar uma nova conexão com o destino](media/solution-template-move-files/move-files2.png)
 
-3. Selecione **usar este modelo**.
+3. Selecione **Utilizar este modelo**.
 
-    ![Usar este modelo](media/solution-template-move-files/move-files3.png)
+    ![Utilizar este modelo](media/solution-template-move-files/move-files3.png)
     
 4. Você verá o pipeline, como no exemplo a seguir:
 

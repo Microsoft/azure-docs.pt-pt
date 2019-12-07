@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure - Publicar um recurso | Microsoft Docs
-description: Utilize o script da CLI do Azure para publicar um recurso.
+description: Este artigo demonstra como usar o script CLI do Azure para publicar um ativo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: ced55a41ce5be31dfa036894188f385ae60f8962
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204165"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896125"
 ---
-# <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: Publicar um elemento
+# <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: publicar um elemento
 
 O script da CLI do Azure neste artigo mostra como criar um Localizador de Transmissão em Fluxo e voltar aos URLs de Transmissão em Fluxo. 
 
@@ -35,6 +35,6 @@ O script da CLI do Azure neste artigo mostra como criar um Localizador de Transm
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/publish-asset/Publish-Asset.sh "Publish an asset")]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral dos serviços de multimédia](media-services-overview.md)
+[Visão geral dos serviços de mídia](media-services-overview.md)

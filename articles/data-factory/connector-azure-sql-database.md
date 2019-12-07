@@ -1,5 +1,5 @@
 ---
-title: Copiar e transformar dados no banco de dados SQL do Azure usando Data Factory
+title: Copiar e transformar dados no Azure SQL Database
 description: Saiba como copiar dados para dentro e para o banco de dados SQL do Azure, e transforme-os usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8b09bb50df18660ae6fb21febc121d17058be23b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075600"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891053"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -58,7 +58,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 Essas propriedades têm suporte para um serviço vinculado do banco de dados SQL do Azure:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** deve ser definida como **AzureSqlDatabase**. | Sim |
 | connectionString | Especifique as informações necessárias para se conectar à instância do banco de dados SQL do Azure para a propriedade **ConnectionString** . <br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha ou chave de entidade de serviço em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -231,7 +231,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 As propriedades a seguir têm suporte para o conjunto de dados do Azure SQL Database:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** do conjunto de conjuntos deve ser definida como **AzureSqlTable**. | Sim |
 | schema | Nome do esquema. |Não para a origem, Sim para o sink  |
@@ -267,7 +267,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Azure SQL Database, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **AzureSqlSource**. O tipo "sqlsource" ainda tem suporte para compatibilidade com versões anteriores. | Sim |
 | sqlReaderQuery | Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
@@ -373,7 +373,7 @@ GO
 
 Para copiar os dados para o Azure SQL Database, há suporte para as seguintes propriedades na seção **coletor** de atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **AzureSqlSink**. O tipo "sqlsink" ainda tem suporte para compatibilidade com versões anteriores. | Sim |
 | writeBatchSize | Número de linhas a serem inseridas na tabela SQL *por lote*.<br/> O valor permitido é **número inteiro** (número de linhas). Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não |
@@ -586,29 +586,29 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 | bit |Booleano |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Valor de duplo |
-| image |Byte[] |
+| Flutuante |Double |
+| imagem |Byte[] |
 | int |Int32 |
-| money |decimal |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Único |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Objeto |
+| smallmoney |Decimal |
+| sql_variant |Object |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
-| tinyint |Byte |
+| tinyint |bytes |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |

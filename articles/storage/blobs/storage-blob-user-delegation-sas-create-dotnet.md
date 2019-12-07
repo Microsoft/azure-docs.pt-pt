@@ -1,20 +1,21 @@
 ---
-title: Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET (versão prévia) – armazenamento do Azure
-description: Saiba como criar uma SAS de delegação de usuário (versão prévia) usando as credenciais de Azure Active Directory no armazenamento do Azure usando a biblioteca de cliente .NET.
+title: Usar o .NET para criar uma SAS de delegação de usuário para um contêiner ou BLOB
+titleSuffix: Azure Storage
+description: Saiba como criar uma SAS de delegação de usuário (versão prévia) com credenciais de Azure Active Directory usando a biblioteca de cliente .NET para o armazenamento do Azure.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: dada27f1fa08cdaa6c2495246375869ea5a8ab9e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 915f2895fbc1e543fbbfbb408ba27eb758a40515
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806937"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892537"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET (versão prévia)
 

@@ -1,22 +1,22 @@
 ---
-title: Carregar dados em Azure Data Lake Storage Gen1 usando Azure Data Factory
+title: Carregar dados em Azure Data Lake Storage Gen1
 description: Use Azure Data Factory para copiar dados em Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: b8e5841e6869bd6f19b07bf71434de809cdcb74f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: adad770926b23e0529d5a6e08605a338d958ae09
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672720"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892962"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados em Azure Data Lake Storage Gen1 usando Azure Data Factory
 
@@ -63,7 +63,7 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
    
    ![Home page da fábrica de dados](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
-   Selecione o bloco **criar & monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
+   Selecione o mosaico **Criar e Monitorizar** para iniciar a Aplicação de Integração de Dados num separador à parte.
 
 ## <a name="load-data-into-data-lake-storage-gen1"></a>Carregar dados em Data Lake Storage Gen1
 
@@ -92,11 +92,11 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
    
    ![Especificar conta do Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
-5. Na página **escolher o arquivo de entrada ou a pasta** , navegue até a pasta e o arquivo que você deseja copiar. Selecione a pasta/arquivo, selecione **escolher**e, em seguida, selecione **Avançar**:
+5. Na página **Escolher o ficheiro ou pasta de entrada**, navegue até à pasta ou ficheiro que pretende copiar. Selecione a pasta/arquivo, selecione **escolher**e, em seguida, selecione **Avançar**:
 
     ![Escolher ficheiro ou pasta de entrada](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. Escolha o comportamento de cópia selecionando as opções **copiar arquivos recursivamente** e **cópia binária** (copiar arquivos no estado em que se encontram). Selecione **Avançar**:
+6. Escolha o comportamento de cópia selecionando as opções **copiar arquivos recursivamente** e **cópia binária** (copiar arquivos no estado em que se encontram). Selecione **Seguinte**:
 
     ![Especificar pasta de saída](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
     

@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
+title: Transformar dados usando a atividade de streaming do Hadoop
 description: Explica como usar a atividade de streaming do Hadoop no Azure Data Factory para transformar dados executando programas de streaming do Hadoop em um cluster Hadoop.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6977f7a6ad7fd79a51083bf2ef71c539e04837e5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 01237218e30859015b1c8f0a5adeebd8b9bdf7eb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683780"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893795"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -68,7 +68,7 @@ Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Fact
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | nome              | Nome da atividade                     | Sim      |
 | descrição       | Texto que descreve para que a atividade é usada | Não       |
@@ -78,12 +78,12 @@ Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Fact
 | redutor           | Especifica o nome do executável redutor | Sim      |
 | combinador          | Especifica o nome do executável do combinador | Não       |
 | fileLinkedService | Referência a um serviço vinculado do armazenamento do Azure usado para armazenar os programas mapeador, combinador e redutor a serem executados. Se você não especificar esse serviço vinculado, o serviço vinculado do armazenamento do Azure definido no serviço vinculado do HDInsight será usado. | Não       |
-| FilePath          | Forneça uma matriz de caminho para os programas mapeador, combinador e redutor armazenados no armazenamento do Azure referenciado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
+| filePath          | Forneça uma matriz de caminho para os programas mapeador, combinador e redutor armazenados no armazenamento do Azure referenciado por fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
 | entrada             | Especifica o caminho WASB para o arquivo de entrada para o mapeador. | Sim      |
 | saída            | Especifica o caminho WASB para o arquivo de saída para o redutor. | Sim      |
 | getDebugInfo      | Especifica quando os arquivos de log são copiados para o armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: nenhum, sempre ou falha. Valor padrão: nenhum. | Não       |
-| argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
-| autor           | Especifique parâmetros como pares de chave/valor para referência no script do hive. | Não       | 
+| arguments         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| defines           | Especifique parâmetros como pares de chave/valor para referência no script do hive. | Não       | 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 

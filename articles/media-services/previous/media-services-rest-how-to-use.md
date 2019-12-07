@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API REST de operações dos serviços de mídia | Microsoft Docs
-description: Visão geral da API REST dos serviços de mídia
+description: A API "REST de operações de serviços de mídia" é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de serviços de mídia. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014851"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895820"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST de operações dos serviços de mídia 
 
@@ -58,7 +58,7 @@ As considerações a seguir se aplicam ao usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Cabeçalhos de solicitação HTTP padrão com suporte dos serviços de mídia
 Para cada chamada feita nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir em sua solicitação e também um conjunto de cabeçalhos opcionais que talvez você queira incluir. A tabela a seguir lista os cabeçalhos necessários:
 
-| Cabeçalho | Type | Value |
+| Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Autorização |Portador |O portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Azure Active Directory. |
 | x-MS-Version |Decimal |2,17 (ou versão mais recente)|
@@ -72,24 +72,24 @@ Para cada chamada feita nos serviços de mídia, há um conjunto de cabeçalhos 
 
 Este é um conjunto de cabeçalhos opcionais:
 
-| Cabeçalho | Type | Value |
+| Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Date |Data da RFC 1123 |Carimbo de data/hora da solicitação |
 | Aceitar |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> -Application/Atom + XML<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca de BLOB, em que uma resposta bem-sucedida contém o fluxo de blob como a carga. |
-| Aceitação-codificação |Gzip, deflate |Codificação GZIP e deflate, quando aplicável. Nota: Para recursos grandes, os serviços de mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
+| Accept-Encoding |Gzip, deflate |Codificação GZIP e deflate, quando aplicável. Observação: para recursos grandes, os serviços de mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
 | Aceitar idioma |"en", "es" e assim por diante. |Especifica o idioma preferencial para a resposta. |
 | Accept-charset |Tipo de conjunto de caracteres como "UTF-8" |O padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não dão suporte a métodos HTTP como PUT ou DELETE usem esses métodos, encapsulados por meio de uma chamada GET. |
 | Content-Type |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
-| ID do cliente-solicitação |Cadeia |Um valor definido pelo chamador que identifica a solicitação especificada. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados em 2096b (2k). |
+| ID do cliente-solicitação |String |Um valor definido pelo chamador que identifica a solicitação especificada. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados em 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão com suporte dos serviços de mídia
 Veja a seguir um conjunto de cabeçalhos que podem ser retornados para você dependendo do recurso que você estava solicitando e da ação que você pretende executar.
 
-| Cabeçalho | Type | Value |
+| Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| ID da solicitação |Cadeia |Um identificador exclusivo para a operação atual, gerado pelo serviço. |
-| ID do cliente-solicitação |Cadeia |Um identificador especificado pelo chamador na solicitação original, se presente. |
+| ID da solicitação |String |Um identificador exclusivo para a operação atual, gerado pelo serviço. |
+| ID do cliente-solicitação |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
 | Date |Data da RFC 1123 |A data/hora em que a solicitação foi processada. |
 | Content-Type |Varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
@@ -104,7 +104,7 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados ao fazer s
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
 | DELETE |Exclui um objeto. |
 | MESCLE |Atualiza um objeto existente com alterações de propriedade nomeadas. |
-| CABEÇALHO |Retorna os metadados de um objeto para uma resposta GET. |
+| HEAD |Retorna os metadados de um objeto para uma resposta GET. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Descobrir e procurar o modelo de entidade dos serviços de mídia
 Para tornar as entidades dos serviços de mídia mais detectáveis, a operação de $metadata pode ser usada. Ele permite que você recupere todos os tipos de entidade válidos, propriedades de entidade, associações, funções, ações e assim por diante. Ao adicionar a operação de $metadata ao final do ponto de extremidade da API REST dos serviços de mídia, você pode acessar esse serviço de descoberta.

@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: criar um aplicativo altamente disponível com armazenamento de BLOBs-armazenamento do Azure'
-description: Utilize o armazenamento georredundante de acesso de leitura para tornar os dados das suas aplicações altamente disponíveis
+title: Tutorial-criar um aplicativo altamente disponível com o armazenamento de BLOBs
+titleSuffix: Azure Storage
+description: Use o armazenamento com redundância geográfica com acesso de leitura para tornar os dados do aplicativo altamente disponíveis.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838579"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892911"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs
 
@@ -30,7 +31,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Create a storage account
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
 
@@ -40,8 +41,7 @@ Para concluir este tutorial:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
-  - **Desenvolvimento do Azure**
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento do Azure** .
 
   ![Desenvolvimento do Azure (na Web e na Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -52,15 +52,15 @@ Para concluir este tutorial:
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-* Instale o [node. js](https://nodejs.org).
+* Instalar o [Node.js](https://nodejs.org).
 
 ---
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Uma conta de armazenamento fornece um namespace exclusivo para armazenar e acessar seus objetos de dados do armazenamento do Azure.
 
@@ -76,11 +76,11 @@ Siga estes passos para criar uma conta de armazenamento georredundante com acess
    | **Nome** | mystorageaccount | Um valor exclusivo para a conta de armazenamento |
    | **Deployment model** (Modelo de implementação) | Resource Manager  | O Resource Manager contém as funcionalidades mais recentes.|
    | **Account kind** (Tipo de conta) | StorageV2 | Para obter detalhes sobre os tipos de contas, veja [Tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Performance** (Desempenho) | Standard | O desempenho standard é suficiente para este cenário de exemplo. |
+   | **Performance** (Desempenho) | Padrão | O desempenho standard é suficiente para este cenário de exemplo. |
    | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | É necessário para o exemplo funcionar. |
    |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
    |**ResourceGroup** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
-   |**Localização** | EUA Leste | Escolher uma localização. |
+   |**Localização** | Este dos E.U.A. | Escolher uma localização. |
 
 ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -191,7 +191,6 @@ A função de repetição do objeto de armazenamento está definida como uma pol
 
 Antes do download, o objeto de serviço [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e a função [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) são definidos. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Para executar o exemplo, abra um prompt de comando, navegue até a pasta de exemplo e, em seguida, insira `node index.js`.
@@ -223,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Compreender o código de exemplo
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Processador de eventos de repetição
 
@@ -274,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Processador de eventos de repetição
 
@@ -317,7 +316,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Com o SDK V10 do node. js, os manipuladores de retorno de chamada são desnecessários. Em vez disso, o exemplo cria um pipeline configurado com opções de repetição e um ponto de extremidade secundário. Isso permite que o aplicativo alterne automaticamente para o pipeline secundário se ele não conseguir acessar seus dados por meio do pipeline primário.
 
@@ -342,11 +341,11 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na parte um da série, você aprendeu a tornar um aplicativo altamente disponível com contas de armazenamento RA-GRS.
 
 Avance para a parte dois da série para saber como simular uma falha e forçar a aplicação a utilizar o ponto final RA-GRS secundário.
 
 > [!div class="nextstepaction"]
-> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md) (Simular uma falha associada ao ponto final de armazenamento primário)
+> [Simular uma falha na leitura da região primária](storage-simulate-failure-ragrs-account-app.md)

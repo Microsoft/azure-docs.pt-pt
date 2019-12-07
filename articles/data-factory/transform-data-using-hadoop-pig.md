@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade Pig do Hadoop no Azure Data Factory
+title: Transformar dados usando a atividade Pig do Hadoop
 description: Saiba como você pode usar a atividade Pig em uma data factory do Azure para executar scripts do Pig em um cluster do HDInsight sob demanda/seu próprio.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 85478c128e2a61ed6a3f4da5cacdcb425038c639
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3ee9da39745458fc24190e72bda15acfc23503dc
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683831"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893863"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade Pig do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -56,7 +56,7 @@ Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Fact
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade            | Descrição                              | Necessário |
+| Propriedade            | Descrição                              | Obrigatório |
 | ------------------- | ---------------------------------------- | -------- |
 | nome                | Nome da atividade                     | Sim      |
 | descrição         | Texto que descreve para que a atividade é usada | Não       |
@@ -65,8 +65,8 @@ Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Fact
 | scriptLinkedService | Referência a um serviço vinculado do armazenamento do Azure usado para armazenar o script Pig a ser executado. Se você não especificar esse serviço vinculado, o serviço vinculado do armazenamento do Azure definido no serviço vinculado do HDInsight será usado. | Não       |
 | scriptPath          | Forneça o caminho para o arquivo de script armazenado no armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o armazenamento do Azure usado pelo cluster HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: nenhum, sempre ou falha. Valor padrão: nenhum. | Não       |
-| argumentos           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
-| autor             | Especifique parâmetros como pares de chave/valor para referência no script Pig. | Não       |
+| arguments           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| defines             | Especifique parâmetros como pares de chave/valor para referência no script Pig. | Não       |
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 

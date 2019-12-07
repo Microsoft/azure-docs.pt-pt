@@ -1,5 +1,6 @@
 ---
-title: Chamando operações da API REST do armazenamento do Azure com autorização de chave compartilhada | Microsoft Docs
+title: Chamar operações da API REST com autorização de chave compartilhada
+titleSuffix: Azure Storage
 description: Use a API REST do armazenamento do Azure para fazer uma solicitação para o armazenamento de BLOBs usando a autorização de chave compartilhada.
 services: storage
 author: tamram
@@ -9,14 +10,14 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 05f71d4952d5f500a93adbb740739a46e9036ac1
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803082"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895163"
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Utilizar a API REST do Armazenamento do Azure
+# <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chamar operações da API REST com autorização de chave compartilhada
 
 Este artigo mostra como chamar as APIs REST do armazenamento do Azure, incluindo como formar o cabeçalho de autorização. Ele é escrito a partir do ponto de vista de um desenvolvedor que não conhece nada sobre REST e sem ideia de como fazer uma chamada REST. Depois de aprender a chamar uma operação REST, você pode aproveitar esse conhecimento para usar qualquer outra operação REST do armazenamento do Azure.
 
@@ -58,15 +59,15 @@ O aplicativo de exemplo lista os contêineres em uma conta de armazenamento. Dep
 
 Se você examinar a [API REST do serviço blob](/rest/api/storageservices/Blob-Service-REST-API), verá todas as operações que podem ser executadas no armazenamento de BLOBs. As bibliotecas de cliente de armazenamento são wrappers em relação às APIs REST – elas facilitam o acesso ao armazenamento sem usar as APIs REST diretamente. Mas, conforme observado acima, às vezes você deseja usar a API REST em vez de uma biblioteca de cliente de armazenamento.
 
-## <a name="rest-api-reference-list-containers-api"></a>Referência da API REST: API de contêineres de lista
+## <a name="list-containers-operation"></a>Operação de listar contêineres
 
-Dê uma olhada na página na referência da API REST para a operação [ListContainers](/rest/api/storageservices/List-Containers2) . Essas informações ajudarão você a entender onde vêm alguns dos campos na solicitação e na resposta.
+Examine a referência para a operação [ListContainers](/rest/api/storageservices/List-Containers2) . Essas informações ajudarão você a entender onde vêm alguns dos campos na solicitação e na resposta.
 
-**Método de solicitação**: OBTER. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem cabeçalho, PUT e DELETE, dependendo da API que você está chamando.
+**Método de solicitação**: Get. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem cabeçalho, PUT e DELETE, dependendo da API que você está chamando.
 
 **URI de solicitação**: `https://myaccount.blob.core.windows.net/?comp=list`.  O URI de solicitação é criado do ponto de extremidade da conta de armazenamento de BLOBs `http://myaccount.blob.core.windows.net` e a cadeia de caracteres de recurso `/?comp=list`.
 
-[Parâmetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): Há parâmetros de consulta adicionais que você pode usar ao chamar ListContainers. Alguns desses parâmetros são o *tempo limite* para a chamada (em segundos) e o *prefixo*, que é usado para filtragem.
+[Parâmetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): há parâmetros de consulta adicionais que você pode usar ao chamar ListContainers. Alguns desses parâmetros são o *tempo limite* para a chamada (em segundos) e o *prefixo*, que é usado para filtragem.
 
 Outro parâmetro útil é *MaxResults:* se mais contêineres estiverem disponíveis do que esse valor, o corpo da resposta conterá um elemento *NextMarker* que indica o próximo contêiner a ser retornado na próxima solicitação. Para usar esse recurso, você fornece o valor de *NextMarker* como o parâmetro de *marcador* no URI ao fazer a próxima solicitação. Ao usar esse recurso, é análogo a paginar pelos resultados.
 
@@ -76,13 +77,13 @@ Para usar parâmetros adicionais, acrescente-os à cadeia de caracteres do recur
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Cabeçalhos de solicitação](/rest/api/storageservices/List-Containers2#request-headers) **:** Esta seção lista os cabeçalhos de solicitação obrigatórios e opcionais. Três dos cabeçalhos são necessários: um cabeçalho de *autorização* , *x-MS-Date* (contém a hora UTC para a solicitação) e *x-MS-Version* (especifica a versão da API REST a ser usada). Incluir *x-MS-Client-Request-ID* nos cabeçalhos é opcional – você pode definir o valor para esse campo como qualquer coisa; Ele é gravado nos logs de análise de armazenamento quando o log está habilitado.
+[Cabeçalhos de solicitação](/rest/api/storageservices/List-Containers2#request-headers) **:** esta seção lista os cabeçalhos de solicitação obrigatórios e opcionais. Três dos cabeçalhos são necessários: um cabeçalho de *autorização* , *x-MS-Date* (contém a hora UTC para a solicitação) e *x-MS-Version* (especifica a versão da API REST a ser usada). Incluir *x-MS-Client-Request-ID* nos cabeçalhos é opcional – você pode definir o valor para esse campo como qualquer coisa; Ele é gravado nos logs de análise de armazenamento quando o log está habilitado.
 
-[Corpo da solicitação](/rest/api/storageservices/List-Containers2#request-body) **:** Não há corpo de solicitação para ListContainers. O corpo da solicitação é usado em todas as operações PUT ao carregar BLOBs, bem como SetContainerAccessPolicy, que permite que você envie uma lista XML de políticas de acesso armazenadas a serem aplicadas. As políticas de acesso armazenadas são discutidas no artigo [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
+[Corpo da solicitação](/rest/api/storageservices/List-Containers2#request-body) **:** não há corpo de solicitação para ListContainers. O corpo da solicitação é usado em todas as operações PUT ao carregar BLOBs, bem como SetContainerAccessPolicy, que permite que você envie uma lista XML de políticas de acesso armazenadas a serem aplicadas. As políticas de acesso armazenadas são discutidas no artigo [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
 
-[Código de status de resposta](/rest/api/storageservices/List-Containers2#status-code) **:** Informa os códigos de status que você precisa saber. Neste exemplo, um código de status HTTP de 200 está ok. Para obter uma lista completa de códigos de status HTTP, confira [definições de código de status](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Para ver os códigos de erro específicos das APIs REST de armazenamento, consulte [códigos de erro comuns da API REST](/rest/api/storageservices/common-rest-api-error-codes)
+[Código de status de resposta](/rest/api/storageservices/List-Containers2#status-code) **:** informa os códigos de status que você precisa saber. Neste exemplo, um código de status HTTP de 200 está ok. Para obter uma lista completa de códigos de status HTTP, confira [definições de código de status](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Para ver os códigos de erro específicos das APIs REST de armazenamento, consulte [códigos de erro comuns da API REST](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers) **:** Isso inclui o *tipo de conteúdo*; *x-MS-Request-ID*, que é a ID da solicitação que você passou; *x-MS-Version*, que indica a versão do serviço blob usado; e a *Data*, que está em UTC e informa a hora em que a solicitação foi feita.
+[Cabeçalhos de resposta](/rest/api/storageservices/List-Containers2#response-headers) **:** eles incluem *tipo de conteúdo*; *x-MS-Request-ID*, que é a ID da solicitação que você passou; *x-MS-Version*, que indica a versão do serviço blob usado; e a *Data*, que está em UTC e informa a hora em que a solicitação foi feita.
 
 [Corpo da resposta](/rest/api/storageservices/List-Containers2#response-body): Este campo é uma estrutura XML que fornece os dados solicitados. Neste exemplo, a resposta é uma lista de contêineres e suas propriedades.
 
@@ -103,7 +104,7 @@ Algumas informações básicas de que você precisa:
 
 - Para ListContainers, o **método** é `GET`. Esse valor é definido ao instanciar a solicitação. 
 - O **recurso** é a parte de consulta do URI que indica qual API está sendo chamada, portanto, o valor é `/?comp=list`. Conforme observado anteriormente, o recurso está na página de documentação de referência que mostra as informações sobre a [API ListContainers](/rest/api/storageservices/List-Containers2).
-- O URI é construído criando-se o ponto de extremidade do serviço blob para essa conta de armazenamento e concatenando o recurso. O valor de **URI de solicitação** termina sendo `http://contosorest.blob.core.windows.net/?comp=list`.
+- O URI é construído criando-se o ponto de extremidade do serviço blob para essa conta de armazenamento e concatenando o recurso. O valor de **URI de solicitação** acaba sendo `http://contosorest.blob.core.windows.net/?comp=list`.
 - Para ListContainers, **requestBody** é nulo e não há nenhum **cabeçalho**extra.
 
 APIs diferentes podem ter outros parâmetros para passar, como *ifMatch*. Um exemplo de onde você pode usar ifMatch é ao chamar PutBlob. Nesse caso, você definirá ifMatch como uma eTag e atualizará apenas o blob se a eTag fornecida corresponder à eTag atual no BLOB. Se outra pessoa tiver atualizado o blob desde a recuperação da eTag, sua alteração não será substituída.
@@ -132,29 +133,29 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 Adicione os cabeçalhos de solicitação para `x-ms-date` e `x-ms-version`. Esse local no código também é onde você adiciona quaisquer cabeçalhos de solicitação adicionais necessários para a chamada. Neste exemplo, não há nenhum cabeçalho adicional. Um exemplo de uma API que passa em cabeçalhos extras é a operação definir ACL de contêiner. Essa chamada à API adiciona um cabeçalho chamado "x-ms-blob-Public-Access" e o valor para o nível de acesso.
 
 ```csharp
-    // Add the request headers for x-ms-date and x-ms-version.
-    DateTime now = DateTime.UtcNow;
-    httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
-    // If you need any additional headers, add them here before creating
-    //   the authorization header.
+// Add the request headers for x-ms-date and x-ms-version.
+DateTime now = DateTime.UtcNow;
+httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
+httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
+// If you need any additional headers, add them here before creating
+//   the authorization header.
 ```
 
 Chame o método que cria o cabeçalho de autorização e adicione-o aos cabeçalhos de solicitação. Você verá como criar o cabeçalho de autorização posteriormente neste artigo. O nome do método é GetAuthorizationHeader, que pode ser visto neste trecho de código:
 
 ```csharp
-    // Get the authorization header and add it.
-    httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
-        storageAccountName, storageAccountKey, now, httpRequestMessage);
+// Get the authorization header and add it.
+httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
+    storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
 Neste ponto, `httpRequestMessage` contém a solicitação REST concluída com os cabeçalhos de autorização.
 
-## <a name="call-the-rest-api-with-the-request"></a>Chamar a API REST com a solicitação
+## <a name="send-the-request"></a>Enviar a solicitação
 
-Agora que você tem a solicitação, pode chamar SendAsync para enviar a solicitação REST. SendAsync chama a API e obtém a resposta de volta. Examine a resposta StatusCode (200 está OK) e, em seguida, analise a resposta. Nesse caso, você obtém uma lista XML de contêineres. Vamos examinar o código para chamar o método GetRESTRequest para criar a solicitação, executar a solicitação e, em seguida, examinar a resposta para a lista de contêineres.
+Agora que você construiu a solicitação, você pode chamar o método SendAsync para enviá-la ao armazenamento do Azure. Verifique se o valor do código de status de resposta é 200, o que significa que a operação foi bem-sucedida. Em seguida, analise a resposta. Nesse caso, você obtém uma lista XML de contêineres. Vamos examinar o código para chamar o método GetRESTRequest para criar a solicitação, executar a solicitação e, em seguida, examinar a resposta para a lista de contêineres.
 
-```csharp 
+```csharp
     // Send the request.
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
@@ -174,7 +175,7 @@ Agora que você tem a solicitação, pode chamar SendAsync para enviar a solicit
 }
 ```
 
-Se você executar um sniffer de rede, como o [Fiddler](https://www.telerik.com/fiddler) , ao fazer a chamada para SendAsync, poderá ver as informações de solicitação e resposta. Vamos dar uma olhada. O nome da conta de armazenamento é *contosorest*.
+Se você executar um sniffer de rede, como o [Fiddler](https://www.telerik.com/fiddler) , ao fazer a chamada para SendAsync, poderá ver as informações de solicitação e resposta. Vamos dar uma vista de olhos. O nome da conta de armazenamento é *contosorest*.
 
 **Quest**
 
@@ -301,13 +302,13 @@ StringToSign = VERB + "\n" +
 
 A maioria desses campos raramente é usada. Para o armazenamento de BLOBs, você especifica verbo, MD5, comprimento do conteúdo, cabeçalhos canônicos e recurso canônico. Você pode deixar os outros em branco (mas colocar na `\n` para que ele saiba que estão em branco).
 
-O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que significa canônico? O Microsoft Word nem o reconhece como uma palavra. Veja o que a [Wikipédia diz sobre a canonização](https://en.wikipedia.org/wiki/Canonicalization): *Na ciência da computação, a canonização (às vezes, padronização ou normalização) é um processo para converter dados que têm mais de uma representação possível em um formato "padrão", "normal" ou canônico.* Em normal-falar, isso significa pegar a lista de itens (como cabeçalhos no caso de cabeçalhos canônicos) e padroniza-los em um formato necessário. Basicamente, a Microsoft decidiu em um formato e você precisa fazer a correspondência.
+O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que significa canônico? O Microsoft Word nem o reconhece como uma palavra. Aqui está o que a [Wikipédia diz sobre a canonização](https://en.wikipedia.org/wiki/Canonicalization): *na ciência da computação, a canonização (às vezes a padronização ou a normalização) é um processo para converter dados que têm mais de uma representação possível em um formato "padrão", "normal" ou canônico.* Em normal-falar, isso significa pegar a lista de itens (como cabeçalhos no caso de cabeçalhos canônicos) e padroniza-los em um formato necessário. Basicamente, a Microsoft decidiu em um formato e você precisa fazer a correspondência.
 
 Vamos começar com esses dois campos canônicos, pois eles são necessários para criar o cabeçalho de autorização.
 
 ### <a name="canonicalized-headers"></a>Cabeçalhos canônicos
 
-Para criar esse valor, recupere os cabeçalhos que começam com "x-MS-" e classifique-os e, em seguida, os formate em uma cadeia de caracteres `[key:value\n]`, concatenados em uma cadeia de caracteres. Neste exemplo, os cabeçalhos canônicos têm a seguinte aparência: 
+Para criar esse valor, recupere os cabeçalhos que começam com "x-MS-" e classifique-os, em seguida, formate-os em uma cadeia de `[key:value\n]` instâncias, concatenados em uma cadeia de caracteres. Neste exemplo, os cabeçalhos canônicos têm a seguinte aparência: 
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -352,7 +353,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 ### <a name="canonicalized-resource"></a>Recurso canônico
 
-Essa parte da cadeia de caracteres de assinatura representa a conta de armazenamento direcionada à solicitação. Lembre-se de que o URI de solicitação é `<http://contosorest.blob.core.windows.net/?comp=list>`, com o nome real da conta (`contosorest`, nesse caso). Neste exemplo, isso é retornado:
+Essa parte da cadeia de caracteres de assinatura representa a conta de armazenamento direcionada à solicitação. Lembre-se de que o URI de solicitação é `<http://contosorest.blob.core.windows.net/?comp=list>`, com o nome real da conta (`contosorest` nesse caso). Neste exemplo, isso é retornado:
 
 ```
 /contosorest/\ncomp:list
@@ -430,7 +431,7 @@ O AuthorizationHeader é o último cabeçalho colocado nos cabeçalhos de solici
 
 Isso abrange tudo o que você precisa saber para reunir uma classe com a qual você pode criar uma solicitação para chamar as APIs REST dos serviços de armazenamento.
 
-## <a name="example-list-blobs"></a>Exemplo: Listar blobs
+## <a name="example-list-blobs"></a>Exemplo: listar BLOBs
 
 Vejamos como alterar o código para chamar a operação listar BLOBs para contêiner de contêiner *-1*. Esse código é quase idêntico ao código para listar contêineres, as únicas diferenças são o URI e como você analisa a resposta.
 
@@ -568,7 +569,7 @@ Neste artigo, você aprendeu como fazer uma solicitação para a API REST do arm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [API REST do serviço blob](/rest/api/storageservices/blob-service-rest-api)
-- [API REST do serviço de arquivo](/rest/api/storageservices/file-service-rest-api)
-- [API REST do serviço fila](/rest/api/storageservices/queue-service-rest-api)
-- [API REST do serviço tabela](/rest/api/storageservices/table-service-rest-api)
+- [API REST de Serviço Blob](/rest/api/storageservices/blob-service-rest-api)
+- [API REST de Serviço de Ficheiros](/rest/api/storageservices/file-service-rest-api)
+- [API REST de Serviço de Filas](/rest/api/storageservices/queue-service-rest-api)
+- [API REST de Serviço de Tabelas](/rest/api/storageservices/table-service-rest-api)

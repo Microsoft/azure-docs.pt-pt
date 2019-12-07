@@ -1,28 +1,22 @@
 ---
-title: Script do Azure PowerShell de exemplo - calcular o tamanho de contentor do blob | Documentos da Microsoft
-description: Calcule o tamanho de um contentor no armazenamento de Blobs do Azure ao calcular o tamanho de cada um dos respetivos blobs total.
+title: Calcular o tamanho de um contêiner de blob com o PowerShell
+titleSuffix: Azure Storage
+description: Calcule o tamanho de um contêiner no armazenamento de BLOBs do Azure, totalizando o tamanho de cada um de seus BLOBs.
 services: storage
-documentationcenter: na
 author: tamram
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d8baec875c25556f1080cdd105c7fa466ffce74e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 890da96ac1d97a2eb84f5296c74a02824d657273
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230884"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895049"
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>Calcular o tamanho de um contentor de armazenamento de Blobs
+# <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calcular o tamanho de um contêiner de blob com o PowerShell
 
 Este script calcula o tamanho de um contentor no armazenamento do Blobs do Azure ao calcular o tamanho total dos blobs no contentor.
 
@@ -31,7 +25,7 @@ Este script calcula o tamanho de um contentor no armazenamento do Blobs do Azure
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Este script do PowerShell fornece um tamanho estimado do contentor e não deve ser utilizada para cálculos de faturação. Para obter um script que calcule o tamanho do contentor para efeitos de faturação, veja [calcular o tamanho de um contentor de armazenamento de BLOBs para fins de faturação](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
+> Esse script do PowerShell fornece um tamanho estimado para o contêiner e não deve ser usado para cálculos de cobrança. Para obter um script que calcula o tamanho do contêiner para fins de cobrança, consulte [calcular o tamanho de um contêiner de armazenamento de BLOBs para fins de cobrança](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -47,17 +41,17 @@ Remove-AzResourceGroup -Name bloblisttestrg
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para calcular o tamanho do contentor de armazenamento de Blobs. Cada item na tabela liga para documentação de comandos específicos.
+Este script utiliza os seguintes comandos para calcular o tamanho do contentor de armazenamento de Blobs. Cada item na tabela liga a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento num grupo de recursos ou subscrição. |
-| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Lista os blobs num contentor. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento em um grupo de recursos ou na assinatura. |
+| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Lista os BLOBs em um contêiner. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter um script que calcule o tamanho do contentor para efeitos de faturação, veja [calcular o tamanho de um contentor de armazenamento de BLOBs para fins de faturação](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
+Para obter um script que calcula o tamanho do contêiner para fins de cobrança, consulte [calcular o tamanho de um contêiner de armazenamento de BLOBs para fins de cobrança](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Exemplos de scripts do PowerShell de armazenamento adicional podem ser encontrados na [exemplos do PowerShell do armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).
+Exemplos de script do PowerShell de armazenamento adicionais podem ser encontrados em [exemplos do PowerShell para armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).

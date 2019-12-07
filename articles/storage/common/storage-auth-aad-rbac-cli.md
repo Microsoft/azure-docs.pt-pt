@@ -1,22 +1,23 @@
 ---
-title: Use CLI do Azure para gerenciar os direitos de acesso do Azure AD aos dados de BLOB e de fila com o armazenamento do Azure RBAC
-description: Use CLI do Azure para atribuir acesso a contêineres e filas com RBAC (controle de acesso baseado em função). O armazenamento do Azure dá suporte a funções RBAC personalizadas e internas para autenticação por meio do Azure AD.
+title: Usar CLI do Azure para atribuir uma função de RBAC para acesso a dados
+titleSuffix: Azure Storage
+description: Saiba como usar CLI do Azure para atribuir permissões a uma entidade de segurança de Azure Active Directory com o RBAC (controle de acesso baseado em função). O armazenamento do Azure dá suporte a funções RBAC personalizadas e internas para autenticação por meio do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673197"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891973"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Conceder acesso ao blob do Azure e a dados da fila com o RBAC usando CLI do Azure
+# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use CLI do Azure para atribuir uma função de RBAC para acesso a dados de BLOB e de fila
 
 O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio [do RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB ou de fila.
 
@@ -28,7 +29,7 @@ Este artigo descreve como usar CLI do Azure para listar funções RBAC internas 
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinar o escopo do recurso 
+## <a name="determine-resource-scope"></a>Determinar o escopo do recurso
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

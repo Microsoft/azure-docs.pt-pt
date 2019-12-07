@@ -1,6 +1,6 @@
 ---
 title: Visão geral do ponto de extremidade de streaming do Azure Media Services | Microsoft Docs
-description: Este tópico fornece uma visão geral dos pontos de extremidade de streaming dos serviços de mídia do Azure.
+description: Este artigo fornece uma visão geral dos pontos de extremidade de streaming dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ac9c9a73e52c678c8a6d9b1e1779d9ec75cab2c8
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016454"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885641"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
@@ -39,18 +39,18 @@ Este tópico fornece uma visão geral das principais funcionalidades fornecidas 
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Para o ponto de extremidade padrão:`{AccountName}.streaming.mediaservices.windows.net`
+Para o ponto de extremidade padrão: `{AccountName}.streaming.mediaservices.windows.net`
 
-Para quaisquer pontos de extremidade adicionais:`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
+Para quaisquer pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Tipos e versões de streaming
 
 ### <a name="standardpremium-types-version-20"></a>Tipos Standard/Premium (versão 2,0)
 
-A partir da versão de janeiro de 2017 dos serviços de mídia, você tem dois tipos de streaming: **Padrão** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming "2,0".
+A partir da versão de janeiro de 2017 dos serviços de mídia, você tem dois tipos de streaming: **Standard** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming "2,0".
 
 
-|Type|Descrição|
+|Tipo|Descrição|
 |--------|--------|  
 |**Standard**|O ponto de extremidade de streaming padrão é um tipo **padrão** , pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
 |**Premium** |Essa opção é adequada para cenários profissionais que exigem maior escala ou controle. Você passa para um tipo **Premium** ajustando unidades de streaming.<br/>Os pontos de extremidade de streaming dedicados residem em um ambiente isolado e não conpetem por recursos.|
@@ -75,23 +75,23 @@ Se o ponto de extremidade de streaming da **versão "1,0"** tiver > = 1 Su (unid
 
 ### <a name="versions"></a>Versões
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|
+|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássica|1.0|0|ND|Livre|
+|Clássico|1.0|0|N/D|Gratuito|
 |Ponto de extremidade de streaming padrão (visualização)|2.0|0|Sim|Pago|
 |Unidades de Transmissão em Fluxo Premium|1.0|>0|Sim|Pago|
 |Unidades de Transmissão em Fluxo Premium|2.0|>0|Sim|Pago|
 
 ### <a name="features"></a>Funcionalidades
 
-Funcionalidade|Standard|Premium
+Funcionalidade|Padrão|Premium
 ---|---|---
 Débito |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por SU (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|CDN do Azure, CDN de terceiros ou nenhuma CDN.|CDN do Azure, CDN de terceiros ou nenhuma CDN.
 A cobrança é rateada| Diariamente|Diariamente
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escala|Escala verticalmente para a taxa de transferência de destino.|Unidades de streaming adicionais.
+Escalabilidade|Escala verticalmente para a taxa de transferência de destino.|Unidades de streaming adicionais.
 Filtragem de IP/G20/host personalizado <sup>1</sup>|Sim|Sim
 Download progressivo|Sim|Sim
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
@@ -102,11 +102,11 @@ Para obter informações de SLA, consulte [preços e SLA](https://azure.microsof
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 
-De | Para | Action
+A partir de | a | Ação
 ---|---|---
-Clássica|Standard|Precisa aceitar
-Clássica|Premium| Escala (unidades de streaming adicionais)
-Standard/Premium|Clássica|Não disponível (se a versão do ponto de extremidade de streaming for 1,0. É permitido alterar para clássico com a configuração de ScaleUnits como "0")
+Clássico|Padrão|Precisa aceitar
+Clássico|Premium| Escala (unidades de streaming adicionais)
+Standard/Premium|Clássico|Não disponível (se a versão do ponto de extremidade de streaming for 1,0. É permitido alterar para clássico com a configuração de ScaleUnits como "0")
 Standard (com/sem CDN)|Premium com as mesmas configurações|Permitido no estado **iniciado** . (via portal do Azure)
 Premium (com/sem CDN)|Standard com as mesmas configurações|Permitido no estado **iniciado** (via portal do Azure)
 Standard (com/sem CDN)|Premium com configuração diferente|Permitido no estado **parado** (via portal do Azure). Não permitido no estado de execução.
@@ -115,7 +115,7 @@ Versão 1,0 com SU > = 1 com CDN|Standard/Premium sem CDN|Permitido no estado **
 Versão 1,0 com SU > = 1 com CDN|Standard com/sem CDN|Permitido no estado **parado** . Não permitido no estado **iniciado** . A CDN da versão 1,0 será excluída e nova criada e iniciada.
 Versão 1,0 com SU > = 1 com CDN|Premium com/sem CDN|Permitido no estado **parado** . Não permitido no estado **iniciado** . A CDN clássica será excluída e nova criada e iniciada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 1fbd69a095e171ec2fb386bed34b196f723e7496
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f60b0b9294fa3f11889613a7d63f21e87fbea201
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278940"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894118"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -33,7 +33,7 @@ Os logs de Azure Monitor são projetados para dimensionar e dar suporte à colet
 
 Neste artigo, examinaremos como você pode monitorar proativamente o crescimento do armazenamento e do volume de dados ingeridos e definir limites para controlar esses custos associados. 
 
-## <a name="pricing-model"></a>Modelo preços
+## <a name="pricing-model"></a>Modelo de determinação de preço
 
 O preço padrão para Log Analytics é um modelo **pago conforme o uso** com base no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. O volume de dados é medido como o tamanho dos dados que serão armazenados. Cada espaço de trabalho Log Analytics é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. A quantidade de ingestão de dados pode ser considerável dependendo dos seguintes fatores: 
 
@@ -56,13 +56,13 @@ Se você estiver usando logs de Azure Monitor agora, é fácil entender quais s�
 
 ![Utilização e custos estimados](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
-Para explorar seus dados com mais detalhes, clique no ícone na parte superior direita de qualquer um dos gráficos na página **uso e custos estimados** . Agora pode trabalhar com esta consulta para explorar mais detalhes da sua utilização.  
+Para explorar os seus dados em mais detalhes, clique no ícone na parte superior direita do qualquer um dos gráficos no **utilização e custos estimados** página. Agora pode trabalhar com esta consulta para explorar mais detalhes da sua utilização.  
 
 ![Ver registos](media/manage-cost-storage/logs.png)
 
-Na página **uso e custos estimados** , você pode examinar o volume de dados do mês. Isto inclui todos os dados recebidos e mantidas na sua área de trabalho do Log Analytics.  Clique em **detalhes de uso** na parte superior da página para exibir o painel uso com informações sobre as tendências de volume de dados por fonte, computadores e oferta. Para exibir e definir um limite diário ou para modificar o período de retenção, clique em **Gerenciamento de volume de dados**.
+Na página **uso e custos estimados** , você pode examinar o volume de dados do mês. Isto inclui todos os dados recebidos e mantidas na sua área de trabalho do Log Analytics.  Clique em **detalhes de uso** na parte superior da página para exibir o painel uso com informações sobre as tendências de volume de dados por fonte, computadores e oferta. Para ver e definir um máximo diário ou para modificar o período de retenção, clique em **gestão de volumes de dados**.
  
-Custos de análise de registo são adicionados à sua fatura do Azure. Você pode ver os detalhes da sua fatura do Azure na seção de cobrança da portal do Azure ou na [portal de cobrança do Azure](https://account.windowsazure.com/Subscriptions).  
+Custos de análise de registo são adicionados à sua fatura do Azure. Pode ver detalhes do seu do Azure são faturadas na secção de faturação do portal do Azure ou no [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Exibindo o uso de Log Analytics em sua fatura do Azure 
 
@@ -86,7 +86,7 @@ Você também pode [definir o tipo de preço por meio de Azure Resource Manager]
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço herdados
 
-As assinaturas que tinham um espaço de trabalho Log Analytics ou Application Insights recurso nele antes de 2 de abril de 2018 ou estão vinculadas a uma Enterprise Agreement iniciada antes de 1º de fevereiro de 2019, continuarão a ter acesso para usar os tipos de preço herdados: **gratuito**, **Autônomo (por GB)** e **por nó (OMS)** .  Os espaços de trabalho no tipo de preço gratuito terão ingestão de dados diária limitada a 500 MB (exceto os tipos de dados de segurança coletados pela central de segurança do Azure) e a retenção de dados será limitada a 7 dias. O tipo de preço gratuito é destinado apenas para fins de avaliação. Os espaços de trabalho nos tipos de preço autônomos ou por nó têm retenção configurável do usuário de até 2 anos. 
+As assinaturas que tinham um espaço de trabalho Log Analytics ou Application Insights recurso nele antes de 2 de abril de 2018 ou estão vinculadas a uma Enterprise Agreement iniciada antes de 1º de fevereiro de 2019, continuarão a ter acesso para usar os tipos de preço herdados: **gratuito**, **autônomo (por GB)** e **por nó (OMS)** .  Os espaços de trabalho no tipo de preço gratuito terão ingestão de dados diária limitada a 500 MB (exceto os tipos de dados de segurança coletados pela central de segurança do Azure) e a retenção de dados será limitada a 7 dias. O tipo de preço gratuito é destinado apenas para fins de avaliação. Os espaços de trabalho nos tipos de preço autônomos ou por nó têm retenção configurável do usuário de até 2 anos. 
 
 Os espaços de trabalho criados antes de abril de 2016 também podem acessar os tipos de preço Standard e **Premium** **padrão** que têm retenção de dados fixa de 30 a 365 dias, respectivamente. Novos espaços de trabalho não podem ser criados nos tipos de preço **Standard** ou **Premium** e, se um espaço de trabalho for movido para fora dessas camadas, ele não poderá ser movido de volta. 
 
@@ -105,7 +105,7 @@ Para definir a retenção padrão para seu espaço de trabalho,
  
 1. No portal do Azure, no espaço de trabalho, selecione **uso e custos estimados** no painel esquerdo.
 2. Na página **Utilização e custos estimados**, clique em **Gestão de volumes de dados**, na parte superior.
-3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e clique em **OK**.  Se você estiver na camada *gratuita* , não poderá modificar o período de retenção de dados e precisará atualizar para a camada paga a fim de controlar essa configuração.
+3. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e, em seguida, clique em **OK**.  Se estiver a utilizar o *gratuita* escalão, não será capaz de modificar o período de retenção de dados e terá de atualizar para o escalão pago para poder controlar esta definição.
 
     ![Alterar a configuração de retenção de dados do espaço de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
@@ -160,22 +160,22 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 Pode configurar um máximo diário e limitar a ingestão diária da sua área de trabalho, mas usar cuidados de saúde, como o seu objetivo não deve ser atingir o limite diário.  Caso contrário, perde os dados para o resto do dia, que pode afetar outros serviços do Azure e soluções cuja funcionalidade pode depender de dados atualizados estarem disponíveis na área de trabalho.  Como resultado, a sua capacidade de observar e receber alertas quando as condições de estado de funcionamento de recursos que suportam serviços de TI são afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar os encargos não planejados para seu espaço de trabalho.  
 
-Quando for atingido o limite diário, a coleção de tipos de dados cobrar deixa para o resto do dia. Uma faixa de aviso aparece na parte superior da página do espaço de trabalho Log Analytics selecionado e um evento de operação é enviado para a tabela de *operação* em **LogManagement** categoria. A coleta de dados será retomada depois que o tempo de redefinição definido em *limite diário será definido em*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para ser notificado quando for atingido o limite diário de dados. 
+Quando for atingido o limite diário, a coleção de tipos de dados cobrar deixa para o resto do dia. É apresentada uma faixa de aviso na parte superior da página para a área de trabalho do Log Analytics selecionada e um evento de operação é enviado para o *operação* tabela sob **LogManagement** categoria. Recolha de dados retoma após a hora de reposição definidas em *limite diário terá o valor*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para ser notificado quando for atingido o limite diário de dados. 
 
 > [!NOTE]
 > O limite diário não interrompe a coleta de dados da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
 
-Examine [log Analytics uso e custos estimados](usage-estimated-costs.md) para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
+Revisão [utilização do Log Analytics e custos estimados](usage-estimated-costs.md) para compreender as tendências de ingestão de dados e o que é o limite de volume diário para definir. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
 
 ### <a name="set-the-daily-cap"></a>Definir o limite diário
 
 As etapas a seguir descrevem como configurar um limite para gerenciar o volume de dados que Log Analytics espaço de trabalho será ingerido por dia.  
 
 1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
-2. Na página **uso e custos estimados** para o espaço de trabalho selecionado, clique em **Gerenciamento de volume de dados** na parte superior da página. 
-3. O limite diário está **desativado** por padrão – Clique **em ativado** para habilitá-lo e defina o limite de volume de dados em GB/dia.
+2. Sobre o **utilização e custos estimados** para a área de trabalho selecionada, clique em **gestão de volumes de dados** da parte superior da página. 
+3. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.
 
     ![Log Analytics configurar o limite de dados](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -197,7 +197,7 @@ Para começar, seguem-se as definições recomendadas para o alerta:
 - Nome da regra de alerta: limite diário de dados foi atingido
 - Gravidade: Aviso (gravidade 1)
 
-Assim que o alerta é definido e o limite for atingido, um alerta é acionado e executa a resposta definida no grupo de ação. Ele pode notificar sua equipe por email e mensagens de texto, ou automatizar ações usando WebHooks, runbooks de automação ou [integração com uma solução de ITSM externa](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+Assim que o alerta é definido e o limite for atingido, um alerta é acionado e executa a resposta definida no grupo de ação. Pode notificar a sua equipa através de e-mail e mensagens de texto, ou automatize ações através de webhooks, runbooks de automatização ou [integrar com uma solução ITSM externa](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
 
@@ -232,7 +232,7 @@ union withsource = tt *
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)
+| summarize billableNodes=dcount(computerName)
 ```
 
 > [!NOTE]
@@ -250,7 +250,7 @@ union withsource = tt *
 
 ## <a name="understanding-ingested-data-volume"></a>Compreendendo o volume de dados ingeridos
 
-Na página **uso e custos estimados** , o gráfico *ingestão de dados por solução* mostra o volume total de dados enviados e a quantidade de envio por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
+Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
@@ -322,7 +322,7 @@ Alterar `subscriptionId` para `resourceGroup` mostrará o volume de dados ingeri
 
 
 > [!NOTE]
-> Alguns dos campos do tipo de dados de uso, enquanto ainda estão no esquema, foram preteridos e seus valores não serão mais populados. Esses são **computadores** , bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
+> Alguns dos campos do tipo de dados de uso, enquanto ainda estão no esquema, foram preteridos e seus valores não serão mais populados. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.
 
 ### <a name="querying-for-common-data-types"></a>Consultando tipos de dados comuns
 
@@ -359,7 +359,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 
 ### <a name="getting-security-and-automation-node-counts"></a>Obtendo contagens de nós de segurança e automação
 
-Se você estiver no tipo de preço "por nó (OMS)", será cobrado com base no número de nós e soluções que você usa, o número de percepções e nós de análise para os quais você está sendo cobrado será mostrado na tabela na página **uso e custo estimado** .  
+Se estiver a utilizar "Por nó (OMS)" escalão de preço, em seguida, é cobrado com base no número de nós e soluções utilizar, o número de informações e nós de análise que lhe está a ser cobrada serão apresentados na tabela no **utilização e custos estimados**página.  
 
 Para ver o número de nós de segurança distintas, pode utilizar a consulta:
 

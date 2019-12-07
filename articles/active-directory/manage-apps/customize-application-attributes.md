@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c8337d18b5c6b484e45e6cefaec98e2684155a02
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641494"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900427"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -78,12 +78,12 @@ Junto com essa propriedade, os mapeamentos de atributo também oferecem suporte 
   - **Somente durante a criação** – aplique esse mapeamento somente em ações de criação de usuário.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Usuários correspondentes nos sistemas de origem e de destino
-O serviço de provisionamento do Azure AD pode ser implantado em ambos os cenários Greenfield (os usuários não são encerrados no sistema de destino) e Brownfield (os usuários já existem nos sistemas de destino). Para dar suporte a ambos os cenários, o serviço de provisionamento usa o conceito de atributo (s) correspondente. Os atributos correspondentes permitem que você determine como identificar exclusivamente um usuário na origem e corresponder ao usuário no destino. Como parte do planejamento de sua implantação, identifique o atributo que pode ser usado para identificar exclusivamente um usuário nos sistemas de origem e de destino. Itens a serem observados:
+O serviço de provisionamento do Azure AD pode ser implantado em cenários "greenfield" (onde os usuários não saem no sistema de destino) e nos cenários "Brownfield" (onde os usuários já existem no sistema de destino). Para dar suporte a ambos os cenários, o serviço de provisionamento usa o conceito de atributos correspondentes. Os atributos correspondentes permitem que você determine como identificar exclusivamente um usuário na origem e corresponder ao usuário no destino. Como parte do planejamento de sua implantação, identifique o atributo que pode ser usado para identificar exclusivamente um usuário nos sistemas de origem e de destino. Itens a serem observados:
 
 - Os **atributos correspondentes devem ser exclusivos:** Os clientes geralmente usam atributos como userPrincipalName, email ou ID de objeto como o atributo correspondente.
-- **Vários atributos podem ser usados como atributos correspondentes:** Você pode definir vários atributos a serem avaliados quando os usuários correspondentes e a ordem em que eles são avaliados (definidos como precedência de correspondência na interface do usuário). Se, por exemplo, você definir três atributos como atributos correspondentes e um usuário for correspondido com exclusividade depois de avaliar os dois primeiros atributos, o serviço não evaluat o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e interromperá a avaliação quando uma correspondência for encontrada.  
+- **Vários atributos podem ser usados como atributos correspondentes:** Você pode definir vários atributos a serem avaliados quando os usuários correspondentes e a ordem em que eles são avaliados (definidos como precedência de correspondência na interface do usuário). Se, por exemplo, você definir três atributos como atributos correspondentes e um usuário for correspondido com exclusividade depois de avaliar os dois primeiros atributos, o serviço não avaliará o terceiro atributo. O serviço avaliará os atributos correspondentes na ordem especificada e interromperá a avaliação quando uma correspondência for encontrada.  
 - **O valor na origem e no destino não precisam corresponder exatamente:** O valor no destino pode ser uma função simples do valor na origem. Portanto, um pode ter um atributo emailAddress na origem e o userPrincipalName no destino e corresponder por uma função do atributo emailAddress que substitui alguns caracteres por um valor constante.  
-- **Não há suporte para a correspondência com base em uma combinação de atributos:** A maioria dos aplicativos não oferece suporte à consulta com base em duas propriedades e portanto não é possível fazer a correspondência com base em uma combinação de atributos. É possível avaliar as propriedades únicas após a outra.
+- **Não há suporte para a correspondência com base em uma combinação de atributos:** A maioria dos aplicativos não oferece suporte à consulta com base em duas propriedades. Portanto, não é possível fazer a correspondência com base em uma combinação de atributos. É possível avaliar as propriedades únicas após a outra.
 - **Todos os usuários devem ter um valor para pelo menos um atributo correspondente:** Se você definir um atributo correspondente, todos os usuários deverão ter um valor para esse atributo no sistema de origem. Se, por exemplo, você definir userPrincipalName como o atributo correspondente, todos os usuários deverão ter um userPrincipalName. Se você definir vários atributos correspondentes (por exemplo, extensionAttribute1 e email), nem todos os usuários precisarão ter o mesmo atributo correspondente. Um usuário poderia ter um extensionAttribute1, mas não um email, enquanto outro usuário poderia ter um email, mas sem extensionAttribute1. 
 - **O aplicativo de destino deve dar suporte à filtragem no atributo correspondente:** Os desenvolvedores de aplicativos permitem a filtragem de um subconjunto de atributos em sua API de usuário ou de grupo. Para aplicativos na Galeria, garantimos que o mapeamento de atributo padrão seja para um atributo no qual a API do aplicativo de destino dá suporte à filtragem. Ao alterar o atributo de correspondência padrão para o aplicativo de destino, verifique a documentação da API de terceiros para garantir que o atributo possa ser filtrado.  
 
@@ -134,7 +134,61 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
 - **Expressão de API** -não use, a menos que seja instruído a fazer isso pela documentação para um conector de provisionamento específico (como workday).
 - **Atributo de objeto referenciado** -se for um atributo de tipo de referência, esse menu permitirá que você selecione a tabela e o atributo no aplicativo de destino que contém o valor associado ao atributo. Por exemplo, se você tiver um atributo chamado "Department" cujo valor armazenado faz referência a um objeto em uma tabela "departamentos" separada, selecione "Departments.Name". As tabelas de referência e os campos de ID primária com suporte para um determinado aplicativo são pré-configurados e, no momento, não podem ser editados usando o portal do Azure, mas podem ser editados usando o [API do Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Para adicionar um novo atributo, role até o final da lista de atributos com suporte, preencha os campos acima usando as entradas fornecidas e selecione **Adicionar atributo**. Selecione **salvar** quando terminar de adicionar atributos. Em seguida, você precisa recarregar a guia **provisionamento** para que os novos atributos se tornem disponíveis no editor de mapeamento de atributos.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizado para um aplicativo compatível com SCIM
+A RFC SCIM define um esquema de usuário e grupo principal, permitindo também que as extensões do esquema atendam às necessidades do seu aplicativo. Para adicionar um atributo personalizado a um aplicativo SCIM:
+   1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com), selecione **aplicativos empresariais**, selecione seu aplicativo e, em seguida, selecione **provisionamento**.
+   2. Em **mapeamentos**, selecione o objeto (usuário ou grupo) para o qual você deseja adicionar um atributo personalizado.
+   3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
+   4. Selecione * * Editar lista de atributos para o *aplicativo*.
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar atributo**.
+
+Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute
+
+Essas instruções só são aplicáveis a aplicativos habilitados para SCIM. Aplicativos como ServiceNow e Salesforce não são integrados ao Azure AD usando SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
+
+Atributos personalizados não podem ser atributos de referência ou atributos de valores múltiplos. Os atributos de extensão de vários valores personalizados atualmente têm suporte apenas para aplicativos na galeria.  
+ 
+**Exemplo de representação de um usuário com um atributo de extensão:**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Provisionando uma função para um aplicativo SCIM
 Use as etapas abaixo para provisionar funções para um usuário para seu aplicativo. Observe que a descrição abaixo é específica para aplicativos SCIM personalizados. Para aplicativos de galeria, como Salesforce e ServiceNow, use os mapeamentos de função predefinidos. Os marcadores abaixo descrevem como transformar o atributo AppRoleAssignments no formato esperado pelo aplicativo.
 
@@ -222,9 +276,9 @@ Use as etapas abaixo para provisionar funções para um usuário para seu aplica
 ## <a name="provisioning-a-multi-value-attribute"></a>Provisionando um atributo com vários valores
 Determinados atributos, como phoneNumbers e emails, são atributos de vários valores, em que talvez seja necessário especificar diferentes tipos de números de telefone ou emails. Use a expressão abaixo para atributos de valores múltiplos. Ele permite que você especifique o tipo de atributo e mapeie-o para o atributo de usuário correspondente do Azure AD para o valor. 
 
-* phoneNumbers [type EQ "trabalho"]. valor
-* phoneNumbers [tipo EQ "móvel"]. valor
-* phoneNumbers [type EQ "fax"]. valor
+* . Value de phoneNumbers [tipo eq "trabalho"]
+* . Value de phoneNumbers [tipo eq "móvel"]
+* . Value de phoneNumbers [tipo eq "fax"]
 
    ```json
    "phoneNumbers": [
@@ -263,8 +317,8 @@ A seleção dessa opção forçará efetivamente uma ressincronização de todos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
+- [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](user-provisioning.md)
 - [Gravando expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)
-- [Filtros de escopo para provisionamento de usuário](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Filtros de âmbito para o aprovisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
-- [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)

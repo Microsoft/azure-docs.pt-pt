@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o netbricks Python – Azure
+title: Transformar dados com o Python do databricks
 description: Saiba como processar ou transformar dados executando um Python do databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1acc484b8843fc1fe1acae5759a24f923396e003
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683946"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893948"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformar dados executando uma atividade do Python no Azure Databricks
 
@@ -62,7 +62,7 @@ Aqui está a definição de JSON de exemplo de uma atividade do Python do databr
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|Descrição|Necessário|
+|Propriedade|Descrição|Obrigatório|
 |---|---|---|
 |nome|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que a atividade faz.|Não|
@@ -70,7 +70,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |linkedServiceName|Nome do serviço vinculado do databricks no qual a atividade do Python é executada. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) .|Sim|
 |pythonFile|O URI do arquivo Python a ser executado. Há suporte apenas para caminhos DBFS.|Sim|
 |parâmetros|Parâmetros de linha de comando que serão passados para o arquivo Python. Esta é uma matriz de cadeias de caracteres.|Não|
-|DLLs|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres <, objeto >|Não|
+|bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres <, objeto >|Não|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do databricks
 

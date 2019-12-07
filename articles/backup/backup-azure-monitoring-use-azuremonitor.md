@@ -4,12 +4,12 @@ description: Monitore as cargas de trabalho de backup do Azure e crie alertas pe
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 1fb739c8d517654c7258fd3a58c93ab29602f228
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554868"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894067"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
@@ -51,7 +51,8 @@ Depois que os dados estiverem dentro do espaço de trabalho Log Analytics, [impl
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Exibir dados de backup do Azure usando Log Analytics
 
-Depois que o modelo for implantado, a solução para monitoramento e relatórios no backup do Azure aparecerá na região de resumo do espaço de trabalho. Para ir até o resumo, siga um destes caminhos:
+> [!IMPORTANT]
+> O modelo de relatório de LA atualmente dá suporte a dados do evento herdado AzureBackupReport no modo AzureDiagnostics. Para usar esse modelo, você precisará [definir as configurações de diagnóstico do cofre no modo de diagnóstico do Azure](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event). 
 
 - **Azure monitor**: na seção **insights** , selecione **mais** e, em seguida, escolha o espaço de trabalho relevante.
 - **Espaços de trabalho do log Analytics**: selecione o espaço de trabalho relevante e, em **geral**, selecione Resumo do **espaço de trabalho**.
@@ -213,7 +214,7 @@ Aqui, o recurso é o cofre dos serviços de recuperação em si. Repita as mesma
 
 Você pode exibir todos os alertas criados de logs de atividade e Log Analytics espaços de trabalho no Azure Monitor. Basta abrir o painel **alertas** à esquerda.
 
-Embora você possa obter notificações por meio de logs de atividade, é altamente recomendável usar Log Analytics em vez de logs de atividade para monitoramento em escala. Veja o porquê:
+Embora você possa obter notificações por meio de logs de atividade, é altamente recomendável usar Log Analytics em vez de logs de atividade para monitoramento em escala. Eis a razão:
 
 - **Cenários limitados**: as notificações por meio de logs de atividade se aplicam somente aos backups de VM do Azure. As notificações devem ser configuradas para cada cofre de serviços de recuperação.
 - **Ajuste de definição**: a atividade de backup agendada não se ajusta à definição mais recente dos logs de atividade. Em vez disso, ele se alinha com [os logs de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Esse alinhamento causa efeitos inesperados quando os dados que fluem pelo canal do log de atividades são alterados.

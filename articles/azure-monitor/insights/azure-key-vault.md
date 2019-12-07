@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899221"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889112"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise de Azure Key Vault no Azure Monitor
 
@@ -51,7 +51,7 @@ Use as instruções a seguir para instalar e configurar a solução de Azure Key
 8. Clique em *salvar* para habilitar o log de diagnósticos para log Analytics espaço de trabalho.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Habilitar o diagnóstico de Key Vault usando o PowerShell
-O script do PowerShell a seguir fornece um exemplo de como usar `Set-AzDiagnosticSetting` para habilitar o log de diagnóstico para Key Vault:
+O script do PowerShell a seguir fornece um exemplo de como usar `Set-AzDiagnosticSetting` para habilitar o log de recursos para Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -114,8 +114,8 @@ A solução de Azure Key Vault analisa os registros que têm um tipo de **cofre*
 | `Resource` |Nome do cofre de chaves |
 | `ResourceGroup` |Grupo de recursos do cofre de chaves |
 | `ResourceId` |ID do Recurso do Azure Resource Manager Para logs de Key Vault, essa é a ID de recurso de Key Vault. |
-| `ResourceProvider` |*O. KEYVAULT* |
-| `ResourceType` | *COFRES* |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
 | `ResultSignature` |Status HTTP (por exemplo, *OK*) |
 | `ResultType` |Resultado da solicitação da API REST (por exemplo, *êxito*) |
 | `SubscriptionId` |ID de assinatura do Azure da assinatura que contém o Key Vault |

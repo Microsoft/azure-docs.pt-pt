@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 43405bd3e97dbee325f0a5ed82c5848880775eee
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: f08cd731e40b204d042e5df418b03626b9082c3b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240823"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894662"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Conectar dados de Azure Active Directory
 
@@ -43,7 +43,7 @@ O Azure Sentinel permite coletar dados de [Azure Active Directory](../active-dir
 
 1. Ao lado dos logs que você deseja transmitir para o Azure Sentinel, clique em **conectar**.
 
-1. Você pode selecionar se deseja que os alertas do Azure AD gerem automaticamente incidentes no Azure Sentinel automaticamente. Em **criar incidentes** , selecione **habilitar** para habilitar a regra analítica padrão que cria incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Você pode editar essa regra em **análise** e em **regras ativas**.
+1. Você pode selecionar se deseja que os alertas do Azure AD gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes** , selecione **habilitar** para habilitar a regra analítica padrão que cria incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Você pode editar essa regra em **análise** e em **regras ativas**.
 
 1. Para usar o esquema relevante no Log Analytics para os alertas do Azure AD, procure **SigninLogs** e **AuditLogs**.
 

@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
-ms.openlocfilehash: a068ea3f51e4faa6497c7b1a93192a924753c7c9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 11/27/2019
+ms.openlocfilehash: 9be8fbad8811d758f9ac4205c0d1e60e0d82e07f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895101"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895497"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Conectar um sensor RuuviTag ao seu aplicativo IoT Central do Azure
 
@@ -72,6 +72,6 @@ Para criar um RuuviTag simulado:
 1. Habilite a configuração **simulada** .
 1. Selecione **Criar**.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Agora que você aprendeu como conectar um RuuviTag ao seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [personalizar seu aplicativo IOT central](../retail/tutorial-in-store-analytics-customize-dashboard-pnp.md) para criar uma solução de ponta a ponta.

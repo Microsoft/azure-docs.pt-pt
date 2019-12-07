@@ -3,17 +3,17 @@ title: Configurar regras e ações no Azure IoT Central | Microsoft Docs
 description: Este artigo de instruções mostra, como um construtor, como configurar regras e ações baseadas em telemetria no aplicativo IoT Central do Azure.
 author: vavilla
 ms.author: vavilla
-ms.date: 11/11/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76a9d8302d53d50bc3c1e306e31fbb26ed230436
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484915"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895752"
 ---
 # <a name="configure-rules-preview-features"></a>Configurar regras (recursos de visualização)
 
@@ -47,7 +47,7 @@ As regras avaliam as janelas de tempo agregado como janelas em cascata. Na captu
 
 Uma restrição se aplica às regras que são aplicadas aos módulos IoT Edge. As regras na telemetria de diferentes módulos não são avaliadas como regras válidas. Veja o seguinte como exemplo. A primeira condição da regra está em uma telemetria de temperatura do módulo A. A segunda condição da regra está em uma telemetria de umidade no módulo B. Como as duas condições são de módulos diferentes, esse é um conjunto inválido de condições. A regra não é válida e gerará um erro ao tentar salvar a regra.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu como configurar uma regra em seu aplicativo de IoT Central do Azure, você pode:
 

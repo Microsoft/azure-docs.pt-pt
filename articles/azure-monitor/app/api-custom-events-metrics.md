@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 5f138314fd536d0264f8d40e1ac78da954c19e74
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030702"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893387"
 ---
-# <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
+# <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
 Insira algumas linhas de código em seu aplicativo para descobrir o que os usuários estão fazendo com ele ou para ajudar a diagnosticar problemas. Você pode enviar telemetria do dispositivo e de aplicativos da área de trabalho, clientes Web e servidores Web. Use a API de telemetria de núcleo do [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md) para enviar eventos e métricas personalizados e suas próprias versões de telemetria padrão. Essa API é a mesma API que os coletores de dados padrão do Application Insights usam.
 
@@ -30,7 +30,7 @@ A API principal é uniforme em todas as plataformas, além de algumas variaçõe
 | [`TrackMetric`](#trackmetric) |Medidas de desempenho como comprimentos de fila não relacionados a eventos específicos. |
 | [`TrackException`](#trackexception) |Registrando exceções para diagnóstico. Rastreie onde eles ocorrem em relação a outros eventos e examine os rastreamentos de pilha. |
 | [`TrackRequest`](#trackrequest) |Registrar em log a frequência e a duração das solicitações do servidor para análise de desempenho. |
-| [`TrackTrace`](#tracktrace) |Mensagens de log de diagnóstico. Você também pode capturar logs de terceiros. |
+| [`TrackTrace`](#tracktrace) |Mensagens de log de diagnóstico de recurso. Você também pode capturar logs de terceiros. |
 | [`TrackDependency`](#trackdependency) |Registrar em log a duração e a frequência de chamadas para componentes externos dos quais seu aplicativo depende. |
 
 Você pode [anexar Propriedades e métricas](#properties) à maioria dessas chamadas de telemetria.
@@ -733,7 +733,7 @@ A função é assíncrona para o [canal de telemetria do servidor](https://www.n
 
 Idealmente, o método Flush () deve ser usado na atividade de desligamento do aplicativo.
 
-## <a name="authenticated-users"></a>Usuários autenticados
+## <a name="authenticated-users"></a>Utilizadores autenticados
 
 Em um aplicativo Web, os usuários são (por padrão) identificados por cookies. Um usuário pode ser contado mais de uma vez se acessar seu aplicativo de um computador ou navegador diferente, ou se eles excluirem cookies.
 

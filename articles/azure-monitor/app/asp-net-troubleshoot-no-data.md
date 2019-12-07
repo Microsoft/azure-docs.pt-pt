@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a1e299f195a148ebd1bdbda91e5a56e297f34d31
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887521"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889180"
 ---
-# <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
+# <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas sem dados-Application Insights para .NET/.NET Core
+
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
 *Em Application Insights, vejo apenas uma fração dos eventos que estão sendo gerados pelo meu aplicativo.*
 
@@ -58,7 +59,7 @@ Causas prováveis:
 * Há algum problema com sua conta do Azure;
 * Você só tem [acesso de leitura à assinatura ou ao grupo em que estava tentando criar o novo recurso](../../azure-monitor/app/resources-roles-access-control.md).
 
-Soluciona
+Correção:
 
 * Verifique se você forneceu credenciais de entrada para a conta correta do Azure.
 * No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra configurações e veja se há alguma restrição.
@@ -83,7 +84,7 @@ Causas prováveis:
 * As ferramentas de análise do desenvolvedor estão desabilitadas no Visual Studio.
 * O Visual Studio é mais antigo que 2013 atualização 3.
 
-Soluciona
+Correção:
 
 * Verifique se sua versão do Visual Studio é 2013 atualização 3 ou posterior.
 * Selecione **ferramentas**, **extensões e atualizações** e verifique se as **Ferramentas do desenvolvedor Analytics** estão instaladas e habilitadas. Nesse caso, clique em **atualizações** para ver se há uma atualização disponível.
@@ -111,7 +112,7 @@ Causas prováveis:
 
 A chave de instrumentação em ApplicationInsights. config controla onde a telemetria é enviada. Uma linha no arquivo de projeto controla qual recurso é aberto quando você usa o comando no Visual Studio.
 
-Soluciona
+Correção:
 
 * Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto e escolha Application Insights, configure Application Insights. Na caixa de diálogo, você pode optar por enviar telemetria a um recurso existente ou criar um novo. Or
 * Abra o recurso diretamente. Entre no [portal do Azure](https://portal.azure.com), clique em Application insights na barra de navegação à esquerda e, em seguida, selecione seu aplicativo.
@@ -212,7 +213,7 @@ Siga estas instruções para capturar os logs de solução de problemas para sua
 
 1. Instale o pacote [Microsoft. AspNet. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) do NuGet. A versão que você instalar deve corresponder à versão instalada atual do `Microsoft.ApplicationInsights`
 
-A versão mais recente de Microsoft. ApplicationInsights. AspNetCore é 2.7.1 e se refere à Microsoft. ApplicationInsights versão 2,10. Portanto, a versão de Microsoft. AspNet. ApplicationInsights. HostingStartup a ser instalada deve ser 2.10.0
+A versão mais recente de Microsoft. ApplicationInsights. AspNetCore é 2.8.2 e se refere à Microsoft. ApplicationInsights versão 2.11.2. Portanto, a versão de Microsoft. AspNet. ApplicationInsights. HostingStartup a ser instalada deve ser 2.11.2
 
 2. Modifique `ConfigureServices` método em sua classe `Startup.cs`.:
 
@@ -247,7 +248,7 @@ Você pode modificar esses parâmetros conforme necessário:
 - **NoGui**. Defina esse parâmetro para coletar logs sem a GUI.
 
 
-Para obter mais informações,
+Para mais informações,
 - [Gravando rastreamentos de desempenho com o Perfview](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Fontes de eventos de Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 

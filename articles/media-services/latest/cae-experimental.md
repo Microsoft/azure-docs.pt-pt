@@ -1,6 +1,6 @@
 ---
-title: Predefinir uma experimental para a codificação de conteúdo com suporte para - Azure | Documentos da Microsoft
-description: Este artigo aborda a codificação com reconhecimento de conteúdo nos serviços de multimédia do Azure
+title: Uma predefinição experimental para codificação com reconhecimento de conteúdo – Azure | Microsoft Docs
+description: Este artigo discute a codificação com reconhecimento de conteúdo no Serviços de Mídia do Microsoft Azure v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,46 +12,46 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: ddb7bfd2437af806c8db75068c50545e69867ea0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151011"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896129"
 ---
-# <a name="experimental-preset-for-content-aware-encoding"></a>Configuração predefinida para a codificação de conteúdo com suporte para experimentais
+# <a name="experimental-preset-for-content-aware-encoding"></a>Predefinição experimental para codificação com reconhecimento de conteúdo
 
-Para preparar o conteúdo para a entrega por [transmissão em fluxo de velocidade de transmissão adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vídeo tem de ser codificado em vários bits taxas de (em cima para baixo). Para garantir que a redução gradual de qualidade, como a velocidade de transmissão é reduzida é por isso, a resolução do vídeo. Isso resulta numa escada codificação chamada – uma tabela de resoluções e velocidades de transmissão; ver os serviços de multimédia [configurações predefinidas de codificação incorporadas](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Para preparar o conteúdo para entrega por [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), o vídeo precisa ser codificado em taxas de bits múltiplas (alta para baixa). A fim de garantir a degradação normal da qualidade, como a taxa de bits é diminuída, é a resolução do vídeo. Isso resulta em uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits; Consulte as [predefinições de codificação interna](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)dos serviços de mídia.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-Aumentou de interesse numa abordagem de uma configuração predefinida-ajusta-se-all-vídeos se mover após a publicação de Netflix seus [blogue](https://medium.com/netflix-techblog/per-title-encode-optimization-7e99442b62a2) em Dezembro de 2015. Desde então, várias soluções para a codificação de conteúdo com suporte para tenham sido publicadas no marketplace; ver [este artigo](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Buyers-Guide-to-Per-Title-Encoding-130676.aspx) para uma descrição geral. A idéia é ter em consideração os conteúdos, para personalizar ou ajustar a escala de bits de codificação para a complexidade do vídeo individual. Cada resolução, há uma velocidade de transmissão para além dos quais qualquer aumento na qualidade não é visão perspicaz – o codificador opera neste valor de velocidade de transmissão ideal. O próximo nível de otimização é selecionar as resoluções com base no conteúdo – por exemplo, um vídeo de uma apresentação do PowerPoint não beneficiam das vai abaixo 720p. Vá mais longe, o codificador pode tarefa para otimizar as definições para cada captura no vídeo. Netflix descrito [essa abordagem](https://medium.com/netflix-techblog/optimized-shot-based-encodes-now-streaming-4b9464204830) em 2018.
+O interesse em passar além de uma abordagem de um-predefinido-All-vídeos aumentou depois que o Netflix publicou seu [blog](https://medium.com/netflix-techblog/per-title-encode-optimization-7e99442b62a2) em dezembro de 2015. Desde então, várias soluções para codificação com reconhecimento de conteúdo foram liberadas no Marketplace; consulte [Este artigo](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Buyers-Guide-to-Per-Title-Encoding-130676.aspx) para obter uma visão geral. A ideia é estar ciente do conteúdo – para personalizar ou ajustar a escada de codificação à complexidade do vídeo individual. Em cada resolução, há uma taxa de bits além da qual qualquer aumento na qualidade não é um tanto enganoso – o codificador opera com esse valor de taxa de bits ideal. O próximo nível de otimização é selecionar as resoluções com base no conteúdo – por exemplo, um vídeo de uma apresentação do PowerPoint não se beneficia da sua saída abaixo de 720p. Indo além, o codificador pode ser transtarefado para otimizar as configurações de cada uma das capturas dentro do vídeo. Netflix descreveu [essa abordagem](https://medium.com/netflix-techblog/optimized-shot-based-encodes-now-streaming-4b9464204830) em 2018.
 
-No início de 2017, a Microsoft lançou o [transmissão em fluxo adaptável](autogen-bitrate-ladder.md) predefinidas para resolver o problema de variabilidade na qualidade e resolução de vídeos de origem. Os nossos clientes tinham uma mistura de diferentes de conteúdo, algumas em 1080p, outras pessoas em 720p e alguns no SD e resoluções inferiores. Além disso, nem todos os conteúdos de origem foi mezzanines de alta qualidade de filme ou estúdios de TV. A Adaptive Streaming endereços predefinidos esses problemas, garantindo que a escala de bits nunca excede a resolução ou a velocidade de transmissão de média do mezanino de entrada.
+No início de 2017, a Microsoft lançou a predefinição de [streaming adaptável](autogen-bitrate-ladder.md) para resolver o problema da variabilidade na qualidade e na resolução dos vídeos de origem. Nossos clientes tinham uma mistura variada de conteúdo, alguns na 1080p, outros em 720p e alguns no SD e em resoluções inferiores. Além disso, nem todo o conteúdo de origem era a mezanino de alta qualidade de estúdios de filmes ou de TV. A predefinição de streaming adaptável resolve esses problemas, garantindo que a escada de taxa de bits nunca exceda a resolução ou a taxa de bits média da mezanino de entrada.
 
-A predefinição de codificação de conteúdo com suporte para experimental estende esse mecanismo, ao incorporar lógica personalizada que permite que o codificador de buscar o valor de velocidade de transmissão ideal para uma resolução determinada, mas sem a necessidade de análise de computacional extensa. O resultado líquido é que esta predefinição de novos produz uma saída com velocidade de transmissão mais baixa do que a configuração predefinida de transmissão em fluxo adaptável, mas numa maior qualidade. Ver os gráficos de exemplo seguinte, que mostram a uso de métricas de qualidade, como de comparação [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). A origem foi criada pela concatenação clipes curtos de capturas de complexidade alta de filmes e TV mostra, a finalidade de enfatizar o codificador. Por definição, esta produz predefinidas resultados que variam de conteúdo para conteúdos, isso também significa que para algum conteúdo, pode não haver uma redução significativa na velocidade de transmissão ou melhoria na qualidade.
+A predefinição de codificação experimental com reconhecimento de conteúdo estende esse mecanismo, incorporando uma lógica personalizada que permite ao codificador buscar o valor ideal de taxa de bits para uma determinada resolução, mas sem a necessidade de uma análise computacional extensiva. O resultado é que essa nova predefinição produz uma saída com taxa de bits inferior à predefinição de streaming adaptável, mas com uma qualidade mais alta. Consulte os gráficos de exemplo a seguir que mostram a comparação usando métricas de qualidade como [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) e [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). A fonte foi criada por meio da concatenação de pequenos clipes de capturas de alta complexidade de filmes e programas de TV, destinados a enfatizar o codificador. Por definição, essa predefinição produz resultados que variam de conteúdo para conteúdo – isso também significa que, para algum conteúdo, pode não haver uma redução significativa na taxa de bits ou melhoria na qualidade.
 
-![Curva de taxa-distorção (RD) usando PSNR](media/cae-experimental/msrv1.png)
+![Curva de taxa de distorção (RD) usando PSNR](media/cae-experimental/msrv1.png)
 
-**Figura 1: Curva de taxa-distorção (RD) através de métrica PSNR para a origem de complexidade alta**
+**Figura 1: curva de taxa de distorção (RD) usando a métrica PSNR para fonte de alta complexidade**
 
-![Curva de taxa-distorção (RD) usando VMAF](media/cae-experimental/msrv2.png)
+![Curva de taxa de distorção (RD) usando VMAF](media/cae-experimental/msrv2.png)
 
-**Figura 2: Curva de taxa-distorção (RD) através de métrica VMAF para a origem de complexidade alta**
+**Figura 2: curva de taxa de distorção (RD) usando a métrica VMAF para fonte de alta complexidade**
 
-A configuração predefinida é atualmente ajustada para complexidade alta, vídeos de origem de alta qualidade (filmes, programas de TV). Trabalho está em curso para se adaptar ao conteúdo de complexidade baixa (por exemplo, apresentações do PowerPoint), bem como a pior vídeos de qualidade. Esta configuração predefinida também utiliza o mesmo conjunto de resoluções como a transmissão em fluxo adaptável a configuração predefinida. A Microsoft está trabalhando em métodos para selecionar o conjunto mínimo de resoluções com base no conteúdo. São os seguintes resultados para outra categoria de conteúdo de origem, em que o codificador foi capaz de determinar se a entrada foi de baixa qualidade (muitos artefatos de compressão devido a baixa velocidade de transmissão). Tenha em atenção que, com o experimental, configuração predefinida, o codificador decidiu produzir apenas uma camada de saída – numa velocidade de transmissão baixa o suficiente para que a maioria dos clientes seria capaz de reproduzir o fluxo sem interrupção.
+Atualmente, a predefinição está ajustada para alta complexidade, vídeos de origem de alta qualidade (filmes, programas de TV). O trabalho está em andamento para se adaptar ao conteúdo de baixa complexidade (por exemplo, apresentações do PowerPoint), bem como a vídeos com qualidade inferior. Essa predefinição também usa o mesmo conjunto de resoluções que a predefinição de streaming adaptável. A Microsoft está trabalhando em métodos para selecionar o conjunto mínimo de resoluções com base no conteúdo. Como segue, os resultados de outra categoria de conteúdo de origem, em que o codificador foi capaz de determinar que a entrada era de baixa qualidade (muitos artefatos de compactação devido à baixa taxa de bits). Observe que, com a predefinição experimental, o codificador decidiu produzir apenas uma camada de saída – em uma taxa de bits baixa o suficiente para que a maioria dos clientes possa reproduzir o fluxo sem interrupções.
 
-![Curva de área de trabalho remota usando PSNR](media/cae-experimental/msrv3.png)
+![Curva de RD usando PSNR](media/cae-experimental/msrv3.png)
 
-**Figura 3: Curva de área de trabalho remota com PSNR para entrada de baixa qualidade (em 1080p)**
+**Figura 3: curva RD usando PSNR para entrada de baixa qualidade (em 1080p)**
 
-![Curva de área de trabalho remota usando VMAF](media/cae-experimental/msrv4.png)
+![Curva de RD usando VMAF](media/cae-experimental/msrv4.png)
 
-**Figura 4: Curva de área de trabalho remota com VMAF para entrada de baixa qualidade (em 1080p)**
+**Figura 4: curva RD usando VMAF para entrada de baixa qualidade (em 1080p)**
 
-## <a name="use-the-experimental-preset"></a>Utilizar a configuração predefinida de experimental
+## <a name="use-the-experimental-preset"></a>Usar a predefinição experimental
 
-Pode criar transformações que utilizam esta configuração predefinida da seguinte forma. Se utilizar um tutorial [como esta](stream-files-tutorial-with-api.md), pode atualizar o código da seguinte forma:
+Você pode criar transformações que usam essa predefinição da seguinte maneira. Se estiver usando um tutorial como [este](stream-files-tutorial-with-api.md), você poderá atualizar o código da seguinte maneira:
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -70,8 +70,8 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> O prefixo "experimental" é utilizado aqui para sinalizar que os algoritmos subjacentes ainda estão em evolução. Pode existir e vão ocorrer alterações ao longo do tempo para a lógica utilizada para gerar ladders de velocidade de transmissão, com o objetivo de convergindo um algoritmo que é robusto e adapta-se a uma grande variedade de condições de entrada. Codificação de tarefas utilizando o esta irá predefinida ainda ser minutos de saída com base no faturadas e o elemento de saída pode ser enviado do nosso pontos finais de transmissão em fluxo em protocolos como DASH e HLS.
+> O prefixo "experimental" é usado aqui para sinalizar que os algoritmos subjacentes ainda estão em evolução. Pode haver mudanças ao longo do tempo para a lógica usada para gerar esgotamentos de taxa de bits, com o objetivo de convergir em um algoritmo robusto e se adapta a uma ampla variedade de condições de entrada. Os trabalhos de codificação que usam essa predefinição ainda serão cobrados com base nos minutos de saída, e o ativo de saída poderá ser entregue de nossos pontos de extremidade de streaming em protocolos como DASH e HLS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu sobre esta nova opção de otimizar os seus vídeos, convidamos a experimentá-lo. Pode enviar comentários através das ligações no final deste artigo ou interagir com-nos mais diretamente em <amsved@microsoft.com>.
+Agora que você aprendeu sobre essa nova opção de otimização de seus vídeos, convidamos você a experimentá-lo. Você pode enviar comentários usando os links no final deste artigo ou nos envolver mais diretamente em <amsved@microsoft.com>.

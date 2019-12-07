@@ -1,22 +1,23 @@
 ---
-title: Crie aplicativos de armazenamento do Azure altamente disponíveis no armazenamento com redundância de zona (ZRS) | Microsoft Docs
+title: Crie aplicativos altamente disponíveis com ZRS (armazenamento com redundância de zona)
+titleSuffix: Azure Storage
 description: O ZRS (armazenamento com redundância de zona) oferece uma maneira simples de criar aplicativos altamente disponíveis. O ZRS protege contra falhas de hardware no datacenter e em alguns desastres regionais.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555476"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895185"
 ---
-# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
+# <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>Crie aplicativos altamente disponíveis com ZRS (armazenamento com redundância de zona)
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 

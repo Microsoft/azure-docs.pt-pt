@@ -3,12 +3,12 @@ title: Referência de YAML para grupo de contêineres
 description: Referência do arquivo YAML com suporte das instâncias de contêiner do Azure para configurar um grupo de contêineres
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533496"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896575"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Referência de YAML: instâncias de contêiner do Azure
 
@@ -38,7 +38,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -140,7 +140,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
 |  nome | string | Sim | O nome do grupo de contêineres. |
-|  apiVersion | enumera | Sim | 2018-10-01 |
+|  apiVersion | Enum | Sim | 2018-10-01 |
 |  localização | string | Não | O local do recurso. |
 |  etiquetas | objeto | Não | As marcas de recurso. |
 |  identidade | objeto | Não | A identidade do grupo de contêineres, se configurada. - [objeto ContainerGroupIdentity](#ContainerGroupIdentity) |
@@ -153,7 +153,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
-|  tipo | enumera | Não | O tipo de identidade usado para o grupo de contêineres. O tipo ' SystemAssigned, userassigned ' inclui uma identidade criada implicitamente e um conjunto de identidades atribuídas pelo usuário. O tipo ' none ' removerá todas as identidades do grupo de contêineres. -SystemAssigned, userassigned, SystemAssigned, userassigned, None |
+|  tipo | Enum | Não | O tipo de identidade usado para o grupo de contêineres. O tipo ' SystemAssigned, userassigned ' inclui uma identidade criada implicitamente e um conjunto de identidades atribuídas pelo usuário. O tipo ' none ' removerá todas as identidades do grupo de contêineres. -SystemAssigned, userassigned, SystemAssigned, userassigned, None |
 |  userAssignedIdentities | objeto | Não | A lista de identidades de usuário associada ao grupo de contêineres. As referências de chave de dicionário de identidade do usuário serão Azure Resource Manager IDs de recurso no formato: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName} '. |
 
 
@@ -165,9 +165,9 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  ---- | ---- | ---- | ---- |
 |  containers | array | Sim | Os contêineres dentro do grupo de contêineres.[objeto contêiner](#Container)  -  |
 |  imageRegistryCredentials | array | Não | As credenciais de registro de imagem pelas quais o grupo de contêineres é criado. - [objeto ImageRegistryCredential](#ImageRegistryCredential) |
-|  restartPolicy | enumera | Não | Reinicie a política para todos os contêineres dentro do grupo de contêineres. - `Always` sempre reiniciar-`OnFailure` reiniciar em caso de falha-`Never` nunca reiniciar. -Sempre, OnFailure, nunca |
+|  restartPolicy | Enum | Não | Reinicie a política para todos os contêineres dentro do grupo de contêineres. - `Always` sempre reiniciar-`OnFailure` reiniciar em caso de falha-`Never` nunca reiniciar. -Sempre, OnFailure, nunca |
 |  IP | objeto | Não | O tipo de endereço IP do grupo de contêineres. - [objeto IPAddress](#IpAddress) |
-|  osType | enumera | Sim | O tipo de sistema operacional exigido pelos contêineres no grupo de contêineres. -Windows ou Linux |
+|  osType | Enum | Sim | O tipo de sistema operacional exigido pelos contêineres no grupo de contêineres. -Windows ou Linux |
 |  volumes | array | Não | A lista de volumes que podem ser montados por contêineres neste grupo de contêineres. - [objeto de volume](#Volume) |
 |  diagnósticos | objeto | Não | As informações de diagnóstico para um grupo de contêineres. - [objeto ContainerGroupDiagnostics](#ContainerGroupDiagnostics) |
 |  networkProfile | objeto | Não | As informações de perfil de rede para um grupo de contêineres. - [objeto ContainerGroupNetworkProfile](#ContainerGroupNetworkProfile) |
@@ -202,7 +202,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
 |  ports | array | Sim | A lista de portas expostas no grupo de contêineres.[objeto de porta](#Port)  -  |
-|  tipo | enumera | Sim | Especifica se o IP é exposto à Internet pública ou à VNET privada. -Público ou privado |
+|  tipo | Enum | Sim | Especifica se o IP é exposto à Internet pública ou à VNET privada. -Público ou privado |
 |  IP | string | Não | O IP exposto à Internet pública. |
 |  dnsNameLabel | string | Não | O rótulo de nome DNS para o IP. |
 
@@ -246,7 +246,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  ---- | ---- | ---- | ---- |
 |  nameServers | array | Sim | Os servidores DNS para o grupo de contêineres. -Cadeia de caracteres |
 |  searchDomains | string | Não | Os domínios de pesquisa de DNS para pesquisa de nome de host no grupo de contêineres. |
-|  Opções | string | Não | As opções de DNS para o grupo de contêineres. |
+|  options | string | Não | As opções de DNS para o grupo de contêineres. |
 
 
 <a id="ContainerProperties" />
@@ -259,7 +259,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  command | array | Não | Os comandos a serem executados na instância de contêiner no formato EXEC. -Cadeia de caracteres |
 |  ports | array | Não | As portas expostas na instância do contêiner. - [objeto ContainerPort](#ContainerPort) |
 |  environmentVariables | array | Não | As variáveis de ambiente a serem definidas na instância de contêiner. - [objeto EnvironmentVariable](#EnvironmentVariable) |
-|  os | objeto | Sim | Os requisitos de recurso da instância de contêiner. - [objeto ResourceRequirements](#ResourceRequirements) |
+|  recursos | objeto | Sim | Os requisitos de recurso da instância de contêiner. - [objeto ResourceRequirements](#ResourceRequirements) |
 |  volumeMounts | array | Não | As montagens de volume disponíveis para a instância de contêiner. - [objeto VolumeMount](#VolumeMount) |
 |  livenessProbe | objeto | Não | A investigação de tempo de vida. - [objeto ContainerProbe](#ContainerProbe) |
 |  readinessProbe | objeto | Não | A investigação de preparação. - [objeto ContainerProbe](#ContainerProbe) |
@@ -271,7 +271,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
-|  protocolo | enumera | Não | O protocolo associado à porta. -TCP ou UDP |
+|  protocol | Enum | Não | O protocolo associado à porta. -TCP ou UDP |
 |  porta | número inteiro | Sim | O número da porta. |
 
 
@@ -282,7 +282,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
 |  shareName | string | Sim | O nome do compartilhamento de arquivos do Azure a ser montado como um volume. |
-|  Leitura | boolean | Não | O sinalizador que indica se o arquivo compartilhado do Azure montado como um volume é somente leitura. |
+|  readOnly | boolean | Não | O sinalizador que indica se o arquivo compartilhado do Azure montado como um volume é somente leitura. |
 |  storageAccountName | string | Sim | O nome da conta de armazenamento que contém o compartilhamento de arquivos do Azure. |
 |  storageAccountKey | string | Não | A chave de acesso da conta de armazenamento usada para acessar o compartilhamento de arquivos do Azure. |
 
@@ -293,9 +293,9 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
-|  active | string | Não | Nome do diretório de destino. Não deve conter ou começar com '.. '.  Se '. ' for fornecido, o diretório de volume será o repositório git.  Caso contrário, se especificado, o volume conterá o repositório git no subdiretório com o nome fornecido. |
-|  repositório | string | Sim | URL do repositório |
-|  revisão | string | Não | Confirme o hash para a revisão especificada. |
+|  diretório | string | Não | Nome do diretório de destino. Não deve conter ou começar com '.. '.  Se '. ' for fornecido, o diretório de volume será o repositório git.  Caso contrário, se especificado, o volume conterá o repositório git no subdiretório com o nome fornecido. |
+|  repository | string | Sim | URL do repositório |
+|  revision | string | Não | Confirme o hash para a revisão especificada. |
 
 
 <a id="LogAnalytics" />
@@ -306,7 +306,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | string | Sim | A ID do espaço de trabalho para o log Analytics |
 |  workspaceKey | string | Sim | A chave do espaço de trabalho para o log Analytics |
-|  logType | enumera | Não | O tipo de log a ser usado. -ContainerInsights ou ContainerInstanceLogs |
+|  logType | Enum | Não | O tipo de log a ser usado. -ContainerInsights ou ContainerInstanceLogs |
 |  do IdP | objeto | Não | Metadados para o log Analytics. |
 
 
@@ -316,7 +316,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
-|  protocolo | enumera | Não | O protocolo associado à porta. -TCP ou UDP |
+|  protocol | Enum | Não | O protocolo associado à porta. -TCP ou UDP |
 |  porta | número inteiro | Sim | O número da porta exposta no grupo de contêineres. |
 
 
@@ -337,8 +337,8 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
-|  pedido | objeto | Sim | As solicitações de recurso desta instância de contêiner. - [objeto ResourceRequests](#ResourceRequests) |
-|  aos | objeto | Não | Os limites de recurso desta instância de contêiner. - [objeto ResourceLimits](#ResourceLimits) |
+|  pedidos | objeto | Sim | As solicitações de recurso desta instância de contêiner. - [objeto ResourceRequests](#ResourceRequests) |
+|  limites | objeto | Não | Os limites de recurso desta instância de contêiner. - [objeto ResourceLimits](#ResourceLimits) |
 
 
 <a id="VolumeMount" />
@@ -349,7 +349,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  ---- | ---- | ---- | ---- |
 |  nome | string | Sim | O nome da montagem do volume. |
 |  mountPath | string | Sim | O caminho dentro do contêiner em que o volume deve ser montado. Não deve conter dois-pontos (:). |
-|  Leitura | boolean | Não | O sinalizador que indica se a montagem do volume é somente leitura. |
+|  readOnly | boolean | Não | O sinalizador que indica se a montagem do volume é somente leitura. |
 
 
 <a id="ContainerProbe" />
@@ -404,9 +404,9 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
-|  Multi-Path | string | Não | O caminho para investigação. |
+|  Caminho | string | Não | O caminho para investigação. |
 |  porta | número inteiro | Sim | O número da porta a ser investigada. |
-|  esquema | enumera | Não | O esquema. -http ou https |
+|  esquema | Enum | Não | O esquema. -http ou https |
 
 
 <a id="GpuResource" />
@@ -416,7 +416,7 @@ As tabelas a seguir descrevem os valores que você precisa definir no esquema.
 |  Nome | Tipo | Obrigatório | Valor |
 |  ---- | ---- | ---- | ---- |
 |  count | número inteiro | Sim | A contagem do recurso de GPU. |
-|  SKU | enumera | Sim | A SKU do recurso de GPU. -K80, P100, V100 |
+|  SKU | Enum | Sim | A SKU do recurso de GPU. -K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>Passos seguintes

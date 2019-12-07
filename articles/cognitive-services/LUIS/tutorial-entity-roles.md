@@ -9,30 +9,30 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488730"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894615"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: extrair dados relacionados contextualmente de um expressão
 
-Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, uma origem e locais de destino para uma transferência de uma cidade para outra. Ambas as partes de dados podem ser necessárias e estão relacionadas entre si.  
+Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, uma origem e locais de destino para uma transferência de uma cidade para outra. Ambas as partes de dados podem ser necessárias e estão relacionadas entre si.
 
-Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada nos dois exemplos de declarações e padrões. 
+Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada nos dois exemplos de declarações e padrões.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar nova aplicação
-> * Adicionar intenções 
+> * Adicionar intenções
 > * Obter informações de origem e destino usando funções
-> * Preparar
+> * Formação
 > * Publicar
 > * Obter intenções e funções de entidade do ponto de extremidade
 
@@ -57,9 +57,9 @@ Uma função deve ser usada quando os dados da entidade devem ser extraídos:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Selecione **Criar nova intenção**. 
+1. Selecione **Criar nova intenção**.
 
-1. Introduza `MoveEmployeeToCity` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**. 
+1. Introduza `MoveEmployeeToCity` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
 
     ![Captura de ecrã da caixa de diálogo Criar nova de intenção com](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,24 +85,24 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 
 1. Selecione **entidades** na navegação do lado esquerdo.
 
-1. Selecione **Adicionar entidade predefinida**e, em seguida, selecione `geo` na barra de pesquisa para filtrar as entidades predefinidas. 
+1. Selecione **Adicionar entidade predefinida**e, em seguida, selecione `geo` na barra de pesquisa para filtrar as entidades predefinidas.
 
     ![Adicionar entidade predefinida geographyV2 ao aplicativo](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Marque a caixa de seleção e selecione **concluído**.
-1. Na lista **entidades** , selecione **geographyV2** para abrir a nova entidade. 
-1. Adicione duas funções, `Origin`e `Destination`. 
+1. Na lista **entidades** , selecione **geographyV2** para abrir a nova entidade.
+1. Adicione duas funções, `Origin`e `Destination`.
 
     ![Adicionar funções à entidade predefinida](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Selecione **tentativas** na navegação do lado esquerdo e, em seguida, selecione a intenção **MoveEmployeeToCity** . Observe que os nomes de cidades são rotulados com a entidade predefinida **geographyV2**.
 1. Na primeira expressão da lista, selecione o local de origem. Um menu suspenso é exibido. Selecione **geographyV2** na lista e, em seguida, siga o menu para selecionar **origem**.
-1. Use o método da etapa anterior para marcar todas as funções de locais em todos os declarações. 
+1. Use o método da etapa anterior para marcar todas as funções de locais em todos os declarações.
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None 
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -152,9 +152,9 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
       ]
     }
     ```
-    
+
     A tentativa correta é prevista e a matriz de entidades tem as funções de origem e de destino na propriedade **entidades** correspondentes.
-    
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 
 Este tutorial criou uma nova tentativa e adicionou declarações de exemplo para os dados de origem e locais de destino contextualmente aprendidos. Depois de a aplicação ser preparada e publicada, uma aplicação cliente pode utilizar essas informações para criar um pedido de movimentação com as informações relevantes.
 
-> [!div class="nextstepaction"] 
-> [Saiba como adicionar uma entidade composta](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Saiba como adicionar uma entidade composta](luis-tutorial-composite-entity.md)

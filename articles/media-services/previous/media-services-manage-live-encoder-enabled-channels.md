@@ -1,6 +1,6 @@
 ---
 title: Transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits | Microsoft Docs
-description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo de taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os serviços de mídia. Em seguida, o fluxo pode ser entregue a aplicativos de reprodução de cliente por meio de um ou mais pontos de extremidade de streaming, usando um dos seguintes protocolos de streaming adaptável: HLS, Smooth Stream e MPEG DASH.'
+description: Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo de taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os serviços de mídia.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 4131e9b0ec057c16516f5a656debcf7053c2c1fe
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598308"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895920"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -71,7 +71,7 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 | Estado do canal | Indicadores IU do portal | É cobrança? |
 | --- | --- | --- |
 | A Iniciar |A Iniciar |Não (estado transitório) |
-| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Ok |
+| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
 | A Parar |A Parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
@@ -170,7 +170,7 @@ Você pode obter as URLs de ingestão depois de criar um canal. Para obter essas
 Você tem a opção de ingerir a transmissão ao vivo com MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para ingerir sobre SSL, certifique-se de atualizar a URL de ingestão para HTTPS. Atualmente, o AMS não dá suporte a SSL com domínios personalizados.  
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Você pode definir os endereços IP que têm permissão para publicar o vídeo nesse canal. Os endereços IP permitidos podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, , ' 10.0.0.1 (255.255.252.0) ').
+Você pode definir os endereços IP que têm permissão para publicar o vídeo nesse canal. Os endereços IP permitidos podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ' 10.0.0.1 (255.255.252.0) ').
 
 Se não for especificado qualquer endereço IP e não existir nenhuma definição de regra, então, não será permitido qualquer endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 
@@ -188,7 +188,7 @@ Depois que o canal inicia a ingestão de dados, você pode visualizar seu fluxo.
 > 
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Você pode definir os endereços IP que têm permissão para se conectar ao ponto de extremidade de visualização. Se não forem especificados endereços IP, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, , ' 10.0.0.1 (255.255.252.0) ').
+Você pode definir os endereços IP que têm permissão para se conectar ao ponto de extremidade de visualização. Se não forem especificados endereços IP, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ' 10.0.0.1 (255.255.252.0) ').
 
 ## <a name="live-encoding-settings"></a>Configurações de codificação ao vivo
 Esta seção descreve como as configurações para o codificador ao vivo dentro do canal podem ser ajustadas quando o **tipo de codificação** de um canal é definido como **Standard**.
@@ -217,7 +217,7 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 #### <a name="output-video-stream"></a>Fluxo de vídeo de saída
 
-| 720p | Largura | Tamanho | MaxFPS | Perfil | Nome do fluxo de saída |
+| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |Elevado |Video_960x540_2200kbps |
@@ -260,7 +260,7 @@ O codificador ao vivo pode ser configurado para alternar para uma imagem Slate e
 A duração do Slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o Slate. Se houver um Slate contínuo e uma duração igual a zero for especificada, esse Tablet contínuo será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir Slate no marcador do anúncio
-Quando definido como true, essa configuração configura o codificador ao vivo para inserir uma imagem de Slate durante um intervalo de anúncio. O valor padrão é true. 
+Quando definido como true, essa configuração configura o codificador ao vivo para inserir uma imagem de Slate durante um intervalo de anúncio. O valor predefinido é verdadeiro. 
 
 ### <a id="default_slate"></a>ID do ativo de Slate padrão
 

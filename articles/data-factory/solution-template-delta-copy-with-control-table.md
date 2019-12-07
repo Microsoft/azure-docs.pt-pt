@@ -1,5 +1,5 @@
 ---
-title: Cópia Delta de um banco de dados usando uma tabela de controle com Azure Data Factory
+title: Cópia Delta de um banco de dados usando uma tabela de controle
 description: Saiba como usar um modelo de solução para copiar de forma incremental as linhas novas ou atualizadas somente de um banco de dados com Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: c9ab1d005cf71dbe03546ce5b6014f616a872f8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22723033b59fafc0b9dfd1ae4fc08e5f6e9145ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684205"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896221"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia Delta de um banco de dados com uma tabela de controle
 
@@ -100,9 +100,9 @@ O modelo define cinco parâmetros:
 
     ![Criar uma nova conexão com o armazenamento de dados da tabela de controle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. Selecione **usar este modelo**.
+7. Selecione **Utilizar este modelo**.
 
-     ![Usar este modelo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
+     ![Utilizar este modelo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Você verá o pipeline disponível, conforme mostrado no exemplo a seguir:
 

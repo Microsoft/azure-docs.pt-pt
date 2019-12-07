@@ -1,22 +1,23 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente com o Azure Key Vault usando o armazenamento portal do Azure do Azure
+title: Usar o portal do Azure para configurar chaves gerenciadas pelo cliente
+titleSuffix: Azure Storage
 description: Saiba como usar o portal do Azure para configurar chaves gerenciadas pelo cliente com Azure Key Vault para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b72f30a636d0177edb8b3254d14be941b2d4e6bc
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b1006fead92763c5c2e670527b5e232618b633e5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665917"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895297"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando o portal do Azure
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente com o Azure Key Vault usando o portal do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

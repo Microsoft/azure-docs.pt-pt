@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c171310fd1c9caf78288fa156b353ecdd517d602
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689299"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894695"
 ---
 # <a name="get-labels-for-data"></a>Obter rótulos de dados
 
@@ -24,6 +24,9 @@ Machine Learning rastreia o progresso e mantém a fila de tarefas de rotulagem i
 
 No Machine Learning, você inicia e interrompe o projeto, adiciona e remove pessoas e equipes e monitora o progresso. Você pode exportar dados rotulados no formato COCO ou como um conjunto de dado Azure Machine Learning.
 
+> [!Important]
+> Somente a classificação de imagem e a identificação de objeto rotulando projetos têm suporte no momento. Além disso, as imagens de dados devem estar disponíveis em um armazenamento de BLOBs do Azure. (Se você não tiver um repositório de armazenamento existente, poderá carregar imagens durante a criação do projeto.) 
+
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
@@ -32,6 +35,7 @@ Neste artigo, você aprenderá a:
 > * Gerenciar equipes e pessoas que trabalham no projeto
 > * Executar e monitorar o projeto
 > * Exportar os rótulos
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

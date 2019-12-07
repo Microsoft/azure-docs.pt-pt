@@ -1,6 +1,6 @@
 ---
 title: Usar players existentes para reproduzir seu conteúdo-Azure | Microsoft Docs
-description: Este tópico lista os players existentes que você pode usar para reproduzir o conteúdo.
+description: Este artigo lista os players existentes que você pode usar para reproduzir o conteúdo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015300"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895863"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Jogando seu conteúdo com os players existentes
 Os serviços de mídia do Azure dão suporte a vários formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para os players existentes que você pode usar para testar seus fluxos.
@@ -35,7 +35,7 @@ São aplicáveis algumas considerações:
 
 ![AMSPlayer][AMSPlayer]
 
-### <a name="azure-media-player"></a>Media Player do Azure
+### <a name="azure-media-player"></a>Leitor de Multimédia do Azure
 
 Use [player de mídia do Azure](https://aka.ms/azuremediaplayer) para reproduzir seu conteúdo (claro ou protegido) em qualquer um dos seguintes formatos:
 

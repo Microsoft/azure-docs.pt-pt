@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade de procedimento armazenado no Azure Data Factory
+title: Transformar dados usando a atividade de procedimento armazenado
 description: Explica como usar SQL Server atividade de procedimento armazenado para invocar um procedimento armazenado em um banco de dados SQL do Azure/data warehouse de um pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 5ebb2b9cdcbef59e07476dbebd289bb4402ca5fa
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 59bfdc5d2d57b2c05a2c7676d83d8771142ca285
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683716"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893778"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a SQL Server atividade de procedimento armazenado no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -30,13 +30,13 @@ Você usa atividades de transformação de dados em um [pipeline](concepts-pipel
 Você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um dos seguintes repositórios de dados em sua empresa ou em uma VM (máquina virtual) do Azure: 
 
 - Base de Dados SQL do Azure
-- Azure SQL Data Warehouse
+- Armazém de Dados SQL do Azure
 - SQL Server banco de dados.  Se você estiver usando SQL Server, instale o tempo de execução de integração auto-hospedado no mesmo computador que hospeda o banco de dados ou em um computador separado que tenha acesso ao banco de dados. O tempo de execução de integração auto-hospedado é um componente que conecta fontes de dados locais/na VM do Azure com serviços de nuvem de maneira segura e gerenciada. Confira o artigo de [tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
 > [!IMPORTANT]
 > Durante a cópia de dados no Azure SQL Database ou SQL Server, você pode configurar o **sqlsink** na atividade de cópia para invocar um procedimento armazenado usando a propriedade **sqlWriterStoredProcedureName** . Para obter detalhes sobre a propriedade, consulte os seguintes artigos de conector: [banco de dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Não há suporte para invocar um procedimento armazenado ao copiar dados em uma SQL Data Warehouse do Azure usando uma atividade de cópia. Mas, você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um SQL Data Warehouse. 
 >
-> Ao copiar dados do Azure SQL Database ou SQL Server ou do SQL Data Warehouse do Azure, você pode configurar **sqlsource** na atividade de cópia para invocar um procedimento armazenado para ler dados do banco de dados de origem usando o **sqlReaderStoredProcedureName** Propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [banco de dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL data warehouse](connector-azure-sql-data-warehouse.md)          
+> Ao copiar dados do Azure SQL Database ou SQL Server ou do SQL Data Warehouse do Azure, você pode configurar **sqlsource** na atividade de cópia para invocar um procedimento armazenado para ler dados do banco de dados de origem usando a propriedade **sqlReaderStoredProcedureName** . Para obter mais informações, consulte os seguintes artigos de conector: [banco de dados SQL do Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL data warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -65,7 +65,7 @@ Este é o formato JSON para definir uma atividade de procedimento armazenado:
 
 A tabela a seguir descreve essas propriedades JSON:
 
-| Propriedade                  | Descrição                              | Necessário |
+| Propriedade                  | Descrição                              | Obrigatório |
 | ------------------------- | ---------------------------------------- | -------- |
 | nome                      | Nome da atividade                     | Sim      |
 | descrição               | Texto que descreve para que a atividade é usada | Não       |
@@ -77,9 +77,9 @@ A tabela a seguir descreve essas propriedades JSON:
 ## <a name="parameter-data-type-mapping"></a>Mapeamento de tipo de dados de parâmetro
 O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory que é mapeado para o tipo de dados na fonte de dados que você está usando. Você pode encontrar os mapeamentos de tipo de dados para sua fonte de dados na área conectores. Alguns exemplos são
 
-| Fonte de dados          | Mapeamento de tipo de dados |
+| Origem de Dados          | Mapeamento de tipo de dados |
 | ---------------------|-------------------|
-| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Armazém de Dados SQL do Azure | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Base de Dados SQL do Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |

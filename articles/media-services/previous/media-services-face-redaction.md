@@ -1,6 +1,6 @@
 ---
 title: Redação faces com Análise de Mídia do Azure | Microsoft Docs
-description: Este tópico demonstra como redação faces com o Azure Media Analytics.
+description: Azure Media Redactor é um processador de mídia Análise de Mídia do Azure que oferece uma edição facial escalonável na nuvem. Este artigo demonstra como redigir rostos com a análise de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016023"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900303"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redação faces com Análise de Mídia do Azure 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 **Azure Media redactor** é um processador de mídia [análise de mídia do Azure](media-services-analytics-overview.md) (MP) que oferece uma edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de indivíduos selecionados. Talvez você queira usar o serviço de edição facial em cenários de segurança pública e de mídia de notícias. Alguns minutos de seqüência de imagens que contém vários rostos podem levar horas para serem editados manualmente, mas com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Este artigo fornece detalhes sobre **Azure Media redactor** e mostra como usá-lo com o SDK dos serviços de mídia para .net.
@@ -29,7 +29,7 @@ Este artigo fornece detalhes sobre **Azure Media redactor** e mostra como usá-l
 ## <a name="face-redaction-modes"></a>Modos de edição facial
 A edição facial funciona detectando faces em cada quadro de vídeo e acompanhando o objeto de face para frente e para trás no tempo, para que a mesma pessoa também possa ser desfocada de outros ângulos. O processo de redação automatizado é complexo e nem sempre produz 100% da saída desejada, por esse motivo Análise de Mídia fornece duas maneiras de modificar a saída final.
 
-Além de um modo totalmente automático, há um fluxo de trabalho de duas passagens, que permite a seleção/remoção de faces encontradas por meio de uma lista de IDs. Além disso, para fazer ajustes arbitrários por quadro, o MP usa um arquivo de metadados no formato JSON. Esse fluxo de trabalho é dividido em modos de **análise** e redação. Você pode combinar os dois modos em uma única passagem que executa ambas as tarefas em um trabalho; Esse modo é chamado **combinado**.
+Além de um modo totalmente automático, há um fluxo de trabalho de duas passagens, que permite a seleção/remoção de faces encontradas por meio de uma lista de IDs. Além disso, para fazer ajustes arbitrários por quadro, o MP usa um arquivo de metadados no formato JSON. Esse fluxo de trabalho é dividido em modos de **análise** e **redação** . Você pode combinar os dois modos em uma única passagem que executa ambas as tarefas em um trabalho; Esse modo é chamado **combinado**.
 
 ### <a name="combined-mode"></a>Modo combinado
 Isso produz um MP4 reproduzido automaticamente sem nenhuma entrada manual.
@@ -127,7 +127,7 @@ Esta é a saída de um IDList com uma ID selecionada.
 
 [exibir este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Exemplo de foo_IDList. txt
+Exemplo foo_IDList. txt
  
      1
      2
@@ -135,7 +135,7 @@ Exemplo de foo_IDList. txt
 
 ## <a name="blur-types"></a>Tipos de desfoque
 
-No modo **combinado** ou **redação** , há cinco modos de desfoque diferentes que podem ser escolhidos por meio da configuração de entrada JSON: **Baixo**, **médio**, **alto**, **caixa**e **preto**. Por padrão, o **med** é usado.
+No modo **combinado** ou **redação** , há cinco modos de desfoque diferentes que podem ser escolhidos por meio da configuração de entrada JSON: **baixo**, **médio**, **alto**, **caixa**e **preto**. Por padrão, o **med** é usado.
 
 Você pode encontrar exemplos dos tipos de desfoque abaixo.
 
@@ -145,17 +145,17 @@ Você pode encontrar exemplos dos tipos de desfoque abaixo.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Baixa
+#### <a name="low"></a>Baixo
 
-![Baixa](./media/media-services-face-redaction/blur1.png)
+![Baixo](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
 ![Med](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>Alta
+#### <a name="high"></a>Elevado
 
-![Alta](./media/media-services-face-redaction/blur3.png)
+![Elevado](./media/media-services-face-redaction/blur3.png)
 
 #### <a name="box"></a>Box
 
@@ -370,7 +370,7 @@ namespace FaceRedaction
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Ligações relacionadas
+## <a name="related-links"></a>Hiperligações relacionadas
 [Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 
 [Demonstrações de Análise de Mídia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

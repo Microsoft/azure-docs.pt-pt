@@ -9,230 +9,223 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 04f30818e3c871d74d94bfd92bd3f73e4e6637a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499418"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895639"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: corrigir previsões inseguras examinando o ponto de extremidade declarações
-Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
+Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo declarações, recebidos por meio do ponto de extremidade HTTPS LUIS, que LUIS não tem certeza de. Você deve examinar o ponto de extremidade declarações como uma parte normal da manutenção agendada do LUIS.
 
-Este processo de revisão é outra maneira de o LUIS saber qual é o domínio da aplicação. O LUIS selecionou as expressões apresentadas na lista de revisão. Esta lista é:
+Esse processo de revisão permite que o LUIS Aprenda seu domínio de aplicativo. LUIS seleciona o declarações que aparece na lista de revisão. Esta lista é:
 
 * Específica da aplicação.
-* Destina-se a melhorar a precisão de predição da aplicação. 
-* Deve ser revista periodicamente. 
+* Destina-se a melhorar a precisão de predição da aplicação.
+* Deve ser revista periodicamente.
 
-Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão. Além disso, identifica as entidades personalizadas que não foram previstas ou foram previstas incorretamente. 
+Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Importar aplicativo de exemplo
 > * Rever pronunciações de ponto final
-> * Atualizar a lista de expressões
-> * Preparar a aplicação
-> * Publicar aplicação
+> * Treinar e publicar o aplicativo
 > * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>Importar aplicativo de exemplo
 
-Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
-
-Utilize os passos seguintes:
+Use as etapas a seguir para importar um aplicativo.
 
 1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
-1. Importe o JSON para uma nova aplicação.
+1. No [portal do Luis de visualização](https://preview.luis-ai), importe o arquivo. JSON para um novo aplicativo.
 
-1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `review`.
 
-1. Treine e publique o novo aplicativo.
+    > [!TIP]
+    > A clonagem em uma nova versão é uma prática recomendada antes de modificar seu aplicativo. Quando você concluir uma versão, exporte a versão (como um arquivo. JSON ou. Lu) e verifique o arquivo em seu sistema de controle do código-fonte.
 
-1. Use o ponto de extremidade para adicionar o seguinte declarações. Você pode fazer isso com um [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou do ponto de extremidade em um navegador. As expressões a adicionar são:
 
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+1. Para treinar o aplicativo, selecione **treinar**.
 
-    Se tiver todas as versões da aplicação, através da série de tutoriais, pode ficar surpreendido ao constatar que a lista para **Rever expressões de ponto final** não é alterada, com base na versão. Existe um único conjunto de expressões para rever, independentemente da versão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final. 
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicar o aplicativo para acessá-lo do ponto de extremidade HTTP
+
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+
+## <a name="add-utterances-at-the-endpoint"></a>Adicionar declarações no ponto de extremidade
+
+Neste aplicativo, você tem intenções e entidades, mas não tem nenhum uso de ponto de extremidade. Esse uso de ponto de extremidade é necessário para melhorar o aplicativo com a revisão expressão do ponto de extremidade.
+
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
+
+1. Use o ponto de extremidade para adicionar o seguinte declarações.
+
+    |Expressão do ponto de extremidade|Intenção alinhada|
+    |--|--|
+    |`I'm looking for a job with Natural Language Processing`|`GetJobInformation`|
+    |`I want to cancel on March 3`|`Utilities.Cancel`|
+    |`When were HRF-123456 and hrf-234567 published in the last year?`|`FindForm`|
+    |`shift 123-45-6789 from Z-1242 to T-54672`|`MoveEmployee`|
+    |`Please relocation jill-jones@mycompany.com from x-2345 to g-23456`|`MoveEmployee`|
+    |`Here is my c.v. for the programmer job`|`ApplyForJob`|
+    |`This is the lead welder paperwork.`|`ApplyForJob`|
+    |`does form hrf-123456 cover the new dental benefits and medical plan`|`FindForm`|
+    |`Jill Jones work with the media team on the public portal was amazing`|`EmployeeFeedback`|
+
+    Existe um único conjunto de expressões para rever, independentemente da versão que está ativamente a editar ou da versão da aplicação que foi publicada no ponto final.
 
 ## <a name="review-endpoint-utterances"></a>Rever pronunciações de ponto final
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+Examine o ponto de extremidade declarações para uma tentativa corretamente alinhada. Embora haja um único pool de declarações para examinar em todas as versões, o processo de alinhamento correto da intenção adiciona o expressão de exemplo somente ao _modelo ativo_ atual.
 
-1. Selecione **Rever expressões de ponto final** na navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**. 
+1. Na seção **Build** do portal, selecione **examinar ponto de extremidade declarações** no painel de navegação esquerdo. A lista está filtrada para a intenção **ApplyForJob**.
 
-    [![captura de tela do botão revisar ponto de extremidade declarações na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela do botão revisar ponto de extremidade declarações na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-1. Alterne a **Vista de entidades** para ver as entidades identificadas. 
-    
-    [![captura de tela do ponto de extremidade de revisão declarações com exibição de entidades alternar realçado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    Este expressão, `I'm looking for a job with Natural Language Processing`, não está na intenção correta.
 
+1.  Para alinhar esse expressão, na linha expressão, selecione a **intenção alinhada** correta de `GetJobInformation`. Adicione o expressão alterado ao aplicativo selecionando a marca de seleção.
 
-    Este expressão, `I'm looking for a job with Natural Language Processing`, não está na intenção correta. 
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela do botão revisar ponto de extremidade declarações na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    O motivo pelo qual o expressão foi incorretamente previsto é que a intenção **ApplyForJob** tem 21 declarações em comparação com a 7 declarações em **GetJobInformation**. A intenção com mais declarações terá uma previsão mais alta. É importante que a quantidade e a qualidade do declarações entre as intenções sejam equilibradas.
+    Examine as declarações restantes nesta tentativa, corrigindo a intenção alinhada conforme necessário. Use a tabela expressão inicial neste tutorial para exibir a intenção alinhada.
 
-1.  Para alinhar esse expressão, selecione a intenção correta e marque a entidade de trabalho dentro dela. Adicione o expressão alterado ao aplicativo marcando a caixa de seleção verde. 
+    A lista **revisar declarações do ponto de extremidade** não deve mais ter a declarações corrigida. Se mais declarações aparecerem, continue a trabalhar na lista, corrigindo as tentativas alinhadas até que a lista esteja vazia.
 
-    |Expressão|Intenção correta|Entidades em falta|
-    |:--|:--|:--|
-    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Tarefa - "Processo de Linguagem Natural"|
+    Qualquer correção de rotulação de entidade é feita depois que a intenção é alinhada, na página de detalhes da intenção.
 
-    Para alterar `natural language processing` de uma entidade keyPhrase para uma entidade de trabalho, selecione a frase e, em seguida, selecione **trabalho** na lista. Se você quiser selecionar apenas parte do texto do keyPhrase para uma entidade diferente, será necessário remover o keyPhrase como uma entidade, um rótulo com uma entidade diferente e reaplicar a entidade keyPhrase ao aplicativo. 
+1. Prepare e publique novamente a aplicação.
 
-    Adicionar o expressão move o expressão do **ponto de extremidade de revisão declarações** para a intenção de **GetJobInformation** . A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
+## <a name="get-intent-prediction-from-endpoint"></a>Obter previsão de intenção do ponto de extremidade
 
-    Além de alinhar esse expressão corretamente, mais declarações devem ser adicionados à tentativa de **GetJobInformation** . Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
-
-    Reveja as restantes expressões nesta intenção, identificando as expressões e corrigindo a **Intenção alinhada**, se as expressões estiverem incorretas.
-
-    A lista **revisar declarações do ponto de extremidade** não deve mais ter essas declarações. Se surgirem mais expressões, continue a trabalhar na lista ao corrigir as intenções e ao identificar quaisquer entidades em falta, até que a lista esteja vazia. 
-
-    Selecione a intenção seguinte na lista Filtro e, em seguida, continue a corrigir as expressões e a identificar as entidades. Lembre-se de que o último passo de cada intenção é selecionar **Adicionar a intenção alinhada** na linha da expressão ou marcar a caixa ao lado de cada intenção e selecionar **Adicionar seleção**, acima da tabela.
-
-    Continue até que todas as intenções e entidades na lista de filtro tenham uma lista vazia. Esta aplicação é muito pequena. O processo de revisão demora apenas alguns minutos. 
-
-## <a name="update-phrase-list"></a>Atualizar a lista de expressões
-Mantenha a lista de expressões atualizada com quaisquer nomes de tarefas recentemente detetadas. 
-
-1. Selecione **Listas de expressões** na navegação à esquerda.
-
-2. Selecione a lista de expressões **Tarefas**.
-
-3. Adicione `Natural Language Processing` como um valor e selecione **Guardar**. 
-
-## <a name="train"></a>Preparar
-
-O LUIS desconhece as alterações até estar preparado. 
-
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
-
-## <a name="publish"></a>Publicar
-
-Se tiver importado esta aplicação, tem de selecionar a **Análise de sentimentos**.
-
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
-
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
-
-Experimente uma expressão próxima da expressão corrigida. 
+Para verificar se o exemplo alinhado corretamente declarações melhorou a previsão do aplicativo, tente um expressão próximo ao expressão corrigido.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vá para o final do URL no endereço e introduza `Are there any natural language processing jobs in my department right now?`. O último parâmetro querystring é `q`, a expressão **query**. 
+1. Vá para o final do URL no endereço e introduza `Are there any natural language processing jobs in my department right now?`. O último parâmetro querystring é `q`, a expressão **query**.
 
    ```json
-   {
-    "query": "are there any natural language processing jobs in my department right now?",
-    "topScoringIntent": {
-      "intent": "GetJobInformation",
-      "score": 0.9247605
-    },
-    "intents": [
-      {
-        "intent": "GetJobInformation",
-        "score": 0.9247605
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.129989788
-      },
-      {
-        "intent": "FindForm",
-        "score": 0.006438211
-      },
-      {
-        "intent": "EmployeeFeedback",
-        "score": 0.00408575451
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00194211153
-      },
-      {
-        "intent": "None",
-        "score": 0.00166400627
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.00118593348
-      },
-      {
-        "intent": "MoveEmployee",
-        "score": 0.0007885918
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.0006373631
-      },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0005980781
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 3.719905E-05
-      }
-    ],
-    "entities": [
-      {
-        "entity": "right now",
-        "type": "builtin.datetimeV2.datetime",
-        "startIndex": 64,
-        "endIndex": 72,
-        "resolution": {
-          "values": [
-            {
-              "timex": "PRESENT_REF",
-              "type": "datetime",
-              "value": "2018-07-05 15:23:18"
+    {
+        "query": "Are there any natural language processing jobs in my department right now?",
+        "prediction": {
+            "topIntent": "GetJobInformation",
+            "intents": {
+                "GetJobInformation": {
+                    "score": 0.903607249
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0312187821
+                },
+                "ApplyForJob": {
+                    "score": 0.0230276529
+                },
+                "MoveEmployee": {
+                    "score": 0.008322801
+                },
+                "Utilities.Stop": {
+                    "score": 0.004480808
+                },
+                "FindForm": {
+                    "score": 0.00425248267
+                },
+                "Utilities.StartOver": {
+                    "score": 0.004224336
+                },
+                "Utilities.Help": {
+                    "score": 0.00373591436
+                },
+                "None": {
+                    "score": 0.0034621188
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00230977475
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00112078607
+                }
+            },
+            "entities": {
+                "keyPhrase": [
+                    "natural language processing jobs",
+                    "department"
+                ],
+                "datetimeV2": [
+                    {
+                        "type": "datetime",
+                        "values": [
+                            {
+                                "timex": "PRESENT_REF",
+                                "resolution": [
+                                    {
+                                        "value": "2019-12-05 23:23:53"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "$instance": {
+                    "keyPhrase": [
+                        {
+                            "type": "builtin.keyPhrase",
+                            "text": "natural language processing jobs",
+                            "startIndex": 14,
+                            "length": 32,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        },
+                        {
+                            "type": "builtin.keyPhrase",
+                            "text": "department",
+                            "startIndex": 53,
+                            "length": 10,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "datetimeV2": [
+                        {
+                            "type": "builtin.datetimeV2.datetime",
+                            "text": "right now",
+                            "startIndex": 64,
+                            "length": 9,
+                            "modelTypeId": 2,
+                            "modelType": "Prebuilt Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
-          ]
         }
-      },
-      {
-        "entity": "natural language processing",
-        "type": "Job",
-        "startIndex": 14,
-        "endIndex": 40,
-        "score": 0.9869922
-      },
-      {
-        "entity": "natural language processing jobs",
-        "type": "builtin.keyPhrase",
-        "startIndex": 14,
-        "endIndex": 45
-      },
-      {
-        "entity": "department",
-        "type": "builtin.keyPhrase",
-        "startIndex": 53,
-        "endIndex": 62
-      }
-    ],
-    "sentimentAnalysis": {
-      "label": "positive",
-      "score": 0.8251864
     }
-   }
-   }
    ```
 
-   A intenção correta foi prevista com uma classificação alta, e a entidade **Tarefa** é detetada como `natural language processing`. 
+   Agora que o incerteza declarações está alinhado corretamente, a intenção correta foi prevista com uma **pontuação alta**.
 
-## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>A revisão pode ser substituída ao adicionar mais expressões? 
-Pode questionar-se sobre o motivo pelo qual não deve adicionar mais expressões de exemplo. Qual é o objetivo da revisão de expressões de ponto final? Numa aplicação LUIS do mundo real, as expressões de ponto final são provenientes de utilizadores com uma escolha e disposição de palavras que ainda não utilizou. Se tivesse utilizado a mesma escolha e disposição de palavras, a predição original teria uma percentagem mais elevada. 
+## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>A revisão pode ser substituída ao adicionar mais expressões?
+Pode questionar-se sobre o motivo pelo qual não deve adicionar mais expressões de exemplo. Qual é o objetivo da revisão de expressões de ponto final? Numa aplicação LUIS do mundo real, as expressões de ponto final são provenientes de utilizadores com uma escolha e disposição de palavras que ainda não utilizou. Se tivesse utilizado a mesma escolha e disposição de palavras, a predição original teria uma percentagem mais elevada.
 
-## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Por que motivo a intenção principal está na lista de expressões? 
+## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Por que motivo a intenção principal está na lista de expressões?
 Algumas expressões de ponto final terão uma classificação de predição elevada na lista de revisão. Ainda tem de rever e validar essas expressões. Estão na lista porque a intenção mais alta seguinte tinha uma classificação demasiado próxima da classificação da intenção principal. Pretende ter cerca de 15% de diferença entre as duas intenções principais.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -240,6 +233,7 @@ Algumas expressões de ponto final terão uma classificação de predição elev
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste tutorial, reviu as expressões submetidas ao ponto final, que o LUIS não conseguiu assegurar. Depois destas expressões terem sido validadas e movidas para as intenções corretas como expressões de exemplo, o LUIS irá melhorar a exatidão da predição.
 
 > [!div class="nextstepaction"]

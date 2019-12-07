@@ -1,20 +1,21 @@
 ---
-title: Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia) – armazenamento do Azure
-description: Saiba como criar uma SAS de delegação de usuário usando as credenciais de Azure Active Directory no armazenamento do Azure usando o CLI do Azure.
+title: Usar CLI do Azure para criar uma SAS de delegação de usuário para um contêiner ou BLOB
+titleSuffix: Azure Storage
+description: Saiba como criar uma SAS de delegação de usuário (versão prévia) com Azure Active Directory credenciais usando CLI do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673324"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892554"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia)
 
@@ -57,7 +58,7 @@ Quando você cria uma SAS de delegação de usuário com a CLI do Azure, a chave
 
 Como o intervalo máximo em que a chave de delegação de usuário é válida é de 7 dias a partir da data de início, você deve especificar um tempo de expiração para a SAS que está dentro de 7 dias da hora de início. A SAS é inválida depois que a chave de delegação do usuário expira, portanto, uma SAS com um tempo de expiração superior a 7 dias ainda será válida por sete dias.
 
-Ao criar uma SAS de delegação de usuário, o `--auth-mode login` e o `--as-user parameters` são necessários. Especifique o *logon* para o parâmetro `--auth-mode` para que as solicitações feitas ao armazenamento do Azure sejam autorizadas com suas credenciais do Azure AD. Especifique o parâmetro `--as-user` para indicar que a SAS retornada deve ser uma SAS de delegação de usuário.
+Ao criar uma SAS de delegação de usuário, o `--auth-mode login` e `--as-user parameters` são necessários. Especifique o *logon* para o parâmetro `--auth-mode` para que as solicitações feitas ao armazenamento do Azure sejam autorizadas com suas credenciais do Azure AD. Especifique o parâmetro `--as-user` para indicar que a SAS retornada deve ser uma SAS de delegação de usuário.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Criar uma SAS de delegação de usuário para um contêiner
 

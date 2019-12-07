@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 6616bd8172e9bc049a6e0e2c687390197de2f391
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 707f4eca440c0e8461420ff0bbc5e67f8e5ad69d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767318"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888517"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalizar parâmetros de configuração do servidor usando CLI do Azure
 Você pode listar, mostrar e atualizar parâmetros de configuração para um banco de dados do Azure para MariaDB Server usando CLI do Azure, o utilitário de linha de comando do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado.
@@ -55,9 +55,9 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 
 Esse código redefine a **consulta de\_lenta\_** configuração de log para o valor padrão **desativado**. 
 
-## <a name="working-with-the-time-zone-parameter"></a>Trabalhando com o parâmetro de fuso horário
+## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
-### <a name="populating-the-time-zone-tables"></a>Populando as tabelas de fuso horário
+### <a name="populating-the-time-zone-tables"></a>Preencher as tabelas de fuso horário
 
 As tabelas de fuso horário no servidor podem ser populadas chamando o procedimento armazenado `az_load_timezone` de uma ferramenta como a linha de comando MariaDB ou o MariaDB Workbench.
 
@@ -68,13 +68,16 @@ As tabelas de fuso horário no servidor podem ser populadas chamando o procedime
 CALL mysql.az_load_timezone();
 ```
 
-Para exibir os valores de fuso horário disponíveis, execute o seguinte comando:
+> [!IMPORTANT]
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
+
+Para ver os valores de fuso horário disponível, execute o seguinte comando:
 
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
 
-### <a name="setting-the-global-level-time-zone"></a>Configurando o fuso horário de nível global
+### <a name="setting-the-global-level-time-zone"></a>Definir o fuso de horário de nível global
 
 O fuso horário de nível global pode ser definido usando o comando [AZ MariaDB Server Configuration Set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) .
 
@@ -84,9 +87,9 @@ O comando a seguir atualiza a **hora\_** parâmetro de configuração de servido
 az mariadb server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
 ```
 
-### <a name="setting-the-session-level-time-zone"></a>Definindo o fuso horário do nível de sessão
+### <a name="setting-the-session-level-time-zone"></a>Definir o fuso de horário de nível de sessão
 
-O fuso horário do nível de sessão pode ser definido executando o comando `SET time_zone` de uma ferramenta como a linha de comando MariaDB ou o MariaDB Workbench. O exemplo a seguir define o fuso horário para o fuso horário **dos EUA/Pacífico** .  
+O fuso horário do nível de sessão pode ser definido executando o comando `SET time_zone` de uma ferramenta como a linha de comando MariaDB ou o MariaDB Workbench. O exemplo abaixo define o fuso horário o **E.U.A. / Pacífico** fuso horário.  
 
 ```sql
 SET time_zone = 'US/Pacific';

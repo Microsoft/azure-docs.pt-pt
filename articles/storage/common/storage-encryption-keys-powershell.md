@@ -1,22 +1,23 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o PowerShell-armazenamento do Azure
+title: Usar o PowerShell para configurar chaves gerenciadas pelo cliente
+titleSuffix: Azure Storage
 description: Saiba como usar o PowerShell para configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 87ee96b0f6ad27fc34709f3fc20a2dd69be49089
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666227"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895281"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando o PowerShell
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
@@ -67,7 +68,7 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get,recover
 ```
 
-## <a name="create-a-new-key"></a>Criar uma nova chave
+## <a name="create-a-new-key"></a>Criar uma chave nova
 
 Em seguida, crie uma nova chave no cofre de chaves. Para criar uma nova chave, chame [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
 

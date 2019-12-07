@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 89c98379a8e79d1b00db47021ae737ae471f79b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9dff10848c42fd730f0bc77fd325f00cec554c9d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035017"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892877"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagens compartilhada usando o portal do Azure
 

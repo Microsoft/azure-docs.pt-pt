@@ -3,17 +3,17 @@ title: Alterar as configurações do aplicativo IoT Central do Azure | Microsoft
 description: Como administrador, como gerenciar seu aplicativo de IoT Central do Azure alterando o nome do aplicativo, URL, carregar imagem e excluir um aplicativo
 author: viv-liu
 ms.author: viviali
-ms.date: 10/10/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d14ed31b41deb0db44ba452470c45d69a0ec781
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 016e356e306468441fc9308d2853f5c44a37379e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896063"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895511"
 ---
 # <a name="change-iot-central-application-settings"></a>Alterar IoT Central configurações do aplicativo
 
@@ -41,7 +41,7 @@ Use o botão **excluir** para excluir permanentemente seu aplicativo IOT central
 > [!Note]
 > Para excluir um aplicativo, você também deve ter permissões para excluir recursos na assinatura do Azure que você escolheu ao criar o aplicativo. Para saber mais, confira [usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de assinatura do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-## <a name="manage-programmatically"></a>Gerir programaticamente
+## <a name="manage-programmatically"></a>Gerir através de programação
 
 IoT Central pacotes do SDK do Azure Resource Manager estão disponíveis para o Node C#, Python,, Ruby, Java e go. Você pode usar esses pacotes para criar, listar, atualizar ou excluir aplicativos IoT Central. Os pacotes incluem auxiliares para gerenciar a autenticação e o tratamento de erros.
 
@@ -49,14 +49,14 @@ Você pode encontrar exemplos de como usar os SDKs de Azure Resource Manager em 
 
 Para saber mais, confira os seguintes repositórios e pacotes do GitHub:
 
-| Idioma | Repositório | Pacote |
+| Linguagem | Repositório | Pacote |
 | ---------| ---------- | ------- |
 | Nó | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
 | C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
 | Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
 | Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
-| Ir | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
+| Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="next-steps"></a>Passos seguintes
 

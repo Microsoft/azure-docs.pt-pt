@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305151"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894544"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 Dados de monitoramento — particularmente arquivos de log — podem conter informações confidenciais, como endereços IP ou nomes de usuário. Os dados de monitoramento do Azure são fornecidos em três formas básicas:
 
 1. O log de atividades, que descreve todas as ações de plano de controle em sua assinatura do Azure.
-2. Logs de diagnóstico, que são logs emitidos por um recurso.
+2. logs de recursos, que são logs emitidos por um recurso.
 3. Métricas, que são emitidas pelos recursos.
 
 Todos esses três tipos de dados podem ser armazenados em uma conta de armazenamento ou transmitidos para o Hub de eventos, ambos os recursos do Azure de finalidade geral. Como esses são recursos de finalidade geral, criar, excluir e acessá-los é uma operação privilegiada reservada para um administrador. Sugerimos que você use as seguintes práticas para recursos relacionados ao monitoramento para evitar o uso indevido:
@@ -182,7 +182,7 @@ Azure Monitor precisa acessar seus recursos do Azure para fornecer os serviços 
 ### <a name="secured-storage-accounts"></a>Contas de armazenamento protegidas 
 
 Os dados de monitoramento geralmente são gravados em uma conta de armazenamento. Talvez você queira certificar-se de que os dados copiados para uma conta de armazenamento não possam ser acessados por usuários não autorizados. Para obter mais segurança, você pode bloquear o acesso à rede para permitir que somente os recursos autorizados e os serviços confiáveis da Microsoft acessem uma conta de armazenamento, restringindo uma conta de armazenamento para usar "redes selecionadas".
-![](./media/roles-permissions-security/secured-storage-example.png) de diálogo Configurações do armazenamento do Azure Azure Monitor é considerado um destes "serviços confiáveis da Microsoft" se você permitir que serviços da Microsoft confiáveis acessem seu armazenamento protegido, o Azure monitor terá acesso à sua conta de armazenamento protegido; habilitar a gravação Azure Monitor logs de diagnóstico, o log de atividades e as métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que Log Analytics Leia os logs do armazenamento protegido.   
+![](./media/roles-permissions-security/secured-storage-example.png) de diálogo Configurações do armazenamento do Azure Azure Monitor é considerado um destes "serviços confiáveis da Microsoft" se você permitir que serviços da Microsoft confiáveis acessem seu armazenamento protegido, o Azure monitor terá acesso à sua conta de armazenamento protegido; habilitar a gravação Azure Monitor logs de recursos, o log de atividades e as métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que Log Analytics Leia os logs do armazenamento protegido.   
 
 
 Para obter mais informações, consulte [segurança de rede e armazenamento do Azure](../../storage/common/storage-network-security.md)

@@ -1,6 +1,6 @@
 ---
 title: Tipos de LiveEvent dos serviços de mídia do Azure | Microsoft Docs
-description: Este artigo mostra uma tabela detalhada que compara os tipos LiveEvent.
+description: Nos serviços de mídia do Azure, um evento ao vivo pode ser um dos dois tipos, codificação ativa e passagem. Este artigo mostra uma tabela detalhada que compara os tipos de eventos ao vivo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 884cf8d913cec038df3b38c8af2ed0a67bd8060d
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802239"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888398"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de eventos ao vivo
 
@@ -73,12 +73,12 @@ Se o feed de contribuição for de 720p ou de resolução superior, a predefini�
 
 | Velocidade de transmissão | Largura | Altura | MaxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |
-| 2200 |960 |540 |30 |Alta |
-| 1350 |704 |396 |30 |Alta |
-| 850 |512 |288 |30 |Alta |
-| 550 |384 |216 |30 |Alta |
-| 200 |340 |192 |30 |Alta |
+| 3500 |1280 |720 |30 |Elevado |
+| 2200 |960 |540 |30 |Elevado |
+| 1350 |704 |396 |30 |Elevado |
+| 850 |512 |288 |30 |Elevado |
+| 550 |384 |216 |30 |Elevado |
+| 200 |340 |192 |30 |Elevado |
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Confirme que há apenas uma camada a 720p e seis camadas no máximo. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo padrão.
@@ -90,12 +90,12 @@ Se o feed de contribuição for de 1080p resolução, a predefinição de **defa
 
 | Velocidade de transmissão | Largura | Altura | MaxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alta |
-| 3000 |1280 |720 |30 |Alta |
-| 1600 |960 |540 |30 |Alta |
-| 800 |640 |360 |30 |Alta |
-| 400 |480 |270 |30 |Alta |
-| 200 |320 |180 |30 |Alta |
+| 5500 |1920 |1080 |30 |Elevado |
+| 3000 |1280 |720 |30 |Elevado |
+| 1600 |960 |540 |30 |Elevado |
+| 800 |640 |360 |30 |Elevado |
+| 400 |480 |270 |30 |Elevado |
+| 200 |320 |180 |30 |Elevado |
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Verifique se há apenas uma camada em 1080p e no máximo 6 camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo Premium1080p.
@@ -113,7 +113,7 @@ A seção anterior descreve as propriedades do codificador ao vivo que podem ser
 
 O codificador ao vivo segue a estrutura [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) do feed de contribuição, o que significa que as camadas de saída terão a mesma duração de GOP. Portanto, é recomendável que você configure o codificador local para produzir um feed de contribuição com duração fixa GOP (normalmente 2 segundos). Isso garantirá que os fluxos de saída HLS e MPEG DASH do serviço também tenham corrigido GOP durações. Pequenas variações em durações de GOP provavelmente serão toleradas pela maioria dos dispositivos.
 
-### <a name="frame-rate"></a>Velocidade de fotogramas
+### <a name="frame-rate"></a>Taxa de quadros
 
 O codificador ao vivo também segue as durações dos quadros de vídeo individuais no feed de contribuição, o que significa que as camadas de saída terão quadros com as mesmas durações. Portanto, é recomendável que você configure o codificador local para produzir um feed de contribuição com taxa de quadros fixa (no máximo 30 quadros/segundo). Isso garantirá que os fluxos de saída HLS e MPEG DASH do serviço também tenham durações de taxas de quadros fixas. Pequenas variações nas taxas de quadros podem ser toleradas pela maioria dos dispositivos, mas não há nenhuma garantia de que o codificador ao vivo produzirá uma saída que será reproduzida corretamente. Seu codificador ao vivo local não deve estar descartando quadros (por exemplo, em condições de bateria fraca) ou variando a taxa de quadros de qualquer forma.
 

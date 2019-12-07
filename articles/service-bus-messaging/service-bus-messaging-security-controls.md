@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d2b92759384a9a0b63d784a8cb1afb3d18d55aeb
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219324"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894410"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controles de segurança para mensagens do barramento de serviço do Azure
 
@@ -37,24 +37,24 @@ Este artigo documenta os controles de segurança incorporados ao sistema de mens
 | Registro e auditoria do plano de gerenciamento e controle| Sim | Os logs de operações estão disponíveis.  | [Logs de diagnóstico do barramento de serviço](service-bus-diagnostic-logs.md) |
 | Log e auditoria do plano de dados| Não |  |
 
-## <a name="identity"></a>identidade
+## <a name="identity"></a>Identidade
 
 | Controle de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
-| Authentication| Sim | Gerenciado por meio de [Azure Active Directory identidade de serviço gerenciada](service-bus-managed-service-identity.md).| [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
+| Autenticação| Sim | Gerenciado por meio de [Azure Active Directory identidade de serviço gerenciada](service-bus-managed-service-identity.md).| [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
 | Autorização| Sim | Dá suporte à autorização por meio do [RBAC](authenticate-application.md) e do token SAS. | [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
 
 ## <a name="data-protection"></a>Proteção de dados
 
 | Controle de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft |  Sim, para criptografia do lado do servidor, em repouso, por padrão. | As chaves gerenciadas pelo cliente e BYOK ainda não têm suporte. A criptografia do lado do cliente é a responsabilidade do cliente |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não |   |   |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  Sim, para criptografia do lado do servidor, em repouso, por padrão. |  |  |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim. Atualmente em visualização | Uma chave gerenciada pelo cliente no Azure keyvault pode ser usada para criptografar os dados no namespace do barramento de serviço em repouso. | [Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure (versão prévia)](configure-customer-managed-key.md)  |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |   |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Dá suporte ao mecanismo HTTPS/TLS padrão. |   |
 | Chamadas de API criptografadas| Sim | As chamadas à API são feitas por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |   |
 
-## <a name="configuration-management"></a>Gestão de configuração
+## <a name="configuration-management"></a>Gestão de configurações
 
 | Controle de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|

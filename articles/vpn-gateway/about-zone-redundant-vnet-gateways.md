@@ -6,18 +6,18 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725591"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896654"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre gateways de rede virtual com redundância de zona no Zonas de Disponibilidade do Azure
 
-Você pode implantar gateways VPN e ExpressRoute no [zonas de disponibilidade do Azure](../availability-zones/az-overview.md). Isso traz resiliência, escalabilidade e disponibilidade mais alta para gateways de rede virtual. A implantação de gateways no Zonas de Disponibilidade do Azure separa os gateways de forma física e lógica em uma região, ao mesmo tempo em que protege a conectividade de rede local ao Azure de falhas no nível de zona.
+Você pode implantar gateways VPN e ExpressRoute no [zonas de disponibilidade do Azure](../availability-zones/az-overview.md). Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas.
 
 ### <a name="zrgw"></a>Gateways com redundância de zona
 
@@ -39,21 +39,9 @@ Para implantar gateways em uma zona específica, você pode usar gateways zonais
 
 ## <a name="gwskus"></a>SKUs de Gateway
 
-Os gateways com e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual nas regiões AZ do Azure. Essas SKUs são semelhantes às SKUs existentes correspondentes para o ExpressRoute e o gateway de VPN, exceto pelo fato de que elas são específicas para gateways com redundância de zona e zonas.
+Os gateways com e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual nas regiões AZ do Azure. Essas SKUs são semelhantes às SKUs existentes correspondentes para o ExpressRoute e o gateway de VPN, exceto pelo fato de que elas são específicas para gateways com redundância de zona e zonas. Você pode identificar essas SKUs pelo "AZ" no nome do SKU.
 
-As novas SKUs de gateway são:
-
-### <a name="vpn-gateway"></a>Gateway de VPN
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+Para obter informações sobre SKUs de gateway, consulte [SKUs de gateway de VPN](vpn-gateway-about-vpngateways.md#gwsku) e SKUs de gateway de [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>SKUs de IP público
 
@@ -96,6 +84,6 @@ No momento, não há suporte para migrar seus gateways de rede virtual existente
 
 Há suporte para a coexistência de gateways de VPN e de rota expressa na mesma rede virtual. No entanto, você deve reservar um intervalo de endereços IP/27 para a sub-rede de gateway.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um gateway de rede virtual com redundância entre zonas](create-zone-redundant-vnet-gateway.md)

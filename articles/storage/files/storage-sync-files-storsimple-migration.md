@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: O StorSimple é um produto de fim de vida e Sincronização de Arquivos do Azure é a solução para a qual migrar. Saiba mais sobre o conceito de migração e entre em contato com a AzureFiles@microsoft.com para obter ajuda de migração personalizada.
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666666"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895086"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>Migração do StorSimple para Sincronização de Arquivos do Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve o conceito de como uma migração começará.
 É imperativo observar que os clientes que precisam de migração do StorSimple e para o Sincronização de Arquivos do Azure não precisam continuar por conta própria.
 
 > [!IMPORTANT]
-> A Microsoft está comprometida em auxiliar os clientes em sua migração. AzureFiles@microsoft.com de email para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie um email AzureFiles@microsoft. com para um plano de migração personalizado, bem como assistência durante a migração.
 
 ## <a name="migration-approach"></a>Abordagem de migração
 A migração para Sincronização de Arquivos do Azure começará no lado da nuvem com impacto mínimo sobre o tempo de inatividade local e limitado.
@@ -67,7 +67,7 @@ Além disso, um compartilhamento de arquivos do Azure pode ser sincronizado com 
 Familiarize-se com os arquivos e Sincronização de Arquivos do Azure do Azure. É importante entender a terminologia de Sincronização de Arquivos do Azure e o padrão de implantação para uma migração bem-sucedida. Há informações mais detalhadas disponíveis para cada etapa neste artigo de visão geral. Certifique-se de entrar em contato com a Microsoft para obter ajuda personalizada durante o planejamento e a execução da sua migração.
 
 > [!IMPORTANT]
-> A Microsoft está comprometida em auxiliar os clientes em sua migração. AzureFiles@microsoft.com de email para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie um email AzureFiles@microsoft. com para um plano de migração personalizado, bem como assistência durante a migração.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 Sincronização de Arquivos do Azure, como o serviço de destino, tem dois documentos fundamentais que recomendamos que você leia, se você for novo no Sincronização de Arquivos do Azure.

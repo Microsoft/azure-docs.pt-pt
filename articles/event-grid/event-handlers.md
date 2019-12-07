@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c88ef8c3996b1e7d998d3eff12c15077ec2482ff
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169309"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900722"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na grade de eventos do Azure
 
@@ -42,7 +42,7 @@ Se utilizar as Funções do Azure como o processador, utilize o acionador do Eve
 | [Tutorial: transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md) | Quando os hubs de eventos criam um arquivo de captura, a grade de eventos envia um evento para um aplicativo de funções. O aplicativo recupera o arquivo de captura e migra os dados para um data warehouse. |
 | [Tutorial: exemplos de integração do barramento de serviço do Azure para a grade de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A grade de eventos envia mensagens do tópico do barramento de serviço para o aplicativo de funções e o aplicativo lógico. |
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Hubs de Eventos
 
 Use os hubs de eventos quando sua solução receber eventos mais rapidamente do que pode processar os eventos. Seu aplicativo processa os eventos dos hubs de eventos no próprio agendamento. Você pode dimensionar o processamento de eventos para lidar com os eventos de entrada.
 
@@ -63,7 +63,7 @@ Use o Conexões Híbridas de retransmissão do Azure para enviar eventos para ap
 |---------|---------|
 | [Tutorial: enviar eventos para conexão híbrida](custom-event-to-hybrid-connection.md) | Envia um evento personalizado para uma conexão híbrida existente para processamento por um aplicativo de ouvinte. |
 
-## <a name="logic-apps"></a>Aplicações Lógicas
+## <a name="logic-apps"></a>Logic Apps
 
 Use aplicativos lógicos para automatizar processos de negócios para responder a eventos.
 
@@ -79,7 +79,7 @@ Use aplicativos lógicos para automatizar processos de negócios para responder 
 
 Você pode rotear eventos na grade de eventos diretamente para filas do barramento de serviço para uso em buffer ou comando & cenários de controle em aplicativos empresariais.
 
-Na portal do Azure, ao criar uma assinatura de evento, selecione "fila do barramento de serviço" como tipo de ponto de extremidade e clique em "selecionar e ponto de extremidade" para escolher uma fila do barramento de serviço.
+Na portal do Azure, ao criar uma assinatura de evento, selecione "fila do barramento de serviço" como tipo de ponto de extremidade e clique em "selecionar um ponto de extremidade" para escolher uma fila do barramento de serviço.
 
 #### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Usando a CLI para adicionar um manipulador de fila do barramento de serviço
 
@@ -119,7 +119,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="queue-storage"></a>Armazenamento de filas
+## <a name="queue-storage"></a>Armazenamento de Filas
 
 Use o armazenamento de filas para receber eventos que precisam ser obtidos. Você pode usar o armazenamento de fila quando tiver um processo de longa execução que leva muito tempo para responder. Ao enviar eventos para o armazenamento de fila, o aplicativo pode efetuar pull e processar eventos em sua própria agenda.
 
