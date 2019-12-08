@@ -1,7 +1,7 @@
 ---
 title: Empacotamento dinâmico nos serviços de mídia
 titleSuffix: Azure Media Services
-description: Uma visão geral do empacotamento dinâmico nos serviços de mídia do Azure.
+description: Este artigo fornece uma visão geral do empacotamento dinâmico nos serviços de mídia do Azure.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 304a6168ee5a4c60369b541d4a8cc7ac961913b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dbce24ced0ed057eac829d5c4b7223a10fa96b3e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574895"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888483"
 ---
 # <a name="dynamic-packaging-in-media-services"></a>Empacotamento dinâmico nos serviços de mídia
 
@@ -266,7 +266,7 @@ Para obter mais informações, consulte [como sinalizar faixas de descrição de
 
 Para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas aos players, você pode usar a filtragem dinâmica com o empacotador dinâmico dos serviços de mídia. Para obter mais informações, consulte [pré-filtrando manifestos com o Gerenciador dinâmico](filters-dynamic-manifest-overview.md).
 
-## <a name="dynamic-encryption"></a>Criptografia dinâmica
+## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
 Você pode usar a *criptografia dinâmica* para criptografar dinamicamente seu conteúdo em tempo real ou sob demanda com o AES-128 ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple Fairplay. Os serviços de mídia também fornecem um serviço para a entrega de chaves AES e licenças DRM para clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
 

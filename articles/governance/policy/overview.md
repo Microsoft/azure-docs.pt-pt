@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484021"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885471"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -16,7 +16,9 @@ A governança valida que sua organização pode atingir suas metas por meio de u
 
 A sua empresa tem um número significativo de problemas de TI que parece nunca ficarem resolvidos? Uma boa governação de TI envolve o planeamento das suas iniciativas e a definição de prioridades num nível estratégico para ajudar a gerir e evitar problemas. Essa necessidade estratégica é onde entra o Azure Policy.
 
-O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos aos recursos, de forma a que esses recursos se mantenham em conformidade com as normas empresariais e os contratos de nível de serviço. O Azure Policy atende a essa necessidade através da avaliação de seus recursos de não conformidade com as políticas atribuídas. Por exemplo, pode ter uma política para permitir apenas um determinado tamanho de SKU de máquinas virtuais no seu ambiente. Assim que esta política é implementada, os recursos novos e existentes são avaliados quanto à conformidade. Com o tipo certo de política, os recursos existentes podem ser colocados em conformidade. Mais tarde nesta documentação, vamos examinar mais detalhes sobre como criar e implementar políticas com o Azure Policy.
+O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas impõem diferentes regras e efeitos aos recursos, de forma a que esses recursos se mantenham em conformidade com as normas empresariais e os contratos de nível de serviço. O Azure Policy atende a essa necessidade através da avaliação de seus recursos de não conformidade com as políticas atribuídas. Todos os dados armazenados pelo Azure Policy são criptografados em repouso.
+
+Por exemplo, pode ter uma política para permitir apenas um determinado tamanho de SKU de máquinas virtuais no seu ambiente. Assim que esta política é implementada, os recursos novos e existentes são avaliados quanto à conformidade. Com o tipo certo de política, os recursos existentes podem ser colocados em conformidade. Mais tarde nesta documentação, vamos examinar mais detalhes sobre como criar e implementar políticas com o Azure Policy.
 
 > [!IMPORTANT]
 > A avaliação de conformidade do Azure Policy é agora fornecida para todas as atribuições, independentemente do escalão de preço. Se a suas atribuições não mostrarem os dados de conformidade, certifique-se de que a subscrição está registada com o fornecedor de recursos Microsoft.PolicyInsights.
@@ -25,7 +27,7 @@ O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir 
 
 ## <a name="how-is-it-different-from-rbac"></a>Em que medida é diferente do RBAC?
 
-Há algumas diferenças importantes entre Azure Policy e o RBAC (controle de acesso baseado em função). O RBAC concentra-se nas ações do utilizador em âmbitos diferentes. Pode ser adicionado à função de Contribuidor para um grupo de recursos, permitindo-lhe efetuar alterações ao grupo de recursos. Azure Policy se concentra nas propriedades de recurso durante a implantação e nos recursos já existentes. Azure Policy controla propriedades como os tipos ou locais de recursos. Diferentemente do RBAC, Azure Policy é um sistema de permissão padrão e de negação explícita.
+Há algumas diferenças importantes entre Azure Policy e o RBAC (controle de acesso baseado em função). O RBAC concentra-se nas ações do utilizador em âmbitos diferentes. Pode ser adicionado à função de Contribuidor para um grupo de recursos, permitindo-lhe efetuar alterações ao grupo de recursos. Azure Policy se concentra nas propriedades de recurso durante a implantação e nos recursos já existentes. O Azure Policy controla propriedades como os tipos de localizações de recursos. Diferentemente do RBAC, Azure Policy é um sistema de permissão padrão e de negação explícita.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Permissões RBAC no Azure Policy
 
@@ -34,7 +36,7 @@ O Azure Policy tem várias permissões, conhecidas como operações, em dois For
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. A função **colaborador de política de recurso** inclui a maioria das operações Azure Policy. O **proprietário** tem direitos totais. O **colaborador** e o **leitor** podem usar todas as operações de Azure Policy de leitura, mas o **colaborador** também pode disparar a correção.
+Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. A função **colaborador de política de recurso** inclui a maioria das operações Azure Policy. **Proprietário** tem direitos totais. O **colaborador** e o **leitor** podem usar todas as operações de Azure Policy de leitura, mas o **colaborador** também pode disparar a correção.
 
 Se nenhuma das Funções incorporadas tiver as permissões exigidas, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
@@ -44,17 +46,17 @@ O percurso de criar e implementar uma política no Azure Policy começa pela cri
 
 No Azure Policy, disponibilizamos várias políticas incorporadas que estão disponíveis por predefinição. Por exemplo:
 
-- **SKUs de conta de armazenamento permitidas**: determina se uma conta de armazenamento que está sendo implantada está dentro de um conjunto de tamanhos de SKU. Seu efeito é recusar todas as contas de armazenamento que não cumpram o conjunto de tamanhos SKU definidos.
-- **Tipo de recurso permitido**: define os tipos de recursos que você pode implantar. Seu efeito é recusar todos os recursos que não fazem parte desta lista definida.
-- **Locais permitidos**: restringe os locais disponíveis para novos recursos. O efeito é utilizado para impor os requisitos de geoconformidade.
-- **SKUs de máquina virtual permitidas**: especifica um conjunto de SKUs de máquina virtual que você pode implantar.
+- **SKUs de conta de armazenamento permitidos**: determina se uma conta de armazenamento que está sendo implantada dentro de um conjunto de tamanhos de SKU. Seu efeito é recusar todas as contas de armazenamento que não cumpram o conjunto de tamanhos SKU definidos.
+- **Tipo de recurso permitido**: define os tipos de recurso que pode implementar. Seu efeito é recusar todos os recursos que não fazem parte desta lista definida.
+- **Localizações permitidas**: restringe as localizações disponíveis para novos recursos. O efeito é utilizado para impor os requisitos de geoconformidade.
+- **SKUs de Máquina Virtual permitidos**: Especifica um conjunto de máquina virtual de SKUs que pode implementar.
 - **Adicionar uma marca a recursos**: aplica uma marca necessária e seu valor padrão se não for especificado pela solicitação de implantação.
-- **Impor a marca e seu valor**: impõe uma marca necessária e seu valor a um recurso.
-- **Tipos de recursos não permitidos**: impede que uma lista de tipos de recursos seja implantada.
+- **Impor etiqueta e respetivo valor**: impõe uma etiqueta obrigatória e o respetivo valor a um recurso.
+- **Tipos de recurso não permitidos**: impede que uma lista de tipos de recurso que está sendo implantado.
 
 Para implementar estas definições de política (definições incorporadas e personalizadas), terá de atribuí-las. Pode atribuir qualquer uma destas políticas através do portal do Azure, do PowerShell ou da CLI do Azure.
 
-Avaliação da política acontece com várias ações diferentes, tais como a atribuição de política ou as atualizações de política. Para obter uma lista completa, consulte [gatilhos de avaliação de política](./how-to/get-compliance-data.md#evaluation-triggers).
+Avaliação da política acontece com várias ações diferentes, tais como a atribuição de política ou as atualizações de política. Para obter uma lista completa, consulte [acionadores de avaliação da política](./how-to/get-compliance-data.md#evaluation-triggers).
 
 Para saber mais sobre as estruturas de definições de política, veja [Estrutura de Definição de Política](./concepts/definition-structure.md).
 
@@ -74,7 +76,7 @@ Os parâmetros de política ajudam a simplificar a gestão de políticas ao redu
 
 Os parâmetros são definidos durante a criação de uma definição de política. Quando é definido um parâmetro, tem um nome e opcionalmente fornecido um valor. Por exemplo, pode definir um parâmetro para uma política intitulada *localização*. Em seguida, pode atribuir-lhe valores diferentes, tais como *EastUS* ou *WestUS* quando atribui uma política.
 
-Para obter mais informações sobre parâmetros de política, consulte [estrutura de definição-parâmetros](./concepts/definition-structure.md#parameters).
+Para obter mais informações sobre parâmetros de política, consulte [estrutura de definição - parâmetros](./concepts/definition-structure.md#parameters).
 
 ## <a name="initiative-definition"></a>Definição de iniciativa
 
@@ -86,14 +88,14 @@ Uma definição de iniciativa é uma coleção de definições de política adap
 Ao abrigo desta iniciativa, terá definições de política como:
 
 - **Monitorizar a Base de Dados SQL não encriptada no Centro de Segurança** – Para monitorização de servidores e bases de dados SQL não encriptados.
-- **Monitorar vulnerabilidades do sistema operacional na central de segurança** – para servidores de monitoramento que não atendem à linha de base configurada.
+- **Monitorizar vulnerabilidades do SO no Centro de segurança** – para monitorização de servidores que não satisfaçam a linha de base configurada.
 - **Monitorizar a Proteção de Ponto Final em falta no Centro de Segurança** – Para monitorização de servidores sem um agente de proteção de ponto final instalado.
 
 ## <a name="initiative-assignment"></a>Atribuição de iniciativa
 
 Tal como uma atribuição de política, uma atribuição de iniciativa é uma definição de iniciativa atribuída a um âmbito específico. As atribuições de iniciativa reduzem a necessidade de efetuar várias definições de iniciativa para cada âmbito. Este âmbito também pode ir desde um grupo de gestão a um grupo de recursos.
 
-Cada iniciativa é atribuível a âmbitos diferentes. Uma iniciativa pode ser atribuída à **assinatura** e **subscriptionB**.
+Cada iniciativa é atribuível a âmbitos diferentes. Uma iniciativa pode ser atribuída a ambos **subscriptionA** e **subscriptionB**.
 
 ## <a name="initiative-parameters"></a>Parâmetros de iniciativa
 
@@ -127,16 +129,16 @@ Aqui estão alguns ponteiros e sugestões a ter em mente:
 - Considere as hierarquias organizacionais quando criar definições e atribuições. Recomendamos a criação de definições níveis mais altos, como o grupo de gestão ou o nível de assinatura. Em seguida, crie a atribuição no nível subordinado seguinte. Se criar uma definição num grupo de gestão, a atribuição pode ser confinada para uma subscrição ou grupo de recursos nesse grupo de gestão.
 
 - É recomendável criar e atribuir as definições de iniciativa mesmo para uma definição de política única.
-  Por exemplo, você tem a definição de política *policyDefA* e a cria em *initiativeDefC*de definição de iniciativa. Se você criar outra definição de política posteriormente para *policyDefB* com metas semelhantes a *policyDefA*, você poderá adicioná-la em *initiativeDefC* e rastreá-las juntas.
+  Por exemplo, tem a definição de política *policyDefA* e criar na definição de iniciativa *initiativeDefC*. Se criar outra definição de política mais tarde para *policyDefB* com objetivos semelhantes aos *policyDefA*, pode adicioná-lo sob *initiativeDefC* e controlá-las em conjunto.
 
 - Depois de criar uma atribuição de iniciativa, definições de política adicionadas a iniciativa tornam-se também parte do que as atribuições de iniciativas.
 
 - Quando é avaliada uma atribuição de iniciativa, todas as políticas na iniciativa também são avaliadas.
   Se precisar de avaliar uma política individualmente, é melhor não incluí-lo numa iniciativa.
 
-## <a name="video-overview"></a>Visão geral em vídeo
+## <a name="video-overview"></a>Descrição geral em vídeo
 
-A seguinte descrição geral do Azure Policy é do Build 2018. Para download de slides ou vídeo, visite [controlar seu ambiente do Azure por meio de Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
+A seguinte descrição geral do Azure Policy é do Build 2018. Para slides ou download de vídeo, visite [regem o seu ambiente do Azure através da política do Azure](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 

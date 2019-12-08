@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11187b403b9bc23a0aa20eb5ee7a5e4923bb7276
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075450"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896674"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 
@@ -25,7 +25,7 @@ Um gateway de rede virtual é composto por duas ou mais VMs implantadas em uma s
 
 Uma configuração que você configura para um gateway de rede virtual é o tipo de gateway. Tipo de gateway especifica como o gateway de rede virtual será usado e as ações que o gateway usa. O tipo de gateway ' VPN ' especifica que o tipo de gateway de rede virtual criado é um ' gateway de VPN ', em vez de um gateway de ExpressRoute. Uma rede virtual pode ter dois gateways de rede virtual; um gateway de VPN e um gateway de ExpressRoute-como é o caso com configurações de conexão [coexistentes](#coexisting) . Para obter mais informações, veja [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype) (Tipos de gateways).
 
-Os gateways de VPN podem ser implantados no Zonas de Disponibilidade do Azure. Isso traz resiliência, escalabilidade e disponibilidade mais alta para gateways de rede virtual. A implantação de gateways no Zonas de Disponibilidade do Azure separa os gateways de forma física e lógica em uma região, ao mesmo tempo em que protege a conectividade de rede local ao Azure de falhas no nível de zona. consulte [sobre gateways de rede virtual com redundância de zona no zonas de disponibilidade do Azure](about-zone-redundant-vnet-gateways.md)
+Os gateways de VPN podem ser implantados no Zonas de Disponibilidade do Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. consulte [sobre gateways de rede virtual com redundância de zona no zonas de disponibilidade do Azure](about-zone-redundant-vnet-gateways.md)
 
 A criação de um gateway de rede virtual pode demorar até 45 minutos a concluir. Quando cria um gateway de rede virtual, as VMs do gateway são implementadas na sub-rede do gateway e configuradas com as definições que especificar. Depois de criar um gateway de VPN, pode criar uma ligação de túnel de VPN IPsec/IKE entre esse gateway de VPN e outro gateway de VPN (VNet a VNet) ou criar uma ligação de túnel de VPN IPsec/IKE entre vários locais entre o gateway de VPN e um dispositivo VPN no local (Site a Site). Você também pode criar uma conexão VPN ponto a site (VPN sobre OpenVPN, IKEv2 ou SSTP), que permite que você se conecte à sua rede virtual de um local remoto, como de uma conferência ou de casa.
 
@@ -76,7 +76,7 @@ Utilize os diagramas e as descrições para ajudar a selecionar a topologia de l
 
 ### <a name="S2S"></a>Rede de VPN
 
-Uma ligação de gateway de VP de Site a Site (S2S) é uma ligação através do túnel VPN IPsec/IKE (S2S ou IKEv1). As ligações S2S podem ser utilizadas para configurações em vários locais e híbridas. A ligação S2S requer um dispositivo VPN localizado no local que tenha um endereço IP público atribuído ao mesmo e não se encontre protegido por um NAT. Para obter informações acerca da seleção de um dispositivo VPN, veja as [FAQs do Gateway de VPN - dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
+Uma ligação de gateway de VP de Site a Site (S2S) é uma ligação através do túnel VPN IPsec/IKE (S2S ou IKEv1). As ligações S2S podem ser utilizadas para configurações em vários locais e híbridas. Uma conexão S2S requer um dispositivo VPN localizado localmente que tenha um endereço IP público atribuído a ele. Para obter informações acerca da seleção de um dispositivo VPN, veja as [FAQs do Gateway de VPN - dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Exemplo de ligação Site a Site de Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -118,7 +118,7 @@ As VNets que liga podem estar:
 
 Atualmente, o Azure tem dois modelos de implementação: clássico e Resource Manager. Se tem utilizado o Azure durante algum tempo, provavelmente as VMs do Azure e as funções de instância estão em execução numa VNet clássica. As VMs mais recentes e as instâncias da função poderão estar em execução numa VNet criada no Resource Manager. Pode criar uma ligação entre as VNets para permitir que os recursos numa VNet comuniquem diretamente com recursos de outra.
 
-### <a name="vnet-peering"></a>VNet peering
+### <a name="vnet-peering"></a>VNet Peering
 
 Poderá utilizar o VNet peering para criar a ligação, desde que a rede virtual cumpra determinados requisitos. O VNet peering não utiliza um gateway de rede virtual. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 

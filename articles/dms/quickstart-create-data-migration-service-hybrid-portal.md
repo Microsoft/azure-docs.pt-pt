@@ -10,19 +10,22 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/06/2019
-ms.openlocfilehash: 47c0ecb5674f821d3034fb5f165df08f176c2e93
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.date: 12/06/2019
+ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646947"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890696"
 ---
 # <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>Início rápido: criar uma instância do serviço de migração de banco de dados do Azure no modo híbrido usando o portal do Azure (versão prévia)
 
 O modo híbrido do serviço de migração de banco de dados do Azure gerencia migrações de banco de dados usando um trabalho de migração que é hospedado localmente junto com uma instância do serviço de migração de banco de dados do Azure em execução na nuvem. O modo híbrido é especialmente útil para cenários nos quais há uma falta de conectividade site a site entre a rede local e o Azure ou se há largura de banda de conectividade site a site limitada.
 
 Neste guia de início rápido, você usa o portal do Azure para criar uma instância do serviço de migração de banco de dados do Azure no modo híbrido. Posteriormente, você baixa, instala e configura o Hybrid Worker em sua rede local. Durante a versão prévia, você pode usar o modo híbrido do serviço de migração de banco de dados do Azure para migrar um dado de uma instância local do SQL Server para o banco de dados SQL do Azure.
+
+> [!IMPORTANT]
+> O instalador híbrido do serviço de migração de banco de dados do Azure requer o .NET 4.7.2 ou posterior. Para encontrar as versões mais recentes do .NET, consulte a página [baixar .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -111,6 +114,9 @@ Você precisa criar uma ID de registro de Azure App que o Hybrid Worker local po
 
 3. Extraia o arquivo ZIP no servidor que hospedará o trabalhador híbrido do serviço de migração de banco de dados do Azure.
 
+    > [!IMPORTANT]
+    > O instalador híbrido do serviço de migração de banco de dados do Azure requer o .NET 4.7.2 ou posterior. Para encontrar as versões mais recentes do .NET, consulte a página [baixar .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
+
 4. Na pasta de instalação, localize e abra o arquivo **dmsSettings. JSON** , especifique **ApplicationId** e **ResourceId**e salve o arquivo.
 
     ![Configurações de trabalhador híbrido do serviço de migração de banco de dados do Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
@@ -125,7 +131,7 @@ Você precisa criar uma ID de registro de Azure App que o Hybrid Worker local po
 
     ![Certificado de trabalhador híbrido do serviço de migração de banco de dados do Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. Na portal do Azure, navegue até a ID do aplicativo, em **gerenciar**, selecione os **segredos de & com certificado**e, em seguida, selecione **carregar certificado** para selecionar o certificado público que você acabou de gerar.
+6. Na portal do Azure, navegue até a ID do aplicativo, em **gerenciar**, selecione os **segredos do & com certificado**e, em seguida, selecione **carregar certificado** para selecionar o certificado público que você gerou.
 
     ![Carregamento de certificado do Hybrid Worker do serviço de migração de banco de dados](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 

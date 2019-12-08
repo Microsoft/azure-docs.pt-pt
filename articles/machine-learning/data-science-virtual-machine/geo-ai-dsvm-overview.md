@@ -1,5 +1,5 @@
 ---
-title: O que é a inteligência artificial geográfica
+title: O que é a DSVM de inteligência artificial geográfica
 titleSuffix: Azure Data Science Virtual Machine
 description: A inteligência artificial geográfica Máquina Virtual de Ciência de Dados fornece ArcGIS pro para trabalhar com dados geográficos, bem como kits de dados de ciência, R e Python para trabalhar com ML e ia.
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, aprendizagem aprofundada
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195595"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899911"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>O que é a inteligência artificial geográfica Máquina Virtual de Ciência de Dados?
 
@@ -40,7 +40,7 @@ O [máquina virtual de ciência de dados (DSVM)](overview.md) da Microsoft é um
 A ia geográfica VM de Ciência de Dados combina os recursos de previsão do DSVM com a escalabilidade da nuvem do Azure e o software de análise geoespacial do [ESRI](https://www.esri.com). Essa integração pioneira fornece cientistas de dados e analistas geoespaciais com uma plataforma produtiva da qual obter uma nova inteligência de seus dados e para identificar novas oportunidades.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Provisione um VM de Ciência de Dados de ia geográfico e comece a usá-lo com as diretrizes dos seguintes recursos:
 

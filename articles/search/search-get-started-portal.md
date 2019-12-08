@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407003"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901009"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
@@ -136,7 +136,7 @@ Para compreender claramente o que pode e não pode editar durante o design do í
 
 Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a página de consulta [**Explorador de procura**](search-explorer.md) incorporada. Fornece uma caixa de pesquisa para que possa testar as cadeias de consulta arbitrária.
 
-**O Gerenciador de pesquisa** está equipado apenas para lidar com solicitações da [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita sintaxe para [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis na [API REST do documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) das.
+**O Gerenciador de pesquisa** está equipado apenas para lidar com solicitações de [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita sintaxe para [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis em operações de [pesquisa de documentos REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) .
 
 > [!TIP]
 > As etapas a seguir são demonstradas em 6m08s no [vídeo visão geral do pesquisa cognitiva do Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -260,7 +260,7 @@ Você também aprendeu como localizar índices, indexadores e fontes de dados no
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você está trabalhando em sua própria assinatura, é uma boa ideia no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir o conjunto inteiro de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 
@@ -268,7 +268,7 @@ Se você estiver usando um serviço gratuito, lembre-se de que você está limit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Embora o portal seja útil para a exploração inicial e tarefas pequenas, a revisão das APIs logo no início ajudará você a entender os conceitos e o fluxo de trabalho em um nível mais profundo:
+Use um assistente do portal para gerar um aplicativo Web pronto para uso que é executado em um navegador. Você pode experimentar esse assistente no pequeno índice que acabou de criar ou usar um dos conjuntos de dados de exemplo internos para uma experiência de pesquisa mais rica.
 
 > [!div class="nextstepaction"]
-> [Criar um índice usando o SDK do .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Criar um aplicativo de pesquisa no portal](search-create-app-portal.md)

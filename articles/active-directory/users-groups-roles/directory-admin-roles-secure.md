@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028442"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900786"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protegendo o acesso privilegiado para implantações híbridas e na nuvem no Azure AD
 
@@ -44,7 +44,7 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 Para a maioria das organizações, a segurança dos ativos de negócios depende da integridade das contas privilegiadas que administram e gerenciam sistemas de ti. Invasores cibernéticos se concentram no acesso privilegiado a sistemas de infraestrutura (como Active Directory e Azure Active Directory) para obter acesso aos dados confidenciais de uma organização. 
 
-As abordagens tradicionais que se concentram em proteger os pontos de entrada e saída de uma rede como o perímetro de segurança principal são menos eficazes devido ao aumento no uso de aplicativos SaaS e dispositivos pessoais na Internet. A substituição natural do perímetro de segurança de rede em uma empresa moderna e complexa é a autenticação e os controles de autorização na camada de identidade de uma organização.
+As abordagens tradicionais que se concentram em proteger os pontos de entrada e saída de uma rede como o perímetro de segurança principal são menos eficazes devido ao aumento no uso de aplicativos SaaS e dispositivos pessoais na Internet. A substituição natural do perímetro de segurança de rede numa empresa moderna complexa são os controlos de autenticação e autorização numa camada de identidade da organização.
 
 Contas administrativas privilegiadas são efetivamente no controle desse novo "perímetro de segurança". É essencial proteger o acesso privilegiado, independentemente de o ambiente estar no local, na nuvem ou em serviços hospedados na nuvem e no local. Proteger o acesso administrativo contra determinados adversários exige que você faça uma abordagem completa e cuidadosa para isolar os sistemas de sua organização contra riscos. 
 
@@ -94,7 +94,7 @@ Depois de ativar Azure AD Privileged Identity Management:
 
 2. Para selecionar o locatário no qual você deseja usar Privileged Identity Management, selecione seu nome de usuário no canto superior direito do portal do Azure.
 
-3. Selecione **todos os serviços** e filtre a lista para **Azure ad Privileged Identity Management**.
+3. No menu portal do Azure, selecione **todos os serviços** e filtre a lista para **Azure ad Privileged Identity Management**.
 
 4. Abra Privileged Identity Management na lista **todos os serviços** e fixe-o em seu painel.
 
@@ -241,7 +241,7 @@ Exija executivos do C-Suite, gerentes de alto nível, equipe de ti e segurança 
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Usar estações de trabalho dedicadas para administração do Azure AD
 
-Os invasores podem tentar direcionar contas com privilégios para obter acesso aos dados e sistemas de uma organização para que possam interromper a integridade e a autenticidade dos dados, por meio de código mal-intencionado que altera a lógica do programa ou espiona o administrador inserindo uma credencial. As estações de trabalho com acesso privilegiado (PAWs) fornecem um sistema operacional dedicado para tarefas confidenciais que são protegidas contra ataques da Internet e vetores de ameaça. Separar essas tarefas e contas confidenciais das estações de trabalho e dispositivos de uso diário fornece uma proteção muito forte contra ataques de phishing, vulnerabilidades de aplicativo e sistema operacional, vários ataques de representação e ataques de roubo de credenciais, como pressionamentos de tecla registro em log, Pass-the-hash e Pass-the-ticket. Ao implantar estações de trabalho com acesso privilegiado, você pode reduzir o risco de os administradores inserirem credenciais de administrador, exceto em um ambiente de área de trabalho que foi protegido. Para obter mais informações, consulte [estações de trabalho com acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Os invasores podem tentar direcionar contas com privilégios para obter acesso aos dados e sistemas de uma organização para que possam interromper a integridade e a autenticidade dos dados, por meio de código mal-intencionado que altera a lógica do programa ou espiona o administrador inserindo uma credencial. As Estações de Trabalho de Acesso Privilegiado (PAWs) fornecem um sistema operativo dedicado para tarefas confidenciais protegidas contra ataques de Internet e vetores de ameaça. Separar essas tarefas e contas confidenciais das estações de trabalho e dispositivos de uso diário fornece uma proteção muito forte contra ataques de phishing, vulnerabilidades de aplicativo e sistema operacional, vários ataques de representação e ataques de roubo de credenciais, como pressionamentos de tecla registro em log, Pass-the-hash e Pass-the-ticket. Ao implantar estações de trabalho com acesso privilegiado, você pode reduzir o risco de os administradores inserirem credenciais de administrador, exceto em um ambiente de área de trabalho que foi protegido. Para obter mais informações, consulte [estações de trabalho com acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Examine o Instituto Nacional de padrões e as recomendações de tecnologia para lidar com incidentes 
 
@@ -261,7 +261,7 @@ Se você já estiver usando Azure AD Privileged Identity Management, ajuste os p
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determinar a exposição a protocolos de entrada baseados em senha (se estiver usando o Exchange Online)
 
-No passado, os protocolos assumiram que as combinações de nome de usuário/senha foram inseridas em dispositivos, contas de email, telefones e assim por diante. Mas, agora, com o risco de ataques cibernéticos na nuvem, recomendamos que você identifique todos os usuários potenciais que, se suas credenciais foram comprometidos, possam ser catastróficos para a organização e excluí-los da capacidade de entrar em seu email por meio de nome de usuário/senha implementando requisitos de autenticação fortes e acesso condicional. Você pode bloquear a [autenticação herdada usando o acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Consulte os detalhes sobre [como bloquear a autenticação básica](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) por meio do exchnage online. 
+No passado, os protocolos assumiram que as combinações de nome de usuário/senha foram inseridas em dispositivos, contas de email, telefones e assim por diante. Mas, agora, com o risco de ataques cibernéticos na nuvem, recomendamos que você identifique todos os usuários potenciais que, se suas credenciais foram comprometidos, possam ser catastróficos para a organização e excluí-los da capacidade de entrar em seu email por meio de nome de usuário/senha implementando requisitos de autenticação fortes e acesso condicional. Você pode bloquear a [autenticação herdada usando o acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Consulte os detalhes sobre [como bloquear a autenticação básica](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) por meio do Exchange Online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Concluir uma avaliação de análise de funções para funções do Office 365 (se estiver usando o Office 365)
 

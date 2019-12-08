@@ -12,44 +12,26 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c95744e58ce08943765755145645ed45a2ccdb1f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423906"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894453"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
-Com o Balanceador de Carga do Azure, pode dimensionar as aplicações e criar elevada disponibilidade para os seus serviços. O Balanceador de Carga suporta cenários de entrada e de saída, oferece baixa latência e alto débito e dimensiona-se até milhões de fluxos para todas as aplicações TCP e UDP.
+O *balanceamento de carga* refere-se à distribuição eficiente de carga ou tráfego de rede de entrada em um grupo de recursos de back-end ou servidores. O Azure oferece uma [variedade de opções de balanceamento de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) que você pode escolher de acordo com suas necessidades. Este documento aborda o Azure Load Balancer.
 
-O Load Balancer distribui novos fluxos de entrada que chegam às instâncias de front-end do pool de back-ends do Load Balancer, de acordo com as regras especificadas e as investigações de integridade.
+Azure Load Balancer opera na camada quatro do modelo OSI (interconexão de sistemas abertos). É o único ponto de contato para clientes. O Load Balancer distribui novos fluxos de entrada que chegam às instâncias de front-end do pool de back-ends do Load Balancer, de acordo com as regras de balanceamento de carga especificadas e as investigações de integridade. As instâncias do pool de back-end podem ser máquinas virtuais ou instâncias do Azure em um conjunto de dimensionamento de máquinas virtuais (VMSS). 
 
-Um Load Balancer público pode fornecer conexões de saída para VMs (máquinas virtuais) dentro de sua rede virtual, convertendo seus endereços IP privados em endereços IP públicos.
+Com Azure Load Balancer, você pode dimensionar seus aplicativos e criar serviços disponívels altos. O Load Balancer dá suporte a cenários de entrada e de saída, fornece baixa latência e alta taxa de transferência e escala verticalmente para milhões de fluxos para todos os aplicativos TCP e UDP.
 
-Azure Load Balancer está disponível em dois tipos de preço ou *SKUs*: básico e Standard. Há diferenças em termos de dimensionamento, funcionalidades e preços. Qualquer cenário que seja possível com o Load Balancer básico também pode ser criado com Standard Load Balancer, embora as abordagens sejam ligeiramente diferentes. Ao saber mais sobre Load Balancer, familiarize-se com os conceitos básicos e as diferenças específicas de SKU.
+Um **[Load Balancer público](#publicloadbalancer)** pode fornecer conexões de saída para VMs (máquinas virtuais) dentro de sua rede virtual, convertendo seus endereços IP privados em endereços IP públicos. Os balanceadores de carga públicos são usados para o tráfego de Internet do balanceador de carga para suas VMs.
 
-## <a name="why-use-load-balancer"></a>Porquê utilizar o Balanceador de Carga
-
-Pode utilizar o Balanceador de Carga do Azure para:
-
-* Balancear a carga do tráfego de entrada da Internet para suas VMs. Essa configuração é conhecida como um [Load Balancer público](#publicloadbalancer).
-* Balancear a carga do tráfego entre VMs dentro de uma rede virtual. Também pode alcançar um front-end do Balanceador de Carga a partir de uma rede no local num cenário híbrido. Ambos os cenários usam uma configuração que é conhecida como um [Load balancer interno](#internalloadbalancer).
-* Encaminhar o tráfego de uma porta para uma porta específica em determinadas VMs com regras de tradução de endereços de rede (NAT).
-* Utilize um balanceador de carga público para fornecer [conectividade de saída](load-balancer-outbound-connections.md) às VMs dentro da sua rede virtual.
-
->[!NOTE]
-> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se você estiver procurando a terminação do protocolo TLS ("descarregamento SSL") ou a solicitação por HTTP/HTTPS, o processamento da camada de aplicativo, consulte [o que é aplicativo Azure gateway?](../application-gateway/overview.md) Se você estiver procurando balanceamento de carga de DNS global, consulte [o que é o Gerenciador de tráfego?](../traffic-manager/traffic-manager-overview.md) Seus cenários de ponta a ponta podem se beneficiar com a combinação dessas soluções.
->
-> Para obter uma comparação das opções de balanceamento de carga do Azure, consulte [visão geral das opções de balanceamento de carga no Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
-
-## <a name="what-are-load-balancer-resources"></a>O que são os recursos do Balanceador de Carga?
-
-Recursos de Load Balancer são objetos que especificam como o Azure deve programar sua infraestrutura multilocatário para obter o cenário que você deseja criar. Não há nenhuma relação direta entre Load Balancer recursos e a infraestrutura real. A criação de um balanceador de carga não cria uma instância e a capacidade está sempre disponível.
-
-Um recurso de Load Balancer pode ser um Load Balancer público ou um Load Balancer interno. As funções do recurso Load Balancer são definidas por um front-end, uma regra, uma investigação de integridade e uma definição de pool de back-end. Coloque as VMs no pool de back-end especificando o pool de back-end da VM.
+Um **[Load balancer interno (ou privado)](#internalloadbalancer)** pode ser usado para cenários em que apenas endereços IP privados são necessários no front-end. Os balanceadores de carga internos são usados para balancear a carga do tráfego dentro de uma rede virtual. Também pode alcançar um front-end do Balanceador de Carga a partir de uma rede no local num cenário híbrido.
 
 ## <a name="fundamental-load-balancer-features"></a>Funcionalidades básicas do Balanceador de Carga
 
@@ -195,4 +177,4 @@ Para obter informações sobre o SLA de Standard Load Balancer, consulte [SLA pa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [criar um Load Balancer básico](quickstart-create-basic-load-balancer-portal.md) para começar a usar um Load Balancer: criar um, criar VMs com uma extensão personalizada do IIS instalada e balancear a carga do aplicativo Web entre as VMs.
+Consulte [criar um Standard Load Balancer público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um Load Balancer: criar um, criar VMs com uma extensão personalizada do IIS instalada e balancear a carga do aplicativo Web entre as VMs.
