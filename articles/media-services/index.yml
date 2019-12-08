@@ -4,7 +4,7 @@ title: Documentação dos Serviços de Multimédia do Azure
 metadata:
   document_id: null
   title: Documentação dos Serviços de Multimédia do Azure | Microsoft Docs
-  meta.description: 'Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.'
+  description: 'Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lhe permite criar soluções que possibilitam a transmissão em vídeo com qualidade de transmissão, melhorar a acessibilidade e distribuição, analisar conteúdo e muito mais.'
   services: media-services
   author: juliako
   manager: femila

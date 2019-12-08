@@ -17,8 +17,6 @@
   items:
     - name: Políticas de Acesso Condicional comuns
       href: concept-conditional-access-policy-common.md
-    - name: Predefinições de segurança
-      href: concept-conditional-access-security-defaults.md
     - name: Componentes da Política de Acesso Condicional
       href: concept-conditional-access-policies.md
     - name: Condições

@@ -152,7 +152,7 @@
     - name: Trabalhar com dados
       items:
         - name: Obter dados a partir de um arquivo de dados
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: Adicionar e registar conjuntos de dados
           displayName: 'data, dataset'

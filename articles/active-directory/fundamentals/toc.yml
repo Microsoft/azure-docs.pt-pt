@@ -17,6 +17,14 @@
   items:
     - name: Pontuação de segurança de identidade
       href: identity-secure-score.md
+    - name: Segurança
+      items:
+        - name: Ativar MFA
+          href: concept-fundamentals-mfa-get-started.md
+        - name: Predefinições de segurança
+          href: concept-fundamentals-security-defaults.md
+        - name: Bloquear a autenticação legada
+          href: concept-fundamentals-block-legacy-authentication.md
     - name: Gestão de grupos e acessos
       href: active-directory-manage-groups.md
     - name: Licenciamento baseado no grupo
