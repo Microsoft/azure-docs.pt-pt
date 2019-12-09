@@ -27,7 +27,7 @@ Use a biblioteca de cliente QnA Maker para node. js para:
 * Gerenciar uma base de dados de conhecimento
 * Publicar uma base de dados de conhecimento
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | o NPM ( [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [do pacote)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [amostras do node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [do NuGet ( do pacote)de](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [amostras biblioteca](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
