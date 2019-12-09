@@ -151,6 +151,8 @@
               href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: 'Configurar, otimizar, resolver problemas'
               href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Transferir dados com a biblioteca do Movimento de Dados
+              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Programar
       items:
         - name: Configurar cadeias de ligação

@@ -72,6 +72,8 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Ativar a virtualização aninhada numa VM de modelo
           href: how-to-enable-nested-virtualization-template-vm.md
+        - name: Preparar uma VM de modelo do Windows
+          href: how-to-prepare-windows-template.md
     - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
       items:
         - name: Aceder a laboratórios de sala de aula

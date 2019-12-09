@@ -211,6 +211,8 @@
       items:
         - name: Guia de resolução de problemas
           href: service-bus-messaging-exceptions.md
+        - name: Exceções do Resource Manager
+          href: service-bus-resource-manager-exceptions.md
 - name: Referência
   items:
     - name: .NET

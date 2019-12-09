@@ -385,6 +385,10 @@
           href: functions-for-customizing-application-data.md
         - name: Escolher um método de aprovisionamento
           href: isv-automatic-provisioning-multi-tenant-apps.md
+    - name: Aprovisionamento de HR de Cloud
+      items:
+        - name: Referência de Atributo do SuccessFactors
+          href: sap-successfactors-attribute-reference.md
     - name: Agente de Aprovisionamento do Azure AD Connect
       items:
         - name: Histórico de versões do Agente de Aprovisionamento

@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Localizações por Fornecedor
           href: expressroute-locations.md
-    - name: Gateway de rede virtual e FastPath
+    - name: Sobre os gateways de rede virtual
       href: expressroute-about-virtual-network-gateways.md
     - name: Pré-requisitos
       href: expressroute-prerequisites.md
@@ -40,6 +40,8 @@
       href: expressroute-qos.md
     - name: Acerca de mover circuitos do clássico para o Resource Manager
       href: expressroute-move.md
+    - name: Acerca do ExpressRoute FastPath
+      href: about-fastpath.md
     - name: Sobre o ExpressRoute Direct
       href: expressroute-erdirect-about.md
     - name: Sobre o Alcance Global do ExpressRoute

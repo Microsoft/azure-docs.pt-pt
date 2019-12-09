@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 08/20/2019
-  ms.openlocfilehash: cb6ecdf9c717602cb3309107bc0ac24805be5d0a
-  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.date: 12/05/2019
+  ms.openlocfilehash: 13bb60bac49f0f84251efc6c416a2c230a2a49c3
+  ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/27/2019
-  ms.locfileid: "70061875"
+  ms.lasthandoff: 12/08/2019
+  ms.locfileid: "74928889"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -30,16 +30,14 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar um Balanceador de Carga Básico
-      url: quickstart-create-basic-load-balancer-portal.md
     - text: Criar um Balanceador de Carga Standard para fazer o balanceamento de carga das VMs
       url: quickstart-load-balancer-standard-public-portal.md
   - linkListType: tutorial
     links:
     - text: Balancear carga de tráfego de internet para VMs
       url: tutorial-load-balancer-standard-manage-portal.md
-    - text: Fazer o balanceamento de carga do tráfego interno com um balanceador de carga Básico
-      url: tutorial-load-balancer-basic-internal-portal.md
+    - text: VMs de balanceamento de carga em várias zonas de disponibilidade com um Balanceador de Carga Standard
+      url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - text: Configurar o reencaminhamento de portas no Balanceador de Carga do Azure
       url: tutorial-load-balancer-port-forwarding-portal.md
 - title: Gerir funcionalidades e opções

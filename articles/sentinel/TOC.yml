@@ -111,7 +111,7 @@
           href: notebooks.md
         - name: Utilizar marcadores para investigar
           href: bookmarks.md
-        - name: Utilizar transmissão em direto para investigar
+        - name: Utilizar a transmissão em direto para investigar
           href: livestream.md
     - name: Remover o Azure Sentinel
       href: offboard.md
