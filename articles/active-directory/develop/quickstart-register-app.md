@@ -1,28 +1,24 @@
 ---
-title: Registrar um aplicativo com a plataforma de identidade da Microsoft-plataforma de identidade da Microsoft
+title: Registrar um aplicativo com a plataforma de identidade da Microsoft | Azure
 description: Saiba como adicionar e registar uma aplicação na plataforma de identidade da Microsoft.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 329e4b262731ae1b23fb94da7b937c9c1549185f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a68b89ce38664c0d0ec87b509fe5f872cfd78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473648"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921420"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft
 

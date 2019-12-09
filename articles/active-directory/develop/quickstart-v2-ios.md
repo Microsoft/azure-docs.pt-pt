@@ -2,27 +2,23 @@
 title: Guia de início rápido do iOS e macOS da plataforma Microsoft Identity | Azure
 description: Saiba como conectar usuários e consultar Microsoft Graph em um aplicativo iOS ou macOS.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 10225efb1dcd870f5922a6521b0bd6ec44965152
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149505"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920689"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início rápido: conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -35,7 +31,7 @@ Este início rápido se aplica a aplicativos iOS e macOS. Algumas etapas são ne
 > [!NOTE]
 > **Pré-requisitos**
 > * XCode 10 +
-> * iOS 10 + 
+> * iOS 10+ 
 > * macOS 10.12 +
 
 > [!div renderon="docs"]
@@ -97,7 +93,7 @@ Em uma janela de terminal, navegue até a pasta com o exemplo de código baixado
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra as configurações do projeto. Na seção **identidade** , insira o **identificador do pacote** que você inseriu no Portal.
-> 1. Somente para iOS, clique com o botão direito do mouse em **info. plist** e selecione **abrir como** **código-fonte** > .
+> 1. Somente para iOS, clique com o botão direito do mouse em **info. plist** e selecione **abrir como** > **código-fonte**.
 > 1. Somente para iOS, no nó raiz do Dictation, substitua `CFBundleURLSchemes` pela ***ID do pacote*** que você inseriu no Portal.
 >
 >    ```xml
@@ -118,12 +114,12 @@ Em uma janela de terminal, navegue até a pasta com o exemplo de código baixado
 > [!div renderon="docs"]
 >
 > 1. Extraia o ficheiro zip e abra o projeto no XCode.
-> 1. Edite **ViewController. Swift** e substitua a linha que começa com ' Let kClientID ' com o trecho de código a seguir. Lembre-se de atualizar o valor de `kClientID` com o clientID que você salvou quando registrou seu aplicativo no portal anteriormente neste guia de início rápido:
+> 1. Edite **ViewController. Swift** e substitua a linha que começa com ' Let kClientID ' com o trecho de código a seguir. Lembre-se de atualizar o valor para `kClientID` com o clientID que você salvou quando registrou seu aplicativo no portal anteriormente neste guia de início rápido:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Abra as configurações do projeto. Na seção **identidade** , insira o **identificador do pacote** que você inseriu no Portal.
-> 1. Somente para iOS, clique com o botão direito do mouse em **info. plist** e selecione **abrir como** **código-fonte** > .
+> 1. Somente para iOS, clique com o botão direito do mouse em **info. plist** e selecione **abrir como** > **código-fonte**.
 > 1. Somente para iOS, no nó raiz do Dictation, substitua `Enter_the_bundle_Id_Here` pela ***ID do pacote*** que você usou no Portal.
 >
 >    ```xml
@@ -192,7 +188,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Somente para iOS, requisitos de aplicativo adicionais
 
-Seu aplicativo também deve ter o seguinte no `AppDelegate`. Isso permite que o SDK do MSAL manipule a resposta do token do aplicativo do agente de autenticação quando você faz a autenticação.
+Seu aplicativo também deve ter o seguinte no seu `AppDelegate`. Isso permite que o SDK do MSAL manipule a resposta do token do aplicativo do agente de autenticação quando você faz a autenticação.
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -203,7 +199,7 @@ Seu aplicativo também deve ter o seguinte no `AppDelegate`. Isso permite que o 
  ```
 
 > [!NOTE]
-> No iOS 13 +, se você adotar `UISceneDelegate` em vez de `UIApplicationDelegate`, coloque esse código no retorno de chamada `scene:openURLContexts:` em vez disso (consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
+> No iOS 13 +, se você adotar `UISceneDelegate` em vez de `UIApplicationDelegate`, coloque esse código no `scene:openURLContexts:` de retorno de chamada em vez disso (consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
 > Se você oferecer suporte a UISceneDelegate e UIApplicationDelegate para compatibilidade com iOS mais antigo, o retorno de chamada MSAL precisará ser colocado em ambos os locais.
 
  ```swift
@@ -220,7 +216,7 @@ Seu aplicativo também deve ter o seguinte no `AppDelegate`. Isso permite que o 
     }
  ```
 
-Por fim, seu aplicativo deve ter uma entrada `LSApplicationQueriesSchemes` em seu ***info. plist*** juntamente com o `CFBundleURLTypes`. O exemplo vem com isso incluído. 
+Por fim, seu aplicativo deve ter uma entrada de `LSApplicationQueriesSchemes` no ***info. plist*** junto com o `CFBundleURLTypes`. O exemplo vem com isso incluído. 
 
    ```xml 
    <key>LSApplicationQueriesSchemes</key>

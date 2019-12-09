@@ -2,27 +2,22 @@
 title: Daemon Python da plataforma de identidade da Microsoft | Azure
 description: Saiba como um processo do Python pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft, usando a própria identidade do aplicativo
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68715186c624cc5ce8702073129752487a8cea63
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 400dfb1ad8b0682194974e6d829cc42bad37bf75
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964016"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920621"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo de console do Python usando a identidade do aplicativo
 

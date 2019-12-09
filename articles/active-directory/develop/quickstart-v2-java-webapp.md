@@ -2,25 +2,21 @@
 title: Guia de início rápido do aplicativo Web para plataforma de identidade da Microsoft | Azure
 description: Saiba como implementar a entrada da Microsoft em um aplicativo Web Java usando o OpenID Connect
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 6645fa30772d7e1556f7a1aae76c7189577c3c1d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452626"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920706"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Java
 
@@ -93,7 +89,7 @@ Para executar este exemplo, você precisará de:
 
 #### <a name="step-3-configure-the-code-sample"></a>Etapa 3: configurar o exemplo de código
 
- 1. Extraia o arquivo zip para uma pasta local.
+ 1. Extraia o ficheiro zip para uma pasta local.
  1. Se você usar um ambiente de desenvolvimento integrado, abra o exemplo em seu IDE favorito (opcional).
 
  1. Abra o arquivo Application. Properties, que pode ser encontrado em src/main/resources/Folder e substitua o valor dos campos *AAD. clientId*, *AAD. Authority* e *AAD. SecretKey* pelos respectivos valores de **ID do aplicativo**, **ID do locatário** e **segredo do cliente** como o seguinte:

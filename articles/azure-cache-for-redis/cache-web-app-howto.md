@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122576"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927075"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Início rápido: usar o cache do Azure para Redis com um aplicativo Web ASP.NET 
 
@@ -143,7 +143,7 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = lazyConnection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Value.Dispose();
+            lazyConnection.Dispose();
 
             return View();
         }

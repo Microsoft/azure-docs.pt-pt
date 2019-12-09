@@ -2,29 +2,25 @@
 title: Modificar as contas de aplicativo da plataforma Microsoft Identify | Azure
 description: Configure uma aplicação registada na plataforma de identidade da Microsoft para alterar quem ou que contas podem aceder à aplicação.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380772"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921355"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: Modificar as contas com suporte de um aplicativo
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: modificar as contas com suporte em um aplicativo
 
 Quando registar uma aplicação na plataforma de identidade da Microsoft, poderá querer que a mesma seja acedida apenas pelos utilizadores da sua organização. Em alternativa, também pode querer que a aplicação seja acedida pelos utilizadores em organizações externas, ou por utilizadores em organizações externas e utilizadores que não fazem necessariamente parte de uma organização (contas pessoais).
 
@@ -79,7 +75,7 @@ Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas ap
 1. Selecione **Tokens de ID**, **Tokens de acesso** ou ambos.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados:
 

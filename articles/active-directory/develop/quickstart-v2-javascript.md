@@ -1,28 +1,24 @@
 ---
-title: Conectar usuários e obter um token de acesso em um JavaScript SPA | Azure
+title: Conectar usuários em aplicativos de página única JavaScript | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como os aplicativos JavaScript podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
+description: Saiba como um aplicativo JavaScript pode ser uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 77763ac30b4ba98e4849a25690302469843b4d06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795618"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920638"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início rápido: conectar usuários e obter um token de acesso em um JavaScript SPA
 
@@ -55,7 +51,7 @@ Neste guia de início rápido, você usa um exemplo de código para saber como u
 > 1. Se sua conta fornece acesso a mais de um locatário, selecione sua conta no canto superior direito e, em seguida, defina a sessão do portal para o locatário do Azure AD que você deseja usar.
 > 1. Acesse a página da plataforma de identidade da Microsoft para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 > 1. Selecione **novo registro**.
-> 1. Quando a página **registrar um aplicativo** for exibida, insira um nome para seu aplicativo.
+> 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
 > 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Na seção **URI de redirecionamento** , na lista suspensa, selecione a plataforma **da Web** e, em seguida, defina o valor como `http://localhost:30662/`.
 > 1. Selecione **Registar**. Na página **visão geral** do aplicativo, observe o valor da **ID do aplicativo (cliente)** para uso posterior.
@@ -80,11 +76,12 @@ Selecione a opção adequada ao seu ambiente de desenvolvimento:
 
 * Adicional Para executar o projeto com o servidor IIS, [Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extraia o arquivo zip para uma pasta local (por exemplo, *C:\Azure-Samples*).
 
-> [!div renderon="docs"]
-> #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: configurar seu aplicativo JavaScript
-> Na pasta *JavaScriptSPA* , edite *index. html*e defina os valores `clientID` e `authority` em `msalConfig`.
+#### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: configurar seu aplicativo JavaScript
 
 > [!div renderon="docs"]
+> Na pasta *JavaScriptSPA* , edite *index. html*e defina os valores `clientID` e `authority` em `msalConfig`.
+
+> [!div class="sxs-lookup" renderon="portal"]
 > Na pasta *JavaScriptSPA* , edite *index. html*e substitua `msalConfig` pelo código a seguir:
 
 ```javascript
@@ -101,10 +98,14 @@ var msalConfig = {
 };
 
 ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Este guia de início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
+
 
 > [!div renderon="docs"]
 >
-> Em que:
+> Onde:
 > - *\<Enter_the_Application_Id_here >* é a **ID do aplicativo (cliente)** para o aplicativo que você registrou.
 > - *\<Enter_the_Tenant_info_here >* é definido como uma das seguintes opções:
 >    - Se seu aplicativo der suporte a *contas nesse diretório organizacional*, substitua esse valor pela **ID do locatário** ou pelo **nome do locatário** (por exemplo, *contoso.Microsoft.com*).
@@ -115,12 +116,7 @@ var msalConfig = {
 > > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 >
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
-> Configuramos seu projeto com os valores das propriedades do seu aplicativo. 
-
-> [!div renderon="docs"]
-> #### <a name="step-4-run-the-project"></a>Etapa 4: executar o projeto
+#### <a name="step-4-run-the-project"></a>Etapa 4: executar o projeto
 
 * Se você estiver usando o [node. js](https://nodejs.org/en/download/):
 
@@ -145,7 +141,7 @@ Depois que o navegador carregar o aplicativo, selecione **entrar**. Na primeira 
 
 ![Como funciona o aplicativo de exemplo neste início rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
-### <a name="msaljs"></a>MSAL. js
+### <a name="msaljs"></a>msal.js
 
 A biblioteca MSAL conecta os usuários e solicita os tokens que são usados para acessar uma API que é protegida pela plataforma de identidade da Microsoft. O arquivo *index. html* de início rápido contém uma referência à biblioteca:
 

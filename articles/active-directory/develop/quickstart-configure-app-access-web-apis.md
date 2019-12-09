@@ -2,26 +2,23 @@
 title: Configurar um aplicativo para acessar APIs Web-plataforma de identidade da Microsoft
 description: Saiba como configurar uma aplicação registada na plataforma de identidade da Microsoft para incluir URI(s) de redirecionamento, credenciais ou permissões para aceder a APIs Web.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0fd9374c0f507dfc075719ef61f71457317dedba
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106605"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915170"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início rápido: configurar um aplicativo cliente para acessar APIs Web
 
@@ -71,7 +68,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 Para adicionar um URI de redirecionamento à aplicação:
 
-1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação**.
+1. Na página **Descrição Geral** da aplicação, selecione a secção **Autenticação**.
 1. Para adicionar um URI de redirecionamento personalizado para aplicações cliente da Web e públicas, siga estes passos:
    1. Localize a secção **URI de redirecionamento**.
    1. Selecione o tipo de aplicação que está a compilar, **Web** ou **Cliente público (móvel e ambiente de trabalho)** .
@@ -128,7 +125,7 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
 
 1. Insira as informações de configurações com base na plataforma selecionada.
 
-   | Plataforma                | Durante              | Definições de configuração            |
+   | Plataforma                | Choices              | Definições de configuração            |
    |-------------------------|----------------------|-----------------------------------|
    | **Aplicações Web**    | **Web**              | Insira o **URI de redirecionamento** para seu aplicativo. |
    | **Aplicativos móveis** | **iOS**              | Insira a ID do **pacote**do aplicativo, que pode ser encontrada no Xcode no info. plist ou configurações de compilação. Adicionar a ID do pacote cria automaticamente um URI de redirecionamento para o aplicativo. |
